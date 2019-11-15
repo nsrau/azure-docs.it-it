@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale di Azure con rete accelerata | Microsoft Docs
+title: Creare una VM di Azure con rete accelerata usando l'interfaccia della riga di comando di Azure
 description: Informazioni su come creare una macchina virtuale Linux con rete accelerata abilitata.
 services: virtual-network
 documentationcenter: na
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873430"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083665"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creare una macchina virtuale Linux con rete accelerata usando l'interfaccia della riga di comando di Azure
 
 Questa esercitazione spiega come creare una macchina virtuale (VM) Linux con Rete Accelerata. Per creare una macchina virtuale Windows con la funzionalità rete accelerata, vedere [Creare una macchina virtuale Windows con Rete accelerata](create-vm-accelerated-networking-powershell.md). La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate esclude l'host dal percorso dati, riducendo così la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
 
@@ -36,29 +36,29 @@ Con rete accelerata, il traffico di rete raggiunge la scheda di interfaccia di r
 I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui è abilitata. Per ottenere risultati ottimali, è consigliabile abilitarla in almeno due VM connesse alla stessa rete virtuale di Azure. Nella comunicazione tra reti virtuali o nella connessione locale questa funzionalità ha un impatto minimo sulla latenza complessiva.
 
 ## <a name="benefits"></a>Vantaggi
-* **Latenza più bassa/più pacchetti al secondo (pps):** Rimuovendo il commutatore virtuale dal percorso dati viene eliminato il tempo di attesa dei pacchetti nell'host per l'elaborazione dei criteri, aumentando così il numero di pacchetti che possono essere elaborati all'interno della macchina virtuale.
-* **Instabilità ridotta:** L'elaborazione del commutatore dipende dalla quantità di criteri da applicare e dal carico di lavoro della CPU che esegue l'elaborazione. La ripartizione del carico di applicazione dei criteri nell'hardware elimina tale variabilità recapitando i pacchetti direttamente alla macchina virtuale, rimuovendo l'host dalle comunicazioni con la macchina virtuale nonché tutte le interruzioni software e i cambi di contesto.
-* **Utilizzo ridotto della CPU:** Ignorando il commutatore virtuale nell'host si ottiene un minore utilizzo della CPU per l'elaborazione del traffico di rete.
+* **Latenza più bassa e più pacchetti al secondo (pps):** rimuovendo il commutatore virtuale dal percorso dati viene eliminato il tempo di attesa dei pacchetti nell'host per l'elaborazione dei criteri, aumentando così il numero di pacchetti che possono essere elaborati all'interno della macchina virtuale.
+* **Instabilità ridotta:** l'elaborazione del commutatore dipende dalla quantità di criteri da applicare e dal carico di lavoro della CPU che esegue l'elaborazione. La ripartizione del carico di applicazione dei criteri nell'hardware elimina tale variabilità recapitando i pacchetti direttamente alla macchina virtuale, rimuovendo l'host dalle comunicazioni con la macchina virtuale nonché tutte le interruzioni software e i cambi di contesto.
+* **Utilizzo ridotto della CPU:** ignorando il commutatore virtuale nell'host si ottiene un minore utilizzo della CPU per l'elaborazione del traffico di rete.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure: 
-* **Ubuntu 14.04 con il kernel linux di azure**
-* **Ubuntu 16.04 o versione successiva** 
+* **Ubuntu 14,04 con il kernel Linux-Azure**
+* **Ubuntu 16,04 o versione successiva** 
 * **SLES12 SP3 o versione successiva** 
-* **RHEL 7.4 o successive**
-* **CentOS 7.4 o successive**
+* **RHEL 7,4 o versione successiva**
+* **CentOS 7,4 o versione successiva**
 * **CoreOS Linux**
 * **Debian "Stretch" con kernel backport**
-* **Oracle Linux 7.4 e versioni successive con Red Hat compatibili del Kernel (RHCK)**
-* **Oracle Linux 7.5 e versioni successive con UEK versione 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **Oracle Linux 7,4 e versioni successive con il kernel compatibile con Red Hat (RHCK)**
+* **Oracle Linux 7,5 e versioni successive con UEK versione 5**
+* **FreeBSD 10,4, 11,1 & 12,0**
 
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
 La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono D/DSv2 e F/Fs
 
-Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono D/DSV3, e/esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
+Nelle istanze che supportano l'hyperthreading, la rete accelerata è supportata nelle istanze di VM con 4 o più vCPU. Le serie supportate sono: D/Dsv3, E/Esv3, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
 Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -75,18 +75,18 @@ Le macchine virtuali (classiche) non possono essere distribuite con la funzional
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Creare una macchina virtuale Linux con Rete accelerata di Azure
 ## <a name="portal-creation"></a>Creazione nel portale
-Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, nel **creare una macchina virtuale** blade, scegliere il **Networking** scheda.  In questa scheda è disponibile un'opzione per **rete accelerata**.  Se si è scelto un [sistema operativo supportato](#supported-operating-systems) e [dimensione di VM](#supported-vm-instances), questa opzione verrà popolato automaticamente su "Sì".  In caso contrario, verrà popolare l'opzione "Disattivato" per la rete accelerata e concedere all'utente un motivo per cui non è possibile abilitato.   
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, nel pannello **creare una macchina virtuale** scegliere la scheda **rete** .  In questa scheda è disponibile un'opzione per la **rete accelerata**.  Se è stato scelto un [sistema operativo supportato](#supported-operating-systems) e le [dimensioni della macchina virtuale](#supported-vm-instances), questa opzione verrà popolata automaticamente in "on".  In caso contrario, viene popolata l'opzione "off" per la rete accelerata e viene fornito all'utente un motivo per cui non è abilitata.   
 
-* *Nota:* Solo i sistemi operativi supportati può essere abilitati tramite il portale.  Se si usa un'immagine personalizzata e l'immagine supporta la funzionalità rete accelerata, creare la macchina virtuale usando Powershell o CLI. 
+* *Nota:* Solo i sistemi operativi supportati possono essere abilitati tramite il portale.  Se si usa un'immagine personalizzata e l'immagine supporta la rete accelerata, creare la VM usando l'interfaccia della riga di comando o PowerShell. 
 
-Dopo aver creata la macchina virtuale, è possibile verificare la rete accelerata è abilitata, seguire le istruzioni riportate nel [verificare che sia abilitata la funzionalità rete accelerata](#confirm-that-accelerated-networking-is-enabled).
+Dopo aver creato la macchina virtuale, è possibile verificare che la rete accelerata sia abilitata seguendo le istruzioni riportate nella pagina [verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
 
-## <a name="cli-creation"></a>Creazione dell'interfaccia della riga
+## <a name="cli-creation"></a>Creazione dell'interfaccia della riga di comando
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index). L'esempio seguente sostituisce i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
-Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*.
+Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -157,7 +157,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
 Quando si crea la macchina virtuale, specificare la scheda di interfaccia di rete creata con `--nics`. Selezionare una dimensione e una distribuzione elencate nella [rete accelerata Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata *myVM* con l'immagine di UbuntuLTS e una dimensione che supporta la Rete accelerata (*Standard_DS4_v2*):
+Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata *myVM* con l'immagine di UbuntuLTS e una dimensione che supporta la Rete accelerata (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \
@@ -225,9 +225,9 @@ vf_tx_dropped: 0
 ```
 La funzionalità di rete accelerata è ora abilitata per la VM.
 
-## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Gestire l'associazione dinamica e revoca di funzione virtuale 
-Le applicazioni devono eseguire tramite l'interfaccia di rete sintetica esposto nella macchina virtuale. Se l'applicazione viene eseguito direttamente sull'interfaccia di rete VF, non può ricevere **tutti** che i pacchetti destinati alla macchina virtuale, perché alcuni pacchetti compaiono attraverso l'interfaccia sintetico.
-Se si esegue un'applicazione tramite l'interfaccia di rete sintetica, garantisce che l'applicazione riceve **tutti** che i pacchetti destinati a esso. Rende anche assicurarsi che l'applicazione rimane in esecuzione, anche se VF viene revocato quando l'host viene servita. Le applicazioni all'interfaccia di rete sintetica di associazione è un **obbligatorio** requisito per tutte le applicazioni che sfruttano **funzionalità rete accelerata**.
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Gestisci binding e revoca dinamica della funzione virtuale 
+Le applicazioni devono essere eseguite sulla scheda di interfaccia di rete sintetica esposta nella macchina virtuale. Se l'applicazione viene eseguita direttamente sulla scheda di interfaccia di rete VF, non riceve **tutti i** pacchetti destinati alla macchina virtuale, poiché alcuni pacchetti vengono visualizzati sull'interfaccia sintetica.
+Se un'applicazione viene eseguita sulla scheda di interfaccia di rete sintetica, garantisce che l'applicazione riceva **tutti i** pacchetti destinati a tale interfaccia. Inoltre, verifica che l'applicazione sia in esecuzione, anche se la VF viene revocata quando l'host è in fase di manutenzione. Le applicazioni che si collegano alla scheda di interfaccia di rete sintetica sono un requisito **obbligatorio** per tutte le applicazioni che sfruttano la **rete accelerata**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la funzione Rete accelerata nelle macchine virtuali esistenti
 Se si è creata una macchina virtuale senza Rete accelerata, è possibile abilitare questa funzionalità in una macchina virtuale esistente.  Per il supporto di Rete accelerata, la macchina virtuale deve soddisfare i prerequisiti seguenti, descritti anche in precedenza:

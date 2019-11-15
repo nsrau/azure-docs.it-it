@@ -1,18 +1,18 @@
 ---
-title: Architettura del ripristino di emergenza da Hyper-V ad Azure in Azure Site Recovery
+title: Architettura del ripristino di emergenza Hyper-V in Azure Site Recovery
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante l'implementazione del ripristino di emergenza di macchine virtuali Hyper-V locali (senza VMM) in Azure con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce21ea6042bbe1191edede13f80455c8e669f3b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030205"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082657"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
 

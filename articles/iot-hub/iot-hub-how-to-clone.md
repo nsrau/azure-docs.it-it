@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: robinsh
-ms.openlocfilehash: 8d071d4cd6ae3f9a52433104075e396d70d5bc57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828695"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083277"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Come clonare un hub Azure Internet in un'altra area
 
@@ -359,7 +359,7 @@ Creare il nuovo hub nella nuova posizione usando il modello. Se si dispone di ri
 
 1. Nella casella di ricerca inserire "distribuzione modello" e premere INVIO.
 
-1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)** . Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Crea**. Viene visualizzata la schermata seguente:
+1. Selezionare **distribuzione modello (Distribuisci usando modelli personalizzati)** . Verrà visualizzata una schermata per la Distribuzione modelli. Selezionare **Create**. Viene visualizzata la schermata seguente:
 
    ![Screenshot che mostra il comando per la creazione di un modello personalizzato](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -391,7 +391,7 @@ Il portale esegue ora la convalida del modello e distribuisce l'hub clonato. Se 
 
 Ora che il clone è attivo e in esecuzione, è necessario copiare tutti i dispositivi dall'hub originale al clone. 
 
-Esistono diversi modi per eseguire questa operazione. Il [servizio Device provisioning (DPS) è stato](/azure/iot-dps/about-iot-dps.md)originariamente usato per il provisioning dei dispositivi o non è stato fatto. In caso contrario, non è difficile. In caso contrario, può essere molto complicato. 
+Esistono diversi modi per eseguire questa operazione. Il [servizio Device provisioning (DPS) è stato](/azure/iot-dps/about-iot-dps)originariamente usato per il provisioning dei dispositivi o non è stato fatto. In caso contrario, non è difficile. In caso contrario, può essere molto complicato. 
 
 Se non è stato usato DPS per eseguire il provisioning dei dispositivi, è possibile ignorare la sezione successiva e iniziare a [usare l'importazione/esportazione per spostare i dispositivi nel nuovo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 

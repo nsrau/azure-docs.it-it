@@ -1,5 +1,5 @@
 ---
-title: Panoramica del supporto multi-tenant per il ripristino di emergenza di macchine virtuali VMware in Azure (CSP) con Azure Site Recovery | Microsoft Docs
+title: Ripristino di emergenza multi-tenant di macchine virtuali VMware con Azure Site Recovery
 description: Offre una panoramica del supporto di Azure Site Recovery per il ripristino di emergenza di VMware in un programma CSP per ambiente multi-tenant.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718122"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083997"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
 
@@ -58,7 +58,7 @@ Ogni server di configurazione nello scenario multi-tenant usa due account:
 
 - **Account di accesso vCenter**: questo account viene usato per individuare le macchine virtuali tenant. Ha autorizzazioni di accesso vCenter assegnate. Per evitare la divulgazione delle credenziali di accesso, è consigliabile che i partner immettano personalmente queste credenziali nello strumento di configurazione.
 
-- **Account di accesso alla macchina virtuale**: questo account viene usato per installare l'agente del servizio Mobility nelle macchine virtuali tenant con push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può immettere le credenziali tramite un accesso limitato nel tempo al server di configurazione. In alternativa, con l'assistenza del partner è possibile installare l'agente del servizio Mobility manualmente.
+- **Account di accesso alla macchina virtuale**: questo account viene usato per installare l'agente del servizio Mobility nelle macchine virtuali tenant con un push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può immettere le credenziali tramite un accesso limitato nel tempo al server di configurazione. In alternativa, con l'assistenza del partner è possibile installare l'agente del servizio Mobility manualmente.
 
 ## <a name="vcenter-account-requirements"></a>Requisiti dell'account vCenter
 
@@ -79,7 +79,7 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
    * **Network** (Rete): Network assign (Assegnazione rete)
    * **Resource** (Risorsa): Assign VM to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off VM (Esegui migrazione macchina virtuale spenta), Migrate powered on VM (Esegui migrazione macchina virtuale accesa)
    * **Tasks** (Attività): Create task (Crea attività), Update task (Aggiorna attività)
-   * **VM - Configuration** (VM - Configurazione): Tutti
+   * **VM - Configuration (Configurazione)** : All (Tutto)
    * **VM - Interaction (Interazione)** > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
    * **VM - Inventory (Inventario)** > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
    * **VM - Provisioning** > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)
@@ -89,13 +89,13 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 
 3. Assegnare i livelli di accesso all'account vCenter (usato nel server di configurazione del tenant) per diversi oggetti, come segue:
 
->| Object | Ruolo | Note |
+>| Object | Ruolo | Osservazioni |
 >| --- | --- | --- |
 >| vCenter | Read-Only | Necessario solo per consentire l'accesso a vCenter per la gestione di oggetti diversi. Questa autorizzazione può essere rimossa se l'account non dovrà mai essere offerto a un tenant o usato per operazioni di gestione in vCenter. |
 >| Data center | Azure_Site_Recovery |  |
 >| Host e cluster host | Azure_Site_Recovery | Assicura nuovamente che l'accesso sia a livello di oggetto, in modo che solo gli host accessibili abbiano VM tenant prima del failover e dopo il failback. |
 >| Archivio dati e cluster archivio dati | Azure_Site_Recovery | Come sopra. |
->| Rete | Azure_Site_Recovery |  |
+>| Network | Azure_Site_Recovery |  |
 >| Server di gestione | Azure_Site_Recovery | Include l'accesso a tutti i componenti, CS, PS e MT, al di fuori della macchina CS. |
 >| Macchine virtuali tenant | Azure_Site_Recovery | Assicura che anche le eventuali nuove macchine virtuali tenant di un particolare tenant abbiano questo accesso, altrimenti non potranno essere rilevate attraverso il Portale di Azure. |
 
@@ -110,7 +110,7 @@ Per limitare le operazioni di ripristino di emergenza fino al solo failover (val
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuire le risorse nella sottoscrizione del tenant
 
 1. Nel portale di Azure creare un gruppo di risorse e distribuire un insieme di credenziali di Servizi di ripristino seguendo la procedura consueta.
-2. Scaricare la chiave di registrazione dell'insieme di credenziali.
+2. Scaricare la chiave di registrazione dell'insieme di credenziali,
 3. Registrare il server di configurazione per il tenant usando la chiave di registrazione dell'insieme di credenziali.
 4. Immettere le credenziali per i due account di accesso, ovvero l'account di accesso al server vCenter e l'account di accesso alla macchina virtuale.
 

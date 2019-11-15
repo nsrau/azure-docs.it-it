@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f2cf69b456aeccd6da5ac393b88171fb3bb03cf2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470067"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082541"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -21,9 +21,9 @@ ms.locfileid: "73470067"
 
 Di seguito sono riportate le domande frequenti su applicazione Azure gateway.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>General
 
-### <a name="what-is-application-gateway"></a>Che cos'è il gateway applicazione?
+### <a name="what-is-application-gateway"></a>Informazioni sul servizio Gateway applicazione
 
 Applicazione Azure gateway fornisce un servizio di controller per la distribuzione di applicazioni (ADC) come servizio. Offre diverse funzionalità di bilanciamento del carico di livello 7 per le applicazioni. Questo servizio è altamente disponibile, scalabile e completamente gestito da Azure.
 
@@ -107,7 +107,7 @@ Per la maggior parte delle distribuzioni che usano lo SKU V2 sono necessari circ
 
 No. Il gateway applicazione non supporta i protocolli di posta elettronica, ad esempio SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?
 
@@ -290,10 +290,6 @@ No, usare solo caratteri alfanumerici nella password del file con estensione pfx
 
 Sì. WAF supporta tutte le funzionalità dello SKU standard.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>Quali versioni CRS supportano il gateway applicazione?
-
-Il gateway applicazione supporta CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) e CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
-
 ### <a name="how-do-i-monitor-waf"></a>Come si monitora il Web application firewall?
 
 Monitorare WAF tramite registrazione diagnostica. Per altre informazioni, vedere [registrazione diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
@@ -308,7 +304,7 @@ Sì. Per altre informazioni, vedere [Customize WAF Rule Groups and Rules](applic
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>Quali regole sono attualmente disponibili per WAF?
 
-WAF supporta attualmente CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) e [3,0](application-gateway-crs-rulegroups-rules.md#owasp30). Queste regole forniscono una sicurezza di base rispetto alla maggior parte delle 10 vulnerabilità che aprono il progetto di sicurezza dell'applicazione Web (OWASP): 
+WAF supporta attualmente CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3,0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)e [3,1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Queste regole forniscono una sicurezza di base rispetto alla maggior parte delle 10 vulnerabilità che aprono il progetto di sicurezza dell'applicazione Web (OWASP): 
 
 * Protezione dagli attacchi SQL injection
 * Protezione tramite script tra siti

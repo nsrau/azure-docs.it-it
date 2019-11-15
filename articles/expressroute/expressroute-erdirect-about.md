@@ -1,5 +1,5 @@
 ---
-title: Informazioni su ExpressRoute Direct -Azure | Microsoft Docs
+title: Informazioni su Azure ExpressRoute Direct
 description: Questa pagina offre una panoramica di ExpressRoute Direct
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123392"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083594"
 ---
 # <a name="about-expressroute-direct"></a>Informazioni su ExpressRoute Direct
 
@@ -73,8 +72,8 @@ ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazi
     * Ethertype = 0x8100
     * È necessario aggiungere il tag di VLAN esterno (STAG) in base all'ID VLAN specificato da Microsoft, *applicabile solo su QinQ*
     * Deve supportare più sessioni BGP (VLAN) per porta e dispositivo
-    * Connettività IPv4 e IPv6. *Per IPv6 non verrà creata alcuna interfaccia secondaria aggiuntiva. L'indirizzo IPv6 verrà aggiunto all'interfaccia*secondaria esistente. 
-    * Facoltativo: Supporto del [rilevamento di inoltri bidirezionale (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , configurato per impostazione predefinita in tutti i peering privati nei circuiti ExpressRoute
+    * Connettività IPv4 e IPv6. *Per IPv6 non verrà creata alcuna interfaccia secondaria aggiuntiva. L'indirizzo IPv6 verrà aggiunto all'interfaccia secondaria esistente*. 
+    * Facoltativo: supporto del [rilevamento di inoltri bidirezionale (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) , configurato per impostazione predefinita in tutti i peering privati nei circuiti ExpressRoute
 
 ## <a name="vlan-tagging"></a>Codifica VLAN
 
@@ -86,7 +85,7 @@ ExpressRoute Direct supporta la codifica VLAN QinQ e Dot1Q.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-[![flusso](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[flusso di lavoro ![](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>Contratto di servizio
 

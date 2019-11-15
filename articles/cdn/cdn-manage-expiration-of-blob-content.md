@@ -1,5 +1,6 @@
 ---
-title: Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete per la distribuzione di contenuti di Azure | Microsoft Docs
+title: Gestire la scadenza dell'archiviazione BLOB di Azure
+titleSuffix: Azure Content Delivery Network
 description: Informazioni sulle opzioni per il controllo della durata per i BLOB nel caching della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: edeb2a798031e34a8ee3f93fd104ebb221ce9c61
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f28282a802e4b38fadc05c7090fa2a2af154de54
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593769"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083163"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -75,7 +76,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 1. In **Regole di memorizzazione nella cache personalizzate** creare due condizioni di corrispondenza:
 
-     R. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/*` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 4 nella casella **Ore**.
+     a. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/*` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 4 nella casella **Ore**.
 
     B. Per la seconda condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/blob1.txt` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 2 nella casella **Ore**.
 
@@ -109,7 +110,7 @@ $blob.ICloudBlob.SetProperties()
 ```
 
 > [!TIP]
-> È anche possibile usare PowerShell per [gestire i profili e gli endpoint della rete CDN](cdn-manage-powershell.md).
+> È anche possibile usare PowerShell per [gestire i profili della rete CDN e gli endpoint](cdn-manage-powershell.md).
 > 
 >
 
@@ -151,7 +152,7 @@ class Program
 
 ## <a name="setting-cache-control-headers-by-using-other-methods"></a>Impostazione delle intestazioni Cache-Control tramite altri metodi
 
-### <a name="azure-storage-explorer"></a>Esplora archivi Azure
+### <a name="azure-storage-explorer"></a>Azure Storage Explorer
 Con [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), è possibile visualizzare e modificare le risorse di archiviazione BLOB, incluse le proprietà, come ad esempio la proprietà *CacheControl*. 
 
 Per aggiornare la proprietà *CacheControl* di un BLOB con Azure Storage Explorer:
@@ -179,7 +180,7 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ## <a name="testing-the-cache-control-header"></a>Test dell'intestazione Cache-Control
 È possibile verificare facilmente le impostazioni di durata (TTL) del BLOB. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il BLOB includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
 
-## <a name="next-steps"></a>Fasi successive
-* [Informazioni su come gestire la scadenza del contenuto di Servizi cloud nella rete CDN di Azure](cdn-manage-expiration-of-cloud-service-content.md)
+## <a name="next-steps"></a>Passaggi successivi
+* [Come gestire la scadenza del contenuto del servizio cloud nella rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-manage-expiration-of-cloud-service-content.md)
 * [Informazioni sui concetti di memorizzazione nella cache](cdn-how-caching-works.md)
 

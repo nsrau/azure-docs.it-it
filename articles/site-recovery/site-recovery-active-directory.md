@@ -1,20 +1,18 @@
 ---
-title: Configurare il ripristino di emergenza per Active Directory e DNS con Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza Active Directory/DNS con Azure Site Recovery
 description: Questo articolo descrive come implementare una soluzione di ripristino di emergenza per Active Directory e DNS con Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038853"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084592"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
 
@@ -24,10 +22,10 @@ Le applicazioni aziendali, ad esempio SharePoint, Dynamics AX e SAP, dipendono d
 
 Questo articolo spiega come creare una soluzione di ripristino di emergenza per Active Directory. Include i prerequisiti e le istruzioni di failover. È necessario conoscere Active Directory e Site Recovery prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Se si esegue la replica in Azure, [preparare le risorse di Azure](tutorial-prepare-azure.md), inclusi una sottoscrizione, una rete virtuale di Azure, un account di archiviazione e un insieme di credenziali di Servizi di ripristino.
-* Verificare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.
+* Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.
 
 ## <a name="replicate-the-domain-controller"></a>Replicare il controller di dominio
 
@@ -106,9 +104,9 @@ Quando si avvia un failover di test, non includere tutti i controller di dominio
 A partire da Windows Server 2012, [misure di sicurezza aggiuntive sono integrate in Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Queste misure di sicurezza consentono di proteggere i controller di dominio virtualizzati dal ripristino dello stato precedente USN se la piattaforma hypervisor sottostante supporta **VM-GenerationID**. Azure supporta **VM-GenerationID**, perciò nei controller di dominio che eseguono Windows Server 2012 o una versione successiva in macchine virtuali di Azure sono presenti queste misure di sicurezza aggiuntive.
 
 
-Quando **VM-GenerationID** viene reimpostato, viene reimpostato anche il valore **InvocationID** del database di Active Directory Domain Services. Inoltre, il pool di RID viene eliminato e della cartella sysvol è contrassegnata come non autorevole. Per altre informazioni, vedere [Introduzione alla virtualizzazione (AD DS) di servizi di dominio Active Directory](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e il blog relativo alla [virtualizzazione di DFSR in modo sicuro](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+Quando **VM-GenerationID** viene reimpostato, viene reimpostato anche il valore **InvocationID** del database di Active Directory Domain Services. Il pool di RID viene inoltre eliminato e la cartella SYSVOL è contrassegnata come non autorevole. Per altre informazioni, vedere [Introduzione alla virtualizzazione (AD DS) di servizi di dominio Active Directory](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e il blog relativo alla [virtualizzazione di DFSR in modo sicuro](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Il failover in Azure potrebbe provocare la reimpostazione di **VM-GenerationID**. La reimpostazione di **VM-GenerationID** attiva misure di sicurezza aggiuntive quando la macchina virtuale controller di dominio viene avviata in Azure. Ciò potrebbe comportare un *ritardo significativo* la possibilità di accedere alla macchina virtuale controller di dominio.
+Il failover in Azure potrebbe provocare la reimpostazione di **VM-GenerationID**. La reimpostazione di **VM-GenerationID** attiva misure di sicurezza aggiuntive quando la macchina virtuale controller di dominio viene avviata in Azure. Questo potrebbe causare un *ritardo significativo* nella possibilità di accedere alla macchina virtuale del controller di dominio.
 
 Poiché questo controller di dominio viene usato solo in un failover di test, non sono necessarie misure di sicurezza della virtualizzazione. Per assicurarsi che il valore **VM-GenerationID** per la macchina virtuale controller di dominio non cambi, è possibile cambiare il valore DWORD seguente in **4** nel controller di dominio locale:
 
@@ -128,11 +126,11 @@ Se le misure di sicurezza della virtualizzazione vengono attivate dopo un failov
 
     ![Modifica dell'ID di chiamata](./media/site-recovery-active-directory/Event1109.png)
 
-* Cartella SYSVOL e NETLOGON condivisioni non sono disponibili.
+* La cartella SYSVOL e le condivisioni NETLOGON non sono disponibili.
 
     ![Condivisione cartella SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs sysvol cartella](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs cartella SYSVOL](./media/site-recovery-active-directory/Event13565.png)
 
 * I database DFSR vengono eliminati.
 
@@ -146,7 +144,7 @@ Se le misure di sicurezza della virtualizzazione vengono attivate dopo un failov
 >
 >
 
-1. Al prompt dei comandi, eseguire il comando seguente per verificare se cartelle sysvol e NETLOGON sono condivise:
+1. Al prompt dei comandi eseguire il comando seguente per verificare se la cartella SYSVOL e la cartella NETLOGON sono condivise:
 
     `NET SHARE`
 
@@ -166,7 +164,7 @@ Se le condizioni precedenti sono soddisfatte, è probabile che il controller di 
     * Anche se la [replica FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/) non è consigliata, se si usa la replica FRS, seguire i passaggi per il ripristino autorevole. La procedura è descritta in [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762) (Uso della chiave del Registro di sistema BurFlags per reinizializzare il servizio Replica file).
 
         Per altre informazioni su BurFlags, vedere il post di blog [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/) (D2 e D4: a cosa servono?).
-    * Se si usa la replica DFSR, completare i passaggi per il ripristino autorevole. Il processo è descritto nella [forzare una sincronizzazione autorevole e non autorevole per la cartella sysvol con replica DFSR (ad esempio, "D4/D2" per FRS)](https://support.microsoft.com/kb/2218556).
+    * Se si usa la replica DFSR, completare i passaggi per il ripristino autorevole. Il processo è descritto in [forzare una sincronizzazione autorevole e non autorevole per la cartella SYSVOL con replica DFSR (ad esempio "D4/D2" per FRS)](https://support.microsoft.com/kb/2218556).
 
         È anche possibile usare le funzioni di PowerShell. Per altre informazioni, vedere [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) (Funzioni di PowerShell per il ripristino autorevole/non autorevole di DFSR-SYSVOL).
 

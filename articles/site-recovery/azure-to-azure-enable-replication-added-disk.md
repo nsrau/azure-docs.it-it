@@ -1,5 +1,5 @@
 ---
-title: Abilitare la replica per un disco aggiunto a una macchina virtuale di Azure replicata da Azure Site Recovery | Microsoft Docs
+title: Abilitare la replica per un disco della macchina virtuale di Azure aggiunto in Azure Site Recovery
 description: Questo articolo descrive come abilitare la replica per un disco aggiunto a una macchina virtuale di Azure abilitata per il ripristino di emergenza con Azure Site Recovery
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: asgang
-ms.openlocfilehash: 068464b8a3919d833418c8f3916ccf5c54835c6f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6cbe71d67417ce817d317b65f27d0e6ceabec983
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934535"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084997"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Abilitare la replica per un disco aggiunto a una macchina virtuale di Azure
 

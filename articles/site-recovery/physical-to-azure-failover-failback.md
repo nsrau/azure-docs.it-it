@@ -1,18 +1,19 @@
 ---
-title: Failover e failback di server fisici per il ripristino di emergenza in Azure con Site Recovery | Microsoft Docs
+title: Configurare il failover e il failback per i server fisici con Site Recovery
 description: Informazioni su come eseguire il failover di server fisici in Azure ed eseguire il failback nel sito locale per il ripristino di emergenza con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 49b61423b33282be7f0ace52c2a164d52ba20314
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2c0d2e57a34286f65be45a95403a32de42c51908
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814424"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084562"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -25,9 +26,9 @@ I server fisici replicati in Azure con Site Recovery possono eseguire il failbac
 L'operazione di failover e failback comprende quattro fasi:
 
 1. **Failover in Azure**: eseguire il failover dei computer dal sito locale in Azure.
-2. **Riprotezione delle macchine virtuali di Azure**: riproteggere le macchine virtuali di Azure in modo da avviarne la replica nelle macchine virtuali VMware locali.
+2. **Riprotezione delle VM di Azure**: riproteggere le macchine virtuali di Azure in modo da avviarne la replica nelle VM VMware locali.
 3. **Failover nel sito locale**: eseguire un failover per il failback da Azure.
-4. **Riprotezione delle macchine virtuali locali**: dopo aver eseguito il failback dei dati, riproteggere le macchine virtuali VMware locali in cui è stato eseguito il failback, in modo che inizino la replica in Azure.
+4. **Riprotezione delle VM locali**: dopo il failback dei dati, riproteggere le VM VMware locali in cui è stato eseguito il failback in modo da avviarne la replica in Azure.
 
 ## <a name="verify-server-properties"></a>Verificare le proprietà del server
 
@@ -45,8 +46,8 @@ Verificare le proprietà del server e assicurarsi che sia conforme ai [requisiti
 1. In **Impostazioni** > **Elementi replicati** fare clic su computer > **Failover**.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
    - **Più recente**: questa opzione elabora prima tutti i dati inviati a Site Recovery. Offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale di Azure creata dopo il failover contiene tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
-   - **Elaborato più recente**: questa opzione consente di eseguire il failover della macchina nel punto di ripristino più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
-   - **Coerente con l'app più recente**: questa opzione esegue il failover della macchina nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery.
+   - **Latest processed** (Elaborato più recente): questa opzione consente di eseguire il failover della macchina nel punto di recupero più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
+   - **Latest app-consistent** (Coerente con l'app più recente): questa opzione esegue il failover della macchina nel punto di recupero coerente con l'app più recente elaborato da Site Recovery.
    - **Personalizzato**: specificare un punto di ripristino.
 
 3. Selezionare **Shut down machine before beginning failover** (Arrestare la macchina prima di iniziare il failover) se si vuole provare ad arrestare la macchina di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.

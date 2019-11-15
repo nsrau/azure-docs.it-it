@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743234"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081529"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuire la reimpostazione della password self-service di Azure AD
+
+> [!NOTE]
+> Questa guida illustra la reimpostazione della password self-service e come distribuirla. Se si sta cercando lo strumento di reimpostazione della password self-service per tornare all'account, passare a [https://aka.ms/sspr](https://aka.ms/sspr). 
 
 La reimpostazione della password self-service (SSPR) è una funzionalità Azure Active Directory che consente ai dipendenti di reimpostare le proprie password senza dover contattare il personale IT. Prima di usare il servizio, i dipendenti devono registrarsi per la reimpostazione della password self-service o essere registrati. Durante la registrazione, il dipendente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione.
 
@@ -53,18 +56,18 @@ L'esperienza di registrazione combinata non richiede che le organizzazioni conse
 
 Le impostazioni seguenti sono necessarie per abilitare SSPR insieme ai valori consigliati.
 
-| Area | Impostazione | Value |
+| Area | Impostazione | Valore |
 | --- | --- | --- |
 | **Proprietà di SSPR** | Reimpostazione password self-service abilitata | Gruppo **selezionato** per Pilot/ **All** per la produzione |
 | **Metodi di autenticazione** | Metodi di autenticazione necessari per la registrazione | Sempre 1 più del necessario per la reimpostazione |
 |   | Metodi di autenticazione necessari per la reimpostazione | Uno o due |
 | **Registrazione** | Richiedere agli utenti di registrarsi all'accesso | Sì |
 |   | Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione | 90 – 180 giorni |
-| **Notifications** | Inviare notifiche agli utenti al momento della reimpostazione della password | Sì |
+| **Notifiche** | Inviare notifiche agli utenti al momento della reimpostazione della password | Sì |
 |   | Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password | Sì |
-| **Personalizzazione** | Personalizza collegamento al supporto tecnico | Sì |
-|   | Indirizzo di posta elettronica o URL del supporto tecnico | Sito di supporto o indirizzo di posta elettronica |
-| **Integrazione locale** | Eseguire il writeback delle password in Active Directory locale | Yes |
+| **Personalizzazione** | Personalizzare il collegamento al supporto tecnico | Sì |
+|   | Indirizzo di posta elettronica o URL del supporto tecnico personalizzato | Sito di supporto o indirizzo di posta elettronica |
+| **Integrazione locale** | Eseguire il writeback delle password in Active Directory locale | Sì |
 |   | Consenti agli utenti di sbloccare l'account senza reimpostare la password | Sì |
 
 ### <a name="sspr-properties-recommendations"></a>Raccomandazioni sulle proprietà di SSPR
@@ -87,7 +90,7 @@ Impostare **Richiedi agli utenti di registrarsi all'accesso** a **Sì**. Questa 
 
 Impostare il **numero di giorni prima che agli utenti venga richiesto di riconfermare le informazioni di autenticazione** a un intervallo compreso tra **90** e **180** giorni, a meno che l'organizzazione non abbia bisogno di un intervallo di tempo più breve.
 
-### <a name="notifications-settings"></a>Impostazioni delle notifiche
+### <a name="notifications-settings"></a>Impostazioni notifiche
 
 Configurare la reimpostazione della **password invia notifiche agli utenti** e **Invia notifiche a tutti gli amministratori quando altri amministratori reimpostano la propria password** su **Sì**. Se **si seleziona Sì, si** aumenta la sicurezza garantendo che gli utenti siano consapevoli della reimpostazione della password e che tutti gli amministratori siano consapevoli quando un amministratore modifica una password. Se gli utenti o gli amministratori ricevono una notifica di questo tipo e non hanno avviato la modifica, possono segnalare immediatamente una potenziale violazione della sicurezza.
 
@@ -206,7 +209,7 @@ I dispositivi Windows 10 che eseguono la versione 1803 o una versione successiva
 
 ### <a name="configure-password-writeback"></a>Configurare il writeback delle password
 
-I passaggi per configurare il writeback delle password per l'organizzazione sono disponibili nell' [articolo How-to: Configurare il writeback](howto-sspr-writeback.md)delle password.
+I passaggi per configurare il writeback delle password per l'organizzazione sono disponibili nell'articolo [procedura: configurare il writeback delle password](howto-sspr-writeback.md).
 
 ## <a name="manage-sspr"></a>Gestisci SSPR
 
@@ -222,7 +225,7 @@ Ruoli necessari per gestire le funzionalità associate alla reimpostazione della
 
 Per consentire al team di supporto di avere esito positivo, è possibile creare domande frequenti in base alle domande ricevute dagli utenti. La tabella seguente contiene scenari di supporto comuni.
 
-| Scenari | Descrizione |
+| Scenari | DESCRIZIONE |
 | --- | --- |
 | Nessun metodo di autenticazione registrato disponibile per l'utente | Un utente sta tentando di reimpostare la password, ma non dispone di alcun metodo di autenticazione registrato disponibile (ad esempio, ha lasciato il telefono cellulare a casa e non può accedere alla posta elettronica) |
 | L'utente non riceve un SMS o una chiamata sul proprio ufficio o telefono cellulare | Un utente sta provando a verificare la propria identità tramite il testo o la chiamata ma non riceve un testo/chiamata. |

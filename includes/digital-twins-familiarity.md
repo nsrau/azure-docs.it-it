@@ -7,16 +7,16 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 11/13/2019
 ms.custom: include file
-ms.openlocfilehash: 7f40cf10d6357afd6944e7f4a28a20b9b407f698
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: cc87c64ca88dd9dbc5a5cdb4a61a541c62b86770
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949144"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082320"
 ---
-Questo articolo presuppone una certa familiarità con l'autenticazione mediante le API di gestione di Gemelli digitali di Azure.
+Questo articolo presuppone una certa familiarità con l'autenticazione per le API di gestione dei dispositivi digitali gemelli di Azure.
 
 * Per altre informazioni sull'autenticazione con le API di gestione, vedere [Autenticazione con le API di Gemelli digitali di Azure](../articles/digital-twins/security-authenticating-apis.md).
 * Per eseguire l'autenticazione con le API di gestione usando il client REST di Postman, leggere [Come configurare Postman](../articles/digital-twins/how-to-configure-postman.md).

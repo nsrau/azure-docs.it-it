@@ -1,20 +1,21 @@
 ---
-title: Proteggere le app Web con il gateway applicazione Azure - PowerShell
+title: Configurare il servizio app tramite PowerShell
+titleSuffix: Azure Application Gateway
 description: Questo articolo offre indicazioni su come configurare le app Web come host back-end in un gateway applicazione nuovo o esistente.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122218"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089519"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configurare il servizio app con il gateway applicazione con PowerShell
 
 Il gateway applicazione consente di usare un'app Servizio app o un altro servizio multi-tenant come membro del pool back-end. Questo articolo descrive come configurare un'app Servizio app con il gateway applicazione. Il primo esempio illustra come configurare un gateway applicazione esistente per usare un'app Web come membro del pool back-end. Il secondo esempio illustra come creare un nuovo gateway applicazione con un'app Web come membro del pool back-end.
 
@@ -165,4 +166,4 @@ Un modo per limitare l'accesso alle app Web è usare le [Restrizioni IP statico 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare il reindirizzamento, visitare la pagina: [Configurare il reindirizzamento nel gateway applicazione con PowerShell](redirect-overview.md).
+Per informazioni su come configurare il reindirizzamento, vedere [Configurare il reindirizzamento nel gateway applicazione con PowerShell](redirect-overview.md).

@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery risoluzione dei problemi per gli errori di replica da Azure ad Azure | Microsoft Docs
+title: Risolvere i problemi di replica delle macchine virtuali di Azure in Azure Site Recovery
 description: Risolvere gli errori durante la replica di macchine virtuali di Azure per il ripristino di emergenza.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: baf7a21d04e8f9bcf86c67abde302a558dfba01c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910392"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084915"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Risolvere gli errori di replica delle macchine virtuali da Azure ad Azure
 
@@ -47,7 +46,7 @@ Se il processo di abilitazione della replica non riesce, viene visualizzato il m
 
 > "Site Recovery configurazione non riuscita."
 
-### <a name="possible-cause"></a>Causa possibile
+### <a name="possible-cause"></a>Possibili cause
 
 I certificati radice attendibili richiesti per l'autorizzazione e l'autenticazione non sono presenti nella macchina virtuale.
 
@@ -81,7 +80,7 @@ Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*)
 
 1. Se il certificato CA radice Symantec non viene trovato, eseguire il comando seguente per scaricare il file. Verificare la presenza di eventuali errori e seguire le azioni consigliate per gli errori di rete.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Controllare se è presente il certificato CA radice Baltimore:
 
@@ -89,13 +88,13 @@ Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*)
 
 1. Se il certificato CA radice Baltimore non viene trovato, eseguire questo comando per scaricare il certificato:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
 1. Controllare se è presente il certificato DigiCert_Global_Root_CA:
 
     **# LS DigiCert_Global_Root_CA. pem**
 
-1. Se DigiCert_Global_Root_CA non viene trovato, eseguire i comandi seguenti per scaricare il certificato:
+1. Se il DigiCert_Global_Root_CA non viene trovato, eseguire i comandi seguenti per scaricare il certificato:
 
     **# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt**
 
@@ -103,7 +102,7 @@ Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*)
 
 1. Eseguire lo script rehash per aggiornare gli hash dell'oggetto del certificato per i certificati appena scaricati:
 
-    **# c_rehash**
+    **n. c_rehash**
 
 1. Eseguire questi comandi per verificare se sono stati creati gli hash dell'oggetto come collegamenti simbolici per i certificati:
 
@@ -167,9 +166,9 @@ Poiché SuSE Linux utilizza collegamenti simbolici ( *o collegamenti simbolici*)
 
 Per il funzionamento della replica Site Recovery, è richiesta la connettività in uscita dalla macchina virtuale a URL o intervalli IP specifici. Se la macchina virtuale è protetta da un firewall o usa regole di gruppi di sicurezza di rete (NGS) per controllare la connettività in uscita, potrebbe verificarsi uno di questi problemi.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: Non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (codice errore 151195)
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: non è stato possibile registrare la macchina virtuale di Azure con Site Recovery (codice errore 151195)
 
-#### <a name="possible-cause"></a>Causa possibile 
+#### <a name="possible-cause"></a>Possibili cause 
 
 Non è possibile stabilire la connessione agli endpoint Site Recovery a causa di un errore di risoluzione DNS.
 
@@ -177,15 +176,15 @@ Questo problema si verifica con maggiore frequenza durante la riprotezione, quan
 
 #### <a name="fix-the-problem"></a>Risolvere il problema
 
-Se si usa un DNS personalizzato, assicurarsi che il server DNS sia accessibile dall'area di ripristino di emergenza. Per sapere se si dispone di un DNS personalizzato, nella macchina virtuale passare a**server DNS**di *rete* > di ripristino di emergenza.
+Se si usa un DNS personalizzato, assicurarsi che il server DNS sia accessibile dall'area di ripristino di emergenza. Per sapere se si dispone di un DNS personalizzato, nella macchina virtuale passare alla *rete di ripristino di emergenza* > **server DNS**.
 
 ![Elenco di server DNS personalizzati](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
 Provare ad accedere al server DNS dalla macchina virtuale. Se il server non è accessibile, renderlo accessibile eseguendo il failover del server DNS o creando la riga di sito tra la rete di ripristino di emergenza e il DNS.
 
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: Configurazione Site Recovery non riuscita (codice errore 151196)
+### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>Problema 2: configurazione Site Recovery non riuscita (codice errore 151196)
 
-#### <a name="possible-cause"></a>Causa possibile
+#### <a name="possible-cause"></a>Possibili cause
 
 Non è possibile stabilire la connessione agli endpoint di autenticazione di Office 365 e di identità IP4.
 
@@ -197,9 +196,9 @@ Se si usano regole di Azure NSG o proxy firewall per controllare la connettivit�
 > [!NOTE]
 > Se le macchine virtuali si trovano dietro un servizio di bilanciamento del carico interno *standard* , per impostazione predefinita il servizio di bilanciamento del carico non ha accesso agli intervalli IP di Office 365, ovvero login.microsoftonline.com. Modificare il tipo di servizio di bilanciamento del carico interno in *base* o creare l'accesso in uscita, come descritto nell'articolo [configurare le regole di bilanciamento del carico e in uscita](https://aka.ms/lboutboundrulescli).
 
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: Configurazione Site Recovery non riuscita (codice errore 151197)
+### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>Problema 3: la configurazione del Site Recovery non è riuscita (codice errore 151197)
 
-#### <a name="possible-cause"></a>Causa possibile
+#### <a name="possible-cause"></a>Possibili cause
 
 Non è possibile stabilire la connessione per Site Recovery endpoint di servizio.
 
@@ -207,9 +206,9 @@ Non è possibile stabilire la connessione per Site Recovery endpoint di servizio
 
 Site Recovery richiede l'accesso a [Site Recovery intervalli IP](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges), a seconda dell'area. Assicurarsi che gli intervalli di indirizzi IP richiesti siano accessibili dalla macchina virtuale.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: La replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso un server proxy locale (codice errore 151072)
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>Problema 4: la replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso un server proxy locale (codice errore 151072)
 
-#### <a name="possible-cause"></a>Causa possibile
+#### <a name="possible-cause"></a>Possibili cause
 
 Le impostazioni proxy personalizzate non sono valide e il Site Recovery agente del servizio Mobility non ha rilevato automaticamente le impostazioni proxy da Internet Explorer.
 
@@ -220,7 +219,7 @@ L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer
 Se si preferisce impostare il proxy solo per il servizio Mobility, è possibile specificare i dettagli del proxy nel file ProxyInfo. conf nei percorsi seguenti:
 
 - **Linux**:/usr/local/InMage/config/
-- **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config
+- **Windows**: C:\ProgramData\Microsoft Azure site Recovery\Config
 
 In ProxyInfo. conf specificare le impostazioni proxy nel formato di file di inizializzazione seguente:
 
@@ -253,9 +252,9 @@ Per specificare gli [URL richiesti](azure-to-azure-about-networking.md#outbound-
 
 Verificare che i dischi dati siano inizializzati, quindi ripetere l'operazione.
 
-- **Windows**: [Connettere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- **Windows**: [aggiungere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 
-- **Linux**: [Inizializzare un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+- **Linux**: [inizializzare un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Se il problema persiste, contattare il supporto tecnico.
 
@@ -294,7 +293,7 @@ Quando protegge la macchina virtuale, Site Recovery crea alcuni collegamenti nel
 > Se non si esegue la pulizia:
 >
 > - Quando si Abilita la replica per mezzo dell'insieme di credenziali di servizi di ripristino, la macchina virtuale non viene elencata.
-> - Se si prova a proteggere la macchina virtuale usando il**ripristino di emergenza** **delle impostazioni** > della **macchina** > virtuale, l'operazione avrà esito negativo con il messaggio "Impossibile abilitare la replica a causa dei collegamenti alle risorse obsoleti esistenti in la macchina virtuale ".
+> - Se si prova a proteggere la macchina virtuale usando **le impostazioni** > della **macchina virtuale** > il **ripristino di emergenza**, l'operazione avrà esito negativo con il messaggio "Impossibile abilitare la replica a causa dei collegamenti alle risorse obsoleti esistenti nella macchina virtuale".
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
@@ -311,7 +310,7 @@ Quando protegge la macchina virtuale, Site Recovery crea alcuni collegamenti nel
 
 ## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>Non è possibile abilitare la replica a causa di collegamenti a risorse non aggiornati nella VM (codice errore 150226)
 
-### <a name="possible-cause"></a>Causa possibile
+### <a name="possible-cause"></a>Possibili cause
 
 La configurazione della macchina virtuale non è aggiornata rispetto alla protezione Site Recovery precedente.
 
@@ -336,17 +335,17 @@ Una configurazione non aggiornata può verificarsi in una macchina virtuale di A
 
 ## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Non è possibile visualizzare la macchina virtuale o il gruppo di risorse di Azure per la selezione nel processo di abilitazione della replica
 
-### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Causa 1: Il gruppo di risorse e la macchina virtuale di origine si trovano in posizioni diverse
+### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Causa 1: il gruppo di risorse e la macchina virtuale di origine si trovano in posizioni diverse
 
 Site Recovery attualmente richiede che il gruppo di risorse dell'area di origine e le macchine virtuali si trovino nella stessa posizione. In caso contrario, non sarà possibile trovare la macchina virtuale o il gruppo di risorse quando si tenta di applicare la protezione.
 
-Come soluzione alternativa, è possibile abilitare la replica dalla macchina virtuale anziché dall'insieme di credenziali di servizi di ripristino. Passare a **origine VM** > **Proprietà** > **ripristino di emergenza** e abilitare la replica.
+Come soluzione alternativa, è possibile abilitare la replica dalla macchina virtuale anziché dall'insieme di credenziali di servizi di ripristino. Passare alla **VM di origine** > **Proprietà** > **ripristino di emergenza** e abilitare la replica.
 
-### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Causa 2: Il gruppo di risorse non fa parte della sottoscrizione selezionata
+### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>Motivo 2: il gruppo di risorse non fa parte della sottoscrizione selezionata
 
 Potrebbe non essere possibile trovare il gruppo di risorse al momento della protezione se il gruppo di risorse non fa parte della sottoscrizione selezionata. Verificare che il gruppo di risorse appartenga alla sottoscrizione che si sta usando.
 
-### <a name="cause-3-stale-configuration"></a>Causa 3: Configurazione non aggiornata
+### <a name="cause-3-stale-configuration"></a>Motivo 3: configurazione non aggiornata
 
 È possibile che la macchina virtuale che si vuole abilitare per la replica non sia visualizzata se nella macchina virtuale di Azure è stata lasciata una configurazione Site Recovery non aggiornata. Questa condizione può verificarsi se è stata abilitata la replica per la macchina virtuale di Azure usando Site Recovery e quindi:
 
@@ -369,11 +368,11 @@ Potrebbe non essere possibile trovare il gruppo di risorse al momento della prot
 
 ## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Non è possibile selezionare una macchina virtuale per la protezione
 
-### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Causa 1: L'estensione della macchina virtuale è installata in uno stato non riuscito o non risponde
+### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>Motivo 1: la macchina virtuale ha un'estensione installata in uno stato non riuscito o non risponde
 
-Passare a **macchine** > virtuali**estensioni** **delle impostazioni** > e verificare la presenza di eventuali estensioni in stato di errore. Disinstallare le estensioni non riuscite, quindi riprovare a proteggere la macchina virtuale.
+Passare a **macchine virtuali** > **Impostazioni** > **estensioni** e verificare la presenza di eventuali estensioni in stato di errore. Disinstallare le estensioni non riuscite, quindi riprovare a proteggere la macchina virtuale.
 
-### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Causa 2: Lo stato di provisioning della macchina virtuale non è valido
+### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>Motivo 2: lo stato di provisioning della macchina virtuale non è valido
 
 Vedere la procedura di risoluzione dei problemi nello [stato di provisioning della macchina virtuale non è valida](#the-vms-provisioning-state-is-not-valid-error-code-150019), più avanti in questo articolo.
 
@@ -394,17 +393,17 @@ Per abilitare la replica nella macchina virtuale, lo stato di provisioning deve 
 
 ## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Non è possibile selezionare la macchina virtuale di destinazione (la scheda Selezione rete non è disponibile)
 
-### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Causa 1: La VM è collegata a una rete di cui è già stato eseguito il mapping a una rete di destinazione
+### <a name="cause-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Cause 1: la macchina virtuale è collegata a una rete di cui è già stato eseguito il mapping a una rete di destinazione
 
 Se la VM di origine fa parte di una rete virtuale e un'altra VM della stessa rete virtuale è già mappata a una rete nel gruppo di risorse di destinazione, la casella di riepilogo a discesa Selezione rete non è disponibile (visualizzata in grigio) per impostazione predefinita.
 
 ![Elenco di selezione di rete non disponibile](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Causa 2: La macchina virtuale è stata precedentemente protetta usando Site Recovery e quindi è stata disabilitata la replica
+### <a name="cause-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Motivo 2: la macchina virtuale è stata protetta in precedenza utilizzando Site Recovery, quindi la replica è stata disabilitata
 
-La disabilitazione della replica di una macchina virtuale non comporta l'eliminazione del mapping di rete. Il mapping deve essere eliminato dall'insieme di credenziali dei servizi di ripristino in cui la macchina virtuale è stata protetta. Passare a insieme di credenziali di *Servizi* > di ripristino Site Recovery**mapping di rete**dell'**infrastruttura** > .
+La disabilitazione della replica di una macchina virtuale non comporta l'eliminazione del mapping di rete. Il mapping deve essere eliminato dall'insieme di credenziali dei servizi di ripristino in cui la macchina virtuale è stata protetta. Passare a insieme di credenziali di *servizi di ripristino* > **infrastruttura Site Recovery** > **mapping di rete**.
 
-![Eliminare il mapping di rete](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+![Elimina mapping di rete](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
 
 La rete di destinazione configurata durante l'installazione del ripristino di emergenza può essere modificata dopo la configurazione iniziale, dopo la protezione della macchina virtuale:
 
@@ -438,7 +437,7 @@ Quando si verifica questo errore, viene visualizzato il messaggio seguente:
 
 > "Non è stato possibile abilitare la protezione per la macchina virtuale perché contiene *DiskName* con dimensioni *fissoDimensione*) * minore della dimensione minima supportata 1024 MB".
 
-### <a name="possible-cause"></a>Causa possibile
+### <a name="possible-cause"></a>Possibili cause
 
 Il disco è inferiore alle dimensioni supportate di 1024 MB.
 
@@ -448,7 +447,7 @@ Verificare che le dimensioni del disco siano comprese nell'intervallo di dimensi
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>La protezione non è stata abilitata perché la configurazione di GRUB include il nome del dispositivo anziché l'UUID (codice errore 151126)
 
-### <a name="possible-cause"></a>Causa possibile
+### <a name="possible-cause"></a>Possibili cause
 
 I file di configurazione GRUB di Linux (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/GRUB2/grub.cfg o/etc/default/grub) potrebbero specificare i nomi di dispositivo effettivi anziché i valori UUID per i parametri *root* e *Resume* . Site Recovery richiede UUID perché i nomi dei dispositivi possono cambiare. Al riavvio, una macchina virtuale potrebbe non avere lo stesso nome in caso di failover, causando problemi.
 
@@ -476,7 +475,7 @@ Sostituire ogni nome di dispositivo con l'UUID corrispondente:
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. Sostituire il nome del dispositivo con il relativo UUID, in formats **root = UUID**==*UUID* e **Resume =** UUID*UUID*. Dopo la sostituzione, ad esempio, la riga da/boot/grub/menu.lst (illustrata in precedenza) avrà un aspetto simile al seguente:
+1. Sostituire il nome del dispositivo con il relativo UUID, in formats **root = uuid**=*UUID* e **resume = UUID**=*UUID*. Dopo la sostituzione, ad esempio, la riga da/boot/grub/menu.lst (illustrata in precedenza) avrà un aspetto simile al seguente:
 
     > kernel/boot/vmlinuz-3.0.101-63-default **root = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume = UUID = 6f614b44-433B-431B-9ca1-4dd2f6f74f6b** splash = silent crashkernel = 256M-: 128M showopts VGA = 0x314
 
@@ -484,13 +483,13 @@ Sostituire ogni nome di dispositivo con l'UUID corrispondente:
 
 ## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>L'abilitazione della protezione non è riuscita perché il dispositivo indicato nella configurazione di GRUB non esiste (codice errore 151124)
 
-### <a name="possible-cause"></a>Causa possibile
+### <a name="possible-cause"></a>Possibili cause
 
 I file di configurazione di GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/boot/GRUB2/grub.cfg o/etc/default/grub) potrebbero contenere i parametri *Rd.LVM.lv* o *rd_LVM_LV*. Questi parametri identificano i dispositivi LVM (Logical Volume Manager) che devono essere individuati in fase di avvio. Se questi dispositivi LVM non esistono, il sistema protetto non viene avviato e si blocca nel processo di avvio. Lo stesso problema verrà visualizzato anche con la macchina virtuale di failover. Di seguito sono riportati alcuni esempi:
 
 - File:/boot/GRUB2/grub.cfg in RHEL7:
 
-    > Linux16/vmlinuz-3.10.0-957.EL7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/root Rd. LVM. lv = rootvg/swap** rhgb quiet LANG = en_US. UTF-8
+    > Linux16/vmlinuz-3.10.0-957.EL7. x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **Rd. LVM. lv = rootvg/root Rd. LVM. lv = rootvg/swap** RHGB quiet LANG = en_US. UTF-8
 
 - File:/etc/default/grub in RHEL7:
 
@@ -498,7 +497,7 @@ I file di configurazione di GRUB (/boot/grub/menu.lst,/boot/grub/grub.cfg,/boot/
 
 - File:/boot/grub/menu.lst in RHEL6:
 
-    > kernel/vmlinuz-2.6.32-754.el6.x86_64 ro root = UUID = 36dd8b45-E90D-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = PC portatable = US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
+    > kernel/vmlinuz-2.6.32-754.el6. x86_64 ro root = UUID = 36dd8b45-E90D-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = PC TableName = US **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
 
 In ogni esempio, la parte in grassetto mostra che GRUB deve rilevare due dispositivi LVM con i nomi "root" e "swap" dal gruppo di volumi "rootvg".
 
@@ -517,7 +516,7 @@ Il servizio Mobility Site Recovery dispone di molti componenti, uno dei quali è
 
 ## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Non è stato possibile abilitare la protezione perché il disco gestito di replica esiste già, senza i tag previsti, nel gruppo di risorse di destinazione (codice errore 150161)
 
-### <a name="possible-cause"></a>Causa possibile
+### <a name="possible-cause"></a>Possibili cause
 
 Questo problema può verificarsi se la macchina virtuale è stata precedentemente protetta e quando la replica è stata disabilitata, il disco di replica non è stato pulito.
 

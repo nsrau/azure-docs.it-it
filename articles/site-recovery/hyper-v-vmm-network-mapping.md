@@ -1,18 +1,18 @@
 ---
-title: Informazioni sul mapping di rete per la macchina virtuale Hyper-V (con VMM) ripristino di emergenza in Azure con Site Recovery
+title: Informazioni sul mapping di rete Hyper-V (con VMM) con Site Recovery
 description: Illustra come configurare il mapping di rete per il ripristino di emergenza di macchine virtuali Hyper-V (gestite in cloud VMM) con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813661"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082569"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
 
@@ -53,14 +53,14 @@ Il mapping di rete funziona nel modo seguente:
 
 Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda come esempio un’organizzazione con due sedi, New York e Chicago.
 
-**Location** | **Server VMM** | **Reti VM** | **Mappata a**
+**Località** | **Server VMM** | **Reti VM** | **Mappata a**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
- |  | VMNetwork2-NewYork | Mapping non configurato
+ |  | VMNetwork2-NewYork | Non mappato
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappata a VMNetwork1-NewYork
- | | VMNetwork2-Chicago | Mapping non configurato
+ | | VMNetwork2-Chicago | Non mappato
 
-Esempio:
+In questo esempio:
 
 - Quando viene creata una macchina virtuale di replica per una macchina virtuale connessa a VMNetwork1-NewYork, essa verrà connessa a VMNetwork1-Chicago.
 - Quando una macchina virtuale di replica viene creata per VMNetwork2-NewYork o VMNetwork2-Chicago, non verrà connessa ad alcuna rete.
@@ -78,7 +78,7 @@ SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 ### <a name="logical-and-vm-network-settings"></a>Impostazioni di rete VM e logica
 
-**Location** | **Rete logica** | **Rete VM associata**
+**Località** | **Rete logica** | **Rete VM associata**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
@@ -88,7 +88,7 @@ Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
 
 In base a queste impostazioni, quando si seleziona la rete VM di destinazione, nella tabella seguente sono mostrate le opzioni che saranno disponibili.
 
-**Selezionare** | **Cloud protetto** | **Protezione del cloud** | **Rete di destinazione disponibili**
+**Select** | **Cloud protetto** | **Protezione del cloud** | **Rete di destinazione disponibili**
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponibile
  | GoldCloud1 | GoldCloud2 | Disponibile

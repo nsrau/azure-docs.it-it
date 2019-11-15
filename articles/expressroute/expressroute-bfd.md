@@ -1,5 +1,5 @@
 ---
-title: Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute - Azure | Microsoft Docs
+title: 'Azure ExpressRoute: configurare BFD'
 description: Questo articolo contiene istruzioni su come configurare il rilevamento dell'inoltro bidirezionale sul peering privato di un circuito ExpressRoute.
 services: expressroute
 author: rambk
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
-ms.custom: seodec18
-ms.openlocfilehash: a24e021c34fe1ad315ca7f75f9bfdb29d94b253a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 608b5e0011d4ed656ff61fec84a23f2fb22373b3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495009"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080786"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurare il rilevamento dell'inoltro bidirezionale su ExpressRoute
 
@@ -67,7 +66,7 @@ Tra i due peer di rilevamento dell'inoltro bidirezionale, quello più lento dete
 >Se sono stati configurati circuiti ExpressRoute con ridondanza geografica o si usa la connettività VPN IPSec da sito a sito come backup; l'abilitazione di BFD consente il failover più rapido dopo un errore di connettività di ExpressRoute. 
 >
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 

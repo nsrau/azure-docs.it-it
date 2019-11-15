@@ -1,5 +1,5 @@
 ---
-title: Gestire la messaggistica dei dispositivi cloud hub IoT di Azure con Azure IoT Tools per Visual Studio Code | Microsoft Docs
+title: Usare gli strumenti di Azure per VSCode per la gestione della messaggistica dell'hub IT
 description: Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare dispositivi per i messaggi al cloud e inviare messaggi al dispositivo nell'hub IoT di Azure cloud.
 author: formulahendry
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 785c6f2b36396558cc21ce6c025be59c456ff32d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838501"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083267"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Azure IoT Tools per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
 
@@ -23,7 +23,7 @@ ms.locfileid: "67838501"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>Concetti legati all'esercitazione
+## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
 
 Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare i messaggi dal dispositivo al cloud e inviare messaggi dal cloud al dispositivo. I messaggi da dispositivo a cloud possono includere dati di sensori raccolti dal dispositivo e inviati all'hub IoT. I messaggi da cloud a dispositivo possono includere comandi inviati dall'hub IoT al dispositivo per far lampeggiare un LED connesso a quest'ultimo.
 
@@ -41,7 +41,7 @@ Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Gli strumenti di Azure IoT per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) oppure [aprire questo collegamento in Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Strumenti di Azure per la vs code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o [aprire il collegamento in Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Eseguire l'accesso all'hub IoT
 
@@ -56,17 +56,17 @@ Informazioni su come usare Azure IoT Tools per Visual Studio Code per monitorare
 5. Verrà visualizzato in pochi secondi l'elenco dei dispositivi nella scheda **Dispositivi di Azure IoT hub di Azure**.
 
    > [!Note]
-   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere il **iothubowner** stringa di connessione dei criteri per l'hub IoT che si connette il dispositivo IoT nella finestra popup.
+   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere la stringa di connessione del criterio **iothubowner** per l'hub delle cose a cui si connette il dispositivo Internet nella finestra popup.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorare i messaggi da dispositivo a cloud
 
 Per monitorare i messaggi inviati dal dispositivo all'hub IoT, seguire questi passaggi:
 
-1. Il dispositivo e scegliere **avvia il monitoraggio Endpoint di eventi predefiniti**.
+1. Fare clic con il pulsante destro del mouse sul dispositivo e scegliere **Avvia monitoraggio endpoint evento predefinito**.
 
 2. I messaggi monitorati verranno visualizzati nella visualizzazione **OUTPUT** > **Toolkit dell'hub IoT di Azure**.
 
-3. Per arrestare il monitoraggio, fare doppio clic il **OUTPUT** consente di visualizzare e selezionare **Interrompi monitoraggio Endpoint di eventi predefiniti**.
+3. Per arrestare il monitoraggio, fare clic con il pulsante destro del mouse sulla visualizzazione **output** e scegliere **Interrompi monitoraggio endpoint evento predefinito**.
 
 ## <a name="send-cloud-to-device-messages"></a>Inviare messaggi da cloud a dispositivo
 
@@ -76,7 +76,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 
 2. Immettere il messaggio nella casella di input.
 
-3. I risultati verranno visualizzati nella visualizzazione **OUTPUT** > **Toolkit dell'hub IoT di Azure**.
+3. I risultati verranno visualizzati nella visualizzazione **OUTPUT** > **Azure IoT Hub Toolkit**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

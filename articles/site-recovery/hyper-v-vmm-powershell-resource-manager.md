@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM in un sito secondario con Azure Site Recovery e PowerShell | Microsoft Docs
+title: Configurare il ripristino di emergenza di Hyper-V (con VMM) in un sito secondario con Azure Site Recovery/PowerShell
 description: Questo articolo descrive come configurare il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM in un sito VMM secondario usando Azure Site Recovery e PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362357"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084899"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
 
@@ -21,15 +21,15 @@ Questo articolo illustra come automatizzare la procedura per la replica di macch
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Esaminare [l'architettura e i componenti dello scenario](hyper-v-vmm-architecture.md).
-- Verificare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
+- Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md) per tutti i componenti.
 - Assicurarsi che i server Virtual Machine Manager e gli host Hyper-V rispettino i [requisiti di supporto](site-recovery-support-matrix-to-sec-site.md).
 - Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](site-recovery-support-matrix-to-sec-site.md).
 
 
-## <a name="prepare-for-network-mapping"></a>Preparare il mapping di rete
+## <a name="prepare-for-network-mapping"></a>Preparare il mapping delle reti
 
 [Mapping di rete](hyper-v-vmm-network-mapping.md) esegue il mapping tra le reti delle macchine virtuali di Virtual Machine Manager locali nei cloud di origine e destinazione. Il mapping esegue queste operazioni:
 
@@ -77,7 +77,7 @@ Assicurarsi che Azure PowerShell sia pronto all'uso:
 
         $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    È possibile recuperare l'oggetto dell'insieme di credenziali dopo averlo creato usando il cmdlet Get-AzRecoveryServicesVault.
+    È possibile recuperare l'oggetto insieme di credenziali dopo averlo creato usando il cmdlet Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Impostare il contesto dell'insieme di credenziali
 1. Recuperare un insieme di credenziali esistente.

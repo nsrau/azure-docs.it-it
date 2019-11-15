@@ -1,5 +1,5 @@
 ---
-title: 'Prerequisiti - ExpressRoute : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: prerequisiti'
 description: Questa pagina fornisce un elenco di requisiti da soddisfare prima di potere ordinare un circuito Azure ExpressRoute. Include un elenco di controllo.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123287"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083363"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Prerequisiti di ExpressRoute ed elenco di controllo
 Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessario verificare che siano stati soddisfatti i requisiti elencati nelle sezioni seguenti.
@@ -30,7 +29,7 @@ Per connettersi ai servizi di Microsoft Cloud usando ExpressRoute sarà necessar
 * Se il provider non è un partner per la connettività ExpressRoute, è comunque possibile connettersi a Microsoft Cloud tramite un [provider Cloud Exchange](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisiti di rete
-* **Ridondanza in ogni località di peering**: Microsoft richiede sessioni BGP ridondanti da configurare tra i router Microsoft e i router di peering in ogni circuito ExpressRoute (anche quando si dispone [di una sola connessione fisica a uno scambio cloud](expressroute-faqs.md#onep2plink)).
+* **Ridondanza a ogni località di peering**: Microsoft richiede che le sessioni BGP ridondanti siano configurate tra i router Microsoft e i router di peering in ogni circuito ExpressRoute (anche quando si dispone di una sola [connessione fisica a uno scambio cloud](expressroute-faqs.md#onep2plink)).
 * **Ridondanza per il ripristino di emergenza**: Microsoft consiglia di impostare almeno due circuiti ExpressRoute in posizioni di peering diverse per evitare un singolo punto di errore.
 * **Routing**: a seconda di come ci si connette a Microsoft Cloud, è necessario configurare e gestire le sessioni BGP per i [domini di routing](expressroute-circuit-peerings.md) o chiedere al provider di farlo. Alcuni provider di connettività Ethernet o provider Cloud Exchange possono offrire la gestione BGP come servizio a valore aggiunto.
 * **NAT**: Microsoft accetta solo indirizzi IP pubblici tramite peer Microsoft. Se si usano indirizzi IP privati nella rete locale, è necessario convertirli in indirizzi IP pubblici (o chiedere al provider di farlo) [con il processo NAT](expressroute-nat.md).

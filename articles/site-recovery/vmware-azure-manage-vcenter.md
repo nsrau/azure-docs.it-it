@@ -1,17 +1,17 @@
 ---
-title: Gestire i server VMware vCenter per il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
+title: Gestire i server VMware vCenter in Azure Site Recovery
 description: Questo articolo descrive come aggiungere e gestire server VMware vCenter per il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904261"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083969"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gestire i server VMware vCenter
 
@@ -33,7 +33,7 @@ Sono necessari circa 15 minuti per completare la sincronizzazione delle informaz
 
 ### <a name="account-permissions"></a>Autorizzazioni dell'account
 
-|**Attività** | **Account** | **Autorizzazioni** | **Dettagli**|
+|**Task** | **Account** | **autorizzazioni** | **Dettagli**|
 |--- | --- | --- | ---|
 |**Individuazione automatica/migrazione (senza failback)** | È necessario almeno un utente di sola lettura | Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).|
 |**Replica/failover** | È necessario almeno un utente di sola lettura| Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).<br/><br/> È utile ai fini della migrazione, ma non per la replica completa, il failover e il failback.|
@@ -74,7 +74,7 @@ Modificare le credenziali usate per connettersi al server vCenter o all'host ESX
 ## <a name="modify-the-vcenter-ip-address-and-port"></a>Modificare l'indirizzo IP e la porta di vCenter
 
 1. Accedere al portale di Azure.
-2. Passare a insieme di credenziali di **Servizi** > di ripristino Site Recovery**server di configurazione**dell'**infrastruttura** > .
+2. Passare a insieme di credenziali di **servizi di ripristino** > **Site Recovery infrastruttura** > **server di configurazione**.
 3. Fare clic sul server di configurazione a cui è assegnato vCenter.
 4. Nella sezione **server vCenter** fare clic sul vCenter che si vuole modificare.
 5. Nella pagina di riepilogo di vCenter aggiornare l'indirizzo IP e la porta di vCenter nei rispettivi campi, quindi salvare le modifiche.
@@ -88,7 +88,7 @@ Modificare le credenziali usate per connettersi al server vCenter o all'host ESX
 Per eseguire la migrazione di tutte le macchine virtuali nel nuovo vCenter, non aggiungere un altro account vCenter. Questo può generare voci duplicate. È sufficiente aggiornare l'indirizzo IP del nuovo vCenter:
 
 1. Accedere al portale di Azure.
-2. Passare a insieme di credenziali di **Servizi** > di ripristino Site Recovery**server di configurazione**dell'**infrastruttura** > .
+2. Passare a insieme di credenziali di **servizi di ripristino** > **Site Recovery infrastruttura** > **server di configurazione**.
 3. Fare clic sul server di configurazione a cui è assegnato il vecchio vCenter.
 4. Nella sezione **server vCenter** fare clic sul vCenter da cui si intende eseguire la migrazione.
 5. Nella pagina di riepilogo di vCenter aggiornare l'indirizzo IP di New vCenter nel campo **vCenter server/vSphere hostname o indirizzo IP**. Salvare le modifiche.

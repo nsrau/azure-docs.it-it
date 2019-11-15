@@ -1,5 +1,5 @@
 ---
-title: Configurare il ripristino di emergenza per SQL Server con SQL Server e Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza per SQL Server con Azure Site Recovery
 description: Questo articolo descrive come configurare il ripristino di emergenza per SQL Server usando SQL Server e Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934841"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084746"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server
 
@@ -54,18 +54,18 @@ Site Recovery orchestra il failover di test e il failover dell'intera applicazio
 
 Ci sono alcuni prerequisiti per garantire che il piano di ripristino sia completamente personalizzato in base alle esigenze. Qualsiasi distribuzione di SQL Server richiede in genere una distribuzione di Active Directory. È necessaria anche la connettività per il livello applicazione.
 
-### <a name="step-1-set-up-active-directory"></a>Passaggio 1: Configurazione Active Directory
+### <a name="step-1-set-up-active-directory"></a>Passaggio 1: configurare Active Directory
 
 Configurare Active Directory nel sito di ripristino secondario affinché SQL Server venga eseguito correttamente.
 
-* **Small Enterprise**: Sono presenti un numero ridotto di applicazioni e un singolo controller di dominio per il sito locale. Se si desidera eseguire il failover dell'intero sito, utilizzare Site Recovery replica. Questo servizio replica il controller di dominio nel data center secondario o in Azure.
-* **Da medio a grande impresa**: Potrebbe essere necessario configurare controller di dominio aggiuntivi.
+* **Small Enterprise**: sono presenti un numero ridotto di applicazioni e un singolo controller di dominio per il sito locale. Se si desidera eseguire il failover dell'intero sito, utilizzare Site Recovery replica. Questo servizio replica il controller di dominio nel data center secondario o in Azure.
+* **Enterprise di medie e grandi dimensioni**: potrebbe essere necessario configurare controller di dominio aggiuntivi.
   - Se si dispone di un numero elevato di applicazioni, avere una foresta Active Directory e si desidera eseguire il failover in base all'applicazione o al carico di lavoro, configurare un altro controller di dominio nel data center secondario o in Azure.
   -  Se si usa Gruppi di disponibilità Always On per eseguire il ripristino in un sito remoto, configurare un altro controller di dominio nel sito secondario o in Azure. Questo controller di dominio viene utilizzato per l'istanza di SQL Server ripristinata.
 
 Le istruzioni in questo articolo presuppongono che un controller di dominio sia disponibile nella località secondaria. Per ulteriori informazioni, vedere le procedure [che consentono di proteggere Active Directory con Site Recovery](site-recovery-active-directory.md).
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Passaggio 2: Garantire la connettività con altri livelli
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Passaggio 2: garantire la connettività con altri livelli
 
 Quando il livello del database è in esecuzione nell'area di Azure di destinazione, assicurarsi di disporre della connettività con i livelli applicazione e Web. Eseguire i passaggi necessari in anticipo per convalidare la connettività con il failover di test.
 
@@ -74,7 +74,7 @@ Per informazioni su come progettare le applicazioni per le considerazioni sulla 
 * [Progettare un'applicazione per il ripristino di emergenza cloud](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * [Strategie di ripristino di emergenza del pool elastico](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Passaggio 3: Interoperare con Always On, la replica geografica attiva e i gruppi di failover automatico
+### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Passaggio 3: interagire con Always On, la replica geografica attiva e i gruppi di failover automatico
 
 Le tecnologie BCDR Always On, la replica geografica attiva e i gruppi di failover automatico hanno repliche secondarie di SQL Server in esecuzione nell'area di Azure di destinazione. Il primo passaggio del failover dell'applicazione consiste nel specificare questa replica come primaria. Questo passaggio presuppone che sia già presente un controller di dominio nel database secondario. Il passaggio potrebbe non essere necessario se si sceglie di eseguire un failover automatico. Eseguire il failover dei livelli Web e applicazione solo dopo il completamento del failover del database.
 
@@ -85,13 +85,13 @@ Le tecnologie BCDR Always On, la replica geografica attiva e i gruppi di failove
 
 1. Importare gli script per eseguire il failover del gruppo di disponibilità SQL sia in una macchina virtuale [Gestione risorse](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) che in una [macchina virtuale classica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importare gli script nell'account di automazione di Azure.
 
-    [![Immagine di un logo "Distribuisci in Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [Immagine di ![di un logo "Distribuisci in Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Aggiungere lo script ASR-SQL-FailoverAG come pre-azione del primo gruppo del piano di ripristino.
 
 1. Seguire le istruzioni disponibili nello script per creare una variabile di automazione. Questa variabile fornisce il nome dei gruppi di disponibilità.
 
-### <a name="step-4-conduct-a-test-failover"></a>Passaggio 4: Eseguire un failover di test
+### <a name="step-4-conduct-a-test-failover"></a>Passaggio 4: eseguire un failover di test
 
 Alcune tecnologie BCDR come SQL Always On non supportano in modo nativo il failover di test. Si consiglia l'approccio seguente *solo quando si utilizzano tali tecnologie*.
 

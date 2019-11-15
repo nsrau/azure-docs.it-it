@@ -1,5 +1,5 @@
 ---
-title: Distribuire il server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
+title: Distribuire il server di configurazione in Azure Site Recovery
 description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 92b51b3955833bac6f87457a19e4d6359600a25a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747850"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084149"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -26,7 +26,7 @@ Si distribuisce un server di configurazione locale quando si usa [Azure Site Rec
 
 Il server di configurazione deve essere configurato come macchina virtuale VMware a disponibilità elevata con determinati requisiti hardware e di dimensionamento minimi. Per una distribuzione semplice e facile, Site Recovery fornisce un modello OVA (Open Virtualization Application) scaricabile per configurare il server di configurazione che è conforme a tutti i requisiti richiesti elencati qui.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un server di configurazione.
 
@@ -46,7 +46,7 @@ Nelle sezioni seguenti sono riepilogati i requisiti hardware minimi per un serve
     - Passare a **Azure Active Directory** > **impostazioni utente**.
     - In **registrazioni app** **gli utenti possono registrare le applicazioni**e selezionare **Sì**.
 
-      ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AD_application_permission di Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services *non è supportato*. Usare un account gestito tramite [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).

@@ -1,25 +1,24 @@
 ---
-title: Domande comuni sul ripristino di emergenza da VMware ad Azure con Azure Site Recovery
+title: Domande comuni sul ripristino di emergenza di VMware con Azure Site Recovery
 description: Per ottenere risposte alle domande comuni sul ripristino di emergenza di macchine virtuali VMware locali in Azure, usare Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: f09acb0110f436e7af936d79da9db1bab4ea23a9
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053688"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084153"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
 Questo articolo risponde a domande comuni che potrebbero emergere quando si distribuisce il ripristino di emergenza di macchine virtuali VMware locali in Azure.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>General
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>Cosa è necessario per il ripristino di emergenza delle macchine virtuali VMware?
 
@@ -51,7 +50,7 @@ L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie
 
 Sì, i clienti di Microsoft Software Assurance possono usare [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione in Azure o per usare Azure per il ripristino di emergenza.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="what-access-to-vmware-servers-does-site-recovery-need"></a>Quale accesso ai server VMware Site Recovery necessario?
 
@@ -104,7 +103,7 @@ In ogni macchina virtuale che si vuole replicare installare il servizio con uno 
 - [Installazione manuale](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) dall'interfaccia utente o da PowerShell
 - Distribuzione tramite uno strumento di distribuzione come [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Dischi gestiti
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Dove Site Recovery replicare i dati?
 
@@ -189,7 +188,7 @@ No, Site Recovery non supporta la replica nell'archiviazione di Azure nelle reti
 
 ## <a name="component-upgrade"></a>Aggiornamento componenti
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. Che cosa occorre fare?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. che cosa occorre fare?
 
 Site Recovery segue il modello di supporto N-4. [Altre](https://aka.ms/asr_support_statement) informazioni su come eseguire l'aggiornamento da versioni molto obsolete.
 

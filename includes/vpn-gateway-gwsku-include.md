@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495728"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085250"
 ---
 Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Selezionare lo SKU che soddisfa i requisiti relativi a tipi di carichi di lavoro, velocità effettive, funzionalità e contratti di servizio. Per gli SKU del gateway di rete virtuale in zone di disponibilità di Azure, vedere [sku zone di disponibilità di Azure gateway](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
@@ -21,7 +21,11 @@ Quando si crea un gateway di rete virtuale è necessario specificare il codice S
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+> [!NOTE]
+> Gli SKU VpnGw (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5 e VpnGw5AZ) sono supportati solo per il modello di distribuzione Gestione risorse. Le reti virtuali di tipo classico devono continuare a usare gli SKU di versione precedente.
+>  * Per informazioni sull'uso degli SKU di gateway di versione precedente (Basic, Standard e HighPerformance), vedere [Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+>  * Per informazioni sugli SKU di gateway ExpressRoute, vedere [Gateway di rete virtuale per ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+>
 
 ###  <a name="feature"></a>SKU del gateway per set di funzionalità
 

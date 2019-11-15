@@ -1,19 +1,19 @@
 ---
-title: Failover e failback di macchine virtuali Hyper-V replicate in un data center secondario durante il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+title: Configurare il failover/failback in un sito Hyper-V secondario con Azure Site Recovery
 description: Informazioni su come eseguire il failover di macchine virtuali Hyper-V in un sito locale secondario e il failback in un sito primario durante il ripristino di emergenza con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813696"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082591"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover e failback di macchine virtuali Hyper-V replicate in un sito locale secondario
 
@@ -30,12 +30,12 @@ In questo articolo viene descritto come eseguire il failover di una macchina vir
 
 L'operazione di failover e failback comprende tre fasi:
 
-1. **Failover in un sito secondario**: failover di macchine dal sito primario a quello secondario.
-2. **Failback in un sito secondario**: replica di macchine virtuali dal sito secondario al sito primario ed esecuzione di un failover pianificato per eseguire il failback.
+1. **Failover nel sito secondario**: failover di macchine dal sito primario a quello secondario.
+2. **Failback dal sito secondario**: replica di macchine virtuali dal sito secondario al sito primario ed esecuzione di un failover pianificato per eseguire il failback.
 3. Dopo il failover pianificato, se lo si desidera avviare nuovamente la replica dal sito primario al sito secondario.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Assicurarsi di aver completato una [esercitazione sul ripristino di emergenza](hyper-v-vmm-test-failover.md) per verificare che tutto funzioni come previsto.
 - Per completare il failback, verificare che i server VMM primario e secondario siano connessi a Site Recovery.
@@ -58,7 +58,7 @@ Per le macchine virtuali Hyper-V è possibile eseguire un failover regolare o pi
 3. Dopo la verifica della macchina virtuale, **eseguire il commit** del failover. In questo modo tutti i punti di ripristino disponibili verranno eliminati.
 
 > [!WARNING]
-> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.  
+> **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Eseguire la replica inversa e il failover

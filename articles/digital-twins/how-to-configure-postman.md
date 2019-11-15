@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 8967b61115d2e2e644dea93cb236f8a7cdfcfcbd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072305"
+ms.locfileid: "74090494"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -61,6 +61,12 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 1. Configurare un secondo **URI di reindirizzamento** per `https://www.getpostman.com/oauth2/callback`.
 
     [![aggiungere un URI di reindirizzamento del post](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+
+1. Per assicurarsi che [l'app sia registrata come **client pubblico**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), aprire il riquadro di **autenticazione** per la registrazione dell'app e scorrere verso il basso in tale riquadro. Nella sezione **tipo di client predefinito** scegliere **Sì** per **considera applicazione come client pubblico**e quindi fare clic su **Salva**.
+
+    Controllare i **token di accesso** per abilitare l'impostazione **Oauth2AllowImplicitFlow** nel file manifest. JSON.
+
+    [impostazione di configurazione client pubblica ![](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato nei passaggi seguenti.
 

@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828565"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083199"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usare il database di seguito per alleghi i database in Azure Esplora dati
 
@@ -26,7 +26,7 @@ Il fissaggio di un database a un cluster diverso mediante la funzionalità di se
 * Un singolo cluster può seguire i database di più cluster leader. 
 * Un cluster può contenere sia database di seguito che database leader
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 1. [Creare un cluster e un database](/azure/data-explorer/create-cluster-database-portal) per il leader e il follower.
@@ -160,7 +160,7 @@ In questa sezione viene illustrato come aggiungere un database usando un [modell
 
 È possibile distribuire il modello di Azure Resource Manager [usando il portale di Azure](https://portal.azure.com) o tramite PowerShell.
 
-   ![Distribuzione modelli](media/follower/template-deployment.png)
+   ![distribuzione modello](media/follower/template-deployment.png)
 
 
 |**Impostazione**  |**Descrizione**  |
@@ -170,7 +170,7 @@ In questa sezione viene illustrato come aggiungere un database usando un [modell
 |Nome database     |      Nome del database da seguire. Se si desidera seguire tutti i database del leader, utilizzare "*".   |
 |ID risorsa cluster leader    |   ID risorsa del cluster leader.      |
 |Tipo di modifica delle entità predefinite    |   Tipo di modifica principale predefinito. Può essere `Union`, `Replace` o `None`. Per ulteriori informazioni sul tipo di modifica principale predefinito, vedere [comando di controllo del tipo di modifica principale](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Percorso   |   Percorso di tutte le risorse. Il leader e il successivo devono trovarsi nella stessa posizione.       |
+|Location   |   Percorso di tutte le risorse. Il leader e il successivo devono trovarsi nella stessa posizione.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>Verificare che il database sia stato collegato correttamente
 
@@ -242,7 +242,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>Gestisci entità
 
-Quando si connette un database, specificare il **tipo di modifica delle entità predefinite "** . Il valore predefinito è mantenere la raccolta di database leader delle [entità autorizzate](/azure/kusto/management/access-control/index.md#authorization)
+Quando si connette un database, specificare il **tipo di modifica delle entità predefinite "** . Il valore predefinito è mantenere la raccolta di database leader delle [entità autorizzate](/azure/kusto/management/access-control/index#authorization)
 
 |**Tipologia** |**Descrizione**  |
 |---------|---------|
@@ -250,7 +250,7 @@ Quando si connette un database, specificare il **tipo di modifica delle entità 
 |**Replace**   |    Nessuna ereditarietà delle entità del database originale. È necessario creare nuove entità per il database collegato. Per bloccare l'ereditarietà principale, è necessario aggiungere almeno un'entità.     |
 |**Nessuno**   |   Le entità di database associate includono solo le entità del database originale senza entità aggiuntive.      |
 
-Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare le entità autorizzate, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower.md).
+Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare le entità autorizzate, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).
 
 ### <a name="manage-permissions"></a>Gestisci autorizzazioni
 
@@ -258,7 +258,7 @@ La gestione dell'autorizzazione del database di sola lettura è identica a quell
 
 ### <a name="configure-caching-policy"></a>Configurare i criteri di memorizzazione nella cache
 
-L'amministratore del database seguito può modificare i [criteri di memorizzazione nella cache](/azure/kusto/management/cache-policy) del database collegato o delle relative tabelle nel cluster host. Per impostazione predefinita, la raccolta di database leader viene mantenuta nei criteri di memorizzazione nella cache a livello di tabella e database. È possibile, ad esempio, disporre di un criterio di memorizzazione nella cache di 30 giorni nel database leader per l'esecuzione di report mensili e di un criterio di memorizzazione nella cache di tre giorni nel database di seguito per eseguire una query solo sui dati recenti per la risoluzione dei problemi. Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare i criteri di memorizzazione nella cache nel database o nella tabella di seguito, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower.md).
+L'amministratore del database seguito può modificare i [criteri di memorizzazione nella cache](/azure/kusto/management/cache-policy) del database collegato o delle relative tabelle nel cluster host. Per impostazione predefinita, la raccolta di database leader viene mantenuta nei criteri di memorizzazione nella cache a livello di tabella e database. È possibile, ad esempio, disporre di un criterio di memorizzazione nella cache di 30 giorni nel database leader per l'esecuzione di report mensili e di un criterio di memorizzazione nella cache di tre giorni nel database di seguito per eseguire una query solo sui dati recenti per la risoluzione dei problemi. Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare i criteri di memorizzazione nella cache nel database o nella tabella di seguito, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -270,4 +270,4 @@ L'amministratore del database seguito può modificare i [criteri di memorizzazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla configurazione del cluster di seguito, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower.md).
+* Per informazioni sulla configurazione del cluster di seguito, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).

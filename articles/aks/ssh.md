@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: e0b7154e3c4d6a6f493aac93ffcbcc424a67c300
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932309"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089549"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Connessione con SSH ai nodi del cluster del servizio Azure Kubernetes per la risoluzione dei problemi e le attività di manutenzione
 
@@ -22,7 +22,7 @@ Questo articolo mostra come creare una connessione SSH con un nodo servizio Azur
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 Per impostazione predefinita, le chiavi SSH vengono ottenute o generate, quindi aggiunte ai nodi quando si crea un cluster AKS. Questo articolo illustra come specificare chiavi SSH diverse dalle chiavi SSH usate durante la creazione del cluster AKS. Questo articolo illustra anche come determinare l'indirizzo IP privato del nodo e connetterlo tramite SSH. Se non è necessario specificare una chiave SSH diversa, è possibile ignorare il passaggio per aggiungere la chiave pubblica SSH al nodo.
 
@@ -37,14 +37,16 @@ Per configurare il set di scalabilità di macchine virtuali in base all'accesso 
 Usare il comando [AZ AKS Show][az-aks-show] per ottenere il nome del gruppo di risorse del cluster AKS, quindi il comando [AZ vmss list][az-vmss-list] per ottenere il nome del set di scalabilità.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
 Nell'esempio precedente viene assegnato il nome del gruppo di risorse cluster per *myAKSCluster* in *myResourceGroup* a *CLUSTER_RESOURCE_GROUP*. Nell'esempio viene quindi usato *CLUSTER_RESOURCE_GROUP* per elencare il nome del set di scalabilità e assegnarlo a *SCALE_SET_NAME*.  
 
-> [!NOTE]
-> Attualmente è possibile aggiungere chiavi SSH solo ai nodi Linux tramite l'interfaccia della riga di comando di Azure. Per connettersi a un nodo di Windows Server tramite SSH, usare le chiavi SSH fornite al momento della creazione del cluster AKS e ignorare il set successivo di comandi per aggiungere la chiave pubblica SSH. Sarà comunque necessario l'indirizzo IP del nodo di cui si desidera risolvere i problemi, come illustrato nel comando finale di questa sezione. In alternativa, è possibile [connettersi ai nodi di Windows Server tramite connessioni Remote Desktop Protocol (RDP)][aks-windows-rdp] invece di usare SSH.
+> [!IMPORTANT]
+> A questo punto, è necessario aggiornare solo le chiavi SSH per i cluster AKS basati su set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando di Azure.
+> 
+> Per i nodi Linux, è attualmente possibile aggiungere chiavi SSH solo usando l'interfaccia della riga di comando di Azure. Per connettersi a un nodo di Windows Server tramite SSH, usare le chiavi SSH fornite al momento della creazione del cluster AKS e ignorare il set successivo di comandi per aggiungere la chiave pubblica SSH. Sarà comunque necessario l'indirizzo IP del nodo di cui si desidera risolvere i problemi, come illustrato nel comando finale di questa sezione. In alternativa, è possibile [connettersi ai nodi di Windows Server tramite connessioni Remote Desktop Protocol (RDP)][aks-windows-rdp] invece di usare SSH.
 
 Per aggiungere le chiavi SSH ai nodi in un set di scalabilità di macchine virtuali, usare i comandi [AZ vmss Extension set][az-vmss-extension-set] e [AZ vmss Update-instances][az-vmss-update-instances] .
 
@@ -62,7 +64,7 @@ az vmss update-instances --instance-ids '*' \
     --name $SCALE_SET_NAME
 ```
 
-Nell'esempio precedente vengono usate le variabili *CLUSTER_RESOURCE_GROUP* e *SCALE_SET_NAME* dei comandi precedenti. L'esempio precedente usa anche *~/.ssh/id_rsa.pub* come percorso della chiave pubblica SSH.
+Nell'esempio precedente vengono usate le variabili *CLUSTER_RESOURCE_GROUP* e *SCALE_SET_NAME* dei comandi precedenti. L'esempio precedente usa anche *~/.ssh/id_rsa. pub* come percorso della chiave pubblica SSH.
 
 > [!NOTE]
 > Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*.
@@ -94,7 +96,7 @@ Per configurare il cluster AKS basato su set di disponibilità delle macchine vi
 Usare il comando [AZ AKS Show][az-aks-show] per ottenere il nome del gruppo di risorse del cluster AKS, quindi il comando [AZ VM list][az-vm-list] per elencare il nome della macchina virtuale del nodo Linux del cluster.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
@@ -116,18 +118,18 @@ az vm user update \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-L'esempio precedente usa la variabile *CLUSTER_RESOURCE_GROUP* e il nome della macchina virtuale node dei comandi precedenti. L'esempio precedente usa anche *~/.ssh/id_rsa.pub* come percorso della chiave pubblica SSH. È anche possibile usare il contenuto della chiave pubblica SSH invece di specificare un percorso.
+L'esempio precedente usa la variabile *CLUSTER_RESOURCE_GROUP* e il nome della macchina virtuale del nodo dei comandi precedenti. L'esempio precedente usa anche *~/.ssh/id_rsa. pub* come percorso della chiave pubblica SSH. È anche possibile usare il contenuto della chiave pubblica SSH invece di specificare un percorso.
 
 > [!NOTE]
 > Per impostazione predefinita, il nome utente per i nodi servizio Azure Kubernetes è *azureuser*.
 
-Dopo aver aggiunto la chiave pubblica SSH alla macchina virtuale del nodo, è possibile connettersi tramite SSH a tale macchina virtuale usando il relativo indirizzo IP. Visualizzare l'indirizzo IP privato di un nodo del cluster AKS usando il comando [AZ VM list-IP-][az-vm-list-ip-addresses] addresses.
+Dopo aver aggiunto la chiave pubblica SSH alla macchina virtuale del nodo, è possibile connettersi tramite SSH a tale macchina virtuale usando il relativo indirizzo IP. Visualizzare l'indirizzo IP privato di un nodo del cluster AKS usando il comando [AZ VM list-IP-addresses][az-vm-list-ip-addresses] .
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-Nell'esempio precedente viene usata la variabile *CLUSTER_RESOURCE_GROUP* impostata nei comandi precedenti. Il seguente output di esempio mostra gli indirizzi IP privati dei nodi servizio Azure Kubernetes:
+Nell'esempio precedente viene utilizzata la variabile *CLUSTER_RESOURCE_GROUP* impostata nei comandi precedenti. Il seguente output di esempio mostra gli indirizzi IP privati dei nodi servizio Azure Kubernetes:
 
 ```
 VirtualMachine            PrivateIPAddresses
@@ -173,7 +175,7 @@ Per creare una connessione SSH a un nodo servizio Azure Kubernetes, si esegue un
     kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
     ```
 
-1. Tornare alla sessione terminal nel contenitore, aggiornare le autorizzazioni per la chiave SSH privata `id_rsa` copiata in modo che sia di sola lettura:
+1. Tornare alla sessione terminal nel contenitore, aggiornare le autorizzazioni per la chiave SSH privata copiata `id_rsa` in modo che sia di sola lettura:
 
     ```console
     chmod 0600 id_rsa

@@ -1,5 +1,5 @@
 ---
-title: 'Flusso di lavoro di configurazione del circuito - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: flussi di lavoro di configurazione del circuito'
 description: Questa pagina illustra i flussi di lavoro per la configurazione di un circuito ExpressRoute e dei peering
 services: expressroute
 author: cherylmc
@@ -7,15 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ae6c2b7257ee6a8184f3a5bb002f24cb75a86d67
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123373"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083332"
 ---
-# <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
+# <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro di ExpressRoute per il provisioning del circuito e gli stati del circuito
 Questa pagina illustra i flussi di lavoro di provisioning del servizio e configurazione del routing a livello generale.
 
 ![flusso di lavoro del circuito](./media/expressroute-workflows/expressroute-circuit-workflow.png)
