@@ -15,6 +15,10 @@
   items:
     - name: Usare l'API Video Indexer
       href: video-indexer-use-apis.md
+- name: Esempi
+  items:
+    - name: Analisi dello streaming live
+      href: live-stream-analysis.md
 - name: Concetti
   items:
     - name: Panoramica

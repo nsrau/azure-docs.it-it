@@ -496,7 +496,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Configurare la sincronizzazione dati SQL
           href: sql-database-get-started-sql-data-sync.md
-        - name: Aggiungere il pool elastico a un gruppo di failover
+        - name: Aggiungere un pool elastico a un gruppo di failover
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Configurare la sicurezza
           href: sql-database-security-tutorial.md

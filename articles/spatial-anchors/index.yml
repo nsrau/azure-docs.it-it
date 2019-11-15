@@ -27,6 +27,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relazioni tra ancoraggi e orientamento.</a>
           - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Linee guida sull'esperienza.</a>
           - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Registrazione e diagnostica.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Rilocalizzazione grossolana.</a>
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph

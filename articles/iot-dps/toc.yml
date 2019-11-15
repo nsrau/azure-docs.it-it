@@ -145,6 +145,8 @@
       href: how-to-send-additional-data.md
     - name: risoluzione dei problemi
       href: how-to-troubleshoot-dps.md
+    - name: Comunicare con il servizio Device Provisioning tramite il protocollo MQTT
+      href: iot-dps-mqtt-support.md
 - name: riferimento
   items:
     - name: API REST

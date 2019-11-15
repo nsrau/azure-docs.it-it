@@ -1,19 +1,17 @@
 ---
 title: Configurare il server di configurazione in Azure Spring Cloud | Microsoft Docs
 description: Questa esercitazione illustra come configurare un server di configurazione Spring Cloud per Azure Spring Cloud nel portale di Azure
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
-ms.date: 08/08/2019
-ms.openlocfilehash: f959d216859ded54de52de474ee3150f91bcfff1
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+author: jpconnock
+ms.date: 10/18/2019
+ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038653"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646716"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>Esercitazione: Configurare un server di configurazione Spring Cloud per il servizio
 
@@ -25,10 +23,9 @@ Spring Cloud Config fornisce il supporto lato client e lato server per la config
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 * Un servizio Azure Spring Cloud in esecuzione di cui è già stato effettuato il provisioning.  Per effettuare il provisioning e avviare un servizio Azure Spring Cloud, completare questa [esercitazione di avvio rapido](spring-cloud-quickstart-launch-app-cli.md).
 
-
 ## <a name="restriction"></a>Restrizione
 
-Quando si usa il __server di configurazione__ con un back-end git, sono previste alcune restrizioni. Alcune proprietà verranno inserite automaticamente nell'ambiente dell'applicazione per accedere al __server di configurazione__ e all'__individuazione dei servizi__. Se si configurano anche tali proprietà dai file del **server di configurazione**, è possibile che si verifichino conflitti e comportamenti imprevisti.  Le proprietà includono: 
+Quando si usa il __server di configurazione__ con un back-end git, sono previste alcune restrizioni. Alcune proprietà verranno inserite automaticamente nell'ambiente dell'applicazione per accedere al __server di configurazione__ e all'__individuazione dei servizi__. Se si configurano anche tali proprietà dai file del **server di configurazione**, è possibile che si verifichino conflitti e comportamenti imprevisti. Le proprietà includono: 
 
 ```yaml
 eureka.client.service-url.defaultZone
@@ -42,10 +39,9 @@ spring.application.name
 
 ## <a name="create-your-config-server-files"></a>Creare i file del server di configurazione
 
-Azure Spring cloud supporta Azure DevOps, GitHub, GitLab e Bitbucket per archiviare i file del server di configurazione.  Quando il repository è pronto, creare i file di configurazione seguendo le istruzioni riportate di seguito e archiviarli in tale posizione.
+Azure Spring cloud supporta Azure DevOps, GitHub, GitLab e Bitbucket per archiviare i file del server di configurazione. Quando il repository è pronto, creare i file di configurazione seguendo le istruzioni riportate di seguito e archiviarli in tale posizione.
 
 Inoltre, alcune proprietà configurabili sono disponibili solo per alcuni tipi. Le sottosezioni seguenti elencano le proprietà per ogni tipo di repository.
-
 
 ### <a name="public-repository"></a>Repository pubblico
 
@@ -54,7 +50,7 @@ Quando si usa un repository pubblico, le proprietà configurabili saranno più l
 Di seguito sono elencate tutte le proprietà configurabili usate per configurare il repository `Git` pubblico.
 
 > [!NOTE]
-> Per il momento è supportata solo la convenzione di denominazione con parole separate dal trattino ("-"). Ad esempio, è possibile usare `default-label` ma non `defaultLabel`.
+> L'uso di un trattino ("-") per separare le parole è l'unica convenzione di denominazione attualmente supportata. Ad esempio, è possibile usare `default-label`, ma non `defaultLabel`.
 
 | Proprietà        | Obbligatoria | Funzionalità                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
@@ -69,7 +65,7 @@ Di seguito sono elencate tutte le proprietà configurabili usate per configurare
 Di seguito sono elencate tutte le proprietà configurabili usate per configurare il repository `Git` privato con `Ssh`.
 
 > [!NOTE]
-> Per il momento è supportata solo la convenzione di denominazione con parole separate dal trattino ("-"). Ad esempio, è possibile usare `default-label` ma non `defaultLabel`.
+> L'uso di un trattino ("-") per separare le parole è l'unica convenzione di denominazione attualmente supportata. Ad esempio, è possibile usare `default-label`, ma non `defaultLabel`.
 
 | Proprietà                   | Obbligatoria | Funzionalità                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
@@ -78,8 +74,8 @@ Di seguito sono elencate tutte le proprietà configurabili usate per configurare
 | `search-paths`             | `no`     | Matrice di stringhe usata per la ricerca nelle sottodirectory del repository `Git`. |
 | `private-key`              | `no`     | Chiave privata `Ssh` per accedere al repository `Git`, __obbligatoria__ quando l'`uri` inizia con `git@` o `ssh://`. |
 | `host-key`                 | `no`     | Chiave host del server del repository Git. Non deve includere il prefisso dell'algoritmo perché incluso in `host-key-algorithm`. |
-| `host-key-algorithm`       | `no`     | Algoritmo della chiave host. Deve essere uno dei seguenti: `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` e `ecdsa-sha2-nistp521`. Obbligatorio solo se `host-key` esiste. |
-| `strict-host-key-checking` | `no`     | Indica se l'avvio del server di configurazione non riuscirà quando si utilizza la proprietà `host-key` specificata. Deve essere `true` (valore predefinito) o `false`. |
+| `host-key-algorithm`       | `no`     | L'algoritmo di chiave host deve essere `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` o `ecdsa-sha2-nistp521`. Obbligatorio solo se `host-key` esiste. |
+| `strict-host-key-checking` | `no`     | Indica se l'avvio del server di configurazione non riuscirà quando si utilizza la proprietà `host-key` privata. Deve essere `true` (valore predefinito) o `false`. |
 
 -----
 
@@ -88,15 +84,15 @@ Di seguito sono elencate tutte le proprietà configurabili usate per configurare
 Di seguito sono elencate tutte le proprietà configurabili usate per configurare il repository Git privato con autenticazione di base.
 
 > [!NOTE]
-> Per il momento è supportata solo la convenzione di denominazione con parole separate dal trattino ("-"). Ad esempio, è possibile usare `default-label`, ma non `defaultLabel`.
+> L'uso di un trattino ("-") per separare le parole è l'unica convenzione di denominazione attualmente supportata. Ad esempio, usare `default-label` e non `defaultLabel`.
 
 | Proprietà        | Obbligatoria | Funzionalità                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | `yes`    | L'`uri` del repository `Git` usato come back-end del server di configurazione deve essere avviato con `http://`, `https://`, `git@` o `ssh://`. |
 | `default-label` | `no`     | L'etichetta predefinita del repository `Git` deve essere costituita da `branch name`, `tag name` o `commit-id` del repository. |
 | `search-paths`  | `no`     | Matrice di stringhe usata per la ricerca nelle sottodirectory del repository `Git`. |
-| `username`      | `no`     | `username` usato per accedere al server del repository `Git`, __obbligatorio__ se il server del repository `Git` supporta `Http Basic Authentication`. |
-| `password`      | `no`     | Password usata per accedere al server del repository `Git`, __obbligatoria__ se il server del repository `Git` supporta `Http Basic Authentication`. |
+| `username`      | `no`     | `username` usato per accedere al server del repository `Git`, __obbligatorio__ quando il server del repository `Git` supporta `Http Basic Authentication`. |
+| `password`      | `no`     | Password usata per accedere al server del repository `Git`, __obbligatoria__ quando il server del repository `Git` supporta `Http Basic Authentication`. |
 
 > [!NOTE]
 > Alcuni server del repository `Git`, come GitHub, supportano le proprietà "personal-token" o "access-token" come password per `HTTP Basic Authentication`. È possibile usare questa tipologia di token come password anche in questo caso e i valori di "personal-token" o "access-token" non scadranno. Tuttavia, per i server di repository Git come BitBucket e Azure DevOps, il token scade entro una o due ore rendendo questa opzione non idonea per l'uso con Azure Spring Cloud.
@@ -106,26 +102,22 @@ Di seguito sono elencate tutte le proprietà configurabili usate per configurare
 Di seguito sono elencate tutte le proprietà configurabili usate per configurare i repository Git con criteri.
 
 > [!NOTE]
-> Per il momento è supportata solo la convenzione di denominazione con parole separate dal trattino ("-"). Ad esempio, è possibile usare `default-label`, ma non `defaultLabel`.
+> L'uso di un trattino ("-") per separare le parole è l'unica convenzione di denominazione attualmente supportata. Ad esempio, usare `default-label` e non `defaultLabel`.
 
 | Proprietà                           | Obbligatoria         | Funzionalità                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
-| `repos`                            | `no`             | Una mappa è costituita dalle impostazioni dei repository `Git` con il nome specificato. |
+| `repos`                            | `no`             | Mappa costituita dalle impostazioni per un repository `Git` con un nome specificato. |
 | `repos."uri"`                      | `yes` in `repos` | L'`uri` del repository `Git` usato come back-end del server di configurazione deve essere avviato con `http://`, `https://`, `git@` o `ssh://`. |
-| `repos."name"`                     | `yes` in `repos` | Nome per identificare un repository `Git`, __obbligatorio__ solo se `repos` esiste. Ad esempio, `team-A`, `team-B`. |
-| `repos."pattern"`                  | `no`             | Matrice di stringhe usata per trovare la corrispondenza con il nome dell'applicazione. Ogni modello accetta il formato `{application}/{profile}` con caratteri jolly. |
+| `repos."name"`                     | `yes` in `repos` | Nome per identificare un repository `Git`, __obbligatorio__ solo se esiste `repos`. Ad esempio, `team-A`, `team-B`. |
+| `repos."pattern"`                  | `no`             | Matrice di stringhe utilizzata per trovare la corrispondenza con il nome di un'applicazione. Per ogni modello, usare il formato `{application}/{profile}` con caratteri jolly. |
 | `repos."default-label"`            | `no`             | L'etichetta predefinita del repository `Git` deve essere costituita da `branch name`, `tag name` o `commit-id` del repository. |
 | `repos."search-paths`"             | `no`             | Matrice di stringhe usata per la ricerca nelle sottodirectory del repository `Git`. |
-| `repos."username"`                 | `no`             | `username` usato per accedere al server del repository `Git`, __obbligatorio__ se il server del repository `Git` supporta `Http Basic Authentication`. |
-| `repos."password"`                 | `no`             | Password usata per accedere al server del repository `Git`, __obbligatoria__ se il server del repository `Git` supporta `Http Basic Authentication`. |
+| `repos."username"`                 | `no`             | `username` usato per accedere al server del repository `Git`, __obbligatorio__ quando il server del repository `Git` supporta `Http Basic Authentication`. |
+| `repos."password"`                 | `no`             | Password usata per accedere al server del repository `Git`, __obbligatoria__ quando il server del repository `Git` supporta `Http Basic Authentication`. |
 | `repos."private-key"`              | `no`             | Chiave privata `Ssh` per accedere al repository `Git`, __obbligatoria__ quando l'`uri` inizia con `git@` o `ssh://`. |
 | `repos."host-key"`                 | `no`             | Chiave host del server del repository Git. Non deve includere il prefisso dell'algoritmo perché incluso in `host-key-algorithm`. |
-| `repos."host-key-algorithm"`       | `no`             | Algoritmo della chiave host. Deve essere uno dei seguenti: `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` e `ecdsa-sha2-nistp521`. __Obbligatorio__ solo se `host-key` esiste. |
-| `repos."strict-host-key-checking"` | `no`             | Indica se l'avvio del server di configurazione non riuscirà quando si utilizza la proprietà `host-key` specificata. Deve essere `true` (valore predefinito) o `false`. |
-
-### <a name="import-applicationyml-file-from-spring-cloud-config"></a>Importare il file `application.yml` da Spring Cloud Config
-
-È possibile importare alcune impostazioni predefinite del server di configurazione direttamente dal sito Web [Spring Cloud Config](https://spring.io/projects/spring-cloud-config). È possibile eseguire questa operazione direttamente dal portale di Azure, quindi non è necessario eseguire alcuna operazione per preparare i file del server di configurazione o il repository.
+| `repos."host-key-algorithm"`       | `no`             | L'algoritmo di chiave host deve essere `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384` o `ecdsa-sha2-nistp521`. __Obbligatorio__ solo se `host-key` esiste. |
+| `repos."strict-host-key-checking"` | `no`             | Indica se l'avvio del server di configurazione non riuscirà quando si utilizza la proprietà `host-key` privata. Deve essere `true` (valore predefinito) o `false`. |
 
 ## <a name="attaching-your-config-server-repository-to-azure-spring-cloud"></a>Collegamento del repository del server di configurazione ad Azure Spring Cloud
 
@@ -137,20 +129,60 @@ Ora che i file di configurazione sono stati salvati in un repository, è necessa
 
 1. Passare alla scheda **Server di configurazione** sotto l'intestazione **Impostazioni** nel menu a sinistra.
 
-### <a name="public-repository"></a>Repository pubblico
+![screenshot della finestra](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
-Se il repository è pubblico, è sufficiente fare clic sul pulsante **Pubblico** e incollare l'URL.
+### <a name="input-repository-information-directly-to-the-azure-portal"></a>Immettere le informazioni sul repository direttamente nel portale di Azure
 
-### <a name="private-repository"></a>Repository privato
+#### <a name="default-repository"></a>Repository predefinito
 
-Azure Spring Cloud supporta l'autenticazione SSH. Seguire le istruzioni visualizzate nel portale di Azure per aggiungere la chiave pubblica al repository. Assicurarsi quindi di includere la chiave privata nel file di configurazione.
+* Repository pubblico: Nella sezione **Repository predefinito** incollare l'URI del repository nella sezione **URI**.  Impostare **Etichetta** su `config`. Assicurarsi che l'impostazione di **Autenticazione** sia **Pubblica**, quindi selezionare **Applica** per terminare. 
 
-Fare clic su **Applica** per completare la configurazione del server di configurazione.
+* Repository privato: Azure Spring Cloud supporta l'autenticazione basata su password/token di base e SSH.
+
+    * Autenticazione di base: Nella sezione **Repository predefinito** incollare l'URI del repository nella sezione **URI**, quindi fare clic su **Autenticazione**. Selezionare **Di base** come **Tipo di autenticazione** e quindi immettere nome utente e password/token per concedere l'accesso ad Azure Spring Cloud. Fare clic su **OK** e su **Applica** per completare la configurazione del server di configurazione.
+
+    ![screenshot della finestra](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    
+    > [!CAUTION]
+    > Alcuni server di repository Git come GitHub usano un `personal-token` o un `access-token` come una password per l'**Autenticazione di base**. È possibile usare questa tipologia di token come password in Azure Spring Cloud, in quanto non scadrà mai. Tuttavia, per altri server di repository Git, ad esempio BitBucket e Azure DevOps, `access-token` scade entro una o due ore. Ciò significa che questa opzione non è praticabile quando si usano server di repository con Azure Spring Cloud.
+
+    * SSH: Nella sezione **Repository predefinito** incollare l'URI del repository nella sezione **URI**, quindi fare clic su **Autenticazione**. Selezionare **SSH** come **Tipo di autenticazione** e immettere la **Chiave privata**. Facoltativamente, è possibile specificare la **Chiave host** e l'**Algoritmo di chiave host**. Assicurarsi di includere la chiave pubblica nel repository del server di configurazione. Fare clic su **OK** e su **Applica** per completare la configurazione del server di configurazione.
+
+    ![screenshot della finestra](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+
+#### <a name="pattern-repository"></a>Repository di modelli
+
+Per usare un **Repository di modelli** facoltativo per configurare il servizio, specificare l'**URI** e l'**Authentication** seguendo la stessa procedura del **Repository predefinito**. Assicurarsi di assegnare un **Nome** al modello e quindi fare clic su **Applica** per collegarlo all'istanza. 
+
+### <a name="enter-repository-information-into-a-yaml-file"></a>Immettere le informazioni sul repository in un file YAML
+
+Se è stato scritto un file YAML con le impostazioni del repository, è possibile importare il file YAML direttamente dal computer locale in Azure Spring Cloud. Un semplice file YAML per un repository privato con autenticazione di base avrà un aspetto simile al seguente:
+
+```yml
+spring:
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
+                    username: <username>
+                    password: <password/token>
+
+```
+
+Fare clic sul pulsante **Importa impostazioni**, quindi selezionare il file `.yml` nella directory del progetto. Fare clic su **Importa**, quindi verrà visualizzata un'operazione `async` dall'area **Notifiche**. Un messaggio di completamento dell'operazione verrà visualizzato entro 1 o 2 minuti.
+
+![screenshot della finestra](media/spring-cloud-tutorial-config-server/local-yml-success.png)
+
+
+Le informazioni del file YAML verranno visualizzate nel portale di Azure. Fare clic su **Applica** per completare l'operazione. 
 
 
 ## <a name="delete-your-app-configuration"></a>Eliminare la configurazione dell'app
 
 Dopo aver salvato un file di configurazione, nella scheda **Configurazione** verrà visualizzato il pulsante **Delete app configuration** (Elimina configurazione app). Questa opzione cancellerà completamente le impostazioni esistenti. È necessario eseguire questa operazione se si desidera connettere il server di configurazione a un'altra origine, ad esempio se si vuole passare da GitHub ad Azure DevOps.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

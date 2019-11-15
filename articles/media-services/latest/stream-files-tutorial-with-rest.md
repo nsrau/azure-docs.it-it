@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750257"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685120"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -258,34 +258,36 @@ Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#j
 
 ### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
-Al termine della codifica del processo, il passaggio successivo consiste nel rendere disponibile ai client il video nell'**asset** di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
+Al termine della codifica del processo, il passaggio successivo consiste nel rendere disponibile ai client il video nell'**asset** di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
 
-Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
+Il processo di creazione di un localizzatore di streaming è denominato pubblicazione. Per impostazione predefinita, il localizzatore di streaming è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
-Quando si crea un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, "Predefined_ClearStreamingOnly".
+Quando si crea uno [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questo esempio si eseguirà lo streaming di contenuti in chiaro, ovvero non crittografati, in modo da usare i criteri predefiniti per lo streaming non crittografato, "Predefined_ClearStreamingOnly".
 
 > [!IMPORTANT]
 > Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. 
 
-L'account di Servizi multimediali prevede una quota per il numero di occorrenze di **criteri di streaming**. Evitare quindi di creare nuovi **criteri di streaming** per ogni **localizzatore di streaming**.
+L'account di Servizi multimediali prevede una quota per il numero di occorrenze di **criteri di streaming**. Evitare quindi di creare nuovi **criteri di streaming** per ogni localizzatore di streaming.
 
-1. Nella finestra sinistra dell'app Postman selezionare "Streaming Policies" (Criteri di streaming).
-2. Selezionare quindi "Create a Streaming Locator" (Crea un localizzatore di streaming).
+1. Nella finestra sinistra dell'app Postman selezionare "Streaming Policies and Locators" (Criteri di streaming e localizzatori).
+2. Selezionare quindi "Create a Streaming Locator (clear)" (Crea un localizzatore di streaming (non crittografato)).
 3. Fare clic su **Invia**.
 
     * Viene inviata l'operazione **PUT** seguente.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * Il corpo dell'operazione è il seguente:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

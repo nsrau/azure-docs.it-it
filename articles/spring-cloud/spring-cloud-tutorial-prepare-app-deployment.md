@@ -1,20 +1,17 @@
 ---
 title: Preparare un'applicazione Spring per la distribuzione in Azure Spring Cloud | Microsoft Docs
 description: In questo argomento di avvio rapido si prepara un'applicazione Java Spring per la distribuzione.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 98d9f3f656cff84cec8d223ed535255157155bd2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038330"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721244"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Esercitazione: Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud
 
@@ -93,27 +90,27 @@ La tabella seguente include le versioni correnti dell'app Spring Boot/Spring Clo
 
 Versione di Spring Boot | Versione di Spring Cloud | Versione di Azure Spring Cloud
 ---|---|---
-2.0.x | Finchley.RELEASE | 2.0.0-SNAPSHOT
-2.1.x | Greenwich.RELEASE | 2.1.0-SNAPSHOT
+2.0.x | Finchley.RELEASE | 2.0.x
+2.1.x | Greenwich.RELEASE | 2.1.x
 
-Includere questo frammento di codice in `pom.xml` con la versione corretta di Azure Spring Cloud nella sezione 'dependency':
+Includere uno dei frammenti di codice seguenti  nel file `pom.xml`.  Selezionare il frammento con la versione corrispondente a quella in uso.
 
+### <a name="version-20x"></a>Versione 2.0.x:
 ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <dependency>
+<dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
-    </dependency>
+        <version>2.0.0</version>
+</dependency>
+```
+
+### <a name="version-21x"></a>Versione 2.1.x:
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.1.0</version>
+</dependency>
 ```
 
 ## <a name="other-required-dependencies"></a>Altre dipendenze obbligatorie

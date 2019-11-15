@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309417"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720182"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
@@ -424,7 +424,19 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 
 ## <a name="post-migration-best-practices"></a>Procedure consigliate dopo la migrazione
 
-- Per una maggiore resilienza:
+- Locale
+    - Spostare il traffico dell'app sull'app in esecuzione nell'istanza della macchina virtuale di Azure migrata.
+    - Rimuovere le macchine virtuali locali dall'inventario delle macchine virtuali locale.
+    - Rimuovere le macchine virtuali locali dai processi di backup locali.
+    - Aggiornare la documentazione interna con la nuova posizione e il nuovo indirizzo IP delle macchine virtuali di Azure.
+- Modificare le impostazioni della macchina virtuale di Azure dopo la migrazione:
+    - L'[agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md) gestisce l'interazione tra le macchine virtuali e il controller di infrastruttura di Azure. È obbligatorio per alcuni servizi di Azure, tra cui Backup di Azure, Site Recovery e Sicurezza di Azure. Quando si esegue la migrazione di macchine virtuali VMare con la migrazione basata su agente, il programma di installazione del servizio di mobilità installa l'agente di macchine virtuali di Azure nelle macchine virtuali Windows. Nelle macchine virtuali Linux è consigliabile installare l'agente dopo la migrazione.
+    - Disinstallare manualmente il servizio di mobilità dalla macchina virtuale di Azure dopo la migrazione.
+    - Disinstallare manualmente gli strumenti VMware dopo la migrazione.
+- In Azure:
+    - Apportare nell'app le eventuali modifiche post-migrazione necessarie, come l'aggiornamento delle stringhe di connessione del database e delle configurazioni dei server Web.
+    - Eseguire i test di accettazione della migrazione e dell'applicazione finale sull'applicazione migrata ora in esecuzione in Azure.
+- Continuità aziendale/Ripristino di emergenza
     - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni](../backup/quick-backup-vm-portal.md)
     - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Per una maggiore sicurezza:
@@ -433,9 +445,11 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
     - Distribuire [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) per garantire la sicurezza dei dischi e proteggere i dati da furti e accessi non autorizzati.
     - Per altre informazioni sulla [protezione delle risorse IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), visitare il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/).
 - Per il monitoraggio e la gestione:
--  È consigliabile distribuire [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management/overview) per monitorare l'utilizzo delle risorse e le spese.
+    - È consigliabile distribuire [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management/overview) per monitorare l'utilizzo delle risorse e le spese.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+
+
+ ## <a name="next-steps"></a>Passaggi successivi
 
 Esaminare il [percorso di migrazione al cloud](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in Azure Cloud Adoption Framework.

@@ -1,6 +1,5 @@
 ---
-title: Spostare macchine virtuali IaaS di Azure in un'altra area di Azure come macchine virtuali aggiunte alla zona usando il servizio Azure Site Recovery | Microsoft Docs
-description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'altra area di Azure come macchine virtuali aggiunte alla zona.
+title: Spostare le macchine virtuali in un'area di Azure con zone di disponibilità tramite Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375732"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693194"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure consentono di proteggere le applicazioni e i dati da eventuali guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati dai guasti del data center. Con le zone di disponibilità, Azure offre un Contratto di servizio con tempo di attività delle macchine virtuali del 99,99%. Le zone di disponibilità sono supportate in aree selezionate, come indicato in [Informazioni sulle zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580266"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Esercitazione: Tenere traccia dell'utilizzo di un lab in Azure Lab Services
 Questa esercitazione spiega in che modo il creatore/proprietario di un lab può tenere traccia dell'utilizzo del lab.
@@ -41,6 +41,8 @@ In questa esercitazione vengono completate le azioni seguenti:
 
     ![Utenti registrati](../media/tutorial-track-usage/registered-users.png)
 
+    Per informazioni dettagliate sull'aggiunta e la gestione degli utenti per il lab, vedere [Aggiungere e gestire gli utenti del lab](how-to-configure-student-usage.md).
+
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Visualizzare l'utilizzo delle macchine virtuali nel lab 
 
 1. Nel menu a sinistra scegliere **Macchine virtuali**. 
@@ -49,12 +51,11 @@ In questa esercitazione vengono completate le azioni seguenti:
     ![Utilizzo delle VM](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Gestire le macchine virtuali degli studenti 
-In questa pagina è possibile avviare, arrestare o reimpostare le VM degli studenti usando l'elenco a discesa nella colonna **Stato** o i pulsanti sulla barra degli strumenti. 
+In questa pagina è possibile avviare, arrestare o reimpostare le macchine virtuali degli studenti usando i controlli nella colonna **Stato** o sulla barra degli strumenti.
 
 ![Controlli della macchina virtuale](../media/tutorial-track-usage/vm-controls.png)
 
-È anche possibile usare i pulsanti della barra degli strumenti per avviare, arrestare o eliminare una macchina virtuale. 
-
+Per informazioni dettagliate sulla gestione del pool di macchine virtuali per il lab, vedere [Configurare e gestire il pool di macchine virtuali](how-to-set-virtual-machine-passwords.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui lab per le classi, vedere gli articoli nella sezione [Guide alle procedure](how-to-manage-lab-accounts.md).

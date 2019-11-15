@@ -140,6 +140,8 @@
                   href: learn/quick-create-workspace-posh.md
             - name: Eliminare e recuperare un'area di lavoro
               href: platform/delete-workspace.md
+            - name: Spostare un'area di lavoro
+              href: platform/move-workspace.md
             - name: Progettare per i provider di servizi
               href: platform/service-providers.md
             - name: Gestire l'accesso

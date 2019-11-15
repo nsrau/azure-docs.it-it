@@ -1,6 +1,7 @@
 ---
-title: Streaming live con Servizi multimediali di Azure v3 | Microsoft Docs
-description: Questa esercitazione illustra i passaggi per lo streaming live con Servizi multimediali v3.
+title: Eseguire lo streaming live con Servizi multimediali v3
+titleSuffix: Azure Media Services
+description: Informazioni su come eseguire lo streaming live con Servizi multimediali di Azure v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,38 +15,38 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: b69bd62cb9bbe44fb37b3f3660c2f20f3965384e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 47d526ea410bc449c91ae4fb10913850c447f1b3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051586"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582639"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali
 
 > [!NOTE]
-> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
+> Anche se l'esercitazione usa esempi di [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
 
-In Servizi multimediali di Azure le entità [Eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità evento live fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità evento live riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming con uno o più [Endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Gli eventi live forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**. 
+In Servizi multimediali di Azure le entità [Eventi live](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità evento live fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al codificatore live. L'entità evento live riceve flussi di input live dal codificatore live e li rende disponibili per lo streaming con uno o più [Endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Gli eventi live forniscono anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. Questa esercitazione illustra come usare .NET Core per creare un evento live di tipo **pass-through**.
 
-L'esercitazione illustra come:    
+L'esercitazione illustra come:
 
 > [!div class="checklist"]
-> * Scaricare l'app di esempio descritta nell'argomento
-> * Esaminare il codice che esegue lo streaming live
-> * Guardare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in https://ampdemo.azureedge.net
-> * Pulire le risorse
+> * Scaricare l'app di esempio descritta nell'argomento.
+> * Esaminare il codice che esegue lo streaming live.
+> * Guardare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) all'indirizzo https://ampdemo.azureedge.net.
+> * Pulire le risorse.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione è necessario quanto segue.
+Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 - Installare Visual Studio Code o Visual Studio.
-- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
+- [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account Servizi multimediali.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](access-api-cli-how-to.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
-- Una fotocamera o un dispositivo (ad esempio un laptop) usato per trasmettere un evento.
+- Una fotocamera o un dispositivo (ad esempio un portatile) usato per trasmettere un evento.
 - Un codificatore live locale in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati al servizio di streaming live Servizi multimediali. Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
 
 > [!TIP]
@@ -61,7 +62,7 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming
 
 L'esempio di streaming live è disponibile nella cartella [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp).
 
-Aprire [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute dall'[accesso alle API](access-api-cli-how-to.md).
+Aprire il file [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) nel progetto scaricato. Sostituire i valori con le credenziali ottenute durante l'[accesso alle API](access-api-cli-how-to.md).
 
 > [!IMPORTANT]
 > Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più eventi live. <br/>Assicurarsi di arrestare gli eventi live in esecuzione. In caso contrario, verranno **fatturati**.
@@ -70,12 +71,12 @@ Aprire [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dot
 
 Questa sezione esamina le funzioni definite nel file [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs) del progetto *MediaV3LiveApp*.
 
-L'esempio crea un suffisso univoco per ogni risorsa in modo che non si verifichino conflitti di nomi se si esegue l'esempio più volte senza ripulire.
+L'esempio crea un suffisso univoco per ogni risorsa in modo che non si verifichino conflitti di nomi se si esegue l'esempio più volte senza effettuare la pulizia.
 
 > [!IMPORTANT]
 > Questo esempio usa un suffisso univoco per ogni risorsa. Se si annulla il debug o si termina l'app senza eseguirla per intero, per l'account risulteranno disponibili più eventi live. <br/>
 > Assicurarsi di arrestare gli eventi live in esecuzione. In caso contrario, verranno **fatturati**.
- 
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
 
 Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per eseguire questa operazione, specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Nel codice clonato all'inizio dell'articolo, la funzione **GetCredentialsAsync** crea l'oggetto ServiceClientCredentials in base alle credenziali fornite nel file di configurazione locale. 
@@ -88,9 +89,9 @@ Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveE
  
 Alcune caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
-* Account di Servizi multimediali 
+* Località di Servizi multimediali.
 * Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
-* Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con 4 numeri, intervallo di indirizzi CIDR.
+* Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: indirizzo IPv4 con 4 numeri o intervallo di indirizzi CIDR.
 * Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
 * Per un URL di inserimento predittivo, impostare la modalità di "reindirizzamento a microsito". Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-events-outputs-concept.md#live-event-ingest-urls).
 
@@ -113,7 +114,7 @@ Usare previewEndpoint per visualizzare in anteprima e verificare che l'input dal
 
 ### <a name="create-and-manage-live-events-and-live-outputs"></a>Creare e gestire eventi live e output live
 
-Dopo l'avvio del flusso nell'evento live, è possibile iniziare l'evento di streaming creando un asset, un output live e un localizzatore di streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming. 
+Dopo l'avvio del flusso nell'evento live, è possibile iniziare l'evento di streaming creando un asset, un output live e un localizzatore di streaming. In questo modo il flusso viene archiviato e reso disponibile agli utenti tramite l'endpoint di streaming.
 
 #### <a name="create-an-asset"></a>Creare un asset
 
@@ -130,7 +131,7 @@ Gli output live iniziano al momento della creazione e terminano quando vengono e
 #### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
 > [!NOTE]
-> Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+> Quando viene creato l'account Servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** nello stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
 Quando l'asset output live è stato pubblicato usando un localizzatore di streaming, l'evento live (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore raggiunto per primo.
 
@@ -154,11 +155,11 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ### <a name="cleaning-up-resources-in-your-media-services-account"></a>Pulizia delle risorse nell'account di Servizi multimediali
 
-Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui in precedenza è stato effettuato il provisioning, attenersi alla procedura seguente.
+Se al termine dello streaming degli eventi si vuole pulire le risorse di cui in precedenza è stato effettuato il provisioning, seguire questa procedura:
 
 * Interrompere il push del flusso dal codificatore.
 * Arrestare l'evento live. Dopo l'arresto, l'evento live non è soggetto ad alcun addebito. Quando occorrerà riavviarlo, avrà lo stesso URL di inserimento, per cui non sarà necessario riconfigurare il codificatore.
-* È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se l'evento live è stato arrestato, non è soggetto ad alcun addebito.
+* È possibile arrestare l'endpoint di streaming, a meno che non si voglia continuare a fornire l'archivio dell'evento live come flusso su richiesta. Se l'evento live si trova nello stato Arrestato, non è soggetto ad alcun addebito.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
@@ -166,9 +167,9 @@ Se al termine dello streaming degli eventi si vuole eliminare le risorse di cui 
 
 ## <a name="watch-the-event"></a>Guardare l'evento
 
-Per guardare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in Creare un localizzatore di streaming e usare un lettore a scelta. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo https://ampdemo.azureedge.net. 
+Per guardare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in Creare un localizzatore di streaming. È possibile usare il lettore multimediale desiderato. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo https://ampdemo.azureedge.net.
 
-Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta. Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento. 
+Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta. Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti potranno riprodurre in streaming il contenuto archiviato sotto forma di video on demand, fintanto che l'asset non viene eliminato. Un asset non può essere eliminato se è usato da un evento. È prima necessario eliminare l'evento.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

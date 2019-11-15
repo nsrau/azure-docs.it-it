@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858874"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569894"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Esercitazione: Creare e testare un modello di funzionalità di dispositivo usando Visual Studio Code
 
@@ -43,14 +43,9 @@ Per usare il modello di funzionalità di dispositivo in questa esercitazione, è
 
 Per compilare il codice C generato in Windows in questa esercitazione, è necessario quanto segue:
 
-* [Visual Studio (Community, Professional o Enterprise):](https://visualstudio.microsoft.com/downloads/) assicurarsi di includere il componente **Gestione pacchetti NuGet** e il carico di lavoro **Sviluppo per desktop con C++** quando si installa Visual Studio.
+* [Visual Studio Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) con **Strumenti di compilazione C++** e carichi di lavoro del **componente Gestione pacchetti NuGet**. In alternativa, se si dispone già di [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 o 2015 con gli stessi carichi di lavoro installati.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* Una copia locale dell'SDK C per Azure IoT:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
 
 Per testare il codice del dispositivo in questa esercitazione, è necessario:
 
@@ -176,7 +171,7 @@ Per creare un file di interfaccia che definisce le funzionalità del dispositivo
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -310,9 +305,11 @@ I file vengono ora archiviati nel repository aziendale.
 
 1. Scegliere **ANSI C** come linguaggio.
 
-1. Scegliere **CMake Project** come destinazione.
-
 1. Scegliere **Via IoT Hub device connection string** (Tramite stringa di connessione del dispositivo hub IoT) come modalità di connessione.
+
+1. Scegliere **progetto CMake in Windows** come modello di progetto.
+
+1. Scegliere la modalità **Via Vcpkg** (Tramite vcpkg) per includere l'SDK per dispositivi.
 
 VS code genera la bozza di codice C e salva i file nella cartella **sensorbox_app** nella cartella **modelcode**. VS Code apre una nuova finestra contenente i file di codice generati.
 
