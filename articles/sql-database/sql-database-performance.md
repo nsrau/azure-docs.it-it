@@ -9,31 +9,30 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c710e2b7c4376fc1725032c86cd02d9a6c8cafac
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821333"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090358"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorare e migliorare le prestazioni
 
 Il database SQL di Azure identifica potenziali problemi in un database e propone azioni che consentono di migliorare le prestazioni del carico di lavoro tramite azioni e raccomandazioni per l'ottimizzazione intelligente.
 
-Per esaminare le prestazioni dei database, usare il riquadro **Prestazioni** nella pagina Informazioni generali oppure passare alla sezione "Supporto e risoluzione dei problemi":
+## <a name="performance-tuning-options"></a>Opzioni di ottimizzazione delle prestazioni
 
-   ![Visualizzare le prestazioni](./media/sql-database-performance/entries.png)
+Opzioni di ottimizzazione delle prestazioni il database SQL di Azure è disponibile nel menu di spostamento del database in "prestazioni intelligenti":
 
-Nella sezione "Supporto e risoluzione dei problemi" è possibile usare le pagine seguenti:
+| Opzione di ottimizzazione delle prestazioni | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
+| :----------------------------- | ----- | ----- |
+| **[Panoramica delle prestazioni](#performance-overview)** : monitorare tutte le attività di prestazioni per il database. | Sì | No | 
+| **[Suggerimenti sulle prestazioni](#performance-recommendations)** : Mostra i consigli sulle prestazioni che consentono di migliorare le prestazioni del carico di lavoro. | Sì | No | 
+| **[Informazioni dettagliate prestazioni query](#query-performance-insight)** : Mostra le prestazioni delle prime query che utilizzano il database. | Sì | No | 
+| **[Ottimizzazione automatica](#automatic-tuning)** : usare il database SQL di Azure per ottimizzare automaticamente le prestazioni del database. | Sì | No | 
 
-
-1. [Informazioni generali sulle prestazioni](#performance-overview) per monitorare le prestazioni del database. 
-2. [Raccomandazioni per le prestazioni](#performance-recommendations) per trovare suggerimenti relativi alle prestazioni che possono migliorare le prestazioni del carico di lavoro.
-3. [Informazioni dettagliate prestazioni query](#query-performance-insight) per trovare le query con il maggior consumo di risorse.
-4. [Ottimizzazione automatica](#automatic-tuning) per consentire al database SQL di Azure di ottimizzare automaticamente il database.
-
-## <a name="performance-overview"></a>Panoramica sulle prestazioni
+## <a name="performance-overview"></a>Panoramica delle prestazioni
 
 Questa vista offre una panoramica delle prestazioni del database e facilita le operazioni di ottimizzazione delle prestazioni e risoluzione dei problemi. 
 
@@ -58,10 +57,6 @@ Questa pagina offre [raccomandazioni per l'ottimizzazione](sql-database-advisor.
 
 Per informazioni su come trovare e applicare le raccomandazioni per le prestazioni, vedere l'articolo [Trovare e applicare raccomandazioni per le prestazioni](sql-database-advisor-portal.md).
 
-## <a name="automatic-tuning"></a>Ottimizzazione automatica
-
-I database SQL di Azure possono ottimizzare automaticamente le prestazioni del database tramite l'applicazione di [consigli per le prestazioni](sql-database-advisor.md). Per altre informazioni, leggere l'[articolo sull'ottimizzazione automatica](sql-database-automatic-tuning.md) . Per abilitare questa funzionalità, leggere l'[articolo su come abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
-
 ## <a name="query-performance-insight"></a>Informazioni dettagliate sulle prestazioni delle query
 
 [Informazioni dettagliate prestazioni query](sql-database-query-performance.md) consente di dedicare meno tempo alla risoluzione dei problemi di prestazioni del database, offrendo i vantaggi seguenti:​
@@ -74,8 +69,11 @@ I database SQL di Azure possono ottimizzare automaticamente le prestazioni del d
 
 Altre informazioni su questa pagina sono disponibili nell'articolo **[Usare Informazioni dettagliate prestazioni query](sql-database-query-performance.md)** .
 
+## <a name="automatic-tuning"></a>Ottimizzazione automatica
+
+I database SQL di Azure possono ottimizzare automaticamente le prestazioni del database tramite l'applicazione di [consigli per le prestazioni](sql-database-advisor.md). Per altre informazioni, leggere l'[articolo sull'ottimizzazione automatica](sql-database-automatic-tuning.md) . Per abilitare questa funzionalità, leggere l'[articolo su come abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Indicazioni sulle prestazioni del database SQL di Azure per i singoli database](sql-database-performance-guidance.md)
 * [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
-

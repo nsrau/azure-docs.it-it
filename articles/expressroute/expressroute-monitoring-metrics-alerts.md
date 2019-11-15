@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio, metriche e avvisi - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: monitoraggio, metriche e avvisi'
 description: Questa pagina fornisce informazioni sul monitoraggio di ExpressRoute
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672117"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083422"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
 
@@ -32,16 +31,16 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 ### <a name="available-metrics"></a>Metriche disponibili
 |**Metrica**|**Categoria**|**Dimensione/i**|**Funzionalità**|
 | --- | --- | --- | --- |
-|Disponibilità ARP|Disponibilità|<ui><li>Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering (privato/pubblico/Microsoft)</ui></li>|ExpressRoute|
-|Disponibilità BGP|Disponibilità|<ui><li> Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering</ui></li>|ExpressRoute|
-|BitsInPerSecond|Traffico|<ui><li> Tipo di peering (ExpressRoute)</ui></li><ui><li>Collegamento (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Traffico| <ui><li>Tipo di peering (ExpressRoute)</ui></li><ui><li> Collegamento (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|Disponibilità ARP|Availability|<ui><li>Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering (privato/pubblico/Microsoft)</ui></li>|ExpressRoute|
+|Disponibilità BGP|Availability|<ui><li> Peer (router ExpressRoute primario/secondario)</ui></li><ui><li> Tipo di peering</ui></li>|ExpressRoute|
+|BitsInPerSecond|Traffico|<ui><li> Tipo di peering (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Traffico| <ui><li>Tipo di peering (ExpressRoute)</ui></li><ui><li> Collegamento (ExpressRoute Direct) | <ui><li><ui> ExpressRoute<li>ExpressRoute Direct</ui></li> |
 |GlobalReachBitsInPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Copertura globale|
 |GlobalReachBitsOutPerSecond|Traffico|<ui><li>Skey del circuito con peering (chiave del servizio)</ui></li>|Copertura globale|
 |AdminState|Connettività fisica|Collegamento|ExpressRoute Direct|
 |LineProtocol|Connettività fisica|Collegamento|ExpressRoute Direct|
-|RxLightLevel|Connettività fisica|<ui><li>Collegamento</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Connettività fisica|<ui><li>Collegamento</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|RxLightLevel|Connettività fisica|<ui><li></ui> di collegamento</li><ui><li></ui> corsia</li>|ExpressRoute Direct|
+|TxLightLevel|Connettività fisica|<ui><li></ui> di collegamento</li><ui><li></ui> corsia</li>|ExpressRoute Direct|
 >[!NOTE]
 >L'uso di *GlobalGlobalReachBitsInPerSecond* e *GlobalGlobalReachBitsOutPerSecond* sarà visibile solo se viene stabilita almeno una connessione copertura globale.
 >
@@ -112,7 +111,7 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 
 1. Per configurare gli avvisi, passare a **Monitoraggio di Azure**, quindi fare clic su **Avvisi**.
 
-   ![avvisi](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Fare clic su **+Seleziona destinazione** e selezionare la risorsa di connessione gateway di ExpressRoute.
 

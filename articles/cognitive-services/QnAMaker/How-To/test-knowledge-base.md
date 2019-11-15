@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 11/14/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 64b4b9a4ad5ceb0b3c33ae022b34daeafda93a62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c139d3a740067e3cecaff90d3171d7b0cb3d52c7
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491216"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091762"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testare la Knowledge base in QnA Maker
 
@@ -29,15 +29,15 @@ Testare la Knowledge Base di QnA Maker è una parte importante di un processo it
 1. Immettere una query nella casella di testo e premere Invio.
 1. Viene fornita la risposta della Knowledge Base con la migliore corrispondenza.
 
-### <a name="clear-test-panel"></a>Cancellare il pannello test
+### <a name="clear-test-panel"></a>Cancellare il pannello Test
 
 Per cancellare tutte le query di test inserite e i relativi risultati dalla console di test, selezionare **Ricomincia** nell'angolo in alto a sinistra del pannello Test.
 
-### <a name="close-test-panel"></a>Chiudere il pannello test
+### <a name="close-test-panel"></a>Chiudere il pannello Test
 
 Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quando il pannello Test è aperto, non è possibile modificare i contenuti della Knowledge Base.
 
-### <a name="inspect-score"></a>Punteggio dell'ispezione
+### <a name="inspect-score"></a>Ispezionare il punteggio
 
 È possibile ispezionare i dettagli dei risultati del test nel pannello Inspect (Ispeziona).
 
@@ -45,7 +45,7 @@ Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quan
 
     ![Ispezionare le risposte](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Verrà visualizzato il pannello Inspection (Ispeziona). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Nel pannello viene mostrato il risultato della frase selezionata.
+2.  Verrà visualizzato il pannello Inspection (Ispeziona). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
 
 ### <a name="correct-the-top-scoring-answer"></a>Correggere la risposta con il punteggio più alto
 
@@ -83,7 +83,7 @@ Utilizzare lo strumento di test batch quando si desidera:
 * determinare la risposta e il Punteggio principali per un set di domande
 * convalidare la risposta prevista per il set di domande
 
-I test batch sono forniti con lo strumento di test batch. Questo strumento è disponibile come [file eseguibile compresso](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip) per il download o come [ C# codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+I test batch sono forniti con lo strumento di test batch. Questo strumento è disponibile come [file eseguibile compresso](https://aka.ms/qnamakerbatchtestingtool) per il download o come [ C# codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
 
 [La documentazione di riferimento sullo strumento](../reference-tsv-format-batch-testing.md) include:
 

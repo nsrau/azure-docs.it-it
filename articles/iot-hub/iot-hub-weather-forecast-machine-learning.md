@@ -1,5 +1,5 @@
 ---
-title: Previsioni meteo usando Azure Machine Learning con i dati dell'hub IoT | Microsoft Docs
+title: Previsioni meteorologiche usando Azure Machine Learning con i dati dell'hub Internet
 description: Usare Azure Machine Learning per stimare la probabilità di pioggia in base ai dati di temperatura e umidità che l'hub IoT riceve da un sensore.
 author: robinsh
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: d7b71a6aa17e8eeae55fd6c8c6e9a5aa9e0ce524
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498878"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079273"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning
 
@@ -56,7 +56,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
    ![Aprire il modello di previsioni meteo in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. Fare clic su **SET UP WEB SERVICE** (Imposta servizio Web) > **Predictive Web Service** (Servizio Web predittivo).
    ![Distribuire il modello di previsioni meteo in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. Nel diagramma trascinare il modulo **Web service input** (Input servizio Web) accanto al modulo **Score Model** (Modello di punteggio).
+1. Nel diagramma, trascinare il modulo **Web service input** (Input servizio Web) accanto al modulo **Score Model** (Modello di punteggio).
 1. Collegare il modulo **Web service input** (Input servizio Web) al modulo **Score Model** (Modello di punteggio).
    ![Collegare due moduli in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. Fare clic su **RUN** (Esegui) per convalidare i passaggi nel modello.
@@ -89,7 +89,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
    ![Creare un processo di analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. Fare clic su **Create**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di analisi di flusso
 
@@ -105,9 +105,9 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
    ![Aggiungere un input al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. Fare clic su **Create**.
+1. Fare clic su **Create**(Crea).
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di analisi di flusso
 
 1. In **Topologia processo** fare clic su **Output**.
 1. Nel riquadro **Output** fare clic su **Aggiungi**, quindi immettere le informazioni seguenti:
@@ -124,7 +124,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
    ![Aggiungere un output al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. Fare clic su **Create**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Aggiungere una funzione al processo di Analisi di flusso per chiamare il servizio Web che è stato distribuito
 
@@ -143,7 +143,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
    ![Aggiungere una funzione al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. Fare clic su **Create**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di analisi di flusso
 
@@ -184,7 +184,7 @@ Eseguire l'applicazione client per avviare la raccolta e l'invio dei dati di tem
 
    ![Ottenere i risultati delle previsioni meteo con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
 Azure Machine Learning è stato usato per stimare la probabilità di pioggia in base ai dati di temperatura e umidità ricevuti dall'hub IoT.
 

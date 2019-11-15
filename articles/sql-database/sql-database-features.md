@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807818"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092140"
 ---
 # <a name="azure-sql-database-features"></a>Funzionalità del database SQL di Azure
 
@@ -42,7 +42,7 @@ Nella tabella seguente sono elencate le principali funzionalità di SQL Server e
 | [Comando BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | No, solo backup automatici avviati dal sistema, vedere [Backup automatici](sql-database-automated-backups.md) | Sì, i backup di sola copia avviati dall'utente nell'archiviazione BLOB di Azure (i backup automatici del sistema non possono essere avviati dall'utente). vedere [differenze di backup](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Funzioni predefinite](https://docs.microsoft.com/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) | 
 | [Istruzione BULK INSERT](https://docs.microsoft.com/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Sì, ma solo dall'archiviazione BLOB di Azure come origine. | Sì, ma solo dall'archiviazione BLOB di Azure come origine, vedere [differenze](sql-database-managed-instance-transact-sql-information.md#bulk-insert--openrowset). |
-| [Certificati e chiavi asimmetriche](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sì, senza accesso a file system per operazioni `BACKUP` e `CREATE`. | Sì, senza l'accesso alla file system per le operazioni di `BACKUP` e `CREATE`, vedere [differenze tra i certificati](sql-database-managed-instance-transact-sql-information.md#certificates). | 
+| [Certificati e chiavi asimmetriche](https://docs.microsoft.com/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sì, senza accesso a file system per operazioni di `BACKUP` e `CREATE`. | Sì, senza l'accesso alla file system per le operazioni di `BACKUP` e `CREATE`, vedere [differenze tra i certificati](sql-database-managed-instance-transact-sql-information.md#certificates). | 
 | [Change Data Capture-CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Sì |
 | [Regole di confronto - server/istanza](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No, le regole di confronto predefinite del server logico `SQL_Latin1_General_CP1_CI_AS` vengono sempre utilizzate. | Sì, può essere impostato al momento della [creazione dell'istanza](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) e non può essere aggiornato in un secondo momento. |
 | [Indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì, livello [Premium, livello Standard-S3 e versioni successive, livello per utilizzo generico, business critical e livelli Iperscalabili](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
@@ -81,12 +81,12 @@ Nella tabella seguente sono elencate le principali funzionalità di SQL Server e
 | [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|No|Sì, solo ad altri database SQL di Azure e SQL Server. Vedere le [differenze di T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|Sì, solo per l'importazione dall'archiviazione BLOB di Azure. |Sì, solo ad altri database SQL di Azure e a SQL Server e per l'importazione dall'archiviazione BLOB di Azure. Vedere le [differenze di T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [Operatori](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Supportati per la maggior parte. Vedere i singoli operatori |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
-| [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando la funzione `OPENROWSET`. | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando la funzione `OPENROWSET`. |
+| [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando `OPENROWSET` funzione. | No. È possibile eseguire query sui dati nei file inseriti nell'archiviazione BLOB di Azure usando `OPENROWSET` funzione. |
 | [Notifiche della query](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Sì |
 | [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sì, in [anteprima pubblica](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
 | [Modelli di recupero](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | È supportato solo il ripristino completo che garantisce la disponibilità elevata. Non sono disponibili modelli di recupero con registrazione minima e con registrazione minima delle operazioni bulk. | È supportato solo il ripristino completo che garantisce la disponibilità elevata. Non sono disponibili modelli di recupero con registrazione minima e con registrazione minima delle operazioni bulk. | 
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No | Sì |
-| [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Sì, con le opzioni obbligatorie `FROM URL` per i file di backup inseriti nell'archiviazione BLOB di Azure. Vedere [differenze di ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
+| [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Sì, con le opzioni di `FROM URL` obbligatorie per i file di backup inseriti nell'archiviazione BLOB di Azure. Vedere [differenze di ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Ripristino del database da backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo da backup automatici, vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md) | Dai backup automatici, vedere [ripristino del database SQL](sql-database-recovery-using-backups.md) e da backup completi posizionati nell'archiviazione BLOB di Azure. vedere [differenze di backup](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Ripristinare il database SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | No. Usare BACPAC o BCP anziché il ripristino nativo. | No, perché SQL Server motore di database usato in Istanza gestita ha una versione superiore rispetto a qualsiasi versione RTM di SQL Server usata in locale. Utilizzare invece BACPAC, BCP o la replica transazionale. |
 | [Ricerca semantica](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | No | No |
@@ -124,7 +124,7 @@ La piattaforma Azure offre una serie di funzionalità PaaS che vengono aggiunte 
 | Conservazione backup | Sì. 7 giorni per impostazione predefinita, massimo 35 giorni. | Sì. 7 giorni per impostazione predefinita, massimo 35 giorni. |
 | [Servizio Migrazione del database](https://docs.microsoft.com/sql/dma/dma-overview) | Sì | Sì |
 | Accesso al file System | No. Usare [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) per accedere ai dati e caricarli dall'archiviazione BLOB di Azure come alternativa. | No. Usare [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) o [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) per accedere ai dati e caricarli dall'archiviazione BLOB di Azure come alternativa. |
-| [Ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | Sì, usando [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
+| [Ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) | Sì-tutti i livelli di servizio diversi dall'iperscalabilità | Sì-tutti i livelli di servizio diversi dall'iperscalabilità |
 | [Architettura con iperscalabilità](sql-database-service-tier-hyperscale.md) | Sì | No |
 | [Conservazione dei backup a lungo termine-LTR](sql-database-long-term-retention.md) | Sì, Mantieni i backup eseguiti automaticamente fino a 10 anni. | Per il momento no. Usare `COPY_ONLY` [backup manuali](sql-database-managed-instance-transact-sql-information.md#backup) come soluzione temporanea. |
 | Sospendi/Riprendi | Sì, nel [modello senza server](sql-database-serverless.md) | No | 
@@ -149,7 +149,7 @@ Il database SQL di Azure supporta diversi strumenti di dati che consentono di ge
 
 | **Strumento** | **Database singoli e pool elastici** | **Istanze gestite e pool di istanze** |
 | --- | --- | --- |
-| Portale di Azure | Sì | Sì |
+| portale di Azure | Sì | Sì |
 | Interfaccia della riga di comando di Azure | Sì | Sì|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Sì | Sì |
 | Azure Powershell | Sì | Sì |

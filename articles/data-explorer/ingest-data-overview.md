@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285924"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091793"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -26,13 +26,13 @@ Il servizio di gestione dei dati Esplora dati di Azure, responsabile dell'inseri
 
 1. **Invio in batch**: invia in batch i flussi di dati allo stesso database e alla stessa tabella per ottimizzare la velocità effettiva di inserimento.
 
-1. **Convalida:** convalida preliminare e conversione del formato, se necessaria.
+1. **Convalida**: convalida preliminare e conversione del formato, se necessario.
 
-1. **Manipolazione dei dati**: corrispondenza dello schema, organizzazione, indicizzazione, codifica e compressione dei dati.
+1. **Manipolazione dei dati**: schema corrispondente, organizzazione, indicizzazione, codifica e compressione dei dati.
 
 1. **Punto di persistenza nel flusso di inserimento**: gestisce il carico dell'inserimento sul motore e i nuovi tentativi in caso di errori temporanei.
 
-1. **Commit dell'inserimento dati**: rende disponibili i dati per le query.
+1. **Commit dell'inserimento dati**: rende i dati disponibili per le query.
 
 ## <a name="ingestion-methods"></a>Metodi di inserimento
 
@@ -88,7 +88,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 **Latenza dei diversi metodi**:
 
-| Metodo | Latency |
+| Metodo | Latenza |
 | --- | --- |
 | **Inserimento inline** | Immediato |
 | **Inserimento da query** | Tempo di query + tempo di elaborazione |
@@ -117,11 +117,9 @@ Per le organizzazioni con un'infrastruttura esistente basata su un servizio di m
 
 ## <a name="supported-data-formats"></a>Formati di dati supportati
 
-Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. Sono supportati i formati di dati seguenti:
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON (separato da righe, multiriga), Avro
-* ZIP e GZIP 
+Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. 
+* I formati di dati supportati sono: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separati da righe, multilinea), avro e parquet. 
+* Supporta la compressione ZIP e GZIP.
 
 > [!NOTE]
 > Quando i dati vengono inseriti, i tipi di dati vengono dedotti in base alle colonne della tabella di destinazione. Se un record è incompleto o un campo non può essere analizzato come tipo di dati necessario, le colonne della tabella corrispondenti verranno popolate con valori Null.

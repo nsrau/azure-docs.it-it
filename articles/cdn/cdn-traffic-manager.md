@@ -1,5 +1,5 @@
 ---
-title: Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure | Microsoft Docs
+title: Failover tra più endpoint della rete CDN di Azure con gestione traffico
 description: Informazioni su come configurare Gestione traffico di Azure con gli endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 276fe9352d0c4ca7ec525b88d65689b56c0ba027
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593338"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083011"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 
@@ -28,12 +28,12 @@ Quando si configura la rete per la distribuzione di contenuti, o rete CDN di Azu
  
 Se si dispone di più profili di rete CDN, è possibile migliorare ulteriormente la disponibilità e le prestazioni con Gestione traffico di Azure. È possibile usare Gestione traffico di Azure con la rete CDN di Azure per bilanciare il carico tra più endpoint della rete CDN per il failover, il bilanciamento del carico geografico e altri scenari. In uno scenario di failover tipico tutte le richieste client vengono indirizzate innanzitutto al profilo della rete CDN primario; se il profilo non è disponibile, le richieste vengono passate al profilo della rete CDN secondario fino a quando il profilo della rete CDN primario torna online. Usando Gestione traffico di Azure in questo modo si garantisce che l'applicazione Web sia sempre disponibile. 
 
-Questo articolo include materiale sussidiario e un esempio di come configurare il failover con i profili **rete CDN Standard di Azure di Verizon** e **rete CDN Standard di Azure di Akamai**.
+Questo articolo include materiale sussidiario e un esempio di come configurare il failover con i profili **rete CDN standard di Azure di Verizon** e **rete CDN standard di Azure di Akamai**.
 
 ## <a name="set-up-azure-cdn"></a>Configurare la rete CDN di Azure 
 Creare due o più profili ed endpoint di rete CDN di Azure con provider diversi.
 
-1. Creare un profilo **rete CDN Standard di Azure di Verizon** e un profilo **rete CDN Standard di Azure di Akamai** seguendo i passaggi descritti in [Creare un nuovo profilo di rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
+1. Creare un profilo **rete CDN standard di Azure di Verizon** e un profilo **rete CDN standard di Azure di Akamai** seguendo i passaggi descritti in [Creare un nuovo profilo di rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
  
    ![Più profili CDN](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
 
@@ -77,12 +77,12 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
     >
 
 
-2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e di input *cdndemo101.dustydogpetcare.online*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
+2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e input *cdndemo101. dustydogpetcare. online*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
 
     La rete CDN di Azure usa il sottodominio *cdnverify* per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
     
     > [!NOTE]
-    > Per abilitare SSL in un' **rete CDN di Azure fornita da Akamai** profili, è necessario direttamente cname di dominio personalizzato all'endpoint. cdnverify per l'abilitazione di SSL non è ancora supportata. 
+    > Per abilitare SSL in una rete **CDN di Azure da profili Akamai** , è necessario eseguire il CNAME direttamente del dominio personalizzato all'endpoint. la cdnverify per l'abilitazione di SSL non è ancora supportata. 
     >
 
 3.  Tornare al sito Web per il provider di dominio del dominio personalizzato e aggiornare il primo mapping DNS creato, in modo che il dominio personalizzato sia mappato al secondo endpoint della rete CDN.
@@ -91,12 +91,12 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato**e di input *cdndemo101.dustydogpetcare.online*.
+4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato**e immettere *cdndemo101. dustydogpetcare. online*.
  
 Dopo aver completato questi passaggi, il servizio con più reti CDN e funzionalità di failover è configurato con Gestione traffico di Azure. Si potrà accedere agli URL di test dal dominio personalizzato. Per testare la funzionalità, disabilitare l'endpoint primario della rete CDN e verificare che la richiesta sia spostata correttamente all'endpoint secondario della rete CDN. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile anche configurare altri metodi di routing, ad esempio il routing geografico, per bilanciare il carico tra endpoint diversi della rete CDN. Per altre informazioni, vedere [Configurare il metodo di routing del traffico Geografico tramite Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+È possibile anche configurare altri metodi di routing, ad esempio il routing geografico, per bilanciare il carico tra diversi endpoint della rete CDN. Per altre informazioni, vedere [Configurare il metodo di routing del traffico Geografico tramite Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

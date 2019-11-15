@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-ms.date: 01/25/2019
-ms.openlocfilehash: 5773ea37585bb5c63736aaa4432243dc1d41f7bc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: e45baba74d7bf752718e5e36a148a91987cd3ffb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811190"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082419"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Come usare il database SQL di Azure
 
@@ -72,7 +72,6 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 - [Connettività](sql-database-libraries.md)
 - [Usare il connettore Spark](sql-database-spark-connector.md)
 - [Autenticare l'app ](sql-database-client-id-keys.md)
-- [Messaggi di errore](sql-database-develop-error-messages.md)
 - [Usare l'invio in batch per ottenere prestazioni migliori](sql-database-use-batching-to-improve-performance.md)
 - [Linee guida per la connettività](sql-database-connectivity-issues.md)
 - [Alias DNS](dns-alias-overview.md)

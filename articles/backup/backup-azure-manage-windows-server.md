@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747436"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091134"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -77,7 +77,7 @@ Il report Avvisi di backup elenca gli avvisi per l'insieme di credenziali.
 
 ![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-### <a name="alerts"></a>Avvisi
+### <a name="alerts"></a>Alerts
 
 L'elenco Avvisi di backup visualizza le informazioni selezionate per gli avvisi filtrati. Nel menu Avvisi di backup è possibile filtrare gli avvisi critici o le avvertenze.
 
@@ -224,7 +224,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Backup
 * Ripristino
 * Disabilitare il backup
-* Elimina dati di backup
+* Eliminare i dati di backup
 
 #### <a name="status"></a>Stato
 
@@ -233,8 +233,8 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Tutti gli stati
 * Completed
 * In corso
-* Operazione non riuscita
-* Cancellati
+* Non riuscito
+* Canceled
 * Completato con avvisi
 
 #### <a name="start-time"></a>Ora di inizio

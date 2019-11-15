@@ -1,5 +1,5 @@
 ---
-title: 'Creare e modificare un circuito ExpressRoute - portale: Azure | Microsoft Docs'
+title: 'ExpressRoute: creare e modificare un circuito: portale di Azure'
 description: Creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
-ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 42fe0a91261453251d56f1c556083e93f5c76bec
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846593"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083557"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 
@@ -38,11 +36,11 @@ Questo articolo include informazioni utili per creare un circuito ExpressRoute d
 
 ## <a name="create"></a>Creare un circuito ExpressRoute ed eseguirne il provisioning
 
-### <a name="1-sign-in-to-the-azure-portal"></a>1. Accedere al portale di Azure
+### <a name="1-sign-in-to-the-azure-portal"></a>1. accedere al portale di Azure
 
 In un browser passare al [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
-### <a name="2-create-a-new-expressroute-circuit"></a>2. Creare un nuovo circuito ExpressRoute
+### <a name="2-create-a-new-expressroute-circuit"></a>2. creare un nuovo circuito ExpressRoute
 
 > [!IMPORTANT]
 > Il circuito ExpressRoute viene addebitato dal momento in cui viene emessa una chiave di servizio. Verificare che l'operazione venga eseguita quando il provider di connettività è pronto a effettuare il provisioning del circuito.
@@ -65,7 +63,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
      > [!IMPORTANT]
      > La località peer indica la [posizione fisica](expressroute-locations.md) di peering con Microsoft. Questo percorso **non** è collegato alla proprietà "Location", ovvero all'area geografica in cui si trova il provider di risorse di rete di Azure. Dal momento che non sono collegati, è consigliabile scegliere un provider di risorse di rete geograficamente vicino alla posizione di peering del circuito.
 
-### <a name="3-view-the-circuits-and-properties"></a>3. Visualizzare circuiti e proprietà
+### <a name="3-view-the-circuits-and-properties"></a>3. visualizzare i circuiti e le proprietà
 
 **Visualizzare tutti i circuiti**
 
@@ -79,34 +77,34 @@ Selezionare il circuito desiderato per visualizzare le relative proprietà. Nell
 
 ![Visualizza proprietà](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
-### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Inviare la chiave di servizio al provider di connettività per il provisioning
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. inviare la chiave di servizio al provider di connettività per il provisioning
 
 In questa pagina, **Stato provider** offre informazioni sullo stato attuale di provisioning sul lato provider del servizio. **Stato circuito** indica lo stato sul lato Microsoft. Per altre informazioni sullo stato di provisioning dei circuiti, vedere l'articolo relativo ai [flussi di lavoro](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando si crea un nuovo circuito ExpressRoute, il circuito ha lo stato seguente:
 
 Stato provider: Senza provisioning<BR>
-Stato circuito: Enabled
+Stato circuito: Abilitato
 
 ![Avvio del processo di provisioning](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 Il circuito passa allo stato seguente quando è in corso l'abilitazione da parte del provider di connettività:
 
-Stato provider: Provisioning<BR>
-Stato circuito: Enabled
+Stato provider: Provisioning in corso<BR>
+Stato circuito: Abilitato
 
 Per poterlo usare, un circuito ExpressRoute deve avere lo stato seguente:
 
-Stato provider: Sottoposto a provisioning<BR>
-Stato circuito: Enabled
+Stato provider: Provisioning eseguito<BR>
+Stato circuito: Abilitato
 
-### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Controllare periodicamente lo stato e la condizione della chiave del circuito
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. controllare periodicamente lo stato e lo stato della chiave del circuito
 
 Selezionare il circuito desiderato per visualizzare le relative proprietà. Prima di continuare, controllare che **Stato provider** sia passato a **Provisioning eseguito**.
 
 ![Stato del circuito e del provider](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
 
-### <a name="6-create-your-routing-configuration"></a>6. Creare la configurazione di routing
+### <a name="6-create-your-routing-configuration"></a>6. creare la configurazione di routing
 
 Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione del routing per un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) per creare e modificare i peering del circuito.
 
@@ -138,7 +136,7 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
   > [!IMPORTANT]
   > La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
 
-* È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
+* È possibile abilitare e disabilitare l'opzione *Allow Classic Operations*(Consenti operazioni classiche).
   > [!IMPORTANT]
   > Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
   >

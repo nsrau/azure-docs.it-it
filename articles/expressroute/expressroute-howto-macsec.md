@@ -1,5 +1,5 @@
 ---
-title: 'Configurare MACsec-ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: configurare MACsec'
 description: Questo articolo consente di configurare MACsec per proteggere le connessioni tra i router perimetrali e i router perimetrali Microsoft.
 services: expressroute
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748283"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083555"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurare MACsec in porte ExpressRoute dirette
 

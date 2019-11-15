@@ -1,5 +1,5 @@
 ---
-title: Connettere reti locali a Microsoft Cloud tramite Copertura globale - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: connettersi a Microsoft Cloud usando Copertura globale'
 description: Questo articolo illustra Copertura globale di ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: e522c7ea306667f675af4bbe7486e25fb7f4ec9f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e01b311d10dcf4216bfeea77ce8919f64ea2ef28
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122794"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080335"
 ---
 # <a name="expressroute-global-reach"></a>Copertura globale di ExpressRoute
 ExpressRoute è uno strumento privato e resiliente per connettere le reti locali a Microsoft Cloud. È possibile accedere a molti servizi cloud Microsoft, ad esempio Azure e Office 365, dal data center privato o dalla rete aziendale. Ad esempio, una delle succursali potrebbe essere a San Francisco con un circuito ExpressRoute nella Silicon Valley e un'altra succursale potrebbe trovarsi a Londra con un circuito ExpressRoute nella stessa città. Entrambi le succursali possono disporre di connettività ad alta velocità alle risorse di Azure negli Stati Uniti occidentali e nel Regno Unito meridionale. Tuttavia, le succursali non possono scambiare dati direttamente tra loro. In altre parole, 10.0.1.0/24 può inviare dati a 10.0.3.0/24 e a 10.0.4.0/24 ma NON a 10.0.2.0/24.
@@ -29,14 +28,14 @@ Copertura globale di ExpressRoute è progettata per integrare l'implementazione 
 
 ![caso d'uso][3]
 
-## <a name="availability"></a>Disponibilità 
+## <a name="availability"></a>Availability 
 Il servizio Copertura globale di ExpressRoute è attualmente supportato nei paesi seguenti.
 
 * Australia
 * Canada
 * Francia
 * Germania
-* RAS di Hong Kong
+* Hong Kong - R.A.S.
 * Irlanda
 * Giappone
 * Corea del Sud
@@ -46,7 +45,7 @@ Il servizio Copertura globale di ExpressRoute è attualmente supportato nei paes
 * Regno Unito
 * Stati Uniti
 
-I circuiti ExpressRoute devono essere creati in [località di peering ExpressRoute](expressroute-locations.md) nei paesi o aree geografiche indicati sopra. Per abilitare Copertura globale di ExpressRoute tra [diverse aree geopolitiche](expressroute-locations.md), i circuiti devono essere SKU Premium.
+I circuiti ExpressRoute devono essere creati in [località di peering ExpressRoute](expressroute-locations.md) nei paesi o regioni indicati sopra. Per abilitare Copertura globale di ExpressRoute tra [diverse aree geopolitiche](expressroute-locations.md), i circuiti devono essere SKU Premium.
 
 ## <a name="next-steps"></a>Passaggi successivi
 1. [Altre informazioni su Copertura globale di ExpressRoute](expressroute-faqs.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Requisiti per il routing - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: requisiti di routing'
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029027"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083317"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -157,7 +156,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** |
 | --- | --- | --- | --- | --- |
 | **America del Nord** | |
-| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| Stati Uniti Orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
@@ -178,13 +177,13 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Asia Pacifico** | |
 | Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Asia sudorientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Giappone** | |
 | Giappone orientale | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australia** | |
 | Australia orientale | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| Australia sud-orientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| Australia sudorientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **Australia Government** | |
 | Australia centrale | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
 | Australia centrale 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
@@ -198,7 +197,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | **Sud Africa**| |
 | Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
 | Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
-| **EMIRATI ARABI UNITI**| |
+| **Emirati Arabi Uniti**| |
 | Emirati Arabi Uniti settentrionali | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
 | Emirati Arabi Uniti centrali | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
@@ -236,12 +235,12 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | **Area di Azure per cloud nazionali**| **Valore della community BGP** |
 | --- | --- |
 | **US Government** |  |
-| US Gov Arizona | 12076:51106 |
+| Governo degli Stati Uniti - Arizona | 12076:51106 |
 | Governo degli Stati Uniti - Iowa | 12076:51109 |
-| US Gov Virginia | 12076:51105 |
-| US Gov Texas | 12076:51108 |
-| US DoD (area centrale) | 12076:51209 |
-| US DoD (area orientale) | 12076:51205 |
+| Governo degli Stati Uniti - Virginia | 12076:51105 |
+| Governo degli Stati Uniti - Texas | 12076:51108 |
+| Dipartimento della difesa Stati Uniti centrali | 12076:51209 |
+| Dipartimento della difesa Stati Uniti orientali | 12076:51205 |
 
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |

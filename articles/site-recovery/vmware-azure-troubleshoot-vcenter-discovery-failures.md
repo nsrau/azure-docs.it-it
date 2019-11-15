@@ -1,20 +1,20 @@
 ---
-title: Risolvere i problemi di failback in locale durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery
-description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
+title: Risolvere gli errori di individuazione di VMware vCenter in Azure Site Recovery
+description: Questo articolo descrive come risolvere gli errori di individuazione di VMware vCenter in Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053861"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091244"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>Risoluzione dei problemi di individuazione di vCenter
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>Risolvere gli errori di individuazione server vCenter
 
 Questo articolo consente di risolvere i problemi che si verificano a causa di errori di individuazione di VMware vCenter.
 
@@ -34,7 +34,7 @@ Per risolvere il problema:
 
 - Identificare la macchina virtuale e impostare il valore su un valore numerico (impostazioni di modifica della macchina virtuale in vCenter).
 
-Oppure
+oppure
 
 - Aggiornare il server di configurazione alla versione 9,20 o successiva.
 

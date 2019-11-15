@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: b6cbca454d1463ffe6e73d7021ea563e7121b7be
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881775"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084631"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 
-> [!IMPORTANT]
-> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
+## <a name="overview"></a>Overview
 
-## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Rilevamento multimediale volti di Azure** consente di contare, monitorare i movimenti e persino di valutare la partecipazione e le reazioni del pubblico in base alle espressioni del volto. Questo servizio contiene due funzionalità: 
 
 * **Rilevamento volti**
@@ -80,7 +78,7 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 ```
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
-| Nome attributo | Description |
+| Nome attributo | DESCRIZIONE |
 | --- | --- |
 | Mode |Fast: velocità di elaborazione elevata, ma meno accurata (impostazione predefinita).|
 
@@ -155,7 +153,7 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
-| Nome attributo | Description |
+| Nome attributo | DESCRIZIONE |
 | --- | --- |
 | Mode |Faces: solo rilevamento viso.<br/>PerFaceEmotion: restituisce un'emozione in modo indipendente per ogni rilevamento viso.<br/>AggregateEmotion: restituzione dei valori medi delle emozioni per tutti i volti nel fotogramma. |
 | AggregateEmotionWindowMs |Va usato se è selezionata la modalità AggregateEmotion. Specifica la lunghezza del video usato per produrre ogni risultato aggregato, in millisecondi. |
@@ -518,10 +516,10 @@ namespace FaceDetection
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

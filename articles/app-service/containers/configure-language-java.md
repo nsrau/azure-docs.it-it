@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886054"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081478"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
@@ -239,9 +239,9 @@ Per prima cosa, seguire le istruzioni per [concedere all'app l'accesso a Key Vau
 
 Per inserire questi segreti nel file di configurazione di Spring o Tomcat, usare la sintassi di inserimento delle variabili di ambiente (`${MY_ENV_VAR}`). Per i file di configurazione della primavera, vedere la documentazione sulle [configurazioni esternalizzate](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-## <a name="using-the-java-key-store"></a>Uso dell'archivio chiavi Java
+### <a name="using-the-java-key-store"></a>Uso dell'archivio chiavi Java
 
-Per impostazione predefinita, tutti i certificati pubblici o privati [caricati nel servizio app Linux](../configure-ssl-certificate.md) verranno caricati nell'archivio chiavi Java quando il contenitore viene avviato. Ciò significa che i certificati caricati saranno disponibili nel contesto di connessione quando si effettuano connessioni TLS in uscita.
+Per impostazione predefinita, tutti i certificati pubblici o privati [caricati nel servizio app Linux](../configure-ssl-certificate.md) verranno caricati nell'archivio chiavi Java quando il contenitore viene avviato. Ciò significa che i certificati caricati saranno disponibili nel contesto di connessione quando si effettuano connessioni TLS in uscita. Dopo aver caricato il certificato, sarà necessario riavviare il servizio app affinché venga caricato nell'archivio chiavi Java.
 
 È possibile interagire o eseguire il debug dello strumento chiave Java [aprendo una connessione SSH](app-service-linux-ssh-support.md) al servizio app ed eseguendo il comando `keytool`. Vedere la [documentazione dello strumento chiave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) per un elenco di comandi. I certificati vengono archiviati nel percorso del file dell'archivio chiavi predefinito di Java, `$JAVA_HOME/jre/lib/security/cacerts`.
 
@@ -251,7 +251,7 @@ Potrebbe essere necessaria una configurazione aggiuntiva per la crittografia del
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 
-### <a name="manually-initialize-and-load-the-key-store"></a>Inizializzare e caricare manualmente l'archivio chiavi
+#### <a name="manually-initialize-and-load-the-key-store"></a>Inizializzare e caricare manualmente l'archivio chiavi
 
 È possibile inizializzare l'archivio chiavi e aggiungere i certificati manualmente. Creare un'impostazione dell'app, `SKIP_JAVA_KEYSTORE_LOAD`con un valore `1` per disabilitare il caricamento automatico dei certificati nell'archivio chiavi da parte del servizio app. Tutti i certificati pubblici caricati nel servizio app tramite il portale di Azure vengono archiviati in `/var/ssl/certs/`. I certificati privati vengono archiviati in `/var/ssl/private/`.
 
@@ -293,7 +293,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 
 Per impostazione predefinita, il servizio app prevede che l'applicazione JAR sia denominata *app. jar*. Se il nome è presente, verrà eseguito automaticamente. Per gli utenti di Maven è possibile impostare il nome del file JAR includendo `<finalName>app</finalName>` nella sezione `<build>` del file *POM. XML*. [È possibile eseguire la stessa operazione in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la proprietà `archiveFileName`.
 
-Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio, `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
+Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio: `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Porta server
 
@@ -303,8 +303,8 @@ Il servizio app Linux instrada le richieste in ingresso alla porta 80, in modo c
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
 - [Micronaut](https://docs.micronaut.io/latest/guide/index.html#runningSpecificPort)
 - [Esegui Framework](https://www.playframework.com/documentation/2.6.x/ConfiguringHttps#Configuring-HTTPS)
-- [VertX](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
-- [Quark](https://quarkus.io/guides/application-configuration-guide)
+- [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
+- [Quarkus](https://quarkus.io/guides/application-configuration-guide)
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -591,7 +591,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

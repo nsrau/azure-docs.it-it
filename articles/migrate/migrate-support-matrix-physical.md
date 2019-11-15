@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715381"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091886"
 ---
-# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione dei server fisici
+# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di server fisici
 
 È possibile usare il [servizio Azure migrate](migrate-overview.md) per valutare ed eseguire la migrazione di computer nel cloud Microsoft Azure. Questo articolo riepiloga le impostazioni e le limitazioni del supporto per la valutazione e la migrazione di server fisici locali.
 
@@ -28,7 +28,7 @@ Nella tabella sono riepilogati gli scenari supportati per i server fisici.
 
 **Distribuzione** | **Dettagli***
 --- | ---
-**Valutazione di server fisici locali** | [Configurare](tutorial-prepare-physical.md) la prima valutazione.
+**Valutazione di server fisici locali** | [Configurare](tutorial-prepare-physical.md) la prima valutazione.<br/><br/> [Eseguire](tutorial-assess-physical.md) una valutazione.
 **Eseguire la migrazione di server fisici ad Azure** | [Provare](tutorial-migrate-physical-virtual-machines.md) a eseguire la migrazione ad Azure.
 
 
@@ -37,7 +37,7 @@ Nella tabella sono riepilogati gli scenari supportati per i server fisici.
 **Supporto** | **Dettagli**
 --- | ---
 **Autorizzazioni di Azure** | Per creare un progetto di Azure Migrate, è necessario disporre delle autorizzazioni Collaboratore o proprietario nella sottoscrizione.
-**Server fisici** | Valutazione di un massimo di 250 server fisici in un singolo progetto. È possibile avere più progetti in una sottoscrizione di Azure. Un progetto può includere server fisici, macchine virtuali VMware e macchine virtuali Hyper-V, fino ai limiti di valutazione.
+**Server fisici** | Valutazione di un massimo di 35.000 server fisici in un singolo progetto. È possibile avere più progetti in una sottoscrizione di Azure. Un progetto può includere server fisici, macchine virtuali VMware e macchine virtuali Hyper-V, fino ai limiti di valutazione.
 **Area geografica** | È possibile creare progetti Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti in aree geografiche specifiche, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
   **Area geografica** | **Posizione di archiviazione dei metadati**
@@ -65,8 +65,8 @@ Nella tabella sono riepilogati gli scenari supportati per i server fisici.
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** Configurare un account utente locale in tutti i server Windows che si desidera includere nell'individuazione. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
-| **Sistema operativo** | Tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) supportati da Azure. |
+| **autorizzazioni**           | **Windows:** Configurare un account utente locale in tutti i server Windows che si desidera includere nell'individuazione. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Sistema operativo** | Sono supportati tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , tranne i seguenti:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>Valutazione-requisiti del dispositivo
@@ -77,7 +77,7 @@ Per la valutazione, Azure Migrate esegue un appliance leggero per individuare i 
 | :-------------------       | :------------------- |
 | **Distribuzione dell'appliance**   |  L'Appliance viene distribuita in un server fisico o in una macchina virtuale.<br/>  Il computer host deve eseguire Windows Server 2012 R2 o versione successiva.<br/> L'host necessita di spazio sufficiente per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
 | **Progetto Azure Migrate**  |  Un appliance può essere associato a un singolo progetto.<br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> È possibile valutare fino a 35.000 computer in un progetto.
-| **Individuazione**              | Una singola appliance può individuare fino a 200 server.
+| **Individuazione**              | Una singola appliance può individuare fino a 250 Server.
 | **Gruppo di valutazione**       | È possibile aggiungere fino a 35.000 computer in un singolo gruppo.
 | **Valutazione**             | È possibile valutare fino a 35.000 computer in un'unica valutazione.
 

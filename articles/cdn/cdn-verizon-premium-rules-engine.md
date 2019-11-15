@@ -1,28 +1,28 @@
 ---
-title: Override del comportamento HTTP con la rete CDN di Azure da Verizon Premium motore regole di Business | Microsoft Docs
-description: Il motore regole consente di personalizzare come richieste HTTP vengono gestite dalla rete CDN di Azure fornita da Verizon Premium, ad esempio la distribuzione di determinati tipi di contenuto, definire un criterio di memorizzazione nella cache e modificare le intestazioni HTTP.
+title: Eseguire l'override del comportamento HTTP con la rete CDN di Azure-motore regole Verizon Premium
+description: Il motore regole consente di personalizzare il modo in cui le richieste HTTP vengono gestite dalla rete CDN di Azure da Verizon Premium, ad esempio bloccando la distribuzione di determinati tipi di contenuto, definendo un criterio di memorizzazione nella cache e modificando le intestazioni HTTP.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593169"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082945"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Override del comportamento HTTP con la rete CDN di Azure da Verizon Premium motore regole di Business
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Eseguire l'override del comportamento HTTP usando il motore delle regole della rete CDN di Azure da Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Il motore regole della rete CDN di Azure consente di personalizzare la modalità di gestione delle richieste HTTP. Ad esempio, è possibile bloccare il recapito di alcuni tipi di contenuto, definire criteri di memorizzazione nella cache o modificare un'intestazione HTTP. Questa esercitazione illustra la creazione di una regola che modifica il comportamento di memorizzazione nella cache degli asset della rete CDN. Per ulteriori informazioni sulla sintassi del motore regole, vedere [Informazioni di riferimento sul motore regole della rete CDN di Azure](cdn-verizon-premium-rules-engine-reference.md).
 
-## <a name="access"></a>Accesso
+## <a name="access"></a>Access
 
 Per accedere al motore regole è necessario prima di tutto selezionare **Gestisci** nella parte superiore della pagina **Profilo rete CDN** per accedere alla pagina di gestione della rete CDN di Azure. In base all'attivazione o meno dell'ottimizzazione basata su Accelerazione sito dinamico per l'endpoint, si accede al motore regole con il set di regole appropriato per il tipo di endpoint:
 
@@ -100,4 +100,4 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
 - [Condizioni di corrispondenza del motore regole](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Espressioni condizionali del motore regole](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funzionalità del motore regole](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Fridays: Nuove potenti funzionalità premium di rete CDN di Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
+- [Video Azure Friday: Azure CDN's powerful new premium features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (Nuove potenti funzionalità Premium della rete CDN di Azure)

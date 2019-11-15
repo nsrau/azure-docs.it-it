@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961575"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091638"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -66,17 +66,13 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
     Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
 
     - download.microsoft.com
-    - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (per GEOS pubblico di Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (per Azure Cina 21Vianet)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (per il governo degli Stati Uniti di Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (per Azure Germania)
+    - Gli URL del servizio di ripristino (nome geografico si riferiscono all'area in cui risiede l'insieme di credenziali del servizio di ripristino) - <https://pod01-rec2.geo-name.backup.windowsazure.com> (per GEOS pubblico di Azure) - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (per Azure Cina 21Vianet) - <https://pod01-rec2.geo-name.backup.windowsazure.us> (per il governo degli Stati Uniti di Azure) - <https://pod01-rec2.geo-name.backup.windowsazure.de> (per Azure Germania)
     - porta in uscita 3260
 
 > [!Note]
 >
-> - Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio ContosoVM_wcus_12345678....<br><br>
-> - L'URL è "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> - Il nome del file script scaricato avrà il **nome geografico** da compilare nell'URL. Per esempio: il nome dello script scaricato inizia con \'VMname\'\_\'geoname\'_\'GUID\', ad esempio ContosoVM_wcus_12345678
+> - L'URL sarà <https://pod01-rec2.wcus.backup.windowsazure.com>"
 
    Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
 
@@ -84,7 +80,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
    È possibile eseguire lo script in qualsiasi computer con lo stesso sistema operativo (o compatibile) della macchina virtuale sottoposta a backup. Vedere la [tabella di sistemi operativi compatibili](backup-azure-restore-files-from-vm.md#system-requirements) per informazioni in proposito. Se la macchina virtuale di Azure protetta usa Spazi di archiviazione Windows (per VM Windows di Azure) o array RAID/LVM (per VM Linux), non è possibile eseguire il file eseguibile o lo script nella stessa macchina virtuale. Eseguire invece il file eseguibile o lo script in qualsiasi altro computer con un sistema operativo compatibile.
 
-### <a name="identifying-volumes"></a>Identificazione dei volumi
+### <a name="identifying-volumes"></a>Identificazione di volumi
 
 #### <a name="for-windows"></a>Per Windows
 
@@ -125,7 +121,7 @@ Spazi di archiviazione Windows è una tecnologia Windows che consente di virtual
 
 Se la VM di Azure protetta usa Spazi di archiviazione Windows, non è possibile eseguire lo script eseguibile nella stessa VM. Eseguire invece lo script eseguibile in qualsiasi altro computer con un sistema operativo compatibile.
 
-### <a name="lvmraid-arrays"></a>LVM/matrici RAID
+### <a name="lvmraid-arrays"></a>Matrici LVM/RAID
 
 In Linux vengono usati la gestione dei volumi logici (LVM) e/o le matrici RAID software per gestire i volumi logici su più dischi. Se la VM Linux protetta usa array RAID e/o LVM, non è possibile eseguire lo script nella stessa VM. Eseguire invece lo script in qualsiasi altro computer con sistema operativo compatibile che supporti il file system della VM protetta.
 
@@ -141,30 +137,30 @@ Per ottenere un elenco dei nomi del gruppo di volumi in un volume fisico:
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 Per ottenere un elenco di tutti i volumi logici, dei nomi e dei relativi percorsi in un gruppo di volumi:
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Per montare i volumi logici nel percorso scelto.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
-#### <a name="for-raid-arrays"></a>Per le matrici RAID
+#### <a name="for-raid-arrays"></a>Per matrici RAID
 
 Il comando seguente visualizza informazioni dettagliate su tutti i dischi RAID.
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  Il disco RAID pertinente viene visualizzato come `/dev/mdm/<RAID array name in the protected VM>`
@@ -173,7 +169,7 @@ Usare il comando mount se il disco RAID dispone di volumi fisici.
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 Se nel disco RAID è configurata un'altra LVM, seguire la procedura precedente per le partizioni LVM usando però il nome del volume invece del nome del disco RAID.

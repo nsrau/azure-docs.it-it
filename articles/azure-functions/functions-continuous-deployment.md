@@ -1,21 +1,19 @@
 ---
-title: Distribuzione continua per Funzioni di Azure | Documentazione Microsoft
+title: Distribuzione continua per Funzioni di Azure
 description: Usare le funzionalità di distribuzione continua del servizio app Azure per pubblicare le funzioni.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/25/2016
+ms.date: 09/25/2019
 ms.author: glenga
-ms.openlocfilehash: fb3cd885c0a16b3dc3a79150043b25cb271040bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dae75153cffbf2f0e836e1a28b78a9f05f54e6e0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097106"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091170"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 
@@ -35,11 +33,14 @@ Per la riuscita della distribuzione continua, la struttura di directory deve ess
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
+>[!NOTE]  
+> La distribuzione continua non è ancora supportata per le app Linux in esecuzione in un piano a consumo. 
+
 ## <a name="credentials"></a>Configurare la distribuzione continua
 
 Per configurare la distribuzione continua per un'app per le funzioni esistente, completare questi passaggi. I passaggi illustrano l'integrazione con un repository GitHub, ma si applicano passaggi simili per Azure Repos o altri repository del codice sorgente.
 
-1. Nell'app per le funzioni nella [portale di Azure](https://portal.azure.com)selezionare **piattaforma funzionalità** > **centro distribuzione**.
+1. Nell'app per le funzioni nella [portale di Azure](https://portal.azure.com)selezionare **funzionalità della piattaforma** > **centro distribuzione**.
 
     ![Apri Centro distribuzione](./media/functions-continuous-deployment/platform-features.png)
 
@@ -55,8 +56,8 @@ Per configurare la distribuzione continua per un'app per le funzioni esistente, 
 
 4. Selezionare uno dei provider di compilazione seguenti:
 
-    * **Servizio di compilazione del servizio app**: Migliore quando non è necessaria una compilazione o se è necessaria una compilazione generica.
-    * **Azure Pipelines (anteprima)** : Migliore quando è necessario un maggiore controllo sulla compilazione. Questo provider è attualmente disponibile in anteprima.
+    * **Servizio di compilazione del servizio app**: migliore quando non è necessaria una compilazione o se è necessaria una compilazione generica.
+    * **Azure Pipelines (anteprima)** : migliore quando è necessario un maggiore controllo sulla compilazione. Questo provider è attualmente disponibile in anteprima.
 
     ![Selezionare un provider di compilazione](./media/functions-continuous-deployment/build.png)
 
@@ -66,7 +67,7 @@ Per configurare la distribuzione continua per un'app per le funzioni esistente, 
 
 6. Esaminare tutti i dettagli e quindi fare clic su **fine** per completare la configurazione della distribuzione.
 
-    ![Riepilogo](./media/functions-continuous-deployment/summary.png)
+    ![summary](./media/functions-continuous-deployment/summary.png)
 
 Al termine del processo, tutto il codice dall'origine specificata viene distribuito nell'app. A questo punto, le modifiche apportate all'origine della distribuzione attivano una distribuzione di tali modifiche nell'app per le funzioni in Azure.
 

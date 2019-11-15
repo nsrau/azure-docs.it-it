@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70673dc7d42a0c7d9b60f3c3f877c1985dac3c98
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 238afdf9e50eaccba51d996ce6e9cfd06ea36899
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097806"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091992"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni Linux usando il [client del kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
@@ -24,7 +24,7 @@ Il modo consigliato per montare una condivisione file di Azure in Linux è l'uso
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | più di 10 |
+| Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
@@ -34,7 +34,7 @@ Se si usa una distribuzione Linux non elencata nella tabella precedente, è poss
 uname -r
 ```
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Verificare che il pacchetto cifs-utils sia installato.**  
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare Gestione pacchetti `dnf`:
+    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare Gestione pacchetti `yum`:
 
     ```bash
     sudo yum install cifs-utils 
@@ -173,7 +173,7 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Usare il comando seguente per aggiungere la riga seguente a `/etc/fstab`** : nell'esempio seguente, le autorizzazioni per file e cartella di Linux locale sono le autorizzazioni predefinite 0755, ovvero la lettura, la scrittura e l'esecuzione del proprietario (in base al proprietario Linux del file/directory), di lettura e eseguire per gli utenti nel gruppo proprietario e leggere ed eseguire per altri utenti nel sistema. È possibile usare le opzioni di montaggio `uid` e `gid` per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia.
+1. **Usare il comando seguente per aggiungere la riga seguente a `/etc/fstab`** : nell'esempio seguente, le autorizzazioni per file e cartella di Linux locale sono le autorizzazioni predefinite 0755, ovvero la lettura, la scrittura e l'esecuzione del proprietario (in base al proprietario Linux del file/directory), la lettura e l'esecuzione per gli utenti nel gruppo proprietario e la lettura e l'esecuzione per altri utenti del sistema. È possibile usare le opzioni di montaggio `uid` e `gid` per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -202,18 +202,18 @@ A partire dal kernel Linux 4,18, il modulo kernel SMB, denominato `cifs` per i m
 | Distribuzione | Può disabilitare SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | No |
-| Ubuntu 18.04 | SÌ |
-| Ubuntu 19.04 + | SÌ |
+| Ubuntu 18.04 | Sì |
+| Ubuntu 19.04 + | Sì |
 | Debian 8-9 | No |
-| Debian 10 + | SÌ |
-| Fedora 29 + | SÌ |
+| Debian 10 + | Sì |
+| Fedora 29 + | Sì |
 | CentOS 7 | No | 
-| CentOS 8 + | SÌ |
+| CentOS 8 + | Sì |
 | Red Hat Enterprise Linux 6. x-7. x | No |
-| Red Hat Enterprise Linux 8 + | SÌ |
+| Red Hat Enterprise Linux 8 + | Sì |
 | openSUSE Leap 15,0 | No |
-| openSUSE Leap 15.1 + | SÌ |
-| Tumbleweed openSUSE | SÌ |
+| openSUSE Leap 15.1 + | Sì |
+| Tumbleweed openSUSE | Sì |
 | SUSE Linux Enterprise 11. x-12. x | No |
 | SUSE Linux Enterprise 15 | No |
 | SUSE Linux Enterprise 15,1 | No |
@@ -273,7 +273,7 @@ sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-## <a name="feedback"></a>Commenti
+## <a name="feedback"></a>Commenti e suggerimenti
 Siamo interessati all'opinione degli utenti Linux.
 
 Il gruppo di utenti di File di Azure per Linux mette a disposizione un forum per condividere commenti e suggerimenti durante la valutazione e l'adozione dell'archiviazione di file su Linux. Per entrare a far parte del gruppo, inviare un messaggio di posta elettronica a [Utenti di File di Azure su Linux](mailto:azurefileslinuxusers@microsoft.com).
@@ -282,5 +282,5 @@ Il gruppo di utenti di File di Azure per Linux mette a disposizione un forum per
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti:
 
 * [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
-* [DOMANDE FREQUENTI](../storage-files-faq.md)
-* [risoluzione dei problemi](storage-troubleshoot-linux-file-connection-problems.md)
+* [Domande frequenti](../storage-files-faq.md)
+* [Risoluzione dei problemi](storage-troubleshoot-linux-file-connection-problems.md)

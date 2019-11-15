@@ -1,29 +1,28 @@
 ---
-title: Domande frequenti su Azure Site Recovery
-description: Questo articolo illustra le domande frequenti su Azure Site Recovery.
-services: site-recovery
+title: Domande generali sul servizio Azure Site Recovery
+description: Questo articolo descrive le domande generali più diffuse su Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 9ab2466a201662cfde4655aedd12f9fd1b21c964
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053721"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078530"
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
-Questo articolo riepiloga le domande frequenti su Azure Site Recovery.</br>
-Per query specifiche su diversi scenari di ASR, vedere Domande frequenti specifiche dello scenario.<br>
+# <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
-- [Ripristino di emergenza di macchine virtuali di Azure in Azure](azure-to-azure-common-questions.md)
-- [Ripristino di emergenza di macchine virtuali VMware in Azure](vmware-azure-common-questions.md)
-- [Ripristino di emergenza di macchine virtuali Hyper-V in Azure](hyper-v-azure-common-questions.md)
+Questo articolo riepiloga le domande frequenti su Azure Site Recovery. Per scenari specifici, vedere questi articoli
+
+- [Domande sul ripristino di emergenza di macchine virtuali di Azure in Azure](azure-to-azure-common-questions.md)
+- [Domande sul ripristino di emergenza di macchine virtuali VMware in Azure](vmware-azure-common-questions.md)
+- [Domande sul ripristino di emergenza di macchine virtuali Hyper-V in Azure](hyper-v-azure-common-questions.md)
  
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>General
 
 ### <a name="what-does-site-recovery-do"></a>Quali sono le funzioni di Site Recovery?
 Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md).
@@ -81,7 +80,7 @@ No, non sono previsti addebiti aggiuntivi per la cache. Quando si esegue la repl
 
 Sì. Per ogni istanza protetta non vengono addebitati costi per Azure Site Recovery per i primi 31 giorni. Se ad esempio si proteggono 10 istanze negli ultimi 6 mesi e si connette un'undicesima istanza a Azure Site Recovery, non sono previsti addebiti per l'undicesima istanza per i primi 31 giorni. Le prime 10 istanze continuano a sostenere Azure Site Recovery addebiti perché sono state protette per più di 31 giorni.
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, vengono addebitati altri costi per Azure?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, sono previsti altri addebiti per Azure?
 
 Sì, anche se Site Recovery è gratuita durante i primi 31 giorni di un'istanza protetta, è possibile che vengano addebitati costi per archiviazione di Azure, transazioni di archiviazione e trasferimento di dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure.
 
@@ -92,7 +91,7 @@ Non sono previsti costi separati per le esercitazioni sul ripristino di emergenz
 
 
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali o sui server fisici.

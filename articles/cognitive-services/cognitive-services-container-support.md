@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: fc4b9469d8634cbb46eccb842c9795a155384eb7
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2b6118930626ce753060addcf64c568c7c086efb
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961898"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091237"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
 
@@ -38,10 +38,12 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 ## <a name="features-and-benefits"></a>Funzionalità e vantaggi
 
+- **Infrastruttura non modificabile**: abilitare i team DevOps per sfruttare un set coerente e affidabile di parametri di sistema noti, pur essendo in grado di adattarsi alle modifiche. I contenitori offrono la flessibilità necessaria per passare all'interno di un ecosistema prevedibile ed evitare deviazioni della configurazione.
 - **Controllo dei dati**: consente ai clienti di scegliere il punto in cui questi servizi cognitivi elaborano i dati. Questo aspetto è fondamentale per i clienti che non possono inviare dati al cloud, ma che richiedono l'accesso alla tecnologia offerta da Servizi cognitivi. È supportata la coerenza in ambienti ibridi, tra i dati e le funzionalità di gestione, identità e sicurezza.
 - **Controllo sugli aggiornamenti dei modelli**: ai clienti viene offerta la flessibilità necessaria per il controllo delle versioni e l'aggiornamento dei modelli distribuiti nelle soluzioni.
 - **Architettura**portabile: consente la creazione di un'architettura di applicazione portabile che può essere distribuita in Azure, in locale e nei dispositivi perimetrali. I contenitori possono essere distribuiti direttamente nel [servizio Azure Kubernetes](../aks/index.yml), in [Istanze di Azure Container](../container-instances/index.yml) o in un cluster [Kubernetes](https://kubernetes.io/) distribuito in [Azure Stack](/azure-stack/operator). Per altre informazioni, vedere [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy) (Distribuire Kubernetes in Azure Stack).
-- **Velocità effettiva elevata/bassa latenza**: offrire ai clienti la possibilità di scalare i requisiti di velocità effettiva elevata e bassa latenza, abilitando i servizi cognitivi a funzionare fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie. 
+- **Velocità effettiva elevata/bassa latenza**: offrire ai clienti la possibilità di scalare i requisiti di velocità effettiva elevata e bassa latenza, abilitando i servizi cognitivi a funzionare fisicamente vicino alla logica e ai dati dell'applicazione. I contenitori non raggiungono il limite di transazioni al secondo e possono offrire scalabilità sia orizzontale che verticale per gestire la domanda, se si forniscono le risorse hardware necessarie.
+- **Scalabilità**: con la popolarità sempre crescente di contenitori e software di orchestrazione dei contenitori, ad esempio Kubernetes; la scalabilità è all'avanguardia dei progressi tecnologici. Basandosi su una base cluster scalabile, lo sviluppo di applicazioni soddisfa la disponibilità elevata.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contenitori in Servizi cognitivi di Azure
 

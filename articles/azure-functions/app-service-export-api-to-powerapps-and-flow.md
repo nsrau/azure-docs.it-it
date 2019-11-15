@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087685"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082856"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Esportazione di un'API ospitata in Azure in PowerApps e Microsoft Flow
 
@@ -30,7 +30,7 @@ Analogamente, gli sviluppatori che vogliono esporre ulteriormente le proprie API
 Prima di esportare un'API, è necessario descrivere l'API usando una definizione OpenAPI (nota in passato come file [Swagger](https://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API. PowerApps e Microsoft Flow possono creare connettori personalizzati per qualsiasi definizione OpenAPI 2.0. Funzioni di Azure e Servizio app di Azure includono supporto predefinito per creazione, hosting e gestione di definizioni OpenAPI. Per altre informazioni, vedere [Ospitare un'API RESTful con CORS in Servizio app di Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
-> È anche possibile creare connettori personalizzati nell'interfaccia utente di PowerApps e Microsoft Flow, senza usare una definizione OpenAPI. Per altre informazioni, vedere [Registrare e usare connettori personalizzati in PowerApps](https://powerapps.microsoft.com/tutorials/register-custom-api/) e [Registrare e usare connettori personalizzati in Microsoft Flow](https://flow.microsoft.com/documentation/register-custom-api/).
+> È anche possibile creare connettori personalizzati nell'interfaccia utente di PowerApps e Microsoft Flow, senza usare una definizione OpenAPI. Per altre informazioni, vedere [Registrare e usare connettori personalizzati in PowerApps](https://powerapps.microsoft.com/tutorials/register-custom-api/) e [Registrare e usare connettori personalizzati in Microsoft Flow](/power-automate/developer/register-custom-api).
 
 Per esportare la definizione dell'API, seguire questi passaggi:
 
@@ -68,7 +68,7 @@ Per completare l'esportazione in modalità **Rapida**, seguire questi passaggi:
 
 2. Usare le impostazioni specificate nella tabella.
 
-    |Impostazione|Descrizione|
+    |Impostazione|DESCRIZIONE|
     |--------|------------|
     |**Environment**|Selezionare l'ambiente in cui deve essere salvato il connettore personalizzato. Per altre informazioni, vedere [Panoramica degli ambienti](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Nome dell'API personalizzata**|Immettere un nome, che gli sviluppatori che usano PowerApps e Microsoft Flow visualizzeranno nel proprio elenco di connettori.|
@@ -113,7 +113,7 @@ Per importare la definizione API in PowerApps e Microsoft Flow, seguire questi p
 
 4. Nella scheda **Generale** esaminare le informazioni derivate dalla definizione OpenAPI.
 
-5. Se nella scheda **Sicurezza** viene chiesto di fornire i dettagli di autenticazione, immettere i valori appropriati per il tipo di autenticazione. Scegliere **Continua**.
+5. Se nella scheda **Sicurezza** viene chiesto di fornire i dettagli di autenticazione, immettere i valori appropriati per il tipo di autenticazione. Fare clic su **Continue**.
 
     ![Scheda Sicurezza](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 
@@ -127,7 +127,7 @@ Per importare la definizione API in PowerApps e Microsoft Flow, seguire questi p
 
 7. Fare clic su **Crea connettore** nella parte superiore della pagina.
 
-È ora possibile connettersi al connettore personalizzato in PowerApps e Microsoft Flow. Per altre informazioni sulla creazione di connettori nei portali di PowerApps e Microsoft Flow, vedere [Registrare il connettore personalizzato (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) e [Registrare il connettore personalizzato (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector).
+È ora possibile connettersi al connettore personalizzato in PowerApps e Microsoft Flow. Per altre informazioni sulla creazione di connettori nei portali di PowerApps e Microsoft Flow, vedere [Registrare il connettore personalizzato (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) e [Registrare il connettore personalizzato (Microsoft Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector).
 
 <a name="auth"></a>
 ## <a name="specify-authentication-type"></a>Specificare il tipo di autenticazione
@@ -158,7 +158,7 @@ Quando si usa Azure AD, sono necessarie due registrazioni per l'applicazione Azu
 
 - Per configurare la registrazione per il connettore, seguire i passaggi riportati in [Aggiunta di un'applicazione Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). La registrazione deve avere accesso delegato all'API e un URL di risposta `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-Per altre informazioni, vedere gli esempi di registrazione in Azure AD per [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) e [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). Questi esempi usano Azure Resource Manager come API. Usare la propria API se si seguono questi passaggi.
+Per altre informazioni, vedere gli esempi di registrazione in Azure AD per [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) e [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). Questi esempi usano Azure Resource Manager come API. Usare la propria API se si seguono questi passaggi.
 
 Sono richiesti i valori di configurazione seguenti:
 - **ID client** - L'ID client della registrazione in Azure AD del connettore

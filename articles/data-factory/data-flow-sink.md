@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519321"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082940"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Trasformazione sink per un flusso di dati
 
@@ -28,7 +28,7 @@ Per eseguire il sink di tutti i campi in ingresso, attivare il **mapping automat
 ## <a name="output"></a>Output 
 Per l'archiviazione BLOB di Azure o i tipi di sink di Data Lake Storage, restituire i dati trasformati in una cartella. Spark genera file di dati di output partizionati in base allo schema di partizionamento usato dalla trasformazione del sink. 
 
-È possibile impostare lo schema di partizionamento dalla scheda **ottimizza** . Se si desidera Data Factory unire l'output in un singolo file, selezionare **partizione singola**.
+È possibile impostare lo schema di partizionamento dalla scheda **ottimizza** . Se si desidera Data Factory unire l'output in un singolo file, selezionare **partizione singola**. Se si desidera gestire o creare cartelle partizionate, utilizzare il **partizionamento** delle chiavi e impostare le chiavi che si desidera utilizzare per le strutture di cartelle partizionate.
 
 ![Opzioni nella scheda Ottimizza](media/data-flow/opt001.png "opzioni sink")
 

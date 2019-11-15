@@ -1,5 +1,5 @@
 ---
-title: Gestire la messaggistica dei dispositivi cloud hub IoT di Azure con Cloud Explorer per Visual Studio | Microsoft Docs
+title: Usare Visual Studio Cloud Explorer per gestire la messaggistica dei dispositivi dell'hub Azure
 description: Informazioni su come usare Cloud Explorer per Visual Studio per monitorare dispositivi per i messaggi al cloud e inviare messaggi al dispositivo nell'hub IoT di Azure cloud.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: b8ea705b55c1485cab2e1478d2d455f1d4a427d3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050249"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079483"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usare Cloud Explorer per Visual Studio per inviare e ricevere messaggi tra il dispositivo e l'hub IoT
 
@@ -36,7 +36,7 @@ In questo articolo vengono eseguite le attività seguenti:
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-Sono necessari i prerequisiti seguenti:
+È necessario soddisfare i prerequisiti seguenti:
 
 - Una sottoscrizione di Azure attiva.
 
@@ -54,7 +54,7 @@ Il componente Cloud Explorer da Programma di installazione di Visual Studio per 
 
 Per accedere all'hub, seguire questa procedura:
 
-1. In Visual Studio selezionare **Visualizza** > **Cloud Explorer** per aprire Cloud Explorer.
+1. In Visual Studio selezionare **visualizza** > **Cloud Explorer** per aprire Cloud Explorer.
 
 1. Selezionare l'icona di gestione account per visualizzare le sottoscrizioni.
 
@@ -66,7 +66,7 @@ Per accedere all'hub, seguire questa procedura:
 
 1. Espandere la sottoscrizione, quindi espandere **Hub**Internet.  In ogni hub è possibile visualizzare i dispositivi per l'hub.
 
-    ![Elenco dispositivi](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
+    ![Elenco dei dispositivi](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorare i messaggi da dispositivo a cloud
 

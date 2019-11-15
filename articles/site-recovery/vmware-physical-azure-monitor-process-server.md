@@ -1,18 +1,18 @@
 ---
 title: Monitorare il server di elaborazione Azure Site Recovery
-description: Questo articolo descrive come monitorare Azure Site Recovery Server di elaborazione.
+description: Questo articolo descrive come monitorare Azure Site Recovery Server di elaborazione usato per il ripristino di emergenza di macchine virtuali VMware/server fisici
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383214"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082234"
 ---
 # <a name="monitor-the-process-server"></a>Monitorare il server di elaborazione
 
@@ -53,7 +53,7 @@ Il server di elaborazione genera un certo numero di avvisi di integrità, riepil
 
 **Tipo di avviso** | **Dettagli**
 --- | ---
-![Integra][green] | Il server di elaborazione è connesso e integro.
+![Healthy][green] | Il server di elaborazione è connesso e integro.
 ![Avviso][yellow] | Utilizzo CPU > 80% per gli ultimi 15 minuti
 ![Avviso][yellow] | Utilizzo memoria > 80% per gli ultimi 15 minuti
 ![Avviso][yellow] | Spazio disponibile cartella cache < 30% per gli ultimi 15 minuti

@@ -10,22 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552970"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091216"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
-In alternativa all'SDK di [riconoscimento vocale](speech-sdk.md), i servizi di riconoscimento vocale consentono di convertire sintesi vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare.
+In alternativa all'SDK per la [sintesi](speech-sdk.md)vocale, servizi vocali consente di convertire il riconoscimento vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare.
 
 Prima di usare l'API REST di sintesi vocale, comprendere quanto segue:
-* Le richieste che usano l'API REST possono contenere solo 10 secondi di audio registrato.
+
+* Le richieste che usano l'API REST e trasmettono direttamente l'audio possono contenere solo fino a 60 secondi di audio.
 * L'API REST per il riconoscimento vocale restituisce solo i risultati finali. I risultati parziali non sono disponibili.
 
-Se l'invio di un audio più lungo è un requisito per l'applicazione, è consigliabile usare [Speech SDK](speech-sdk.md) oppure [ trascrizione batch](batch-transcription.md).
+Se l'invio di audio più lungo è un requisito per l'applicazione, prendere in considerazione l'uso dell' [SDK di riconoscimento vocale](speech-sdk.md) o di un'API REST basata su file, come la [trascrizione batch](batch-transcription.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -33,36 +34,36 @@ Se l'invio di un audio più lungo è un requisito per l'applicazione, è consigl
 
 Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicurarsi di selezionare l'endpoint corrispondente all'area della propria sottoscrizione.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## <a name="query-parameters"></a>Parametri di query
 
 Questi parametri possono essere inclusi nella stringa di query della richiesta REST.
 
-| Parametro | DESCRIZIONE | Obbligatoria / Facoltativa |
+| . | DESCRIZIONE | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | obbligatori |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativo |
-| `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `raw` che include il contenuto volgare nei risultati. L'impostazione predefinita è `masked`. | Facoltativo |
+| `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked`, che sostituisce la volgarità con asterischi, `removed`, che rimuove tutti i messaggi profani dal risultato, o `raw`, che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
 Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
 
-|Intestazione| Descrizione | Obbligatoria / Facoltativa |
+|Intestazione| DESCRIZIONE | Obbligatoria / Facoltativa |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Chiave di sottoscrizione di servizi vocali. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatoria |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | obbligatori |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. I servizi di riconoscimento vocale riconoscono la richiesta iniziale e attendono dati aggiuntivi.| Obbligatorio in caso di invio di dati audio in blocchi. |
-| `Accept` | Se specificato, deve essere `application/json`. I servizi di riconoscimento vocale forniscono i risultati in formato JSON. Alcuni framework per le richieste Web offrono un valore predefinito incompatibile se non se ne specifica uno, pertanto è buona norma includere sempre `Accept`. | Facoltativo, ma consigliato. |
+| `Accept` | Se specificato, deve essere `application/json`. I servizi di riconoscimento vocale forniscono i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept`. | Facoltativo, ma consigliato. |
 
 ## <a name="audio-formats"></a>Formati audio
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
-| Formato | Codec | Bitrate | Frequenza di campionamento |
+| Format | Codec | Bitrate | Frequenza di campionamento |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16 bit | 16 kHz, mono |
 | OGG | OPUS | 16 bit | 16 kHz, mono |
@@ -72,7 +73,7 @@ L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno 
 
 ## <a name="sample-request"></a>Richiesta di esempio
 
-Si tratta di una richiesta HTTP tipica. L'esempio seguente include il nome host e le intestazioni richieste. È importante notare che il servizio prevede anche i dati audio, che non sono inclusi in questo esempio. Come accennato in precedenza, la suddivisione in blocchi è consigliabile, tuttavia, non è necessaria.
+L'esempio seguente include il nome host e le intestazioni richieste. È importante notare che il servizio prevede anche i dati audio, che non sono inclusi in questo esempio. Come accennato in precedenza, la suddivisione in blocchi è consigliabile, tuttavia, non è necessaria.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -92,13 +93,13 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 |------------------|-------------|-----------------|
 | 100 | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
-| 400 | Richiesta non valida | Il codice lingua non è specificato o non è una lingua supportata. Il file audio non è valido. |
-| 401 | Non autorizzato | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
+| 400 | Richiesta non valida | Il codice della lingua non è disponibile, non è un linguaggio supportato, un file audio non valido e così via. |
+| 401 | Non autorizzata | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
 | 403 | Accesso negato | Manca la chiave di sottoscrizione o il token di autorizzazione. |
 
 ## <a name="chunked-transfer"></a>Trasferimento in blocchi
 
-Il trasferimento in blocchi`Transfer-Encoding: chunked`() consente di ridurre la latenza di riconoscimento perché consente ai servizi vocali di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali. Questa opzione è intesa unicamente a migliorare la velocità di risposta.
+Il trasferimento in blocchi (`Transfer-Encoding: chunked`) può contribuire a ridurre la latenza di riconoscimento. Consente ai servizi di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali.
 
 Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un oggetto HTTPWebRequest connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
@@ -143,10 +144,10 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 I risultati vengono forniti in formato JSON. Il formato `simple` include i campi di primo livello seguenti.
 
-| Parametro | Descrizione  |
+| . | DESCRIZIONE  |
 |-----------|--------------|
 |`RecognitionStatus`|Lo stato, ad esempio `Success` per il riconoscimento con esito positivo. Vedere la tabella successiva.|
-|`DisplayText`|Il testo riconosciuto dopo maiuscole/minuscole, punteggiatura, normalizzazione del testo inversa (conversione del testo parlato in forme più brevi, ad esempio 200 per "duecento" o "Dr. Rossi" per "Dottor Rossi") e la maschera per le espressioni volgari. Presente solo con esito positivo.|
+|`DisplayText`|Testo riconosciuto dopo l'utilizzo di maiuscole e minuscole, la punteggiatura, la normalizzazione del testo inverso (conversione del testo vocale in forme più brevi, ad esempio 200 per "200" o "Dr. Smith" per "Doctor Smith") e la maschera volgare. Presente solo con esito positivo.|
 |`Offset`|Il tempo (in unità di 100 nanosecondi) in corrispondenza del quale inizia l'input vocale riconosciuto nel flusso audio.|
 |`Duration`|La durata (in unità di 100 nanosecondi) dell'input vocale riconosciuto nel flusso audio.|
 
@@ -163,11 +164,11 @@ Il campo `RecognitionStatus` può contenere questi valori:
 > [!NOTE]
 > Se l'audio è costituito solo da contenuto volgare e il parametro di query `profanity` è impostato su `remove`, il servizio non restituisce un risultato di riconoscimento vocale.
 
-Il `detailed` formato include gli stessi dati `simple` del formato, insieme a `NBest`, un elenco di interpretazioni alternative dello stesso risultato del riconoscimento. Questi risultati sono classificati in base alla probabilità meno probabile. La prima voce corrisponde al risultato del riconoscimento principale.  Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` per ogni risultato nell'elenco `NBest`.
+Il formato `detailed` include gli stessi dati del formato `simple`, insieme a `NBest`, un elenco di interpretazioni alternative dello stesso risultato del riconoscimento. Questi risultati sono classificati in base alla probabilità meno probabile. La prima voce corrisponde al risultato del riconoscimento principale.  Quando si usa il formato `detailed`, `DisplayText` viene fornito come `Display` per ogni risultato nell'elenco `NBest`.
 
 Ogni oggetto nell'elenco `NBest` include:
 
-| Parametro | Descrizione |
+| . | DESCRIZIONE |
 |-----------|-------------|
 | `Confidence` | Il punteggio di attendibilità della voce da 0.0 (nessuna attendibilità) a 1.0 (attendibilità completa) |
 | `Lexical` | Il formato lessicale del testo riconosciuto: le parole effettive riconosciute. |
@@ -177,7 +178,7 @@ Ogni oggetto nell'elenco `NBest` include:
 
 ## <a name="sample-responses"></a>Risposte di esempio
 
-Di seguito è riportata una tipica risposta per il riconoscimento `simple`.
+Risposta tipica per il riconoscimento `simple`:
 
 ```json
 {
@@ -188,7 +189,7 @@ Di seguito è riportata una tipica risposta per il riconoscimento `simple`.
 }
 ```
 
-Di seguito è riportata una tipica risposta per il riconoscimento `detailed`.
+Risposta tipica per il riconoscimento `detailed`:
 
 ```json
 {
