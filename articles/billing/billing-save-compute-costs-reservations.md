@@ -5,18 +5,18 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499247"
+ms.locfileid: "73580085"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
-Le prenotazioni di Azure consentono di risparmiare aderendo a un impegno di due o tre anni per macchine virtuali, capacità di calcolo di database SQL, unità di elaborazione di Azure Cosmos DB e altre risorse di Azure. L'impegno consente di ottenere uno sconto sulle risorse che si usano. Le prenotazioni possono ridurre notevolmente i costi di macchina virtuale, calcolo dei database SQL, Azure Cosmos DB o altre risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse.
+Le prenotazioni di Azure consentono di risparmiare aderendo a un piano di due o tre anni per macchine virtuali, BLOB del servizio di archiviazione di Azure o Azure Data Lake Storage Gen2, capacità di calcolo di database SQL, velocità effettiva di Azure Cosmos DB o altre risorse di Azure. L'impegno consente di ottenere uno sconto sulle risorse che si usano. Le prenotazioni possono ridurre in modo significativo i costi delle risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse.
 
 Il pagamento per le prenotazioni può essere anticipato o mensile. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente. Il pagamento mensile è disponibile per le prenotazioni di Azure, non per prodotti di terze parti.
 
@@ -24,13 +24,14 @@ Il pagamento per le prenotazioni può essere anticipato o mensile. Il costo tota
 
 ## <a name="why-buy-a-reservation"></a>Perché acquistare una prenotazione?
 
-Se si hanno macchine virtuali, Azure Cosmos DB o database SQL in esecuzione per lunghi periodi di tempo, l'acquisto di una prenotazione rappresenta l'opzione più conveniente. Se ad esempio si eseguono costantemente quattro istanze di un servizio senza una prenotazione, verranno addebitati i costi in base al consumo. Se invece si acquista una prenotazione per tali risorse, si otterrà immediatamente lo sconto applicabile. Per le risorse non verranno più addebitate tariffe in base al consumo.
+Se si dispone di macchine virtuali, dati di archiviazione BLOB, Azure Cosmos DB o database SQL che usano molta capacità o velocità effettiva o sono in esecuzione per lunghi periodi di tempo, l'acquisto di una prenotazione rappresenta l'opzione più conveniente. Se ad esempio si eseguono costantemente quattro istanze di un servizio senza una prenotazione, verranno addebitati i costi in base al consumo. Se invece si acquista una prenotazione per tali risorse, si otterrà immediatamente lo sconto applicabile. Per le risorse non verranno più addebitate tariffe in base al consumo.
 
 ## <a name="charges-covered-by-reservation"></a>Addebiti coperti dalla prenotazione
 
 Piani di servizio:
 
 - **Istanza di macchina virtuale riservata**: una prenotazione copre solo i costi di calcolo della macchina virtuale. e non i costi aggiuntivi relativi a software, rete o archiviazione.
+- **Capacità riservata di Archiviazione di Azure**: una prenotazione copre la capacità di archiviazione per gli account di archiviazione standard per l'archiviazione BLOB o Azure Data Lake Gen2. La prenotazione non copre la velocità della larghezza di banda o delle transazioni.
 - **Capacità riservata di Azure Cosmos DB**: una prenotazione copre le unità di elaborazione di cui è stato effettuato il provisioning per le risorse. Non copre i costi di archiviazione e rete.
 - **vCore riservato del database SQL**: in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza vengono fatturati separatamente.
 - **SQL data warehouse**: una prenotazione copre la capacità di DWU a elevato utilizzo di calcolo. Non copre invece i costi delle risorse di archiviazione o di rete associate all'utilizzo di SQL Data Warehouse.
@@ -134,6 +135,7 @@ Quando si acquista una prenotazione, è possibile applicare lo sconto ad altre i
 Piani di servizio:
 
 - Istanze di macchina virtuale riservate: quando si acquista la prenotazione, se si seleziona **Ottimizzato per: Flessibilità delle dimensioni istanza**, la copertura dello sconto dipende dalle dimensioni delle VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Capacità riservata di Archiviazione di Azure: è possibile acquistare capacità riservata per gli account di Archiviazione di Azure standard in unità di 100 TiB o 1 PiB al mese. La capacità riservata di Archiviazione di Azure è disponibile in tutte le aree per qualsiasi livello di accesso (ad accesso frequente, sporadico o Archivio) e per qualsiasi opzione di replica (archiviazione con ridondanza locale, con ridondanza geografica o con ridondanza della zona).
 - Capacità riservata del database SQL: la copertura degli sconti dipende dal livello di prestazioni selezionato. Per altre informazioni, vedere [Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione](billing-understand-reservation-charges.md).
 - Capacità riservata di Azure Cosmos DB: la copertura degli sconti dipende dalla velocità effettiva di cui viene effettuato il provisioning. Per altre informazioni, vedere [Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB](billing-understand-cosmosdb-reservation-charges.md).
 
