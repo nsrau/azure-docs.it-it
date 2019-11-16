@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 5d8ed625e13d31e148ef1e54d8028fc7d13a6ede
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499643"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125523"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -99,7 +99,7 @@ Usare Node.js per eseguire query sull'[API](https://aka.ms/luis-apim-v3-predicti
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    Risposta JSON formattata per migliorare la leggibilità: 
+    La risposta JSON formattata per migliorare la leggibilità: 
 
     ```JSON
     {
@@ -153,4 +153,4 @@ Al termine di questo argomento di avvio rapido, eliminare il file dal file syste
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere espressioni ed eseguire il training con](../luis-get-started-node-add-utterance.md)
+> [Aggiungere espressioni ed eseguire il training](../get-started-get-model-rest-apis.md)

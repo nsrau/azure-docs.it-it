@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 018a0405215d084962f6c107a607c8f82fae2500
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686678"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132010"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -254,7 +254,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Questo codice chiama le funzioni di ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) e [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) senza usare un'istanza di [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter). Per semplicità, in questa guida di avvio rapido questo codice presuppone che l'account di archiviazione sia stato creato e abilitato. Nel codice in ambiente di produzione usare un'istanza di Aborter per aggiungere la funzionalità di timeout.
+Questo codice chiama le funzioni di ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) e [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) senza usare un'istanza di [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter). Per semplicità, in questa guida di avvio rapido questo codice presuppone che l'account di archiviazione sia stato creato e abilitato. Nel codice in ambiente di produzione usare un'istanza di Aborter per aggiungere la funzionalità di timeout.
 
 ### <a name="list-blobs"></a>Elencare i BLOB
 
@@ -290,7 +290,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Questo codice chiama la funzione [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) in un ciclo per assicurare che vengano recuperati tutti i segmenti. Per ogni segmento, scorre in ciclo l'elenco di elementi BLOB che contiene e aggiorna l'elenco **File**.
+Questo codice chiama la funzione [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) in un ciclo per assicurare che vengano recuperati tutti i segmenti. Per ogni segmento, scorre in ciclo l'elenco di elementi BLOB che contiene e aggiorna l'elenco **File**.
 
 ### <a name="upload-blobs"></a>Caricare i BLOB
 
@@ -318,7 +318,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Questo codice connette il pulsante **Select and upload files** (Seleziona e carica file) all'elemento `file-input` nascosto. In questo modo l'evento `click` del pulsante attiva l'evento `click` dell'input file e visualizza la selezione file. Dopo aver selezionato i file e chiuso la finestra di dialogo, si verifica l'evento `input` e viene chiamata la funzione `uploadFiles`. Questa funzione chiama la funzione specifica del browser [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) per ogni file selezionato. Ogni chiamata restituisce una promessa, che viene aggiunta a un elenco in modo che si possa attendere tutte le promesse in una volta sola, causando il caricamento dei file in parallelo.
+Questo codice connette il pulsante **Select and upload files** (Seleziona e carica file) all'elemento `file-input` nascosto. In questo modo l'evento `click` del pulsante attiva l'evento `click` dell'input file e visualizza la selezione file. Dopo aver selezionato i file e chiuso la finestra di dialogo, si verifica l'evento `input` e viene chiamata la funzione `uploadFiles`. Questa funzione chiama la funzione specifica del browser [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) per ogni file selezionato. Ogni chiamata restituisce una promessa, che viene aggiunta a un elenco in modo che si possa attendere tutte le promesse in una volta sola, causando il caricamento dei file in parallelo.
 
 ### <a name="delete-blobs"></a>Eliminare BLOB
 

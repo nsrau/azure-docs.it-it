@@ -1,18 +1,14 @@
 ---
 title: Visualizzare e gestire clienti e risorse delegate
 description: I provider di servizi che usano la gestione risorse delegate di Azure possono visualizzare tutte le sottoscrizioni e le risorse dei clienti delegate passando a Clienti personali nel portale di Azure.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 10/23/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ed1f2e5044fe5058acc4f8b155b346dd46c51b28
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615527"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131249"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visualizzare e gestire clienti e risorse delegate
 
