@@ -10,12 +10,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato desi
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606097"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122832"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Che cos'è Azure Arc per server?
 
@@ -132,7 +132,7 @@ I dati di log raccolti da [Microsoft Monitoring Agent (MMA)](https://docs.micros
 
 - Nei computer in cui è già installato l'agente Microsoft Monitoring Agent (MMA), la funzionalità **Azure Arc** verrà abilitata tramite Management Pack aggiornati.
 - Per l'integrazione di Azure Arc per server, è necessaria la [versione dell'agente MMA 10.20.18011 o successiva](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version).
-- Quando si eseguono query sui dati di log in [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries), lo schema di dati restituito conterrà il **ResourceId** ibrido nel formato `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
+- Quando si eseguono query sui dati di log in [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), lo schema di dati restituito conterrà il **ResourceId** ibrido nel formato `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
 
 Per altre informazioni, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 

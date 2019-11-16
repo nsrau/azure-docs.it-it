@@ -1,17 +1,14 @@
 ---
 title: 'Esempio: applicare il modello like'
 description: Questa definizione di criteri di esempio richiede che le risorse soddisfino il modello like per le convenzioni di denominazione.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 1bffa76c77fccd1f0ae9e724cf09597a289ca5a6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 34013753c18ad3b84a29b04fead9ea83aeb03d7b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980513"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076300"
 ---
 # <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Esempio - Applicare il modello like per le convenzioni di denominazione
 

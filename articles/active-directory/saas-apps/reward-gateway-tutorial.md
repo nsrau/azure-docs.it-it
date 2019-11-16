@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd12b0c47dc587153df51d4d30eb2abe4cc2657
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092806"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Esercitazione: Integrazione di Azure Active Directory con Reward Gateway
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Reward Gatewa
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Reward Gateway](#configure-reward-gateway-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Reward Gateway](#create-reward-gateway-test-user)** : per avere una controparte di Britta Simon in Reward Gateway collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Reward Gateway, seguire
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>`|
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, configurare l'integrazione nel portale di gestione di Reward. Per informazioni dettagliate, vedere https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, configurare l'integrazione nel portale di gestione di Reward. Per informazioni dettagliate, vedere https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -142,9 +142,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Reward Gateway, seguire
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>Configurare l'accesso Single Sign-On di Reward Gateway
 
-Per configurare l'accesso Single Sign-On in **Reward Gateway**, configurare l'integrazione nel portale di gestione di Reward. Usare i metadati scaricati per ottenere il certificato di firma e caricarlo durante la configurazione. Per informazioni dettagliate, vedere https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
+Per configurare l'accesso Single Sign-On in **Reward Gateway**, configurare l'integrazione nel portale di gestione di Reward. Usare i metadati scaricati per ottenere il certificato di firma e caricarlo durante la configurazione. Per informazioni dettagliate, vedere https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -167,7 +167,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

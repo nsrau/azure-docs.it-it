@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6386ef775f897ca56d2660adf72a885672c8dfd2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562390"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092057"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure
 
@@ -36,7 +36,7 @@ Nella finestra **Phone and Tablet** (Telefono e tablet) della finestra **Create 
 
 Per testare la nuova app, connettere il dispositivo abilitato per lo sviluppo al computer di sviluppo con un cavo USB. Fare clic su **Run (Esegui)** ->**Run 'app' (Esegui 'app')** . Nella finestra **Select Deployment Target** (Selezionare la destinazione della distribuzione) selezionare il dispositivo e fare clic su **OK**. Android Studio installa l'app nel dispositivo connesso e la avvia. Dovrebbe essere visualizzato "Hello World!" nell'app in esecuzione nel dispositivo. Fare clic su **Run (Esegui)** ->**Stop 'app' (Arresta 'app')** .
 
-## <a name="integrating-arcore"></a>Integrazione di _ARCore_
+## <a name="integrating-_arcore_"></a>Integrazione di _ARCore_
 
 <a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_</a> è la piattaforma di Google per lo sviluppo di esperienze di realtà aumentata, che consente al dispositivo di tenere traccia della propria posizione mentre si muove e inizia a riconoscere il mondo reale.
 
@@ -62,12 +62,12 @@ Modificare `Gradle Scripts\build.gradle (Module: app)` per includere la voce seg
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.8.0'
+    implementation 'com.google.ar:core:1.11.0'
     ...
 }
 ```
 
-## <a name="integrating-sceneform"></a>Integrazione di _Sceneform_
+## <a name="integrating-_sceneform_"></a>Integrazione di _Sceneform_
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> semplifica il rendering di scene 3D realistiche nelle app di realtà aumentata, senza la necessità di competenze in OpenGL.
 
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
     ...
 }
 ```
