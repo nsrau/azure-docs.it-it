@@ -1,17 +1,14 @@
 ---
 title: Esempio - Controllare l'impostazione di controllo a livello di SQL Server
 description: Questa definizione di criteri di esempio verifica le impostazioni di controllo del server SQL se tali impostazioni non corrispondono a un'impostazione specifica.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 158efc86c460cfc96f1cd01294bbd653aff1d0f9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 8f4adc711c70e4d4567c7fb037ef660c11124291
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980583"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076335"
 ---
 # <a name="sample---audit-sql-server-level-audit-setting"></a>Esempio - Controllare l'impostazione di controllo a livello di SQL Server
 

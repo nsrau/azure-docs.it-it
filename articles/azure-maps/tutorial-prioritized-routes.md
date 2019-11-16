@@ -1,22 +1,22 @@
 ---
-title: Più itinerari con Mappe di Azure | Microsoft Docs
-description: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
+title: 'Esercitazione: Più itinerari con Mappe di Azure'
+description: 'Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916315"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106712"
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
+# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
 Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio di pianificazione itinerari per trovare gli itinerari più adatti per raggiungere un punto di interesse in base alla modalità di trasporto selezionata. Saranno visualizzati due itinerari diversi sulla mappa, uno per le automobili e uno per gli autocarri che potrebbero essere soggetti a limitazioni a causa di altezza, peso e pericolosità del carico. In questa esercitazione si apprenderà come:
 

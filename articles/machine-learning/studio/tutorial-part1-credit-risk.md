@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione 1: Prevedere il rischio di credito'
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Esercitazione dettagliata che mostra come creare una soluzione di analisi predittiva per la valutazione del rischio di credito nella versione classica di Azure Machine Learning Studio. Questa esercitazione è la prima di una serie in tre parti.  Illustra come creare un'area di lavoro, caricare dati e creare un esperimento.
 keywords: rischio di credito, soluzione di analisi predittiva, valutazione del rischio
 author: sdgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 78092bd4ad4da896cd2fd36768f181764335ee85
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619187"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838858"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Esercitazione 1: Prevedere il rischio di credito - Azure Machine Learning Studio (versione classica)
 

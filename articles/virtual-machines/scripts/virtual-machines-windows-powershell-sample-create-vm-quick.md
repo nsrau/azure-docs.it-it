@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare una VM Windows | Microsoft Docs
+title: Esempio di script di Azure PowerShell - Creare una VM Windows
 description: Esempio di script di Azure PowerShell - Creare una VM Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a4a3b767cfcfd73eab86e51140205cc86fe8e838
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c21c9a78e2f56cc771178043bbf1e6e397370945
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748662"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038941"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Creare una macchina virtuale con PowerShell
 

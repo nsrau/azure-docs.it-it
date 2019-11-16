@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX | Microsoft Docs
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM Linux con NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f1ed8b2d943a377fc868344cffffff931bb6fba1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4e3e24565375f68b4b5bdf1dfb0b16bb280aa417
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709599"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039478"
 ---
 # <a name="create-a-vm-with-nginx"></a>Creare una VM con NGINX
 

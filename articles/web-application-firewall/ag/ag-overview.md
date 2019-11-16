@@ -1,18 +1,19 @@
 ---
-title: Introduzione a Web Application Firewall di Azure nel gateway applicazione di Azure
+title: Introduzione a Web application firewall di Azure
+titleSuffix: Azure Web Application Firewall
 description: Questo articolo offre una panoramica di Web Application Firewall (WAF) nel gateway applicazione
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607294"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067136"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
 

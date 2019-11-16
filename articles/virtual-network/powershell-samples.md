@@ -1,5 +1,5 @@
 ---
-title: Esempi di Azure PowerShell per una rete virtuale | Microsoft Docs
+title: Esempi di Azure PowerShell per una rete virtuale
 description: Esempi di Azure PowerShell per una rete virtuale.
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 418a72eb9a8f98bca24c863b2f953bfe720979e6
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: de752cdacf17193d5be95b2b9f887938ace2d50f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249055"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091878"
 ---
 # <a name="azure-powershell-samples-for-virtual-network"></a>Esempi di Azure PowerShell per una rete virtuale
 

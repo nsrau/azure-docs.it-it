@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499946"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123252"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Esercitazione: Creare un dashboard del provider Power BI
 
@@ -91,7 +91,7 @@ Alla fine di questo passaggio, la finestra di progettazione dell'app per la logi
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Trasmettere dati a Power BI dall'app per la logica
 Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eventi per trasmetterli nei set di dati Power BI creati in precedenza.
 
-1. Prima di poter eseguire questa operazione, sarà necessario conoscere il payload JSON che deve essere inviato dal dispositivo all'hub eventi. A tale scopo, è possibile osservare questo [schema di esempio](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) e modificarlo in modo che corrisponda al proprio schema oppure usare [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) per esaminare i messaggi. Se si usano le applicazioni di monitoraggio pazienti continuo, i messaggi saranno simili ai seguenti:
+1. Prima di poter eseguire questa operazione, sarà necessario conoscere il payload JSON che deve essere inviato dal dispositivo all'hub eventi. A tale scopo, è possibile osservare questo [schema di esempio](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) e modificarlo in modo che corrisponda al proprio schema oppure usare [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) per esaminare i messaggi. Se si usano le applicazioni di monitoraggio pazienti continuo, i messaggi saranno simili ai seguenti:
 
 **Telemetria della patch intelligente per i segni vitali**
 

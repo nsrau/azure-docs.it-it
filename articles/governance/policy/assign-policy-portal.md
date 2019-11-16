@@ -1,17 +1,14 @@
 ---
 title: Creare criteri per controllare le risorse con il portale - Criteri di Azure
 description: Questo articolo illustra i passaggi per creare una definizione dei criteri per identificare le risorse non conformi.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
-ms.service: azure-policy
-ms.openlocfilehash: 6433c5f90b56489e92ec76aab5c9a0d0c6aeb508
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: e517173c74cd3fd37b50d327d32b668422428315
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254834"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960164"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi
 

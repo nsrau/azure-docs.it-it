@@ -1,17 +1,14 @@
 ---
 title: Esempio di progetto ISO 27001 - Procedura per la distribuzione
 description: Procedura di distribuzione per l'esempio di progetto ISO 27001 autonomo, inclusi i dettagli dei parametri dell'artefatto del progetto.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 683caf0f899c9873e0d8ca16f3131ad06ce4446a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8b12b448d4c218549838b95260fd6b1f874b6b83
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162431"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038306"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Distribuire l'esempio di progetto ISO 27001
 

@@ -1,22 +1,22 @@
 ---
-title: Configurare il dispositivo per il servizio Device Provisioning in hub IoT di Azure
-description: Configurare un dispositivo per il provisioning tramite il servizio Device Provisioning in hub IoT durante il processo di produzione del dispositivo
+title: 'Esercitazione: Configurare il dispositivo per il servizio Device Provisioning in hub IoT di Azure'
+description: 'Esercitazione: Configurare un dispositivo per il provisioning tramite il servizio Device Provisioning in hub IoT durante il processo di produzione del dispositivo'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65911691"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112766"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Esercitazione: Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
 
 Nell'esercitazione precedente è stato descritto come configurare il servizio Device Provisioning in hub IoT di Azure per effettuare automaticamente il provisioning dei dispositivi per l'hub IoT. Questa esercitazione mostra come configurare il dispositivo durante il processo produttivo, consentendone il provisioning automatico con lhub IoT. Il provisioning del dispositivo viene effettuato in base al rispettivo [meccanismo di attestazione](concepts-device.md#attestation-mechanism), al primo avvio e alla prima connessione al servizio di provisioning. Questa esercitazione illustra le attività seguenti:
 
@@ -36,7 +36,7 @@ Se non si ha familiarità con il processo di provisioning automatico, vedere [Co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2015](https://visualstudio.microsoft.com/vs/) o versioni successive con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 

@@ -1,5 +1,5 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare un disco gestito da uno snapshot | Microsoft Docs
+title: Esempio di script di Azure PowerShell - Creare un disco gestito da uno snapshot
 description: Esempio di script di Azure PowerShell - Creare un disco gestito da uno snapshot
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 5ccff2a503994a4c1001148c371a007c63b13106
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: da6c9d376c432580d8d0765f5c3288fcdfe0abff
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748749"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037164"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Creare un disco gestito da uno snapshot con PowerShell
 

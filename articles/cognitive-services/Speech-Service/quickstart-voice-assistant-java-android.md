@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506212"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111786"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Creare un assistente vocale in Java in ambiente Android con Speech SDK
 
@@ -30,9 +30,9 @@ L'applicazione è basata sul pacchetto Maven per Speech SDK e su Android Studio 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
-* Un bot creato in precedenza e configurato per l'uso del [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
-* [Android Studio](https://developer.android.com/studio/) 3.3 o versioni successive
+- Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
+- Un bot creato in precedenza e configurato per l'uso del [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+- [Android Studio](https://developer.android.com/studio/) 3.3 o versioni successive
 
     > [!NOTE]
     > Consultare [l'elenco delle aree supportate per gli assistenti vocali ](regions.md#voice-assistants) e assicurarsi che le risorse vengano distribuite in una di queste aree.
@@ -96,9 +96,9 @@ Sostituire quindi il contenuto di `activity_main.xml` con il codice seguente:
 
 Questo codice XML definisce un'interfaccia utente semplice per l'interazione con il bot.
 
-* L'elemento `button` avvia un'interazione e, quando viene selezionato, richiama il metodo `onBotButtonClicked`.
-* Durante l'interazione con il bot, l'elemento `recoText` consentirà di visualizzare i risultati del riconoscimento vocale.
-* L'elemento `activityText` consentirà invece di visualizzare il payload JSON relativo all'ultima attività di Bot Framework eseguita dal bot.
+- L'elemento `button` avvia un'interazione e, quando viene selezionato, richiama il metodo `onBotButtonClicked`.
+- Durante l'interazione con il bot, l'elemento `recoText` consentirà di visualizzare i risultati del riconoscimento vocale.
+- L'elemento `activityText` consentirà invece di visualizzare il payload JSON relativo all'ultima attività di Bot Framework eseguita dal bot.
 
 Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili all'immagine seguente:
 

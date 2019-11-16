@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a8021885bf51ab6d44bc8576b9fdd69f1bdd270a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492717"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953676"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Esercitazione: Ottenere dati esattamente corrispondenti al testo da un'espressione
 
@@ -49,7 +49,7 @@ Un'entità elenco è una scelta appropriata per questo tipo di dati quando:
 
 * I valori dei dati sono un set noto.
 * Il set non supera i [limiti](luis-boundaries.md) massimi di LUIS per questo tipo di entità.
-* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Stemming, plurali e altre varianti non vengono risolti semplicemente con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo. 
+* Il testo nell'espressione è una corrispondenza esatta con un sinonimo o il nome canonico. LUIS non usa l'elenco di là delle corrispondenze esatte del testo. Stemming, plurali e altre varianti non vengono risolti semplicemente con un'entità elenco. Per gestire le variazioni, è consigliabile usare un [criterio](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintassi del testo facoltativo. 
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 

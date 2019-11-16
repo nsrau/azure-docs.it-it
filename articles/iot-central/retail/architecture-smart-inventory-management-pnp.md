@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: d0bf023be9c34f449c40ff74ba9e68ea5e197e2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6450169ae2b2d74006eedc66f35338494257594a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615357"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889078"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Architettura del modello di applicazione per la gestione inventario intelligente di IoT Central
 
@@ -24,8 +24,8 @@ Partner e clienti possono usare il modello di app e le indicazioni riportate di 
 1. Set di sensori IoT che inviano dati di telemetria a un dispositivo gateway
 2. Dispositivi gateway che inviano dati di telemetria e dati analitici aggregati a IoT Central
 3. I dati vengono indirizzati al servizio di Azure desiderato per la manipolazione
-4. I servizi di Azure quali ASA o Funzioni di Azure possono essere usati per riformattare i flussi dei dati e inviarli agli account di archiviazione indicati 
-5. I dati elaborati vengono archiviati in livelli di archiviazione ad accesso frequente per le azioni quasi in tempo reale o nell'archiviazione offline sicura per apportare ulteriori miglioramenti ai dati analitici in base ad analisi ML o batch. 
+4. I servizi di Azure, ad esempio ASA o Funzioni di Azure, possono essere usati per riformattare i flussi dei dati e inviarli ad account di archiviazione specifici 
+5. I dati elaborati vengono archiviati in livelli di archiviazione ad accesso frequente per le azioni quasi in tempo reale o nell'archiviazione offline sicura per apportare altri miglioramenti ai dati analitici in base ad analisi ML o batch. 
 6. App per la logica può essere usato per supportare vari flussi di lavoro aziendali nelle applicazioni aziendali dell'utente finale
 
 ## <a name="details"></a>Dettagli
@@ -54,4 +54,4 @@ La piattaforma IoT Central offre opzioni di estendibilità avanzate tramite l'es
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come distribuire un [modello di gestione dell'inventario intelligente](./tutorial-iot-central-smart-inventory-management-pnp.md)
 * Altre informazioni sui [modelli di IoT Central per la vendita al dettaglio](./overview-iot-central-retail-pnp.md)
-* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../core/overview-iot-central-pnp.md)
+* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../preview/overview-iot-central.md)

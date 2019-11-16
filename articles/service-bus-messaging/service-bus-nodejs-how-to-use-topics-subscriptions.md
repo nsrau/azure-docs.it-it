@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c82edde98242ffe130c2022c428c86de80e3b034
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719199"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111773"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure-sb
-> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto di Node.js"]
+> [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
@@ -150,7 +150,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 > [!NOTE]
 > Per impostazione predefinita, le sottoscrizioni sono persistenti fintanto che esse, o l'argomento a cui sono associate, non vengono eliminati. Se l'applicazione contiene la logica per la creazione di una sottoscrizione, è prima di tutto necessario verificare se la sottoscrizione esiste usando il metodo `getSubscription`.
 >
-> È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> È possibile eliminare automaticamente le sottoscrizioni impostando la [proprietà AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creare una sottoscrizione con il filtro (MatchAll) predefinito
 **MatchAll** è il filtro predefinito usato quando viene creata una sottoscrizione. Quando si usa il filtro **MatchAll**, tutti i messaggi pubblicati nell'argomento vengono inseriti nella coda virtuale della sottoscrizione. Nell'esempio seguente viene creata una sottoscrizione denominata "AllMessages" e viene usato il filtro predefinito **MatchAll**.
@@ -314,7 +314,7 @@ Al messaggio bloccato nell'argomento è anche associato un timeout. Se l'applica
 In caso di arresto anomalo dell'applicazione dopo l'elaborazione del messaggio ma prima della chiamata del metodo `deleteMessage`, il messaggio viene nuovamente recapitato all'applicazione al riavvio. Questo comportamento viene spesso definito di tipo *At-Least-Once*, per indicare che ogni messaggio verrà elaborato almeno una volta, ma che in determinate situazioni potrà essere recapitato una seconda volta. Se lo scenario non tollera la doppia elaborazione, aggiungere logica all'applicazione per gestire il secondo recapito del messaggio. È possibile usare la proprietà **MessageId** del messaggio, che rimane costante in tutti i tentativi di recapito.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminare argomenti e sottoscrizioni
-Gli argomenti e le sottoscrizioni sono persistenti a meno che la [proprietà autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) sia impostata, e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice.
+Gli argomenti e le sottoscrizioni sono persistenti a meno che la [proprietà autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) sia impostata, e devono essere eliminati in modo esplicito nel [portale di Azure][Azure portal] oppure a livello di codice.
 L'esempio seguente illustra come eliminare l'argomento denominato `MyTopic`:
 
 ```javascript
