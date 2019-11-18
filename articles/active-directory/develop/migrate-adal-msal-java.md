@@ -1,5 +1,6 @@
 ---
-title: Guida alla migrazione da ADAL a MSAL per Java-piattaforma di identità Microsoft | Azure
+title: Guida alla migrazione da ADAL a MSAL per Java | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come eseguire la migrazione dell'app java ADAL (Azure Active Directory Authentication Library) a Microsoft Authentication Library (MSAL).
 services: active-directory
 author: sangonzal
@@ -16,12 +17,12 @@ ms.author: sagonzal
 ms.reviewer: navyari.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bddf787ce2c654da99b16387ae347f51600c8dd
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 158cbe4f2598722abe3b2ed3a0dd179a21dc1e1c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905524"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145267"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guida alla migrazione da ADAL a MSAL per Java
 
@@ -67,7 +68,7 @@ La tabella seguente illustra il mapping delle funzioni ADAL4J alle nuove funzion
 
 ADAL4J utenti modificati. Anche se un utente rappresenta un singolo agente software o umano, può avere uno o più account nel sistema di identità Microsoft. Ad esempio, un utente può disporre di più account Azure AD, Azure AD B2C o personali Microsoft.
 
-MSAL4J definisce il concetto di account tramite l'interfaccia `IAccount`. Si tratta di una modifica sostanziale da ADAL4J, ma è una scelta efficace perché acquisisce il fatto che lo stesso utente può disporre di più account e forse anche in directory Azure AD diverse. MSAL4J fornisce informazioni migliori negli scenari Guest perché vengono fornite informazioni sull'account Home.
+MSAL4J definisce il concetto di account tramite l'interfaccia `IAccount`. Si tratta di una modifica sostanziale rispetto a ADAL4J, ma è una scelta efficace, perché acquisisce il fatto che lo stesso utente può avere più account e forse anche in directory Azure AD diverse. MSAL4J fornisce informazioni migliori negli scenari Guest perché vengono fornite informazioni sull'account Home.
 
 ## <a name="cache-persistence"></a>Persistenza della cache
 

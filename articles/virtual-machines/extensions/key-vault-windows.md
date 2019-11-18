@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 4a2323212d2112e17dc613040434d54516aad9d3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 03351e964fc7247f87d0b823fae06fc03ff18de7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073708"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152110"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -40,7 +40,7 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-            "publisher": "Microsoft.Azure.KeyVault.Edp",
+            "publisher": "Microsoft.Azure.KeyVault",
             "type": "KeyVaultForWindows",
             "typeHandlerVersion": "1.0",
             "autoUpgradeMinorVersion": true,
@@ -68,7 +68,7 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 | Nome | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault.Edp | stringa |
+| publisher | Microsoft.Azure.KeyVault| stringa |
 | type | KeyVaultForWindows | stringa |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | stringa |
@@ -95,7 +95,7 @@ La configurazione JSON per un'estensione della macchina virtuale deve essere ann
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-            "publisher": "Microsoft.Azure.KeyVault.Edp",
+            "publisher": "Microsoft.Azure.KeyVault",
             "type": "KeyVaultForWindows",
             "typeHandlerVersion": "1.0",
             "autoUpgradeMinorVersion": true,
@@ -125,7 +125,7 @@ La configurazione JSON per un'estensione della macchina virtuale deve essere ann
             '", "certificateStoreLocation": "' + <certStoreLoc> + 
             '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName =  "KeyVaultForWindows"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
        
     
@@ -145,7 +145,7 @@ La configurazione JSON per un'estensione della macchina virtuale deve essere ann
             '", "certificateStoreLocation": "' + <certStoreLoc> + 
             '", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName = "KeyVaultForWindows"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
         
         # Add Extension to VMSS

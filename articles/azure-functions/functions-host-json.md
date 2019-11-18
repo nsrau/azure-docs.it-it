@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575884"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129059"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
@@ -48,6 +48,10 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
         "queues": {},
         "sendGrid": {},
         "serviceBus": {}
+    },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -111,7 +115,7 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 > [!NOTE]
 > Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights.
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|20|La soglia oltre la quale viene avviato il campionamento.| 
@@ -135,6 +139,12 @@ Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di 
 
 Proprietà che restituisce un oggetto che contiene tutte le impostazioni di associazione specifiche, ad esempio [http](#http) e [eventHub](#eventhub).
 
+## <a name="extensionbundle"></a>extensionBundle 
+
+I bundle di estensione consentono di aggiungere un set compatibile di estensioni di associazione di funzioni all'app per le funzioni. Per altre informazioni, vedere [bundle di estensione per lo sviluppo locale](functions-bindings-register.md#extension-bundles).
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
+
 ## <a name="functions"></a>functions
 
 Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l’esecuzione di tutte le funzioni. Deve essere utilizzato solo in caso di [esecuzione in locale](functions-run-local.md). In app per le funzioni in Azure è necessario invece seguire i passaggi descritti in [Come disabilitare le funzioni in Funzioni di Azure](disable-function.md) per disabilitare le funzioni specifiche invece di usare questa impostazione.
@@ -148,7 +158,7 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
-In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito è 30 minuti. Il valore `-1` indica l'esecuzione non vincolata.
+In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito è 30 minuti. Il valore `-1` indica un'esecuzione non vincolata.
 
 ```json
 {
@@ -172,9 +182,9 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------| 
-|Enabled|true|Indica se la funzionalità è abilitata. | 
+|enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
 |healthCheckWindow|2 minuti|Finestra temporale scorrevole usata in combinazione con l'impostazione `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Numero massimo di volte in cui il controllo dell'integrità può non riuscire prima che venga avviato un riciclo host.| 
@@ -204,7 +214,7 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 }
 ```
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
 |logLevel|N/D|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
@@ -227,7 +237,7 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 }
 ```
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
@@ -271,7 +281,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 

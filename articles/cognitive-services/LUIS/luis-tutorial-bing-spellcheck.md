@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 9c8babac8450bdfd170d3d18b338ba3d64383a67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 238b76040559148c48aa67b99e856a5987b71a7e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499038"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123165"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
 
 È possibile integrare l'app LUIS con l’[API Controllo ortografico Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) per correggere l'ortografia nelle espressioni prima che LUIS preveda il punteggio e le entità dell’espressione. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
@@ -32,7 +30,8 @@ La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/
 
 ![Creare una chiave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-<a name"create-subscription-key"></a>
+<a name="create-subscription-key"></a>
+
 ## <a name="create-endpoint-key"></a>Creare una chiave endpoint
 Se la chiave gratuita è scaduta, creare una chiave endpoint.
 

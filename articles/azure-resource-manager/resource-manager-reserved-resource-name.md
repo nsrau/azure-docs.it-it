@@ -1,24 +1,14 @@
 ---
-title: Errori relativi al nome della risorsa riservata di Azure | Microsoft Docs
+title: Errori relativi al nome della risorsa riservata
 description: Descrive come risolvere gli errori quando si fornisce un nome di risorsa che include una parola riservata.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 922389b7c6c1bb7ad1d9b8f6ec35ccc1c5656723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683944"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150458"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>Risolvere gli errori relativi ai nomi riservati delle risorse
 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 853b9bdb771fb08185670e13ec85a45028f9a145
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681839"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150137"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
 
@@ -29,7 +29,7 @@ Nel contesto del Registro Azure Container è possibile creare un'entità servizi
 
 Usando un'entità servizio Azure AD, è possibile fornire un accesso limitato al registro di sistema del contenitore privato. Creare entità servizio diverse per ogni applicazione o servizio, ciascuna con diritti di accesso personalizzati al registro di sistema. Poiché è possibile evitare di condividere le credenziali tra servizi e applicazioni, è possibile ruotare le credenziali o revocare l'accesso solamente all'entità servizio (e quindi all'applicazione) scelta.
 
-Ad esempio, configurare l'applicazione Web per l'uso di un'entità servizio che fornisce l'accesso con immagine `pull`, mentre il sistema di compilazione usa un'entità servizio che fornisce l'accesso sia `push` che `pull`. Se lo sviluppo dell'applicazione cambia mano, è possibile ruotare le credenziali dell'entità servizio senza influire sul sistema di compilazione.
+Ad esempio, configurare l'applicazione Web in modo che utilizzi un'entità servizio che la fornisca solo l'accesso con immagine `pull`, mentre il sistema di compilazione usa un'entità servizio che fornisce l'accesso sia `push` che `pull`. Se lo sviluppo dell'applicazione cambia mano, è possibile ruotare le credenziali dell'entità servizio senza influire sul sistema di compilazione.
 
 ## <a name="when-to-use-a-service-principal"></a>Quando usare un'entità servizio
 
@@ -57,7 +57,7 @@ Quando si dispone di un'entità servizio a cui è stato concesso l'accesso al re
 * **Nome utente** : ID dell'applicazione dell'entità servizio (noto anche come *ID client*)
 * **Password** : password dell'entità servizio (detta anche *segreto client*)
 
-Ogni valore è un GUID nel formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Ogni valore è un GUID del form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
 > È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
@@ -71,7 +71,7 @@ Ad esempio, usare le credenziali per eseguire il pull di un'immagine da un regis
 
 ### <a name="use-with-docker-login"></a>Usare con l'account di accesso di Docker
 
-È possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente l'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID` e la password nella variabile `$SP_PASSWD`. Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+È possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente l'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID`e la password nella variabile `$SP_PASSWD`. Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -113,4 +113,4 @@ L'interfaccia della riga di comando usa il token creato quando è stato eseguito
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

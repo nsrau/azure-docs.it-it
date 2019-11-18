@@ -1,19 +1,15 @@
 ---
-title: Risolvere errori comuni durante la distribuzione di risorse in Azure | Microsoft Docs
+title: Risolvere gli errori di distribuzione comuni
 description: Descrive come risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager.
 tags: top-support-issue
-author: tfitzmac
-keywords: errore di distribuzione, distribuzione di azure, distribuire in azure
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 27f3b9db40e00ea0a00e50333fe86248906d8560
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263034"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150641"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -252,6 +248,6 @@ In alternativa, si supponga di ricevere errori di distribuzione che si ritiene s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per esaminare un'esercitazione sulla risoluzione dei problemi, vedere [Tutorial: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager](./resource-manager-tutorial-troubleshoot.md)
+* Per un'esercitazione sulla risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](./resource-manager-tutorial-troubleshoot.md)
 * Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
 * Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](resource-manager-deployment-operations.md).

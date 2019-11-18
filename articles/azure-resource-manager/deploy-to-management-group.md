@@ -1,17 +1,14 @@
 ---
-title: Creare risorse nel gruppo di gestione-modello di Azure Resource Manager
+title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: 82990ab7baa8ea9f2dfc3c2d2b346e348e6bd490
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ed8ae20192599ff7cda691429230d8c2a104fc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840158"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149915"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creazione di risorse a livello di gruppo di gestione
 
@@ -30,7 +27,7 @@ Attualmente, per distribuire i modelli a livello di gruppo di gestione, è neces
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 Lo schema usato per le distribuzioni di gruppi di gestione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 

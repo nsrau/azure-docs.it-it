@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601753"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129335"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Ripristino di emergenza a livello di area per cluster di Azure Databricks
 
@@ -90,7 +90,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
    > [!NOTE]
    > Le librerie non vengono copiate in questo passaggio poiché non sono supportate dall'API sottostante.
 
-   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio, `python scriptname.py`.
+   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio: `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
    Lo script seguente restituisce un mapping degli ID di cluster esistenti con quelli nuovi, che può essere usato per eseguire la migrazione dei processi in un secondo momento (per i processi configurati per l'uso di cluster esistenti).
 
-   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio, `python scriptname.py`.
+   Copiare e salvare lo script python seguente in un file ed eseguirlo nella riga di comando di Databricks. Ad esempio: `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -286,7 +286,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
 8. **Eseguire la migrazione di archiviazione BLOB di Azure e Azure Data Lake Storage montaggi**
 
-   Rimontare manualmente tutti i punti di montaggio di [archiviazione BLOB di Azure](/azure/databricks/data/data-sources/azure/azure-storage.html) e [Azure Data Lake Storage (gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) usando una soluzione basata su notebook. Se le risorse di archiviazione sono state montate nell'area di lavoro primaria, questa operazione deve essere ripetuta nell'area di lavoro secondaria. Non è disponibile alcuna API esterna per le operazioni di montaggio.
+   Rimontare manualmente tutti i punti di montaggio di [archiviazione BLOB di Azure](/azure/databricks/data/data-sources/azure/azure-storage) e [Azure Data Lake Storage (gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando una soluzione basata su notebook. Se le risorse di archiviazione sono state montate nell'area di lavoro primaria, questa operazione deve essere ripetuta nell'area di lavoro secondaria. Non è disponibile alcuna API esterna per le operazioni di montaggio.
 
 9. **Eseguire la migrazione degli script di inizializzazione dei cluster**
 

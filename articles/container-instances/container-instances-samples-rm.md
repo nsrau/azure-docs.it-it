@@ -1,6 +1,6 @@
 ---
 title: Esempi di modelli di Azure Resource Manager - Istanze di Azure Container
-description: Esempi di modelli di Azure Resource Manager per Istanze di Azure Container
+description: Trovare Azure Resource Manager esempi di modelli per distribuire istanze di contenitore di Azure in configurazioni diverse
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7dead5cc83717a011120ef6c17b9268bd78ed171
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325704"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150146"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelli di Azure Resource Manager per Istanze di Azure Container
 

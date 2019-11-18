@@ -1,19 +1,16 @@
 ---
-title: Resource Manager e distribuzione classica | Microsoft Docs
+title: Resource Manager e distribuzione classica
 description: Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi).
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9356a1603a39f2ac4d18b27445bf0f8d3a555d7e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 3cca9c71c754b39d065a599c5bb116176ec89408
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982464"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150601"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Distribuzione Azure Resource Manager o classica: Comprendere i modelli di distribuzione e lo stato delle risorse
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 
 > [!NOTE]
 > Le informazioni fornite in questo articolo vengono usate solo quando si esegue la migrazione dalla distribuzione classica alla distribuzione di Azure Resource Manager.
@@ -102,7 +99,7 @@ La soluzione classica per l'hosting di una macchina virtuale include:
 
 La tabella seguente descrive i cambiamenti nelle modalità di interazione dei provider di risorse di calcolo, rete e archiviazione:
 
-| Elemento | Classica | Gestione risorse |
+| Item | Classico | Gestione risorse |
 | --- | --- | --- |
 | Servizio cloud per macchine virtuali |Servizio cloud era un contenitore per mantenere le macchine virtuali che richiedevano disponibilità dalla piattaforma e bilanciamento del carico. |Servizio cloud non è più un oggetto richiesto per la creazione di una macchina virtuale che utilizza il nuovo modello. |
 | Reti virtuali |La rete virtuale è facoltativa per la macchina virtuale. Se inclusa, non può essere distribuita con Resource Manager. |La macchina virtuale richiede una rete virtuale distribuita con Resource Manager. |
@@ -113,7 +110,7 @@ La tabella seguente descrive i cambiamenti nelle modalità di interazione dei pr
 | Indirizzo IP virtuale |Servizi cloud ottiene un indirizzo IP virtuale (VIP) predefinito quando una VM viene aggiunta a un servizio cloud. L'indirizzo IP virtuale è l'indirizzo associato al servizio di bilanciamento del carico implicito. |Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'indirizzo IP pubblico può essere statico (riservato) o dinamico. Gli indirizzi IP pubblici possono essere assegnati a un Load Balancer. Gli indirizzi IP pubblici possono essere protetti tramite gruppi di protezione. |
 | Indirizzo IP riservato |In Microsoft Azure è possibile riservare un indirizzo IP e associarlo a un servizio cloud per assicurarsi che l'indirizzo IP sia permanente. |L'indirizzo IP pubblico può essere creato in modalità statica e offre le stesse funzionalità di un indirizzo IP riservato. |
 | Indirizzo IP pubblico per macchina virtuale |Gli indirizzi IP pubblici possono anche essere associati direttamente a una VM. |Il bilanciamento del carico è una risorsa esposta dal provider Microsoft.Network. L'indirizzo IP pubblico può essere statico (riservato) o dinamico. |
-| Endpoint |In una macchina virtuale era necessario configurare gli endpoint di input per  consentire connettività a determinate porte. Una delle modalità comuni di connessione alle macchine virtuali eseguita mediante l'impostazione di endpoint di input. |È possibile configurare le regole NAT in ingresso in servizi di bilanciamento del carico per ottenere le stesse funzionalità di abilitazione degli endpoint su porte specifiche per la connessione alle macchine virtuali. |
+| Endpoints |In una macchina virtuale era necessario configurare gli endpoint di input per  consentire connettività a determinate porte. Una delle modalità comuni di connessione alle macchine virtuali eseguita mediante l'impostazione di endpoint di input. |È possibile configurare le regole NAT in ingresso in servizi di bilanciamento del carico per ottenere le stesse funzionalità di abilitazione degli endpoint su porte specifiche per la connessione alle macchine virtuali. |
 | Nome DNS |Un servizio cloud otterrebbe un nome DNS univoco globale implicito. Ad esempio: `mycoffeeshop.cloudapp.net`. |I nomi DNS sono parametri facoltativi che possono essere specificati in una risorsa di indirizzo IP pubblico. Il nome di dominio completo ha il formato seguente: `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Interfacce di rete |Interfacce di rete primarie e secondarie e le relative proprietà sono state definite come configurazione di rete di una macchina virtuale. |L’interfaccia di rete è una risorsa esposta dal provider Microsoft.Network. Il ciclo di vita dell'interfaccia di rete non è correlato a una macchina virtuale. Fa riferimento all'indirizzo IP assegnato della macchina virtuale (obbligatorio), alla subnet della rete virtuale per la macchina virtuale (obbligatorio) e a un gruppo di sicurezza di rete (facoltativo). |
 

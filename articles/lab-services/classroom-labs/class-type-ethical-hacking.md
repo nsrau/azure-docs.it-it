@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330661"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133187"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurare un Lab per insegnare una classe di hacking etico 
 Questo articolo illustra come configurare una classe incentrata sul lato forense dell'hacking etico. I test di penetrazione, una pratica usata dalla community di hacking etico, si verificano quando un utente tenta di accedere al sistema o alla rete per dimostrare le vulnerabilità che possono essere sfruttate da un utente malintenzionato. 
 
-In un corso di hacking etico gli studenti possono apprendere tecniche moderne per la difesa dalle vulnerabilità. Ogni studente ottiene una macchina virtuale host Windows Server con due macchine virtuali annidate, una con un'immagine **Metasploitable** e l'altra con un'immagine [Kali Linux](https://www.kali.org/). La macchina virtuale Metasploitable viene usata a scopo di exploit, mentre la macchina virtuale Kali fornisce l'accesso agli strumenti necessari per eseguire attività forensi.
+In un corso di hacking etico gli studenti possono apprendere tecniche moderne per la difesa dalle vulnerabilità. Ogni studente ottiene una macchina virtuale host Windows Server con due macchine virtuali nidificate, una macchina virtuale con immagine [Metasploitable3](https://github.com/rapid7/metasploitable3) e un altro computer con l'immagine di [Kali Linux](https://www.kali.org/) . La macchina virtuale Metasploitable viene usata a scopo di exploit, mentre la macchina virtuale Kali fornisce l'accesso agli strumenti necessari per eseguire attività forensi.
 
 Questo articolo è costituito da due sezioni principali. La prima sezione illustra come creare il Lab della classe. La seconda sezione illustra come creare il computer modello con la virtualizzazione annidata abilitata e con gli strumenti e le immagini necessari. In questo caso, un'immagine Metasploitable e un'immagine di Kali Linux in un computer in cui è abilitato Hyper-V per ospitare le immagini.
 
@@ -43,6 +43,8 @@ Una volta creato il modello, avviare il computer e connettersi al computer per c
 1. Configurare il computer per la virtualizzazione nidificata. Abilita tutte le funzionalità di Windows appropriate, ad esempio Hyper-V, e configura la rete per le immagini Hyper-V in modo che sia in grado di comunicare tra loro e con Internet.
 2. Configurare l'immagine di [Kali](https://www.kali.org/) Linux. Kali è una distribuzione Linux che include strumenti per i test di penetrazione e il controllo della sicurezza.
 3. Configurare l'immagine di Metasploitable. Per questo esempio verrà usata l'immagine di [Metasploitable3](https://github.com/rapid7/metasploitable3) . Questa immagine viene creata per avere intenzionalmente vulnerabilità di sicurezza.
+
+Uno script che automatizza le attività illustrate in precedenza è disponibile negli script di [hacking etico di Lab Services](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
 
 ### <a name="prepare-template-machine-for-nested-virtualization"></a>Preparare il computer modello per la virtualizzazione nidificata
 Seguire le istruzioni riportate in [questo articolo](how-to-enable-nested-virtualization-template-vm.md) per preparare la macchina virtuale modello per la virtualizzazione nidificata. 
@@ -69,7 +71,7 @@ Kali è una distribuzione Linux che include strumenti per i test di penetrazione
 
     ![Pagina Connetti rete](../media/class-type-ethical-hacking/connect-network.png)
 1. Selezionare **Finish (fine** ) nella pagina **Summary (riepilogo** ). Attendere il completamento delle operazioni di copia e importazione. La macchina virtuale Kali Linux sarà ora disponibile in Hyper-V.
-1. Dalla console di **gestione di Hyper-V**scegliere **azione** -> **Start**, quindi scegliere **azione** -> **Connetti** per connettersi alla macchina virtuale.  
+1. Dalla console di **gestione di Hyper-V**scegliere **azione** -> **avvio**, quindi scegliere **azione** -> **Connetti** per connettersi alla macchina virtuale.  
 12. Il nome utente predefinito è `root` e la password è `toor`. 
 
     > [!NOTE]
@@ -82,7 +84,7 @@ L'immagine Rapid7 Metasploitable è un'immagine configurata appositamente con vu
 1. Selezionare il pulsante **Scarica Metasploitable Now** .
 1. Quando viene scaricato il file zip, Estrai il file zip e ricorda il percorso.
 1. Convertire il file VMDK Estratto in un file VHDX in modo da poterlo usare con Hyper-V. A tale scopo, aprire PowerShell con privilegi amministrativi e passare alla cartella in cui risiede il file VMDK e seguire queste istruzioni:
-    1. Scaricare [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)ed eseguire il file mvmc_setup. msi quando richiesto.
+    1. Scaricare [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)ed eseguire mvmc_setup file con estensione msi quando richiesto.
     1. Importare il modulo PowerShell.  Il percorso predefinito in cui è installato il modulo è C:\Programmi\Microsoft Virtual Machine Converter \
 
         ```powershell
@@ -96,7 +98,7 @@ L'immagine Rapid7 Metasploitable è un'immagine configurata appositamente con vu
     1. Copiare il metasploitable. vhdx appena creato in C:\utenti\public\documents\hyper-V\Virtual Hard hard Disks\. 
 1. Creare una nuova macchina virtuale Hyper-V.
     1. Aprire la console **di gestione di Hyper-V**.
-    1. Scegliere **azione** -> **nuovo** -> **macchina virtuale**.
+    1. Scegliere **azione** -> **nuova** -> **macchina virtuale**.
     1. Nella pagina **prima di iniziare** della **creazione guidata macchina virtuale**fare clic su **Avanti**.
     1. Nella pagina **impostazione nome e percorso** immettere **Metasploitable** per **nome**e quindi fare clic su **Avanti**.
 
@@ -111,7 +113,7 @@ L'immagine Rapid7 Metasploitable è un'immagine configurata appositamente con vu
         ![Pagina Connetti disco rete virtuale](../media/class-type-ethical-hacking/connect-virtual-network-disk.png)
     1. Nella pagina **completamento della creazione guidata macchina virtuale** , fare clic su **fine**.
     1. Una volta creata la macchina virtuale, selezionarla nella console di gestione di Hyper-V. Non accendere ancora il computer.  
-    1. Scegliere **Action** -> **Settings**.
+    1. Scegliere **azione** -> **Impostazioni**.
     1. Nella finestra di dialogo **impostazioni per Metasploitable** per selezionare **Aggiungi hardware**. 
     1. Selezionare **scheda di rete legacy**e selezionare **Aggiungi**.
 
@@ -119,13 +121,13 @@ L'immagine Rapid7 Metasploitable è un'immagine configurata appositamente con vu
     1. Nella pagina **scheda di rete legacy** selezionare **LabServicesSwitch** per l'impostazione del **Commuter virtuale** e quindi fare clic su **OK**. LabServicesSwitch è stato creato durante la preparazione del computer modello per Hyper-V nella sezione **preparare il modello per la virtualizzazione nidificata** .
 
         ![Pagina scheda di rete legacy](../media/class-type-ethical-hacking/legacy-network-adapter-page.png)
-    1. L'immagine Metasploitable è ora pronta per l'uso. Dalla console di **gestione di Hyper-V**scegliere **azione** -> **Start**, quindi scegliere **azione** -> **Connetti** per connettersi alla macchina virtuale.  Il nome utente predefinito è **msfadmin** e la password è **msfadmin**. 
+    1. L'immagine Metasploitable è ora pronta per l'uso. Dalla console di **gestione di Hyper-V**scegliere **azione** -> **avvio**, quindi scegliere **azione** -> **Connetti** per connettersi alla macchina virtuale.  Il nome utente predefinito è **msfadmin** e la password è **msfadmin**. 
 
 
 Il modello è stato aggiornato e presenta le immagini necessarie per una classe di test di penetrazione etica, un'immagine con strumenti per eseguire il test di penetrazione e un'altra immagine con vulnerabilità di sicurezza da individuare. È ora possibile pubblicare l'immagine modello nella classe. Selezionare il pulsante **pubblica** nella pagina modello per pubblicare il modello nel Lab.
   
 
-## <a name="cost"></a>Costo  
+## <a name="cost"></a>Costi  
 Se si desidera stimare il costo di questo Lab, è possibile utilizzare l'esempio seguente: 
  
 Per una classe di 25 studenti con 20 ore di tempo di classe pianificata e 10 ore di quota per il lavoro o le assegnazioni, il prezzo del Lab sarà: 

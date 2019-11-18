@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 74a33edb358f9b9bf9322c652c0696ef87182725
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521579"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151701"
 ---
 # <a name="workflow-automation-preview"></a>Automazione del flusso di lavoro (anteprima)
 
@@ -76,7 +76,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro (a
 
     ![Aggiorna](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Selezionare l'app per la logica e salvare l'automazione.
+1. Selezionare l'app per la logica e salvare l'automazione. Si noti che l'elenco a discesa app per la logica Mostra solo le app per la logica con connettori del Centro sicurezza indicati in precedenza.
 
 
 ## <a name="manually-trigger-a-logic-app"></a>Attivare manualmente un'app per la logica

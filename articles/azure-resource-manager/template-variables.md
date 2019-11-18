@@ -1,17 +1,14 @@
 ---
-title: Variabili nei modelli di Azure Resource Manager
+title: Variabili nei modelli
 description: Viene descritto come definire le variabili in un modello di Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 5ed6bb58f2f45de557f2127fdc8abd5cdf2ef965
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 5bd7acd759c553e629febdb141aefd63cfa4dd4b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384034"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149082"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Variabili nel modello di Azure Resource Manager
 
@@ -31,7 +28,7 @@ L'esempio seguente illustra la definizione di una variabile: Crea un valore stri
 
 Non è possibile usare la funzione [Reference](resource-group-template-functions-resource.md#reference) o una delle funzioni [elenco](resource-group-template-functions-resource.md#list) nella sezione Variables. Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
 
-## <a name="use-variable"></a>USA variabile
+## <a name="use-variable"></a>Usare la variabile
 
 Nel modello si fa riferimento al valore per il parametro usando la funzione [variables](resource-group-template-functions-deployment.md#variables) . Nell'esempio seguente viene illustrato come utilizzare la variabile per una proprietà della risorsa.
 
@@ -88,7 +85,7 @@ Per recuperare le impostazioni per l'ambiente specificato, usare insieme la vari
 
 Negli esempi seguenti vengono illustrati gli scenari per l'utilizzo di variabili.
 
-|Modello  |Descrizione  |
+|Modello  |DESCRIZIONE  |
 |---------|---------|
 | [definizioni delle variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Illustra i diversi tipi di variabili. Il modello non distribuisce alcuna risorsa. Crea e restituisce valori variabili. |
 | [variabile di configurazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Illustra l'uso di una variabile che definisce i valori di configurazione. Il modello non distribuisce alcuna risorsa. Crea e restituisce valori variabili. |

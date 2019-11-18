@@ -1,17 +1,14 @@
 ---
-title: Distribuire le risorse con i modelli e l'API REST | Microsoft Docs
+title: Distribuire le risorse con l'API REST e il modello
 description: Usare Azure Resource Manager e Gestione risorse API REST per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0472510801f5827327ac06a3927ca597b6caa612
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3b4242e1fec98b583d5204904bc1adbd388f7955
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834362"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149649"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli e l'API REST di Resource Manager
 
@@ -51,7 +48,7 @@ Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
 
 1. Impostare [parametri e intestazioni comuni](/rest/api/azure/), tra cui i token di autenticazione.
 
-1. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](/rest/api/resources/resourcegroups/createorupdate) (Creare un gruppo di risorse).
+1. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Creare un gruppo di risorse](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
@@ -68,7 +65,7 @@ Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
    }
    ```
 
-1. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione di [convalida della distribuzione di un modello](/rest/api/resources/deployments/validate) . Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
+1. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione [Convalidare la distribuzione di un modello](/rest/api/resources/deployments/validate) . Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
 
 1. Per distribuire un modello, specificare l'ID sottoscrizione, il nome del gruppo di risorse, il nome della distribuzione nell'URI della richiesta. 
 
@@ -117,7 +114,7 @@ Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
    }
    ```
 
-    È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature) (Delega dell'accesso con una firma di accesso condiviso).
+    È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delega dell'accesso con una firma di accesso condiviso](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
     Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md). 
 
@@ -193,7 +190,7 @@ Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per eseguire il rollback a una distribuzione corretta quando viene visualizzato un errore, vedere eseguire [il rollback in caso di errore di distribuzione riuscita](rollback-on-error.md).
-- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
+- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Azure Resource Manager deployment modes](deployment-modes.md) (Modalità di distribuzione di Azure Resource Manager).
 - Per altre informazioni sulla gestione delle operazioni REST asincrone, vedere [Track asynchronous Azure operations](resource-manager-async-operations.md) (Tenere traccia delle operazioni asincrone di Azure).
 - Per altre informazioni sui modelli, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 

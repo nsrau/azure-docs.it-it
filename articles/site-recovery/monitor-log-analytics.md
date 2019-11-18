@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936083"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133425"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -28,7 +28,7 @@ Per Site Recovery, è possibile usare i log di monitoraggio di Azure per eseguir
 L'uso dei log di monitoraggio di Azure con Site Recovery è supportato per la replica da **Azure ad Azure** e **da server fisici/VM VMware ad Azure** .
 
 > [!NOTE]
-> I registri dei dati di varianza e i log della velocità di caricamento sono disponibili solo per le VM di Azure che eseguono la replica in un'area di Azure secondaria.
+> Per ottenere i registri dei dati di varianza e i log della velocità di caricamento per VMware e i computer fisici, è necessario installare Microsoft Monitoring Agent nel server di elaborazione. Questo agente invia i log dei computer di replica all'area di lavoro. Questa funzionalità è disponibile solo per la versione dell'agente di mobilità 9,30 e versioni successive.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -54,6 +54,24 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
     ![Selezionare l'area di lavoro](./media/monitoring-log-analytics/select-workspace.png)
 
 I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostics**) nell'area di lavoro selezionata.
+
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Configurare Microsoft Monitoring Agent nel server di elaborazione per inviare i log della varianza e della velocità di caricamento
+
+È possibile acquisire le informazioni sulla frequenza di varianza dei dati e le informazioni sulla velocità di caricamento dei dati di origine per le macchine virtuali VMware/fisiche in locale. Per abilitare questa operazione, è necessario che nel server di elaborazione sia installato Microsoft Monitoring Agent.
+
+1. Passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**.
+2. Fare clic sulla pagina **origini connesse** e selezionare **server Windows**.
+3. Scaricare l'agente Windows (64 bit) nel server di elaborazione. 
+4. [Ottenere l'ID e la chiave dell'area di lavoro](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+5. [Configurare Agent per l'uso di TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Completare l'installazione dell'agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) fornendo la chiave e l'ID dell'area di lavoro ottenuti.
+7. Al termine dell'installazione, passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**. Passare alla pagina **dati** e fare clic sui **contatori delle prestazioni di Windows**. 
+8. Fare clic su **' +'** per aggiungere i due contatori seguenti con intervallo di campionamento di 300 secondi:
+
+        ASRAnalytics(*)\SourceVmChurnRate 
+        ASRAnalytics(*)\SourceVmThrpRate 
+
+I dati relativi alla varianza e alla velocità di caricamento inizieranno ad accedere all'area di lavoro.
 
 
 ## <a name="query-the-logs---examples"></a>Eseguire una query sui log-esempi
@@ -174,12 +192,9 @@ AzureDiagnostics  
 ```
 ![RPO macchina virtuale query](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>Frequenza di modifica dei dati delle query (varianza) per una macchina virtuale
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Frequenza di modifica dei dati di query (varianza) e velocità di caricamento per una macchina virtuale di Azure
 
-> [!NOTE] 
-> Le informazioni sulla varianza sono disponibili solo per le macchine virtuali di Azure che eseguono la replica in un'area di Azure secondaria.
-
-Questa query traccia un grafico di tendenza per una macchina virtuale di Azure specifica (ContosoVM123), che tiene traccia della frequenza di modifica dei dati (byte scritti al secondo) e della velocità di caricamento dei dati. 
+Questa query traccia un grafico di tendenza per una macchina virtuale di Azure specifica (ContosoVM123), che rappresenta la frequenza di modifica dei dati (byte scritti al secondo) e la velocità di caricamento dei dati. 
 
 ```
 AzureDiagnostics   
@@ -193,6 +208,23 @@ Category contains "Upload", "UploadRate", "none") 
 | render timechart  
 ```
 ![Modifica dati query](./media/monitoring-log-analytics/example3.png)
+
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Frequenza di modifica dei dati di query (varianza) e velocità di caricamento per un computer VMware o fisico
+
+> [!Note]
+> Assicurarsi di configurare l'agente di monitoraggio nel server di elaborazione per recuperare questi log. Vedere la [procedura per configurare l'agente di monitoraggio](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
+
+Questa query traccia un grafico di tendenza per uno specifico **disk0** del disco di un elemento replicato **Win-9r7sfh9qlru**, che rappresenta la frequenza di modifica dei dati (byte scritti al secondo) e la velocità di caricamento dei dati. È possibile trovare il nome del disco nel pannello **dischi** dell'elemento replicato nell'insieme di credenziali di servizi di ripristino. Il nome dell'istanza da usare nella query è il nome DNS del computer seguito da _ e dal nome del disco come in questo esempio.
+
+```
+Perf
+| where ObjectName == "ASRAnalytics"
+| where InstanceName contains "win-9r7sfh9qlru_disk0"
+| where TimeGenerated >= ago(4h) 
+| project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
+| render timechart
+```
+Il server di elaborazione inserisce questi dati ogni 5 minuti nell'area di lavoro Log Analytics. Questi punti dati rappresentano la media calcolata per 5 minuti.
 
 ### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Riepilogo del ripristino di emergenza di query (da Azure ad Azure)
 

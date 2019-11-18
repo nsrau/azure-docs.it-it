@@ -1,17 +1,14 @@
 ---
-title: Funzioni numeriche del modello di Azure Resource Manager | Microsoft Docs
+title: Funzioni di modello-numeric
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.author: tomfitz
-ms.openlocfilehash: 3ec5477ca6ea1731f18b09d6393bdde6261e0c32
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b663f27d48e3ee4e7ee2a96794015555417b3608
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194325"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149627"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
 
@@ -32,17 +29,17 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>add
+## <a name="add"></a>Aggiungi
 `add(operand1, operand2)`
 
 Restituisce la somma dei due numeri interi forniti.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sì |int |Il primo numero da aggiungere. |
-|operand2 |Yes |int |Il secondo numero da aggiungere. |
+|operand2 |Sì |int |Il secondo numero da aggiungere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -83,11 +80,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| addResult | Int | 8 |
+| addResult | int | 8 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -108,14 +105,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce l'indice di un ciclo di iterazione. 
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
+| loopName | No | stringa | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |int |Il numero da aggiungere al valore di iterazione in base zero. |
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero. È possibile usare i cicli di iterazione quando si definiscono le risorse o le variabili.
 
@@ -154,12 +151,12 @@ Un intero che rappresenta l'indice corrente dell'iterazione.
 
 Restituisce la divisione Integer dei due numeri interi forniti.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
-| operand2 |Yes |int |Il numero usato per dividere. Non può essere 0. |
+| operand2 |Sì |int |Il numero usato per dividere. Non può essere 0. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -200,11 +197,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| divResult | Int | 2 |
+| divResult | int | 2 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -225,11 +222,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Converte il valore in un numero a virgola mobile. Usare questa funzione solo quando si passano parametri personalizzati a un'applicazione, ad esempio un'app per la logica.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
+| arg1 |Sì |stringa o int |Il valore da convertire in un numero a virgola mobile. |
 
 ### <a name="return-value"></a>Valore restituito
 Un numero a virgola mobile.
@@ -259,9 +256,9 @@ L'esempio seguente illustra come usare float per passare parametri a un'app per 
 
 Converte il valore specificato in un numero intero.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o int |Il valore da convertire in numero intero. |
 
@@ -294,11 +291,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| intResult | Int | 4 |
+| intResult | int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -319,9 +316,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce il valore massimo da una matrice di numeri interi o da un elenco di numeri interi delimitato da virgole.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -357,12 +354,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 5 |
-| intOutput | Int | 5 |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -383,9 +380,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce il valore minimo di una matrice di numeri interi o di un elenco di numeri interi delimitato da virgole.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -421,12 +418,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 0 |
-| intOutput | Int | 0 |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -447,9 +444,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce la parte rimanente della divisione Integer usando i due numeri interi forniti.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere; non può corrispondere a 0. |
@@ -492,11 +489,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| modResult | Int | 1 |
+| modResult | int | 1 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -517,9 +514,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce la moltiplicazione dei due numeri interi forniti.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | DESCRIZIONE |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il primo numero da moltiplicare. |
 | operand2 |Sì |int |Il secondo numero da moltiplicare. |
@@ -563,11 +560,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| mulResult | Int | 15 |
+| mulResult | int | 15 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -588,11 +585,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Restituisce la sottrazione dei due numeri interi forniti.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| operand1 |Yes |int |Il numero da cui sottrarre. |
+| operand1 |Sì |int |Il numero da cui sottrarre. |
 | operand2 |Sì |int |Il numero sottratto. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -633,11 +630,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Valore |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| subResult | Int | 4 |
+| subResult | int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 

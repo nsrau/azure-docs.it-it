@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c1b4791f2ec80eba25a00e22cb4298b4c97da4de
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742098"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151091"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento Microsoft.Compute.CredentialsCombo dell'interfaccia utente
+
 Si tratta di un gruppo di controlli con convalida predefinita per le chiavi pubbliche SSH e le password di Windows e Linux.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
@@ -37,7 +38,8 @@ Per Linux con chiave pubblica SSH selezionata, gli utenti visualizzeranno:
 
 ![Chiave Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
+
 Per Windows, usare il seguente schema:
 
 ```json
@@ -95,14 +97,8 @@ Per **Linux**, usare il seguente schema:
 }
 ```
 
-## <a name="remarks"></a>Note
-- È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
-- Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo le caselle di testo della password o della chiave pubblica SSH devono disporre di valori. Il valore predefinito è **true**.
-- Se la proprietà `options.hideConfirmation` è impostata su **true**, la seconda casella di testo per la conferma della password dell'utente è nascosta. Il valore predefinito è **false**.
-- Se `options.hidePassword` è impostato su **true**, l'opzione per l'uso dell'autenticazione della password è nascosta. È possibile usarla solo quando `osPlatform` è **Linux**. Il valore predefinito è **false**.
-- La proprietà `customPasswordRegex` permette di implementare vincoli aggiuntivi sulle password consentite. La stringa in `customValidationMessage` viene visualizzata quando una password non supera la convalida personalizzata. Il valore predefinito per entrambe le proprietà è **null**.
+## <a name="sample-output"></a>Output di esempio
 
-## <a name="sample-output"></a>Esempio di output
 Se `osPlatform` è **Windows** oppure `osPlatform` è **Linux** e l'utente ha specificato una password anziché una chiave pubblica SSH, il controllo restituisce l'output seguente:
 
 ```json
@@ -121,6 +117,15 @@ Se `osPlatform` è **Linux** e l'utente ha specificato una chiave pubblica SSH, 
 }
 ```
 
+## <a name="remarks"></a>Osservazioni
+
+- È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
+- Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo le caselle di testo della password o della chiave pubblica SSH devono disporre di valori. Il valore predefinito è **true**.
+- Se la proprietà `options.hideConfirmation` è impostata su **true**, la seconda casella di testo per la conferma della password dell'utente è nascosta. Il valore predefinito è **false**.
+- Se `options.hidePassword` è impostato su **true**, l'opzione per l'uso dell'autenticazione della password è nascosta. È possibile usarla solo quando `osPlatform` è **Linux**. Il valore predefinito è **false**.
+- La proprietà `customPasswordRegex` permette di implementare vincoli aggiuntivi sulle password consentite. La stringa in `customValidationMessage` viene visualizzata quando una password non supera la convalida personalizzata. Il valore predefinito per entrambe le proprietà è **null**.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

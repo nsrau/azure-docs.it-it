@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070464"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130598"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 
@@ -46,7 +46,7 @@ Le risorse vengono distribuite nell'ordine seguente:
 **Livello 3**
 * Controllo del codice sorgente - dipende dall'app Web.
 * Estensione del sito MSDeploy - dipende dall'app Web.
-* Istanza di Application Insights destinata alla server farm - dipende dall'app Web.
+* Applicazione Azure istanza di Insights destinata all'app Web, dipende dall'app Web.
 
 **Livello 4**
 * Certificato del servizio app - dipende dal controllo del codice sorgente o da MSDeploy se uno dei due è presente, altrimenti dall'app Web.
@@ -87,7 +87,7 @@ L'esempio seguente mostra parte di un modello. Il valore di configurazione della
 }
 ```
 
-Per un esempio pronto per l'esecuzione che usa il codice precedente, vedere [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple) (Modello: creare un'app Web Umbraco semplice).
+Per un esempio pronto per l'esecuzione che usa il codice precedente, vedere [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple) (Modello: compilare un'app Web Umbraco semplice).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Trovare informazioni sugli errori di MSDeploy
 

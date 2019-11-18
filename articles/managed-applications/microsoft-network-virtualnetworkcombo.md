@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0437338b403ff19761173d08be3938d07f13f55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d325230f603be4ccfe4fe42f1b58c6ad892fdb2c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708356"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151469"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente
+
 Gruppo di controlli per la selezione di una rete virtuale nuova o esistente.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
+
 Quando l'utente seleziona una nuova rete virtuale, può personalizzare il nome di ogni subnet e il prefisso dell'indirizzo. La configurazione delle subnet è facoltativa.
 
 ![Nuovo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
@@ -33,6 +35,7 @@ Quando l'utente seleziona una rete virtuale esistente, deve eseguire il mapping 
 ![Microsoft.Network.VirtualNetworkCombo esistente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>SCHEMA
+
 ```json
 {
   "name": "element1",
@@ -85,16 +88,6 @@ Quando l'utente seleziona una rete virtuale esistente, deve eseguire il mapping 
 }
 ```
 
-## <a name="remarks"></a>Note
-- Se specificato, il primo prefisso di indirizzo non sovrapposto di dimensioni pari a `defaultValue.addressPrefixSize` viene determinato automaticamente in base alle reti virtuali esistenti nella sottoscrizione dell'utente.
-- Il valore predefinito per `defaultValue.name` e `defaultValue.addressPrefixSize` è **null**.
-- Specificare `constraints.minAddressPrefixSize`. Le reti virtuali esistenti con uno spazio indirizzi inferiore al valore specificato non sono disponibili per la selezione.
-- Specificare `subnets` e specificare `constraints.minAddressPrefixSize` per ogni subnet.
-- Quando si crea una nuova rete virtuale, il prefisso dell'indirizzo di ogni subnet viene calcolato automaticamente in base al prefisso dell'indirizzo della rete virtuale e al rispettivo `addressPrefixSize`.
-- Quando si usa una rete virtuale esistente, le subnet di dimensioni inferiori al rispettivo `constraints.minAddressPrefixSize` non sono disponibili per la selezione. Se specificato, le subnet che non contengono almeno `minAddressCount` indirizzi disponibili non sono disponibili per la selezione. Il valore predefinito è **0**. Per assicurarsi che gli indirizzi disponibili siano contigui, specificare **true** per `requireContiguousAddresses`. Il valore predefinito è **true**.
-- La creazione di subnet in una rete virtuale esistente non è supportata.
-- Se `options.hideExisting` è **true**, l'utente non può scegliere una rete virtuale esistente. Il valore predefinito è **false**.
-
 ## <a name="sample-output"></a>Output di esempio
 
 ```json
@@ -118,6 +111,18 @@ Quando l'utente seleziona una rete virtuale esistente, deve eseguire il mapping 
 }
 ```
 
+## <a name="remarks"></a>Osservazioni
+
+- Se specificato, il primo prefisso di indirizzo non sovrapposto di dimensioni pari a `defaultValue.addressPrefixSize` viene determinato automaticamente in base alle reti virtuali esistenti nella sottoscrizione dell'utente.
+- Il valore predefinito per `defaultValue.name` e `defaultValue.addressPrefixSize` è **null**.
+- Specificare `constraints.minAddressPrefixSize`. Le reti virtuali esistenti con uno spazio indirizzi inferiore al valore specificato non sono disponibili per la selezione.
+- Specificare `subnets` e specificare `constraints.minAddressPrefixSize` per ogni subnet.
+- Quando si crea una nuova rete virtuale, il prefisso dell'indirizzo di ogni subnet viene calcolato automaticamente in base al prefisso dell'indirizzo della rete virtuale e al rispettivo `addressPrefixSize`.
+- Quando si usa una rete virtuale esistente, le subnet di dimensioni inferiori al rispettivo `constraints.minAddressPrefixSize` non sono disponibili per la selezione. Se specificato, le subnet che non contengono almeno `minAddressCount` indirizzi disponibili non sono disponibili per la selezione. Il valore predefinito è **0**. Per assicurarsi che gli indirizzi disponibili siano contigui, specificare **true** per `requireContiguousAddresses`. Il valore predefinito è **true**.
+- La creazione di subnet in una rete virtuale esistente non è supportata.
+- Se `options.hideExisting` è **true**, l'utente non può scegliere una rete virtuale esistente. Il valore predefinito è **false**.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

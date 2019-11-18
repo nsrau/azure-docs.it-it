@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 819b8551650f2e0b484021638ab5554cb557a750
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/15/2019
+ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330046"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151991"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Scegliere l'opzione del server MariaDB corretta in Azure
 
@@ -36,9 +36,9 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 | Contratto di servizio                | Offre SLA con disponibilità del 99,99%| Disponibilità fino al 99,95% con due o più istanze nello stesso set di disponibilità.<br/><br/>disponibilità del 99,9% con una macchina virtuale a istanza singola che usa archiviazione Premium.<br/><br/>99,99% con zone di disponibilità con più istanze in più set di disponibilità.<br/><br/>Vedere il [contratto di contratto per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Applicazione di patch al sistema operativo        | Automatico  | Gestito dai clienti |
 | Applicazione di patch MariaDB     | Automatico  | Gestito dai clienti |
-| Disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
+| disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
 | Ridondanza della zona | Attualmente non supportati | Le macchine virtuali di Azure possono essere configurate per l'esecuzione in diverse zone di disponibilità. Per una soluzione locale, i clienti devono creare, gestire e gestire i propri data center secondari.|
-| Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)è possibile sincronizzare i dati da un server MariaDB esterno nel database di Azure per il servizio MariaDB. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) è possibile replicare i dati da un database di Azure per il server master MariaDB a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.<br/><br/>La replica di lettura tra aree è attualmente disponibile in anteprima pubblica.| Gestito dai clienti
+| Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)è possibile sincronizzare i dati da un server MariaDB esterno nel database di Azure per il servizio MariaDB. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) è possibile replicare i dati da un database di Azure per il server master MariaDB a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.<br/><br/>La replica di lettura tra aree è attualmente disponibile in anteprima pubblica.| Gestito dai clienti
 | Backup e ripristino | Crea automaticamente [backup del server](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) e li archivia in una risorsa di archiviazione configurata dall'utente con ridondanza locale o con ridondanza geografica. Il servizio accetta backup completi, differenziali e del log delle transazioni | Gestito dai clienti |
 | Monitoraggio delle operazioni del database | Offre ai clienti la possibilità di [impostare avvisi](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) sull'operazione del database e di agire al raggiungimento delle soglie. | Gestito dai clienti |
 | Advanced Threat Protection | Offre [protezione avanzata dalle minacce](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Questa protezione rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.<br/><br/>Advanced Threat Protection è attualmente disponibile in anteprima pubblica.| I clienti devono compilare questa protezione autonomamente.
@@ -49,7 +49,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 
 Esistono diversi fattori che possono influenzare la decisione di scegliere PaaS o IaaS per ospitare i database MariaDB.
 
-### <a name="cost"></a>Costo
+### <a name="cost"></a>Costi
 
 Un finanziamento limitato è spesso la considerazione principale che determina la migliore soluzione per l'hosting dei database. Si tratta di un avvio con pochi soldi o un team in una società stabilita che opera con vincoli di budget limitati. Questa sezione descrive le nozioni di base relative a fatturazione e licenze in Azure che si applicano al database di Azure per MariaDB e MariaDB nelle macchine virtuali di Azure.
 
@@ -66,7 +66,7 @@ Per ulteriori informazioni sui prezzi, vedere gli articoli seguenti:
 * [Prezzi di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
-### <a name="administration"></a>Administration
+### <a name="administration"></a>amministrazione
 
 Per molte aziende, la decisione di passare a un servizio cloud è la quantità di spazio di ripartizione della complessità dell'amministrazione, in quanto si tratta di costi. Con IaaS e PaaS, Microsoft:
 
@@ -85,7 +85,7 @@ Nell'elenco seguente vengono descritte le considerazioni amministrative per ogni
   - Ottimizzazione degli indici
   - Ottimizzazione query
   - Controllo
-  - Sicurezza
+  - Security
 
   Inoltre, la configurazione della disponibilità elevata per un altro data center richiede una configurazione o un'amministrazione minima.
 

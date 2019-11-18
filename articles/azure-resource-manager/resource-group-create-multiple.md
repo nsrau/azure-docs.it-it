@@ -1,18 +1,14 @@
 ---
-title: Distribuire più istanze delle risorse di Azure | Documentazione Microsoft
+title: Distribuire più istanze di risorse
 description: Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3ee4b47dd6cb9043a4100d114c483d1feadbde38
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675092"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150797"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Iterazione di risorse, proprietà o variabili nei modelli di Azure Resource Manager
 
@@ -57,7 +53,7 @@ I limiti per il conteggio sono gli stessi se usati con una risorsa, una variabil
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-Se si desidera creare più di un'istanza di una risorsa in una distribuzione, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento Copy specificare il numero di iterazioni e un nome per il ciclo.
+Se si desidera creare più istanze di una risorsa in una distribuzione, aggiungere un `copy` elemento al tipo di risorsa. Nell'elemento Copy specificare il numero di iterazioni e un nome per il ciclo.
 
 La risorsa da ricreare più volte assume il formato seguente:
 
@@ -517,7 +513,7 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più istanze di una risorsa o proprietà.
 
-|Modello  |Descrizione  |
+|Modello  |DESCRIZIONE  |
 |---------|---------|
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |

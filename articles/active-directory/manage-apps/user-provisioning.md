@@ -11,46 +11,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1f661aa67f04de23c7b4871e78d3628c639e7567
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641442"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144512"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni con Azure Active Directory
 
-Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente nelle applicazioni SaaS cloud, ad esempio [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e altro ancora. Questa operazione è nota come provisioning utenti automatizzato per app SaaS.
+In Azure Active Directory (Azure AD), il termine **provisioning app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente durante la modifica dello stato o dei ruoli. Gli scenari comuni includono il provisioning di un utente Azure AD in applicazioni come [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)e altro ancora.
 
-> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
+![Diagramma della panoramica del provisioning](media/user-provisioning/provisioning-overview.png)
 
 Questa funzionalità consente di:
 
-- Creare automaticamente nuovi account nei sistemi appropriati per i membri che si uniscono al team o all'organizzazione.
-- Disattivare automaticamente nuovi account nei sistemi appropriati per i membri che lasciano il team o l'organizzazione.
-- Assicurarsi che le identità nelle app e nei sistemi siano sempre aggiornate in base alle modifiche nella directory o nel sistema di risorse umane.
-- Effettuare il provisioning di oggetti non utente, ad esempio di gruppi, in applicazioni che li supportano.
+- **Automatizzare il provisioning**: creare automaticamente nuovi account nei sistemi appropriati per le nuove persone quando partecipano al team o all'organizzazione.
+- **Automatizzare il deprovisioning:** Disattivare automaticamente gli account nei sistemi corretti quando gli utenti lasciano il team o l'organizzazione.
+- **Sincronizzare i dati tra i sistemi:** Assicurarsi che le identità nelle app e nei sistemi siano sempre aggiornate in base alle modifiche apportate alla directory o al sistema di risorse umane.
+- **Gruppi di provisioning:** Effettuare il provisioning di gruppi alle applicazioni che le supportano.
+- **Governare l'accesso:** Monitorare e controllare gli utenti di cui è stato effettuato il provisioning nelle applicazioni.
+- **Distribuisci con semplicità negli scenari di campo marrone:** Abbinare le identità esistenti tra i sistemi e consentire una facile integrazione, anche quando gli utenti sono già presenti nel sistema di destinazione.
+- **USA personalizzazione avanzata:** Sfruttare i mapping degli attributi personalizzabili che definiscono quali dati utente devono essere propagati dal sistema di origine al sistema di destinazione.
+- **Ottenere avvisi per gli eventi critici:** Il servizio di provisioning fornisce avvisi per gli eventi critici e consente l'integrazione Log Analytics in cui è possibile definire avvisi personalizzati per soddisfare le esigenze aziendali.
 
-Il provisioning utenti automatizzato include anche questa funzionalità:
+## <a name="benefits-of-automatic-provisioning"></a>Vantaggi del provisioning automatico
 
-- Possibilità di associare le identità esistenti tra i sistemi di origine e di destinazione.
-- Mapping personalizzabili degli attributi che definiscono quali dati degli utenti devono essere trasferiti dal sistema di origine a quello di destinazione.
-- Avvisi di posta elettronica facoltativi per errori di provisioning.
-- Log di report e attività per facilitare il monitoraggio e la risoluzione dei problemi.
+Poiché il numero di applicazioni utilizzate nelle organizzazioni moderne continua a crescere, gli amministratori IT hanno la funzione di gestione degli accessi su larga scala. Gli standard, ad esempio Security Assertion Markup Language (SAML) o Open ID Connect (OIDC) consentono agli amministratori di configurare rapidamente Single Sign-On (SSO), ma l'accesso richiede anche che gli utenti vengano sottoposti a provisioning nell'app. Per molti amministratori, il provisioning comporta la creazione manuale di ogni account utente o il caricamento di file CSV ogni settimana, ma questi processi sono dispendiosi in termini di tempo, costosi e soggetti a errori. Sono state adottate soluzioni come SAML just-in-time (JIT) per automatizzare il provisioning, ma le aziende necessitano anche di una soluzione per effettuare il deprovisioning degli utenti quando lasciano l'organizzazione o non richiedono più l'accesso a determinate app in base alla modifica del ruolo.
 
-## <a name="why-use-automated-provisioning"></a>Perché usare il provisioning automatico?
+Di seguito sono riportate alcune motivazioni comuni per l'uso del provisioning automatico:
 
-Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funzionalità:
-
-- Per evitare i costi, le inefficienze e gli errori umani associati ai processi di provisioning manuali.
-- Per evitare i costi associati all'hosting e alla gestione di soluzioni e script di provisioning sviluppati in modo personalizzato.
+- Ottimizzazione dell'efficienza e dell'accuratezza dei processi di provisioning.
+- Risparmio sui costi associati all'hosting e alla gestione di soluzioni e script di provisioning sviluppati in personalizzato.
 - Proteggere l'organizzazione rimuovendo immediatamente le identità degli utenti dalle principali app SaaS quando lasciano l'organizzazione.
 - Importazione semplice di un numero elevato di utenti in un'applicazione o un sistema SaaS specifico.
 - Disporre di un singolo set di criteri per determinare chi ne è stato effettuato il provisioning e chi può accedere a un'app.
+
+Azure AD provisioning utenti può aiutare a risolvere questi problemi. Per ulteriori informazioni sul modo in cui i clienti utilizzano Azure AD provisioning degli utenti, è possibile leggere il [Case Study ASOS](https://aka.ms/asoscasestudy). Il video seguente offre una panoramica del provisioning degli utenti in Azure AD:
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
+
+## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quali applicazioni e sistemi è possibile usare con il provisioning utenti automatico di Azure AD?
+
+Azure AD offre un supporto pre-integrato per molte app SaaS e sistemi di risorse umane comuni e il supporto generico per le app che implementano parti specifiche dello [standard SCIM 2,0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
+
+* **Applicazioni preintegrate (app SaaS della raccolta)** . È possibile trovare tutte le applicazioni per le quali Azure AD supporta un connettore di provisioning pre-integrato nell' [elenco delle esercitazioni sulle applicazioni per il provisioning degli utenti](../saas-apps/tutorial-list.md). Le applicazioni preintegrate elencate nella raccolta usano in genere le API di gestione utenti basate su SCIM 2,0 per il provisioning. 
+
+   ![Logo Salesforce](media/user-provisioning/gallery-app-logos.png)
+
+   Se si vuole richiedere una nuova applicazione per il provisioning, è possibile [richiedere che l'applicazione sia integrata con la raccolta di app](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). Per una richiesta di provisioning dell'utente, è necessario che l'applicazione disponga di un endpoint conforme a SCIM. Chiedere al fornitore dell'applicazione di seguire lo standard SCIM per poter caricare rapidamente l'app sulla piattaforma.
+
+* **Applicazioni che supportano SCIM 2,0**. Per informazioni su come connettere in modo generico le applicazioni che implementano le API di gestione utenti basate su SCIM 2,0, vedere [uso di SCIM per effettuare automaticamente il provisioning di utenti e gruppi da Azure Active Directory alle applicazioni](use-scim-to-provision-users-and-groups.md).
+
+## <a name="what-is-scim"></a>Che cos'è SCIM?
+
+Per automatizzare il provisioning e il deprovisioning, le app espongono API di utenti e gruppi proprietarie. Tuttavia, chiunque abbia provato a gestire gli utenti in più app indica che ogni app tenta di eseguire le stesse azioni semplici, ad esempio la creazione o l'aggiornamento degli utenti, l'aggiunta di utenti a gruppi o il deprovisioning degli utenti. Tuttavia, tutte queste semplici azioni vengono implementate in modo leggermente diverso, usando percorsi di endpoint diversi, metodi diversi per specificare le informazioni utente e uno schema diverso per rappresentare ogni elemento di informazioni.
+
+Per risolvere questi problemi, la specifica SCIM fornisce uno schema utente comune che consente agli utenti di spostarsi in, da e verso le app. SCIM sta diventando lo standard de facto per il provisioning e, se usato in combinazione con gli standard di federazione come SAML o OpenID Connect, fornisce agli amministratori una soluzione basata su standard end-to-end per la gestione degli accessi.
+
+Per istruzioni dettagliate sull'uso di SCIM per automatizzare il provisioning e il deprovisioning di utenti e gruppi in un'applicazione, vedere [provisioning utenti scim con Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="how-does-automatic-provisioning-work"></a>Come funziona il provisioning automatico?
 
@@ -65,54 +88,13 @@ figura 2: flusso di lavoro di provisioning utenti "in uscita" da Azure ad a appl
 ![flusso di lavoro di provisioning utenti *in ingresso](./media/user-provisioning/provisioning2.PNG)
 figura 3: flusso di lavoro di provisioning utenti "in ingresso" da applicazioni di gestione di capitale umana più diffuse per Azure Active Directory e Windows Server Active Directory*
 
-## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quali applicazioni e sistemi è possibile usare con il provisioning utenti automatico di Azure AD?
-
-Azure AD offre un supporto pre-integrato per molte app SaaS e sistemi di risorse umane comuni e il supporto generico per le app che implementano parti specifiche dello [standard SCIM 2,0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
-
-### <a name="pre-integrated-applications"></a>Applicazioni preintegrate
-
-Per un elenco di tutte le applicazioni per cui Azure AD supporta un connettore di provisioning preintegrato, vedere l'[elenco delle esercitazioni sulle applicazioni per il provisioning utenti](../saas-apps/tutorial-list.md).
-
-Per contattare il team di progettazione di Azure AD e richiedere supporto per il provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
-
-> [!NOTE]
-> Per supportare il provisioning utenti automatico, un'applicazione deve prima di tutto includere le API di gestione utenti necessarie che consentono ai programmi esterni di automatizzare la creazione, la manutenzione e la rimozione degli utenti. Pertanto, non tutte le app SaaS sono compatibili con questa funzionalità. Per le app che supportano le API di gestione degli utenti, il team di progettazione Azure AD può quindi creare un connettore di provisioning per tali app e questa attività viene classificata in base alle esigenze dei clienti attuali e potenziali.
-
-### <a name="connecting-applications-that-support-scim-20"></a>Connessione di applicazioni che supportano SCIM 2.0
-
-Per informazioni su come connettere genericamente applicazioni che implementano API di gestione utenti basate su SCIM 2.0, vedere [Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni](use-scim-to-provision-users-and-groups.md).
-
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Come è possibile configurare il provisioning automatico in un'applicazione?
+
+Per le applicazioni preintegrate elencate nella raccolta, sono disponibili istruzioni dettagliate per la configurazione del provisioning automatico. Vedere l' [elenco delle esercitazioni per le app integrate della raccolta](https://docs.microsoft.com/azure/active-directory/saas-apps/). Il video seguente illustra come configurare il provisioning utenti automatico per SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-Usare il portale di Azure Active Directory per configurare il servizio di provisioning Azure AD per un'applicazione selezionata.
-
-1. Aprire il **[portale di Azure Active Directory](https://aad.portal.azure.com)** .
-1. Selezionare **applicazioni aziendali** dal riquadro sinistro. Viene visualizzato un elenco di tutte le app configurate.
-1. Scegliere **+ nuova applicazione** per aggiungere un'applicazione. 
-1. Specificare i dettagli e selezionare **Aggiungi**. La nuova app viene aggiunta all'elenco di applicazioni aziendali e si apre alla relativa schermata di gestione delle applicazioni.
-1. Selezionare **provisioning** per gestire le impostazioni di provisioning degli account utente per l'app.
-
-   ![Mostra la schermata delle impostazioni di provisioning](./media/user-provisioning/provisioning_settings0.PNG)
-
-1. Selezionare l'opzione automatica per la **modalità di provisioning** per specificare le impostazioni per le credenziali di amministratore, i mapping, l'avvio e l'arresto e la sincronizzazione.
-
-   - Espandere **credenziali amministratore** per immettere le credenziali necessarie per Azure ad connettersi all'API di gestione degli utenti dell'applicazione. Questa sezione consente anche di abilitare le notifiche tramite posta elettronica se le credenziali hanno esito negativo oppure il processo di provisioning entra in [quarantena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
-   - Espandere **mapping** per visualizzare e modificare gli attributi utente che scorrono tra Azure ad e l'applicazione di destinazione quando viene eseguito il provisioning o l'aggiornamento degli account utente. Se l'applicazione di destinazione la supporta, questa sezione consente di configurare facoltativamente il provisioning di gruppi e account utente. Selezionare un mapping nella tabella per aprire l'editor di mapping a destra, in cui è possibile visualizzare e personalizzare gli attributi utente.
-
-     I **filtri di ambito** indicano al servizio di provisioning quali utenti e gruppi del sistema di origine devono eseguire il provisioning o il deprovisioning nel sistema di destinazione. Nel riquadro **mapping attributi** selezionare ambito dell' **oggetto di origine** per filtrare in base a valori di attributo specifici. Ad esempio, è possibile specificare che solo gli utenti con un attributo "Department" di "Sales" devono essere inclusi nell'ambito del provisioning. Per altre informazioni, vedere [Uso di filtri per la definizione dell'ambito](define-conditional-rules-for-provisioning-user-accounts.md).
-
-     Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi](customize-application-attributes.md).
-
-   - Le **Impostazioni** controllano il funzionamento del servizio di provisioning per un'applicazione, ad esempio se è attualmente in esecuzione. Il menu **ambito** consente di specificare se devono essere presenti solo utenti e gruppi assegnati nell'ambito per il provisioning o se è necessario eseguire il provisioning di tutti gli utenti nella directory Azure ad. Per informazioni sull'assegnazione di utenti e gruppi, vedere [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](assign-user-or-group-access-portal.md).
-
-Nella schermata gestione app selezionare log di **provisioning (anteprima)** per visualizzare i record di tutte le operazioni eseguite dal servizio di provisioning di Azure ad. Per altre informazioni, vedere la [guida alla creazione di report sul provisioning](check-status-user-account-provisioning.md).
-
-![Esempio-schermata dei log di provisioning per un'app](./media/user-provisioning/audit_logs.PNG)
-
-> [!NOTE]
-> Il servizio di provisioning utenti di Azure AD può essere configurato e gestito anche con l'[API di Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+Per altre applicazioni che supportano SCIM 2,0, seguire la procedura descritta nell'articolo [provisioning utenti scim con Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="what-happens-during-provisioning"></a>Cosa accade durante il provisioning?
 

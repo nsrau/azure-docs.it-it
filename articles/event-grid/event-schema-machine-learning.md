@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 6c2a8fa57bf6e3a552da57588bdbe752ef0d22e2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609567"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132880"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Schema di eventi di griglia di eventi di Azure per Azure Machine Learning
 
@@ -24,7 +24,7 @@ Per un elenco degli script e delle esercitazioni di esempio, vedere [origine eve
 
 Azure Machine Learning emette i tipi di evento seguenti:
 
-| Tipo evento | Descrizione |
+| Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | Microsoft. MachineLearningServices. ModelRegistered | Generato quando una nuova versione del modello o del modello è stata registrata correttamente. |
 | Microsoft. MachineLearningServices. ModelDeployed | Generato quando i modelli sono stati distribuiti correttamente in un endpoint. |
@@ -152,7 +152,7 @@ Questa sezione contiene un esempio dell'aspetto dei dati per ogni evento.
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | digitare | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -167,7 +167,7 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | digitare | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | ModelName | stringa | Nome del modello registrato. |
 | ModelVersion | int | Versione del modello registrato. |
@@ -176,20 +176,20 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | digitare | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | ServiceName | stringa | Nome del servizio distribuito. |
 | ServiceComputeType | stringa | Tipo di calcolo (ad esempio, ACI, AKS) del servizio distribuito. |
-| ModelIds | stringa | Elenco comune di ID di modello separati. ID dei modelli distribuiti nel servizio. |
+  | ModelIds | stringa | Elenco delimitato da virgole di ID modello. ID dei modelli distribuiti nel servizio. |
 | ServiceTags | oggetto | Tag del servizio distribuito. |
 | ServiceProperties | oggetto | Proprietà del servizio distribuito. |
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | digitare | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | ExperimentId | stringa | ID dell'esperimento a cui appartiene l'esecuzione. |
-| experimentname | stringa | Nome dell'esperimento a cui appartiene l'esecuzione. |
+| Experimentname | stringa | Nome dell'esperimento a cui appartiene l'esecuzione. |
 | RunId | stringa | ID dell'esecuzione completata. |
 | RunType | stringa | Tipo di esecuzione dell'esecuzione completata. |
 | RunTags | oggetto | Tag dell'esecuzione completata. |
@@ -197,7 +197,7 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | digitare | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | DataDriftId | stringa | ID del monitoraggio della deriva dati che ha attivato l'evento. |
 | Datadriftname | stringa | Nome del monitoraggio della deriva dati che ha attivato l'evento. |
@@ -214,4 +214,4 @@ L'oggetto dati presenta le proprietà seguenti per ogni tipo di evento:
 * Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md)
 * Per altre informazioni sulla creazione di una sottoscrizione di griglia di eventi di Azure, vedere [schema di sottoscrizione di griglia di eventi](subscription-creation-schema.md)
 * Per un'introduzione all'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [utilizzare eventi Azure Machine Learning](/azure/machine-learning/service/concept-event-grid-integration)
-* Per un esempio dell'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [creare flussi di lavoro di machine learning basati su eventi](/azure/machine-learning/service/event-schema-machine-learning)
+* Per un esempio dell'uso di griglia di eventi di Azure con Azure Machine Learning, vedere [creare flussi di lavoro di machine learning basati su eventi](/azure/machine-learning/service/how-to-use-event-grid)

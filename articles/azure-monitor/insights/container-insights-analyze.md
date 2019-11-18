@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: f1a5d0d98a442fab80744636eea05d4c2d26f919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8bb3ac1905167989e27d47304ae539e49a1412e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478989"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132347"
 ---
 # <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Informazioni sulle prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -76,7 +76,7 @@ Lo stato di integrità calcola lo stato complessivo del cluster come il *peggior
 
 Nella tabella seguente viene fornita una suddivisione del calcolo che controlla gli Stati di integrità per un cluster monitorato nella visualizzazione multicluster.
 
-| |Stato |Disponibilità |  
+| |Stato |Availability |  
 |-------|-------|-----------------|  
 |**Pod utente**| | |  
 | |Healthy |100% |  
@@ -100,7 +100,7 @@ Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **c
 
 L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **insights** > **cluster** dal riquadro a sinistra oppure quando è stato selezionato un cluster dalla visualizzazione a più cluster. Le informazioni sul cluster sono organizzate in quattro prospettive:
 
-- HDInsight
+- Cluster
 - Nodi 
 - Controller 
 - Contenitori
@@ -127,9 +127,9 @@ Il monitoraggio di Azure per i contenitori supporta anche [Esplora metriche](../
 
 In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e dei Pod aggregati da monitoraggio di Azure per i contenitori. La tabella seguente riepiloga i dettagli che consentono di comprendere come usare i grafici delle metriche per visualizzare le metriche dei contenitori.
 
-|Spazio dei nomi | Metrica | Descrizione | 
+|Spazio dei nomi | Metrica | DESCRIZIONE | 
 |----------|--------|-------------|
-| Insights. contenitore/nodi | |
+| insights.container/nodes | |
 | | cpuUsageMillicores | Misurazione aggregata dell'utilizzo della CPU nel cluster. Si tratta di un core CPU suddiviso in unità 1000 (Milli = 1000). Usato per determinare l'utilizzo dei core in un contenitore in cui molte applicazioni potrebbero usare un core.| 
 | | cpuUsagePercentage | Utilizzo medio della CPU aggregato misurato in percentuale nel cluster.|
 | | memoryRssBytes | Memoria RSS del contenitore utilizzata in byte.| 
@@ -138,7 +138,7 @@ In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e
 | | memoryWorkingSetPercentage | Contenitore working set memoria utilizzata nella percentuale. | 
 | | nodesCount | Numero di nodi di Kubernetes.|
 | Insights. container/Pod | |
-| | podCount | Numero di pod da Kubernetes.|
+| | PodCount | Numero di pod da Kubernetes.|
 
 È possibile [suddividere](../platform/metrics-charts.md#apply-splitting-to-a-chart) una metrica per visualizzarla in base alla dimensione e visualizzare il modo in cui i diversi segmenti si confrontano tra loro. Per un nodo è possibile segmentare il grafico in base alla dimensione *host* . Da un pod è possibile segmentarlo per le dimensioni seguenti:
 
@@ -199,9 +199,9 @@ Queste informazioni consentono di identificare rapidamente se si dispone di un g
 
 Le informazioni presentate quando si visualizza la scheda **nodi** sono descritte nella tabella seguente.
 
-| Colonna | Descrizione | 
+| Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name | Nome dell'host. |
+| Nome | Nome dell'host. |
 | Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%  | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Min, AVG, cinquantesimo, 90, 95, max | Valore effettivo del nodo medio basato sul percentile durante la durata selezionata. Il valore medio viene misurato in base al limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
@@ -228,9 +228,9 @@ Selezionare il valore nella colonna **nodo** per il controller specifico.
 
 Le informazioni visualizzate quando si visualizzano i controller sono descritte nella tabella seguente.
 
-| Colonna | Descrizione | 
+| Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name | Nome del controller.|
+| Nome | Nome del controller.|
 | Stato | Stato di rollup dei contenitori al termine dell'esecuzione con lo stato, ad esempio *OK*, *terminato*, *non riuscito*, *arrestato*o *sospeso*. Se il contenitore è in esecuzione, ma lo stato non è stato visualizzato correttamente o non è stato prelevato dall'agente e non ha risposto per più di 30 minuti, lo stato è *sconosciuto*. Nella tabella seguente sono disponibili ulteriori dettagli sull'icona di stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;%| Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -265,9 +265,9 @@ Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visua
 
 Le informazioni visualizzate quando si visualizzano i contenitori sono descritte nella tabella seguente.
 
-| Colonna | Descrizione | 
+| Colonna | DESCRIZIONE | 
 |--------|-------------|
-| Name | Nome del controller.|
+| Nome | Nome del controller.|
 | Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Min&nbsp;%, media&nbsp;%, cinquantesimo&nbsp;%, 90&nbsp;%, 95 °&nbsp;%, Max&nbsp;% | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Min, AVG, cinquantesimo, 90, 95, max | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
@@ -320,3 +320,5 @@ Per accedere a queste cartelle di lavoro, selezionarle nell'elenco a discesa **V
 - Esaminare [creare avvisi di prestazioni con monitoraggio di Azure per i contenitori](container-insights-alerts.md) per informazioni su come creare avvisi per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi DevOps.
 
 - Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti da valutare o personalizzare per visualizzare avvisi, visualizzare o analizzare i cluster.
+
+- Per informazioni sulla visualizzazione dello stato di integrità del cluster Kubernetes, vedere [monitorare l'integrità del cluster](container-insights-health.md) .

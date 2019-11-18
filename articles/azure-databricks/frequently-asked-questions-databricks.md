@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601814"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129327"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Domande frequenti su Azure Databricks
 
@@ -29,12 +29,12 @@ Sì. È possibile usare una rete virtuale di Azure (VNET) con Azure Databricks. 
 
 ## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Ricerca per categorie accedere Azure Data Lake Storage da un notebook? 
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 1. In Azure Active Directory (Azure AD) eseguire il provisioning di un'entità servizio e registrare la relativa chiave.
 1. Assegnare le autorizzazioni necessarie all'entità servizio in Data Lake Storage.
 1. Per accedere a un file in Data Lake Storage, usare le credenziali dell'entità servizio in notebook.
 
-Per ulteriori informazioni, vedere [utilizzare Azure Data Lake storage con Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake.html).
+Per ulteriori informazioni, vedere [utilizzare Azure Data Lake storage con Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## <a name="fix-common-problems"></a>Risolvere i problemi frequenti
 
@@ -71,7 +71,7 @@ Di seguito sono riportate due soluzioni a questo problema:
 
     b. Aggiungere un utente con indirizzo di posta elettronica `@<tenant_name>.onmicrosoft.com` invece di `@<your_domain>`. È possibile trovare questa opzione in **Domini personalizzati** in Azure AD nel portale di Azure.
     
-    c. Concedere a questo nuovo utente il ruolo **Collaboratore** per la risorsa dell'area di lavoro Databricks.
+    C. Concedere a questo nuovo utente il ruolo **Collaboratore** per la risorsa dell'area di lavoro Databricks.
     
     d. Accedere al portale di Azure con il nuovo utente e trovare l'area di lavoro Databricks.
     

@@ -1,17 +1,14 @@
 ---
-title: Supporto dei tag di Azure Resource Manager per le risorse
+title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c0f36568bbbf824285cfaa3385d2225e0a989639
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162165"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149218"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi.
@@ -20,123 +17,123 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 
 Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="op_single_selector"]
-> - [Microsoft. AAD](#microsoftaad)
+> - [Microsoft.AAD](#microsoftaad)
 > - [Microsoft. addons](#microsoftaddons)
 > - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft. Advisor](#microsoftadvisor)
-> - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft. AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
-> - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
 > - [Microsoft. AppPlatform](#microsoftappplatform)
 > - [Microsoft. attestazione](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft. Azconfig](#microsoftazconfig)
 > - [Microsoft. Azure. Geneva](#microsoftazuregeneva)
-> - [Microsoft. AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft. AzureData](#microsoftazuredata)
-> - [Microsoft. AzureStack](#microsoftazurestack)
-> - [Microsoft. batch](#microsoftbatch)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. Billing](#microsoftbilling)
-> - [Microsoft. BingMaps](#microsoftbingmaps)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft. blockchain](#microsoftblockchain)
-> - [Microsoft. Blueprint](#microsoftblueprint)
-> - [Microsoft. BotService](#microsoftbotservice)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
 > - [Microsoft. Capacity](#microsoftcapacity)
 > - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
-> - [Microsoft. ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
 > - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft. ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft. Commerce](#microsoftcommerce)
-> - [Microsoft. Compute](#microsoftcompute)
+> - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft. consumer](#microsoftconsumption)
-> - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft. CortanaAnalytics](#microsoftcortanaanalytics)
-> - [Microsoft. CostManagement](#microsoftcostmanagement)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft. CustomProviders](#microsoftcustomproviders)
-> - [Microsoft. DataBox](#microsoftdatabox)
-> - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft. databricks](#microsoftdatabricks)
-> - [Microsoft. datacatalog](#microsoftdatacatalog)
+> - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
 > - [Microsoft.DataFactory](#microsoftdatafactory)
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft. DataMigration](#microsoftdatamigration)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
 > - [Microsoft. DataShare](#microsoftdatashare)
-> - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft. DBforMySQL](#microsoftdbformysql)
-> - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft. DevOps](#microsoftdevops)
-> - [Microsoft. DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft. DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
-> - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft. EventGrid](#microsofteventgrid)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft. Features](#microsoftfeatures)
 > - [Microsoft. Gallery](#microsoftgallery)
-> - [Microsoft. genomica](#microsoftgenomics)
-> - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
-> - [Microsoft. HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
 > - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
 > - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft. HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft. HybridCompute](#microsofthybridcompute)
-> - [Microsoft. HybridData](#microsofthybriddata)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft. Hydra](#microsofthydra)
-> - [Microsoft. ImportExport](#microsoftimportexport)
+> - [Microsoft.ImportExport](#microsoftimportexport)
 > - [Microsoft. Intune](#microsoftintune)
-> - [Microsoft. IoTCentral](#microsoftiotcentral)
-> - [Microsoft. IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft. kusto](#microsoftkusto)
-> - [Microsoft. LabServices](#microsoftlabservices)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft. MachineLearning](#microsoftmachinelearning)
-> - [Microsoft. MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
-> - [Microsoft. Maps](#microsoftmaps)
+> - [Microsoft.Maps](#microsoftmaps)
 > - [Microsoft. Marketplace](#microsoftmarketplace)
-> - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
 > - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
 > - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft. migrate](#microsoftmigrate)
+> - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
-> - [Microsoft. NetApp](#microsoftnetapp)
-> - [Microsoft. Network](#microsoftnetwork)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
-> - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft. peering](#microsoftpeering)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft. Portal](#microsoftportal)
-> - [Microsoft. Power bi](#microsoftpowerbi)
-> - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft. Relay](#microsoftrelay)
+> - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft. RemoteApp](#microsoftremoteapp)
 > - [Microsoft. ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
-> - [Microsoft. SaaS](#microsoftsaas)
+> - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
@@ -144,28 +141,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft. Services](#microsoftservices)
-> - [Microsoft. SignalRService](#microsoftsignalrservice)
-> - [Microsoft. SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft. Solutions](#microsoftsolutions)
+> - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft. SQL](#microsoftsql)
-> - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft. StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft. StorageReplication](#microsoftstoragereplication)
-> - [Microsoft. StorageSync](#microsoftstoragesync)
-> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft. StorSimple](#microsoftstorsimple)
-> - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft. Subscription](#microsoftsubscription)
-> - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft. WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft. WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
@@ -173,9 +170,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | DomainServices | SÌ | SÌ |
+> | DomainServices | Sì | Sì |
 > | DomainServices/oucontainer | No | No |
-> | DomainServices/ReplicaSets | SÌ | SÌ |
+> | DomainServices/ReplicaSets | Sì | Sì |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -215,14 +212,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | actionRules | SÌ | SÌ |
+> | actionRules | Sì | Sì |
 > | alerts | No | No |
 > | alertsList | No | No |
 > | alertsMetaData | No | No |
 > | alertsSummary | No | No |
 > | alertsSummaryList | No | No |
 > | Feedback | No | No |
-> | smartDetectorAlertRules | SÌ | SÌ |
+> | smartDetectorAlertRules | Sì | Sì |
 > | smartDetectorRuntimeEnvironments | No | No |
 > | smartGroups | No | No |
 
@@ -231,7 +228,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | server | SÌ | SÌ |
+> | servers | Sì | Sì |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
@@ -239,15 +236,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | reportFeedback | No | No |
-> | servizio | SÌ | SÌ |
+> | servizio | Sì | Sì |
 > | validateServiceName | No | No |
 
-## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | SÌ | SÌ |
+> | configurationStores | Sì | Sì |
 > | configurationStores/eventGridFilters | No | No |
 
 ## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
@@ -255,7 +252,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | Spring | SÌ | SÌ |
+> | Spring | Sì | Sì |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -288,10 +285,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | automationAccounts | SÌ | SÌ |
-> | automationAccounts/configurations | SÌ | SÌ |
+> | automationAccounts | Sì | Sì |
+> | automationAccounts/configurations | Sì | Sì |
 > | automationAccounts/jobs | No | No |
-> | automationAccounts/runbooks | SÌ | SÌ |
+> | automationAccounts/runbooks | Sì | Sì |
 > | automationAccounts/softwareUpdateConfigurations | No | No |
 > | automationAccounts/webhooks | No | No |
 
@@ -300,7 +297,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | SÌ | SÌ |
+> | configurationStores | Sì | Sì |
 > | configurationStores/eventGridFilters | No | No |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
@@ -318,7 +315,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectories | SÌ | No |
+> | b2cDirectories | Sì | No |
 > | b2ctenants | No | No |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
@@ -326,11 +323,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | hybridDataManagers | SÌ | SÌ |
-> | postgresInstances | SÌ | SÌ |
-> | sqlBigDataClusters | SÌ | SÌ |
-> | SQLInstances | SÌ | SÌ |
-> | sqlServerRegistrations | SÌ | SÌ |
+> | hybridDataManagers | Sì | Sì |
+> | postgresInstances | Sì | Sì |
+> | sqlBigDataClusters | Sì | Sì |
+> | SQLInstances | Sì | Sì |
+> | sqlServerRegistrations | Sì | Sì |
 > | sqlServerRegistrations/SQLServers | No | No |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
@@ -338,7 +335,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | registrations | SÌ | SÌ |
+> | registrations | Sì | Sì |
 > | registrations/customerSubscriptions | No | No |
 > | registrations/products | No | No |
 
@@ -347,7 +344,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | batchAccounts | SÌ | SÌ |
+> | batchAccounts | Sì | Sì |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -440,7 +437,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | mapApis | SÌ | SÌ |
+> | mapApis | Sì | Sì |
 > | updateCommunicationPreference | No | No |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
@@ -448,9 +445,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | blockchainMembers | SÌ | SÌ |
-> | cordaMembers | SÌ | SÌ |
-> | visualizzazioni | SÌ | SÌ |
+> | blockchainMembers | Sì | Sì |
+> | cordaMembers | Sì | Sì |
+> | visualizzazioni | Sì | Sì |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
@@ -470,7 +467,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | botServices | SÌ | SÌ |
+> | botServices | Sì | Sì |
 > | botServices/channels | No | No |
 > | botServices/connections | No | No |
 > | lingue | No | No |
@@ -481,7 +478,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | Redis | SÌ | SÌ |
+> | Redis | Sì | Sì |
 > | RedisConfigDefinition | No | No |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -515,10 +512,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | CdnWebApplicationFirewallManagedRuleSets | No | No |
-> | CdnWebApplicationFirewallPolicies | SÌ | SÌ |
+> | CdnWebApplicationFirewallPolicies | Sì | Sì |
 > | edgenodes | No | No |
-> | Profili | SÌ | SÌ |
-> | profiles/endpoints | SÌ | SÌ |
+> | Profili | Sì | Sì |
+> | profiles/endpoints | Sì | Sì |
 > | profiles/endpoints/customdomains | No | No |
 > | profiles/endpoints/origins | No | No |
 > | validateProbe | No | No |
@@ -528,7 +525,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | certificateOrders | SÌ | SÌ |
+> | certificateOrders | Sì | Sì |
 > | certificateOrders/certificates | No | No |
 > | validateCertificateRegistrationInformation | No | No |
 
@@ -611,7 +608,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -626,29 +623,29 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | availabilitySets | SÌ | SÌ |
-> | diskEncryptionSets | SÌ | SÌ |
-> | dischi | SÌ | SÌ |
-> | galleries | SÌ | SÌ |
+> | availabilitySets | Sì | Sì |
+> | diskEncryptionSets | Sì | Sì |
+> | dischi | Sì | Sì |
+> | galleries | Sì | Sì |
 > | raccolte/applicazioni | No | No |
 > | raccolte/applicazioni/versioni | No | No |
 > | galleries/images | No | No |
 > | galleries/images/versions | No | No |
-> | Gruppi host | SÌ | SÌ |
-> | Gruppi host/host | SÌ | SÌ |
-> | images | SÌ | SÌ |
-> | proximityPlacementGroups | SÌ | SÌ |
-> | restorePointCollections | SÌ | SÌ |
+> | Gruppi host | Sì | Sì |
+> | Gruppi host/host | Sì | Sì |
+> | images | Sì | Sì |
+> | proximityPlacementGroups | Sì | Sì |
+> | restorePointCollections | Sì | Sì |
 > | restorePointCollections/restorePoints | No | No |
-> | sharedVMExtensions | SÌ | SÌ |
+> | sharedVMExtensions | Sì | Sì |
 > | sharedVMExtensions/versioni | No | No |
-> | sharedVMImages | SÌ | SÌ |
+> | sharedVMImages | Sì | Sì |
 > | sharedVMImages/versions | No | No |
-> | snapshots | SÌ | SÌ |
-> | virtualMachines | SÌ | SÌ |
-> | virtualMachines/extensions | SÌ | SÌ |
+> | snapshots | Sì | Sì |
+> | virtualMachines | Sì | Sì |
+> | virtualMachines/extensions | Sì | Sì |
 > | virtualMachines/metricDefinitions | No | No |
-> | virtualMachineScaleSets | SÌ | SÌ |
+> | virtualMachineScaleSets | Sì | Sì |
 > | virtualMachineScaleSets/extensions | No | No |
 > | virtualMachineScaleSets/networkInterfaces | No | No |
 > | virtualMachineScaleSets/publicIPAddresses | No | No |
@@ -666,7 +663,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Charges | No | No |
 > | CostTags | No | No |
 > | credits | No | No |
-> | eventi | No | No |
+> | events | No | No |
 > | Previsioni | No | No |
 > | lots | No | No |
 > | Marketplace | No | No |
@@ -686,7 +683,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | containerGroups | SÌ | SÌ |
+> | containerGroups | Sì | Sì |
 > | serviceAssociationLinks | No | No |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
@@ -694,11 +691,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | registries | SÌ | SÌ |
+> | registries | Sì | Sì |
 > | registries/builds | No | No |
 > | registries/builds/cancel | No | No |
 > | registries/builds/getLogLink | No | No |
-> | registries/buildTasks | SÌ | SÌ |
+> | registries/buildTasks | Sì | Sì |
 > | registries/buildTasks/steps | No | No |
 > | registries/eventGridFilters | No | No |
 > | registri/generateCredentials | No | No |
@@ -708,15 +705,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registries/queueBuild | No | No |
 > | registries/regenerateCredential | No | No |
 > | registries/regenerateCredentials | No | No |
-> | registries/replications | SÌ | SÌ |
+> | registries/replications | Sì | Sì |
 > | registries/runs | No | No |
 > | registries/runs/cancel | No | No |
 > | registries/scheduleRun | No | No |
 > | registri/scopeMaps | No | No |
-> | registries/tasks | SÌ | SÌ |
+> | registries/tasks | Sì | Sì |
 > | registri/token | No | No |
 > | registries/updatePolicies | No | No |
-> | registries/webhooks | SÌ | SÌ |
+> | registries/webhooks | Sì | Sì |
 > | registries/webhooks/getCallbackConfig | No | No |
 > | registries/webhooks/ping | No | No |
 
@@ -725,27 +722,27 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | containerServices | SÌ | SÌ |
-> | managedClusters | SÌ | SÌ |
-> | openShiftManagedClusters | SÌ | SÌ |
+> | containerServices | Sì | Sì |
+> | managedClusters | Sì | Sì |
+> | openShiftManagedClusters | Sì | Sì |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | Avvisi | No | No |
+> | Alerts | No | No |
 > | BillingAccounts | No | No |
 > | Budget | No | No |
 > | CloudConnectors | No | No |
-> | Connettori | SÌ | SÌ |
+> | Connettori | Sì | Sì |
 > | Departments | No | No |
 > | Dimensioni | No | No |
 > | EnrollmentAccounts | No | No |
@@ -765,45 +762,45 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | register | No | No |
 > | Reportconfigs | No | No |
 > | Report | No | No |
-> | Impostazioni | No | No |
+> | Settings | No | No |
 > | showbackRules | No | No |
 > | Visualizzazioni | No | No |
 
-## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
+## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | requests | No | No |
 
-## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
+## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | associazioni | No | No |
-> | resourceProviders | SÌ | SÌ |
+> | resourceProviders | Sì | Sì |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | jobs | SÌ | SÌ |
+> | jobs | Sì | Sì |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | DataBoxEdgeDevices | SÌ | SÌ |
+> | DataBoxEdgeDevices | Sì | Sì |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | aree di lavoro | SÌ | No |
+> | aree di lavoro | Sì | No |
 > | workspaces/virtualNetworkPeerings | No | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -811,8 +808,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | catalogs | SÌ | SÌ |
-> | datacatalogs | SÌ | SÌ |
+> | catalogs | Sì | Sì |
+> | datacatalogs | Sì | Sì |
 > | datacatalogs/origini dati | No | No |
 > | sottocataloghi/origini dati/analisi | No | No |
 > | datacatalogs/DataSources/scansioni/set di dati | No | No |
@@ -823,11 +820,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | dataFactories | SÌ | No |
+> | dataFactories | Sì | No |
 > | dataFactories/diagnosticSettings | No | No |
 > | dataFactories/metricDefinitions | No | No |
 > | dataFactorySchema | No | No |
-> | factories | SÌ | No |
+> | factories | Sì | No |
 > | factories/integrationRuntimes | No | No |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
@@ -835,7 +832,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 > | accounts/dataLakeStoreAccounts | No | No |
 > | accounts/storageAccounts | No | No |
 > | accounts/storageAccounts/containers | No | No |
@@ -846,7 +843,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 > | accounts/eventGridFilters | No | No |
 > | accounts/firewallRules | No | No |
 
@@ -863,7 +860,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 > | account/condivisioni | No | No |
 > | account/condivisioni/set di impostazioni | No | No |
 > | account/condivisioni/inviti | No | No |
@@ -879,7 +876,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | server | SÌ | SÌ |
+> | servers | Sì | Sì |
 > | servers/advisors | No | No |
 > | Server/privateEndpointConnectionProxies | No | No |
 > | Server/privateEndpointConnections | No | No |
@@ -895,7 +892,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | server | SÌ | SÌ |
+> | servers | Sì | Sì |
 > | servers/advisors | No | No |
 > | Server/privateEndpointConnectionProxies | No | No |
 > | Server/privateEndpointConnections | No | No |
@@ -911,8 +908,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | serverGroups | SÌ | SÌ |
-> | server | SÌ | SÌ |
+> | serverGroups | Sì | Sì |
+> | servers | Sì | Sì |
 > | servers/advisors | No | No |
 > | servers/keys | No | No |
 > | Server/privateEndpointConnectionProxies | No | No |
@@ -923,45 +920,45 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | servers/topQueryStatistics | No | No |
 > | servers/virtualNetworkRules | No | No |
 > | servers/waitStatistics | No | No |
-> | serversv2 | SÌ | SÌ |
+> | serversv2 | Sì | Sì |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | artifactSources | SÌ | SÌ |
-> | rollouts | SÌ | SÌ |
-> | serviceTopologies | SÌ | SÌ |
-> | serviceTopologies/servizi | SÌ | SÌ |
-> | serviceTopologies/Services/serviceUnits | SÌ | SÌ |
-> | steps | SÌ | SÌ |
+> | artifactSources | Sì | Sì |
+> | rollouts | Sì | Sì |
+> | serviceTopologies | Sì | Sì |
+> | serviceTopologies/servizi | Sì | Sì |
+> | serviceTopologies/Services/serviceUnits | Sì | Sì |
+> | steps | Sì | Sì |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | applicationgroups | SÌ | SÌ |
+> | applicationgroups | Sì | Sì |
 > | applicationgroups/applicazioni | No | No |
 > | applicationgroups/desktop | No | No |
 > | applicationgroups/startmenuitems | No | No |
-> | hostpools | SÌ | SÌ |
+> | hostpools | Sì | Sì |
 > | hostpools/sessionhosts | No | No |
 > | hostpools/sessionhosts/usersessions | No | No |
 > | hostpools/usersessions | No | No |
-> | aree di lavoro | SÌ | SÌ |
+> | aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | ElasticPools | SÌ | SÌ |
-> | ElasticPools/IotHubTenants | SÌ | SÌ |
-> | Hub IoT | SÌ | SÌ |
+> | ElasticPools | Sì | Sì |
+> | ElasticPools/IotHubTenants | Sì | Sì |
+> | Hub IoT | Sì | Sì |
 > | IotHubs/eventGridFilters | No | No |
-> | ProvisioningServices | SÌ | SÌ |
+> | ProvisioningServices | Sì | Sì |
 > | usages | No | No |
 
 ## <a name="microsoftdevops"></a>Microsoft. DevOps
@@ -969,26 +966,26 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | Pipeline | SÌ | SÌ |
+> | pipeline | Sì | Sì |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | controllers | SÌ | SÌ |
+> | controllers | Sì | Sì |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | labcenters | SÌ | SÌ |
-> | labs | SÌ | SÌ |
-> | Lab/ambienti | SÌ | SÌ |
-> | labs/serviceRunners | SÌ | SÌ |
-> | labs/virtualMachines | SÌ | SÌ |
-> | schedules | SÌ | SÌ |
+> | labcenters | Sì | Sì |
+> | labs | Sì | Sì |
+> | Lab/ambienti | Sì | Sì |
+> | labs/serviceRunners | Sì | Sì |
+> | labs/virtualMachines | Sì | Sì |
+> | schedules | Sì | Sì |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -996,14 +993,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | databaseAccountNames | No | No |
-> | databaseAccounts | SÌ | SÌ |
+> | databaseAccounts | Sì | Sì |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | domains | SÌ | SÌ |
+> | domains | Sì | Sì |
 > | domains/domainOwnershipIdentifiers | No | No |
 > | generateSsoRequest | No | No |
 > | topLevelDomains | No | No |
@@ -1018,23 +1015,23 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | lcsprojects/clouddeployments | No | No |
 > | lcsprojects/connectors | No | No |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | services | SÌ | SÌ |
+> | services | Sì | Sì |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | domains | SÌ | SÌ |
+> | domains | Sì | Sì |
 > | domains/topics | No | No |
 > | eventSubscriptions | No | No |
 > | extensionTopics | No | No |
-> | topics | SÌ | SÌ |
+> | topics | Sì | Sì |
 > | topicTypes | No | No |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -1042,8 +1039,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | clusters | SÌ | SÌ |
-> | spazi dei nomi | SÌ | SÌ |
+> | clusters | Sì | Sì |
+> | spazi dei nomi | Sì | Sì |
 > | namespaces/authorizationrules | No | No |
 > | namespaces/disasterrecoveryconfigs | No | No |
 > | namespaces/eventhubs | No | No |
@@ -1056,7 +1053,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | elastico | No | No |
+> | funzionalità | No | No |
 > | provider | No | No |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
@@ -1082,14 +1079,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | autoManagedVmConfigurationProfiles | SÌ | SÌ |
+> | autoManagedVmConfigurationProfiles | Sì | Sì |
 > | configurationProfileAssignments | No | No |
 > | guestConfigurationAssignments | No | No |
 > | software | No | No |
@@ -1101,60 +1098,60 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | hanaInstances | SÌ | SÌ |
-> | sapMonitors | SÌ | SÌ |
+> | hanaInstances | Sì | Sì |
+> | sapMonitors | Sì | Sì |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | dedicatedHSMs | SÌ | SÌ |
+> | dedicatedHSMs | Sì | Sì |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | clusters | SÌ | SÌ |
+> | clusters | Sì | Sì |
 > | clusters/applications | No | No |
 
-## <a name="microsofthealthcareapis"></a>Microsoft. HealthcareApis
+## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | services | SÌ | SÌ |
+> | services | Sì | Sì |
 
-## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | macchine | SÌ | SÌ |
-> | computer/estensioni | SÌ | SÌ |
+> | macchine | Sì | Sì |
+> | computer/estensioni | Sì | Sì |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | datamanager | SÌ | SÌ |
+> | datamanager | Sì | Sì |
 
 ## <a name="microsofthydra"></a>Microsoft. Hydra
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | components | SÌ | SÌ |
-> | networkScopes | SÌ | SÌ |
+> | components | Sì | Sì |
+> | networkScopes | Sì | Sì |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | jobs | SÌ | SÌ |
+> | jobs | Sì | Sì |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
@@ -1170,14 +1167,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | appTemplates | No | No |
-> | IoTApps | SÌ | SÌ |
+> | IoTApps | Sì | Sì |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | Grafo | SÌ | SÌ |
+> | Grafico | Sì | Sì |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -1185,8 +1182,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | deletedVaults | No | No |
-> | hsmPools | SÌ | SÌ |
-> | insiemi di credenziali | SÌ | SÌ |
+> | hsmPools | Sì | Sì |
+> | insiemi di credenziali | Sì | Sì |
 > | vaults/accessPolicies | No | No |
 > | insiemi di credenziali/eventGridFilters | No | No |
 > | vaults/secrets | No | No |
@@ -1196,7 +1193,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | clusters | SÌ | SÌ |
+> | clusters | Sì | Sì |
 > | cluster/attacheddatabaseconfigurations | No | No |
 > | clusters/databases | No | No |
 > | clusters/databases/dataconnections | No | No |
@@ -1208,36 +1205,36 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | SÌ | SÌ |
-> | utenti | No | No |
+> | labaccounts | Sì | Sì |
+> | users | No | No |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | hostingEnvironments | SÌ | SÌ |
-> | integrationAccounts | SÌ | SÌ |
-> | integrationServiceEnvironments | SÌ | SÌ |
-> | integrationServiceEnvironments/managedApis | SÌ | SÌ |
-> | isolatedEnvironments | SÌ | SÌ |
-> | flussi di lavoro | SÌ | SÌ |
+> | hostingEnvironments | Sì | Sì |
+> | integrationAccounts | Sì | Sì |
+> | integrationServiceEnvironments | Sì | Sì |
+> | integrationServiceEnvironments/managedApis | Sì | Sì |
+> | isolatedEnvironments | Sì | Sì |
+> | flussi di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | commitmentPlans | SÌ | SÌ |
-> | webServices | SÌ | SÌ |
-> | Aree di lavoro | SÌ | SÌ |
+> | commitmentPlans | Sì | Sì |
+> | webServices | Sì | Sì |
+> | Aree di lavoro | Sì | Sì |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | aree di lavoro | SÌ | SÌ |
+> | aree di lavoro | Sì | Sì |
 > | workspaces/computes | No | No |
 > | aree di lavoro/eventGridFilters | No | No |
 
@@ -1247,7 +1244,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | Identities | No | No |
-> | userAssignedIdentities | SÌ | SÌ |
+> | userAssignedIdentities | Sì | Sì |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
@@ -1274,7 +1271,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | account | SÌ | SÌ |
+> | account | Sì | Sì |
 > | accounts/eventGridFilters | No | No |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -1301,7 +1298,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | classicDevServices | SÌ | SÌ |
+> | classicDevServices | Sì | Sì |
 > | updateCommunicationPreference | No | No |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -1317,19 +1314,19 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | mediaservices | SÌ | SÌ |
+> | mediaservices | Sì | Sì |
 > | mediaservices/accountFilters | No | No |
 > | mediaservices/assets | No | No |
 > | mediaservices/assets/assetFilters | No | No |
 > | mediaservices/contentKeyPolicies | No | No |
 > | mediaservices/eventGridFilters | No | No |
 > | mediaservices/liveEventOperations | No | No |
-> | mediaservices/liveEvents | SÌ | SÌ |
+> | mediaservices/liveEvents | Sì | Sì |
 > | mediaservices/liveEvents/liveOutputs | No | No |
 > | mediaservices/liveOutputOperations | No | No |
 > | MediaServices/mediaGraphs | No | No |
 > | mediaservices/streamingEndpointOperations | No | No |
-> | mediaservices/streamingEndpoints | SÌ | SÌ |
+> | mediaservices/streamingEndpoints | Sì | Sì |
 > | mediaservices/streamingLocators | No | No |
 > | mediaservices/streamingPolicies | No | No |
 > | mediaservices/transforms | No | No |
@@ -1340,58 +1337,58 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | appClusters | SÌ | SÌ |
+> | appClusters | Sì | Sì |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | assessmentProjects | SÌ | SÌ |
-> | migrateprojects | SÌ | SÌ |
-> | projects | SÌ | SÌ |
+> | assessmentProjects | Sì | Sì |
+> | migrateprojects | Sì | Sì |
+> | projects | Sì | Sì |
 
-## <a name="microsoftmixedreality"></a>Microsoft. MixedReality
+## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | holographicsBroadcastAccounts | SÌ | SÌ |
-> | objectUnderstandingAccounts | SÌ | SÌ |
-> | remoteRenderingAccounts | SÌ | SÌ |
-> | spatialAnchorsAccounts | SÌ | SÌ |
-> | surfaceReconstructionAccounts | SÌ | SÌ |
+> | holographicsBroadcastAccounts | Sì | Sì |
+> | objectUnderstandingAccounts | Sì | Sì |
+> | remoteRenderingAccounts | Sì | Sì |
+> | spatialAnchorsAccounts | Sì | Sì |
+> | surfaceReconstructionAccounts | Sì | Sì |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | SÌ | SÌ |
-> | netAppAccounts/backupPolicies | SÌ | SÌ |
-> | netAppAccounts/capacityPools | SÌ | SÌ |
-> | netAppAccounts/capacityPools/volumi | SÌ | SÌ |
+> | netAppAccounts | Sì | Sì |
+> | netAppAccounts/backupPolicies | Sì | Sì |
+> | netAppAccounts/capacityPools | Sì | Sì |
+> | netAppAccounts/capacityPools/volumi | Sì | Sì |
 > | netAppAccounts/capacityPools/volumi/backup | No | No |
-> | netAppAccounts/capacityPools/Volumes/mountTargets | SÌ | SÌ |
-> | netAppAccounts/capacityPools/volumi/snapshot | SÌ | SÌ |
+> | netAppAccounts/capacityPools/Volumes/mountTargets | Sì | Sì |
+> | netAppAccounts/capacityPools/volumi/snapshot | Sì | Sì |
 > | netAppAccounts/insiemi di credenziali | No | No |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | applicationGateways | SÌ | SÌ |
-> | applicationGatewayWebApplicationFirewallPolicies | SÌ | SÌ |
-> | applicationSecurityGroups | SÌ | SÌ |
+> | applicationGateways | Sì | Sì |
+> | applicationGatewayWebApplicationFirewallPolicies | Sì | Sì |
+> | applicationSecurityGroups | Sì | Sì |
 > | azureFirewallFqdnTags | No | No |
-> | azureFirewalls | SÌ | No |
-> | bastionHosts | SÌ | SÌ |
+> | azureFirewalls | Sì | No |
+> | bastionHosts | Sì | Sì |
 > | bgpServiceCommunities | No | No |
-> | connections | SÌ | SÌ |
-> | ddosCustomPolicies | SÌ | SÌ |
-> | ddosProtectionPlans | SÌ | SÌ |
+> | connections | Sì | Sì |
+> | ddosCustomPolicies | Sì | Sì |
+> | ddosProtectionPlans | Sì | Sì |
 > | dnsOperationStatuses | No | No |
-> | dnszones | SÌ | SÌ |
+> | dnszones | Sì | Sì |
 > | dnszones/A | No | No |
 > | dnszones/AAAA | No | No |
 > | dnszones/all | No | No |
@@ -1404,31 +1401,31 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | dnszones/SOA | No | No |
 > | dnszones/SRV | No | No |
 > | dnszones/TXT | No | No |
-> | expressRouteCircuits | SÌ | SÌ |
-> | expressRouteCrossConnections | SÌ | SÌ |
-> | expressRouteGateways | SÌ | SÌ |
-> | expressRoutePorts | SÌ | SÌ |
+> | expressRouteCircuits | Sì | Sì |
+> | expressRouteCrossConnections | Sì | Sì |
+> | expressRouteGateways | Sì | Sì |
+> | expressRoutePorts | Sì | Sì |
 > | expressRouteServiceProviders | No | No |
-> | firewallPolicies | SÌ | SÌ |
-> | frontdoors | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | SÌ |
+> | firewallPolicies | Sì | Sì |
+> | frontdoors | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | Sì |
 > | frontdoorWebApplicationFirewallManagedRuleSets | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | No |
-> | frontdoorWebApplicationFirewallPolicies | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | SÌ |
+> | frontdoorWebApplicationFirewallPolicies | Sì, ma limitato (vedere la [Nota di seguito](#frontdoor)) | Sì |
 > | getDnsResourceReference | No | No |
 > | internalNotify | No | No |
-> | loadBalancers | SÌ | No |
-> | localNetworkGateways | SÌ | SÌ |
-> | natGateways | SÌ | SÌ |
-> | networkIntentPolicies | SÌ | SÌ |
-> | networkInterfaces | SÌ | SÌ |
-> | networkProfiles | SÌ | SÌ |
-> | networkSecurityGroups | SÌ | SÌ |
-> | networkWatchers | SÌ | No |
-> | networkWatchers/connectionMonitors | SÌ | No |
-> | networkWatchers/lenses | SÌ | No |
-> | networkWatchers/pingMeshes | SÌ | No |
-> | p2sVpnGateways | SÌ | SÌ |
+> | loadBalancers | Sì | No |
+> | localNetworkGateways | Sì | Sì |
+> | natGateways | Sì | Sì |
+> | networkIntentPolicies | Sì | Sì |
+> | networkInterfaces | Sì | Sì |
+> | networkProfiles | Sì | Sì |
+> | networkSecurityGroups | Sì | Sì |
+> | networkWatchers | Sì | No |
+> | networkWatchers/connectionMonitors | Sì | No |
+> | networkWatchers/lenses | Sì | No |
+> | networkWatchers/pingMeshes | Sì | No |
+> | p2sVpnGateways | Sì | Sì |
 > | privateDnsOperationStatuses | No | No |
-> | privateDnsZones | SÌ | SÌ |
+> | privateDnsZones | Sì | Sì |
 > | privateDnsZones/A | No | No |
 > | privateDnsZones/AAAA | No | No |
 > | privateDnsZones/tutti | No | No |
@@ -1438,26 +1435,26 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | privateDnsZones/SOA | No | No |
 > | privateDnsZones/SRV | No | No |
 > | privateDnsZones/TXT | No | No |
-> | privateDnsZones/virtualNetworkLinks | SÌ | SÌ |
-> | privateEndpoints | SÌ | SÌ |
-> | privateLinkServices | SÌ | SÌ |
-> | publicIPAddresses | SÌ | SÌ |
-> | publicIPPrefixes | SÌ | SÌ |
-> | routeFilters | SÌ | SÌ |
-> | routeTables | SÌ | SÌ |
-> | serviceEndpointPolicies | SÌ | SÌ |
+> | privateDnsZones/virtualNetworkLinks | Sì | Sì |
+> | privateEndpoints | Sì | Sì |
+> | privateLinkServices | Sì | Sì |
+> | publicIPAddresses | Sì | Sì |
+> | publicIPPrefixes | Sì | Sì |
+> | routeFilters | Sì | Sì |
+> | routeTables | Sì | Sì |
+> | serviceEndpointPolicies | Sì | Sì |
 > | trafficManagerGeographicHierarchies | No | No |
-> | trafficmanagerprofiles | SÌ | SÌ |
+> | trafficmanagerprofiles | Sì | Sì |
 > | trafficmanagerprofiles/heatMaps | No | No |
 > | trafficManagerUserMetricsKeys | No | No |
-> | virtualHubs | SÌ | SÌ |
-> | virtualNetworkGateways | SÌ | SÌ |
-> | virtualNetworks | SÌ | SÌ |
-> | virtualNetworkTaps | SÌ | SÌ |
-> | virtualWans | SÌ | SÌ |
-> | vpnGateways | SÌ | No |
-> | vpnSites | SÌ | SÌ |
-> | webApplicationFirewallPolicies | SÌ | SÌ |
+> | virtualHubs | Sì | Sì |
+> | virtualNetworkGateways | Sì | Sì |
+> | virtualNetworks | Sì | Sì |
+> | virtualNetworkTaps | Sì | Sì |
+> | virtualWans | Sì | Sì |
+> | vpnGateways | Sì | No |
+> | vpnSites | Sì | Sì |
+> | webApplicationFirewallPolicies | Sì | Sì |
 
 <a id="frontdoor" />
 
@@ -1470,36 +1467,36 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | spazi dei nomi | SÌ | No |
-> | namespaces/notificationHubs | SÌ | No |
+> | spazi dei nomi | Sì | No |
+> | namespaces/notificationHubs | Sì | No |
 
 ## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | osNamespaces | SÌ | SÌ |
+> | osNamespaces | Sì | Sì |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | HyperVSites | SÌ | SÌ |
-> | ImportSites | SÌ | SÌ |
-> | ServerSites | SÌ | SÌ |
-> | VMwareSites | SÌ | SÌ |
+> | HyperVSites | Sì | Sì |
+> | ImportSites | Sì | Sì |
+> | ServerSites | Sì | Sì |
+> | VMwareSites | Sì | Sì |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | clusters | SÌ | SÌ |
+> | clusters | Sì | Sì |
 > | devices | No | No |
 > | linkTargets | No | No |
 > | storageInsightConfigs | No | No |
-> | aree di lavoro | SÌ | SÌ |
+> | aree di lavoro | Sì | Sì |
 > | workspaces/dataSources | No | No |
 > | workspaces/linkedServices | No | No |
 > | workspaces/query | No | No |
@@ -1510,20 +1507,20 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | managementassociations | No | No |
-> | managementconfigurations | SÌ | SÌ |
-> | solutions | SÌ | SÌ |
-> | Viste | SÌ | SÌ |
+> | managementconfigurations | Sì | Sì |
+> | solutions | Sì | Sì |
+> | Viste | Sì | Sì |
 
-## <a name="microsoftpeering"></a>Microsoft. peering
+## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | legacyPeerings | No | No |
 > | peerAsns | No | No |
-> | peering | SÌ | SÌ |
+> | peering | Sì | Sì |
 > | peeringServiceProviders | No | No |
-> | peeringServices | SÌ | SÌ |
+> | peeringServices | Sì | Sì |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
@@ -1542,7 +1539,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | consoles | No | No |
-> | dashboards | SÌ | SÌ |
+> | dashboards | Sì | Sì |
 > | userSettings | No | No |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
@@ -1550,14 +1547,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | workspaceCollections | SÌ | SÌ |
+> | workspaceCollections | Sì | Sì |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | capacities | SÌ | SÌ |
+> | capacities | Sì | Sì |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -1565,14 +1562,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | backupProtectedItems | No | No |
-> | insiemi di credenziali | SÌ | SÌ |
+> | insiemi di credenziali | Sì | Sì |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | spazi dei nomi | SÌ | SÌ |
+> | spazi dei nomi | Sì | Sì |
 > | namespaces/authorizationrules | No | No |
 > | namespaces/hybridconnections | No | No |
 > | namespaces/hybridconnections/authorizationrules | No | No |
@@ -1585,7 +1582,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | account | No | No |
-> | Collezioni | SÌ | SÌ |
+> | collezioni | Sì | Sì |
 > | raccolte/applicazioni | No | No |
 > | raccolte/SecurityPrincipals | No | No |
 > | templateImages | No | No |
@@ -1595,7 +1592,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | query | SÌ | SÌ |
+> | query | Sì | Sì |
 > | resourceChangeDetails | No | No |
 > | resourceChanges | No | No |
 > | resources | No | No |
@@ -1610,7 +1607,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | availabilityStatuses | No | No |
 > | childAvailabilityStatuses | No | No |
 > | childResources | No | No |
-> | eventi | No | No |
+> | events | No | No |
 > | impactedResources | No | No |
 > | metadata | No | No |
 > | Notifiche | No | No |
@@ -1620,14 +1617,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | deployments | SÌ | No |
+> | deployments | Sì | No |
 > | deployments/operations | No | No |
-> | deploymentScripts | SÌ | SÌ |
+> | deploymentScripts | Sì | Sì |
 > | deploymentScripts/log | No | No |
 > | links | No | No |
 > | notifyResourceJobs | No | No |
 > | provider | No | No |
-> | resourceGroups | SÌ | No |
+> | resourceGroups | Sì | No |
 > | resources | No | No |
 > | subscriptions | No | No |
 > | subscriptions/providers | No | No |
@@ -1643,7 +1640,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | applicazioni | SÌ | SÌ |
+> | scala Web | Sì | Sì |
 > | saasresources | No | No |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -1651,7 +1648,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | jobcollections | SÌ | SÌ |
+> | jobcollections | Sì | Sì |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1659,7 +1656,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | resourceHealthMetadata | No | No |
-> | searchServices | SÌ | SÌ |
+> | searchServices | Sì | Sì |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -1673,7 +1670,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | applicationWhitelistings | No | No |
 > | assessmentMetadata | No | No |
 > | valutazioni | No | No |
-> | Automazioni | SÌ | SÌ |
+> | Automazioni | Sì | Sì |
 > | AutoProvisioningSettings | No | No |
 > | Compliances | No | No |
 > | dataCollectionAgents | No | No |
@@ -1681,13 +1678,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | discoveredSecuritySolutions | No | No |
 > | externalSecuritySolutions | No | No |
 > | InformationProtectionPolicies | No | No |
-> | iotSecuritySolutions | SÌ | SÌ |
+> | iotSecuritySolutions | Sì | Sì |
 > | iotSecuritySolutions/analyticsModels | No | No |
 > | iotSecuritySolutions/analyticsModels/aggregatedAlerts | No | No |
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | No | No |
 > | jitNetworkAccessPolicies | No | No |
 > | File networkdata | No | No |
-> | playbookConfigurations | SÌ | SÌ |
+> | playbookConfigurations | Sì | Sì |
 > | criteri | No | No |
 > | pricings | No | No |
 > | regulatoryComplianceStandards | No | No |
@@ -1699,7 +1696,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | securityStatuses | No | No |
 > | securityStatusesSummaries | No | No |
 > | serverVulnerabilityAssessments | No | No |
-> | Scheda Impostazioni | No | No |
+> | Impostazioni | No | No |
 > | sottovalutazioni | No | No |
 > | attività | No | No |
 > | topologies | No | No |
@@ -1727,14 +1724,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | entities | No | No |
 > | entityQueries | No | No |
 > | officeConsents | No | No |
-> | Scheda Impostazioni | No | No |
+> | Impostazioni | No | No |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | spazi dei nomi | SÌ | No |
+> | spazi dei nomi | Sì | No |
 > | namespaces/authorizationrules | No | No |
 > | namespaces/disasterrecoveryconfigs | No | No |
 > | namespaces/eventgridfilters | No | No |
@@ -1752,30 +1749,30 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | applicazioni | SÌ | SÌ |
-> | clusters | SÌ | SÌ |
+> | scala Web | Sì | Sì |
+> | clusters | Sì | Sì |
 > | clusters/applications | No | No |
-> | containerGroups | SÌ | SÌ |
-> | containerGroupSets | SÌ | SÌ |
-> | edgeclusters | SÌ | SÌ |
+> | containerGroups | Sì | Sì |
+> | containerGroupSets | Sì | Sì |
+> | edgeclusters | Sì | Sì |
 > | edgeclusters/applicazioni | No | No |
-> | networks | SÌ | SÌ |
-> | secretstores | SÌ | SÌ |
+> | networks | Sì | Sì |
+> | secretstores | Sì | Sì |
 > | secretstores/certificati | No | No |
 > | secretstores/segreti | No | No |
-> | volumes | SÌ | SÌ |
+> | volumes | Sì | Sì |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | applicazioni | SÌ | SÌ |
-> | containerGroups | SÌ | SÌ |
-> | gateways | SÌ | SÌ |
-> | networks | SÌ | SÌ |
-> | chiavi private | SÌ | SÌ |
-> | volumes | SÌ | SÌ |
+> | scala Web | Sì | Sì |
+> | containerGroups | Sì | Sì |
+> | gateways | Sì | Sì |
+> | networks | Sì | Sì |
+> | chiavi private | Sì | Sì |
+> | volumes | Sì | Sì |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
 
@@ -1784,14 +1781,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | ------------- | ----------- | ----------- |
 > | providerRegistrations | No | No |
 > | providerRegistrations/resourceTypeRegistrations | No | No |
-> | rollouts | SÌ | SÌ |
+> | rollouts | Sì | Sì |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | SignalR | SÌ | SÌ |
+> | SignalR | Sì | Sì |
 > | SignalR/eventGridFilters | No | No |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
@@ -1799,7 +1796,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | SiteRecoveryVault | SÌ | SÌ |
+> | SiteRecoveryVault | Sì | Sì |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
@@ -1813,17 +1810,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | applicationDefinitions | SÌ | SÌ |
-> | applicazioni | SÌ | SÌ |
-> | jitRequests | SÌ | SÌ |
+> | applicationDefinitions | Sì | Sì |
+> | scala Web | Sì | Sì |
+> | jitRequests | Sì | Sì |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | managedInstances | SÌ | SÌ |
-> | managedInstances/databases | Sì (vedere la [Nota sotto](#sqlnote)) | SÌ |
+> | managedInstances | Sì | Sì |
+> | managedInstances/databases | Sì (vedere la [Nota sotto](#sqlnote)) | Sì |
 > | managedInstances/databases/backupShortTermRetentionPolicies | No | No |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No | No |
 > | managedInstances/databases/vulnerabilityAssessments | No | No |
@@ -1832,10 +1829,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | managedInstances/keys | No | No |
 > | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No | No |
 > | managedInstances/vulnerabilityAssessments | No | No |
-> | server | SÌ | SÌ |
+> | servers | Sì | Sì |
 > | servers/administrators | No | No |
 > | servers/communicationLinks | No | No |
-> | servers/databases | Sì (vedere la [Nota sotto](#sqlnote)) | SÌ |
+> | servers/databases | Sì (vedere la [Nota sotto](#sqlnote)) | Sì |
 > | servers/encryptionProtector | No | No |
 > | servers/firewallRules | No | No |
 > | servers/keys | No | No |
@@ -1854,16 +1851,16 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | SqlVirtualMachineGroups | SÌ | SÌ |
+> | SqlVirtualMachineGroups | Sì | Sì |
 > | SqlVirtualMachineGroups/AvailabilityGroupListeners | No | No |
-> | SqlVirtualMachines | SÌ | SÌ |
+> | SqlVirtualMachines | Sì | Sì |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | storageAccounts | SÌ | SÌ |
+> | storageAccounts | Sì | Sì |
 > | storageAccounts/blobServices | No | No |
 > | storageAccounts/fileServices | No | No |
 > | storageAccounts/queueServices | No | No |
@@ -1872,12 +1869,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | storageAccounts/tableServices | No | No |
 > | usages | No | No |
 
-## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | cache | SÌ | SÌ |
+> | cache | Sì | Sì |
 > | cache/storageTargets | No | No |
 > | usageModels | No | No |
 
@@ -1893,7 +1890,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | storageSyncServices | SÌ | SÌ |
+> | storageSyncServices | Sì | Sì |
 > | storageSyncServices/registeredServers | No | No |
 > | storageSyncServices/syncGroups | No | No |
 > | storageSyncServices/syncGroups/cloudEndpoints | No | No |
@@ -1905,7 +1902,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | storageSyncServices | SÌ | SÌ |
+> | storageSyncServices | Sì | Sì |
 > | storageSyncServices/registeredServers | No | No |
 > | storageSyncServices/syncGroups | No | No |
 > | storageSyncServices/syncGroups/cloudEndpoints | No | No |
@@ -1917,7 +1914,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | storageSyncServices | SÌ | SÌ |
+> | storageSyncServices | Sì | Sì |
 > | storageSyncServices/registeredServers | No | No |
 > | storageSyncServices/syncGroups | No | No |
 > | storageSyncServices/syncGroups/cloudEndpoints | No | No |
@@ -1929,14 +1926,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | managers | SÌ | SÌ |
+> | managers | Sì | Sì |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | streamingjobs | Sì (vedere la nota seguente) | SÌ |
+> | streamingjobs | Sì (vedere la nota seguente) | Sì |
 
 > [!NOTE]
 > Impossibile aggiungere un tag quando streamingjobs è in esecuzione. Interrompere la risorsa per aggiungere un tag.
@@ -1949,7 +1946,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Annulla | No | No |
 > | CreateSubscription | No | No |
 > | enable | No | No |
-> | Rinominare | No | No |
+> | rinominare | No | No |
 > | SubscriptionDefinitions | No | No |
 > | SubscriptionOperations | No | No |
 
@@ -1958,19 +1955,19 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | environments | SÌ | No |
+> | environments | Sì | No |
 > | environments/accessPolicies | No | No |
-> | environments/eventsources | SÌ | No |
-> | environments/referenceDataSets | SÌ | No |
+> | environments/eventsources | Sì | No |
+> | environments/referenceDataSets | Sì | No |
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | dedicatedCloudNodes | SÌ | SÌ |
-> | dedicatedCloudServices | SÌ | SÌ |
-> | virtualMachines | SÌ | SÌ |
+> | dedicatedCloudNodes | Sì | Sì |
+> | dedicatedCloudServices | Sì | Sì |
+> | virtualMachines | Sì | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
@@ -1988,28 +1985,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | apiManagementAccounts/connectionAcls | No | No |
 > | apiManagementAccounts/connections | No | No |
 > | billingMeters | No | No |
-> | certificates | SÌ | SÌ |
-> | connectionGateways | SÌ | SÌ |
-> | connections | SÌ | SÌ |
-> | customApis | SÌ | SÌ |
+> | certificates | Sì | Sì |
+> | connectionGateways | Sì | Sì |
+> | connections | Sì | Sì |
+> | customApis | Sì | Sì |
 > | deletedSites | No | No |
 > | functions | No | No |
-> | hostingEnvironments | SÌ | SÌ |
+> | hostingEnvironments | Sì | Sì |
 > | hostingEnvironments/multiRolePools | No | No |
 > | hostingEnvironments/workerPools | No | No |
 > | publishingUsers | No | No |
 > | raccomandazioni di film | No | No |
 > | resourceHealthMetadata | No | No |
 > | runtimes | No | No |
-> | serverFarms | SÌ | SÌ |
+> | serverFarms | Sì | Sì |
 > | serverFarms/eventGridFilters | No | No |
-> | siti | SÌ | SÌ |
+> | siti | Sì | Sì |
 > | siti/configurazione  | No | No |
 > | siti/eventGridFilters | No | No |
 > | sites/hostNameBindings | No | No |
 > | siti/file networkconfig | No | No |
-> | sites/premieraddons | SÌ | SÌ |
-> | sites/slots | SÌ | SÌ |
+> | sites/premieraddons | Sì | Sì |
+> | sites/slots | Sì | Sì |
 > | siti/slot/eventGridFilters | No | No |
 > | sites/slots/hostNameBindings | No | No |
 > | siti/slot/file networkconfig | No | No |
@@ -2030,7 +2027,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | DeviceServices | SÌ | SÌ |
+> | DeviceServices | Sì | Sì |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

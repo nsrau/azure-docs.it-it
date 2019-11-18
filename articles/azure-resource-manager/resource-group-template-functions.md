@@ -1,17 +1,14 @@
 ---
-title: Funzioni del modello di gestione risorse | Microsoft Docs
+title: Funzioni di modello
 description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a9501517672d3ea80a29979ce6b1439c4cc0010e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894168"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150666"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
 
@@ -38,7 +35,7 @@ Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](resou
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funzioni di array e di oggetto
-Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
+Resource Manager offre diverse funzioni per l'uso di matrici e oggetti.
 
 * [array](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)

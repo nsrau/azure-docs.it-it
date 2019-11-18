@@ -1,73 +1,89 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Registro Azure Container
+summary: Registro Azure Container consente di creare, archiviare e gestire immagini e artefatti di contenitori in un registro privato per tutti i tipi di distribuzioni di contenitori. È possibile usare i registri contenitori di Azure con le attuali pipeline di sviluppo e distribuzione di contenitori. Usare Attività del Registro Azure Container per creare immagini di contenitori in Azure su richiesta o automatizzare le compilazioni attivate da aggiornamenti del codice sorgente, da aggiornamenti all'immagine di base di un contenitore o da timer.
 metadata:
-  title: 'Documentazione di Registro Azure Container: esercitazioni | Microsoft Docs'
-  description: 'Registro Azure Container consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro Azure Container con guide introduttive, esercitazioni ed esempi.'
+  title: Documentazione di Registro Azure Container
+  description: Informazioni sul servizio di registro privato di Azure per ospitare le immagini di contenitori Docker e artefatti correlati. Il servizio Registro Azure Container supporta anche Attività del Registro Azure Container, una famiglia di servizi che consentono di creare, gestire e applicare patch alle immagini di contenitori.
   services: container-registry
-  author: georgewallace
-  manager: gwallace
   ms.service: container-registry
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/26/2017
-  ms.author: gwallace
-abstract:
-  description: 'Registro Azure Container consente di creare, archiviare e gestire immagini per qualsiasi tipo di distribuzione di contenitori. Questo articolo contiene informazioni su come usare Registro Azure Container con guide introduttive, esercitazioni ed esempi.'
-sections:
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Informazioni su come distribuire un'istanza di Registro Azure Container.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Interfaccia della riga di comando di Azure
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portale di Azure
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Queste esercitazioni consentono di imparare a usare Registro Azure Container.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">Creare immagini dei contenitori con ACR Tasks</a>
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replica geografica di Registro Container</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro Container con Istanze di Azure Container</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Registro contenitori con il servizio Azure Kubernetes</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Registro Container con Service Fabric</a>
-  - title: Sviluppare le proprie competenze con Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Compilare e archiviare immagini del contenitore con Registro Azure Container
-            href: /learn/modules/build-and-store-container-images/
-            image:
-              src: /learn/achievements/build-and-store-container-images.svg
-              href: /learn/modules/build-and-store-container-images/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-container-registry">Altre risorse di apprendimento interattivo</a>
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/cli/azure/acr">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.containerregistry">PowerShell</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/java/api/overview/azure/containerregistry">Java</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">Informazioni di riferimento sulle API REST</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Modello di Resource Manager</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Schema dei webhook</a></p>
+  ms.collection: collection
+  author: dlepow
+  ms.author: danlep
+  ms.date: 11/08/2019
+  ms.openlocfilehash: ace70edef26be143d8e2367818a3c4cc15bd769e
+  ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/17/2019
+  ms.locfileid: "74150078"
+landingContent:
+- title: Informazioni su Registro Azure Container
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Registro Azure Container
+      url: container-registry-intro.md
+    - text: Registri, repository e immagini
+      url: container-registry-concepts.md
+- title: Attività iniziali
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuire un registro contenitori - Interfaccia della riga di comando
+      url: container-registry-get-started-azure-cli.md
+    - text: Distribuire un registro contenitori - Portale
+      url: container-registry-get-started-portal.md
+    - text: Eseguire il push e il pull di un'immagine con Docker
+      url: container-registry-get-started-docker-cli.md
+  - linkListType: concept
+    links:
+    - text: Livelli di servizio
+      url: container-registry-skus.md
+  - linkListType: learn
+    links:
+    - text: Compilare e archiviare immagini del contenitore con Registro Azure Container
+      url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/
+  - linkListType: video
+    links:
+    - text: Video su Registro Azure Container
+      url: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
+- title: Gestire i registri
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualizzare repository e tag
+      url: container-registry-repositories.md
+    - text: Importare immagini
+      url: container-registry-import-images.md
+    - text: Bloccare immagini
+      url: container-registry-image-lock.md
+    - text: Eliminare le immagini
+      url: container-registry-delete.md
+  - linkListType: concept
+    links:
+    - text: Replica geografica
+      url: container-registry-geo-replication.md
+    - text: Authentication
+      url: container-registry-authentication.md
+    - text: Procedure consigliate
+      url: container-registry-best-practices.md
+    - text: Domande frequenti
+      url: container-registry-faq.md
+- title: Attività di Registro Azure Container
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Attività del Registro Azure Container
+      url: container-registry-tasks-overview.md
+    - text: Attività in più passaggi
+      url: container-registry-tasks-multi-step.md
+  - linkListType: quickstart
+    links:
+    - text: Creare un'immagine nel cloud - Interfaccia della riga di comando
+      url: container-registry-quickstart-task-cli.md
+  - linkListType: tutorial
+    links:
+    - text: Automatizzare la creazione di immagini
+      url: container-registry-tutorial-quick-task.md

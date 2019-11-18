@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694707"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124017"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -29,7 +29,7 @@ Il [controllo degli](https://docs.microsoft.com/azure/role-based-access-control/
 
 Se si verificano problemi durante l'accesso alle risorse di archiviazione tramite RBAC, è possibile che non siano stati assegnati i ruoli appropriati. Le sezioni seguenti descrivono le autorizzazioni Storage Explorer attualmente richiede l'accesso alle risorse di archiviazione. Se non si è certi di disporre dei ruoli o delle autorizzazioni appropriate, contattare l'amministratore dell'account Azure.
 
-#### <a name="read-listget-storage-accounts-permissions-issue"></a>Lettura Elencare/ottenere gli account di archiviazione per il problema delle autorizzazioni
+#### <a name="read-listget-storage-accounts-permissions-issue"></a>Problemi di autorizzazione "lettura: elenco/ottenere account di archiviazione"
 
 È necessario disporre dell'autorizzazione per elencare gli account di archiviazione. Per ottenere questa autorizzazione, è necessario che sia stato assegnato il ruolo _lettore_ .
 
@@ -58,9 +58,9 @@ Se non si dispone di un ruolo che concede autorizzazioni per i livelli di gestio
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Cosa accade se non è possibile ottenere le autorizzazioni del livello di gestione necessarie dall'amministratore?
 
-Attualmente non è disponibile una soluzione relativa al controllo degli accessi in base al ruolo per questo problema. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+Attualmente non è disponibile una soluzione relativa al controllo degli accessi in base al ruolo per questo problema. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Errore: Certificato autofirmato nella catena di certificati (ed errori simili)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Errore: certificato autofirmato nella catena di certificati (ed errori simili)
 
 Gli errori dei certificati si verificano in genere in una delle situazioni seguenti:
 
@@ -70,24 +70,24 @@ Gli errori dei certificati si verificano in genere in una delle situazioni segue
 Quando Storage Explorer visualizza un certificato autofirmato o non attendibile, non è più in grado di riconoscere se il messaggio HTTPS ricevuto è stato modificato. Se si dispone di una copia del certificato autofirmato, è possibile indicare Storage Explorer di considerarla attendibile attenendosi alla procedura seguente:
 
 1. Ottenere una copia X. 509 (. cer) codificata in base 64 del certificato.
-2. Passare a **modifica** > certificati**SSL** > **Importa certificati**, quindi usare il selettore file per trovare, selezionare e aprire il file con estensione cer.
+2. Passare a **modifica** > **certificati SSL** > **Importa certificati**, quindi usare la selezione file per trovare, selezionare e aprire il file con estensione cer.
 
 Questo problema può verificarsi anche se sono presenti più certificati (radice e intermedio). Per correggere l'errore, è necessario aggiungere entrambi i certificati.
 
 Se non si è certi della provenienza del certificato, attenersi alla procedura seguente per trovarla:
 
 1. Installare OpenSSL.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Una qualsiasi delle versioni leggere dovrebbe essere sufficiente.
-    * Mac e Linux: Deve essere incluso nel sistema operativo.
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): una qualsiasi delle versioni leggere dovrebbe essere sufficiente.
+    * Mac e Linux: devono essere inclusi nel sistema operativo.
 2. Eseguire OpenSSL.
-    * Windows: Aprire la directory di installazione, selezionare **/bin/** , quindi fare doppio clic su **openssl. exe**.
-    * Mac e Linux: Eseguire `openssl` da un terminale.
+    * Windows: aprire la directory di installazione, selezionare **/bin/** , quindi fare doppio clic su **openssl. exe**.
+    * Mac e Linux: eseguire `openssl` da un terminale.
 3. Eseguire `s_client -showcerts -connect microsoft.com:443`.
-4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, prendere nota di dove si `("s:")` `("i:")` trova l'oggetto e l'emittente.
-5. Quando si individuano certificati autofirmati, per ognuno di essi copiare e incollare tutti gli elementi da ( `-----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----` inclusi) in un nuovo file con estensione cer.
-6. Aprire Storage Explorer e passare a **modifica** > **certificati** > SSL**Importa certificati**. Usare quindi la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
+4. Cercare i certificati autofirmati. Se non si è certi di quali certificati sono autofirmati, prendere nota di ogni punto in cui l'oggetto `("s:")` e l'autorità emittente `("i:")` sono uguali.
+5. Quando si trovano certificati autofirmati, per ciascuno di essi copiare e incollare tutti gli elementi da (e inclusi) `-----BEGIN CERTIFICATE-----` tramite `-----END CERTIFICATE-----` in un nuovo file con estensione cer.
+6. Aprire Storage Explorer e passare a **modifica** > **certificati SSL** > **Importa certificati**. Usare quindi la selezione file per trovare, selezionare e aprire i file con estensione cer creati.
 
-Se non è possibile trovare alcun certificato autofirmato seguendo questa procedura, contattare Microsoft tramite lo strumento di feedback. È anche possibile aprire Storage Explorer dalla riga di comando usando il `--ignore-certificate-errors` flag. Quando viene aperto con questo flag, Storage Explorer ignora gli errori del certificato.
+Se non è possibile trovare alcun certificato autofirmato seguendo questa procedura, contattare Microsoft tramite lo strumento di feedback. È anche possibile aprire Storage Explorer dalla riga di comando usando il flag `--ignore-certificate-errors`. Quando viene aperto con questo flag, Storage Explorer ignora gli errori del certificato.
 
 ## <a name="sign-in-issues"></a>Problemi di accesso
 
@@ -95,7 +95,7 @@ Se non è possibile trovare alcun certificato autofirmato seguendo questa proced
 
 Le finestre di dialogo di accesso vuote si verificano spesso quando Active Directory Federation Services (AD FS) richiede Storage Explorer di eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, attenersi alla procedura seguente:
 
-1. Nel menu passare a **Anteprima** > **usare l'accesso al codice del dispositivo**.
+1. Nel menu passare a **anteprima** > usare l' **accesso al codice del dispositivo**.
 2. Aprire la finestra di dialogo **Connetti** (tramite l'icona a forma di spina sulla barra verticale a sinistra o selezionando **Aggiungi account** nel pannello account).
 3. Scegliere l'ambiente a cui si vuole accedere.
 4. Selezionare **Sign in (accedi**).
@@ -165,7 +165,7 @@ Se non è possibile rimuovere un account collegato o una risorsa di archiviazion
 > Chiudere Storage Explorer prima di eliminare le cartelle.
 
 > [!NOTE]
-> Se sono stati importati certificati SSL, eseguire il backup del contenuto della `certs` directory. In un secondo momento, è possibile usare il backup per reimportare i certificati SSL.
+> Se sono stati importati certificati SSL, eseguire il backup del contenuto della directory `certs`. In un secondo momento, è possibile usare il backup per reimportare i certificati SSL.
 
 ## <a name="proxy-issues"></a>Problemi di proxy
 
@@ -216,11 +216,11 @@ Se viene visualizzato questo messaggio di errore, è possibile che non si dispon
 
 Se vengono visualizzate le chiavi dell'account, archiviare un problema in GitHub in modo da consentire la risoluzione del problema.
 
-## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Si è verificato un errore durante l'aggiunta della nuova connessione: TypeError Impossibile leggere la proprietà' version ' di undefined
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>Si è verificato un errore durante l'aggiunta della nuova connessione: TypeError: Impossibile leggere la proprietà' version ' di undefined
 
 Se si riceve questo messaggio di errore quando si tenta di aggiungere una connessione personalizzata, i dati di connessione archiviati in Gestione credenziali locale potrebbero essere danneggiati. Per risolvere il problema, provare a eliminare le connessioni locali danneggiate, quindi aggiungerle nuovamente:
 
-1. Avviare Storage Explorer. Dal menu, passare a **Guida** > **strumenti di sviluppo**.
+1. Avviare Storage Explorer. Dal menu passare a **Help** > **strumenti di sviluppo**.
 2. Nella finestra aperta, nella scheda **applicazione** , passare alla risorsa di **archiviazione locale** (lato sinistro) > **file://** .
 3. A seconda del tipo di connessione con cui si verifica un problema, cercare la relativa chiave e quindi copiarne il valore in un editor di testo. Il valore è una matrice dei nomi di connessione personalizzati, come il seguente:
     * Account di archiviazione
@@ -230,9 +230,9 @@ Se si riceve questo messaggio di errore quando si tenta di aggiungere una connes
         * `StorageExplorer_CustomConnections_Blobs_v2`
     * Condivisioni file
         * `StorageExplorer_CustomConnections_Files_v1`
-    * Code
+    * Queues
         * `StorageExplorer_CustomConnections_Queues_v1`
-    * Tabelle
+    * Tables
         * `StorageExplorer_CustomConnections_Tables_v1`
 4. Dopo aver salvato i nomi di connessione correnti, impostare il valore Strumenti di sviluppo su `[]`.
 
@@ -248,13 +248,13 @@ Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni 
 
 1. Nel menu **Start** cercare **Gestione credenziali** e aprirlo.
 2. Passare a **Windows credentials**.
-3. In **credenziali generiche**cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+3. In **credenziali generiche**cercare le voci con la chiave di `<connection_type_key>/<corrupted_connection_name>`, ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`.
 4. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macOS)
 
 1. Aprire Spotlight (Command + barra spaziatrice) e cercare **l'accesso Keychain**.
-2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Cercare le voci con la chiave di `<connection_type_key>/<corrupted_connection_name>`, ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`.
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/Linux)
@@ -262,7 +262,7 @@ Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni 
 La gestione delle credenziali locali varia a seconda della distribuzione di Linux. Se la distribuzione di Linux non fornisce uno strumento GUI integrato per la gestione delle credenziali locali, è possibile installare uno strumento di terze parti per gestire le credenziali locali. Ad esempio, è possibile usare [cavalluccio](https://wiki.gnome.org/Apps/Seahorse/), uno strumento di interfaccia utente grafica open source per la gestione delle credenziali locali di Linux.
 
 1. Aprire lo strumento di gestione delle credenziali locale e trovare le credenziali salvate.
-2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+2. Cercare le voci con la chiave di `<connection_type_key>/<corrupted_connection_name>`, ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`.
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 ---
 
@@ -279,7 +279,7 @@ Se ci si connette a un servizio tramite un URL SAS e si verifica un errore:
 Se è stata accidentalmente collegata usando un URL SAS non valido e non è possibile scollegarlo, attenersi alla procedura seguente:
 
 1. Quando si esegue Storage Explorer, premere F12 per aprire la finestra di Strumenti di sviluppo.
-2. Nella scheda **applicazione** selezionare **local storage** > **file://** nell'albero a sinistra.
+2. Nella scheda **applicazione** selezionare **archiviazione locale** > **file://** nell'albero a sinistra.
 3. Trovare la chiave associata al tipo di servizio dell'URI SAS che ha generato il problema. Ad esempio, se l'URI SAS non valido fa riferimento a un contenitore BLOB, cercare la chiave denominata `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. Il valore della chiave deve essere una matrice JSON. Individuare l'oggetto associato all'URI errato, quindi eliminarlo.
 5. Premere CTRL + R per ricaricare Storage Explorer.
@@ -303,7 +303,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 
 * [Runtime di .NET Core 2,0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
-* `libgnome-keyring0` o `libgnome-keyring-dev`
+* `libgnome-keyring0` oppure `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
 > [!NOTE]
@@ -351,7 +351,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 Per Storage Explorer 1.7.0 o versioni precedenti, potrebbe essere necessario applicare patch alla versione di .NET Core usata da Storage Explorer:
 
 1. Scaricare la versione 1.5.43 di StreamJsonRpc [da NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Cercare il collegamento "Scarica pacchetto" sul lato destro della pagina.
-2. Dopo aver scaricato il pacchetto, modificare l'estensione del file `.nupkg` da `.zip`a.
+2. Dopo aver scaricato il pacchetto, modificare l'estensione del file da `.nupkg` a `.zip`.
 3. Decomprimere il pacchetto.
 4. Aprire la cartella `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Copiare `StreamJsonRpc.dll` nei percorsi seguenti nella cartella Storage Explorer:
@@ -370,4 +370,4 @@ Se il pulsante **Apri in Esplora** sul portale di Azure non funziona, assicurars
 
 Se nessuna di queste soluzioni funziona, [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Questa operazione può essere eseguita anche selezionando il pulsante **Segnala problema in GitHub** nell'angolo in basso a sinistra.
 
-![Commenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![Commenti e suggerimenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)

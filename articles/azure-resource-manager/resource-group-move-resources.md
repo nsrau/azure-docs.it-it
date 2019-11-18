@@ -1,25 +1,22 @@
 ---
-title: Spostare le risorse di Azure in una nuova sottoscrizione o in un nuovo gruppo di risorse | Microsoft Docs
+title: Spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: tomfitz
-ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 11/08/2019
+ms.openlocfilehash: f106de7fd35bdbe91033af173b1f338dd251f4e8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035544"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149698"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
 
 Questo articolo illustra come spostare le risorse di Azure in un'altra sottoscrizione o in un altro gruppo di risorse all'interno della stessa sottoscrizione. Per spostare le risorse, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
-Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database.
+Durante l'operazione di spostamento il gruppo di origine e quello di destinazione sono bloccati. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco significa che non è possibile aggiungere, aggiornare o eliminare le risorse nei gruppi di risorse. Non significa che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database. Il blocco può durare per un massimo di quattro ore, ma la maggior parte degli spostamenti viene completata in tempi molto inferiori.
 
-Lo spostamento di una risorsa lo sposta solo in un nuovo gruppo di risorse o una nuova sottoscrizione. Non modifica la posizione della risorsa.
+Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse o una nuova sottoscrizione. Non modifica il percorso della risorsa.
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 
@@ -108,9 +105,9 @@ Lo trasferimento di risorse da una sottoscrizione a un'altra è un processo in t
 
 A scopo illustrativo, è presente una sola risorsa dipendente.
 
-* Passaggio 1: Se le risorse dipendenti vengono distribuite in gruppi di risorse diversi, spostarle prima in un gruppo di risorse.
-* Passaggio 2: Spostare la risorsa e le risorse dipendenti insieme dalla sottoscrizione di origine alla sottoscrizione di destinazione.
-* Passaggio 3: Facoltativamente, ridistribuire le risorse dipendenti a diversi gruppi di risorse all'interno della sottoscrizione di destinazione. 
+* Passaggio 1: se le risorse dipendenti vengono distribuite in gruppi di risorse diversi, spostarle prima in un gruppo di risorse.
+* Passaggio 2: spostare la risorsa e le risorse dipendenti insieme dalla sottoscrizione di origine alla sottoscrizione di destinazione.
+* Passaggio 3: facoltativamente, ridistribuire le risorse dipendenti a diversi gruppi di risorse all'interno della sottoscrizione di destinazione. 
 
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
@@ -187,7 +184,7 @@ Al completamento dell'operazione si riceverà la notifica del risultato.
 
 Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
 
-## <a name="use-azure-powershell"></a>Usare Azure PowerShell
+## <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 
 Per spostare le risorse esistenti in un gruppo di risorse o in una sottoscrizione diversa, usare il comando [Move-AzResource](/powershell/module/az.resources/move-azresource). L'esempio seguente illustra come spostare diverse risorse in un nuovo gruppo di risorse.
 
@@ -233,6 +230,51 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 ```
 
 Se viene visualizzato un errore, vedere [risolvere i problemi di trasferimento delle risorse di Azure in un nuovo gruppo di risorse o sottoscrizione](troubleshoot-move.md).
+
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+**Domanda: l'operazione di spostamento delle risorse, che in genere richiede alcuni minuti, è stata eseguita per quasi un'ora. Si è verificato un errore?**
+
+Lo stato di una risorsa è un'operazione complessa con diverse fasi. Può implicare più del semplice provider di risorse della risorsa che si sta tentando di spostare. A causa delle dipendenze tra i provider di risorse, Azure Resource Manager consente il completamento dell'operazione per 4 ore. Questo periodo di tempo fornisce ai provider di risorse la possibilità di eseguire il ripristino da problemi temporanei. Se la richiesta di spostamento rientra nel periodo di 4 ore, l'operazione continuerà a essere completata e potrebbe comunque avere esito positivo. I gruppi di risorse di origine e di destinazione sono bloccati durante questo periodo di tempo per evitare problemi di coerenza.
+
+**Domanda: perché il gruppo di risorse è bloccato per 4 ore durante lo spostamento delle risorse?**
+
+La finestra di 4 ore è il tempo massimo consentito per lo spostamento delle risorse. Per evitare modifiche alle risorse spostate, i gruppi di risorse di origine e di destinazione sono bloccati per la durata dello spostamento di risorse.
+
+In una richiesta di spostamento sono presenti due fasi. Nella prima fase, la risorsa viene spostata. Nella seconda fase, le notifiche vengono inviate ad altri provider di risorse che dipendono dalla risorsa spostata. Un gruppo di risorse può essere bloccato per l'intera finestra di 4 ore quando un provider di risorse non riesce in entrambe le fasi. Durante il tempo consentito, Gestione risorse ritenta il passaggio non riuscito.
+
+Se una risorsa non può essere spostata entro la finestra di 4 ore, Gestione risorse Sblocca entrambi i gruppi di risorse. Le risorse spostate correttamente si trovano nel gruppo di risorse di destinazione. Le risorse che non sono state spostate vengono lasciate dal gruppo di risorse di origine.
+
+**Domanda: quali sono le implicazioni dei gruppi di risorse di origine e di destinazione bloccati durante lo spostamento delle risorse?**
+
+Il blocco impedisce l'eliminazione di un gruppo di risorse, la creazione di una nuova risorsa in uno o più gruppi di risorse o l'eliminazione di tutte le risorse necessarie per lo spostamento.
+
+La figura seguente mostra un messaggio di errore dal portale di Azure quando un utente tenta di eliminare un gruppo di risorse che fa parte di uno spostamento in corso.
+
+![Spostamento del messaggio di errore durante il tentativo di eliminazione](./media/resource-group-move-resources/move-error-delete.png)
+
+**Domanda: cosa significa il codice di errore "MissingMoveDependentResources"?**
+
+Quando si sposta una risorsa, le risorse dipendenti devono esistere nella sottoscrizione o nel gruppo di risorse di destinazione oppure essere incluse nella richiesta di spostamento. Si ottiene il codice di errore MissingMoveDependentResources quando una risorsa dipendente non soddisfa questo requisito. Il messaggio di errore contiene informazioni dettagliate sulla risorsa dipendente che deve essere inclusa nella richiesta di spostamento.
+
+Se ad esempio si trasferisce una macchina virtuale, potrebbe essere necessario trasferire sette tipi di risorse con tre provider di risorse diversi. I tipi e i provider di risorse sono:
+
+* Microsoft.Compute
+   * virtualMachines
+   * dischi
+* Microsoft.Network
+  * networkInterfaces
+  * publicIPAddresses
+  * networkSecurityGroups
+  * virtualNetworks
+* Microsoft.Storage
+  * storageAccounts
+
+Un altro esempio comune riguarda lo stato di trasferimento di una rete virtuale. Potrebbe essere necessario spostare diverse altre risorse associate alla rete virtuale. La richiesta di spostamento potrebbe richiedere lo spostamento di indirizzi IP pubblici, tabelle di route, gateway di rete virtuale, gruppi di sicurezza di rete e altri.
+
+**Domanda: perché non è possibile spostare alcune risorse in Azure?**
+
+Attualmente, non tutte le risorse in Azure supportano lo spostamento. Per un elenco delle risorse che supportano lo spostamento, vedere [spostare il supporto delle operazioni per le risorse](move-support-resources.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

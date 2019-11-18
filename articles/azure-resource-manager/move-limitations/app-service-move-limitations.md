@@ -1,17 +1,14 @@
 ---
 title: Spostare le risorse del servizio app Azure
 description: Usare Azure Resource Manager per spostare le risorse del servizio app in un nuovo gruppo di risorse o una nuova sottoscrizione.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: dca9b3a8f328192683cfde586f0ccdb01e84dc16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533537"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150904"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Spostare le linee guida per le risorse del servizio app
 
@@ -33,9 +30,9 @@ Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni se
 
 - Il gruppo di risorse di destinazione non deve contenere risorse del servizio app esistenti. Le risorse del servizio app includono:
     - App Web
-    - Piani del servizio app
+    - Piani di servizio app
     - Certificati SSL importati o caricati
-    - Ambienti di servizio app
+    - Ambienti del servizio app
 - Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
 - Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, spostarla di nuovo nel gruppo di risorse originale. Spostare quindi la risorsa tra le sottoscrizioni.
 
@@ -53,7 +50,7 @@ Selezionare l'opzione per la procedura consigliata per spostare l'app Web.
 
 Verranno visualizzate le azioni consigliate da eseguire prima di trasferire le risorse. Le informazioni includono il gruppo di risorse originale per l'app Web.
 
-![Raccomandazioni](./media/app-service-move-limitations/recommendations.png)
+![Recommendations](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-app-service-certificate"></a>Sposta certificato del servizio app
 
@@ -63,9 +60,9 @@ Verranno visualizzate le azioni consigliate da eseguire prima di trasferire le r
 
 Per determinare quali risorse del servizio app possono essere spostate, vedere spostare lo stato di supporto per:
 
-- [Microsoft. AppService](../move-support-resources.md#microsoftappservice)
-- [Microsoft. CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
-- [Microsoft. DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
+- [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
+- [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
+- [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
 - [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
 ## <a name="next-steps"></a>Passaggi successivi

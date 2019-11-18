@@ -1,5 +1,5 @@
 ---
-title: 'Eliminare un gateway di rete virtuale: Portale di Azure: Azure Resource Manager | Microsoft Docs'
+title: 'Gateway VPN di Azure: eliminare un gateway: portale'
 description: Eliminare un gateway di rete virtuale usando il portale di Azure nel modello di distribuzione Resource Manager.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
 ms.topic: conceptual
-ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8c7a9c7b6d38c5fee4f57f65dd61a71f9723c07
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845691"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146335"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminare un gateway di rete virtuale usando il portale
 
@@ -58,7 +58,7 @@ A questo punto, viene eliminato il gateway di rete virtuale. I passaggi successi
 
 ## <a name="deleterg"></a>Eliminare un gateway VPN eliminando il gruppo di risorse
 
-Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole solo ricominciare da capo, è possibile eliminare un intero gruppo di risorse. Questo è un modo rapido per rimuovere tutto. La procedura seguente si applica solo al modello di distribuzione di Azure Resource Manager.
+Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole solo ricominciare da capo, è possibile eliminare un intero gruppo di risorse. Questo è un modo rapido per rimuovere tutto. La procedura seguente si applica solo al modello di distribuzione Resource Manager.
 
 1. In **Tutte le risorse**, individuare il gruppo di risorse e fare clic per aprire il pannello.
 2. Fare clic su **Elimina**. Nel pannello Elimina visualizzare le risorse interessate. Assicurarsi che si desidera eliminare tutte le risorse. In caso contrario, usare i passaggi in Eliminare un gateway VPN all'inizio di questo articolo.

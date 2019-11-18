@@ -1,6 +1,6 @@
 ---
 title: Elemento dell'interfaccia utente MultiStorageAccountCombo di Azure | Microsoft Docs
-description: Questo articolo illustra l'elemento dell'interfaccia utente Microsoft.Storage.MultiStorageAccountCombo per il portale di Azure.
+description: Illustra l'elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente per il portale di Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08b65770414e9ee1cb5e478427fe7654b2bb9a78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3fb6f474bfe56f54e6dc621a3893e184ebc71d9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725439"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151449"
 ---
-# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento dell'interfaccia utente Microsoft.Storage.MultiStorageAccountCombo
+# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento Microsoft.Storage.MultiStorageAccountCombo dell'interfaccia utente
+
 Gruppo di controlli per la creazione di più account di archiviazione, con nomi che iniziano con un prefisso comune.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
+
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
 ## <a name="schema"></a>SCHEMA
+
 ```json
 {
   "name": "element1",
@@ -52,13 +55,6 @@ Gruppo di controlli per la creazione di più account di archiviazione, con nomi 
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
-- Il valore per `defaultValue.prefix` viene concatenato a uno o più numeri interi per generare la sequenza di nomi di account di archiviazione. Se ad esempio `defaultValue.prefix` è **sa** e `count` è **2**, vengono generati i nomi degli account di archiviazione **sa1** e **sa2**. L'unicità dei nomi degli account di archiviazione generati viene convalidata automaticamente.
-- I nomi degli account di archiviazione vengono generati in modo lessicografico in base a `count`. Se ad esempio `count` è 10, i nomi degli account di archiviazione terminano con numeri interi a due cifre (01, 02, 03).
-- Il valore predefinito per `defaultValue.prefix` è **null** e quello per `defaultValue.type` è **Premium_LRS**.
-- I tipi non specificati in `constraints.allowedTypes` vengono nascosti e i tipi non specificati in `constraints.excludedTypes` vengono visualizzati. `constraints.allowedTypes` e `constraints.excludedTypes` sono entrambi facoltativi, ma non possono essere usati contemporaneamente.
-- Oltre a generare nomi di account di archiviazione, `count` viene usato per impostare il moltiplicatore appropriato per l'elemento. Supporta un valore statico, ad esempio **2**, o un valore dinamico da un altro elemento, ad esempio `[steps('step1').storageAccountCount]`. Il valore predefinito è **1**.
-
 ## <a name="sample-output"></a>Output di esempio
 
 ```json
@@ -70,6 +66,15 @@ Gruppo di controlli per la creazione di più account di archiviazione, con nomi 
 }
 ```
 
+## <a name="remarks"></a>Osservazioni
+
+- Il valore per `defaultValue.prefix` viene concatenato a uno o più numeri interi per generare la sequenza di nomi di account di archiviazione. Se ad esempio `defaultValue.prefix` è **sa** e `count` è **2**, vengono generati i nomi degli account di archiviazione **sa1** e **sa2**. L'unicità dei nomi degli account di archiviazione generati viene convalidata automaticamente.
+- I nomi degli account di archiviazione vengono generati in modo lessicografico in base a `count`. Se ad esempio `count` è 10, i nomi degli account di archiviazione terminano con numeri interi a due cifre (01, 02, 03).
+- Il valore predefinito per `defaultValue.prefix` è **null** e quello per `defaultValue.type` è **Premium_LRS**.
+- I tipi non specificati in `constraints.allowedTypes` vengono nascosti e i tipi non specificati in `constraints.excludedTypes` vengono visualizzati. `constraints.allowedTypes` e `constraints.excludedTypes` sono entrambi facoltativi, ma non possono essere usati contemporaneamente.
+- Oltre a generare nomi di account di archiviazione, `count` viene usato per impostare il moltiplicatore appropriato per l'elemento. Supporta un valore statico, ad esempio **2**, o un valore dinamico da un altro elemento, ad esempio `[steps('step1').storageAccountCount]`. Il valore predefinito è **1**.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

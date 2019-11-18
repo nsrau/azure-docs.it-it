@@ -1,5 +1,5 @@
 ---
-title: Connettere e indicizzare il contenuto del database SQL di Azure tramite gli indicizzatori
+title: Eseguire ricerche nei dati SQL di Azure
 titleSuffix: Azure Cognitive Search
 description: Importa i dati dal database SQL di Azure usando gli indicizzatori per la ricerca full-text in Azure ricerca cognitiva. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792200"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113298"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Connettersi e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Azure ricerca cognitiva
+# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto del database SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
 
 Prima di poter eseguire una query su un [indice ricerca cognitiva di Azure](search-what-is-an-index.md), è necessario popolarlo con i dati. Se i dati si trovano in un database SQL di Azure, un **indicizzatore di azure ricerca cognitiva per il database SQL di** Azure (o l' **indicizzatore SQL di Azure** per brevità) può automatizzare il processo di indicizzazione, il che significa meno codice da scrivere e meno infrastruttura di cui preoccuparsi.
 
@@ -26,7 +26,7 @@ Oltre ai database SQL di Azure, Azure ricerca cognitiva fornisce indicizzatori p
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 
-Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
+Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. È definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
 Un **indicizzatore** è una risorsa che connette una singola origine dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 
@@ -249,7 +249,7 @@ La clausola `ORDER BY [High Water Mark Column]` può anche essere disabilitata. 
     }
 
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Criteri di rilevamento eliminazione colonna di eliminazione temporanea
-Quando le righe vengono eliminate dalla tabella di origine, è probabile che si desideri eliminarle anche dall’indice di ricerca. Se si utilizzano i criteri di rilevamento delle modifiche integrati di SQL, questa operazione è automatica. Tuttavia, i criteri di rilevamento delle modifiche limite massimo non sono di supporto all’utente con le righe eliminate. Come fare?
+Quando le righe vengono eliminate dalla tabella di origine, è probabile che si desideri eliminarle anche dall’indice di ricerca. Se si utilizzano i criteri di rilevamento delle modifiche integrati di SQL, questa operazione è automatica. Tuttavia, i criteri di rilevamento delle modifiche limite massimo non sono di supporto all’utente con le righe eliminate. Cosa fare?
 
 Se le righe vengono rimosse fisicamente dalla tabella, Azure ricerca cognitiva non ha alcun modo per dedurre la presenza di record che non esistono più.  Tuttavia, è possibile usare la tecnica di "eliminazione temporanea" per eliminare in modo logico le righe senza rimuoverle dalla tabella. Aggiungere una colonna alla tabella o alla vista e contrassegnare le righe come eliminate tramite la colonna.
 
@@ -269,9 +269,9 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mapping tra tipi di dati SQL e ricerca cognitiva di Azure
-| Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti | Note |
+| Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti | note |
 | --- | --- | --- |
-| bit |Edm.Boolean, Edm.String | |
+| Bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
@@ -281,14 +281,14 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) |
 | rowversion |N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Supporto non disponibile |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportato |
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 L'indicizzatore SQL espone diverse impostazioni di configurazione:
 
-| Impostazione | Tipo di dati | Finalità | Valore predefinito |
+| Impostazione | Tipo di dati | Scopo | Default value |
 | --- | --- | --- | --- |
-| queryTimeout |string |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
+| queryTimeout |stringa |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Fa in modo che la query SQL usata dai criteri di limite massimo ometta la clausola ORDER BY. Vedere [Criteri di limite massimo](#HighWaterMarkPolicy) |false |
 
 Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella definizione dell'indicizzatore. Ad esempio, per impostare il timeout della query su 10 minuti, creare o aggiornare l'indicizzatore con la seguente configurazione:
@@ -299,7 +299,7 @@ Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 **D: Posso usare l'indicizzatore di Azure SQL con i database SQL in esecuzione sulle macchine virtuali IaaS in Azure?**
 
@@ -323,7 +323,7 @@ Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le
 
 **D: Posso usare una replica secondaria in un [cluster di failover](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) come origine dati?**
 
-Dipende, Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
+Dipende. Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
 
 Per l'indicizzazione incrementale, Azure ricerca cognitiva supporta due criteri di rilevamento delle modifiche: rilevamento delle modifiche integrato di SQL e limite massimo.
 

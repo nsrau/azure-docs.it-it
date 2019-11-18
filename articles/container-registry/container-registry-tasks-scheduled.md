@@ -1,6 +1,6 @@
 ---
 title: Pianificare le attività di Container Registry di Azure
-description: Informazioni su come eseguire un'attività di Container Registry di Azure in base a una pianificazione definita impostando uno o più trigger timer
+description: In questa esercitazione si apprenderà come eseguire un'attività di Container Registry di Azure in base a una pianificazione definita impostando uno o più trigger timer
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ae36b8d67d02f8cae0007b7b06485932db851af5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931461"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148634"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
 
-Questo articolo illustra come eseguire un' [attività ACR](container-registry-tasks-overview.md) in base a una pianificazione. Pianificare un'attività impostando uno o più *trigger timer*.
+Questa esercitazione illustra come eseguire un' [attività ACR](container-registry-tasks-overview.md) in base a una pianificazione. Pianificare un'attività impostando uno o più *trigger timer*. I trigger timer possono essere usati singolarmente o in combinazione con altri trigger di attività.
+
+In questa esercitazione si apprenderà come pianificare le attività e:
+
+> [!div class="checklist"]
+> * Creare un'attività con un trigger timer
+> * Gestisci trigger timer
 
 La pianificazione di un'attività è utile per scenari simili ai seguenti:
 
@@ -199,9 +205,11 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+In questa esercitazione si è appreso come creare attività di Container Registry di Azure che vengono attivate automaticamente da un timer. 
+
 Per un esempio di come usare un'attività pianificata per pulire i repository in un registro, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
 
-Per esempi di attività avviate da commit del codice sorgente o aggiornamenti di immagini di base, vedere la [serie di esercitazioni sulle attività di ACR](container-registry-tutorial-quick-task.md).
+Per esempi di attività avviate da commit del codice sorgente o aggiornamenti di immagini di base, vedere gli altri articoli della [serie di esercitazioni sulle attività di ACR](container-registry-tutorial-quick-task.md).
 
 
 

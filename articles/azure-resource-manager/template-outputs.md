@@ -1,17 +1,14 @@
 ---
-title: Output nel modello di Azure Resource Manager
+title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0ff1e3cb71bd1bf5ee947eb5204839d48103628b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827937"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149177"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Output nel modello di Azure Resource Manager
 
@@ -95,7 +92,7 @@ az group deployment show \
 
 Gli esempi seguenti illustrano gli scenari per l'uso degli output.
 
-|Modello  |Descrizione  |
+|Modello  |DESCRIZIONE  |
 |---------|---------|
 |[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crea variabili complesse e restituisce i valori. Non distribuisce alcuna risorsa. |
 |[Indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crea un indirizzo IP pubblico e restituisce l'ID risorsa. |

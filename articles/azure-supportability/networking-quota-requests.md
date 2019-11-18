@@ -7,12 +7,12 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 278e9ff68fa20a0a99a6447bb4cf7ac7fddbfb7b
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249105"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120976"
 ---
 # <a name="networking-limit-increase"></a>Aumento del limite delle connessioni di rete
 
@@ -20,11 +20,14 @@ Per visualizzare l'utilizzo e la quota correnti della rete, è possibile visitar
 
 È possibile richiedere un aumento tramite il pannello **Guida e supporto** oppure il pannello **utilizzi e quota** nel portale.
 
+> [!Note]
+> Per modificare le dimensioni predefinite di per il prefisso IP pubblico, selezionare "lunghezza del prefisso InterNet IP pubblico minimo" nell'elenco a discesa.
+
 ## <a name="request-networking-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Richiedere l'aumento della quota di rete a livello di sottoscrizione usando il pannello **Guida e supporto**
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
 
-1. Da https://portal.azure.com, scegliere **Guida e supporto**.
+1. In https://portal.azure.comselezionare **Guida e supporto**.
 
     ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
  

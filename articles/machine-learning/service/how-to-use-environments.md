@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b9b58c9b5f32d6ca714ac3ac940b91643fa8020c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73957851"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123557"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Riutilizza gli ambienti per il Training & la distribuzione con Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -333,7 +333,7 @@ run = experiment.submit(sk_est)
 
 È possibile usare gli ambienti quando si distribuisce il modello come servizio Web. Questo consente un flusso di lavoro riproducibile e connesso in cui è possibile eseguire il training, il test e la distribuzione del modello usando esattamente le stesse librerie nei calcoli di training e di inferenza.
 
-Per distribuire un servizio Web, combinare l'ambiente, il calcolo inferenza, lo script di assegnazione dei punteggi e il modello registrato nell'oggetto di distribuzione, [Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Ulteriori informazioni sulla [distribuzione dei servizi Web](how-to-deploy-and-where.md).
+Per distribuire un servizio Web, combinare l'ambiente, il calcolo inferenza, lo script di assegnazione dei punteggi e il modello registrato nell'oggetto di distribuzione, [Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Ulteriori informazioni sulla [distribuzione dei servizi Web](how-to-deploy-and-where.md).
 
 In questo esempio si supponga di avere completato un'esecuzione di training e di voler distribuire il modello in un'istanza di contenitore di Azure. Quando si compila il servizio Web, i file di modello e di assegnazione dei punteggi vengono montati sull'immagine e l'Azure Machine Learning stack di inferenza viene aggiunto all'immagine.
 

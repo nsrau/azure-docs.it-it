@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827448"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144465"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -35,12 +35,6 @@ Gestione log AlertLogic raccoglie i log della piattaforma di Azure, delle applic
 La gestione delle prestazioni delle applicazioni (APM) di AppDynamics consente ai proprietari delle applicazioni di risolvere rapidamente i colli di bottiglia che affliggono le prestazioni, ottimizzando il funzionamento delle applicazioni in esecuzione nell'ambiente di Azure. È in grado di monitorare i servizi cloud di Azure (PaaS), i ruoli Web e di lavoro, le macchine virtuali (IaaS), il rilevamento dei servizi remoti (bus di servizio di Microsoft Azure), i servizi remoti e di accodamento di Microsoft Azure (Azure BLOB), l'accodamento di Azure (bus di servizio Microsoft), l'archiviazione dei dati e l'archivio BLOB di Microsoft Azure. APM di AppDynamics è disponibile in Azure Marketplace.
 
 [Passare alla documentazione.][appdynamics-doc]
-
-## <a name="microfocus-arcsight"></a>Micro Focus ArcSight
-
-ArcSight presenta un connettore intelligente per gli hub eventi di monitoraggio di Azure.
-
-[Altre informazioni.][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
@@ -69,7 +63,7 @@ Circonus è una piattaforma di monitoraggio e analisi di microservizi per la dis
 
 Unire e automatizzare il cloud con una piattaforma creata per risparmiare tempo e denaro. CloudHealth offre visibilità, ottimizzazione intuitiva e procedure di governance solidissime per la gestione del cloud. La piattaforma CloudHealth consente alle aziende e ai MSPs di massimizzare il ritorno sugli investimenti nel cloud. e di prendere decisioni informate su costi, utilizzo, prestazioni e sicurezza.
 
-[Altre informazioni.][cloudhealth-doc]
+[Altre informazioni][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -128,6 +122,31 @@ LogicMonitor® è la più importante piattaforma di monitoraggio delle prestazio
 
 [Passare alla documentazione.][logicmonitor-doc]
 
+## <a name="logrhythm"></a>LogRhythm
+
+![Logo di LogRhythm](./media/partners/logrhythm.png)
+
+LogRhythm, leader di NextGen SIEM, consente alle organizzazioni su sei continenti di ridurre significativamente i rischi rilevando rapidamente, rispondendo e neutralizzando Cyberthreats. Il flusso di lavoro di LogRhythm, Threat Lifecycle Management (TLM) costituisce la base per i centri operativi di sicurezza, aiutando i clienti a proteggere le infrastrutture cloud, fisiche e virtuali per l'IT e gli ambienti. Se si è un cliente di LogRhythm e si è pronti per avviare il percorso di Azure, è necessario installare e configurare LogRhythm Open Collector e EventHub Integration. Altri dettagli, inclusa la documentazione relativa alla configurazione di monitoraggio di Azure e di Open Collector, sono disponibili [qui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+
+
+## <a name="microfocus"></a>Microfocus
+
+![Logo di Microfocus](./media/partners/microfocus.png)     
+
+Microfocus **ArcSight** dispone di uno Smart Connector per hub eventi di monitoraggio di Azure.
+
+[Altre informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
+
+Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le risorse IT ibride, ovvero qualsiasi dispositivo, sistema operativo, database, applicazione o servizio, indipendentemente da dove viene eseguito e applica AIOps a tutti i tipi di dati, ovvero eventi, metriche, log e dipendenze. Offre una combinazione univoca di monitoraggio di qualità del servizio, associata a analisi approfondite dell'integrità delle applicazioni e include il monitoraggio completo delle prestazioni e della disponibilità dei servizi Microsoft Azure. Operations Bridge consente ai clienti di fornire un unico riquadro di vetro, disponibile su qualsiasi dispositivo con un browser, in modo che sia le aziende che gli stakeholder IT possano comprendere.
+
+Altre informazioni
+- [Panoramica di OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [Scaricare](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope è un componente di Operations Bridge suite.
+
+
+
 ## <a name="moogsoft"></a>Moogsoft
 
 ![Moogsoft](./media/partners/moogsoft.png)
@@ -159,7 +178,7 @@ OpsGenie agisce come un dispatcher degli avvisi generati da Azure. OpsGenie dete
 
 [Passare alla documentazione.][opsgenie-doc]
 
-## <a name="pagerduty"></a>PagerDuty
+## <a name="pagerduty"></a>Pagerduty
 
 ![Logo di PagerDuty](./media/partners/pagerduty.png)
 
@@ -243,7 +262,6 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentazione di AlertLogic."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentazione di AppDynamics."
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introduzione a Botmetric."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 

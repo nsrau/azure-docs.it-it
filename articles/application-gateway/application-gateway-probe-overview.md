@@ -1,19 +1,18 @@
 ---
 title: Panoramica del monitoraggio dell'integrità per il gateway applicazione di Azure
-description: Informazioni sulle funzionalità di monitoraggio nel gateway applicazione di Azure
+description: Applicazione Azure gateway esegue il monitoraggio dello stato di tutte le risorse nel pool back-end e rimuove automaticamente tutte le risorse considerate non integre dal pool.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2938665aa0c0a3df66b6ddcfd1c8c5fbc4598319
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135208"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130673"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -29,7 +28,7 @@ Oltre al monitoraggio del probe di integrità predefinito, è anche possibile pe
 
 Un gateway applicazione configura automaticamente un probe di integrità predefinito quando non si configura nessuna configurazione di probe personalizzato. Il comportamento del monitoraggio prevede l'invio di una richiesta HTTP agli indirizzi IP configurati per il pool back-end. Per i probe predefiniti, se le impostazioni HTTP del back-end vengono configurate per HTTPS, il probe usa HTTPS anche per testare l'integrità dei back-end.
 
-Ad esempio:  si configura il gateway applicazione per usare i server back-end A, B e C per ricevere il traffico di rete HTTP sulla porta 80. Il monitoraggio dell'integrità predefinito testa i tre server ogni 30 secondi per ottenere una risposta HTTP integra. Una risposta HTTP integra ha un [codice di stato](https://msdn.microsoft.com/library/aa287675.aspx) compreso tra 200 e 399.
+Ad esempio, si configura il gateway applicazione per usare i server back-end A, B e C per ricevere il traffico di rete HTTP sulla porta 80. Il monitoraggio dell'integrità predefinito testa i tre server ogni 30 secondi per ottenere una risposta HTTP integra. Una risposta HTTP integra ha un [codice di stato](https://msdn.microsoft.com/library/aa287675.aspx) compreso tra 200 e 399.
 
 Se il controllo probe predefinito non riesce per il server A, il gateway applicazione lo rimuove dal pool back-end e il flusso del traffico di rete a questo server viene arrestato. Il probe predefinito continua tuttavia a controllare il server A ogni 30 secondi. Quando il server A risponde correttamente a una richiesta di un probe di integrità predefinito, viene aggiunto di nuovo come integro al pool back-end e il flusso del traffico verso il server riprenderà.
 
@@ -54,7 +53,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 
 ### <a name="default-health-probe-settings"></a>Impostazioni del probe di integrità predefinito
 
-| Proprietà probe | Value | Descrizione |
+| Proprietà probe | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | URL probe |http://127.0.0.1:\<port\>/ |Percorso URL |
 | Interval |30 |Il tempo di attesa in secondi prima di inviare il probe di integrità successivo.|
@@ -64,7 +63,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 > [!NOTE]
 > La porta è la stessa delle impostazioni HTTP del back-end.
 
-Il probe predefinito esamina solo http:\//127.0.0.1:\<porta\> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare altre impostazioni, è necessario usare probe personalizzati.
+Il probe predefinito Cerca solo in http:\//127.0.0.1:\<porta\> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare altre impostazioni, è necessario usare probe personalizzati.
 
 ### <a name="probe-intervals"></a>Intervalli probe
 
@@ -80,12 +79,12 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 La tabella seguente fornisce le definizioni delle proprietà di un probe di integrità personalizzato.
 
-| Proprietà probe | Descrizione |
+| Proprietà probe | DESCRIZIONE |
 | --- | --- |
-| Name |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
 | Protocol |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM. |
-| `Path` |Percorso relativo del probe. Il percorso valido inizia da "/". |
+| Path |Percorso relativo del probe. Il percorso valido inizia da "/". |
 | Interval |Intervallo di probe in secondi. Questo valore è l'intervallo di tempo tra due probe consecutivi. |
 | Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito.  |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |

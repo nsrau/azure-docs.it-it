@@ -1,21 +1,21 @@
 ---
-title: Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
-description: Informazioni su come inviare i log di Istanze di Azure Container ai log di Monitoraggio di Azure.
+title: Log delle risorse per i gruppi di contenitori-istanze di contenitore di Azure
+description: Informazioni su come inviare i log delle risorse e i dati degli eventi da gruppi di contenitori in istanze di contenitore di Azure ai log di monitoraggio di Azure
 services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
-ms.translationtype: HT
+ms.openlocfilehash: c9b986376884bf1536567d7b5211d93191ec7cc0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258489"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150169"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
 
 Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log, non solo dalle risorse di Azure, ma anche per le risorse locali e quelle in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di log e dati sugli eventi ai log di Monitoraggio di Azure.
 
@@ -26,7 +26,7 @@ Per inviare i dati di log ed eventi dei gruppi di contenitori ai log di Monitora
 > [!NOTE]
 > Attualmente, è possibile inviare i dati degli eventi solo da istanze di contenitori Linux a Log Analytics.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
@@ -50,7 +50,7 @@ Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 Dopo aver ottenuto l'ID e la chiave primaria dell'area di lavoro Log Analytics, è possibile procedere con la creazione di un gruppo di contenitori abilitato per la registrazione.
 
-Gli esempi seguenti illustrano due modi per creare un gruppo di contenitori con un unico contenitore [fluentd][fluentd]: interfaccia della riga di comando di Azure e interfaccia della riga di comando di Azure con un modello YAML. Il contenitore Fluentd produce più righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
+Gli esempi seguenti illustrano due modi per creare un gruppo di contenitori con un unico contenitore [fluentd][fluentd] : interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Azure con un modello YAML. Il contenitore Fluentd produce più righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
 
 ### <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
 

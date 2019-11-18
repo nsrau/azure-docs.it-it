@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889662"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128853"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
@@ -34,8 +34,8 @@ Una volta avviato lo streaming dei dati del sensore, è possibile avviare il pro
 
  - Endpoint API  
  - ID tenant  
- - ID client  
- - Client Secret  
+ - ID Client  
+ - Segreto client  
  - Stringa di connessione EventHub
 
 Le informazioni sopra riportate sono fornite dall'integratore di sistemi. Per eventuali problemi durante l'abilitazione delle integrazioni dei dispositivi, contattare l'integratore di sistemi.
@@ -71,8 +71,8 @@ Visitare il portale per i partner per i dispositivi per collegare FarmBeats usan
 
  - Endpoint API  
  - Stringa di connessione EventHub  
- - ID client  
- - Client Secret  
+ - ID Client  
+ - Segreto client  
  - ID tenant  
 
  Il provider del dispositivo conferma una corretta integrazione. Al momento della conferma, è possibile visualizzare tutti i dispositivi e i sensori in Azure FarmBeats.
@@ -86,7 +86,7 @@ Usare la sezione seguente per visualizzare i dispositivi e i sensori nella farm.
 Attualmente FarmBeats supporta i dispositivi seguenti:
 
 - **Node**: dispositivo a cui sono collegati uno o più sensori.
-- **Gateway**: un dispositivo a cui sono collegati uno o più sensori.
+- **Gateway**: un dispositivo a cui sono collegati uno o più nodi.
 
 Seguire questa procedura:
 
@@ -136,7 +136,7 @@ Seguire questa procedura:
 
 ## <a name="delete-sensor"></a>Elimina sensore
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1. Nella home page selezionare **sensori** dal menu per visualizzare la pagina **sensori** .  
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** dalla finestra di conferma.
@@ -147,7 +147,7 @@ Un messaggio di conferma indica che il sensore è stato eliminato correttamente.
 
 ## <a name="delete-devices"></a>Eliminare dispositivi
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1. Nella home page selezionare **dispositivi** dal menu per visualizzare la pagina dispositivi.  
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** dalla finestra di conferma.

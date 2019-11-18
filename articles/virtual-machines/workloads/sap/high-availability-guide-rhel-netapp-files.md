@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 333bc12c475cedbd98480e3b596bcc7ad4e30ecc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba8dc3080f3b584ae3a60576e4cc670dc60c28a0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824922"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151819"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP
 
@@ -86,7 +86,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
 * [Applicazioni SAP NetApp su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 La disponibilità elevata per i servizi SAP NetWeaver Central richiede l'archiviazione condivisa.
 A tale scopo, in Red Hat Linux finora era necessario compilare un cluster GlusterFS a disponibilità elevata separato. 
@@ -166,11 +166,10 @@ In questo esempio è stato usato Azure NetApp Files per tutti i file System di S
 
 Quando si prende in considerazione Azure NetApp Files per SAP NetWeaver sull'architettura a disponibilità elevata SUSE, tenere presente le considerazioni seguenti:
 
-- Il pool di capacità minimo è 4 TiB. Le dimensioni del pool di capacità devono essere in multipli di 4 TiB.
+- Il pool di capacità minimo è 4 TiB. È possibile aumentare le dimensioni del pool di capacità con incrementi di 1 TiB.
 - Il volume minimo è 100 GiB
 - Azure NetApp Files e tutte le macchine virtuali, in cui verranno montati i volumi Azure NetApp Files, devono trovarsi nella stessa rete virtuale di Azure o in [reti virtuali con peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) nella stessa area. Azure NetApp Files l'accesso al peering VNET nella stessa area è ora supportato. L'accesso a NetApp di Azure sul peering globale non è ancora supportato.
 - La rete virtuale selezionata deve avere una subnet, delegata a Azure NetApp Files.
-- Azure NetApp Files attualmente supporta solo NFSv3 
 - Azure NetApp Files offre [criteri di esportazione](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): è possibile controllare i client consentiti, il tipo di accesso (lettura & scrittura, sola lettura e così via). 
 - Azure NetApp Files funzionalità non è ancora in grado di riconoscere la zona. Attualmente Azure NetApp Files funzionalità non viene distribuita in tutte le zone di disponibilità in un'area di Azure. Tenere presente le implicazioni potenziali di latenza in alcune aree di Azure. 
 
@@ -370,6 +369,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=3
     192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
    ```
+
+   > [!NOTE]
+   > Assicurarsi di associare la versione del protocollo NFS dei volumi di Azure NetApp Files, durante il montaggio dei volumi. In questo esempio i volumi di Azure NetApp Files sono stati creati come volumi NFSv3.  
 
    Montare le nuove condivisioni
 
@@ -1148,5 +1150,5 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
 * [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
 * [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
-* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
+* Per informazioni su come stabilire la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
 * Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure (VM)][sap-hana-ha]

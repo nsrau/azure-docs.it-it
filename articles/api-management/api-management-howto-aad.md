@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b0c3487bb77f32483d6d65cd0a4b1f637267eabf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012954"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144345"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -81,12 +81,16 @@ Dopo aver salvato le modifiche, gli utenti nell'istanza di Azure AD specificata 
 
 ## <a name="add-an-external-azure-ad-group"></a>Aggiungere un gruppo di Azure AD esterno
 
-Dopo aver abilitato l'accesso per gli utenti in un'istanza di Azure AD, è possibile aggiungere gruppi di Azure AD in Gestione API. Si potrà così gestire più facilmente l'associazione degli sviluppatori del gruppo ai prodotti desiderati.
+Dopo aver abilitato l'accesso per gli utenti in un tenant di Azure AD, è possibile aggiungere gruppi di Azure AD in gestione API. Di conseguenza, è possibile controllare la visibilità del prodotto utilizzando gruppi Azure AD.
 
- > [!IMPORTANT]
- > Per aggiungere un gruppo di Azure AD esterno, è necessario innanzitutto configurare l'istanza di Azure AD nella scheda **identità** seguendo la procedura descritta nella sezione precedente. Inoltre, è necessario concedere all'applicazione l'accesso a Azure AD API Graph con `Directory.Read.All` autorizzazione. 
+Per aggiungere un gruppo di Azure AD esterno in gestione API, è necessario completare prima la sezione precedente. Inoltre, è necessario concedere l'accesso all'applicazione registrata all'Azure Active Directory API Graph con l'autorizzazione `Directory.ReadAll` attenendosi alla procedura seguente: 
 
-I gruppi esterni di Azure AD vengono aggiunti dalla scheda **Gruppi** dell'istanza di Gestione API.
+1. Tornare alla registrazione dell'app creata nella sezione precedente
+2. Fare clic sulla scheda **autorizzazioni API** , quindi fare clic sul pulsante **+ Aggiungi un'autorizzazione** 
+3. Nel riquadro **autorizzazioni API richiesta** selezionare la scheda **API Microsoft** e scorrere fino alla fine per trovare il riquadro **Azure Active Directory grafico** nella sezione API legacy supportate e fare clic su di esso. Fare quindi clic sul pulsante **Autorizzazioni applicazione** e selezionare l'autorizzazione **Directory. ReadAll** , quindi aggiungere tale autorizzazione utilizzando il pulsante in basso. 
+4. Fare clic sul pulsante **concedi il consenso dell'amministratore per {TenantName}** in modo da concedere l'accesso a tutti gli utenti in questa directory. 
+
+A questo punto è possibile aggiungere gruppi di Azure AD esterni dalla scheda **gruppi** dell'istanza di gestione API.
 
 1. Selezionare la scheda **Gruppi** .
 2. Selezionare il pulsante **Aggiungi gruppo AAD**.

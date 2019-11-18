@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 069a8ee1f019d1b21be996084e4902f94076fbf7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251104"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151496"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento Microsoft.Network.PublicIpAddressCombo dell'interfaccia utente
+
 Gruppo di controlli per la selezione di un indirizzo IP pubblico nuovo o esistente.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
+
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
 - Se l'utente seleziona "Nessuno" come indirizzo IP pubblico, la casella di testo dell'etichetta del nome di dominio viene nascosta.
@@ -31,6 +33,7 @@ Gruppo di controlli per la selezione di un indirizzo IP pubblico nuovo o esisten
 - Il suffisso del nome di dominio (ad esempio, westus.cloudapp.azure.com) viene aggiornato automaticamente in base alla posizione selezionata.
 
 ## <a name="schema"></a>SCHEMA
+
 ```json
 {
   "name": "element1",
@@ -62,14 +65,8 @@ Gruppo di controlli per la selezione di un indirizzo IP pubblico nuovo o esisten
 }
 ```
 
-## <a name="remarks"></a>Note
-- Se `constraints.required.domainNameLabel` è impostato su **true**, l'utente deve specificare un'etichetta di nome di dominio quando crea un nuovo indirizzo IP pubblico. Gli indirizzi IP pubblici esistenti senza etichetta non sono disponibili per la selezione.
-- Se `options.hideNone` è impostato su **true**, l'opzione per selezionare **Nessuno** per l'indirizzo IP pubblico viene nascosta. Il valore predefinito è **false**.
-- Se `options.hideDomainNameLabel` è impostato su **true**, la casella di testo per l'etichetta del nome di dominio viene nascosta. Il valore predefinito è **false**.
-- Se `options.hideExisting` è true, l'utente non può scegliere un indirizzo IP pubblico esistente. Il valore predefinito è **false**.
-- Per `zone`, sono disponibili solo gli indirizzi IP pubblici per la zona specificata o gli indirizzi IP pubblici resilienti per la zona.
-
 ## <a name="sample-output"></a>Output di esempio
+
 Se l'utente non seleziona alcun indirizzo IP pubblico, il controllo restituisce l'output seguente:
 
 ```json
@@ -94,6 +91,15 @@ Se l'utente seleziona un indirizzo IP nuovo o esistente, il controllo restituisc
 - Quando `options.hideNone` è specificato come **true**, `newOrExistingOrNone` può avere solo il valore **new** o **existing**.
 - Quando `options.hideDomainNameLabel` è specificato come **true**, `domainNameLabel` non viene dichiarato.
 
+## <a name="remarks"></a>Osservazioni
+
+- Se `constraints.required.domainNameLabel` è impostato su **true**, l'utente deve specificare un'etichetta di nome di dominio quando crea un nuovo indirizzo IP pubblico. Gli indirizzi IP pubblici esistenti senza etichetta non sono disponibili per la selezione.
+- Se `options.hideNone` è impostato su **true**, l'opzione per selezionare **Nessuno** per l'indirizzo IP pubblico viene nascosta. Il valore predefinito è **false**.
+- Se `options.hideDomainNameLabel` è impostato su **true**, la casella di testo per l'etichetta del nome di dominio viene nascosta. Il valore predefinito è **false**.
+- Se `options.hideExisting` è true, l'utente non può scegliere un indirizzo IP pubblico esistente. Il valore predefinito è **false**.
+- Per `zone`, sono disponibili solo gli indirizzi IP pubblici per la zona specificata o gli indirizzi IP pubblici resilienti per la zona.
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

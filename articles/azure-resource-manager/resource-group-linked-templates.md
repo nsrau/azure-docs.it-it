@@ -1,17 +1,14 @@
 ---
-title: Collegare modelli per la distribuzione di Azure | Microsoft Docs
+title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: tomfitz
-ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 985520963ba9fab1a7f71e1af76bba4390c751ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827340"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149701"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -90,7 +87,7 @@ Per annidare il modello all'interno del modello principale, usare la proprietà 
 > ],
 > ```
 >
-> Non è possibile usare `reference` la funzione nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, convertire il modello annidato in un modello collegato.
+> Non è possibile usare la funzione `reference` nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, convertire il modello annidato in un modello collegato.
 
 Per il modello annidato è necessario specificare le [stesse proprietà](resource-group-authoring-templates.md) del modello standard.
 
@@ -383,7 +380,7 @@ Per usare l'indirizzo IP pubblico del modello precedente, quando si distribuisce
 
 Resource Manager elabora ogni modello come distribuzione distinta nella cronologia di distribuzione. Un modello principale con tre modelli collegati o annidati viene pertanto visualizzato nella cronologia di distribuzione come segue:
 
-![Cronologia distribuzioni](./media/resource-group-linked-templates/deployment-history.png)
+![Cronologia di distribuzione](./media/resource-group-linked-templates/deployment-history.png)
 
 È possibile usare queste voci distinte nella cronologia per recuperare i valori di output dopo la distribuzione. Il modello seguente crea un indirizzo IP pubblico e restituisce l'indirizzo IP:
 
@@ -556,7 +553,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
-|Modello principale  |Modello collegato |Descrizione  |
+|Modello principale  |Modello collegato |DESCRIZIONE  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
 |[Load Balancer con indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico dal modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |

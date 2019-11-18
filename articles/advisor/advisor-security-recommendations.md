@@ -3,7 +3,7 @@ title: Aumentare la sicurezza delle risorse con Azure Advisor | Microsoft Docs
 description: Usare Azure Advisor per aumentare la sicurezza delle distribuzioni di Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 manager: ''
 ms.assetid: ''
 ms.service: advisor
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.author: sagupt
+ms.openlocfilehash: 8392e3b74677a8977684300d33ceb663c4e2fe81
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772288"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145325"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Aumentare la sicurezza delle risorse con Azure Advisor
 
@@ -37,10 +37,10 @@ Per altre informazioni sui consigli di sicurezza, vedere [Gestione delle raccoma
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Introduzione ad Advisor](advisor-get-started.md)
+* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
-
+* [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)
 
  
