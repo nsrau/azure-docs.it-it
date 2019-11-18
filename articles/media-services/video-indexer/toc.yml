@@ -15,10 +15,6 @@
   items:
     - name: Usare l'API Video Indexer
       href: video-indexer-use-apis.md
-- name: Esempi
-  items:
-    - name: Analisi dello streaming live
-      href: live-stream-analysis.md
 - name: Concetti
   items:
     - name: Panoramica
@@ -29,6 +25,8 @@
       href: manage-multiple-tenants.md
     - name: Modello di identificazione della lingua
       href: language-identification-model.md
+    - name: Analisi dello streaming live
+      href: live-stream-analysis.md
     - name: Personalizzazione dei modelli di contenuto
       items:
         - name: Panoramica
