@@ -1,7 +1,7 @@
 ---
 title: Informazioni sui filtri di raccolta OData
 titleSuffix: Azure Cognitive Search
-description: Informazioni sul funzionamento dei filtri di raccolta OData in Azure ricerca cognitiva query.
+description: Informazioni sui meccanismi di funzionamento dei filtri di raccolta OData in Azure ricerca cognitiva query, incluse le limitazioni e i comportamenti univoci per le raccolte.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794385"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113062"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Informazioni sui filtri di raccolta OData in Azure ricerca cognitiva
 
@@ -96,14 +96,14 @@ Modalità di archiviazione `Rooms/Description` per la ricerca full-text:
 | cortile | 2 |
 | city | 1 |
 | Garden | 1 |
-| Grandi dimensioni | 1 |
+| grandi dimensioni | 1 |
 | motel | 2 |
 | camera | 1, 2 |
 | standard | 1 |
 | Suite | 1 |
-| visualizza | 1 |
+| view | 1 |
 
-Quindi, a differenza del filtro riportato sopra, che indica in sostanza che "corrisponde ai documenti in cui una chat room ha `Type` uguale a" Deluxe Room "e **che la stessa stanza** ha `BaseRate` inferiore a 100", la query di ricerca indica che i documenti corrispondono a quelli in cui `Rooms/Type` ha il termine "Deluxe" e `Rooms/Description` ha la frase "City View". Nel secondo caso, non esiste alcun concetto di singole chat con campi che possono essere correlati.
+Quindi, a differenza del filtro riportato sopra, che indica in sostanza che "corrisponde a documenti in cui una chat room ha `Type` uguale a" Deluxe Room "e **che la stessa stanza** ha `BaseRate` inferiore a 100", la query di ricerca indica "trova la corrispondenza con i documenti in cui `Rooms/Type` ha il termine" Deluxe "e `Rooms/Description` ha la frase" City View ". Nel secondo caso, non esiste alcun concetto di singole chat con campi che possono essere correlati.
 
 > [!NOTE]
 > Se si desidera visualizzare il supporto per la ricerca correlata aggiunta ad Azure ricerca cognitiva, votare [questo elemento vocale utente](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
@@ -138,7 +138,7 @@ Si consideri, ad esempio, un campo di raccolta di stringhe filtrabile come `seas
 
 I valori del campo `seasons` vengono archiviati in una struttura denominata **indice invertito**, che ha un aspetto simile al seguente:
 
-| Durata | ID documento |
+| Termine | ID documento |
 | --- | --- |
 | primavera | 1, 2 |
 | estate | 1 |

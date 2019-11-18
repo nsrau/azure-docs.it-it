@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: gestire, distribuire, & monitorare i modelli ML'
+title: 'Gestione modelli MLOps: ML'
 titleSuffix: Azure Machine Learning
-description: 'Informazioni su come usare Azure Machine Learning per MLOps: distribuire, gestire e monitorare i modelli per migliorarli continuamente. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini.'
+description: 'Informazioni sulla gestione dei modelli con Azure Machine Learning (MLOps). Consente di distribuire, gestire e monitorare i modelli per migliorarli continuamente. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716605"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123612"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: gestire, distribuire e monitorare i modelli con Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
 Questo articolo illustra come usare Azure Machine Learning per gestire il ciclo di vita dei modelli. Azure Machine Learning usa un approccio per le operazioni di Machine Learning (MLOps), che migliora la qualità e la coerenza delle soluzioni di machine learning. 
 
@@ -121,7 +121,7 @@ Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 

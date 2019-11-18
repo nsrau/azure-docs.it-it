@@ -1,7 +1,7 @@
 ---
 title: Riferimento all'operatore di confronto OData
 titleSuffix: Azure Cognitive Search
-description: Operatori di confronto OData, EQ, ne, gt, LT, GE e le, in Azure ricerca cognitiva query.
+description: Sintassi e documentazione di riferimento per l'uso degli operatori di confronto OData (EQ, ne, gt, LT, GE e le) in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 068e2ec822f0a292ac83b3e48049830eb77b49f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793395"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113215"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatori di confronto OData in Azure ricerca cognitiva-`eq`, `ne`, `gt`, `lt`, `ge`e `le`
 
@@ -100,7 +100,7 @@ Per i confronti non consentiti, ad esempio il confronto di un campo di tipo `Edm
 
 Quando si usano gli operatori di confronto, è importante ricordare che tutti i campi non di raccolta in Azure ricerca cognitiva possono essere potenzialmente `null`. La tabella seguente mostra tutti i possibili risultati per un'espressione di confronto in cui possono essere `null`entrambi i lati:
 
-| Operator | Risultato quando viene `null` solo il campo o la variabile | Risultato quando viene `null` solo la costante | Risultato quando il campo o la variabile e la costante sono `null` |
+| Operatore | Risultato quando viene `null` solo il campo o la variabile | Risultato quando viene `null` solo la costante | Risultato quando il campo o la variabile e la costante sono `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: errore di richiesta non valida | HTTP 400: errore di richiesta non valida |
 | `lt` | `false` | HTTP 400: errore di richiesta non valida | HTTP 400: errore di richiesta non valida |
@@ -113,7 +113,7 @@ In breve, `null` è uguale solo a se stesso e non è minore o maggiore di qualsi
 
 Se l'indice include campi di tipo `Edm.Double` e si caricano `NaN` valori in questi campi, sarà necessario tenere conto di questo durante la scrittura dei filtri. Azure ricerca cognitiva implementa lo standard IEEE 754 per la gestione dei valori `NaN` e i confronti con tali valori producono risultati non evidenti, come illustrato nella tabella seguente.
 
-| Operator | Risultato quando almeno un operando è `NaN` |
+| Operatore | Risultato quando almeno un operando è `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |

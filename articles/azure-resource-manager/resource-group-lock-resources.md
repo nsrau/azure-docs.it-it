@@ -1,19 +1,16 @@
 ---
-title: Bloccare le risorse di Azure per impedire modifiche | Microsoft Docs
+title: Bloccare le risorse per impedire modifiche
 description: Impedire agli utenti di aggiornare o eliminare le risorse critiche di Azure applicando un blocco per tutti gli utenti e i ruoli.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: tomfitz
-ms.openlocfilehash: 31d77b4ea6e7594cd3ed4dba264f9ea6db4ca290
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 5dd5d5f58e13039842dca85ca65d6a26ce54c7e5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155213"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150786"
 ---
-# <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste 
+# <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
 L'amministratore può avere la necessità di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. È possibile impostare il livello di blocco **CanNotDelete** o **ReadOnly**. Nel portale i blocchi sono definiti rispettivamente **Elimina** e **Sola lettura**.
 
@@ -28,55 +25,55 @@ Quando si applica un blocco in un ambito padre, tutte le risorse in tale ambito 
 
 Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [Controllo degli accessi in base al ruolo nel Portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Ad esempio, un blocco ReadOnly applicato a un database SQL impedisce l'eliminazione o la modifica del database. Non impedisce la creazione, l'aggiornamento o l'eliminazione di dati nel database. Transazioni dei dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
+I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Ad esempio, un blocco ReadOnly applicato a un database SQL impedisce l'eliminazione o la modifica del database. Non impedisce la creazione, l'aggiornamento o l'eliminazione di dati nel database. Le transazioni di dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
 
-Applicando **ReadOnly** può provocare risultati imprevisti perché alcune operazioni che non sembrano modificare le risorse effettivamente necessarie azioni che vengono bloccate dal blocco. Il **ReadOnly** blocco può essere applicato alla risorsa o al gruppo di risorse che contiene la risorsa. Alcuni esempi comuni di operazioni che sono bloccate da un **ReadOnly** blocco sono:
+L'applicazione di **ReadOnly** può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. Il blocco **ReadOnly** può essere applicato alla risorsa o al gruppo di risorse che contiene la risorsa. Alcuni esempi comuni delle operazioni bloccate da un blocco **ReadOnly** sono:
 
-* Oggetto **ReadOnly** blocco su un account di archiviazione impedisce a tutti gli utenti di visualizzare l'elenco di chiavi. L'operazione di elenco delle chiavi viene gestita tramite una richiesta POST, perché le chiavi restituite sono disponibili per operazioni di scrittura.
+* Un blocco **ReadOnly** in un account di archiviazione impedisce a tutti gli utenti di elencare le chiavi. L'operazione di elenco delle chiavi viene gestita tramite una richiesta POST, perché le chiavi restituite sono disponibili per operazioni di scrittura.
 
 * Un blocco **ReadOnly** applicato a una risorsa Servizio app impedisce a Visual Studio Server Explorer di visualizzare i file della risorsa perché questa interazione richiede l'accesso in scrittura.
 
-* Oggetto **ReadOnly** blocco su un gruppo di risorse che contiene una macchina virtuale impedisce a tutti gli utenti di avvio o il riavvio della macchina virtuale. Queste operazioni richiedono una richiesta POST.
+* Un blocco **ReadOnly** in un gruppo di risorse che contiene una macchina virtuale impedisce a tutti gli utenti di avviare o riavviare la macchina virtuale. Queste operazioni richiedono una richiesta POST.
 
-## <a name="who-can-create-or-delete-locks"></a>Chi può creare o eliminare i blocchi
+## <a name="who-can-create-or-delete-locks"></a>Utenti che possono creare o eliminare blocchi
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/*` o `Microsoft.Authorization/locks/*`. Dei ruoli predefiniti, solo **Proprietario** e **Amministratore Accesso utenti** garantiscono tali azioni.
 
-## <a name="managed-applications-and-locks"></a>Le applicazioni e i blocchi
+## <a name="managed-applications-and-locks"></a>Applicazioni e blocchi gestiti
 
-Alcuni servizi di Azure, ad esempio Azure Databricks, usano [le applicazioni gestite](../managed-applications/overview.md) per implementare il servizio. In tal caso, il servizio crea due gruppi di risorse. Un gruppo di risorse contiene una panoramica del servizio e non sia bloccato. L'altro gruppo di risorse contiene l'infrastruttura per il servizio e viene bloccato.
+Alcuni servizi di Azure, ad esempio Azure Databricks, usano [le applicazioni gestite](../managed-applications/overview.md) per implementare il servizio. In tal caso, il servizio crea due gruppi di risorse. Un gruppo di risorse contiene una panoramica del servizio e non è bloccato. L'altro gruppo di risorse contiene l'infrastruttura per il servizio ed è bloccato.
 
-Se si prova a eliminare il gruppo di risorse di infrastruttura, è visualizzato un errore che informa che il gruppo di risorse viene bloccato. Se si prova a eliminare il blocco per il gruppo di risorse di infrastruttura, viene visualizzato un errore che informa che il blocco non può essere eliminato perché è di proprietà da un'applicazione di sistema.
+Se si prova a eliminare il gruppo di risorse dell'infrastruttura, viene visualizzato un errore che informa che il gruppo di risorse è bloccato. Se si tenta di eliminare il blocco per il gruppo di risorse dell'infrastruttura, viene visualizzato un errore che informa che il blocco non può essere eliminato perché è di proprietà di un'applicazione di sistema.
 
-In alternativa, eliminare il servizio, eliminando così contemporaneamente anche il gruppo di risorse di infrastruttura.
+Eliminare invece il servizio, che elimina anche il gruppo di risorse dell'infrastruttura.
 
-Per le applicazioni gestite, selezionare il servizio che è stato distribuito.
+Per le applicazioni gestite selezionare il servizio distribuito.
 
-![Selezionare il servizio](./media/resource-group-lock-resources/select-service.png)
+![Seleziona servizio](./media/resource-group-lock-resources/select-service.png)
 
-Si noti che il servizio include un collegamento per una **gruppo di risorse gestito**. Tale gruppo di risorse contiene l'infrastruttura e viene bloccato. Non può essere eliminato direttamente.
+Si noti che il servizio include un collegamento per un **gruppo di risorse gestite**. Il gruppo di risorse possiede l'infrastruttura ed è bloccato. Non può essere eliminato direttamente.
 
-![Mostra il gruppo gestito da](./media/resource-group-lock-resources/show-managed-group.png)
+![Mostra gruppo gestito](./media/resource-group-lock-resources/show-managed-group.png)
 
-Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse dell'infrastruttura bloccati, selezionare **eliminare** per il servizio.
+Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse dell'infrastruttura bloccata, selezionare **Elimina** per il servizio.
 
 ![Delete service](./media/resource-group-lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portale
+## <a name="portal"></a>di Microsoft Azure
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modello
 
-Quando si usa un modello di Resource Manager per distribuire un blocco, utilizzare valori diversi per il nome e il tipo in base all'ambito del blocco.
+Quando si usa un modello di Gestione risorse per distribuire un blocco, si usano valori diversi per il nome e il tipo, a seconda dell'ambito del blocco.
 
-Quando si applica un blocco a un **risorsa**, usare i formati seguenti:
+Quando si applica un blocco a una **risorsa**, usare i formati seguenti:
 
-* nome: `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* nome-`{resourceName}/Microsoft.Authorization/{lockName}`
+* `{resourceProviderNamespace}/{resourceType}/providers/locks` di tipo
 
-Quando si applica un blocco a un **gruppo di risorse** oppure **sottoscrizione**, usare i formati seguenti:
+Quando si applica un blocco a un **gruppo di risorse** o a una **sottoscrizione**, usare i formati seguenti:
 
-* nome: `{lockName}`
-* type - `Microsoft.Authorization/locks`
+* nome-`{lockName}`
+* `Microsoft.Authorization/locks` di tipo
 
 L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. Il tipo di risorsa del blocco corrisponde al tipo di risorsa della risorsa da bloccare e a **/providers/locks**. Il nome del blocco viene creato concatenando il nome della risorsa con **/Microsoft.Authorization/** e il nome del blocco stesso.
 
@@ -135,7 +132,7 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
 }
 ```
 
-Per un esempio dell'impostazione di un blocco su un gruppo di risorse, vedere [creare un gruppo di risorse e la blocca](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+Per un esempio di impostazione di un blocco su un gruppo di risorse, vedere [creare un gruppo di risorse e bloccarlo](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
 Per bloccare le risorse distribuite con Azure PowerShell, usare il comando [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
@@ -219,13 +216,13 @@ az lock delete --ids $lockid
 ```
 
 ## <a name="rest-api"></a>API REST
-È possibile bloccare le risorse distribuite tramite l'[API REST per i blocchi di gestione](https://docs.microsoft.com/rest/api/resources/managementlocks). L'API REST consente di creare ed eliminare i blocchi e recuperare informazioni sui blocchi esistenti.
+È possibile bloccare le risorse distribuite tramite l' [API REST per i blocchi di gestione](https://docs.microsoft.com/rest/api/resources/managementlocks). L'API REST consente di creare ed eliminare i blocchi e recuperare informazioni sui blocchi esistenti.
 
 Per creare un blocco, eseguire:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Lock-name indica il nome che si desidera assegnare al blocco. Per api-version, usare **2016-09-01**.
+L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Lock-name indica il nome che si desidera assegnare al blocco. Per API-Version, usare **2016-09-01**.
 
 Nella richiesta includere un oggetto JSON che specifica le proprietà per il blocco.
 

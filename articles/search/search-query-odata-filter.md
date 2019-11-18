@@ -1,7 +1,7 @@
 ---
 title: Riferimento al filtro OData
 titleSuffix: Azure Cognitive Search
-description: Informazioni di riferimento sul linguaggio OData per la sintassi di filtro in Azure ricerca cognitiva query.
+description: Guida di riferimento al linguaggio OData e sintassi completa usata per la creazione di espressioni di filtro in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793364"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113211"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
 
@@ -75,7 +75,7 @@ I tipi di espressioni booleane includono:
 
 Se si scrive un'espressione di filtro senza parentesi intorno alle relative espressioni secondarie, Azure ricerca cognitiva valuterà tale espressione in base a un set di regole di precedenza degli operatori. Queste regole sono basate sugli operatori utilizzati per combinare sottoespressioni. La tabella seguente elenca i gruppi di operatori in ordine dalla precedenza più alta alla più bassa:
 
-| Group | Operatore/i |
+| Gruppo | Operatore/i |
 | --- | --- |
 | Operatori logici | `not` |
 | Operatori di confronto | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

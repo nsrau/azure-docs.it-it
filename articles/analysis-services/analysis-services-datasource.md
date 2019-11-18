@@ -4,15 +4,15 @@ description: Descrive le origini dati e i connettori supportati per i modelli di
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572967"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120011"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -35,7 +35,7 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 <a name="tab1400a">1</a> - Solo modelli tabulari 1400 e superiori.   
 <a name="azsqlmanaged">2</a> - Istanza gestita di database SQL di Azure è supportata. Poiché l'istanza gestita viene eseguita in Azure VNet con un indirizzo IP privato, è necessario abilitare l'endpoint pubblico nell'istanza. Se questa funzionalità non è abilitata, è necessario un gateway dati locale.    
 <a name="databricks">3</a> - Azure Databricks con il connettore Spark non è attualmente supportato.   
-<a name="gen2">4</a> - ADLS Gen2 non è attualmente supportato.
+<a name="gen2">4</a> -ADLS Gen2 Connector non è attualmente supportato, ma è possibile usare il connettore di archiviazione BLOB con un'origine dati ADLS Gen2.
 
 
 **Provider**   
@@ -43,14 +43,14 @@ I modelli in memoria e DirectQuery che si connettono alle origini dati di Azure 
 
 ## <a name="other-data-sources"></a>Altre origini dati
 
-La connessione alle origini dati locali da un server Azure Analysis Services richiede un gateway locale. Quando si usa un gateway, sono necessari i provider a 64 bit.
+Per la connessione a origini dati locali da un server Azure Analysis Services è necessario un gateway locale. Quando si usa un gateway, sono necessari i provider a 64 bit.
 
 ### <a name="in-memory-and-directquery"></a>In memoria e DirectQuery
 
 |Origine dati | Provider in memoria | Provider DirectQuery |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, provider Microsoft OLE DB per SQL Server, provider di dati .NET Framework per SQL Server | Provider di dati .NET Framework per SQL Server |
+| SQL Server |Driver Microsoft OLE DB per SQL Server MSOLEDBSQL (scelta consigliata), SQL Server Native Client 11,0, .NET Framework provider di dati per SQL Server | Provider di dati .NET Framework per SQL Server |
+| SQL Server Data Warehouse |Driver Microsoft OLE DB per SQL Server MSOLEDBSQL (scelta consigliata), SQL Server Native Client 11,0, .NET Framework provider di dati per SQL Server | Provider di dati .NET Framework per SQL Server |
 | Oracle | Provider di OLE DB per Oracle, Oracle provider di dati per .NET |Provider di dati Oracle per .NET |
 | Teradata |Provider OLE DB per Teradata, provider di dati Teradata per .NET |Provider di dati Teradata per .NET |
 | | | |

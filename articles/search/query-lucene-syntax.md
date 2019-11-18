@@ -1,7 +1,7 @@
 ---
 title: Sintassi di query Lucene
 titleSuffix: Azure Cognitive Search
-description: Riferimento per la sintassi Lucene completa, come usato con ricerca cognitiva di Azure.
+description: Riferimento per la sintassi di query Lucene completa, come usato in Azure ricerca cognitiva per il carattere jolly, la ricerca fuzzy, RegEx e altri costrutti di query avanzati.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786275"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112177"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintassi di query Lucene in Azure ricerca cognitiva
 
@@ -169,7 +169,7 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
 >  Non è possibile usare un carattere * o ? come primo carattere di una ricerca.  
 >  Sulle query di ricerca con caratteri jolly non vengono eseguite analisi del testo. In fase di query, i termini della query con caratteri jolly vengono confrontati con i termini analizzati nell'indice di ricerca ed espansi.
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 + [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintassi delle espressioni OData per filtri e ordinamento](query-odata-filter-orderby-syntax.md)   

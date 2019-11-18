@@ -1,7 +1,7 @@
 ---
 title: Tipi e struttura delle risposte dell'API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
-description: Informazioni sulle risposte e sui tipi di risposta usati dall'API Ricerca Web Bing.
+description: Quando si invia Ricerca Web Bing una richiesta di ricerca, viene restituito un oggetto `SearchResponse` nel corpo della risposta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854733"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110627"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -290,9 +290,9 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Un'espressione matematica può contenere i simboli seguenti:
 
-|Simbolo|Descrizione|
+|Simbolo|DESCRIZIONE|
 |------------|-----------------|
-|+|Aggiunta|
+|+|Addizione|
 |-|Sottrazione|
 |/|Divisione|
 |*|Moltiplicazione|
@@ -304,7 +304,7 @@ Un'espressione matematica può contenere i simboli seguenti:
 
 Un'espressione matematica può contenere le costanti seguenti:
 
-|Simbolo|Descrizione|
+|Simbolo|DESCRIZIONE|
 |------------|-----------------|
 |Pi|3,14159...|
 |Gradi|Gradi|
@@ -316,7 +316,7 @@ Un'espressione matematica può contenere le funzioni seguenti:
 
 |Simbolo|DESCRIZIONE|
 |------------|-----------------|
-|Ordina|Radice quadrata|
+|Ordinamento|Radice quadrata|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funzioni trigonometriche con argomenti in radianti|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Funzioni trigonometriche inverse con risultati in radianti|
 |Exp[x], E^x|Funzione esponenziale|
@@ -332,7 +332,7 @@ Se si immette una query di ora o data, la risposta può contenere una risposta [
 
 La risposta `timeZone` include il nome della posizione, la data e l'ora UTC corrente nella posizione specificata e la differenza dall'ora UTC. Se all'interno dei confini della posizione sono presenti più fusi orari, la risposta contiene la data e l'ora UTC corrente di tutti i fusi orari presenti. Lo Stato della Florida rientra ad esempio in due fusi orari, pertanto la risposta contiene la data e l'ora locali di entrambi i fusi orari.  
 
-Se la query richiede l'ora di uno stato o paese/area geografica, Bing determina la città primaria entro il confine geografico della località e la `primaryCityTime` restituisce nel campo. Se il confine contiene più fusi orari, i fusi orari rimanenti vengono restituiti nel campo `otherCityTimes`.
+Se la query richiede l'ora di uno stato o paese/area geografica, Bing determina la città primaria entro il confine geografico della località e la restituisce nel campo `primaryCityTime`. Se il confine contiene più fusi orari, i fusi orari rimanenti vengono restituiti nel campo `otherCityTimes`.
 
 Di seguito sono riportate query di esempio che restituiscono la risposta `timeZone`.
 
@@ -447,7 +447,7 @@ Tuttavia, quando si chiama l'API Ricerca Web Bing da JavaScript, le funzionalit�
 
 Per poter accedere alle intestazioni, è possibile effettuare la richiesta dell'API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
 
-Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](tutorial-bing-web-search-single-page-app.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
+Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](tutorial-bing-web-search-single-page-app.md) di accedere alle intestazioni client facoltative. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Immettere quindi il comando seguente al prompt dei comandi.
 
     npm install -g cors-proxy-server
 
@@ -455,7 +455,7 @@ Modificare quindi l'endpoint dell'API Ricerca Web Bing nel file HTML in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Infine avviare il proxy CORS con il comando seguente:
+Avviare infine il proxy CORS con il comando seguente:
 
     cors-proxy-server
 

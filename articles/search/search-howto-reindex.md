@@ -1,5 +1,5 @@
 ---
-title: Ricompilare un indice di ricerca cognitiva di Azure
+title: Ricompilare un indice di ricerca
 titleSuffix: Azure Cognitive Search
 description: Aggiungere nuovi elementi, aggiornare gli elementi o i documenti esistenti o eliminare i documenti obsoleti in una ricompilazione completa o indicizzazione incrementale parziale per aggiornare un indice di ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466437"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112962"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Come ricompilare un indice di Azure ricerca cognitiva
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Come ricompilare un indice in Azure ricerca cognitiva
 
 Questo articolo illustra come ricompilare un indice di ricerca cognitiva di Azure, le circostanze in cui sono necessarie le ricompilazioni e i consigli per attenuare l'effetto delle ricompilazioni sulle richieste di query in corso.
 
@@ -25,7 +25,7 @@ A differenza delle ricompilazioni che prevedono che l'indice venga portato offli
 
 ## <a name="rebuild-conditions"></a>Condizioni di ricompilazione
 
-| Condizione | Descrizione |
+| Condizione | DESCRIZIONE |
 |-----------|-------------|
 | Modificare la definizione di un campo | La modifica di un nome di campo, di un tipo di dati o di [attributi di indice](https://docs.microsoft.com/rest/api/searchservice/create-index) specifici (searchable, filterable, sortable, facetable) richiede una ricompilazione completa. |
 | Assegnare un analizzatore a un campo | Gli [analizzatori](search-analyzers.md) vengono definiti in un indice e quindi assegnati ai campi. È possibile aggiungere una nuova definizione di analizzatore a un indice in qualsiasi momento, ma è possibile *assegnare* un analizzatore solo quando il campo viene creato. Questo vale per entrambe le proprietà **analyzer** e **indexAnalyzer**. La proprietà **searchAnalyzer** è un'eccezione perché è possibile assegnare questa proprietà a un campo esistente. |

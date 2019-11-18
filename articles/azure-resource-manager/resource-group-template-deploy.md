@@ -1,17 +1,14 @@
 ---
-title: Distribuire risorse con PowerShell e i modelli | Microsoft Docs
+title: Distribuire le risorse con PowerShell e il modello
 description: Usare Azure Resource Manager e Azure PowerShell per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e726d1154fca1dbcce244783bf987bea6610cf98
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837090"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150714"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
@@ -39,7 +36,7 @@ Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite
 
 Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 È necessario un modello per la distribuzione. Se non si dispone già di un modello, scaricare e salvare un [modello di esempio](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) dal repository dei modelli di avvio rapido di Azure. Il nome del file locale usato in questo articolo è **c:\MyTemplates\azuredeploy.json**.
 
@@ -65,7 +62,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 
 ## <a name="deploy-remote-template"></a>Distribuisci modello remoto
 
-Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
+Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. o, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
 Per distribuire un modello esterno, usare il parametro **TemplateUri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
 
@@ -167,7 +164,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
-Se non vengono rilevati errori, il comando termina senza una risposta. Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione, restituisce l'errore seguente:
+Se non vengono rilevati errori, il comando termina senza una risposta. Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione restituisce l'errore seguente:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
@@ -190,6 +187,6 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per eseguire il rollback a una distribuzione corretta quando viene visualizzato un errore, vedere eseguire [il rollback in caso di errore di distribuzione riuscita](rollback-on-error.md).
-- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
+- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Azure Resource Manager deployment modes](deployment-modes.md) (Modalità di distribuzione di Azure Resource Manager).
 - Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).

@@ -300,9 +300,19 @@
     - name: Correggere le risorse non conformi
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
-    - name: Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima)
-      displayName: 'insights, log analytics, builtin'
-      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
+    - name: Integrazione di Azure Lighthouse
+      items:
+        - name: Distribuire un criterio su larga scala
+          displayName: 'lighthouse, scale, deploy'
+          href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+        - name: Distribuire un criterio che è possibile correggere
+          displayName: 'lighthouse, scale, remediate'
+          href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Integrazione di Monitoraggio di Azure
+      items:
+        - name: Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima)
+          displayName: 'monitor, insights, log analytics, builtin'
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

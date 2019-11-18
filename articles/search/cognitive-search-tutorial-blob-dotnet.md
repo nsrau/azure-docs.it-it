@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione per C#: Chiamare le API Servizi cognitivi in una pipeline di arricchimento con intelligenza artificiale'
+title: 'Esercitazione: creare un oggetto di competenze C# in uso di .NET'
 titleSuffix: Azure Cognitive Search
-description: Esempio di estrazione dei dati, linguaggio naturale ed elaborazione di immagini tramite intelligenza artificiale nella pipeline di indicizzazione arricchimento di Ricerca cognitiva di Azure.
+description: Esempio di codice che illustra l'estrazione dei dati, il linguaggio naturale e l'elaborazione dell'intelligenza artificiale in una pipeline di indicizzazione di Azure ricerca cognitiva.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790220"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111741"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>Esercitazione per C#: Chiamare le API Servizi cognitivi in una pipeline di indicizzazione di Ricerca cognitiva di Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Esercitazione: creare una pipeline di arricchimento AI con C# e .NET SDK
 
 In questa esercitazione vengono illustrati i meccanismi di programmazione dell'arricchimento dei dati in Ricerca cognitiva di Azure usando *competenze cognitive*. Le competenze sono supportate da funzionalità di elaborazione del linguaggio naturale e analisi delle immagini in Servizi cognitivi. Tramite la composizione e la configurazione del set di competenze, è possibile estrarre testo e rappresentazioni di testo da un'immagine o da un file di documento digitalizzato. È anche possibile rilevare lingue, entità, frasi chiave e altro ancora. Il risultato finale include contenuto aggiuntivo elaborato in un indice di ricerca, creato da una pipeline di indicizzazione basato sull'intelligenza artificiale.
 
@@ -39,7 +39,7 @@ Questa esercitazione viene eseguita con il servizio gratuito, ma il numero di tr
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione vengono usati i servizi, gli strumenti e i dati seguenti. 
 
@@ -97,7 +97,7 @@ Per questo progetto è necessario installare la versione 9 del pacchetto NuGet `
 
 Installare il pacchetto NuGet `Microsoft.Azure.Search` usando la console di Gestione pacchetti in Visual Studio. Per aprire la console di Gestione pacchetti, fare clic su **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**. Per eseguire il comando, accedere alla [pagina del pacchetto NuGet Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search), selezionare la versione 9 e copiare il comando di Gestione pacchetti. Nella console di Gestione pacchetti, eseguire questo comando.
 
-Per installare il pacchetto NuGet `Microsoft.Extensions.Configuration.Json` in Visual Studio, selezionare **Strumenti** > **Gestione pacchetti NuGet** > **Gestisci pacchetti NuGet per la soluzione**. Seleziona Sfoglia e cerca il pacchetto NuGet `Microsoft.Extensions.Configuration.Json`. Dopo averlo trovato, selezionare il pacchetto, selezionare il progetto, verificare che la versione sia la versione stabile più recente, quindi selezionare Installa.
+Per installare il pacchetto NuGet di `Microsoft.Extensions.Configuration.Json` in Visual Studio, selezionare **strumenti** > **gestione pacchetti NuGet** > **Gestisci pacchetti NuGet per la soluzione...** . Selezionare Sfoglia e cercare il pacchetto NuGet `Microsoft.Extensions.Configuration.Json`. Dopo averlo trovato, selezionare il pacchetto, selezionare il progetto, verificare che la versione sia la versione stabile più recente, quindi selezionare Installa.
 
 ## <a name="add-azure-cognitive-search-service-information"></a>Aggiungere le informazioni sul servizio Ricerca cognitiva di Azure
 
@@ -677,7 +677,7 @@ In questa esercitazione sono stati cercati indicizzatori e indici esistenti al f
 
 È anche possibile usare il portale per eliminare indici, indicizzatori e set di competenze.
 
-Con l'evoluzione del codice può risultare necessario perfezionare una strategia di ricompilazione. Per altre informazioni, vedere [How to rebuild an index](search-howto-reindex.md) (Come ricompilare un indice).
+Con l'evoluzione del codice può risultare necessario perfezionare una strategia di ricompilazione. Per altre informazioni, vedere [How to rebuild an index](search-howto-reindex.md) (Procedura per ricompilare un indice).
 
 ## <a name="takeaways"></a>Risultati
 
@@ -696,4 +696,4 @@ Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'el
 Personalizzare o estendere la pipeline con competenze personalizzate. Creare una competenza personalizzata e aggiungerla a un set di competenze consente di caricare procedure di analisi del testo o delle immagini personalizzate.
 
 > [!div class="nextstepaction"]
-> [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
+> [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)

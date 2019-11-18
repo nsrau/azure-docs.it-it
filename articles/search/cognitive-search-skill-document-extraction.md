@@ -1,5 +1,5 @@
 ---
-title: Esperienza di ricerca cognitiva per l'estrazione di documenti (anteprima)
+title: Competenze cognitive per l'estrazione di documenti (anteprima)
 titleSuffix: Azure Cognitive Search
 description: Estrae il contenuto da un file all'interno della pipeline di arricchimento. Questa competenza è attualmente disponibile in anteprima pubblica.
 manager: nitinme
@@ -8,17 +8,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a79b0476fccbd2e2b9d3cf47ecfdc99c17c2862d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720117"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113346"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Abilità cognitiva di estrazione documenti
 
 > [!IMPORTANT] 
-> Questa competenza è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L' [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce funzionalità di anteprima. Attualmente non è disponibile alcun portale o supporto per .NET SDK.
+> Questa competenza è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Attualmente non è disponibile alcun portale o supporto per .NET SDK.
 
 L'abilità di **estrazione dei documenti** estrae il contenuto da un file all'interno della pipeline di arricchimento. In questo modo è possibile sfruttare i vantaggi del passaggio di estrazione del documento che in genere si verifica prima dell'esecuzione delle competenze con i file che possono essere generati da altre competenze.
 
@@ -33,13 +33,13 @@ Microsoft. Skills. util. DocumentExtractionSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Input            | Valori consentiti | Descrizione |
+| Input            | Valori consentiti | DESCRIZIONE |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Impostare su `default` per l'estrazione dei documenti da file che non sono testo puro o JSON. Impostare su `text` per migliorare le prestazioni in file di testo normale. Impostare su `json` per estrarre il contenuto strutturato dai file JSON. Se `parsingMode` non è definito in modo esplicito, verrà impostato su `default`. |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Impostare su `contentAndMetadata` per estrarre tutti i metadati e il contenuto testuale da ogni file. Impostare su `allMetadata` per estrarre solo i [metadati specifici del tipo di contenuto](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) , ad esempio i metadati univoci per i soli file con estensione png. Se `dataToExtract` non è definito in modo esplicito, verrà impostato su `contentAndMetadata`. |
 | `configuration` | Vedi di seguito. | Dizionario di parametri facoltativi che regolano il modo in cui viene eseguita l'estrazione del documento. Vedere la tabella seguente per le descrizioni delle proprietà di configurazione supportate. |
 
-| Parametro di configurazione   | Valori consentiti | Descrizione |
+| Parametro di configurazione   | Valori consentiti | DESCRIZIONE |
 |-------------------------|----------------|-------------|
 | `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Impostare su `none` per ignorare le immagini incorporate o i file di immagine nel set di dati. Questa è la modalità predefinita. <br/>Per l' [analisi delle immagini con competenze cognitive](cognitive-search-concept-image-scenarios.md), impostare su `generateNormalizedImages` per fare in modo che l'abilità crei una matrice di immagini normalizzate come parte del cracking del documento. Per questa azione è necessario che `parsingMode` sia impostato su `default` e `dataToExtract` sia impostato su `contentAndMetadata`. Per immagine normalizzata si intende un'elaborazione aggiuntiva che produce un output dell'immagine uniforme, ridimensionato e ruotato per favorire un rendering coerente quando si includono immagini nei risultati della ricerca visiva (ad esempio, fotografie delle stesse dimensioni in un controllo grafico, come illustrato nella [demo su JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Queste informazioni vengono generate per ogni immagine quando si usa questa opzione.  <br/>Se si imposta su `generateNormalizedImagePerPage`, i file PDF verranno trattati in modo diverso, anziché estrarre le immagini incorporate, viene eseguito il rendering di ogni pagina come immagine e normalizzata di conseguenza.  I tipi di file non PDF verranno considerati come se fosse stato impostato `generateNormalizedImages`.
 | `normalizedImageMaxWidth` | Qualsiasi numero intero compreso tra 50-10000 | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. | 
@@ -49,7 +49,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 > Il valore predefinito di 2000 pixel per i valori massimi di altezza e larghezza delle immagini normalizzate è basato sulle dimensioni massime supportate dalla [competenza OCR](cognitive-search-skill-ocr.md) e dalla [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md). La [skill OCR](cognitive-search-skill-ocr.md) supporta una larghezza e un'altezza massime di 4200 per le lingue diverse dall'inglese e 10000 per la lingua inglese.  Se si aumentano i limiti massimi, l'elaborazione potrebbe avere esito negativo sulle immagini più grandi a seconda della definizione del suo competenze e della lingua dei documenti. 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input     | Descrizione |
+| Nome input     | DESCRIZIONE |
 |--------------------|-------------|
 | file_data | File da cui deve essere estratto il contenuto. |
 
@@ -72,7 +72,7 @@ Questo oggetto di riferimento file può essere generato in uno dei tre modi segu
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output    | Descrizione |
+| Nome output    | DESCRIZIONE |
 |--------------|-------------|
 | content | Contenuto testuale del documento. |
 | normalized_images | Quando il `imageAction` è impostato su un valore diverso `none`, il nuovo campo *normalized_images* conterrà una matrice di immagini. Per informazioni dettagliate sul formato di output di ogni immagine, vedere [la documentazione per l'estrazione delle immagini](cognitive-search-concept-image-scenarios.md) . |

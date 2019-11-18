@@ -1,5 +1,5 @@
 ---
-title: Ottimizzazione degli iperparametri del modello
+title: Tune Model Hyperparameters
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il modulo Tune Model iperparametri nel servizio Azure Machine Learning per eseguire uno sweep di parametri in un modello per determinare le impostazioni ottimali dei parametri.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: fd796297bafeb437b55eca7f38cbd7ae55e19b93
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716711"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131218"
 ---
-# <a name="tune-model-hyperparameters"></a>Ottimizzazione degli iperparametri del modello
+# <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
 Questo articolo descrive come usare il modulo Tune Model iperparametris in Azure Machine Learning Designer (Preview). L'obiettivo è determinare gli iperparametri ottimali per un modello di machine learning. Il modulo compila e testa più modelli usando diverse combinazioni di impostazioni. Viene confrontata la metrica su tutti i modelli per ottenere le combinazioni di impostazioni. 
 
@@ -69,7 +69,7 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 8.  Per la **classificazione**, scegliere una singola metrica da usare per classificare i modelli.
 
-    Quando si esegue uno sweep di parametri, il modulo calcola tutte le metriche applicabili per il tipo di modello che li restituisce nel rapporto sui **risultati dello sweep** . Il modulo usa metriche separate per i modelli di regressione e classificazione.
+    Quando si esegue uno sweep di parametri, il modulo calcola tutte le metriche applicabili per il tipo di modello e le restituisce nel rapporto **risultati Sweep** . Il modulo usa metriche separate per i modelli di regressione e classificazione.
 
     Tuttavia, la metrica scelta determina il modo in cui vengono classificati i modelli. Solo il modello superiore, classificato in base alla metrica scelta, viene restituito come modello sottoposto a training da usare per l'assegnazione dei punteggi.
 

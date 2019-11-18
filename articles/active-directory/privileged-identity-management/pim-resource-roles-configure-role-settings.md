@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022945"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144269"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo delle risorse di Azure in Privileged Identity Management
 
@@ -48,11 +48,19 @@ Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa pr
 
     ![Pagina dei dettagli dell'impostazione del ruolo che elenca diverse impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Selezionare **modifica** per aprire il riquadro impostazioni ruolo.
+1. Selezionare **modifica** per aprire il riquadro **impostazioni ruolo** . La prima scheda consente di aggiornare la configurazione per l'attivazione del ruolo in Privileged Identity Management.
 
-    ![Pagina Modifica impostazioni ruolo con le opzioni per aggiornare le impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Pagina Modifica impostazioni ruolo con scheda attivazione aperta](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    Nella pagina delle impostazioni di ogni ruolo sono presenti numerose impostazioni che è possibile configurare.
+1. Selezionare la scheda **assegnazione** o il pulsante **Avanti: assegnazione** nella parte inferiore della pagina per aprire la scheda Impostazioni assegnazione. Queste impostazioni controllano le assegnazioni di ruolo eseguite all'interno dell'interfaccia Privileged Identity Management.
+
+    ![Scheda assegnazione ruolo nella pagina impostazioni ruolo](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. Usare la scheda **notifica** o il pulsante **Avanti: attivazione** nella parte inferiore della pagina per ottenere la scheda delle impostazioni di notifica per questo ruolo. Queste impostazioni controllano tutte le notifiche di posta elettronica correlate a questo ruolo.
+
+    ![Scheda notifiche ruolo nella pagina impostazioni ruolo](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. Selezionare il pulsante **Aggiorna** in qualsiasi momento per aggiornare le impostazioni del ruolo.
 
 ## <a name="assignment-duration"></a>Durata dell'assegnazione
 

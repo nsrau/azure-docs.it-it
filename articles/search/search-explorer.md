@@ -1,5 +1,5 @@
 ---
-title: Usare lo strumento Esplora ricerche per eseguire query sui dati in portale di Azure
+title: Strumento di query di Esplora ricerche in portale di Azure
 titleSuffix: Azure Cognitive Search
 description: Esplora ricerche è integrato nella portale di Azure, utile per l'esplorazione del contenuto e la convalida delle query in Azure ricerca cognitiva. Immettere stringhe per la ricerca di termini o frasi o espressioni di ricerca complete con sintassi avanzata.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff2986c4e90cb997df250d647bdfbd068d70e51f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792956"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112106"
 ---
 # <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Usare Esplora ricerche nella portale di Azure per eseguire query sui documenti in Azure ricerca cognitiva 
 

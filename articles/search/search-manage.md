@@ -1,5 +1,5 @@
 ---
-title: Amministrazione dei servizi per Azure ricerca cognitiva nel portale
+title: Amministrazione dei servizi nel portale
 titleSuffix: Azure Cognitive Search
 description: Gestire un servizio di ricerca cognitiva di Azure, un servizio di ricerca cloud ospitato in Microsoft Azure, usando il portale di Azure.
 manager: nitinme
@@ -9,19 +9,19 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793514"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113293"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Amministrazione dei servizi per Azure ricerca cognitiva nel portale di Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [di Microsoft Azure](search-manage.md)
+> * [Portale](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure ricerca cognitiva è un servizio di ricerca completamente gestito basato sul cloud, usato per creare un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di amministrazione del servizio che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisioning. L'amministrazione del servizio è leggera come previsto dalla progettazione ed è limitata alle attività seguenti:
@@ -63,7 +63,7 @@ Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visual
 Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 
 * [Ottenere le statistiche di indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Contare i documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Conteggio documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
 
@@ -75,7 +75,7 @@ I clienti che usano gli [indicizzatori](search-indexer-overview.md) per compilar
 
 Se non si usano gli indicizzatori, l'utente userà il codice dell'applicazione per eseguire il push sugli oggetti e i dati per diversi servizi in parallelo. Per altre informazioni, vedere [prestazioni e ottimizzazione in Azure ricerca cognitiva](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Eseguire backup e ripristino
+## <a name="backup-and-restore"></a>Backup e ripristino
 
 Poiché ricerca cognitiva di Azure non è una soluzione di archiviazione dati primaria, non è disponibile un meccanismo formale per il backup e il ripristino self-service. Tuttavia, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio di Azure ricerca cognitiva .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup della definizione dell'indice e dello snapshot in una serie di file JSON e quindi usare questi file per ripristinare l'indice, se necessario. Questo strumento può inoltre spostare gli indici tra i livelli di servizio.
 
@@ -83,7 +83,7 @@ In caso contrario, il codice dell'applicazione utilizzato per creare e popolare 
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>Scalabilità verticale
+## <a name="scale-up-or-down"></a>Aumentare o ridurre la quantità di risorse
 Ogni servizio di ricerca viene creato con un minimo di una replica e una partizione. Se l'utente ha effettuato l'iscrizione a un [livello che offre risorse dedicate](search-limits-quotas-capacity.md), fare clic su sul riquadro **SCALA** nel dashboard del servizio per regolare l'uso delle risorse.
 
 Quando si aggiunge capacità tramite l'una o l'altra risorsa, la risorsa aggiunta viene usata dal servizio in modo automatico. Non sono necessarie altre azioni da parte dell'utente, ma vi sarà un lieve ritardo prima che l'impatto delle nuove risorse sia apprezzabile. Possono essere necessari 15 o più minuti per il provisioning delle risorse aggiuntive.

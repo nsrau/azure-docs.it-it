@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: a599a7cbb1ceff165d7bde77ba4bf797d66b5026
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048241"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131896"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights per le applicazioni del servizio Worker (applicazioni non HTTP)
 
@@ -406,7 +406,7 @@ Gli inizializzatori di telemetria sono presenti per impostazione predefinita. Pe
 
 ### <a name="adding-telemetry-processors"></a>Aggiunta di processori di telemetria
 
-È possibile aggiungere processori di telemetria personalizzati a `TelemetryConfiguration` usando il metodo di estensione `AddApplicationInsightsTelemetryProcessor` in `IServiceCollection`. I processori di telemetria vengono usati in [scenari di filtro avanzati](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) per consentire un controllo più diretto sugli elementi inclusi o esclusi dai dati di telemetria inviati al servizio Application Insights. Usare l'esempio seguente.
+È possibile aggiungere processori di telemetria personalizzati a `TelemetryConfiguration` usando il metodo di estensione `AddApplicationInsightsTelemetryProcessor` in `IServiceCollection`. I processori di telemetria vengono usati in [scenari di filtro avanzati](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer) per consentire un controllo più diretto sugli elementi inclusi o esclusi dai dati di telemetria inviati al servizio Application Insights. Usare l'esempio seguente.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)

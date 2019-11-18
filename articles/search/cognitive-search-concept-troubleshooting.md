@@ -1,5 +1,5 @@
 ---
-title: Suggerimenti per la risoluzione dei problemi relativi all'arricchimento di intelligenza artificiale
+title: Suggerimenti per la progettazione dell'arricchimento di intelligenza artificiale
 titleSuffix: Azure Cognitive Search
 description: Suggerimenti e risoluzione dei problemi per la configurazione di pipeline di arricchimento AI in Azure ricerca cognitiva.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787709"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113836"
 ---
-# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per la risoluzione dei problemi relativi all'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
 Questo articolo contiene un elenco di suggerimenti e consigli per proseguire con l'introduzione delle funzionalità di arricchimento di intelligenza artificiale in Azure ricerca cognitiva. 
 
@@ -103,7 +103,7 @@ Per l’indicizzazione basata sul portale (come descritto nella Guida introdutti
 Per [indicizzazione parallela](search-howto-large-index.md), inserire i dati in più contenitori o più cartelle virtuali all'interno dello stesso contenitore. Creare quindi più coppie di origine dati e di indicizzatori. Tutti gli indicizzatori possono utilizzare lo stesso insieme di competenze e scrivere nello stesso indice di ricerca di destinazione, in modo che l'app per la ricerca non debba necessariamente essere a conoscenza di tale partizionamento.
 Per altre informazioni, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 + [Guida introduttiva: creare una pipeline di arricchimento di intelligenza artificiale nel portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: informazioni sulle API REST per l'arricchimento di intelligenza artificiale](cognitive-search-tutorial-blob.md)
 + [Specificare le credenziali dell'origine dati](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

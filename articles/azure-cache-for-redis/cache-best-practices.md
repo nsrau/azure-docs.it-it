@@ -1,25 +1,17 @@
 ---
 title: Procedure consigliate per cache di Azure per Redis
 description: Informazioni su come usare la cache di Azure per Redis in modo efficace seguendo queste procedure consigliate.
-services: cache
-documentationcenter: na
 author: joncole
-manager: jhubbard
-editor: tysonn
-ms.assetid: 3e4905e3-89e3-47f7-8cfb-12caf1c6e50e
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 136c29245c63b2f2feed79a10a09fb57a379736f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785866"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122386"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedure consigliate per cache di Azure per Redis 
 Seguendo queste procedure consigliate, è possibile ottimizzare le prestazioni e l'uso conveniente della cache di Azure per l'istanza di Redis.
@@ -52,14 +44,14 @@ Ci sono diversi aspetti relativi all'utilizzo della memoria all'interno dell'ist
 
  * **Scegliere un [criterio di rimozione](https://redis.io/topics/lru-cache) adatto per l'applicazione.**  Il criterio predefinito per Redis di Azure è *volatile-LRU*, il che significa che solo le chiavi che hanno un valore TTL impostato saranno idonee per la rimozione.  Se nessuna chiave ha un valore TTL, il sistema non rimuoverà alcuna chiave.  Se si desidera che il sistema consenta la rimozione di qualsiasi chiave in caso di utilizzo eccessivo della memoria, è opportuno considerare il criterio *AllKeys-LRU* .
 
- * **Impostare un valore di scadenza sulle chiavi.**  In questo modo, le chiavi verranno rimosse in modo proattivo invece che in attesa fino a quando non si verificano  Quando l'eliminazione viene avviata a causa di un numero eccessivo di richieste di memoria, può causare un carico aggiuntivo sul server.  Per ulteriori informazioni, vedere la documentazione relativa ai comandi [expirer](https://redis.io/commands/expire) e [ExpireAt](https://redis.io/commands/expireat) .
+ * **Impostare un valore di scadenza sulle chiavi.**  In questo modo, le chiavi verranno rimosse in modo proattivo invece che in attesa fino a quando non si verificano  Quando l'eliminazione viene avviata a causa di un numero eccessivo di richieste di memoria, può causare un carico aggiuntivo sul server.  Per ulteriori informazioni, vedere la documentazione relativa ai comandi [Expire](https://redis.io/commands/expire) e [ExpireAt](https://redis.io/commands/expireat).
  
 ## <a name="client-library-specific-guidance"></a>Indicazioni specifiche per la libreria client
- * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java: quale client è necessario usare?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [Lattuga (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [JEDIS (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
- * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
+ * [Node.JS](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
  * [Provider di stato della sessione Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
@@ -67,7 +59,7 @@ Ci sono diversi aspetti relativi all'utilizzo della memoria all'interno dell'ist
 ## <a name="when-is-it-safe-to-retry"></a>Quando è sicuro riprovare?
 Sfortunatamente, non esiste una semplice risposta.  Ogni applicazione deve decidere quali operazioni possono essere ritentate e quali non possono.  Ogni operazione presenta requisiti diversi e dipendenze tra chiavi.  Ecco alcune considerazioni che è possibile considerare:
 
- * È possibile ottenere gli errori sul lato client anche se Redis ha eseguito correttamente il comando richiesto per l'esecuzione.  ad esempio:
+ * È possibile ottenere gli errori sul lato client anche se Redis ha eseguito correttamente il comando richiesto per l'esecuzione.  Ad esempio:
      - I timeout sono un concetto sul lato client.  Se l'operazione ha raggiunto il server, il server eseguirà il comando anche se il client lascia in attesa.  
      - Quando si verifica un errore nella connessione socket, non è possibile sapere se l'operazione è stata effettivamente eseguita nel server.  Ad esempio, l'errore di connessione può verificarsi dopo l'elaborazione della richiesta da parte del server, ma prima della ricezione della risposta da parte del client.
  *  In che modo l'applicazione risponde se viene eseguita accidentalmente la stessa operazione due volte?  Ad esempio, cosa accade se si incrementa un numero intero due volte anziché una sola volta?  L'applicazione scrive nella stessa chiave da più posizioni?  Cosa accade se la logica di ripetizione dei tentativi sovrascrive un valore impostato da un'altra parte dell'app?
@@ -89,10 +81,10 @@ Se si desidera testare il funzionamento del codice in condizioni di errore, è c
  
 ### <a name="redis-benchmark-examples"></a>Redis-esempi di benchmark
 **Installazione preliminare del test**: verrà preparata l'istanza della cache con i dati necessari per i comandi di latenza e di test della velocità effettiva elencati di seguito.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
+> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
 **Per testare la latenza**: questa operazione proverà le richieste Get usando un payload 1K.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **Per testare la velocità effettiva:** Questo usa le richieste GET inviate tramite pipeline con il payload 1K.
-> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1 milione-d 1024-P 50-c 50
+> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50

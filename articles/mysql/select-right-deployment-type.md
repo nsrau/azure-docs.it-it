@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606667"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132427"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Scegliere l'opzione del server MySQL corretta in Azure
 
@@ -36,9 +36,9 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 | Contratto di servizio                | Offre SLA con disponibilità del 99,99%| Disponibilità fino al 99,95% con due o più istanze nello stesso set di disponibilità.<br/><br/>disponibilità del 99,9% con una macchina virtuale a istanza singola che usa archiviazione Premium.<br/><br/>99,99% con zone di disponibilità con più istanze in più set di disponibilità.<br/><br/>Vedere il [contratto di contratto per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Applicazione di patch al sistema operativo        | Automatico  | Gestito dai clienti |
 | Patch di MySQL     | Automatico  | Gestito dai clienti |
-| Disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
+| disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
 | Ridondanza della zona | Attualmente non supportati | Le macchine virtuali di Azure possono essere configurate per l'esecuzione in diverse zone di disponibilità. Per una soluzione locale, i clienti devono creare, gestire e gestire i propri data center secondari.|
-| Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)è possibile sincronizzare i dati da un server MySQL esterno al servizio database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) è possibile replicare i dati da un server master di database di Azure per MySQL a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.| Gestito dai clienti
+| Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)è possibile sincronizzare i dati da un server MySQL esterno al servizio database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) è possibile replicare i dati da un server master di database di Azure per MySQL a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.| Gestito dai clienti
 | Backup e ripristino | Crea automaticamente [backup del server](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) e li archivia in una risorsa di archiviazione configurata dall'utente con ridondanza locale o con ridondanza geografica. Il servizio accetta backup completi, differenziali e del log delle transazioni | Gestito dai clienti |
 | Monitoraggio delle operazioni del database | Offre ai clienti la possibilità di [impostare avvisi](https://docs.microsoft.com/azure/mysql/concepts-monitoring) sull'operazione del database e di agire al raggiungimento delle soglie. | Gestito dai clienti |
 | Advanced Threat Protection | Offre [protezione avanzata dalle minacce](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal). Questa protezione rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. | I clienti devono compilare questa protezione autonomamente.
@@ -66,7 +66,7 @@ Per ulteriori informazioni sui prezzi, vedere gli articoli seguenti:
 * [Prezzi di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
-### <a name="administration"></a>Amministrazione
+### <a name="administration"></a>amministrazione
 
 Per molte aziende, la decisione di passare a un servizio cloud è la quantità di spazio di ripartizione della complessità dell'amministrazione, in quanto si tratta di costi. Con IaaS e PaaS, Microsoft:
 
@@ -85,7 +85,7 @@ Nell'elenco seguente vengono descritte le considerazioni amministrative per ogni
   - Ottimizzazione degli indici
   - Ottimizzazione query
   - Controllo
-  - Sicurezza
+  - Security
 
   Inoltre, la configurazione della disponibilità elevata per un altro data center richiede una configurazione o un'amministrazione minima.
 

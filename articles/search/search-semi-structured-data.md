@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione REST: Indicizzazione di dati semistrutturati in BLOB JSON'
+title: 'Esercitazione: indicizzare i dati semi-strutured nei BLOB JSON'
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come indicizzare e cercare BLOB JSON semistrutturati di Azure con le API REST di Ricerca cognitiva di Azure e Postman.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794282"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112245"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Esercitazione REST: Indicizzare e cercare dati semistrutturati (BLOB JSON) in Ricerca cognitiva di Azure
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Esercitazione REST: indicizzare e cercare dati semi-strutturati (BLOB JSON) in Azure ricerca cognitiva
 
 Ricerca cognitiva di Azure consente di indicizzare i documenti e le matrici JSON in archiviazione BLOB di Azure usando un [indicizzatore](search-indexer-overview.md) in grado di leggere dati semistrutturati. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, Si differenziano dai dati non strutturati, che devono essere completamente indicizzati, e dai dati strutturati formalmente in base a un modello di dati, ad esempio uno schema di database relazionale, che può essere indicizzato campo per campo.
 
@@ -27,11 +27,11 @@ In questa esercitazione usare le [API REST di Ricerca cognitiva di Azure](https:
 > * Configurare ed eseguire un indicizzatore per leggere il contenitore ed estrarre contenuto ricercabile da archiviazione BLOB di Azure
 > * Eseguire una ricerca nell'indice che appena creato
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
-[Creare un servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
+[Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione. 
 
 [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) per l'archiviazione dei dati di esempio.
 
@@ -67,7 +67,7 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
 
-## <a name="set-up-postman"></a>Configurare Postman
+## <a name="set-up-postman"></a>Impostare Postman
 
 Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md) per altre informazioni.
 

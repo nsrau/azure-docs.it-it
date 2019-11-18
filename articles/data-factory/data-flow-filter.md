@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1daff431fc217c08f3bc3c5aeb3b4711691909c0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676168"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132527"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione filtro nel flusso di dati di mapping
 
@@ -37,7 +37,7 @@ Utilizzare il generatore di espressioni del flusso di dati per immettere un'espr
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrata una trasformazione Suddivisione condizionale denominata `FilterBefore1960` che accetta `CleanData`flusso in ingresso. La condizione di filtro è l'espressione `year <= 1960`.
+Nell'esempio seguente viene illustrata una trasformazione filtro denominata `FilterBefore1960` che accetta `CleanData`flusso in ingresso. La condizione di filtro è l'espressione `year <= 1960`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961830"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122916"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Trasformazione join nel flusso di dati di mapping
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>Esempio di cross join
 
-Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. `joinType` in `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
+Nell'esempio seguente viene illustrata una trasformazione join denominata `CartesianProduct` che accetta il flusso sinistro `TripData` e il flusso destro `TripFare`. Questa trasformazione accetta due flussi e restituisce un prodotto cartesiano delle relative righe. La condizione di join è `true()` perché restituisce un prodotto cartesiano completo. Il `joinType` è `cross`. È in corso l'abilitazione della trasmissione solo nel flusso di sinistra, quindi `broadcast` ha un valore `'left'`.
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 

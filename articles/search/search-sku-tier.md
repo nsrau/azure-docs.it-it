@@ -1,5 +1,5 @@
 ---
-title: Scegliere uno SKU o un piano tariffario durante il provisioning del servizio di ricerca
+title: Scegliere uno SKU o un piano tariffario
 titleSuffix: Azure Cognitive Search
 description: 'È possibile eseguire il provisioning di Azure ricerca cognitiva in questi SKU: gratuito, Basic e standard, mentre standard è disponibile in diverse configurazioni di risorse e livelli di capacità.'
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 249ce8e51ff61bac5d418d9e173ec2caed24e0e5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9caadddf281c6df29f6e36057c7b28abcef0e1c4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794262"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112518"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -80,7 +80,7 @@ Per l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intr
 
 | Operazione | Impatto della fatturazione |
 |-----------|----------------|
-| Cracking del documento, estrazione del testo | Gratis |
+| Cracking del documento, estrazione del testo | Free |
 | Cracking di documenti, estrazione di immagini | Fatturato in base al numero di immagini estratte dai documenti. In una [configurazione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** è il parametro che attiva l'estrazione dell'immagine. Se **imageAction** è impostato su "None" (impostazione predefinita), non verrà addebitato l'estrazione dell'immagine. La velocità di estrazione delle immagini è documentata nella pagina dei [Dettagli dei prezzi](https://azure.microsoft.com/pricing/details/search/) per Azure ricerca cognitiva.|
 | [Competenze cognitive predefinite](cognitive-search-predefined-skills.md) | Fatturato alla stessa tariffa di se l'attività è stata eseguita usando direttamente servizi cognitivi. |
 | Competenze personalizzate | Una competenza personalizzata è la funzionalità fornita dall'utente. Il costo dell'utilizzo di un'abilità personalizzata dipende interamente dal fatto che il codice personalizzato chiami altri servizi a consumo. |

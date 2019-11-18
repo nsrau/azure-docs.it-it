@@ -32,10 +32,16 @@
           href: tutorial-migrate-hyper-v.md
     - name: Valutare ed eseguire la migrazione di server fisici
       items:
-        - name: Preparare i server fisici per la migrazione
+        - name: Preparare i server fisici per la valutazione e la migrazione
           href: tutorial-prepare-physical.md
+        - name: Valutare i server fisici
+          href: tutorial-assess-physical.md
         - name: Eseguire la migrazione di server fisici
           href: tutorial-migrate-physical-virtual-machines.md
+    - name: Valutare i server importati per la migrazione
+      items:
+        - name: Valutare i server importati per la migrazione
+          href: tutorial-assess-import.md
 - name: Concetti
   items:
     - name: Domande frequenti
@@ -74,6 +80,8 @@
       href: how-to-set-up-appliance-hyper-v.md
     - name: Distribuire un'appliance server fisico
       href: how-to-set-up-appliance-physical.md
+    - name: 'Individuare applicazioni, ruoli e funzionalità'
+      href: how-to-discover-applications.md
     - name: Aggiungere uno strumento per la prima volta
       href: how-to-add-tool-first-time.md
     - name: Aggiungere strumenti di valutazione
@@ -82,6 +90,8 @@
       href: how-to-create-a-group.md
     - name: Raggruppare i computer tramite visualizzazione delle dipendenze
       href: how-to-create-group-machine-dependencies.md
+    - name: Raggruppare i computer tramite visualizzazione delle dipendenze senza agente
+      href: how-to-create-group-machine-dependencies-agentless.md
     - name: Creare una valutazione
       href: how-to-create-assessment.md
     - name: Valutare un database di SQL Server

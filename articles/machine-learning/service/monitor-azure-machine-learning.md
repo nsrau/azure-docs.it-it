@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0a28292ac95dca7b46d9f82c32b9881c18d74b87
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582901"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123539"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning di monitoraggio
 
@@ -38,7 +38,7 @@ Per comprendere i costi associati a monitoraggio di Azure, vedere [utilizzo e co
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Monitoraggio dei dati da Azure Machine Learning
 
-Azure Machine Learning raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure, descritti in [monitoraggio dei dati dalle risorse di Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). Per un riferimento dettagliato dei log e delle metriche creati da Azure Machine Learning, vedere [Azure Machine Learning riferimento ai dati di monitoraggio](monitor-resource-reference.md) .
+Azure Machine Learning raccoglie gli stessi tipi di dati di monitoraggio delle altre risorse di Azure, descritti in [monitoraggio dei dati dalle risorse di Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Per un riferimento dettagliato dei log e delle metriche creati da Azure Machine Learning, vedere [Azure Machine Learning riferimento ai dati di monitoraggio](monitor-resource-reference.md) .
 
 ## <a name="analyzing-metric-data"></a>Analisi dei dati delle metriche
 
@@ -56,13 +56,13 @@ Per le metriche che supportano le dimensioni, è possibile applicare filtri usan
 
 Per altre informazioni sul filtro e la suddivisione, vedere [funzionalità avanzate di monitoraggio di Azure](/azure/azure-monitor/platform/metrics-charts).
 
-## <a name="alerts"></a>Avvisi
+## <a name="alerts"></a>Alerts
 
 È possibile accedere agli avvisi per Azure Machine Learning aprendo gli **avvisi** dal menu **monitoraggio di Azure** . Per informazioni dettagliate sulla creazione di avvisi [, vedere creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](/azure/azure-monitor/platform/alerts-metric) .
 
 La tabella seguente elenca le regole di avviso delle metriche comuni e consigliate per Azure Machine Learning:
 
-| Tipo di avviso | Condizione | Descrizione |
+| Tipo di avviso | Condizione | DESCRIZIONE |
 |:---|:---|:---|
 | Distribuzione modello non riuscito | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
 | Percentuale di utilizzo della quota | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |
@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un'impostazione di diagnostica, vedere
 
 Per Azure Machine Learning è possibile configurare i log seguenti:
 
-| Categoria | Descrizione |
+| Categoria | DESCRIZIONE |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |
@@ -100,7 +100,7 @@ L'uso di monitoraggio di Azure Log Analytics richiede la creazione di una config
 
 I dati nei log di monitoraggio di Azure vengono archiviati in tabelle, in cui ogni tabella dispone di un proprio set di proprietà univoche. Azure Machine Learning archivia i dati nelle tabelle seguenti:
 
-| Tabella | Descrizione |
+| tabella | DESCRIZIONE |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |
@@ -131,7 +131,7 @@ Di seguito sono riportate le query che è possibile usare per monitorare le riso
     | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
     ```
 
-+ Ottenere gli eventi cluster negli ultimi cinque giorni per i cluster in cui la dimensione della macchina virtuale è Standard_D1_V2:
++ Ottenere gli eventi cluster negli ultimi cinque giorni per i cluster in cui sono Standard_D1_V2 le dimensioni della macchina virtuale:
 
     ```Kusto
     AmlComputeClusterEvent

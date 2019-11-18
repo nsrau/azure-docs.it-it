@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)"
+title: "Guida introduttiva: connettersi a un'app comandi personalizzata con riconoscimento vocale-servizio vocale"
 titleSuffix: Azure Cognitive Services
 description: In questo articolo verrà creata un'applicazione client per l'SDK di riconoscimento vocale con comandi personalizzati.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5f395d37e0133a081a6fcb2e03821a97e4012316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507495"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111167"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Guida introduttiva: connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)
 
@@ -26,7 +26,7 @@ In questo articolo verranno illustrate le operazioni seguenti:
 - Pubblicare un'applicazione di comandi personalizzati e ottenere un identificatore dell'applicazione (ID app)
 - Creare un'app client con l'SDK di riconoscimento vocale per consentire la comunicazione con l'applicazione dei comandi personalizzati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questo articolo, è necessaria un'applicazione comandi personalizzata. Se non è ancora stata creata un'applicazione Commands personalizzata, è possibile farlo nelle guide introduttive precedenti:
 
@@ -46,7 +46,7 @@ Questa Guida introduttiva descrive in modo dettagliato come creare un'applicazio
 
 1. Aprire l' [applicazione comandi personalizzati creati in precedenza](./quickstart-custom-speech-commands-create-new.md) e selezionare **pubblica**
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > ![pubblicare un'applicazione](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copiare l'ID app dalla notifica di pubblicazione per un uso successivo
@@ -320,7 +320,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -377,7 +377,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 1. Aggiungere il frammento di codice seguente al corpo del metodo `ListenButton_ButtonClicked` nella classe `MainPage`
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -415,7 +415,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 1. Selezionare **Talk**e pronunciare una frase o una frase in inglese nel microfono del dispositivo. Il contenuto vocale viene trasmesso al canale Direct Line Speech e trascritto come testo che viene visualizzato nella finestra.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"]
 > [Procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [procedura: aggiungere convalide ai parametri di comando personalizzati (anteprima)](./how-to-custom-speech-commands-validations.md)
-

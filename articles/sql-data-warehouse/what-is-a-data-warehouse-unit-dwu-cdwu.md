@@ -11,12 +11,12 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685337"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133169"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
 
@@ -46,7 +46,7 @@ L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che 
   > [!NOTE]
   > Il pool SQL di generazione 2 ha recentemente aggiunto funzionalità di ridimensionamento aggiuntive per supportare i livelli di calcolo con una riduzione di 100 DWU. I pool SQL esistenti attualmente in Gen1 che richiedono i livelli di calcolo inferiori possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generation.md).
 
-In T-SQL l'impostazione SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL.
+In T-SQL l'impostazione del SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL.
 
 ```sql
 --Gen1
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>Modificare le unità Data Warehouse
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 Per modificare DWU o DWU a elevato utilizzo di calcolo:
 
@@ -159,7 +159,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>API REST
 
-Per modificare le DWU, usare l'API REST descritta in [Create or Update Database](/rest/api/sql/databases/createorupdate) (Creare o aggiornare il database). Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su DW1000 per il database MySQLDW, che è ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
+Per modificare le DWU usare l'API REST [Create or Update Database](/rest/api/sql/databases/createorupdate) (Creare o aggiornare il database). Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su DW1000 per il database MySQLDW, che è ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -204,7 +204,7 @@ Per controllare lo stato delle modifiche alle DWU:
     ;
     ```
     
-Questa DMV restituisce informazioni sulle varie operazioni di gestione nel pool SQL, ad esempio l'operazione e lo stato dell'operazione, che è IN_PROGRESS o COMPLETED.
+Questa DMV restituisce informazioni sulle varie operazioni di gestione nel pool SQL, ad esempio l'operazione e lo stato dell'operazione, che può essere IN_PROGRESS o completato.
 
 ## <a name="the-scaling-workflow"></a>Flusso di lavoro del ridimensionamento
 
@@ -215,4 +215,4 @@ Quando si avvia un'operazione di ridimensionamento, il sistema prima interrompe 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla gestione delle prestazioni, vedere [classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md) e [limiti di memoria e concorrenza] memoria-concorrenza-limits.MD).
+Per altre informazioni sulla gestione delle prestazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md) e [Limiti di memoria e concorrenza](memory-concurrency-limits.md).

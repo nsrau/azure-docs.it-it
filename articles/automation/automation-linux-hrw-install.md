@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240309"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129845"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -54,9 +54,9 @@ I requisiti minimi per un ruolo di lavoro ibrido per runbook di Linux sono i seg
 |Python-ctypes | Python 2. x è obbligatorio |
 |PAM | Moduli di autenticazione modulare|
 | **Pacchetto facoltativo** | **Descrizione** | **Versione minima**|
-| PowerShell Core | Per eseguire i runbook di PowerShell, PowerShell deve essere installato. Vedere [installazione di PowerShell Core in Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) per informazioni su come installarlo.  | 6.0.0 |
+| PowerShell Core | Per eseguire i runbook di PowerShell, PowerShell deve essere installato. Vedere [installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.  | 6.0.0 |
 
-### <a name="installation"></a>Installazione
+### <a name="installation"></a>Installare
 
 Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è collegato l'account di Automazione. Prendere anche nota della chiave primaria per l'account di Automazione. È possibile trovare entrambi nel portale di Azure, selezionando l'account di Automazione, **Area di lavoro** per l'ID dell'area di lavoro e selezionando **Chiavi** per la chiave primaria. Per informazioni sulle porte e sugli indirizzi necessari per il ruolo di lavoro ibrido per runbook, vedere [Configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
@@ -86,7 +86,7 @@ Prima di procedere, prendere nota dell'area di lavoro Log Analytics a cui è col
 1. Dopo il completamento del comando, nella pagina **Gruppi di ruoli di lavoro ibridi** nel portale di Azure vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**. Nella pagina **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.
 
 > [!NOTE]
-> Se si usa l'estensione della macchina virtuale di monitoraggio di Azure per Linux per una macchina virtuale di `autoUpgradeMinorVersion` Azure, è consigliabile impostare su false perché le versioni di aggiornamento automatico possono causare problemi al ruolo di lavoro ibrido per Runbook. Per informazioni su come aggiornare manualmente l'estensione, vedere [distribuzione dell'interfaccia ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)della riga di comando di Azure.
+> Se si usa l'estensione della macchina virtuale di monitoraggio di Azure per Linux per una macchina virtuale di Azure, è consigliabile impostare `autoUpgradeMinorVersion` su false poiché le versioni di aggiornamento automatico possono causare problemi al ruolo di lavoro ibrido per Runbook. Per informazioni su come aggiornare manualmente l'estensione, vedere [distribuzione dell'interfaccia ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)della riga di comando di Azure.
 
 ## <a name="turning-off-signature-validation"></a>Disattivazione della convalida della firma
 
@@ -106,7 +106,7 @@ I tipi di runbook seguenti possono essere usati in un ruolo di lavoro ibrido di 
 * PowerShell
 
   > [!NOTE]
-  > I runbook di PowerShell richiedono che PowerShell Core sia installato nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) per informazioni su come installarlo.
+  > I runbook di PowerShell richiedono che PowerShell Core sia installato nel computer Linux. Vedere [Installazione di PowerShell Core in Linux](/powershell/scripting/install/installing-powershell-core-on-linux) per informazioni su come installarlo.
 
 I tipi di runbook seguenti non possono essere usati in un ruolo di lavoro ibrido di Linux:
 

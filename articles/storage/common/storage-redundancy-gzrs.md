@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333206"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111848"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -31,6 +31,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 
 - Europa settentrionale
 - Europa occidentale
+- Regno Unito meridionale
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centrali
@@ -141,14 +142,14 @@ Per richiedere una migrazione in tempo reale, usare la [portale di Azure](https:
     - **Tipo di problema**: selezionare **Migrazione dei dati**.
     - **Categoria**: selezionare **Esegui migrazione a (RA-) GZRS all'interno di un'area**.
     - **Title**: digitare un titolo descrittivo, ad esempio, **(RA-) GZRS migrazione dell'account**.
-    - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, GRS] nell'area \_ @ no__t-3". o "Desidero eseguire la migrazione a RA-GZRS da [con ridondanza locale, RA-GRS] nell'area \_ @ no__t-1".
+    - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, GRS] nell'area \_\_". o "Desidero eseguire la migrazione a RA-GZRS da [con ridondanza locale, RA-GRS] nell'area \_\_".
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Create**.
 
 Un rappresentante del supporto contatterà l'utente per fornire assistenza.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

@@ -1,41 +1,41 @@
 ---
-title: Limiti di Database di Azure per PostgreSQL - Server singolo
-description: Questo articolo descrive i limiti nel Database di Azure per PostgreSQL - Server singolo, ad esempio numero di connessioni e opzioni di archiviazione del motore.
+title: Limiti nel database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive i limiti di database di Azure per PostgreSQL-server singolo, ad esempio il numero di opzioni del motore di connessione e di archiviazione.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b9cef4753b6fd324b38d7254139fe288463a0c0c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448093"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123887"
 ---
-# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limiti di Database di Azure per PostgreSQL - Server singolo
-Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Se vuoi informazioni sui livelli di risorse (calcolo, memoria, archiviazione), vedere la [sui piani tariffari](concepts-pricing-tiers.md) articolo.
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limiti nel database di Azure per PostgreSQL-server singolo
+Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Per informazioni sui livelli di risorse (calcolo, memoria, archiviazione), vedere l'articolo [piani tariffari](concepts-pricing-tiers.md) .
 
 
 ## <a name="maximum-connections"></a>Numero massimo di connessioni
 Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore: 
 
-|**Piano tariffario**| **vCore**| **Numero massimo di connessioni** |
-|---|---|---|
-|Basic| 1| 50 |
-|Basic| 2| 100 |
-|Utilizzo generico| 2| 150|
-|Utilizzo generico| 4| 250|
-|Utilizzo generico| 8| 480|
-|Utilizzo generico| 16| 950|
-|Utilizzo generico| 32| 1500|
-|Utilizzo generico| 64| 1900|
-|Con ottimizzazione per la memoria| 2| 300|
-|Con ottimizzazione per la memoria| 4| 500|
-|Con ottimizzazione per la memoria| 8| 960|
-|Con ottimizzazione per la memoria| 16| 1900|
-|Con ottimizzazione per la memoria| 32| 1987|
+|**Livello di prezzo**| **vCore**| **Numero massimo di connessioni** | **Numero massimo di connessioni utente** |
+|---|---|---|---|
+|Basic| 1| 55 | 50|
+|Basic| 2| 105 | 100|
+|Utilizzo generico| 2| 150| 145|
+|Utilizzo generico| 4| 250| 245|
+|Utilizzo generico| 8| 480| 475|
+|Utilizzo generico| 16| 950| 945|
+|Utilizzo generico| 32| 1500| 1495|
+|Utilizzo generico| 64| 1900| 1895|
+|Con ottimizzazione per la memoria| 2| 300| 295|
+|Con ottimizzazione per la memoria| 4| 500| 495|
+|Con ottimizzazione per la memoria| 8| 960| 955|
+|Con ottimizzazione per la memoria| 16| 1900| 1895|
+|Con ottimizzazione per la memoria| 32| 1987| 1982|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
@@ -50,8 +50,8 @@ Il sistema Azure richiede cinque connessioni per il monitoraggio del server di D
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata. Se si vuole eseguire l'aggiornamento alla versione principale successiva, eseguire un [dump e ripristinarlo](./howto-migrate-using-dump-and-restore.md) in un server creato con la nuova versione del motore.
 
-> Si noti che prima di PostgreSQL versione 10, il [dei criteri di controllo delle versioni di PostgreSQL](https://www.postgresql.org/support/versioning/) considerato un _versione principale_ aggiornamento a un aumento nel primo _o_ secondo numero (per esempio 9,5 a 9.6 è stata considerata una _principali_ aggiornamento della versione).
-> A partire dalla versione 10, solo una modifica del primo numero viene considerata un aggiornamento di versione principale (ad esempio, 10.0 per 10.1 è un _minori_ aggiornamento della versione e 10 e 11 è un _principali_ aggiornamento della versione).
+> Si noti che prima di PostgreSQL versione 10, [i criteri di controllo delle versioni di PostgreSQL](https://www.postgresql.org/support/versioning/) consideravano un aggiornamento della _versione principale_ come un aumento del primo _o_ del secondo numero (ad esempio, 9,5 a 9,6 era considerato un aggiornamento della versione _principale_ ).
+> A partire dalla versione 10, solo una modifica nel primo numero viene considerata un aggiornamento della versione principale (ad esempio, 10,0 a 10,1 è un aggiornamento della versione _secondaria_ e da 10 a 11 è un aggiornamento della versione _principale_ ).
 
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.

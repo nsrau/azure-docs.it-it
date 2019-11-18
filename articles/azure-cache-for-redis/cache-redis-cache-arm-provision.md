@@ -1,25 +1,18 @@
 ---
-title: Effettuare il provisioning di una Cache Redis di Azure con Azure Resource Manager | Documentazione Microsoft
+title: Effettuare il provisioning di una cache di Azure per Redis usando Azure Resource Manager
 description: Utilizzare il modello di Gestione risorse di Azure per distribuire una Cache Redis di Azure.
 services: app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
-ms.workload: web
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f215cb79adc02da857f7aa93d8933bd12c06818a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132791"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121791"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Creare una Cache Redis di Azure usando un modello
 
@@ -38,7 +31,7 @@ Per il modello completo, vedere [Modello di Cache Redis di Azure](https://github
 > 
 > * [Creare un'istanza di Cache Redis di Azure Premium con clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Creare una Cache Redis Premium di Azure con persistenza dei dati](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Creare una Cache Redis Premium distribuite in una rete virtuale](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Creare una cache Redis Premium distribuita in una rete virtuale](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Per verificare gli ultimi modelli, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare `Azure Cache for Redis`.
 > 
@@ -51,7 +44,7 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
 [![Distribuzione in Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parametri
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata Parametri che contiene tutti i valori dei parametri.
 È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite. 
 

@@ -1,5 +1,5 @@
 ---
-title: Suggerimenti per i dispositivi vocali SDK per array microfoni-servizio di riconoscimento vocale
+title: Suggerimenti per i dispositivi vocali SDK per array microfoni
 titleSuffix: Azure Cognitive Services
 description: Suggerimenti per i dispositivi vocali SDK per array di microfoni. Queste geometrie di matrice sono consigliate per l'uso con lo stack audio Microsoft.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 0a0bbbb59d09d35d0153f56f65b2ee1d9438e49d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e39056d6ed1ced85e3f953bcbd7f04dd6311942c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072407"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111652"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
 
@@ -41,16 +41,16 @@ I canali del microfono devono essere ordinati in base alla numerazione raffigura
 
 Le proprietà consigliate quando si selezionano i microfoni sono:
 
-| .                     | Consigliato                                         |
-| ----------------------------- | --------------------------------------------------- |
-| SNR                           | \>= 65 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
-| Corrispondenza dell'ampiezza            | ± 1 dB a 1 kHz                                      |
-| Corrispondenza fase                | ± 2 ° @ 1 kHz                                        |
-| Punto di sovraccarico acustico (AOP) | \>= 120 dBSPL (THD = 10%)                           |
-| Velocità in bit                      | Minimo 24 bit                                      |
-| Frequenza di campionamento                 | \* minimo 16 kHz                                    |
-| Risposta frequenza            | ± 3 dB, 200-8000 Hz a maschera mobile\*                 |
-| Affidabilità                   | Intervallo di temperatura di archiviazione: da 40 a 70 ° c<br />Intervallo temperatura operativa-da 20 a 55 ° c |
+| . | Consigliato |
+| --------- | ----------- |
+| SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
+| Corrispondenza dell'ampiezza | ± 1 dB a 1 kHz |
+| Corrispondenza fase | ± 2 ° @ 1 kHz |
+| Punto di sovraccarico acustico (AOP) | \>= 120 dBSPL (THD = 10%) |
+| Velocità in bit | Minimo 24 bit |
+| Frequenza di campionamento | \* minimo 16 kHz |
+| Risposta frequenza | ± 3 dB, 200-8000 Hz a maschera mobile\* |
+| Affidabilità | Intervallo di temperatura di archiviazione: da 40 a 70 ° c<br />Intervallo temperatura operativa-da 20 a 55 ° c |
 
 \*frequenze _di campionamento più elevate o intervalli di frequenza "più ampi" possono essere necessari per applicazioni di comunicazione di alta qualità (VoIP)_
 
@@ -68,7 +68,7 @@ Le prestazioni dell'array di microfoni quando integrato in un dispositivo si dif
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5a ordine             |
 | Risposta frequenza | ± 6 dB, 200-8000 Hz maschera a virgola mobile\*\*              |
 
-\*_è necessario un altoparlante a bassa distorsione per misurare THD, ad esempio Neumann KH120_
+\*\*_è necessario un altoparlante a bassa distorsione per misurare THD, ad esempio Neumann KH120_
 
 \*\*_intervalli di frequenza "più ampi" possono essere necessari per le applicazioni di comunicazione di alta qualità (VoIP)_
 

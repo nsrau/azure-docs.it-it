@@ -1,5 +1,5 @@
 ---
-title: Elaborare ed estrarre il testo dalle immagini in una pipeline di arricchimento
+title: Estrarre testo dalle immagini
 titleSuffix: Azure Cognitive Search
 description: Elaborare ed estrarre testo e altre informazioni dalle immagini in pipeline di ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787746"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113847"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
 
@@ -29,7 +29,7 @@ Nell'ambito del processo di individuazione dei documenti, è disponibile un nuov
 
 Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | Description |
+| Parametro di configurazione | DESCRIZIONE |
 |--------------------|-------------|
 | imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate dove, per i file PDF nell'origine dati, viene eseguito il rendering di ogni pagina in un'unica immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
 |  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000. | 
@@ -60,7 +60,7 @@ Specificare imageAction nella [definizione dell'indicizzatore](https://docs.micr
 
 Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *normalized_images* conterrà una matrice di immagini. Ogni immagine è un tipo complesso che contiene i membri seguenti:
 
-| Membro immagine       | Description                             |
+| Membro immagine       | DESCRIZIONE                             |
 |--------------------|-----------------------------------------|
 | data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
@@ -213,7 +213,7 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
         }
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un'indicizzatore - REST)
 + [Competenza di Analisi delle immagini](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)

@@ -1,5 +1,5 @@
 ---
-title: Indicizzazione di documenti in Azure Data Lake Storage Gen2 (anteprima)
+title: Cerca in Azure Data Lake Storage Gen2 (anteprima)
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come indicizzare il contenuto e i metadati in Azure Data Lake Storage Gen2. Questa funzionalità è attualmente disponibile in anteprima pubblica
 manager: nitinme
@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 390f45ce874e4e64d3a7b9a6c3944983e0ba9028
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 628b8bb5c3cb83ae6038a7150420893d7abe61d5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719928"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112277"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indicizzazione di documenti in Azure Data Lake Storage Gen2
 
 > [!IMPORTANT] 
-> Il supporto Azure Data Lake Storage Gen2 è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Attualmente non è disponibile alcun portale o supporto per .NET SDK.
+> Il supporto Azure Data Lake Storage Gen2 è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Questa funzionalità viene fornita dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Attualmente non è disponibile alcun portale o supporto per .NET SDK.
 
 
 Quando si configura un account di archiviazione di Azure, è possibile abilitare lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Ciò consente di organizzare la raccolta di contenuti in un account in una gerarchia di directory e sottodirectory nidificate. Abilitando lo spazio dei nomi gerarchico, si abilita [Azure Data Lake storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).

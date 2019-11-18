@@ -1,5 +1,6 @@
 ---
-title: Configurare un tunnel utente VPN Always On per il gateway VPN
+title: Configurare un tunnel utente VPN always on
+titleSuffix: Azure VPN Gateway
 description: Questo articolo descrive come configurare un tunnel utente VPN Always On per il gateway VPN
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9aa1f951add5b79eab12f4957be05a42bbdd4434
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 099ed3c3c0ac2abe034388849385a45b44b32b34
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299918"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145959"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurare un tunnel utente VPN Always On
 
@@ -22,19 +23,19 @@ Una nuova funzionalità del client VPN di Windows 10, Always On, è la possibili
 
 Always On connessioni VPN includono uno dei due tipi di tunnel:
 
-* **Tunnel del dispositivo**: Si connette ai server VPN specificati prima che gli utenti accedino al dispositivo. Gli scenari di connettività di pre-accesso e la gestione dei dispositivi usano un tunnel del dispositivo.
+* **Tunnel del dispositivo**: consente di connettersi ai server VPN specificati prima di accedere al dispositivo. Gli scenari di connettività di pre-accesso e la gestione dei dispositivi usano un tunnel del dispositivo.
 
-* **Tunnel utente**: Si connette solo dopo che gli utenti hanno eseguito l'accesso al dispositivo. Usando i tunnel utente è possibile accedere alle risorse dell'organizzazione tramite i server VPN.
+* **Tunnel utente**: si connette solo dopo che gli utenti hanno eseguito l'accesso al dispositivo. Usando i tunnel utente è possibile accedere alle risorse dell'organizzazione tramite i server VPN.
 
 I tunnel e i tunnel utente del dispositivo operano indipendentemente dai profili VPN. Possono essere connesse contemporaneamente e possono usare metodi di autenticazione diversi e altre impostazioni di configurazione VPN, in base alle esigenze.
 
 Nelle sezioni seguenti vengono configurati un gateway VPN e un tunnel utente.
 
-## <a name="step-1-configure-a-vpn-gateway"></a>Passaggio 1: Configurare un gateway VPN
+## <a name="step-1-configure-a-vpn-gateway"></a>Passaggio 1: configurare un gateway VPN
 
 Il gateway VPN viene configurato per l'uso di IKEv2 e l'autenticazione basata su certificati seguendo le istruzioni riportate in questo articolo da [punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md) .
 
-## <a name="step-2-configure-a-user-tunnel"></a>Passaggio 2: Configurare un tunnel utente
+## <a name="step-2-configure-a-user-tunnel"></a>Passaggio 2: configurare un tunnel utente
 
 1. Installare i certificati client nel client Windows 10, come illustrato in questo articolo del [client VPN da punto a sito](point-to-site-how-to-vpn-client-install-azure-cert.md) . Il certificato deve trovarsi nell'archivio utente corrente.
 

@@ -2,16 +2,15 @@
 title: Distribuzione modelli simulazione (anteprima)
 description: Determinare quali modifiche si verificheranno nelle risorse prima di distribuire un modello di Azure Resource Manager.
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: jgao
-ms.openlocfilehash: 84540543f2b809520ab56df5b3e098018fa0d76e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 117215e7c41ad7f354c9e76f764e9af1f50b74c1
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74015873"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149235"
 ---
 # <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Gestione risorse l'operazione di simulazione della distribuzione del modello (anteprima)
 

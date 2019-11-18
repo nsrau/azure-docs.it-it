@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740996"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120485"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -33,7 +33,7 @@ Le applicazioni devono spesso essere in grado di archiviare e recuperare dati. D
 
 Vengono creati volumi tradizionali per archiviare e recuperare i dati come risorse di Kubernetes supportate da Archiviazione di Azure. È possibile creare manualmente questi volumi di dati da assegnare ai pod direttamente o lasciare che vengano creati automaticamente da Kubernetes. Questi volumi di dati possono usare Dischi di Azure o File di Azure:
 
-- È possibile usare *Dischi di Azure* per creare una risorsa *DataDisk* Kubernetes. I dischi possono usare l'archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate, o l'archiviazione Standard di Azure, supportata da unità HDD regolari. Per la maggior parte dei carichi di lavoro di produzione e di sviluppo, usare l'archiviazione Premium. I dischi di Azure sono montati come *ReadWriteOnce*, pertanto sono disponibili solo per un singolo nodo. Per i volumi di archiviazione accessibili contemporaneamente da più nodi, usare File di Azure.
+- È possibile usare *Dischi di Azure* per creare una risorsa *DataDisk* Kubernetes. I dischi possono usare l'archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate, o l'archiviazione Standard di Azure, supportata da unità HDD regolari. Per la maggior parte dei carichi di lavoro di produzione e di sviluppo, usare l'archiviazione Premium. I dischi di Azure sono montati come *ReadWriteOnce*, quindi sono disponibili solo per un singolo POD. Per i volumi di archiviazione a cui è possibile accedere simultaneamente da più POD, utilizzare File di Azure.
 - È possibile usare *File di Azure* per montare una condivisione SMB 3.0 supportata da un account di archiviazione di Azure nei pod. I file consentono di condividere dati tra più nodi e pod. I file possono usare l'archiviazione standard di Azure supportata da HDD normali o archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate.
 > [!NOTE] 
 > File di Azure supportano archiviazione Premium nei cluster AKS che eseguono Kubernetes 1,13 o versione successiva.

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 795ca6f1ee45f11fe44f9c14efda1d3463dc9e7c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 753d962cbefd38ec991fb9e63805760fe07a8f2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076821"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123882"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per PostgreSQL con capacità riservata
 
@@ -20,7 +20,7 @@ Database di Azure per PostgreSQL consente ora di risparmiare denaro prepagando l
 Non è necessario assegnare la prenotazione a specifici server di database di Azure per PostgreSQL. Un database di Azure già in esecuzione per PostgreSQL o uno appena distribuito, otterrà automaticamente il vantaggio dei prezzi riservati. Acquistando una prenotazione, si paga il pagamento anticipato dei costi di calcolo per un periodo di un anno. Non appena si acquista una prenotazione, i costi di calcolo per database di Azure per PostgreSQL che corrispondono agli attributi di prenotazione non vengono più addebitati in base alle tariffe a consumo. Una prenotazione non copre il software, la rete o gli addebiti di archiviazione associati ai server del database PostgreSQL. Al termine del periodo di prenotazione, il vantaggio di fatturazione scadrà e il database di Azure per PostgreSQL verrà fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata per database di Azure per PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> I prezzi per la capacità riservata sono disponibili solo per la distribuzione a [server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) di database di Azure per PostgreSQL e non per la distribuzione di [CITUS con iperscalabilità](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus-preview) .
+> I prezzi per la capacità riservata sono disponibili solo per la distribuzione a [server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) di database di Azure per PostgreSQL e non per la distribuzione di [CITUS con iperscalabilità](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
 
 È possibile acquistare la capacità riservata di database di Azure per PostgreSQL nel [portale di Azure](https://portal.azure.com/). Per acquistare la capacità riservata:
 

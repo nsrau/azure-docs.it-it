@@ -1,5 +1,5 @@
 ---
-title: Creare un skillt in una pipeline di arricchimento
+title: Creare un set di competenze
 titleSuffix: Azure Cognitive Search
 description: Definire i passaggi per l'estrazione dei dati, l'elaborazione del linguaggio naturale o l'analisi delle immagini per arricchire ed estrarre informazioni strutturate dai dati da usare in ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787476"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114544"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
 
@@ -163,7 +163,7 @@ Verrà ora esaminata la prima competenza, ovvero la [capacità di riconoscimento
     }
 ```
 
-* Ogni abilità incorporata ha proprietà `odata.type`, `input` e `output`. Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
+* Ogni abilità incorporata ha proprietà `odata.type`, `input`e `output`. Le proprietà specifiche della competenza includono informazioni aggiuntive applicabili alla competenza stessa. Per il riconoscimento delle entità, `categories` è un'entità tra un set fisso di tipi di entità che il modello precedentemente preparato è in grado di riconoscere.
 
 * Ogni competenza deve avere un ```"context"```. Il contesto rappresenta il livello in cui vengono eseguite le operazioni. Nelle competenze precedenti, il contesto è l'intero documento, vale a dire che l'abilità di riconoscimento delle entità viene chiamata una volta per ogni documento. Anche gli output vengono generati in tale livello. L'elemento ```"organizations"```, più specificatamente, viene generato come membro di ```"/document"```. Nelle competenze a valle è possibile fare riferimento a queste informazioni appena create come ```"/document/organizations"```.  Se il campo ```"context"``` non viene impostato in modo esplicito, il contesto predefinito è il documento.
 
@@ -171,7 +171,7 @@ Verrà ora esaminata la prima competenza, ovvero la [capacità di riconoscimento
 
 * La competenza genera un output denominato ```"organizations"```. Gli output esistono solo durante l'elaborazione. Per concatenare questo output all'input della competenza a valle, fare riferimento all'output come ```"/document/organizations"```.
 
-* Per un particolare documento, il valore di ```"/document/organizations"``` è una matrice di organizzazioni estratte dal testo. ad esempio:
+* Per un particolare documento, il valore di ```"/document/organizations"``` è una matrice di organizzazioni estratte dal testo. Ad esempio:
 
   ```json
   ["Microsoft", "LinkedIn"]

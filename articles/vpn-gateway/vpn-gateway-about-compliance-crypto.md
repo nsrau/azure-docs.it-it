@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui requisiti di crittografia e i gateway VPN di Azure | Microsoft Docs
+title: 'Gateway VPN di Azure: requisiti di crittografia'
 description: In questo articolo vengono descritti i requisiti di crittografia e i gateway VPN di Azure
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f2fd68871a329f7ff04f90d8166cb1fa58a512c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f18e5dbdc257aa1ae647505c323c17f9f197d360
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495834"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150981"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Informazioni sui requisiti di crittografia e i gateway VPN di Azure
 

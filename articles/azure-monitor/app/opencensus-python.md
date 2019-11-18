@@ -8,18 +8,18 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575577"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132218"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
 Monitoraggio di Azure supporta la traccia distribuita, la raccolta delle metriche e la registrazione delle applicazioni Python tramite l'integrazione con [OpenCensus](https://opencensus.io). Questo articolo illustra il processo di configurazione di OpenCensus per Python e l'invio dei dati di monitoraggio a monitoraggio di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Installazione di Python. Questo articolo usa [Python 3.7.0](https://www.python.org/downloads/), anche se le versioni precedenti potrebbero funzionare con modifiche minime.
@@ -38,13 +38,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Valore           | Descrizione  |
+   | Impostazione        | Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app che si sta monitorando |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
-   | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
+   | **Località** | Stati Uniti Orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 
@@ -109,7 +109,6 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -132,7 +131,7 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
 
 6. Per informazioni dettagliate sulla correlazione dei dati di telemetria nei dati di traccia, esaminare la [correlazione di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)di OpenCensus.
 
-### <a name="metrics"></a>Metriche
+### <a name="metrics"></a>Metrica
 
 1. Prima di tutto, è necessario generare alcuni dati sulle metriche locali. Verrà creata una metrica semplice per tenere traccia del numero di volte in cui l'utente preme INVIO.
 
@@ -215,7 +214,7 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -298,30 +297,6 @@ L'SDK usa tre utilità di esportazione di monitoraggio di Azure per inviare dive
 
 5. Per informazioni dettagliate su come arricchire i log con i dati del contesto di traccia, vedere OpenCensus Python [logs Integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
-## <a name="start-monitoring-in-the-azure-portal"></a>Avviare il monitoraggio nel portale di Azure
-
-1. È ora possibile riaprire il riquadro **introduttivo** Application Insights nel portale di Azure per visualizzare i dettagli sull'applicazione attualmente in esecuzione. Selezionare **Live Metrics Stream**.
-
-   ![Screenshot del riquadro della panoramica con "Live Metrics Stream" selezionato in una casella rossa](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. Tornare al riquadro **Overview (panoramica** ). Selezionare **mappa delle applicazioni** per un layout visivo delle relazioni di dipendenza e intervallo di chiamate tra i componenti dell'applicazione.
-
-   ![Screenshot di una mappa delle applicazioni di base](./media/opencensus-python/0007-application-map.png)
-
-   Poiché è stata tracciata una sola chiamata al metodo, la mappa delle applicazioni non è interessante. Tuttavia, una mappa delle applicazioni può essere ridimensionata per visualizzare applicazioni molto più distribuite:
-
-   ![Mappa delle applicazioni](media/opencensus-python/application-map.png)
-
-3. Selezionare **ricercare le prestazioni per** analizzare i dettagli delle prestazioni e determinare la causa principale del rallentamento delle prestazioni.
-
-   ![Screenshot dei dettagli sulle prestazioni](./media/opencensus-python/0008-performance.png)
-
-4. Per aprire l'esperienza end-to-end per i dettagli delle transazioni, selezionare **esempi**, quindi selezionare uno degli esempi che vengono visualizzati nel riquadro di destra. 
-
-   Sebbene l'app di esempio mostri un solo evento, un'applicazione più complessa consente di esplorare la transazione end-to-end fino al livello di stack di chiamate di un singolo evento.
-
-   ![Screenshot dell'interfaccia di transazione end-to-end](./media/opencensus-python/0009-end-to-end-transaction.png)
-
 ## <a name="view-your-data-with-queries"></a>Visualizzare i dati con le query
 
 È possibile visualizzare i dati di telemetria inviati dall'applicazione tramite la scheda **log (Analytics)** .
@@ -350,7 +325,7 @@ Per informazioni più dettagliate su come usare le query e i log, vedere [log in
 * [Mappa delle applicazioni](./../../azure-monitor/app/app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./../../azure-monitor/learn/tutorial-performance.md)
 
-### <a name="alerts"></a>Avvisi
+### <a name="alerts"></a>Alerts
 
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md): creare test per verificare che il sito sia visibile sul Web.
 * [Diagnostica intelligente](../../azure-monitor/app/proactive-diagnostics.md): questi test vengono eseguiti automaticamente e non è quindi necessario effettuare alcuna operazione per configurarli. Se l'app ha una frequenza insolita di richieste non riuscite, verrà comunicato automaticamente.

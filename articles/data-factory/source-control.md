@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f497bd06868d586f8378cb81e870a750b8a1670
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684039"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122891"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -71,14 +71,14 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | Descrizione | Valore |
+| Impostazione | DESCRIZIONE | Valore |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
 | **Organizzazione Azure Repos** | Il nome dell'organizzazione di Azure Repos. È possibile individuare il nome dell'organizzazione Azure Repos all'indirizzo `https://{organization name}.visualstudio.com`. È possibile [accedere all'organizzazione Azure Repos](https://www.visualstudio.com/team-services/git/) e quindi accedere al proprio profilo di Visual Studio e visualizzare i repository e i progetti. | `<your organization name>` |
 | **Nome progetto** | Il nome del progetto Azure Repos. È possibile trovare il nome del progetto Azure Repos all'indirizzo `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **Nome repository** | Il nome del repository di codice Azure Repos. I progetti Azure Repos contengono repository GIT per gestire il codice sorgente man mano che aumentano le dimensioni del progetto. È possibile creare un nuovo repository o usare un repository già presente nel progetto. | `<your Azure Repos code repository name>` |
-| **Ramo di collaborazione** | Ramo di collaborazione di Azure Repos usato per la pubblicazione. Per impostazione predefinita, la relativa `master`. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch name>` |
+| **Ramo di collaborazione** | Ramo di collaborazione di Azure Repos usato per la pubblicazione. Per impostazione predefinita, è `master`. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch name>` |
 | **Cartella radice** | Cartella radice nel ramo di collaborazione di Azure Repos. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall'**area di disegno di creazione** dell'esperienza utente in un repository GIT Azure Repos. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
 | **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente |  |
@@ -194,7 +194,7 @@ Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono sa
 }
 ```
 
-Quando si specifica un nuovo ramo di pubblicazione, Data Factory non elimina il ramo di pubblicazione precedente. Se si intende inviare ad ambiente remoto il ramo di pubblicazione precedente, eliminarlo manualmente.
+Quando si specifica un nuovo ramo di pubblicazione, Data Factory non elimina il ramo di pubblicazione precedente. Se si vuole rimuovere il ramo di pubblicazione precedente, eliminarlo manualmente.
 
 > [!NOTE]
 > Data Factory legge il file `publish_config.json` solo al momento del caricamento della factory. Se la factory è già caricata nel portale, aggiornare il browser per rendere effettive le modifiche.

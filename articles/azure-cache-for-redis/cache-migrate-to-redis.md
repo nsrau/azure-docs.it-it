@@ -1,25 +1,17 @@
 ---
-title: Eseguire la migrazione di applicazioni di Servizio cache gestita in Redis - Azure | Documentazione Microsoft
+title: Eseguire la migrazione di applicazioni di servizio cache gestite a Redis-Azure
 description: Informazioni su come eseguire la migrazione di applicazioni di Servizio cache gestita e di Cache nel ruolo a Cache Redis di Azure
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315961"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122678"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Eseguire la migrazione da Servizio cache gestita a Cache Redis di Azure
 La migrazione di un'applicazione che usa Servizio cache gestita di Azure a Cache Redis di Azure può essere eseguita con modifiche minime all'applicazione, a seconda delle funzionalità di Servizio cache gestita usate dall'applicazione di memorizzazione nella cache. Le API non sono identiche, ma sono simili e gran parte del codice esistente che usa il Servizio cache gestita per accedere a una cache può essere riutilizzata con modifiche minime. Questo articolo illustra come apportare le modifiche necessarie alla configurazione e all'applicazione per eseguire la migrazione delle applicazioni che usano Servizio cache gestita a Cache Redis di Azure e mostra come alcune delle funzioni di Cache Redis di Azure possono essere usate per implementare la funzionalità di una cache di Servizio cache gestita.
@@ -47,7 +39,7 @@ Servizio cache gestita di Azure e Cache Redis di Azure sono simili, ma implement
 
 | Funzionalità del Servizio cache gestita | Supporto del Servizio cache gestita | Supporto di Cache Redis di Azure |
 | --- | --- | --- |
-| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Cache Redis di Azure ha un numero configurabile di database (16 come impostazione predefinita) che possono essere usati per implementare una funzione simile nelle cache denominate. Per altre informazioni, vedere [Informazioni sui database Redis](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
+| Cache denominate |Viene configurata una cache predefinita e nelle offerte cache Standard e Premium possono essere configurate fino a nove cache denominate aggiuntive, se necessario. |Cache Redis di Azure ha un numero configurabile di database (16 come impostazione predefinita) che possono essere usati per implementare una funzione simile nelle cache denominate. Per altre informazioni, vedere [Cosa sono i database Redis?](cache-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration). |
 | Disponibilità elevata |Fornisce disponibilità elevata per gli elementi nella cache nelle offerte cache Standard e Premium. Se gli elementi vengono persi a causa di un errore, sono ancora disponibili le copie di backup degli elementi nella cache. Le scritture nella cache secondaria vengono eseguite in modo sincrono. |La disponibilità elevata è disponibile nelle offerte cache Standard e Premium, che hanno una configurazione primaria/di replica a due nodi (ogni condivisione in una cache Premium ha una coppia primaria/ di replica). Le scritture nella replica vengono eseguite in modo asincrono. Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/). |
 | Notifiche |Consente ai client di ricevere notifiche asincrone quando in una cache denominata si verificano svariate operazioni della cache. |Le applicazioni client possono usare la pubblicazione/sottoscrizione di Redis o le [notifiche dello spazio delle chiavi](cache-configure.md#keyspace-notifications-advanced-settings) per ottenere una funzionalità simile alle notifiche. |
 | Cache locale |Archivia una copia degli oggetti memorizzati nella cache in locale nel client per un accesso velocissimo. |Le applicazioni client dovrebbero implementare questa funzionalità usando un dizionario o una struttura di dati simile. |
@@ -130,7 +122,7 @@ Aggiungere l'istruzione using seguente nella parte superiore di ogni file da cui
 using StackExchange.Redis
 ```
 
-Se questo spazio dei nomi non viene risolto, verificare di avere aggiunto il pacchetto NuGet StackExchange.Redis, come descritto in [Guida introduttiva: Usare Cache Redis di Azure con un'applicazione .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
+Se questo spazio dei nomi non viene risolto, assicurarsi di aver aggiunto il pacchetto NuGet StackExchange. Redis come descritto in [Guida introduttiva: usare cache di Azure per Redis con un'applicazione .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Tenere presente che con il client StackExchange.Redis è richiesto .NET Framework 4 o versione successiva.

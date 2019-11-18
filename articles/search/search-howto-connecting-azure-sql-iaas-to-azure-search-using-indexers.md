@@ -1,5 +1,5 @@
 ---
-title: Connessione VM macchina virtuale SQL di Azure per l'indicizzazione della ricerca
+title: Connessione alla macchina virtuale SQL di Azure per l'indicizzazione della ricerca
 titleSuffix: Azure Cognitive Search
 description: Abilitare le connessioni crittografate e configurare il firewall per consentire le connessioni a SQL Server in una macchina virtuale (VM) di Azure da un indicizzatore in Azure ricerca cognitiva.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792140"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111902"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva per SQL Server in una macchina virtuale di Azure
 
-Come indicato nella pagina relativa [alla connessione del database SQL di Azure ad azure ricerca cognitiva usando gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indicizzatori rispetto a **SQL Server in macchine virtuali di azure** (o **SQL Azure VM** in breve) è supportata da Azure ricerca cognitiva, ma sono disponibili alcuni prerequisiti relativi alla sicurezza da gestire prima. 
+Come indicato nella sezione relativa [alla connessione del database SQL di Azure ad azure ricerca cognitiva usando gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indicizzatori rispetto a **SQL Server in macchine virtuali di azure** (o **SQL Azure VM** per brevità) è supportata da Azure ricerca cognitiva, ma sono necessari alcuni prerequisiti relativi alla sicurezza. 
 
 Le connessioni da Azure ricerca cognitiva a SQL Server in una macchina virtuale sono una connessione Internet pubblica. Tutte le misure di sicurezza da seguire in genere per queste connessioni, sono applicabili anche per:
 

@@ -1,5 +1,5 @@
 ---
-title: Filtri di lingua per contenuto multilingue in un indice di ricerca
+title: Filtra per lingua in un indice di ricerca
 titleSuffix: Azure Cognitive Search
 description: Criteri di filtro per supportare la ricerca in più lingue, l'ambito dell'esecuzione di query in campi specifici della lingua.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2762ce42f0d3f5829682e0910c452746a65ef2f3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792879"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112056"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Come filtrare in base alla lingua in Azure ricerca cognitiva 
 
@@ -21,7 +21,7 @@ Il requisito principale in un'applicazione di ricerca multilingue è la possibil
 
 I parametri di query nella richiesta vengono usati sia per definire l'ambito dell'operazione di ricerca sia per ridurre quindi i risultati di tutti i campi che non forniscono contenuto compatibile con l'esperienza di ricerca che si vuole offrire.
 
-| parameters | Finalità |
+| parametri | Scopo |
 |-----------|--------------|
 | **searchFields** | Limita la ricerca full-text all'elenco dei campi denominati. |
 | **$select** | Riduce la risposta in modo da includere solo i campi specificati. Per impostazione predefinita, vengono restituiti tutti i campi recuperabili. Il parametro **$select** permette di scegliere quali restituire. |
@@ -60,7 +60,7 @@ parameters =
 > [!Note]
 > Anche se l'argomento $filter non è presente nella query, questo caso d'uso è fortemente correlato ai concetti di filtro e di conseguenza viene presentato come scenario di applicazione di filtri.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Filtri in ricerca cognitiva di Azure](search-filters.md)
 + [Analizzatori di linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support)

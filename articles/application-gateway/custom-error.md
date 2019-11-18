@@ -1,18 +1,18 @@
 ---
 title: Creare pagine di errore personalizzate del gateway applicazione di Azure
-description: Questo articolo illustra come creare pagine di errore personalizzate del gateway applicazione.
+description: Questo articolo illustra come creare pagine di errore personalizzate del gateway applicazione. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff11f686287498fe12b31d15a630178bb12035ad
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832039"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129870"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Creare pagine di errore personalizzate del gateway applicazione
 

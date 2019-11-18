@@ -70,10 +70,10 @@
               href: end-user-experiences.md
     - name: Provisioning di applicazioni (SCIM)
       items:
-        - name: Provisioning automatico nelle app abilitate per SCIM
-          href: use-scim-to-provision-users-and-groups.md
         - name: Pianificare una distribuzione automatica del provisioning utenti
           href: plan-auto-user-provisioning.md
+        - name: Provisioning manuale o automatico
+          href: application-provisioning-config-how-to.md
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Proxy dell'applicazione
@@ -227,28 +227,40 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Provisioning di applicazioni (SCIM)
       items:
-        - name: Configura provisioning utenti
+        - name: Configurare il provisioning di app
           items:
-            - name: Provisioning manuale o automatico
-              href: application-provisioning-config-how-to.md
             - name: Configurare il provisioning automatico degli utenti
               href: configure-automatic-user-provisioning-portal.md
+            - name: Usare SCIM per il provisioning automatico
+              href: use-scim-to-provision-users-and-groups.md
             - name: Personalizzare i mapping degli attributi
               href: Customize-application-attributes.md
+            - name: Scrivere espressioni per il mapping degli attributi
+              href: functions-for-customizing-application-data.md
             - name: Definire l'ambito di utenti o gruppi di cui effettuare il provisioning
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorare l'eliminazione per gli utenti fuori ambito
               href: skip-out-of-scope-deletions.md
             - name: Monitorare lo stato e le prestazioni del provisioning
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Creare report sul provisioning utenti automatico
+            - name: Report sul provisioning di app
               href: check-status-user-account-provisioning.md
             - name: Esportare e importare la configurazione
               href: export-import-provisioning-configuration.md
+            - name: Automatizzare la configurazione con MS Graph
+              href: application-provisioning-configure-api.md
         - name: Risolvere i problemi del provisioning utenti
           items:
-            - name: Risolvere i problemi del provisioning utenti
+            - name: Risolvere i problemi del provisioning di app
               href: application-provisioning-config-problem.md
+            - name: Stato di quarantena
+              href: application-provisioning-quarantine-status.md
+            - name: Log di provisioning
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Sincronizzare un attributo per il mapping - App della raccolta
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Tempo necessario eccessivo - App della raccolta
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Problema di autorizzazione (non è possibile salvare le credenziali di amministratore)
               href: application-provisioning-config-problem-storage-limit.md
             - name: Utenti senza provisioning

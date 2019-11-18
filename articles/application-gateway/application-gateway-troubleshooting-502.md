@@ -1,18 +1,18 @@
 ---
 title: Risolvere gli errori del gateway non valido-gateway applicazione Azure
-description: Informazioni su come risolvere gli errori 502 del gateway applicazione
+description: 'Informazioni su come risolvere i problemi del server gateway applicazione: 502-il server Web ha ricevuto una risposta non valida mentre funge da server proxy o gateway.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: baf1eccdd6fe910bd98e8b39ef29b7bd8e88a7d5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048151"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130480"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 

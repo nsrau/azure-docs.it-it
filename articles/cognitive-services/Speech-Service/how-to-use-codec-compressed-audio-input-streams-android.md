@@ -1,5 +1,5 @@
 ---
-title: Trasmettere il codec audio compresso con l'SDK di riconoscimento vocale in Android-servizio di riconoscimento vocale
+title: Flusso audio compresso di codec con Speech SDK in Android
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come eseguire lo streaming di audio compresso in servizi vocali di Azure con l'SDK di riconoscimento vocale in Android.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 2e741e8a8df2cebff167a381cef41351ead4c6cf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464364"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109912"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Uso dell'input audio compresso di codec con Speech SDK in Android
+# <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Procedura: usare l'input audio compresso di codec con l'SDK di riconoscimento vocale in Android
 
 L'API del **flusso di input audio compresso** dell'SDK vocale fornisce un modo per trasmettere audio compresso al servizio di riconoscimento vocale usando PullStream o PushStream.
 
@@ -25,7 +25,7 @@ L'API del **flusso di input audio compresso** dell'SDK vocale fornisce un modo p
 > Il flusso audio di input compresso è attualmente supportato per [ C++, C#e Java in Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). È supportata anche per Java in Android e [Objective-C nella piattaforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) .
 > È necessario l'SDK di riconoscimento vocale 1.7.0 o versione successiva.
 
-Per WAV/PCM, vedere la documentazione sulla voce principale.  Al di fuori di WAV/PCM, sono supportati i formati di input compressi di codec seguenti:
+Per WAV/PCM, vedere la documentazione sulla voce principale. Al di fuori di WAV/PCM, sono supportati i formati di input compressi di codec seguenti:
 
 - MP3
 - OPUS/OGG
@@ -35,7 +35,7 @@ Per WAV/PCM, vedere la documentazione sulla voce principale.  Al di fuori di WAV
 
 ## <a name="prerequisites-to-using-codec-compressed-audio-input-on-android"></a>Prerequisiti per l'uso dell'input audio compresso con codec in Android
 
-Il codec audio compresso viene implementato con [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza, i file binari gstreamer non vengono compilati con l'SDK. È necessario usare i file binari predefiniti per Android. Per scaricare le librerie predefinite, vedere [installazione per lo sviluppo per Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). 
+Il codec audio compresso viene implementato con [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza, i file binari gstreamer non vengono compilati con l'SDK. È necessario usare i file binari predefiniti per Android. Per scaricare le librerie predefinite, vedere [installazione per lo sviluppo per Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
 `libgstreamer_android.so` è obbligatorio. Assicurarsi che i plug-in GStreamer siano collegati in `libgstreamer_android.so`.
 
@@ -159,5 +159,5 @@ String text = result.getText();
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
-* [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Vedere come riconoscere il riconoscimento vocale in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

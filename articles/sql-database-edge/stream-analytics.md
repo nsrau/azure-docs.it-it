@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514992"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108751"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>Uso del pacchetto di applicazione livello dati SQL database e del processo di analisi di flusso con Edge database SQL
 
@@ -34,10 +34,10 @@ Edge del database SQL di Azure espone due parametri facoltativi tramite l'opzion
 }
 ```
 
-|Campo | Descrizione |
+|Campo | DESCRIZIONE |
 |------|-------------|
 | SQLPackage | URI dell'archiviazione BLOB di Azure per il file *. zip contenente il pacchetto di applicazione livello dati del database SQL.
-| ASAJobInfo | URI dell'archiviazione BLOB di Azure per il processo di Edge ASA. Per altre informazioni sulla pubblicazione del processo Edge ASA, vedere [pubblicazione di un processo Edge ASA per il database SQL Edge]().
+| ASAJobInfo | URI dell'archiviazione BLOB di Azure per il processo di Edge ASA. Per altre informazioni sulla pubblicazione del processo Edge ASA, vedere [pubblicazione di un processo Edge ASA per il database SQL Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>Utilizzo di pacchetti DAC del database SQL con Edge database SQL
 
@@ -97,14 +97,14 @@ Il database SQL di Azure Edge ha un'implementazione nativa del runtime di analis
 
     *Output: selezionare database SQL come output, "specificare manualmente le impostazioni del database SQL" e specificare i dettagli di configurazione per il database e la tabella.*
 
-    |Campo      | Descrizione |
+    |Campo      | DESCRIZIONE |
     |---------------|-------------|
     |Alias di output | Nome dell'alias di output.|
     |Database | Nome del database SQL. Questo deve essere un nome di database valido, presente nell'istanza perimetrale del database SQL.|
     |Nome server | Nome (o indirizzo IP) e dettagli sul numero di porta per l'istanza di SQL. Per una distribuzione perimetrale del database SQL, è possibile utilizzare **TCP:., 1433** come nome del server.|
     |Nome utente | Account di accesso SQL con Reader e writer di dati che accedono al database menzionato in precedenza.|
     |Password | Password per l'account di accesso SQL menzionato in precedenza.|
-    |Tabella | Nome della tabella che verrà restituita per il processo di streaming.|
+    |tabella | Nome della tabella che verrà restituita per il processo di streaming.|
     |Eredita partizionamento| Questa opzione di configurazione dell'output SQL consente di ereditare lo schema di partizionamento del passaggio o dell'input della query precedente. Con questa funzionalità abilitata, la scrittura in una tabella basata su disco e la presenza di una topologia completamente parallela per il processo, prevede una migliore velocità effettiva.|
     |Dimensioni batch| Dimensioni batch è il numero massimo di record inviati con ogni transazione BULK INSERT.|
 

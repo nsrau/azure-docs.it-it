@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
-ms.openlocfilehash: 6e159bd9b57b26c99afd590d6a9f2153dba2a205
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e39f83b2ed715afbfff69770c151cfc4d527105d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808416"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132270"
 ---
 # <a name="windows-remote-management-over-https"></a>Gestione remota Windows tramite HTTPS
 
-Questa sezione spiega come configurare una macchina virtuale basata su Windows e ospitata in Azure, in modo che possa essere gestita e distribuita in modalità remota con PowerShell.  Per abilitare la comunicazione remota tramite PowerShell, la macchina virtuale di destinazione deve esporre un endpoint HTTPS di Gestione remota Windows (WinRM).  Per altre informazioni sulla comunicazione remota tramite PowerShell, vedere [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6) (Esecuzione di comandi remoti).  Per altre informazioni su WinRM, vedere [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal) (Gestione remota Windows).
+Questa sezione spiega come configurare una macchina virtuale basata su Windows e ospitata in Azure, in modo che possa essere gestita e distribuita in modalità remota con PowerShell.  Per abilitare la comunicazione remota tramite PowerShell, la macchina virtuale di destinazione deve esporre un endpoint HTTPS di Gestione remota Windows (WinRM).  Per altre informazioni sulla comunicazione remota tramite PowerShell, vedere [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands) (Esecuzione di comandi remoti).  Per altre informazioni su WinRM, vedere [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal) (Gestione remota Windows).
 
-Se è stata creata una macchina virtuale usando uno degli approcci di Azure "classici", ovvero il portale di Azure Service Manager o l'[API Gestione dei servizi di Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)), viene automaticamente configurata con un endpoint WinRM.  Tuttavia, se si crea una macchina virtuale usando uno degli approcci di Azure "moderni" elencati di seguito, la macchina virtuale *non* sarà configurata per WinRM tramite HTTPS.  
+Se è stata creata una macchina virtuale usando uno degli approcci di Azure "classici", ovvero il portale di Azure Service Manager o l'[API Gestione dei servizi di Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)), viene automaticamente configurata con un endpoint WinRM.  Tuttavia, se si crea una macchina virtuale usando uno degli approcci di Azure "moderni" elencati di seguito, la macchina virtuale *non* sarà configurata per WinRM tramite HTTPS.
 
 - Uso del [portale di Azure](https://portal.azure.com/), in genere da una base approvata, come descritto nella sezione [Creare un disco rigido virtuale compatibile con Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Uso dei modelli di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
@@ -34,9 +34,9 @@ Al contrario, le macchine virtuali Linux vengono in genere gestite in modalità 
 
 L'endpoint WinRM per una macchina virtuale basata su Windows può essere configurato durante due diverse fasi di sviluppo:
 
-- Durante la creazione, in fase di distribuzione di una macchina virtuale in un disco rigido virtuale esistente.  Si tratta dell'approccio preferito per le nuove offerte.  Questo approccio richiede la creazione di un certificato di Azure, usando i modelli di Azure Resource Manager forniti ed eseguendo script di PowerShell personalizzati. 
-- Dopo la distribuzione, in una macchina virtuale esistente ospitata in Azure.  Usare questo approccio se si dispone già una soluzione di macchina virtuale distribuita in Azure ed è necessario abilitare Gestione remota Windows per tale soluzione.  Questo approccio richiede modifiche manuali nel portale di Azure e l'esecuzione di uno script nella macchina virtuale di destinazione. 
+- Durante la creazione, in fase di distribuzione di una macchina virtuale in un disco rigido virtuale esistente.  Si tratta dell'approccio preferito per le nuove offerte.  Questo approccio richiede la creazione di un certificato di Azure, usando i modelli di Azure Resource Manager forniti ed eseguendo script di PowerShell personalizzati.
+- Dopo la distribuzione, in una macchina virtuale esistente ospitata in Azure.  Usare questo approccio se si dispone già una soluzione di macchina virtuale distribuita in Azure ed è necessario abilitare Gestione remota Windows per tale soluzione.  Questo approccio richiede modifiche manuali nel portale di Azure e l'esecuzione di uno script nella macchina virtuale di destinazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si sta creando una nuova macchina virtuale, è possibile abilitare WinRM durante la [distribuzione della macchina virtuale dai relativi dischi rigidi virtuali](./cpp-deploy-vm-vhd.md).  In caso contrario, WinRM può essere abilitato in una macchina virtuale esistente.  
+Se si sta creando una nuova macchina virtuale, è possibile abilitare WinRM durante la [distribuzione della macchina virtuale dai relativi dischi rigidi virtuali](./cpp-deploy-vm-vhd.md).  In caso contrario, WinRM può essere abilitato in una macchina virtuale esistente.

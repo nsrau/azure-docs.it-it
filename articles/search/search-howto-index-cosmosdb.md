@@ -1,5 +1,5 @@
 ---
-title: Indicizzare un'origine dati Azure Cosmos DB
+title: Cerca nei dati Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
 description: Eseguire la ricerca per indicizzazione di un'origine dati Azure Cosmos DB e inserire dati in un indice di ricerca full-text in Azure ricerca cognitiva. Gli indicizzatori automatizzano l'inserimento di dati per alcune origini dati come Azure Cosmos DB.
 author: mgottein
@@ -9,18 +9,18 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889903"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112748"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati Cosmos DB usando un indicizzatore in Azure ricerca cognitiva 
 
 > [!IMPORTANT] 
 > L'API SQL è disponibile a livello generale.
-> L'API MongoDB, l'API Gremlin e il supporto API Cassandra sono attualmente disponibili in anteprima pubblica. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). L' [API REST versione 2019-05-06-Preview](search-api-preview.md) fornisce funzionalità di anteprima. Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
+> L'API MongoDB, l'API Gremlin e il supporto API Cassandra sono attualmente disponibili in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). È possibile richiedere l'accesso alle anteprime compilando [questo modulo](https://aka.ms/azure-cognitive-search/indexer-preview). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
 Questo articolo illustra come configurare un [indicizzatore](search-indexer-overview.md) di Azure Cosmos DB per estrarre il contenuto e renderlo ricercabile in Azure ricerca cognitiva. Questo flusso di lavoro crea un indice di ricerca cognitiva di Azure e lo carica con il testo esistente Estratto da Azure Cosmos DB. 
 
@@ -170,14 +170,14 @@ Per creare un'origine dati, formulare una richiesta POST:
 
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
-| Campo   | Descrizione |
+| Campo   | DESCRIZIONE |
 |---------|-------------|
 | **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
 |**type**| Obbligatorio. Deve essere `cosmosdb`. |
 |**credentials** | Obbligatorio. Deve essere una stringa di connessione Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono in questo formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Per le raccolte MongoDB, aggiungere **tipologia API = MongoDB** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Per i grafici Gremlin e le tabelle Cassandra, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
 | **container** | Contiene gli elementi seguenti: <br/>**name**: obbligatorio. Consente di specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in uno schema flat che può essere indicizzato da Azure ricerca cognitiva.<br/>Per l'API MongoDB, l'API Gremlin e API Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
-|**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
+|**dataDeletionDetectionPolicy** | Facoltativa. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Utilizzo di query per formare dati indicizzati
 È possibile specificare una query di SQL per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
@@ -361,7 +361,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
 ## <a name="NextSteps"></a>Passaggi successivi
 
-Congratulazioni. Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
+Congratulazioni! Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
 
 * Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Per ulteriori informazioni su Azure ricerca cognitiva, vedere la [pagina del servizio di ricerca](https://azure.microsoft.com/services/search/).

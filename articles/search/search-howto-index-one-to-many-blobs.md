@@ -1,7 +1,7 @@
 ---
-title: Indicizzare un BLOB in molti documenti dell'indice di ricerca dall'indicizzatore BLOB di Azure per la ricerca full-text
+title: BLOB di indici contenenti più documenti
 titleSuffix: Azure Cognitive Search
-description: Eseguire l'indicizzazione di BLOB di Azure per contenuti di testo usando l'indicizzatore di BLOB di ricerca di Azure Ogni BLOB può restituire uno o più documenti dell'indice di ricerca.
+description: Eseguire la ricerca per indicizzazione di BLOB di Azure per contenuti di testo usando l'indicizzatore BLOB di ricerca di Azure cognitivi, in cui ogni BLOB può restituire uno o più documenti dell'indice
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818550"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112273"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indicizzazione di BLOB per produrre più documenti di ricerca
 Per impostazione predefinita, un indicizzatore BLOB considererà il contenuto di un BLOB come singolo documento di ricerca. Alcuni valori **parsingMode** supportano scenari in cui un singolo BLOB può produrre più documenti di ricerca. I diversi tipi di **parsingMode** che consentono a un indicizzatore di estrarre più di un documento di ricerca da un BLOB sono:
@@ -40,12 +40,12 @@ Si supponga di avere una definizione di indice con i campi seguenti:
 
 E il contenitore BLOB contiene BLOB con la struttura seguente:
 
-_Blob1. JSON_
+_Blob1.json_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2. JSON_
+_Blob2.json_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
@@ -71,13 +71,13 @@ Questa installazione determinerà l'indice del ricerca cognitiva di Azure conten
 
 Supponendo la stessa definizione di indice dell'esempio precedente, si supponga che il contenitore BLOB disponga di BLOB con la struttura seguente:
 
-_Blob1. JSON_
+_Blob1.json_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2. JSON_
+_Blob2.json_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 

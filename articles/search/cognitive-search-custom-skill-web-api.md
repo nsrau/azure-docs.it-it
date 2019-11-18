@@ -1,5 +1,5 @@
 ---
-title: Abilità dell'API Web personalizzata in una pipeline di arricchimento
+title: Abilità dell'API Web personalizzata in skillsets
 titleSuffix: Azure Cognitive Search
 description: Estendi le funzionalità di Azure ricerca cognitiva skillsets chiamando le API Web. Usare la competenza API Web personalizzata per integrare il codice personalizzato.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466727"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113806"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Abilità dell'API Web personalizzata in una pipeline di arricchimento ricerca cognitiva di Azure
 
@@ -34,7 +34,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Description |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | Uri | URI dell'API Web a cui verrà inviato il payload _JSON_ . È consentito solo lo schema URI **https** |
 | httpMethod | Metodo da usare per l'invio del payload. I metodi consentiti sono `PUT` o `POST` |
@@ -201,7 +201,7 @@ Oltre alla non disponibilità dell'API Web o all'invio di codici di stato che no
 
 Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un errore descrittivo con i dettagli disponibili sull'errore HTTP verrà aggiunto alla cronologia di esecuzione dell'indicizzatore.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
 + [Aggiungere competenze personalizzate a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)

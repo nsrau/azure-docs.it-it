@@ -1,5 +1,5 @@
 ---
-title: Indicizzare i BLOB JSON dall'indicizzatore BLOB di Azure per la ricerca full-text
+title: Eseguire ricerche su BLOB JSON
 titleSuffix: Azure Cognitive Search
 description: Eseguire l'indicizzazione di BLOB JSON di Azure per il contenuto di testo usando l'indicizzatore Azure ricerca cognitiva BLOB. Gli indicizzatori automatizzano l'inserimento di dati per le origini dati selezionate, ad esempio l'archiviazione BLOB di Azure.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889893"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112719"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -110,15 +110,15 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 
 Per l'indicizzazione JSON basata sul codice, usare il [post](search-get-started-postman.md) e l'API REST per creare questi oggetti:
 
-+ [Indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 L'ordine delle operazioni richiede la creazione e la chiamata di oggetti in questo ordine. A differenza del flusso di lavoro del portale, un approccio del codice richiede un indice disponibile per accettare i documenti JSON inviati tramite la richiesta **create Indexer** .
 
 I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON o una "matrice" JSON. L'indicizzatore BLOB in Azure ricerca cognitiva può analizzare una costruzione, a seconda di come si imposta il parametro **parsingMode** nella richiesta.
 
-| Documento JSON | parsingMode | Descrizione | Disponibilità |
+| Documento JSON | parsingMode | DESCRIZIONE | Availability |
 |--------------|-------------|--------------|--------------|
 | Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di ricerca cognitiva di Azure. | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, in cui ogni elemento della matrice diventa un documento di ricerca cognitiva di Azure separato.  | Disponibile a livello generale nell'API [Rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e in [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -282,7 +282,7 @@ La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione
 
 I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indicizzatore JSON determina il modo in cui il contenuto BLOB JSON viene analizzato e strutturato in un indice ricerca cognitiva di Azure:
 
-| parsingMode | Descrizione |
+| parsingMode | DESCRIZIONE |
 |-------------|-------------|
 | `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è la modalità predefinita. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |
@@ -426,7 +426,7 @@ I nomi dei campi di origine nei mapping vengono specificati mediante la notazion
 
 ## <a name="see-also"></a>Vedere anche
 
-+ [Indicizzatori in Azure ricerca cognitiva](search-indexer-overview.md)
++ [Indicizzatori in Ricerca cognitiva di Azure](search-indexer-overview.md)
 + [Indicizzazione dell'archiviazione BLOB di Azure con Azure ricerca cognitiva](search-howto-index-json-blobs.md)
 + [Indicizzazione di BLOB CSV con l'indicizzatore BLOB di Azure ricerca cognitiva](search-howto-index-csv-blobs.md)
 + [Esercitazione: eseguire la ricerca di dati semistrutturati dall'archivio BLOB di Azure](search-semi-structured-data.md)

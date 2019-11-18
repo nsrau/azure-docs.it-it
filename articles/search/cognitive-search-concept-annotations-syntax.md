@@ -1,5 +1,5 @@
 ---
-title: Input e output di riferimento in una pipeline di arricchimento di intelligenza artificiale
+title: Input e output di riferimento in skillsets
 titleSuffix: Azure Cognitive Search
 description: Viene illustrata la sintassi dell'annotazione e viene illustrato come fare riferimento a un'annotazione negli input e negli output di un skillt in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787772"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113858"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un ricerca cognitiva di Azure
 
@@ -25,7 +25,7 @@ Gli esempi in questo articolo si basano sul campo *contenuto* generato automatic
 
 Prima di esaminare la sintassi, è opportuno rivedere alcuni concetti importanti per comprendere meglio gli esempi forniti più avanti in questo articolo.
 
-| Durata | Description |
+| Termine | DESCRIZIONE |
 |------|-------------|
 | Documento arricchito | Un documento arricchito è una struttura interna creata e utilizzata dalla pipeline per contenere tutte le annotazioni correlate a un documento. Un documento arricchito può essere paragonato a una struttura di annotazioni. In genere, un'annotazione creata da un'annotazione precedente diventa il corrispettivo elemento figlio.<p/>I documenti arricchiti esistono solo per la durata dell'esecuzione di un insieme di competenze. Dopo che il contenuto è stato mappato all'indice di ricerca, il documento arricchito non è più necessario. Anche se si non interagisce direttamente con i documenti arricchiti, è utile disporre di un modello mentale dei documenti quando si crea un insieme di competenze. |
 | Contesto di arricchimento | Il contesto in cui avviene l'arricchimento, in riferimento ai termini con cui esso è stato arricchito. Per impostazione predefinita, il contesto di arricchimento è impostato al `"/document"` livello e definito per l'ambito dei singoli documenti. Quando viene eseguita una competenza, gli output di tale competenza diventano [proprietà del contesto definito](#example-2).|
@@ -120,8 +120,8 @@ Si noti che la cardinalità di `"/document/people/*/lastname"` è maggiore di qu
 
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 + [Come integrare una competenza personalizzata in una pipeline di arricchimento](cognitive-search-custom-skill-interface.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire la mappatura dei campi arricchiti a un indice](cognitive-search-output-field-mapping.md)

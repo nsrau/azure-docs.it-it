@@ -1,17 +1,14 @@
 ---
-title: Uso del portale di Azure per distribuire le risorse di Azure | Microsoft Docs
+title: Distribuire le risorse con portale di Azure
 description: Usare portale di Azure e gestione risorse di Azure per distribuire le risorse in un gruppo di risorse nella sottoscrizione.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 197bd14c425d80a814f370a2050c085b1eef143d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6a8842a9fbda11bf48d45152c167d7b072f38119
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579025"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150760"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 
@@ -85,7 +82,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
    ![Cercare la distribuzione del modello](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 1. Vengono visualizzate diverse opzioni per la creazione di un modello:
 
     - **Compilare un modello personalizzato nell'editor**: creare un modello usando l'Editor modelli del portale.  L'editor è in grado di aggiungere uno schema del modello di risorsa.

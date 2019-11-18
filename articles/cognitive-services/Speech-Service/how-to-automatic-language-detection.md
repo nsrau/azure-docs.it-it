@@ -1,5 +1,5 @@
 ---
-title: 'Procedura: usare il rilevamento automatico della lingua per il riconoscimento vocale al servizio riconoscimento vocale'
+title: Come usare il rilevamento automatico della lingua per il riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Speech SDK supporta il rilevamento automatico della lingua per il riconoscimento vocale. Quando si usa questa funzionalità, l'audio fornito viene confrontato con un elenco di lingue specificato e viene determinata la corrispondenza più probabile. Il valore restituito può quindi essere usato per selezionare il modello di lingua usato per la sintesi vocale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506967"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110172"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Rilevamento automatico della lingua per il riconoscimento vocale
 
@@ -30,7 +30,7 @@ In questo articolo si apprenderà come usare `AutoDetectSourceLanguageConfig` pe
 
 Il rilevamento automatico della lingua dispone attualmente di un limite lato servizi di due lingue per rilevamento. Tenere presente questa limitazione quando si costruisce l'oggetto `AudoDetectSourceLanguageConfig`. Negli esempi seguenti verrà creato un `AutoDetectSourceLanguageConfig`, che verrà quindi usato per costruire una `SpeechRecognizer`.
 
->[!TIP]
+> [!TIP]
 > È anche possibile specificare un modello personalizzato da usare quando si esegue il riconoscimento vocale in un testo. Per altre informazioni, vedere [usare un modello personalizzato per il rilevamento automatico della lingua](#use-a-custom-model-for-automatic-language-detection).
 
 I frammenti di codice seguenti illustrano come usare il rilevamento automatico della lingua nelle app:
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Documentazione di riferimento per l'SDK vocale](speech-sdk.md)
+- [Documentazione di riferimento per l'SDK vocale](speech-sdk.md)

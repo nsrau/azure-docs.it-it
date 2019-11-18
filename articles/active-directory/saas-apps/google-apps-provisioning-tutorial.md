@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802212"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120329"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
 
@@ -35,7 +35,7 @@ Questa esercitazione descrive i passaggi da eseguire in G Suite e Azure Active D
 - I nomi degli attributi di destinazione di G Suite sono stati aggiornati in base a quanto definito [qui](/azure/active-directory/manage-apps/customize-application-attributes).
 - Mapping degli attributi predefiniti aggiornati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con G Suite, sono necessari gli elementi seguenti:
 
@@ -86,7 +86,7 @@ Prima di configurare G Suite per il provisioning utenti automatico con Azure AD,
 
     ![Aggiungere un nuovo dominio][21]
 
-    c. Selezionare **Add another domain** (Aggiungi un altro dominio) e quindi digitare il nome del dominio che si vuole aggiungere.
+    C. Selezionare **Add another domain** (Aggiungi un altro dominio) e quindi digitare il nome del dominio che si vuole aggiungere.
 
     ![Digitare il nome di dominio][22]
 
@@ -137,7 +137,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 2. Nell'elenco di applicazioni selezionare **G Suite**.
 
-    ![Collegamento di G Suite nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento G Suite nell'elenco Applicazioni](common/all-applications.png)
 
 3. Selezionare la scheda **Provisioning**.
 
@@ -159,9 +159,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Posta elettronica di notifica](common/provisioning-notification-email.png)
+    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Salva**
+8. Fare clic su **Save**.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a G Suite**.
 
@@ -187,7 +187,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 15. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in G Suite scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
-    ![Ambito del provisioning](common/provisioning-scope.png)
+    ![Ambito di provisioning](common/provisioning-scope.png)
 
 16. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
@@ -195,10 +195,16 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning in G Suite.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 > [!NOTE]
 > Un'altra opzione valida per l'automazione del provisioning utenti in G Suite è l'uso di [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Questa opzione consente di eseguire il provisioning delle identità Active Directory locali a G Suite.
+
+## <a name="common-issues"></a>Problemi comuni
+* G Suite richiede che tutti gli utenti sottoposti a provisioning provengano da domini verificati. Assicurarsi che qualsiasi utente di cui si vuole eseguire il provisioning abbia un UPN da un dominio verificato in G Suite. Se un utente di un dominio non verificato è nell'ambito del provisioning, verrà visualizzato un errore nei log di [provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , ad esempio "GoogleAppsInvalidDomain". È possibile evitare questi errori e assicurarsi che gli utenti di domini non verificati riescano dall'ambito usando un [filtro di ambito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+    * Attributo di destinazione: userPrincipalName
+    * Operatore: REGEX MATCH o NOT REGEX MATCH
+    * Valore:. *@domain.com
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

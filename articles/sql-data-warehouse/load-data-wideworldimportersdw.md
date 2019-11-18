@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5272d9aa77f78d0cef316f9f227f9e269ab7e186
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f58623ec179965c8f8f165805cb181f8c102e746
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839889"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132371"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati in Azure SQL Data Warehouse
 
@@ -45,7 +45,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Crea una SQL Data Warehouse vuota
 
-Un Azure SQL Data Warehouse viene creato con un set definito di [risorse di calcolo] memoria-concorrenza-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
+L'istanza di Azure SQL Data Warehouse viene creata con un set definito di [risorse di calcolo](memory-concurrency-limits.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di Azure SQL](../sql-database/sql-database-features.md). 
 
 Per creare una SQL Data Warehouse vuota, seguire questa procedura. 
 
@@ -53,29 +53,29 @@ Per creare una SQL Data Warehouse vuota, seguire questa procedura.
 
 2. Selezionare **Databases** nella pagina **Nuovo** e selezionare **SQL Data Warehouse** sotto **In primo piano** nella pagina **Nuovo**.
 
-    ![creare un data warehouse](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
+    ![Creare un data warehouse](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
 3. Compilare il modulo dell'SQL Data Warehouse con le informazioni seguenti:   
 
-   | Impostazione | Valore consigliato | Descrizione | 
+   | Impostazione | Valore consigliato | DESCRIZIONE | 
    | ------- | --------------- | ----------- | 
    | **Nome database** | SampleDW | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
-   | **Gruppo di risorse** | SampleRG | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
-   | **Select source** (Seleziona origine) | Database vuoto | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database.|
+   | **Gruppo di risorse** | SampleRG | Per i nomi di gruppi di risorse validi, vedere [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Regole di denominazione e restrizioni). |
+   | **Seleziona origine** | Database vuoto | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database.|
 
-    ![creare un data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![Creare un data warehouse](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-    | Impostazione | Valore consigliato | Descrizione | 
+    | Impostazione | Valore consigliato | DESCRIZIONE | 
     | ------- | --------------- | ----------- |
     | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Regole di denominazione e restrizioni). | 
-    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
+    | **Nome di accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
-    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
+    | **Località** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
 
-    ![creare un server di database](media/load-data-wideworldimportersdw/create-database-server.png)
+    ![Creare un server di database](media/load-data-wideworldimportersdw/create-database-server.png)
 
 5. Fare clic su **Seleziona**.
 
@@ -90,7 +90,7 @@ Per creare una SQL Data Warehouse vuota, seguire questa procedura.
 
 11. Dopo aver completato il modulo del database SQL, fare clic su **Crea** per effettuare il provisioning del database. Il provisioning richiede alcuni minuti. 
 
-    ![fare clic su Crea](media/load-data-wideworldimportersdw/click-create.png)
+    ![Fare clic su Crea](media/load-data-wideworldimportersdw/click-create.png)
 
 12. Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.
     
@@ -112,7 +112,7 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 
 3. Per aprire le impostazioni del server, fare clic sul nome del server.
 
-    ![impostazioni del server](media/load-data-wideworldimportersdw/server-settings.png) 
+    ![Impostazioni del server](media/load-data-wideworldimportersdw/server-settings.png) 
 
 5. Fare clic su **Mostra impostazioni firewall**. Si apre la pagina **Impostazioni del firewall** per il server di database SQL. 
 
@@ -147,17 +147,17 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-    | Impostazione      | Valore consigliato | Descrizione | 
+    | Impostazione      | Valore consigliato | DESCRIZIONE | 
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
     | Nome server | Nome completo del server | Ad esempio, **sample-svr.database.windows.net** è un nome di server completo. |
     | Autenticazione | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
+    | Accesso | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
+4. Fare clic su **Connect**. La finestra Esplora oggetti viene visualizzata in SSMS. 
 
 5. In Esplora oggetti espandere **Database**. Espandere quindi **Database di sistema** e **master** per visualizzare gli oggetti nel database master.  Espandere **SampleDW** per visualizzare gli oggetti nel nuovo database.
 
@@ -208,7 +208,7 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC60.
 
 2. Immettere il nome completo del server e **LoaderRC60** come account di accesso.  Immettere la password per LoaderRC60.
 
-3. Fare clic su **Connetti**.
+3. Fare clic su **Connect**.
 
 4. Quando la connessione è pronta, si vedranno due connessioni server in Esplora oggetti. Una connessione ServerAdmin e una connessione LoaderRC60.
 
@@ -1099,7 +1099,7 @@ Seguire questi passaggi per pulire le risorse come desiderato.
 
     ![Pulire le risorse](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Se si vuole mantenere i dati nell'archivio, è possibile sospendere il calcolo quando non si usa il data warehouse. Sospendendo il calcolo, l'archiviazione dei dati verrà addebitata solo ed è possibile riprendere il calcolo ogni volta che si è pronti per lavorare con i dati. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
+2. Se si vuole mantenere i dati nell'archivio, è possibile sospendere il calcolo quando non si usa il data warehouse. Sospendendo il calcolo, l'archiviazione dei dati verrà addebitata solo ed è possibile riprendere il calcolo ogni volta che si è pronti per lavorare con i dati. Per interrompere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
 
 3. Se si vuole evitare addebiti futuri, è possibile eliminare il data warehouse. Per rimuovere il data warehouse in modo da non ricevere addebiti per calcoli o archiviazioni, fare clic su **Elimina**.
 

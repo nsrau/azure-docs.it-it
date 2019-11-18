@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e721a7818c5f2fcea23263b296912edf164036b2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927807"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128772"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -74,7 +74,7 @@ Attenersi ai passaggi seguenti per generarli:
 - /**sensore-sensore corrisponde** a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.  
 
 
-|        Modalità dispositivo   |  Suggerimenti:   |
+|        Modello di dispositivo   |  Suggerimenti:   |
 | ------- | -------             |
 |     Tipo (nodo, gateway)        |          1 stella      |
 |          Produttore            |         2 stelle     |

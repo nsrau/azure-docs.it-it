@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 932031f545ccc75cb12f368f5c7894c1b5e454cd
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 80ec9b2bbf10d8f500e7f9e0369faca3b9663633
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091695"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129397"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Connettersi a origini dati da Azure Databricks
 
@@ -43,7 +43,7 @@ L'elenco seguente include le origini dati in Azure che è possibile usare con Az
 
     Questo collegamento fornisce istruzioni su come usare il [connettore Spark di Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-spark) da Azure Databricks per accedere ai dati in Azure Cosmos DB.
 
-- [Hub eventi di Azure](/azure/databricks/data/data-sources/azure/eventhubs-connector)
+- [Hub eventi di Azure](/azure/event-hubs/event-hubs-spark-connector)
 
     Questo collegamento fornisce istruzioni su come usare il [connettore Spark degli Hub eventi di Azure](https://github.com/Azure/azure-event-hubs-spark) da Azure Databricks per accedere ai dati negli Hub eventi di Azure.
 

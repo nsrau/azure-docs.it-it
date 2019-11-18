@@ -1,5 +1,5 @@
 ---
-title: Modellazione del multitenant per l'isolamento del contenuto in un servizio
+title: Multi-tenant e isolamento del contenuto
 titleSuffix: Azure Cognitive Search
 description: Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant durante l'uso di Azure ricerca cognitiva.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0332443997fbc58781f99e3b4e6d9776dd23926b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793524"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113267"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Azure ricerca cognitiva
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con ricerca cognitiva di Azure.
@@ -125,7 +125,7 @@ Questo metodo può essere usato per ottenere funzionalità di account utente div
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Azure ricerca cognitiva è una scelta interessante per molte applicazioni. Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, prendere in considerazione i [diversi piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti di servizio](search-limits-quotas-capacity.md) per personalizzare meglio Azure ricerca cognitiva per adattare i carichi di lavoro delle applicazioni e le architetture di tutte le dimensioni .
+Azure ricerca cognitiva è una scelta interessante per molte applicazioni. Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, prendere in considerazione i [diversi piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti di servizio](search-limits-quotas-capacity.md) per personalizzare meglio Azure ricerca cognitiva per adattare i carichi di lavoro delle applicazioni e le architetture di tutte le dimensioni.
 
 Eventuali domande sugli scenari di Azure ricerca cognitiva e multi-tenant possono essere indirizzate a azuresearch_contact@microsoft.com.
 

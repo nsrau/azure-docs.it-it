@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
-ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/15/2019
+ms.openlocfilehash: ab3667d79827e9548338b5beda00c9992f100deb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821781"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132413"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -41,7 +41,7 @@ Questo articolo fornisce indicazioni che consentono di abilitare la telemetria d
 
 È possibile abilitare e gestire le metriche e la registrazione dei dati di telemetria diagnostica usando uno dei metodi seguenti:
 
-- Portale di Azure
+- portale di Azure
 - PowerShell
 - Interfaccia della riga di comando di Azure
 - API REST di Monitoraggio di Azure
@@ -64,6 +64,7 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 | Dati di telemetria di monitoraggio per database | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
 | :------------------- | ----- | ----- |
 | [Metriche di base](#basic-metrics): contiene DTU/percentuale CPU, limite DTU/CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, spazio di archiviazione, percentuale di archiviazione e XTP percentuale di archiviazione. | Sì | No |
+| [Istanza e app avanzate](#advanced-metrics): contiene i dati del database di sistema tempdb e le dimensioni del file di log e il file di log percentuale del tempdb utilizzati. | Sì | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contiene informazioni sulle statistiche di runtime delle query, ad esempio le statistiche di utilizzo della CPU e della durata delle query. | Sì | Sì |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): contiene informazioni sulle statistiche di attesa delle query, quali le query in attesa, come CPU, log e blocco. | Sì | Sì |
 | [Errors](#errors-dataset): contiene informazioni sugli errori SQL in un database. | Sì | Sì |
@@ -80,7 +81,7 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 > [!NOTE]
 > I registri di sicurezza e SQLSecurityAuditEvents non possono essere abilitati dalle impostazioni di diagnostica del database (anche se visualizzate sullo schermo). Per abilitare lo streaming dei log di controllo, vedere [configurare il controllo per il database](sql-database-auditing.md#subheading-2)e [controllare i log nei log di monitoraggio di Azure e hub eventi di Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
-## <a name="azure-portal"></a>Portale di Azure
+## <a name="azure-portal"></a>portale di Azure
 
 Per configurare la trasmissione dei dati di telemetria di diagnostica, è possibile usare il menu **impostazioni di diagnostica** per ogni database singolo, in pool o istanza in portale di Azure. Inoltre, la telemetria diagnostica può essere configurata separatamente per i contenitori di database: pool elastici e istanze gestite. È possibile impostare le destinazioni seguenti per trasmettere i dati di telemetria di diagnostica: archiviazione di Azure, Hub eventi di Azure e log di monitoraggio di Azure.
 
@@ -359,7 +360,7 @@ Se si usano pool elastici o istanze gestite, è necessario anche configurare le 
 
 Dopo aver eseguito lo streaming dei dati selezionati in Hub eventi, sarà possibile iniziare a valutare scenari di monitoraggio avanzati. Hub eventi funge da ingresso per una pipeline di eventi. Dopo aver raccolto i dati in un hub eventi, potranno essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatore di archiviazione. Hub eventi separa la produzione di un flusso di eventi dal consumo di tali eventi. In questo modo, i consumer eventi possono accedere agli eventi in una pianificazione personalizzata. Per altre informazioni sugli hub eventi, vedere:
 
-- [Cosa sono gli hub eventi di Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Che cos'è Hub eventi?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 È possibile usare le metriche tramesse in hub eventi per:
@@ -429,18 +430,28 @@ Per informazioni dettagliate sulle metriche di base per risorsa, vedere le tabel
 |---|---|
 |Database SQL di Azure|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
 
+## <a name="advanced-metrics"></a>Metriche avanzate
+
+Per informazioni dettagliate sulle metriche avanzate, vedere la tabella seguente.
+
+|**Metrica**|**Nome visualizzato per la metrica**|**Descrizione**|
+|---|---|---|
+|tempdb_data_size| Kilobyte dimensioni file di dati tempdb |Dimensioni del file di dati tempdb. Non applicabile ai data warehouse. Questa metrica sarà disponibile per i database che usano il modello di acquisto vCore o 100 DTU e versioni successive per i modelli di acquisto basati su DTU. |
+|tempdb_log_size| Kilobyte dimensioni file di log tempdb |Kilobyte dimensioni file di log tempdb. Non applicabile ai data warehouse. Questa metrica sarà disponibile per i database che usano il modello di acquisto vCore o 100 DTU e versioni successive per i modelli di acquisto basati su DTU. |
+|tempdb_log_used_percent| Log percentuale tempdb utilizzato |Log percentuale tempdb utilizzato. Non applicabile ai data warehouse. Questa metrica sarà disponibile per i database che usano il modello di acquisto vCore o 100 DTU e versioni successive per i modelli di acquisto basati su DTU. |
+
 ## <a name="basic-logs"></a>Log di base
 
 I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nelle tabelle seguenti. Vedere [registrazione diagnostica supportata](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) per comprendere quali log sono supportati per una particolare versione del database: database SQL singolo, in pool o istanza di Azure.
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Statistiche sull'utilizzo delle risorse per l'istanza gestita
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Sempre: ResourceUsageStats |
 |Risorsa|Nome della risorsa |
@@ -460,12 +471,12 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 
 ### <a name="query-store-runtime-statistics"></a>Statistiche di runtime di Query Store
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: QueryStoreRuntimeStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreRuntimeStatisticsEvent |
@@ -511,12 +522,12 @@ Altre informazioni sui [dati delle statistiche di runtime di Query Store](https:
 
 ### <a name="query-store-wait-statistics"></a>Statistiche relative alle attese di Query Store
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: QueryStoreWaitStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreWaitStatisticsEvent |
@@ -549,12 +560,12 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 
 ### <a name="errors-dataset"></a>Set di dati di errori
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: Errors |
 |OperationName|Nome dell'operazione. Always: ErrorEvent |
@@ -566,7 +577,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
 |ResourceId|URI della risorsa |
-|Message|Messaggio di errore in testo normale |
+|Messaggio|Messaggio di errore in testo normale |
 |user_defined_b|È il bit di errore definito dall'utente |
 |error_number_d|Codice di errore |
 |Gravità|Gravità dell'errore |
@@ -578,12 +589,12 @@ Altre informazioni sui [messaggi di errore di SQL Server](https://docs.microsoft
 
 ### <a name="database-wait-statistics-dataset"></a>Set di dati delle statistiche di attesa del database
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: DatabaseWaitStatistics |
 |OperationName|Nome dell'operazione. Always: DatabaseWaitStatisticsEvent |
@@ -607,12 +618,12 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 
 ### <a name="time-outs-dataset"></a>Set di dati dei timeout
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: Timeouts |
 |OperationName|Nome dell'operazione. Always: TimeoutEvent |
@@ -630,12 +641,12 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 
 ### <a name="blockings-dataset"></a>Set di dati dei blocchi
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: Blocks |
 |OperationName|Nome dell'operazione. Always: BlockEvent |
@@ -654,12 +665,12 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 
 ### <a name="deadlocks-dataset"></a>Set di dati di deadlock
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC] |Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: Deadlocks |
 |OperationName|Nome dell'operazione. Always: DeadlockEvent |
@@ -675,12 +686,12 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 
 ### <a name="automatic-tuning-dataset"></a>Set di dati di ottimizzazione automatica
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Always: AzureDiagnostics |
+|digitare|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Categoria|Nome della categoria. Always: AutomaticTuning |
 |Risorsa|Nome della risorsa |

@@ -1,5 +1,5 @@
 ---
-title: Mapping dei campi per l'indicizzazione automatica mediante gli indicizzatori
+title: Mapping dei campi negli indicizzatori
 titleSuffix: Azure Cognitive Search
 description: Configurare i mapping dei campi in un indicizzatore per tenere conto delle differenze nei nomi dei campi e nelle rappresentazioni dei dati.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786965"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124004"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di Azure ricerca cognitiva
 
@@ -175,11 +175,14 @@ Azure ricerca cognitiva supporta due codifiche Base64 diverse. Quando si codific
 
 #### <a name="base64-encoding-options"></a>opzioni di codifica Base64
 
-Azure ricerca cognitiva supporta due codifiche Base64 diverse: **token URL HttpServerUtility**e **codifica Base64 con URL sicuro senza spaziatura interna**. Una stringa con codifica Base64 durante l'indicizzazione deve essere decodificata in un secondo momento con le stesse opzioni di codifica; in caso contrario, il risultato non corrisponderà a quello originale.
+Azure ricerca cognitiva supporta la codifica Base64 sicura per gli URL e la codifica Base64 normale. Una stringa con codifica Base64 durante l'indicizzazione deve essere decodificata in un secondo momento con le stesse opzioni di codifica; in caso contrario, il risultato non corrisponderà a quello originale.
 
 Se i parametri `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` per la codifica e la decodifica sono impostati rispettivamente su `true`, `base64Encode` si comporta come [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e `base64Decode` si comporta come [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Se non si usa la .NET Framework completa (ovvero si usa .NET Core o un altro Framework) per produrre i valori chiave per emulare il comportamento di Azure ricerca cognitiva, è necessario impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `false`. A seconda della libreria in uso, le funzioni di codifica e decodifica Base64 potrebbero essere diverse da quelle usate da Azure ricerca cognitiva.
+> [!WARNING]
+> Se `base64Encode` viene utilizzato per generare valori di chiave, `useHttpServerUtilityUrlTokenEncode` deve essere impostato su true. Per i valori delle chiavi è possibile usare solo la codifica Base64 con URL sicuro. Per il set completo di restrizioni sui caratteri nei valori delle chiavi, vedere la pagina relativa alle [regole &#40;di denominazione di Azure ricerca cognitiva&#41; ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) .
+
+Le librerie .NET in Azure ricerca cognitiva presuppongono la .NET Framework completa, che fornisce la codifica incorporata. Le opzioni `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` sfruttano questa functionaity incorporata. Se si usa .NET Core o un altro Framework, è consigliabile impostare tali opzioni su `false` e chiamare direttamente le funzioni di codifica e decodifica del Framework.
 
 La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`. Per determinare l'eventuale elaborazione aggiuntiva necessaria per le funzioni Base64, applicare la funzione di codifica della libreria nella stringa `00>00?00` e confrontare l'output con l'output previsto `MDA-MDA_MDA`.
 
@@ -188,7 +191,7 @@ La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`.
 | Base64 con spaziatura interna | `MDA+MDA/MDA=` | Usare caratteri sicuri per gli URL e rimuovere la spaziatura interna | Usare caratteri Base64 standard e aggiungere spaziatura interna |
 | Base64 senza spaziatura interna | `MDA+MDA/MDA` | Usare caratteri sicuri per gli URL | Usare caratteri Base64 standard |
 | Base64 sicura per gli URL con spaziatura interna | `MDA-MDA_MDA=` | Rimuovere la spaziatura interna | Aggiungere spaziatura interna |
-| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | Nessuno | Nessuno |
+| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | nessuno | nessuno |
 
 <a name="extractTokenAtPositionFunction"></a>
 

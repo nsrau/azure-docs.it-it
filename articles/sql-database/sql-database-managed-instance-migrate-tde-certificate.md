@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 202267d4fffc7c6f0d99cd2a6ef3bbee82947a81
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821797"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132403"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Eseguire la migrazione del certificato di un database protetto tramite TDE a un'istanza gestita del database SQL di Azure
 
@@ -32,7 +32,7 @@ Per un'opzione alternativa basata sull'uso di un servizio completamente gestito 
 > [!IMPORTANT]
 > Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. Al termine del ripristino, il certificato migrato viene sostituito da una protezione diversa, ovvero un certificato gestito dal servizio o una chiave asimmetrica dall'insieme di credenziali delle chiavi, a seconda del tipo di Transparent Data Encryption impostato sull'istanza.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -41,7 +41,7 @@ Per un'opzione alternativa basata sull'uso di un servizio completamente gestito 
 Per completare le procedure in questo articolo, sono necessari i prerequisiti seguenti:
 
 - Strumento da riga di comando [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) installato nel server locale o in un altro computer con accesso al certificato esportato come file. La strumento Pvk2Pfx fa parte di [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), un ambiente della riga di comando completo e autonomo.
-- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) versione 5.0 o successiva installato.
+- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) versione 5.0 o successiva installato.
 - Modulo Azure PowerShell [installato e aggiornato](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - [AZ. SQL Module](https://www.powershellgallery.com/packages/Az.Sql).
   Eseguire questi comandi in PowerShell per installare/aggiornare il modulo di PowerShell:

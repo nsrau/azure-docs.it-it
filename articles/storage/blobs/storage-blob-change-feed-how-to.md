@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 00805d6284c166d0ec03b9fe88482377a9488314
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084859"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111864"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Elaborare il feed delle modifiche nell'archiviazione BLOB di Azure (anteprima)
 
@@ -36,9 +36,9 @@ Per altre informazioni sul feed delle modifiche, vedere [feed delle modifiche ne
 
 ## <a name="connect-to-the-storage-account"></a>Effettuare la connessione all'account di archiviazione
 
-Analizzare la stringa di connessione chiamando il metodo [CloudStorageAccount. TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) . 
+Analizzare la stringa di connessione chiamando il metodo [CloudStorageAccount. TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) . 
 
-Quindi, creare un oggetto che rappresenti l'archiviazione BLOB nell'account di archiviazione chiamando il metodo [CloudStorageAccount. CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) .
+Quindi, creare un oggetto che rappresenti l'archiviazione BLOB nell'account di archiviazione chiamando il metodo [CloudStorageAccount. CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient) .
 
 ```cs
 public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)

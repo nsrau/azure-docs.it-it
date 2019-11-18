@@ -1,25 +1,17 @@
 ---
-title: Come configurare il clustering Redis per una Cache Redis di Azure Premium | Microsoft Docs
+title: Come configurare il clustering Redis per una Cache Redis di Azure Premium
 description: In questo articolo viene illustrato come creare e gestire il clustering Redis per le istanze di Cache Redis di Azure Premium.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596913"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122151"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Come configurare il clustering Redis per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. In questo articolo viene descritto come configurare il clustering in un'istanza di Cache Redis di Azure Premium.
@@ -38,20 +30,20 @@ Il clustering non aumenta il numero di connessioni disponibili per una cache in 
 
 In Azure, il cluster Redis viene offerto nel modello primario/replica, in cui ogni partizione dispone di una coppia primario/di replica con la replica, in cui la replica viene gestita dal servizio Cache Redis di Azure. 
 
-## <a name="clustering"></a>Clustering
+## <a name="clustering"></a>clustering
 Le funzionalità di clustering vengono abilitate nel pannello **New Azure Cache for Redis** (Nuova cache Redis di Azure) durante la creazione della cache. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Le funzionalità di clustering vengono configurate nel pannello **Cluster Redis** .
 
-![Clustering][redis-cache-clustering]
+![clustering][redis-cache-clustering]
 
 È possibile includere fino a 10 partizioni nel cluster. Fare clic su **Abilitato** e far scorrere il dispositivo di scorrimento o digitare un numero compreso tra 1 e 10 per **Numero di partizioni**, quindi fare clic su **OK**.
 
 Ogni partizione è una coppia di cache primaria/di replica gestita da Azure e la dimensione totale della cache viene calcolata moltiplicando il numero di partizioni per la dimensione della cache selezionata nel piano tariffario. 
 
-![Clustering][redis-cache-clustering-selected]
+![clustering][redis-cache-clustering-selected]
 
 Dopo aver creato la cache è possibile connettersi alla cache e usarla come una cache non in cluster e Redis distribuisce i dati tra le partizioni della cache. Se la diagnostica è [abilitata](cache-how-to-monitor.md#enable-cache-diagnostics), le metriche vengono acquisite separatamente per ogni partizione e possono essere [visualizzate](cache-how-to-monitor.md) nel pannello Azure Cache for Redis (Cache Redis di Azure). 
 
@@ -61,7 +53,7 @@ Dopo aver creato la cache è possibile connettersi alla cache e usarla come una 
 > 
 > 
 
-Per un codice di esempio sull'uso del clustering con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
+Per un codice di esempio sull'utilizzo del clustering con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 <a name="cluster-size"></a>
 
@@ -118,10 +110,10 @@ Per prestazioni e velocità effettiva ottimali, è consigliabile distribuire le 
 
 Per altre informazioni, vedere le pagine relative al [modello di distribuzione delle chiavi](https://redis.io/topics/cluster-spec#keys-distribution-model), al [partizionamento orizzontale del cluster Redis](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding) e ai [tag hash per le chiavi](https://redis.io/topics/cluster-spec#keys-hash-tags).
 
-Per un codice di esempio sull'uso del clustering e sul posizionamento delle chiavi nella stessa partizione con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
+Per un codice di esempio sull'utilizzo del clustering e sul posizionamento delle chiavi nella stessa partizione con il client StackExchange.Redis, vedere la porzione [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) dell'esempio [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>Quali sono le dimensioni massime della cache che è possibile creare?
-Le dimensioni massime della cache Premium sono di 120 GB. È possibile creare fino a 10 partizioni con una dimensione massima di 1,2 TB GB. Se è necessaria una dimensione maggiore, è possibile [farne richiesta](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Per altre informazioni, vedere [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/).
+Le dimensioni massime della cache Premium sono di 120 GB. È possibile creare fino a 10 partizioni con una dimensione massima di 1,2 TB GB. Se è necessaria una dimensione maggiore, è possibile [farne richiesta](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Per altre informazioni, vedere [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) (Prezzi di Cache Redis di Azure).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Tutti i client Redis supportano il clustering?
 Non tutti i client supportano il clustering di Redis. Verificare la documentazione per la libreria in uso, per verificare che si stia usando una libreria e una versione che supportano il clustering. StackExchange. Redis è una libreria che supporta il clustering nelle versioni più recenti. Per altre informazioni su altri client, vedere la sezione dedicata alle [prove con il cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) nell'[esercitazione per il cluster Redis](https://redis.io/topics/cluster-tutorial). 
@@ -160,7 +152,7 @@ Il clustering è disponibile esclusivamente per le cache Premium.
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>È possibile usare il clustering con il provider di stato della sessione ASP.NET Redis e il provider di cache di output?
 * **Provider di cache di output Redis** : nessuna modifica necessaria.
-* **Provider di stato della sessione Redis**: per usare il clustering, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Si tratta di una modifica significativa. Per altre informazioni, vedere [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Dettagli delle modifiche significative della versione 2.0.0).
+* **Provider di stato della sessione Redis**: per usare il clustering, è necessario usare [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 o versione successiva. In caso contrario, verrà generata un'eccezione. Si tratta di una modifica significativa. Per altre informazioni, vedere la pagina relativa ai [dettagli delle modifiche significative della versione 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
 

@@ -1,14 +1,14 @@
 ---
 title: Funzioni per i progetti di Azure
-description: Descrive le funzioni da usare con le definizioni e le assegnazioni di progetti di Azure.
+description: Descrive le funzioni disponibili per l'uso con gli artefatti del progetto in definizioni e assegnazioni di progetti di Azure.
 ms.date: 04/15/2019
 ms.topic: reference
-ms.openlocfilehash: 5f4948b55b8889094570574647b7a35ce08f5c12
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960300"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128764"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con i progetti di Azure
 

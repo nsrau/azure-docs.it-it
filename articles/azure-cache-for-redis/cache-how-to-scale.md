@@ -1,25 +1,17 @@
 ---
-title: Come ridimensionare Cache Redis di Azure | Microsoft Docs
+title: Come ridimensionare Cache Redis di Azure
 description: Informazioni su come ridimensionare le istanze di Cache Redis di Azure
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 21c93cac8b4126a46e4c3dc396db9857f6b62de9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0fe4092a93e34d6e6b4bb4c4441609f696518b86
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755443"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122133"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -39,11 +31,11 @@ Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è
 ## <a name="scale-a-cache"></a>Ridimensionare una cache
 Per ridimensionare la cache, [accedere alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Ridimensionare** nel **menu Risorsa**.
 
-![Scalare](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Ridimensionare](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selezionare il piano tariffario desiderato nel pannello **Seleziona piano tariffario** e fare clic su **Seleziona**.
 
-![Piano tariffario][redis-cache-pricing-tier-blade]
+![Pricing tier][redis-cache-pricing-tier-blade]
 
 
 Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti:
@@ -57,7 +49,7 @@ Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti
  
 Mentre è in corso il ridimensionamento della cache in base al nuovo piano tariffario, nel pannello **Cache Redis di Azure** viene visualizzato lo stato **Ridimensionamento**.
 
-![Scalabilità][redis-cache-scaling]
+![Ridimensionamento][redis-cache-scaling]
 
 Al termine dell'operazione, lo stato passa da **Ridimensionamento** a **In esecuzione**.
 
@@ -72,7 +64,7 @@ Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile ridimensionare le istanze di Cache Redis di Azure con PowerShell usando il cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando le proprietà `Size`, `Sku` o `ShardCount` vengono modificate. L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
+È possibile ridimensionare le istanze di Cache Redis di Azure con PowerShell usando il cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando le proprietà `Size`, `Sku` o `ShardCount` vengono modificate. L'esempio seguente illustra come ridimensionare una cache denominata `myCache` configurando una dimensione di 2,5 GB. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
