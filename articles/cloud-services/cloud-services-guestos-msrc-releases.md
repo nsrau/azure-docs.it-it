@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 11/15/2019
 ms.author: raiye
-ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fd4936357035d8163130064bd6f0600c9d2b08bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888316"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150005"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="november-2019-guest-os"></a>Sistema operativo guest di novembre 2019
+
+>[!NOTE]
+>Il sistema operativo guest di novembre è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di novembre. L'elenco è soggetto a variazioni.
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  2,92  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525233]  |  Windows Security   |  2,92  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  3,79  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525253]  |  Windows Security   |  3,79  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  4,72  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525250]  |  Windows Security   |  4,72  |  12 nov, 2019  |
+|  Rel 19-11   |  [4525236]  |  Aggiornamento cumulativo più recente   |  5,37  |  12 nov, 2019  |
+|  Rel 19-11   |  [4523205]  |  Aggiornamento cumulativo più recente   |  6,13  |  12 nov, 2019  |
+|  Rel 19-11   |  [4519976]  |  Non-sicurezza   |  2,92  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4520007]  |  Non-sicurezza   |  3,79  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  3,79  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4520005]  |  Non-sicurezza   |  4,72  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  4,72  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  5,37  |  8 ottobre 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  6,13  |  8 ottobre 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+
 
 ## <a name="october-2019-guest-os"></a>Sistema operativo guest di ottobre 2019
 
@@ -225,7 +265,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  11 giugno 2019  |
 |  Rel 19-06   |  [4494174]  |  Aggiornamento microcodice   |  6.8  |  11 giugno 2019  |
 |  Rel 19-06   |  [4494175]  |  Aggiornamento microcodice   |  5,32  |  3 giugno 2019  |
-|  Rel 19-06   |  [4503308]  |  Lampeggiante   |  3,74, 4,67, 5,32, 6,8  |  11 giugno 2019  |
+|  Rel 19-06   |  [4503308]  |  Lampeggiante   |  3.74, 4.67, 5.32, 6.8  |  11 giugno 2019  |
 |  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2,87, 3,74, 4,67  |  13 giugno, 2019  |
 |  N/D  |  [4499164]  |  Maggio '19 non-sicurezza  |  2.87  |  14 maggio 2019  |
 |  N/D  |  [4495606]  |  Maggio '19 .NET 3,5 senza sicurezza  |  2.87  |  14 maggio 2019  |
