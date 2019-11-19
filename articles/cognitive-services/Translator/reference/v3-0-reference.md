@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: c07673e7b170170de4723a1232d2e7281feaaf99
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888085"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123043"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -41,7 +41,7 @@ Nella maggior parte dei casi le richieste per l'API Traduzione testuale Microsof
 
 Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint di area desiderato:
 
-|Descrizione|Geografia di Azure|URL di base|
+|DESCRIZIONE|Geografia di Azure|URL di base|
 |:--|:--|:--|
 |Azure|Globale (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|
@@ -54,7 +54,7 @@ Sottoscrivere la [funzionalità multiservizio di API traduzione testuale o servi
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella descrive il modo in cui viene usato ogni:
 
-|Headers|Descrizione|
+|Headers|DESCRIZIONE|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Autorizzazione|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
@@ -98,7 +98,7 @@ Quando si usa una chiave privata a più servizi, è necessario includere due int
 
 L'area è obbligatoria per la sottoscrizione dell'API del testo multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione di testo quando si usa la chiave di sottoscrizione multiservizio e deve essere la stessa area selezionata al momento dell'iscrizione per la sottoscrizione multiservizio tramite il portale di Azure.
 
-Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 e 2.`japaneast``japanwest``koreacentral``northcentralus``northeurope``southcentralus``southeastasia``uksouth``westcentralus``westeurope``westus``westus2``southafricanorth`
+Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `southafricanorth`e.
 
 Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
 
@@ -124,7 +124,7 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
 
-| Codice | Descrizione |
+| Codice | DESCRIZIONE |
 |:----|:-----|
 | 400000| Uno degli input della richiesta non è valido.|
 | 400001| Il parametro "scope" non è valido.|
@@ -165,3 +165,21 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 | 503000| Il servizio è temporaneamente non disponibile. Riprovare. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 
+## <a name="metrics"></a>Metrica 
+Le metriche consentono di visualizzare le informazioni sull'utilizzo e sulla disponibilità del convertitore in portale di Azure, nella sezione metrica, come illustrato nella schermata seguente. Per altre informazioni, vedere [metriche dei dati e della piattaforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Metriche del traduttore](../media/translatormetrics.png)
+
+Questa tabella elenca le metriche disponibili con una descrizione del modo in cui vengono usate per monitorare le chiamate API di traduzione.
+
+| Metrica | DESCRIZIONE |
+|:----|:-----|
+| TotalCalls| Numero totale di chiamate API.|
+| TotalTokenCalls| Numero totale di chiamate API tramite il servizio token utilizzando il token di autenticazione.|
+| SuccessfulCalls| Numero di chiamate riuscite.|
+| TotalErrors| Numero di chiamate con risposta di errore.|
+| BlockedCalls| Numero di chiamate che hanno superato il limite di frequenza o di quota.|
+| ServerErrors| Numero di chiamate con errore interno del server (5XX).|
+| ClientErrors| Numero di chiamate con errore sul lato client (4XX).|
+| Latenza| Durata per completare la richiesta in millisecondi.|
+| CharactersTranslated| Numero totale di caratteri nella richiesta di testo in ingresso.|

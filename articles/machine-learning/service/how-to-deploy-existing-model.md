@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 4e82d52428195797fb5cdc7a54e900fff7d37655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b25189eb63961056c7966722dccb6857736d0c35
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671453"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123239"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usare un modello esistente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Se si dispone di un modello di apprendimento automatico di cui è stato eseguito
 >
 > Per informazioni generali sul processo di distribuzione, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-Per ulteriori informazioni, vedere il riferimento a [Model. Register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none-) .
+Per ulteriori informazioni, vedere il riferimento a [Model. Register ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none-) .
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -265,7 +265,7 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-Per ulteriori informazioni, vedere il riferimento a [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-) .
+Per ulteriori informazioni, vedere il riferimento a [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
 
 Per distribuire il modello dall'interfaccia della riga di comando, usare il comando seguente. Questo comando distribuisce la versione 1 del modello registrato (`sentiment:1`) utilizzando la configurazione di inferenza e distribuzione archiviata nei file `inferenceConfig.json` e `deploymentConfig.json`:
 
