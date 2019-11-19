@@ -1,28 +1,20 @@
 ---
-title: Come monitorare Cache Redis di Azure | Microsoft Docs
+title: Come monitorare Cache Redis di Azure
 description: Informazioni su come monitorare l'integrità e le prestazioni delle istanze di Cache Redis di Azure
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 5ae1827c7af3346a9197a9e28ee442d8aca0e38f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73e1e3bfbc84e6264897d571fca1bf31061d7ab6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299531"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122760"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Come monitorare Cache Redis di Azure
-La Cache Redis di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti consentono di monitorare l'integrità delle istanze di Cache Redis di Azure e aiutano a gestire le applicazioni di memorizzazione nella cache.
+La Cache Redis di Azure usa [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) per offrire alcune opzioni per il monitoraggio delle istanze della cache. È possibile visualizzare le metriche, aggiungere i grafici delle metriche alla Schermata iniziale, personalizzare l'intervallo di data e ora per il monitoraggio dei grafici, aggiungere e rimuovere metriche dai grafici e impostare avvisi per le situazioni in cui vengono soddisfatte determinate condizioni. Questi strumenti permettono di monitorare l'integrità delle istanze di Cache Redis di Azure e semplificano la gestione delle applicazioni di memorizzazione nella cache.
 
 Le metriche per le istanze di Cache Redis di Azure vengono raccolte tramite il comando [INFO](https://redis.io/commands/info) di Redis circa due volte al minuto e vengono archiviate automaticamente per 30 giorni (vedere [Esportare le metriche della cache](#export-cache-metrics) per configurare criteri di conservazione diversi), in modo che sia possibile visualizzarle nei grafici relativi alle metriche e valutarle in base alla regole di avviso. Per ulteriori informazioni sui diversi valori INFO usati per ciascuna metrica della cache, vedere [Metriche disponibili e intervalli di report](#available-metrics-and-reporting-intervals).
 
@@ -70,7 +62,7 @@ Per configurare un account di archiviazione per le metriche della cache:
 3. Selezionare **Archivia in un account di archiviazione**.
 4. Selezionare l'account di archiviazione in cui archiviare le metriche della cache.
 5. Selezionare la casella di controllo **1 minuto** e specificare un criterio di **Conservazione (giorni)** . Se non si vogliono applicare criteri di conservazione e conservare i dati senza scadenza, impostare **Conservazione (giorni)** su **0**.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 ![Diagnostica di Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
@@ -96,12 +88,12 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 > 
 > 
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | Riscontri cache |Il numero di ricerche chiave riuscite durante l'intervallo di report specificato. Questo `keyspace_hits` è associato al comando [INFO](https://redis.io/commands/info) di Redis. |
 | Latenza della cache (anteprima) | La latenza della cache calcolata in base alla latenza internodo della cache. Questa metrica viene misurata in microsecondi e ha tre dimensioni: "Avg", "Min" e "Max" che rappresentano rispettivamente la latenza media, minima e massima della cache durante l'intervallo di report specificato. |
 | Mancati riscontri nella cache |Il numero di ricerche chiave non riuscite durante l'intervallo di report specificato. Questo `keyspace_misses` è associato al comando INFO di Redis. I mancati riscontri nella cache non indicano necessariamente un problema con la cache. Ad esempio, quando si utilizza il modello di programmazione cache-aside, un'applicazione esegue la ricerca di un elemento innanzitutto nella cache. Se l'elemento non è presente (mancato riscontro nella cache), viene recuperato dal database e aggiunto alla cache per la volta successiva. I mancati riscontri nella cache sono un comportamento normale per il modello di programmazione cache-aside. Se il numero di mancati riscontri nella cache è superiore al previsto, esaminare la logica dell'applicazione che consente di popolare ed eseguire le lettura dalla cache. Se gli elementi vengono rimossi dalla cache a causa della pressione della memoria, si possono verificare alcuni mancati riscontri nella cache, ma una metrica migliore da monitorare relativamente alla pressione della memoria sarebbe `Used Memory` o `Evicted Keys`. |
-| Lettura da cache |La quantità di dati letti dalla cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. **Questo valore corrisponde alla larghezza di banda della rete usata da questa cache. Se si desidera impostare avvisi per i limiti della larghezza di banda della rete lato server, usare questo contatore `Cache Read`. Per i limiti della larghezza di banda osservati nei diversi piani tariffari e nelle varie dimensioni della cache, vedere [questa tabella](cache-faq.md#cache-performance).** |
+| Lettura da cache |La quantità di dati letti dalla cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. **Questo valore corrisponde alla larghezza di banda di rete usata da questa cache. Per configurare gli avvisi per i limiti della larghezza di banda della rete lato server, è necessario crearli utilizzando questo contatore `Cache Read`. Vedere [questa tabella](cache-faq.md#cache-performance) per i limiti della larghezza di banda osservati per diversi piani tariffari e dimensioni della cache.** |
 | Scrittura nella cache |La quantità di dati scritti nella cache in megabyte al secondo (MB/s) durante l'intervallo di report specificato. Questo valore è derivato dalle schede di interfaccia di rete che supportano la macchina virtuale che ospita la cache, e non è specifico di Redis. Questo valore corrisponde alla larghezza di banda della rete relativa ai dati inviati alla cache dal client. |
 | Client connessi |Il numero di connessioni client alla cache durante l'intervallo di report specificato. Questo `connected_clients` è associato al comando INFO di Redis. Una volta raggiunto il [limite delle connessioni](cache-configure.md#default-redis-server-configuration) , i successivi tentativi di connessione alla cache avranno esito negativo. Si noti che anche in assenza di applicazioni client attive, è possibile che siano presenti alcune istanze di client connesse a causa di processi e connessioni interni. |
 | CPU |L'utilizzo della CPU del server Cache Redis di Azure in percentuale durante l'intervallo di report specificato. Questo valore è associato al contatore delle prestazioni `\Processor(_Total)\% Processor Time` del sistema operativo. |
@@ -111,15 +103,15 @@ In ogni metrica sono incluse due versioni. Una metrica misura la prestazione per
 | Operazioni Get |Il numero di operazioni Get nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` e `cmdstat_getrange`, ed è equivalente alla somma dei riscontri e dei mancati riscontri nella cache durante l'intervallo di report. |
 | Operazioni al secondo | Numero totale di comandi elaborati al secondo dal server di cache durante l'intervallo di report specificato.  Questo valore corrisponde a "instantaneous_ops_per_sec" dal comando INFO di Redis. |
 | Carico server Redis |La percentuale di cicli in cui il server di Redis è impegnato nell’elaborare e non inattivo in attesa di messaggi. Se il contatore raggiunge 100 significa che il server di Redis ha raggiunto un limite massimo delle prestazioni e la CPU non può elaborare il lavoro più velocemente. Se si osserva un elevato carico del server Redis si vedranno le eccezioni di timeout nel client. In tal caso, è necessario prendere in considerazione il dimensionamento o il partizionamento dei dati in più cache. |
-| Set |Il numero di operazioni Set nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
+| Operazioni Set |Il numero di operazioni Set nella cache durante l'intervallo di report specificato. Questo valore è la somma dei seguenti valori del comando INFO di Redis (tutto): `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` e `cmdstat_setnx`. |
 | Totale chiavi  | Il numero massimo di chiavi nella cache durante l'ultimo periodo di report. Questo `keyspace` è associato al comando INFO di Redis. A causa di una limitazione del sistema di metriche sottostante, per le cache con il clustering abilitato, il valore Totale chiavi restituisce il numero massimo di chiavi della partizione che includeva il numero massimo di chiavi durante l'intervallo di report.  |
-| Operazioni totali |Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore esegue il mapping a `total_commands_processed` dal comando INFO di Redis. Si noti che quando Cache Redis di Azure viene usata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
+| Totale operazioni |Numero totale di comandi elaborati dal server di cache durante l'intervallo di report specificato. Questo valore esegue il mapping a `total_commands_processed` dal comando INFO di Redis. Si noti che quando Cache Redis di Azure viene usata esclusivamente per la pubblicazione o la sottoscrizione non saranno disponibili metriche per `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, ma saranno disponibili metriche `Total Operations` che riflettono l'utilizzo della cache per le operazioni di pubblicazione/sottoscrizione. |
 | Memoria utilizzata |La quantità di memoria cache utilizzata per le coppie chiave/valore nella cache in MB durante l'intervallo di report specificato. Questo valore esegue il mapping a `used_memory` dal comando INFO di Redis. Non include i metadati o la frammentazione. |
 | Percentuale memoria usata | La percentuale della memoria totale che viene usata durante l'intervallo di report specificato.  Fa riferimento al valore "used_memory" dal comando INFO di Redis per calcolare la percentuale. |
 | Memoria utilizzata RSS |La quantità di memoria cache utilizzata in MB durante l'intervallo di report specificato, comprese la frammentazione e i metadati. Questo valore esegue il mapping a `used_memory_rss` dal comando INFO di Redis. |
 
 <a name="operations-and-alerts"></a>
-## <a name="alerts"></a>Avvisi
+## <a name="alerts"></a>Alerts
 È possibile configurare un avviso basato sulle metriche e sui log attività. Monitoraggio di Azure consente di configurare un avviso in modo che, se attivato, esegua queste operazioni:
 
 * Inviare una notifica via posta elettronica
