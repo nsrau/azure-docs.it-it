@@ -1,23 +1,19 @@
 ---
 title: Profilare le applicazioni di produzione in Azure con Application Insights Profiler | Microsoft Docs
 description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338068"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820512"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Abilitare Application Insights Profiler per l'applicazione
@@ -26,13 +22,13 @@ Azure Application Insights Profiler offre analisi delle prestazioni per le appli
 
 Profiler funziona con le applicazioni .NET distribuite nei servizi di Azure seguenti. I collegamenti seguenti consentono di passare alle istruzioni specifiche per abilitare Profiler per ogni tipo di servizio.
 
-* [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 * [**Anteprima** ASP.NET Core app Web Linux di Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
-Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi.](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati di Profiler
 
@@ -128,7 +124,7 @@ Profiler viene eseguito in modo casuale per due minuti ogni ora in ogni macchina
 ## <a name="next-steps"></a>Passaggi successivi
 Abilitare Application Insights Profiler per l'applicazione Azure. Vedere anche:
 * [Servizi app](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
