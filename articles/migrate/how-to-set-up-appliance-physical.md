@@ -6,19 +6,19 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: raynew
-ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: MT
+ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907173"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158355"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
 Questo articolo descrive come configurare l'appliance Azure Migrate se si sta valutando server fisici con lo strumento di valutazione Azure Migrate: Server.
 
 > [!NOTE]
-> Se le funzionalità sono indicate qui, non è ancora possibile vedere il portale di Azure Migrate, bloccarsi. Verranno visualizzati nella settimana successiva.
+> Se le funzionalità sono indicate qui, non è ancora possibile vedere il portale di Azure Migrate, bloccarsi. Compariranno all'incirca la prossima settimana.
 
 Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Assessment server per eseguire le operazioni seguenti:
 
@@ -55,14 +55,15 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Per la versione 1.19.05.10 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
+3.  Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 5b98cf68dad495696c789bdad8f0d91b
+  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
 
 
-  
+
 ## <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate
 = Il programma di installazione esegue le operazioni seguenti:
 
@@ -110,7 +111,7 @@ Configurare l'appliance per la prima volta.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrare l'appliance con Azure Migrate
 
 1. Fare clic su **Log in** (Accedi). Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
-2. Nella nuova scheda accedere con le credenziali di Azure. 
+2. Nella nuova scheda accedere con le credenziali di Azure.
     - Accedere con il nome utente e la password.
     - L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web.
@@ -132,14 +133,14 @@ Connettersi dal dispositivo ai server fisici e avviare l'individuazione.
     - Per rimuovere un server, selezionare > **Elimina**.
 4. Dopo la convalida fare clic su **Salva e avvia individuazione** per avviare il processo di individuazione.
 
-Viene avviata l'individuazione. Per visualizzare i metadati delle VM individuate nel portale di Azure, sono necessari circa 15 minuti. 
+Viene avviata l'individuazione. Per visualizzare i metadati delle VM individuate nel portale di Azure, sono necessari circa 15 minuti.
 
 ## <a name="verify-servers-in-the-portal"></a>Verificare i server nel portale
 
 Al termine dell'individuazione, è possibile verificare che i server vengano visualizzati nel portale.
 
 1. Aprire il dashboard di Azure Migrate.
-2. Nella pagina **Azure migrate-server** > **Azure migrate: server Assessment** fare clic sull'icona che Visualizza il numero di **server individuati**. 
+2. Nella pagina **Azure migrate-server** > **Azure migrate: server Assessment** fare clic sull'icona che Visualizza il numero di **server individuati**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

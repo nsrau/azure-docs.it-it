@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882822"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167321"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: pianificare l'implementazione ibrida di Azure Active Directory join
 
@@ -30,7 +30,7 @@ Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività d
 
 Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio ad Azure AD, è possibile eseguire questa operazione eseguendo il join di Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
@@ -93,7 +93,8 @@ Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](ove
 - È possibile impedire che il dispositivo aggiunto al dominio venga Azure AD registrato aggiungendo la chiave del registro di sistema HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - In Windows 10 1803, se è configurato Windows Hello for business, l'utente deve reinstallare Windows Hello for business dopo la pulizia dello stato doppio. Questo problema è stato risolto con KB4512509
 
-
+> [!NOTE]
+> Il Azure AD dispositivo registrato non verrà rimosso automaticamente se è gestito da Intune.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Verifica la convalida controllata del join Azure AD ibrido
 
@@ -129,7 +130,7 @@ Un ambiente federato deve includere un provider di identità che supporta i requ
 > [!NOTE]
 > Azure AD non supporta certificati o smart card nei domini gestiti.
 
-A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido, che semplifica in modo significativo il processo di configurazione. Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](hybrid-azuread-join-manual.md). 
+A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido, che semplifica enormemente il processo di configurazione. Se non si può prendere in considerazione l'installazione della versione richiesta di Azure AD Connect, vedere [come configurare manualmente la registrazione dei dispositivi](hybrid-azuread-join-manual.md). 
 
 In base allo scenario che corrisponde all'infrastruttura di identità, vedere:
 
@@ -145,12 +146,12 @@ I nomi dell'entità utente di AD locale a volte possono essere diversi da quelli
 
 La tabella seguente contiene informazioni sul supporto per questi nomi dell'entità utente di AD locale nell'aggiunta ad Azure AD ibrido di Windows 10
 
-| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | Descrizione |
+| Tipo di nome dell'entità utente di AD locale | Tipo di dominio | Versione di Windows 10 | DESCRIZIONE |
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
 | Instradabile | Gestito | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestito | Non supportate | |
+| Non instradabile | Gestito | Non supportato | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

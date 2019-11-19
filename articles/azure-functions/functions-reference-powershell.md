@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: glenga
-ms.openlocfilehash: 0d398e9848559e70883c07498057d1807651a867
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3b8294c7bd91bcd6a2e0e533f5903f44e8aaea
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515660"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173672"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per gli sviluppatori di PowerShell per funzioni di Azure
 
 Questo articolo fornisce informazioni dettagliate su come scrivere funzioni di Azure con PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 Una funzione di Azure di PowerShell (funzione) viene rappresentata come uno script di PowerShell che viene eseguito quando viene attivato. Ogni script di funzione dispone di un file di `function.json` correlato che definisce il comportamento della funzione, ad esempio il modo in cui viene attivata e i relativi parametri di input e output. Per altre informazioni, vedere l' [articolo trigger e binding](functions-triggers-bindings.md). 
 
@@ -79,13 +77,13 @@ Il parametro `TriggerMetadata` viene usato per fornire informazioni aggiuntive s
 $TriggerMetadata.sys
 ```
 
-| Proprietà   | Description                                     | Type     |
+| Proprietà   | DESCRIZIONE                                     | digitare     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, in UTC, la funzione è stata attivata        | Data e ora |
-| MethodName | Nome della funzione attivata     | string   |
-| RandGuid   | GUID univoco dell'esecuzione della funzione | string   |
+| UtcNow     | Quando, in UTC, la funzione è stata attivata        | DateTime |
+| MethodName | Nome della funzione attivata     | stringa   |
+| RandGuid   | GUID univoco dell'esecuzione della funzione | stringa   |
 
-Ogni tipo di trigger ha un set di metadati diverso. Ad esempio, il `$TriggerMetadata` per `QueueTrigger` contiene le `InsertionTime`, `Id` `DequeueCount`, tra le altre cose. Per ulteriori informazioni sui metadati del trigger della coda, vedere la [documentazione ufficiale relativa ai trigger della coda](functions-bindings-storage-queue.md#trigger---message-metadata). Controllare la documentazione sui [trigger](functions-triggers-bindings.md) che si sta utilizzando per vedere cosa avviene all'interno dei metadati del trigger.
+Ogni tipo di trigger ha un set di metadati diverso. Ad esempio, il `$TriggerMetadata` per `QueueTrigger` contiene le `InsertionTime`, `Id``DequeueCount`, tra le altre cose. Per ulteriori informazioni sui metadati del trigger della coda, vedere la [documentazione ufficiale relativa ai trigger della coda](functions-bindings-storage-queue.md#trigger---message-metadata). Controllare la documentazione sui [trigger](functions-triggers-bindings.md) che si sta utilizzando per vedere cosa avviene all'interno dei metadati del trigger.
 
 ## <a name="bindings"></a>Associazioni
 
@@ -131,10 +129,10 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding`:
 
-| name | Type | Posizione | Description |
+| Nome | digitare | Posizione | DESCRIZIONE |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Stringa | 1 | Nome dell'associazione di output che si desidera impostare. |
-| **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
+| **`-Name`** | String | 1 | Nome dell'associazione di output che si desidera impostare. |
+| **`-Value`** | Object | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | denominata | Opzionale Quando specificato, impone l'impostazione del valore per un'associazione di output specificata. | 
 
 Sono supportati anche i parametri comuni seguenti: 
@@ -238,7 +236,7 @@ La registrazione nelle funzioni di PowerShell funziona come la normale registraz
 
 | Livello di registrazione delle funzioni | Cmdlet di registrazione |
 | ------------- | -------------- |
-| Errore | **`Write-Error`** |
+| Tipi di errore | **`Write-Error`** |
 | Avviso | **`Write-Warning`**  | 
 | Informazioni | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informazioni | Scrive nella registrazione a livello di _informazioni_ . |
 | Debug | **`Write-Debug`** |
@@ -251,7 +249,7 @@ Oltre a questi cmdlet, tutto ciò che viene scritto nella pipeline viene reindir
 
 ### <a name="configure-the-function-app-log-level"></a>Configurare il livello di registrazione dell'app per le funzioni
 
-Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la proprietà `logging.logLevel.default` nel riferimento [`host.json` file][informazioni di riferimento su host. json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
+Funzioni di Azure consente di definire il livello di soglia per facilitare il controllo del modo in cui le funzioni scrivono nei log. Per impostare la soglia per tutte le tracce scritte nella console, usare la `logging.logLevel.default` proprietà [`host.json`nel][informazioni di riferimento su host. json]. Questa impostazione si applica a tutte le funzioni dell'app per le funzioni.
 
 Nell'esempio seguente viene impostata la soglia per abilitare la registrazione dettagliata per tutte le funzioni, ma viene impostata la soglia per abilitare la registrazione di debug per una funzione denominata `MyFunction`:
 
@@ -281,10 +279,10 @@ Sono disponibili diversi trigger e associazioni da usare con l'app per le funzio
 Tutti i trigger e le associazioni sono rappresentati nel codice come pochi tipi di dati reali:
 
 * Hashtable
-* string
+* stringa
 * byte[]
 * int
-* Double
+* double
 * HttpRequestContext
 * HttpResponseContext
 
@@ -300,14 +298,14 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 L'oggetto Request passato nello script è del tipo `HttpRequestContext`, che presenta le proprietà seguenti:
 
-| Proprietà  | Description                                                    | Type                      |
+| Proprietà  | DESCRIZIONE                                                    | digitare                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | object |
-| **`Headers`** | Dizionario che contiene le intestazioni della richiesta.                | Dictionary < String, String ><sup> *</sup> |
-| **`Method`** | Metodo HTTP della richiesta.                                | string                    |
-| **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dictionary < String, String ><sup> *</sup> |
-| **`Query`** | Oggetto che contiene i parametri di query della richiesta.                  | Dictionary < String, String ><sup> *</sup> |
-| **`Url`** | URL della richiesta.                                        | string                    |
+| **`Body`**    | Oggetto che contiene il corpo della richiesta. `Body` viene serializzato nel tipo migliore in base ai dati. Se, ad esempio, i dati sono JSON, vengono passati come Hashtable. Se i dati sono una stringa, viene passata come stringa. | oggetto |
+| **`Headers`** | Dizionario che contiene le intestazioni della richiesta.                | Dictionary < String, String ><sup>*</sup> |
+| **`Method`** | Metodo HTTP della richiesta.                                | stringa                    |
+| **`Params`**  | Oggetto che contiene i parametri di routing della richiesta. | Dictionary < String, String ><sup>*</sup> |
+| **`Query`** | Oggetto che contiene i parametri di query della richiesta.                  | Dictionary < String, String ><sup>*</sup> |
+| **`Url`** | URL della richiesta.                                        | stringa                    |
 
 <sup>*</sup> Tutte le chiavi di `Dictionary<string,string>` non fanno distinzione tra maiuscole e minuscole.
 
@@ -315,12 +313,12 @@ L'oggetto Request passato nello script è del tipo `HttpRequestContext`, che pre
 
 L'oggetto Response da restituire è del tipo `HttpResponseContext`, che presenta le proprietà seguenti:
 
-| Proprietà      | Description                                                 | Type                      |
+| Proprietà      | DESCRIZIONE                                                 | digitare                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Oggetto che contiene il corpo della risposta.           | object                    |
-| **`ContentType`** | Una breve opzione per l'impostazione del tipo di contenuto per la risposta. | string                    |
+| **`Body`**  | Oggetto che contiene il corpo della risposta.           | oggetto                    |
+| **`ContentType`** | Una breve opzione per l'impostazione del tipo di contenuto per la risposta. | stringa                    |
 | **`Headers`** | Oggetto che contiene le intestazioni della risposta.               | Dictionary o Hashtable   |
-| **`StatusCode`**  | Codice di stato HTTP della risposta.                       | Stringa o numero intero             |
+| **`StatusCode`**  | Codice di stato HTTP della risposta.                       | stringa o int             |
 
 #### <a name="accessing-the-request-and-response"></a>Accesso a richiesta e risposta
 
@@ -410,7 +408,7 @@ Funzioni consente di sfruttare [PowerShell Gallery](https://www.powershellgaller
 }
 ```
 
-Quando si crea un nuovo progetto di funzioni di PowerShell, la gestione delle dipendenze è abilitata per impostazione predefinita con il [modulo `Az`](/powershell/azure/new-azureps-module-az) di Azure incluso. Il numero massimo di moduli attualmente supportati è 10. La sintassi supportata è _`MajorNumber`_ `.*` o la versione esatta del modulo, come illustrato nei requisiti seguenti. esempio psd1:
+Quando si crea un nuovo progetto di funzioni di PowerShell, la gestione delle dipendenze è abilitata per impostazione predefinita con il [modulo`Az`](/powershell/azure/new-azureps-module-az) di Azure incluso. Il numero massimo di moduli attualmente supportati è 10. La sintassi supportata è _`MajorNumber`_ `.*` o la versione esatta del modulo, come illustrato nei requisiti seguenti. esempio psd1:
 
 ```powershell
 @{
@@ -424,9 +422,9 @@ Quando si aggiorna il file requirements. psd1, i moduli aggiornati vengono insta
 > [!NOTE]
 > Le dipendenze gestite richiedono l'accesso a www.powershellgallery.com per scaricare i moduli. Quando si esegue localmente, verificare che il runtime possa accedere a questo URL aggiungendo le regole del firewall necessarie. 
 
-Le seguenti impostazioni dell'applicazione possono essere usate per modificare il modo in cui le dipendenze gestite vengono scaricate e installate. L'aggiornamento dell'app viene avviato entro `MDMaxBackgroundUpgradePeriod` e il processo di aggiornamento viene completato entro approssimativamente l'`MDNewSnapshotCheckPeriod`.
+Le seguenti impostazioni dell'applicazione possono essere usate per modificare il modo in cui le dipendenze gestite vengono scaricate e installate. L'aggiornamento dell'app viene avviato entro `MDMaxBackgroundUpgradePeriod`e il processo di aggiornamento viene completato entro approssimativamente l'`MDNewSnapshotCheckPeriod`.
 
-| Impostazione app per le funzioni              | Valore predefinito             | Description                                         |
+| Impostazione app per le funzioni              | Default value             | DESCRIZIONE                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 giorni)     | Ogni processo di lavoro di PowerShell avvia il controllo degli aggiornamenti del modulo sul PowerShell Gallery all'avvio del processo e ogni `MDMaxBackgroundUpgradePeriod` successivamente. Quando una nuova versione del modulo è disponibile nel PowerShell Gallery, viene installata nel file system e resa disponibile per i ruoli di lavoro di PowerShell. La riduzione di questo valore consente all'app per le funzioni di ottenere prima le versioni più recenti del modulo, ma aumenta anche l'utilizzo delle risorse dell'app (I/O di rete, CPU, archiviazione). L'aumento di questo valore comporta una riduzione dell'utilizzo delle risorse dell'app, ma può anche ritardare la distribuzione di nuove versioni dei moduli nell'app. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 ora)       | Dopo aver installato le nuove versioni del modulo nella file system, è necessario riavviare tutti i processi di lavoro di PowerShell. Il riavvio dei ruoli di lavoro di PowerShell influiscono sulla disponibilità dell'app perché può interrompere l'esecuzione della funzione corrente. Fino a quando non vengono riavviati tutti i processi di lavoro di PowerShell, le chiamate di funzione possono usare le versioni dei moduli precedenti o nuove. Il riavvio di tutti i ruoli di lavoro di PowerShell viene completato in `MDNewSnapshotCheckPeriod`. L'aumento di questo valore comporta una riduzione della frequenza delle interruzioni, ma può anche aumentare il periodo di tempo durante il quale le chiamate di funzione utilizzano le versioni precedenti o nuove del modulo in modo non deterministico. |
@@ -479,7 +477,7 @@ Molti moduli sono comunemente usati dal ruolo di lavoro del linguaggio di PowerS
 
 L'elenco corrente dei moduli è il seguente:
 
-* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulo usato per lavorare con gli archivi, ad esempio `.zip`, `.nupkg` e altri.
+* [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulo usato per lavorare con gli archivi, ad esempio `.zip`, `.nupkg`e altri.
 * **ThreadJob**: implementazione basata su thread delle API del processo di PowerShell.
 
 Per impostazione predefinita, funzioni utilizza la versione più recente di questi moduli. Per usare una versione specifica del modulo, inserire la versione specifica nella cartella `Modules` dell'app per le funzioni.
@@ -525,7 +523,7 @@ La concorrenza con Azure PowerShell ha un notevole valore, perché alcune operaz
 
 ## <a name="configure-function-scriptfile"></a>Configurare `scriptFile` di funzione
 
-Per impostazione predefinita, una funzione PowerShell viene eseguita da `run.ps1`, un file che condivide la stessa directory padre del `function.json` corrispondente.
+Per impostazione predefinita, una funzione PowerShell viene eseguita da `run.ps1`, un file che condivide la stessa directory padre del `function.json`corrispondente.
 
 La proprietà `scriptFile` nel `function.json` può essere usata per ottenere una struttura di cartelle simile all'esempio seguente:
 
@@ -610,7 +608,7 @@ Lo script viene eseguito a ogni chiamata. Evitare di usare `Install-Module` nell
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
-* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
+* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
 [informazioni di riferimento su host. JSON]: functions-host-json.md

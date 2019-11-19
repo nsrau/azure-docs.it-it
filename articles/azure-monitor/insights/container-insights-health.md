@@ -10,20 +10,26 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: e369067a3ff61ffefe1758f6fa8b4acdce4bb2e2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134437"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173643"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informazioni sull'integrità del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
 Con monitoraggio di Azure per i contenitori, monitora e segnala lo stato di integrità dei componenti dell'infrastruttura gestita e di tutti i nodi in esecuzione su qualsiasi cluster Kubernetes supportato da monitoraggio di Azure per i contenitori. Questa esperienza si estende oltre lo stato di integrità del cluster calcolato e segnalato sulla visualizzazione a più [cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), in cui è ora possibile capire se uno o più nodi del cluster sono vincolati alle risorse oppure se un nodo o un pod non è disponibile che può influisca su un'applicazione in esecuzione nel cluster in base a metriche curate. 
 
 Per informazioni su come abilitare monitoraggio di Azure per i contenitori, vedere caricare il [monitoraggio di Azure per i contenitori](container-insights-onboard.md).
+
+>[!NOTE]
+>Per supportare i cluster del motore AKS, verificare che soddisfi i requisiti seguenti:
+>- Usa la versione più recente del [client Helm](https://helm.sh/docs/using_helm/).
+>- La versione dell'agente in contenitori è *Microsoft/OMS: ciprod11012019*. Per aggiornare l'agente, vedere [aggiornamento dell'agente nel cluster Kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>
 
 ## <a name="overview"></a>Overview
 

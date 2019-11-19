@@ -1,19 +1,14 @@
 ---
-title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino con Backup di Azure
+title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 description: Viene descritto come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino con backup di Azure
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968529"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173352"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -34,7 +29,7 @@ In questo articolo viene spiegato come:
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-* [Esaminare](backup-architecture.md#architecture-direct-backup-of-azure-vms) l'architettura di backup delle VM di Azure.
+* [Esaminare](backup-architecture.md#architecture-built-in-azure-vm-backup) l'architettura di backup delle VM di Azure.
 * [Informazioni su](backup-azure-vms-introduction.md) backup delle macchine virtuali di Azure ed estensione di backup.
 * [Esaminare la matrice di supporto prima di configurare il](backup-support-matrix-iaas.md) backup.
 
@@ -174,11 +169,11 @@ Lo stato del processo può variare a seconda dei seguenti scenari:
 
 **Snapshot** | **Trasferire i dati nell'insieme di credenziali** | **Stato processo**
 --- | --- | ---
-Completi | In corso | In corso
-Completi | Skipped | Completi
-Completi | Completi | Completi
-Completi | Failed | Completato con avviso
-Failed | Failed | Failed
+Completed | In corso | In corso
+Completed | Skipped | Completed
+Completed | Completed | Completed
+Completed | Non riuscito | Completato con avviso
+Non riuscito | Non riuscito | Non riuscito
 
 Ora con questa funzionalità, per la stessa macchina virtuale, due backup possono essere eseguiti in parallelo, ma in entrambe le fasi (snapshot, trasferimento di dati nell'insieme di credenziali) è possibile eseguire una sola attività secondaria. Quindi, in scenari in cui un processo di backup è stato eseguito, il backup del giorno successivo avrà esito negativo con questa funzionalità di separazione. Per i backup del giorno successivo è possibile completare lo snapshot mentre **i dati trasferiti** nell'insieme di credenziali sono stati ignorati se il processo di backup di un giorno precedente è in corso.
 Il punto di ripristino incrementale creato nell'insieme di credenziali acquisirà tutta la varianza dall'ultimo punto di ripristino creato nell'insieme di credenziali. L'utente non ha alcun impatto sui costi.
@@ -199,11 +194,11 @@ Backup di Azure esegue il backup di macchine virtuali di Azure tramite l'install
 L'estensione di backup in esecuzione nella macchina virtuale richiede l'accesso in uscita agli indirizzi IP pubblici di Azure.
 
 * In genere non è necessario consentire in modo esplicito l'accesso alla rete in uscita per una macchina virtuale di Azure per poter comunicare con backup di Azure.
-* Se si verificano problemi con le VM che si connettono o se viene visualizzato l'errore **ExtensionSnapshotFailedNoNetwork** durante il tentativo di connessione, è necessario consentire l'accesso in modo esplicito in modo che l'estensione di backup possa comunicare con gli indirizzi IP pubblici di Azure per il backup traffico. I metodi di accesso sono riepilogati nella tabella seguente.
+* Se si verificano problemi con le VM che si connettono o se viene visualizzato l'errore **ExtensionSnapshotFailedNoNetwork** durante il tentativo di connessione, è necessario consentire l'accesso in modo esplicito in modo che l'estensione di backup possa comunicare con gli indirizzi IP pubblici di Azure per il traffico di backup. I metodi di accesso sono riepilogati nella tabella seguente.
 
 **Opzione** | **Azione** | **Dettagli**
 --- | --- | ---
-**Configurare le regole del gruppo di sicurezza di rete** | Consentire gli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Anziché consentire e gestire ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio backup di Azure usando un [tag di servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> I tag dei servizi semplificano la gestione degli accessi e non incorrono costi aggiuntivi.
+**Configurare le regole del gruppo di sicurezza di rete** | consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> Anziché consentire e gestire ogni intervallo di indirizzi, è possibile aggiungere una regola che consenta l'accesso al servizio backup di Azure usando un [tag di servizio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Altre informazioni](../virtual-network/security-overview.md#service-tags) sui tag di servizio.<br/><br/> I tag dei servizi semplificano la gestione degli accessi e non incorrono costi aggiuntivi.
 **Distribuire un proxy** | Distribuire un server proxy HTTP per eseguire il routing del traffico | Possibilità di accesso a tutto l'ambiente Azure, non solo al servizio di archiviazione.<br/><br/> Possibilità di controllo granulare sugli URL di archiviazione.<br/><br/> Singolo punto di accesso Internet per le macchine virtuali.<br/><br/> Costi aggiuntivi per il proxy.
 **Configurare il Firewall di Azure** | Consentire il traffico attraverso Firewall di Azure nella macchina virtuale usando un tag FQDN per il servizio Backup di Azure | Semplice da usare se il firewall di Azure è configurato in una subnet VNet.<br/><br/> Non è possibile creare tag FQDN personalizzati o modificare FQDN in un tag.<br/><br/> Se le macchine virtuali di Azure dispongono di dischi gestiti, potrebbe essere necessario aprire una porta aggiuntiva (8443) nei firewall.
 
@@ -252,7 +247,7 @@ Se non si ha un proxy di account di sistema, configurarne uno come indicato di s
 4. Definire le impostazioni del proxy.
    * Nei computer Linux:
      * Aggiungere questa riga nel file **/etc/environment**:
-       * **http_proxy = http:\//proxy indirizzo IP: porta proxy**
+       * **http_proxy = http:\/indirizzo IP/proxy: porta proxy**
      * Aggiungere queste righe nel file **/etc/waagent.conf**:
          * **HttpProxy.Host=indirizzo IP proxy**
          * **HttpProxy.Port=porta proxy**

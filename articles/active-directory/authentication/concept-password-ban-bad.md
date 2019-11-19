@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 27530b143e46acad4152e8333836cbe9c79fab17
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032885"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168088"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -98,7 +98,7 @@ Ogni volta che un utente modifica o Reimposta la password, la nuova password vie
 
 Anche se la password di un utente contiene una password esclusa, è possibile che venga comunque accettata se la password complessiva è sufficientemente complessa. Per una password appena configurata sono previsti i passaggi seguenti per valutarne il livello di complessità generale e determinare se può essere accettata o meno.
 
-### <a name="step-1-normalization"></a>Passaggio 1: Normalizzazione
+### <a name="step-1-normalization"></a>Passaggio 1: normalizzazione
 
 Per prima cosa, una nuova password viene sottoposta a un processo di normalizzazione, Questa tecnica consente di eseguire il mapping di un piccolo set di password escluse a un set molto più ampio di password potenzialmente vulnerabili.
 
@@ -113,7 +113,7 @@ La normalizzazione si articola in due parti.  Nella prima fase, tutte le lettere
 
 Esempio: si supponga che la password "blank" sia compresa tra le password escluse e che un utente tenti di modificarla in "Bl@nK". Anche se "Bl@nk" non è espressamente vietata, il processo di normalizzazione converte questa password in "blank", ovvero in una password esclusa.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Passaggio 2: Verifica che la password non sia considerata esclusa
+### <a name="step-2-check-if-password-is-considered-banned"></a>Passaggio 2: verificare se la password è considerata vietata
 
 #### <a name="fuzzy-matching-behavior"></a>Comportamento della corrispondenza fuzzy
 
@@ -160,11 +160,11 @@ Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di c
 
 |   | Protezione delle password di Azure AD con elenco globale di password escluse | Protezione delle password di Azure AD con elenco password personalizzate escluse|
 | --- | --- | --- |
-| Solo utenti cloud | Azure AD Gratuito | Azure AD Premium P1 o P2 |
+| Solo utenti cloud | Azure AD Free | Azure AD Premium P1 o P2 |
 | Utenti sincronizzati da Windows Server Active Directory locale | Azure AD Premium P1 o P2 | Azure AD Premium P1 o P2 |
 
 > [!NOTE]
-> Windows Server in locale Active Directory gli utenti che non sono sincronizzati con Azure Active Directory possono usufruire anche dei vantaggi della protezione Azure AD password basata sulle licenze esistenti per gli utenti sincronizzati.
+> Gli utenti di Windows Server Active Directory locali che non sono sincronizzati con Azure Active Directory beneficiano anche della protezione Azure AD password basata sulle licenze esistenti per gli utenti sincronizzati.
 
 Informazioni aggiuntive sulle licenze, inclusi i costi, sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

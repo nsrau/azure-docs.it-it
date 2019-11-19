@@ -1,19 +1,14 @@
 ---
-title: Usare il server di Backup di Azure per eseguire il backup dei carichi di lavoro in Azure
+title: Usare server di Backup di Azure per eseguire il backup dei carichi di lavoro
 description: In questo articolo viene illustrato come preparare l'ambiente per la protezione e il backup dei carichi di lavoro utilizzando il server di Backup di Microsoft Azure (MAB).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012920"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172981"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -335,8 +330,6 @@ Per aggiornare MABS, usare i passaggi seguenti:
    > [!NOTE]
    >
    > Non uscire mentre si sta aggiornando l'istanza di SQL, l'uscita disinstallerà l'istanza di report SQL e di conseguenza un tentativo di eseguire nuovamente l'aggiornamento di MABS avrà esito negativo.
-
-
 
    > [!IMPORTANT]
    >

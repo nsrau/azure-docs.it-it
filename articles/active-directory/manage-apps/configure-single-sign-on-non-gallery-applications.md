@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e993ad17a07ff741ff33073304ed774dcf30203d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2dcc2d6fc252f288f15e2583012798b4d0e9cee6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961649"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169446"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurare Single Sign-On basate su SAML per applicazioni non della raccolta
 
@@ -52,7 +52,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiunger
 
     | Impostazione della configurazione SAML di base | SSO avviato da provider di servizi | SSO avviato da IdP | DESCRIZIONE |
     |:--|:--|:--|:--|
-    | **Identificatore (ID entità)** | Obbligatoria per alcune app | Obbligatoria per alcune app | Identifica in modo univoco l'applicazione. Azure AD restituisce l'identificatore all'applicazione come parametro Audience del token SAML. L'applicazione dovrebbe convalidarlo. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione. *È possibile trovare questo valore come elemento **Issuer** in nella richiesta **AuthRequest** (SAML) inviata dall'applicazione.* |
+    | **Identificatore (ID entità)** | Obbligatoria per alcune app | Obbligatoria per alcune app | Identifica in modo univoco l'applicazione. Azure AD restituisce l'identificatore all'applicazione come parametro Audience del token SAML. L'applicazione dovrebbe convalidarlo. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione. Immettere un URL che usa il modello seguente:' https://<subdomain>. contoso.com ' *è possibile trovare questo valore come elemento **Issuer** in **AuthnRequest** (richiesta SAML) inviato dall'applicazione.* |
     | **URL di risposta** | obbligatori | obbligatori | Specifica dove l'applicazione prevede di ricevere il token SAML. L'URL di risposta è denominato anche URL del servizio consumer di asserzione. È possibile usare i campi aggiuntivi URL di risposta per specificare più URL di risposta. Ad esempio, potrebbero essere necessari URL di risposta aggiuntivi per più sottodomini. In alternativa, a scopo di test è possibile specificare contemporaneamente più URL di risposta (host locale e URL pubblici). |
     | **URL di accesso** | obbligatori | Non specificare | Quando un utente apre questo URL, il provider di servizi esegue il reindirizzamento ad Azure AD per l'autenticazione e l'accesso dell'utente. Azure AD usa l'URL per avviare l'applicazione da Office 365 o dal pannello di accesso di Azure AD. Se è vuoto, Azure AD esegue l'accesso avviato da IdP quando un utente avvia l'applicazione da Office 365, dal pannello di accesso Azure AD o dall'URL Azure AD SSO.|
     | **Stato inoltro** | Facoltativo | Facoltativo | Comunica all'applicazione dove reindirizzare l'utente al termine dell'autenticazione. In genere il valore è un URL valido per l'applicazione. Tuttavia, alcune applicazioni usano questo campo in modo diverso. Per altre informazioni, rivolgersi al fornitore dell'applicazione.

@@ -1,21 +1,15 @@
 ---
-title: "Backup di Azure: Creare criteri di backup usando l'API REST"
+title: Creare criteri di backup usando l'API REST
 description: In questo articolo si apprenderà come creare e gestire i criteri di backup (pianificazione e conservazione) usando l'API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747598"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173427"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
@@ -50,10 +44,10 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Name  |Obbligatorio  |Tipo  |Descrizione  |
+|Nome  |obbligatori  |digitare  |DESCRIZIONE  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
-|tags     |         | Oggetto        |  Tag delle risorse       |
+|properties     |   true      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
+|Tag     |         | Object        |  Tag delle risorse       |
 
 Per l'elenco completo delle definizioni nel corpo della richiesta, vedere il [documento relativo all'API REST dei criteri di backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
 
@@ -158,7 +152,7 @@ La creazione o l'aggiornamento dei criteri di backup è un'[operazione asincrona
 
 Restituisce due risposte: 202 (accettato) quando viene creata un'altra operazione, quindi 200 (OK) al termine dell'operazione.
 
-|Name  |Tipo  |Descrizione  |
+|Nome  |digitare  |DESCRIZIONE  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectionPolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Accettato     |         |     Accepted    |
@@ -185,7 +179,7 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Tenere quindi traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
+Quindi tenere traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13

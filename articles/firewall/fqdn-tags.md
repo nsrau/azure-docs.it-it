@@ -1,18 +1,18 @@
 ---
 title: Panoramica dei tag FQDN per Firewall di Azure
-description: Informazioni sui tag FQDN in Firewall di Azure
+description: Un tag FQDN rappresenta un gruppo di nomi di dominio completi (FQDN) associati a servizi Microsoft noti.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/23/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665550"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169044"
 ---
 # <a name="fqdn-tags-overview"></a>Panoramica dei tag FQDN
 
@@ -28,7 +28,7 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 
 ## <a name="current-fqdn-tags"></a>Tag FQDN correnti
 
-|Tag FQDN  |Descrizione  |
+|Tag FQDN  |DESCRIZIONE  |
 |---------|---------|
 |Windows Update     |Consente l'accesso in uscita a Microsoft Update come descritto in [Come configurare un firewall per gli aggiornamenti software](https://technet.microsoft.com/library/bb693717.aspx).|
 |Diagnostica per Windows|Consente l'accesso in uscita a tutti gli [endpoint di Diagnostica Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|

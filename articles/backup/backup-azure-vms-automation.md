@@ -1,18 +1,14 @@
 ---
-title: Eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
+title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969071"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172554"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -21,6 +17,7 @@ Questo articolo illustra come eseguire il backup e il ripristino di una macchina
 In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
+>
 > * Creare un insieme di credenziali di Servizi di ripristino e impostare il contesto dell'insieme di credenziali.
 > * Definire un criterio di backup
 > * Applicare un criterio di backup per proteggere più macchine virtuali
@@ -29,7 +26,7 @@ In questo articolo viene spiegato come:
 ## <a name="before-you-start"></a>Prima di iniziare
 
 * [Altre](backup-azure-recovery-services-vault-overview.md) informazioni sugli insiemi di credenziali dei servizi di ripristino.
-* [Esaminare](backup-architecture.md#architecture-direct-backup-of-azure-vms) l'architettura per il backup delle macchine virtuali di Azure, [ottenere informazioni sul](backup-azure-vms-introduction.md) processo di backup ed [esaminare](backup-support-matrix-iaas.md) il supporto, le limitazioni e i prerequisiti.
+* [Esaminare](backup-architecture.md#architecture-built-in-azure-vm-backup) l'architettura per il backup delle macchine virtuali di Azure, [ottenere informazioni sul](backup-azure-vms-introduction.md) processo di backup ed [esaminare](backup-support-matrix-iaas.md) il supporto, le limitazioni e i prerequisiti.
 * Esaminare la gerarchia di oggetti di PowerShell per i servizi di ripristino.
 
 ## <a name="recovery-services-object-hierarchy"></a>Gerarchia di oggetti dei servizi di ripristino
@@ -152,7 +149,7 @@ $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" 
 $targetVault.ID
 ```
 
-Oppure
+oppure
 
 ```powershell
 $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -226,7 +223,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ```
 
-### <a name="enable-protection"></a>Abilitare la protezione
+### <a name="enable-protection"></a>Abilita protezione
 
 Dopo aver definito i criteri di protezione è necessario abilitarli per un elemento. Usare [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) per abilitare la protezione. Per abilitare la protezione sono necessari due oggetti, l'elemento e i criteri. Dopo aver associato i criteri all'insieme di credenziali, il flusso di lavoro di backup verrà attivato al momento definito nella pianificazione dei criteri.
 
@@ -372,7 +369,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 ### <a name="stop-protection"></a>Arresta protezione
 
-#### <a name="retain-data"></a>Mantieni dati
+#### <a name="retain-data"></a>Conserva dati
 
 Se l'utente desidera arrestare la protezione, può usare il cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Questa operazione arresterà i backup pianificati, ma i dati di cui è stato eseguito il backup fino a questo momento verranno conservati per sempre.
 
@@ -381,7 +378,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -Workl
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
 ````
 
-#### <a name="delete-backup-data"></a>Elimina dati di backup
+#### <a name="delete-backup-data"></a>Eliminare i dati di backup
 
 Per rimuovere completamente i dati di backup archiviati nell'insieme di credenziali, è sufficiente aggiungere il flag '-RemoveRecoveryPoints '/passare al [comando di protezione ' Disable '](#retain-data).
 
@@ -666,7 +663,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
 
    * **Macchine virtuali gestite e crittografate con Azure AD (BEK e KEK)** : per le macchine virtuali gestite e crittografate con Azure AD (con BEK e KEK) collegare i dischi gestiti ripristinati. Per informazioni dettagliate, vedere [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Macchine virtuali gestite e crittografate senza Azure ad (solo per le** macchine virtuali)-per le VM gestite e crittografate senza Azure ad (solo crittografate con l'uso di solo la chiave di crittografia), se l'insieme di credenziali delle chiavi di origine e il **segreto non sono disponibili** , ripristinare i [segreti in Key Vault macchina virtuale non crittografata da un punto di ripristino di backup di Azure](backup-azure-restore-key-secret.md). Eseguire quindi gli script seguenti per impostare le informazioni dettagliate sulla crittografia nel disco del sistema operativo ripristinato (questo passaggio non è necessario per il disco dati). Recuperare $dekurl dall'insieme di credenziali delle chiavi ripristinato.
+   * **Macchine virtuali gestite e crittografate senza Azure ad (solo per le** macchine virtuali)-per le VM gestite e crittografate senza Azure ad (solo crittografate con l'uso di solo la chiave di sicurezza), se l'insieme di credenziali delle chiavi di origine e il **segreto non sono disponibili** , ripristinare i segreti nell'insieme di credenziali delle chiavi usando la procedura descritta in [ripristinare una macchina virtuale non](backup-azure-restore-key-secret.md) Eseguire quindi gli script seguenti per impostare le informazioni dettagliate sulla crittografia nel disco del sistema operativo ripristinato (questo passaggio non è necessario per il disco dati). Recuperare $dekurl dall'insieme di credenziali delle chiavi ripristinato.
 
      Lo script seguente deve essere eseguito solo quando l'insieme di credenziali delle chiavi e il segreto di origine non sono disponibili.  
 
@@ -680,7 +677,7 @@ La sezione seguente elenca i passaggi necessari per creare una macchina virtuale
 
      Quando i segreti sono disponibili e le informazioni dettagliate sulla crittografia sono impostate nel disco del sistema operativo, vedere [Collegare un disco dati a una macchina virtuale Windows con PowerShell](../virtual-machines/windows/attach-disk-ps.md) per collegare i dischi gestiti ripristinati.
 
-   * **Macchine virtuali gestite e crittografate senza Azure ad (** i/o e KEK): per le macchine virtuali crittografate e gestite senza Azure ad (crittografate con l'uso di un & KEK), se l'insieme di credenziali delle chiavi di origine **/chiave/segreto non è disponibile** , ripristinare la chiave e i segreti nell'insieme di credenziali delle chiavi [Ripristinare una macchina virtuale non crittografata da un punto di ripristino di backup di Azure](backup-azure-restore-key-secret.md). Eseguire quindi gli script seguenti per impostare le informazioni dettagliate sulla crittografia nel disco del sistema operativo ripristinato (questo passaggio non è necessario per il disco dati). Recuperare $dekurl e $kekurl dall'insieme di credenziali delle chiavi ripristinato.
+   * **Macchine virtuali gestite e crittografate senza Azure ad (per le** macchine virtuali non crittografate), per le VM gestite e crittografate senza Azure ad (crittografate con l'uso di un & KEK), se l'insieme di credenziali delle chiavi di origine **/chiave/segreto non è disponibile** , ripristinare la chiave e i segreti dell'insieme di credenziali delle chiavi usando la procedura descritta in [ripristinare una macchina virtuale non crittografata](backup-azure-restore-key-secret.md) Eseguire quindi gli script seguenti per impostare le informazioni dettagliate sulla crittografia nel disco del sistema operativo ripristinato (questo passaggio non è necessario per il disco dati). Recuperare $dekurl e $kekurl dall'insieme di credenziali delle chiavi ripristinato.
 
    Lo script seguente deve essere eseguito solo quando l'insieme di credenziali delle chiavi, la chiave e il segreto di origine non sono disponibili.
 

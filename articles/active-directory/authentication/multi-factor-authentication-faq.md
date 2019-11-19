@@ -4,19 +4,19 @@ description: Domande frequenti e risposte su Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: troubleshooting
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae7390afead843fa0784454f7e0374bedf735ad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 37f375b6d4284b4728b2337dc5ab5186ce22772c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081539"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167777"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -142,13 +142,11 @@ Se l'organizzazione non ha client legacy, non è consigliabile consentire agli u
 >
 > Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. L'autenticazione moderna è ora disponibile per tutti i clienti che eseguono l'aggiornamento di marzo 2015 o versione successiva per Office 2013. Per altre informazioni, vedere il post di Blog [aggiornato sull'autenticazione moderna di Office 365](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**D: Gli utenti sostengono che talvolta non ricevono l'SMS o che rispondono agli SMS bidirezionale ma la verifica scade.**
+**D: gli utenti dicono che talvolta non ricevono il messaggio di testo o il timeout della verifica.**
 
-Il recapito degli SMS e la ricezione di risposte SMS bidirezionale non sono garantiti in quanto sussistono fattori non controllabili che possono influire sull'affidabilità del servizio. Questi fattori includono il paese di destinazione, il gestore di telefonia mobile e il livello di attendibilità del segnale.
+Il recapito di messaggi SMS non è garantito perché sono presenti fattori non controllabili che possono influire sull'affidabilità del servizio. Questi fattori includono il paese di destinazione, il gestore di telefonia mobile e il livello di attendibilità del segnale.
 
 Se agli utenti capita spesso di non ricevere in modo affidabile gli SMS, suggerire loro di usare il metodo dell'app per dispositivi mobili o della chiamata telefonica. L'app per dispositivi mobili può ricevere notifiche sia su rete cellulare che Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
-
-Se è necessario usare gli SMS, è consigliabile usare SMS unidirezionali anziché bidirezionali, Un SMS unidirezionale è più affidabile e impedisce agli utenti di sostenere gli addebiti SMS globali dalla risposta a un messaggio di testo inviato da un altro paese/area geografica.
 
 **D: È possibile cambiare il tempo che gli utenti hanno a disposizione per immettere il codice di verifica dall'SMS prima del timeout?**
 
@@ -162,7 +160,7 @@ Per SMS unidirezionali con Azure MFA Server 7.0 o versione successiva, è possib
 >[!TIP] 
 >Se sono disponibili più MFA Server, il codice di verifica inviato all'utente e noto solo per il server che ha elaborato la richiesta di autenticazione originale. Quando l'utente immette il codice, la richiesta di autenticazione da convalidare deve essere inviata allo stesso server. Se la convalida del codice viene inviata a un server diverso, l'autenticazione viene negata. 
 
-Per gli SMS bidirezionali con Azure MFA Server è possibile configurare l'impostazione di timeout nel portale di gestione di MFA. Se gli utenti non rispondono all'SMS entro il periodo di timeout definito, l'autenticazione viene negata. 
+Se gli utenti non rispondono all'SMS entro il periodo di timeout definito, l'autenticazione viene negata. 
 
 Non è possibile configurare l'impostazione di timeout per SMS unidirezionali con Azure MFA nel cloud, inclusi l'adattatore AD FS o l'estensione Server dei criteri di rete. Azure AD archivia il codice di verifica per 180 secondi. 
 

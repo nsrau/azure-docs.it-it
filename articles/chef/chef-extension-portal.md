@@ -2,25 +2,21 @@
 title: Installare il client Chef dal portale di Azure
 description: Informazioni su come distribuire e configurare il client Chef dal portale di Azure
 keywords: azure, chef, devops, client, installare, portale
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563840"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158266"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installare il client Chef dal portale di Azure
 È possibile aggiungere l'estensione client Chef direttamente su un computer Windows o Linux dal portale di Azure. Questo articolo illustra nel dettaglio il processo usando una macchina virtuale Linux nuova.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-- **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+- **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 - **Chef**: se non si ha un account Chef attivo, iscriversi a una [prova gratuita di Chef ospitato](https://manage.chef.io/signup). Per proseguire con le istruzioni di questo articolo è necessario avere i valori seguenti dell'account Chef:
   - Chiave organization_validation

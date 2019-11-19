@@ -1,21 +1,15 @@
 ---
-title: 'Backup di Azure: monitorare i carichi di lavoro protetti di backup di Azure'
+title: Monitorare i carichi di lavoro protetti di backup di Azure
 description: Questo articolo illustra le funzionalità di monitoraggio e notifica per i carichi di lavoro di backup di Azure usando il portale di Azure.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Backup di Azure; Avvisi
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: cd9e4e14771744b6275bb1dfe0a96bbef475a123
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090951"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172870"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -63,7 +57,7 @@ Quando un avviso non viene generato in caso di errore, si verificano alcune ecce
 
 Le eccezioni sopra riportate sono progettate dal comprendere che il risultato di queste operazioni (principalmente attivato dall'utente) viene visualizzato immediatamente nei client Portal/PS/CLI. Di conseguenza, l'utente è immediatamente consapevole e non necessita di una notifica.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Gli avvisi delle seguenti soluzioni di backup di Azure sono illustrati di seguito:
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Gli avvisi delle seguenti soluzioni di backup di Azure sono illustrati qui
 
 - Backup di macchine virtuali di Azure
 - Backup di File di Azure

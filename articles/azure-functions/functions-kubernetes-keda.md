@@ -8,22 +8,22 @@ manager: jeconnoc
 keywords: funzioni di Azure, funzioni, elaborazione di eventi, calcolo dinamico, architettura senza server, kubernetes
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0b77946b24bcc2e329a5c4480e9bd5ef055ef82b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900058"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173680"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funzioni di Azure in Kubernetes con KEDA
 
-Il runtime di funzioni di Azure offre la flessibilità necessaria per ospitare il percorso e il modo desiderato.  Le coppie di scalabilità automatica basata su eventi di [Keda](https://github.com/kedacore/kore) (Kubernetes) con il runtime di funzioni di Azure e gli strumenti per fornire la scalabilità basata sugli eventi in Kubernetes.
+Il runtime di funzioni di Azure offre la flessibilità necessaria per ospitare il percorso e il modo desiderato.  Le coppie di scalabilità automatica basata su eventi di [Keda](https://keda.sh) (Kubernetes) con il runtime di funzioni di Azure e gli strumenti per fornire la scalabilità basata sugli eventi in Kubernetes.
 
 ## <a name="how-kubernetes-based-functions-work"></a>Funzionamento delle funzioni basate su Kubernetes
 
-Il servizio funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di funzioni viene eseguito ed esegue il codice.  Il runtime include la logica su come attivare, registrare e gestire le esecuzioni di funzioni.  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
+Il servizio funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di funzioni viene eseguito ed esegue il codice.  Il runtime include la logica su come attivare, registrare e gestire le esecuzioni di funzioni.  Il runtime di funzioni di Azure può essere eseguito *ovunque*.  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
 
 Le funzioni basate su Kubernetes forniscono il runtime di funzioni in un [contenitore Docker](functions-create-function-linux-custom-image.md) con scalabilità guidata dagli eventi tramite Keda.  KEDA può ridurre a 0 istanze (quando non si verificano eventi) e fino a *n* istanze. Questa operazione viene eseguita esponendo metriche personalizzate per il ridimensionamento automatico Kubernetes (Horizontal Pod AutoScaler).  L'uso di contenitori di funzioni con KEDA consente di replicare le funzionalità della funzione senza server in qualsiasi cluster Kubernetes.  Queste funzioni possono anche essere distribuite usando la funzionalità [nodi virtuali di Azure Kubernetes Services (AKS)](../aks/virtual-nodes-cli.md) per l'infrastruttura senza server.
 
@@ -86,14 +86,19 @@ func kubernetes remove --namespace keda
 
 ## <a name="supported-triggers-in-keda"></a>Trigger supportati in KEDA
 
-KEDA è attualmente in versione beta con supporto per i trigger di funzione di Azure seguenti:
+KEDA dispone del supporto per i trigger di funzione di Azure seguenti:
 
 * [Code di archiviazione di Azure](functions-bindings-storage-queue.md)
 * [Code del bus di servizio di Azure](functions-bindings-service-bus.md)
-* [HTTP](functions-bindings-http-webhook.md)
+* [Hub eventi di Azure](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
+* [Coda RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)
 
-## <a name="next-steps"></a>Fasi successive
+### <a name="http-trigger-support"></a>Supporto del trigger HTTP
+
+È possibile usare funzioni di Azure che espongono trigger HTTP, ma KEDA non li gestisce direttamente.  Il Azure Functions Core Tools installerà un progetto correlato, Osiride, che consente di ridimensionare gli endpoint HTTP da 0 a 1.  Il ridimensionamento da 1 a *n* si basa sui criteri tradizionali di scalabilità di Kubernetes.
+
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Creare una funzione usando un'immagine personalizzata](functions-create-function-linux-custom-image.md)

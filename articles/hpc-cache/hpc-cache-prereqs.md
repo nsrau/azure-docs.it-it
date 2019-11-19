@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582142"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166475"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -48,17 +48,21 @@ Per accedere alle risorse all'esterno della rete virtuale, la cache deve essere 
 * Per accedere agli endpoint di archiviazione BLOB di Azure e ad altre risorse interne, è necessario il server DNS basato su Azure.
 * Per accedere all'archiviazione locale, è necessario configurare un server DNS personalizzato in grado di risolvere i nomi host di archiviazione.
 
-Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il server DNS predefinito fornito da Azure per la cache. Tuttavia, se è necessario accedere ad altre risorse, è necessario creare un server DNS personalizzato e configurarlo per l'invio di eventuali richieste di risoluzione specifiche di Azure al server DNS di Azure. È anche possibile usare un semplice server DNS per bilanciare il carico delle connessioni client tra tutti i punti di montaggio della cache disponibili.
+Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il server DNS predefinito fornito da Azure per la cache. Tuttavia, se è necessario accedere ad altre risorse, è necessario creare un server DNS personalizzato e configurarlo per l'invio di eventuali richieste di risoluzione specifiche di Azure al server DNS di Azure.
+
+Un server DNS semplice può anche essere usato per bilanciare il carico delle connessioni client tra tutti i punti di montaggio della cache disponibili.
 
 Per altre informazioni sulle reti virtuali di Azure e sulle configurazioni del server DNS, vedere [risoluzione dei nomi per le risorse nelle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Verificare questi prerequisiti relativi alle autorizzazioni prima di iniziare a creare la cache.
 
 * L'istanza della cache deve essere in grado di creare interfacce di rete virtuali (NIC). Per creare schede di interfaccia di rete, l'utente che crea la cache deve disporre di privilegi sufficienti nella sottoscrizione.
 
-* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. È possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione. Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
+* Se si usa l'archiviazione BLOB, la cache HPC di Azure deve disporre dell'autorizzazione per accedere all'account di archiviazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere all'archivio BLOB l'accesso alla cache. Sono necessari due ruoli: collaboratore account di archiviazione e collaboratore dati BLOB di archiviazione.
+
+  Per aggiungere i ruoli, seguire le istruzioni riportate in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) .
 
 ## <a name="storage-infrastructure"></a>Infrastruttura di archiviazione
 
@@ -88,7 +92,7 @@ Per creare un account di archiviazione compatibile, usare le impostazioni seguen
 È consigliabile usare un account di archiviazione nella stessa posizione della cache.
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
-È anche necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure. Seguire la descrizione in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache il collaboratore per l'account di archiviazione per i ruoli di accesso e i dati BLOB di archiviazione. Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
+È anche necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure, come indicato nelle [autorizzazioni](#permissions)sopra riportate. Seguire la procedura descritta in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache i ruoli di accesso necessari. Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

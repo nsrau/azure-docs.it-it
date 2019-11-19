@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: f87d835973410a7d8e134c676530a9476cd3c2fe
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9e731ff55aa4b37d0777cf9eefb14bb111b73070
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012738"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173997"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -404,7 +404,7 @@ Vedere l'elenco di tutte le pipeline e i relativi dettagli di esecuzione in stud
  
 1. Selezionare una pipeline specifica per visualizzare i risultati dell'esecuzione.
 
-## <a name="github-tracking-and-integration"></a>Rilevamento e integrazione di GitHub
+## <a name="git-tracking-and-integration"></a>Rilevamento e integrazione di git
 
 Quando si avvia un'esecuzione di training in cui la directory di origine è un repository git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Per ulteriori informazioni, vedere [integrazione di Git per Azure Machine Learning](concept-train-model-git-integration.md).
 
@@ -459,6 +459,39 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
+## <a name="create-a-versioned-pipeline-endpoint"></a>Creare un endpoint della pipeline con versione
+È possibile creare un endpoint della pipeline con più pipeline pubblicate. Questa operazione può essere usata come una pipeline pubblicata ma fornisce un endpoint REST fisso durante l'iterazione e l'aggiornamento delle pipeline di ML.
+
+```python
+from azureml.pipeline.core import PipelineEndpoint
+
+published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
+                                            pipeline=published_pipeline, description="Test description Notebook")
+```
+
+### <a name="submit-a-job-to-a-pipeline-endpoint"></a>Inviare un processo a un endpoint della pipeline
+È possibile inviare un processo alla versione predefinita di un endpoint della pipeline:
+```python
+pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
+print(run_id)
+```
+È anche possibile inviare un processo a una versione specifica:
+```python
+run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline_version="0")
+print(run_id)
+```
+
+La stessa operazione può essere eseguita usando l'API REST:
+```python
+rest_endpoint = pipeline_endpoint_by_name.endpoint
+response = requests.post(rest_endpoint, 
+                         headers=aad_token, 
+                         json={"ExperimentName": "PipelineEndpointExperiment",
+                               "RunSource": "API",
+                               "ParameterAssignments": {"1": "united", "2":"city"}})
+```
 
 ### <a name="use-published-pipelines-in-the-studio"></a>Usare le pipeline pubblicate in studio
 

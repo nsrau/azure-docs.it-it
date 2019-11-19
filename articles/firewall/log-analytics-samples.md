@@ -1,18 +1,18 @@
 ---
 title: Esempi di log Analytics di Azure firewall
-description: Esempi di log Analytics di Azure firewall
+description: I log di monitoraggio di Azure possono essere usati per analizzare il firewall di Azure. Un file di esempio è incorporato in Progettazione viste in monitoraggio di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033992"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168900"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Esempi di log Analytics di Azure firewall
 
@@ -100,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>Query sui dati di log delle regole di rete
 
-La query seguente consente di analizzare i dati del log della regola di rete. Nelle diverse righe di commento sono previste alcune indicazioni su come è stata compilata la query:
+La query seguente consente di analizzare i dati del log della regola di rete. Nelle diverse righe di commento sono previste alcune indicazioni di come è stata compilata la query:
 
 ```Kusto
 AzureDiagnostics
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sul monitoraggio e la diagnostica del firewall di [Azure, vedere Esercitazione: Monitorare i log e le metriche](tutorial-diagnostics.md)del firewall di Azure.
+Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).

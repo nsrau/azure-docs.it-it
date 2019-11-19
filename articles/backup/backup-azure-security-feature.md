@@ -1,19 +1,15 @@
 ---
-title: Funzionalità di sicurezza che proteggono i backup ibridi con backup di Azure
+title: Funzionalità di sicurezza che proteggono i backup ibridi
 description: Informazioni su come usare le funzionalità di sicurezza in Backup di Azure per rendere più sicuri i backup
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
-ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968426"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172687"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
@@ -70,12 +66,12 @@ Per utenti dell'**agente di Servizi di ripristino di Azure**:
 
 Per gli utenti che usano il **server di Backup di Azure**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
+1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino **dei dati per recuperare** i dati da tutti i punti di recupero precedenti.
 2. Se questo server non è disponibile, scegliere [Ripristinare i dati da un altro server di Backup di Azure](backup-azure-alternate-dpm-server.md) per usare un'altra istanza del server di Backup di Azure per ottenere questi dati.
 
 Per gli utenti di **Data Protection Manager**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
+1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino **dei dati per recuperare** i dati da tutti i punti di recupero precedenti.
 2. Se questo server non è disponibile, usare [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md) per usare un altro server Data Protection Manager per ottenere questi dati.
 
 ## <a name="prevent-attacks"></a>Prevenire gli attacchi
@@ -116,9 +112,9 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 | Operazione | Dettagli errore | Risoluzione |
 | --- | --- | --- |
-| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è l'aggiornamento dell'agente di backup, del server di Backup di Azure e/o di DPM UR. |
-| Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
-| Modificare la passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si tenta di modificare la passphrase e si usa una versione non supportata. Le versioni valide sono specificate nella prima nota di questo articolo.<br/>**Azione consigliata:**<br/> Per modificare la passphrase, è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052, il server di Backup di Azure almeno all'Update 1 e/o DPM almeno a DPM 2012 R2 UR12 o a DPM 2016 UR2 (collegamenti per il download riportati più avanti). Immettere quindi un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
+| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è l'aggiornamento dell'agente di backup, del server di Backup di Azure e/o di DPM UR. |
+| Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
+| Modificare la passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si tenta di modificare la passphrase e si usa una versione non supportata. Le versioni valide sono specificate nella prima nota di questo articolo.<br/>**Azione consigliata**<br/> Per modificare la passphrase, è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052, il server di Backup di Azure almeno all'Update 1 e/o DPM almeno a DPM 2012 R2 UR12 o a DPM 2016 UR2 (collegamenti per il download riportati più avanti). Immettere quindi un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

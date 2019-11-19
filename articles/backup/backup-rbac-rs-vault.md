@@ -1,19 +1,15 @@
 ---
-title: Gestire i backup con il controllo degli accessi in base al ruolo di Azure
+title: Gestire i backup con il controllo degli accessi in base al ruolo
 description: Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle operazioni di gestione di backup in un insieme di credenziali di Servizi di ripristino.
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8ba28829d3ee18b441227e537cb0a7ca97fb7638
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: afb8067f2547e3a26a505bb5ec8063dd340e8500
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074048"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172198"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 

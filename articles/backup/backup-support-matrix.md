@@ -1,18 +1,14 @@
 ---
 title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533141"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172075"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -116,10 +112,10 @@ Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-**Computer Windows locali senza DPM/MAB** | ![SÌ][green] | ![SÌ][green]
-**Macchine virtuali di Azure** | ![SÌ][green] | ![SÌ][green]
-**Computer Windows locali o macchine virtuali di Azure con DPM** | ![SÌ][green] | ![SÌ][green]
-**Computer Windows locali o macchine virtuali di Azure con MAB** | ![SÌ][green] | ![SÌ][green]
+**Computer Windows locali senza DPM/MAB** | ![Sì][green] | ![Sì][green]
+**VM di Azure** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali o macchine virtuali di Azure con DPM** | ![Sì][green] | ![Sì][green]
+**Computer Windows locali o macchine virtuali di Azure con MAB** | ![Sì][green] | ![Sì][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
 
@@ -130,16 +126,16 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimi nell'insieme di credenziali (HTTPS)**
 --- | --- | ---
-**Backup diretto di computer Windows locali** | ND | ![SÌ][green]
+**Backup diretto di computer Windows locali** | ND | ![Sì][green]
 **Backup di macchine virtuali di Azure con l'estensione VM** | ND | ND
-**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![SÌ][green] | ![SÌ][green]
+**Eseguire il backup in computer locali o Azure usando MAB/DPM** | ![Sì][green] | ![Sì][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 
 **Impostazione** | **Limiti**
 --- | ---
 **Numero massimo di punti di ripristino per istanza protetta (computer o carico di lavoro)** | 9\.999
-**Tempo di scadenza massimo per un punto di ripristino** | Senza limiti
+**Tempo di scadenza massimo per un punto di ripristino** | Nessun limite
 **Frequenza massima di backup per DPM/MAB** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
 **Frequenza massima di backup nell'insieme di credenziali** | **Computer Windows locali o macchine virtuali di Azure che eseguono Mars:** Tre al giorno<br/><br/> **DPM/MAB:** Due al giorno<br/><br/> **Backup delle macchine virtuali di Azure:** Uno al giorno
 **Conservazione del punto di ripristino** | Giornaliera, settimanale, mensile, annuale

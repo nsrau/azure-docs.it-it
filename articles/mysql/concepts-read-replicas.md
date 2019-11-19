@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970388"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158320"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -36,7 +36,7 @@ La funzionalità di lettura della replica usa la replica asincrona di MySQL. La 
 
 È possibile avere un server master in qualsiasi [area di database di Azure per MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un server master può avere una replica nell'area abbinata o nelle aree di replica universale. L'immagine seguente mostra le aree di replica disponibili a seconda dell'area master.
 
-[aree della replica ![Read](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![leggere le aree di replica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Aree di replica universale
 È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Le aree di replica universale supportate includono:
@@ -51,9 +51,9 @@ Se si usano repliche tra aree per la pianificazione del ripristino di emergenza,
 
 Esistono tuttavia alcune limitazioni da considerare: 
 
-* Disponibilità a livello di area: Database di Azure per MySQL è disponibile negli Stati Uniti occidentali 2, Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le aree abbinate non sono disponibili.
+* Disponibilità a livello di area: database di Azure per MySQL è disponibile negli Stati Uniti occidentali 2, Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le aree abbinate non sono disponibili.
     
-* Coppie uni-direzionali: Alcune aree di Azure sono abbinate solo in una direzione. Queste aree includono l'India occidentale, il Brasile meridionale e US Gov Virginia. 
+* Coppie Uni-Directional: alcune aree di Azure sono abbinate solo in una direzione. Queste aree includono l'India occidentale, il Brasile meridionale e US Gov Virginia. 
    Ciò significa che un server master nell'India occidentale può creare una replica nell'India meridionale. Tuttavia, un server master nell'India meridionale non è in grado di creare una replica nell'India occidentale. Questo è dovuto al fatto che l'area secondaria dell'India occidentale è India meridionale, ma l'area secondaria dell'India meridionale non è India occidentale.
 
 
@@ -69,7 +69,7 @@ Informazioni su come [creare una replica di lettura nel portale di Azure](howto-
 
 ## <a name="connect-to-a-replica"></a>Connessione a una replica
 
-Quando si crea una replica, questa non eredita le regole del firewall o l'endpoint del servizio rete virtuale del server master. Queste regole devono essere configurate in modo indipendente per la replica.
+Al momento della creazione, una replica eredita le regole del firewall o l'endpoint del servizio VNet del server master. Successivamente, queste regole sono indipendenti dal server master.
 
 La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
@@ -89,7 +89,7 @@ Questa metrica viene calcolata usando la metrica `seconds_behind_master` disponi
 
 Impostare un avviso per informare l'utente quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro.
 
-## <a name="stop-replication"></a>Arresta replica
+## <a name="stop-replication"></a>Arrestare la replica
 
 È possibile scegliere di arrestare la replica tra un master e una replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
@@ -122,6 +122,8 @@ Una replica viene creata usando la stessa configurazione server del master. Dopo
 > [!IMPORTANT]
 > Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
 
+Le regole del firewall, le regole della rete virtuale e le impostazioni dei parametri vengono ereditate dal server master alla replica quando viene creata la replica. Successivamente, le regole della replica sono indipendenti.
+
 ### <a name="stopped-replicas"></a>Repliche arrestate
 
 Se si interrompe la replica tra un server master e una replica di lettura, la replica arrestata diventa un server autonomo che accetta letture e scritture. Il server autonomo non può essere di nuovo impostato come replica.
@@ -144,11 +146,11 @@ I parametri del server seguenti sono bloccati nei server master e di replica:
 
 Il parametro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) è bloccato nei server di replica. 
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altre
 
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 - La creazione di una replica di replica non è supportata.
-- Le tabelle in memoria potrebbero causare la perdita di sincronia delle repliche. Si tratta di una limitazione della tecnologia di replica di MySQL. Per altre informazioni, vedere la [documentazione di riferimento di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
+- Le tabelle in memoria possono impedire la sincronizzazione delle repliche. Si tratta di una limitazione della tecnologia di replica MySQL. Per altre informazioni, vedere la [documentazione di riferimento di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
 - Verificare che le tabelle di server master dispongano di chiavi primarie. La mancanza di chiavi primarie può comportare una latenza di replica tra il server master e le repliche.
 - Esaminare l'elenco completo delle limitazioni di replica di MySQL nella [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 

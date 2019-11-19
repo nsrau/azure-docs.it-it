@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/26/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606476"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171216"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Creare criteri del Web Application Firewall per il gateway applicazione
 
@@ -26,7 +26,7 @@ L'associazione di un criterio WAF ai listener consente a più siti dietro un sin
 Se per il gateway applicazione è stato applicato un criterio e si applica un criterio diverso a un listener nel gateway applicazione, i criteri del listener saranno effettivi, ma solo per i listener a cui sono assegnati. Il criterio del gateway applicazione si applica comunque a tutti gli altri listener a cui non è assegnato un criterio specifico. 
 
    > [!NOTE]
-   > I criteri WAF per sito e per URI sono disponibili in anteprima pubblica. Questo significa che questa funzionalità è soggetta alle condizioni per l'utilizzo aggiuntive di Microsoft. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > I criteri di WAF per sito e per URI sono disponibili in anteprima pubblica. Questa funzionalità è quindi soggetta alle condizioni per l'utilizzo supplementari di Microsoft. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Tutte le nuove impostazioni WAF del Web Application Firewall (regole personalizzate, configurazioni rulset gestite, esclusioni e così via) risiedono all'interno di un criterio WAF. Se si dispone di un WAF esistente, queste impostazioni potrebbero ancora esistere nella configurazione di WAF. Per istruzioni su come passare al nuovo criterio WAF, vedere eseguire la [migrazione della configurazione di WAF a un criterio WAF](#migrate) più avanti in questo articolo. 
 
@@ -40,7 +40,7 @@ Per prima cosa, creare un criterio WAF di base con un set di regole predefinite 
    |Impostazione  |Valore  |
    |---------|---------|
    |Criteri per     |WAF a livello di area (gateway applicazione)|
-   |Sottoscrizione     |Selezionare il nome della sottoscrizione|
+   |sottoscrizione     |Selezionare il nome della sottoscrizione|
    |Resource group     |Selezionare un gruppo di risorse|
    |Nome criterio     |Digitare un nome univoco per i criteri di WAF.|
 3. Nella scheda **associazione** immettere una delle impostazioni seguenti e quindi selezionare **Aggiungi**:
@@ -52,7 +52,7 @@ Per prima cosa, creare un criterio WAF di base con un set di regole predefinite 
 
    > [!NOTE]
    > Se si assegna un criterio al gateway applicazione (o listener) che dispone già di un criterio, il criterio originale viene sovrascritto e sostituito con il nuovo criterio.
-4. Selezionare **Verifica + crea**, quindi selezionare **Crea**.
+4. Selezionare **Rivedi e crea** e quindi **Crea**.
 
    ![Nozioni fondamentali sui criteri WAF](../media/create-waf-policy-ag/waf-policy-basics.png)
 
@@ -64,13 +64,13 @@ Quando si crea un criterio WAF, per impostazione predefinita si trova in modalit
 
 Le regole OWASP gestite da Azure sono abilitate per impostazione predefinita. Per disabilitare una singola regola in un gruppo di regole, espandere le regole all'interno di tale gruppo, selezionare la casella di controllo davanti al numero della regola e selezionare **Disabilita** nella scheda sopra.
 
-![Regole gestite](../media/create-waf-policy-ag/managed-rules.png)
+[](../media/create-waf-policy-ag/managed-rules.png) regole gestite ![](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Regole personalizzate
 
 Per creare una regola personalizzata, selezionare **Aggiungi regola personalizzata** nella scheda **regole personalizzate** . Verrà visualizzata la pagina Configurazione regola personalizzata. La schermata seguente mostra una regola personalizzata di esempio configurata per bloccare una richiesta se la stringa di query contiene il testo *blockme*.
 
-![Modifica regola personalizzata](../media/create-waf-policy-ag/edit-custom-rule.png)
+[![modificare la regola personalizzata](../media/create-waf-policy-ag/edit-custom-rule.png)](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate"></a>Eseguire la migrazione della configurazione di WAF a un criterio WAF
 
@@ -78,11 +78,11 @@ Se si dispone di un WAF esistente, è possibile che siano state apportate alcune
 
 - Nessun criterio WAF
 - Criterio solo per le regole personalizzate
-- Criteri di WAF
+- Criterio di WAF
 
 È possibile indicare lo stato in cui si trova il WAF nel portale. Se le impostazioni di WAF sono visibili e possono essere modificate nella visualizzazione del gateway applicazione, il WAF è nello stato 1.
 
-![Configurazione di WAF](../media/create-waf-policy-ag/waf-configure.png)
+[![](../media/create-waf-policy-ag/waf-configure.png) di configurazione WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 Se si seleziona **Web Application Firewall** e viene visualizzato un criterio associato, WAF è nello stato 2 o stato 3. Dopo aver esplorato i criteri, se vengono visualizzate **solo** le regole personalizzate e i gateway applicazione associati, si tratta di un criterio personalizzato solo per le regole.
 
@@ -98,9 +98,9 @@ Se si dispone di un criterio WAF solo regole personalizzate, è possibile passar
 
 Le modifiche alla regola personalizzata solo i criteri WAF sono disabilitati. Per modificare le impostazioni di WAF, ad esempio la disabilitazione delle regole, l'aggiunta di esclusioni e così via, è necessario eseguire la migrazione a una nuova risorsa di criteri del firewall di livello superiore.
 
-A tale scopo, creare un *criterio di Web Application Firewall* e associarlo ai gateway applicazione e ai listener scelti. Questo nuovo criterio **deve** corrispondere esattamente alla configurazione WAF corrente, ovvero ogni regola personalizzata, esclusione, regola disabilitata e così via. deve essere copiato nel nuovo criterio che si sta creando. Dopo aver creato un criterio associato al gateway applicazione, è possibile continuare a modificare le regole e le impostazioni di WAF. 
+A tale scopo, creare un *criterio di Web Application Firewall* e associarlo ai gateway applicazione e ai listener scelti. Questo nuovo criterio **deve** corrispondere esattamente alla configurazione WAF corrente, ovvero ogni regola personalizzata, esclusione, regola disabilitata e così via. deve essere copiato nel nuovo criterio che si sta creando. Dopo aver creato un criterio associato al gateway applicazione, è possibile continuare a modificare le regole e le impostazioni di WAF. Questa operazione può essere eseguita anche con Azure PowerShell. Per altre informazioni, vedere [associare un criterio WAF a un gateway applicazione esistente](associate-waf-policy-existing-gateway.md).
 
-Questa operazione può essere eseguita anche con Azure PowerShell. Per altre informazioni, vedere [associare un criterio WAF a un gateway applicazione esistente](associate-waf-policy-existing-gateway.md).
+Facoltativamente, è possibile usare uno script di migrazione per eseguire la migrazione a un criterio WAF. Per ulteriori informazioni, vedere [eseguire la migrazione dei criteri di Web Application Firewall utilizzando Azure PowerShell](migrate-policy.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

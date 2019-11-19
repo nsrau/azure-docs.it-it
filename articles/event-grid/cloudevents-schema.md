@@ -8,20 +8,20 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8925110511f6c63a42dd9b121429ac7264cd4aa4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61436597"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170238"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Usare lo schema CloudEvents con Griglia di eventi
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v 1.0 con griglia di eventi
 
-Oltre allo [schema di eventi predefinito](event-schema.md), Griglia di eventi di Azure supporta in modo nativo gli eventi nello [schema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/master/spec.md) per la descrizione dei dati degli eventi.
+Oltre allo schema di [eventi predefinito](event-schema.md), griglia di eventi di Azure supporta in modo nativo gli eventi nell' [implementazione JSON di CloudEvents v 1.0 e del binding del](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocollo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) è una [specifica aperta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) per la descrizione dei dati degli eventi.
 
 CloudEvents semplifica l'interoperabilità fornendo uno schema di eventi comune per la pubblicazione e l'utilizzo degli eventi basati sul cloud. Questo schema consente strumenti uniformi, modi standard per il routing e la gestione degli eventi e modi universali per la deserializzazione dello schema di eventi esterni. Con uno schema comune, è possibile integrare più facilmente il lavoro tra le piattaforme.
 
-CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 0.1.
+CloudEvents viene compilato da diversi [collaboratori](https://github.com/cloudevents/spec/blob/master/community/contributors.md), tra cui Microsoft, tramite [Cloud Native Computing Foundation](https://www.cncf.io/). È attualmente disponibile come versione 1,0.
 
 Questo articolo descrive come usare lo schema CloudEvents con Griglia di eventi.
 
@@ -37,45 +37,31 @@ Di seguito è riportato un esempio di un evento di archiviazione BLOB di Azure n
 
 ``` JSON
 {
-    "cloudEventsVersion" : "0.1",
-    "eventType" : "Microsoft.Storage.BlobCreated",
-    "eventTypeVersion" : "",
-    "source" : "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}#blobServices/default/containers/{storage-container}/blobs/{new-file}",
-    "eventID" : "173d9985-401e-0075-2497-de268c06ff25",
-    "eventTime" : "2018-04-28T02:18:47.1281675Z",
-    "data" : {
-      "api": "PutBlockList",
-      "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-      "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-      "eTag": "0x8D4BCC2E4835CD0",
-      "contentType": "application/octet-stream",
-      "contentLength": 524288,
-      "blobType": "BlockBlob",
-      "url": "https://oc2d2817345i60006.blob.core.windows.net/oc2d2817345i200097container/oc2d2817345i20002296blob",
-      "sequencer": "00000000000004420000000000028963",
-      "storageDiagnostics": {
-        "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-      }
+    "specversion": "1.0",
+    "type": "Microsoft.Storage.BlobCreated",  
+    "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}",
+    "id": "9aeb0fdf-c01e-0131-0922-9eb54906e209",
+    "time": "2019-11-18T15:13:39.4589254Z",
+    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",
+    "dataschema": "#",
+    "data": {
+        "api": "PutBlockList",
+        "clientRequestId": "4c5dd7fb-2c48-4a27-bb30-5361b5de920a",
+        "requestId": "9aeb0fdf-c01e-0131-0922-9eb549000000",
+        "eTag": "0x8D76C39E4407333",
+        "contentType": "image/png",
+        "contentLength": 30699,
+        "blobType": "BlockBlob",
+        "url": "https://gridtesting.blob.core.windows.net/testcontainer/{new-file}",
+        "sequencer": "000000000000000000000000000099240000000000c41c18",
+        "storageDiagnostics": {
+            "batchId": "681fe319-3006-00a8-0022-9e7cde000000"
+        }
     }
 }
 ```
 
-In CloudEvents v0.1 sono disponibili le proprietà seguenti:
-
-| CloudEvents        | Type     | Valore JSON di esempio             | Descrizione                                                        | Mapping di Griglia di eventi
-|--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | String   | "com.example.someevent"          | Tipo di occorrenza che si è verificata                                   | eventType
-| eventTypeVersion   | String   | "1.0"                            | Versione di eventType (facoltativa)                            | dataVersion
-| cloudEventsVersion | String   | "0.1"                            | Versione della specifica CloudEvents usata dall'evento        | *passata*
-| source             | URI      | "/mycontext"                     | Descrive il producer di eventi                                       | topic#subject
-| eventID            | String   | "1234-1234-1234"                 | ID dell'evento                                                    | id
-| eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Timestamp del momento in cui l'evento si è verificato (facoltativo)                    | eventTime
-| schemaURL          | URI      | "https:\//myschema.com"           | Collegamento allo schema rispettato dall'attributo dati (facoltativo) | *non usato*
-| contentType        | String   | "application/json"               | Descrive il formato di codifica dei dati (facoltativo)                       | *non usato*
-| Estensioni         | Mappa      | { "extA": "vA", "extB", "vB" }  | Metadati aggiuntivi (facoltativi)                                 | *non usato*
-| data               | Object   | { "objA": "vA", "objB", "vB" }  | Payload dell'evento (facoltativo)                                       | data
-
-Per altre informazioni, vedere la [specifica di CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
+Una descrizione dettagliata dei campi, dei tipi e delle definizioni disponibili in CloudEvents v 0.1 è [disponibile qui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e nello schema Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, tale valore intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"`. Per lo schema Griglia di eventi, tale valore intestazione è `"content-type":"application/json; charset=utf-8"`.
 
@@ -154,7 +140,7 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventV01Schema
 ```
 
-La versione corrente di CloudEvents non supporta l'invio in batch di eventi. Una sottoscrizione di eventi configurata per lo schema CloudEvent riceve singolarmente ogni evento. Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. Usare un trigger HTTP. Per esempi di implementazione di un trigger HTTP che riceve gli eventi nello schema CloudEvents, vedere [Usare un trigger HTTP come trigger Griglia di eventi](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+ Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. Usare un trigger HTTP. Per esempi di implementazione di un trigger HTTP che riceve gli eventi nello schema CloudEvents, vedere [Usare un trigger HTTP come trigger Griglia di eventi](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

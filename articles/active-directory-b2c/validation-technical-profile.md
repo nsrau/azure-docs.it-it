@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511918"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167570"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
 
@@ -39,40 +39,43 @@ Un profilo tecnico di convalida può essere eseguito in modo condizionale in bas
 
 Un profilo tecnico autocertificato può stabilire che un profilo tecnico venga usato per la convalida di alcune o di tutte le attestazioni di output. Tutte le attestazioni di input del profilo tecnico a cui si fa riferimento devono essere visualizzate nelle attestazioni di output del profilo tecnico di convalida di riferimento.
 
+> [!NOTE]
+> Solo i profili tecnici autocertificati possono usare i profili tecnici di convalida. Se è necessario convalidare le attestazioni di output da profili tecnici non autocertificati, prendere in considerazione l'uso di un passaggio di orchestrazione aggiuntivo nel percorso utente per soddisfare il profilo tecnico responsabile della convalida.    
+
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 L'elemento **ValidationTechnicalProfiles** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Profilo tecnico da usare per la convalida di alcune o di tutte le attestazioni di output del profilo tecnico di riferimento. |
 
 L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attribute | obbligatori | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
-|ContinueOnError|No| Che indica se la convalida di tutti i profili tecnici convalida successiva deve continuare se questo profilo tecnico convalida genera un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
-|ContinueOnSuccess | No | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente abbia esito positivo. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`, che significa che continuerà l'elaborazione di ulteriori profili di convalida. |
+| ReferenceId | Sì | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
+|ContinueOnError|No| Indica se la convalida di tutti i profili tecnici di convalida successivi deve continuare se il profilo tecnico di convalida genera un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
+|ContinueOnSuccess | No | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente abbia esito positivo. I possibili valori sono: `true` o `false`. Il valore predefinito è `true`, che significa che continuerà l'elaborazione di ulteriori profili di convalida. |
 
 L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | Elenco di precondizioni che devono essere soddisfatte per consentire l'esecuzione del profilo tecnico di convalida. |
 
 L'elemento **Precondition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attribute | obbligatori | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| `Type` | Yes | Tipo di controllo o query da eseguire per la precondizione. Il valore specificato può essere `ClaimsExist`, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure `ClaimEquals`, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore corrisponde al valore specificato. |
-| `ExecuteActionsIf` | Yes | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
+| `Type` | Sì | Tipo di controllo o query da eseguire per la precondizione. Il valore specificato può essere `ClaimsExist`, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure `ClaimEquals`, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore corrisponde al valore specificato. |
+| `ExecuteActionsIf` | Sì | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
 
 L'elemento **Precondition** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | DESCRIZIONE |
 | ------- | ----------- | ----------- |
-| Value | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
+| Valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
 | Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
 
 ### <a name="example"></a>Esempio

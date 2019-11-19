@@ -4,14 +4,14 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621458"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166638"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -41,7 +41,7 @@ Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 * **Nome destinazione di archiviazione** : impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
 * **Tipo di destinazione** : scegliere **BLOB**.
-* **Account di archiviazione** : selezionare l'account con il contenitore a cui fare riferimento.
+* **Account di archiviazione** : selezionare l'account con il contenitore che si vuole usare.
 
   Per accedere all'account di archiviazione, è necessario autorizzare l'istanza della cache, come descritto in [aggiungere i ruoli di accesso](#add-the-access-control-roles-to-your-account).
 
@@ -53,13 +53,16 @@ Per definire un contenitore BLOB di Azure, immettere queste informazioni.
 
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
+> [!NOTE]
+> Se il firewall dell'account di archiviazione è impostato in modo da limitare l'accesso solo alle "reti selezionate", usare la soluzione alternativa temporanea documentata in [aggirare le impostazioni del firewall dell'account di archiviazione BLOB](hpc-cache-blob-firewall-fix.md).
+
 ### <a name="add-the-access-control-roles-to-your-account"></a>Aggiungere i ruoli di controllo di accesso all'account
 
-Cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare l'applicazione della cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
+Cache HPC di Azure usa il [controllo degli accessi in base al ruolo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) per autorizzare il servizio cache ad accedere all'account di archiviazione per le destinazioni di archiviazione BLOB di Azure.
 
 Il proprietario dell'account di archiviazione deve aggiungere in modo esplicito i ruoli collaboratore [account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e collaboratore [dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) per l'utente "HPC cache Resource Provider".
 
-È possibile eseguire questa operazione in anticipo oppure facendo clic su un collegamento nella pagina in cui si aggiunge una destinazione di archiviazione BLOB.
+È possibile eseguire questa operazione in anticipo oppure facendo clic su un collegamento nella pagina in cui si aggiunge una destinazione di archiviazione BLOB. Tenere presente che possono essere necessari fino a cinque minuti per la propagazione delle impostazioni dei ruoli nell'ambiente Azure, quindi è necessario attendere alcuni minuti dopo aver aggiunto i ruoli prima di creare una destinazione di archiviazione.
 
 Passaggi per aggiungere i ruoli RBAC:
 
@@ -76,7 +79,7 @@ Passaggi per aggiungere i ruoli RBAC:
    > [!NOTE]
    > Se la ricerca di "HPC" non funziona, provare a usare la stringa "storagecache". Per gli utenti che si aggiungono alle anteprime (prima di GA) potrebbe essere necessario usare il nome precedente per l'entità servizio.
 
-1. Fare clic sul pulsante **Salva** per aggiungere l'assegnazione di ruolo all'account di archiviazione.
+1. Fare clic sul pulsante **Salva** nella parte inferiore.
 
 1. Ripetere questo processo per assegnare il ruolo "collaboratore dati BLOB di archiviazione".  
 
@@ -84,7 +87,7 @@ Passaggi per aggiungere i ruoli RBAC:
 
 ## <a name="add-a-new-nfs-storage-target"></a>Aggiungere una nuova destinazione di archiviazione NFS
 
-Una destinazione di archiviazione NFS include alcuni campi aggiuntivi per specificare come raggiungere l'esportazione di archiviazione e come memorizzare nella cache i dati in modo efficiente. Inoltre, è possibile creare più percorsi dello spazio dei nomi da un host NFS se sono disponibili più esportazioni.
+Una destinazione di archiviazione NFS ha più campi di quelli della destinazione di archiviazione BLOB. Questi campi specificano come raggiungere l'esportazione dell'archiviazione e come memorizzare nella cache i dati in modo efficiente. Una destinazione di archiviazione NFS consente inoltre di creare più percorsi dello spazio dei nomi se l'host NFS dispone di più di un'esportazione disponibile.
 
 ![Screenshot della pagina Aggiungi destinazione di archiviazione con destinazione NFS definita](media/hpc-cache-add-nfs-target.png)
 
@@ -96,14 +99,15 @@ Fornire queste informazioni per una destinazione di archiviazione supportata da 
 
 * Nome **host** : immettere l'indirizzo IP o il nome di dominio completo per il sistema di archiviazione NFS. Usare un nome di dominio solo se la cache ha accesso a un server DNS in grado di risolvere il nome.
 
-* **Modello di utilizzo** : scegliere uno dei profili di caching dei dati in base al flusso di lavoro, descritto di [seguito in scegliere un modello di utilizzo](#choose-a-usage-model).
+* **Modello di utilizzo** : scegliere uno dei profili di caching dei dati in base al flusso di lavoro, descritto di seguito in [scegliere un modello di utilizzo](#choose-a-usage-model).
 
 ### <a name="nfs-namespace-paths"></a>Percorsi dello spazio dei nomi NFS
 
 Una destinazione di archiviazione NFS può avere più percorsi virtuali, purché ogni percorso rappresenti un'esportazione o una sottodirectory diversa nello stesso sistema di archiviazione.
 
 Creare tutti i percorsi da una destinazione di archiviazione.
-<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+È possibile [aggiungere e modificare i percorsi dello spazio dei nomi](hpc-cache-edit-storage.md) in una destinazione di archiviazione in qualsiasi momento.
 
 Immettere questi valori per ogni percorso dello spazio dei nomi:
 
@@ -122,11 +126,29 @@ Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 Quando si crea una destinazione di archiviazione che punta a un sistema di archiviazione NFS, è necessario scegliere il *modello di utilizzo* per tale destinazione. Questo modello determina il modo in cui i dati vengono memorizzati nella cache.
 
-* Lettura elevata: se si usa per la maggior parte la cache per velocizzare l'accesso in lettura ai dati, scegliere questa opzione.
+Sono disponibili tre opzioni:
 
-* Lettura/scrittura: se i client usano la cache per la lettura e la scrittura, scegliere questa opzione.
+* **Read Heavy, scritture rare** : usare questa opzione se si vuole velocizzare l'accesso in lettura ai file statici o modificati raramente.
 
-* Client ignorano la cache: scegliere questa opzione se i client scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache.
+  Questa opzione consente di memorizzare nella cache i file letti dai client, ma di passare immediatamente le scritture all'archiviazione back-end. I file archiviati nella cache non vengono mai confrontati con i file nel volume di archiviazione NFS.
+
+  Non usare questa opzione se esiste il rischio che un file venga modificato direttamente nel sistema di archiviazione senza prima scriverlo nella cache. In tal caso, la versione memorizzata nella cache del file non verrà mai aggiornata con le modifiche apportate dal back-end e il set di dati può diventare incoerente.
+
+* **Scritture superiori al 15%** : questa opzione consente di velocizzare le prestazioni di lettura e scrittura. Quando si usa questa opzione, tutti i client devono accedere ai file tramite la cache HPC di Azure anziché montare direttamente l'archiviazione back-end. I file memorizzati nella cache avranno modifiche recenti che non sono archiviate nel back-end.
+
+  In questo modello di utilizzo i file nella cache non vengono controllati in base ai file nell'archiviazione back-end. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end solo dopo che è stato inserito nella cache per un'ora senza ulteriori modifiche.
+
+* I **client scrivono nella destinazione NFS, ignorando la cache** . scegliere questa opzione se i client nel flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache. I file richiesti dai client vengono memorizzati nella cache, ma tutte le modifiche apportate ai file dal client vengono passate immediatamente al sistema di archiviazione back-end.
+
+  Con questo modello di utilizzo, i file nella cache vengono spesso controllati rispetto alle versioni back-end per gli aggiornamenti. Questa verifica consente di modificare i file all'esterno della cache mantenendo la coerenza dei dati.
+
+In questa tabella vengono riepilogate le differenze del modello di utilizzo:
+
+| Modello di utilizzo | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
+| ---- | ---- | ---- | ---- |
+| Lettura di scritture complesse e non frequenti | Read | Mai | nessuno |
+| Scritture superiori al 15% | Lettura/Scrittura | Mai | 1 ora |
+| Client che ignorano la cache | Read | 30 secondi | nessuno |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -135,4 +157,4 @@ Dopo aver creato le destinazioni di archiviazione, prendere in considerazione un
 * [Montare la cache HPC di Azure](hpc-cache-mount.md)
 * [Spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md)
 
-Se è necessario modificare una destinazione di archiviazione, leggere [Modifica destinazioni di archiviazione](hpc-cache-edit-storage.md) per informazioni su come.
+Se è necessario aggiornare le impostazioni, è possibile [modificare una destinazione di archiviazione](hpc-cache-edit-storage.md).

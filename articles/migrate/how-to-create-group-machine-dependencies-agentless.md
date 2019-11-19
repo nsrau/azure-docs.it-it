@@ -4,27 +4,25 @@ description: Viene descritto come creare gruppi usando le dipendenze del compute
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720260"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158430"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze senza agenti per la valutazione
-
-> [!NOTE]
-> Se questa funzionalità non è ancora visualizzata nel portale di Azure Migrate, bloccarsi. Verrà visualizzato nella settimana successiva.
 
 Questo articolo descrive come configurare il mapping delle dipendenze senza agente in Azure Migrate: server assessment. Questa funzionalità è attualmente disponibile in anteprima per i computer VMware individuati con un appliance Azure Migrate. 
 
 > [!IMPORTANT]
 > La visualizzazione delle dipendenze senza agenti è attualmente in anteprima per le macchine virtuali VMware di Azure individuate tramite un appliance Azure Migrate.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="about-dependency-mapping"></a>Informazioni sul mapping delle dipendenze 
+## <a name="about-dependency-mapping"></a>Informazioni sul mapping delle dipendenze
 
 Il mapping delle dipendenze consente di visualizzare le dipendenze tra i computer che si desidera valutare e migrare. In genere si usa il mapping delle dipendenze quando si desidera valutare i computer con livelli di confidenza più elevati.
 
@@ -46,7 +44,7 @@ La visualizzazione delle dipendenze senza agente non richiede l'installazione di
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 - La visualizzazione delle dipendenze senza agenti è attualmente disponibile solo per le macchine virtuali VMware.
-- In questo momento non è possibile aggiungere o rimuovere un server da un gruppo, nella visualizzazione analisi delle dipendenze. 
+- In questo momento non è possibile aggiungere o rimuovere un server da un gruppo, nella visualizzazione analisi delle dipendenze.
 - La mappa delle dipendenze per un gruppo di server non è attualmente disponibile.
 - Attualmente i dati sulle dipendenze non possono essere scaricati in formato tabulare.
 
@@ -60,12 +58,12 @@ La visualizzazione delle dipendenze senza agente non richiede l'installazione di
 
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
- 
+
 Di seguito sono riportati i sistemi operativi supportati per la visualizzazione delle dipendenze senza agenti.
 
 **Tipo** | **Sistemi operativi supportati**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bit) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bit)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14,04, 16,04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -84,7 +82,7 @@ Aggiungere l'account come segue:
 
 1. Aprire l'app gestione Appliance. Passare al pannello **specificare i dettagli di vCenter** .
 2. Nella sezione **individuare l'applicazione e le dipendenze dalle macchine virtuali** fare clic su **Aggiungi credenziali** .
-3. Scegliere il **sistema operativo**. 
+3. Scegliere il **sistema operativo**.
 4. Consente di specificare un nome descrittivo per l'account.
 5. Specificare il **nome utente** e la **password**
 6. Fare clic su **Save**.
@@ -113,8 +111,8 @@ Sarà possibile visualizzare le dipendenze 6 ore dopo l'avvio dell'individuazion
 2. Cercare il computer per il quale si desidera visualizzare la mappa delle dipendenze.
 3. Fare clic su **Visualizza dipendenze** nella colonna **dipendenze** .
 4. Modificare il periodo di tempo per cui si desidera visualizzare la mappa utilizzando l'elenco a discesa **durata tempo** .
-5. Espandere il gruppo **client** per elencare i computer che hanno una dipendenza nel computer selezionato. 
-6. Espandere il gruppo **porta** per elencare i computer che hanno una dipendenza dal computer selezionato. 
+5. Espandere il gruppo **client** per elencare i computer che hanno una dipendenza nel computer selezionato.
+6. Espandere il gruppo **porta** per elencare i computer che hanno una dipendenza dal computer selezionato.
 7. Per passare alla visualizzazione mappa di uno dei computer dipendenti, fare clic sul nome del computer e quindi fare clic su **Carica mappa server** .
 
     ![Espandere il gruppo di porte del server e caricare la mappa del server](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

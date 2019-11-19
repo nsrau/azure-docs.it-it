@@ -62,6 +62,8 @@
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
             - name: Interfaccia della riga di comando di Azure
               href: ./ag/tutorial-restrict-web-traffic-cli.md
+        - name: Eseguire la migrazione dei criteri di WAF
+          href: ./ag/migrate-policy.md
         - name: Personalizzare le regole del web application firewall
           items:
             - name: Portale di Azure

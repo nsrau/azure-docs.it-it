@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822819"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159139"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 
@@ -54,6 +54,9 @@ Gli account amministratore del **Server** e **amministratore Azure ad** hanno le
 - Essi possono creare, modificare ed eliminare database, account di accesso, utenti nel database master e regole del firewall IP a livello di server.
 - Questi account possono aggiungere e rimuovere membri per i ruoli `dbmanager` e `loginmanager`.
 - Essi possono visualizzare la tabella di sistema `sys.sql_logins`.
+- Non può essere rinominato.
+- Per modificare l'account amministratore di Azure AD, usare il portale o l'interfaccia della riga di comando di Azure.
+- L'account amministratore del server non può essere modificato in seguito.
 
 ### <a name="configuring-the-firewall"></a>Configurazione del firewall
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 4cd3bc7e4f95869d3efd2d92a7cdf1addc7ce5b2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953104"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173592"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montare o smontare un volume per macchine virtuali Windows o Linux 
 
@@ -32,11 +32,17 @@ ms.locfileid: "73953104"
 
     ![Istruzioni di montaggio SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-Se si usa NFSv 4.1, usare il comando seguente per montare i file system:  
+    Se si usa NFSv 4.1, usare il comando seguente per montare il file system: `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+3. Se si vuole che un volume NFS venga montato automaticamente quando una macchina virtuale di Azure viene avviata o riavviata, aggiungere una voce al file di `/etc/fstab` nell'host. 
+
+    Ad esempio: `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
+
+    * `$ANFIP` è l'indirizzo IP del volume Azure NetApp Files trovato nel pannello delle proprietà del volume.
+    * `$FILEPATH` è il percorso di esportazione del volume Azure NetApp Files.
+    * `$MOUNTPOINT` è la directory creata nell'host Linux usato per montare l'esportazione NFS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Configurare il dominio predefinito NFSv 4.1 per Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* Vedere [domande frequenti su NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs) su come avere un volume NFS montato automaticamente quando una macchina virtuale di Azure viene avviata o riavviata.
+* [Domande frequenti su NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

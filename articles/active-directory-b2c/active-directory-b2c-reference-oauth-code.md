@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1ae3f739d5104ea9a98889f7fbce938b835e84aa
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d738bfb8bcd11c8da4c39d873c7f298b8c49af98
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385937"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167196"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flusso del codice di autorizzazione di OAuth 2.0 in Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Azure AD B2C estende i flussi standard OAuth 2.0 per non limitarsi esclusivament
 Per provare le richieste HTTP in questo articolo:
 
 1. Sostituire `{tenant}` con il nome del tenant di Azure AD B2C.
-1. Sostituire `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` con l'ID app di un'applicazione registrata in precedenza nel tenant di Azure AD B2C.
+1. Sostituire `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` con l'ID app di un'applicazione registrata in precedenza nel tenant del Azure AD B2C.
 1. Sostituire `{policy}` con il nome di un criterio creato nel tenant, ad esempio `b2c_1_sign_in`.
 
 ## <a name="1-get-an-authorization-code"></a>1. ottenere un codice di autorizzazione
-Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . Questa è la parte interattiva del flusso, dove l'utente esegue operazioni. In questa richiesta il client indica nel parametro `scope` le autorizzazioni che deve acquisire dall'utente. Di seguito sono riportati tre esempi (con interruzioni di riga per migliorare la leggibilità), ognuno dei quali usa un flusso utente diverso.
+Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize`. Questa è la parte interattiva del flusso, dove l'utente esegue operazioni. In questa richiesta il client indica nel parametro `scope` le autorizzazioni che deve acquisire dall'utente. Di seguito sono riportati tre esempi (con interruzioni di riga per migliorare la leggibilità), ognuno dei quali usa un flusso utente diverso.
 
 
 ```HTTP
@@ -52,14 +52,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ```
 
 
-| Parametro | Obbligatorio? | Description |
+| . | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
-|inquilino| Obbligatoria | Nome del tenant di Azure AD B2C|
-| politica | Obbligatoria | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
-| client_id |Obbligatoria |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
-| response_type |Obbligatoria |Tipo di risposta, che deve includere `code` per il flusso del codice di autorizzazione. |
-| redirect_uri |Obbligatoria |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
-| scope |Obbligatoria |Elenco di ambiti separati da spazi. Un singolo valore di ambito indica ad Azure Active Directory (Azure AD) entrambe le autorizzazioni richieste. L'uso dell'ID client come ambito indica che l'app necessita di un token di accesso, che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.  L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per avere un accesso di lunga durata alle risorse. È anche possibile usare l'ambito `openid` per richiedere un token ID ad Azure Active Directory B2C. |
+|inquilino| obbligatori | Nome del tenant di Azure AD B2C|
+| politica | obbligatori | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up`o `b2c_1_edit_profile`. |
+| client_id |obbligatori |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
+| response_type |obbligatori |Tipo di risposta, che deve includere `code` per il flusso del codice di autorizzazione. |
+| redirect_uri |obbligatori |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
+| scope |obbligatori |Elenco di ambiti separati da spazi. Un singolo valore di ambito indica ad Azure Active Directory (Azure AD) entrambe le autorizzazioni richieste. L'uso dell'ID client come ambito indica che l'app necessita di un token di accesso, che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.  L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per avere un accesso di lunga durata alle risorse. È anche possibile usare l'ambito `openid` per richiedere un token ID ad Azure Active Directory B2C. |
 | response_mode |Consigliato |Metodo da usare per inviare all'app il codice di autorizzazione risultante. Può essere `query`, `form_post` o `fragment`. |
 | state |Consigliato |Valore incluso nella richiesta che può essere una stringa di qualsiasi contenuto che si intende usare. Per evitare attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Anche lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima del verificarsi della richiesta di autenticazione, ad esempio la pagina in cui si trova l'utente o il flusso utente che era in esecuzione. |
 | prompt |Facoltativo |Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non avrà effetto. |
@@ -76,7 +76,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
 ```
 
-| Parametro | Description |
+| . | DESCRIZIONE |
 | --- | --- |
 | code |Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per una risorsa di destinazione. I codici di autorizzazione hanno una durata molto breve. In genere scadono dopo circa 10 minuti. |
 | state |Vedere la descrizione completa nella tabella della sezione precedente. Se un parametro `state` è incluso nella richiesta, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori `state` nella richiesta e nella risposta siano identici. |
@@ -90,7 +90,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Description |
+| . | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che è possibile usare per classificare i tipi di errori che si verificano. È possibile usare la stringa anche per rispondere agli errori. |
 | error_description |Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -110,15 +110,16 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parametro | Obbligatorio? | Description |
+| . | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
-|inquilino| Obbligatoria | Nome del tenant di Azure AD B2C|
-|politica| Obbligatoria| Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. |
-| client_id |Obbligatoria |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com).|
-| grant_type |Obbligatoria |Tipo di concessione. Per il flusso del codice di autorizzazione il tipo di concessione deve essere `authorization_code`. |
+|inquilino| obbligatori | Nome del tenant di Azure AD B2C|
+|politica| obbligatori| Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. |
+| client_id |obbligatori |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com).|
+| client_secret | Sì, nelle app Web | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). I segreti client vengono usati in questo flusso per gli scenari di app Web, in cui il client può archiviare in modo sicuro un segreto client. Per gli scenari di app native (client pubblico), i segreti client non possono essere archiviati in modo sicuro e pertanto non vengono usati in questa chiamata. Se si usa un segreto client, è necessario modificarlo periodicamente. |
+| grant_type |obbligatori |Tipo di concessione. Per il flusso del codice di autorizzazione il tipo di concessione deve essere `authorization_code`. |
 | scope |Consigliato |Elenco di ambiti separati da spazi. Un valore per l'ambito indica ad Azure AD entrambe le autorizzazioni richieste. L'uso dell'ID client come ambito indica che l'app necessita di un token di accesso, che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.  L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per avere un accesso di lunga durata alle risorse.  È anche possibile usare l'ambito `openid` per richiedere un token ID ad Azure Active Directory B2C. |
-| code |Obbligatoria |Codice di autorizzazione acquisito nella prima sezione del flusso. |
-| redirect_uri |Obbligatoria |L'URI di reindirizzamento dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
+| code |obbligatori |Codice di autorizzazione acquisito nella prima sezione del flusso. |
+| redirect_uri |obbligatori |L'URI di reindirizzamento dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -132,7 +133,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parametro | Description |
+| . | DESCRIZIONE |
 | --- | --- |
 | not_before |Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type |Valore del tipo di token. L'unico tipo supportato da Azure AD è Bearer. |
@@ -150,7 +151,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Description |
+| . | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che è possibile usare per classificare i tipi di errori che si verificano. È possibile usare la stringa anche per rispondere agli errori. |
 | error_description |Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -175,16 +176,16 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatorio? | Description |
+| . | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
-|inquilino| Obbligatoria | Nome del tenant di Azure AD B2C|
-|politica |Obbligatoria |Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. |
-| client_id |Obbligatoria |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
-| client_secret |Obbligatoria |Valore di client_secret associato al valore di client_id nel [portale di Azure](https://portal.azure.com). |
-| grant_type |Obbligatoria |Tipo di concessione. Per questa parte del flusso del codice di autorizzazione il tipo di concessione deve essere `refresh_token`. |
+|inquilino| obbligatori | Nome del tenant di Azure AD B2C|
+|politica |obbligatori |Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. |
+| client_id |obbligatori |ID applicazione assegnato all'app nel [portale di Azure](https://portal.azure.com). |
+| client_secret | Sì, nelle app Web | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). I segreti client vengono usati in questo flusso per gli scenari di app Web, in cui il client può archiviare in modo sicuro un segreto client. Per gli scenari di app native (client pubblico), i segreti client non possono essere archiviati in modo sicuro e pertanto non vengono usati in questa chiamata. Se si usa un segreto client, è necessario modificarlo periodicamente. |
+| grant_type |obbligatori |Tipo di concessione. Per questa parte del flusso del codice di autorizzazione il tipo di concessione deve essere `refresh_token`. |
 | scope |Consigliato |Elenco di ambiti separati da spazi. Un valore per l'ambito indica ad Azure AD entrambe le autorizzazioni richieste. L'uso dell'ID client come ambito indica che l'app necessita di un token di accesso, che può essere usato per il servizio o l'API Web, rappresentato dallo stesso ID client.  L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per un accesso di lunga durata alle risorse.  È anche possibile usare l'ambito `openid` per richiedere un token ID ad Azure Active Directory B2C. |
 | redirect_uri |Facoltativo |L'URI di reindirizzamento dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| refresh_token |Obbligatoria |Token di aggiornamento originale acquisito nella seconda sezione del flusso. |
+| refresh_token |obbligatori |Token di aggiornamento originale acquisito nella seconda sezione del flusso. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -198,7 +199,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parametro | Description |
+| . | DESCRIZIONE |
 | --- | --- |
 | not_before |Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type |Valore del tipo di token. L'unico tipo supportato da Azure AD è Bearer. |
@@ -216,7 +217,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Description |
+| . | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che è possibile usare per classificare i tipi di errori che si verificano. È possibile usare la stringa anche per rispondere agli errori. |
 | error_description |Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |

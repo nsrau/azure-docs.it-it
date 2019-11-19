@@ -1,21 +1,15 @@
 ---
-title: 'Backup di Azure: monitoraggio di backup di Azure con monitoraggio di Azure'
+title: Monitorare backup di Azure con monitoraggio di Azure
 description: Monitorare i carichi di lavoro di backup di Azure e creare avvisi personalizzati con monitoraggio di Azure.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Log Analytics; Backup di Azure; Avvisi Impostazioni di diagnostica; Gruppi di azioni
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 65bab1a6d6d424c90b38a3bdf99b6bf5bd8ded09
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074227"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172899"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 

@@ -1,24 +1,24 @@
 ---
 title: Integrare Firewall di Azure con Azure Load Balancer Standard
-description: Informazioni su come integrare Firewall di Azure con Azure Load Balancer Standard
+description: È possibile integrare un firewall di Azure in una rete virtuale con un servizio di bilanciamento del carico standard di Azure (pubblico o interno).
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193776"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167068"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrare Firewall di Azure con Azure Load Balancer Standard
 
 È possibile integrare un firewall di Azure in una rete virtuale con un servizio di bilanciamento del carico standard di Azure (pubblico o interno). 
 
-La progettazione preferita è integrare un servizio di bilanciamento del carico interno con il firewall di Azure, poiché si tratta di una progettazione molto più semplice. Se è già disponibile uno distribuito e si desidera mantenerlo posto, è possibile usare un servizio di bilanciamento del carico pubblico. È tuttavia necessario tenere presente un problema di routing asimmetrico che può interrompere la funzionalità con lo scenario di bilanciamento del carico pubblico.
+La progettazione preferita prevede l'integrazione di un servizio di bilanciamento del carico interno con il firewall di Azure, poiché si tratta di una progettazione molto più semplice. È possibile usare un servizio di bilanciamento del carico pubblico se ne è già stato distribuito uno e si vuole mantenerlo. È tuttavia necessario tenere presente un problema di routing asimmetrico che può interrompere la funzionalità con lo scenario di bilanciamento del carico pubblico.
 
 Per altre informazioni su Azure Load Balancer, vedere [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
@@ -32,7 +32,7 @@ Nel routing asimmetrico un pacchetto segue un percorso fino alla destinazione e 
 
 ### <a name="fix-the-routing-issue"></a>Risolvere il problema di routing
 
-Quando si distribuisce un firewall di Azure in una subnet, un passaggio consiste nel creare una route predefinita per la subnet che indirizza i pacchetti tramite l'indirizzo IP privato del firewall che si trova in AzureFirewallSubnet. Per altre informazioni, vedere [Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
+Quando si distribuisce un firewall di Azure in una subnet, un passaggio consiste nel creare una route predefinita per la subnet che indirizza i pacchetti tramite l'indirizzo IP privato del firewall che si trova in AzureFirewallSubnet. Per altre informazioni, vedere [esercitazione: distribuire e configurare il firewall di Azure usando il portale di Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
 Quando si introduce il firewall nello scenario di bilanciamento del carico, si vuole che il traffico Internet in ingresso passi attraverso l'indirizzo IP pubblico del firewall, da cui il firewall applica le proprie regole e invia tramite NAT i pacchetti all'indirizzo IP pubblico del servizio di bilanciamento del carico. L'origine del problema è questa. I pacchetti giungono all'indirizzo IP pubblico del firewall, ma tornano al firewall tramite l'indirizzo IP privato (usando la route predefinita).
 Per evitare questo problema, creare una route host aggiuntiva per l'indirizzo IP pubblico del firewall. I pacchetti trasmessi all'indirizzo IP pubblico del firewall vengono instradati tramite Internet. Questo evita di usare la route predefinita per indirizzo IP privato del firewall.

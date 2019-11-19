@@ -1,19 +1,14 @@
 ---
-title: Proteggere lo stato del sistema & ripristino bare metal-server di Backup di Azure
+title: Protezione del ripristino dello stato del sistema e del ripristino bare metal
 description: Utilizzare il server di Backup di Azure per eseguire il backup dello stato del sistema e fornire la protezione del ripristino bare metal.
-author: dcurwin
-manager: carmonm
-keywords: ''
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dacurwin
-ms.openlocfilehash: 50f534a5a682cd9e4f6aeb040b897e7aae48dddd
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969022"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172254"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino bare metal con il server di Backup di Azure
 
@@ -28,7 +23,7 @@ Il server di Backup di Azure esegue il backup dello stato del sistema e offre la
 
 Nella tabella seguente sono riepilogati gli elementi di cui è possibile eseguire il backup e il ripristino. Per informazioni dettagliate sulle versioni delle app che è possibile proteggere con il ripristino dello stato del sistema e bare metal, vedere [Di quali elemento esegue il backup il server di Backup di Azure?](backup-mabs-protection-matrix.md).
 
-|Eseguire il backup|Problema|Ripristino dal backup del server di Backup di Azure|Ripristino dal backup dello stato del sistema|Ripristino bare metal|
+|Backup|Problema|Ripristino dal backup del server di Backup di Azure|Ripristino dal backup dello stato del sistema|Ripristino bare metal|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dati di file**<br /><br />Backup dei dati regolare<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di file persi|S|N|N|
 |**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
@@ -95,7 +90,7 @@ Al termine del backup, il file viene trasferito nel computer del server di Backu
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-1. **Distribuire il server di Backup di Azure**. Verificare che il server di Backup sia distribuito correttamente. Per scoprire di più, vedi:
+1. **Distribuire il server di Backup di Azure**. Verificare che il server di Backup sia distribuito correttamente. Per altre informazioni, vedere:
     * [Requisiti di sistema per il server di Backup di Azure](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matrice di protezione del server di Backup](backup-mabs-protection-matrix.md)
 

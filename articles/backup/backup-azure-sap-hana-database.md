@@ -1,18 +1,14 @@
 ---
-title: Eseguire il backup di un database di SAP HANA in Azure con backup di Azure | Microsoft Docs
+title: Eseguire il backup di un database di SAP HANA in Azure
 description: Questa esercitazione illustra come eseguire il backup di un database di SAP HANA in Azure con il servizio backup di Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 519e47c6b6793c638e64c4e4bcc4fafdb678c9fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931812"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172735"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Eseguire il backup di un database di SAP HANA in Azure
 
@@ -43,7 +39,7 @@ ms.locfileid: "72931812"
   - Per creare un nuovo criterio, nell'insieme di credenziali fare clic su **criteri** > **criteri di backup** >  **+ Aggiungi** > **SAP Hana nella macchina virtuale di Azure**e specificare le impostazioni dei criteri.
   - Per assegnare un criterio diverso, fare clic sul nome del criterio corrente nelle proprietà della macchina virtuale che esegue il database. Nella pagina **criteri di backup** è quindi possibile selezionare un criterio diverso da usare per il backup.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di configurare i backup, assicurarsi di eseguire le operazioni seguenti:
 

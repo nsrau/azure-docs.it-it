@@ -1,21 +1,15 @@
 ---
-title: "Backup di Azure: gestire i processi di backup con l'API REST"
+title: Gestire i processi di backup con l'API REST
 description: Questo articolo illustra come tenere traccia e gestire i processi di backup e ripristino di backup di Azure usando l'API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929109"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173401"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Tenere traccia dei processi di backup e ripristino con l'API REST
 

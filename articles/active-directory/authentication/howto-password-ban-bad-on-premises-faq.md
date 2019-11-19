@@ -4,19 +4,19 @@ description: Domande frequenti sulla protezione password di Azure AD locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 473fe43bb4cf18c61f30d9b7e057da888dc6da62
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71268632"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167913"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
 
@@ -101,7 +101,7 @@ No. Poiché il server proxy è senza stato, non ha importanza quale server proxy
 
 Sì. Il servizio proxy di Password di protezione di Azure AD e Azure AD Connect non devono essere mai direttamente in conflitto l'uno con l'altro.
 
-Sfortunatamente, è stata rilevata un'incompatibilità tra la versione del servizio Microsoft Azure AD Connect Agent Updater installata dal software proxy di Azure AD Password Protection e la versione del servizio installata da [Azure Active Software proxy applicazione directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Questa incompatibilità può comportare la mancata riuscita del servizio Agent Updater per contattare Azure per gli aggiornamenti software. Non è consigliabile installare Azure AD proxy di protezione con password e Azure Active Directory Application Proxy nello stesso computer.
+Sfortunatamente, è stata rilevata un'incompatibilità tra la versione del servizio Microsoft Azure AD Connect Agent Updater installata dal software proxy di Azure AD Password Protection e la versione del servizio installata dal software [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) . Questa incompatibilità può comportare la mancata riuscita del servizio Agent Updater per contattare Azure per gli aggiornamenti software. Non è consigliabile installare Azure AD proxy di protezione con password e Azure Active Directory Application Proxy nello stesso computer.
 
 **D: in che ordine devono essere installati e registrati gli agenti e i proxy del controller di dominio?**
 

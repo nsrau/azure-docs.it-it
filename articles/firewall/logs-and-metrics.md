@@ -1,20 +1,20 @@
 ---
 title: Panoramica dei log e delle metriche del firewall di Azure
-description: Questo articolo è una panoramica dei log e delle metriche di diagnostica del firewall di Azure.
+description: È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876550"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166992"
 ---
-# <a name="azure-firewall-logs-and-metrics"></a>Metriche e log del firewall di Azure
+# <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
 È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
 
@@ -75,9 +75,9 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
 
 Sono disponibili tre opzioni di archiviazione dei log:
 
-* **Account di archiviazione**: sono la soluzione ideale per i log quando questi vengono archiviati per un periodo più lungo ed esaminati quando necessario.
-* **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione degli eventi e delle informazioni di sicurezza (SEIM) per ricevere avvisi sulle risorse.
-* **Log di Monitoraggio di Azure**: i log di Monitoraggio di Azure sono ideali per il monitoraggio generale in tempo reale dell'applicazione o per l'analisi delle tendenze.
+* **Account di archiviazione**: ideali quando i log vengono archiviati per un periodo più lungo ed esaminati quando necessario.
+* **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione delle informazioni di sicurezza e degli eventi (SEIM) per ricevere avvisi sulle risorse.
+* **Log di monitoraggio di Azure**: i log di monitoraggio di Azure sono ideali per il monitoraggio generale in tempo reale dell'applicazione o l'analisi delle tendenze.
 
 ## <a name="activity-logs"></a>Log attività
 
@@ -85,7 +85,7 @@ Sono disponibili tre opzioni di archiviazione dei log:
 
    È possibile usare i [log attività di Azure](../azure-resource-manager/resource-group-audit.md) (precedentemente noti come log operativi e log di controllo) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>Metrica
 
 Le metriche in monitoraggio di Azure sono valori numerici che descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche vengono raccolte ogni minuto e sono utili per gli avvisi perché possono essere campionate spesso. Un avviso può essere generato rapidamente con una logica relativamente semplice.
 
@@ -108,8 +108,8 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
     Unità: percentuale
 
    Questa metrica ha due dimensioni:
-  - **Stato**: I valori possibilisono integro, *danneggiato*,non integro.
-  - **Motivo**: Indica il motivo dello stato corrispondente del firewall. Ad esempio, può indicare le *porte SNAT* se lo stato del firewall è danneggiato o non integro.
+  - **Stato**: i valori possibili sono *integro*, *danneggiato*, non *integro*.
+  - **Motivo**: indica il motivo dello stato corrispondente del firewall. Ad esempio, può indicare le *porte SNAT* se lo stato del firewall è danneggiato o non integro.
 
 
 
@@ -124,6 +124,6 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come monitorare i log e le metriche del firewall di [Azure, vedere Esercitazione: Monitorare i log di Firewall di Azure](tutorial-diagnostics.md).
+- Per informazioni su come monitorare log e metriche del Firewall di Azure, vedere [Esercitazione: monitorare i log del Firewall di Azure](tutorial-diagnostics.md).
 
 - Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).

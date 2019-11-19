@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812914"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170063"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -20,11 +20,22 @@ Questo articolo descrive in che modo Griglia di eventi di Azure gestisce gli eve
 
 Griglia di eventi fornisce il recapito durevole. Ogni messaggio viene recapitato almeno una volta per ogni sottoscrizione. Gli eventi vengono inviati immediatamente all'endpoint registrato di ogni sottoscrizione. Se un endpoint non conferma la ricezione di un evento, Griglia di eventi esegue nuovi tentativi di recapito dell'evento.
 
-Attualmente, Griglia di eventi invia singolarmente ogni evento ai sottoscrittori. Il sottoscrittore riceve una matrice con un singolo evento.
+## <a name="batched-event-delivery"></a>Recapito di eventi in batch
+
+Per impostazione predefinita, griglia di eventi invia ogni singolo evento ai sottoscrittori. Il sottoscrittore riceve una matrice con un singolo evento. È possibile configurare griglia di eventi per eseguire il batch degli eventi per il recapito per migliorare le prestazioni HTTP in scenari con velocità effettiva elevata.
+
+Il recapito in batch ha due impostazioni:
+
+* Il numero massimo di **eventi per batch** è il numero massimo di eventi che griglia di eventi verrà recapitato per batch. Questo numero non verrà mai superato, tuttavia è possibile recapitare un numero minore di eventi se non sono disponibili altri eventi al momento della pubblicazione. Griglia di eventi non ritarda gli eventi per creare un batch se sono disponibili meno eventi. Deve essere compreso tra 1 e 5.000.
+* **Dimensioni batch preferite in kilobyte** è il limite di destinazione per le dimensioni del batch, in kilobyte. Analogamente agli eventi Max, le dimensioni del batch possono essere minori se al momento della pubblicazione non sono disponibili più eventi. *Se* un singolo evento è più grande della dimensione preferita, è possibile che un batch superi le dimensioni del batch preferite. Se, ad esempio, la dimensione preferita è 4 KB e viene effettuato il push di un evento da 10 KB a griglia di eventi, l'evento di 10 KB verrà comunque recapitato nel proprio batch anziché essere eliminato.
+
+Il recapito in batch viene configurato in base a una sottoscrizione per ogni evento tramite il portale, l'interfaccia della riga di comando, PowerShell o gli SDK.
+
+![Impostazioni di recapito batch](./media/delivery-and-retry/batch-settings.png)
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
 
-Griglia di eventi attende 30 secondi per una risposta dopo la distribuzione di un messaggio. Dopo 30 secondi, se l'endpoint non ha risposto, il messaggio viene accodato per la ripetizione dei tentativi. Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Griglia di eventi di tentativi di recapito in base alla pianificazione seguente in base ad approssimazioni ottimali:
+Griglia di eventi attende 30 secondi per una risposta dopo il recapito di un messaggio. Dopo 30 secondi, se l'endpoint non ha risposto, il messaggio viene accodato per riprovare. Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Griglia di eventi esegue un nuovo tentativo di recapito in base alla pianificazione seguente, in base al modo migliore:
 
 - 10 secondi
 - 30 secondi
@@ -33,21 +44,21 @@ Griglia di eventi attende 30 secondi per una risposta dopo la distribuzione di u
 - 10 minuti
 - 30 minuti
 - 1 ora
-- Su base oraria per fino a 24 ore
+- Ogni ora per un massimo di 24 ore
 
-Se l'endpoint risponde entro 3 minuti, griglia di eventi proverà a rimuovere l'evento dalla coda di tentativi in base ad approssimazioni ottimali, ma è comunque possibile ricevere i duplicati.
+Se l'endpoint risponde entro 3 minuti, griglia di eventi tenterà di rimuovere l'evento dalla coda dei tentativi in base a un massimo sforzo, ma i duplicati potrebbero comunque essere ricevuti.
 
-Griglia di eventi aggiunge una piccola parte di casualità a tutti i passaggi di ripetizione dei tentativi e può, in base alle esigenze, ignorare determinati tentativi se un endpoint è coerente non integro, verso il basso per un lungo periodo o sembra essere sovraccaricato.
+Griglia di eventi aggiunge una piccola sequenza casuale a tutti i passaggi di ripetizione dei tentativi e può opportunisticamente ignorare alcuni tentativi se un endpoint è costantemente non integro, inattivo per un lungo periodo o sembra essere sovraccarico.
 
-Per un comportamento deterministico, impostare l'ora dell'evento durata (TTL) e i tentativi di recapito massimo nel [i criteri di ripetizione dei tentativi di sottoscrizione](manage-event-delivery.md).
+Per il comportamento deterministico, impostare la durata dell'evento su Live e i tentativi di recapito massimi nei [criteri di ripetizione della sottoscrizione](manage-event-delivery.md).
 
 Per impostazione predefinita, Griglia di eventi fa scadere tutti gli eventi che non vengono recapitati entro 24 ore. Quando si crea una sottoscrizione di eventi, è possibile [personalizzare i criteri di ripetizione](manage-event-delivery.md). È necessario specificare il numero massimo di tentativi di recapito (il valore predefinito è 30) e la durata (TTL) dell'evento (il valore predefinito è 1440 minuti).
 
 ## <a name="delayed-delivery"></a>Recapito ritardato
 
-Come un endpoint di esperienze di errori di recapito, griglia di eventi inizierà a ritardare il recapito e i nuovi tentativi di eventi verso tale endpoint. Ad esempio, se i primi dieci eventi pubblicati in un endpoint hanno esito negativo, griglia di eventi presupporrà che l'endpoint si è verificati problemi e ritarderà tutti i tentativi successivi *nuovi e* recapiti per un certo tempo, in alcuni casi fino a diverse ore .
+Quando si verificano errori di recapito di un endpoint, griglia di eventi inizia a ritardare il recapito e riprovare gli eventi in tale endpoint. Se, ad esempio, i primi 10 eventi pubblicati in un endpoint hanno esito negativo, griglia di eventi presuppone che l'endpoint stia riscontrando problemi e ritarderà tutti i tentativi successivi *e i nuovi* recapiti per un certo periodo di tempo, in alcuni casi fino a diverse ore.
 
-Lo scopo di funzionalità di recapito ritardato consiste nella protezione endpoint non integri, nonché il sistema griglia di eventi. Senza eseguire il backoff e il ritardo della consegna agli endpoint non integri, criteri di ripetizione della griglia di eventi e le funzionalità di volume possono facilmente sovraccaricare un sistema.
+Lo scopo funzionale del recapito ritardato consiste nel proteggere gli endpoint non integri e il sistema di griglia di eventi. Senza il ritardi e il ritardo del recapito a endpoint non integri, i criteri di ripetizione dei tentativi e le funzionalità del volume di griglia di eventi possono sovraccaricare facilmente un sistema.
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
 
@@ -69,28 +80,28 @@ Griglia di eventi usa i codici di risposta HTTP per confermare la ricezione degl
 
 ### <a name="success-codes"></a>Codici di riuscita
 
-Griglia di eventi considera **solo** i seguenti codici di risposta HTTP come recapiti riusciti. Tutti gli altri stato codici sono considerati non riusciti durante i recapiti e verranno ritentati o non recapitabile come appropriato. Dopo aver ricevuto un codice di stato di esito positivo, griglia di eventi considera il recapito completato.
+Griglia di eventi considera **solo** i codici di risposta HTTP seguenti come recapiti riusciti. Tutti gli altri codici di stato sono considerati recapiti non riusciti e verranno ripetuti o non recapitabile in base alle esigenze. Alla ricezione di un codice di stato positivo, griglia di eventi considera il completamento del recapito.
 
 - 200 - OK
 - 201 Creato
 - 202 - Accettato
-- Informazioni non autorevoli 203
+- 203 informazioni non autorevoli
 - 204 No Content (Nessun contenuto)
 
 ### <a name="failure-codes"></a>Codici di errore
 
-Tutti gli altri codici non nel set precedente (200 204) vengono considerati come errori e verranno ritentate. Alcuni dispongono di criteri di ripetizione specifiche associati a tali procedure elencate di seguito, tutti gli altri segue il modello standard di esponenziale backoff. È importante tenere presente che, a causa della natura parallelizzazione elevata dell'architettura della griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
+Tutti gli altri codici non inclusi nel set precedente (200-204) vengono considerati errori e verranno ripetuti. Per alcuni sono disponibili criteri di ripetizione dei tentativi specifici, tutti gli altri seguono il modello di back-off esponenziale standard. È importante tenere presente che, a causa della natura altamente parallela dell'architettura di griglia di eventi, il comportamento di ripetizione dei tentativi è non deterministico. 
 
-| status code | Comportamento in caso di nuovo tentativo |
+| Codice di stato | Comportamento in caso di nuovo tentativo |
 | ------------|----------------|
-| 400 - Richiesta non valida | Nuovo tentativo dopo 5 minuti o più (messaggi non recapitabili immediatamente se il programma di installazione di messaggi non recapitabili) |
-| 401 - Non autorizzato | Nuovo tentativo dopo 5 minuti o più |
-| 403 - Accesso negato | Nuovo tentativo dopo 5 minuti o più |
-| 404 - Non trovato | Nuovo tentativo dopo 5 minuti o più |
-| 408 - Timeout richiesta | Nuovo tentativo dopo 2 minuti o più |
-| 413 Entità della richiesta troppo grande | Riprova dopo 10 secondi o più (messaggi non recapitabili immediatamente se il programma di installazione di messaggi non recapitabili) |
-| 503 - Servizio non disponibile | Nuovo tentativo dopo 30 secondi o più |
-| Tutti gli altri | Riprova dopo 10 secondi o più |
+| 400 - Richiesta non valida | Riprovare dopo 5 minuti o più (DeadLetter immediatamente se il programma di installazione di DeadLetter) |
+| 401 - Non autorizzato | Riprovare dopo 5 minuti o più |
+| 403 - Accesso negato | Riprovare dopo 5 minuti o più |
+| 404 - Non trovato | Riprovare dopo 5 minuti o più |
+| 408 - Timeout richiesta | Riprovare dopo 2 minuti o più |
+| 413 Entità della richiesta troppo grande | Riprovare dopo 10 secondi o più (DeadLetter immediatamente se l'installazione di DeadLetter) |
+| 503 - Servizio non disponibile | Riprovare dopo 30 secondi o più |
+| Tutti gli altri | Riprovare dopo 10 secondi o più |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

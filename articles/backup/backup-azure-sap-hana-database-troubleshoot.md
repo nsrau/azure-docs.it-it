@@ -1,25 +1,20 @@
 ---
-title: Risolvere gli errori di backup SAP HANA database-backup di Azure
+title: Risolvere gli errori di backup SAP HANA database
 description: Viene descritto come risolvere gli errori comuni che possono verificarsi quando si usa backup di Azure per eseguire il backup di SAP HANA database.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: cbffa7415f315fd396e57afa355d2415c4612eb5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968443"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172756"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 
 Questo articolo fornisce informazioni sulla risoluzione dei problemi per il backup di database SAP HANA in macchine virtuali di Azure. Nella sezione seguente vengono illustrati i dati concettuali importanti necessari per diagnosticare gli errori comuni nel backup SAP HANA.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Come parte dei [prerequisiti](backup-azure-sap-hana-database.md#prerequisites), assicurarsi che lo script di preregistrazione sia stato eseguito nella macchina virtuale in cui è installato Hana.
 
@@ -50,9 +45,9 @@ Quando si sceglie un database per il backup, il servizio backup di Azure configu
 
 - [catalog_backup_using_backint: true]
 - [enable_accumulated_catalog_backup: false]
-- [parallel_data_backup_backint_channels: 1]
+- [parallel_data_backup_backint_channels:1]
 - [log_backup_timeout_s: 900)]
-- [backint_response_timeout: 7200]
+- [backint_response_timeout:7200]
 
 > [!NOTE]
 > Assicurarsi che questi parametri *non* siano presenti a livello di host. I parametri a livello di host eseguiranno l'override di questi parametri e potrebbero causare un comportamento imprevisto.

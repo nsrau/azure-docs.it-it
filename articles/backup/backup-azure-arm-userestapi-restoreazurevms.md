@@ -1,21 +1,15 @@
 ---
-title: "Backup di Azure: ripristinare le macchine virtuali di Azure con l'API REST"
+title: ripristinare le macchine virtuali di Azure con l'API REST
 description: Questo articolo illustra come gestire le operazioni di ripristino del backup delle macchine virtuali di Azure usando l'API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eecee01ffc78ec8cc0e60b517e9d5b4f0e6baa25
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929153"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173375"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 

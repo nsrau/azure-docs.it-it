@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821187"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166251"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -79,8 +79,10 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 ## <a name="fixed-known-issues"></a>Problemi noti risolti
 
 - **Aug 2019** : i database indipendenti sono completamente supportati nell'istanza gestita.
+- **Ottobre 2019** : il ripristino temporizzato del database predefinito dal livello business critical al livello per utilizzo generico non riuscirà se il database di origine contiene oggetti OLTP in memoria.
+- **2019 novembre** -la coerenza del database viene verificata usando `DBCC CHECKDB` dopo il ripristino del database dall'archiviazione BLOB di Azure.
 
-## <a name="updates"></a>Aggiornamenti
+## <a name="updates"></a>aggiornamenti
 
 Per un elenco degli aggiornamenti e dei miglioramenti del database SQL, vedere [aggiornamenti del servizio di database SQL](https://azure.microsoft.com/updates/?product=sql-database).
 

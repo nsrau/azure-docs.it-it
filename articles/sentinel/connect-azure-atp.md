@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 764fb4c22bcce5fc5b045e68dc512243e783020e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fb8f4de3b3b24d1eba372600c817627771ef0ef6
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261834"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158867"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Connettere i dati da Azure Advanced Threat Protection (ATP)
 
@@ -29,10 +29,10 @@ ms.locfileid: "71261834"
 
 È possibile trasmettere i log da [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) in Azure Sentinel con un solo clic.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Utente con autorizzazioni di amministratore globale o amministratore della sicurezza
-- È necessario essere un cliente di anteprima di Azure ATP
+- È necessario essere un cliente di anteprima di Azure ATP e abilitare l'integrazione tra Azure ATP e Microsoft Cloud App Security. Per altre informazioni, vedere [integrazione della protezione avanzata di Azure](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
 ## <a name="connect-to-azure-atp"></a>Connettersi ad Azure ATP
 
@@ -44,9 +44,9 @@ Se Azure ATP viene distribuito e l'inserimento dei dati, gli avvisi sospetti pos
 
 1. In Sentinel di Azure selezionare **connettori dati** e quindi fare clic sul riquadro **Azure Advanced Threat Protection (anteprima)** .
 
-1. È possibile scegliere se si desidera che gli avvisi di Azure ATP generino automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **Abilita** per abilitare la regola analitica predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analytics** e quindi **le regole attive**.
+1. È possibile scegliere se si desidera che gli avvisi di Azure ATP generino automaticamente eventi imprevisti in Sentinel di Azure. In **Create incidents** (Crea eventi imprevisti) selezionare **Enable** (Abilita) per abilitare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analisi** e quindi **Active rules** (Regole attive).
 
-1. Fare clic su **Connetti**.
+1. Fare clic su **Connect**.
 
 1. Per usare lo schema pertinente in Log Analytics per gli avvisi di Azure ATP, cercare **SecurityAlert**.
 

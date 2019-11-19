@@ -1,19 +1,15 @@
 ---
-title: Protezione dei server DPM/Backup di Azure di una farm di SharePoint in Azure
+title: Eseguire il backup di una farm di SharePoint in Azure con DPM
 description: Questo articolo offre una panoramica sulla protezione del server DPM/Backup di Azure di una farm di SharePoint in Azure
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
-ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968552"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173330"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Eseguire il backup di una farm di SharePoint in Azure con DPM
 
@@ -23,7 +19,7 @@ Il backup di una farm di SharePoint in Azure si esegue tramite System Center Dat
 
 Backup di Azure per DPM supporta gli scenari seguenti:
 
-| Carico di lavoro | Versione | Distribuzione di SharePoint | Tipo di distribuzione di DPM | DPM - System Center 2012 R2 | Protezione e ripristino |
+| Carico di lavoro | Version | Distribuzione di SharePoint | Tipo di distribuzione di DPM | DPM - System Center 2012 R2 | Protezione e ripristino |
 | --- | --- | --- | --- | --- | --- |
 | SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint distribuito come un server fisico o macchina virtuale Hyper-V o VmWare <br> -------------- <br> SQL AlwaysOn |Server fisico o macchina virtuale Hyper-V in locale |Supporta backup in Azure dall'aggiornamento cumulativo 5 |Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
 
@@ -31,7 +27,7 @@ Backup di Azure per DPM supporta gli scenari seguenti:
 
 È necessario verificare alcuni aspetti prima di eseguire il backup di una farm di SharePoint in Azure.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Prima di procedere, assicurarsi che tutti i [prerequisiti per l'uso di Backup di Microsoft Azure](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per la protezione dei carichi di lavoro siano stati soddisfatti. Alcune attività per i prerequisiti includono: creare insiemi di credenziali di backup, scaricare credenziali di insiemi di credenziali, installare l'agente di Backup di Azure e registrare il server di Backup di Azure o DPM con l'insieme di credenziali.
 
@@ -39,7 +35,7 @@ Prima di procedere, assicurarsi che tutti i [prerequisiti per l'uso di Backup di
 
 L'agente di DPM deve essere installato nel server che esegue SharePoint, nei server che eseguono SQL Server e in tutti gli altri server che fanno parte della farm di SharePoint. Per altre informazioni sull'installazione dell'agente di protezione, vedere l'articolo relativo alla [configurazione dell'agente di protezione](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  L'unica eccezione è che l'agente viene installato in un server Web front-end (WFE) solo. DPM ha bisogno che l'agente sia installato in un solo server WFE e agisca come punto di ingresso per la protezione.
 
-### <a name="sharepoint-farm"></a>Farm di SharePoint
+### <a name="sharepoint-farm"></a>Una farm di SharePoint
 
 Per ogni 10 milioni di elementi nella farm, deve essere almeno disponibili 2 GB di spazio nel volume in cui si trova la cartella di DPM. Questo spazio è necessario per la generazione del catalogo. Affinché DPM ripristini elementi specifici, ad esempio raccolte siti, siti, elenchi, raccolte documenti, cartelle, singoli documenti ed elementi di elenchi, la generazione del catalogo crea un elenco degli URL inclusi in ogni database del contenuto. È possibile visualizzare l'elenco degli URL nel pannello degli elementi ripristinabili dell'area delle attività di **ripristino** della Console amministrazione DPM.
 
@@ -153,7 +149,7 @@ Dopo aver configurato DPM e la farm di SharePoint come descritto in precedenza, 
     ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 13. Esaminare le impostazioni selezionate nella pagina di **riepilogo** e fare clic su **Crea gruppo**. Dopo aver creato il gruppo di protezione dati, viene visualizzato un messaggio di corretto completamento.
 
-    ![Summary](./media/backup-azure-backup-sharepoint/summary.png)
+    ![summary](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-dpm"></a>Ripristinare un elemento di SharePoint dal disco tramite DPM
 
@@ -236,13 +232,13 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 
     ![DPM SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Fare clic su **Chiudi**.
+    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Fare clic su **Close**.
 
     ![DPM SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Fare clic sull'oggetto di SharePoint visualizzato nella scheda **Ripristino** di DPM per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento e scegliere **Ripristina**.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. A questo punto seguire i passaggi di ripristino illustrati precedentemente in questo articolo per ripristinare il database del contenuto di SharePoint dal disco.
+5. A questo punto, seguire i passaggi di ripristino illustrati precedentemente in questo articolo per ripristinare il database del contenuto di SharePoint dal disco.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

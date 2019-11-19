@@ -2,13 +2,13 @@
 title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: c0f36568bbbf824285cfaa3385d2225e0a989639
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/18/2019
+ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149218"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173543"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi.
@@ -1364,14 +1364,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Sì | Sì |
-> | netAppAccounts/backupPolicies | Sì | Sì |
-> | netAppAccounts/capacityPools | Sì | Sì |
-> | netAppAccounts/capacityPools/volumi | Sì | Sì |
-> | netAppAccounts/capacityPools/volumi/backup | No | No |
-> | netAppAccounts/capacityPools/Volumes/mountTargets | Sì | Sì |
-> | netAppAccounts/capacityPools/volumi/snapshot | Sì | Sì |
-> | netAppAccounts/insiemi di credenziali | No | No |
+> | netAppAccounts | Sì | No |
+> | netAppAccounts/capacityPools | Sì | No |
+> | netAppAccounts/capacityPools/volumi | Sì | No |
+> | netAppAccounts/capacityPools/Volumes/mountTargets | Sì | No |
+> | netAppAccounts/capacityPools/volumi/snapshot | Sì | No |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]

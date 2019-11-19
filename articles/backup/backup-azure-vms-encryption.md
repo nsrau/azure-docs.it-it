@@ -1,19 +1,14 @@
 ---
-title: Eseguire il backup e il ripristino di VM di Azure crittografate con backup di Azure
+title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074937"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172529"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Eseguire il backup e il ripristino di VM di Azure crittografate
 
@@ -21,7 +16,7 @@ Questo articolo descrive come eseguire il backup e il ripristino di macchine vir
 
 Per altre informazioni sul modo in cui backup di Azure interagisce con le VM di Azure prima di iniziare, vedere le risorse seguenti:
 
-- [Esaminare](backup-architecture.md#architecture-direct-backup-of-azure-vms) l'architettura di backup delle VM di Azure.
+- [Esaminare](backup-architecture.md#architecture-built-in-azure-vm-backup) l'architettura di backup delle VM di Azure.
 - Informazioni [su](backup-azure-vms-introduction.md) Backup delle macchine virtuali di Azure e l'estensione di backup di Azure.
 
 ## <a name="encryption-support"></a>Supporto della crittografia

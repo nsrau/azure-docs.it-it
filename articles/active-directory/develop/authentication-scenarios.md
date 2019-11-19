@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927107"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167810"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
@@ -148,7 +148,7 @@ Questo attributo fa in modo che ASP.NET verifichi la presenza di un cookie di se
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Delega dell'accesso a un'app Web per Azure AD e ottenere un token
 
 L'autenticazione utente avviene tramite il browser. Il protocollo OpenID utilizza messaggi di protocollo HTTP standard.
-- L'app Web invia un HTTP 202 (Reindirizzamento) al browser per usare Azure AD.
+- L'app Web invia un HTTP 302 (Reindirizzamento) al browser per usare Azure AD.
 - Quando l'utente viene autenticato, Azure AD invia il token all'app Web usando un reindirizzamento tramite il browser.
 - Il reindirizzamento viene fornito dall'app Web sotto forma di URI di reindirizzamento. Questo URI di reindirizzamento viene registrato con l'oggetto applicazione Azure AD. Possono essere presenti diversi URI di reindirizzamento perché l'applicazione può essere distribuita in diversi URL. Quindi, anche l'app Web dovrà specificare l'URi di Reindirizzamento da usare.
 - Azure AD verifica che l'URI di reindirizzamento inviato dall'app Web sia uno degli URI di reindirizzamento registrati per l'app.
@@ -159,7 +159,7 @@ Il flusso descritto in precedenza si applica, con lievi differenze, alle applica
 
 Le applicazioni desktop e per dispositivi mobili possono utilizzare un controllo Web incorporato o un browser di sistema per l'autenticazione. Il diagramma seguente illustra il modo in cui un'app desktop o per dispositivi mobili USA Microsoft Authentication Library (MSAL) per acquisire i token di accesso e chiamare le API Web.
 
-![App desktop come sembra](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![App desktop come sembra](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL usa un browser per ottenere i token e, come per le app Web, delega l'autenticazione ai Azure AD.
 

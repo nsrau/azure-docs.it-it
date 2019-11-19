@@ -1,17 +1,17 @@
 ---
-title: Guida per l'autenticazione dei client di servizio Azure SignalR
-description: In questa guida descrive come autenticare i client di servizio Azure SignalR
+title: Guida per l'autenticazione dei client del servizio Azure SignalR
+description: Informazioni su come implementare l'autenticazione e integrarla con il servizio Azure SignalR seguendo l'esempio E2E.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128341"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158273"
 ---
 # <a name="azure-signalr-service-authentication"></a>autenticazione del servizio Azure SignalR
 
@@ -40,9 +40,9 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
+Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 * Un account creato in [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
@@ -58,7 +58,7 @@ Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 3. Usare le seguenti impostazioni per la nuova app OAuth, quindi fare clic su **Register application**(Registra applicazione):
 
-    | Nome impostazione | Valore consigliato | Descrizione |
+    | Nome impostazione | Valore consigliato | DESCRIZIONE |
     | ------------ | --------------- | ----------- |
     | Nome dell'applicazione | *Chat Azure SignalR* | L'utente di GitHub deve essere in grado di riconoscere e considerare attendibile l'app con cui sta eseguendo l'autenticazione.   |
     | URL della home page | `http://localhost:5000/home` | |
@@ -377,7 +377,7 @@ In questa sezione si attiverà l'autenticazione reale aggiungendo l'attributo `A
 
 ## <a name="deploy-the-app-to-azure"></a>Distribuire l'app in Azure
 
-In questa sezione si userà l'interfaccia della riga di comando di Azure (CLI) da Azure Cloud Shell per creare una nuova app web in [servizio App di Azure](https://docs.microsoft.com/azure/app-service/) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
+In questa sezione si userà l'interfaccia della riga di comando di Azure dalla Azure Cloud Shell per creare una nuova app Web nel [servizio app Azure](https://docs.microsoft.com/azure/app-service/) per ospitare l'applicazione ASP.NET in Azure. L'app Web verrà configurata per usare la distribuzione Git locale. L'app Web verrà configurata anche con la stringa di connessione SignalR, i segreti dell'app OAuth di GitHub e un utente di distribuzione.
 
 I passaggi di questa sezione usano l'estensione *signalr* per l'interfaccia della riga di comando di Azure. Eseguire il comando seguente per installare l'estensione *signalr* per l'interfaccia della riga di comando di Azure:
 
@@ -412,7 +412,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 ```
 
-| Parametro | Description |
+| . | DESCRIZIONE |
 | -------------------- | --------------- |
 | ResourceGroupName | Questo nome di gruppo di risorse è stato suggerito nelle esercitazioni precedenti. È consigliabile mantenere tutte le risorse dell'esercitazione raggruppate insieme. Usare lo stesso gruppo di risorse utilizzato nelle esercitazioni precedenti. |
 | WebAppPlan | Immettere un nome di piano di servizio app nuovo e univoco. |
@@ -460,7 +460,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| Parametro | Descrizione |
+| . | DESCRIZIONE |
 | -------------------- | --------------- |
 | GitHubClientId | Assegnare a questa variabile l'ID client segreto per l'app OAuth di GitHub. |
 | GitHubClientSecret | Assegnare a questa variabile la password segreta per l'app OAuth di GitHub. |
@@ -495,7 +495,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| Parametro | Descrizione |
+| . | DESCRIZIONE |
 | -------------------- | --------------- |
 | DeploymentUserName | Scegliere un nuovo nome utente di distribuzione. |
 | DeploymentUserPassword | Scegliere una password per il nuovo utente di distribuzione. |
@@ -554,9 +554,9 @@ L'ultima operazione da eseguire è l'aggiornamento dell'**URL della home page** 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si proseguirà con l'esercitazione successiva, sarà possibile conservare le risorse create in questa guida introduttiva e riutilizzarle.
+Se si proseguirà con l'esercitazione successiva, è possibile mantenere le risorse create in questa guida di avvio rapido e riutilizzarle.
 
-In caso contrario, se si è terminato il lavoro con l'applicazione di esempio della guida di avvio rapido, è possibile eliminare le risorse di Azure create in questa guida di avvio rapido per evitare i costi correlati.
+In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di avvio rapido, è possibile eliminare le risorse di Azure create in questo avvio rapido per evitare i costi correlati.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
@@ -565,7 +565,7 @@ Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi
 
 Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
 
-![Delete](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Elimina](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
 

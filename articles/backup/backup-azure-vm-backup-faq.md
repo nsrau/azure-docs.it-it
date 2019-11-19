@@ -1,19 +1,15 @@
 ---
-title: 'Domande frequenti: backup di macchine virtuali di Azure con backup di Azure'
+title: 'Domande frequenti: backup di macchine virtuali di Azure'
 description: In questo articolo vengono fornite le risposte alle domande comuni sul backup di macchine virtuali di Azure con il servizio backup di Azure.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747274"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172570"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 

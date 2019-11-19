@@ -1,25 +1,20 @@
 ---
-title: Backup di Azure per carichi di lavoro di SQL server tramite DPM
+title: Backup di SQL Server in Azure come carico di lavoro DPM
 description: Introduzione al backup dei database SQL Server tramite il servizio Backup di Azure
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 069d1e7cb81fe8d3528b27e676886710f57ea5f1
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b5709eb845d07e3638e0c100c857e5538e293317
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074260"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173253"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 
 In questo articolo viene avviata la procedura di configurazione per il backup dei database SQL Server mediante il Backup di Azure.
 
-Per eseguire il backup dei database di SQL server in Azure è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Per eseguire il backup dei database di SQL server in Azure è necessario un account Azure. Se non si ha un account, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 La gestione delle operazioni di backup del database SQL server in Azure e di ripristino da Azure prevede tre passaggi:
 

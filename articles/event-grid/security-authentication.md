@@ -1,6 +1,6 @@
 ---
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
-description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
+description: Descrive Griglia di eventi di Azure e ne illustra i principali concetti.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825761"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169567"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -102,6 +102,11 @@ Durante la creazione della sottoscrizione di eventi, se viene visualizzato un me
 
 ### <a name="event-delivery-security"></a>Sicurezza del recapito degli eventi
 
+#### <a name="azure-ad"></a>Azure AD
+
+È possibile proteggere l'endpoint del webhook usando Azure Active Directory per autenticare e autorizzare griglia di eventi per la pubblicazione di eventi negli endpoint. È necessario creare un'applicazione Azure Active Directory, creare un ruolo e un principio di servizio nell'applicazione autorizzazione griglia di eventi e configurare la sottoscrizione di eventi per l'uso dell'applicazione Azure AD. [Informazioni su come configurare AAD con griglia di eventi](secure-webhook-delivery.md).
+
+#### <a name="query-parameters"></a>Parametri di query
 È possibile proteggere l'endpoint webhook aggiungendo i parametri di query all'URL del webhook durante la creazione di una sottoscrizione di eventi. Impostare uno di questi parametri di query in modo che sia un segreto, ad esempio un [token di accesso](https://en.wikipedia.org/wiki/Access_token), che il webhook può usare per riconoscere che l'evento proviene da Griglia di eventi con autorizzazioni valide. Griglia di eventi includerà questi parametri di query in ogni recapito di eventi al webhook.
 
 Quando si modifica la sottoscrizione dell'evento, i parametri di query non sono visualizzati o restituiti a meno che non venga usato il parametro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) nell'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) di Azure.

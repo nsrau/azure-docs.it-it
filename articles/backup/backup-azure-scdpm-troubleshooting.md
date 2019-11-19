@@ -1,21 +1,16 @@
 ---
-title: Risolvere i problemi di System Center Data Protection Manager-backup di Azure
+title: Risolvere i problemi di System Center Data Protection Manager
 description: In questo articolo vengono individuate le soluzioni per i problemi che potrebbero verificarsi durante l'uso di System Center Data Protection Manager.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1ff6db463821780975f855488c51663c6a75f83a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8ecd2f469c8fcaea9761a1a3033fa0c44a255ae7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747320"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172707"
 ---
-# <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi relativi a System Center Data Protection Manager
+# <a name="troubleshoot-system-center-data-protection-manager"></a>Risolvere i problemi di System Center Data Protection Manager
 
 Questo articolo descrive alcune soluzioni ai problemi che potrebbero verificarsi durante l'uso di Data Protection Manager.
 

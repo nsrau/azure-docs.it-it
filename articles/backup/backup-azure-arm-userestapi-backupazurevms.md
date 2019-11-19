@@ -1,21 +1,15 @@
 ---
-title: "Backup di Azure: eseguire il backup di macchine virtuali di Azure con l'API REST"
+title: Eseguire il backup di macchine virtuali di Azure con l'API REST
 description: Questo articolo illustra come configurare, avviare e gestire le operazioni di backup del backup delle macchine virtuali di Azure usando l'API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST, backup di macchine virtuali di Azure, ripristino di macchine virtuali di Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 6f64f45aca6948665c088279002d3d8054ef8d80
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929161"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173453"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 

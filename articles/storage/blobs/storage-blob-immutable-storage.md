@@ -5,22 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2019
+ms.date: 11/16/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 0c7e178d520084dbf963c4c7ebaf9b8873a36938
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9caa63972c58defe2e8e2b33b6c2d29b15c7ce84
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521062"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168389"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Archiviare dati critici per l'azienda in archiviazione BLOB di Azure immutabilmente 
 
 L'archiviazione non modificabile per l'archiviazione BLOB di Azure consente agli utenti di archiviare oggetti dati cruciali per l'azienda in un WORM (scrivere una sola volta, leggere molti) stato. Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. È possibile creare e leggere oggetti BLOB, ma non modificarli o eliminarli, per la durata dell'intervallo di conservazione. L'archiviazione non modificabile è abilitata per gli account di archiviazione BLOB e di per utilizzo generico V2 in tutte le aree di Azure.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 L'archiviazione non modificabile aiuta l'organizzazione sanitaria, le istituzioni finanziarie e i settori correlati, in particolare le organizzazioni broker-dealer, per archiviare i dati in modo sicuro. Può anche essere sfruttato in qualsiasi scenario per proteggere i dati critici da modifiche o eliminazioni. 
 
@@ -80,8 +80,8 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 |---------|---------|---------|
 |L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari     |Non modificabile: protetto da eliminazione e scrittura         | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, eliminare il contenitore, eliminare il BLOB, impostare i metadati dei BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale, il blocco         |
 |L'intervallo di conservazione effettivo nel BLOB è scaduto     |Solo protetto da scrittura (le operazioni di eliminazione sono consentite)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Tutti i blocchi a fini giudiziari sono stati rimossi e non sono impostati criteri di conservazione basati sul tempo nel contenitore     |Modificabile         |Nessuna         |
-|Non sono stati creati criteri WORM (conservazione basata sul tempo o blocco a fini giudiziari)     |Modificabile         |Nessuna         |
+|Tutti i blocchi a fini giudiziari sono stati rimossi e non sono impostati criteri di conservazione basati sul tempo nel contenitore     |Modificabile         |nessuno         |
+|Non sono stati creati criteri WORM (conservazione basata sul tempo o blocco a fini giudiziari)     |Modificabile         |nessuno         |
 
 <sup>1</sup> l'applicazione consente a queste operazioni di creare un nuovo BLOB una sola volta. Non sono consentite tutte le operazioni di sovrascrittura successive in un percorso BLOB esistente in un contenitore non modificabile.
 
@@ -103,7 +103,7 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 
 Per l'uso di questa funzionalità non sono previsti costi aggiuntivi. Il prezzo dei dati non modificabili è lo stesso dei normali dati modificabili. Per informazioni sui prezzi di Archiviazione BLOB di Azure, vedere la [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Per iniziare
 L'archiviazione non modificabile è disponibile solo per gli account di archiviazione BLOB e per utilizzo generico V2. Questi account devono essere gestiti tramite [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Per informazioni sull'aggiornamento di un account di archiviazione per utilizzo generico V1 esistente, vedere [aggiornare un account di archiviazione](../common/storage-account-upgrade.md).
 
 Le versioni più recenti del [portale di Azure](https://portal.azure.com), dell' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)della riga di comando di Azure e [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) supportano l'archiviazione non modificabile per l'archiviazione BLOB di Azure. Viene inoltre fornito il [supporto della libreria client](#client-libraries) .
@@ -169,7 +169,7 @@ Le librerie client seguenti supportano l'archiviazione non modificabile per Arch
 - [Libreria client Python versione 2.0.0 versione finale candidata 2 e versioni successive](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Libreria client Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 **È possibile fornire la documentazione della conformità del WORM?**
 
@@ -238,47 +238,28 @@ $container = "<Enter your container name>"
 $container2 = "<Enter another container name>”
 $location = "<Enter the storage account location>"
 
-# Log in to the Azure Resource Manager account
-Login-AzAccount
+# Log in to Azure
+Connect-AzAccount
 Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 
 # Create your Azure resource group
 New-AzResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
-New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
     $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
-# Create a new container
-New-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container
-
-# Create Container 2 with a storage account object
-$accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount
-New-AzStorageContainer -StorageAccount $accountObject -Name $container2
+# Create a new container using the context
+New-AzStorageContainer -Name $container -Context $account.Context
 
 # Get a container
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container
-
-# Get a container with an account object
-$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
+$container = Get-AzStorageContainer -Name $container -Context $account.Context
 
 # List containers
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount
+Get-AzStorageContainer -Context $account.Context
 
-# Remove a container (add -Force to dismiss the prompt)
-Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container2
-
-# Remove a container with an account object
-Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
-
-# Remove a container with a container object
-$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzStorageContainer -InputObject $containerObject2
+# Remove a container
+Remove-AzStorageContainer -Name $container -Context $account.Context
 ```
 
 Impostare e cancellare i blocchi a fini giudiziari:

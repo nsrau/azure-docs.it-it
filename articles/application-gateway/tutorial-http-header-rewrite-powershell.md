@@ -1,18 +1,18 @@
 ---
-title: Riscrivere le intestazioni HTTP in un gateway applicazione di Azure
+title: Creare un gateway applicazione Azure & riscrivere le intestazioni HTTP
 description: Questo articolo fornisce informazioni su come creare un gateway applicazione di Azure e riscrivere le intestazioni HTTP usando Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64947099"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173724"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Creare un gateway applicazione e riscrivere intestazioni HTTP
 
@@ -32,11 +32,11 @@ In questo articolo viene spiegato come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Questo articolo è necessario eseguire Azure PowerShell in locale. Deve essere installato il modulo Az 1.0.0 o versione successiva. Eseguire `Import-Module Az` e quindi `Get-Module Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
+Per questo articolo è necessario eseguire Azure PowerShell localmente. Deve essere installato il modulo Az 1.0.0 o versione successiva. Eseguire `Import-Module Az` e quindi `Get-Module Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 ```azurepowershell
 Connect-AzAccount
@@ -107,13 +107,13 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 ## <a name="specify-your-http-header-rewrite-rule-configuration"></a>Specificare la configurazione della regola di riscrittura dell'intestazione HTTP
 
-Configurare i nuovi oggetti necessari per riscrivere le intestazioni HTTP:
+Configurare i nuovi oggetti necessari per riscrivere le intestazioni http:
 
 - **RequestHeaderConfiguration**: questo oggetto viene usato per specificare i campi di intestazione della richiesta che si intende riscrivere e il nuovo valore da sostituire alle intestazioni originali.
 - **ResponseHeaderConfiguration**: questo oggetto viene usato per specificare i campi di intestazione della risposta che si intende riscrivere e il nuovo valore da sostituire alle intestazioni originali.
 - **ActionSet**: questo oggetto contiene le configurazioni delle intestazioni di richiesta e risposta specificate in precedenza. 
 - **RewriteRule**: questo oggetto contiene tutti gli *ActionSet* specificati in precedenza. 
-- **RewriteRuleSet**: questo oggetto contiene tutte le *RewriteRule* e deve essere collegato a una regola di routing delle richieste, di base o basata sul percorso.
+- **RewriteRuleSet**: questo oggetto contiene tutte le *RewriteRule* e deve essere collegato a una regola di gestione della richiesta, di base o basata sul percorso.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

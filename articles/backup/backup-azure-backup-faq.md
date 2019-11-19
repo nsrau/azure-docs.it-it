@@ -1,18 +1,14 @@
 ---
-title: Risposte alle domande comuni sulle funzionalità di backup di Azure
+title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: efd2959547e13872bfa73a0a8e4b9fda62ea5728
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074309"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173220"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -96,6 +92,8 @@ Windows Storage Server 2012 R2 a 64 bit | Standard, Workgroup, Essential | Con i
 Windows Storage Server 2012 a 64 bit | Standard, Workgroup | Con i service pack o gli aggiornamenti più recenti.
 Windows Server 2008 R2 SP1 a 64 bit | Standard, Enterprise, Datacenter, Foundation | Con gli aggiornamenti più recenti.
 Windows Server 2008 a 64 bit | Standard, Enterprise, Datacenter | Con gli aggiornamenti più recenti.
+
+Backup di Azure non supporta i sistemi operativi a 32 bit.
 
 Per i backup Linux della macchina virtuale di Azure, Backup di Azure supporta [l'elenco di distribuzioni approvate da Azure](../virtual-machines/linux/endorsed-distros.md), ad eccezione di CoreOS Linux e del sistema operativo a 32 bit. È possibile usare altre distribuzioni Bring Your Own Linux, a condizione che l'agente di macchine virtuali sia disponibile nella macchina virtuale e che sia presente il supporto per Python.
 

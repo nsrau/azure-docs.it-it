@@ -1,18 +1,14 @@
 ---
-title: Matrice di supporto del servizio Backup di Azure per il backup di macchine virtuali di Azure
+title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f699315855dc27fd70fdb60574414ef87037671f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 8f84d7fefd2affc3a3c47227ab6f2a2d0b325f4e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953258"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172081"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -65,6 +61,8 @@ Nella tabella seguente sono riepilogati i sistemi operativi supportati per il ba
 Backup con l'estensione dell'agente di macchine virtuali di Azure | -Client Windows 10 (solo 64 bit) <br/><br/>-Windows Server 2019 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2016 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)
 Backup con l'agente di Servizi di ripristino di Microsoft Azure | Sistemi operativi [supportati](backup-support-matrix-mars-agent.md#support-for-direct-backups).
 Backup con DPM/MAB | Sistemi operativi supportati per il backup con il [server di Backup di Microsoft Azure](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
+
+Backup di Azure non supporta i sistemi operativi a 32 bit.
 
 ## <a name="support-for-linux-backup"></a>Supporto per il backup Linux
 

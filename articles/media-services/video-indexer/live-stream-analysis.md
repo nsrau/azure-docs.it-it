@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f34aad4a8590c71f926d12d201f9a614afaa127
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
+ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114929"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153551"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Analisi di flusso live con Video Indexer
 
-Servizi multimediali di Azure Video Indexer è un servizio di Azure progettato per estrarre informazioni approfondite dai file video e audio offline. Ciò consente di analizzare un determinato file multimediale già creato in anticipo. Tuttavia, per alcuni casi d'uso è importante ottenere i media Insights da un feed live il più rapidamente possibile per sbloccare i casi di utilizzo operativi e gli altri casi di utilizzo premuti nel tempo. Ad esempio, i metadati avanzati in un flusso Live potrebbero essere usati dai produttori di contenuti per automatizzare la produzione TV,. Ad esempio, il [gruppo Shine](https://customers.microsoft.com/story/esg-media-telecommunications-azure), in cui i giornalisti di una redazione hanno cercato i feed live per compilare servizi di notifica basati sul contenuto.
+Servizi multimediali di Azure Video Indexer è un servizio di Azure progettato per estrarre informazioni approfondite dai file video e audio offline. Ciò consente di analizzare un determinato file multimediale già creato in anticipo. Tuttavia, per alcuni casi d'uso è importante ottenere i media Insights da un feed live il più rapidamente possibile per sbloccare i casi di utilizzo operativi e gli altri casi di utilizzo premuti nel tempo. Ad esempio, i metadati avanzati in un flusso Live potrebbero essere usati dai produttori di contenuti per automatizzare la produzione TV.
 
 Una soluzione descritta in questo articolo consente ai clienti di usare Video Indexer in risoluzioni quasi in tempo reale sui feed live. Il ritardo nell'indicizzazione può essere minimo di quattro minuti usando questa soluzione, a seconda dei blocchi di dati indicizzati, della risoluzione di input, del tipo di contenuto e del calcolo usato per questo processo.
 

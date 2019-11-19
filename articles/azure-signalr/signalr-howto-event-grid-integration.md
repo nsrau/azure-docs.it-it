@@ -5,14 +5,14 @@ services: signalr
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f89fcdd50d958269b5c79c41ebabd69331c905aa
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839290"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158208"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Come inviare eventi dal servizio Azure SignalR a griglia di eventi
 
@@ -141,7 +141,7 @@ Al termine della sottoscrizione, l'output dovrebbe essere simile al seguente:
 
 ## <a name="trigger-registry-events"></a>Attivare gli eventi del registro
 
-Passare alla modalità `Serverless Mode` servizio e configurare una connessione client al servizio SignalR. Come riferimento, è possibile adottare un [campione senza server](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) .
+Passare alla modalità servizio per `Serverless Mode` e configurare una connessione client al servizio SignalR. Come riferimento, è possibile adottare un [campione senza server](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) .
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>Visualizzare gli eventi del registro
 
-Si è ora connesso un client al servizio SignalR. Passare all'app Web del Visualizzatore di griglia di eventi. verrà visualizzato un `ClientConnectionConnected` evento. Se si termina il client, viene visualizzato anche un `ClientConnectionDisconnected` evento.
+Si è ora connesso un client al servizio SignalR. Passare all'app Web del Visualizzatore di griglia di eventi. verrà visualizzato un evento `ClientConnectionConnected`. Se si termina il client, viene visualizzato anche un evento `ClientConnectionDisconnected`.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

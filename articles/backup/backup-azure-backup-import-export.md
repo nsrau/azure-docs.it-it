@@ -1,19 +1,15 @@
 ---
-title: Eseguire il seeding offline con il servizio di importazione/esportazione di backup di Azure
+title: Inizializzazione del backup offline con il servizio di importazione/esportazione
 description: Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio Importazione/Esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio Importazione/Esportazione di Azure.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968526"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173295"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 
@@ -40,13 +36,13 @@ Le funzionalità o i carichi di lavoro seguenti di Backup di Azure supportano l'
 > * Backup di file e cartelle con l'agente di Servizi di ripristino di Microsoft Azure, definito anche agente di Backup di Azure.
 > * Backup di tutti i carichi di lavoro e i file con System Center Data Protection Manager (SC DPM)
 > * Backup di tutti i carichi di lavoro e i file con il server di Backup di Microsoft Azure
-
+ 
    > [!NOTE]
    > Il backup offline non è supportato per i backup dello stato del sistema eseguiti tramite l'agente di Backup di Azure.
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
   > [!NOTE]
   > I prerequisiti e il flusso di lavoro seguenti si applicano solo al backup offline di file e cartelle mediante l'[agente di Servizi di ripristino di Microsoft Azure più recente](https://aka.ms/azurebackup_agent). Per eseguire i backup offline dei carichi di lavoro con System Center DPM o il server di Backup di Azure, fare riferimento a [questo articolo](backup-azure-backup-server-import-export-.md).
@@ -109,7 +105,7 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
 
 L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Backup di Azure al percorso seguente:
 
-   *\Agente di Servizi di ripristino di Microsoft Azure\Utilità\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un altro computer in cui sono collegate le unità SATA. Nel computer con le unità SATA collegate assicurarsi che:
 
@@ -126,7 +122,7 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | Parametro | Description |
+    | . | DESCRIZIONE |
     | --- | --- |
     | s:&lt;*Percorso posizione staging*&gt; |Input obbligatorio usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline**. |
     | p:&lt;*Percorso FileImpostazioniPubblicazione*&gt; |Input facoltativo usato per specificare il percorso del file delle **impostazioni di pubblicazione di Azure** immesso durante il flusso di lavoro di **avvio del backup offline**. |

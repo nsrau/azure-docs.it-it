@@ -1,25 +1,25 @@
 ---
-title: Reazione agli eventi del servizio Azure SignalR
-description: Usare griglia di eventi di Azure per sottoscrivere gli eventi del servizio Azure SignalR.
+title: Reagire agli eventi del servizio Azure SignalR
+description: Usare griglia di eventi di Azure per sottoscrivere gli eventi del servizio Azure SignalR. Gli altri servizi downstream possono essere attivati da questi eventi.
 services: azure-signalr,event-grid
 author: chenyl
 ms.author: chenyl
 ms.reviewer: zhshang
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: a3d0669a1a89f2fc5aaca0a96e00b731d2d40830
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296826"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158199"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reazione agli eventi del servizio Azure SignalR
 
 Gli eventi del servizio Azure SignalR consentono alle applicazioni di reagire alle connessioni client connesse o disconnesse usando architetture senza server moderne. e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Gli eventi vengono invece inviati attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al listener http personalizzato in uso, e si paga solo ciò che si usa.
 
-Gli eventi del servizio Azure SignalR vengono inviati in modo affidabile al servizio griglia di eventi, che fornisce servizi di recapito affidabili alle applicazioni tramite criteri avanzati per i tentativi e il recapito dei messaggi non recapitabili. Per altre informazioni, vedere [recapito dei messaggi di griglia di eventi e](https://docs.microsoft.com/azure/event-grid/delivery-and-retry)riprovare.
+Gli eventi del servizio Azure SignalR vengono inviati in modo affidabile al servizio griglia di eventi, che fornisce servizi di recapito affidabili alle applicazioni tramite criteri avanzati per i tentativi e il recapito dei messaggi non recapitabili. Per altre informazioni, vedere [recapito dei messaggi di griglia di eventi e riprovare](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 ![Modello di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
 
@@ -63,5 +63,5 @@ Per altre informazioni, vedere [schema degli eventi del servizio SignalR](../eve
 Scopri di più su griglia di eventi e assegna agli eventi del servizio Azure SignalR un tentativo:
 
 > [!div class="nextstepaction"]
-> [Provare un'integrazione di griglia di eventi di esempio con il servizio](./signalr-howto-event-grid-integration.md)
-> Azure SignalR[su griglia di eventi](../event-grid/overview.md)
+> [Provare un'integrazione di griglia di eventi di esempio con il servizio Azure signalr](./signalr-howto-event-grid-integration.md)
+> [su griglia di eventi](../event-grid/overview.md)

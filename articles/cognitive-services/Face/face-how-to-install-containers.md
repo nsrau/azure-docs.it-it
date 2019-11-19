@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/18/2019
 ms.author: dapine
-ms.openlocfilehash: b3c064ae2dbc37858ca6fe89742161e0dda1784f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 97b1fd27e91823594d972bdd49184d2b0f5d320b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743281"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171704"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire contenitori viso
 
@@ -24,15 +24,15 @@ Il volto dei servizi cognitivi di Azure fornisce un contenitore Linux standardiz
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di usare i contenitori di API Viso, è necessario soddisfare i prerequisiti seguenti.
 
-|Obbligatorio|Scopo|
+|obbligatori|Scopo|
 |--|--|
 |Motore Docker| Il motore Docker deve essere installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È necessaria una conoscenza di base dei concetti di Docker, ad esempio registri, repository, contenitori e immagini del contenitore. È anche necessario conoscere i comandi di base `docker`.| 
-|Risorsa Face |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **Face** di Azure e la chiave API associata e l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine **Panoramica** e **chiavi** per la risorsa. È necessario avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : l'endpoint fornito nella pagina **Panoramica**
+|Risorsa Face |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **Face** di Azure e la chiave API associata e l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine **Panoramica** e **chiavi** per la risorsa. È necessario avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -44,11 +44,11 @@ Prima di usare i contenitori di API Viso, è necessario soddisfare i prerequisit
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti dei contenitori
+### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori
 
 La tabella seguente indica il valore minimo e consigliato per CPU e memoria da allocare per ogni contenitore di API Viso.
 
-| Contenitore | Minima | Consigliato | Transazioni al secondo<br>(Minimo, massimo)|
+| Contenitore: | Minima | Consigliato | Transazioni al secondo<br>(Minimo, massimo)|
 |-----------|---------|-------------|--|
 |Viso | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |10, 20|
 
@@ -61,7 +61,7 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 Sono disponibili le immagini del contenitore per la API Viso. 
 
-| Contenitore | Repository |
+| Contenitore: | Repository |
 |-----------|------------|
 | Viso | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -142,9 +142,9 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./f
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
-In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di API Viso. In breve:
+In questo articolo sono stati illustrati i concetti e il flusso di lavoro per il download, l'installazione e l'esecuzione di contenitori di API Viso. In sintesi:
 
 * Le immagini del contenitore vengono scaricate dalla Container Registry di Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.

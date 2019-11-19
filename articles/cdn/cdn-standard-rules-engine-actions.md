@@ -1,121 +1,116 @@
 ---
-title: Azioni del motore della rete CDN di Azure dalle regole standard Microsoft | Microsoft Docs
-description: Documentazione di riferimento per le azioni del motore per la rete CDN di Azure da Microsoft standard.
+title: Azioni nel motore delle regole standard per la rete CDN di Azure | Microsoft Docs
+description: Documentazione di riferimento per le azioni nel motore delle regole standard per la rete per la distribuzione di contenuti di Azure (rete CDN di Azure).
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: dbde93cc7ffd21e341653407e6e4f910e4620974
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615988"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171640"
 ---
-# <a name="azure-cdn-from-microsoft-standard-rules-engine-actions"></a>Azioni del motore della rete CDN di Azure dalle regole standard Microsoft
+# <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azioni nel motore delle regole standard per la rete CDN di Azure
 
-Questo articolo elenca le descrizioni dettagliate delle azioni disponibili per la rete per la distribuzione di contenuti (CDN) di Azure del [motore delle regole standard](cdn-standard-rules-engine.md)di Microsoft.
+Nel [motore delle regole standard](cdn-standard-rules-engine.md) per la rete per la distribuzione di contenuti di Azure (rete CDN di Azure), una regola è costituita da una o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle azioni che è possibile usare nel motore delle regole standard per la rete CDN di Azure.
 
-La seconda parte di una regola è un'azione. Un'azione definisce il comportamento applicato al tipo di richiesta identificato da un set di condizioni di corrispondenza.
+La seconda parte di una regola è un'azione. Un'azione definisce il comportamento applicato al tipo di richiesta identificata da una condizione di corrispondenza o da un set di condizioni di corrispondenza.
 
-## <a name="actions"></a>Azioni
+## <a name="actions"></a>Actions
 
-Le azioni seguenti sono disponibili per l'utilizzo. 
+Le azioni seguenti sono disponibili per l'uso nel motore delle regole standard per la rete CDN di Azure. 
 
-## <a name="cache-expiration"></a>Scadenza cache
+### <a name="cache-expiration"></a>Ora di scadenza della cache
 
-Questa azione consente di sovrascrivere la durata (TTL) dell'endpoint per le richieste specificate dalle condizioni di corrispondenza delle regole.
+Usare questa azione per sovrascrivere il valore TTL (time to Live) dell'endpoint per le richieste specificate dalle condizioni di corrispondenza delle regole.
 
-**Campi obbligatori**
+#### <a name="required-fields"></a>Campi obbligatori
 
-Comportamento della cache |                
+Comportamento della cache |  DESCRIZIONE              
 ---------------|----------------
-Ignora cache | Quando questa opzione è selezionata e la regola corrisponde, il contenuto non verrà memorizzato nella cache.
-Override | Quando questa opzione è selezionata e la regola corrisponde, il valore TTL restituito dall'origine verrà sovrascritto con il valore specificato nell'azione.
-Imposta se mancante | Quando questa opzione è selezionata e la regola corrisponde, se non è stato restituito alcun valore TTL dall'origine, la regola imposterà la durata (TTL) sul valore specificato nell'azione.
+Ignora cache | Quando questa opzione è selezionata e la regola corrisponde, il contenuto non viene memorizzato nella cache.
+Override | Quando questa opzione è selezionata e la regola corrisponde, il valore TTL restituito dall'origine viene sovrascritto con il valore specificato nell'azione.
+Imposta se mancante | Quando questa opzione è selezionata e la regola corrisponde, se non è stato restituito alcun valore TTL dall'origine, la regola imposta la durata (TTL) sul valore specificato nell'azione.
 
-**Campi aggiuntivi**
+#### <a name="additional-fields"></a>Campi aggiuntivi
 
 Days | Ore | Minuti | Secondi
 -----|-------|---------|--------
-Int | Int | Int | Int 
+int | int | int | int 
 
-## <a name="cache-key-query-string"></a>Stringa di query della chiave della cache
+### <a name="cache-key-query-string"></a>Stringa di query della chiave della cache
 
-Questa azione consente di modificare la chiave della cache in base alle stringhe di query.
+Usare questa azione per modificare la chiave della cache in base alle stringhe di query.
 
-**Campi obbligatori**
+#### <a name="required-fields"></a>Campi obbligatori
 
-Comportamento | Descrizione
+Comportamento | DESCRIZIONE
 ---------|------------
-Includi | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query specificate nei parametri verranno incluse durante la generazione della chiave di cache. 
-Memorizza nella cache tutti gli URL univoci | Quando questa opzione è selezionata e la regola corrisponde, ogni URL univoco avrà una propria chiave di cache. 
-Escludi | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query specificate nei parametri verranno escluse durante la generazione della chiave di cache.
-Ignora stringhe di query | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query non verranno prese in considerazione durante la generazione della chiave di cache. 
+Includi | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query specificate nei parametri vengono incluse quando viene generata la chiave di cache. 
+Memorizza nella cache tutti gli URL univoci | Quando questa opzione è selezionata e la regola corrisponde, ogni URL univoco ha una propria chiave di cache. 
+Escludi | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query specificate nei parametri vengono escluse quando viene generata la chiave di cache.
+Ignora stringhe di query | Quando questa opzione è selezionata e la regola corrisponde, le stringhe di query non vengono considerate quando viene generata la chiave di cache. 
 
-## <a name="modify-request-header"></a>Modificare l'intestazione della richiesta
+### <a name="modify-request-header"></a>Modificare l'intestazione della richiesta
 
-Questa azione consente di modificare le intestazioni presenti nelle richieste inviate all'origine.
+Usare questa azione per modificare le intestazioni presenti nelle richieste inviate all'origine.
 
-**Campi obbligatori**
-
-Azione | Nome intestazione HTTP | Valore
--------|------------------|------
-Append | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in nome intestazione verrà aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore verrà aggiunto al valore esistente. | String
-Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in nome intestazione verrà aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore sovrascriverà il valore esistente. | String
-Elimina | Quando questa opzione è selezionata e la regola corrisponde e l'intestazione specificata nella regola è presente, verrà eliminata dalla richiesta. | String
-
-## <a name="modify-response-header"></a>Modifica intestazione risposta
-
-Questa azione consente di modificare le intestazioni presenti nelle risposte restituite ai client finali
-
-**Campi obbligatori**
+#### <a name="required-fields"></a>Campi obbligatori
 
 Azione | Nome intestazione HTTP | Valore
 -------|------------------|------
-Append | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in nome intestazione verrà aggiunta alla risposta con il valore specificato. Se l'intestazione è già presente, il valore verrà aggiunto al valore esistente. | String
-Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in nome intestazione verrà aggiunta alla risposta con il valore specificato. Se l'intestazione è già presente, il valore sovrascriverà il valore esistente. | String
-Elimina | Quando questa opzione è selezionata e la regola corrisponde e l'intestazione specificata nella regola è presente, verrà eliminata dalla risposta. | String
+Append | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore viene aggiunto al valore esistente. | String
+Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla richiesta con il valore specificato. Se l'intestazione è già presente, il valore specificato sovrascrive il valore esistente. | String
+Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla richiesta. | String
 
-## <a name="url-redirect"></a>Reindirizzamento URL
+### <a name="modify-response-header"></a>Modifica intestazione risposta
 
-Questa azione consente di reindirizzare i client finali a un nuovo URL. 
+Usare questa azione per modificare le intestazioni presenti nelle risposte restituite ai client.
 
-**Campi obbligatori**
+#### <a name="required-fields"></a>Campi obbligatori
 
-Campo | Descrizione 
+Azione | Nome intestazione HTTP | Valore
+-------|------------------|------
+Append | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** viene aggiunto al valore esistente. | String
+Overwrite | Quando questa opzione è selezionata e la regola corrisponde, l'intestazione specificata in **nome intestazione** viene aggiunta alla risposta usando il **valore**specificato. Se l'intestazione è già presente, il **valore** sovrascrive il valore esistente. | String
+Elimina | Quando questa opzione è selezionata, la regola corrisponde a e l'intestazione specificata nella regola è presente, l'intestazione viene eliminata dalla risposta. | String
+
+### <a name="url-redirect"></a>Reindirizzamento URL
+
+Usare questa azione per reindirizzare i client a un nuovo URL. 
+
+#### <a name="required-fields"></a>Campi obbligatori
+
+Campo | DESCRIZIONE 
 ------|------------
-Tipo | Selezionare il tipo di risposta che verrà restituito al richiedente. Le opzioni disponibili sono-302, 301 spostati, 307 Reindirizzamento temporaneo e 308 Reindirizzamento permanente
-Protocollo | Richiesta di corrispondenza, HTTP o HTTPS
-Nome host | Selezionare il nome host a cui verrà reindirizzata la richiesta. Lasciare vuoto per conservare l'host in ingresso.
-path | Definire il percorso da utilizzare nel reindirizzamento. Lasciare vuoto per conservare il percorso in arrivo.  
+digitare | Selezionare il tipo di risposta da restituire al richiedente: trovato (302), spostato (301), Reindirizzamento temporaneo (307) e Reindirizzamento permanente (308).
+Protocol | Request match, HTTP, HTTPS.
+Nome host | Selezionare il nome host a cui si desidera reindirizzare la richiesta. Lasciare vuoto per mantenere l'host in ingresso.
+Path | Definire il percorso da usare nel reindirizzamento. Lasciare vuoto per conservare il percorso in arrivo.  
 Stringa di query | Definire la stringa di query utilizzata nel reindirizzamento. Lasciare vuoto per mantenere la stringa di query in ingresso. 
 Frammento | Definire il frammento da usare nel reindirizzamento. Lasciare vuoto per conservare il frammento in ingresso. 
 
-È consigliabile usare un URL assoluto, poiché l'uso di un URL relativo può reindirizzare gli URL CDN su un percorso non valido. 
+Si consiglia vivamente di utilizzare un URL assoluto. L'uso di un URL relativo può reindirizzare gli URL della rete CDN di Azure a un percorso non valido 
 
-## <a name="url-rewrite"></a>Riscrittura URL
+### <a name="url-rewrite"></a>Riscrittura URL
 
-Questa azione consente di riscrivere il percorso di una richiesta in route all'origine.
+Usare questa azione per riscrivere il percorso di una richiesta che viene indirizzata all'origine.
 
-**Campi obbligatori**
+#### <a name="required-fields"></a>Campi obbligatori
 
-Campo | Descrizione 
+Campo | DESCRIZIONE 
 ------|------------
-Modello di origine | Definire il modello di origine nel percorso URL da sostituire. Attualmente, il modello di origine usa una corrispondenza basata sul prefisso. Per trovare la corrispondenza con tutti i percorsi URL, usare "/" come valore del modello di origine.
-Destination | Definire il percorso di destinazione da utilizzare nella riscrittura. Il modello di origine verrà sovrascritto
-Mantieni percorso senza corrispondenza | In caso affermativo, il percorso rimanente dopo il modello di origine verrà aggiunto al nuovo percorso di destinazione. 
-
-
-[Torna all'inizio](#actions)
-
-</br>
+Modello di origine | Definire il modello di origine nel percorso URL da sostituire. Attualmente, il modello di origine usa una corrispondenza basata sul prefisso. Per trovare la corrispondenza con tutti i percorsi URL, usare una barra ( **/** ) come valore del modello di origine.
+Destination | Definire il percorso di destinazione da utilizzare nella riscrittura. Il percorso di destinazione sovrascrive il modello di origine.
+Mantieni percorso senza corrispondenza | Se impostato su **Sì**, il percorso rimanente dopo il modello di origine viene aggiunto al nuovo percorso di destinazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica della rete per la distribuzione di contenuti di Azure](cdn-overview.md)
-- [Informazioni di riferimento sul motore regole](cdn-standard-rules-engine-reference.md)
-- [Condizioni di corrispondenza del motore regole](cdn-standard-rules-engine-match-conditions.md)
+- [Panoramica della rete CDN di Azure](cdn-overview.md)
+- [Riferimento al motore regole standard](cdn-standard-rules-engine-reference.md)
+- [Condizioni di corrispondenza nel motore regole standard](cdn-standard-rules-engine-match-conditions.md)
 - [Applicare HTTPS usando il motore regole standard](cdn-standard-rules-engine.md)

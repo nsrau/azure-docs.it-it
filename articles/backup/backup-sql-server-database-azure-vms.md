@@ -1,19 +1,15 @@
 ---
-title: Eseguire il backup di database SQL Server nelle VM di Azure | Microsoft Docs
+title: Eseguire il backup di database SQL Server in macchine virtuali di Azure
 description: Questo articolo illustra come eseguire il backup di database di SQL Server in macchine virtuali di Azure con backup di Azure.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: a6752ffcf434b81c3013a2bd43c784bc92a8c1fe
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747166"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172110"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -21,7 +17,7 @@ SQL Server database sono carichi di lavoro di importanza critica che richiedono 
 
 Questo articolo illustra come eseguire il backup di un database di SQL Server in esecuzione in una macchina virtuale di Azure in un insieme di credenziali di servizi di ripristino di backup di Azure.
 
-L'articolo spiega come:
+In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 >
@@ -29,7 +25,7 @@ L'articolo spiega come:
 > * Individuare i database e configurare i backup.
 > * Configurare la protezione automatica per i database.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di eseguire il backup di un database di SQL Server, verificare i criteri seguenti:
 

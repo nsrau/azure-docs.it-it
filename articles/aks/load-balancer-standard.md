@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929128"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171395"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un servizio di bilanciamento del carico con SKU standard in Azure Kubernetes Service (AKS)
 
-Per consentire l'accesso alle applicazioni in Azure Kubernetes Service (AKS), è possibile creare e usare un Azure Load Balancer. Un servizio di bilanciamento del carico in esecuzione su AKS può essere usato come servizio di bilanciamento del carico interno o esterno. Un servizio di bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster AKS. Un servizio di bilanciamento del carico esterno riceve uno o più indirizzi IP pubblici per il traffico in ingresso e rende accessibile esternamente un servizio Kubernetes usando gli indirizzi IP pubblici.
+Per fornire l'accesso alle applicazioni tramite i servizi Kubernetes di tipo `LoadBalancer` in Azure Kubernetes Service (AKS), è possibile usare una Azure Load Balancer. Un servizio di bilanciamento del carico in esecuzione su AKS può essere usato come servizio di bilanciamento del carico interno o esterno. Un servizio di bilanciamento del carico interno rende accessibile un servizio Kubernetes solo alle applicazioni in esecuzione nella stessa rete virtuale del cluster AKS. Un servizio di bilanciamento del carico esterno riceve uno o più indirizzi IP pubblici per il traffico in ingresso e rende accessibile esternamente un servizio Kubernetes usando gli indirizzi IP pubblici.
 
 Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, quando si crea un cluster AKS viene usato lo SKU *standard* . L'uso di un servizio di bilanciamento del carico con SKU *standard* fornisce funzionalità e funzionalità aggiuntive, ad esempio dimensioni del pool back-end maggiori e zone di disponibilità. Prima di scegliere quale usare, è importante comprendere le differenze tra i bilanciamenti del carico *standard* e *Basic* . Dopo aver creato un cluster AKS, non è possibile modificare lo SKU del servizio di bilanciamento del carico per quel cluster. Per altre informazioni sugli SKU *Basic* e *standard* , vedere [confronto tra SKU di bilanciamento del carico di Azure][azure-lb-comparison].
 
@@ -29,9 +29,18 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
+
 Questo articolo presuppone che sia presente un cluster AKS con lo SKU *Standard* Azure Load Balancer. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 L'entità servizio cluster AKS necessita anche dell'autorizzazione per gestire le risorse di rete se si usa una subnet o un gruppo di risorse esistente. In generale, assegnare il ruolo *collaboratore rete* all'entità servizio per le risorse Delegate. Per altre informazioni sulle autorizzazioni, vedere [delega dell'accesso AKS ad altre risorse di Azure][aks-sp].
+
+### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Passaggio da uno SKU di base Load Balancer allo SKU standard
+
+Se si dispone di un cluster esistente con lo SKU Basic Load Balancer, quando si esegue la migrazione per l'uso di un cluster con lo Load Balancer SKU standard sono presenti importanti differenze di comportamento.
+
+Ad esempio, l'esecuzione di distribuzioni Blue/Green per la migrazione dei cluster è una pratica comune, dato che il tipo di `load-balancer-sku` di un cluster può essere definito solo in fase di creazione del cluster. Tuttavia, i bilanciamenti del carico *SKU Basic* usano gli indirizzi IP dello *SKU Basic* che non sono compatibili con i bilanciamenti del carico *SKU standard* perché richiedono indirizzi IP *SKU standard* . Quando si esegue la migrazione dei cluster per aggiornare Load Balancer SKU, sarà necessario un nuovo indirizzo IP con lo SKU di un indirizzo IP compatibile.
+
+Per altre considerazioni su come eseguire la migrazione dei cluster, vedere [la documentazione relativa alle considerazioni sulla migrazione](acs-aks-migration.md) per visualizzare un elenco di argomenti importanti da considerare durante la migrazione. Le limitazioni seguenti sono anche importanti differenze comportamentali da tenere presente quando si usa il servizio di bilanciamento del carico SKU standard in AKS.
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -41,9 +50,10 @@ Quando si creano e si gestiscono cluster AKS che supportano un servizio di bilan
     * Fornire gli indirizzi IP pubblici personali.
     * Fornire i prefissi IP pubblici.
     * Specificare un numero massimo di 100 per consentire al cluster AKS di creare che molti indirizzi IP pubblici dello SKU *standard* nello stesso gruppo di risorse creato dal cluster AKS, che in genere è denominato con *MC_* all'inizio. AKS assegna l'indirizzo IP pubblico al servizio di bilanciamento del carico dello SKU *standard* . Per impostazione predefinita, un IP pubblico verrà creato automaticamente nello stesso gruppo di risorse del cluster AKS, se non è specificato alcun indirizzo IP pubblico, prefisso IP pubblico o numero di indirizzi IP. È anche necessario consentire indirizzi pubblici ed evitare di creare criteri di Azure che vietino la creazione di IP.
-* Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico, è necessario usare Kubernetes versione 1,13 o successiva.
+* Quando si usa lo SKU *standard* per un servizio di bilanciamento del carico, è necessario usare Kubernetes versione *1,13 o successiva*.
 * La definizione dello SKU del servizio di bilanciamento del carico può essere eseguita solo quando si crea un cluster AKS. Non è possibile modificare lo SKU del servizio di bilanciamento del carico dopo che è stato creato un cluster AKS.
-* È possibile usare un solo SKU del servizio di bilanciamento del carico in un singolo cluster.
+* È possibile usare un solo tipo di SKU di Load Balancer (Basic o standard) in un singolo cluster.
+* *Standard* I bilanciamenti del carico SKU supportano solo indirizzi IP SKU *standard* .
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configurare il servizio di bilanciamento del carico come interno
 

@@ -1,27 +1,21 @@
 ---
-title: DATABASE SQL in backup di macchine virtuali di Azure & ripristinare tramite PowerShell-backup di Azure
+title: DATABASE SQL nel backup di VM di Azure & ripristino tramite PowerShell
 description: Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con backup di Azure e PowerShell.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Backup di Azure; SQL
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 115eef3619f76f83f63c5e69e86393c032e0844e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090941"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172630"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
 Questo articolo descrive come usare Azure PowerShell per eseguire il backup e il ripristino di un database SQL in una VM di Azure usando l'insieme di credenziali di servizi di ripristino di [backup di Azure](backup-overview.md) .
 
-In questa esercitazione viene illustrato come:
+Questo articolo spiega come:
 
 > [!div class="checklist"]
 >

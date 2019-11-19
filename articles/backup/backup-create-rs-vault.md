@@ -1,20 +1,15 @@
 ---
-title: 'Backup di Azure: creare insiemi di credenziali dei servizi di ripristino'
+title: Creare insiemi di credenziali dei servizi di ripristino
 description: Questo articolo illustra come creare insiemi di credenziali dei servizi di ripristino in cui archiviare i backup e i punti di ripristino.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: Insieme di credenziali di servizi di ripristino; Backup delle macchine virtuali di Azure; Ripristino delle macchine virtuali di Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074871"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172436"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 

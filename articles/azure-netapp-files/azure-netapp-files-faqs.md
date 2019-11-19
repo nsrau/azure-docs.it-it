@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298480"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173598"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -103,16 +103,9 @@ Azure NetApp Files fornisce le metriche delle prestazioni del volume. È anche p
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Si vuole che un volume venga montato automaticamente quando una macchina virtuale di Azure viene avviata o riavviata.  Ricerca per categorie configurare l'host per i volumi NFS permanenti?
 
-Per il montaggio automatico di un volume NFS all'avvio o al riavvio della macchina virtuale, aggiungere una voce al file `/etc/fstab` nell'host. 
+Per il montaggio automatico di un volume NFS all'avvio o al riavvio della macchina virtuale, aggiungere una voce al file di `/etc/fstab` nell'host. 
 
-Ad esempio: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    Indirizzo IP del volume Azure NetApp Files trovato nel pannello Proprietà volume
-- $FILEPATH  
-    Percorso di esportazione del volume Azure NetApp Files
-- $MOUNTPOINT  
-    La directory creata nell'host Linux usato per montare l'esportazione NFS
+Per informazioni dettagliate, vedere [montare o smontare un volume per le macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) .  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>Perché il comando DF sul client NFS non Mostra le dimensioni del volume di cui è stato effettuato il provisioning?
 
@@ -123,7 +116,7 @@ Le dimensioni del volume segnalate in DF corrispondono alla dimensione massima c
 Azure NetApp Files supporta NFSv3 e NFSv 4.1. È possibile creare un volume utilizzando una delle due versioni di NFS. 
 
 > [!IMPORTANT] 
-> Per accedere alla funzionalità NFSv 4.1 è necessario aggiungere l'elenco elementi consentiti.  Per richiedere la whitelist, inviare una richiesta a <anffeedback@microsoft.com>. 
+> L'accesso alla funzionalità NFSv4.1 richiede l'inserimento nell'elenco di elementi consentiti.  Per ottenerlo, inviare una richiesta a <anffeedback@microsoft.com>. 
 
 
 ### <a name="how-do-i-enable-root-squashing"></a>Ricerca per categorie abilitare la squash radice?
@@ -144,7 +137,7 @@ Azure NetApp Files supporta attualmente una connessione Active Directory per ogn
 
 Sono supportati sia [servizi di dominio Azure Active Directory (ad)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) che [Active Directory Domain Services (ad DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) . Con Azure NetApp Files è possibile usare controller di dominio Active Directory esistenti. I controller di dominio possono risiedere in Azure come macchine virtuali o in locale tramite la VPN ExpressRoute o S2S. Azure NetApp Files non supporta il join AD per [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) in questo momento.
 
-Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa è @no__t 0 quando si configura Active Directory per l'account NetApp.
+Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa viene `OU=AADDC Computers` quando si configura Active Directory per l'account NetApp.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Quali versioni di Windows Server Active Directory sono supportate?
 

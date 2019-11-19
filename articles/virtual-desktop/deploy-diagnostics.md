@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332846"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167439"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -25,7 +25,7 @@ Ecco cosa può fare lo strumento di diagnostica per desktop virtuale di Windows:
 - Inviare un messaggio agli utenti attivi in un host sessione specifico.
 - Disconnettersi gli utenti da un host sessione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 È necessario creare una registrazione dell'app Azure Active Directory e un'area di lavoro Log Analytics prima di poter distribuire il modello di Azure Resource Manager per lo strumento. L'utente o l'amministratore necessita di queste autorizzazioni per eseguire questa operazione:
 
@@ -106,13 +106,13 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
 1. Aprire il browser Internet e accedere al [portale di Azure](https://portal.azure.com/) con l'account amministrativo.
 2. Passare quindi a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 3. Nella sezione **Impostazioni** selezionare **Impostazioni avanzate**.
-4. Passare quindi a **Data** > **Windows Performance Counters** e aggiungere i contatori seguenti:
+4. Passare quindi ai **dati** > i **contatori delle prestazioni di Windows** e aggiungere i contatori seguenti:
 
-    -   Disco logico (\*) @no__t-spazio 1Free
-    -   Disco logico (C:) \\Avg. Lunghezza coda del disco
-    -   Memoria (\*) \\Available MByte
-    -   Informazioni sul processore (\*) \\Processor tempo
-    -   Ritardo input utente per sessione (\*) @no__t ritardo input 1Max
+    -   Disco logico (\*)\\% di spazio disponibile
+    -   Disco logico (C:)\\lunghezza media della coda del disco
+    -   Memoria (\*)\\MByte disponibili
+    -   Informazioni sul processore (\*)\\tempo processore
+    -   Ritardo input utente per sessione (\*)\\ritardo input massimo
 
 Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -139,14 +139,14 @@ Per assicurarsi che l'area di lavoro di Log Analytics disponga dei contatori del
 
 1. Nella [portale di Azure](https://portal.azure.com/)passare a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
 2. In **Impostazioni**selezionare **Impostazioni avanzate**.
-3. Passare quindi a **Data** > **Windows Performance Counters**.
+3. Passare quindi ai dati > **i** **contatori delle prestazioni di Windows**.
 4. Verificare che i contatori seguenti siano preconfigurati:
 
-   - Disco logico (\*) @no__t-spazio 1Free: Visualizza la quantità di spazio disponibile sul disco come percentuale.
-   - Disco logico (C:) \\Avg. Lunghezza coda del disco: lunghezza della richiesta di trasferimento disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
-   - Memoria (\*) \\Available MBytes: la memoria disponibile per il sistema in megabyte.
-   - Informazioni sul processore (\*) \\Processor tempo: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
-   - Ritardo input utente per sessione (\*) @no__t ritardo input 1Max
+   - Disco logico (\*)\\% spazio disponibile: Visualizza la quantità di spazio disponibile sul disco come percentuale.
+   - Disco logico (C:)\\media coda del disco: lunghezza della richiesta di trasferimento del disco per l'unità C. Il valore non deve superare 2 per più di un breve periodo di tempo.
+   - Memoria (\*)\\MByte disponibili: la memoria disponibile per il sistema in megabyte.
+   - Informazioni sul processore (\*)\\tempo processore: la percentuale di tempo impiegato dal processore per eseguire un thread non inattivo.
+   - Ritardo input utente per sessione (\*)\\ritardo input massimo
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Connettersi alle macchine virtuali nell'area di lavoro Log Analytics
 
@@ -189,7 +189,7 @@ Per impostare l'URI di reindirizzamento:
 
    ![Pagina URI di Reindirizzamento](media/redirect-uri-page.png)
 
-8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello è `contosoapp45`, l'URL associato è <https://contosoapp45.azurewebsites.net>).
+8. Passare ora alle risorse di Azure, selezionare la risorsa app Azure Services con il nome specificato nel modello e passare all'URL associato. Se, ad esempio, il nome dell'app usato nel modello è `contosoapp45`, l'URL associato viene <https://contosoapp45.azurewebsites.net>).
 9. Accedere usando l'account utente appropriato di Azure Active Directory.
 10.   Selezionare **Accetto**.
 
@@ -234,25 +234,25 @@ Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vog
 
 ### <a name="windows-performance-counter-thresholds"></a>Soglie del contatore delle prestazioni di Windows
 
-- Disco logico (\*) \|% di spazio disponibile:
+- Disco logico (\*)\\% di spazio disponibile:
 
     - Visualizza la percentuale dello spazio totale utilizzabile nel disco logico che è disponibile.
     - Soglia: minore del 20% è contrassegnato come non integro.
 
-- Disco logico (C:) \\Avg. Lunghezza coda del disco:
+- Disco logico (C:)\\lunghezza media della coda del disco:
 
     - Rappresenta le condizioni del sistema di archiviazione.
     - Soglia: maggiore di 5 è contrassegnato come non integro.
 
-- Memoria (\*) \\Available MByte:
+- Memoria (\*)\\MByte disponibili:
 
     - Memoria disponibile per il sistema.
     - Soglia: inferiore a 500 megabyte contrassegnati come non integri.
 
-- Informazioni sul processore (\*) \\Processor tempo:
+- Informazioni sul processore (\*)\\tempo processore:
 
     - Soglia: superiore al 80% è contrassegnato come non integro.
 
-- [Ritardo input utente per sessione (\*) @no__t ritardo input 2max](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Ritardo input utente per sessione (\*)\\ritardo input massimo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Soglia: superiore a 2000 ms è contrassegnato come non integro.

@@ -1,19 +1,14 @@
 ---
-title: Ripristinare Key Vault chiave privata & per la macchina virtuale crittografata con backup di Azure
+title: Ripristinare & chiave privata per le macchine virtuali crittografate Key Vault
 description: Informazioni su come ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto in Backup di Azure usando PowerShell
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.author: dacurwin
-ms.openlocfilehash: 289042f70c44ab3b818a5350cc2e3db19e4d8a26
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 55e20d861eedde19946d2c99dfc1cd8ff33f6b0b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969121"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172776"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure
 
@@ -21,7 +16,7 @@ Questo articolo illustra l'uso di Backup di Azure per eseguire il ripristino del
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Backup delle macchine virtuali crittografate**: il backup delle macchine virtuali crittografate di Azure deve essere eseguito tramite Backup di Azure. Per informazioni dettagliate su come eseguire il backup di macchine virtuali di Azure crittografate, vedere l'articolo [gestire il backup e il ripristino di macchine virtuali di Azure con PowerShell](backup-azure-vms-automation.md) .
 * **Configurazione dell'insieme di credenziali delle chiavi di Azure**: assicurarsi che l'insieme di credenziali delle chiavi in cui eseguire il ripristino di chiavi e segreti sia presente. Per informazioni dettagliate sulla gestione dell'insieme di credenziali delle chiavi, vedere l'articolo [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).

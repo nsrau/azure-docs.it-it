@@ -672,6 +672,8 @@
               href: mongodb-readpreference.md
             - name: Durata (TTL) - MongoDB
               href: mongodb-time-to-live.md
+            - name: Flussi di modifiche
+              href: mongodb-change-streams.md
             - name: Gestire l'indicizzazione dei dati
               href: mongodb-indexing.md
             - name: Archiviare e gestire Spring Data

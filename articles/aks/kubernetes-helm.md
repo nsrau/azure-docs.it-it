@@ -7,22 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: bc74ac660c5bba0624416d0a1724d959a4c385a7
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: fc808fee66dee573aecd423e375d30bf3f5b696a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305283"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170718"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installare le applicazioni con Helm nel servizio Azure Kubernetes
 
-[Helm][helm] è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti di Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
+[Helm][helm] è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 
 Questo articolo illustra come configurare e usare Helm in un cluster Kubernetes nel servizio Azure Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
 
 È anche necessario che sia installata l'interfaccia della riga di comando di Helm, ovvero il client in esecuzione nel sistema di sviluppo. Consente di avviare, arrestare e gestire le applicazioni con Helm. Se si usa Azure Cloud Shell, l'interfaccia della riga di comando di Helm è già installata. Per le istruzioni di installazione nella piattaforma locale, vedere [installazione di Helm][helm-install].
 
@@ -215,18 +215,18 @@ Per altre informazioni sulla distribuzione delle applicazioni Kubernetes con Hel
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/
-[helm-documentation]: https://docs.helm.sh/
-[helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[helm-documentation]: https://v2.helm.sh/docs/
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[helm-list]: https://docs.helm.sh/helm/#helm-list
-[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
-[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
-[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
-[helm-search]: https://docs.helm.sh/helm/#helm-search
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
-[helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
-
+[helm-list]: https://v2.helm.sh/docs/helm/#helm-list
+[helm-history-max]: https://v2.helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
+[helm-rbac]: https://v2.helm.sh/docs/using_helm/#role-based-access-control
+[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-search]: https://v2.helm.sh/docs/helm/#helm-search
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac
+[helm-ssl]: https://v2.helm.sh/docs/using_helm/#using-ssl-between-helm-and-tiller
+            
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md

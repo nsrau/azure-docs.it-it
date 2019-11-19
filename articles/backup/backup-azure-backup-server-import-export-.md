@@ -1,19 +1,15 @@
 ---
-title: Backup di Azure - Backup offline per DPM e server di Backup di Azure
+title: Backup offline per DPM e server di Backup di Azure
 description: Backup di Azure consente di inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure (MAB).
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074297"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173239"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 
@@ -108,7 +104,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Servizi di ripristino nel percorso seguente:
 
-*\\Servizi di ripristino di Microsoft Azure Agent\\utils\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 

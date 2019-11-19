@@ -1,20 +1,15 @@
 ---
-title: 'Backup di Azure: backup coerenti con le applicazioni di macchine virtuali Linux'
+title: Backup coerenti con l'applicazione di macchine virtuali Linux
 description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: backup coerente delle app; backup coerente delle applicazioni di VM di Azure; backup di VM Linux; Backup di Azure
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
-ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375937"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173013"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
@@ -72,11 +67,11 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
 6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e post-backup e controllare i log di script per risolvere eventuali problemi degli script. Se continuano a verificarsi problemi durante l'esecuzione degli script, vedere la tabella seguente per altre informazioni.
 
-| Errore | Messaggio di errore | Azione consigliata |
+| Tipi di errore | Messaggio di errore | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Lo script di pre-backup ha restituito un errore perciò il backup potrebbe non essere coerente con le applicazioni.| Controllare i log di errore dello script per risolvere il problema.|  
 |Post-ScriptExecutionFailed |Lo script di post-backup ha restituito un errore che potrebbe compromettere lo stato dell'applicazione. |Controllare i log di errore dello script per risolvere il problema e verificare lo stato dell'applicazione. |

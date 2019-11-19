@@ -1,18 +1,14 @@
 ---
 title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747467"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173101"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -127,9 +123,9 @@ Il backup delle condivisioni file di Azure consente di configurare criteri di co
 
 Quando vengono applicati nuovi criteri a una o più condivisioni file, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione nel processo di pulizia successivo e vengono eliminati.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
-Queste informazioni riguardano solo il backup di file di Azure. Per informazioni su altre aree di Backup di Azure, vedere queste domande frequenti sul backup:
+Per informazioni su altre aree di Backup di Azure, vedere queste domande frequenti sul backup:
 
 - [Domande frequenti sull'insieme di credenziali di Servizi di ripristino](backup-azure-backup-faq.md)
 - [Domande frequenti sul backup delle macchine virtuali di Azure](backup-azure-vm-backup-faq.md)

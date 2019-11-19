@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 7d0fec56791c0d3e7ae60d78da83cf286532b9ab
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124006"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173805"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Monitorare le operazioni di inserimento di Azure Esplora dati usando i log di diagnostica (anteprima)
 
 Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in una tabella di un database in modo che sia possibile eseguire query su di essa. I [log di diagnostica di monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-logs-overview) forniscono i dati sul funzionamento delle risorse di Azure. Azure Esplora dati usa i log di diagnostica per ottenere informazioni dettagliate sugli errori e sugli errori di inserimento. È possibile esportare i log delle operazioni in archiviazione di Azure, Hub eventi o Log Analytics per monitorare lo stato di inserimento. I log da archiviazione di Azure e hub eventi di Azure possono essere indirizzati a una tabella nel cluster di Azure Esplora dati per un'ulteriore analisi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/).
 * Creare un [cluster e un database](create-cluster-database-portal.md).
@@ -30,8 +30,8 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configurare i log di diagnostica per un cluster di Esplora dati di Azure
 
 I log di diagnostica possono essere usati per configurare la raccolta dei dati di log seguenti:
-* Operazioni di inserimento riuscite: Questi log contengono informazioni sulle operazioni di inserimento completate correttamente.
-* Operazioni di inserimento non riuscite: Questi log contengono informazioni dettagliate sulle operazioni di inserimento non riuscite, inclusi i dettagli dell'errore. 
+* Operazioni di inserimento riuscite: questi log contengono informazioni sulle operazioni di inserimento completate correttamente.
+* Operazioni di inserimento non riuscite: questi log contengono informazioni dettagliate sulle operazioni di inserimento non riuscite, inclusi i dettagli dell'errore. 
 
 I dati vengono quindi archiviati in un account di archiviazione, trasmessi a un hub eventi o inviati a Log Analytics, in base alle specifiche.
 
@@ -66,14 +66,14 @@ Tutti i [log di diagnostica di monitoraggio di Azure condividono uno schema di p
 
 Le stringhe JSON di log includono gli elementi elencati nella tabella seguente:
 
-|Attività               |Descrizione
+|Nome               |DESCRIZIONE
 |---                |---
 |time               |Ora del report
 |resourceId         |ID della risorsa Azure Resource Manager
-|operationName      |Nome dell'operazione: MICROSOFT. KUSTO/CLUSTER/INSERIMENTO/AZIONE
-|operationVersion   |Versione schema: ' 1,0' 
+|operationName      |Nome dell'operazione:' MICROSOFT. KUSTO/CLUSTER/INSERIMENTO/AZIONE
+|operationVersion   |Versione schema:' 1,0' 
 |category           |Categoria dell'operazione. `SucceededIngestion` o `FailedIngestion`. Le proprietà sono diverse per l' [operazione riuscita](#successful-ingestion-operation-log) o [operazione non riuscita](#failed-ingestion-operation-log).
-|proprietà         |Informazioni dettagliate sull'operazione.
+|properties         |Informazioni dettagliate sull'operazione.
 
 #### <a name="successful-ingestion-operation-log"></a>Log delle operazioni di inserimento riuscito
 
@@ -100,15 +100,15 @@ Le stringhe JSON di log includono gli elementi elencati nella tabella seguente:
 ```
 **Proprietà di un log di diagnostica operazione completata**
 
-|Attività               |Descrizione
+|Nome               |DESCRIZIONE
 |---                |---
 |succeededOn        |Tempo di completamento dell'inserimento
 |operationId        |ID operazione di inserimento Esplora dati Azure
 |database           |Nome del database di destinazione
 |table              |Nome della tabella di destinazione
-|ingestionSourceId  |ID dell'origine dati di inserimento
+|IngestionSourceId  |ID dell'origine dati di inserimento
 |IngestionSourcePath|Percorso dell'origine dati di inserimento o dell'URI del BLOB
-|rootActivityId     |ID attività
+|RootActivityId     |ID attività
 
 #### <a name="failed-ingestion-operation-log"></a>Log delle operazioni di inserimento non riuscito
 
@@ -141,21 +141,23 @@ Le stringhe JSON di log includono gli elementi elencati nella tabella seguente:
 
 **Proprietà di un log di diagnostica di un'operazione non riuscita**
 
-|Attività               |Descrizione
+|Nome               |DESCRIZIONE
 |---                |---
 |FailedOn           |Tempo di completamento dell'inserimento
 |operationId        |ID operazione di inserimento Esplora dati Azure
 |database           |Nome del database di destinazione
 |table              |Nome della tabella di destinazione
-|ingestionSourceId  |ID dell'origine dati di inserimento
+|IngestionSourceId  |ID dell'origine dati di inserimento
 |IngestionSourcePath|Percorso dell'origine dati di inserimento o dell'URI del BLOB
-|rootActivityId     |ID attività
-|details            |Descrizione dettagliata dell'errore e del messaggio di errore
+|RootActivityId     |ID attività
+|informazioni dettagliate            |Descrizione dettagliata dell'errore e del messaggio di errore
 |errorCode          |Codice di errore 
 |FailureStatus      |`Permanent` o `Transient`. Il tentativo di un errore temporaneo potrebbe avere esito positivo.
-|originatesFromUpdatePolicy|True se l'errore proviene da un criterio di aggiornamento
-|shouldRetry        |True se il tentativo potrebbe avere esito positivo
+|OriginatesFromUpdatePolicy|True se l'errore proviene da un criterio di aggiornamento
+|ShouldRetry        |True se il tentativo potrebbe avere esito positivo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Usare le metriche per monitorare l'integrità del cluster](using-metrics.md)
+* [Esercitazione: inserire ed eseguire query sui dati di monitoraggio in Azure Esplora dati](ingest-data-no-code.md)
+* [Usare le metriche per monitorare l'integrità del cluster](using-metrics.md)
+

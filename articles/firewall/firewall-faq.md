@@ -1,18 +1,18 @@
 ---
 title: Domande frequenti su Firewall di Azure
-description: Domande frequenti per Firewall di Azure
+description: Domande frequenti sul firewall di Azure. Servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 418fafdec9bd44fa3682e33cc53bbca9c716dcf2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596775"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167044"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -23,7 +23,7 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Quali funzionalità sono supportate nel Firewall di Azure?
 
 * Firewall con stato come servizio
-* Disponibilità elevata predefinita con scalabilità cloud senza limitazioni
+* Disponibilità elevata e scalabilità cloud senza limiti
 * Filtro dei nomi di dominio completi
 * Tag FQDN
 * Regole di filtro per il traffico di rete
@@ -88,7 +88,7 @@ Vedere [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/az
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-ad esempio:
+Ad esempio:
 
 ```azurepowershell
 # Stop an existing firewall

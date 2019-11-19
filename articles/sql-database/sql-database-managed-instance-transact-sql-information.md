@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823312"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158305"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze, limitazioni e problemi noti di istanza gestita di T-SQL
 
@@ -36,7 +36,7 @@ La maggior parte di queste funzionalità sono vincoli di architettura e rapprese
 
 In questa pagina vengono inoltre illustrati i [problemi noti temporanei](#Issues) individuati in istanza gestita, che verranno risolti in futuro.
 
-## <a name="availability"></a>Disponibilità
+## <a name="availability"></a>Availability
 
 ### <a name="always-on-availability"></a>Always On
 
@@ -78,7 +78,7 @@ Limitazioni:
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="auditing"></a>Controllo
 
@@ -88,7 +88,7 @@ Le principali differenze tra il controllo nei database nel database SQL di Azure
 - Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
 - In SQL Server locali o macchine virtuali, il controllo funziona a livello di server. Gli eventi vengono archiviati nei registri eventi di file system o di Windows.
  
-Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BLOB di Azure. I log di file e di Windows non sono supportati.
 
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
@@ -302,7 +302,7 @@ Attualmente non sono supportate le funzionalità di SQL Agent seguenti:
 - Proxy
 - Pianificazione di processi in una CPU inattiva
 - Abilitazione o disabilitazione di un agente
-- Avvisi
+- Alerts
 
 Per informazioni su SQL Server Agent, vedere [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
@@ -565,16 +565,6 @@ L'istruzione `RESTORE` continua, il processo di migrazione del servizio di migra
 
 **Soluzione temporanea**: attendere il completamento del processo di ripristino o annullare il processo di ripristino se l'operazione di creazione o aggiornamento del livello di servizio ha una priorità più elevata.
 
-### <a name="missing-validations-in-restore-process"></a>Convalide mancanti nel processo di ripristino
-
-**Data:** 2019 Sep
-
-`RESTORE` istruzione e il ripristino temporizzato predefinito non eseguono alcuni controlli nessecary sul database ripristinato:
-- L'istruzione **DBCC CHECKDB** - `RESTORE` non esegue `DBCC CHECKDB` nel database ripristinato. Se un database originale è danneggiato o il file di backup è danneggiato mentre viene copiato nell'archiviazione BLOB di Azure, i backup automatici non verranno eseguiti e il supporto di Azure contatterà il cliente. 
-- Il processo di ripristino temporizzato predefinito non controlla se il backup automatizzato da business critical istanza contiene gli [oggetti OLTP in memoria](sql-database-in-memory.md#in-memory-oltp). 
-
-**Soluzione temporanea**: assicurarsi di eseguire `DBCC CHECKDB` nel database di origine prima di eseguire un backup e di usare `WITH CHECKSUM` opzione in backup per evitare potenziali danneggiamenti che possono essere ripristinati in un'istanza gestita. Verificare che il database di origine non contenga [oggetti OLTP in memoria](sql-database-in-memory.md#in-memory-oltp) se viene ripristinato nel livello per utilizzo generico.
-
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Potrebbe essere necessario riconfigurare Resource Governor business critical livello di servizio dopo il failover
 
 **Data:** 2019 Sep
@@ -641,7 +631,7 @@ le istruzioni `CREATE DATABASE`, `ALTER DATABASE ADD FILE`e `RESTORE DATABASE` p
 
 Ogni istanza gestita di per utilizzo generico ha fino a 35 TB di spazio di archiviazione riservato per lo spazio su disco Premium di Azure. Ogni file di database si trova in un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato sul disco non viene addebitato, ma la somma totale delle dimensioni del disco Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni di archiviazione a causa della frammentazione interna.
 
-Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. Esempio:
+Ad esempio, un'istanza gestita di per utilizzo generico potrebbe avere un file di grandi dimensioni di 1,2 TB in un disco da 4 TB. Potrebbero inoltre essere presenti 248 file con dimensioni di 1 GB, ognuno dei quali si trova in dischi 128 GB distinti. In questo esempio:
 
 - la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

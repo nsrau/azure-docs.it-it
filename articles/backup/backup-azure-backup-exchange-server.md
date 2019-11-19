@@ -1,25 +1,21 @@
 ---
-title: Eseguire il backup di un server di Exchange in backup di Azure tramite System Center DPM
+title: Eseguire il backup di un server Exchange tramite System Center DPM
 description: Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: dacurwin
-ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b2231fcadc3e0cb591302ba47572627ae3a17e58
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968499"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173271"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 
 Questo articolo descrive come configurare un server di System Center 2012 R2 Data Protection Manager (DPM) per eseguire il backup di un server di Microsoft Exchange per Backup di Azure.  
 
-## <a name="updates"></a>Aggiornamenti
+## <a name="updates"></a>aggiornamenti
 
 Per registrare correttamente il server DPM con Backup di Azure, è necessario installare l'aggiornamento cumulativo più recente per System Center 2012 R2 DPM e la versione più recente dell'agente di Backup di Azure. Ottenere l'aggiornamento cumulativo più recente dal [catalogo Microsoft](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
@@ -28,7 +24,7 @@ Per registrare correttamente il server DPM con Backup di Azure, è necessario in
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di continuare, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti includono i seguenti:
 
@@ -87,10 +83,10 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 11. Controllare lo spazio disponibile su disco e quindi fare clic su **Avanti**.
 12. Selezionare l'ora in cui il server DPM dovrà creare la replica iniziale e quindi fare clic su **Avanti**.
 13. Selezionare le opzioni di verifica coerenza e quindi fare clic su **Avanti**.
-14. Scegliere il database di cui si vuole eseguire il backup in Azure e quindi fare clic su **Avanti**. ad esempio:
+14. Scegliere il database di cui si vuole eseguire il backup in Azure e quindi fare clic su **Avanti**. Ad esempio:
 
     ![Specifica i dati da proteggere online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definire la pianificazione per **Backup di Azure**, quindi fare clic su **Avanti**. ad esempio:
+15. Definire la pianificazione per **Backup di Azure**, quindi fare clic su **Avanti**. Ad esempio:
 
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -105,7 +101,7 @@ Per installare l'agente protezione DPM nel server di Exchange, seguire questi pa
 
     ![Specificare i criteri di mantenimento online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Verificare le impostazioni e quindi fare clic su **Crea gruppo**.
-19. Fare clic su **Chiudi**.
+19. Fare clic su **Close**.
 
 ## <a name="recover-the-exchange-database"></a>Ripristinare il database di Exchange
 

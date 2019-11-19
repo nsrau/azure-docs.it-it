@@ -21,7 +21,7 @@
           href: end-to-end-csharp.md
         - name: Python
           href: end-to-end-python.md
-    - name: Inserire dati senza usare codice
+    - name: Inserire ed eseguire query sui dati di monitoraggio
       href: ingest-data-no-code.md
     - name: Visualizzare i dati in Power BI
       href: visualize-power-bi.md

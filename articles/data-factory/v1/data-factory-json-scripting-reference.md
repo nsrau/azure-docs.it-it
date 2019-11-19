@@ -3326,8 +3326,8 @@ Per altre informazioni, vedere [Connettore Amazon S3](data-factory-amazon-simple
 
 | Scenario | Host nella definizione del servizio collegato | folderPath nella definizione del set di dati |
 | --- | --- | --- |
-| Cartella locale nel computer del gateway di gestione dati: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
-| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
+| Cartella locale nel computer del gateway di gestione dati: <br/><br/>Esempi: D:\\\* o D:\cartella\sottocartella\\\* |D:\\\\ (per Gateway di gestione dati versione 2.0 e successive) <br/><br/> localhost (per le versioni precedenti alla versione 2.0 di Gateway di gestione dati) |.\\\\ o cartella\\\\sottocartella (per Gateway di gestione dati 2.0 e versioni successive) <br/><br/>D:\\\\ o D:\\\\cartella\\\\sottocartella (per la versione del gateway precedente a 2.0) |
+| Cartella condivisa remota: <br/><br/>Esempi: \\\\myserver\\share\\\* o \\\\myserver\\share\\cartella\\sottocartella\\\* |\\\\\\\\myserver\\\\share |.\\\\ o cartella\\\\sottocartella |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Esempio: Uso di nome utente e password in testo normale

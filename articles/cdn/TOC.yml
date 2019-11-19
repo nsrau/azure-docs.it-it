@@ -1,8 +1,8 @@
-- name: Documentazione relativa alla Rete di distribuzione dei contenuti
+- name: Documentazione della rete per la distribuzione di contenuti
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sulla rete CDN di Azure
+    - name: Che cos'è la rete per la distribuzione di contenuti di Azure (Rete CDN di Azure)?
       href: cdn-overview.md
     - name: Confrontare le funzionalità del prodotto
       href: cdn-features.md
@@ -12,7 +12,7 @@
       href: cdn-create-new-endpoint.md
     - name: Integrare un account di archiviazione
       href: cdn-create-a-storage-account-with-cdn.md
-    - name: Creare un profilo con il modello di Azure Resource Manager
+    - name: Creare un profilo con un modello di Azure Resource Manager
       href: create-profile-resource-manager-template.md
 - name: Esercitazioni
   items:
@@ -40,7 +40,7 @@
       href: cdn-china-delivery.md
     - name: Supporto HTTP/2
       href: cdn-http2.md
-    - name: Recuperare l'elenco di POP Verizon
+    - name: Recuperare un elenco di POP Verizon
       href: cdn-pop-list-api.md
     - name: Eseguire la migrazione da Standard Verizon a Premium Verizon
       href: cdn-migrate.md
@@ -51,7 +51,7 @@
     - name: Ottimizzare il contenuto
       href: cdn-optimization-overview.md
       items:
-        - name: Ottimizzazione per file di grandi dimensioni
+        - name: Ottimizzazione di file di grandi dimensioni
           href: cdn-large-file-optimization.md
         - name: Ottimizzazione dello streaming multimediale
           href: cdn-media-streaming-optimization.md
@@ -89,13 +89,13 @@
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticazione tramite token
           href: cdn-token-auth.md
-        - name: Supporto per l'archiviazione della firma di accesso condiviso
+        - name: Supporto dell'archiviazione con firma di accesso condiviso
           href: cdn-sas-storage-support.md
         - name: Condivisione di risorse tra le origini
           href: cdn-cors.md
         - name: Monitorare le risorse
           href: cdn-resource-health.md
-        - name: Eseguire l'override del comportamento con regole
+        - name: Usare le regole per sostituire il comportamento
           href: cdn-verizon-premium-rules-engine.md
         - name: Usare Gestione traffico
           href: cdn-traffic-manager.md
@@ -110,7 +110,7 @@
               href: cdn-analyze-usage-patterns.md
             - name: Report personalizzati di Verizon
               href: cdn-verizon-custom-reports.md
-        - name: Strumenti di analisi per la rete CDN Premium di Azure da Verizon
+        - name: Strumenti di analisi di Verizon per la rete CDN di Azure Premium
           items:
             - name: Generare report HTTP avanzati
               href: cdn-advanced-http-reports.md
@@ -136,7 +136,7 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: riferimento
   items:
-    - name: Informazioni di riferimento sul motore regole standard Microsoft
+    - name: Informazioni di riferimento sul motore regole standard
       href: cdn-standard-rules-engine-reference.md
       items:
         - name: Condizioni di corrispondenza del motore regole standard
@@ -177,7 +177,7 @@
           href: cdn-pop-locations.md
         - name: Località POP per abbreviazione
           href: cdn-pop-abbreviations.md
-    - name: Informazioni sulla fatturazione per la rete CDN di Azure
+    - name: Fatturazione per la rete per la distribuzione di contenuti di Azure
       href: cdn-billing.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'

@@ -4,25 +4,22 @@ description: Viene descritto come individuare app, ruoli e funzionalità nei ser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/18/2019
 ms.author: snehaa
-ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715779"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158644"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer 
-
-> [!NOTE]
-> Se questa funzionalità non è ancora visualizzata nel portale di Azure Migrate, bloccarsi. Verrà visualizzato nella settimana successiva.
+# <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
 Questo articolo descrive come individuare applicazioni, ruoli e funzionalità nei server locali, usando Azure Migrate: server assessment.
 
-L'individuazione dell'inventario delle app e dei ruoli e delle funzionalità in esecuzione nei computer locali ti permette di identificare e pianificare un percorso di migrazione ad Azure personalizzato per i tuoi carichi di lavoro. 
+L'individuazione dell'inventario delle app e dei ruoli e delle funzionalità in esecuzione nei computer locali ti permette di identificare e pianificare un percorso di migrazione ad Azure personalizzato per i tuoi carichi di lavoro.
 
-Individuazione app con Azure Migrate: la valutazione del server è senza agente. Non è necessario installare nulla in computer e macchine virtuali. Server Assessment usa il dispositivo Azure Migrate per eseguire l'individuazione insieme alle credenziali Guest del computer. L'appliance accede in remoto ai computer usando le chiamate WMI e SSH. 
+Individuazione app con Azure Migrate: la valutazione del server è senza agente. Non è necessario installare nulla in computer e macchine virtuali. Server Assessment usa il dispositivo Azure Migrate per eseguire l'individuazione insieme alle credenziali Guest del computer. L'appliance accede in remoto ai computer usando le chiamate WMI e SSH.
 
 > [!NOTE]
 > L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware ed è limitata all'individuazione. Non è ancora stata offerta una valutazione basata su app.  Attualmente la valutazione server attualmente valuta le VM VMware locali, le VM Hyper-V e i server fisici a livello di computer, per le migrazioni in modalità Lift-and-Shift.
@@ -50,7 +47,7 @@ Dopo che l'appliance è stata distribuita e sono state fornite le credenziali, l
 
 ## <a name="review-and-export-the-inventory"></a>Esaminare ed esportare l'inventario
 
-Al termine dell'individuazione, se sono state fornite le credenziali per l'individuazione delle app, è possibile esaminare ed esportare l'inventario delle app nel portale di Azure. 
+Al termine dell'individuazione, se sono state fornite le credenziali per l'individuazione delle app, è possibile esaminare ed esportare l'inventario delle app nel portale di Azure.
 
 1. In **Azure migrate-server** > **Azure migrate: server Assessment**, fare clic sul conteggio visualizzato per aprire la pagina **server individuati** .
 

@@ -1,19 +1,14 @@
 ---
-title: 'Backup di Azure: eseguire il backup dei carichi di lavoro DPM tramite PowerShell'
+title: Usare PowerShell per eseguire il backup dei carichi di lavoro DPM
 description: Informazioni su come distribuire e gestire Backup di Azure per Data Protection Manager (DPM) usando PowerShell
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: dacurwin
-ms.openlocfilehash: ef20de40433542c1ed0780f198b10d6a1fb78789
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3a8b2ff95957b69bab4932ce8a7e5a1ab4bfa44
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162132"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172415"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuire e gestire il backup in Azure per server Data Protection Manager (DPM) mediante PowerShell
 
@@ -52,7 +47,7 @@ Le attività di installazione e registrazione seguenti possono essere automatizz
 * Impostazioni di rete
 * Impostazioni crittografia
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali dei servizi di ripristino è diverso da un insieme di credenziali di backup.
 
@@ -106,7 +101,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 ## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Installazione dell'agente di Backup di Azure in un server DPM
 
 Per installare l'agente di Backup di Azure, è necessario aver scaricato il programma di installazione nel server Windows. È possibile ottenere la versione più recente del programma di installazione dall' [Area download Microsoft](https://aka.ms/azurebackup_agent) o dalla pagina Dashboard dell'insieme di credenziali dei servizi di ripristino. Salvare il programma di installazione in un percorso facilmente accessibile come *C:\Downloads\*.
@@ -133,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 Le opzioni disponibili includono:
 
-| Opzione | Dettagli | Predefinito |
+| Opzione | Dettagli | Default |
 | --- | --- | --- |
 | /q |Installazione non interattiva |- |
 | /p:"location" |Percorso della cartella di installazione per l'agente di Backup di Azure. |C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure |

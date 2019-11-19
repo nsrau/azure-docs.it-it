@@ -1,17 +1,17 @@
 ---
-title: Crea app in tempo reale con funzioni di Azure e il servizio Azure SignalR
-description: Panoramica dell'uso del servizio Azure SignalR in applicazioni senza server.
+title: Crea app in tempo reale-funzioni di Azure & servizio Azure SignalR
+description: Informazioni su come sviluppare un'applicazione Web senza server in tempo reale con il servizio Azure SignalR nell'esempio riportato di seguito.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639918"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157614"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crea app in tempo reale con funzioni di Azure e il servizio Azure SignalR
 
@@ -27,9 +27,9 @@ Funzioni di Azure consente di scrivere codice in [diversi linguaggi](../azure-fu
 * Richieste dei webhook e HTTP
 * Timer periodici
 * Eventi dei servizi di Azure, ad esempio:
-    - Griglia eventi
+    - Griglia di eventi
     - Hub eventi
-    - Bus di servizio
+    - BUS DI SERVIZIO
     - Feed di modifiche di Cosmos DB
     - Archiviazione: BLOB e code
     - Connettori di App per la logica, ad esempio Salesforce e SQL Server

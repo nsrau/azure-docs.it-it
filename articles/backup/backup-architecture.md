@@ -1,18 +1,14 @@
 ---
-title: Architettura di Backup di Azure
+title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074357"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173511"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -96,7 +92,7 @@ L'utilizzo dell'archiviazione, l'obiettivo del tempo di ripristino (RTO) e l'uti
 
 Nella tabella seguente sono riepilogate le funzionalità supportate per i diversi tipi di backup:
 
-**Funzionalità** | **Computer Windows Server locali (Direct)** | **VM di Azure** | **Computer o app con DPM/MAB**
+**Funzionalità** | **Backup diretto di file e cartelle (tramite l'agente MARS)** | **Backup di macchine virtuali di Azure** | **Computer o app con DPM/MAB**
 --- | --- | --- | ---
 Backup nell'insieme di credenziali | ![Sì][green] | ![Sì][green] | ![Sì][green]
 Esegui il backup nel disco di DPM/MAB, quindi in Azure | | | ![Sì][green]
@@ -106,7 +102,7 @@ Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i 
 
 ![Chiave tabella](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Architettura: backup diretto di macchine virtuali di Azure
+## <a name="architecture-built-in-azure-vm-backup"></a>Architettura: backup di macchine virtuali di Azure predefinito
 
 1. Quando si Abilita il backup per una macchina virtuale di Azure, viene eseguito un backup in base alla pianificazione specificata.
 1. Durante il primo backup, un'estensione di backup viene installata nella macchina virtuale se la macchina virtuale è in esecuzione.

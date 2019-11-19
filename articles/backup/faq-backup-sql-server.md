@@ -1,19 +1,15 @@
 ---
-title: 'Domande frequenti: backup di database SQL Server in macchine virtuali di Azure-Backup di Azure'
+title: 'Domande frequenti: backup di database SQL Server nelle VM di Azure'
 description: Risposte alle domande frequenti sul backup di SQL Server database in macchine virtuali di Azure con backup di Azure.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
-ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074069"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172028"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120011"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170652"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -91,7 +91,7 @@ Per la connessione a origini dati locali da un server Azure Analysis Services è
 
 ## <a name="specifying-a-different-provider"></a>Specificare un provider diverso
 
-Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Se si usano provider nativi diversi da SQLOLEDB, è possibile che venga visualizzato un messaggio di errore simile al seguente: **Il provider 'SQLNCLI11.1' non è registrato**. In alternativa, se si dispone di un modello DirectQuery che si connette a origini dati locali e si usano provider nativi, potrebbe essere visualizzato un messaggio di errore: **errore durante la creazione di OLE DB set di righe. Sintassi non corretta in prossimità di ' LIMIT '** .
+Durante la connessione a particolari origini dati, i modelli di dati di Azure Analysis Services possono richiedere provider di dati differenti. In alcuni casi, i modelli tabulari che si connettono alle origini dati usando provider nativi quali SQL Server Native Client (SQLNCLI11) possono restituire un errore. Se si usano provider nativi diversi da MSOLEDBSQL, è possibile che venga visualizzato **il messaggio di errore: il provider ' SQLNCLI 11.1' non è registrato**. In alternativa, se si dispone di un modello DirectQuery che si connette a origini dati locali e si usano provider nativi, potrebbe essere visualizzato un messaggio di errore: **errore durante la creazione di OLE DB set di righe. Sintassi non corretta in prossimità di ' LIMIT '** .
 
 Durante la migrazione di un modello tabulare SQL Server Analysis Services locale in Azure Analysis Services, può essere necessario modificare il provider.
 

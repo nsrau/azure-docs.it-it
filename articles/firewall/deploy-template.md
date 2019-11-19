@@ -1,18 +1,18 @@
 ---
 title: Distribuire Firewall di Azure con un modello
-description: Distribuire Firewall di Azure con un modello
+description: Distribuire il firewall di Azure usando un modello. La rete creata ha un VNet con tre subnet. Sono state distribuite due macchine virtuali di Windows Server con due core.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/9/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: c0a6cda54a58e3cc03ba31e221fb57fc725dd779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839379"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169191"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Distribuire Firewall di Azure con un modello
 

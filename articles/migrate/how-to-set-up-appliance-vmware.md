@@ -4,14 +4,14 @@ description: Viene descritto come configurare un'appliance per l'individuazione,
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467116"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158608"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 
@@ -48,11 +48,12 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 2. Eseguire il comando seguente per generare l'hash per OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Per la versione appliance 1.0.0.5, l'hash generato deve corrispondere a queste impostazioni.
+3. Per la versione più recente del dispositivo, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Creare l'appliance VM
@@ -99,7 +100,7 @@ Configurare l'appliance per la prima volta.
 
 1. Fare clic su **Log in** (Accedi). Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 2. Nella nuova scheda accedere con le credenziali di Azure.
-    - Accedere con il proprio nome utente e la password.
+    - Accedere con il nome utente e la password.
     - L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web.
 2. Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate. Quindi selezionare il progetto.
@@ -109,7 +110,7 @@ Configurare l'appliance per la prima volta.
 
 ## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Avviare l'individuazione continua fornendo server vCenter e le credenziali della macchina virtuale
 
-L'appliance deve connettersi a server vCenter per individuare i dati di configurazione e delle prestazioni delle macchine virtuali.
+L'appliance deve connettersi al server vCenter per individuare la configurazione e i dati sulle prestazioni delle macchine virtuali.
 
 ### <a name="specify-vcenter-server-details"></a>Specificare i dettagli del server vCenter
 1. In **Specificare i dettagli del server vCenter** specificare il nome di dominio completo o l'indirizzo IP del server vCenter. È possibile lasciare la porta predefinita o specificare una porta personalizzata su cui il server vCenter rimane in ascolto.
@@ -117,20 +118,20 @@ L'appliance deve connettersi a server vCenter per individuare i dati di configur
 3. Fare clic su **Convalida connessione** per verificare che l'appliance sia in grado di connettersi al server vCenter.
 
 ### <a name="specify-vm-credentials"></a>Specificare le credenziali della VM
-Per individuare le applicazioni, i ruoli e le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali della VM che hanno accesso alle macchine virtuali VMware. È possibile aggiungere una credenziale per le macchine virtuali Windows e una credenziale per le macchine virtuali Linux. [Altre](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) informazioni sui privilegi di accesso necessari.
+Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dipendenze delle macchine virtuali, è possibile specificare le credenziali della VM che hanno accesso alle macchine virtuali VMware. È possibile aggiungere credenziali per le macchine virtuali Windows e per le macchine virtuali Linux. [Altre informazioni](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sui privilegi di accesso necessari.
 
 > [!NOTE]
-> Questo input è facoltativo ed è necessario per abilitare l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agenti.
+> Questo input è facoltativo: è necessario per abilitare l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agenti.
 
-1. In **individua le applicazioni e le dipendenze dalle macchine virtuali**fare clic su **Aggiungi credenziali**.
+1. In **Individua applicazioni e dipendenze nelle macchine virtuali** fare clic su **Aggiungi credenziali**.
 2. Selezionare il **sistema operativo**.
-3. Consente di specificare un nome descrittivo per le credenziali.
-4. In **nome utente** e **password**specificare un account con almeno accesso guest nelle macchine virtuali.
+3. Specificare un nome descrittivo per le credenziali.
+4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
 5. Fare clic su **Aggiungi**.
 
-Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Save (Salva) e avviare l'individuazione** per avviare l'individuazione dell'ambiente locale.
+Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
 
-Per visualizzare i metadati delle VM individuate nel portale occorre attendere circa 15 minuti. L'individuazione di applicazioni, ruoli e funzionalità installate richiede tempo, la durata dipende dal numero di macchine virtuali individuate. Per le VM 500, la visualizzazione dell'inventario delle applicazioni nel portale di Azure Migrate richiede circa 1 ora.
+Per visualizzare i metadati delle VM individuate nel portale occorre attendere circa 15 minuti. L'individuazione di applicazioni, ruoli e funzionalità installate richiede tempo e la durata dipende dal numero di macchine virtuali individuate. Per le macchine virtuali 500, la visualizzazione dell'inventario delle applicazioni nel portale di Azure Migrate richiede circa 1 ora.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

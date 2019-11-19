@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70130094"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74174968"
 ---
 | Risorsa | Limite predefinito/massimo | Nota |
 | --- | --- | --- |
@@ -33,7 +33,8 @@ ms.locfileid: "70130094"
 | Numero massimo di regole basate sul percorso per mappa di URL|100||
 | Configurazioni di reindirizzamento |100<sup>1</sup>| |
 | Connessioni WebSocket simultanee |Gateway medio 20.000<br> Gateway di grandi dimensioni 50.000| |
-| Lunghezza massima dell'URL|8\.000||
+| Lunghezza massima dell'URL|32 KB| |
+| Dimensioni massime dell'intestazione per HTTP/2 |4KB| |
 | Dimensioni massime di caricamento file, standard |2 GB | |
 | Dimensioni massime caricamento file WAF |Gateway WAF medi, 100 MB<br>Gateway WAF di grandi dimensioni, 500 MB| |
 | Limite dimensioni corpo WAF, senza file|128 KB||

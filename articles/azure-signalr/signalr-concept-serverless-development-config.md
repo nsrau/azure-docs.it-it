@@ -1,17 +1,17 @@
 ---
-title: Sviluppare e configurare le applicazioni del servizio SignalR di funzioni di Azure
+title: Sviluppare & configurare l'app funzioni di Azure-Azure SignalR
 description: Informazioni dettagliate su come sviluppare e configurare applicazioni in tempo reale senza server usando funzioni di Azure e il servizio Azure SignalR
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882314"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157644"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Sviluppo e configurazione di funzioni di Azure con il servizio Azure SignalR
 
@@ -38,7 +38,7 @@ Un'applicazione in tempo reale senza server compilata con funzioni di Azure e il
 
 Un'applicazione client richiede un token di accesso valido per la connessione al servizio Azure SignalR. Un token di accesso può essere anonimo o autenticato a un ID utente specificato. Le applicazioni del servizio SignalR senza server richiedono un endpoint HTTP denominato "Negotiate" per ottenere un token e altre informazioni di connessione, ad esempio l'URL dell'endpoint del servizio SignalR.
 
-Usare una funzione di Azure attivata da HTTP e l'associazione di input di *SignalRConnectionInfo* per generare l'oggetto informazioni di connessione. La funzione deve avere una route HTTP che termina con `/negotiate`.
+Usare una funzione di Azure attivata da HTTP e l'associazione di input di *SignalRConnectionInfo* per generare l'oggetto informazioni di connessione. La funzione deve avere una route HTTP che termina in `/negotiate`.
 
 Per ulteriori informazioni su come creare la funzione Negotiate, vedere la Guida di [riferimento dell'associazione di input *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding).
 
@@ -46,9 +46,9 @@ Per informazioni su come creare un token autenticato, vedere l'articolo relativo
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Invio di messaggi e gestione dell'appartenenza al gruppo
 
-Usare l' associazione di output di SignalR per inviare messaggi ai client connessi al servizio Azure SignalR. È possibile trasmettere messaggi a tutti i client oppure è possibile inviarli a un subset di client autenticati con un ID utente specifico o aggiunti a un gruppo specifico.
+Usare l'associazione di output di *SignalR* per inviare messaggi ai client connessi al servizio Azure SignalR. È possibile trasmettere messaggi a tutti i client oppure è possibile inviarli a un subset di client autenticati con un ID utente specifico o aggiunti a un gruppo specifico.
 
-Gli utenti possono essere aggiunti a uno o più gruppi. È anche possibile usare l' associazione di output di SignalR per aggiungere o rimuovere utenti da e verso gruppi.
+Gli utenti possono essere aggiunti a uno o più gruppi. È anche possibile usare l'associazione di output di *SignalR* per aggiungere o rimuovere utenti da e verso gruppi.
 
 Per altre informazioni, vedere riferimento dell'associazione di output di [ *SignalR* ](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
 
@@ -64,10 +64,10 @@ Le applicazioni client SignalR possono sfruttare l'SDK client di SignalR in uno 
 
 Per connettersi al servizio SignalR, un client deve completare una negoziazione di connessione riuscita che prevede i passaggi seguenti:
 
-1. Eseguire una richiesta all'endpoint http Negotiate illustrato in precedenza per ottenere informazioni di connessione valide
-1. Connettersi al servizio SignalR usando l'URL dell'endpoint del servizio e il token di accesso ottenuti dall'endpoint Negotiate
+1. Eseguire una richiesta all'endpoint HTTP *Negotiate* illustrato in precedenza per ottenere informazioni di connessione valide
+1. Connettersi al servizio SignalR usando l'URL dell'endpoint del servizio e il token di accesso ottenuti dall'endpoint *Negotiate*
 
-Gli SDK del client SignalR contengono già la logica necessaria per eseguire l'handshake di negoziazione. Passare l'URL dell'endpoint Negotiate, meno `negotiate` il segmento, all' `HubConnectionBuilder`SDK. Di seguito è riportato un esempio in JavaScript:
+Gli SDK del client SignalR contengono già la logica necessaria per eseguire l'handshake di negoziazione. Passare l'URL dell'endpoint Negotiate, meno il segmento `negotiate`, alla `HubConnectionBuilder`dell'SDK. Di seguito è riportato un esempio in JavaScript:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -75,7 +75,7 @@ const connection = new signalR.HubConnectionBuilder()
   .build()
 ```
 
-Per convenzione, l'SDK aggiunge `/negotiate` automaticamente all'URL e lo usa per iniziare la negoziazione.
+Per convenzione, l'SDK aggiunge automaticamente `/negotiate` all'URL e lo usa per iniziare la negoziazione.
 
 > [!NOTE]
 > Se si usa JavaScript/TypeScript SDK in un browser, è necessario [abilitare la condivisione di risorse tra le origini (CORS)](#enabling-cors) nel app per le funzioni.
@@ -102,9 +102,9 @@ Il client JavaScript/TypeScript esegue richieste HTTP alla funzione Negotiate pe
 
 #### <a name="localhost"></a>Localhost
 
-Quando si esegue l'app per le funzioni nel computer locale, è possibile `Host` aggiungere una sezione a *local. Settings. JSON* per abilitare CORS. `Host` Nella sezione aggiungere due proprietà:
+Quando si esegue l'app per le funzioni nel computer locale, è possibile aggiungere una sezione `Host` a *local. Settings. JSON* per abilitare CORS. Nella sezione `Host` aggiungere due proprietà:
 
-* `CORS`-Immettere l'URL di base che rappresenta l'origine dell'applicazione client
+* `CORS`: immettere l'URL di base che rappresenta l'origine dell'applicazione client
 * `CORSCredentials`-impostarla su `true` per consentire le richieste "withCredentials"
 
 Esempio:
@@ -131,7 +131,7 @@ Per abilitare CORS in un'app per le funzioni di Azure, passare alla schermata di
 
 Per chiamare la funzione Negotiate, è necessario abilitare CORS con Access-Control-Allow-Credentials per il client SignalR. Selezionare la casella di controllo per abilitarla.
 
-Nella sezione *origini* consentite aggiungere una voce con l'URL di base di origine dell'applicazione Web.
+Nella sezione *origini consentite* aggiungere una voce con l'URL di base di origine dell'applicazione Web.
 
 ![Configurazione di CORS](media/signalr-concept-serverless-development-config/cors-settings.png)
 
@@ -163,13 +163,13 @@ Configurare i client SignalR per l'uso dell'URL di gestione API.
 
 ### <a name="using-app-service-authentication"></a>Uso dell'autenticazione del servizio app
 
-Funzioni di Azure offre l'autenticazione incorporata, che supporta i provider più diffusi, ad esempio Facebook, Twitter, account Microsoft, Google e Azure Active Directory. Questa funzionalità può essere integrata con l'associazione *SignalRConnectionInfo* per creare connessioni al servizio Azure SignalR autenticato a un ID utente. L'applicazione può inviare messaggi usando l' associazione di output SignalR destinata a tale ID utente.
+Funzioni di Azure offre l'autenticazione incorporata, che supporta i provider più diffusi, ad esempio Facebook, Twitter, account Microsoft, Google e Azure Active Directory. Questa funzionalità può essere integrata con l'associazione *SignalRConnectionInfo* per creare connessioni al servizio Azure SignalR autenticato a un ID utente. L'applicazione può inviare messaggi usando l'associazione di output *SignalR* destinata a tale ID utente.
 
 Nella scheda *funzionalità della piattaforma* dell'app per le funzioni della portale di Azure aprire la finestra impostazioni di *autenticazione/autorizzazione* . Per configurare l'autenticazione tramite un provider di identità di propria scelta, seguire la documentazione per l' [autenticazione del servizio app](../app-service/overview-authentication-authorization.md) .
 
-Una volta configurate, le richieste HTTP `x-ms-client-principal-name` autenticate includeranno le intestazioni e `x-ms-client-principal-id` contenenti rispettivamente il nome utente e l'ID utente dell'identità autenticata.
+Una volta configurate, le richieste HTTP autenticate includeranno le intestazioni `x-ms-client-principal-name` e `x-ms-client-principal-id` che contengono rispettivamente il nome utente e l'ID utente dell'identità autenticata.
 
-È possibile usare queste intestazioni nella configurazione dell'associazione *SignalRConnectionInfo* per creare connessioni autenticate. Di seguito è riportato C# un esempio di funzione Negotiate che usa l' `x-ms-client-principal-id` intestazione.
+È possibile usare queste intestazioni nella configurazione dell'associazione *SignalRConnectionInfo* per creare connessioni autenticate. Di seguito è riportato C# un esempio di funzione Negotiate che usa l'intestazione `x-ms-client-principal-id`.
 
 ```csharp
 [FunctionName("negotiate")]
@@ -184,7 +184,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-È quindi possibile inviare messaggi a tale utente impostando la `UserId` proprietà di un messaggio SignalR.
+È quindi possibile inviare messaggi a tale utente impostando la proprietà `UserId` di un messaggio SignalR.
 
 ```csharp
 [FunctionName("SendMessage")]

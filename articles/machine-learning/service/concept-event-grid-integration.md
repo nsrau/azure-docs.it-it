@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 888d294634078d2fe7737426f6cf025ae9948b0a
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2fe2d07b29b8799712d59cdf21aeb3ce989ca3b2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609346"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158469"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>USA eventi Azure Machine Learning (anteprima)
 
@@ -36,7 +36,7 @@ Per ulteriori informazioni sulle origini eventi e i gestori eventi, vedere infor
 
 Azure Machine Learning fornisce eventi nei vari punti del ciclo di vita di Machine Learning: 
 
-| Tipo evento | Descrizione |
+| Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Generato quando viene completata l'esecuzione di un esperimento di Machine Learning |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Generato quando un modello di apprendimento automatico viene registrato nell'area di lavoro |
@@ -81,7 +81,7 @@ Per altre informazioni su come applicare i filtri, vedere [filtrare gli eventi p
 Le applicazioni che gestiscono gli eventi di Machine Learning devono seguire alcune procedure consigliate:
 
 > [!div class="checklist"]
-> * Dal momento che vi possono essere più sottoscrizioni configurate per instradare gli eventi allo stesso gestore eventi, è importante non presupporre che gli eventi derivino da un'origine specifica, ma controllare l'argomento del messaggio per assicurarsi che provengano dall'account di archiviazione previsto.
+> * Poiché è possibile configurare più sottoscrizioni per indirizzare gli eventi allo stesso gestore eventi, è importante non presupporre che gli eventi provengano da un'origine specifica, ma per controllare l'argomento del messaggio per assicurarsi che provenga dall'area di lavoro di Machine Learning prevista.
 > * Controllare anche che il tipo di evento che si verifica, eventType, sia un oggetto che si è preparati a elaborare e non presupporre che tutti gli eventi che si ricevono siano dei tipi previsti.
 > * Dal momento che i messaggi non arrivano in ordine e giungono con un po' di ritardo, usare i campi etag per verificare se le informazioni disponibili sugli oggetti sono ancora aggiornate.  È possibile usare anche i campi del sequencer per comprendere l'ordine degli eventi relativi a un oggetto specifico.
 > * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.

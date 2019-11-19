@@ -1,25 +1,20 @@
 ---
-title: Eseguire il backup e il ripristino File di Azure con backup di Azure e PowerShell
+title: Eseguire il backup e il ripristino File di Azure con PowerShell
 description: Questo articolo illustra come eseguire il backup e il ripristino di File di Azure usando il servizio backup di Azure e PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.reviewer: pullabhk
-ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 18c7340d1cb782ba41c472156259170f37139a74
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903619"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173488"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Eseguire il backup e il ripristino File di Azure con PowerShell
 
 Questo articolo descrive come usare Azure PowerShell per eseguire il backup e il ripristino di una condivisione file File di Azure usando un insieme di credenziali di servizi di ripristino di [backup di Azure](backup-overview.md) .
 
-In questa esercitazione viene illustrato come:
+Questo articolo spiega come:
 
 > [!div class="checklist"]
 >
