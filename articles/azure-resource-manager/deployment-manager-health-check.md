@@ -1,19 +1,16 @@
 ---
 title: "Implementazione dell'integrazione dell'integrità: Deployment Manager di Azure"
 description: Descrive come distribuire un servizio in più aree con Azure Deployment Manager. Illustra le procedure di distribuzione sicure per verificare la stabilità della distribuzione prima dell'implementazione in tutte le aree.
-services: azure-resource-manager
-documentationcenter: na
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
-ms.openlocfilehash: 72ddc900a892e6391d6b54046ac6f3a42358526f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6cc21837ff08822a9eae6ae7c326142ca873df74
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528557"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149956"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzione all'integrazione dell'integrità in Azure Deployment Manager (anteprima pubblica)
 
@@ -141,7 +138,7 @@ A questo punto Deployment Manager di Azure è in grado di eseguire una query per
 
     1. Al termine di un'operazione di distribuzione, è possibile che le macchine virtuali vengano riavviate, riconfigurate in base ai nuovi dati o addirittura avviate per la prima volta. La creazione di segnali di integrità da parte del provider di monitoraggio dell'integrità è utile anche per i servizi. Durante questo processo tumultuoso potrebbe non essere opportuno verificare l'integrità del servizio perché l'aggiornamento non ha ancora raggiunto uno stato stabile. Il servizio può infatti oscillare tra Stati integri e non integri in quanto le risorse vengono stabilite. 
     1. Durante la fase di attesa, l'integrità del servizio non viene monitorata. Viene utilizzato per consentire alle risorse distribuite il tempo di cottura prima di iniziare il processo di controllo dell'integrità. 
-1. Elasticità
+1. Elastic
 
     1. Poiché è impossibile capire in tutti i casi il tempo necessario per cuocere le risorse prima che diventino stabili, la fase elastica consente un periodo di tempo flessibile tra il momento in cui le risorse sono potenzialmente instabili e il momento in cui è necessario mantenere una costante integrità stato.
     1. Quando inizia la fase elastica, Azure Deployment Manager inizia a eseguire periodicamente il polling dell'endpoint REST fornito per l'integrità del servizio. L'intervallo di polling è configurabile. 

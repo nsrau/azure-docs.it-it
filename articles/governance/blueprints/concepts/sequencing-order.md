@@ -1,14 +1,14 @@
 ---
 title: Comprendere l'ordine della sequenza di distribuzione
-description: Informazioni sul ciclo di vita in cui viene esaminata la definizione di un progetto e informazioni dettagliate su ogni fase.
+description: Informazioni sull'ordine predefinito in cui vengono distribuiti gli artefatti del progetto durante un'assegnazione di progetto e su come personalizzare l'ordine di distribuzione.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 87eff48f977f0308fea563090a44ff0b301909a9
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960444"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128829"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 

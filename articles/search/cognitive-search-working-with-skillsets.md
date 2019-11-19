@@ -1,5 +1,5 @@
 ---
-title: Uso di skillsets
+title: Concetti e flusso di lavoro di competenze
 titleSuffix: Azure Cognitive Search
 description: Skillsets è la posizione in cui si crea una pipeline di arricchimento per l'intelligenza artificiale in Azure ricerca cognitiva. Informazioni sui concetti e i dettagli importanti sulla composizione di competenze.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890153"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113637"
 ---
-# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Uso di skillsets in Azure ricerca cognitiva
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione di competenze in Azure ricerca cognitiva
 
 Questo articolo è per gli sviluppatori che necessitano di una conoscenza più approfondita del funzionamento della pipeline di arricchimento e presuppone che l'utente abbia una conoscenza concettuale del processo di arricchimento di intelligenza artificiale. Se si ha familiarità con questo concetto, iniziare con:
 + [Arricchimento di intelligenza artificiale in Azure ricerca cognitiva](cognitive-search-concept-intro.md)
-+ [Archivio informazioni (anteprima)](knowledge-store-concept-intro.md)
++ [Che cos'è il knowledge store in Ricerca di Azure?](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>Specificare il livello di competenze
 Un insieme di competenze è una risorsa riutilizzabile in Azure ricerca cognitiva che specifica una raccolta di competenze cognitive usate per l'analisi, la trasformazione e l'arricchimento di contenuto di testo o immagine durante l'indicizzazione. La creazione di un oggetto di competenze consente di aggiungere arricchimenti di testo e immagini nella fase di inserimento dei dati, estraendo e creando nuove informazioni e strutture da contenuto non elaborato.
@@ -37,7 +37,7 @@ Skillsets vengono creati in JSON. È possibile compilare skillsets complessi con
 ### <a name="enrichment-tree"></a>Albero di arricchimento
 
 Per conoscere il modo in cui un insieme di competenze arricchisce progressivamente il documento, iniziamo con l'aspetto del documento prima di qualsiasi arricchimento. L'output di cracking del documento dipende dall'origine dati e dalla modalità di analisi specifica selezionata. Questo è anche lo stato del documento per il quale i [mapping dei campi](search-indexer-field-mappings.md) possono essere originati da durante l'aggiunta di dati all'indice di ricerca.
-![Archivio informazioni nel diagramma pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KArchivio nowledge nel diagramma della pipeline ")
+![Archivio conoscenze nel diagramma della pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KArchivio nowledge nel diagramma della pipeline ")
 
 Quando un documento si trova nella pipeline di arricchimento, viene rappresentato come albero di contenuto e arricchimenti associati. Viene creata un'istanza di questo albero come output di cracking del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di alleghi i metadati ai tipi di dati ancora primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. La tabella seguente illustra lo stato di un documento che entra nella pipeline di arricchimento:
 

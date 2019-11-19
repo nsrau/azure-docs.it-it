@@ -1,25 +1,17 @@
 ---
-title: Introduzione al livello Premium di Cache Redis di Azure | Microsoft Docs
+title: Introduzione al livello Premium di Cache Redis di Azure
 description: Informazioni su come creare e gestire la persistenza di Redis, il clustering di Redis e il supporto di rete virtuale per le istanze di Cache Redis di Azure del livello Premium
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786072"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121662"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduzione al livello Premium di Cache Redis di Azure
 Cache Redis di Azure è una cache distribuita e gestita che consente di creare applicazioni estremamente scalabili e reattive fornendo un accesso molto veloce ai dati. 
@@ -53,7 +45,7 @@ Per altre informazioni, vedere [Come configurare il supporto di una rete virtual
 ## <a name="importexport"></a>Importazione/Esportazione
 L'importazione/esportazione è un'operazione di gestione dati di Cache Redis di Azure che consente di importare o esportare dati nella Cache Redis di Azure importando o esportando uno snapshot del database di Cache Redis (RDB) da una cache Premium a un BLOB di pagine in un account di archiviazione di Azure. Ciò consente di eseguire la migrazione tra diverse istanze di Cache Redis di Azure o di popolare la cache con i dati prima dell'uso.
 
-L'importazione può essere usata per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione su qualsiasi cloud o ambiente, compresi i server Redis in esecuzione su Linux, Windows o su qualsiasi provider di servizi cloud come Amazon Web Services e altri. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
+È possibile usare l'importazione per spostare i file RDB compatibili con Redis da qualsiasi server Redis in esecuzione in qualsiasi cloud o ambiente, compresi i server Redis in esecuzione in Linux, Windows o in qualsiasi provider di cloud tra cui Amazon Web Services. L'importazione dei dati è un modo semplice per creare una cache con dati già popolati. Durante il processo di importazione Cache Redis di Azure carica i file RDB dall'archiviazione di Azure nella memoria e quindi inserisce le chiavi nella cache.
 
 L'esportazione consente di esportare i dati archiviati in Cache Redis in file RDB compatibili con Redis. È possibile usare questa funzionalità per spostare i dati da un'istanza di Cache Redis di Azure a un'altra o su un altro server Redis. Durante il processo di esportazione viene creato un file temporaneo nella macchina virtuale che ospita l'istanza del server Cache Redis di Azure e il file viene caricato nell'account di archiviazione designato. Quando l'operazione di esportazione viene completata con esito positivo o negativo, il file temporaneo viene eliminato.
 
@@ -65,7 +57,7 @@ Il piano Premium consente di riavviare uno o più nodi della cache su richiesta.
 * Nodo principale della cache
 * Nodo secondario della cache
 * Nodi primari e secondari della cache
-* Quando si usa una cache premium con clustering, è possibile riavviare il database primario, secondario o entrambi i nodi per singole partizioni nella cache
+* Quando si usa una cache Premium con il clustering, è possibile riavviare i nodi primari, secondari o entrambi per le singole partizioni nella cache
 
 Per altre informazioni, vedere [Riavvia](cache-administration.md#reboot) e [Domande frequenti sulla funzionalità di riavvio](cache-administration.md#reboot-faq).
 

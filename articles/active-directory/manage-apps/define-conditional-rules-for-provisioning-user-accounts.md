@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70812677"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120126"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -83,7 +83,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
    b. **NOT EQUALS** (DIVERSO DA). La clausola restituisce "true" se l'attributo valutato non corrisponde al valore della stringa di input (con distinzione tra maiuscole e minuscole).
 
-   c. **IS TRUE** (È VERO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano true.
+   C. **IS TRUE** (È VERO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano true.
 
    d. **IS FALSE** (È FALSO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano false.
 
@@ -110,6 +110,14 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 >[!IMPORTANT] 
 > Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione. Per eseguire l'override di questo comportamento predefinito, fare riferimento a [Ignora eliminazione per gli account utente che non rientrano nell'ambito](skip-out-of-scope-deletions.md).
 
+
+## <a name="common-scoping-filters"></a>Filtri di ambito comuni
+| Target Attribute| Operatore | Valore | DESCRIZIONE|
+|----|----|----|----|
+|userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal che dispone del @domain.com di dominio saranno nell'ambito del provisioning|
+|userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che dispone del dominio @domain.com saranno fuori dall'ambito per il provisioning|
+|department|È uguale A|vendite|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
+|workerID|CORRISPONDENZA REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tutti i dipendenti con workerIDs compreso tra 1 milione e 2 milioni rientrano nell'ambito del provisioning.|
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](user-provisioning.md)

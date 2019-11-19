@@ -1,5 +1,6 @@
 ---
-title: Configurare un tunnel VPN Always On per il gateway VPN
+title: Configurare un tunnel VPN always on
+titleSuffix: Azure VPN Gateway
 description: Procedura per configurare Always On tunnel VPN per il gateway VPN
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: bc2ec2b952b4f0c6e61fc4953559fa882edfff09
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841149"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146391"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurare un tunnel di dispositivo VPN Always On
 
@@ -28,11 +29,11 @@ Always On le connessioni VPN includono due tipi di tunnel:
 
 Il tunnel del dispositivo e il tunnel utente operano in modo indipendente con i profili VPN. Possono essere connessi nello stesso momento e possono usare metodi di autenticazione diversi e altre impostazioni di configurazione VPN in base alle esigenze.
 
-## <a name="1-configure-the-gateway"></a>1. Configurare il gateway
+## <a name="1-configure-the-gateway"></a>1. configurare il gateway
 
 Configurare il gateway VPN per l'uso di IKEv2 e l'autenticazione basata su certificati usando questo [articolo da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="2-configure-the-device-tunnel"></a>2. Configurare il tunnel del dispositivo
+## <a name="2-configure-the-device-tunnel"></a>2. configurare il tunnel del dispositivo
 
 Per stabilire correttamente un tunnel del dispositivo, è necessario soddisfare i requisiti seguenti:
 

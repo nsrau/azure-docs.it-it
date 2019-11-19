@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: ed100c27d482065e244bb3dc2cca3b66dfc11986
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013431"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132682"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati 
 
@@ -26,15 +26,26 @@ L'entità rappresenta una parola o una frase all'interno dell'espressione che si
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="creating-an-entity-is-different-from-labeling-an-entity"></a>La creazione di un'entità è diversa dall'etichettatura di un'entità
+## <a name="plan-entities-then-create-and-label"></a>Pianificare entità, quindi creare ed etichettare
 
-Prima di poter assegnare un'etichetta all'entità nell'espressione di esempio, è prima necessario creare un'entità. 
+Le entità apprese dal computer possono essere create dalle espressioni di esempio o create dalla pagina **entità** . 
+
+In generale, una procedura consigliata consiste nel dedicare tempo alla pianificazione delle entità prima di creare un'entità appresa dal computer nel portale. Creare quindi l'entità Machine-learned dall'espressione di esempio con tutti i dettagli nei sottocomponenti e nei descrittori e nei vincoli che si conoscono al momento. Nell' [esercitazione sull'entità decomponibile](tutorial-machine-learned-entity.md) viene illustrato come utilizzare questo metodo. 
+
+Come parte della pianificazione delle entità, è possibile che siano necessarie entità corrispondenti al testo (ad esempio, entità predefinite, entità di espressioni regolari o entità di elenco). È possibile crearli dalla pagina **entità** prima che vengano etichettati in espressioni di esempio. 
+
+Quando si etichetta, è possibile etichettare singole entità, quindi creare fino a un'entità padre appresa dal computer. In alternativa, è possibile iniziare con un'entità padre acquisita dal computer e decomporre le entità figlio. 
+
+> [!TIP] 
+>Etichettare tutte le parole che possono indicare un'entità, anche se le parole non vengono utilizzate quando vengono estratte nell'applicazione client. 
+
+## <a name="creating-an-entity-before-or-with-labeling"></a>Creazione di un'entità prima o con l'assegnazione di etichette
 
 Usare la tabella seguente per comprendere quali entità devono creare o aggiungere ogni entità all'app. 
 
 |Tipo di entità|Dove creare un'entità nel portale LUIS|
 |--|--|
-|Entità Machine-Learned|Entità o dettagli finalità|
+|Entità basata su Machine Learning|Entità o dettagli finalità|
 |Entità elenco|Entità o dettagli finalità|
 |Entità di espressione regolare|Entità|
 |Entità pattern.any|Entità|

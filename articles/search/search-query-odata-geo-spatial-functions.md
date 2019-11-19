@@ -1,7 +1,7 @@
 ---
 title: Riferimenti alle funzioni geospaziali OData
 titleSuffix: Azure Cognitive Search
-description: Funzioni geospaziali OData, Geo. distance e geo. Intersects, in Azure ricerca cognitiva query.
+description: Sintassi e documentazione di riferimento per l'uso di funzioni geospaziali OData, Geo. distance e geo. Intersects, in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09034423e16c652cf6994b38f8d92574abc0ce55
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793329"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113168"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funzioni geospaziali OData in Azure ricerca cognitiva-`geo.distance` e `geo.intersects`
 

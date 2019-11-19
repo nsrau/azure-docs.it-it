@@ -1,36 +1,33 @@
 ---
-title: Cronologia di distribuzione con Azure Resource Manager | Microsoft Docs
+title: Cronologia di distribuzione
 description: Questo articolo descrive come visualizzare le operazioni di distribuzione di Azure Resource Manager tramite il portale, PowerShell, l'interfaccia della riga di comando di Azure e l'API REST.
 tags: top-support-issue
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8daf7191bb22f7c7057f6ef6b220a18868872cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605911"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149580"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>Visualizza cronologia di distribuzione con Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Visualizzare la cronologia delle distribuzioni con Azure Resource Manager
 
-Azure Resource Manager consente di visualizzare la cronologia di distribuzione ed esaminare le operazioni specifiche nelle distribuzioni precedenti. È possibile vedere le risorse che sono state distribuite e ottenere informazioni su eventuali errori.
+Azure Resource Manager consente di visualizzare la cronologia di distribuzione ed esaminare operazioni specifiche nelle distribuzioni precedenti. È possibile visualizzare le risorse che sono state distribuite e ottenere informazioni su eventuali errori.
 
-Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="portal"></a>Portale
+## <a name="portal"></a>di Microsoft Azure
 
-Per ottenere informazioni dettagliate su una distribuzione dalla cronologia della distribuzione.
+Per ottenere informazioni dettagliate su una distribuzione dalla cronologia di distribuzione.
 
 1. Selezionare il gruppo di risorse che si desidera esaminare.
 
-1. Selezionare il collegamento sotto **distribuzioni**.
+1. Selezionare il collegamento in **distribuzioni**.
 
-   ![Selezionare la cronologia di distribuzione](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Seleziona cronologia di distribuzione](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. Selezionare una delle distribuzioni dalla cronologia della distribuzione.
+1. Selezionare una delle distribuzioni dalla cronologia di distribuzione.
 
    ![Selezionare la distribuzione](./media/resource-manager-deployment-operations/select-details.png)
 
@@ -38,29 +35,29 @@ Per ottenere informazioni dettagliate su una distribuzione dalla cronologia dell
 
     ![Riepilogo della distribuzione](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. Per visualizzare il modello usato per la distribuzione, selezionare **modello**. È possibile scaricare il modello per poterlo riutilizzare.
+1. Per visualizzare il modello utilizzato per la distribuzione, selezionare **modello**. È possibile scaricare il modello per riutilizzarlo.
 
     ![Mostrare il modello](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. Se la distribuzione ha esito negativo, viene visualizzato un messaggio di errore. Selezionare il messaggio di errore per altri dettagli.
+1. Se la distribuzione non è riuscita, viene visualizzato un messaggio di errore. Per ulteriori informazioni, selezionare il messaggio di errore.
 
-    ![visualizzare la distribuzione non riuscita](./media/resource-manager-deployment-operations/show-error.png)
+    ![Visualizzazione della distribuzione non riuscita](./media/resource-manager-deployment-operations/show-error.png)
 
 1. Viene visualizzato il messaggio di errore dettagliato.
 
-    ![Visualizza dettagli dell'errore](./media/resource-manager-deployment-operations/show-details.png)
+    ![Visualizza dettagli errore](./media/resource-manager-deployment-operations/show-details.png)
 
-1. L'ID di correlazione viene utilizzato per rilevare gli eventi correlati e può essere utile quando si lavora con il supporto tecnico per risolvere i problemi di una distribuzione.
+1. L'ID di correlazione viene utilizzato per tenere traccia degli eventi correlati e può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione.
 
     ![Ottenere l'ID di correlazione](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. Per altre informazioni sul passaggio che non è riuscito, selezionare **dettagli dell'operazione**.
+1. Per ulteriori informazioni sul passaggio che ha avuto esito negativo, selezionare **Dettagli operazione**.
 
     ![Selezionare le operazioni di distribuzione](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
 1. Vengono visualizzati i dettagli per il passaggio della distribuzione.
 
-    ![Visualizzare i dettagli dell'operazione](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![Mostra dettagli operazione](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -78,7 +75,7 @@ In alternativa, è possibile filtrare i risultati per visualizzare solo le distr
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-L'ID di correlazione viene utilizzato per rilevare gli eventi correlati e può essere utile quando si lavora con il supporto tecnico per risolvere i problemi di una distribuzione. Per ottenere l'ID di correlazione, usare:
+L'ID di correlazione viene utilizzato per tenere traccia degli eventi correlati e può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione. Per ottenere l'ID di correlazione, usare:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -124,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, Si userà l'ID di traccia nel passaggio successivo per concentrarsi su una determinata operazione.
+Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, Il trackingId verrà usato nel passaggio successivo per concentrarsi su una determinata operazione.
 
 Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
@@ -140,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Durante la distribuzione, è possibile usare **DeploymentDebugLogLevel** parametro per specificare che la richiesta e/o risposta viene registrata.
+Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Durante la distribuzione, è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono registrate.
 
 Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
 
@@ -152,13 +149,13 @@ Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi Pow
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per ottenere lo stato complessivo di una distribuzione, usare il **show distribuzione gruppo di azure** comando.
+Per ottenere lo stato complessivo di una distribuzione, usare il comando **Azure Group Deployment Show** .
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-L'ID di correlazione viene utilizzato per rilevare gli eventi correlati e può essere utile quando si lavora con il supporto tecnico per risolvere i problemi di una distribuzione.
+L'ID di correlazione viene utilizzato per tenere traccia degli eventi correlati e può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -172,7 +169,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-Per ottenere informazioni su una distribuzione, usare il [ottenere informazioni su una distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments) operazione.
+Per ottenere informazioni su una distribuzione, usare l'operazione [ottenere informazioni su una distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments) .
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -195,7 +192,7 @@ Nella risposta si notino in particolare gli elementi **provisioningState**, **co
 }
 ```
 
-Per ottenere informazioni sulle distribuzioni, usare [Elenca tutte le operazioni di distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments). 
+Per ottenere informazioni sulle distribuzioni, usare [elenca tutte le operazioni di distribuzione del modello](https://docs.microsoft.com/rest/api/resources/deployments). 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -229,7 +226,7 @@ La risposta include la richiesta e/o le informazioni sulla risposta in base a qu
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per altre informazioni sull'uso dei log attività per monitorare altri tipi di azioni, vedere [Visualizzare i log attività per gestire le risorse di Azure](resource-group-audit.md).
 * Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
 

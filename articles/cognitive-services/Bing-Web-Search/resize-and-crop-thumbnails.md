@@ -1,7 +1,7 @@
 ---
 title: Ridimensionare e ritagliare le anteprime delle immagini - API Ricerca Web Bing
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come ridimensionare e ritagliare le anteprime fornite dal API di ricerca Bing.
+description: Alcune risposte dalla API di ricerca Bing includono gli URL per le immagini di anteprima gestite da Bing, che è possibile ridimensionare e ritagliare e possono contenere parametri di query.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881808"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110630"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Ridimensionare e ritagliare le immagini di anteprima
 
@@ -31,13 +31,13 @@ Se si visualizza un subset di queste anteprime, specificare un'opzione per visua
 
 ## <a name="resize-a-thumbnail"></a>Ridimensionare un'anteprima 
 
-Per ridimensionare un'anteprima, Bing consiglia di specificare solo un `w` parametro di query (width) o `h` (Height) nell'URL dell'anteprima. Se si specifica solo l'altezza o la larghezza, Bing mantiene l'aspetto originale dell'immagine. Specificare la larghezza e l'altezza in pixel. 
+Per ridimensionare un'anteprima, Bing consiglia di specificare solo uno dei parametri di query `w` (width) o `h` (Height) nell'URL dell'anteprima. Se si specifica solo l'altezza o la larghezza, Bing mantiene l'aspetto originale dell'immagine. Specificare la larghezza e l'altezza in pixel. 
 
 Ad esempio, se l'anteprima originale è 480x620:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
 
-E si desidera ridurne le dimensioni, impostare il `w` parametro su un nuovo valore (ad esempio `336`) e rimuovere il `h` parametro:
+E si desidera ridurne le dimensioni, impostare il parametro `w` su un nuovo valore, ad esempio `336`, e rimuovere il parametro `h`:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
@@ -57,30 +57,30 @@ Se si specificano dimensioni maggiori della larghezza e dell'altezza originali d
 
 ## <a name="request-different-thumbnail-sizes"></a>Richiedi dimensioni di anteprima diverse
 
-Per richiedere una dimensione diversa dell'immagine di anteprima, rimuovere tutti i parametri di query dall'URL dell'anteprima `id` , `pid` eccetto i parametri e. Quindi, aggiungere il `&w` parametro di query ( `&h` Width) o (Height) con la dimensione dell'immagine desiderata in pixel, ma non entrambi. Bing manterrà le proporzioni originali dell'immagine. 
+Per richiedere dimensioni diverse dell'immagine di anteprima, rimuovere tutti i parametri di query dall'URL dell'anteprima, ad eccezione dei parametri `id` e `pid`. Quindi, aggiungere il parametro di query `&w` (width) o `&h` (Height) con la dimensione dell'immagine desiderata in pixel, ma non entrambi. Bing manterrà le proporzioni originali dell'immagine. 
 
 Per aumentare la larghezza dell'immagine specificata dall'URL precedente a 165 pixel, usare l'URL seguente:
 
 `https://<host>/th?id=AMMS_92772df988...&w=165&pid=16.1`
 
-Se si richiede un'immagine di dimensioni superiori a quelle originali dell'immagine, Bing aggiunge la spaziatura bianca intorno all'immagine in base alle esigenze. Se, ad esempio, le dimensioni originali dell'immagine sono 474x316 e si `&w` imposta su 500, Bing restituirà un'immagine 500x333. Questa immagine avrà 8,5 pixel di riempimento bianco lungo i bordi superiore e inferiore e 13 pixel di riempimento sui bordi sinistro e destro.
+Se si richiede un'immagine di dimensioni superiori a quelle originali dell'immagine, Bing aggiunge la spaziatura bianca intorno all'immagine in base alle esigenze. Se, ad esempio, le dimensioni originali dell'immagine sono 474x316 e si imposta `&w` su 500, Bing restituirà un'immagine 500x333. Questa immagine avrà 8,5 pixel di riempimento bianco lungo i bordi superiore e inferiore e 13 pixel di riempimento sui bordi sinistro e destro.
 
-Per impedire a Bing di aggiungere spaziatura interna bianca se le dimensioni richieste sono maggiori delle dimensioni originali dell'immagine, `&p` impostare il parametro di query su 0. Ad esempio, se si include il `&p=0` parametro nell'URL precedente, Bing restituirà un'immagine 474x316 anziché un'immagine 500x333:
+Per impedire a Bing di aggiungere spaziatura interna bianca se le dimensioni richieste sono maggiori delle dimensioni originali dell'immagine, impostare il parametro di query `&p` su 0. Ad esempio, se si include il parametro `&p=0` nell'URL precedente, Bing restituirà un'immagine 474x316 anziché un'immagine 500x333:
 
 `https://<host>/th?id=AMMS_92772df988...&w=500&p=0&pid=16.1`
 
-Se si specificano `&w` entrambi `&h` i parametri di query e, Bing manterrà le proporzioni dell'immagine e aggiungerà la spaziatura interna in base alle esigenze. Se, ad esempio, le dimensioni originali dell'immagine sono 474x316 e si impostano i parametri width e Height`&w=200&h=200`su 200x200 (), Bing restituisce un'immagine che contiene 33 pixel di riempimento bianco nella parte superiore e inferiore. Se si include il `&p` parametro di query, Bing restituisce un'immagine 200x134.
+Se si specificano sia `&w` che `&h` parametri di query, Bing manterrà le proporzioni dell'immagine e aggiungerà la spaziatura interna in base alle esigenze. Se, ad esempio, le dimensioni originali dell'immagine sono 474x316 e si impostano i parametri width e Height su 200x200 (`&w=200&h=200`), Bing restituisce un'immagine che contiene 33 pixel di riempimento bianco nella parte superiore e inferiore. Se si include il parametro di query `&p`, Bing restituisce un'immagine 200x134.
 
 ## <a name="crop-a-thumbnail"></a>Ritagliare un'anteprima 
 
-Per ritagliare un'immagine, includere `c` il parametro di query (crop). È possibile utilizzare i valori seguenti:
+Per ritagliare un'immagine, includere il parametro di query `c` (crop). È possibile utilizzare i valori seguenti:
   
-- `4`&mdash; Percentuale di cecità  
-- `7`&mdash; Rapporto intelligente  
+- Percentuale `4` &mdash; cieca  
+- `7` &mdash; rapporto intelligente  
 
 ### <a name="smart-ratio-cropping"></a>Ritaglio con proporzioni intelligenti
 
-Se si richiede il ritaglio con proporzioni intelligenti `c` , impostando il parametro su `7`, Bing ridurrà un'immagine dal centro dell'area di interesse verso l'esterno, mantenendo al tempo stesso le proporzioni dell'immagine. L'area di interesse è la parte dell'immagine che secondo Bing contiene gli elementi più importanti. Il seguente è un esempio di area di interesse.  
+Se si richiede il ritaglio con proporzioni intelligenti (impostando il parametro `c` su `7`), Bing ridurrà un'immagine dal centro dell'area di interesse verso l'esterno, mantenendo al tempo stesso le proporzioni dell'immagine. L'area di interesse è la parte dell'immagine che secondo Bing contiene gli elementi più importanti. Il seguente è un esempio di area di interesse.  
   
 ![Area di interesse](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
@@ -103,7 +103,7 @@ Se Bing non è in grado di determinare l'area di interesse dell'immagine, il ser
 
 ### <a name="blind-ratio-cropping"></a>Ritaglio con proporzioni cieche
 
-Se si richiede il ritaglio con proporzioni cieche ( `4`impostando il `c` parametro su), Bing usa le regole seguenti per ritagliare l'immagine.  
+Se si richiede il ritaglio con proporzioni cieche (impostando il parametro `c` su `4`), Bing usa le regole seguenti per ritagliare l'immagine.  
   
 - Se `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, l'immagine viene misurata dall'angolo superiore sinistro e ritagliata in basso.  
 - Se `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`, l'immagine viene misurata dal centro e ritagliata a sinistra e a destra.  

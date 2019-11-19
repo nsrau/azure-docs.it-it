@@ -1,5 +1,5 @@
 ---
-title: Indicizzare il contenuto dall'archiviazione tabelle di Azure per la ricerca full-text
+title: Eseguire ricerche nel contenuto di archiviazione tabelle di Azure
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come indicizzare i dati archiviati nell'archiviazione tabelle di Azure con un indicizzatore di Azure ricerca cognitiva.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793743"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112991"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Come indicizzare le tabelle dall'archiviazione tabelle di Azure con Azure ricerca cognitiva
 
@@ -24,7 +24,7 @@ Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare i
 
 È possibile configurare un indicizzatore dell'Archiviazione tabelle di Azure mediante queste risorse:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portale di Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
 * Azure ricerca cognitiva [.NET SDK](https://aka.ms/search-sdk)
 

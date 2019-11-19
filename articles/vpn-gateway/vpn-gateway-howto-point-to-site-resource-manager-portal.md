@@ -1,5 +1,6 @@
 ---
-title: "Connettersi a una rete virtuale di Azure da un computer usando la VPN da punto a sito e l'autenticazione del certificato di Azure nativo: portale di Azure | Microsoft Docs"
+title: "Connettersi a una VNet usando l'autenticazione del certificato & VPN P2S: portale"
+titleSuffix: Azure VPN Gateway
 description: Connettere i client Windows, Mac OS X e Linux in modo sicuro a una rete virtuale di Azure tramite connessione da punto a sito e certificati autofirmati o rilasciati da un'autorità di certificazione. Questo articolo usa il portale di Azure.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7d6941c347f1121654084c8d71ba7c0a293bf558
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c1435a2295804a0ad43f640d7317a6e1d3f56aea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72333242"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150106"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
@@ -20,7 +21,7 @@ Questo articolo illustra come connettere in modo sicuro singoli client che esegu
 
 ![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Le connessioni con autenticazione tramite certificato da punto a sito di Azure usano gli elementi seguenti, che vengono configurati in questo esercizio:
 
@@ -121,7 +122,7 @@ Selezionare **Certificato di Azure**.
    ![Caricamento del certificato](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. Fare clic su **Salva** nella parte superiore della pagina per salvare tutte le impostazioni di configurazione.
 
-   ![Salva](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![Save](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>8. installare un certificato client esportato
 
@@ -144,7 +145,7 @@ I file di configurazione del client VPN contengono le impostazioni per configura
 >
 >
 
-1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connetti**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. Fare clic su **Continua** per usare privilegi elevati.
+1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connect**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. Fare clic su **Continua** per usare privilegi elevati.
 
 2. Nella pagina **Stato connessione** fare clic su **Connetti** per avviare la connessione. Se viene visualizzato un **Seleziona certificato** dello schermo, verificare che il certificato client visualizzato sia quello che si desidera utilizzare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
 

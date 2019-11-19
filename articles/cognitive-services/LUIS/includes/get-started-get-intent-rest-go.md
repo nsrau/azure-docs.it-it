@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: 04e7f582920c4b328de39bda3d37e886e26f8bae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d2955a77c06f371975a7a14675eedceab7c98ae
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499691"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125522"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -166,4 +166,4 @@ Al termine di questo argomento di avvio rapido, eliminare il file dal file syste
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere espressioni ed eseguire il training](../luis-get-started-go-add-utterance.md)
+> [Aggiungere espressioni ed eseguire il training](../get-started-get-model-rest-apis.md)

@@ -806,10 +806,10 @@
                   href: insights/container-insights-hybrid-setup.md
                 - name: Mapping delle aree
                   href: insights/container-insights-region-mapping.md
-            - name: Analizzare
+            - name: Monitorare le prestazioni
               href: insights/container-insights-analyze.md
-            - name: Disabilitare il monitoraggio
-              href: insights/container-insights-optout.md
+            - name: Monitorare l'integrità
+              href: insights/container-insights-health.md
             - name: Visualizzare i dati dinamici
               items:
                 - name: Panoramica dei dati dinamici (anteprima)
@@ -832,6 +832,10 @@
               href: insights/container-insights-agent-config.md
             - name: Aggiornare per abilitare le metriche
               href: insights/container-insights-update-metrics.md
+            - name: Configurazione del monitoraggio dell'integrità
+              href: insights/container-insights-health-monitors-config.md
+            - name: Disabilitare il monitoraggio
+              href: insights/container-insights-optout.md
             - name: risoluzione dei problemi
               href: insights/container-insights-troubleshoot.md
         - name: Monitoraggio dei contenitori Docker e Windows
@@ -1167,7 +1171,7 @@
               href: platform/autoscale-overview.md
             - name: Procedura dettagliata
               href: platform/autoscale-get-started.md
-            - name: Impostazioni
+            - name: Impostazioni di configurazione
               href: platform/autoscale-understanding-settings.md
             - name: Procedure consigliate
               href: platform/autoscale-best-practices.md
@@ -1183,6 +1187,10 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Usare webhook e notifiche di posta elettronica
               href: platform/autoscale-webhook-email.md
+            - name: risoluzione dei problemi
+              href: platform/autoscale-troubleshoot.md
+            - name: Schemi di Log risorse
+              href: platform/autoscale-resource-log-schema.md
         - name: PowerShell
           items:
             - name: Gestione con PowerShell

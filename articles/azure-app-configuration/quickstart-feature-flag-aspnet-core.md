@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 1a3d917775f6ba5b0b7f62d19de2b970a8b36838
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 778f1568038ef6e4f073ef0a5eb75d193f661a9c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571209"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129732"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Guida introduttiva: Aggiungere i flag di funzionalità a un'app ASP.NET Core
 
@@ -129,7 +129,7 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseFeatureFlags();
+                        .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
@@ -144,8 +144,10 @@ Aggiungere lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/
         webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
-                .UseFeatureFlags();
+            config.AddAzureAppConfiguration(options => {
+                options.Connect(settings["ConnectionStrings:AppConfig"])
+                    .UseFeatureFlags();
+            });
         })
         .UseStartup<Startup>());
     ```

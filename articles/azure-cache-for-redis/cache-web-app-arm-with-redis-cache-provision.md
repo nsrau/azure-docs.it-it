@@ -2,23 +2,17 @@
 title: Effettuare il provisioning di un'app Web con Cache Redis di Azure
 description: Usare il modello di Azure Resource Manager per distribuire l'app Web con Cache Redis di Azure.
 services: app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: b28ed58159545bca10ec89375b82b9c97ae38630
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8e15d51062993bc6e9913d49d3fe67c1a8b9cd03
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098229"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122628"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Creare un'app Web e Cache Redis di Azure usando un modello
 
@@ -31,7 +25,7 @@ Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli
 Per il modello completo, vedere [Web App with Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json) (Modello di app Web con Cache Redis di Azure).
 
 ## <a name="what-you-will-deploy"></a>Elementi distribuiti
-In questo modello, verrà distribuito quanto segue:
+In questo modello verrà distribuito quanto segue:
 
 * App Web di Azure
 * Cache Redis di Azure

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare un comando personalizzato con parametri (anteprima)'
+title: 'Guida introduttiva: creare un comando personalizzato con parametri (anteprima)-servizio riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo verranno aggiunti i parametri a un'applicazione comandi personalizzata.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 010a9331bb4533bc84957261f312993c4cc7ffe8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: caa1959ec64bb3a123c60763750267b107685b82
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507517"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111245"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Guida introduttiva: creare un comando personalizzato con parametri (anteprima)
 
@@ -34,25 +34,25 @@ In questo articolo si estenderà l'applicazione con i parametri in modo che sia 
    > [!div class="mx-imgBorder"]
    > ![Crea parametro](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Impostazione            | Valore consigliato | Descrizione                                                                                               |
+   | Impostazione            | Valore consigliato | DESCRIZIONE                                                                                               |
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | Name               | OnOff           | Nome descrittivo per il parametro                                                                     |
+   | Nome               | OnOff           | Nome descrittivo per il parametro                                                                     |
    | È globale          | Deselezionata       | Casella di controllo che indica se un valore per questo parametro è applicato globalmente a tutti i comandi nel progetto |
-   | Obbligatorio           | selezionata         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
+   | obbligatori           | selezionata         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
    | Modello di risposta  | Attivare o disattivare?      | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                                       |
-   | Tipo               | String          | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
+   | digitare               | String          | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
    | Configurazione      | Elenco stringhe     | Per le stringhe, un elenco di stringhe limita gli input a un set di valori possibili.                                      |
    | Valori elenco stringhe | on, off         | Per un parametro elenco stringhe, il set di valori possibili e i relativi sinonimi                                |
 
    - Quindi, selezionare di nuovo l'icona `+` per aggiungere un secondo parametro per rappresentare il nome dei dispositivi. Per questo esempio, TV e ventola
 
-   | Impostazione            | Valore consigliato   | Descrizione                                                                                               |
+   | Impostazione            | Valore consigliato   | DESCRIZIONE                                                                                               |
    | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | Name               | SubjectDevice     | Nome descrittivo per il parametro                                                                     |
+   | Nome               | SubjectDevice     | Nome descrittivo per il parametro                                                                     |
    | È globale          | Deselezionata         | Casella di controllo che indica se un valore per questo parametro è applicato globalmente a tutti i comandi nel progetto |
-   | Obbligatorio           | selezionata           | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
+   | obbligatori           | selezionata           | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando          |
    | Modello di risposta  | Quale dispositivo?     | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto                                       |
-   | Tipo               | String            | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
+   | digitare               | String            | Tipo di parametro, ad esempio numero, stringa o data e ora                                               |
    | Configurazione      | Elenco stringhe       | Per le stringhe, un elenco di stringhe limita gli input a un set di valori possibili.                                      |
    | Valori elenco stringhe | TV, ventola           | Per un parametro elenco stringhe, il set di valori possibili e i relativi sinonimi                                |
    | Sinonimi (TV)      | televisione, Telly | Sinonimi facoltativi per ogni possibile valore di un parametro di elenco di stringhe                                      |

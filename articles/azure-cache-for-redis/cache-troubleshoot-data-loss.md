@@ -1,25 +1,17 @@
 ---
-title: Risolvere i problemi di perdita di dati in cache di Azure per Redis | Microsoft Docs
+title: Risolvere i problemi di perdita di dati in cache di Azure per Redis
 description: Informazioni su come risolvere i problemi di perdita dei dati con cache di Azure per Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 8165ce3195c12af52cfee2fff598d9417697f4cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806553"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121503"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Risolvere i problemi di perdita di dati in cache di Azure per Redis
 
@@ -35,7 +27,7 @@ Cache di Azure per Redis non elimina in modo casuale le chiavi dopo che sono sta
 
 Se si ritiene che le chiavi siano scomparse dalla cache, verificare le possibili cause seguenti:
 
-| Causa | Descrizione |
+| Causa | DESCRIZIONE |
 |---|---|
 | [Scadenza chiave](#key-expiration) | Le chiavi vengono rimosse a causa dei timeout impostati su di essi. |
 | [Rimozione della chiave](#key-eviction) | Le chiavi vengono rimosse in condizioni di memoria insufficiente. |
@@ -94,7 +86,7 @@ Qualsiasi istanza di cache di Azure per Redis nel livello standard o Premium è 
 
 Se la maggior parte o tutte le chiavi sono scomparse dalla cache, verificare le possibili cause seguenti:
 
-| Causa | Descrizione |
+| Causa | DESCRIZIONE |
 |---|---|
 | [Scaricamento della chiave](#key-flushing) | Le chiavi sono state eliminate manualmente. |
 | [Selezione database non corretta](#incorrect-database-selection) | Cache di Azure per Redis è impostato per l'uso di un database non predefinito. |
@@ -127,6 +119,6 @@ Si consiglia di usare la [persistenza dei dati Redis](http://redis.io/topics/per
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
 - [Risolvere i problemi del lato server di cache di Azure per il server Redis](cache-troubleshoot-server.md)
-- [Quali offerte e dimensioni di Cache Redis di Azure è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Quali offerte e dimensioni della Cache Redis è consigliabile usare?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [Come monitorare Cache Redis di Azure](cache-how-to-monitor.md)
 - [Come si eseguono i comandi Redis?](cache-faq.md#how-can-i-run-redis-commands)

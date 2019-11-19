@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: cd5b45093be6d7cc8745013f18c897251f89f454
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822200"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132115"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 
@@ -25,31 +25,31 @@ In questa esercitazione si apprenderà come effettuare il provisioning dei model
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> 
+>
 > * Effettuare il provisioning di un nuovo tenant singolo.
 > * Effettuare il provisioning di un batch di tenant aggiuntivi.
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* È stata distribuita l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
+* È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell è installato. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introduzione al modello di catalogazione SaaS
 
 In un'applicazione SaaS multi-tenant supportata da database è importante sapere dove sono archiviate le informazioni per ogni tenant. Nel modello di catalogo SaaS il mapping tra ogni tenant e il database in cui sono archiviati i relativi dati viene inserito all'interno di un database di catalogo. Questo modello viene applicato ogni volta che i dati del tenant vengono distribuiti tra più database.
 
-Ogni tenant è identificato da una chiave nel catalogo, che è mappata al percorso del database. Nell'app Wingtip Tickets la chiave viene creata a partire da un hash del nome del tenant. Questo schema consente all'app di comporre la chiave usando il nome del tenant incluso nell'URL dell'applicazione. È possibile usare altri schemi di chiave del tenant.  
+Ogni tenant è identificato da una chiave nel catalogo, che è mappata al percorso del database. Nell'app Wingtip Tickets la chiave viene creata a partire da un hash del nome del tenant. Questo schema consente all'app di comporre la chiave usando il nome del tenant incluso nell'URL dell'applicazione. È possibile usare altri schemi di chiave del tenant.
 
 Il catalogo consente di modificare il nome o la posizione del database con un impatto minimo sull'applicazione. In un modello di database multi-tenant questa funzionalità consente anche di spostare un tenant da un database all'altro. Il catalogo può anche essere usato per indicare se un tenant o un database è offline per manutenzione o altre azioni. Questa funzionalità viene esaminata nell'[esercitazione relativa al ripristino di un tenant singolo](saas-dbpertenant-restore-single-tenant.md).
 
-Il catalogo può inoltre archiviare altri metadati di tenant o database, ad esempio la versione dello schema, il piano di servizio o i contratti di servizio offerti ai tenant, nonché informazioni per la gestione delle applicazioni, il supporto tecnico o DevOps. 
+Il catalogo può inoltre archiviare altri metadati di tenant o database, ad esempio la versione dello schema, il piano di servizio o i contratti di servizio offerti ai tenant, nonché informazioni per la gestione delle applicazioni, il supporto tecnico o DevOps.
 
-Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. Nell'esempio SaaS di database per tenant Wingtip Tickets il catalogo viene usato per abilitare le query tra tenant, che vengono esaminate nell'esercitazione relativa al [Reporting ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestione dei processi tra database viene esaminata nelle esercitazioni relative alla [gestione dello schema](saas-tenancy-schema-management.md) e all'[analisi del tenant](saas-tenancy-tenant-analytics.md). 
+Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. Nell'esempio SaaS di database per tenant Wingtip Tickets il catalogo viene usato per abilitare le query tra tenant, che vengono esaminate nell'esercitazione relativa al [Reporting ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestione dei processi tra database viene esaminata nelle esercitazioni relative alla [gestione dello schema](saas-tenancy-schema-management.md) e all'[analisi del tenant](saas-tenancy-tenant-analytics.md).
 
-Negli esempi SaaS Wingtip Tickets il catalogo viene implementato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](sql-database-elastic-database-client-library.md). La libreria EDCL è disponibile in Java e in .NET Framework. La libreria EDCL consente a un'applicazione di creare, gestire e usare una mappa partizioni supportata da database. 
+Negli esempi SaaS Wingtip Tickets il catalogo viene implementato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](sql-database-elastic-database-client-library.md). La libreria EDCL è disponibile in Java e in .NET Framework. La libreria EDCL consente a un'applicazione di creare, gestire e usare una mappa partizioni supportata da database.
 
-Una mappa partizioni contiene un elenco di partizioni (database) e il mapping tra le chiavi (tenant) e le partizioni. Le funzioni della libreria EDCL vengono usate durante il provisioning dei tenant per creare le voci nella mappa partizioni. Vengono inoltre usate in fase di esecuzione dalle applicazioni per connettersi al database corretto. La libreria client dei database elastici memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e per velocizzare l'applicazione. 
+Una mappa partizioni contiene un elenco di partizioni (database) e il mapping tra le chiavi (tenant) e le partizioni. Le funzioni della libreria EDCL vengono usate durante il provisioning dei tenant per creare le voci nella mappa partizioni. Vengono inoltre usate in fase di esecuzione dalle applicazioni per connettersi al database corretto. La libreria client dei database elastici memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e per velocizzare l'applicazione.
 
 > [!IMPORTANT]
 > I dati di mapping sono accessibili nel database del catalogo, ma *non devono essere modificati*. Per modificare i dati di mapping è possibile usare solo le API della libreria EDCL. Modificando direttamente i dati di mapping si corre il rischio di danneggiare il catalogo e pertanto questa modifica non è supportata.
@@ -57,20 +57,20 @@ Una mappa partizioni contiene un elenco di partizioni (database) e il mapping tr
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introduzione al modello di provisioning SaaS
 
-Quando si aggiunge un nuovo tenant in un'applicazione SaaS che usa un modello di database a tenant singolo, è necessario effettuare il provisioning di un nuovo database tenant. Questo deve essere creato nella posizione e nel livello di servizio appropriati. Deve inoltre essere inizializzato con lo schema e i dati di riferimento corretti e quindi registrato nel catalogo sotto la chiave di tenant appropriata. 
+Quando si aggiunge un nuovo tenant in un'applicazione SaaS che usa un modello di database a tenant singolo, è necessario effettuare il provisioning di un nuovo database tenant. Questo deve essere creato nella posizione e nel livello di servizio appropriati. Deve inoltre essere inizializzato con lo schema e i dati di riferimento corretti e quindi registrato nel catalogo sotto la chiave di tenant appropriata.
 
-Per il provisioning del database è possibile adottare approcci diversi, ad esempio eseguire script SQL, distribuire un file BACPAC o copiare un database modello. 
+Per il provisioning del database è possibile adottare approcci diversi, ad esempio eseguire script SQL, distribuire un file BACPAC o copiare un database modello.
 
-Il provisioning del database deve essere compreso nella strategia di gestione dello schema. È necessario assicurarsi che il provisioning di nuovi database venga effettuato con lo schema più recente. Questo requisito viene esaminato nell'[esercitazione relativa alla gestione dello schema](saas-tenancy-schema-management.md). 
+Il provisioning del database deve essere compreso nella strategia di gestione dello schema. È necessario assicurarsi che il provisioning di nuovi database venga effettuato con lo schema più recente. Questo requisito viene esaminato nell'[esercitazione relativa alla gestione dello schema](saas-tenancy-schema-management.md).
 
-L'app di database per tenant Wingtip Tickets effettua il provisioning di nuovi tenant copiando un database modello denominato _basetenantdb_, distribuito nel server di catalogo. Il provisioning può essere integrato nell'applicazione nell'ambito dell'esperienza di iscrizione. Può inoltre essere supportato offline tramite script. Questa esercitazione illustra il provisioning tramite PowerShell. 
+L'app di database per tenant Wingtip Tickets effettua il provisioning di nuovi tenant copiando un database modello denominato _basetenantdb_, distribuito nel server di catalogo. Il provisioning può essere integrato nell'applicazione nell'ambito dell'esperienza di iscrizione. Può inoltre essere supportato offline tramite script. Questa esercitazione illustra il provisioning tramite PowerShell.
 
-Gli script di provisioning copiano il database _basetenantdb_ per creare un nuovo database tenant in un pool elastico Il database tenant viene creato nel server tenant mappato all'alias DNS _newtenant_. Questo alias mantiene un riferimento al server usato per il provisioning di nuovi tenant e viene aggiornato per puntare a un server tenant di ripristino nelle esercitazioni sul ripristino di emergenza ([ripristino di emergenza tramite ripristino geografico](saas-dbpertenant-dr-geo-restore.md), [ripristino di emergenza tramite replica geografica](saas-dbpertenant-dr-geo-replication.md)). e quindi inizializzano il database con informazioni specifiche del tenant e lo registrano nella mappa partizioni del catalogo. I nomi dei database tenant vengono assegnati in base al nome del tenant. Questo schema di denominazione non è una parte essenziale del modello. Poiché il catalogo associa la chiave del tenant al nome del database, è possibile usare qualsiasi convenzione di denominazione. 
+Gli script di provisioning copiano il database _basetenantdb_ per creare un nuovo database tenant in un pool elastico Il database tenant viene creato nel server tenant mappato all'alias DNS _newtenant_. Questo alias mantiene un riferimento al server usato per il provisioning di nuovi tenant e viene aggiornato per puntare a un server tenant di ripristino nelle esercitazioni sul ripristino di emergenza ([ripristino di emergenza tramite ripristino geografico](saas-dbpertenant-dr-geo-restore.md), [ripristino di emergenza tramite replica geografica](saas-dbpertenant-dr-geo-replication.md)). e quindi inizializzano il database con informazioni specifiche del tenant e lo registrano nella mappa partizioni del catalogo. I nomi dei database tenant vengono assegnati in base al nome del tenant. Questo schema di denominazione non è una parte essenziale del modello. Poiché il catalogo associa la chiave del tenant al nome del database, è possibile usare qualsiasi convenzione di denominazione.
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Gli script e il codice sorgente dell'applicazione SaaS Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
+Gli script e il codice sorgente dell'applicazione SaaS Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere il [materiale sussidiario generale](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da scaricare e per sbloccare gli script SaaS Wingtip Tickets.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Procedura dettagliata per il provisioning e la catalogazione
@@ -95,7 +95,7 @@ Per comprendere come l'applicazione Wingtip Tickets implementa il provisioning d
 
 
 
-Tracciare l'esecuzione dello script usando le opzioni del menu **Debug**. Premere F10 e F11 per eseguire un'istruzione alla volta ed esaminare singolarmente le varie funzioni chiamate. Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Tracciare l'esecuzione dello script usando le opzioni del menu **Debug**. Premere F10 e F11 per eseguire un'istruzione alla volta ed esaminare singolarmente le varie funzioni chiamate. Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
 Non è necessario seguire esplicitamente questo flusso di lavoro in cui viene illustrato come eseguire il debug dello script.
@@ -156,7 +156,7 @@ Gli altri modelli di provisioning non inclusi in questa esercitazione comprendon
 
 **Pre-provisioning di database**: il modello di pre-provisioning sfrutta il fatto che i database in un pool elastico non hanno costi aggiuntivi. La fatturazione si basa sul pool elastico, non sui database. I database inattivi non utilizzano risorse. Effettuando il pre-provisioning dei database in un pool e allocandoli all'occorrenza, è possibile limitare il tempo necessario per aggiungere tenant. Il numero di database di cui viene effettuato il pre-provisioning può essere modificato in base alle esigenze, per ottenere un buffer adatto alla frequenza di provisioning prevista.
 
-**Provisioning automatico**: in questo modello viene usato un servizio dedicato per effettuare automaticamente il provisioning di server, pool e database, in base alle esigenze. Se lo si desidera, è possibile includere il pre-provisioning di database in pool elastici. In caso di ritiro ed eliminazione di database, i vuoti nei pool elastici possono essere riempiti dal servizio di provisioning. Un servizio di questo tipo può essere semplice o complesso, come nel caso della gestione del provisioning in più aree geografiche e della configurazione della replica geografica per il ripristino di emergenza. 
+**Provisioning automatico**: in questo modello viene usato un servizio dedicato per effettuare automaticamente il provisioning di server, pool e database, in base alle esigenze. Se lo si desidera, è possibile includere il pre-provisioning di database in pool elastici. In caso di ritiro ed eliminazione di database, i vuoti nei pool elastici possono essere riempiti dal servizio di provisioning. Un servizio di questo tipo può essere semplice o complesso, come nel caso della gestione del provisioning in più aree geografiche e della configurazione della replica geografica per il ripristino di emergenza.
 
 Con il modello di provisioning automatico, un'applicazione client o uno script invia una richiesta di provisioning a una coda per l'elaborazione da parte del servizio di provisioning. Viene quindi eseguito il polling del servizio per stabilire quando viene completata l'operazione. Se si usa il pre-provisioning, le richieste vengono gestite rapidamente. Il servizio effettua il provisioning di un database sostitutivo in background.
 
@@ -166,7 +166,7 @@ Con il modello di provisioning automatico, un'applicazione client o uno script i
 In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
-> 
+>
 > * Effettuare il provisioning di un nuovo tenant singolo.
 > * Effettuare il provisioning di un batch di tenant aggiuntivi.
 > * Eseguire in dettaglio i passaggi per effettuare il provisioning dei tenant e registrarli nel catalogo.
@@ -177,4 +177,4 @@ Provare l'[Esercitazione sul monitoraggio delle prestazioni](saas-dbpertenant-pe
 
 * Altre [esercitazioni basate sull'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Libreria client dei database elastici](sql-database-elastic-database-client-library.md)
-* [Debug degli script in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Debug degli script in Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

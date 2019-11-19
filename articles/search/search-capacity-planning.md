@@ -1,5 +1,5 @@
 ---
-title: Ridimensionare le partizioni e le repliche per aggiungere capacità per carichi di lavoro di query e indici
+title: Ridimensionare la capacità per i carichi di lavoro di query e indici
 titleSuffix: Azure Cognitive Search
 description: Modificare le risorse del computer di replica e di partizione in ricerca cognitiva di Azure, in cui ogni risorsa viene addebitata in unità di ricerca fatturabili.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792510"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112138"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Ridimensionare le partizioni e le repliche per aggiungere capacità per carichi di lavoro di query e indici in Azure ricerca cognitiva
 
@@ -29,9 +29,9 @@ Usando un numero minore di risultati SU in una fattura proporzionalmente inferio
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: repliche e partizioni
 Le repliche e le partizioni sono le risorse primarie che eseguono il backup di un servizio di ricerca.
 
-| Gruppi | Definizione |
+| Risorsa | Definizione |
 |----------|------------|
-|*Partitions* | Offre l'archiviazione degli indici e l'I/O per le operazioni di lettura e scrittura, ad esempio durante la compilazione o l'aggiornamento di un indice.|
+|*Partizioni* | Offre l'archiviazione degli indici e l'I/O per le operazioni di lettura e scrittura, ad esempio durante la compilazione o l'aggiornamento di un indice.|
 |*Repliche* | Istanze del servizio di ricerca, utilizzate principalmente per il bilanciamento di carico delle operazioni di query. Ogni replica ospita sempre una copia di un indice. Se si dispone di 12 repliche, si disporrà di 12 copie di ogni indice caricate nel servizio.|
 
 > [!NOTE]
@@ -86,7 +86,7 @@ Tutti i servizi di ricerca standard e ottimizzati per l'archiviazione possono pr
 
 |   | **1 partizione** | **2 partizioni** | **3 partizioni** | **4 partizioni** | **6 partizioni** | **12 partizioni** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1 replica.** |1 unità di ricerca |2 unità di ricerca |3 unità di ricerca |4 unità di ricerca |6 unità di ricerca |12 unità di ricerca |
+| **1 replica.** |1 SU |2 unità di ricerca |3 unità di ricerca |4 unità di ricerca |6 unità di ricerca |12 unità di ricerca |
 | **2 repliche** |2 unità di ricerca |4 unità di ricerca |6 unità di ricerca |8 unità di ricerca |12 unità di ricerca |24 unità di ricerca |
 | **3 repliche** |3 unità di ricerca |6 unità di ricerca |9 unità di ricerca |12 unità di ricerca |18 unità di ricerca |36 unità di ricerca |
 | **4 repliche** |4 unità di ricerca |8 unità di ricerca |12 unità di ricerca |16 unità di ricerca |24 unità di ricerca |N/D |
@@ -103,7 +103,7 @@ Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel s
 
 <a id="HA"></a>
 
-## <a name="high-availability"></a>Disponibilità elevata
+## <a name="high-availability"></a>disponibilità elevata
 Poiché è facile e relativamente veloce eseguire la scalabilità verticale, è consigliabile in genere iniziare con una partizione e una o due repliche e quindi eseguire la scalabilità verticale come vengono compilati i volumi di query. I carichi di lavoro di query vengono eseguiti principalmente nelle repliche. Se è necessaria maggiore velocità effettiva o una disponibilità elevata, probabilmente saranno necessarie repliche aggiuntive.
 
 Le indicazioni generali per la disponibilità elevata sono:

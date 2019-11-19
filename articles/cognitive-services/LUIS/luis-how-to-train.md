@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500226"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143684"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Eseguire il training della versione attiva dell'app LUIS 
 
@@ -26,22 +26,15 @@ Il training e il [test](luis-concept-test.md) di un'app costituiscono un process
 
 Il training viene applicato alla versione attiva nel portale LUIS. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 ## <a name="how-to-train-interactively"></a>Come eseguire il training in modo interattivo
 
 Per avviare il processo iterativo nel [portale LUIS](https://www.luis.ai), è prima necessario eseguire il training dell'app LUIS almeno una volta. Prima del training, assicurarsi che ogni finalità abbia almeno un'espressione.
 
-1. Accedere all'app selezionando il relativo nome nella pagina **App personali**. 
+1. Accedere all'app selezionando il relativo nome nella pagina **My Apps** (App personali). 
 
-2. Nell'app selezionare **Train** (Esegui training) nel riquadro superiore. 
+1. Nell'app selezionare **Train** (Esegui training) nel riquadro superiore. 
 
-3. Una volta completato il training, viene visualizzata una barra di notifica verde nella parte superiore del browser.
-
-<!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
-
->[!NOTE]
->Se nell'app ci sono una o più finalità che non includono espressioni di esempio, non è possibile eseguire il training. Aggiungere espressioni per tutte le finalità. Per altre informazioni, vedere [Add example utterances](luis-how-to-add-example-utterances.md) (Aggiungere espressioni di esempio).
+1. Al termine del training, viene visualizzata una notifica nella parte superiore del browser.
 
 ## <a name="training-date-and-time"></a>Data e ora di training
 
@@ -49,20 +42,7 @@ La data e l'ora di training sono GMT + 2.
 
 ## <a name="train-with-all-data"></a>Eseguire il training con tutti i dati
 
-Il training usa una piccola percentuale di campionamento negativo. 
-
-Se si desidera utilizzare tutti i dati anziché il piccolo campionamento negativo, utilizzare l' [API](#version-settings-api-use-of-usealltrainingdata).
-
-<!--
-
- or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
-
-### LUIS portal setting to use all training data
-
-!!!IGNITE
-
-
--->
+Il training usa una piccola percentuale di campionamento negativo. Se si desidera utilizzare tutti i dati anziché il piccolo campionamento negativo, utilizzare l' [API](#version-settings-api-use-of-usealltrainingdata).
 
 ### <a name="version-settings-api-use-of-usealltrainingdata"></a>Impostazioni della versione utilizzo dell'API di UseAllTrainingData
 
@@ -80,5 +60,5 @@ Per sapere quando il training è completo, è necessario eseguire il polling del
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
+* [Test interattivi](luis-interactive-test.md)
+* [Test batch](luis-how-to-batch-test.md)

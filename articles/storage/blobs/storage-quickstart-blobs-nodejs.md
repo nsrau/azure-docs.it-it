@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825311"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130703"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Guida introduttiva: Libreria client di Archiviazione BLOB di Azure v12 per JavaScript
 
@@ -155,7 +155,7 @@ Dopo aver aggiunto la variabile di ambiente, riavviare gli eventuali programmi i
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L'archiviazione BLOB offre tre tipi di risorse:
+Archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
 
 * L'account di archiviazione
 * Un contenitore nell'account di archiviazione
@@ -205,7 +205,7 @@ Decidere un nome per il nuovo contenitore. Il codice seguente aggiunge un valore
 > [!IMPORTANT]
 > I nomi dei contenitori devono essere in minuscolo. Per altre informazioni sulla denominazione di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Assegnazione di nome e riferimento a contenitori, BLOB e metadati).
 
-Creare un'istanza della classe [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) chiamando il metodo [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--newpipelineoptions-). Chiamare quindi il metodo [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) per ottenere un riferimento a un contenitore. Infine, chiamare [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) per creare effettivamente il contenitore nell'account di archiviazione.
+Creare un'istanza della classe [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) chiamando il metodo [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-). Chiamare quindi il metodo [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) per ottenere un riferimento a un contenitore. Infine, chiamare [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) per creare effettivamente il contenitore nell'account di archiviazione.
 
 Aggiungere questo codice alla fine della funzione `main`:
 
@@ -351,7 +351,7 @@ In questa guida di avvio rapido si è appreso come caricare, scaricare ed elenca
 Per visualizzare le app di esempio di Archiviazione BLOB, procedere con:
 
 > [!div class="nextstepaction"]
-> [Esempi dell'SDK di Archiviazione BLOB di Azure v12 per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Esempi dell'SDK di Archiviazione BLOB di Azure v12 per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 * Per altre informazioni, vedere [Azure SDK per JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
 * Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere la [documentazione di Azure SDK per JavaScript](/azure/javascript/).

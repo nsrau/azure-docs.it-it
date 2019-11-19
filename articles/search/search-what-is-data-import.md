@@ -1,5 +1,5 @@
 ---
-title: Importazione dati per l'inserimento di dati in un indice di ricerca
+title: Importazione e inserimento di dati negli indici di ricerca
 titleSuffix: Azure Cognitive Search
 description: Popolare e caricare i dati in un indice in ricerca cognitiva di Azure da origini dati esterne.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a05291012bcf44b1a07d9b451eef1302862b2fce
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cc3f38e9bb96ce76263a3124f8bfdc49dc638bfd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794149"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113788"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Panoramica dell'importazione dati-Azure ricerca cognitiva
 
@@ -48,7 +48,7 @@ Nell'API REST inviare richieste HTTP POST con i corpi delle richieste JSON all'U
 In .NET SDK, assemblare i dati in un oggetto `IndexBatch`. Un `IndexBatch` incapsula una raccolta di oggetti `IndexAction`, ognuno dei quali contiene un documento e una proprietà che indica ad Azure ricerca cognitiva l'azione da eseguire su tale documento. Per un esempio di codice, vedere la [ C# Guida introduttiva](search-get-started-dotnet.md).
 
 
-| @search.action | Description | Campi necessari per ogni documento | Note |
+| @search.action | DESCRIZIONE | Campi necessari per ogni documento | note |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. |chiave, oltre a tutti gli altri campi da definire |Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null. |
 | `merge` |Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. |chiave, oltre a tutti gli altri campi da definire |I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. In .NET SDK sono inclusi i campi di tipo `DataType.Collection(DataType.String)`. Nell'API REST sono inclusi i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`. |
@@ -93,7 +93,7 @@ Un modo rapido per eseguire un controllo preliminare sul caricamento del documen
 > [!TIP]
 > Numerosi [esempi di codice di ricerca cognitiva di Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) includono set di impostazioni disponibili o facilmente disponibili, che offrono un modo semplice per iniziare. Il portale offre anche un indicizzatore e un'origine dati di esempio, costituita da un piccolo set di dati immobiliari, denominato "realestate-us-sample". Quando si esegue l'indicizzatore preconfigurato nell'origine dati di esempio, viene creato un indice che viene caricato con i documenti su cui possono essere eseguite query in Esplora ricerche o tramite codice scritto dall'utente.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Procedura dettagliata per il portale: creare, caricare ed eseguire query su un indice](search-get-started-portal.md)

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824263"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111874"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Rilevare la tendenza dei dati (anteprima) nei modelli distribuiti in Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,13 +37,13 @@ Con Azure Machine Learning, è possibile monitorare gli input per un modello dis
 + Invia avvisi alla deviazione dei dati tramite posta elettronica.
 
 > [!Note]
-> Questo servizio è in (anteprima) e limitato nelle opzioni di configurazione. Per informazioni dettagliate e aggiornamenti, vedere la [documentazione dell'API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e le [Note sulla versione](azure-machine-learning-release-notes.md) . 
+> Questo servizio è in (anteprima) e limitato nelle opzioni di configurazione. Per informazioni dettagliate e aggiornamenti, vedere la [documentazione dell'API](https://docs.microsoft.com/python/api/azureml-datadrift/) e le [Note sulla versione](azure-machine-learning-release-notes.md) . 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Modalità di monitoraggio della deviazione dei dati in Azure Machine Learning
 
 Con Azure Machine Learning, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono profilati e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](how-to-machine-learning-interpretability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>Inviare un'esecuzione DataDriftDetector
 
-Con l'oggetto `DataDriftDetector` configurato, è possibile inviare un'operazione di [spostamento dei dati](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specificata per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il parametro `drift_threshold`. Se il [datadrift_coefficient](#metrics) si trova al di sopra della `drift_threshold`specificata, viene inviato un messaggio di posta elettronica.
+Con l'oggetto `DataDriftDetector` configurato, è possibile inviare un'operazione di [spostamento dei dati](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) in una data specificata per il modello. Come parte dell'esecuzione, abilitare gli avvisi DataDriftDetector impostando il parametro `drift_threshold`. Se il [datadrift_coefficient](#visualize-drift-metrics) si trova al di sopra della `drift_threshold`specificata, viene inviato un messaggio di posta elettronica.
 
 ```python
 # adhoc run today
@@ -123,7 +123,7 @@ RunDetails(dd_run).show()
 Dopo aver inviato l'esecuzione di DataDriftDetector, è possibile visualizzare le metriche di spostamento salvate in ogni iterazione di esecuzione per un'attività di drifting dei dati:
 
 
-|Metrica|Descrizione|
+|Metrica|DESCRIZIONE|
 --|--|
 wasserstein_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|
 energy_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|

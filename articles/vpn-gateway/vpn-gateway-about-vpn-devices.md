@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui dispositivi VPN per connessioni di Azure cross-premise | Documentazione Microsoft
+title: 'Gateway VPN di Azure: informazioni sui dispositivi VPN per le connessioni'
 description: Questo articolo illustra i dispositivi VPN e i parametri IPsec per connessioni cross-premise del Gateway VPN da sito a sito. Vengono forniti collegamenti alle istruzioni di configurazione e agli esempi.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c945fa7e2e8eccb12cc105610adee3d25a5e5316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58278e241df3d9242c1cb3ad5d6e931c9c4ca701
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495794"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150908"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
 
@@ -57,14 +57,14 @@ Per agevolare la configurazione del dispositivo VPN, vedere i collegamenti corri
 | Juniper |ISG |ScreenOS 6.3 |Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |SSG |ScreenOS 6.2 |Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12.x|Supportato |[Script di configurazione](vpn-gateway-download-vpndevicescript.md) |
-| Microsoft |Routing and Remote Access Service |Windows Server 2012 |Non compatibile |Supportato |
+| Macchina virtuale |Routing and Remote Access Service |Windows Server 2012 |Non compatibile |Supportato |
 | Open Systems AG |Mission Control Security Gateway |N/D |[Guida alla configurazione](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Non compatibile |
 | Palo Alto Networks |Tutti i dispositivi che eseguono PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o versione successiva<br>RouteBased: 7.1.4 |Supportato |[Guida alla configurazione](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (Developer) | VyOS | VyOS 1.2.2 | (non testato) | [Guida alla configurazione](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | Next Generation UTM (serie NU) | 9.0.1.3 | Non compatibile | [Guida alla configurazione](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWALL |Serie TZ, serie NSA<br>Serie SuperMassive<br>Serie NSA classe E |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Non compatibile |[Guida alla configurazione](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | Firewall XG di nuova generazione | XG v17 | (non testato) | [Guida alla configurazione](https://community.sophos.com/kb/127546)<br><br>[Guida alla configurazione - Più firme di accesso condiviso](https://community.sophos.com/kb/en-us/133154) |
-| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM 1.1.5/VpnPlusServer-1.2.0 | (non testato) | [Guida alla configurazione](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (non testato) | [Guida alla configurazione](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS versione 1.10 | (non testato) | [BGP su IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI su IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Tutti |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guida alla configurazione](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guida alla configurazione](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | ZyXEL |ZyWALL serie USG<br>Serie ATP ZyWALL<br>Serie VPN ZyWALL | ZLD v 4.32 + | (non testato) | [VTI su IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP su IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
@@ -73,7 +73,7 @@ Per agevolare la configurazione del dispositivo VPN, vedere i collegamenti corri
 >
 > (*) Le versioni di Cisco ASA 8.4+ aggiungono il supporto IKEv2 e possono connettersi al gateway VPN di Azure usando criteri IPsec/IKE personalizzati con l'opzione "UsePolicyBasedTrafficSelectors". Vedere questa [procedura dettagliata](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
-> (\*\*) I router serie ISR 7200 supportano solo VPN PolicyBased.
+> (**) I router serie ISR 7200 supportano solo VPN PolicyBased.
 
 ## <a name="configscripts"></a>Scaricare script di configurazione del dispositivo VPN da Azure
 
@@ -143,7 +143,7 @@ Nelle tabelle seguenti:
 | Durata dell'associazione di sicurezza (tempo)            |3\.600 secondi  |27.000 secondi                               |
 | Durata dell'associazione di sicurezza (byte)           |102.400.000 KB | -                                           |
 | Perfect Forward Secrecy (PFS) |No             |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
-| Rilevamento peer inattivo     |Non supportate  |Supportato                                    |
+| Rilevamento peer inattivo     |Non supportato  |Supportato                                    |
 
 
 ### <a name ="RouteBasedOffers"></a>Offerte per associazioni di sicurezza IPsec VPN basate su route (associazione di sicurezza IKE Modalità rapida)
@@ -154,24 +154,24 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 |-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
-| 2 |AES256        |SHA1              |Nessuna         |
-| 3 |3DES          |SHA1              |Nessuna         |
-| 4 |AES256        |SHA256            |Nessuna         |
-| 5 |AES128        |SHA1              |Nessuna         |
-| 6 |3DES          |SHA256            |Nessuna         |
+| 1 |GCM AES256    |GCM (AES256)      |nessuno         |
+| 2 |AES256        |SHA1              |nessuno         |
+| 3 |3DES          |SHA1              |nessuno         |
+| 4 |AES256        |SHA256            |nessuno         |
+| 5 |AES128        |SHA1              |nessuno         |
+| 6 |3DES          |SHA256            |nessuno         |
 
 #### <a name="azure-gateway-as-responder"></a>Gateway Azure come risponditore
 
 |-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
-| 2 |AES256        |SHA1              |Nessuna         |
-| 3 |3DES          |SHA1              |Nessuna         |
-| 4 |AES256        |SHA256            |Nessuna         |
-| 5 |AES128        |SHA1              |Nessuna         |
-| 6 |3DES          |SHA256            |Nessuna         |
-| 7 |DES           |SHA1              |Nessuna         |
+| 1 |GCM AES256    |GCM (AES256)      |nessuno         |
+| 2 |AES256        |SHA1              |nessuno         |
+| 3 |3DES          |SHA1              |nessuno         |
+| 4 |AES256        |SHA256            |nessuno         |
+| 5 |AES128        |SHA1              |nessuno         |
+| 6 |3DES          |SHA256            |nessuno         |
+| 7 |DES           |SHA1              |nessuno         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -186,7 +186,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |Nessuna         |
+| 22|AES128        |SHA256            |nessuno         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

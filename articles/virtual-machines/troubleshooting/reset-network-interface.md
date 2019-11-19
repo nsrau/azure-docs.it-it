@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058455"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111729"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Come reimpostare l'interfaccia di rete per la VM Windows di Azure 
 
@@ -47,7 +47,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
 8. La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
 9.  Provare a eseguire RDP al computer in uso. Se ha esito positivo, è possibile modificare l'indirizzo IP privato originale se si vuole. In caso contrario è possibile mantenerlo. 
 
-#### <a name="use-azure-powershell"></a>Usare Azure PowerShell
+#### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 
 1. Verificare che sia installata [la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:
@@ -68,7 +68,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Provare a eseguire RDP al computer in uso.  Se ha esito positivo, è possibile modificare l'indirizzo IP privato originale se si vuole. In caso contrario è possibile mantenerlo.
 
@@ -88,7 +88,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 8.  La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
 9.  Provare a eseguire RDP al computer in uso. Se l'operazione ha esito positivo, è possibile scegliere di ripristinare l'indirizzo IP privato originale.  
 
-#### <a name="use-azure-powershell"></a>Usare Azure PowerShell
+#### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
 
 1. Verificare che sia installata [la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti:
@@ -109,7 +109,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. Provare a eseguire RDP al computer in uso. Se ha esito positivo, è possibile modificare l'indirizzo IP privato originale se si vuole. In caso contrario è possibile mantenerlo. 
 
@@ -120,7 +120,7 @@ Dopo essere riusciti a eseguire una connessione desktop remoto al computer, è n
 2.  Selezionare **Vista** > **Mostra dispositivi nascosti**.
 3.  Selezionare **Schede di rete**. 
 4.  Controllare le schede di rete con un nome simile a "Scheda di rete Microsoft Hyper-V".
-5.  Si potrebbe vedere una scheda non disponibile che appare in grigio. Fare clic con pulsante destro del mouse sulla scheda e selezionare Disinstalla.
+5.  Potrebbe essere visualizzata una scheda non disponibile che è disabilitata. Fare clic con il pulsante destro del mouse sulla scheda e quindi scegliere Disinstalla.
 
     ![immagine della scheda NIC](media/reset-network-interface/nicpage.png)
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 63045bf1b836215b00b9b7c1b46dd208152fa772
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5751ed33673ca859ba1aed54cfc7c2e7ecc8e495
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74101120"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124188"
 ---
 Azure ultra Disks offre velocità effettiva elevata, IOPS elevate e archiviazione su disco a bassa latenza coerente per macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. Uno dei vantaggi principali di ultra disks è la possibilità di modificare dinamicamente le prestazioni dell'unità SSD insieme ai carichi di lavoro senza dover riavviare le macchine virtuali. I dischi Ultra sono adatti per carichi di lavoro con utilizzo intensivo di dati, ad esempio SAP HANA, database di livello superiore e carichi di lavoro pesanti per le transazioni.
 
@@ -67,6 +67,75 @@ Se si intende usare un modello personalizzato, assicurarsi che **apiVersion** pe
 Impostare lo SKU del disco su **UltraSSD_LRS**, quindi impostare la capacità del disco, IOPS, la zona di disponibilità e la velocità effettiva in Mbps per creare un disco Ultra.
 
 Dopo aver effettuato il provisioning della macchina virtuale, è possibile partizionare e formattare i dischi dati e configurarli per i carichi di lavoro.
+
+
+## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Distribuire un disco Ultra usando il portale di Azure
+
+In questa sezione viene illustrata la distribuzione di una macchina virtuale dotata di disco rigido come disco dati. Si presuppone che l'utente abbia familiarità con la distribuzione di una macchina virtuale. in caso contrario, vedere [la Guida introduttiva: creare una macchina virtuale Windows nel portale di Azure](../articles/virtual-machines/windows/quick-create-portal.md).
+
+- Accedere al [portale di Azure](https://portal.azure.com/) e passare a distribuire una macchina virtuale (VM).
+- Assicurarsi di scegliere [le dimensioni e l'area della VM supportate](#ga-scope-and-limitations).
+- Selezionare **zona di disponibilità** in **Opzioni di disponibilità**.
+- Inserire le voci rimanenti con le selezioni preferite.
+- Selezionare **Dischi**.
+
+![Create-ultra-disk-Enabled-VM. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+
+- Nel pannello dischi selezionare **Sì** per **Abilita compatibilità dischi Ultra**.
+- Selezionare **Crea e alleghi un nuovo disco** per alleghi ora un disco Ultra.
+
+![Enable-and-Attach-ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+
+- Nel pannello **Crea un nuovo disco** immettere un nome, quindi selezionare **modifica dimensioni**.
+- Modificare il **tipo di account** in **ultra disk**.
+- Modificare i valori delle **dimensioni del disco personalizzato (GIB)** , **IOPS del disco**e la **velocità effettiva del disco** in uno di loro scelta.
+- Selezionare **OK** in entrambi i pannelli.
+- Continuare con la distribuzione della macchina virtuale, sarà uguale a quella di qualsiasi altra macchina virtuale.
+
+![Create-ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+
+## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Alleghi un disco Ultra usando il portale di Azure
+
+In alternativa, se la macchina virtuale esistente si trova in un'area geografica o in una zona di disponibilità in grado di usare dischi Ultra, è possibile usare dischi Ultra senza dover creare una nuova macchina virtuale. Abilitando i dischi Ultra nella VM esistente, quindi li alleghi come dischi dati.
+
+- Passare alla macchina virtuale e selezionare **dischi**.
+- Selezionare **Modifica**.
+
+![Options-Selector-ultra-Disks. png](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+
+- Selezionare **Sì** per **Enable ultra disk Compatibility**.
+
+![Ultra-Options-Yes-Enable. png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+
+- Selezionare **Salva**.
+- Selezionare **Aggiungi disco dati** quindi nell'elenco a discesa per **nome** Selezionare **Crea disco**.
+
+![Create-and-Attach-New-ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+
+- Immettere un nome per il nuovo disco e quindi selezionare **modifica dimensioni**.
+- Modificare il **tipo di account** in **ultra disk**.
+- Modificare i valori delle **dimensioni del disco personalizzato (GIB)** , **IOPS del disco**e la **velocità effettiva del disco** in uno di loro scelta.
+- Selezionare **OK** , quindi selezionare **Crea**.
+
+![Making-a-New-ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+
+- Dopo che si è tornati al pannello del disco, selezionare **Salva**.
+
+![Saving-and-Attaching-New-ultra-disk. png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+
+### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Regolare le prestazioni di un disco Ultra usando il portale di Azure
+
+I dischi Ultra offrono una funzionalità univoca che consente di regolare le prestazioni. Queste modifiche possono essere apportate dal portale di Azure sui dischi.
+
+- Passare alla macchina virtuale e selezionare **dischi**.
+- Selezionare il disco Ultra a cui si desidera modificare le prestazioni.
+
+![Selecting-ultra-disk-to-Modify. png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+
+- Selezionare **configurazione** , quindi apportare le modifiche.
+- Selezionare **Salva**.
+
+![Configuring-ultra-Disk-Performance-and-size. png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>Distribuire un disco Ultra usando l'interfaccia della riga di comando
 

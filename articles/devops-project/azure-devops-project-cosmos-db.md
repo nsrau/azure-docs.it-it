@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969668"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888896"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Distribuire app Node.js con tecnologia Azure Cosmos DB con DevOps Projects
 
@@ -169,6 +169,6 @@ Quando non servono più, eliminare le risorse correlate create in precedenza. Us
 > * Eseguire il commit delle modifiche in Git e la distribuzione automatica in Azure
 > * Pulire le risorse
 
-Per altre informazioni e per i passaggi successivi, vedere [Definire la pipeline di distribuzione continua (CD) in più fasi](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
+Per altre informazioni e per i passaggi successivi, vedere [Definire la pipeline di distribuzione continua (CD) in più fasi](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
 
 

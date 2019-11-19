@@ -3,17 +3,17 @@ title: Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor |
 description: Usare Advisor per ottimizzare le prestazioni delle distribuzioni di Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.author: sagupt
+ms.openlocfilehash: 08af119e7f9e72de4a8ae4a1842289a4fd5d925e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885743"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144141"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Migliorare le prestazioni delle applicazioni di Azure con Azure Advisor
 
@@ -125,3 +125,4 @@ Per altre informazioni sui consigli di Advisor, vedere:
 * [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
+* [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)

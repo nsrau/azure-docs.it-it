@@ -1,17 +1,14 @@
 ---
-title: Visualizzare i log attività di Azure per monitorare le risorse | Documentazione Microsoft
+title: Visualizzare i log attività di Azure per monitorare le risorse
 description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Mostra portale di Azure PowerShell, l'interfaccia della riga di comando di Azure e REST.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3ac407fa4cfef1530cb6bbfde2ec666b5a07e324
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329448"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150872"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
 
@@ -29,7 +26,7 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
 
 È possibile recuperare le informazioni dai log attività tramite il portale, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Insights o la [libreria .NET di Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="azure-portal"></a>Portale di Azure
+## <a name="azure-portal"></a>portale di Azure
 
 1. Per visualizzare i log attività dal portale, selezionare **Monitoraggio**.
 

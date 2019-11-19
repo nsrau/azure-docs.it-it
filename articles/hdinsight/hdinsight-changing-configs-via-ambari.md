@@ -2,18 +2,18 @@
 title: Apache Ambari per ottimizzare le configurazioni del cluster-Azure HDInsight
 description: Usare l'interfaccia utente Web di Apache Ambari per configurare e ottimizzare i cluster HDInsight di Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492513"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150110"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -143,7 +143,7 @@ Hive elabora i dati una riga alla volta. Con la vettorializzazione Hive elabora 
 
 Per impostazione predefinita, Hive segue un set di regole per trovare un piano di esecuzione della query ottimale. L'ottimizzazione basata sui costi valuta più piani per eseguire una query e assegna un costo a ogni piano, quindi determina quello più conveniente per eseguire una query.
 
-Per abilitare l'ottimizzazione basata sui costi, passare alla scheda **Configs** (Configurazioni) di Hive e cercare `parameter hive.cbo.enable`, quindi impostare l'interruttore su **On** (Sì).
+Per abilitare la configurazione di base, passare a **Hive** > **configs** > **Settings** e trovare **Enable cost based Optimizer**, quindi impostare l'interruttore **su on**.
 
 ![Ottimizzatore basato sui costi di HDInsight](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
@@ -195,15 +195,13 @@ Come regola generale, è importante che il metodo di compressione sia divisibile
 
 1. Per aggiungere un'impostazione personalizzata:
 
-    a. Passare alla scheda **Configs** (Configurazioni) di Hive e selezionare la scheda **Advanced** (Avanzate).
+    a. Passare a **hive** > **configs** > **Advanced** > **Custom hive-site**.
 
-    b. Nella scheda **Advanced** (Avanzate) trovare ed espandere il riquadro **Custom hive-site** (hive-site personalizzato).
+    b. Selezionare **Aggiungi proprietà** nella parte inferiore del riquadro Custom hive-site.
 
-    c. Fare clic sul collegamento **Add Property** (Aggiungi proprietà) nella parte inferiore del riquadro Custom hive-site (hive-site personalizzato).
+    C. Nella finestra Add Property (Aggiungi proprietà) immettere `mapred.map.output.compression.codec` come chiave e `org.apache.hadoop.io.compress.SnappyCodec` come valore.
 
-    d. Nella finestra Add Property (Aggiungi proprietà) immettere `mapred.map.output.compression.codec` come chiave e `org.apache.hadoop.io.compress.SnappyCodec` come valore.
-
-    e. Fare clic su **Aggiungi**.
+    d. Selezionare **Aggiungi**.
 
     ![Apache Hive aggiunta proprietà personalizzata](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -281,7 +279,7 @@ Raccomandazioni aggiuntive per ottimizzare il motore di esecuzione Hive:
 | Impostazione | Consigliato | Impostazione predefinita di HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = più sicuro, più lento; false = più veloce | false |
-| `tez.am.resource.memory.mb` | limite superiore di 4 GB per la maggior parte | Ottimizzazione automatica |
+| `tez.am.resource.memory.mb` | Limite superiore di 4 GB nella maggior parte dei casi | Ottimizzazione automatica |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -319,7 +317,7 @@ Come in Hive, la modalità locale viene usata per velocizzare i processi con qua
 
 ### <a name="copy-user-jar-cache"></a>Copiare la cache JAR dell'utente
 
-Pig copia i file JAR necessari per le funzioni definite dall'utente in una cache distribuita per renderli disponibili per i nodi attività. Questi file JAR non vengono modificati spesso. Se abilitata, l'impostazione `pig.user.cache.enabled` consente di inserire i file JAR in una cache per riutilizzarli per i processi eseguiti dallo stesso utente. Ne consegue un minor aumento delle prestazioni dei processi.
+Pig copia i file JAR necessari per le funzioni definite dall'utente in una cache distribuita per renderli disponibili per i nodi attività. Questi jar non cambiano di frequente. Se abilitata, l'impostazione `pig.user.cache.enabled` consente di inserire i file JAR in una cache per riutilizzarli per i processi eseguiti dallo stesso utente. Ne consegue un minor aumento delle prestazioni dei processi.
 
 1. Per abilitarla, impostare `pig.user.cache.enabled` su true. Il valore predefinito è false.
 
@@ -416,7 +414,7 @@ Maggiori sono le dimensioni del file di area, minore è il numero di suddivision
 
 * La proprietà `hbase.hregion.memstore.flush.size` definisce a quali dimensioni il memstore viene scaricato su disco. Le dimensioni predefinite sono pari a 128 MB.
 
-* Il moltiplicatore di blocco di area di Hbase è definito da `hbase.hregion.memstore.block.multiplier`. Il valore predefinito è 4. Il valore massimo consentito è 8.
+* Il moltiplicatore di blocco Region HBase è definito da `hbase.hregion.memstore.block.multiplier`. Il valore predefinito è 4. Il valore massimo consentito è 8.
 
 * HBase blocca gli aggiornamenti se il memstore è pari a (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) byte.
 

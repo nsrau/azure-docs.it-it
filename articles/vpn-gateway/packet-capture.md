@@ -1,5 +1,5 @@
 ---
-title: Acquisizioni di pacchetti del gateway VPN di Azure | Microsoft Docs
+title: 'Gateway VPN di Azure: configurare le acquisizioni di pacchetti'
 description: Informazioni sulle funzionalità di acquisizione di pacchetti che è possibile usare nei gateway VPN.
 services: vpn-gateway
 author: radwiv
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 0957fabf58a68efe9e215b390d28dbf160574963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517436"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151846"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurare le acquisizioni di pacchetti per i gateway VPN
 

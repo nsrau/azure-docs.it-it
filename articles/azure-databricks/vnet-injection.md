@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3894904575d545aed0dbfce470247afb145b7590
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605675"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129299"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Distribuire Azure Databricks nella rete virtuale
 
@@ -37,11 +37,11 @@ La distribuzione di Azure Databricks risorse alla rete virtuale consente anche d
 
 La rete virtuale in cui si distribuisce l'area di lavoro di Azure Databricks deve soddisfare i requisiti seguenti:
 
-### <a name="location"></a>Percorso
+### <a name="location"></a>Location
 
 La rete virtuale deve risiedere nella stessa località dell'area di lavoro Azure Databricks.
 
-### <a name="subnets"></a>Subnet
+### <a name="subnets"></a>subnet
 
 La rete virtuale deve includere due subnet dedicate a Azure Databricks:
 
@@ -61,7 +61,7 @@ Tutto il traffico in uscita e in ingresso tra le subnet e il piano di controllo 
 
 Questa sezione descrive come creare un'area di lavoro Azure Databricks nel portale di Azure e distribuirla nella propria rete virtuale esistente. Azure Databricks aggiorna la rete virtuale con due nuove subnet e gruppi di sicurezza di rete usando gli intervalli CIDR forniti dall'utente, gli elenchi di elementi consentiti e il traffico delle subnet in ingresso e in uscita e distribuisce l'area di lavoro nella rete virtuale aggiornata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 È necessario disporre di una rete virtuale in cui distribuire l'area di lavoro Azure Databricks. È possibile usare una rete virtuale esistente o crearne una nuova, ma la rete virtuale deve trovarsi nella stessa area dell'area di lavoro Azure Databricks che si prevede di creare. Un intervallo CIDR compreso tra/16-/24 è obbligatorio per la rete virtuale.
 
@@ -105,7 +105,7 @@ Per creare gruppi di sicurezza di rete con le regole necessarie per una rete vir
 
 Quando si usa questo modello, non è necessario eseguire alcuna operazione di inserimento manuale nell'elenco elementi consentiti del traffico della subnet.
 
-### <a name="virtual-network"></a>Rete virtuale
+### <a name="virtual-network"></a>rete virtuale
 
 Per creare una rete virtuale con le subnet pubbliche e private appropriate, usare il [modello di rete virtuale per VNet injection di databricks](https://azure.microsoft.com/resources/templates/101-databricks-vnet-for-vnet-injection).
 
@@ -119,9 +119,9 @@ Se si usa questo modello senza usare anche il modello gruppi di sicurezza di ret
 
 ## <a name="whitelisting-subnet-traffic"></a>Elenco elementi consentiti traffico subnet
 
-Se non si usa il [portale di Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) o i [modelli di Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) per creare i gruppi di sicurezza di rete, è necessario includere manualmente il traffico seguente nelle subnet.
+Se non si usa il [portale di Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) o i [modelli di Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-advanced) per creare i gruppi di sicurezza di rete, è necessario includere manualmente il traffico seguente nelle subnet.
 
-|Direzione|Protocollo|Source|Porta di origine|Destination|Porta di destinazione|
+|Direzione|Protocol|Source|Porta di origine|Destination|Porta di destinazione|
 |---------|--------|------|-----------|-----------|----------------|
 |In ingresso|\*|VirtualNetwork|\*|\*|\*|
 |In ingresso|\*|IP NAT del piano di controllo|\*|\*|22|
@@ -133,9 +133,9 @@ Se non si usa il [portale di Azure](/azure/databricks/administration-guide/cloud
 
 Traffico della subnet whitelist con i seguenti indirizzi IP. Per SQL (Metastore) e archiviazione (artefatto e archiviazione dei log), è necessario usare i [tag del servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)SQL e di archiviazione.
 
-|Area Azure Databricks|Service|IP pubblico|
+|Area Azure Databricks|Servizio|IP pubblico|
 |-----------------------|-------|---------|
-|Stati Uniti orientali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Stati Uniti Orientali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti orientali 2|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti centro-settentrionali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |Stati Uniti centrali|NAT del piano di controllo </br></br>WebApp|23.101.152.95/32 </br></br>40.70.58.221/32|

@@ -1,18 +1,15 @@
 ---
 title: 'Distribuzione sicura tra aree: Azure Deployment Manager'
 description: Descrive come distribuire un servizio in più aree con Azure Deployment Manager. Illustra le procedure di distribuzione sicure per verificare la stabilità della distribuzione prima dell'implementazione in tutte le aree.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 6cbbd2aef1911bdfe64e781a7cad64a64722192d
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532308"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147197"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Abilitare procedure di distribuzione sicure con Deployment Manager di Azure (anteprima pubblica)
 
@@ -115,7 +112,7 @@ L'esempio seguente illustra il formato generale della risorsa topologia del serv
 
 Per altre informazioni, vedere [serviceTopologies template reference](/azure/templates/Microsoft.DeploymentManager/serviceTopologies) (Informazioni di riferimento sul modello serviceTopologies).
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servizi
 
 L'esempio seguente illustra il formato generale della risorsa servizi. In ogni servizio si specificano l'ID sottoscrizione di Azure e la località da usare per distribuire il servizio. Per la distribuzione in più aree, si definisce un servizio per ogni area. Il servizio dipende dalla topologia del servizio.
 
@@ -194,7 +191,7 @@ Ogni implementazione può avere più gruppi di passaggi. Ogni gruppo di passaggi
 
 Nel modello di implementazione si crea un'origine artefatto per i file binari da distribuire nel servizio. Questa origine artefatto è simile all'[origine artefatto per i modelli](#artifact-source-for-templates), con la differenza che contiene gli script, le pagine Web, il codice compilato o altri file necessari per il servizio.
 
-### <a name="steps"></a>Procedure
+### <a name="steps"></a>Passi
 
 È possibile definire un passaggio da eseguire prima o dopo l'operazione di distribuzione. Attualmente sono disponibili solo il passaggio `wait` e il passaggio ' healthCheck '.
 

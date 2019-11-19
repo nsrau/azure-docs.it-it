@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882489"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111766"
 ---
 # <a name="get-started-with-azcopy"></a>Introduzione ad AzCopy
 
@@ -70,7 +70,7 @@ Per informazioni dettagliate sulla documentazione di riferimento per ogni comand
 
 Usare questa tabella come guida:
 
-| Tipo di risorse di archiviazione | Metodo di autorizzazione attualmente supportato |
+| Tipo di archiviazione | Metodo di autorizzazione attualmente supportato |
 |--|--|
 |**Archiviazione BLOB** | Firma di accesso condiviso Azure AD & |
 |**Archiviazione BLOB (spazio dei nomi gerarchica)** | Firma di accesso condiviso Azure AD & |
@@ -98,8 +98,8 @@ Questi ruoli possono essere assegnati all'entità di sicurezza in uno di questi 
 
 - Contenitore (file system)
 - Account di archiviazione
-- Gruppo di risorse
-- Sottoscrizione
+- Resource group
+- sottoscrizione
 
 Per informazioni su come verificare e assegnare i ruoli, vedere [concedere l'accesso ai dati di Accodamento e BLOB di Azure con RBAC nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -305,16 +305,9 @@ Se si prevede di usare [Jenkins](https://jenkins.io/) per eseguire gli script, a
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>Usare AzCopy in Storage Explorer
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Usare AzCopy in Azure Storage Explorer
 
-Se si vogliono sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce usare Storage Explorer anziché la riga di comando per interagire con i file, quindi abilitare AzCopy in Storage Explorer.
-
-In Storage Explorer scegliere **anteprima** ->**usare AzCopy per il caricamento e il download di BLOB migliorati**.
-
-![Abilitare AzCopy come motore di trasferimento in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> Non è necessario abilitare questa impostazione se è stato abilitato uno spazio dei nomi gerarchico nell'account di archiviazione. Questo perché Storage Explorer usa automaticamente AzCopy per gli account di archiviazione che hanno uno spazio dei nomi gerarchico.  
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) USA AzCopy per eseguire tutte le operazioni di trasferimento dei dati. È possibile utilizzare [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) se si desidera sfruttare i vantaggi delle prestazioni di AzCopy, ma si preferisce utilizzare un'interfaccia utente grafica piuttosto che la riga di comando per interagire con i file.
 
 Storage Explorer usa la chiave dell'account per eseguire operazioni, quindi, dopo l'accesso Storage Explorer, non è necessario fornire credenziali di autorizzazione aggiuntive.
 
@@ -326,7 +319,7 @@ Se è necessario usare la versione precedente di AzCopy (AzCopy v 8.1), vedere u
 
 - [AzCopy in Windows (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy in Linux (V8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 

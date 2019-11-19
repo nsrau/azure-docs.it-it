@@ -1,22 +1,22 @@
 ---
-title: Creare un localizzatore di punti vendita con Mappe di Azure | Microsoft Docs
-description: Creare un localizzatore di punti vendita con Mappe di Azure.
+title: 'Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure'
+description: 'Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933059"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107076"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
 Questa esercitazione illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure. I localizzatori di punti vendita sono molto diffusi. Molti dei concetti usati in questo tipo di applicazione sono applicabili a molti altri tipi di applicazioni. L'offerta di un localizzatore di punti vendita ai clienti è essenziale per la maggior parte delle aziende che vendono direttamente ai consumatori. In questa esercitazione si apprenderà come:
     

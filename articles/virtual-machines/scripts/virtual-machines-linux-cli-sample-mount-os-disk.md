@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo | Microsoft Docs
+title: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
 description: Esempio di script dell'interfaccia della riga di comando di Azure - montaggio del disco del sistema operativo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5d534b66f95078d853f67aa40a014c599a3853da
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 292d67dafa768c82041a2cae8e6d888ee5d9050b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709417"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037601"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Risolvere i problemi del disco del sistema operativo della VM
 

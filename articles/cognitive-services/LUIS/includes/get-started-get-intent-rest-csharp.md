@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: 81c95dc58e8cfaddf981e3911e88310cea508115
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9ab477ffd7001f0f492f63355baaee26827db845
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499582"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125525"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Usare C# per eseguire query sull'[API](https://aka.ms/luis-apim-v3-prediction) G
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Installare le dipendenze necessarie con i comandi CLI dotnet seguenti.
+1. Installare le dipendenze necessarie con i comandi dell'interfaccia della riga di comando di .NET.
 
     ```console
     dotnet add package System.Net.Http
@@ -124,7 +124,7 @@ Usare C# per eseguire query sull'[API](https://aka.ms/luis-apim-v3-prediction) G
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Risposta JSON formattata per migliorare la leggibilità: 
+    La risposta JSON formattata per migliorare la leggibilità: 
 
     ```JSON
     {
@@ -178,4 +178,4 @@ Al termine di questo argomento di avvio rapido, eliminare il file dal file syste
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere espressioni ed eseguire il training con](../luis-get-started-cs-add-utterance.md)
+> [Aggiungere espressioni ed eseguire il training](../get-started-get-model-rest-apis.md)

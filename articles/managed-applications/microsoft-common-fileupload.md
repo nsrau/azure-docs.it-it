@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 03eff6afb22ea3306bf7f8191f4eca3ccad39938
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331703"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151555"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento Microsoft.Common.FileUpload dell'interfaccia utente
+
 Controllo che consente a un utente di specificare uno o più file da caricare.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
+
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
 ## <a name="schema"></a>SCHEMA
+
 ```json
 {
   "name": "element1",
@@ -47,16 +50,8 @@ Controllo che consente a un utente di specificare uno o più file da caricare.
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
-- `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept). Il valore predefinito è **null**.
-- Se la proprietà `options.multiple` è impostata su **true**, l'utente è autorizzato a selezionare più di un file nella finestra di dialogo del browser relativa ai file. Il valore predefinito è **false**.
-- Questo elemento supporta il caricamento dei file in due modalità in base al valore di `options.uploadMode`. Se il valore **file** è specificato, l'output include i contenuti del file sotto forma di BLOB. Se il valore **url** è specificato, il file viene caricato in una posizione temporanea e l'output contiene l'URL del BLOB. I BLOB temporanei verranno eliminati dopo 24 ore. Il valore predefinito è **file**.
-- Un file caricato è protetto. L'URL di output include un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per l'accesso ai file durante la distribuzione.
-- Il valore di `options.openMode` determina la modalità di lettura del file. Se si prevede che il file sia in testo normale, specificare **text**. In caso contrario, specificare **binary**. Il valore predefinito è **text**.
-- Se la proprietà `options.uploadMode` è impostata su **file** e `options.openMode` su **binary**, l'output avrà una codifica Base64.
-- `options.encoding` specifica la codifica da usare per la lettura del file. Il valore predefinito è **UTF-8** e viene usato solo quando la proprietà `options.openMode` è impostata su **text**.
-
 ## <a name="sample-output"></a>Output di esempio
+
 Se options.multiple è false e options.uploadMode è file, l'output include i contenuti del file sotto forma di stringa JSON:
 
 ```json
@@ -91,7 +86,17 @@ Se options.multiple è true e options.uploadMode è url, l'output include un ele
 
 Durante il test di CreateUiDefinition, alcuni browser, ad esempio Google Chrome, troncano gli URL generati dall'elemento Microsoft.Common.FileUpload nella console del browser. Potrebbe essere necessario fare clic con il pulsante destro del mouse sui singoli collegamenti per copiare gli URL completi.
 
+## <a name="remarks"></a>Osservazioni
+
+- `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept). Il valore predefinito è **null**.
+- Se la proprietà `options.multiple` è impostata su **true**, l'utente è autorizzato a selezionare più di un file nella finestra di dialogo del browser relativa ai file. Il valore predefinito è **false**.
+- Questo elemento supporta il caricamento dei file in due modalità in base al valore di `options.uploadMode`. Se il valore **file** è specificato, l'output include i contenuti del file sotto forma di BLOB. Se il valore **url** è specificato, il file viene caricato in una posizione temporanea e l'output contiene l'URL del BLOB. I BLOB temporanei verranno eliminati dopo 24 ore. Il valore predefinito è **file**.
+- Un file caricato è protetto. L'URL di output include un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per l'accesso ai file durante la distribuzione.
+- Il valore di `options.openMode` determina la modalità di lettura del file. Se si prevede che il file sia in testo normale, specificare **text**. In caso contrario, specificare **binary**. Il valore predefinito è **text**.
+- Se la proprietà `options.uploadMode` è impostata su **file** e `options.openMode` su **binary**, l'output avrà una codifica Base64.
+- `options.encoding` specifica la codifica da usare per la lettura del file. Il valore predefinito è **UTF-8** e viene usato solo quando la proprietà `options.openMode` è impostata su **text**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
 * Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

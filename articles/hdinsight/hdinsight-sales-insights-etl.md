@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d662ad59722658ed888aa732c1f45afdf48f850c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178016"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889199"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Esercitazione: Creare una pipeline di dati end-to-end per derivare informazioni di vendita
 
@@ -124,7 +124,7 @@ La password predefinita usata per l'accesso SSH ai cluster è `Thisisapassword1`
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
 
-Azure Data Factory è uno strumento che consente di automatizzare le pipeline di Azure. Non è l'unico modo per completare queste attività, ma è ideale per automatizzare i processi. Per altre informazioni su Azure Data Factory, vedere la [Documentazione di Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/). 
+Azure Data Factory è uno strumento che consente di automatizzare le pipeline di Azure. Non è l'unico modo per completare queste attività, ma è ideale per automatizzare i processi. Per altre informazioni su Azure Data Factory, vedere la [Documentazione di Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 Questa data factory conterrà una pipeline con due attività: 
 

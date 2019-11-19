@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/08/2019
+ms.date: 11/13/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fe8483bd6055acb0a2c741192ec80211b9969a16
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5bfc5e6471d768b89a66610a2618bc1a44cf709d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175877"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145924"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gestisci eccezioni ed errori di MSAL
 
@@ -40,7 +40,7 @@ Durante l'acquisizione di token silenziosi o interattivi, è possibile che si ve
 
 L'elenco completo degli errori è elencato in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 
-Tutti gli errori prodotti da MSAL vengono restituiti con `MSALErrorDomain` dominio. 
+Tutti gli errori prodotti da MSAL vengono restituiti con `MSALErrorDomain` dominio.
 
 Per gli errori di sistema, MSAL restituisce il `NSError` originale dall'API di sistema. Se, ad esempio, l'acquisizione di token ha esito negativo a causa della mancanza di connettività di rete, MSAL restituisce un errore con il dominio `NSURLErrorDomain` e il codice di `NSURLErrorNotConnectedToInternet`.
 
@@ -242,6 +242,17 @@ Swift
     application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
+## <a name="msal-for-python-error-handling"></a>MSAL per la gestione degli errori Python
+
+In MSAL per Python, la maggior parte degli errori viene comunicata come valore restituito dalla chiamata API. L'errore è rappresentato da un dizionario che contiene la risposta JSON della piattaforma di identità Microsoft.
+
+* Una risposta con esito positivo contiene la chiave `"access_token"`. Il formato della risposta è definito dal protocollo OAuth2. Per ulteriori informazioni, vedere [5,1 risposta riuscita](https://tools.ietf.org/html/rfc6749#section-5.1)
+* Una risposta di errore contiene `"error"` e in genere `"error_description"`. Il formato della risposta è definito dal protocollo OAuth2. Per ulteriori informazioni, vedere [5,2 errore di risposta](https://tools.ietf.org/html/rfc6749#section-5.2)
+
+Quando viene restituito un errore, la chiave `"error_description"` contiene un messaggio leggibile; che a sua volta contiene in genere un codice di errore della piattaforma Microsoft Identity. Per informazioni dettagliate sui diversi codici di errore, vedere [codici di errore di autenticazione e autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+
+In MSAL per Python le eccezioni sono rare perché la maggior parte degli errori viene gestita restituendo un valore di errore. L'eccezione `ValueError` viene generata solo quando si verifica un problema con il modo in cui si tenta di usare la libreria, ad esempio quando i parametri API non sono validi.
+
 ## <a name="net-exceptions"></a>Eccezioni .NET
 
 Durante l'elaborazione delle eccezioni, è possibile usare il tipo di eccezione e il membro `ErrorCode` per distinguere le eccezioni. `ErrorCode` valori sono costanti di tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
@@ -279,12 +290,12 @@ MSAL espone un campo `Classification`, che è possibile leggere per offrire un'e
 |-------------------|-------------------|----------------------|
 | BasicAction | La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 | AdditionalAction | La condizione può essere risolta da un'interazione correttiva aggiuntiva con il sistema, all'esterno del flusso di autenticazione interattivo. | Chiamare AcquireTokenInteractively () per visualizzare un messaggio in cui viene illustrata l'azione correttiva. L'applicazione chiamante può scegliere di nascondere i flussi che richiedono additional_action se è improbabile che l'utente completi l'azione correttiva. |
-| MessageOnly      | Non è possibile risolvere la condizione in questo momento. Se si avvia il flusso di autenticazione interattiva, viene visualizzato un messaggio che descrive la condizione. | Chiamare AcquireTokenInteractively () per visualizzare un messaggio in cui viene illustrata la condizione. AcquireTokenInteractively () restituirà l'errore UserCanceled dopo che l'utente legge il messaggio e chiude la finestra. L'applicazione chiamante può scegliere di nascondere i flussi che generano message_only se è improbabile che l'utente tragga vantaggio dal messaggio.|
+| MessageOnly      | Non è possibile risolvere la condizione in questo momento. Se si avvia il flusso di autenticazione interattiva, viene visualizzato un messaggio che descrive la condizione. | Chiamare AcquireTokenInteractively () per visualizzare un messaggio in cui viene illustrata la condizione. AcquireTokenInteractively () restituirà l'errore UserCanceled dopo che l'utente legge il messaggio e chiude la finestra. L'applicazione chiamante può scegliere di nascondere i flussi che generano message_only se l'utente non può trarre vantaggio dal messaggio.|
 | ConsentRequired  | Il consenso dell'utente è mancante o è stato revocato. | Chiamare AcquireTokenInteractively () per consentire all'utente di concedere il consenso. |
 | UserPasswordExpired | La password dell'utente è scaduta. | Chiamare AcquireTokenInteractively () in modo che l'utente possa reimpostare la password. |
 | PromptNeverFailed| È stata chiamata l'autenticazione interattiva con il prompt dei parametri = Never, forzando MSAL a basarsi sui cookie del browser e non visualizzare il browser. Questa operazione non è riuscita. | Chiamare AcquireTokenInteractively () senza prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK non dispone di informazioni sufficienti per recuperare un token dalla cache. Questo può essere dovuto al fatto che non sono presenti token nella cache o che non è stato trovato alcun account. Il messaggio di errore contiene maggiori dettagli.  | Chiamare AcquireTokenInteractively (). |
-| Nessuno    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
+| nessuno    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 
 ## <a name="code-example"></a>Esempio di codice
 
@@ -344,7 +355,6 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
  }
 }
 ```
-
 
 ## <a name="javascript-errors"></a>Errori JavaScript
 

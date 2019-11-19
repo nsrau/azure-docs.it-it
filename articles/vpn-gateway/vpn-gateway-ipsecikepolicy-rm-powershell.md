@@ -1,5 +1,6 @@
 ---
-title: 'Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: Criteri IPsec/IKE per VPN S2S & connessioni da VNet a VNet
+titleSuffix: Azure VPN Gateway
 description: Configurare i criteri IPsec/IKE per connessioni da sito a sito o da rete virtuale a rete virtuale con i gateway VPN di Azure tramite Azure Resource Manager e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: a4a0431a8d40f7905805e0a7d902988b7eb26208
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035037"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151789"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale
 
@@ -71,7 +72,7 @@ La tabella seguente riporta l'elenco degli algoritmi di crittografia e dei tipi 
 | Crittografia IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | Integrità IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | Gruppo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None 
-| Durata associazione di sicurezza in modalità rapida   | (**Facoltativo**: se non diversamente specificato, vengono usati i valori predefiniti)<br>Secondi (intero; **min. 300**/valore predefinito di 27000 secondi)<br>Kilobyte (intero; **min 1024**/valore predefinito di 102400000 KB)   |
+| Durata associazione di sicurezza QM   | (**Facoltativo**: se non diversamente specificato, vengono usati i valori predefiniti)<br>Secondi (intero; **min. 300**/valore predefinito di 27000 secondi)<br>Kilobyte (intero; **min 1024**/valore predefinito di 102400000 KB)   |
 | Selettore di traffico | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, $False predefinito, se non diversamente specificato)    |
 |  |  |
 
@@ -118,7 +119,7 @@ Per altre informazioni, vedere [RFC3526](https://tools.ietf.org/html/rfc3526) e 
 
 Questa sezione illustra i passaggi per la creazione di una connessione VPN da sito a sito con un criterio IPsec/IKE. La procedura seguente crea la connessione illustrata nel diagramma:
 
-![s2s-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
+![Criteri da sito a sito](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
 Per altre istruzioni dettagliate per la creazione di una connessione VPN da sito a sito, vedere [Creare una connessione VPN da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md).
 
@@ -129,7 +130,7 @@ Per altre istruzioni dettagliate per la creazione di una connessione VPN da sito
 
 ### <a name="createvnet1"></a>Passaggio 1: Creare la rete virtuale, il gateway VPN e il gateway di rete locale
 
-#### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili
+#### <a name="1-declare-your-variables"></a>1. dichiarare le variabili
 
 Per questo esercizio, si inizierà dichiarando le variabili. Assicurarsi di sostituire i valori con quelli reali durante la configurazione per la produzione.
 
@@ -158,7 +159,7 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Connettersi alla sottoscrizione e creare un nuovo gruppo di risorse
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. connettersi alla sottoscrizione e creare un nuovo gruppo di risorse
 
 Verificare di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
 
@@ -170,7 +171,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Creare la rete virtuale, il gateway VPN e il gateway di rete locale
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. creare la rete virtuale, il gateway VPN e il gateway di rete locale
 
 L'esempio seguente crea la rete virtuale, TestVNet1 con tre subnet e il gateway VPN. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo.
 
@@ -193,12 +194,12 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 ### <a name="s2sconnection"></a>Passaggio 2: Creare una connessione VPN da sito a sito con un criterio IPsec/IKE
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Creare un criterio IPsec/IKE
+#### <a name="1-create-an-ipsecike-policy"></a>1. creare un criterio IPsec/IKE
 
 Lo script di esempio che segue crea un criterio IPsec/IKE con gli algoritmi e i parametri seguenti:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS nessuno, durata dell'associazione di sicurezza 14400 secondi e 102400000 kB
+* IPsec: AES256, SHA256, PFS nessuno, durata dell'associazione di sicurezza 14.400 secondi e 1024 KB
 
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -206,7 +207,7 @@ $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -Dh
 
 Se si usa GCMAES per IPsec, è necessario usare lo stesso algoritmo e la stessa lunghezza della chiave GCMAES per la crittografia e l'integrità IPsec. Per l'esempio precedente, i parametri corrispondenti saranno "-IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256" se si usa GCMAES256.
 
-#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Creare la connessione VPN da sito a sito con i criteri IPsec/IKE
+#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. creare la connessione VPN S2S con i criteri IPsec/IKE
 
 Creare una connessione VPN da sito a sito e applicare il criterio IPsec/IKE creato in precedenza.
 
@@ -233,7 +234,7 @@ Per la procedura dettagliata di creazione di una connessione da rete virtuale a 
 
 ### <a name="createvnet2"></a>Passaggio 1: Creare la seconda rete virtuale e un gateway VPN
 
-#### <a name="1-declare-your-variables"></a>1. Dichiarare le variabili
+#### <a name="1-declare-your-variables"></a>1. dichiarare le variabili
 
 Sostituire i valori con quelli desiderati per la propria configurazione.
 
@@ -257,7 +258,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Creare la seconda rete virtuale e un gateway VPN nel nuovo gruppo di risorse
+#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. creare la seconda rete virtuale e il gateway VPN nel nuovo gruppo di risorse
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -280,17 +281,17 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 Come per la connessione VPN da sito a sito, creare un criterio IPsec/IKE e quindi applicare i criteri alla nuova connessione.
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Creare un criterio IPsec/IKE
+#### <a name="1-create-an-ipsecike-policy"></a>1. creare un criterio IPsec/IKE
 
 Lo script di esempio seguente crea un criterio IPsec/IKE diverso con gli algoritmi e i parametri seguenti:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, durata dell'associazione di sicurezza 14400 secondi e 102400000 kB
+* IPsec: GCMAES128, GCMAES128, PFS14, durata dell'associazione di sicurezza 14.400 secondi e 1024 KB
 
 ```powershell
 $ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Creare connessioni da rete virtuale a rete virtuale con criteri IPsec/IKE
+#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. creare connessioni da VNet a VNet con i criteri IPsec/IKE
 
 Creare una connessione da rete virtuale a rete virtuale e applicare il criterio IPsec/IKE creato. In questo esempio entrambi i gateway sono nella stessa sottoscrizione. È possibile creare e configurare entrambe le connessioni con lo stesso criterio IPsec/IKE nella stessa sessione di PowerShell.
 
@@ -324,7 +325,7 @@ Gli stessi passaggi si applicano sia alle connessioni da sito a sito sia alle co
 > [!IMPORTANT]
 > Il criterio IPsec/IKE è supportato solo nei gateway VPN *Standard* e *Prestazioni elevate* basati su route di Azure. Non funziona sullo SKU per il gateway Basic o il gateway VPN basato su criteri.
 
-#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Mostrare il criterio IPsec/IKE di una connessione
+#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. visualizzare i criteri IPsec/IKE di una connessione
 
 L'esempio seguente illustra come ottenere il criterio IPsec/IKE configurato su una connessione. Gli script continuano dagli esercizi precedenti.
 
@@ -350,7 +351,7 @@ PfsGroup            : PFS24
 
 Se non c'è alcun criterio IPsec/IKE configurato, il comando (PS> $connection6.policy) non restituisce nulla. Ciò non significa che IPsec/IKE non sia configurato per la connessione, ma che non c'è alcun criterio IPsec/IKE personalizzato. La connessione effettiva usa il criterio predefinito negoziato tra il dispositivo VPN locale e il gateway VPN di Azure.
 
-#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Aggiungere o aggiornare un criterio IPsec/IKE per una connessione
+#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. aggiungere o aggiornare un criterio IPsec/IKE per una connessione
 
 La procedura per aggiungere un nuovo criterio o aggiornare un criterio esistente per una connessione è la stessa: creare un nuovo criterio, quindi applicare il nuovo criterio alla connessione.
 
@@ -390,7 +391,7 @@ DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
-#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Rimuovere un criterio IPsec/IKE da una connessione
+#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. rimuovere un criterio IPsec/IKE da una connessione
 
 Dopo la rimozione dei criteri personalizzati da una connessione, il gateway VPN di Azure ripristina l'[elenco predefinito delle proposte IPsec/IKE](vpn-gateway-about-vpn-devices.md) e rinegozia l'handshake IKE con il dispositivo VPN locale.
 

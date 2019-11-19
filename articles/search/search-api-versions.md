@@ -1,5 +1,5 @@
 ---
-title: Gestione delle versioni delle API per .NET SDK e API REST
+title: Gestione delle versioni delle API per .NET e REST
 titleSuffix: Azure Cognitive Search
 description: Criteri di versione per le API REST di Azure ricerca cognitiva e la libreria client in .NET SDK.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a976655d0f634c7026f008d64516a629947e90c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03dbb679c25ea692d2c52f80b9493889e367823d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793067"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112156"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versioni API in Azure ricerca cognitiva
 
@@ -30,12 +30,12 @@ La stessa regola vale per gli aggiornamenti all'SDK. Azure ricerca cognitiva SDK
 Di seguito è riportato uno snapshot delle versioni correnti di tutte le interfacce di programmazione per Azure ricerca cognitiva.
 
 
-| Interfacce | Versione principale più recente | Status |
+| Interfacce | Versione principale più recente | Stato |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |Disponibile a livello generale, rilasciato il 2019 maggio |
 | [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |8,0-Anteprima |Anteprima, rilasciata il 2019 aprile |
 | [API REST del servizio](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Disponibile a livello generale |
-| [API REST del servizio 2019-05-06-Preview](search-api-preview.md) |2019-05-06-anteprima |Preview |
+| [API REST del servizio 2019-05-06-Preview](search-api-preview.md) |2019-05-06-anteprima |Anteprima |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Disponibile a livello generale |
 | [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponibile a livello generale |
 

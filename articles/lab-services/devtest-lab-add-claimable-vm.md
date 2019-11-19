@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ad10a1763b4882aa3bb6aec7447f57ebaf07369
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311837"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123709"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs
 Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è necessario seguire una procedura simile all'[aggiunta di una macchina virtuale standard](devtest-lab-add-vm.md), partendo da una *base* che può essere un'[immagine personalizzata](devtest-lab-create-template.md), una [formula](devtest-lab-manage-formulas.md) o un'[immagine del Marketplace](devtest-lab-configure-marketplace-images.md). In questa esercitazione viene descritto come usare il portale di Azure per aggiungere una macchina virtuale richiedibile a un lab in DevTest Labs e viene illustrato il processo che un utente deve seguire per richiedere e annullare la richiesta della macchina virtuale.
@@ -37,12 +37,12 @@ Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è nec
 1. Nella scheda **Impostazioni di base** della pagina **Macchina virtuale** eseguire queste operazioni:
     1. Nella casella di testo **Nome macchina virtuale** immettere un nome per la macchina virtuale. La casella di testo viene precompilata con un nome univoco generato automaticamente, costituito dal nome utente incluso nell'indirizzo di posta elettronica seguito da un numero univoco a tre cifre. Ciò consente di evitare di perdere tempo a definire un nome per la macchina virtuale e digitarlo ogni volta che se ne crea una. Se si vuole, è possibile sostituire il nome compilato automaticamente con un nome di propria scelta. Per eseguire questa operazione, immettere un nome nella casella di testo **Nome macchina virtuale**.
     2. Immettere un **Nome utente** a cui vengono concessi privilegi di amministratore nella macchina virtuale. Il **nome utente** per la macchina viene precompilato con un nome univoco generato automaticamente, costituito dal nome utente incluso nell'indirizzo di posta elettronica. Ciò consente di evitare di perdere tempo a definire un nome utente ogni volta che si crea una nuova macchina. Anche in questo caso, se si vuole, è possibile sostituire il nome utente compilato automaticamente con un nome di propria scelta. Per eseguire questa operazione, immettere un valore nella casella di testo **Nome utente**. A questo utente vengono concessi i privilegi di **amministratore** sulla macchina virtuale.
-    3. Se si sta creando la prima macchina virtuale nel lab, immettere una **password** per l'utente. Per salvare questa password come predefinita nell'insieme di credenziali delle chiavi di Azure associato al lab, selezionare **Salva come password predefinita**. La password predefinita viene salvata nell'insieme di credenziali delle chiavi con il nome: **VmPassword**. Quando si prova a creare altre macchine virtuali nel lab, **VmPassword** viene selezionata automaticamente come **password**. Per sostituire il valore, deselezionare la casella di controllo **Usa un segreto salvato** e immettere una password.
+    3. Se si sta creando la prima macchina virtuale nel lab, immettere una **password** per l'utente. Per salvare questa password come predefinita nell'insieme di credenziali delle chiavi di Azure associato al lab, selezionare **Salva come password predefinita**. La password predefinita viene salvata nell'insieme di credenziali delle chiavi con il nome **VmPassword**. Quando si prova a creare altre macchine virtuali nel lab, **VmPassword** viene selezionata automaticamente come **password**. Per sostituire il valore, deselezionare la casella di controllo **Usa un segreto salvato** e immettere una password.
 
         È anche possibile salvare prima un segreto nell'insieme di credenziali delle chiavi e quindi usarlo per creare una macchina virtuale nel lab. Per altre informazioni, vedere [Archiviare segreti in un insieme di credenziali delle chiavi](devtest-lab-store-secrets-in-key-vault.md). Per usare la password archiviata nell'insieme di credenziali delle chiavi, selezionare **Usa un segreto salvato** e specificare un valore di chiave corrispondente al segreto (password).
     4. Nella sezione **Altre opzioni** selezionare **Modifica dimensioni**. Selezionare uno degli elementi predefiniti che specificano i core del processore, la dimensione della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare.
     5. Selezionare **Aggiungi o rimuovi artefatti**. Selezionare e configurare gli artefatti da aggiungere all'immagine di base.
-    **Nota:** Se non si ha familiarità con DevTest Labs o con la configurazione di elementi, vedere la sezione [Aggiungere un elemento esistente in una macchina virtuale](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
+    **Nota:** se non si ha familiarità con DevTest Labs o con la configurazione di elementi, vedere la sezione [Aggiungere un elemento esistente in una macchina virtuale](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e tornare qui al termine dell'operazione.
 2. Passare alla scheda **Impostazioni avanzate** nella parte superiore della pagina ed eseguire le operazioni seguenti:
     1. Per cambiare la rete virtuale in cui si trova la macchina virtuale, selezionare **Cambia rete virtuale**.
     2. Per cambiare la subnet, selezionare **Cambia subnet**.
@@ -72,7 +72,7 @@ Un utente può richiedere qualsiasi macchina virtuale dall'elenco "Claimable vir
   ![Richiedere una macchina virtuale a disposizione degli utenti.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-Quando una macchina virtuale viene richiesta da un utente, questa viene spostata in alto nell'elenco "My virtual machines" (Le mie macchine virtuali) e non è più disponibile per un altro utente.
+Quando un utente dichiara una macchina virtuale, DevTest Labs avvierà il computer e lo sposterà nell'elenco di "macchine virtuali" dell'utente del Lab. Ciò significa che l'utente del Lab avrà ora il proprietario privilegdes in questo mahcine. Il tempo necessario per questo passaggio può variare a seconda dei tempi di avvio e di qualsiasi altra azione personalizzata eseguita durante l'evento di attestazione. Una volta richiesto, il computer non è più disponibile nel pool di attestazioni.  
 
 ## <a name="unclaim-a-vm"></a>Annullare la richiesta di una macchina virtuale
 
@@ -86,7 +86,7 @@ Quando un utente non ha più bisogno di una macchina virtuale richiesta e deside
 
   ![Annullare la richiesta di una macchina virtuale nel riquadro di gestione della macchina virtuale.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-Quando un utente annulla la richiesta di una macchina virtuale, non dispone più delle autorizzazioni per tale macchina virtuale del lab.
+Quando un utente annulla la richiesta di una macchina virtuale, non dispone più delle autorizzazioni di proprietario per la VM Lab specifica ed è disponibile per la richiesta da parte di qualsiasi altro utente del Lab nello stato in cui è stata ripristinata nel pool. 
 
 ### <a name="transferring-the-data-disk"></a>Trasferimento del disco dati
 Se una macchina virtuale richiedibile dispone di un disco dati collegato a questa e un utente ne annulla la richiesta, il disco dati rimane associato alla macchina virtuale. Quando un altro utente richiede quella macchina virtuale, richiede sia il disco dati che la macchina virtuale.

@@ -1,19 +1,19 @@
 ---
-title: Come implementare l'esplorazione in base a facet in una gerarchia di categorie
+title: Aggiungere una gerarchia di categorie di esplorazione in base a facet
 titleSuffix: Azure Cognitive Search
-description: Aggiungere l'esplorazione facet alle applicazioni che si integrano con ricerca cognitiva di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
+description: Aggiungere l'esplorazione in base a facet per i filtri autoindirizzati nelle applicazioni di ricerca che si integrano con Azure ricerca cognitiva.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d10a049f7a4c7da7a75054acd442269adc74b948
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496522"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112074"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Come implementare l'esplorazione in base a facet in Azure ricerca cognitiva
 

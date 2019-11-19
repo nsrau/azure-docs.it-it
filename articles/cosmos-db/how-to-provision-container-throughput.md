@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 06de71776cdf503ff0df9fbf3b28cf9e01a12e01
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0b48652f7b181f1254a4b20af75b83593c2aba05
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575280"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147602"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos
 
 Questo articolo illustra come effettuare il provisioning della velocità effettiva per un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. È possibile effettuare il provisioning della velocità effettiva per un singolo contenitore oppure [effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md) e condividerlo tra i contenitori all'interno del database. Il provisioning della velocità effettiva per un contenitore può essere effettuato usando il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK di Azure Cosmos DB.
 
-## <a name="provision-throughput-using-azure-portal"></a>Effettuare il provisioning della velocità effettiva usando il portale di Azure
+## <a name="azure-portal"></a>portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -33,7 +33,7 @@ Questo articolo illustra come effettuare il provisioning della velocità effetti
 
     ![Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Provisioning della velocità effettiva con l'interfaccia della riga
+## <a name="azure-cli-or-powershell"></a>INTERFACCIA della riga di comando di Azure o PowerShell
 
 Per creare un contenitore con una velocità effettiva dedicata, vedere
 
@@ -43,7 +43,7 @@ Per creare un contenitore con una velocità effettiva dedicata, vedere
 > [!Note]
 > Se si effettua il provisioning della velocità effettiva in un contenitore in un account Azure Cosmos configurato con l'API Azure Cosmos DB per MongoDB, usare `/myShardKey` come percorso della chiave di partizione. Se si effettua il provisioning della velocità effettiva in un contenitore in un account Azure Cosmos configurato con l'API Cassandra, usare `/myPrimaryKey` come percorso della chiave di partizione.
 
-## <a name="provision-throughput-by-using-net-sdk"></a>Effettuare il provisioning della velocità effettiva usando .NET SDK
+## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
 > Usare l'API SQL di Cosmos SDK per effettuare il provisioning della velocità effettiva per tutte le API Cosmos DB ad eccezione dell'API Cassandra.
@@ -63,10 +63,40 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-### <a name="net-v3-sdk"></a>.Net V3 SDK
+### <a name="net-v3-sdk"></a>.NET V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
+## <a name="javascript-sdk"></a>JavaScript SDK
+
+```javascript
+// Create a new Client
+const client = new CosmosClient({ endpoint, key });
+
+// Create a database
+const { database } = await client.databases.createIfNotExists({ id: "databaseId" });
+
+// Create a container with the specified throughput
+const { resource } = await database.containers.createIfNotExists({
+id: "contaierId ",
+throughput: 1000
+});
+
+// To update an existing container or databases throughput, you need to user the offers API
+// Get all the offers
+const { resources: offers } = await client.offers.readAll().fetchAll();
+
+// Find the offer associated with your container or the database
+const offer = offers.find((_offer) => _offer.offerResourceId === resource._rid);
+
+// Change the throughput value
+offer.content.offerThroughput = 2000;
+
+// Replace the offer.
+await client.offer(offer.id).replace(offer);
+```
+
 ### <a id="dotnet-cassandra"></a>API Cassandra
+
 Comandi simili possono essere emessi tramite qualsiasi driver conforme a CQL.
 
 ```csharp

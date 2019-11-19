@@ -1,5 +1,5 @@
 ---
-title: Impostazioni del gateway VPN per connessioni di Azure cross-premise | Documentazione Microsoft
+title: 'Gateway VPN di Azure: impostazioni di configurazione'
 description: Informazioni sulle impostazioni del gateway VPN per i gateway di rete virtuale di Azure.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c72b85bc978191744c55afb73973caa6d3b45db6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495773"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150953"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 
@@ -39,7 +39,7 @@ I valori disponibili per GatewayType sono:
 * VPN
 * ExpressRoute
 
-Un gateway VPN richiede il valore `-GatewayType` *Vpn* per.
+Un gateway VPN richiede il valore `-GatewayType`Vpn *per* .
 
 Esempio:
 
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configurare uno SKU del gateway
 
-#### <a name="azure-portal"></a>Portale di Azure
+#### <a name="azure-portal"></a>portale di Azure
 
 Se si usa il portale di Azure per creare un gateway di rete virtuale di Resource Manager, è possibile selezionare lo SKU del dal menu a discesa. Le opzioni disponibili corrispondono al tipo di gateway e al tipo di VPN selezionati.
 
@@ -172,8 +172,8 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 | **Classico** | **Gestione risorse** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Supporto non disponibile | [interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
+| [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
+| Non supportato | [Interfaccia della riga di comando di Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

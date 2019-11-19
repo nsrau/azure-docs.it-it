@@ -3,16 +3,16 @@ title: 'Esercitazione: Visualizzare i dati da Esplora dati di Azure in Power BI'
 description: Questa esercitazione fornisce informazioni su come connettersi a Esplora dati di Azure con Power BI e visualizzare i dati.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049881"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037351"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Esercitazione: Visualizzare i dati da Esplora dati di Azure in Power BI
 
@@ -219,7 +219,7 @@ Se non si desidera mantenere il report creato, è sufficiente eliminare il file 
 
 1. In **Area di lavoro personale**, scorrere verso il basso fino a **Report** e individuare **storms-events**.
 
-1. Selezionare i puntini di sospensione (**...**) accanto a **storm-events**, quindi selezionare **RIMUOVI**.
+1. Selezionare i puntini di sospensione ( **...** ) accanto a **storm-events**, quindi selezionare **RIMUOVI**.
 
     ![Rimuovere il report](media/visualize-power-bi/remove-report.png)
 

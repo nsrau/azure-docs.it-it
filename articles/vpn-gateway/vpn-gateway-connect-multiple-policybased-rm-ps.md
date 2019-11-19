@@ -1,5 +1,5 @@
 ---
-title: 'Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Gateway VPN di Azure: connettere i gateway a più dispositivi VPN basati su criteri locali'
 description: Configurare un gateway VPN basato su route di Azure per più dispositivi VPN basati su criteri usando Azure Resource Manager e PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495668"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146709"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali usando PowerShell
 
@@ -63,7 +63,7 @@ Come illustrato nel diagramma, il gateway VPN di Azure ha selettori di traffico 
 
 Le istruzioni contenute in questo articolo seguono lo stesso esempio descritto in [Configurare criteri IPsec/IKE per connessioni da sito a sito o da rete virtuale a rete virtuale](vpn-gateway-ipsecikepolicy-rm-powershell.md) per stabilire una connessione VPN da sito a sito. Vedere il diagramma seguente:
 
-![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![Criteri da sito a sito](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 Flusso di lavoro per abilitare questa connettività:
 1. Creare la rete virtuale, il gateway VPN e il gateway di rete locale per la connessione cross-premise
@@ -215,6 +215,6 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare una macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per i passaggi, vedere [Creare la prima macchina virtuale](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
 
 Vedere anche [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configurare i criteri IPsec/IKE per le connessioni da sito a sito o da rete virtuale a rete virtuale) per altre informazioni sui criteri IPsec/IKE personalizzati.

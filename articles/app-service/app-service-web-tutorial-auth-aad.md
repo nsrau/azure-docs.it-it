@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471296"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961962"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel Servizio app di Azure
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-La nuova modifica aggiunge il mapping `revolve`, che chiama `/.auth/me` e imposta il token di accesso. Viene così garantita la disponibilità del token di accesso prima della creazione di un'istanza del controller `todoListCtrl`. In questo modo, tutte le chiamate API da parte del controller includeranno il token.
+La nuova modifica aggiunge il mapping `resolve`, che chiama `/.auth/me` e imposta il token di accesso. Viene così garantita la disponibilità del token di accesso prima della creazione di un'istanza del controller `todoListCtrl`. In questo modo, tutte le chiamate API da parte del controller includeranno il token.
 
 ### <a name="deploy-updates-and-test"></a>Distribuire aggiornamenti ed eseguire un test
 

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747474"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091099"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Eseguire il backup e il ripristino di condivisioni file di Azure
 
@@ -195,13 +195,13 @@ Per riprendere la protezione della condivisione file, passare all'elemento di ba
 
    ![Selezionare il processo da monitorare](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Eliminare i dati di backup
+### <a name="delete-backup-data"></a>Elimina dati di backup
 
 È possibile eliminare il backup di una condivisione file durante il processo di interruzione del backup oppure in qualsiasi momento dopo aver interrotto la protezione. Attendere settimane o mesi prima di eliminare i punti di ripristino potrebbe anche essere utile. A differenza del recupero dei punti di ripristino, quando si eliminano i dati di backup non è possibile scegliere di eliminare punti di ripristino specifici. Se si sceglie di eliminare i dati di backup, vengono eliminati tutti i punti di ripristino associati all'elemento.
 
 Nella procedura seguente si presuppone che il processo di backup per la condivisione file sia stato interrotto. Dopo aver interrotto il processo di backup, nel dashboard dell'elemento di backup sono disponibili le opzioni Riprendi backup ed Elimina dati di backup. Fare clic su Elimina dati di backup e immettere il nome della condivisione file per confermare l'eliminazione. L'aggiunta di un motivo o commento per l'eliminazione è facoltativa.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle condivisioni file di Azure, vedere
 

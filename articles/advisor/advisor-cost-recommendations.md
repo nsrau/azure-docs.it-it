@@ -3,25 +3,25 @@ title: Ridurre i costi del servizio con Azure Advisor | Microsoft Docs
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.author: sagupt
+ms.openlocfilehash: cae16430ce933b8d071696377b22f10c15b5eae5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703043"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145382"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Ridurre i costi del servizio con Azure Advisor
 
-Advisor aiuta a ottimizzare e ridurre la spesa complessiva legata ad Azure identificando le risorse inattive e sottoutilizzate. È possibile ottenere consigli sui costi nella scheda **Costo** del dashboard di Advisor.
+Advisor aiuta a ottimizzare e ridurre la spesa complessiva legata ad Azure identificando le risorse inattive e sottoutilizzate. È possibile ottenere consigli sui costi dalla scheda **costo** del dashboard di Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Ottimizzare la spesa correlata alle macchine virtuali ridimensionando o arrestando le istanze sottoutilizzate 
 
-Sebbene in alcuni scenari applicativi possa verificarsi un utilizzo ridotto legato alla progettazione, è comunque possibile risparmiare denaro mediante la gestione delle dimensioni e del numero delle macchine virtuali. I modelli di valutazione avanzata di Advisor considerano le macchine virtuali per l'arresto quando P95th del valore massimo del valore massimo di utilizzo della CPU è inferiore al 3% e l'utilizzo della rete è inferiore al 2% per un periodo di 7 giorni. Le macchine virtuali vengono considerate a destra quando è possibile adattare il carico corrente in uno SKU più piccolo (all'interno della stessa famiglia di SKU) o un numero minore di istanze, in modo che il carico corrente non superi l'utilizzo del 80% quando i carichi di lavoro non sono destinati agli utenti e non superiore al 40% in caso di carico di lavoro per l'utente. In questo caso, il tipo di carico di lavoro viene determinato analizzando le caratteristiche di utilizzo della CPU del carico di lavoro.
+Sebbene in alcuni scenari applicativi possa verificarsi un utilizzo ridotto legato alla progettazione, è comunque possibile risparmiare denaro mediante la gestione delle dimensioni e del numero delle macchine virtuali. I modelli di valutazione avanzata di Advisor considerano le macchine virtuali per l'arresto quando P95th del valore massimo del valore massimo di utilizzo della CPU è inferiore al 3% e l'utilizzo della rete è inferiore al 2% per un periodo di 7 giorni. Le macchine virtuali vengono considerate a destra quando è possibile adattare il carico corrente in uno SKU più piccolo (all'interno della stessa famiglia di SKU) o in un numero minore di istanze, in modo che il carico corrente non superi il 80% di utilizzo quando i carichi di lavoro non rientrano nell'utente e non oltre il 40% quando il carico di lavoro viene utilizzato dall'utente. In questo caso, il tipo di carico di lavoro viene determinato analizzando le caratteristiche di utilizzo della CPU del carico di lavoro.
 
 Le azioni consigliate sono arrestate o ridimensionate, specifiche della risorsa consigliata per. Advisor Mostra il risparmio sui costi stimato per le azioni consigliate, ovvero ridimensionare o arrestare. Inoltre, per l'azione di ridimensionamento consigliata, Advisor fornisce informazioni sugli SKU correnti e di destinazione. 
 
@@ -62,7 +62,8 @@ Per risparmiare il 60% dei costi, è consigliabile archiviare gli snapshot nell'
 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [esercitazione introduttiva](advisor-get-started.md)
+* [Attività iniziali](advisor-get-started.md)
 * [Advisor Performance recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor High Availability recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sulla sicurezza)
+* [Raccomandazioni sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md)

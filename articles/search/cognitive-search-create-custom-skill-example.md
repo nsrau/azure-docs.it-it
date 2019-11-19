@@ -1,5 +1,5 @@
 ---
-title: 'Esempio: creazione di una competenza cognitiva personalizzata con la API Ricerca entità Bing'
+title: Esempio di abilità personalizzata con API Ricerca entità Bing
 titleSuffix: Azure Cognitive Search
 description: Illustra l'uso del servizio Ricerca entità Bing in un'abilità personalizzata mappata a una pipeline di indicizzazione arricchita con intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466824"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113811"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Esempio: creare una competenza personalizzata usando il API Ricerca entità Bing
 
 In questo esempio viene illustrato come creare un'API Web personalizzata. Questa competenza accetterà le località, le cifre pubbliche e le organizzazioni e restituirà le descrizioni. Nell'esempio viene usata una [funzione di Azure](https://azure.microsoft.com/services/functions/) per eseguire il wrapping del [API ricerca entità Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) in modo che implementi l'interfaccia skill personalizzata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Se non si ha familiarità con l'interfaccia di input/output che deve essere implementata da un'abilità personalizzata, vedere l'articolo informazioni sull' [interfaccia di competenze personalizzate](cognitive-search-custom-skill-interface.md) .
 
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>response
 La risposta dovrebbe essere simile all'esempio seguente:
 
 ```json
@@ -393,7 +393,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
 ```
 
-### <a name="request-body"></a>Request Body
+### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
     "values": [
@@ -476,10 +476,10 @@ Qui viene conteggiata la competenza incorporata per il [riconoscimento delle ent
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni. Sono state create le prime competenze personalizzate. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
+Congratulazioni! Sono state create le prime competenze personalizzate. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
 
 + [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

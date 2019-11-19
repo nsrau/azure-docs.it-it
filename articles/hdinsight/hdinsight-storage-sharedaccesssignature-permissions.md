@@ -2,18 +2,18 @@
 title: "Limitare l'accesso usando le firme di accesso condiviso: Azure HDInsight"
 description: Informazioni su come usare le firme di accesso condiviso per limitare l'accesso di HDInsight ai dati archiviati nei BLOB di archiviazione di Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/13/2019
+ms.openlocfilehash: 725bdfd4efe3be600c993e568f1a5c7edccc6952
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498113"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148233"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -25,7 +25,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 > [!WARNING]  
 > HDInsight deve avere accesso completo alla risorsa di archiviazione predefinita per il cluster.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure.
 
@@ -33,9 +33,9 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 * Un [contenitore di archiviazione](../storage/blobs/storage-quickstart-blobs-portal.md)esistente.  
 
-* Se si usa PowerShell, sarà necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se si usa PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
-* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
+* Se si vuole usare l'interfaccia della riga di comando di Azure e non è ancora stata installata, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * Se si usa [Python](https://www.python.org/downloads/), versione 2,7 o successiva.
 
@@ -69,7 +69,7 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
     * L'intervallo di tempo è trascorso.
     * Per i criteri di accesso archiviati è stata impostata una scadenza nel passato. Modificando la scadenza è possibile revocare la firma di accesso condiviso.
 
-3. I criteri di accesso archiviati cui viene fatto riferimento nella firma di accesso condiviso vengono eliminati e ciò corrisponde a un altro modo per revocare la firma. Se si ricreano i criteri di accesso archiviati specificando lo stesso nome, tutti i token di firma di accesso condiviso relativi ai criteri precedenti restano validi, a condizione che l'ora di scadenza indicata nella firma di accesso condiviso non sia trascorsa. Se si intende revocare la firma di accesso condiviso, verificare di usare un nome diverso per ricreare i criteri di accesso archiviati con scadenza nel futuro.
+3. I criteri di accesso archiviati cui viene fatto riferimento nella firma di accesso condiviso vengono eliminati e ciò corrisponde a un altro modo per revocare la firma. Se si ricreano i criteri di accesso archiviati con lo stesso nome, tutti i token SAS per i criteri precedenti sono validi (se l'ora di scadenza della firma di accesso condiviso non è stata superata). Se si intende revocare la firma di accesso condiviso, verificare di usare un nome diverso per ricreare i criteri di accesso archiviati con scadenza nel futuro.
 
 4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Se si rigenera la chiave, l'autenticazione di tutte le applicazioni che usano la chiave precedente avrà esito negativo. Aggiornare tutti i componenti con la nuova chiave.
 
@@ -234,7 +234,6 @@ Per usare una firma di accesso condiviso allo scopo di limitare l'accesso a un c
 Sostituire `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`e `TOKEN` con i valori appropriati. Immettere i comandi di PowerShell:
 
 ```powershell
-
 $clusterName = 'CLUSTERNAME'
 $resourceGroupName = 'RESOURCEGROUP'
 
@@ -285,11 +284,10 @@ $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
 
-
 # Create a blob container. This holds the default data store for the cluster.
 New-AzStorageContainer `
     -Name $clusterName `
-    -Context $defaultStorageContext 
+    -Context $defaultStorageContext
 
 # Cluster login is used to secure HTTPS services hosted on the cluster
 $httpCredential = Get-Credential `
@@ -302,9 +300,9 @@ $sshCredential = Get-Credential `
     -UserName "sshuser"
 
 # Create the configuration for the cluster
-$config = New-AzHDInsightClusterConfig 
+$config = New-AzHDInsightClusterConfig
 
-$config = $config | Add-AzHDInsightConfigValues `
+$config = $config | Add-AzHDInsightConfigValue `
     -Spark2Defaults @{} `
     -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
 
@@ -358,29 +356,29 @@ Se si dispone di un cluster esistente, è possibile aggiungere la firma di acces
 
 1. Aprire l'interfaccia utente Web di Ambari per il cluster. L'indirizzo di questa pagina è `https://YOURCLUSTERNAME.azurehdinsight.net`. Quando richiesto, eseguire l'autenticazione al cluster con il nome amministratore (admin) e la password usati durante la creazione del cluster.
 
-2. Nel lato sinistro dell'interfaccia utente Web di Ambari selezionare **HDFS** e quindi selezionare la scheda **Configs** al centro della pagina.
+1. Passare a **HDFS** > **configs** > **Advanced** > **Custom Core-site**.
 
-3. Selezionare la scheda **Advanced** e scorrere fino alla sezione **Custom core-site**.
+1. Espandere la sezione **core personalizzato-sito** , scorrere fino alla fine e quindi selezionare **Aggiungi proprietà...** . Usare i valori seguenti per **Key** e **value**:
 
-4. Espandere la sezione **Custom core-site**, quindi scorrere fino alla fine e selezionare il collegamento **Add property**. Usare i valori seguenti per i campi **Key** e **Value**:
+    * **Chiave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Value**: la firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
 
-   * **Chiave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **Value**: la firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
+    Sostituire `CONTAINERNAME` con il nome del contenitore usato con l' C# applicazione SAS o. Sostituire `STORAGEACCOUNTNAME` con il nome dell'account di archiviazione usato.
 
-     Sostituire `CONTAINERNAME` con il nome del contenitore usato con l' C# applicazione SAS o. Sostituire `STORAGEACCOUNTNAME` con il nome dell'account di archiviazione usato.
+    Selezionare **Aggiungi** per salvare la chiave e il valore
 
-5. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
+1. Selezionare il pulsante **Salva** per salvare le modifiche apportate alla configurazione. Quando richiesto, aggiungere una descrizione della modifica (ad esempio "aggiunta di accesso alla risorsa di archiviazione SAS"), quindi selezionare **Salva**.
 
-    Al termine delle modifiche, fare clic su **OK** .
+    Selezionare **OK** quando le modifiche sono state completate.
 
    > [!IMPORTANT]  
    > Perché le modifiche siano effettive, è necessario riavviare diversi servizi.
 
-6. Nell'interfaccia utente Web di Ambari selezionare **HDFS** dall'elenco a sinistra e quindi selezionare **Restart All Affected** (Reimposta tutti gli interessati) dall'elenco a discesa **Service Actions** (Azioni servizio) a destra. Quando viene chiesto, selezionare __Confirm restart all__ (Conferma riavvio di tutti).
+1. Verrà visualizzato un elenco a discesa di **riavvio** . Selezionare **Restart all affected** dall'elenco a discesa, quindi __confermare restart all__.
 
-    Ripetere il processo per MapReduce2 e YARN.
+    Ripetere questo processo per **MapReduce2** e **Yarn**.
 
-7. Dopo il riavvio di questi servizi, selezionarli uno alla volta e disabilitare la modalità di manutenzione dall'elenco a discesa **Service Actions** (Azioni servizio).
+1. Dopo il riavvio di questi servizi, selezionarli uno alla volta e disabilitare la modalità di manutenzione dall'elenco a discesa **Service Actions** (Azioni servizio).
 
 ## <a name="test-restricted-access"></a>Testare l'accesso limitato
 
@@ -405,7 +403,7 @@ Usare la procedura seguente per verificare che sia possibile leggere ed elencare
 3. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. Sostituire il `SASCONTAINER` e `SASACCOUNTNAME` come nel passaggio precedente. Sostituire `sample.log` con il nome del file visualizzato nel comando precedente:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
+    hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     Verrà visualizzato il contenuto del file.
@@ -438,9 +436,7 @@ Usare la procedura seguente per verificare che sia possibile leggere ed elencare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come aggiungere risorse di archiviazione ad accesso limitato al cluster HDInsight, è possibile conoscere altri modi per usare i dati nel cluster:
+Ora che si è appreso come aggiungere archiviazione con accesso limitato al cluster HDInsight, è possibile imparare a usare i dati nel cluster in altri modi:
 
 * [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
 * [Usare MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
-

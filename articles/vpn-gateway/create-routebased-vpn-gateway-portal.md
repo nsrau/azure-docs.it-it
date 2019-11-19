@@ -1,5 +1,6 @@
 ---
-title: 'Creare un gateway VPN basato su route: portale di Azure | Microsoft Docs'
+title: 'Creare un gateway VPN basato su Route: portale'
+titleSuffix: Azure VPN Gateway
 description: Creare un gateway VPN basato su route usando il portale di Azure
 services: vpn-gateway
 author: cherylmc
@@ -7,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3ab662a4f06b2d73ab0dab52f562398fee23686c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a44bdf654842d964a02f6aebe60e3632aabcd64d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266535"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151679"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creare un gateway VPN basato su route usando il portale di Azure
 
-Questo articolo illustra come creare rapidamente un gateway VPN di Azure basato su route usando il portale di Azure.  Un gateway VPN viene usato quando si crea una connessione VPN alla rete locale. È anche possibile usare il gateway VPN per connettere reti virtuali. 
+Questo articolo illustra come creare rapidamente un gateway VPN di Azure basato su route usando il portale di Azure.  Il gateway VPN viene usato quando si crea una connessione VPN alla rete locale. È anche possibile usare il gateway VPN per connettere reti virtuali. 
 
-Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN basato su route, ovvero un gateway di rete virtuale. Al termine della creazione del gateway, sarà possibile creare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN (gateway di rete virtuale) basato su route. Dopo aver creato il gateway, è possibile configurare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="vnet"></a>Creare una rete virtuale
 
@@ -49,7 +50,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Al termine della creazione del gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure creare una connessione tra la propria rete virtuale e una posizione locale.
+Dopo aver creato il gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure tra la propria rete virtuale e una posizione locale.
 
 > [!div class="nextstepaction"]
 > [Creare una connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>

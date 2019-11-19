@@ -1,5 +1,5 @@
 ---
-title: Aggiungere analizzatori di lingua a campi stringa in un indice
+title: Aggiungere analizzatori di lingua ai campi stringa
 titleSuffix: Azure Cognitive Search
 description: Analisi del testo lessicale multilingue per query e indici non in lingua inglese in ricerca cognitiva di Azure.
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790148"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111802"
 ---
-# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>Aggiungere analizzatori di lingua a un indice di ricerca cognitiva di Azure
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Aggiungere analizzatori di lingua ai campi stringa in un indice di ricerca cognitiva di Azure
 
 L'*analizzatore del linguaggio* è un tipo specifico di [analizzatore di testo](search-analyzers.md) che esegue l'analisi lessicale usando le regole linguistiche della lingua di destinazione. Ogni campo che consente la ricerca ha una proprietà **analyzer**. Se l'indice contiene stringhe tradotte, ad esempio campi separati per un testo in lingua inglese e cinese, è possibile specificare gli analizzatori del linguaggio in ogni campo per accedere alle funzionalità linguistiche avanzate di tali analizzatori.  
 
@@ -59,7 +59,7 @@ Per altre informazioni sulle proprietà degli indici, vedere [create index &#40;
 ## <a name="language-analyzer-list"></a>Elenco di analizzatori di lingua 
  Di seguito è riportato l'elenco delle lingue supportate con i nomi degli analizzatori Lucene e Microsoft.  
 
-|Linguaggio|Nome analizzatore Microsoft|Nome analizzatore Lucene|  
+|Lingua|Nome analizzatore Microsoft|Nome analizzatore Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Arabo|ar.microsoft|ar.lucene|  
 |Armeno||hy.lucene|  
@@ -73,7 +73,7 @@ Per altre informazioni sulle proprietà degli indici, vedere [create index &#40;
 |Ceco|cs.microsoft|cs.lucene|  
 |Danese|da.microsoft|da.lucene|  
 |Olandese|nl.microsoft|nl.lucene|  
-|Italiano|en.microsoft|en.lucene|  
+|English|en.microsoft|en.lucene|  
 |Estone|et.microsoft||  
 |Finlandese|fi.microsoft|fi.lucene|  
 |Francese|fr.microsoft|fr.lucene|  
@@ -120,7 +120,7 @@ Per altre informazioni sulle proprietà degli indici, vedere [create index &#40;
 
  Tutti gli analizzatori con nomi contenenti la parola **Lucene** sono basati sugli [analizzatori del linguaggio Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 + [Creare l' &#40;indice Azure ricerca cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

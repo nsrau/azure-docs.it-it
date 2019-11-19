@@ -1,7 +1,7 @@
 ---
 title: Guida di riferimento alle funzioni OData search.in
 titleSuffix: Azure Cognitive Search
-description: Funzione search.in OData in Azure ricerca cognitiva query.
+description: Sintassi e documentazione di riferimento per l'uso della funzione search.in in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f641e50554e720d273735fd20032e60444cb198a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793287"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113113"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Funzione `search.in` OData in Azure ricerca cognitiva
 
@@ -70,7 +70,7 @@ La funzione `search.in` è costituita da due overload:
 
 I parametri sono definiti nella tabella seguente:
 
-| Nome parametro | Type | Description |
+| Nome parametro | digitare | DESCRIZIONE |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Riferimento a un campo stringa (o una variabile di intervallo su un campo della raccolta di stringhe nel caso in cui `search.in` venga utilizzato all'interno di un'espressione `any` o `all`). |
 | `valueList` | `Edm.String` | Stringa contenente un elenco delimitato di valori da confrontare con il parametro `variable`. Se il parametro `delimiters` non è specificato, i delimitatori predefiniti sono spazio e virgola. |

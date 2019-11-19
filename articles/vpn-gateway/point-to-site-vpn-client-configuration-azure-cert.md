@@ -1,5 +1,6 @@
 ---
-title: "Creare e installare i file di configurazione del client VPN P2S per l'autenticazione del certificato di Azure: Azure"
+title: 'Creare & installare i file di configurazione del client VPN P2S: autenticazione del certificato'
+titleSuffix: Azure VPN Gateway
 description: Creare e installare i file di configurazione del client VPN in Windows, Linux, Linux (strongSwan) e Mac OS X per l'autenticazione del certificato da punto a sito.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063125"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143790"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -106,7 +107,7 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
    ![certificato](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.
 
-   ![identità](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 6). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)

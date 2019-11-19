@@ -11,22 +11,22 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3589310ff93aca3cec735d6b2f1609ee3d1d2e68
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825793"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132288"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
 
-Questo articolo contiene indicazioni generali per l'esecuzione di applicazioni SaaS di esempio Wingtip Tickets che usano Database SQL di Azure. 
+Questo articolo contiene indicazioni generali per l'esecuzione di applicazioni SaaS di esempio Wingtip Tickets che usano Database SQL di Azure.
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets
 
-I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando si scaricano e si estraggono i file ZIP da un'origine esterna. Quando si estraggono gli script da un file ZIP, **seguire questa procedura per sbloccare il file ZIP prima di estrarlo**. In questo modo sarà possibile eseguire gli script.
+I contenuti eseguibili (script, DLL) possono venire bloccati da Windows quando i file ZIP vengono scaricati da un'origine esterna ed estratti. Quando si estraggono gli script da un file ZIP, **seguire questa procedura per sbloccare il file ZIP prima di estrarlo**. In questo modo sarà possibile eseguire gli script.
 
-1. Passare al repository GitHub SaaS Wingtip Tickets per il modello di tenancy del database che si desidera esplorare: 
+1. Passare al repository GitHub SaaS Wingtip Tickets per il modello di tenancy del database che si desidera esplorare:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
@@ -42,13 +42,13 @@ Gli script si trovano nella cartella *..\\Learning Modules*.
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Uso degli script di PowerShell per Wingtip Tickets
 
-Per ottenere il massimo dall'esempio, è necessario esplorare gli script forniti. Usare i punti di interruzione, scorrere gli script in esecuzione ed esaminare come vengono implementati i diversi modelli SaaS. Per scorrere facilmente gli script e i moduli forniti e comprenderli a fondo, è consigliabile usare [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+Per ottenere il massimo dall'esempio, è necessario esplorare gli script forniti. Usare i punti di interruzione, scorrere gli script in esecuzione ed esaminare come vengono implementati i diversi modelli SaaS. Per scorrere facilmente gli script e i moduli forniti e comprenderli a fondo, è consigliabile usare [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
 
 ### <a name="update-the-configuration-file-for-your-deployment"></a>Aggiornare il file di configurazione per la distribuzione
 
 Modificare il file **UserConfig.psm1** con il valore per il gruppo di risorse e per l'utente usato durante la distribuzione:
 
-1. Aprire *PowerShell ISE* e caricare ...\\Learning Modules\\*UserConfig.psm1* 
+1. Aprire *PowerShell ISE* e caricare ...\\Learning Modules\\*UserConfig.psm1*
 2. Aggiornare *ResourceGroupName* e *Name* con i valori specifici della distribuzione in uso (solo alle righe 10 e 11).
 3. Salvare le modifiche.
 
@@ -76,7 +76,7 @@ Suggerimenti per esplorare e scorrere gli script PowerShell:
 
 Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server e ai database dell'applicazione e per esplorarli.
 
-La distribuzione dispone inizialmente di tenant e di server di database SQL del catalogo a cui connettersi. La denominazione dei server varia a seconda del modello tenancy di database (vedere di seguito per le specifiche). 
+La distribuzione dispone inizialmente di tenant e di server di database SQL del catalogo a cui connettersi. La denominazione dei server varia a seconda del modello tenancy di database (vedere di seguito per le specifiche).
 
    - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;* ) e *catalog-sa-&lt;Utente&gt;*
    - **Database per tenant:** server *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
@@ -86,19 +86,19 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
 
 
 1. Aprire *SSMS* e connettersi ai tenant. Il nome del server varia a seconda del modello tenancy del database selezionato (vedere di seguito per le specifiche):
-    - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net*) 
+    - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net*)
     - **Database per tenant:** *tenants1-dpt-&lt;Utente&gt;.database.windows.net*
-    - **Database multi-tenant:** *tenants1-mt-&lt;Utente&gt;.database.windows.net* 
+    - **Database multi-tenant:** *tenants1-mt-&lt;Utente&gt;.database.windows.net*
 2. Fare clic su **Connetti** > **Motore di database...** :
 
    ![server di catalogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
 3. Credenziali demo: login = *Developer*, password = *P\@ssword1*
 
-    L'immagine seguente illustra l'accesso per il modello *Database per tenant*. 
+    L'immagine seguente illustra l'accesso per il modello *Database per tenant*.
     ![connessione](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
-    
-   
+
+
 
 4. Ripetere i passaggi 2-3 e connettersi al server di catalogo. Vedere di seguito per i nomi di server specifici in base al modello di tenancy del database selezionato.
     - **Applicazione autonoma:** *catalog-sa-&lt;Utente&gt;.database.windows.net*

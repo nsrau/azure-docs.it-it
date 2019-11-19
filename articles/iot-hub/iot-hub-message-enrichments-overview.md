@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005836"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144869"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud
 
@@ -54,11 +54,21 @@ I messaggi possono provenire da qualsiasi origine dati supportata dal [routing d
 
 È possibile aggiungere arricchimenti ai messaggi che vengono indirizzati all'endpoint predefinito di un hub delle cose o ai messaggi che vengono indirizzati a endpoint personalizzati, ad esempio archiviazione BLOB di Azure, una coda del bus di servizio o un argomento del bus di servizio.
 
-È anche possibile aggiungere arricchimenti ai messaggi che vengono pubblicati in griglia di eventi selezionando l'endpoint come griglia di eventi. Per altre informazioni, vedere [Hub e griglia di eventi](iot-hub-event-grid.md).
+È possibile aggiungere arricchimenti ai messaggi che vengono pubblicati in griglia di eventi selezionando l'endpoint come griglia di eventi. Viene creata una route predefinita nell'hub degli indirizzi Internet per la telemetria dei dispositivi, in base alla sottoscrizione di griglia di eventi. Questa singola route può gestire tutte le sottoscrizioni di griglia di eventi. È possibile configurare gli arricchimenti per la griglia di eventi ENT [punto dopo aver creato la sottoscrizione di griglia di eventi per la telemetria del dispositivo. Per altre informazioni, vedere [Hub e griglia di eventi](iot-hub-event-grid.md).
 
 Gli arricchimenti vengono applicati per ogni endpoint. Se si specificano cinque arricchimenti da contrassegnare per un endpoint specifico, tutti i messaggi che passano a tale endpoint vengono contrassegnati con gli stessi cinque arricchimenti.
 
-Per informazioni su come provare gli arricchimenti dei messaggi, vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md)
+È possibile configurare gli arricchimenti usando i metodi seguenti:
+
+| **Metodo** | **Comando** |
+| ----- | -----| 
+| di Microsoft Azure | [Portale di Azure](https://portal.azure.com) | Vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md) | 
+| Interfaccia della riga di comando di Azure   | [AZ all hub Message-arricchimento](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+
+L'aggiunta di arricchimenti dei messaggi non consente di aggiungere latenza al routing dei messaggi.
+
+Per provare ad arricchire i messaggi, vedere l' [esercitazione sull'arricchimento dei messaggi](tutorial-message-enrichments.md)
 
 ## <a name="limitations"></a>Limitazioni
 

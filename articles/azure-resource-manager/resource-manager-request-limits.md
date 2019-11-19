@@ -1,18 +1,15 @@
 ---
-title: Limitazione delle richieste di Azure Resource Manager | Microsoft Docs
+title: Limiti e limitazione delle richieste
 description: Viene descritto come usare la limitazione con le richieste di Azure Resource Manager quando sono stati raggiunti i limiti di sottoscrizioni.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b47943d69d209f5a0406c293b5a24c6ac0ad0c10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965560"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150480"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
 
@@ -28,11 +25,11 @@ Ogni operazione a livello di sottoscrizione e di tenant è soggetta a limiti di 
 
 La tabella seguente illustra i limiti di limitazione predefiniti per ora.
 
-| Scope | Operazioni | Limite |
+| Ambito | Operazioni | Limite |
 | ----- | ---------- | ------- |
-| Sottoscrizione | legge | 12000 |
-| Sottoscrizione | Elimina | 15000 |
-| Sottoscrizione | scrive | 1200 |
+| sottoscrizione | legge | 12000 |
+| sottoscrizione | Elimina | 15000 |
+| sottoscrizione | scrive | 1200 |
 | Tenant | legge | 12000 |
 | Tenant | scrive | 1200 |
 
@@ -87,7 +84,7 @@ Alcuni provider di risorse restituiscono 429 per segnalare un problema temporane
 
 È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Le richieste di lettura restituiscono un valore nell'intestazione per il numero di richieste di lettura rimanenti. Le richieste di scrittura includono un valore per il numero di richieste di scrittura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
 
-| Intestazione risposta | Description |
+| Intestazione risposta | DESCRIZIONE |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Richieste di lettura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di lettura. |
 | x-ms-ratelimit-remaining-subscription-writes |Richieste di scrittura rimanenti nell'ambito della sottoscrizione. Questo valore viene restituito nelle operazioni di scrittura. |

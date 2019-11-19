@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716687"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084767"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Differenze tra Azure Machine Learning e ML Studio (versione classica)
 
 In questo articolo vengono confrontate le caratteristiche, le funzionalità e l'interfaccia di Azure Machine Learning e ML Studio (versione classica). 
 
 ## <a name="about-ml-studio-classic"></a>Informazioni su ML Studio (versione classica)
-[ML Studio (versione classica)](/studio/what-is-ml-studio.md) è un'area di lavoro collaborativa e grafica con trascinamento della selezione in cui è possibile creare, testare e distribuire soluzioni di Machine Learning senza la necessità di scrivere codice. Usa algoritmi di Machine Learning e moduli di gestione dei dati precompilati e preconfigurati, oltre a una piattaforma di calcolo proprietaria.
+[ML Studio (versione classica)](studio/what-is-ml-studio.md) è un'area di lavoro collaborativa e grafica con trascinamento della selezione in cui è possibile creare, testare e distribuire soluzioni di Machine Learning senza la necessità di scrivere codice. Usa algoritmi di Machine Learning e moduli di gestione dei dati precompilati e preconfigurati, oltre a una piattaforma di calcolo proprietaria.
 
 ## <a name="about-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
-[Azure Machine Learning](/service/overview-what-is-azure-ml.md) offre **sia** un'interfaccia Web denominata finestra di progettazione (anteprima) che vari SDK e interfacce della riga di comando per preparare rapidamente i dati, nonché per eseguire il training dei modelli di Machine Learning e distribuirli. Azure Machine Learning offre scalabilità, supporto di più framework e funzionalità avanzate di Machine Learning quali il servizio Machine Learning automatizzato e il supporto di pipeline.
+[Azure Machine Learning](service/overview-what-is-azure-ml.md) offre **sia** un'interfaccia Web denominata finestra di progettazione (anteprima) che vari SDK e interfacce della riga di comando per preparare rapidamente i dati, nonché per eseguire il training dei modelli di Machine Learning e distribuirli. Azure Machine Learning offre scalabilità, supporto di più framework e funzionalità avanzate di Machine Learning quali il servizio Machine Learning automatizzato e il supporto di pipeline.
 
 La finestra di progettazione di Azure Machine Learning fornisce un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente, è scalabile ed è pienamente integrata in Azure Machine Learning.  
 

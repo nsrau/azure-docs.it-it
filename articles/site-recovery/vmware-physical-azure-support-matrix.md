@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5c20c280fdc9097692f98c83dcb3d310e9914ecf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082203"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133372"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -208,7 +208,7 @@ Guest/server - esclusione disco | Sì
 Percorsi multipli (MPIO) guest/server | No
 Partizioni GPT Guest/server | Sono supportate cinque partizioni dall' [aggiornamento cumulativo 37](https://support.microsoft.com/help/4508614/) (versione 9,25 del servizio Mobility). In precedenza ne erano supportate quattro.
 ReFS | Resilient file System è supportato con il servizio Mobility versione 9,23 o successiva
-Avvio EFI/UEFI Guest/server | -Supportato per Windows Server 2012 o versioni successive, SLES SP4 e RHEL 8,0 <br/> -Il tipo di avvio UEFI sicuro non è supportato. 
+Avvio EFI/UEFI Guest/server | -Supportato per Windows Server 2012 o versioni successive, SLES 12 SP4 e RHEL 8,0 con l'agente di mobilità versione 9,30 in poi<br/> -Il tipo di avvio UEFI sicuro non è supportato. 
 
 ## <a name="replication-channels"></a>Canali di replica
 

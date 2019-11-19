@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 06bdcc1cd4f9bfcb1a77140d70435545fbe01079
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931504"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148761"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container
 
@@ -84,7 +84,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-Vedere gli [esempi di attività][task-examples] per completare l'attività in più passaggi file YAML e dockerfile per diversi scenari.
+Vedere gli [esempi di attività](container-registry-tasks-samples.md) per i file YAML dell'attività in più passaggi e dockerfile per diversi scenari.
 
 ## <a name="run-a-sample-task"></a>Eseguire un'attività di esempio
 
@@ -155,7 +155,7 @@ Per altre informazioni sulle creazioni automatiche su commit GIT o in caso di ag
 È possibile trovare riferimenti ed esempi sulle attività in più passaggi qui:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) (Riferimenti alle attività): tipi, proprietà e utilizzo dei passaggi di attività.
-* [Esempi di attività][task-examples] : esempio di file di `task.yaml` per diversi scenari, da semplice a complesso.
+* [Esempi di attività](container-registry-tasks-samples.md) : file di esempio `task.yaml` e Docker per diversi scenari, semplici da complesse.
 * [Repository di comandi](https://github.com/AzureCR/cmd): raccolta di contenitori come comandi per Attività di Registro Azure Container.
 
 <!-- IMAGES -->

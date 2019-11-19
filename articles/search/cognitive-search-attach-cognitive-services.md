@@ -1,5 +1,5 @@
 ---
-title: Alleghi una risorsa Servizi cognitivi a un skillt
+title: Associazione di servizi cognitivi a un skillt
 titleSuffix: Azure Cognitive Search
 description: Istruzioni per l'associazione di una sottoscrizione all-in-One di servizi cognitivi a una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788038"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113938"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Alleghi una risorsa di servizi cognitivi a un Skills in Azure ricerca cognitiva 
 
-Gli algoritmi di intelligenza artificiale consentono di usare le [pipeline di arricchimento](cognitive-search-concept-intro.md) usate per la trasformazione del contenuto in Azure ricerca cognitiva. Questi algoritmi sono basati sulle risorse dei servizi cognitivi di Azure, tra cui [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento delle entità, l'estrazione di frasi chiave e altri arricchimenti . Come usato da Azure ricerca cognitiva per scopi di arricchimento dei documenti, gli algoritmi vengono incapsulati all'interno di una *competenza*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
+Gli algoritmi di intelligenza artificiale consentono di usare le [pipeline di arricchimento](cognitive-search-concept-intro.md) usate per la trasformazione del contenuto in Azure ricerca cognitiva. Questi algoritmi sono basati sulle risorse dei servizi cognitivi di Azure, tra cui [visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/) per l'analisi delle immagini e il riconoscimento ottico dei caratteri (OCR) e [analisi del testo](https://azure.microsoft.com/services/cognitive-services/text-analytics/) per il riconoscimento delle entità, l'estrazione di frasi chiave e altri miglioramenti. Come usato da Azure ricerca cognitiva per scopi di arricchimento dei documenti, gli algoritmi vengono incapsulati all'interno di una *competenza*, inseriti in un *skillt*e a cui fa riferimento un *indicizzatore* durante l'indicizzazione.
 
 Puoi arricchire gratuitamente un numero limitato di documenti. In alternativa, è possibile allungare una risorsa di servizi cognitivi fatturabili a un livello di *competenze* per carichi di lavoro più grandi e più frequenti. In questo articolo si apprenderà come alleghi una risorsa di servizi cognitivi fatturabile per arricchire i documenti durante l' [indicizzazione](search-what-is-an-index.md)ricerca cognitiva di Azure.
 
@@ -161,5 +161,5 @@ Riunendola, pagherai circa $57,00 per inserire i documenti PDF 1.000 di questo t
 ## <a name="next-steps"></a>Passaggi successivi
 + [Pagina dei prezzi di Azure ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/)
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un insieme di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

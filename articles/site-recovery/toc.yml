@@ -361,8 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: Gestisci
           items:
-            - name: Deprecazione del ripristino di emergenza tra siti di proprietà del cliente
-              href: site-to-site-deprecation.md
+            - name: Deprecazione delle crittografia dei dati di Site Recovery
+              href: encryption-feature-deprecation.md
             - name: Aggiornare i server Windows configurati con Site Recovery
               href: upgrade-2012R2-to-2016.md
             - name: Rimuovere server e disabilitare la protezione

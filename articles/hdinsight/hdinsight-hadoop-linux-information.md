@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/14/2019
+ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834097"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150046"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
 I cluster Azure HDInsight mettono a disposizione Apache Hadoop in un ambiente Linux familiare, in esecuzione nel cloud di Azure. Per la maggior parte delle operazioni, dovrebbe funzionare esattamente come qualsiasi altra installazione di Hadoop in Linux. Questo documento indica le differenze specifiche che è opportuno conoscere.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In molti passaggi di questo documento vengono usate le utilità seguenti che devono essere installate nel sistema.
 
@@ -28,7 +28,7 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli): consente di gestire in remoto i servizi di Azure.
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="users"></a>Utenti
+## <a name="users"></a>Users
 
 A meno che non sia [aggiunto al dominio](./domain-joined/hdinsight-security-overview.md), HDInsight deve essere considerato un sistema a **utente singolo**. Con il cluster viene creato un singolo account utente SSH, con autorizzazioni a livello di amministratore. Possono essere creati altri account SSH, che avranno sempre l'accesso di amministratore al cluster.
 
@@ -88,14 +88,14 @@ Per altre informazioni, vedere il documento [Porte usate dai servizi Apache Hado
 
 I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La directory contiene le sottodirectory seguenti:
 
-* **2.6.5.3006-29**: il nome della directory è la versione della piattaforma Hadoop usata da HDInsight. Il numero nel cluster può essere diverso da quello elencato di seguito.
-* **Current**: questa directory contiene collegamenti a sottodirectory nella directory **2.6.5.3006-29** . Questa directory esiste in modo da non dover ricordare il numero di versione.
+* **2.6.5.3009-43**: il nome della directory è la versione della piattaforma Hadoop usata da HDInsight. Il numero nel cluster può essere diverso da quello elencato di seguito.
+* **Current**: questa directory contiene collegamenti a sottodirectory nella directory **2.6.5.3009-43** . Questa directory esiste in modo da non dover ricordare il numero di versione.
 
 I dati di esempio e i file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) in `/example` e `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Archiviazione di Azure e Data Lake Storage
 
-Nella maggior parte delle distribuzioni di Hadoop, i dati vengono archiviati in HDFS che è supportato dall'archiviazione locale nei computer del cluster. L'uso di sistema locale può essere costoso per una soluzione basata su cloud dove viene addebitata una tariffa oraria o al minuto per le risorse di calcolo.
+Nella maggior parte delle distribuzioni di Hadoop, i dati vengono archiviati in HDFS che è supportato dall'archiviazione locale nei computer del cluster. L'uso dell'archiviazione locale può essere costoso per una soluzione basata sul cloud in cui viene addebitata una tariffa oraria o al minuto per le risorse di calcolo.
 
 Quando si usa HDInsight, i file di dati vengono archiviati in modo scalabile e resiliente nel cloud tramite Archiviazione BLOB di Azure e, facoltativamente, Azure Data Lake Storage. Questo servizio offre i seguenti vantaggi:
 
@@ -105,7 +105,7 @@ Quando si usa HDInsight, i file di dati vengono archiviati in modo scalabile e r
 
 Per altre informazioni, vedere [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Informazioni sui BLOB) e [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-Quando si usa Archiviazione di Azure o Data Lake Storage, non è necessario eseguire alcuna operazione particolare da HDInsight per accedere ai dati. Ad esempio, il comando seguente elenca i file presenti in `/example/data` indipendentemente dal fatto che la cartella sia disponibile in Archiviazione di Azure o in Data Lake Storage:
+Quando si usa Archiviazione di Azure o Data Lake Storage, non è necessario eseguire alcuna operazione particolare da HDInsight per accedere ai dati. Ad esempio, il comando seguente elenca i file nella cartella `/example/data` indipendentemente dal fatto che siano archiviati in archiviazione di Azure o Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
@@ -190,12 +190,12 @@ Se si usa __Archiviazione di Azure__, vedere i collegamenti seguenti per informa
 * Vari SDK:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
-    * [Node.js](https://github.com/Azure/azure-sdk-for-node)
+    * [Node.JS](https://github.com/Azure/azure-sdk-for-node)
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [API REST di archiviazione ](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
 Se si usa __Azure Data Lake Storage__, vedere i collegamenti seguenti per informazioni sulle modalità di accesso ai dati:
 
@@ -235,7 +235,7 @@ L'operazione di ridimensionamento può influire sui tipi di cluster come indicat
 
         È anche possibile specificare parametri per eseguire l'override degli hint di parallelismo forniti in origine dalla topologia. Ad esempio, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` riconfigura la topologia con 5 processi di lavoro, 3 esecutori per il componente blue-spout e 10 esecutori per il componente yellow-bolt.
 
-    * **Interfaccia utente Storm**: usare la procedura seguente per ribilanciare una topologia usando l'interfaccia utente Storm.
+    * **Interfaccia utente Storm**: usare la procedura seguente per ribilanciare una topologia tramite l'interfaccia utente Storm.
 
         1. Aprire `https://CLUSTERNAME.azurehdinsight.net/stormui` nel Web browser, dove `CLUSTERNAME` è il nome del cluster Storm. Se richiesto, immettere il nome amministratore (admin) del cluster HDInsight e la password specificata durante la creazione del cluster.
         2. Selezionare la topologia da ribilanciare e quindi fare clic sul pulsante **Rebalance** (Ribilancia). Specificare il ritardo prima dell'esecuzione dell'operazione di ribilanciamento.
@@ -249,7 +249,7 @@ Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Come si installa Hue (o un altro componente Hadoop)?
 
-HDInsight è un servizio gestito. Se Azure rileva un problema con il cluster, è possibile eliminare il nodo con l'errore e creare un nodo per sostituirlo. Se si esegue l'installazione manuale degli elementi nel cluster, questi non vengono salvati in modo permanente quando si esegue questa operazione. Usare invece le [azioni script di HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Un'azione script può essere usata per apportare le modifiche seguenti:
+HDInsight è un servizio gestito. Se Azure rileva un problema con il cluster, è possibile eliminare il nodo con l'errore e creare un nodo per sostituirlo. Se si installano manualmente elementi nel cluster, questi non vengono resi persistenti quando si verifica questa operazione. Usare invece le [azioni script di HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Un'azione script può essere usata per apportare le modifiche seguenti:
 
 * Installare e configurare un servizio o un sito Web.
 * Installare o configurare un componente che richiede modifiche di configurazione in più nodi del cluster,
@@ -284,5 +284,4 @@ Per usare una versione diversa di un componente, caricare la versione desiderata
 
 * [Gestire i cluster HDInsight tramite l'API REST di Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Usare Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md)
 * [Usare processi MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)

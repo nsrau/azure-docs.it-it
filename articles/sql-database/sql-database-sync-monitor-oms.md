@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 031482fc0b87e095fcb19046564e15642050f261
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0ed0bd3544fff89c8230267e3d6d8826c5ae3c7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820807"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114612"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorare sincronizzazione dati SQL con i log di monitoraggio di Azure 
 
@@ -27,7 +27,7 @@ Per controllare il registro attività di sincronizzazione dati SQL e rilevare gl
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> Al momento la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard di monitoraggio per tutti i gruppi di sincronizzazione 
 
@@ -61,7 +61,7 @@ Scaricare i due esempi seguenti:
 
 -   [Visualizzazione monitoraggio di Azure per la sincronizzazione dei dati](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Assicurarsi di avere configurato quanto segue:
 
@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
 4.  In **File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
 
-5.  Selezionare **Crea**. È ora disponibile un runbook.
+5.  Selezionare **Create**. È ora disponibile un runbook.
 
 6.  In Account di Automazione di Azure selezionare la scheda**Variabili** in Risorse condivise.
 
@@ -123,7 +123,7 @@ Per pianificare il runbook:
 
 5.  Impostare **Ricorrenza** su Ricorrente e impostare l'intervallo desiderato. Usare lo stesso intervallo qui, nello script e nei log di monitoraggio di Azure.
 
-6.  Selezionare **Crea**.
+6.  Selezionare **Create**.
 
 ### <a name="check-the-automation"></a>Controllare l'automazione
 
@@ -137,7 +137,7 @@ Per creare un avviso che usa i log di monitoraggio di Azure, eseguire le operazi
 
 2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio:
 
-    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
+    `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 
 3.  Dopo avere eseguito la query, selezionare l'icona a forma di campanello indicante **Avviso**.
 
@@ -210,7 +210,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 -   Procedure consigliate: [Procedure consigliate per la sincronizzazione dati SQL di Azure](sql-database-best-practices-data-sync.md)
 -   Risoluzione dei problemi: [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)
 -   Aggiornare lo schema di sincronizzazione
-    -   Con Transact-SQL: [Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure](sql-database-update-sync-schema.md)
+    -   Con Transact-SQL: [Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure](sql-database-update-sync-schema.md).
     -   Con PowerShell: [Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente](scripts/sql-database-sync-update-schema.md)
 
 Per altre informazioni sul database SQL, vedere:

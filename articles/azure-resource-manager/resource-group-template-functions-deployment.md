@@ -1,17 +1,14 @@
 ---
-title: Funzioni di distribuzione del modello di Azure Resource Manager | Microsoft Docs
+title: Funzioni di modello-distribuzione
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983983"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149633"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
 
@@ -80,7 +77,7 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 
 Quando si [distribuisce in una sottoscrizione di Azure](deploy-to-subscription.md) anziché in un gruppo di risorse, l'oggetto restituito include una proprietà `location`. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
@@ -143,17 +140,17 @@ Per un modello a livello di sottoscrizione che usa la funzione di distribuzione,
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| parameterName |Yes |string |Nome del parametro da restituire. |
+| parameterName |Sì |stringa |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
 Il valore del parametro specificato.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
@@ -230,12 +227,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
 | stringOutput | String | option 1 |
-| intOutput | Int | 1 |
+| intOutput | int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
@@ -249,17 +246,17 @@ Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azu
 
 Restituisce il valore della variabile. Il nome della variabile specificato deve essere definito nella sezione variables del modello.
 
-### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| variableName |Yes |String |Nome della variabile da restituire. |
+| variableName |Sì |String |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
 Il valore della variabile specificata.
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 
@@ -323,9 +320,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è il seguente:
+L'output dell'esempio precedente con i valori predefiniti è:
 
-| NOME | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |

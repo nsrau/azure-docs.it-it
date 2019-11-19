@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825678"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108604"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Compattare un cloud privato CloudSimple
 
@@ -24,7 +24,8 @@ CloudSimple offre la flessibilità necessaria per compattare dinamicamente un cl
 Per la compattazione di un cloud privato devono essere soddisfatte le condizioni seguenti.  Non è possibile eliminare il cluster di gestione (primo cluster) creato quando è stato creato un cloud privato.
 
 * Un cluster vSphere deve avere tre nodi.  Un cluster con solo tre nodi non può essere compattato.
-* Lo spazio di archiviazione totale utilizzato non deve superare la capacità totale dopo la compattazione del cluster. 
+* Lo spazio di archiviazione totale utilizzato non deve superare la capacità totale dopo la compattazione del cluster.
+* Controllare se le regole DRS (Distributed Resource Scheduler) impediscono vMotion di una macchina virtuale.  Se sono presenti regole, disabilitare o eliminare le regole.  Le regole DRS includono le regole di affinità da macchina virtuale a host.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -55,7 +56,8 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 Viene avviata la compattazione del cloud privato.  È possibile monitorare lo stato di avanzamento nelle attività.  Il processo di compattazione può richiedere alcune ore a seconda dei dati, che devono essere risincronizzati in rete VSAN.
 
 > [!NOTE]
-> Se si riduce un cloud privato eliminando l'ultimo o l'unico cluster nel Data Center, il Data Center non verrà eliminato.  
+> 1. Se si riduce un cloud privato eliminando l'ultimo o l'unico cluster nel Data Center, il Data Center non verrà eliminato.
+> 2. Se si verifica una violazione della regola DRS, il nodo non verrà rimosso dal cluster e la descrizione dell'attività indica che la rimozione di un nodo violerà le regole DRS sul cluster.    
 
 
 ## <a name="next-steps"></a>Passaggi successivi

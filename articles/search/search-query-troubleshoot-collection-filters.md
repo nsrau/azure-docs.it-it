@@ -1,7 +1,7 @@
 ---
 title: Risoluzione dei problemi relativi ai filtri di raccolta OData
 titleSuffix: Azure Cognitive Search
-description: Risoluzione degli errori di filtro della raccolta OData in Azure ricerca cognitiva query.
+description: Informazioni sugli approcci per la risoluzione degli errori di filtro della raccolta OData in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793180"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113088"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Risoluzione dei problemi relativi ai filtri di raccolta OData in Azure ricerca cognitiva
 
@@ -64,7 +64,7 @@ Le regole per la scrittura di filtri di raccolta validi sono diverse per ogni ti
 All'interno delle espressioni lambda per le raccolte di stringhe, gli unici operatori di confronto che possono essere usati sono `eq` e `ne`.
 
 > [!NOTE]
-> Ricerca cognitiva di Azure non supporta il `lt`/`le`/`gt`gli operatori/per le stringhe, sia all'interno che all'esterno di un'espressione lambda.
+> Ricerca cognitiva di Azure non supporta il `lt`/`le`/`gt`gli operatori /per le stringhe, sia all'interno che all'esterno di un'espressione lambda.`ge`
 
 Il corpo di un `any` può verificare l'uguaglianza solo se il corpo di un `all` può solo verificare la disuguaglianza.
 
@@ -171,10 +171,10 @@ Esistono tuttavia alcune limitazioni relative al modo in cui tali espressioni di
 
     mentre questa espressione è consentita, non è utile perché le condizioni si sovrappongono:
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - Le espressioni di confronto semplici che coinvolgono `eq`, `lt`, `le`, `gt`o `ge` possono essere combinate con `and`/`or`. ad esempio:
+  - Le espressioni di confronto semplici che coinvolgono `eq`, `lt`, `le`, `gt`o `ge` possono essere combinate con `and`/`or`. Ad esempio:
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - Le espressioni di confronto combinate con `and` (Conjunctions) possono essere combinate ulteriormente usando `or`. Questo form è noto in logica booleana come "[disgiuntiva Normal Form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). ad esempio:
+  - Le espressioni di confronto combinate con `and` (Conjunctions) possono essere combinate ulteriormente usando `or`. Questo form è noto in logica booleana come "[disgiuntiva Normal Form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Ad esempio:
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
 - Regole per `all`:
   - Le espressioni di uguaglianza semplici non possono essere utilizzate in combinazione con altre espressioni. Questa espressione, ad esempio, è consentita:
@@ -185,10 +185,10 @@ Esistono tuttavia alcune limitazioni relative al modo in cui tali espressioni di
 
     mentre questa espressione è consentita, non è utile perché le condizioni si sovrappongono:
     - `ratings/all(r: r eq 5 and r le 7)`
-  - Le espressioni di confronto semplici che coinvolgono `ne`, `lt`, `le`, `gt`o `ge` possono essere combinate con `and`/`or`. ad esempio:
+  - Le espressioni di confronto semplici che coinvolgono `ne`, `lt`, `le`, `gt`o `ge` possono essere combinate con `and`/`or`. Ad esempio:
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - Le espressioni di confronto combinate con `or` (disgiunzioni) possono essere combinate ulteriormente utilizzando `and`. Questo formato è noto in logica booleana come "[congiuntiva Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). ad esempio:
+  - Le espressioni di confronto combinate con `or` (disgiunzioni) possono essere combinate ulteriormente utilizzando `and`. Questo formato è noto in logica booleana come "[congiuntiva Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Ad esempio:
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533089"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885343"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Check Point CloudGuard Dome9 Arc
 
@@ -62,13 +62,13 @@ Per configurare l'integrazione di Check Point CloudGuard Dome9 Arc in Azure AD, 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-check-point-cloudguard-dome9-arc"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Check Point CloudGuard Dome9 Arc
 
-Configurare e testare l'accesso SSO di Azure AD con Check Point CloudGuard Dome9 Arc usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Check Point CloudGuard Dome9 Arc.
+Configurare e testare l'accesso SSO di Azure AD con Check Point CloudGuard Dome9 Arc usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Check Point CloudGuard Dome9 Arc.
 
 Per configurare e testare l'accesso SSO di Azure AD con Check Point CloudGuard Dome9 Arc, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Check Point CloudGuard Dome9 Arc](#configure-check-point-cloudguard-dome9-arc-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Check Point CloudGuard Dome9 Arc](#create-check-point-cloudguard-dome9-arc-test-user)** : per avere una controparte di B.Simon in Check Point CloudGuard Dome9 Arc collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -102,12 +102,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Check Point CloudGuard Dome9 Arc prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
     
-    | Nome |  Attributo di origine|
+    | NOME |  Attributo di origine|
     | ---------------| --------------- |
     | memberof | user.assignedroles |
 
     >[!NOTE]
-    >Fare clic [qui](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) per informazioni su come configurare i ruoli in Azure AD.
+    >Fare clic [qui](https://docs.microsoft.com/azure/active-directory/saas-apps/apptio-tutorial) per informazioni su come configurare i ruoli in Azure AD.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -129,9 +129,9 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Check Point CloudGuard Dome9 Arc.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Check Point CloudGuard Dome9 Arc.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Check Point CloudGuard Dome9 Arc**.
@@ -200,7 +200,7 @@ Per consentire agli utenti di Azure AD di accedere a Check Point CloudGuard Dome
 
     ![Aggiungere un dipendente](./media/dome9arc-tutorial/user2.png)
 
-4. Nella sezione **Crea utente**, seguire la procedura seguente:
+4. Nella sezione **Crea utente** , eseguire la procedura seguente:
 
     ![Aggiungere un dipendente](./media/dome9arc-tutorial/user3.png)
 

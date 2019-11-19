@@ -10,12 +10,12 @@ author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/07/2019
-ms.openlocfilehash: 744ac9f8526b7d65709d3627a5f90b31d234b2cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bdb602598f3d8b4aaed5d6061542d540a82ebc75
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009087"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114589"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Machine Learning e intelligenza artificiale con ONNX in SQL database Edge Preview
 
@@ -46,7 +46,7 @@ Per ottenere un modello nel formato ONNX:
 
 Attualmente, non tutti i modelli ONNX sono supportati dal perimetro del database SQL di Azure. Il supporto è limitato ai modelli con **tipi di dati numerici**:
 
-- [int e bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int e bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [Real e float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
   
 Altri tipi numerici possono essere convertiti in tipi supportati usando [cast e Convert](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 788ffd9e7036996f6ac1bc7fcbc33137aca40ee2
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927787"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132031"
 ---
 # <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
 
@@ -42,7 +42,7 @@ Le API contengono la documentazione tecnica di spavalderia. Per informazioni sul
 
 ## <a name="authentication"></a>Autenticazione
 
-FarmBeats sfrutta [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization))di Microsoft Azure. Il servizio di app Azure di autenticazione fornisce supporto predefinito per l'autenticazione e l'autorizzazione. 
+FarmBeats sfrutta [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)di Microsoft Azure. App Azure servizio fornisce supporto predefinito per l'autenticazione e l'autorizzazione. 
 
 Per ulteriori informazioni su, vedere [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 

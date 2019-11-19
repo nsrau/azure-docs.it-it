@@ -58,8 +58,6 @@
       href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
     - name: Configurare il controllo e la rotazione delle chiavi
       href: key-vault-key-rotation-log-monitoring.md
-    - name: Monitorare eventi di Key Vault con Griglia di eventi
-      href: event-grid-overview.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -114,6 +112,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Inoltrare le notifiche dell'insieme di credenziali delle chiavi con Griglia di eventi
       href: event-grid-tutorial.md
+    - name: Ricevere notifiche tramite Griglia di eventi e App per la logica
+      href: event-grid-logicapps.md
     - name: Integrazione con Criteri di Azure
       href: azure-policy.md
     - name: Registrazione di Azure Key Vault

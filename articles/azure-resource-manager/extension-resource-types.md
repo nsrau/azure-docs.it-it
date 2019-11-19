@@ -1,23 +1,20 @@
 ---
-title: Tipi di risorse di estensione di Azure
+title: Tipi di risorsa dell'estensione
 description: Elenca i tipi di risorse di Azure usati per estendere le funzionalità di altri tipi di risorse.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 00e8efaaa81ec0ce189d8cfe8a78285ded445c68
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 16dcd4cccea4445b6839ac639094d18e29ed49a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901924"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147029"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipi di risorse che estendono le funzionalità di altre risorse
 
 Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'altra risorsa. Ad esempio, il blocco di risorsa è una risorsa di estensione. Applicare un blocco di risorsa a un'altra risorsa per impedirne l'eliminazione o la modifica. Non ha senso creare un blocco di risorsa da solo. Una risorsa di estensione viene sempre applicata a un'altra risorsa.
 
-## <a name="extension-resource-types"></a>Tipi di risorse di estensione
+## <a name="extension-resource-types"></a>Tipi di risorsa dell'estensione
 
 - Microsoft. Advisor/configurazioni
 - Microsoft. Advisor/raccomandazioni
@@ -74,7 +71,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. CostManagement/Reports
 - Microsoft. CostManagement/views
 - Microsoft. CostManagement/showbackRules
-- Microsoft. CustomProviders/Associations
+- Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
 - Microsoft. GuestConfiguration/configurationProfileAssignments

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810176"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151427"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
@@ -65,6 +65,17 @@ Per una panoramica pratica sull'uso di Intelligent Insights con Analisi SQL di A
 >
 
 Intelligent Insights si distingue per l'individuazione e la risoluzione dei problemi di prestazioni del database SQL. Per usare Intelligent Insights per risolvere i problemi di prestazioni di database SQL e dell'istanza gestita, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="intelligent-insights-options"></a>Opzioni di Intelligent Insights
+
+Intelligent Insights opzioni disponibili nel database SQL di Azure sono:
+
+| Opzione Intelligent Insights | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
+| :----------------------------- | ----- | ----- |
+| **Configurare Intelligent Insights** : configurare l'analisi Intelligent Insights per i database. | Sì | Sì | 
+| **Trasmettere informazioni dettagliate per analisi SQL di Azure** --trasmettere informazioni approfondite alla soluzione di monitoraggio analisi SQL di Azure per il database SQL di Azure. | Sì | Sì | 
+| **Trasmettere informazioni dettagliate a hub eventi** -informazioni dettagliate sul flusso a hub eventi per ulteriori integrazioni personalizzate. | Sì | Sì | 
+| **Trasmettere informazioni approfondite ad archiviazione di Azure** : informazioni dettagliate sul flusso di archiviazione di Azure per un'ulteriore analisi e l'archiviazione a lungo termine. | Sì | Sì |
 
 ## <a name="configure-intelligent-insights"></a>Configurare Intelligent Insights
 

@@ -1,25 +1,17 @@
 ---
-title: Configurare una rete virtuale per un’istanza di Cache Redis di Azure Premium | Microsoft Docs
+title: Configurare una rete virtuale per una cache di Azure Premium per Redis
 description: In questo articolo viene spiegato come creare e gestire il supporto di una rete virtuale per le istanze di Cache Redis di Azure Premium
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b2ddac9439183321691104d4eedccb0c971d19c9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075055"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129410"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -161,7 +153,7 @@ Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebb
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Come è possibile verificare che la cache funzioni in una rete virtuale?
 
 >[!IMPORTANT]
->Quando ci si connette a un'istanza di Cache Redis di Azure ospitata in una rete virtuale, i client della cache devono trovarsi nella stessa rete virtuale o in una rete virtuale con peering reti virtuali abilitato. Questo vale anche per le applicazioni di test e per gli strumenti per l'esecuzione di ping di diagnostica. Indipendentemente dalla posizione che ospita l'applicazione client, i gruppi di sicurezza di rete devono essere configurati in modo che il traffico di rete del client sia autorizzato a raggiungere l'istanza di Redis.
+>Quando ci si connette a una cache di Azure per l'istanza di redis ospitata in una VNET, i client della cache devono trovarsi nello stesso VNET o in un VNET con peering VNET abilitato nella stessa area di Azure. La Peering reti virtuali globale non è attualmente supportata. Questo vale anche per le applicazioni di test e per gli strumenti per l'esecuzione di ping di diagnostica. Indipendentemente dalla posizione che ospita l'applicazione client, i gruppi di sicurezza di rete devono essere configurati in modo che il traffico di rete del client sia autorizzato a raggiungere l'istanza di Redis.
 >
 >
 

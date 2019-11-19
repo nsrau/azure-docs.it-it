@@ -1,50 +1,43 @@
 ---
-title: "Guida introduttiva: Creare un'app Python che usa la cache di Azure per Redis"
+title: "Guida introduttiva: Creare un'app Python che usa Cache di Azure per Redis"
 description: In questa guida introduttiva viene illustrato come creare un'app Python che usa la cache di Azure per Redis.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: v-lincan
-ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
 ms.date: 11/05/2019
 ms.author: yegu
 ms.custom:
 - mvc
 - seo-python-october2019
-ms.openlocfilehash: 8cb5a47e884400f09111c6e40b387deea4fb158e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1ac1767d1ac3f6333d73a1e1c66ff7250942d266
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720437"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122676"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Guida introduttiva: Creare un'app Python che usa la cache di Azure per Redis
+# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Guida introduttiva: Creare un'app Python che usa Cache di Azure per Redis
 
-In questo articolo si incorpora la cache di Azure per Redis in un'app Python per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
+In questo articolo si incorpora Cache di Azure per Redis in un'app Python per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Python 2 o 3](https://www.python.org/downloads/)
 
-## <a name="create-an-azure-cache-for-redis-instance"></a>Creare un'istanza della cache di Azure per Redis
+## <a name="create-an-azure-cache-for-redis-instance"></a>Creare un'istanza di Azure Cache per Redis
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="install-redis-py"></a>Installare redis-py
 
-[Redis py](https://github.com/andymccurdy/redis-py) è un'interfaccia di Python per la cache di Azure per Redis. Usare lo strumento per i pacchetti Python, *pip*, per installare il pacchetto *redis-py* da un prompt dei comandi. 
+[Redis py](https://github.com/andymccurdy/redis-py) è un'interfaccia di Python per Cache Redis di Azure. Usare lo strumento per i pacchetti Python, *pip*, per installare il pacchetto *redis-py* da un prompt dei comandi. 
 
 Nell'esempio seguente è stato usato *pip3* per Python 3 per installare *redis-py* in Windows 10 da un prompt dei comandi dell'amministratore.
 
-![Installare l'interfaccia redis-py Python in cache di Azure per Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![Installare l'interfaccia redis-py Python in Cache di Azure per Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 ## <a name="read-and-write-to-the-cache"></a>Leggere e scrivere nella cache
 

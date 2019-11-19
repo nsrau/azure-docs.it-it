@@ -1,25 +1,17 @@
 ---
-title: Rimuovere TLS 1,0 e 1,1 da usare con cache di Azure per Redis | Microsoft Docs
+title: Rimuovere TLS 1,0 e 1,1 da usare con cache di Azure per Redis
 description: Informazioni su come rimuovere TLS 1,0 e 1,1 dall'applicazione durante la comunicazione con cache di Azure per Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 638ce4b07201453d0bb00d3610cb695b72b6d698
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 585828855cdbd3a585ced1aa6803482c3f26f0f4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806765"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121585"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Rimuovere TLS 1,0 e 1,1 da usare con cache di Azure per Redis
 

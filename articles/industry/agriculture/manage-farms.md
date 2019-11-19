@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797972"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128667"
 ---
-# <a name="manage-farms"></a>Gestione farm
+# <a name="manage-farms"></a>Gestire aziende agricole
 
 È possibile gestire le farm in Azure FarmBeats. Questo articolo fornisce le informazioni su come creare farm, installare dispositivi, sensori e droni che consentono di gestire le farm.
 
@@ -58,7 +58,7 @@ Nella pagina elenco farm viene visualizzato un elenco di farm create. Selezionar
 Nella pagina **Farm** viene visualizzato un elenco di farm create.
 
 1.  Selezionare una farm per visualizzare e modificare la farm.
-2.  Selezionare **modifica Farm** per modificare le informazioni della farm. Nella finestra **dei dettagli della farm** è possibile modificare i campi relativi a **nome**, **colture**, **Indirizzo**e **limite della farm** .
+2.  Selezionare **modifica Farm** per modificare le informazioni della farm. Nella finestra **Dettagli Farm** è possibile modificare il **nome**, le **colture**, l' **Indirizzo**e definire i campi **limite della farm** .
 
     ![Beat Farm progetto](./media/create-farms/edit-farm-1.png)
 

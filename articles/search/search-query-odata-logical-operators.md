@@ -1,7 +1,7 @@
 ---
 title: Guida di riferimento agli operatori logici OData
 titleSuffix: Azure Cognitive Search
-description: Gli operatori logici OData, and, or e not, in Azure ricerca cognitiva query.
+description: Sintassi e documentazione di riferimento per l'uso di operatori logici OData, and, or e not, in Azure ricerca cognitiva query.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793315"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113178"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatori logici OData in Azure ricerca cognitiva-`and`, `or`, `not`
 
@@ -72,7 +72,7 @@ Esistono due forme di espressioni logiche: Binary (`and`/`or`), in cui sono pres
 
 La maggior parte delle espressioni booleane come le funzioni e i confronti non può produrre valori di `null` e gli operatori logici non possono essere applicati direttamente al valore letterale di `null`, ad esempio `x and null` non è consentito. Tuttavia, i campi booleani possono essere `null`, pertanto è necessario conoscere il comportamento degli operatori `and`, `or`e `not` in presenza di valori null. Questa operazione viene riepilogata nella tabella seguente, dove `b` è un campo di tipo `Edm.Boolean`:
 
-| Expression | Risultato quando `b` è `null` |
+| Espressione | Risultato quando `b` è `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |

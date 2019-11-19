@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681502"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122935"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -78,6 +78,9 @@ Un runtime di integrazione self-hosted è in grado di eseguire queste operazioni
 
 > [!NOTE] 
 > Usare il runtime di integrazione self-hosted per supportare gli archivi dati che richiedono un driver Bring Your Own, ad esempio SAP Hana, MySQL e così via.  Per altre informazioni, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+
+> [!NOTE] 
+> Java Runtime Environment (JRE) è una dipendenza del runtime di integrazione self-hosted. Assicurarsi di avere installato JRE nello stesso host.
 
 ### <a name="self-hosted-ir-network-environment"></a>Ambiente di rete del runtime di integrazione self-hosted
 Per eseguire l'integrazione dei dati in modo sicuro in un ambiente di rete privata, che non ha una visione diretta dall'ambiente cloud pubblico, è possibile installare un runtime di integrazione self-hosted nell'ambiente locale protetto dal firewall aziendale o all'interno un rete privata virtuale.  Il runtime di integrazione self-hosted stabilisce solo connessioni basate su HTTP in uscita per accedere a Internet.

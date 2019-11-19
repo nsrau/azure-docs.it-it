@@ -1,24 +1,14 @@
 ---
-title: Errori di quota di Azure | Microsoft Docs
+title: Errori di quota
 description: Viene descritto come risolvere gli errori di quota delle risorse durante la distribuzione di risorse con Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.author: tomfitz
-ms.openlocfilehash: 201ddf69f9c28b5b3a4197f91768f749152094de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8760b027d815dfc70000db5aea534bf10f60b759
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390319"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149444"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
 
@@ -50,7 +40,7 @@ please delete some resources of this type before creating a new one.
 Le quote vengono applicate per ogni gruppo di risorse, sottoscrizioni, account e altri ambiti. Ad esempio, la sottoscrizione potrebbe essere configurata in modo da limitare il numero di core per un'area. Se si prova a distribuire una macchina virtuale con un numero di core superiore alla quantità consentita, verrà visualizzato un messaggio di errore che informa che la quota è stata superata.
 Per informazioni complete sulle quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

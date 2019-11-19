@@ -1,17 +1,14 @@
 ---
 title: Gestire la governance dei tag
 description: Usare l'effetto Modify di Criteri di Azure per creare e applicare un modello di governance dei tag alle risorse nuove ed esistenti.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: tutorial
-ms.service: azure-policy
-ms.openlocfilehash: 780dbf02fbdb0a607f29c710da9a6320a8626f7b
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643764"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069666"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare un comando personalizzato (anteprima)'
+title: 'Guida introduttiva: creare un comando personalizzato (anteprima)-servizio riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come creare e testare un'applicazione di comandi personalizzati ospitata.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507561"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111360"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Guida introduttiva: creare un comando personalizzato (anteprima)
 
 In questo articolo si apprenderà come creare e testare un'applicazione di comandi personalizzati ospitata.
 L'applicazione rileverà un enunciato come "accendere la TV" e rispondere con un semplice messaggio "OK, acceso il televisore".
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Sottoscrizione vocale. [Prova il servizio di riconoscimento vocale gratuitamente](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -58,7 +58,7 @@ La visualizzazione predefinita è un elenco delle applicazioni dei comandi perso
 1. Selezionare **nuovo progetto** per creare un nuovo progetto
 
    > [!div class="mx-imgBorder"]
-   > ![creare un nuovo progetto](media/custom-speech-commands/create-new-project.png)
+   > ![Creare un nuovo progetto](media/custom-speech-commands/create-new-project.png)
 
 1. Immettere il nome e la lingua del progetto, quindi selezionare **Avanti** per continuare.
 1. Immettere la chiave di authoring LUIS
@@ -78,10 +78,10 @@ A questo punto è possibile creare un comando. Verrà ora usato un esempio che a
 
 Un comando è un set di:
 
-| Gruppo            | Descrizione                                                                                                                 |
+| Gruppo            | DESCRIZIONE                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Frasi di esempio | Espressioni di esempio che l'utente può pronunciare per attivare questo comando                                                                 |
-| Parametri       | Informazioni necessarie per completare il comando                                                                                |
+| parametri       | Informazioni necessarie per completare il comando                                                                                |
 | Regole di completamento | Azioni da intraprendere per completare il comando. Ad esempio, per rispondere all'utente o comunicare con un altro servizio Web |
 | Regole avanzate   | Regole aggiuntive per la gestione di situazioni più specifiche o complesse                                                              |
 
@@ -102,11 +102,11 @@ Aggiungere ora una regola di completamento per rispondere all'utente che indica 
 > [!div class="mx-imgBorder"]
 > ![creare una regola di completamento](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-| Impostazione    | Valore consigliato                        | Descrizione                                        |
+| Impostazione    | Valore consigliato                        | DESCRIZIONE                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | Nome regola  | "ConfirmationResponse"                 | Nome che descrive lo scopo della regola          |
-| Condizioni | Nessuna                                   | Condizioni che determinano quando la regola può essere eseguita    |
-| Azioni    | SpeechResponse "OK, accendere la TV" | Azione da eseguire quando la condizione della regola è true |
+| Condizioni | nessuno                                   | Condizioni che determinano quando la regola può essere eseguita    |
+| Actions    | SpeechResponse "OK, accendere la TV" | Azione da eseguire quando la condizione della regola è true |
 
 ## <a name="try-it-out"></a>Prova
 

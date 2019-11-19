@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430071"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131029"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -38,11 +38,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per questa esercitazione, è necessario il modulo Azure PowerShell Az 0.7 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
-Per questa esercitazione è possibile digitare i comandi in una normale finestra di PowerShell oppure usare [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-), digitare i comandi in un editor e quindi testare uno o più comandi contemporaneamente mentre si procede con l'esercitazione. È possibile evidenziare le righe che si vuole eseguire e fare clic su Esegui selezionati per eseguire solo i comandi corrispondenti.
+Per questa esercitazione è possibile digitare i comandi in una normale finestra di PowerShell oppure usare [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise), digitare i comandi in un editor e quindi testare uno o più comandi contemporaneamente mentre si procede con l'esercitazione. È possibile evidenziare le righe che si vuole eseguire e fare clic su Esegui selezionati per eseguire solo i comandi corrispondenti.
 
 Per altre informazioni sugli account di archiviazione, vedere [Introduzione ad Archiviazione](storage-introduction.md) e [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -131,7 +131,7 @@ Per modificare le impostazioni di un account di archiviazione, usare [Set-AzStor
 
 * I **tag** assegnati all'account di archiviazione. I tag vengono usati spesso per categorizzare le risorse a scopi di fatturazione.
 
-* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non è possibile modificare standard @ no__t-0ZRS, standard @ no__t-1GZRS, standard @ no__t-2RAGZRS o Premium @ no__t-3LRS in altri SKU o modificare altri SKU in questi.
+* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non è possibile modificare standard\_ZRS, standard\_GZRS, standard\_RAGZRS o Premium\_con ridondanza locale in altri SKU o modificare altri SKU in questi.
 
 * Il **livello di accesso** per gli account di archiviazione BLOB. Il valore per il livello di accesso è impostato su **Frequente** o **Sporadico** e consente di ridurre al minimo i costi selezionando il livello di accesso più adatto al modo in cui viene usato l'account di archiviazione. Per altre informazioni, vedere [Livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,7 +185,7 @@ Questo articolo illustra come gestire queste impostazioni usando i cmdlet di Pow
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
-## <a name="use-storage-analytics"></a>Usare Analisi archiviazione  
+## <a name="use-storage-analytics"></a>Usare Analisi archiviazione
 
 [Analisi archiviazione di Azure](storage-analytics.md) è composto da [Storage Analytics Metrics](/rest/api/storageservices/about-storage-analytics-metrics) (Metriche di Analisi archiviazione) e [Storage Analytics Logging](/rest/api/storageservices/about-storage-analytics-logging) (Registrazione di Analisi archiviazione).
 
@@ -252,4 +252,4 @@ Questo articolo offre anche riferimenti a vari altri articoli, ad esempio su com
 
 * [Cmdlet di PowerShell per il piano di controllo di Archiviazione di Azure](/powershell/module/az.storage/)
 * [Cmdlet di PowerShell per il piano dati di Archiviazione di Azure](/powershell/module/azure.storage/)
-* [Riferimenti Windows PowerShell](/powershell/scripting/developer/windows-powershell)
+* [Riferimenti Windows PowerShell](/powershell/scripting/overview)

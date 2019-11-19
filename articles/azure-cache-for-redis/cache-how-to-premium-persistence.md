@@ -1,30 +1,22 @@
 ---
 title: Come configurare la persistenza dei dati per una Cache Redis Premium di Azure
 description: Informazioni su come configurare e gestire la persistenza dei dati per le istanze Cache Redis di Azure di livello Premium
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: yegu
-ms.openlocfilehash: de0b2e3ef7b0268540ef4896ade132a297ee88ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b74a16735b44d081a79b17716bdbc72357a36013
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543446"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122731"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Come configurare la persistenza dei dati per una Cache Redis Premium di Azure
 Cache Redis di Azure include diverse offerte di cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. In questo articolo viene descritto come configurare la persistenza in un'istanza Cache Redis Premium di Azure.
 
-Per informazioni su altre funzionalità della cache di livello Premium, vedere [Introduzione al livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
+Per informazioni su altre funzionalità della cache di livello Premium, vedere [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md) (Introduzione al livello Premium di Cache Redis di Azure).
 
 ## <a name="what-is-data-persistence"></a>Che cos'è la persistenza dei dati?
 La [persistenza Redis](https://redis.io/topics/persistence) consente di rendere persistenti i dati archiviati in Redis. È inoltre possibile creare snapshot ed eseguire il backup dei dati, per consentirne il caricamento in caso di errore hardware. Si tratta di un enorme vantaggio rispetto al livello Basic o Standard in cui tutti i dati vengono archiviati in memoria ed esiste il rischio di potenziali perdite di dati in caso di errore quando i nodi della cache sono inattivi. 

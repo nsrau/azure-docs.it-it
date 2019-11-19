@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1965cc17f3d58932321c3ff14c99a962830d07b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615246"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890665"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come:
 * Esaminare l'applicazione 
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Non sono previsti prerequisiti specifici per distribuire l'app
+* Non sono richiesti prerequisiti specifici per distribuire l'app
 * È consigliabile disporre di una sottoscrizione di Azure, ma è anche possibile provare senza
 
 ## <a name="create-digital-distribution-center-application-template"></a>Creare un modello di applicazione del centro distribuzione digitale
@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come:
 3. **Crea app** consentirà di aprire il modulo Nuova applicazione e compilare i dettagli richiesti, come mostrato di seguito.
    **Nome applicazione**: è possibile usare il nome suggerito predefinito o immettere il nome descrittivo dell'applicazione.
    **URL**: è possibile usare l'URL predefinito suggerito o immettere un URL univoco descrittivo e facile da ricordare. È consigliabile usare l'impostazione predefinita se si dispone già di una sottoscrizione di Azure. In caso contrario, è possibile iniziare con una versione di valutazione gratuita di sette giorni e scegliere di passare al modello con pagamento in base al consumo in qualsiasi momento, prima della scadenza della versione di valutazione gratuita.
-   **Info di fatturazione**: per effettuare il provisioning delle risorse sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
+   **Info di fatturazione**: Per effettuare il provisioning delle risorse sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
    **Creazione**: per distribuire l'applicazione,selezionare Crea nella parte inferiore della pagina.
 
 > [!div class="mx-imgBorder"]
@@ -113,4 +113,4 @@ Se non si intende continuare a usare questa applicazione, eliminare il modello d
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [concetto di centro distribuzione digitale](./architecture-digital-distribution-center-pnp.md) dell'architettura della soluzione del centro distribuzione digitale
 * Altre informazioni sui [modelli di vendita al dettaglio di IoT Central](./overview-iot-central-retail-pnp.md)
-* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../core/overview-iot-central-pnp.md)
+* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../preview/overview-iot-central.md)

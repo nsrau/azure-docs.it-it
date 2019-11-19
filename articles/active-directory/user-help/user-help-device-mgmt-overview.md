@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd89d70bfe7a7f5e72e7fcabe167bafac5777672
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d3b77671aad72a9033ce964dfcfde87abce14e2e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382246"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028886"
 ---
 # <a name="manage-my-devices-overview"></a>Panoramica della gestione dei dispositivi
 
@@ -28,5 +28,5 @@ Verificare di poter accedere a tutte le risorse potenzialmente limitate dell'org
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-| [Aggiungere il dispositivo aziendale](user-help-join-device-on-network.md) ]Informazioni su come aggiungere il dispositivo di proprietà dell'azienda alla rete dell'organizzazione.|
-| [Registrare il dispositivo personale](user-help-register-device-on-network.md) ]Informazioni su come registrare il proprio dispositivo personale nella rete dell'organizzazione.|
+| [Aggiungere un dispositivo aziendale](user-help-join-device-on-network.md) | Informazioni su come aggiungere il dispositivo di proprietà dell'azienda alla rete dell'organizzazione. |
+| [Registrare un dispositivo personale](user-help-register-device-on-network.md) | Informazioni su come registrare il dispositivo personale nella rete dell'organizzazione. |

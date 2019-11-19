@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Usare l'SDK di Ricerca Web Bing per Node.js"
+title: "Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Node.js"
 titleSuffix: Azure Cognitive Services
 description: L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Node.js. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892864"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132730"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Avvio rapido: Usare l'SDK di Ricerca Web Bing per Node.js
+# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per Node.js
 
 L'SDK di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Node.js. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 
@@ -109,6 +109,6 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 > [!div class="nextstepaction"]
 > [Esempi di SDK Node.js per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
-* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/) (Informazioni di riferimento su Azure Node SDK)
+* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/) (Informazioni di riferimento su Azure Node SDK)

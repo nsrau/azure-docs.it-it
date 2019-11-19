@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/14/2019
-ms.openlocfilehash: c710e2b7c4376fc1725032c86cd02d9a6c8cafac
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 474c2f4f00374ce785b81fe048e11cb353b3078a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090358"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151238"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorare e migliorare le prestazioni
 
@@ -27,16 +27,16 @@ Opzioni di ottimizzazione delle prestazioni il database SQL di Azure è disponib
 
 | Opzione di ottimizzazione delle prestazioni | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
 | :----------------------------- | ----- | ----- |
-| **[Panoramica delle prestazioni](#performance-overview)** : monitorare tutte le attività di prestazioni per il database. | Sì | No | 
-| **[Suggerimenti sulle prestazioni](#performance-recommendations)** : Mostra i consigli sulle prestazioni che consentono di migliorare le prestazioni del carico di lavoro. | Sì | No | 
-| **[Informazioni dettagliate prestazioni query](#query-performance-insight)** : Mostra le prestazioni delle prime query che utilizzano il database. | Sì | No | 
-| **[Ottimizzazione automatica](#automatic-tuning)** : usare il database SQL di Azure per ottimizzare automaticamente le prestazioni del database. | Sì | No | 
+| **Panoramica delle prestazioni** : monitorare tutte le attività di prestazioni per il database. | Sì | No | 
+| **Suggerimenti sulle prestazioni** : Mostra i consigli sulle prestazioni che consentono di migliorare le prestazioni del carico di lavoro. | Sì | No | 
+| **Informazioni dettagliate prestazioni query** : Mostra le prestazioni delle prime query che utilizzano il database. | Sì | No | 
+| **Ottimizzazione automatica** : usare il database SQL di Azure per ottimizzare automaticamente le prestazioni del database. | Sì | No | 
 
 ## <a name="performance-overview"></a>Panoramica delle prestazioni
 
 Questa vista offre una panoramica delle prestazioni del database e facilita le operazioni di ottimizzazione delle prestazioni e risoluzione dei problemi. 
 
-![Prestazioni](./media/sql-database-performance/performance.png)
+![Panoramica delle prestazioni per il database SQL di Azure](./media/sql-database-performance/performance-overview-annotated.png)
 
 * Il riquadro **Raccomandazioni** offre un elenco di raccomandazioni di ottimizzazione per il database (vengono visualizzate le tre raccomandazioni principali se ne sono presenti di più). Se si fa clic su questo riquadro vengono visualizzate le **[Raccomandazioni per le prestazioni](#performance-recommendations)** . 
 * Il riquadro **Attività di ottimizzazione** fornisce un riepilogo delle operazioni di ottimizzazione in corso e completate per il database e offre una vista rapida della cronologia delle attività di ottimizzazione. Se si fa clic su questo riquadro viene visualizzata la cronologia di ottimizzazione completa per il database.
@@ -51,7 +51,7 @@ Questa pagina offre [raccomandazioni per l'ottimizzazione](sql-database-advisor.
 * Consigli su come procedere quando vengono identificati problemi di schema nel database.
 * Consigli sui casi in cui trarre vantaggio dalle query con parametri.
 
-![Prestazioni](./media/sql-database-performance/recommendations.png)
+![Suggerimenti sulle prestazioni per il database SQL di Azure](./media/sql-database-performance/performance-recommendations-annotated.png)
 
 È anche possibile trovare la cronologia completa delle azioni di ottimizzazione applicate in precedenza.
 
@@ -65,13 +65,17 @@ Per informazioni su come trovare e applicare le raccomandazioni per le prestazio
 * Query principali a livello di utilizzo di CPU, che possono essere ottimizzate per migliorare le prestazioni. 
 * Capacità di eseguire il drill-down nei dettagli di una query. ​ 
 
-  ![dashboard prestazioni](./media/sql-database-query-performance/performance.png)
+  ![Informazioni dettagliate sulle prestazioni delle query per il database SQL di Azure](./media/sql-database-performance/query-performance-insights-annotated.png)
 
 Altre informazioni su questa pagina sono disponibili nell'articolo **[Usare Informazioni dettagliate prestazioni query](sql-database-query-performance.md)** .
 
 ## <a name="automatic-tuning"></a>Ottimizzazione automatica
 
-I database SQL di Azure possono ottimizzare automaticamente le prestazioni del database tramite l'applicazione di [consigli per le prestazioni](sql-database-advisor.md). Per altre informazioni, leggere l'[articolo sull'ottimizzazione automatica](sql-database-automatic-tuning.md) . Per abilitare questa funzionalità, leggere l'[articolo su come abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
+I database SQL di Azure possono ottimizzare automaticamente le prestazioni del database tramite l'applicazione di [consigli per le prestazioni](sql-database-advisor.md). Per abilitare questa funzionalità, leggere l'[articolo su come abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
+
+  ![Ottimizzazione automatica per il database SQL di Azure](./media/sql-database-performance/automatic-tuning-annotated.png)
+
+Per altre informazioni, leggere l'[articolo sull'ottimizzazione automatica](sql-database-automatic-tuning.md) .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

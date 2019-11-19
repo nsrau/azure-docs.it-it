@@ -1,5 +1,5 @@
 ---
-title: Creare un'applicazione di analisi dei punti vendita in Azure IoT Central | Microsoft Docs
+title: "Esercitazione: Creare un'applicazione di analisi dei punti vendita in Azure IoT Central"
 description: Questa esercitazione illustra come creare un'applicazione di analisi dei punti vendita al dettaglio in IoT Central. Oltre creare e personalizzare l'applicazione, verranno aggiunti i dispositivi dei sensori.
 services: iot-central
 ms.service: iot-central
@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 10/03/2019
-ms.openlocfilehash: a662201823808c9e2e34e9210096cb081e1b9430
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.date: 11/12/2019
+ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615317"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112890"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione di analisi dei punti vendita in Azure IoT Central
 
@@ -75,7 +75,7 @@ Per creare una nuova applicazione Analisi punti vendita - Pagamento che usa le f
 
 1. Se si ha una sottoscrizione di Azure, immettere i valori relativi a *directory, sottoscrizione di Azure e area*. Se non si ha una sottoscrizione, è possibile abilitare la **versione di valutazione gratuita di 7 giorni** e completare le informazioni di contatto richieste.  
 
-    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../preview/quick-deploy-iot-central.md).
 
 1. Selezionare **Create** (Crea).
 
@@ -160,7 +160,7 @@ In secondo luogo, è possibile personalizzare i modelli di dispositivo aggiungen
 
 Infine, è possibile personalizzare i modelli di dispositivo creando visualizzazioni personalizzate. Le visualizzazioni consentono agli operatori di visualizzare i dati di telemetria e i metadati per i dispositivi, ad esempio le metriche e l'integrità dei dispositivi.
 
-In questo caso si useranno i primi due metodi per personalizzare il modello di dispositivo per i sensori RuuviTag. Per informazioni sulla creazione di visualizzazioni per i sensori, vedere la guida di avvio rapido [Aggiungere un dispositivo simulato all'applicazione IoT Central](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+In questo caso si useranno i primi due metodi per personalizzare il modello di dispositivo per i sensori RuuviTag. Per informazioni sulla creazione di visualizzazioni per i sensori, vedere la guida di avvio rapido [Aggiungere un dispositivo simulato all'applicazione IoT Central](../preview/quick-create-pnp-device.md).
 
 Per personalizzare le interfacce predefinite del modello di dispositivo RuuviTag:
 
@@ -227,8 +227,8 @@ Per questa esercitazione si userà il set seguente di dispositivi reali e simula
 
 Completare i passaggi nei due articoli seguenti per connettere un gateway Rigado reale e i sensori RuuviTag. Al termine, tornare a questa esercitazione. Poiché i modelli di dispositivo sono già stati creati in questa esercitazione, non è necessario crearli di nuovo nel set di istruzioni seguente.
 
-- Per connettere un gateway Rigado, vedere [Connettere un gateway Rigado Cascade 500 all'applicazione Azure IoT Central](../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Per connettere sensori RuuviTag, vedere [Connettere un sensore RuuviTag all'applicazione Azure IoT Central](../core/howto-connect-ruuvi-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). È anche possibile usare queste istruzioni per creare due sensori simulati, se necessario.
+- Per connettere un gateway Rigado, vedere [Connettere un gateway Rigado Cascade 500 all'applicazione Azure IoT Central](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Per connettere sensori RuuviTag, vedere [Connettere un sensore RuuviTag all'applicazione Azure IoT Central](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). È anche possibile usare queste istruzioni per creare due sensori simulati, se necessario.
 
 ## <a name="add-rules-and-actions"></a>Aggiungere regole e azioni
 Quando si usano sensori nell'applicazione Azure IoT Central per monitorare le condizioni, è possibile creare regole per eseguire azioni quando vengono soddisfatte determinate condizioni. Una regola viene associata a un modello di dispositivo e a uno o più dispositivi e contiene le condizioni che devono essere soddisfatte sulla base di dati di telemetria o eventi del dispositivo. Una regola prevede anche una o più azioni associate. Le azioni possono includere l'invio di notifiche di posta elettronica o l'attivazione di un'azione webhook per l'invio dei dati ad altri servizi. Il modello di applicazione **Analisi punti vendita - Pagamento** include alcune regole predefinite per i dispositivi nell'applicazione.

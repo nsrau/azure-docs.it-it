@@ -7,15 +7,15 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 1e3e198c38215ceacbe43961bf93ab906e5ccc09
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 335df16e6a6436485521611aee0f0a62edca8a3b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846269"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123444"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Servizio cloud basato su intelligenza artificiale con Azure ricerca cognitiva
-[Azure ricerca cognitiva](https://azure.microsoft.com/services/search/) è una soluzione cloud di ricerca come servizio che offre agli sviluppatori API e strumenti per l'aggiunta di un'esperienza di ricerca avanzata su contenuto privato ed eterogeneo nelle applicazioni Web, per dispositivi mobili e aziendali. Il codice personalizzato richiama l'inserimento dei dati (indicizzazione) per creare e caricare un indice. Dall'altro lato, il codice dell'applicazione immette richieste di query e gestisce le risposte. L'esperienza di ricerca viene definita nel client usando le funzionalità di Azure ricerca cognitiva, con l'esecuzione di query su un indice permanente creato, proprietario e archiviato nel servizio.
+[Azure ricerca cognitiva](https://azure.microsoft.com/services/search/) è una soluzione cloud di ricerca come servizio che offre agli sviluppatori API e strumenti per l'aggiunta di un'esperienza di ricerca avanzata su contenuto privato ed eterogeneo nelle applicazioni Web, per dispositivi mobili e aziendali. Il codice personalizzato richiama l'inserimento dei dati (indicizzazione) per creare e caricare un indice. Dall'altro lato, il codice dell'applicazione immette richieste di query e gestisce le risposte. L'esperienza di ricerca viene definita nel client tramite funzionalità di Ricerca cognitiva di Azure, con l'esecuzione di query su un indice persistente creato dall'utente, di sua proprietà e archiviato nel servizio.
 
 ## <a name="azure-cognitive-search-features"></a>Funzionalità di Azure ricerca cognitiva
 - **Ricerca di testo in formato libero** con ricerca full-text, sintassi di query semplice e sintassi di query Lucene.
@@ -33,7 +33,7 @@ Trovare una descrizione dettagliata delle [funzionalità](/azure/search/search-w
 - [Portale di Azure](https://portal.azure.com) 
 - [Documentazione](/azure/search/)
 - [Guida per sviluppatori](https://azure.microsoft.com/resources/iot-developers-guide/)
-- [Come usare ricerca cognitiva di Azure](/azure/search/search-what-is-azure-search#how-to-use-azure-search)
+- [Come usare ricerca cognitiva di Azure](/azure/search/search-what-is-azure-search#how-to-use-azure-cognitive-search)
 - [Guide introduttive](/azure/search/search-create-service-portal)
 
   

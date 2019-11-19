@@ -1,23 +1,20 @@
 ---
-title: Procedure consigliate per i modelli di Azure Resource Manager
+title: Procedure consigliate per i modelli
 description: Descrive gli approcci consigliati per la creazione di modelli di Azure Resource Manager. Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
-ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983813"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150308"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
 Questo articolo offre indicazioni su come costruire il modello di Resource Manager. Queste indicazioni consentono di evitare i problemi comuni quando si usa un modello per distribuire una soluzione.
 
-Per indicazioni su come gestire le sottoscrizioni di Azure, vedere [Scaffold Azure enterprise: governance prescrittiva per le sottoscrizioni](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Per consigli su come gestire le sottoscrizioni di Azure, vedere la pagina relativa alla [governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)delle sottoscrizioni di Azure Enterprise.
 
 Per indicazioni su come compilare modelli funzionanti in tutti gli ambienti cloud di Azure, vedere [Sviluppare modelli di Azure Resource Manager per la coerenza del cloud](templates-cloud-consistency.md).
 
@@ -35,13 +32,13 @@ Esistono anche i limiti seguenti:
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](resource-group-linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](resource-manager-objects-as-parameters.md).
 
-## <a name="resource-group"></a>Gruppo di risorse
+## <a name="resource-group"></a>Resource group
 
 Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
 Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parametri
 
 Le informazioni di questa sezione possono essere utili quando si usano i [parametri](template-parameters.md).
 

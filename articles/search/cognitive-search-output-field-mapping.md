@@ -1,5 +1,5 @@
 ---
-title: Eseguire il mapping di campi di input arricchiti con intelligenza artificiale ai campi di output
+title: Eseguire il mapping dell'input ai campi di output
 titleSuffix: Azure Cognitive Search
 description: Estrarre e arricchire i campi dei dati di origine ed eseguire il mapping ai campi di output in un indice di ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d2d5e717154d16cc5579c1495aff9c1eebf54b17
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792115"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132384"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Come eseguire il mapping di campi arricchiti di intelligenza artificiale a un indice ricercabile
 

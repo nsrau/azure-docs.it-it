@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 184c57c0d9160cedef4be417f16c52c8635a1eb4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68385301"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838962"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione con integrazione continua/distribuzione continua in un cluster di Service Fabric
 
@@ -144,7 +144,7 @@ Abilitare il trigger di distribuzione continua in modo che la versione venga cre
 
 Selezionare **+ Versione** -> **Crea versione** -> **Crea** per creare manualmente una versione. È possibile monitorare lo stato della versione nella scheda **Versioni**.
 
-Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Si noti la versione dell'applicazione, in questo esempio è "1.0.0.20170616.3".
+Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Si noti la versione dell'applicazione, in questo esempio è "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Eseguire commit e push delle modifiche, attivare la compilazione di una versione
 
@@ -164,7 +164,7 @@ Il push delle modifiche in Azure Pipelines attiva automaticamente una compilazio
 
 Per controllare lo stato di avanzamento della compilazione, passare alla scheda **Compilazioni** in **Team Explorer** in Visual Studio.  Dopo aver verificato la corretta esecuzione della compilazione, definire una pipeline di versione per la distribuzione dell'applicazione in un cluster.
 
-Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Prendere nota della versione dell'applicazione, che in questo esempio è "1.0.0.20170815.3".
+Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare a `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Prendere nota della versione dell'applicazione, che in questo esempio è "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 

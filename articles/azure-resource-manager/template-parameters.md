@@ -1,17 +1,14 @@
 ---
-title: Parametri nei modelli di Azure Resource Manager
+title: Parametri nei modelli
 description: Viene descritto come definire i parametri in un modello di Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 4947b00d6fad5007751cd97d43ad6aca8d775330
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 3ef87a6f24f99564d0c55ae0bc496045b7011eea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383280"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150261"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Parametri nei modelli di Azure Resource Manager
 
@@ -155,7 +152,7 @@ Si fa riferimento alle proprietà dell'oggetto usando l'operatore punto.
 
 Negli esempi seguenti vengono illustrati scenari per l'utilizzo di parametri.
 
-|Modello  |Descrizione  |
+|Modello  |DESCRIZIONE  |
 |---------|---------|
 |[parametri con funzioni per i valori predefiniti](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Illustra come usare le funzioni di modello quando si definiscono valori predefiniti per i parametri. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
 |[oggetto parametro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Illustra l'uso di un oggetto per un parametro. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |

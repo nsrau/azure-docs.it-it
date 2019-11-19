@@ -1,7 +1,7 @@
 ---
 title: Riferimento all'operatore della raccolta OData
 titleSuffix: Azure Cognitive Search
-description: Gli operatori di raccolta OData, any e all e le espressioni lambda in Azure ricerca cognitiva query.
+description: Quando si creano espressioni di filtro in Azure ricerca cognitiva query, usare gli operatori "any" e "All" nelle espressioni lambda quando il filtro si trova in una raccolta o in un campo di raccolta complesso.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793409"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113244"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatori di raccolta OData in Azure ricerca cognitiva-`any` e `all`
 

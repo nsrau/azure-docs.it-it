@@ -3,19 +3,19 @@ title: Presentazione di Azure Advisor | Microsoft Docs
 description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sagupt
+ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069694"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145353"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -37,6 +37,7 @@ Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte 
 * **Sicurezza**: per rilevare le minacce e le vulnerabilità che potrebbero portare a potenziali violazioni della sicurezza. Per altre informazioni, vedere [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza).
 * **Prestazioni**: per aumentare la velocità delle applicazioni. Per altre informazioni, vedere [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni).
 * **Costo**: per ottimizzare e ridurre la spesa complessiva di Azure. Per altre informazioni, vedere [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Azure sui costi).
+* **Eccellenza operativa**: per ottenere l'efficienza dei processi e dei flussi di lavoro, la gestibilità delle risorse e le procedure consigliate per la distribuzione. . Per ulteriori informazioni, vedere [consigli sull'eccellenza operativa di Advisor](advisor-operational-excellence-recommendations.md).
 
   ![Tipi di consigli di Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -61,9 +62,9 @@ Se non si intende agire immediatamente, è possibile posporre il consiglio per u
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Per quali risorse fornisce consigli Advisor?
 
-Advisor fornisce consigli per il Gateway applicazione, servizi App, i set di disponibilità, Cache di Azure Data Factory di Azure, Database di Azure per MySQL, Database di Azure per PostgreSQL, Database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, pubblico di Azure Gli indirizzi IP, SQL Data Warehouse, istanze di SQL Server, gli account di archiviazione, i profili di Traffic Manager e le macchine virtuali.
+Advisor fornisce consigli per gateway applicazione, servizi app, set di disponibilità, cache di Azure, Azure Data Factory, database di Azure per MySQL, database di Azure per PostgreSQL, database di Azure per MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure Public Indirizzi IP, SQL Data Warehouse, SQL Server, account di archiviazione, profili di gestione traffico e macchine virtuali.
 
-Azure Advisor include anche le raccomandazioni da [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) che possono includere consigli per i tipi di risorse aggiuntive.
+Azure Advisor include anche le raccomandazioni del [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) che possono includere consigli per altri tipi di risorse.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 
@@ -73,7 +74,7 @@ Per posporre o ignorare un consiglio, fare clic sul collegamento **Posponi**. Sp
 
 Per altre informazioni sui consigli di Advisor, vedere:
 
-* [Introduzione ad Advisor](advisor-get-started.md)
+* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)

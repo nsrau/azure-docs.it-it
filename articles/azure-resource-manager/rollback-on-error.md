@@ -1,17 +1,14 @@
 ---
-title: Eseguire il rollback in errore per la distribuzione di Azure riuscita
+title: Eseguire il rollback in errore alla distribuzione riuscita
 description: Consente di specificare che è necessario eseguire il rollback di una distribuzione non riuscita a una distribuzione riuscita.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 035b684bb9f5fbc10eb13e642c3fd5945b85c561
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0978d2547e23a9ac6f920c76be3e877ec236d9ed
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975446"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150338"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Rollback in merito a errori di distribuzione riuscita
 
@@ -119,6 +116,6 @@ La distribuzione specificata deve aver avuto esito positivo.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).
-- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
+- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Azure Resource Manager deployment modes](deployment-modes.md) (Modalità di distribuzione di Azure Resource Manager).
 - Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 - Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).

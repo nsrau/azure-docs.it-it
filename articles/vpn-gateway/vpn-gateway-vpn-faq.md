@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul gateway VPN di Azure | Documentazione Microsoft
+title: Domande frequenti sul gateway VPN di Azure
 description: Domande frequenti sul gateway VPN. Domande frequenti relative alle connessioni cross-premise di Rete virtuale di Microsoft Azure, alle connessioni con configurazioni ibride e ai gateway VPN.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: yushwang
-ms.openlocfilehash: dd012ab94ba47f700230ac761f2dc803988cefd4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fa4e403733c418a4ceff417dd0cf7b54f9409a49
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075399"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151655"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499946"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132274"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Esercitazione: Creare un dashboard del provider Power BI
 
@@ -51,7 +51,7 @@ In questa esercitazione si apprenderà come:
 * Un account del servizio Power BI. Se ancora non si dispone di un tale account, è possibile [creare un account in versione di valutazione gratuita per il servizio Power BI](https://app.powerbi.com/). Se non si è usato Power BI in precedenza, può essere utile leggere le informazioni contenute in [Introduzione a Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurare un'esportazione continua dei dati a Hub eventi di Azure
-Sarà prima di tutto necessario configurare un'esportazione continua dei dati dal modello di app di Azure IoT Central all'hub eventi di Azure nella propria sottoscrizione. A tale scopo, è possibile seguire la procedura descritta in questa esercitazione di Azure IoT Central per l'[esportazione a Hub eventi](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp). Ai fini di tale esercitazione, sarà necessario eseguire l'esportazione solo per la telemetria.
+Sarà prima di tutto necessario configurare un'esportazione continua dei dati dal modello di app di Azure IoT Central all'hub eventi di Azure nella propria sottoscrizione. A tale scopo, è possibile seguire la procedura descritta in questa esercitazione di Azure IoT Central per l'[esportazione a Hub eventi](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data). Ai fini di tale esercitazione, sarà necessario eseguire l'esportazione solo per la telemetria.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Creare un set di dati di streaming Power BI
 
@@ -91,7 +91,7 @@ Alla fine di questo passaggio, la finestra di progettazione dell'app per la logi
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Trasmettere dati a Power BI dall'app per la logica
 Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eventi per trasmetterli nei set di dati Power BI creati in precedenza.
 
-1. Prima di poter eseguire questa operazione, sarà necessario conoscere il payload JSON che deve essere inviato dal dispositivo all'hub eventi. A tale scopo, è possibile osservare questo [schema di esempio](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry) e modificarlo in modo che corrisponda al proprio schema oppure usare [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) per esaminare i messaggi. Se si usano le applicazioni di monitoraggio pazienti continuo, i messaggi saranno simili ai seguenti:
+1. Prima di poter eseguire questa operazione, sarà necessario conoscere il payload JSON che deve essere inviato dal dispositivo all'hub eventi. A tale scopo, è possibile osservare questo [schema di esempio](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) e modificarlo in modo che corrisponda al proprio schema oppure usare [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) per esaminare i messaggi. Se si usano le applicazioni di monitoraggio pazienti continuo, i messaggi saranno simili ai seguenti:
 
 **Telemetria della patch intelligente per i segni vitali**
 

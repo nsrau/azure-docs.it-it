@@ -1,6 +1,6 @@
 ---
 title: Gruppi di contenitori in Istanze di Azure Container
-description: Informazioni sul funzionamento di gruppi multicontenitore in istanze di contenitore di Azure
+description: Informazioni sui gruppi di contenitori in istanze di contenitore di Azure, una raccolta di istanze che condividono un ciclo di vita e risorse come l'archiviazione e la rete
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ef6745e18a0df3ee0a572f106d1507d0fca32ac2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904458"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150198"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
 La risorsa di livello principale in Istanze di Azure Container è il *gruppo di contenitori*. Questo articolo descrive le caratteristiche dei gruppi di contenitori e i tipi di scenari possibili.
 
-## <a name="how-a-container-group-works"></a>Come funziona un gruppo di contenitori
+## <a name="what-is-a-container-group"></a>Che cos'è un gruppo di contenitori?
 
 Un gruppo di contenitori è una raccolta di contenitori che vengono pianificati nello stesso computer host I contenitori in un gruppo di contenitori condividono un ciclo di vita, le risorse, la rete locale e i volumi di archiviazione. Si tratta di un concetto simile a un *Pod* in [Kubernetes][kubernetes-pod].
 

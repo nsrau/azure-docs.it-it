@@ -1,18 +1,15 @@
 ---
-title: Eliminare un gruppo di risorse e le risorse - Azure Resource Manager
+title: Eliminare il gruppo di risorse e le risorse
 description: Viene descritto come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c84dcf64555f40f45dbdaeedb05d4cc461f2cbb7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275078"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150805"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager l'eliminazione di risorse e gruppi di risorse
 
@@ -57,7 +54,7 @@ Se l'operazione GET restituisce un errore, Resource Manager esegue un nuovo tent
 
 Per altri codici di errore, Resource Manager considera l'eliminazione della risorsa non riuscita.
 
-## <a name="delete-resource-group"></a>Elimina gruppo di risorse
+## <a name="delete-resource-group"></a>Eliminare un gruppo di risorse
 
 Usare uno dei metodi seguenti per eliminare il gruppo di risorse.
 
@@ -79,13 +76,13 @@ az group delete --name ExampleResourceGroup
 
 1. Selezionare **Elimina gruppo di risorse**.
 
-   ![Elimina gruppo di risorse](./media/resource-group-delete/delete-group.png)
+   ![Eliminare un gruppo di risorse](./media/resource-group-delete/delete-group.png)
 
 1. Per confermare l'eliminazione, digitare il nome del gruppo di risorse
 
 ---
 
-## <a name="delete-resource"></a>Elimina risorsa
+## <a name="delete-resource"></a>Eliminare una risorsa
 
 Usare uno dei metodi seguenti per eliminare una risorsa.
 
@@ -113,7 +110,7 @@ az resource delete \
 
 1. Selezionare **Elimina**. Lo screenshot seguente mostra le opzioni di gestione per una macchina virtuale.
 
-   ![Elimina risorsa](./media/resource-group-delete/delete-resource.png)
+   ![Eliminare una risorsa](./media/resource-group-delete/delete-resource.png)
 
 1. Quando richiesto, confermare l'eliminazione.
 
