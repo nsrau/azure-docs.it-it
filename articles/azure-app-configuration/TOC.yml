@@ -17,8 +17,8 @@
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
-        - name: Funzione di Azure in .NET Core
-          href: quickstart-azure-function-csharp.md
+        - name: Funzioni di Azure in .NET Core
+          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
     - name: Gestione delle funzionalità
@@ -37,6 +37,8 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Abilitare la configurazione dinamica in .NET Framework
       href: enable-dynamic-configuration-dotnet.md
+    - name: Abilitare la configurazione dinamica in Funzioni di Azure
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Usare i flag di funzionalità in un'app .NET Core
       href: use-feature-flags-dotnet-core.md
     - name: Usare i flag di funzionalità in un'app Spring Boot
@@ -67,7 +69,7 @@
           href: concept-disaster-recovery.md
 - name: Guide alle procedure
   items:
-    - name: Integrare l'identità del servizio gestita di Azure
+    - name: Integrazione con l'identità gestita di Azure
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importare o esportare dati di configurazione
       href: howto-import-export-data.md

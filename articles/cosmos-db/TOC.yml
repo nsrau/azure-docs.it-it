@@ -974,21 +974,19 @@
       items:
         - name: Ripristinare i dati da un backup
           href: how-to-backup-and-restore.md
-    - name: Registrazione
+    - name: Monitorare
       items:
-        - name: Registrazione diagnostica
-          href: logging.md
+        - name: Monitorare Cosmos DB
+          href: monitor-cosmos-db.md
+        - name: Monitoraggio di Azure per Cosmos (anteprima)
+          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+        - name: Visualizzare le metriche dall'account Cosmos DB
+          href: use-metrics.md
         - name: Registrazione delle applicazioni con App per la logica
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: Monitorare con le metriche
-      items:
-        - name: Visualizzare le metriche dall'account Cosmos DB
-          href: use-metrics.md
-        - name: Visualizzare le metriche da Monitoraggio di Azure
-          href: cosmos-db-azure-monitor-metrics.md
-        - name: Monitorare i contratti di servizio
-          href: monitor-accounts.md
+        - name: Informazioni di riferimento sui dati di monitoraggio
+          href: monitor-cosmos-db-reference.md
     - name: Sviluppare in locale
       items:
         - name: Usare l'emulatore

@@ -225,9 +225,9 @@
           items:
             - name: Novità di HDInsight 4.0
               href: ./hdinsight-version-release.md
-            - name: Note sulla versione completa di HDInsight 4.0
+            - name: Note sulla versione
               href: ./hdinsight-release-notes.md
-            - name: Note sulla versione completa di HDInsight 3.6
+            - name: Note sulla versione archiviata di Azure HDInsight
               href: ./hdinsight-release-notes-archive.md
         - name: Domande frequenti
           href: ./hdinsight-faq.md
@@ -837,6 +837,8 @@
           href: ./hdinsight-plan-virtual-network-deployment.md
         - name: Indirizzi IP richiesti per gruppi di sicurezza di rete e route definite dall'utente
           href: ./hdinsight-management-ip-addresses.md
+        - name: Tag di servizio per Firewall di Azure
+          href: ./hdinsight-service-tags.md
     - name: Procedure
       items:
         - name: Creare cluster ESP e sincronizzarli con l'istanza locale

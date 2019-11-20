@@ -798,12 +798,14 @@
               items:
                 - name: Abilitare il monitoraggio - Panoramica
                   href: insights/container-insights-onboard.md
-                - name: Abilitare per un nuovo cluster
+                - name: Abilitare per un nuovo cluster del servizio Azure Kubernetes
                   href: insights/container-insights-enable-new-cluster.md
-                - name: Abilitare per un cluster esistente
+                - name: Abilitare per un cluster del servizio Azure Kubernetes esistente
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Abilitare per l'ambiente ibrido
                   href: insights/container-insights-hybrid-setup.md
+                - name: Abilitare per Azure Red Hat OpenShift
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: Mapping delle aree
                   href: insights/container-insights-region-mapping.md
             - name: Monitorare le prestazioni

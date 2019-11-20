@@ -278,6 +278,8 @@
                   href: sql-database-xevent-code-ring-buffer.md
         - name: Diagnostica delle prestazioni dell'iperscalabilità
           href: sql-database-hyperscale-performance-diagnostics.md
+        - name: Gestione risorse in pool elastici densi
+          href: sql-database-elastic-pool-resource-management.md
     - name: Scalabilità
       items:
         - name: Documentazione sulla scalabilità

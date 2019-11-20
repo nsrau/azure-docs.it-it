@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Site Recovery
-summary: Usare Azure Site Recovery per il ripristino di emergenza dei computer e dei carichi di lavoro locali in Azure e delle VM di Azure in un'area di Azure secondaria. Implementando la replica in Azure, è possibile orchestrare il failover in caso di interruzioni del servizio e continuare ad accedere ai carichi di lavoro e alle app in Azure. Quando la località primaria è di nuovo disponibile, è possibile eseguire il failback, se necessario.
+summary: Usare Azure Site Recovery per il ripristino di emergenza di carichi di lavoro locali e macchine virtuali di Azure.
 metadata:
   title: Documentazione di Azure Site Recovery
-  description: Usare Azure Site Recovery per il ripristino di emergenza dei computer e dei carichi di lavoro locali in Azure e delle VM di Azure in un'area di Azure secondaria. Implementando la replica in Azure, è possibile orchestrare il failover in caso di interruzioni del servizio e continuare ad accedere ai carichi di lavoro e alle app in Azure. Quando la località primaria è di nuovo disponibile, è possibile eseguire il failback, se necessario.
+  description: Configurare il ripristino di emergenza in Azure per i carichi di lavoro locali e le VM di Azure.
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: ccbc4c92a6d0db9d5baf8a226ba79405a2b824ff
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001085"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74186591"
 landingContent:
 - title: Informazioni su Site Recovery
   linkLists:

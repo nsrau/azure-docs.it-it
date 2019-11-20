@@ -22,6 +22,8 @@
   items:
     - name: Domande frequenti sull'analizzatore Internet
       href: internet-analyzer-faq.md
+    - name: Informazioni di riferimento sull'interfaccia della riga di comando dell'analizzatore Internet
+      href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog
