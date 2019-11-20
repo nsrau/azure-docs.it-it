@@ -1,10 +1,10 @@
 ---
-title: Limitare l'accesso alla rete alle risorse PaaS - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Limitare l'accesso di rete alle risorse PaaS-interfaccia della riga di comando di Azure
 description: In questo articolo viene descritto come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, tramite endpoint servizio di rete virtuale con l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695128"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186394"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete 
 * Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
 * Distribuire una macchina virtuale (VM) in ogni subnet
 * Verificare che venga consentito l'accesso a una risorsa da una subnet
-* Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
+* Verificare che venga negato l'accesso a una risorsa da una subnet e da Internet
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Ogni gruppo di sicurezza di rete contiene numerosi [regole di sicurezza predefinite](security-overview.md#default-security-rules). La regola che segue esegue l'override di una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. Il `destination-address-prefix "Internet"` opzione Nega accesso in uscita a tutti gli indirizzi IP. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
+Ogni gruppo di sicurezza di rete contiene diverse [regole di sicurezza predefinite](security-overview.md#default-security-rules). La regola che segue sostituisce una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L'opzione `destination-address-prefix "Internet"` nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-La regola seguente consente il traffico SSH in ingresso verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentita per la subnet in modo che la connettività può essere testata in un passaggio successivo.
+La regola seguente consente il traffico SSH in ingresso verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentito alla subnet in modo che la connettività possa essere testata in un passaggio successivo.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -156,7 +156,7 @@ az network nsg rule create \
 
 ## <a name="restrict-network-access-to-a-resource"></a>Limitare l'accesso di rete a una risorsa
 
-I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo include, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
+I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo descrive, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -199,9 +199,9 @@ az storage share create \
   --connection-string $saConnectionString > /dev/null
 ```
 
-### <a name="deny-all-network-access-to-a-storage-account"></a>Negare l'accesso di rete a un account di archiviazione
+### <a name="deny-all-network-access-to-a-storage-account"></a>Rifiutare l'accesso di rete a un account di archiviazione
 
-Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete da client di qualsiasi rete. Per limitare l'accesso alle reti selezionate, modificare l'azione predefinita impostandola su *Deny* con [az storage account update](/cli/azure/storage/account). Dopo che l'accesso di rete è stato negato, l'account di archiviazione non sarà accessibile da nessuna rete.
+Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete dai client in qualsiasi rete. Per limitare l'accesso alle reti selezionate, modificare l'azione predefinita impostandola su *Deny* con [az storage account update](/cli/azure/storage/account). Dopo che l'accesso di rete è stato rifiutato, l'account di archiviazione non sarà accessibile da nessuna rete.
 
 ```azurecli-interactive
 az storage account update \
@@ -223,7 +223,7 @@ az storage account network-rule add \
 ```
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Per testare l'accesso di rete a un account di archiviazione, distribuire una VM in ogni subnet.
+Per testare l'accesso di rete per un account di archiviazione, distribuire una macchina virtuale in ogni subnet.
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
@@ -254,7 +254,7 @@ La creazione della VM richiede alcuni minuti. Dopo aver creato la macchina virtu
 }
 ```
 
-Prendere nota di **publicIpAddress** nell'output restituito. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.
+Prendere nota di **publicIpAddress** nell'output restituito. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.
 
 ### <a name="create-the-second-virtual-machine"></a>Creare la seconda macchina virtuale
 
@@ -268,11 +268,11 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La creazione della VM richiede alcuni minuti. Dopo la creazione, prendere nota di **publicIpAddress** nell'output restituito. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo.
+La creazione della VM richiede alcuni minuti. Dopo la creazione, prendere nota di **publicIpAddress** nell'output restituito. Questo indirizzo viene usato per accedere alla VM da Internet in un passaggio successivo.
 
 ## <a name="confirm-access-to-storage-account"></a>Verificare che venga consentito l'accesso a un account di archiviazione
 
-Eseguire SSH nella VM *myVmPrivate*. Sostituire  *\<publicIpAddress >* con l'indirizzo IP pubblico del *myVmPrivate* della macchina virtuale.
+Eseguire SSH nella VM *myVmPrivate*. Sostituire *\<> publicIpAddress* con l'indirizzo IP pubblico della macchina virtuale *myVmPrivate* .
 
 ```bash 
 ssh <publicIpAddress>
