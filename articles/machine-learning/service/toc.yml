@@ -298,8 +298,8 @@
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
         - name: Usare la finestra di progettazione per le previsioni in batch
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions-ui.md
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+          href: how-to-run-batch-predictions-designer.md
     - name: Monitorare i modelli
       items:
         - name: Raccogliere e valutare i dati dei modelli

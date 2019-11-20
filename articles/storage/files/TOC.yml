@@ -183,6 +183,8 @@
           href: storage-sync-files-troubleshoot.md
         - name: Risolvere i problemi relativi all'eliminazione di File di Azure
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: consente di ripristinare un account di archiviazione eliminato
+          href: storage-how-to-recover-deleted-account.md
 - name: riferimento
   items:
     - name: Azure PowerShell
