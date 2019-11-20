@@ -1,5 +1,5 @@
 ---
-title: Servizio front-end di Azure-Domande frequenti per la porta anteriore | Microsoft Docs
+title: Servizio front door di Azure-Domande frequenti
 description: Questa pagina fornisce le risposte alle domande frequenti sul servizio Azure front door
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809729"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184646"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Domande frequenti sul servizio Azure front door
 
@@ -26,7 +26,7 @@ Questo articolo fornisce le risposte alle domande comuni sulle funzionalità e s
 2. [Servizio front door di Azure UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
 3. **Supporto tecnico Microsoft:** Per creare una nuova richiesta di supporto, nella portale di Azure della scheda **Guida** selezionare il pulsante Guida e **supporto** e quindi selezionare **nuova richiesta di supporto**.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>General
 
 ### <a name="what-is-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 
@@ -134,7 +134,7 @@ Il servizio di Azure front door (AFD) richiede un indirizzo IP pubblico o un nom
 
 Informazioni su tutti i [timeout e i limiti documentati per il servizio front door di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 
 ### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>In che modo il servizio Azure front door supporta la disponibilità e la scalabilità elevate?
 

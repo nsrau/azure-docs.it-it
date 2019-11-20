@@ -1,7 +1,7 @@
 ---
-title: 'Finestra di progettazione: classificazione, stima reddito'
+title: 'Finestra di progettazione: esempio di classificazione, stima del reddito'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima).
+description: Seguire questo esempio per creare un classificatore senza codice per stimare il reddito con Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 527db89be85cc5b095d33ba89c776a077119f08a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647972"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196060"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Compilare un classificatore & usare la selezione delle funzioni per stimare il reddito con Azure Machine Learning Designer
+
+**Finestra di progettazione (anteprima) sample 3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima). Questo esempio consente di eseguire il training di un **albero delle decisioni con boosting a due classi** per stimare il reddito del censimento adulto (> = 50.000 o < = 50.000).
@@ -28,7 +31,7 @@ Ecco il grafico della pipeline finale per questo esempio:
 
 ![Grafico della pipeline](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 11/18/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820e979c41ddc1c1cf14456ed77a4a55e353ab12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094269"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74194963"
 ---
 > [!NOTE] 
 > Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza. 
@@ -159,7 +159,7 @@ Un account utente non anonimo è utile quando si vuole che tutte le attività in
 
 È anche possibile usare un account utente non anonimo per eseguire un'attività che imposta le autorizzazioni in risorse esterne, ad esempio in condivisioni di file. Con un account utente non anonimo è possibile controllare l'identità dell'utente e usare tale identità per impostare le autorizzazioni.  
 
-Gli account utente non anonimi consentono di abilitare il protocollo SSH senza password tra i nodi Linux. È possibile usare un account utente non anonimo con nodi Linux per cui è necessario eseguire attività a istanze multiple. Ogni nodo nel pool può eseguire attività con un account utente definito nell'intero pool. Per altre informazioni sulle attività a istanze multiple, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch](batch-mpi.md).
+Gli account utente non anonimi consentono di abilitare il protocollo SSH senza password tra i nodi Linux. È possibile usare un account utente non anonimo con nodi Linux per cui è necessario eseguire attività a istanze multiple. Ogni nodo nel pool può eseguire attività con un account utente definito nell'intero pool. Per altre informazioni sulle attività a istanze multiple, vedere [Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch\-.
 
 ### <a name="create-named-user-accounts"></a>Creare account utente non anonimi
 
@@ -280,7 +280,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -329,7 +329,7 @@ Nella versione 2017-01-01.4.0 del servizio Batch è stata introdotta una modific
 | Versione precedente                      | Versione aggiornata                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, dove <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`, dove <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated=False`                      | `user_identity=user`, dove <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` non specificato | Non sono necessari aggiornamenti                                                                                                                                  |
 
 

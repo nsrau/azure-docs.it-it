@@ -1,7 +1,7 @@
 ---
-title: 'Finestra di progettazione: stima prezzi auto (regressione)'
+title: "Finestra di progettazione: stimare l'esempio prezzi auto (avanzate)"
 titleSuffix: Azure Machine Learning
-description: Questo articolo illustra come creare una pipeline di Machine Learning complessa senza scrivere una sola riga di codice usando la finestra di progettazione (anteprima). Informazioni su come eseguire il training e il confronto di più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche
+description: Compilare & confrontare più modelli di regressione ML per stimare il prezzo di un'automobile in base a funzionalità tecniche con Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5eb701af90125e2654d6f908b28512aba3ad37aa
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647944"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196074"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Esempio 2-regressione: stimare il prezzo e confrontare gli algoritmi
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Eseguire il Training & confrontare più modelli di regressione per stimare i prezzi delle automobili con Azure Machine Learning Designer
+
+**Esempio di finestra di progettazione (anteprima) 2**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Informazioni su come creare una pipeline di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima). Questo esempio consente di eseguire il training e confrontare più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche. Forniremo la logica per le scelte effettuate in questa pipeline, in modo da poter affrontare i problemi di apprendimento automatico.
@@ -28,7 +31,7 @@ Ecco il grafico completato per questa pipeline:
 
 [Grafico ![della pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

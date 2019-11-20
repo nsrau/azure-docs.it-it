@@ -1,5 +1,5 @@
 ---
-title: Come configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite il portale di Azure
+title: Configurare le identità gestite usando il portale di Azure-Azure AD
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite il portale di Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab0a5b021048f0f684473d3f54bbeadf870cd007
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75971dbd35a6b29306bc87988423ab662a343705
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112851"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183859"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure
 
@@ -30,7 +30,7 @@ Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'iden
 
 Questo articolo illustra come abilitare e disabilitare le identità gestite assegnate dal sistema e dall'utente per una macchina virtuale (VM) di Azure usando il portale di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.

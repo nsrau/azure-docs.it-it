@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037887"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186155"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -63,7 +63,7 @@ Quando si usa l' **evento Live**pass-through, si fa affidamento sul codificatore
 
 Quando si usa la codifica cloud con servizi multimediali, è necessario configurare il codificatore Live locale per l'invio di un video a bitrate singolo come feed di contributo (fino a 32Mbps aggregato) per l'evento Live (usando il protocollo di input RTMP o frammentato-MP4). L'evento Live consente di transcodificare il flusso a bitrate singolo in ingresso in [flussi video a bitrate multipli](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) con diverse risoluzioni per migliorare la distribuzione e renderlo disponibile per la distribuzione ai dispositivi di riproduzione tramite protocolli standard di settore, ad esempio MPEG-Dash, Apple http live streaming (HLS) e Microsoft Smooth Streaming. 
 
-### <a name="live-transcription"></a>Trascrizione in tempo reale
+### <a name="live-transcription-preview"></a>Trascrizione in tempo reale (anteprima)
 
 La trascrizione in tempo reale è una funzionalità che è possibile usare con gli eventi live che sono pass-through o la codifica live. Per ulteriori informazioni, vedere [trascrizione in tempo reale](live-transcription.md). Quando questa funzionalità è abilitata, il servizio usa la funzionalità di [riconoscimento vocale](../../cognitive-services/speech-service/speech-to-text.md) dei servizi cognitivi per trascrivere le parole pronunciate nell'audio in ingresso nel testo. Questo testo viene quindi reso disponibile per il recapito insieme a video e audio nei protocolli MPEG-DASH e HLS.
 

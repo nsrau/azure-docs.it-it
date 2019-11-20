@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 377ed8f17cfcf67f10cbdec77199c69c606afa3e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011488"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180679"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -142,6 +142,14 @@ La console interattiva esegue una richiesta API sul lato client dal browser. È 
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> Se si applicano i criteri CORS nell'ambito del prodotto, invece dell'ambito delle API e l'API usa l'autenticazione con chiave di sottoscrizione tramite un'intestazione, la console non funzionerà.
+>
+> Il browser rilascia automaticamente una richiesta HTTP OPTIONS, che non contiene un'intestazione con la chiave di sottoscrizione. A causa della chiave di sottoscrizione mancante, gestione API non può associare la chiamata OPTIONS a un prodotto, quindi non può applicare i criteri CORS.
+>
+> Come soluzione alternativa è possibile passare la chiave della sottoscrizione in un parametro di query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

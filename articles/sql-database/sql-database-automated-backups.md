@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1cdd8fdac03c25bf28db94867891fef4c2846fcd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821935"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196540"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -46,7 +46,7 @@ Il database SQL usa la tecnologia SQL Server per creare [backup completi](https:
 
 | | Portale di Azure | Azure PowerShell |
 |---|---|---|
-| Modificare la conservazione dei backup | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Istanza gestita](sql-database-automated-backups.md#managed-instance-database) | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Modificare la conservazione dei backup | [Database singolo](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Istanza gestita](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Database singolo](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Modificare la conservazione dei backup a lungo termine | [Database singolo](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Istanza gestita-N/A  | [Database singolo](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Istanza gestita-N/A  |
 | Ripristinare il database da un punto nel tempo | [Database singolo](sql-database-recovery-using-backups.md#point-in-time-restore) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Ripristinare un database eliminato | [Database singolo](sql-database-recovery-using-backups.md) | [Database singolo](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Istanza gestita](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
@@ -84,6 +84,15 @@ Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-da
 ## <a name="storage-costs"></a>Costi di archiviazione
 Per i database singoli e le istanze gestite, viene fornita una quantità minima di spazio di archiviazione per il backup pari al 100% delle dimensioni del database senza costi aggiuntivi. Per i pool elastici, un importo di archiviazione di backup minimo pari al 100% dell'archiviazione dei dati allocati per il pool viene fornito senza costi aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese. Questo consumo aggiuntivo dipenderà dal carico di lavoro e dalle dimensioni dei singoli database.
 
+È possibile usare l'analisi dei costi della sottoscrizione di Azure per determinare la spesa corrente per l'archiviazione di backup.
+
+![Analisi dei costi di archiviazione di backup](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+
+Se si passa alla sottoscrizione e si apre il pannello analisi dei costi, è possibile selezionare la sottocategoria **ripristino temporizzato backup storage** per visualizzare il costo di backup e le previsioni di addebito correnti. È anche possibile includere altre sottocategorie di contatori, ad esempio **utilizzo generico dell'istanza gestita-archiviazione** o **istanza gestita per utilizzo generico-archiviazione** per confrontare i costi di archiviazione di backup con altre categorie di costi.
+
+> [!Note]
+> È possibile [modificare il periodo di memorizzazione in 7 giorni](#change-pitr-backup-retention-period-using-azure-portal) per ridurre i costi di archiviazione del backup.
+
 Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="are-backups-encrypted"></a>I backup sono crittografati?
@@ -118,17 +127,19 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 
 Per modificare il periodo di conservazione dei backup ripristino temporizzato usando il portale di Azure, passare all'oggetto server di cui si desidera modificare il periodo di memorizzazione nel portale e quindi selezionare l'opzione appropriata in base all'oggetto server che si sta modificando.
 
-#### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
+#### <a name="single-database--elastic-poolstabsingle-database"></a>[Database singolo e pool elastici](#tab/single-database)
 
 La modifica della conservazione dei backup ripristino temporizzato per i singoli database SQL di Azure viene eseguita a livello di server. Le modifiche apportate a livello di server si applicano ai database in tale server. Per modificare ripristino temporizzato per il server di database SQL di Azure da portale di Azure, passare al pannello panoramica del server, fare clic su Gestisci backup nel menu di navigazione, quindi fare clic su Configura conservazione sulla barra di spostamento.
 
 ![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instance-database"></a>Database istanza gestita
+#### <a name="managed-instancetabmanaged-instance"></a>[Istanza gestita](#tab/managed-instance)
 
 La modifica della conservazione dei backup di ripristino temporizzato per l'istanza gestita di database SQL viene eseguita a livello di singolo database. Per modificare la conservazione dei backup di ripristino temporizzato per un database dell'istanza da portale di Azure, passare al pannello panoramica del singolo database e quindi fare clic su Configura conservazione backup nella barra di spostamento.
 
 ![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+---
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modificare il periodo di conservazione dei backup di ripristino temporizzato usando PowerShell
 
@@ -148,7 +159,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Request Body
+#### <a name="request-body"></a>Corpo della richiesta
 
 ```json
 {

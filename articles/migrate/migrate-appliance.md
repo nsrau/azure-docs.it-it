@@ -1,23 +1,23 @@
 ---
-title: Architettura Azure Migrate Appliance | Microsoft Docs
-description: Viene fornita una panoramica del dispositivo Azure Migrate
+title: Architettura Azure Migrate Appliance
+description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: bdc81820b1ac9867d45fd26e26d24c65e20641e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685103"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185824"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
 Questo articolo descrive l'appliance Azure Migrate. Si distribuisce l'appliance quando si usano Azure Migrate strumenti di valutazione e migrazione per individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. 
 
-[Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
+[Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, oltre a offerte di fornitori di software indipendenti (ISV) di terze parti.
 
 
 
@@ -81,7 +81,7 @@ Di seguito è riportato l'elenco completo dei metadati delle macchine virtuali V
 --- | --- 
 **Dettagli computer** | 
 ID macchina virtuale | vm.Config.InstanceUuid 
-Nome della VM. | vm.Config.Name
+Nome della VM | vm.Config.Name
 ID server vCenter | VMwareClient.Instance.Uuid
 Descrizione macchina virtuale | vm.Summary.Config.Annotation
 Nome prodotto con licenza | vm.Client.ServiceContent.About.LicenseProductName
@@ -112,7 +112,7 @@ Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva lettura (MB al secondo) | net.received.average
 Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
 **Dettagli percorso inventario** | 
-Name | container.GetType().Name
+Nome | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
@@ -162,7 +162,7 @@ Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntr
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
 **Dettagli per disco** | 
 Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Tipo
+Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | digitare
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
 **Dettagli per NIC** | 
@@ -206,7 +206,7 @@ Il dispositivo viene aggiornato quando vengono aggiornati gli agenti Azure Migra
 
 - Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance.
 - È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
-- Per disabilitare l'aggiornamento automatico, passare all'editor del registro di sistema > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance e impostare la chiave del registro di sistema "AutoUpdate" su 0 (DWORD).
+- Per disabilitare l'aggiornamento automatico, passare all'editor del registro di sistema > HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance e impostare la chiave del registro di sistema "AutoUpdate" su 0 (DWORD).
  
 ### <a name="set-agent-updates-to-manual"></a>Impostare gli aggiornamenti dell'agente su manuale
 

@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035543"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185134"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integrazione con identità gestite di Azure
+# <a name="integrate-with-azure-managed-identities"></a>Integrazione con Identità gestite di Azure
 
-Le [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) di Azure Active Directory semplificano la gestione dei segreti dell'applicazione cloud. Con un'identità gestita, è possibile configurare il codice in modo da usare l'entità servizio creata per il servizio di calcolo di Azure in cui viene eseguita. È possibile usare un'identità gestita invece di usare credenziali distinte archiviate in Azure Key Vault o una stringa di connessione locale. 
+Le [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) di Azure Active Directory semplificano la gestione dei segreti dell'applicazione cloud. Con un'identità gestita, è possibile configurare il codice per usare l'entità servizio creata per il servizio di Azure in cui è in esecuzione. È possibile usare un'identità gestita invece di usare credenziali distinte archiviate in Azure Key Vault o una stringa di connessione locale. 
 
-Configurazione app di Azure e le relative librerie client .NET Core, .NET e Java Spring offrono il supporto dell'identità del servizio gestita incorporato. Benché il suo utilizzo non sia obbligatorio, l'identità del servizio gestita elimina la necessità di un token di accesso che contiene i segreti. Il codice può accedere all'archivio di configurazione dell'app usando solo l'endpoint del servizio. È possibile incorporare questo URL direttamente nel codice senza il rischio di esporre alcun segreto.
+App Azure configurazione e le librerie client di .NET Core, .NET Framework e Java Spring sono dotate del supporto di identità gestite incorporato. Sebbene non sia necessario usarlo, l'identità gestita elimina la necessità di un token di accesso che contiene segreti. Il codice può accedere all'archivio di configurazione dell'app usando solo l'endpoint del servizio. È possibile incorporare questo URL direttamente nel codice senza il rischio di esporre alcun segreto.
 
-Questa esercitazione illustra come sfruttare MSI per accedere a Configurazione app. Si basa sull'app Web presentata nelle guide introduttive. Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md).
+Questa esercitazione illustra come è possibile sfruttare l'identità gestita per accedere alla configurazione dell'app. È basata sull'app Web presentata nelle guide introduttive. Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md).
 
-Questa esercitazione, inoltre, Mostra come è possibile usare l'identità del servizio gestito insieme ai riferimenti Key Vault della configurazione dell'app. Questo consente di accedere facilmente ai segreti archiviati in Key Vault, oltre ai valori di configurazione nella configurazione dell'app. Per esplorare questa funzionalità, terminare usare prima di tutto [Key Vault riferimenti con ASP.NET Core](./use-key-vault-references-dotnet-core.md) .
+Questa esercitazione, inoltre, Mostra come usare l'identità gestita insieme ai riferimenti Key Vault della configurazione dell'app. Questo consente di accedere facilmente ai segreti archiviati in Key Vault, oltre ai valori di configurazione nella configurazione dell'app. Per esplorare questa funzionalità, terminare usare prima di tutto [Key Vault riferimenti con ASP.NET Core](./use-key-vault-references-dotnet-core.md) .
 
 Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
 
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare l'app in modo da usare un'identità gestita per connettersi a Configurazione app.
 > * Facoltativamente, configurare l'app per l'uso di un'identità gestita quando ci si connette a Key Vault tramite una configurazione dell'app Key Vault riferimento.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari:
 
@@ -64,7 +64,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 ## <a name="grant-access-to-app-configuration"></a>Concedere l'accesso a Configurazione app
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutte le risorse** e quindi selezionare l'archivio di configurazione app creato nella guida di avvio rapido.
+1. Nella [portale di Azure](https://portal.azure.com)selezionare tutte le **risorse** e selezionare l'archivio di configurazione dell'app creato nella Guida introduttiva.
 
 1. Selezionare **Controllo di accesso (IAM)** .
 
@@ -78,7 +78,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
     ![Aggiungere un'identità gestita](./media/add-managed-identity.png)
 
-1. Facoltativo: Se si vuole concedere l'accesso anche a Key Vault, seguire le istruzioni in [fornire Key Vault l'autenticazione con un'identità gestita](https://docs.microsoft.com/azure/key-vault/managed-identity).
+1. Facoltativo: se si vuole concedere l'accesso anche a Key Vault, seguire le istruzioni in [fornire Key Vault l'autenticazione con un'identità gestita](https://docs.microsoft.com/azure/key-vault/managed-identity).
 
 ## <a name="use-a-managed-identity"></a>Usare un'identità gestita
 
@@ -106,7 +106,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
             .UseStartup<Startup>();
     ```
 
-1. Se si vuole usare i valori di configurazione dell'app, nonché Key Vault riferimenti, aprire *Program.cs*e aggiornare il metodo `CreateWebHostBuilder`, come illustrato di seguito. In questo modo viene creato un nuovo `KeyVaultClient` usando un `AzureServiceTokenProvider` e il riferimento viene passato a una chiamata al metodo `UseAzureKeyVault`.
+1. Se si vuole usare i valori di configurazione dell'app, nonché Key Vault riferimenti, aprire *Program.cs*e aggiornare il metodo `CreateWebHostBuilder`, come illustrato di seguito. In questo modo viene creato un nuovo `KeyVaultClient` utilizzando una `AzureServiceTokenProvider` e viene passato questo riferimento a una chiamata al metodo `UseAzureKeyVault`.
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -122,7 +122,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
                 .UseStartup<Startup>();
     ```
 
-    È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà il `KeyVaultClient` configurato per l'autenticazione per Key Vault e il recupero del valore.
+    È ora possibile accedere a Key Vault riferimenti come qualsiasi altra chiave di configurazione dell'app. Il provider di configurazione utilizzerà la `KeyVaultClient` configurata per l'autenticazione per Key Vault e il recupero del valore.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -203,7 +203,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Usare l'identità gestita in altri linguaggi
 
-Anche i provider di Configurazione app per .NET Framework e Java Spring offrono supporto incorporato per l'identità gestita. In questi casi usare l'endpoint dell'URL dell'archivio di configurazione app invece della stringa di connessione completa durante la configurazione di un provider. Ad esempio, per l'app console di .NET Framework creata nella guida di avvio rapido occorre specificare le impostazioni seguenti nel file *App.config*:
+Anche i provider di Configurazione app per .NET Framework e Java Spring offrono supporto incorporato per l'identità gestita. In questi casi, usare l'endpoint URL dell'archivio di configurazione dell'app invece della stringa di connessione completa quando si configura un provider. Ad esempio, per l'app console di .NET Framework creata nella guida di avvio rapido occorre specificare le impostazioni seguenti nel file *App.config*:
 
 ```xml
     <configSections>
@@ -228,6 +228,7 @@ Anche i provider di Configurazione app per .NET Framework e Java Spring offrono 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione è stata aggiunta un'identità gestita di Azure per semplificare l'accesso alla configurazione dell'app e migliorare la gestione delle credenziali per l'app. Per altre informazioni sull'uso di Configurazione app, passare agli esempi dell'interfaccia della riga di comando di Azure.
 
 > [!div class="nextstepaction"]
 > [Esempi dell'interfaccia della riga di comando](./cli-samples.md)

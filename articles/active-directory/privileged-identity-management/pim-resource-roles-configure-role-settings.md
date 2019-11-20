@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144269"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74182730"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo delle risorse di Azure in Privileged Identity Management
 
@@ -57,6 +57,9 @@ Per aprire le impostazioni per un ruolo delle risorse di Azure seguire questa pr
     ![Scheda assegnazione ruolo nella pagina impostazioni ruolo](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
 
 1. Usare la scheda **notifica** o il pulsante **Avanti: attivazione** nella parte inferiore della pagina per ottenere la scheda delle impostazioni di notifica per questo ruolo. Queste impostazioni controllano tutte le notifiche di posta elettronica correlate a questo ruolo.
+
+    > [!NOTE]
+    > È in corso il rollback di questa interfaccia utente delle notifiche tra aree e sottoscrizioni di Azure. Se non è possibile configurare queste notifiche granulari, verificare di nuovo in un giorno o due.
 
     ![Scheda notifiche ruolo nella pagina impostazioni ruolo](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
 

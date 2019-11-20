@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
+title: Domande frequenti e problemi noti relativi alle identità gestite-Azure AD
 description: Problemi noti relativi alle identità gestite per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,23 +16,23 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d882b34bc4f057035a16b7916249cfe8f0b8d0b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983424"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183879"
 ---
-# <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
+# <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti relativi alle identità gestite per le risorse di Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
 > [!NOTE]
-> Identità gestite per le risorse di Azure è il nuovo nome per il servizio precedentemente noto come identità del servizio gestita.
+> Identità gestite per le risorse di Azure è il nuovo nome assegnato al servizio precedentemente noto come Identità del servizio gestita.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Le identità gestite per le risorse di Azure funzionano con i Servizi cloud di Azure?
+### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Le identità gestite per le risorse di Azure funzionano con Servizi cloud di Azure?
 
 No, non sono previste iniziative per supportare le identità gestite per le risorse di Azure nei Servizi cloud di Azure.
 
@@ -64,11 +64,11 @@ Alcuni vantaggi dell'uso delle identità gestite per le risorse di Azure nel ser
 L'estensione della macchina virtuale identità gestite per le risorse di Azure è ancora disponibile. Tuttavia, non vengono più sviluppate nuove funzionalità. È consigliabile passare a usare l'endpoint IMDS. 
 
 Di seguito sono riportate alcune delle limitazioni dell'uso dell'endpoint di estensione della macchina virtuale:
-- Supporto limitato per le distribuzioni di Linux: CoreOS stable, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
+- Supporto limitato per le distribuzioni Linux: CoreOS stable, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
 - Alla VM è possibile assegnare solo 32 identità gestite assegnate dall'utente.
 
 
-Nota: L'estensione della macchina virtuale identità gestite per le risorse di Azure non sarà supportata nel 2019 gennaio. 
+Nota: l'estensione della macchina virtuale identità gestite per le risorse di Azure non sarà supportata nel 2019 gennaio. 
 
 Per altre informazioni sul servizio metadati dell'istanza di Azure, vedere la [documentazione di IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -84,8 +84,8 @@ No. Le identità gestite attualmente non supportano gli scenari tra directory.
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Quali autorizzazioni RBAC di Azure sono necessarie per gestire l'identità in una risorsa? 
 
-- Identità gestita assegnata dal sistema: Sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft. Compute/virtualMachines/Write. Questa azione è inclusa in ruoli predefiniti specifici della risorsa come [collaboratore macchina virtuale](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identità gestita assegnata dall'utente: Sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft. Compute/virtualMachines/Write. Oltre all'assegnazione di ruolo di [operatore di identità gestita](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sull'identità gestita.
+- Identità gestita assegnata dal sistema: sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft. Compute/virtualMachines/Write. Questa azione è inclusa in ruoli predefiniti specifici della risorsa come [collaboratore macchina virtuale](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identità gestita assegnata dall'utente: sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft. Compute/virtualMachines/Write. Oltre all'assegnazione di ruolo di [operatore di identità gestita](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) sull'identità gestita.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Come riavviare l'estensione relativa alle identità gestite per le risorse di Azure
 In Windows e alcune versioni di Linux, se si arresta l'estensione, è possibile usare il cmdlet seguente per riavviarla manualmente:
@@ -95,8 +95,8 @@ Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <loc
 ```
 
 Dove: 
-- Il nome dell'estensione e il tipo per Windows sono: ManagedIdentityExtensionForWindows
-- Il nome dell'estensione e il tipo per Linux sono: ManagedIdentityExtensionForLinux
+- Il nome e il tipo di estensione per Windows è: ManagedIdentityExtensionForWindows
+- Il nome e il tipo di estensione per Linux è: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -106,7 +106,7 @@ Se le identità gestite per le risorse di Azure sono abilitate su una macchina v
 
 ![Errore di esportazione dello script di automazione relativo alle identità gestite per le risorse di Azure](./media/msi-known-issues/automation-script-export-error.png)
 
-L'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure (la cui deprecazione è prevista a gennaio 2019) non supporta attualmente la possibilità di esportare lo schema in un modello di gruppo di risorse. Di conseguenza, il modello generato non mostra i parametri di configurazione per abilitare le identità gestite per le risorse di Azure sulla risorsa. È possibile aggiungere manualmente queste sezioni seguendo gli esempi in [Configurare identità gestite per le risorse di Azure in una macchina virtuale di Azure usando modelli](qs-configure-template-windows-vm.md).
+L'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure (la cui deprecazione è prevista a gennaio 2019) non supporta attualmente la possibilità di esportare lo schema in un modello di gruppo di risorse. Di conseguenza, il modello generato non include i parametri di configurazione per abilitare le identità gestite per le risorse di Azure sulla risorsa. È possibile aggiungere manualmente queste sezioni seguendo gli esempi in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md) (Configurare identità gestite per le risorse di Azure in una macchina virtuale di Azure mediante modelli).
 
 Quando la funzione di esportazione dello schema sarà disponibile per l'estensione della macchina virtuale relativa alle identità gestite per le risorse di Azure (la cui deprecazione è prevista a gennaio 2019), sarà elencata in [Esportazione di gruppi di risorse contenenti estensioni della macchina virtuale](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 

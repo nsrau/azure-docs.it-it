@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: b6647c1b850b7678944edbc899f0727f8e10db08
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076913"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184339"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -27,6 +27,8 @@ ms.locfileid: "74076913"
 Questa pagina fornisce informazioni sulla risoluzione dei problemi comuni di Azure Load Balancer. Quando la connettività di Load Balancer non è disponibile, i sintomi più comuni sono i seguenti: 
 - Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità 
 - Le macchine virtuali dietro Load Balancer non rispondono al traffico nella porta configurata
+
+Quando i client esterni alle VM back-end passano attraverso il servizio di bilanciamento del carico, l'indirizzo IP dei client verrà usato per la comunicazione. Assicurarsi che l'indirizzo IP dei client venga aggiunto all'elenco di consentiti NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomo: le macchine virtuali dietro Load Balancer non rispondono ai probe di integrità
 Per partecipare al set di bilanciamento del carico, i server back-end devono superare il controllo del probe. Per altre informazioni sui probe di integrità, vedere [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md). 
@@ -96,18 +98,20 @@ Se una macchina virtuale non risponde al traffico dati, è possibile che la port
 1. Accedere alla macchina virtuale back-end. 
 2. Aprire un prompt dei comandi ed eseguire questo comando per verificare che un'applicazione sia in ascolto sulla porta dati:  netstat -an 
 3. Se lo stato della porta non è elencato come "LISTENING", configurare la porta di attesa corretta. 
-4. Se la porta è contrassegnata come LISTENING, verificare se sono presenti problemi nell'applicazione di destinazione in ascolto su tale porta. 
+4. Se la porta è contrassegnata come LISTENING, verificare se sono presenti problemi nell'applicazione di destinazione in ascolto su tale porta.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: un gruppo di sicurezza di rete blocca la porta nella macchina virtuale del pool back-end di Load Balancer  
 
 Se uno o più gruppi di sicurezza di rete configurati nella subnet o nella macchina virtuale bloccano l'indirizzo IP o la porta di origine, la macchina virtuale non potrà rispondere.
 
-* Elencare i gruppi di sicurezza di rete configurati nella macchina virtuale back-end. Per altre informazioni, vedere [Manage network security groups](../virtual-network/manage-network-security-group.md) (Gestire i gruppi di sicurezza di rete).
-* Dall'elenco dei gruppi di sicurezza di rete verificare se:
+Per il servizio di bilanciamento del carico pubblico, l'indirizzo IP dei client Internet verrà usato per la comunicazione tra i client e le VM back-end del servizio di bilanciamento del carico. Verificare che l'indirizzo IP dei client sia consentito nel gruppo di sicurezza di rete della macchina virtuale back-end.
+
+1. Elencare i gruppi di sicurezza di rete configurati nella macchina virtuale back-end. Per altre informazioni, vedere [gestire i gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md)
+1. Dall'elenco dei gruppi di sicurezza di rete verificare se:
     - il traffico in ingresso o in uscita nella porta dati ha interferenze. 
-    - nella scheda di interfaccia di rete della macchina virtuale o nella subnet è presente una regola di tipo **Nega tutto** di un gruppo di sicurezza di rete avente una priorità superiore rispetto alla regola predefinita che consente il traffico e i probe di Load Balancer. I gruppi di sicurezza di rete devono consentire l'IP 168.63.129.16 di Load Balancer, ovvero la porta probe 
-* Se alcune di queste regole bloccano il traffico, rimuoverle e riconfigurarle per consentire il traffico dati.  
-* Verificare se la macchina virtuale ha ora iniziato a rispondere ai probe di integrità.
+    - nella scheda di interfaccia di rete della macchina virtuale o nella subnet è presente una regola di tipo **Nega tutto** di un gruppo di sicurezza di rete avente una priorità superiore rispetto alla regola predefinita che consente il traffico e i probe di Load Balancer. I gruppi di sicurezza di rete devono consentire l'IP 168.63.129.16 di Load Balancer, ovvero la porta probe
+1. Se alcune di queste regole bloccano il traffico, rimuoverle e riconfigurarle per consentire il traffico dati.  
+1. Verificare se la macchina virtuale ha ora iniziato a rispondere ai probe di integrità.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Causa 3: accesso a Load Balancer dalla stessa macchina virtuale e interfaccia di rete 
 

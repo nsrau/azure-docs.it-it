@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 4ed23beae6edb13efabf034c1e87b9cb76048f82
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3d15afc26c876c6e4d2d7244e26f0b13ced59a58
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648467"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184751"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Informazioni sul codice Apache Spark per sviluppatori U-SQL
 
@@ -128,7 +128,7 @@ La tabella seguente fornisce i tipi equivalenti in Spark, scala e PySpark per i 
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 - [org. Apache. Spark. SQL. Types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Tipi Spark SQL e dataframes](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
@@ -143,13 +143,13 @@ In Spark, NULL indica che il valore è sconosciuto. Un valore NULL di Spark è d
 
 Questo comportamento è diverso da U-SQL, che segue C# la semantica in cui `null` è diverso da qualsiasi valore, ma uguale a se stesso.  
 
-Pertanto, un'istruzione SparkSQL `SELECT` che usa `WHERE column_name = NULL` restituisce zero righe anche se sono presenti valori NULL in `column_name`, mentre in U-SQL restituiscono le righe in cui `column_name` è impostato su `null`. Analogamente, un'istruzione Spark `SELECT` che usa `WHERE column_name != NULL` restituisce zero righe anche se sono presenti valori non null in `column_name`, mentre in U-SQL restituiscono le righe con valori non null. Pertanto, se si desidera la semantica di controllo null U-SQL, è necessario utilizzare [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)rispettivamente e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (o l'equivalente DSL).
+Pertanto, un'istruzione SparkSQL `SELECT` che usa `WHERE column_name = NULL` restituisce zero righe anche se sono presenti valori NULL in `column_name`, mentre in U-SQL restituiscono le righe in cui `column_name` è impostato su `null`. Analogamente, un'istruzione Spark `SELECT` che usa `WHERE column_name != NULL` restituisce zero righe anche se sono presenti valori non null in `column_name`, mentre in U-SQL restituiscono le righe con valori non null. Pertanto, se si desidera la semantica di controllo null U-SQL, è necessario utilizzare rispettivamente [IsNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [IsNotNull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) (o l'equivalente DSL).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Trasformazione di oggetti del Catalogo U-SQL
 
 Una delle principali differenze consiste nel fatto che gli script U-SQL possono usare gli oggetti del catalogo, molti dei quali non hanno un equivalente Spark diretto.
 
-Spark fornisce il supporto per i concetti relativi all'archivio metadati hive, principalmente database e tabelle, in modo che sia possibile eseguire il mapping di database e schemi U-SQL ai database hive e alle tabelle U-SQL alle tabelle Spark (vedere lo schema di [dati archiviati nelle tabelle u-SQL](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), ma senza supporto per le visualizzazioni. funzioni con valori di tabella (funzioni con valori), stored procedure, assembly U-SQL, origini dati esterne e così via.
+Spark fornisce supporto per i concetti relativi all'archivio meta hive, principalmente database e tabelle, in modo che sia possibile eseguire il mapping di database e schemi U-SQL ai database hive e alle tabelle U-SQL per le tabelle Spark (vedere lo stato di [trasferimento dei dati archiviati nelle tabelle u-SQL](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables), ma non sono supportati viste, funzioni con valori di tabella (funzioni con valori), stored procedure, assembly U-SQL, origini dati esterne e così via.
 
 Gli oggetti di codice U-SQL come viste, funzioni con valori, stored procedure e assembly possono essere modellati tramite funzioni di codice e librerie in Spark e a cui viene fatto riferimento tramite la funzione del linguaggio host e i meccanismi di astrazione procedurale (ad esempio, tramite l'importazione di Moduli Python o che fanno riferimento a funzioni scala).
 

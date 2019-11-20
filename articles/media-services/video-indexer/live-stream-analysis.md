@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
-ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
-ms.translationtype: HT
+ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153551"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185990"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Analisi di flusso live con Video Indexer
 
@@ -27,7 +27,7 @@ Una soluzione descritta in questo articolo consente ai clienti di usare Video In
 
 *Figura 1: lettore di esempio che Visualizza i metadati del Video Indexer nel flusso Live*
 
-La [soluzione di analisi di flusso](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md) a disposizione usa funzioni di Azure e due app per la logica per elaborare un programma Live da un canale Live in servizi multimediali di azure con video Indexer e visualizza il risultato con Azure Media Player mostrando il flusso risultante quasi in tempo reale.
+La [soluzione di analisi di flusso](https://aka.ms/livestreamanalysis) a disposizione usa funzioni di Azure e due app per la logica per elaborare un programma Live da un canale Live in servizi multimediali di azure con video Indexer e visualizza il risultato con Azure Media Player mostrando il flusso risultante quasi in tempo reale.
 
 A livello generale, è costituito da due passaggi principali. Il primo passaggio viene eseguito ogni 60 secondi e accetta una clip secondaria degli ultimi 60 secondi riprodotti, crea un asset da esso e lo indicizza tramite Video Indexer. Il secondo passaggio viene quindi chiamato una volta completata l'indicizzazione. Le informazioni acquisite vengono elaborate, inviate a Azure Cosmos DB e il sottoclip indicizzato viene eliminato.
 

@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi - risolvere i problemi con la configurazione del servizio Frontdoor di Azure | Microsoft Docs
+title: Risolvere i problemi di configurazione del servizio front door di Azure
 description: In questa esercitazione viene descritto come risolvere autonomamente alcuni dei problemi comuni che si potrebbero riscontrare per Frontdoor.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335889"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184568"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Risoluzione dei più frequenti problemi di routing
 Questo articolo descrive come risolvere alcuni dei problemi di routing comuni che possono verificarsi per la configurazione del servizio Frontdoor di Azure. 

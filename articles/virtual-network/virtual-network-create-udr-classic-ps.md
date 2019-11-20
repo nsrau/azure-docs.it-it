@@ -1,5 +1,5 @@
 ---
-title: Controllare il routing in una rete virtuale di Azure - PowerShell - Modello di distribuzione classica | Documentazione Microsoft
+title: Controllare il routing in una VNet di Azure-PowerShell-classica
 description: Informazioni su come controllare il routing in reti virtuali usando PowerShell | Classico
 services: virtual-network
 documentationcenter: na
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: f2f2c17740bd94629209c2bffb82689ecc931fc8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4170418b4f53277a8f4306fe2835286c8ac99dee
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058762"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186347"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controllare il routing e usare dispositivi virtuali di rete (distribuzione classica) mediante PowerShell
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Interfaccia della riga di comando di Azure](tutorial-create-route-table-cli.md)
-> * [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md) (PowerShell (classico))
+> * [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
 > * [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione: Azure Resource Manager e distribuzione classica. È importante comprendere i [modelli e strumenti di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa ai diversi strumenti selezionando un'opzione nella parte superiore di questo articolo. In questo articolo viene illustrato il modello di distribuzione classica.
+> Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, la distribuzione classica e Azure Resource Manager. È importante comprendere i [modelli e strumenti di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) prima di lavorare con le risorse di Azure. È possibile visualizzare la documentazione relativa ai diversi strumenti selezionando un'opzione nella parte superiore di questo articolo. In questo articolo viene illustrato il modello di distribuzione classica.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -72,7 +72,7 @@ Per creare la tabella di route e la route necessarie per la subnet front-end in 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Creare la route definita dall'utente per la subnet back-end
 Per creare la tabella di route e la route necessarie per la subnet back-end in base allo scenario precedente, seguire questa procedura:
 
-1. Per creare una tabella di route per la subnet back-end, eseguire il comando seguente:
+1. Eseguire il comando seguente per creare una tabella di route per la subnet back-end:
 
     ```powershell
     New-AzureRouteTable -Name UDR-BackEnd `

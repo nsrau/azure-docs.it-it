@@ -1,7 +1,7 @@
 ---
-title: 'Finestra di progettazione: stimare il prezzo (regressione)'
+title: 'Finestra di progettazione: stima prezzi auto (base)'
 titleSuffix: Azure Machine Learning
-description: Scopri come creare un modello di apprendimento automatico per stimare il prezzo di un'automobile senza scrivere una sola riga di codice.
+description: Creare un modello di regressione ML per stimare il prezzo di un'automobile senza scrivere una singola riga di codice con Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: ab922733133856409e7c91ee7b216fdc5a341c06
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647165"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196148"
 ---
-# <a name="sample-1---regression-predict-price"></a>Esempio 1: regressione: Prezzo stimato
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Usare la regressione per stimare i prezzi delle automobili con Azure Machine Learning Designer
+
+**Finestra di progettazione (anteprima) campione 1**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Informazioni su come creare un modello di regressione di Machine Learning senza scrivere una sola riga di codice usando la finestra di progettazione (anteprima).
@@ -35,7 +38,7 @@ Ecco il grafico finale completato della pipeline. Questo articolo fornisce la sp
 
 ![Grafico della pipeline](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

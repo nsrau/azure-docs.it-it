@@ -1,5 +1,5 @@
 ---
-title: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
+title: Distribuire & configurare il firewall di Azure in una rete ibrida usando PowerShell
 description: Questo articolo illustra come distribuire e configurare il firewall di Azure con Azure PowerShell.
 services: firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a5a008a795b88dbcb72ed9fba869e5251fd93567
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163527"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195772"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -47,9 +47,9 @@ Se invece si vuole usare portale di Azure per completare questa esercitazione, v
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
+Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
 
 Per il corretto funzionamento di questo scenario devono essere soddisfatti tre requisiti principali:
 

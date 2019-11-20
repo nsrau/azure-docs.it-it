@@ -1,5 +1,5 @@
 ---
-title: Configurare indirizzi IP privati per le macchine virtuali (classiche) - Interfaccia della riga di comando classica di Azure
+title: Configurare indirizzi IP privati per le macchine virtuali (versione classica)-interfaccia della riga di comando
 titlesuffix: Azure Virtual Network
 description: Informazioni su come configurare gli indirizzi IP privati per le macchine virtuali (classiche) usando l'interfaccia della riga di comando classica di Azure.
 services: virtual-network
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 64342c6dcf4c9a052442a6f4b0afb7a56994f496
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9deaf4b1d80ad4e55e7c971998e8b1f5ea562257
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059232"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196590"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurare gli indirizzi IP privati per una macchina virtuale (classica) usando l'interfaccia della riga di comando classica di Azure
 
@@ -74,7 +74,7 @@ Per creare una nuova VM denominata *DNS01* in un nuovo servizio cloud denominato
    * **adminuser**. Amministratore locale della VM di Windows.
    * <strong>AdminP@ssw0rd</strong>. Amministratore locale della password della VM di Windows.
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una macchina virtuale
 Per visualizzare le informazioni relative all'indirizzo IP interno statico per la VM creata con lo script precedente, eseguire il comando dell’interfaccia di riga di comando di Azure seguente e osservare i valori per *Network StaticIp*:
 
     azure vm static-ip show DNS01
@@ -86,7 +86,7 @@ Output previsto:
     data:    Network StaticIP "192.168.1.101"
     info:    vm static-ip show command OK
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Come rimuovere un indirizzo IP statico privato da una macchina virtuale
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Come rimuovere un indirizzo IP statico privato da una VM
 Per rimuovere l'indirizzo IP privato statico aggiunto alla VM nello script precedente, eseguire il seguente comando dell’interfaccia di riga di comando di Azure:
 
     azure vm static-ip remove DNS01

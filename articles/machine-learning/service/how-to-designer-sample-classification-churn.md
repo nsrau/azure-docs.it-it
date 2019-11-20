@@ -1,7 +1,7 @@
 ---
-title: 'Finestra di progettazione: classificazione, stima varianza'
+title: 'Finestra di progettazione: esempio di varianza di stima'
 titleSuffix: Azure Machine Learning
-description: Questa pipeline di esempio di progettazione (anteprima) Mostra la stima del classificatore binario della varianza, un'attività comune per la gestione delle relazioni con i clienti (CRM).
+description: Seguire questo esempio di classificazione per prevedere la varianza con Azure Machine Learning Designer & alberi delle decisioni con boosting.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5cf61d3446f960b65eb85538be9ea020671cced2
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647182"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196030"
 ---
-# <a name="sample-5---classification-predict-churn"></a>Esempio 5-classificazione: varianza di stima
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Usare l'albero delle decisioni con boosting per stimare la varianza con Azure Machine Learning Designer
+
+**Finestra di progettazione (anteprima) campione 5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Scopri come creare una pipeline di Machine Learning complessa senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima).
@@ -30,7 +33,7 @@ Ecco il grafico completato per questa pipeline:
 
 ![Grafico della pipeline](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

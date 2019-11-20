@@ -1,6 +1,6 @@
 ---
-title: Interrompere l'uso dell'estensione di VM identità gestita e iniziare a usare l'endpoint di servizio metadati dell'istanza Azure
-description: Eseguire un'istruzione per istruzioni dettagliate per interrompere l'uso dell'estensione VM e iniziare a usare il servizio metadati di Azure istanza (IMDS) per l'autenticazione.
+title: Interrompi l'uso dell'estensione della macchina virtuale identità gestita-Azure AD
+description: Istruzioni dettagliate per arrestare l'uso dell'estensione della macchina virtuale e iniziare a usare il servizio metadati dell'istanza di Azure (IMDS) per l'autenticazione.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3440713c287967655678e1cde2c000a6ed28b900
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65406783"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183944"
 ---
-# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Come interrompere l'uso della macchina virtuale gestiti estensione delle identità e iniziare a usare servizio metadati dell'istanza di Azure
+# <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Come interrompere l'uso dell'estensione identità gestite della macchina virtuale e iniziare a usare il servizio metadati dell'istanza di Azure
 
-## <a name="virtual-machine-extension-for-managed-identities"></a>Estensione macchina virtuale per identità gestita
+## <a name="virtual-machine-extension-for-managed-identities"></a>Estensione macchina virtuale per identità gestite
 
-L'estensione macchina virtuale per identità gestita viene usata per richiedere token per un'identità gestita all'interno della macchina virtuale. Il flusso di lavoro prevede i passaggi seguenti:
+L'estensione della macchina virtuale per le identità gestite viene usata per richiedere token per un'identità gestita all'interno della macchina virtuale. Il flusso di lavoro è costituito dai passaggi seguenti:
 
-1. Prima di tutto il carico di lavoro all'interno della risorsa chiama l'endpoint locale `http://localhost/oauth2/token` per richiedere un token di accesso.
-2. L'estensione macchina virtuale utilizza quindi le credenziali per l'identità gestita, per richiedere un token di accesso da Azure AD.. 
-3. Il token di accesso viene restituito al chiamante e può essere utilizzato per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD, ad esempio Azure Key Vault o archiviazione di Azure.
+1. In primo luogo, il carico di lavoro all'interno della risorsa chiama l'endpoint locale `http://localhost/oauth2/token` per richiedere un token di accesso.
+2. L'estensione della macchina virtuale usa quindi le credenziali per l'identità gestita per richiedere un token di accesso da Azure AD. 
+3. Il token di accesso viene restituito al chiamante e può essere usato per eseguire l'autenticazione ai servizi che supportano l'autenticazione Azure AD, ad esempio Azure Key Vault o archiviazione di Azure.
 
-A causa di alcune limitazioni descritte nella sezione successiva, l'estensione di VM identità gestita è stata deprecata a favore dell'uso dell'endpoint equivalente in servizio metadati di Azure istanza (IMDS)
+A causa di diverse limitazioni descritte nella sezione successiva, l'estensione della macchina virtuale di identità gestita è stata deprecata a favore dell'utilizzo dell'endpoint equivalente nel servizio metadati dell'istanza di Azure (IMDS)
 
-### <a name="provision-the-extension"></a>Effettuare il provisioning dell'estensione 
+### <a name="provision-the-extension"></a>Eseguire il provisioning dell'estensione 
 
-Quando si configura una macchina virtuale o la scalabilità di macchine virtuali in modo che un'identità gestita, è possibile scegliere facoltativamente di eseguire il provisioning delle identità gestite per estensione di macchina virtuale di risorse di Azure usando il `-Type` parametro il [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. È possibile passare `ManagedIdentityExtensionForWindows` oppure `ManagedIdentityExtensionForLinux`, a seconda del tipo di macchina virtuale e denominarla usando il `-Name` parametro. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
+Quando si configura una macchina virtuale o un set di scalabilità di macchine virtuali in modo che abbia un'identità gestita, è possibile scegliere di eseguire il provisioning delle identità gestite per le risorse di Azure estensione VM usando il parametro `-Type` del cmdlet [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . È possibile passare `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, a seconda del tipo di macchina virtuale, e denominarlo utilizzando il parametro `-Name`. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
 
 ```powershell
    $settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
-È anche possibile usare il modello di distribuzione Azure Resource Manager per effettuare il provisioning l'estensione macchina virtuale, aggiungendo il codice JSON seguente per il `resources` sezione il modello (usare `ManagedIdentityExtensionForLinux` per gli elementi nome e il tipo per la versione di Linux).
+È anche possibile usare il modello di distribuzione Azure Resource Manager per eseguire il provisioning dell'estensione della macchina virtuale aggiungendo il codice JSON seguente alla sezione `resources` al modello (usare `ManagedIdentityExtensionForLinux` per gli elementi Name e Type per la versione di Linux).
 
     ```json
     {
@@ -66,14 +66,14 @@ Quando si configura una macchina virtuale o la scalabilità di macchine virtuali
     ```
     
     
-Se si lavora con set di scalabilità di macchine virtuali, si può effettuare il provisioning di identità gestite per set di scalabilità di macchine virtuali di Azure alle risorse di estensione usando il [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. È possibile passare `ManagedIdentityExtensionForWindows` oppure `ManagedIdentityExtensionForLinux`, a seconda del tipo di scalabilità di macchine virtuali impostato e assegnare un nome mediante il `-Name` parametro. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
+Se si usano i set di scalabilità di macchine virtuali, è anche possibile eseguire il provisioning delle identità gestite per le risorse di Azure estensione del set di scalabilità di macchine virtuali usando il cmdlet [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) . È possibile passare `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux`, a seconda del tipo di set di scalabilità di macchine virtuali e denominarlo utilizzando il parametro `-Name`. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-Effettuare il provisioning di scalabilità di macchine virtuali impostare l'estensione con il modello di distribuzione Azure Resource Manager, aggiungere il codice JSON seguente per il `extensionpProfile` sezione del modello (usare `ManagedIdentityExtensionForLinux` per gli elementi nome e il tipo per la versione di Linux).
+Per eseguire il provisioning dell'estensione del set di scalabilità di macchine virtuali con il modello di distribuzione Azure Resource Manager, aggiungere il codice JSON seguente alla sezione `extensionpProfile` al modello (utilizzare `ManagedIdentityExtensionForLinux` per gli elementi Name e Type per la versione Linux).
 
     ```json
     "extensionProfile": {
@@ -93,10 +93,10 @@ Effettuare il provisioning di scalabilità di macchine virtuali impostare l'este
             }
     ```
 
-Il provisioning dell'estensione macchina virtuale potrebbe non riuscire a causa di errori di ricerca DNS. In questo caso, riavviare la macchina virtuale e ripetere l'operazione. 
+Il provisioning dell'estensione della macchina virtuale potrebbe non riuscire a causa di errori di ricerca DNS. In tal caso, riavviare la macchina virtuale e riprovare. 
 
 ### <a name="remove-the-extension"></a>Rimuovere l'estensione 
-Per rimuovere l'estensione, usare `-n ManagedIdentityExtensionForWindows` oppure `-n ManagedIdentityExtensionForLinux` switch (a seconda del tipo di macchina virtuale) con [Elimina estensione macchina virtuale di az](https://docs.microsoft.com/cli/azure/vm/), o [delete di estensione az vmss](https://docs.microsoft.com/cli/azure/vmss) per scalabilità di macchine virtuali Imposta tramite la CLI di Azure, o `Remove-AzVMExtension` per Powershell:
+Per rimuovere l'estensione, usare l'opzione `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` (a seconda del tipo di macchina virtuale) con [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)oppure [AZ vmss Extension Delete](https://docs.microsoft.com/cli/azure/vmss) per i set di scalabilità di macchine virtuali usando l'interfaccia della riga di comando di Azure o `Remove-AzVMExtension` per PowerShell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -110,16 +110,16 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
-### <a name="acquire-a-token-using-the-virtual-machine-extension"></a>Acquisire un token usando l'estensione macchina virtuale
+### <a name="acquire-a-token-using-the-virtual-machine-extension"></a>Acquisire un token usando l'estensione della macchina virtuale
 
-Di seguito è riportata una richiesta di esempio usando l'identità gestite per le risorse Endpoint dell'estensione macchina virtuale di Azure:
+Di seguito è riportata una richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale identità gestite per le risorse di Azure:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure, dove 50342 è la porta predefinita ed è configurabile. |
@@ -145,7 +145,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
 | `refresh_token` | Non usata dalle identità gestite per risorse di Azure. |
@@ -156,9 +156,9 @@ Content-Type: application/json
 | `token_type` | Tipo di token, ovvero un token di accesso di connessione, che indica che la risorsa può concedere l'accesso al titolare del token. |
 
 
-### <a name="troubleshoot-the-virtual-machine-extension"></a>Problemi relativi all'estensione di macchina virtuale 
+### <a name="troubleshoot-the-virtual-machine-extension"></a>Risolvere i problemi relativi all'estensione della macchina virtuale 
 
-#### <a name="restart-the-virtual-machine-extension-after-a-failure"></a>Riavviare l'estensione macchina virtuale dopo un errore
+#### <a name="restart-the-virtual-machine-extension-after-a-failure"></a>Riavvia l'estensione della macchina virtuale dopo un errore
 
 In Windows e alcune versioni di Linux, se si arresta l'estensione, è possibile usare il cmdlet seguente per riavviarla manualmente:
 
@@ -167,49 +167,49 @@ Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <loc
 ```
 
 Dove: 
-- Nome dell'estensione e il tipo per Windows è: `ManagedIdentityExtensionForWindows`
-- Nome dell'estensione e il tipo per Linux è: `ManagedIdentityExtensionForLinux`
+- Il nome e il tipo dell'estensione per Windows sono: `ManagedIdentityExtensionForWindows`
+- Il nome e il tipo dell'estensione per Linux sono: `ManagedIdentityExtensionForLinux`
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Lo "Script di automazione" restituisce un errore se si tenta di esportare lo schema per l'estensione relativa alle identità gestite per le risorse di Azure
 
-Quando le identità gestite per le risorse di Azure è abilitata in una macchina virtuale, viene visualizzato l'errore seguente quando si prova a usare la funzionalità "Script di automazione" per la macchina virtuale o il gruppo di risorse:
+Quando le identità gestite per le risorse di Azure sono abilitate in una macchina virtuale, viene visualizzato l'errore seguente quando si tenta di usare la funzionalità "script di automazione" per la macchina virtuale o il relativo gruppo di risorse:
 
 ![Errore di esportazione dello script di automazione relativo alle identità gestite per le risorse di Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 
-Le identità gestite per l'estensione macchina virtuale risorse di Azure non supporta attualmente la possibilità di esportare lo schema in un modello di gruppo di risorse. Di conseguenza, il modello generato non mostra i parametri di configurazione per abilitare le identità gestite per le risorse di Azure sulla risorsa. Queste sezioni possono essere aggiunti manualmente seguendo gli esempi nella [Configura gestiti per le risorse di Azure nella macchina virtuale di Azure usando un modello di identità](qs-configure-template-windows-vm.md).
+L'estensione della macchina virtuale identità gestite per le risorse di Azure non supporta attualmente la possibilità di esportare lo schema in un modello di gruppo di risorse. Di conseguenza, il modello generato non include i parametri di configurazione per abilitare le identità gestite per le risorse di Azure sulla risorsa. Queste sezioni possono essere aggiunte manualmente seguendo gli esempi in [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando un modello](qs-configure-template-windows-vm.md).
 
-Quando la funzionalità di esportazione dello schema sarà disponibile per le identità gestite per l'estensione di macchina virtuale risorse di Azure (pianificato per la deprecazione in gennaio 2019), verrà elencata [esportazione di gruppi di risorse contenenti estensioni macchina virtuale ](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Quando la funzionalità di esportazione dello schema diventa disponibile per l'estensione della macchina virtuale identità gestite per le risorse di Azure (pianificata per la deprecazione nel 2019 gennaio), verrà elencata in [esportazione di gruppi di risorse contenenti estensioni VM](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
-## <a name="limitations-of-the-virtual-machine-extension"></a>Limitazioni dell'estensione macchina virtuale 
+## <a name="limitations-of-the-virtual-machine-extension"></a>Limitazioni dell'estensione della macchina virtuale 
 
-Esistono alcune limitazioni principali per l'uso dell'estensione macchina virtuale. 
+L'uso dell'estensione della macchina virtuale presenta diverse limitazioni principali. 
 
- * La limitazione più grave consiste nel fatto che le credenziali utilizzate per richiedere i token vengono archiviate nella macchina virtuale. Violazioni correttamente la macchina virtuale da un utente malintenzionato può sottrarre le credenziali. 
- * Inoltre, l'estensione macchina virtuale non è ancora supportato da varie distribuzioni Linux, con un notevole costo per modificare, compilare e testare l'estensione in ognuna di queste distribuzioni di sviluppo. Attualmente sono supportate solo le distribuzioni di Linux seguenti: 
+ * Il limite più grave è il fatto che le credenziali utilizzate per richiedere i token sono archiviate nella macchina virtuale. Un utente malintenzionato che viola correttamente la macchina virtuale può sottrarre le credenziali. 
+ * Inoltre, l'estensione della macchina virtuale non è ancora supportata da diverse distribuzioni Linux, con un notevole costo di sviluppo per modificare, compilare e testare l'estensione in ognuna di queste distribuzioni. Attualmente sono supportate solo le distribuzioni Linux seguenti: 
     * CoreOS Stable
     * CentOS 7.1 
     * Red Hat 7.2 
     * Ubuntu 15.04 
     * Ubuntu 16.04
- * È un impatto sulle prestazioni per la distribuzione di macchine virtuali con identità gestite, come l'estensione macchina virtuale deve anche eseguire il provisioning. 
- * Infine, l'estensione macchina virtuale può solo supportare 32 assegnata dall'utente gestito identità usate per ogni macchina virtuale. 
+ * La distribuzione di macchine virtuali con identità gestite comporta un effetto sulle prestazioni, in quanto è necessario effettuare il provisioning anche dell'estensione della macchina virtuale. 
+ * Infine, l'estensione della macchina virtuale può supportare solo la presenza di 32 identità gestite assegnate dall'utente per ogni macchina virtuale. 
 
 ## <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
-Il [servizio metadati dell'istanza di Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) è un endpoint REST che fornisce informazioni sull'esecuzione di istanze di macchina virtuale che possono essere utilizzate per gestire e configurare le macchine virtuali. L'endpoint è disponibile presso un indirizzo IP non instradabile noto (`169.254.169.254`) che è accessibile solo dall'interno della macchina virtuale.
+Il [servizio metadati dell'istanza di Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) è un endpoint REST che fornisce informazioni sull'esecuzione di istanze di macchine virtuali che possono essere usate per gestire e configurare le macchine virtuali. L'endpoint è disponibile a un indirizzo IP non instradabile noto (`169.254.169.254`) a cui è possibile accedere solo dall'interno della macchina virtuale.
 
-Esistono diversi vantaggi rispetto all'utilizzo di servizio metadati dell'istanza di Azure per richiedere token. 
+L'uso di Azure IMDS per richiedere i token presenta diversi vantaggi. 
 
-1. Il servizio è esterno alla macchina virtuale, pertanto le credenziali utilizzate da identità gestite non sono più presenti nella macchina virtuale. Al contrario, sono ospitati e protetti nel computer host di macchina virtuale di Azure.   
-2. Tutti i sistemi operativi Windows e Linux supportati nell'ambiente IaaS di Azure può usare le identità gestite.
-3. La distribuzione è più veloce e semplice, poiché l'estensione macchina virtuale non deve più eseguire il provisioning.
-4. Con il servizio metadati dell'istanza dell'endpoint, fino a 1000 identità gestita assegnata dall'utente possono essere assegnati a una singola macchina virtuale.
-5. Si verifica alcuna variazione significativa per le richieste usando IMDS invece di quelle che usano l'estensione macchina virtuale, pertanto è piuttosto semplice alla porta tramite distribuzioni esistenti che usano attualmente l'estensione macchina virtuale.
+1. Il servizio è esterno alla macchina virtuale, pertanto le credenziali usate dalle identità gestite non sono più presenti nella macchina virtuale. Sono invece ospitati e protetti nel computer host della macchina virtuale di Azure.   
+2. Tutti i sistemi operativi Windows e Linux supportati in Azure IaaS possono usare identità gestite.
+3. La distribuzione è più rapida e semplice, perché non è più necessario effettuare il provisioning dell'estensione della macchina virtuale.
+4. Con l'endpoint IMDS, è possibile assegnare fino a 1000 identità gestite assegnate dall'utente a una singola macchina virtuale.
+5. Non sono state apportate modifiche significative alle richieste usando IMDS anziché quelle che usano l'estensione della macchina virtuale, pertanto è piuttosto semplice eseguire il Port over delle distribuzioni esistenti che attualmente usano l'estensione della macchina virtuale.
 
-Per questi motivi, il servizio Azure IMDS è il modo site di richiesta di token, dopo che l'estensione macchina virtuale è stato deprecato. 
+Per questi motivi, il servizio Azure IMDS sarà il metodo di richiesta di token, dopo che l'estensione della macchina virtuale è stata deprecata. 
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Come usare le identità gestito per le risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](how-to-use-vm-token.md)
+* [Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](how-to-use-vm-token.md)
 * [Servizio metadati dell'istanza di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)

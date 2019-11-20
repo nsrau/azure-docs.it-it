@@ -1,5 +1,5 @@
 ---
-title: Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con Azure SDK
+title: Usare identità gestite in una macchina virtuale di Azure con Azure SDK-Azure AD
 description: Esempi di codice per l'uso di Azure SDK con una macchina virtuale di Azure che ha gestito le identità per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c66bb2b4e9af6f4b79b0ead98b8d18fc56cb467
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 422b4c63a86904721fc6910193ffa63a8fe46f0a
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809195"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184161"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure con Azure SDK 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Questo articolo fornisce un elenco di esempi di SDK, che illustrano l'uso del supporto di Azure SDK per le identità gestite per le risorse di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

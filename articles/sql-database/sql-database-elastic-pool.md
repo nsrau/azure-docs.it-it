@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823823"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186477"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL di Azure
 
@@ -29,7 +29,7 @@ Gli sviluppatori di SaaS compilano applicazioni basate su livelli di dati su lar
 - Effettuare il provisioning di risorse eccessivo in base all'utilizzo massimo e pagare più del necessario, o
 - Ricorrere al provisioning insufficiente per risparmiare sui costi, a scapito delle prestazioni e della soddisfazione del cliente durante i picchi.
 
-I pool elastici risolvono il problema assicurando ai database l'ottenimento delle risorse di prestazioni necessarie, quando richieste. Forniscono un meccanismo semplice di allocazione delle risorse che rientra in un budget prevedibile. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+I pool elastici risolvono il problema assicurando ai database l'ottenimento delle risorse di prestazioni necessarie, quando richieste. Forniscono un meccanismo semplice di allocazione delle risorse che rientra in un budget prevedibile. Per altre informazioni sui modelli di progettazione per le applicazioni SaaS mediante pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
@@ -117,10 +117,10 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
    Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>  
-   < *numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB* )
+   <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB*)
 
    Per il modello di acquisto basato su vCore: MAX(<*numero totale di database* X *utilizzo medio di vCore per database*>,<br>  
-   < *numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database* )
+   <*numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database*)
 
 2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.
 3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.
@@ -156,7 +156,7 @@ I database in pool supportano in genere le stesse [funzionalità di continuità 
 Esistono due modi per creare un pool elastico nel portale di Azure.
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se Azure SQL non è presente nell'elenco, selezionare **Tutti i servizi** e quindi digitare *Azure SQL* nella casella di ricerca.
-2. Selezionare **+ Aggiungi** per aprire la pagina di **selezione dell'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui pool elastici selezionando **Mostra dettagli** nel riquadro **database** .
+2. Selezionare **+Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive sui pool elastici selezionando **Mostra dettagli** nel riquadro **database** .
 3. Nel riquadro **database** selezionare **pool elastico** nell'elenco a discesa **tipo di risorsa** e quindi selezionare **Crea**:
 
    ![Creare un pool elastico](./media/sql-database-elastic-pool/create-elastic-pool.png)
@@ -224,5 +224,6 @@ Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per 
 
 - Per ridimensionare i pool elastici, vedere [Ridimensionamento dei pool elastici](sql-database-elastic-pool-scale.md) e [Ridimensionare un pool elastico - codice di esempio](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Un video è disponibile in [Esercitazione video di Microsoft Virtual Academy sulle funzionalità di elasticità del database SQL di Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-- Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- Per altre informazioni sui modelli di progettazione per le applicazioni SaaS mediante pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Per un'esercitazione sul SaaS con i pool elastici, vedere [Introduzione all'applicazione SaaS Wingtip](sql-database-wtp-overview.md).
+- Per informazioni sulla gestione delle risorse in pool elastici con molti database, vedere [gestione delle risorse in pool elastici densi](sql-database-elastic-pool-resource-management.md).

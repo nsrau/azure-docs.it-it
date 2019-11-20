@@ -1,48 +1,48 @@
 ---
-title: Architettura dello strumento di Azure Migrate replica | Microsoft Docs
-description: Viene fornita una panoramica dell'appliance replica Azure Migrate
+title: Architettura del dispositivo di replica Azure Migrate
+description: Viene fornita una panoramica dell'appliance di replica Azure Migrate per la migrazione basata su agenti.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4f4dc307bee4190a0e94ace493053e0cfd01150e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ba14767bde5d6cdca3a82dbe4e8a115ec25cc911
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811440"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186547"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
 
-Questo articolo descrive l'appliance di replica usato da Azure Migrate: Valutazione di server quando si pubblica/privata migrazione di VM VMware e computer fisici cloud macchine virtuali in Azure, usando una migrazione basata su agente. 
+Questo articolo descrive l'appliance di replica usato da Azure Migrate: server Assessment quando si esegue la migrazione di VM VMware, computer fisici e macchine virtuali cloud private/pubbliche ad Azure, usando una migrazione basata su agenti. 
 
-Lo strumento è disponibile nel [Azure Migrate](migrate-overview.md) hub. L'hub fornisce gli strumenti nativi per la valutazione e migrazione, nonché strumenti da altri servizi di Azure e da fornitori di terze parti di software indipendenti (ISV).
+Lo strumento è disponibile nell'hub [Azure migrate](migrate-overview.md) . L'hub fornisce strumenti nativi per la valutazione e la migrazione, nonché strumenti di altri servizi di Azure e di fornitori di software indipendenti (ISV) di terze parti.
 
 
-## <a name="appliance-overview"></a>Panoramica delle Appliance
+## <a name="appliance-overview"></a>Panoramica dell'appliance
 
-L'appliance di replica viene distribuita come un singolo computer locale, ad esempio una VM VMware o server fisico. Viene eseguito:
-- **Appliance replica**: L'appliance replica coordina le comunicazioni e gestisce la replica dei dati, per le macchine virtuali VMware locali e server fisici in Azure.
-- **Server di elaborazione** Il server di elaborazione, che viene installato per impostazione predefinita nell'appliance di replica ed esegue le operazioni seguenti:
-    - **Gateway di replica**: Funge da gateway di replica. Riceve i dati di replica dalle macchine abilitate per la replica. Ottimizza i dati di replica attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia ad Azure.
-    - **Programma di installazione dell'agente**: Esegue un'installazione push del servizio Mobility. Questo servizio deve essere installato e in esecuzione in ogni computer locale che si vuole replicare per la migrazione.
+Il dispositivo di replica viene distribuito come singolo computer locale, come macchina virtuale VMware o server fisico. Esegue:
+- **Appliance di replica**: l'appliance di replica coordina le comunicazioni e gestisce la replica dei dati per le macchine virtuali VMware e i server fisici locali che eseguono la replica in Azure.
+- **Server di elaborazione**: il server di elaborazione, installato per impostazione predefinita nell'appliance di replica, ed esegue le operazioni seguenti:
+    - **Gateway di replica**: funge da gateway di replica. Riceve i dati di replica dai computer abilitati per la replica. Ottimizza i dati di replica con la memorizzazione nella cache, la compressione e la crittografia e li invia ad Azure.
+    - **Programma**di installazione dell'agente: esegue un'installazione push del servizio Mobility. Questo servizio deve essere installato e in esecuzione in ogni computer locale che si vuole replicare per la migrazione.
 
-## <a name="appliance-deployment"></a>Distribuzione di Appliance
+## <a name="appliance-deployment"></a>Distribuzione dell'appliance
 
-**Distribuire come** | **Usata per** | **Dettagli**
+**Distribuisci come** | **Usata per** | **Dettagli**
 --- | --- |  ---
-Macchina virtuale VMware | In genere usato durante la migrazione di VM VMware usando lo strumento di migrazione eseguire la migrazione di Azure con la migrazione basata su agente. | Scaricare il modello con estensione OVA dall'hub di Azure Migrate e importare in vCenter Server per la creazione della macchina virtuale dell'appliance.
-Un computer fisico | Usato durante la migrazione di server fisici in locale se non si dispone di un'infrastruttura VMware o se non si riesce a creare una VM VMware usando un modello con estensione OVA. | Scaricare un programma di installazione software dall'hub di Azure Migrate ed eseguire il codice per configurare il computer di appliance.
+Macchina virtuale VMware | Usato in genere quando si esegue la migrazione di macchine virtuali VMware con lo strumento di migrazione Azure Migrate con migrazione basata su agenti. | Scaricare il modello OVA dall'hub Azure Migrate e importare in server vCenter per creare la macchina virtuale dell'appliance.
+Un computer fisico | Usato quando si esegue la migrazione di server fisici locali se non si ha un'infrastruttura VMware o se non si riesce a creare una VM VMware usando un modello OVA. | Scaricare un programma di installazione software dall'hub Azure Migrate ed eseguirlo per configurare il computer dell'appliance.
 
-## <a name="appliance-deployment-requirements"></a>Requisiti di distribuzione del dispositivo
+## <a name="appliance-deployment-requirements"></a>Requisiti di distribuzione dell'appliance
 
-[Revisione](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements) i requisiti di distribuzione.
+[Esaminare](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements) i requisiti di distribuzione.
 
 
 
-## <a name="appliance-license"></a>Licenza dispositivo
-L'appliance viene fornito con una licenza di valutazione di Windows Server 2016, questa operazione è valida per 180 giorni. Se il periodo di valutazione sta scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure di attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+## <a name="appliance-license"></a>Licenza Appliance
+L'Appliance viene fornita con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
 
 ## <a name="replication-process"></a>Processo di replica
 
@@ -50,24 +50,24 @@ L'appliance viene fornito con una licenza di valutazione di Windows Server 2016,
 2. Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
 3. Al termine della replica iniziale, viene avviata la replica differenziale. Vengono registrate le modifiche rilevate per un computer.
 4. Le comunicazioni avvengono nel modo seguente:
-    - Le macchine virtuali comunicano con l'appliance di replica sulla porta HTTPS 443 in ingresso, per la gestione delle repliche.
-    - L'appliance replica Orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
+    - Le macchine virtuali comunicano con l'appliance di replica sulla porta HTTPS 443 in ingresso, per la gestione della replica.
+    - L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
     - Le macchine virtuali inviano i dati di replica al server di elaborazione (in esecuzione nell'appliance di replica) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
     - Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
-5. I dati di replica registra ' s land prima in un account di archiviazione della cache di Azure. Questi log vengono elaborati e i dati vengono archiviati in Azure il disco gestito.
+5. I dati di replica registrano il primo terreno in un account di archiviazione della cache in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure.
 
 ![Architettura](./media/migrate-replication-appliance/architecture.png)
 
-## <a name="appliance-upgrades"></a>Aggiornamenti delle Appliance
+## <a name="appliance-upgrades"></a>Aggiornamenti Appliance
 
-L'appliance viene aggiornata manualmente dall'hub di Azure Migrate. È consigliabile eseguire sempre la versione più recente.
+L'Appliance viene aggiornata manualmente dall'hub Azure Migrate. Si consiglia di eseguire sempre la versione più recente.
 
-1. In Azure esegue la migrazione > server > Azure Migrate: Valutazione dei server, server di infrastruttura, fare clic su **server di configurazione**.
-2. Nelle **server di configurazione**, verrà visualizzato un collegamento **versione dell'agente** quando è disponibile una nuova versione dell'appliance replica. 
-3. Scaricare il programma di installazione nel computer di appliance di replica e installare l'aggiornamento. Il programma di installazione rileva la versione corrente è in esecuzione nell'appliance.
+1. In Azure Migrate server > > Azure Migrate: server Assessment, server di infrastruttura, fare clic su **server di configurazione**.
+2. Nei **server di configurazione**viene visualizzato un collegamento nella **versione dell'agente** quando è disponibile una nuova versione dell'appliance di replica. 
+3. Scaricare il programma di installazione nel computer dell'appliance di replica e installare l'aggiornamento. Il programma di installazione rileva la versione corrente in esecuzione nell'appliance.
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su come](tutorial-assess-vmware.md#set-up-the-appliance-vm) per configurare l'appliance per VMware.
-[Informazioni su come](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) per configurare l'appliance per Hyper-V.
+[Informazioni su come](tutorial-assess-vmware.md#set-up-the-appliance-vm) configurare l'appliance per VMware.
+[Informazioni su come](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) configurare l'appliance per Hyper-V.
 

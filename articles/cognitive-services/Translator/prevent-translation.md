@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/18/2019
 ms.author: swmachan
-ms.openlocfilehash: f3bf784898f7f51beea890d8d2a8401af1403fbc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dd3684cbd7c03851bfcc75293a9690f77b4652b2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888129"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184825"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Come impedire la traduzione del contenuto con l'API Traduzione testuale
 
 L'API Traduzione testuale consente di aggiungere tag ai contenuti in modo che non vengano tradotti. Ad esempio è possibile aggiungere tag al codice, al nome di un marchio o a una parola o frase che non deve essere localizzata.
 
 ## <a name="methods-for-preventing-translation"></a>Metodi per impedire la traduzione
-1. Eseguire l'escape di un tag @somethingtopassthrough di Twitter o #somethingtopassthrough. Annullare l'escape dopo la traduzione.
+1. Eseguire l'escape di un tag @somethingtopassthrough di Twitter o #somethingtopassthrough. Annullare l'escape dopo la traduzione. Si tratta dell'espressione regolare per i tag Twitter validi: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. Un tag deve iniziare con un segno "@", seguito da un carattere, seguito da uno o più caratteri, cifre o caratteri di sottolineatura. È consigliabile tenere i tag brevi e il tag di apertura deve essere preceduto da uno spazio.
 
 2. Aggiungere tag al contenuto con `notranslate`.
 

@@ -6,61 +6,71 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ee97322e58fe7ab3a1474f55c6294822b8ce90da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: peterlu
+author: peterclu
+ms.date: 11/12/2019
+ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517865"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196155"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è Azure Machine Learning Designer (anteprima)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-La finestra di progettazione di Azure Machine Learning consente di preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice.
+Azure Machine Learning Designer consente di connettere visivamente [set di impostazioni](#datasets) e [moduli](#module) in un'area di disegno interattiva per creare modelli di apprendimento automatico. Per informazioni su come iniziare a usare la finestra di progettazione, vedere [esercitazione: stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
 
-Non è necessaria alcuna programmazione. i [set di impostazioni](#datasets) e i [moduli](#module) vengono collegati visivamente per costruire il modello.
+![Esempio di finestra di progettazione di Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
-La finestra di progettazione USA l' [area di lavoro](concept-workspace.md) Azure Machine Learning per:
+La finestra di progettazione USA l' [area di lavoro](concept-workspace.md) Azure Machine Learning per organizzare le risorse condivise, ad esempio:
 
-+ Creare, modificare ed eseguire [pipeline](#pipeline) nell'area di lavoro.
-+ Accedere ai [set di impostazioni](#datasets).
-+ Usare le [risorse di calcolo](#compute) nell'area di lavoro per eseguire la pipeline. 
-+ Registrare i [modelli](concept-azure-machine-learning-architecture.md#models).
-+ [Pubblicare](#publish) pipeline come endpoint REST.
-+ [Distribuire](#deployment) i modelli come endpoint della pipeline (per inferenza batch) o endpoint in tempo reale sulle risorse di calcolo nell'area di lavoro.
++ [Pipeline](#pipeline)
++ [Set di dati](#datasets)
++ [Risorse di calcolo](#compute)
++ [Modelli registrati](concept-azure-machine-learning-architecture.md#models)
++ [Pipeline pubblicate](#publish)
++ [Endpoint in tempo reale](#deploy)
 
-![Panoramica della finestra di progettazione](media/ui-concept-visual-interface/overview.png)
+## <a name="model-training-and-deployment"></a>Training e distribuzione di modelli
 
-## <a name="workflow"></a>Flusso di lavoro
+La finestra di progettazione offre un'area di disegno visiva per compilare, testare e distribuire modelli di machine learning. Con la finestra di progettazione è possibile:
 
-La finestra di progettazione offre un'area di disegno interattiva visiva per compilare, testare ed eseguire rapidamente un'iterazione su un modello. 
++ Trascinare e rilasciare i [set di impostazioni](#datasets) e i [moduli](#module) nell'area di disegno.
++ Connettere i moduli per creare una [bozza della pipeline](#pipeline-draft).
++ Inviare un' [esecuzione di pipeline](#pipeline-run) usando le risorse di calcolo nell'area di lavoro Azure Machine Learning.
++ Convertire le **pipeline di training** in **pipeline di inferenza**.
++ [Pubblicare](#publish) le pipeline in un endpoint della **pipeline** REST per inviare le nuove esecuzioni di pipeline con diversi set di impostazioni e parametri.
+    + Pubblicare una **pipeline di training** per riutilizzare una singola pipeline per eseguire il training di più modelli durante la modifica di parametri e set di impostazioni.
+    + Pubblicare una **pipeline di inferenza batch** per eseguire stime sui nuovi dati usando un modello precedentemente sottoposto a training.
++ [Distribuire](#deploy) una **pipeline di inferenza in tempo reale** a un endpoint in tempo reale per eseguire stime sui nuovi dati in tempo reale.
 
-+ È possibile trascinare e rilasciare i [set di impostazioni](#datasets) e i [moduli](#module) nell'area di disegno.
-+ Connettere i moduli per formare una [pipeline](#pipeline).
-+ Eseguire la pipeline usando la risorsa di calcolo dell'area di lavoro del servizio Machine Learning.
-+ Eseguire l'iterazione sulla progettazione del modello modificando la pipeline ed eseguendo di nuovo l'operazione.
-+ Quando si è pronti, convertire la **pipeline di training** in una **pipeline di inferenza**.
-+ [Pubblicare](#publish) la pipeline come endpoint REST se si vuole inviarla nuovamente senza il codice Python costruito.
-+ [Distribuire](#deployment) la pipeline di inferenza come endpoint della pipeline o endpoint in tempo reale in modo che sia possibile accedere al modello da altri.
+![Diagramma di flusso di lavoro per training, inferenza batch e inferenza in tempo reale nella finestra di progettazione](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
-Creare una [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) ml da zero oppure usare una pipeline di esempio esistente come modello. Ogni volta che si esegue una pipeline, gli elementi vengono archiviati nell'area di lavoro. Le esecuzioni di pipeline sono raggruppate in [esperimenti](concept-azure-machine-learning-architecture.md#experiments).
+Una [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) è costituita da set di impostazioni e moduli analitici, che è possibile connettere insieme. Le pipeline hanno molti usi: è possibile creare una pipeline che esegue il training di un singolo modello o uno che esegue il training di più modelli. È possibile creare una pipeline che esegue stime in tempo reale o in batch oppure creare una pipeline che pulisca solo i dati. Le pipeline consentono di riutilizzare il lavoro e organizzare i progetti.
 
-Una pipeline è costituita da set di impostazioni e moduli analitici, che è possibile connettere insieme per costruire un modello. In particolare, una pipeline valida presenta queste caratteristiche:
+### <a name="pipeline-draft"></a>Bozza della pipeline
 
-* I set di impostazioni possono essere connessi solo ai moduli.
-* I moduli possono essere connessi a set di impostazioni o ad altri moduli.
+Quando si modifica una pipeline nella finestra di progettazione, lo stato di avanzamento viene salvato come **bozza della pipeline**. È possibile modificare una bozza di pipeline in qualsiasi momento aggiungendo o rimuovendo moduli, configurando le destinazioni di calcolo, creando parametri e così via.
+
+Una pipeline valida presenta queste caratteristiche:
+
+* I set di impostazioni possono connettersi solo ai moduli.
+* I moduli possono connettersi solo a set di impostazioni o ad altri moduli.
 * Tutte le porte di input per i moduli devono disporre di una connessione al flusso di dati.
 * È necessario impostare tutti i parametri obbligatori per ogni modulo.
 
+Quando si è pronti per eseguire la bozza della pipeline, si invia un'esecuzione della pipeline.
 
-Per informazioni su come iniziare a usare la finestra di progettazione, vedere [esercitazione: stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
+### <a name="pipeline-run"></a>Esecuzione della pipeline
 
-## <a name="datasets"></a>Set di dati
+Ogni volta che si esegue una pipeline, la configurazione della pipeline e i relativi risultati vengono archiviati nell'area di lavoro come **esecuzione della pipeline**. È possibile tornare a qualsiasi esecuzione di pipeline per esaminarla a scopo di controllo o risoluzione dei problemi. **Clonare** un'esecuzione di pipeline per creare una nuova bozza di pipeline da modificare.
+
+Le esecuzioni di pipeline sono raggruppate in [esperimenti](concept-azure-machine-learning-architecture.md#experiments) per organizzare la cronologia di esecuzione. È possibile impostare l'esperimento per ogni esecuzione della pipeline. 
+
+## <a name="datasets"></a>DATASETS
 
 Un set di dati di Machine Learning semplifica l'accesso e l'uso dei dati. Nella finestra di progettazione sono inclusi alcuni set di impostazioni di esempio che consentono di sperimentare. È possibile [registrare](./how-to-create-register-datasets.md) più set di impostazioni in modo che siano necessari.
 
@@ -68,7 +78,7 @@ Un set di dati di Machine Learning semplifica l'accesso e l'uso dei dati. Nella 
 
 Un modulo è un algoritmo che è possibile applicare ai dati. La finestra di progettazione ha una serie di moduli che variano dalle funzioni di ingresso dei dati ai processi di training, assegnazione di punteggi e convalida.
 
-Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nell'area di disegno, i parametri del modulo vengono visualizzati nel riquadro proprietà a destra dell'area di disegno. È possibile modificare i parametri in questo riquadro per ottimizzare il modello.
+Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nell'area di disegno, i parametri del modulo vengono visualizzati nel riquadro proprietà a destra dell'area di disegno. È possibile modificare i parametri in questo riquadro per ottimizzare il modello. È possibile impostare le risorse di calcolo per i singoli moduli nella finestra di progettazione. 
 
 ![Proprietà del modulo](media/ui-concept-visual-interface/properties.png)
 
@@ -85,21 +95,24 @@ Usare le risorse di calcolo dall'area di lavoro per eseguire la pipeline e ospit
 
 Le destinazioni di calcolo sono collegate all' [area di lavoro](concept-workspace.md)Machine Learning. È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="publish"></a>Pubblica
+## <a name="deploy"></a>Distribuisci
 
-Una volta pronta una pipeline, è possibile pubblicarla come endpoint REST. Un [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) può essere inviato senza il codice Python che lo ha costruito.
+Per eseguire l'inferenza in tempo reale, è necessario distribuire una pipeline come **endpoint in tempo reale**. L'endpoint in tempo reale crea un'interfaccia tra un'applicazione esterna e il modello di assegnazione dei punteggi. Una chiamata a un endpoint in tempo reale restituisce i risultati della stima all'applicazione in tempo reale. Per effettuare una chiamata a un endpoint in tempo reale, passare la chiave API creata al momento della distribuzione dell'endpoint. L'endpoint è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
-Inoltre, è possibile usare un PublishedPipeline per inviare nuovamente una pipeline con valori e input di PipelineParameter diversi.
-
-## <a name="deployment"></a>Distribuzione
-
-Quando il modello predittivo è pronto, distribuirlo come endpoint della pipeline o endpoint in tempo reale direttamente dalla finestra di progettazione.
-
-L'endpoint della pipeline è un PublishedPipeline, che è possibile inviare un'esecuzione di pipeline con valori PipelineParameter diversi e input per l'inferenza batch.
-
-L'endpoint in tempo reale fornisce un'interfaccia tra un'applicazione e il modello di assegnazione dei punteggi. Un'applicazione esterna può comunicare con il modello di assegnazione dei punteggi in tempo reale. Una chiamata a un endpoint in tempo reale restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata a un endpoint in tempo reale, passare una chiave API creata al momento della distribuzione dell'endpoint. L'endpoint è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
+Gli endpoint in tempo reale devono essere distribuiti in un cluster del servizio Azure Kubernetes.
 
 Per informazioni su come distribuire il modello, vedere [esercitazione: distribuire un modello di Machine Learning con la finestra di progettazione](tutorial-designer-automobile-price-deploy.md).
+
+## <a name="publish"></a>Publish
+
+È anche possibile pubblicare una pipeline in un **endpoint della pipeline**. Analogamente a un endpoint in tempo reale, un endpoint della pipeline consente di inviare le nuove esecuzioni di pipeline da applicazioni esterne usando le chiamate REST. Tuttavia, non è possibile inviare o ricevere dati in tempo reale tramite un endpoint della pipeline.
+
+Le pipeline pubblicate sono flessibili e possono essere usate per eseguire il training o il training dei modelli, eseguire l'inferenza di batch, elaborare nuovi dati e molto altro ancora. È possibile pubblicare più pipeline in un singolo endpoint della pipeline e specificare quale versione della pipeline eseguire.
+
+Una pipeline pubblicata viene eseguita nelle risorse di calcolo definite nella bozza della pipeline per ogni modulo.
+
+La finestra di progettazione crea lo stesso oggetto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) dell'SDK.
+
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passaggio dall'interfaccia visiva alla finestra di progettazione
 

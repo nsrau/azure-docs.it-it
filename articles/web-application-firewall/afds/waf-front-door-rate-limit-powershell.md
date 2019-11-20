@@ -1,5 +1,5 @@
 ---
-title: Configurare una regola di limitazione della frequenza del firewall applicazione Web per lo sportello anteriore Azure PowerShell
+title: Configurare la regola limite di velocità WAF per sportello anteriore-Azure PowerShell
 description: Informazioni su come configurare una regola per il limite di velocità per un endpoint della porta anteriore esistente.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: ce9ace445d87479da4047da205b59e79402ece07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517137"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186616"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limitazione della frequenza del firewall applicazione Web usando Azure PowerShell
 La regola relativa al limite di velocità del firewall applicazione Web di Azure (WAF) per la porta anteriore di Azure controlla il numero di richieste consentite da un singolo IP client durante una durata di un minuto.
@@ -20,7 +20,7 @@ Questo articolo illustra come configurare una regola di limitazione della veloci
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare a configurare un criterio di limite di velocità, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore.
 ### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
 Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure. 

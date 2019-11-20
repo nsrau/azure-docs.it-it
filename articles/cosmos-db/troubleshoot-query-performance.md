@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515809"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184721"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Risolvere i problemi relativi alle prestazioni delle query per Azure Cosmos DB
 Questo articolo illustra come identificare, diagnosticare e risolvere i problemi Azure Cosmos DB query SQL. Per ottenere prestazioni ottimali per le query Azure Cosmos DB, attenersi alla procedura di risoluzione dei problemi riportata di seguito. 
@@ -26,29 +26,29 @@ Il [livello di coerenza](consistency-levels.md) può influisca sulle prestazioni
 
 ## <a name="log-the-executed-sql-query"></a>Registrare la query SQL eseguita 
 
-È possibile registrare la query SQL eseguita in un account di archiviazione o nella tabella del log di diagnostica. Log di [query SQL tramite i log di diagnostica](logging.md#turn-on-logging-in-the-azure-portal) consente di registrare la query offuscata in un account di archiviazione di propria scelta. In questo modo è possibile esaminare i log e trovare la query che usa le UR più elevate. Successivamente, è possibile usare l'ID attività per trovare la corrispondenza con la query effettiva in QueryRuntimeStatistics. La query viene offuscata per finalità di sicurezza e i nomi dei parametri di query e i relativi valori nelle clausole WHERE sono diversi rispetto ai nomi e ai valori effettivi. È possibile usare la registrazione nell'account di archiviazione per mantenere la conservazione a lungo termine delle query eseguite.  
+È possibile registrare la query SQL eseguita in un account di archiviazione o nella tabella del log di diagnostica. Log di [query SQL tramite i log di diagnostica](monitor-cosmos-db.md#diagnostic-settings) consente di registrare la query offuscata in un account di archiviazione di propria scelta. In questo modo è possibile esaminare i log e trovare la query che usa le UR più elevate. Successivamente, è possibile usare l'ID attività per trovare la corrispondenza con la query effettiva in QueryRuntimeStatistics. La query viene offuscata per finalità di sicurezza e i nomi dei parametri di query e i relativi valori nelle clausole WHERE sono diversi rispetto ai nomi e ai valori effettivi. È possibile usare la registrazione nell'account di archiviazione per mantenere la conservazione a lungo termine delle query eseguite.  
 
 ## <a name="log-query-metrics"></a>Metrica della query di log
 
 Usare `QueryMetrics` per risolvere query lente o costose. 
 
-  * `FeedOptions.PopulateQueryMetrics = true` Impostato`QueryMetrics` su nella risposta.
-  * `QueryMetrics`la classe dispone di una `.ToString()` funzione in overload che può essere richiamata per ottenere la rappresentazione di stringa di. `QueryMetrics` 
+  * Impostare `FeedOptions.PopulateQueryMetrics = true` per avere `QueryMetrics` nella risposta.
+  * `QueryMetrics` classe dispone di una funzione di `.ToString()` di overload che può essere richiamata per ottenere la rappresentazione di stringa di `QueryMetrics`. 
   * Le metriche possono essere usate per derivare le informazioni seguenti, tra le altre: 
   
       * Indica se un componente specifico della pipeline di query ha richiesto un tempo di completamento anomalo (in ordine di centinaia di millisecondi o più). 
 
-          * `TotalExecutionTime`Osservare.
-          * Se la `TotalExecutionTime` della query è inferiore al tempo di esecuzione end-to-end, viene impiegato il tempo sul lato client o sulla rete. Verificare che il client e l'area di Azure siano collocati.
+          * Esaminare `TotalExecutionTime`.
+          * Se il `TotalExecutionTime` della query è inferiore al tempo di esecuzione end-to-end, viene impiegato il tempo sul lato client o sulla rete. Verificare che il client e l'area di Azure siano collocati.
       
       * Indica se sono presenti falsi positivi nei documenti analizzati (se il numero di documenti di output è molto inferiore al numero di documenti recuperati).  
 
-          * `Index Utilization`Osservare.
-          * `Index Utilization`= (Numero di documenti restituiti/numero di documenti caricati)
+          * Esaminare `Index Utilization`.
+          * `Index Utilization` = (numero di documenti restituiti/numero di documenti caricati)
           * Se il numero di documenti restituiti è molto inferiore al numero caricato, verranno analizzati i falsi positivi.
           * Limitare il numero di documenti recuperati con filtri più ristretti.  
 
-      * Modalità di andata e ritorno dei singoli round trip `Partition Execution Timeline` (vedere dalla rappresentazione di `QueryMetrics`stringa di). 
+      * Modalità di andata e ritorno dei singoli round trip (vedere la `Partition Execution Timeline` dalla rappresentazione di stringa di `QueryMetrics`). 
       * Indica se la query ha utilizzato un costo elevato per le richieste. 
 
 Per altri dettagli [, vedere l'articolo su come ottenere le metriche di esecuzione di query SQL](profile-sql-api-query.md) .
@@ -56,8 +56,8 @@ Per altri dettagli [, vedere l'articolo su come ottenere le metriche di esecuzio
 ## <a name="tune-query-feed-options-parameters"></a>Ottimizzazione dei parametri di opzioni dei feed delle query 
 Le prestazioni delle query possono essere ottimizzate tramite i parametri di [opzioni dei feed](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet). Provare a impostare le opzioni seguenti:
 
-  * Impostare `MaxDegreeOfParallelism` su-1 prima, quindi confrontare le prestazioni tra valori diversi. 
-  * Impostare `MaxBufferedItemCount` su-1 prima, quindi confrontare le prestazioni tra valori diversi. 
+  * Impostare prima `MaxDegreeOfParallelism` su-1, quindi confrontare le prestazioni tra valori diversi. 
+  * Impostare prima `MaxBufferedItemCount` su-1, quindi confrontare le prestazioni tra valori diversi. 
   * Impostare `MaxItemCount` su-1.
 
 Quando si confrontano le prestazioni di diversi valori, provare a usare valori come 2, 4, 8, 16 e altri.
@@ -145,22 +145,22 @@ Per verificare che i [criteri di indicizzazione](index-policy.md) correnti siano
   * Verificare che tutti i percorsi JSON usati nelle query siano inclusi nei criteri di indicizzazione per letture più veloci.
   * Escludi percorsi non utilizzati nelle query per scritture più performanti.
 
-Per altri dettagli, vedere l'articolo [su come gestire i criteri di](how-to-manage-indexing-policy.md) indicizzazione.
+Per altri dettagli, vedere l'articolo [su come gestire i criteri di indicizzazione](how-to-manage-indexing-policy.md) .
 
-## <a name="spatial-data-check-ordering-of-points"></a>Dati spaziali: Controllare l'ordine dei punti
+## <a name="spatial-data-check-ordering-of-points"></a>Dati spaziali: controllare l'ordine dei punti
 I punti all'interno di un poligono devono essere specificati in senso antiorario. Un poligono specificato in senso orario rappresenta l'inverso dell'area al suo interno.
 
 ## <a name="optimize-join-expressions"></a>Ottimizza espressioni di JOIN
-`JOIN`le espressioni possono espandersi in prodotti incrociati di grandi dimensioni. Quando possibile, eseguire una query su uno spazio di ricerca più piccolo tramite un filtro più restrittivo.
+`JOIN` espressioni possono espandersi in prodotti incrociati di grandi dimensioni. Quando possibile, eseguire una query su uno spazio di ricerca più piccolo tramite un filtro più restrittivo.
 
-Le sottoquery multivalore consentono di ottimizzare `JOIN` le espressioni eseguendo il `WHERE` push dei predicati dopo ogni espressione SELECT-many invece che dopo tutti i cross join nella clausola. Per un esempio dettagliato, vedere l'articolo relativo all' [ottimizzazione delle espressioni di join](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) .
+Le sottoquery multivalore consentono di ottimizzare le espressioni `JOIN` eseguendo il push dei predicati dopo ogni espressione SELECT-many invece che dopo tutti i cross join nella clausola `WHERE`. Per un esempio dettagliato, vedere l'articolo relativo all' [ottimizzazione delle espressioni di join](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) .
 
 ## <a name="optimize-order-by-expressions"></a>Ottimizza espressioni ORDER BY 
-`ORDER BY`le prestazioni delle query potrebbero risentirne se i campi sono di tipo sparse o non sono inclusi nei criteri di indice.
+le prestazioni delle query `ORDER BY` possono risentirne se i campi sono di tipo sparse o non sono inclusi nei criteri di indice.
 
   * Per i campi di tipo sparse, ad esempio il tempo, ridurre il più possibile lo spazio di ricerca con i filtri. 
-  * Per la proprietà `ORDER BY`singola, includere la proprietà nei criteri di indice. 
-  * Per più espressioni `ORDER BY` di proprietà, definire un [indice composto](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) sui campi da ordinare.  
+  * Per `ORDER BY`di proprietà singole, includere la proprietà nei criteri di indice. 
+  * Per più espressioni `ORDER BY` di proprietà, definire un [indice composto](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) sui campi ordinati.  
 
 ## <a name="many-large-documents-being-loaded-and-processed"></a>Molti documenti di grandi dimensioni vengono caricati ed elaborati
 Il tempo e le UR richieste da una query non dipendono solo dalle dimensioni della risposta, ma dipendono anche dal lavoro eseguito dalla pipeline di elaborazione delle query. I tempi e le UR aumentano proporzionalmente alla quantità di lavoro eseguita dall'intera pipeline di elaborazione delle query. Per i documenti di grandi dimensioni vengono eseguite altre operazioni, quindi è necessario più tempo e ur per caricare ed elaborare documenti di grandi dimensioni.

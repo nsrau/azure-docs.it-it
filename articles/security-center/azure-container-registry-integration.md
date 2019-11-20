@@ -1,5 +1,5 @@
 ---
-title: Centro sicurezza di Azure e Azure Container Registry | Microsoft Docs
+title: Centro sicurezza di Azure e Azure Container Registry
 description: Informazioni sull'integrazione del Centro sicurezza di Azure con Azure Container Registry
 services: security-center
 documentationcenter: na
@@ -10,22 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: f0de56f968488f0e5d551ad705cc6f8ca6e7bc47
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: MT
+ms.openlocfilehash: f2a07774fa23173738bc33907dd00017ca260fd9
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521865"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196370"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integrazione di Azure Container Registry con Centro sicurezza (anteprima)
 
 Azure Container Registry (ACR) è un servizio di registro Docker privato gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. Si basa sul registro Docker open source 2,0.
 
-Quando si usa ACR con il livello standard del Centro sicurezza di Azure (vedere i [prezzi](security-center-pricing.md)), si ottiene una maggiore visibilità delle vulnerabilità del registro di sistema e delle immagini.
+Per una maggiore visibilità delle vulnerabilità del registro di sistema e delle immagini, gli utenti del livello standard del Centro sicurezza di Azure possono abilitare il bundle facoltativo dei registri contenitori. Per altre informazioni, vedere la pagina relativa ai [prezzi](security-center-pricing.md). Con il bundle abilitato, il Centro sicurezza analizza automaticamente le immagini nel servizio ACR ogni volta che viene eseguito il push di un'immagine nel registro. Al termine dell'analisi, in genere dopo circa 10 minuti, i risultati sono disponibili nel centro sicurezza in consigli simili ai seguenti:
 
-[![consigli di Azure Container Registry (ACR) nel centro sicurezza di Azure](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![raccomandazione del Centro sicurezza di Azure di esempio sulle vulnerabilità individuate in un'immagine ospitata in Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Vantaggi dell'integrazione
 

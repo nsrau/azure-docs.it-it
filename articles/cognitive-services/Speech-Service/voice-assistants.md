@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577963"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195929"
 ---
 # <a name="about-voice-assistants"></a>Informazioni sugli assistenti vocali
 
-Gli assistenti vocali che usano servizi di riconoscimento vocale di Azure consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per le proprie applicazioni ed esperienze.
+Gli assistenti vocali che usano i servizi Voce di Azure consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per applicazioni ed esperienze.
 
 Il servizio Voice Assistant fornisce un'interazione rapida e affidabile tra un dispositivo e un'implementazione di Assistant che usa (1) il canale di sintesi vocale diretta di bot Framework o (2) il servizio integrato di comandi personalizzati (anteprima) per il completamento delle attività.
 
@@ -39,7 +39,8 @@ Il primo passaggio per la creazione di un assistente vocale è quello di decider
 Se non si è certi di cosa si vuole che l'assistente debba gestire, è consigliabile usare [Direct Line Speech](direct-line-speech.md) come la scelta migliore. Offre l'integrazione con un set completo di strumenti e strumenti per la creazione, ad esempio la [soluzione Virtual Assistant e il modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) , e il [servizio QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) per creare modelli comuni e usare le origini delle informazioni esistenti.
 
 I [comandi personalizzati (anteprima)](custom-commands.md) offrono un'esperienza di creazione e hosting semplificata, appositamente adattata per gli scenari di comando e controllo del linguaggio naturale.
-   ![Confronto tra soluzioni di assistente](media/voice-assistants/assistant-solution-comparison.png "CompArison di soluzioni Assistant ")
+
+   ![Confronto tra soluzioni di assistente](media/voice-assistants/assistant-solution-comparison.png "Confronto tra soluzioni di assistente")
 
 ## <a name="core-features"></a>Funzionalità di base
 
@@ -65,7 +66,7 @@ Sono disponibili guide introduttive progettate per l'esecuzione di codice in men
 
 Il codice di esempio per la creazione di un assistente vocale è disponibile su GitHub. Questi esempi coprono l'applicazione client per la connessione all'assistente in diversi linguaggi di programmazione più diffusi.
 
-* [Esempi di Assistente vocale (SDK)](https://aka.ms/csspeech/samples)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples) (Esempi di assistente vocale - SDK)
 * [Esercitazione: abilitare l'Assistente vocale con l'SDK di riconoscimento vocale,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="tutorial"></a>Esercitazione

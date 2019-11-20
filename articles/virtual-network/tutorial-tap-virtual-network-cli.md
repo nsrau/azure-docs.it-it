@@ -1,5 +1,5 @@
 ---
-title: Creare, modificare o eliminare un TAP di rete virtuale - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare, modificare o eliminare un VNet TAP-interfaccia della riga di comando di Azure
 description: Informazioni su come creare, modificare o eliminare un TAP di rete virtuale con l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05ce45a52db2b8a47223023ce31b5591b2b97c37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743191"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185391"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Usare un TAP di rete virtuale con l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Un TAP (Terminal Access Point) di rete virtuale di Azure consente di trasmettere
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Creare una risorsa TAP di rete virtuale
 
-Vedere i [prerequisiti](virtual-network-tap-overview.md#prerequisites) prima di creare una risorsa TAP di rete virtuale. È possibile eseguire questi comandi in [Azure Cloud Shell](https://shell.azure.com/bash) oppure con l'interfaccia della riga di comando di Azure nel computer. Azure Cloud Shell è una shell interattiva gratuita che non richiede l'installazione dell'interfaccia della riga di comando di Azure nel computer. È necessario accedere ad Azure con un account che abbia le [autorizzazioni](virtual-network-tap-overview.md#permissions) appropriate. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.46 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Dispositivo TAP di rete virtuale è attualmente disponibile come estensione. Per installare l'estensione è necessario eseguire `az extension add -n virtual-network-tap`. Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
+Vedere i [prerequisiti](virtual-network-tap-overview.md#prerequisites) prima di creare una risorsa TAP di rete virtuale. È possibile eseguire questi comandi in [Azure Cloud Shell](https://shell.azure.com/bash) oppure con l'interfaccia della riga di comando di Azure nel computer. Azure Cloud Shell è una shell interattiva gratuita che non richiede l'installazione dell'interfaccia della riga di comando di Azure nel computer. È necessario accedere ad Azure con un account che abbia le [autorizzazioni](virtual-network-tap-overview.md#permissions) appropriate. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.46 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Il tocco della rete virtuale è attualmente disponibile come estensione. Per installare l'estensione, è necessario eseguire `az extension add -n virtual-network-tap`. Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 1. Recuperare l'ID sottoscrizione in una variabile che verrà usata in un passaggio successivo:
 

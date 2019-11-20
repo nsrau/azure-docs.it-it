@@ -1,5 +1,5 @@
 ---
-title: Come configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite PowerShell
+title: Configurare le identità gestite in una macchina virtuale di Azure usando PowerShell-Azure AD
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ba8ce6fb8147736c8265148a9f3576390dcccc6
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6e17b4a3f71e67b99bfbd4c52edc00f98d549ef2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309769"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183705"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite PowerShell
 
@@ -32,7 +32,7 @@ Questo articolo illustra come eseguire queste identità gestite per le operazion
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
@@ -168,7 +168,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 2. Creare un'identità gestita assegnata dall'utente tramite il cmdlet [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity).  Si noti `Id` nell'output perché sarà necessaria nel passaggio successivo.
 
    > [!IMPORTANT]
-   > La creazione di identità gestite assegnate dall'utente supporta solo caratteri alfanumerici, di sottolineatura e trattino (0-9 o a- \_ z o a-z o-). Inoltre, il nome deve avere una lunghezza compresa tra 3 e 128 caratteri perché l'assegnazione a VM/VMSS funzioni correttamente. Per altre informazioni, vedere [Domande frequenti e problemi noti](known-issues.md)
+   > La creazione di identità gestite assegnate dall'utente supporta solo caratteri alfanumerici, di sottolineatura e trattino (0-9 o a-z, A-Z, \_ o-). Inoltre, il nome deve avere una lunghezza compresa tra 3 e 128 caratteri perché l'assegnazione a VM/VMSS funzioni correttamente. Per altre informazioni, vedere [Domande frequenti e problemi noti](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>

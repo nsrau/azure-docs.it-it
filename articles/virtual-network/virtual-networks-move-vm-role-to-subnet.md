@@ -1,5 +1,5 @@
 ---
-title: Spostare una VM (classica) o un'istanza del ruolo di Servizi cloud in un'altra subnet - Azure PowerShell | Documentazione Microsoft
+title: Spostare le istanze di macchine virtuali di Azure (classiche) o dei servizi cloud in subnet diverse
 description: Informazioni su come spostare le VM (classiche) e le istanze del ruolo di Servizi cloud in un'altra subnet mediante PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 275d59a7bddd8b2b609169218afcd15e9a0ce913
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: e2a92355632ef0d7059c9e5294448de0ca591b82
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058382"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196677"
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Spostare una VM (classica) o un'istanza del ruolo di Servizi cloud in un'altra subnet mediante PowerShell
 È possibile usare PowerShell per spostare le proprie VM (classiche) da una subnet a un'altra nella stessa rete virtuale (VNet). Le istanze del ruolo possono essere spostate modificando il file CSCFG invece di usare PowerShell.

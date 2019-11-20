@@ -6,16 +6,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016361"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186460"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente Mobility
 
-Quando si configura il ripristino di emergenza per VM VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), viene installato il [servizio Mobility di Site Recovery](vmware-physical-mobility-service-overview.md) in ogni VM VMware e server fisico locali.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery.
+Quando si configura il ripristino di emergenza per macchine virtuali VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), si installa il [servizio Mobility di Site Recovery](vmware-physical-mobility-service-overview.md) in ogni macchina virtuale VMware locale e in ogni server fisico locale.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery.
 
 ## <a name="install-on-windows-machine"></a>Eseguire l'installazione in un computer Windows
 
@@ -32,7 +32,7 @@ In ogni computer Windows da proteggere eseguire le operazioni seguenti:
    ![Impostazioni del firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. Aggiungere l'account creato in CSPSConfigtool. A questo scopo, accedere al server di configurazione.
-5. Aprire **cspsconfigtool.exe**. È disponibile come collegamento sul desktop e nella cartella %ProgramData%\home\svsystems\bin.
+5. Aprire **cspsconfigtool.exe**. È disponibile come collegamento sul desktop e nella cartella%ProgramData%\ASR\home\svsystems\bin.
 6. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 7. Aggiungere l'account che è stato creato.
 8. Immettere le credenziali usate quando si abilita la replica per un computer.

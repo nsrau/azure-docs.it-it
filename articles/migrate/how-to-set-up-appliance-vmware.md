@@ -1,17 +1,17 @@
 ---
-title: Configurare un'appliance per la valutazione/migrazione del server Azure Migrate per le macchine virtuali VMware | Microsoft Docs
-description: Viene descritto come configurare un'appliance per l'individuazione, la valutazione e la migrazione senza agenti di macchine virtuali VMware con Azure Migrate valutazione/migrazione del server.
+title: Configurare un'appliance Azure Migrate per VMware
+description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali VMware.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158608"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185864"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
 

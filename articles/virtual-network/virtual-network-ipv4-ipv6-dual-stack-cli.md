@@ -1,11 +1,11 @@
 ---
-title: Distribuire un'applicazione IPv6 dual stack usando Load Balancer di base in Azure-CLI
+title: Distribuire l'applicazione IPv6 dual stack-Load Balancer Basic-CLI
 titlesuffix: Azure Virtual Network
 description: Questo articolo illustra come distribuire un'applicazione IPv6 dual stack in rete virtuale di Azure usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: d4ca26606eb8be5b9092f40b70b57b9d5d85385c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b8440efa08e47685d21b0222861f749e8bdffbc9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804010"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186388"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Distribuire un'applicazione IPv6 dual stack usando l'interfaccia della riga di comando di base Load Balancer-CLI (anteprima)
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https
 
 Se invece si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, questa Guida introduttiva richiede l'uso dell'interfaccia della riga di comando di Azure versione 2.0.49 Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione usando l'interfaccia della riga di comando di Azure come indicato di seguito:
 
 ```azurecli
@@ -115,7 +115,7 @@ In questa sezione vengono configurati due IP front-end (IPv4 e IPv6) e il pool d
 
 ### <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
 
-Creare il Load Balancer di base con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **dsLB** che include un pool Front-End denominato **dsLbFrontEnd_v4**, un pool back-end denominato **dsLbBackEndPool_v4** che è associato all'indirizzo **IP pubblico IPv4 dsPublicIP_v4** creato nel passaggio precedente. 
+Creare il Load Balancer di base con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **dsLB** che include un pool front-end denominato **dsLbFrontEnd_v4**, un pool back-end denominato **dsLbBackEndPool_v4** associato all'indirizzo IP pubblico IPv4 **dsPublicIP_v4** creato nel passaggio precedente. 
 
 ```azurecli
 az network lb create \
@@ -130,7 +130,7 @@ az network lb create \
 
 ### <a name="create-ipv6-frontend"></a>Crea front-end IPv6
 
-Creare un indirizzo IP front-end IPV6 con [AZ Network lb frontend-IP create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). L'esempio seguente crea una configurazione IP front-end denominata *dsLbFrontEnd_v6* e connette l'indirizzo *dsPublicIP_v6* :
+Creare un indirizzo IP front-end IPV6 con [AZ Network lb frontend-IP create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). L'esempio seguente crea una configurazione IP front-end denominata *dsLbFrontEnd_v6* e connette l'indirizzo del *dsPublicIP_v6* :
 
 ```azurecli
 az network lb frontend-ip create \
@@ -154,7 +154,7 @@ az network lb address-pool create \
 
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. 
+Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. 
 
 Creare una regola di bilanciamento del carico con [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). L'esempio seguente crea regole di bilanciamento del carico denominate *dsLBrule_v4* e *dsLBrule_v6* e bilancia il traffico sulla porta *TCP* *80* alle configurazioni IP front-end IPv4 e IPv6:
 
@@ -184,7 +184,7 @@ az network lb rule create \
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete, rete virtuale e NIC virtuali. 
-### <a name="create-an-availability-set"></a>Crea un set di disponibilità
+### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 Per migliorare la disponibilità dell'app, inserire le VM in un set di disponibilità.
 
 Creare un set di disponibilità con [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). Nell'esempio seguente viene creato un set di disponibilità denominato *dsAVset*:
@@ -268,7 +268,7 @@ az network nsg rule create \
 ```
 
 
-### <a name="create-a-virtual-network"></a>Crea una rete virtuale
+### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Creare una rete virtuale con [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). Nell'esempio seguente viene creata una rete virtuale denominata *dsVNET* con subnet *dsSubNET_v4* e *dsSubNET_v6*:
 

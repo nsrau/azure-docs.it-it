@@ -1,5 +1,5 @@
 ---
-title: Configurare un criterio di Web Application Firewall (WAF) con regole personalizzate e set di stratagemmi predefiniti per lo sportello anteriore Azure PowerShell
+title: Configurare regole personalizzate di WAF & set di regole predefinite per il front-end di Azure
 description: Informazioni su come configurare un criterio WAF sono costituite da regole personalizzate e gestite per un endpoint di sportello anteriore esistente.
 services: web-application-firewall
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: fec1ed5d51c4afe43df513b54595b4ce1e2f4bbb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512548"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186642"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurare un criterio di Web Application Firewall usando Azure PowerShell
 
@@ -21,7 +21,7 @@ Questo articolo illustra come configurare un criterio WAF che è costituito da a
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare a configurare un criterio di limite di velocità, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore.
 

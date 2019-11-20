@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
-ms.openlocfilehash: b32eb7a7236871a06e1fbed5b9f1aac91675c6f3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: fbfce1c107fcf4b6f7d0b5f590a8ddfa64e69190
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174733"
+ms.locfileid: "74184728"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Modificare i flussi nell'API Azure Cosmos DB per MongoDB
 
@@ -35,7 +35,7 @@ while (!cursor.isExhausted()) {
 }
 ```
 
-Nell'esempio seguente viene illustrato come ottenere le modifiche agli elementi in una singola partizione, ad esempio la partizione "a" che contiene elementi con valore "1".
+Nell'esempio seguente viene illustrato come ottenere le modifiche agli elementi in una singola partizione. Questo esempio Mostra come ottenere le modifiche apportate agli elementi con una chiave di partizione uguale a "a" e il valore della chiave di partizione uguale a "1".
 
 ```javascript
 var cursor = db.coll.watch(

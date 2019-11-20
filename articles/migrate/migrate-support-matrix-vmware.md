@@ -1,19 +1,18 @@
 ---
-title: Matrice di supporto Azure Migrate per la valutazione e la migrazione di VMware
-description: Riepiloga le impostazioni di supporto e le limitazioni per la valutazione e la migrazione di macchine virtuali VMware in Azure usando il servizio Azure Migrate.
-services: backup
+title: Supporto per la valutazione e la migrazione VMware in Azure Migrate
+description: Informazioni sul supporto per la valutazione/migrazione di macchine virtuali VMware in Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838907"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196283"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matrice di supporto per la valutazione e la migrazione di VMware
 
@@ -79,7 +78,13 @@ Questa tabella riepiloga il supporto per la valutazione e le limitazioni per i s
 
 ## <a name="assessment-vcenter-server-permissions"></a>Valutazione: autorizzazioni server vCenter
 
-Per la valutazione, è necessario un account di sola lettura per la server vCenter.
+Azure Migrate deve avere accesso al server vCenter per individuare le macchine virtuali di cui eseguire la valutazione e la migrazione senza agente.
+
+- Se si prevede di individuare le applicazioni o di visualizzare le dipendenze in modo senza agenti, creare un account server vCenter con accesso in sola lettura insieme ai privilegi abilitati per le **macchine virtuali** > **le operazioni Guest**.
+
+  ![privilegi dell'account server vCenter](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Se non si prevede di eseguire l'individuazione delle applicazioni e la visualizzazione delle dipendenze senza agenti, configurare un account di sola lettura per la server vCenter.
 
 ## <a name="assessment-appliance-requirements"></a>Valutazione-requisiti del dispositivo
 
@@ -138,7 +143,7 @@ La visualizzazione delle dipendenze consente di visualizzare le dipendenze tra i
     - Se vi sono computer senza accesso a Internet, è necessario scaricare e installare il gateway di Log Analytics.
 
 ## <a name="migration---limitations"></a>Migrazione: limitazioni
-È possibile selezionare fino a 10 macchine virtuali contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10. Per la migrazione senza agenti VMware, è possibile eseguire contemporaneamente fino a 100 repliche.
+È possibile selezionare fino a 10 macchine virtuali contemporaneamente per la replica. Se si desidera eseguire la migrazione di più computer, eseguire la replica in gruppi di 10. Per la migrazione senza agente VMware, è possibile eseguire fino a 100 repliche simultanee.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>Migrazione senza agente-requisiti del server VMware
 
@@ -151,7 +156,7 @@ VMware vSphere | Versione 5,5, 6,0, 6,5 o 6,7,
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>Migrazione senza agente-autorizzazioni server vCenter
 
-**Autorizzazioni** | **Dettagli**
+**autorizzazioni** | **Dettagli**
 --- | ---
 Datastore.Browse | Consente l'esplorazione dei file di log della macchina virtuale per risolvere i problemi di creazione ed eliminazione di snapshot.
 Datastore.LowLevelFileOperations | Consente di eseguire operazioni di lettura/scrittura/eliminazione/ridenominazione nel browser dell'archivio dati per risolvere i problemi relativi alla creazione e all'eliminazione di snapshot.
@@ -168,7 +173,7 @@ Macchina virtuale. interazione. Spegnere | Consentire la spegnimento della VM du
 **Supporto** | **Dettagli**
 --- | ---
 **Sistemi operativi supportati** | È possibile eseguire la migrazione dei sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) supportati da Azure con la migrazione senza agenti.
-**Modifiche necessarie per Azure** | Alcune macchine virtuali potrebbero richiedere modifiche in modo che possano essere eseguite in Azure. Azure Migrate apporta automaticamente queste modifiche per i sistemi operativi seguenti:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Per altri sistemi operativi, è necessario apportare modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione.
+**Modifiche necessarie per Azure** | Alcune macchine virtuali potrebbero richiedere alcune modifiche per la corretta esecuzione in Azure. Azure Migrate apporta automaticamente queste modifiche per i sistemi operativi seguenti:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> Per altri sistemi operativi, è necessario apportare modifiche manualmente prima della migrazione. Gli articoli pertinenti contengono istruzioni su come eseguire questa operazione.
 **Avvio di Linux** | Se/boot si trova in una partizione dedicata, deve risiedere nel disco del sistema operativo e non essere distribuito tra più dischi.<br/> Se/boot fa parte della partizione radice (/), la partizione '/' deve trovarsi nel disco del sistema operativo e non si estende su altri dischi.
 **Avvio UEFI** | Le macchine virtuali con avvio UEFI non sono supportate per la migrazione.
 **Dimensioni disco** | disco del sistema operativo da 2 TB; 4 TB per i dischi dati.
@@ -281,8 +286,8 @@ L'appliance di replica deve accedere a questi URL.
 
 **URL** | **Dettagli**
 --- | ---
-\*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati di replica
-\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati di replica
+\*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
 \*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
 \*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica
@@ -324,7 +329,7 @@ Scaricare e installare in Azure Migrate | Quando si installa l'appliance e viene
 **Dischi indipendenti** | Supportato.
 **Dischi pass-through** | Supportato.
 **NFS** | I volumi NFS montati come volumi nelle macchine virtuali non verranno replicati.
-destinazioni iSCSI | Le macchine virtuali con destinazioni iSCSI non sono supportate per la migrazione senza agenti.
+**destinazioni iSCSI** | Le macchine virtuali con destinazioni iSCSI non sono supportate per la migrazione senza agenti.
 **I/o a percorsi multipli** | Non supportati.
 **Storage vMotion** | Supportato
 **NIC raggruppate** | Non supportati.
@@ -376,7 +381,7 @@ Schede di rete | Sono supportate più schede. |
 VHD condiviso | Non supportati. | Il controllo ha esito negativo se non supportato.
 Disco FC | Non supportati. | Il controllo ha esito negativo se non supportato.
 BitLocker | Non supportati. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
-Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
+Nome della VM | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
 Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall** -> **le app e le funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md). |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  
 

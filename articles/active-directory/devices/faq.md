@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: f593d5ea621ad450eb82388416534e40df36e2d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809262"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184185"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -119,7 +119,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>D: la registrazione dei dispositivi Windows 10 in Azure AD supporta TPMs in modalità FIPS?
 
-**R:** No, attualmente la registrazione del dispositivo in Windows 10 per tutti gli Stati dei dispositivi, Azure AD ibrido join, Azure AD join e Azure AD registrato, non supporta TPMs in modalità FIPS. Per eseguire correttamente il join o la registrazione a Azure AD, è necessario disattivare la modalità FIPS per il TPMs su tali dispositivi
+**R:** La registrazione dei dispositivi Windows 10 è supportata solo per il TPM 2,0 conforme a FIPS e non è supportata per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD join o Azure AD ibrido join. Si noti che Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. 
 
 ---
 

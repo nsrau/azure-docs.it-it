@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 11/17/2019
+ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388043"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184701"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generatore di espressioni del flusso di dati di mapping
 
@@ -77,6 +77,40 @@ Con funzioni per le espressioni che restituiscono matrici, usare le parentesi qu
 
 Quando sono presenti nomi di colonne che includono caratteri speciali o spazi, racchiudere il nome tra parentesi graffe.
 * ```{[dbo].this_is my complex name$$$}```
+
+## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
+
+* ```Ctrl-K Ctrl-C```: intera riga Commenti
+* ```Ctrl-K Ctrl-U```: rimuovere il commento
+* ```F1```: specificare i comandi della Guida dell'editor
+* ```Alt-Down Arrow```: sposta la riga corrente verso il basso
+* ```Alt-Up Arrow```: sposta in alto la riga corrente
+* ```Cntrl-Space```: Mostra la guida del contesto
+
+## <a name="manual-comments"></a>Commenti manuali
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+Se si inserisce un commento all'inizio dell'espressione, questo verrà visualizzato nella casella di testo trasformazione per documentare le espressioni di trasformazione:
+
+![Commenti](media/data-flow/comments2.png "Commenti")
+
+## <a name="convert-to-dates-or-timestamps"></a>Converti in date o timestamp
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Si noti che per includere valori letterali stringa nell'output del timestamp, è necessario eseguire il wrapping della conversione all'interno di un metodo ToString ()
+
+## <a name="handling-column-names-with-special-characters"></a>Gestione dei nomi di colonna con caratteri speciali
+
+Quando sono presenti nomi di colonne che includono caratteri speciali o spazi, racchiudere il nome tra parentesi graffe.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

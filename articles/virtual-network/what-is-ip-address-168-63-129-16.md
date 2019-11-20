@@ -1,5 +1,5 @@
 ---
-title: Che cos'è l'indirizzo IP 168.63.129.16? | Microsoft Docs
+title: Che cos'è l'indirizzo IP 168.63.129.16? | Documentazione di Microsoft
 description: Informazioni sull'indirizzo IP 168.63.129.16 e su come interagisce con le risorse.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 0ea8a8ec1a92a7dbc01dddc175f7116825ba00f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e061d503254ba7aa7735a97a060fc63f96b3fb61
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067771"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196661"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Che cos'è l'indirizzo IP 168.63.129.16?
 
@@ -35,6 +35,7 @@ L'indirizzo IP 168.63.129.16 è un indirizzo IP pubblico virtuale usato per faci
 ## <a name="scope-of-ip-address-1686312916"></a>Ambito dell'indirizzo IP 168.63.129.16
 
 L'indirizzo IP pubblico 168.63.129.16 viene usato in tutte le aree e in tutti i cloud nazionali. Questo indirizzo IP pubblico speciale è di proprietà di Microsoft e non verrà modificato. È consentito dalla regola del gruppo di sicurezza di rete predefinito. È consigliabile consentire questo indirizzo IP in tutti i criteri firewall locali sia nelle direzioni in ingresso che in uscita. La comunicazione tra questo particolare indirizzo IP e le risorse è sicura poiché solo la piattaforma Azure interna può generare un messaggio da questo indirizzo IP. Se questo indirizzo viene bloccato, in alcuni scenari è possibile che si verifichi un comportamento imprevisto.
+Le seguenti porte devono essere aperte almeno per consentire la comunicazione con WireServer: 80, 443 e 32526.
 
 I [Probe di integrità Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) provengono da questo indirizzo IP. Se si blocca questo indirizzo IP, i probe avranno esito negativo.
 

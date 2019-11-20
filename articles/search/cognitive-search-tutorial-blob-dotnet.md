@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111741"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185683"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Esercitazione: creare una pipeline di arricchimento AI con C# e .NET SDK
 
@@ -103,7 +103,7 @@ Per installare il pacchetto NuGet di `Microsoft.Extensions.Configuration.Json` i
 
 Per connettersi al servizio Ricerca cognitiva di Azure, è necessario aggiungere le informazioni del servizio di ricerca al progetto. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Aggiungi** > **Nuovo elemento**. Assegnare un nome al file `appsettings.json` e selezionare **Aggiungi**. 
 
-Questo file dovrà essere incluso nella directory di output. A tale scopo, fare clic con il pulsante destro su `appsettings.json` e scegliere **Proprietà**. Modificare il valore di **Copia nella directory di output** in **Copy of newer** (Copia del più recente).
+Questo file dovrà essere incluso nella directory di output. A tale scopo, fare clic con il pulsante destro su `appsettings.json` e scegliere **Proprietà**. Modificare il valore di **copia nella directory di output** in **copia se più recente**.
 
 Copiare il codice JSON seguente nel nuovo file JSON.
 

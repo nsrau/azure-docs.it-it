@@ -1,10 +1,10 @@
 ---
-title: Limitare l'accesso di rete alle risorse PaaS - Azure PowerShell | Microsoft Docs
+title: Limitare l'accesso di rete alle risorse PaaS-Azure PowerShell
 description: In questo articolo viene descritto come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, tramite endpoint servizio di rete virtuale con Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b76256ef70b85df0c504427179518d175f08b645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727665"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185529"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando PowerShell
 
@@ -35,13 +35,13 @@ Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete 
 * Creare una risorsa di Azure e consentire l'accesso di rete alla risorsa da una sola subnet
 * Distribuire una macchina virtuale (VM) in ogni subnet
 * Verificare che venga consentito l'accesso a una risorsa da una subnet
-* Verificare che venga rifiutato l'accesso a una risorsa da una subnet e da Internet
+* Verificare che venga negato l'accesso a una risorsa da una subnet e da Internet
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installare il modulo di Azure PowerShell). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
@@ -70,7 +70,7 @@ $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Creare la subnet nella rete virtuale scrivendo la configurazione della subnet nella rete virtuale con [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+Creare la subnet nella rete virtuale scrivendo la configurazione della subnet nella rete virtuale con [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>Abilitare un endpoint di servizio
 
-È possibile abilitare gli endpoint di servizio solo per i servizi che supportano tali endpoint. Visualizzare i servizi abilitati endpoint servizio in una località di Azure con [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). L'esempio seguente restituisce un elenco di servizi abilitati per gli endpoint di servizio nell'area *eastus*. L'elenco dei servizi restituiti aumenterà nel corso del tempo poiché altri servizi di Azure verranno abilitati per gli endpoint di servizio.
+È possibile abilitare gli endpoint di servizio solo per i servizi che supportano tali endpoint. Visualizzare i servizi abilitati per gli endpoint di servizio disponibili in una località di Azure con [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). L'esempio seguente restituisce un elenco di servizi abilitati per gli endpoint servizio nell'area *eastus*. L'elenco dei servizi restituiti aumenterà nel corso del tempo poiché altri servizi di Azure verranno abilitati per gli endpoint di servizio.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -98,7 +98,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Limitare l'accesso di rete per una subnet
 
-Creare regole di sicurezza gruppo con sicurezza di rete [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). La regola seguente consente l'accesso in uscita agli indirizzi IP pubblici assegnati al servizio Archiviazione di Azure: 
+Creare regole di sicurezza del gruppo di sicurezza di rete con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). La regola seguente consente l'accesso in uscita agli indirizzi IP pubblici assegnati al servizio Archiviazione di Azure: 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -153,7 +153,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-Associare il gruppo di sicurezza di rete per la *privati* subnet con [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) e quindi scrivere la configurazione della subnet della rete virtuale. L'esempio seguente associa il gruppo di sicurezza di rete *myNsgPrivate* alla subnet *privata*:
+Associare il gruppo di sicurezza di rete alla subnet *private* con [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) e quindi scrivere la configurazione della subnet nella rete virtuale. L'esempio seguente associa il gruppo di sicurezza di rete *myNsgPrivate* alla subnet *privata*:
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -168,7 +168,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-to-a-resource"></a>Limitare l'accesso di rete a una risorsa
 
-I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo include, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
+I passaggi necessari per limitare l'accesso di rete alle risorse create tramite i servizi di Azure abilitati per gli endpoint di servizio variano a seconda dei servizi. Vedere la documentazione relativa ai singoli servizi per i passaggi specifici. La parte rimanente di questo articolo descrive, a titolo di esempio, i passaggi da eseguire per limitare l'accesso di rete per un account di archiviazione di Azure.
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -185,7 +185,7 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Dopo aver creato l'account di archiviazione, recuperare la chiave dell'account di archiviazione in una variabile con [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
+Dopo aver creato l'account di archiviazione, recuperare la chiave per l'account di archiviazione in una variabile con [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzStorageAccountKey `
@@ -197,19 +197,19 @@ La chiave viene usata per creare una condivisione file in un passaggio successiv
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Creare una condivisione file nell'account di archiviazione
 
-Creare un contesto dell'account di archiviazione e la chiave con [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). Il contesto incapsula il nome e la chiave dell'account di archiviazione:
+Creare un contesto per l'account di archiviazione e la chiave con [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). Il contesto incapsula il nome e la chiave dell'account di archiviazione:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Creare una condivisione di file con [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+Creare una condivisione file con [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Rifiutare l'accesso di rete a un account di archiviazione
 
-Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete dai client in qualsiasi rete. Per limitare l'accesso alle reti selezionate, modificare l'azione predefinita per *Deny* con [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Dopo che l'accesso di rete è stato rifiutato, l'account di archiviazione non sarà accessibile da nessuna rete.
+Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete dai client in qualsiasi rete. Per limitare l'accesso alle reti selezionate, modificare l'azione predefinita in *Nega* con [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Dopo che l'accesso di rete è stato rifiutato, l'account di archiviazione non sarà accessibile da nessuna rete.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -230,7 +230,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   -Name "Private"
 ```
 
-Consenti accesso alla rete all'account di archiviazione dal *privati* subnet con [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
+Consentire l'accesso di rete all'account di archiviazione dalla subnet *privata* con [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -241,11 +241,11 @@ Add-AzStorageAccountNetworkRule `
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-Per testare l'accesso di rete a un account di archiviazione, distribuire una VM in ogni subnet.
+Per testare l'accesso di rete per un account di archiviazione, distribuire una macchina virtuale in ogni subnet.
 
 ### <a name="create-the-first-virtual-machine"></a>Creare la prima macchina virtuale
 
-Creare una macchina virtuale nel *pubbliche* subnet con [New-AzVM](/powershell/module/az.compute/new-azvm). Quando si esegue il comando seguente, vengono chieste le credenziali. I valori immessi sono configurati come nome utente e password per la VM. L'opzione `-AsJob` crea la VM in background, pertanto è possibile continuare con il passaggio successivo.
+Creare una macchina virtuale nella subnet *public* con [New-AzVM](/powershell/module/az.compute/new-azvm). Quando si esegue il comando seguente, vengono chieste le credenziali. I valori immessi sono configurati come nome utente e password per la VM. L'opzione `-AsJob` crea la VM in background, pertanto è possibile continuare con il passaggio successivo.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -327,7 +327,7 @@ Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla s
 
 Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPrivate*.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga rifiutato l'accesso a un account di archiviazione
+## <a name="confirm-access-is-denied-to-storage-account"></a>Verificare che venga negato l'accesso a un account di archiviazione
 
 Ottenere l'indirizzo IP pubblico della VM *myVmPublic*:
 
@@ -352,7 +352,7 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-L'accesso alla condivisione viene rifiutato e si riceve un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* è distribuita nella subnet *Public*. La subnet *Public* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *Private* e non dalla subnet *Public*.
+L'accesso alla condivisione viene rifiutato e si riceve un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* è distribuita nella subnet *Public*. La subnet *pubblica* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *privata* e non dalla subnet *pubblica*.
 
 Chiudere la sessione Desktop remoto alla VM *myVmPublic*.
 
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-Accesso negato e viene visualizzato un *Get-AzStorageFile: Il server remoto ha restituito un errore: 403 - Accesso negato. Codice stato HTTP: 403 - HTTP Error Message: This request is not authorized to perform this operation* (Messaggio di errore HTTP: La richiesta non è autorizzata a eseguire questa operazione) perché il computer non si trova nella subnet *Private* della rete virtuale *MyVirtualNetwork*.
+L'accesso viene negato e viene visualizzato *Get-AzStorageFile: il server remoto ha restituito un errore: (403) non consentito. Codice di stato HTTP: 403-messaggio di errore HTTP: questa richiesta non è autorizzata a eseguire l'* errore dell'operazione, perché il computer non si trova nella subnet *privata* della rete virtuale *MyVirtualNetwork* .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

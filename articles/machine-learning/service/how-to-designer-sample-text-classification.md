@@ -1,7 +1,7 @@
 ---
-title: Revisione&#58; del libro classificazione di progettazione
+title: 'Finestra di progettazione: esempio di classificazione delle recensioni Book'
 titleSuffix: Azure Machine Learning
-description: Creare un modello di Machine Learning classificare le revisioni del libro in categorie diverse.
+description: Compilare un classificatore di regressione logistica multiclasse per stimare la categoria aziendale con il set di dati di Wikipedia SP 500 usando Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 43545c2d3bb3afe4e1c458f14c1ba30e41eea721
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647133"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195997"
 ---
-# <a name="sample-7---text-classification-predict-company-category"></a>Esempio 7-classificazione del testo: stimare la categoria aziendale 
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compilare un classificatore per stimare la categoria aziendale usando Azure Machine Learning Designer.
+
+**Esempio di finestra di progettazione (anteprima) 7**
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Questo esempio illustra come usare i moduli di analisi del testo per compilare una pipeline di classificazione del testo in Azure Machine Learning Designer (anteprima).
 
 L'obiettivo della classificazione del testo è quello di assegnare parte del testo a una o più classi o categorie predefinite. Il testo può essere un documento, un articolo di notizie, una query di ricerca, un messaggio di posta elettronica, un tweet, ticket di supporto, commenti dei clienti, revisione del prodotto utente e così via. Le applicazioni di classificazione del testo includono la categorizzazione di articoli di giornali e contenuti Wire di notizie in argomenti, l'organizzazione di pagine Web in categorie gerarchiche, il filtraggio della posta indesiderata, l'analisi dei sentimenti, la stima degli obiettivi utente dalle query di ricerca ticket di supporto e analisi dei commenti dei clienti. 
 
-Questa pipeline addestra un **classificatore di regressione logistica multiclasse** per stimare la categoria aziendale con il set di dati di wikipedia SP 500 derivato da wikipedia.  
+Questa pipeline addestra un **classificatore di regressione logistica multiclasse** per stimare la categoria aziendale con il **set di dati di Wikipedia SP 500 derivato da Wikipedia**.  
 
 I passaggi fondamentali di un modello di apprendimento automatico del training con dati di testo sono:
 

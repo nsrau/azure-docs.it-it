@@ -1,6 +1,7 @@
 ---
-title: Sviluppo con le API V3-Azure | Microsoft Docs
-description: Questo articolo illustra le regole applicabili alle entità e alle API durante lo sviluppo con servizi multimediali V3.
+title: Sviluppare con le API V3
+titleSuffix: Azure Media Services
+description: Informazioni sulle regole applicabili a entità e API durante lo sviluppo con servizi multimediali V3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,48 +13,48 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 4a3b699c90e1fefb834f8ddfe3a23fc2a97354ec
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049021"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186137"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>Sviluppo con le API di servizi multimediali V3
+# <a name="develop-with-media-services-v3-apis"></a>Sviluppare con le API di servizi multimediali V3
 
 Gli sviluppatori possono usare l'[API REST](https://aka.ms/ams-v3-rest-ref) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API [Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk) è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
 
-Questo articolo illustra le regole applicabili alle entità e alle API durante lo sviluppo con servizi multimediali V3.
+Questo articolo illustra le regole applicabili alle entità e alle API quando si sviluppa con servizi multimediali V3.
 
 ## <a name="accessing-the-azure-media-services-api"></a>Accesso all'API servizi multimediali di Azure
 
 Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. Servizi multimediali supporta l'autenticazione [basata su Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) . Sono disponibili due opzioni di autenticazione comuni:
  
-* **Autenticazione basata su entità servizio** : usata per autenticare un servizio (ad esempio, app Web, app per le funzioni, app per la logica, API e microservizi). Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le applicazioni Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a servizi multimediali con un'entità servizio.
-* **Autenticazione utente** : consente di autenticare una persona che usa l'app per interagire con le risorse di servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
+* **Autenticazione dell'entità servizio**: usata per autenticare un servizio, ad esempio app Web, app per le funzioni, app per la logica, API e microservizi. Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Per le app Web, ad esempio, deve essere sempre presente un livello intermedio che si connette a servizi multimediali con un'entità servizio.
+* **Autenticazione utente**: usata per autenticare una persona che usa l'app per interagire con le risorse di servizi multimediali. L'app interattiva deve prima richiedere all'utente le credenziali dell'utente. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live.
 
-L'API di servizi multimediali richiede che l'utente o l'applicazione che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali e usi un ruolo **collaboratore** o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List** . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
+L'API di servizi multimediali richiede che l'utente o l'app che effettua le richieste API REST abbia accesso alla risorsa account di servizi multimediali e usi un ruolo **collaboratore** o **proprietario** . È possibile accedere all'API con il ruolo **Reader** , ma saranno disponibili solo le operazioni **Get** o **List** . Per altre informazioni, vedere [controllo degli accessi in base al ruolo per gli account di servizi multimediali](rbac-overview.md).
 
 Anziché creare un'entità servizio, è consigliabile usare identità gestite per le risorse di Azure per accedere all'API di servizi multimediali tramite Azure Resource Manager. Per altre informazioni sulle identità gestite per le risorse di Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-### <a name="azure-ad-service-principal"></a>Entità servizio Azure AD 
+### <a name="azure-ad-service-principal"></a>Entità servizio Azure AD
 
-Se si sta creando un'applicazione Azure AD e un'entità servizio, l'applicazione deve trovarsi nel proprio tenant. Dopo aver creato l'applicazione, concedere al ruolo di **collaboratore** o **proprietario** dell'app l'accesso all'account di servizi multimediali. 
+Se si sta creando un'app Azure AD e un'entità servizio, l'app deve trovarsi nel proprio tenant. Dopo aver creato l'app, concedere al ruolo di **collaboratore** o **proprietario** dell'app l'accesso all'account di servizi multimediali.
 
-Se non si è certi che si disponga delle autorizzazioni per creare un'applicazione Azure AD, vedere [autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Se non si è certi che si disponga delle autorizzazioni per creare un'app Azure AD, vedere [autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Nella figura seguente i numeri rappresentano il flusso delle richieste in ordine cronologico:
 
-![App di livello intermedio](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Autenticazione di app di livello intermedio con AAD da un'API Web](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. Un'applicazione di livello intermedio richiede un token di accesso Azure AD con i parametri seguenti:  
 
    * Endpoint del tenant di Azure AD.
    * URI di risorsa per Servizi multimediali.
    * URI di risorsa per Servizi multimediali REST.
-   * Valori dell'applicazione Azure AD: l'ID client e il segreto client.
-   
-   Per ottenere tutti i valori necessari, vedere [accedere all'API di servizi multimediali di Azure con l'interfaccia della](access-api-cli-how-to.md) riga di comando di Azure
+   * Azure AD valori dell'app: l'ID client e il segreto client.
+
+   Per ottenere tutti i valori necessari, vedere [accedere all'API di servizi multimediali di Azure con l'interfaccia della](access-api-cli-how-to.md)riga di comando di Azure.
 
 2. Il token di accesso di Azure AD viene inviato al livello intermedio.
 4. Il livello intermedio invia una richiesta all'API REST di Servizi multimediali di Azure con il token di Azure AD.
@@ -71,11 +72,11 @@ Vedere gli esempi seguenti che illustrano come connettersi con Azure AD entità 
 
 ## <a name="naming-conventions"></a>Convenzioni di denominazione
 
-I nomi delle risorse di Servizi multimediali di Azure v3 (ad esempio, asset, processi e trasformazioni) sono soggetti ai vincoli di denominazione di Azure Resource Manager. In conformità con Azure Resource Manager, i nomi delle risorse sono sempre univoci. Di conseguenza, per i nomi delle risorse è possibile usare qualsiasi stringa di identificatore univoco (ad esempio, GUID). 
+I nomi delle risorse di Servizi multimediali di Azure v3 (ad esempio, asset, processi e trasformazioni) sono soggetti ai vincoli di denominazione di Azure Resource Manager. In conformità con Azure Resource Manager, i nomi delle risorse sono sempre univoci. Di conseguenza, per i nomi delle risorse è possibile usare qualsiasi stringa di identificatore univoco (ad esempio, GUID).
 
-I nomi delle risorse di Servizi multimediali non possono includere "<", ">", "%", "&", ":", "&#92;", "?", "/", "*", "+", ".", virgolette singole o caratteri di controllo. Sono consentiti tutti gli altri caratteri. La lunghezza massima di un nome di risorsa è di 260 caratteri. 
+I nomi delle risorse di servizi multimediali non possono includere:' <',' >', '%',' &','&#92;:','','?','/',' *',' +',' .', carattere virgoletta singola o caratteri di controllo. Sono consentiti tutti gli altri caratteri. La lunghezza massima di un nome di risorsa è di 260 caratteri.
 
-Per altre informazioni sulla denominazione di Azure Resource Manager, vedere [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Per ulteriori informazioni sulla denominazione dei Azure Resource Manager, vedere [requisiti](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) di denominazione e [convenzioni di denominazione](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomi di file/BLOB all'interno di un asset
 
@@ -106,7 +107,7 @@ Servizi multimediali prevede le seguenti operazioni a esecuzione prolungata:
 * [Arresta StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
 * [Ridimensionare StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
-Al termine dell'invio di un'operazione di lunga durata si riceve un valore "202 accepted" ed è necessario eseguire il polling del completamento dell'operazione utilizzando l'ID operazione restituito.
+Al termine dell'invio di un'operazione di lunga durata, viene visualizzato il valore "202 accepted" ed è necessario eseguire il polling del completamento dell'operazione utilizzando l'ID operazione restituito.
 
 L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) spiega in maniera approfondita come tenere traccia dello stato delle operazioni asincrone di Azure tramite i valori restituiti nella risposta.
 
@@ -115,7 +116,7 @@ L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.co
 ## <a name="sdks"></a>SDK
 
 > [!NOTE]
-> Gli SDK di Servizi multimediali di Azure v3 non sono garantiti come thread-safe. Quando si sviluppa un'applicazione multithreading, è necessario aggiungere la propria logica di sincronizzazione thread per proteggere il client oppure usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
+> Gli SDK di servizi multimediali di Azure V3 non sono necessariamente thread-safe. Quando si sviluppa un'app multithread, è necessario aggiungere la propria logica di sincronizzazione dei thread per proteggere il client o usare un nuovo oggetto AzureMediaServicesClient per ogni thread. È anche necessario prestare attenzione ai problemi di multithreading introdotti da oggetti facoltativi forniti dal codice al client (ad esempio, un'istanza di HttpClient in .NET).
 
 |SDK|riferimento|
 |---|---|
@@ -135,11 +136,11 @@ L'articolo [Tenere traccia delle operazioni asincrone](https://docs.microsoft.co
 
 [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) è uno strumento disponibile per i clienti di Windows che vogliono informazioni su Servizi multimediali. AMSE è un'applicazione Winforms/C# che esegue operazioni di caricamento, download, codifica, streaming di VOD e contenuti live con Servizi multimediali. Lo strumento AMSE è stato pensato per i clienti che vogliono testare Servizi multimediali senza scrivere codice. Il codice AMSE viene fornito come risorsa per i clienti che vogliono sviluppare con Servizi multimediali.
 
-AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare opencode@microsoft.com per eventuali altre domande o commenti.
+AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per ulteriori informazioni, vedere le domande [frequenti sul codice di comportamento](https://opensource.microsoft.com/codeofconduct/faq/) oppure contattare opencode@microsoft.com con altre domande o commenti.
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 
-Vedere [filtro, ordinamento, paging delle entità di servizi multimediali di Azure](entities-overview.md)
+Vedere [filtro, ordinamento e paging delle entità di servizi multimediali di Azure](entities-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

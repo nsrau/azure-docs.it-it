@@ -4,15 +4,18 @@ description: Identificare e risolvere i problemi di latenza usando i log analiti
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/21/2019
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: f8ec8e3f27e74f442f314d4c812908888598244c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+services: storage
+tags: ''
+ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180628"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196514"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Risolvere i problemi di latenza usando i log di Analisi archiviazione
 
@@ -94,12 +97,12 @@ I passaggi seguenti illustrano come identificare e risolvere i problemi di laten
 
    La tabella seguente fornisce informazioni sui risultati di OperationType e RequestStatus a latenza elevata:
 
-   |   |RequestStatus =<br>Success|RequestStatus =<br>FIRMA NetworkError|Recommendation|
+   |   |RequestStatus =<br>Operazione completata|RequestStatus =<br>FIRMA NetworkError|Raccomandazione|
    |---|---|---|---|
-   |GetBlob|SÌ|No|[**Operazione GetBlob:** RequestStatus = operazione riuscita](#getblob-operation-requeststatus--success)|
-   |GetBlob|No|SÌ|[**Operazione GetBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|SÌ|No|[**Operazione Put:** RequestStatus = operazione riuscita](#put-operation-requeststatus--success)|
-   |PutBlob|No|SÌ|[**Operazione Put:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Sì|No|[**Operazione GetBlob:** RequestStatus = operazione riuscita](#getblob-operation-requeststatus--success)|
+   |GetBlob|No|Sì|[**Operazione GetBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Sì|No|[**Operazione Put:** RequestStatus = operazione riuscita](#put-operation-requeststatus--success)|
+   |PutBlob|No|Sì|[**Operazione Put:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Risultati stato
 

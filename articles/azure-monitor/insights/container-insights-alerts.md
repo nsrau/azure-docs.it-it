@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555440"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195010"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come configurare gli avvisi per i problemi di prestazioni in monitoraggio di Azure per i contenitori
 Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro del contenitore distribuiti nelle istanze di contenitore di Azure o nei cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes (AKS).
@@ -102,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Nelle query seguenti vengono usati i valori segnaposto \<your-cluster-Name > e \<your-controller-name > per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si configurano gli avvisi.
+>Nelle query seguenti vengono usati i valori segnaposto \<il nome-cluster-> e \<il nome-controller-name > per rappresentare il cluster e il controller. Sostituirli con valori specifici dell'ambiente quando si configurano gli avvisi.
 
 La query seguente calcola l'utilizzo medio della CPU di tutti i contenitori in un controller come media di utilizzo della CPU di ogni istanza del contenitore in un controller ogni minuto. La misurazione è una percentuale del limite configurato per un contenitore.
 
@@ -289,7 +289,7 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
 3. Nella scheda **cluster monitorati** selezionare un cluster dall'elenco.
 4. Nel riquadro sul lato sinistro sotto **monitoraggio**selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query Log Analytics di Azure.
 5. Nella pagina **logs** selezionare **+ nuova regola di avviso**.
-6. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logic non definita >** condizione predefinita del registro personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
+6. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logica non definita >** condizione predefinita del log personalizzato. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
 7. Incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** .
 8. Configurare l'avviso come segue:
 
@@ -299,7 +299,7 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
     1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on**selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
     1. Nella sezione **valutato in base** a impostare il valore del **periodo** su **60 minuti**. La regola viene eseguita ogni 5 minuti e restituisce i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un'ampia finestra account per la potenziale latenza dei dati. Garantisce inoltre che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai attivato.
 
-9. Selezionare **fine** per completare la regola di avviso.
+9. Selezionare **per completare** la regola di avviso.
 10. Immettere un nome nel campo **Nome regola di avviso** . Specificare una **Descrizione** che fornisca dettagli sull'avviso. E selezionare un livello di gravità appropriato dalle opzioni fornite.
 11. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola al momento della creazione**.
 12. Selezionare un **gruppo di azioni** esistente o creare un nuovo gruppo. Questo passaggio garantisce che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso. Configurare in base alle modalità di gestione degli eventi imprevisti da parte del team operativo IT o DevOps.
@@ -308,4 +308,4 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti per valutare o personalizzare gli avvisi, la visualizzazione o l'analisi dei cluster.
-- Per altre informazioni su monitoraggio di Azure e su come monitorare altri aspetti del cluster AKS, vedere [visualizzare l'integrità del servizio Azure Kubernetes](container-insights-analyze.md).
+- Per altre informazioni su monitoraggio di Azure e su come monitorare altri aspetti del cluster Kubernetes, vedere [visualizzare le prestazioni del cluster Kubernetes](container-insights-analyze.md) e [visualizzare l'integrità del cluster Kubernetes](container-insights-health.md).

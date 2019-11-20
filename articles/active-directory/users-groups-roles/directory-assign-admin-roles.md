@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a53f2a0e5927a75c4d22ada5837da26bd8deeda
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc9565f44fdb868bc45d2f99de1d4036e1d5d123
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028276"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181152"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -51,9 +51,14 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 gli utenti in questo ruolo possono creare e gestire tutti gli aspetti delle applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Si noti che gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari quando si creano nuove registrazioni di applicazioni o applicazioni aziendali.
 
-> [!IMPORTANT]
-> questo ruolo concede la possibilità di gestire le credenziali delle applicazioni. Gli utenti assegnati a questo ruolo possono aggiungere credenziali a un'applicazione e usarle per rappresentare l'identità dell'applicazione. Se all'identità dell'applicazione è concesso l'accesso ad Azure Active Directory, con la conseguente possibilità, ad esempio, di creare o aggiornare utenti o altri oggetti, un utente assegnato a questo ruolo potrà eseguire tali azioni mentre rappresenta l'applicazione. La possibilità di rappresentare l'identità dell'applicazione potrebbe costituire un'elevazione dei privilegi rispetto alle azioni che l'utente può eseguire tramite le assegnazioni dei ruoli in Azure Active Directory. È importante comprendere che assegnare a un utente il ruolo di Amministratore di applicazioni gli concede la possibilità di rappresentare l'identità di un'applicazione.
+Gli amministratori di applicazioni possono gestire le credenziali dell'applicazione che consentono di rappresentare l'applicazione. Pertanto, gli utenti assegnati a questo ruolo possono gestire le credenziali dell'applicazione solo per le applicazioni che non sono assegnate ad alcun ruolo di Azure AD o quelle assegnate solo ai ruoli di amministratore seguenti:
+* Amministratore di applicazioni
+* Sviluppatore di applicazioni
+* Amministratore applicazione cloud
+* Ruoli con autorizzazioni di lettura nella directory
 
+Se un'applicazione viene assegnata a qualsiasi altro ruolo non menzionato in precedenza, l'amministratore dell'applicazione non potrà gestire le credenziali dell'applicazione. 
+ 
 Questo ruolo consente inoltre di concedere il _consenso_ alle autorizzazioni delegate e alle autorizzazioni dell'applicazione, fatta eccezione per le autorizzazioni per il Microsoft Graph e Azure AD Graph.
 
 > [!IMPORTANT]
@@ -122,8 +127,12 @@ può effettuare acquisti, gestire le sottoscrizioni e i ticket di supporto e mon
 
 gli utenti in questo ruolo hanno le stesse autorizzazioni del ruolo di amministratore di applicazioni, esclusa la possibilità di gestire il proxy dell'applicazione. Questo ruolo concede la possibilità di creare e gestire tutti gli aspetti delle applicazioni aziendali e delle registrazioni dell'applicazione. Questo ruolo concede inoltre la possibilità consentire le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph e Azure AD Graph. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari per la creazione di nuove registrazioni di applicazioni o applicazioni aziendali.
 
-> [!IMPORTANT]
-> questo ruolo concede la possibilità di gestire le credenziali delle applicazioni. Gli utenti assegnati a questo ruolo possono aggiungere credenziali a un'applicazione e usarle per rappresentare l'identità dell'applicazione. Se all'identità dell'applicazione è concesso l'accesso ad Azure Active Directory, con la conseguente possibilità, ad esempio, di creare o aggiornare utenti o altri oggetti, un utente assegnato a questo ruolo potrà eseguire tali azioni mentre rappresenta l'applicazione. La possibilità di rappresentare l'identità dell'applicazione potrebbe costituire un'elevazione dei privilegi rispetto alle azioni che l'utente può eseguire tramite le assegnazioni dei ruoli in Azure Active Directory. È importante comprendere che assegnare a un utente il ruolo di Amministratore applicazione cloud gli concede la possibilità di rappresentare l'identità di un'applicazione.
+Gli amministratori di applicazioni cloud possono gestire le credenziali dell'applicazione che consentono di rappresentare l'applicazione. Pertanto, gli utenti assegnati a questo ruolo possono gestire le credenziali dell'applicazione solo per le applicazioni che non sono assegnate ad alcun ruolo di Azure AD o quelle assegnate solo ai ruoli di amministratore seguenti:
+* Sviluppatore di applicazioni
+* Amministratore applicazione cloud
+* Ruoli con autorizzazioni di lettura nella directory
+
+Se un'applicazione viene assegnata a qualsiasi altro ruolo non menzionato in precedenza, l'amministratore dell'applicazione cloud non può gestire le credenziali dell'applicazione.
 
 ### <a name="cloud-device-administratorcloud-device-administrator-permissions"></a>[Amministratore del dispositivo cloud](#cloud-device-administrator-permissions)
 

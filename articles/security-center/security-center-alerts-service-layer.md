@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: b82eab9d20966ddd0678c9213bf25a14b5313f58
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7db9f50b4fb1a9309737f05db13a914f414372ed
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686447"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186510"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Rilevamento delle minacce per il livello di servizio di Azure nel centro sicurezza di Azure
 
@@ -23,6 +23,7 @@ Questo argomento presenta gli avvisi del Centro sicurezza di Azure disponibili q
 
 * [Livello rete di Azure](#network-layer)
 * [Livello di gestione di Azure (Azure Resource Manager) (anteprima)](#management-layer)
+* [Insieme di credenziali delle chiavi di Azure](#azure-keyvault)
 
 >[!NOTE]
 >Le analisi seguenti sono applicabili a tutti i tipi di risorse. Usano i dati di telemetria che il Centro sicurezza offre toccando i feed interni di Azure.
@@ -33,17 +34,17 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
-|**Attività di rete RDP in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora utilizzata per l'attacco di forza bruta a un endpoint RDP esterno. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
-|**Attività di rete RDP in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in uscita anomala, originata da una risorsa nella distribuzione in più destinazioni. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora utilizzata per l'attacco di forza bruta agli endpoint RDP esterni. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
-|**Attività di rete SSH in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Secure Shell (SSH) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora usata per l'attacco di forza bruta a un endpoint SSH esterno. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
-|**Attività di rete SSH in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in uscita anomala, originata da una risorsa nella distribuzione in più destinazioni. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora usata per attacchi di forza bruta per gli endpoint SSH esterni. Si noti che questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
+|**Attività di rete RDP in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Remote Desktop Protocol (RDP) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora utilizzata per l'attacco di forza bruta a un endpoint RDP esterno. Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
+|**Attività di rete RDP in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in uscita anomala, originata da una risorsa nella distribuzione in più destinazioni. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora utilizzata per l'attacco di forza bruta agli endpoint RDP esterni. Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
+|**Attività di rete SSH in uscita sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione in uscita Secure Shell (SSH) anomala, originata da una risorsa nella distribuzione. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora usata per l'attacco di forza bruta a un endpoint SSH esterno. Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
+|**Attività di rete SSH in uscita sospetta verso più destinazioni**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in uscita anomala, originata da una risorsa nella distribuzione in più destinazioni. Questa attività viene considerata anomala per questo ambiente. Potrebbe indicare che la risorsa è stata compromessa e viene ora usata per attacchi di forza bruta per gli endpoint SSH esterni. Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
 |**Attività di rete SSH in ingresso sospetta da più origini**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in ingresso anomala da più origini a una risorsa nella distribuzione. Diversi indirizzi IP univoci che si connettono alla risorsa sono considerati anomali per questo ambiente. Questa attività potrebbe indicare un tentativo di attacco di forza bruta all'interfaccia SSH da più host (botnet).|
 |**Attività di rete SSH in ingresso sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione SSH in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso alla risorsa viene considerato anomalo per questo ambiente. Questa attività potrebbe indicare un tentativo di attacco di forza bruta all'interfaccia SSH.
 |**Attività di rete RDP in ingresso sospetta da più origini**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in ingresso anomala da più origini a una risorsa nella distribuzione. Diversi indirizzi IP univoci che si connettono alla risorsa sono considerati anomali per questo ambiente. Questa attività potrebbe indicare un tentativo di attacco di forza bruta all'interfaccia RDP da più host (botnet).|
 |**Attività di rete RDP in ingresso sospetta**|L'analisi del traffico di rete campionata ha rilevato una comunicazione RDP in ingresso anomala a una risorsa nella distribuzione. Un numero relativamente elevato di connessioni in ingresso alla risorsa viene considerato anomalo per questo ambiente. Questa attività potrebbe indicare un tentativo di attacco di forza bruta all'interfaccia SSH.|
-|**È stata rilevata la comunicazione di rete con un indirizzo dannoso**|L'analisi del traffico di rete campionata ha rilevato la comunicazione originata da una risorsa nella distribuzione con un possibile server di comando e controllo (C & C). Si noti che in seguito a questo tipo di attività l'IP può venire contrassegnato come dannoso dalle entità esterne.|
+|**È stata rilevata la comunicazione di rete con un indirizzo dannoso**|L'analisi del traffico di rete campionata ha rilevato la comunicazione originata da una risorsa nella distribuzione con un possibile server di comando e controllo (C & C). Questo tipo di attività potrebbe causare la segnalazione dell'indirizzo IP come dannoso da entità esterne.|
 
 Per comprendere in che modo il Centro sicurezza può usare i segnali correlati alla rete per applicare la protezione dalle minacce, vedere [rilevamento di DNS euristici nel centro sicurezza di Azure](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
@@ -59,7 +60,7 @@ Il Centro sicurezza offre un ulteriore livello di protezione usando gli eventi A
 
 > [!div class="mx-tableFixed"]
 
-|Avviso|Descrizione|
+|Avviso|DESCRIZIONE|
 |---|---|
 |**Esecuzione del Toolkit di microesplosioni**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Il [microimpulso](https://github.com/NetSPI/MicroBurst) dello strumento può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni, identificare le configurazioni non sicure e perdere informazioni riservate.|
 |**Esecuzione di azzurrite Toolkit**|Nell'ambiente è stata rilevata un'esecuzione nota del Toolkit di esplorazione dell'ambiente cloud. Lo strumento [azzurrite](https://github.com/mwrlabs/Azurite) può essere usato da un utente malintenzionato (o tester di penetrazione) per eseguire il mapping delle risorse delle sottoscrizioni e identificare le configurazioni non sicure.|
@@ -79,3 +80,28 @@ Il Centro sicurezza offre un ulteriore livello di protezione usando gli eventi A
 
 >[!NOTE]
 >Il Centro sicurezza archivia i dati dei clienti correlati alla sicurezza nella stessa area geografica della risorsa. Se Microsoft non ha ancora distribuito il Centro sicurezza nell'area geografica della risorsa, archivia i dati nel Stati Uniti. Quando Cloud App Security è abilitata, queste informazioni vengono archiviate in base alle regole di posizione geografica di Cloud App Security. Per altre informazioni, vedere [archiviazione dei dati per servizi non a livello di](https://azuredatacentermap.azurewebsites.net/)area.
+
+## Azure Key Vault<a name="azure-keyvault"></a>
+
+Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i segreti, come certificati, stringhe di connessione e password. 
+
+Il Centro sicurezza di Azure include la protezione avanzata dalle minacce di Azure nativa per Azure Key Vault, offrendo un ulteriore livello di intelligence per la sicurezza. Il Centro sicurezza rileva tentativi insoliti e potenzialmente dannosi di accesso o exploit Key Vault account. Questo livello di protezione consente di risolvere le minacce senza essere un esperto di sicurezza e senza la necessità di gestire sistemi di monitoraggio della sicurezza di terze parti.  
+
+Quando si verificano attività anomale, il Centro sicurezza Mostra gli avvisi e, facoltativamente, li invia tramite posta elettronica agli amministratori della sottoscrizione. Questi avvisi includono i dettagli dell'attività sospetta e consigli su come analizzare e correggere le minacce. 
+
+> [!NOTE]
+> Questo servizio non è attualmente disponibile in Azure per enti pubblici e aree cloud sovrane.
+
+> [!div class="mx-tableFixed"]
+
+|Avviso|DESCRIZIONE|
+|---|---|
+|**Accesso da un nodo di uscita TOR a un Key Vault**|Il Key Vault è stato accessibile da un utente che usa il sistema TOR IP anonimato dei per nasconderne la posizione. Gli attori malintenzionati provano spesso a nascondere la loro posizione quando tentano di ottenere accesso non autorizzato alle risorse connesse a Internet.|
+|**Modifica dei criteri sospetti e query segrete in un Key Vault**|È stata apportata una modifica ai criteri di Key Vault, quindi le operazioni per elencare e/o ottenere segreti si sono verificati. Inoltre, questo modello di operazione non viene in genere eseguito dall'utente in questo insieme di credenziali. Si tratta di un'indicazione estremamente indicativa del fatto che il Key Vault è compromesso e che i segreti in sono stati rubati da un attore malintenzionato.|
+|**Elenco e query segrete sospette in un Key Vault**|Un'operazione di elenco dei segreti è stata seguita da molte operazioni get segrete. Questo modello di operazione, inoltre, non viene in genere eseguito dall'utente in questo insieme di credenziali. Ciò indica che è possibile che un utente abbia eseguito il dump dei segreti archiviati nel Key Vault per scopi potenzialmente dannosi.|
+|**Utente insolito-la coppia di applicazioni ha eseguito l'accesso a un Key Vault**|È stato eseguito l'accesso al Key Vault da parte di un'applicazione utente che in genere non vi accede. Potrebbe trattarsi di un tentativo di accesso legittimo, ad esempio in seguito a un'infrastruttura o a un aggiornamento del codice. Si tratta anche di una possibile indicazione che l'infrastruttura è stata compromessa e che un attore malintenzionato sta tentando di accedere al Key Vault.|
+|**Applicazione insolita a cui si accede una Key Vault**|L'accesso a Key Vault è stato eseguito da un'applicazione che normalmente non vi accede. Potrebbe trattarsi di un tentativo di accesso legittimo, ad esempio in seguito a un'infrastruttura o a un aggiornamento del codice. Si tratta anche di una possibile indicazione che l'infrastruttura è stata compromessa e che un attore malintenzionato sta tentando di accedere al Key Vault.|
+|**Utente insolito a cui è stato effettuato l'accesso a Key Vault**|È stato eseguito l'accesso al Key Vault da parte di un utente che normalmente non vi accede. Potrebbe trattarsi di un tentativo di accesso legittimo (ad esempio, un nuovo utente che necessita di accesso è stato aggiunto all'organizzazione). Si tratta anche di una possibile indicazione che l'infrastruttura è stata compromessa e che un attore malintenzionato sta tentando di accedere al Key Vault.|
+|**Modello di operazione insolito in un Key Vault**|È stato eseguito un set insolito di operazioni di Key Vault rispetto ai dati cronologici. Key Vault attività è in genere la stessa nel tempo. Potrebbe trattarsi di una modifica legittima dell'attività. In alternativa, è possibile che l'infrastruttura venga compromessa e che siano necessarie ulteriori indagini.|
+|**Volume elevato di operazioni in una Key Vault**|È stato eseguito un volume maggiore di operazioni di Key Vault rispetto ai dati cronologici. Key Vault attività è in genere la stessa nel tempo. Potrebbe trattarsi di una modifica legittima dell'attività. In alternativa, è possibile che l'infrastruttura venga compromessa e che siano necessarie ulteriori indagini.|
+|**Volume elevato di insiemi di credenziali delle chiavi accessibile dall'utente**|Il numero di insiemi di credenziali a cui un utente o un'applicazione accede è stato modificato rispetto ai dati cronologici. Key Vault attività è in genere la stessa nel tempo. Potrebbe trattarsi di una modifica legittima dell'attività. In alternativa, è possibile che l'infrastruttura venga compromessa e che siano necessarie ulteriori indagini.|

@@ -6,16 +6,16 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: azure-policy
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: b6ce20196b6ffdcd6699611998260dc981cc4f44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818334"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185034"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per coprire più servizi.
@@ -47,7 +47,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Gateway applicazione](#application-gateway-limits)
 * [Automazione](#automation-limits)
 * [Cache Redis di Azure](#azure-cache-for-redis-limits)
-* [servizi cloud di Azure](#azure-cloud-services-limits)
+* [Servizi cloud di Azure](#azure-cloud-services-limits)
 * [ricerca cognitiva di Azure](#azure-cognitive-search-limits)
 * [Servizi cognitivi di Azure](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
@@ -78,7 +78,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Gestione identità](#identity-manager-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
-* [Insieme di credenziali delle chiavi](#key-vault-limits)
+* [Insieme di credenziali di chiave](#key-vault-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Servizi mobili](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
@@ -96,7 +96,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
   * [Gestione traffico](#traffic-manager-limits)
   * [Rete virtuale](#networking-limits)
   * [Rete WAN virtuale](#virtual-wan-limits)
-* [Hub di notifica](#notification-hubs-limits)
+* [Hub di notifica di Azure](#notification-hubs-limits)
 * [Gruppo di risorse](#resource-group-limits)
 * [Controllo degli accessi in base al ruolo](#role-based-access-control-limits)
 * [Utilità di pianificazione](#scheduler-limits)
@@ -298,7 +298,7 @@ Per altre informazioni sui limiti a un livello più granulare, ad esempio le dim
 
 ### <a name="azure-monitor-limits"></a>Limiti di monitoraggio di Azure
 
-#### <a name="alerts"></a>Avvisi
+#### <a name="alerts"></a>Alerts
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
 

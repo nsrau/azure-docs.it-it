@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111848"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186605"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -29,6 +29,7 @@ Solo gli account di archiviazione per utilizzo generico V2 supportano GZRS e RA-
 
 GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 
+- Asia sudorientale
 - Europa settentrionale
 - Europa occidentale
 - Regno Unito meridionale

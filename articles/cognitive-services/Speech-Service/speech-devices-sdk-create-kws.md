@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490926"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184837"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Creare una parola chiave personalizzata usando il servizio di riconoscimento vocale
 
@@ -46,7 +46,7 @@ Quando si sceglie una parola chiave, tenere presenti le linee guida seguenti:
 
 ## <a name="create-your-keyword"></a>Crea la parola chiave
 
-Prima di poter usare una parola chiave personalizzata con il dispositivo, è necessario creare una parola chiave con il servizio di generazione di parole chiave personalizzato di Microsoft. Dopo aver fornito una parola chiave, il servizio produce un file che viene distribuito al kit di sviluppo per abilitare la parola chiave nel dispositivo.
+Prima di poter usare una parola chiave personalizzata, è necessario creare una parola chiave usando la pagina delle [parole chiave personalizzata](https://aka.ms/sdsdk-wakewordportal) in [speech studio](https://aka.ms/sdsdk-speechportal). Dopo aver fornito una parola chiave, viene generato un file che viene distribuito nel dispositivo.
 
 1. Passare a [speech studio](https://aka.ms/sdsdk-speechportal) e **accedere** oppure, se non si dispone ancora di una sottoscrizione vocale, scegliere [**Crea una sottoscrizione**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
@@ -62,7 +62,7 @@ Prima di poter usare una parola chiave personalizzata con il dispositivo, è nec
 
     ![Scaricare la parola chiave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. Salvare il file ZIP nel computer. Questo file sarà necessario per distribuire la parola chiave personalizzata al kit di sviluppo.
+1. Salvare il file ZIP nel computer. Questo file sarà necessario per distribuire la parola chiave personalizzata nel dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,17 +1,17 @@
 ---
-title: Configurare un'appliance per la valutazione/migrazione del server Azure Migrate per le macchine virtuali Hyper-V | Microsoft Docs
-description: Viene descritto come configurare un'appliance per l'individuazione, la valutazione e la migrazione senza agenti di macchine virtuali Hyper-V con Azure Migrate valutazione/migrazione del server.
+title: Configurare un'appliance Azure Migrate per Hyper-V
+description: Informazioni su come configurare un appliance Azure Migrate per la valutazione e la migrazione di macchine virtuali Hyper-V.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 00473519ad324d34d1fd595b2fb08408ad991f4c
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 1676ad3dde5a97d2afdb64595d51f5502f9dcc3d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158619"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185925"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
 

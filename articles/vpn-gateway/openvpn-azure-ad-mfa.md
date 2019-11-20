@@ -7,18 +7,19 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: alzam
-ms.openlocfilehash: 3f407ecfcbfdff72b79bfe6b5bc3e6b7606b1cf0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1b506f8439deabd110daaefab36442140e20d0d4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174629"
+ms.locfileid: "74185366"
 ---
 # <a name="enable-multi-factor-authentication-mfa-for-vpn-users"></a>Abilitare Multi-Factor Authentication (multi-factor authentication) per gli utenti VPN
 
 È possibile abilitare l'autenticazione a più fattori per gli utenti nel tenant di Azure AD in modo che agli utenti venga richiesta un'autenticazione a due fattori prima che venga concesso l'accesso.
 
-> [! Prerequisito] è stato configurato un tenant di Azure AD come descritto nel documento "configurare un tenant".
+> [!NOTE]
+> Prerequisito: è stato configurato un tenant di Azure AD come descritto nel documento "configurare un tenant".
 >
 
 ### <a name="tenant"></a>1. accedere al portale di Azure e passare a **Azure Active Directory** , **tutti gli utenti** e fare clic su **multi-factor authentication**

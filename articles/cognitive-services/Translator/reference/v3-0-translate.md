@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 11/12/2019
 ms.author: swmachan
-ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835776"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184797"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -33,21 +33,30 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 I parametri della richiesta inviati a una stringa di query sono:
 
+### <a name="required-parameters"></a>Parametri obbligatori
+
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>Da</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro <code>from</code> anziché il rilevamento automatico.</td>
-  </tr>
-  <tr>
-    <td>to</td>
+    <td>To</td>
     <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
+</table>
+
+### <a name="optional-parameters"></a>Parametri facoltativi
+
+<table width="100%">
+  <th width="20%">Query parameter (Parametro di query)</th>
+  <th>DESCRIZIONE</th>
+  <tr>
+    <td>Da</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro <code>from</code> anziché il rilevamento automatico.</td>
+  </tr>  
   <tr>
     <td>textType</td>
     <td><em>Parametro facoltativo</em>.<br/>Definisce se il testo tradotto è testo normale o testo HTML. Qualsiasi codice HTML deve essere un elemento completo ben formato. I valori possibili sono: <code>plain</code> (impostazione predefinita) o <code>html</code>.</td>
@@ -95,7 +104,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -173,7 +182,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -190,7 +199,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>Descrizione</th>
+  <th>DESCRIZIONE</th>
   <tr>
     <td>200</td>
     <td>Completamento della procedura.</td>
@@ -227,7 +236,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
 ### <a name="translate-a-single-input"></a>Tradurre un singolo input
 

@@ -1,81 +1,81 @@
 ---
-title: Eseguire l'onboarding un dominio radice o vertice a una porta principale esistente usando il portale di Azure
-description: Informazioni su come eseguire l'onboarding a un dominio radice o vertice a una porta principale esistente usando il portale di Azure.
+title: Eseguire l'onboarding di un dominio radice o Apex a una porta anteriore esistente-portale di Azure
+description: Informazioni su come caricare un dominio radice o Apex in un sportello anteriore esistente usando il portale di Azure.
 services: front-door
 author: sharad4u
 ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605785"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184622"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Eseguire l'onboarding un dominio radice o vertice nell'ingresso principale
-Porta d'ingresso Azure utilizza i record CNAME per convalidare la proprietà del dominio per l'onboarding dei domini personalizzati. Inoltre, porta d'ingresso non espone l'indirizzo IP front-end associato al profilo di porta principale e pertanto non è possibile mappare il dominio di apex a un indirizzo IP, se si desidera eseguire l'onboarding è di ingresso principale di Azure.
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Onboarding di un dominio radice o apice nella porta anteriore
+Il front-end di Azure usa record CNAME per convalidare la proprietà del dominio per l'onboarding di domini personalizzati. Inoltre, la porta anteriore non espone l'indirizzo IP front-end associato al profilo della porta anteriore e pertanto non è possibile eseguire il mapping del dominio Apex a un indirizzo IP, se lo scopo è quello di eseguire l'onboarding in Azure front door.
 
-Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Ad esempio, se il dominio è `contoso.com`; è possibile creare record CNAME per il `somelabel.contoso.com`; ma non è possibile creare record CNAME per `contoso.com` stesso. Questa restrizione presenta un problema per i proprietari delle applicazioni che dispongono di applicazioni con carico bilanciato dietro l'ingresso principale di Azure. Poiché usa un profilo di porta d'ingresso richiede la creazione di un record CNAME, non è possibile in modo da indicare il profilo di porta d'ingresso dal dominio radice della zona.
+Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Ad esempio, se il dominio è `contoso.com`; è possibile creare record CNAME per `somelabel.contoso.com`; Tuttavia, non è possibile creare CNAME per `contoso.com` stesso. Questa restrizione presenta un problema per i proprietari di applicazioni che hanno applicazioni con carico bilanciato dietro Azure front door. Poiché l'uso di un profilo di porta anteriore richiede la creazione di un record CNAME, non è possibile puntare al profilo della porta anteriore dal vertice della zona.
 
-Questo problema viene risolto utilizzando alias record in DNS di Azure. A differenza dei record CNAME, record di alias vengono creati al vertice della zona e i proprietari delle applicazioni possono utilizzarlo in modo da puntare i record vertice della zona a un profilo di porta d'ingresso che ha endpoint pubblici. I proprietari delle applicazioni scegliere lo stesso profilo di porta d'ingresso che viene usato per qualsiasi altro dominio all'interno della zona DNS. Ad esempio, `contoso.com` e `www.contoso.com` possono puntare allo stesso profilo di porta principale. 
+Questo problema viene risolto usando i record alias nel servizio DNS di Azure. A differenza dei record CNAME, i record di alias vengono creati nel vertice della zona e i proprietari dell'applicazione possono usarli per puntare il record Apex della zona a un profilo di porta anteriore con endpoint pubblici. I proprietari dell'applicazione puntano allo stesso profilo di porta anteriore usato per qualsiasi altro dominio nella zona DNS. Ad esempio, `contoso.com` e `www.contoso.com` possono puntare allo stesso profilo di porta anteriore. 
 
-Mapping del dominio radice o vertice al profilo di porta d'ingresso fondamentalmente richiede la bidimensionalità CNAME DNS o chasing, ovvero un meccanismo in cui nel DNS provider in modo ricorsivo risolve la voce CNAME fino al raggiungimento di un indirizzo IP. Questa funzionalità è supportata da DNS di Azure per gli endpoint di ingresso principale. 
+Per eseguire il mapping del dominio Apex o radice al profilo front-end è necessario fondamentalmente la flat CNAME o la ricerca DNS, che è un meccanismo in cui il provider DNS risolve in modo ricorsivo la voce CNAME finché non raggiunge un indirizzo IP. Questa funzionalità è supportata da DNS di Azure per gli endpoint della porta anteriore. 
 
 > [!NOTE]
-> Sono disponibili altri provider DNS e che supportano la bidimensionalità CNAME o DNS di ricerca, tuttavia, porta principale di Azure consiglia di usare DNS di Azure per i clienti per ospitare i propri domini.
+> Sono disponibili anche altri provider DNS che supportano la conversione in formato CNAME o la ricerca DNS. Tuttavia, il front-end di Azure consiglia di usare DNS di Azure per i clienti che ospitano i propri domini.
 
-È possibile usare il portale di Azure per eseguire l'onboarding di un dominio di apex sull'ingresso principale e abilitare HTTPS su di essa mediante l'associazione con un certificato per la terminazione SSL. Domini vertice sono anche denominati radice o i domini naked.
+È possibile usare il portale di Azure per caricare un dominio Apex sulla porta anteriore e abilitare HTTPS su di esso associando tale dominio a un certificato per la terminazione SSL. I domini Apex sono denominati anche domini radice o nudi.
 
 In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
-> * Creare un record alias che punta al profilo di porta principale
-> * Aggiungere il dominio radice per l'ingresso principale
+> * Creare un record alias che punti al profilo di porta anteriore
+> * Aggiungere il dominio radice alla porta anteriore
 > * Configurare HTTPS nel dominio radice
 
 > [!NOTE]
-> Questa esercitazione è necessario aver già creato un profilo di porta principale. Vedere altre esercitazioni, ad esempio [Guida introduttiva: Creare una porta Front](./quickstart-create-front-door.md) oppure [creare una porta d'ingresso tramite HTTP per il reindirizzamento HTTPS](./front-door-how-to-redirect-https.md) per iniziare.
+> Per questa esercitazione è necessario che sia già stato creato un profilo di sportello anteriore. Per iniziare, fare riferimento ad altre esercitazioni, ad esempio [avvio rapido: creare una porta anteriore](./quickstart-create-front-door.md) o [creare una porta anteriore con Reindirizzamento da http a https](./front-door-how-to-redirect-https.md) .
 
-## <a name="create-an-alias-record-for-zone-apex"></a>Creare un record di alias per vertice della zona
+## <a name="create-an-alias-record-for-zone-apex"></a>Creare un record alias per l'apice della zona
 
-1. Aprire **DNS di Azure** configurazione per il dominio da caricare.
+1. Aprire la configurazione **DNS di Azure** per il dominio da caricare.
 2. Creare o modificare il record per il vertice della zona.
-3. Selezionare il record **tipo** come _oggetto_ record e quindi selezionare _Sì_ per **set di record Alias**. **Tipo di alias** deve essere impostata su _risorse di Azure_.
-4. Scegliere la sottoscrizione di Azure in cui è ospitato il profilo di porta principale e quindi selezionare la risorsa di ingresso principale dal **risorse di Azure** elenco a discesa.
+3. Selezionare il **tipo** _di record come record_ e quindi selezionare _Sì_ per **set di record alias**. Il **tipo di alias** deve essere impostato su risorsa di _Azure_.
+4. Scegliere la sottoscrizione di Azure in cui è ospitato il profilo di porta anteriore, quindi selezionare la risorsa porta anteriore dall'elenco a discesa **delle risorse di Azure** .
 5. Fare clic su **OK** per inviare le modifiche.
 
-    ![Record di alias per vertice della zona](./media/front-door-apex-domain/front-door-apex-alias-record.png)
+    ![Record alias per l'apice della zona](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. Il passaggio precedente creerà un record di vertice della zona che punta alla risorsa di ingresso principale, nonché un mapping dei record CNAME 'afdverify' (esempio: `afdverify.contosonews.com`) a `afdverify.<name>.azurefd.net` che sarà utilizzato per l'onboarding del dominio nel proprio profilo di porta principale.
+6. Il passaggio precedente creerà un record di apice della zona che punta alla risorsa front-end e anche un mapping di record CNAME ' afdverify ' (esempio-`afdverify.contosonews.com`) a `afdverify.<name>.azurefd.net` che verrà usato per l'onboarding del dominio sul profilo della porta anteriore.
 
-## <a name="onboard-the-custom-domain-on-your-front-door"></a>Eseguire l'onboarding del dominio personalizzato nell'ingresso principale
+## <a name="onboard-the-custom-domain-on-your-front-door"></a>Onboarding del dominio personalizzato nella porta anteriore
 
-1. Nella scheda della finestra di progettazione porta principale, fare clic su '+' icona negli host front-end sezione per aggiungere un nuovo dominio personalizzato.
-2. Immettere il nome di dominio radice o vertice nel campo nome host personalizzato, esempio `contosonews.com`.
-3. Dopo aver convalidato il mapping CNAME dal dominio per l'ingresso principale, fare clic su **Add** per aggiungere il dominio personalizzato.
-4. Fare clic su **salvare** per inviare le modifiche.
+1. Nella scheda Progettazione porta anteriore fare clic sull'icona "+" nella sezione host front-end per aggiungere un nuovo dominio personalizzato.
+2. Immettere il nome di dominio radice o Apex nel campo nome host personalizzato, ad esempio `contosonews.com`.
+3. Dopo aver convalidato il mapping CNAME dal dominio alla porta anteriore, fare clic su **Aggiungi** per aggiungere il dominio personalizzato.
+4. Fare clic su **Salva** per inviare le modifiche.
 
 ![Menu del dominio personalizzato](./media/front-door-apex-domain/front-door-onboard-apex-domain.png)
 
 ## <a name="enable-https-on-your-custom-domain"></a>Abilitare HTTPS nel dominio personalizzato
 
-1. Fare clic sul dominio personalizzato è stato aggiunto e nella sezione **HTTPS dominio personalizzato**, impostare lo stato su **abilitato**.
-2. Selezionare il **tipo di gestione di certificati** al _'Usa certificato personale'_ .
+1. Fare clic sul dominio personalizzato che è stato aggiunto e nella sezione **dominio personalizzato HTTPS**impostare lo stato su **abilitato**.
+2. Selezionare il **tipo di gestione dei certificati** per _usare il proprio certificato_.
 
 > [!WARNING]
-> Front-tipo di gestione di certificati sportello gestito non è attualmente supportato per i domini radice o vertice. L'unica opzione disponibile per l'abilitazione di HTTPS in un dominio radice o vertice di ingresso principale Usa il tuo certificato SSL personalizzato ospitato in Azure Key Vault.
+> Il tipo di gestione dei certificati gestiti dalla porta anteriore non è attualmente supportato per i domini di apice o radice. L'unica opzione disponibile per l'abilitazione di HTTPS in un vertice o un dominio radice per la porta anteriore è l'uso di un certificato SSL personalizzato ospitato in Azure Key Vault.
 
-3. Assicurarsi di aver impostato le autorizzazioni appropriate per l'ingresso principale accedere alla chiave dell'insieme di credenziali come indicato nell'interfaccia utente, prima di procedere al passaggio successivo.
-4. Scegliere una **account Key Vault** dalla sottoscrizione corrente e quindi selezionare l'appropriata **segreto** e **versione del segreto** per eseguire il mapping al certificato corretto.
-5. Fare clic su **Update** per salvare la selezione e quindi fare clic su **salvare**.
-6. Fare clic su **Aggiorna** dopo un paio di minuti e quindi fare clic sul dominio personalizzato per visualizzare lo stato di avanzamento del provisioning del certificato. 
+3. Assicurarsi di aver configurato le autorizzazioni corrette per la porta anteriore per accedere all'insieme di credenziali delle chiavi come indicato nell'interfaccia utente, prima di procedere al passaggio successivo.
+4. Scegliere un **account Key Vault** dalla sottoscrizione corrente, quindi selezionare la **versione** **segreta** e segreta appropriata per eseguire il mapping al certificato corretto.
+5. Fare clic su **Aggiorna** per salvare la selezione e quindi fare clic su **Salva**.
+6. Fare clic su **Aggiorna** dopo un paio di minuti e quindi fare di nuovo clic sul dominio personalizzato per visualizzare lo stato di avanzamento del provisioning del certificato. 
 
 > [!WARNING]
-> Assicurarsi di aver creato le regole di routing appropriate per il dominio di apex o aggiunto al dominio per le regole di routing esistente.
+> Assicurarsi di aver creato le regole di routing appropriate per il dominio Apex o aver aggiunto il dominio alle regole di routing esistenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
+- Informazioni su [come creare un Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

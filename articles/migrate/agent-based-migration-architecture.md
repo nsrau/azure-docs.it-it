@@ -1,23 +1,23 @@
 ---
-title: Architettura della migrazione basata su agenti nella migrazione di Azure Migrate server
+title: Migrazione basata su agente in Azure Migrate migrazione del server
 description: Viene fornita una panoramica della migrazione di macchine virtuali VMware basate su agente con Azure Migrate migrazione del server.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: f5ad3aa0fc51f47942750d3745ffef1d6e4a087d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a8477b4c10ccbc76f36eed4d64ac12e8bb648a28
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232592"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186094"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
 
 Questo articolo fornisce una panoramica dell'architettura e dei processi usati per la replica basata su agenti con lo strumento di migrazione di Azure Migrate server.
 
-[Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia di individuazione, valutazione e migrazione delle app locali e dei carichi di lavoro e delle istanze di VM AWS/GCP in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi.
+[Azure migrate](migrate-services-overview.md) offre un hub centrale per tenere traccia di individuazione, valutazione e migrazione delle app locali e dei carichi di lavoro e delle istanze di VM AWS/GCP in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, oltre a offerte di fornitori di software indipendenti (ISV) di terze parti.
 
 ## <a name="agent-based-replication"></a>Replica basata su agenti
 
@@ -42,15 +42,15 @@ Nella tabella vengono riepilogati i componenti utilizzati per la migrazione basa
 
 **Componente** | **Dettagli** | **Installazione**
 --- | --- | ---
-**Appliance di replica** | Il dispositivo di replica (server di configurazione) è un computer locale che funge da Bridge tra l'ambiente locale e lo strumento di migrazione Azure Migrate server. L'appliance individua l'inventario delle macchine virtuali locali, in modo che la migrazione del server di Azure possa orchestrare la replica e la migrazione. Il dispositivo è costituito da due componenti:<br/><br/> **Server di configurazione**: Si connette alla migrazione di Azure Migrate server e coordina la replica.<br/> **Server di elaborazione** Gestisce la replica dei dati. Riceve i dati della VM, li comprime e li crittografa e li invia alla sottoscrizione di Azure. In questo caso, la migrazione del server scrive i dati in Managed Disks. | Per impostazione predefinita, il server di elaborazione viene installato insieme al server di configurazione nell'appliance di replica.
+**Appliance di replica** | Il dispositivo di replica (server di configurazione) è un computer locale che funge da Bridge tra l'ambiente locale e lo strumento di migrazione Azure Migrate server. L'appliance individua l'inventario delle macchine virtuali locali, in modo che la migrazione del server di Azure possa orchestrare la replica e la migrazione. Il dispositivo è costituito da due componenti:<br/><br/> **Server di configurazione**: si connette alla migrazione di Azure migrate server e coordina la replica.<br/> **Server di elaborazione**: gestisce la replica dei dati. Riceve i dati della VM, li comprime e li crittografa e li invia alla sottoscrizione di Azure. In questo caso, la migrazione del server scrive i dati in Managed Disks. | Per impostazione predefinita, il server di elaborazione viene installato insieme al server di configurazione nell'appliance di replica.
 **Servizio Mobility** | Il servizio Mobility è un agente installato in ogni computer di cui si vuole eseguire la replica e la migrazione. Invia i dati di replica dal computer al server di elaborazione. Sono disponibili diversi agenti del servizio Mobility. | I file di installazione per il servizio Mobility si trovano nell'appliance di replica. Scaricare e installare l'agente necessario, in base al sistema operativo e alla versione del computer che si vuole replicare.
 
 ### <a name="mobility-service-installation"></a>Installazione del servizio Mobility
 
 È possibile distribuire il servizio Mobility tramite i metodi seguenti:
 
-- **Installazione push**: Il servizio Mobility viene installato dal server di elaborazione quando si Abilita la protezione per un computer. 
-- **Eseguire l'installazione manuale**: È possibile installare manualmente il servizio Mobility in ogni computer tramite l'interfaccia utente o il prompt dei comandi.
+- **Installazione push**: il servizio Mobility viene installato dal server di elaborazione quando si Abilita la protezione per un computer. 
+- **Installare manualmente**: è possibile installare manualmente il servizio Mobility in ogni computer tramite l'interfaccia utente o il prompt dei comandi.
 
 Il servizio Mobility comunica con l'appliance di replica e i computer replicati. Se si dispone di software antivirus in esecuzione nell'appliance di replica, i server di elaborazione o i computer replicati, è necessario escludere le cartelle seguenti dall'analisi:
 
@@ -77,7 +77,7 @@ Il servizio Mobility comunica con l'appliance di replica e i computer replicati.
 
 **Dispositivo** | **Connection**
 --- | --- 
-Macchine virtuali | Il servizio Mobility in esecuzione sulle VM comunica con l'appliance di replica locale sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> Per impostazione predefinita, le macchine virtuali inviano i dati di replica al server di elaborazione (in esecuzione nell'appliance di replica) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
+VM | Il servizio Mobility in esecuzione sulle VM comunica con l'appliance di replica locale sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> Per impostazione predefinita, le macchine virtuali inviano i dati di replica al server di elaborazione (in esecuzione nell'appliance di replica) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
 Appliance di replica | L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
 Server di elaborazione | Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
 
@@ -118,7 +118,7 @@ Se è necessario distribuire un server di elaborazione con scalabilità orizzont
 
  il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la velocità effettiva di caricamento limitando la larghezza di banda nei computer che eseguono come server di elaborazione. Con questa chiave del registro di sistema è possibile influenzare la larghezza di banda:
 
-- Il valore del registro di sistema HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM specifica il numero di thread usati per il trasferimento dei dati (iniziale o delta replication) di un disco. Un valore più elevato aumenta la larghezza di banda di rete usata per la replica. Il valore predefinito è quattro. Il valore massimo è 32. Monitorare il traffico per ottimizzare il valore.
+- Il valore del registro di sistema HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows di Azure Backup\Replication\UploadThreadsPerVM specifica il numero di thread usati per il trasferimento dei dati (iniziale o delta replication) di un disco. Un valore più elevato aumenta la larghezza di banda di rete usata per la replica. Il valore predefinito è quattro. Il valore massimo è 32. Monitorare il traffico per ottimizzare il valore.
 - Inoltre, è possibile limitare la larghezza di banda nel computer del server di elaborazione, come indicato di seguito:
 
     1. Nel computer del server di elaborazione aprire lo snap-in di MMC backup di Azure. È disponibile un collegamento sul desktop o nella cartella C:\Programmi\Microsoft Azure Recovery Services Agent\bin. 

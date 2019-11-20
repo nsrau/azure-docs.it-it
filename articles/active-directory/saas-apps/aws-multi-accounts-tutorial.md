@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb528d71b94449b282947a487e4fc79b343df778
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65738344"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Esercitazione: Integrazione di Azure Active Directory con più account di Amazon Web Service (AWS)
 
@@ -31,7 +31,7 @@ L'integrazione di Amazon Web Service (AWS) con Azure AD offre i vantaggi seguent
 
 - È possibile controllare in Azure AD chi può accedere ad Amazon Web Services (AWS).
 - È possibile abilitare gli utenti per l'accesso automatico ad Amazon Web Services (AWS) (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -50,7 +50,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 * Tutti gli account AWS useranno lo stesso file XML dei metadati della federazione e al momento del rollover dei certificati sarà necessario aggiornare il certificato in tutti gli account AWS contemporaneamente
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Amazon Web Service (AWS), sono necessari gli elementi seguenti:
 
@@ -117,9 +117,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Amazon Web Service (AWS), seguire la procedura seguente:**
 
-1. Nella pagina di integrazione dell'applicazione **Amazon Web Services (AWS)** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Amazon Web Services (AWS)](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
+    ![Configurare il collegamento Single Sign-On](common/select-sso.png)
 
 2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
@@ -131,15 +131,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-    ![image](common/preintegrated.png)
+    ![immagine](common/preintegrated.png)
 
 5. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente e attestazioni**.
 
-    ![image](common/edit-attribute.png)
+    ![immagine](common/edit-attribute.png)
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Name  | Attributo di origine  | Spazio dei nomi |
+    | Nome  | Source Attribute  | Spazio dei nomi |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Ruolo            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -147,13 +147,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![immagine](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![immagine](common/new-attribute-details.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Nella casella di testo **Spazio dei nomi** digitare il valore dello spazio dei nomi indicato per la riga.
+    C. Nella casella di testo **Spazio dei nomi** digitare il valore dello spazio dei nomi indicato per la riga.
 
     d. Per Origine selezionare **Attributo**.
 
@@ -165,7 +165,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
 
-    ![Collegamento di download del certificato](common/metadataxml.png)
+    ![Il collegamento di download del certificato](common/metadataxml.png)
 
 ### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configurare l'accesso Single Sign-On per Amazon Web Services (AWS)
 
@@ -191,7 +191,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **Nome provider** digitare un nome di provider, ad esempio *WAAD*.
 
-    c. Per caricare il **file di metadati** scaricato dal portale di Azure, fare clic su **Scegli file**.
+    C. Per caricare il **file di metadati** scaricato dal portale di Azure, fare clic su **Scegli file**.
 
     d. Fare clic su **Next Step**.
 
@@ -211,11 +211,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella sezione **Choose a SAML 2.0 Provider** (Scegliere un provider SAML 2.0) selezionare il **provider SAML** creato in precedenza, ad esempio *WAAD*.
 
-    c. Selezionare **Allow programmatic and AWS Management Console access** (Consenti accesso a livello di codice e tramite AWS Management Console).
+    C. Selezionare **Allow programmatic and AWS Management Console access** (Consenti accesso a livello di codice e tramite AWS Management Console).
   
-    d. Fare clic su **Avanti: Permissions** (Avanti: Autorizzazioni).
+    d. Fare clic su **Next: Permissions** (Avanti: Autorizzazioni).
 
-9. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) collegare i criteri appropriati in base all'organizzazione. Fare clic su **Avanti: Review** (Avanti: Rivedi).  
+9. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) collegare i criteri appropriati in base all'organizzazione. Fare clic su **Next: Review** (Avanti: Riepilogo).  
 
     ![Configurare criteri dell'accesso Single Sign-On][33]
 
@@ -227,7 +227,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **Role description** (Descrizione ruolo) immettere la descrizione.
 
-    c. Fare clic su **Crea ruolo**.
+    C. Fare clic su **Crea ruolo**.
 
     d. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
 
@@ -255,7 +255,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Finestra di dialogo di Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. Selezionare le autorizzazioni seguenti dell'elenco (se non sono già disponibili) e fare clic su "Autorizzazioni di modifica" 
+    C. Selezionare le autorizzazioni seguenti dell'elenco (se non sono già disponibili) e fare clic su "Autorizzazioni di modifica" 
 
     ![Finestra di dialogo di Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
@@ -359,10 +359,11 @@ Quando si fa clic sul riquadro Amazon Web Service (AWS) nel riquadro di accesso,
 
 ![Configurare l'aggiunta del Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Per ulteriori informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* [Come configurare il provisioning usando le API di Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 

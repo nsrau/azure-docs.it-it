@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure | Microsoft Docs
-description: In questa esercitazione si useranno Power BI Desktop e Cosmos DB per integrare i dati generati da una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
+description: Questa esercitazione USA Power BI Desktop e Cosmos DB per integrare i dati di una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 13b10aa4f40b7c4b62b35e8580c2826c10e6683f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166287"
+ms.locfileid: "74184232"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
 
@@ -22,13 +22,13 @@ Questa esercitazione illustrerà in modo dettagliato come collegare i dati della
 ## <a name="prerequisites"></a>prerequisiti
 
 - È necessario che una soluzione di monitoraggio remoto sia attualmente in esecuzione
-- È necessario avere l'accesso al [portale di Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione la soluzione e l'hub IoT
+- È necessario avere accesso a [portale di Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione l'hub e la soluzione.
 - È necessario che sia installata una versione qualsiasi di [Power BI Desktop](https://powerbi.microsoft.com).
 
 
-## <a name="information-needed-from-azure-portal"></a>Informazioni necessarie dal portale di Azure
+## <a name="information-needed-from-azure-portal"></a>Informazioni necessarie da portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com) ed effettuare l'accesso se necessario
+1. Passare a [portale di Azure](https://portal.azure.com) ed eseguire l'accesso, se necessario
 
 2. Fare clic sui gruppi di risorse nel pannello di sinistra.
 
