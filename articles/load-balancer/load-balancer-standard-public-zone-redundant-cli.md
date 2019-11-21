@@ -1,6 +1,6 @@
 ---
 title: Bilanciare il carico di macchine virtuali con ridondanza della zona tramite l'interfaccia della riga di comando di Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni sulla creazione di un servizio Load Balancer Standard pubblico con un front-end con ridondanza della zona tramite l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: af327f751a0af67b6d17330dbaeb717df8660bfd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274319"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225276"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Bilanciare il carico delle macchine virtuali in tutte le zone di disponibilità tramite l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra i passaggi per la creazione di un servizio [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) pubblico con un front-end con ridondanza della zona per ottenere la ridondanza della zona senza dipendenza da più record DNS. Un singolo indirizzo IP front-end include automaticamente la ridondanza della zona.  Se si usa un front-end con ridondanza della zona per il servizio di bilanciamento del carico, con un singolo indirizzo IP è ora possibile raggiungere qualsiasi macchina virtuale in una rete virtuale all'interno di un'area che include tutte le zone di disponibilità. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
 
-Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
+Per altre informazioni sull'uso delle zone di disponibilità con il servizio Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Creare un indirizzo IP pubblico standard con ridondanza della zona
-Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Un front-end con ridondanza della zona viene servito contemporaneamente da tutte le zone di disponibilità di un'area. Creare un indirizzo IP pubblico con ridondanza della zona con [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create). Un indirizzo IP pubblico standard viene creato con ridondanza della zona per impostazione predefinita.
+Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Un front-end con ridondanza della zona viene servito contemporaneamente da tutte le zone di disponibilità di un'area. Create a zone redundant public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). Un indirizzo IP pubblico standard viene creato con ridondanza della zona per impostazione predefinita.
 
 L'esempio seguente crea un indirizzo IP pubblico con ridondanza della zona denominato *myPublicIP* nel gruppo di risorse *myResourceGroupLoadBalancer*.
 
@@ -63,7 +63,7 @@ az network public-ip create \
 ## <a name="create-azure-standard-load-balancer"></a>Creare un servizio Azure Load Balancer Standard
 Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
 - Un pool IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico.
-- Un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato.
+- un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato
 - un probe di integrità che determina l'integrità delle istanze delle macchine virtuali back-end
 - una regola di bilanciamento del carico che definisce come verrà distribuito il traffico alle macchine virtuali.
 
@@ -112,7 +112,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Configurare la rete virtuale
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento del carico, creare le risorse di rete virtuale di supporto.
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 
 Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo myResourceGroup con il comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -152,7 +152,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Creare NIC
-Creare tre schede di interfaccia di rete virtuali con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. L'esempio seguente crea sei schede di interfaccia di rete virtuali. Una scheda di interfaccia di rete virtuale per ogni VM creata per l'app nei passaggi successivi. È possibile creare altre schede di interfaccia di rete virtuale e macchine virtuali in qualsiasi momento e aggiungerle al bilanciamento del carico:
+Creare tre NIC virtuali con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. L'esempio seguente crea sei schede di interfaccia di rete virtuali. Una scheda di interfaccia di rete virtuale per ogni VM creata per l'app nei passaggi successivi. È possibile creare altre schede di interfaccia di rete virtuale e macchine virtuali in qualsiasi momento e aggiungerle al bilanciamento del carico:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -167,7 +167,7 @@ for i in `seq 1 3`; do
 done
 ```
 ## <a name="create-backend-servers"></a>Creare i server back-end
-In questo esempio vengono create tre macchine virtuali nelle zone 1, 2 e 3 da usare come server back-end per il bilanciamento del carico. Viene anche installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
+In questo esempio vengono create tre macchine virtuali nelle zone 1, 2 e 3 da usare come server back-end per il bilanciamento del carico. Viene inoltre installato NGINX nelle macchine virtuali per verificare l'avvenuta creazione del servizio di bilanciamento del carico.
 
 ### <a name="create-cloud-init-config"></a>Creare una configurazione cloud-init
 

@@ -2,18 +2,15 @@
 title: Guida di riferimento a Funzioni di Azure per sviluppatori di script C#
 description: Informazioni su come sviluppare Funzioni di Azure usando script C#.
 author: craigshoemaker
-manager: gwallace
-keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 8bbfef9d9873669120f792bce3e50e457791d4b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3b05b0a4a56332cce1068f53a23a7d118a2e6bfc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787203"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230426"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -373,7 +370,7 @@ Per informazioni su come caricare i file nella cartella della funzione, vedere l
 La directory che contiene il file di script della funzione viene controllata automaticamente per le modifiche agli assembly. Per controllare le modifiche agli assembly in altre directory, aggiungerle all'elenco `watchDirectories` in [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso dei pacchetti NuGet
-Per usare i pacchetti NuGet in una funzione 2 C# . x, caricare un file *Function. proj* nella cartella della funzione nell'file System dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
+To use NuGet packages in a 2.x C# function, upload a *function.proj* file to the function's folder in the function app's file system. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,9 +387,9 @@ Per usare i pacchetti NuGet in una funzione 2 C# . x, caricare un file *Function
 Per usare un feed NuGet personalizzato, specificare il feed in un *Nuget.Config* nella radice dell'app per le funzioni. Per altre informazioni, vedere [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configurazione del comportamento di NuGet).
 
 > [!NOTE]
-> Nelle funzioni 1. C# x, ai pacchetti NuGet viene fatto riferimento con un file *Project. JSON* anziché con un file *Function. proj* .
+> In 1.x C# functions, NuGet packages are referenced with a *project.json* file instead of a *function.proj* file.
 
-Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è riportato un esempio di file *Project. JSON* :
+For 1.x functions, use a *project.json* file instead. Here is an example *project.json* file:
 
 ```json
 {
@@ -406,11 +403,11 @@ Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è ripor
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Uso di un file function. proj
+### <a name="using-a-functionproj-file"></a>Using a function.proj file
 
 1. Aprire la funzione nel portale di Azure. La scheda dei log mostra l'output di installazione del pacchetto.
-2. Per caricare un file *Function. proj* , usare uno dei metodi descritti nell'argomento [come aggiornare i file dell'app](functions-reference.md#fileupdate) per le funzioni nell'argomento di riferimento per gli sviluppatori di funzioni di Azure.
-3. Dopo il caricamento del file *Function. proj* , viene visualizzato un output simile all'esempio seguente nel log in streaming della funzione:
+2. To upload a *function.proj* file, use one of the methods described in the [How to update function app files](functions-reference.md#fileupdate) in the Azure Functions developer reference topic.
+3. After the *function.proj* file is uploaded, you see output like the following example in your function's streaming log:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -462,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 

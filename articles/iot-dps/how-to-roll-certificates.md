@@ -1,5 +1,5 @@
 ---
-title: Come rinnovare i certificati X.509 nel servizio Device Provisioning in hub IoT di Azure | Microsoft Docs
+title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
 description: Come rinnovare i certificati X.509 in un'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 55ed99c434028b9761ef53fc09a01481bbd184e1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626954"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228762"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
 
@@ -95,7 +94,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Registrazioni singole** e quindi sulla voce dell'ID di registrazione nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**
 
     ![Gestire le registrazioni singole usando il certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -178,7 +177,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**
 
     Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-security.md#x509-certificates).
 

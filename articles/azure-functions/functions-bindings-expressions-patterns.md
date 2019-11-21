@@ -1,24 +1,20 @@
 ---
-title: Espressioni e modelli di associazioni di funzioni di Azure
-description: Informazioni su come creare diverse espressioni di associazione di funzioni di Azure basate su modelli comuni.
-services: functions
-documentationcenter: na
+title: Azure Functions bindings expressions and patterns
+description: Learn to create different Azure Functions binding expressions based on common patterns.
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: db6f4f938b1555091dc51e310d4d31f96f93200c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097346"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227231"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
+# <a name="azure-functions-binding-expression-patterns"></a>Azure Functions binding expression patterns
 
-Una delle funzionalità più potenti dei [trigger e delle associazioni](./functions-triggers-bindings.md) è rappresentata dalle *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
+One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
 
 Quasi tutte le espressioni sono identificate tramite la disposizione del testo tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
 
@@ -71,7 +67,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Nome file del trigger
+## <a name="trigger-file-name"></a>Trigger file name
 
 La proprietà `path` di un trigger BLOB può essere un modello che consente di fare riferimento al nome del BLOB di attivazione in altre associazioni e in altro codice della funzione. Il modello può anche includere criteri di filtro che specificano quali BLOB può attivare una chiamata di funzione.
 
@@ -173,7 +169,7 @@ I valori di questi metadati sono accessibili nelle proprietà del file *function
 
 I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'articolo di riferimento corrispondente. Per un esempio, vedere [metadati dei trigger per le code](functions-bindings-storage-queue.md#trigger---message-metadata). La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
 
-## <a name="json-payloads"></a>Payload JSON
+## <a name="json-payloads"></a>JSON payloads
 
 Quando il payload di un trigger è JSON, è possibile fare riferimento alle relative proprietà nella configurazione di altre associazioni nella stessa funzione e nel codice della funzione.
 
@@ -311,4 +307,4 @@ In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperat
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Uso del valore restituito della funzione di Azure](./functions-bindings-return-value.md)
+> [Using the Azure Function return value](./functions-bindings-return-value.md)

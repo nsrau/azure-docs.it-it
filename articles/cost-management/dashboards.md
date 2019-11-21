@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0651dd006585e4ed5b8b888d6e55974c5c45a1d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002059"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230082"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visualizzare le metriche di costo chiave con i dashboard
 
@@ -118,7 +118,7 @@ Per duplicare (clonare) un dashboard personalizzato:
 1. Fare clic su **Dashboard Settings** (Impostazioni dashboard) per visualizzare l'elenco di dashboard disponibili e selezionare il dashboard che si vuole impostare come predefinito.  
     ![opzioni del dashboard per un dashboard predefinito](./media/dashboards/dashboard-options.png)
 2. Fare clic su **Default** (Predefinito) nella riga del dashboard. Viene visualizzata la finestra di dialogo di conferma Default Dashboard (Dashboard predefinito).
-3. Scegliere **Sì**. Il dashboard viene impostato come predefinito.
+3. Fare clic su **Sì**. Il dashboard viene impostato come predefinito.
 
 ## <a name="management-dashboard"></a>Dashboard di gestione
 Il dashboard Management (o dashboard MSP per gli utenti di MSP) include gli elementi di rilievo dei tipi di report principali.  

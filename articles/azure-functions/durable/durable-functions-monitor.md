@@ -1,20 +1,15 @@
 ---
 title: Monitoraggi in Funzioni durevoli - Azure
 description: Informazioni su come implementare un monitoraggio con stato usando l'estensione Funzioni durevoli per Funzioni di Azure.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb4602ac0431e09208953122f13b30124ab77f5
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9c8edf5e8fb32160280a1ce9bff827c2e3fa14f8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614759"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232850"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
@@ -59,7 +54,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E3_GetIsClear`: funzione dell'attività che controlla le condizioni meteo correnti per una località.
 * `E3_SendGoodWeatherAlert`: funzione dell'attività che invia un SMS tramite Twilio.
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per C# gli script e JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+The following sections explain the configuration and code that is used for C# scripting and JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestrazione di monitoraggio del meteo (Visual Studio Code e codice di esempio del portale di Azure)
 
@@ -73,7 +68,7 @@ Di seguito è riportato il codice che implementa la funzione:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -84,13 +79,13 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 3. Chiama **E3_GetIsClear** per determinare se nella località richiesta il tempo è sereno.
 4. Se il tempo è sereno, chiama **E3_SendGoodWeatherAlert** per inviare un SMS di notifica al numero di telefono richiesto.
 5. Crea un timer durevole per riprendere l'orchestrazione all'intervallo di polling successivo. L'esempio usa un valore hardcoded per ragioni di brevità.
-6. Continua l'esecuzione fino a quando il `CurrentUtcDateTime` (.NET) o `currentUtcDateTime` (JavaScript) non supera la data di scadenza del monitoraggio o viene inviato un avviso SMS.
+6. Continues running until the `CurrentUtcDateTime` (.NET) or `currentUtcDateTime` (JavaScript) passes the monitor's expiration time, or an SMS alert is sent.
 
 Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione inviando più **MonitorRequest**. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Trasferimento dei dati fortemente tipizzati (solo .NET)
 
-L'agente di orchestrazione richiede più dati, quindi [gli oggetti poco condivisi](../functions-reference-csharp.md#reusing-csx-code) vengono usati per il trasferimento di dati C# fortemente C# tipizzati in e nello script:  
+The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -109,7 +104,7 @@ Di seguito ne viene riportata l'implementazione. Come gli oggetti POCO usati per
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -123,7 +118,7 @@ Di seguito è disponibile il codice che invia l'SMS:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 

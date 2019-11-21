@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: troubleshooting
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: faa7181ebc7b886fbe06e4ac01c704016d4b0c51
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002019"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230091"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -62,7 +62,7 @@ Per attivare un account:
 1.  Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud).
 2.  Nella scheda degli account di Microsoft Azure, cercare gli account con sottoscrizione **non attivata**.
 3.  A destra di un account non attivato fare clic sul simbolo di **modifica** simile a una matita.
-4.  L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Avanti**.
+4.  L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Next** (Avanti).
 5.  Si verrà reindirizzati al portale di Azure. Accedi al portale e autorizzare l'agente di raccolta Cloudyn all'accesso ai dati di Azure.
 6.  Si verrà reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo**. Viene visualizzato un simbolo di segno di spunta verde.
 7.  Se non viene visualizzato un simbolo di segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare un'app lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
@@ -74,9 +74,9 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
 
-> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o contratto Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Come persona che registra il servizio di Cloudyn e accede al portale di Cloudyn, Admin1 diventa il *amministratore principale*. Admin1 non crea account utente. Tramite il portale di Cloudyn, tuttavia, essi creare gli account di Azure e configurare una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che devono registrarsi a Cloudyn e accedere al portale di Cloudyn.
+> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1 non crea account utente. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
 >
-> Admin2 esegue la registrazione tramite il portale di Azure, Tuttavia quando si tenta di accedere al portale di Cloudyn, ricevono un errore indicante che l'account viene **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+> Admin2 esegue la registrazione tramite il portale di Azure, However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
@@ -90,7 +90,7 @@ Per attivare l'account utente:
 
 Gli account utente Cloudyn si connettono tramite Single Sign-On da Azure. Se un utente digita in modo non corretto la propria password, potrebbe essere bloccato da Cloudyn pur potendo ancora accedere ad Azure.
 
-La modifica dell'indirizzo di posta elettronica in Cloudyn rispetto all'indirizzo predefinito in Azure può causare il blocco dell'account e la visualizzazione dell'errore "status initiallySuspended" (stato initiallySuspended). Se l'account utente viene bloccato, contattare un altro amministratore per reimpostarlo.
+If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." Se l'account utente viene bloccato, contattare un altro amministratore per reimpostarlo.
 
 È consigliabile creare almeno due account amministratore di Cloudyn nel caso in cui uno venga bloccato.
 
@@ -127,7 +127,7 @@ Cloudyn rileva automaticamente la valuta della sottoscrizione Enterprise Agreeme
 Cloudyn offre le tempistiche di aggiornamento dei dati riportate di seguito.
 
 - **Iniziale**: la visualizzazione dei dati sui costi in Cloudyn dopo la configurazione può richiedere fino a 24 ore. Possono inoltre trascorrere fino a 10 giorni prima che Cloudyn raccolga dati sufficienti per visualizzare consigli sul ridimensionamento.
-- **Giornaliera**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
+- **Giornaliero**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
 - **Mensile**: dal giorno 1 al 10 di ogni mese, Cloudyn potrebbe visualizzare solo i dati fino alla fine del mese precedente.
 
 Cloudyn elabora i dati per il giorno precedente quando sono tutti disponibili. I dati del giorno precedente sono in genere disponibili in Cloudyn entro le ore UTC+3 circa di ogni giorno. L'elaborazione di alcuni dati, come i tag, può richiedere altre 24 ore.

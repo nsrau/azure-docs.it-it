@@ -1,20 +1,14 @@
 ---
-title: Distribuzione push con file ZIP per Funzioni di Azure | Documentazione Microsoft
+title: Distribuzione push con file ZIP per Funzioni di Azure
 description: Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione con file ZIP del servizio di distribuzione Kudu.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.author: glenga
-ms.openlocfilehash: c411ff6b3a7152adaaf29045f4c3b3a3deb22d09
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087596"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233053"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Distribuzione con file ZIP per Funzioni di Azure
 

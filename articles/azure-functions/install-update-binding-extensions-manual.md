@@ -1,21 +1,14 @@
 ---
 title: Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure
 description: Informazioni su come installare o aggiornare le estensioni di associazione di Funzioni di Azure per le app per le funzioni distribuite.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: funzioni di Azure, funzioni, estensioni di associazione, NuGet, aggiornamenti
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/26/2018
-ms.author: glenga
-ms.openlocfilehash: 7686a9b2df6df6b54851e9c9957186f76be3fafd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085062"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226515"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale
 

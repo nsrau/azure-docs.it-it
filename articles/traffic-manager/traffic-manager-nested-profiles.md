@@ -1,6 +1,6 @@
 ---
 title: Profili nidificati di Gestione traffico in Azure
-titlesuffix: Azure Traffic Manager
+titleSuffix: Azure Traffic Manager
 description: Questo articolo descrive la funzionalità "Profili nidificati" di Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333785"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227758"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profili nidificati di Gestione traffico
 
 Gestione traffico include diversi metodi di routing del traffico, che consentono di controllare la modalità con cui Gestione traffico sceglie quale endpoint deve ricevere traffico da ogni utente finale. Per altre informazioni, vedere [Metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).
 
-Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Esistono scenari che tuttavia richiedono un sistema di routing del traffico più avanzato anziché il routing fornito da un singolo profilo di Gestione traffico. È possibile annidare i profili di Gestione traffico per combinare i vantaggi offerti da più metodi di routing del traffico. I profili annidati consentono di ignorare il comportamento predefinito di Gestione traffico per supportare distribuzioni di applicazioni di dimensioni maggiori e più complesse.
+Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Esistono scenari che tuttavia richiedono un sistema di routing del traffico più avanzato anziché il routing fornito da un singolo profilo di Gestione traffico. È possibile annidare i profili di Gestione traffico per combinare i vantaggi offerti da più metodi di routing del traffico. I profili annidati consentono di ignorare il comportamento predefinito di Gestione traffico per supportare distribuzioni di dimensioni maggiori e più complesse.
 
 Gli esempi seguenti illustrano come usare i profili di Gestione traffico annidati in vari scenari.
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Esempio 1: Combinazione di metodi di routing del traffico "Prestazioni" e "Ponderato"
 
-Supporre che l'app sia stata distribuita nelle aree di Azure seguenti: Stati Uniti occidentali, Europa occidentale e Asia orientale. Si userà il metodo di routing del traffico "Prestazioni" di Gestione traffico per distribuire il traffico nell'area più vicina all'utente.
+Si supponga che l'applicazione sia stata distribuita in più aree di Azure: Stati Uniti occidentali, Europa occidentale e Asia orientale. Si userà il metodo di routing del traffico "Prestazioni" di Gestione traffico per distribuire il traffico nell'area più vicina all'utente.
 
 ![Profilo singolo di Gestione traffico][4]
 
@@ -46,7 +46,7 @@ In questa configurazione, il traffico indirizzato tramite il profilo padre verr�
 
 Quando il profilo padre usa il metodo di routing del traffico "Prestazioni", a ogni endpoint deve essere assegnata una posizione. Questa posizione deve essere assegnata al momento della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Le opzioni disponibili sono le aree di Azure, ovvero i valori delle posizioni supportati dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance).
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Esempio 2 Monitoraggio degli endpoint nei profili nidificati
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Esempio 2: Monitoraggio degli endpoint nei profili nidificati
 
 Gestione traffico esegue continuamente il monitoraggio dell'integrità di ogni endpoint di servizio. Se un endpoint non è integro, Gestione traffico indirizza gli utenti verso endpoint alternativi, mantenendo così la disponibilità del servizio. Il comportamento di monitoraggio e failover degli endpoint si applica a tutti i metodi di routing del traffico. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md). Il monitoraggio degli endpoint è differente nei profili annidati. Ad esempio, nei profili annidati il profilo padre non esegue i controlli di integrità direttamente sul profilo figlio. L'integrità degli endpoint del profilo figlio viene usata invece per calcolare l'integrità complessiva del profilo figlio e queste informazioni vengono propagate alla gerarchia dei profili annidati. Il profilo padre usa quindi lo stato aggregato per determinare se indirizzare il traffico al profilo figlio. Vedere le [domande frequenti](traffic-manager-FAQs.md#traffic-manager-nested-profiles) per informazioni dettagliate sul monitoraggio dello stato di profili annidati.
 
@@ -54,7 +54,7 @@ Tornando all'esempio precedente, si supponga che la distribuzione di produzione 
 
 ![Failover dei profili nidificati (comportamento predefinito)][3]
 
-È possibile che questa soluzione risulti soddisfacente, o che si tema che tutto il traffico dell'Europa occidentale venga indirizzato alla distribuzione di prova invece che a un sottoinsieme limitato. Indipendentemente dall'integrità della distribuzione di prova, si preferisce eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo. Per abilitare questo failover, durante la configurazione del profilo figlio come endpoint nel profilo padre è possibile specificare il parametro 'MinChildEndpoints', che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio, il cui valore predefinito è 1. In questo scenario, impostare il valore MinChildEndpoints su 2. Al di sotto di questa soglia, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint.
+È possibile che questa soluzione risulti soddisfacente, o che si tema che tutto il traffico dell'Europa occidentale venga indirizzato alla distribuzione di prova invece che a un sottoinsieme limitato. Indipendentemente dall'integrità della distribuzione di prova, si preferisce eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo. Per abilitare questo failover, durante la configurazione del profilo figlio come endpoint nel profilo padre è possibile specificare il parametro 'MinChildEndpoints', che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio, Il valore predefinito è "1". In questo scenario, impostare il valore MinChildEndpoints su 2. Al di sotto di questa soglia, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint.
 
 L'immagine seguente illustra questa configurazione:
 
@@ -97,17 +97,17 @@ Le impostazioni di monitoraggio in un profilo di Gestione traffico si applicano 
 
 ## <a name="faqs"></a>Domande frequenti
 
-* [Ricerca per categorie configurare i profili annidati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [How do I configure nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 
-* [Quanti livelli di annidamento è supportato da Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [How many layers of nesting does Traffic Manger support?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [È possibile combinare altri tipi di endpoint con profili figlio annidati nello stesso profilo di gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [Come viene applicato il modello di fatturazione per i profili nidificati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [How does the billing model apply for Nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [Si è verificato un effetto sulle prestazioni per i profili nidificati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [Is there a performance impact for nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
 
-* [In che modo Traffic Manager calcola lo stato di integrità di un endpoint annidato in un profilo padre?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [How does Traffic Manager compute the health of a nested endpoint in a parent profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

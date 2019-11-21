@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: fbd595c7de0bde4e8ba8b7aaa9a65aa5880c1165
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a2a1fb5f84612630d4168c8af908ed86330938c7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151926"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213132"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -19,11 +19,11 @@ Database di Azure per MySQL crea automaticamente backup del server e li archivia
 
 ## <a name="backups"></a>Backup
 
-Database di Azure per MySQL esegue i backup dei file di dati e del log delle transazioni. A seconda delle dimensioni massime di archiviazione supportate, si accettano backup completi e differenziali (4 TB Max Storage Servers) o backup di snapshot (fino a 16 TB Max Storage Servers). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente, è possibile configurarlo](howto-restore-server-portal.md#set-backup-configuration) fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16-TB max storage servers). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
-In genere, i backup completi vengono eseguiti settimanalmente, i backup differenziali si verificano due volte al giorno per i server con un massimo di spazio di archiviazione supportato di 4 TB. I backup di snapshot vengono eseguiti almeno una volta al giorno per i server che supportano fino a 16 TB di spazio di archiviazione. I backup del log delle transazioni in entrambi i casi si verificano ogni cinque minuti. Il primo snapshot del backup completo viene pianificato subito dopo la creazione di un server. Il backup completo iniziale può richiedere più tempo in un server ripristinato di grandi dimensioni. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale. Poiché gli snapshot sono instantanious, i server con supporto fino a 16 TB di spazio di archiviazione possono essere ripristinati fino al momento della creazione.
+Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale. As snapshots are instantanious, servers with support up to 16 TB of storage can be restored all the way back to the create time.
 
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
@@ -38,7 +38,7 @@ Database di Azure per MySQL offre fino al 100% delle risorse di archiviazione de
 
 Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono disponibili 250 GB per l'archiviazione dei backup senza costi aggiuntivi. Lo spazio di archiviazione oltre 250 GB viene addebitato.
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Ripristinare
 
 In Database di Azure per MySQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
 
@@ -62,7 +62,7 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici solo in aree che supportano anche server da 16 TB. Esaminare i [piani tariffari di database di Azure per MySQL](concepts-pricing-tiers.md) per l'elenco delle aree supportate. 
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
 
 Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 

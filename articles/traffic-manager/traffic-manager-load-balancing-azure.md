@@ -1,23 +1,23 @@
 ---
 title: Uso dei servizi di bilanciamento del carico in Azure | Microsoft Docs
-description: 'Questa esercitazione illustra come creare uno scenario tramite il portafoglio di soluzioni Azure per il bilanciamento del carico: Gestione traffico, gateway applicazione e Load Balancer.'
+description: 'Questa esercitazione illustra come creare uno scenario tramite il portafoglio di soluzioni Azure per il bilanciamento del carico: Gestione traffico, il gateway applicazione e Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: liumichelle
-manager: dkays
+author: asudbring
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: limichel
-ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60330524"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227782"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "60330524"
 
 Microsoft Azure offre numerosi servizi che consentono di gestire la distribuzione del traffico e il bilanciamento del carico. È possibile usare questi servizi singolarmente o combinarne i metodi in base alle esigenze, così da realizzare una soluzione ottimale.
 
-In questa esercitazione viene innanzitutto illustrato un caso d'uso di un cliente e viene mostrato in che modo è possibile assicurare maggiore affidabilità e prestazioni più elevate mediante il portafoglio di soluzioni Azure per il bilanciamento del carico: Gestione traffico, gateway applicazione e Load Balancer. Vengono quindi illustrate istruzioni dettagliate per la creazione di una distribuzione che sia geograficamente ridondante, distribuisca il traffico alle macchine virtuali e aiuti a gestire differenti tipi di richieste.
+In questa esercitazione viene innanzitutto illustrato un caso d'uso di un cliente e viene mostrato in che modo è possibile assicurare maggiore affidabilità e prestazioni più elevate mediante il portafoglio di soluzioni Azure per il bilanciamento del carico: Gestione traffico, il gateway applicazione e Load Balancer. Vengono quindi illustrate istruzioni dettagliate per la creazione di una distribuzione che sia geograficamente ridondante, distribuisca il traffico alle macchine virtuali e aiuti a gestire differenti tipi di richieste.
 
 A livello concettuale, ognuno di questi servizi svolge un ruolo distinto nella gerarchia di bilanciamento del carico.
 
@@ -63,16 +63,16 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Impostazione dello stack di bilanciamento del carico
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Passaggio 1: Creare un profilo di Gestione traffico
+### <a name="step-1-create-a-traffic-manager-profile"></a>Passaggio 1: creare un profilo di Gestione traffico
 
 1. Nel portale di Azure fare clic su **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. Immettere le informazioni di base seguenti:
 
    * **Nome**: assegnare al profilo di Gestione traffico un nome del prefisso DNS.
    * **Metodo di routing**: selezionare il criterio per il metodo di routing del traffico. Per altre informazioni sui metodi, vedere [Informazioni sui metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).
-   * **Sottoscrizione** selezionare la sottoscrizione contenente il profilo.
+   * **Sottoscrizione**: selezionare la sottoscrizione contenente il profilo.
    * **Gruppo di risorse**: selezionare il gruppo di risorse contenente il profilo. Può trattarsi di un gruppo di risorse nuovo o esistente.
-   * **Località del gruppo di risorse**: il servizio Gestione traffico è globale e non legato a una località. Tuttavia, è necessario specificare un'area per il gruppo in cui risiedono i metadati associati al profilo di Gestione traffico. La località non ha alcun impatto sulla disponibilità di runtime del profilo.
+   * **Percorso gruppo di risorse**: il servizio Gestione traffico è globale e non legato a una località. Tuttavia, è necessario specificare un'area per il gruppo in cui risiedono i metadati associati al profilo di Gestione traffico. La località non ha alcun impatto sulla disponibilità di runtime del profilo.
 
 3. Fare clic su **Crea** per generare il profilo di Gestione traffico.
 
@@ -83,11 +83,11 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 1. Nel portale di Azure fare clic su **Crea una nuova risorsa** > **Rete** > **Gateway applicazione** nel pannello a sinistra.
 2. Inserire le seguenti informazioni di base sul gateway applicazione:
 
-   * **Nome**: Il nome del gateway applicazione.
+   * **Nome** : nome del gateway applicazione.
    * **Dimensioni SKU**: dimensioni del gateway applicazione. Le opzioni disponibili sono Small, Medium e Large.
    * **Numero di istanze**: il numero di istanze, un valore da 2 a 10.
    * **Gruppo di risorse**: il gruppo di risorse che contiene il gateway applicazione. Può trattarsi di un gruppo di risorse nuovo o esistente.
-   * **Località**: l'area del gateway applicazione. È la stessa località del gruppo di risorse. La posizione è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa posizione del gateway.
+   * **Posizione**: l'area del gateway applicazione. È la stessa posizione del gruppo di risorse. La posizione è importante perché la rete virtuale e l'IP pubblico devono trovarsi nella stessa posizione del gateway.
 3. Fare clic su **OK**.
 4. Definire le configurazioni della rete virtuale, della subnet, dell'IP front-end e del listener per il gateway applicazione. In questo scenario l'indirizzo IP front-end è **Pubblico**. Questo consente, in un secondo tempo, di aggiungerlo come endpoint al profilo di Gestione traffico.
 5. Configurare il listener con una delle opzioni seguenti:
@@ -117,12 +117,12 @@ Quando si sceglie un pool back-end, un gateway applicazione configurato con una 
    + **Nome**: nome descrittivo della regola accessibile nel portale.
    + **Listener**: listener usato per la regola.
    + **Pool back-end predefinito**: pool back-end da usare con la regola predefinita.
-   + **Impostazioni HTTP predefinite**: impostazioni HTTP da usare per la regola predefinita.
+   + **Impostazioni HTTP predefinite**: impostazioni HTTP da usare con la regola predefinita.
 
    Regole basate sul percorso:
 
    + **Nome**: nome descrittivo della regola basata sul percorso.
-   + **Percorso**: regola basata sul percorso usata per l'inoltro del traffico.
+   + **Percorsi**: regola basata sul percorso usata per l'inoltro del traffico.
    + **Pool back-end**: pool back-end da usare con questa regola.
    + **Impostazione HTTP**: impostazioni HTTP da usare con questa regola.
 
@@ -150,7 +150,7 @@ In questo scenario Gestione traffico è connesso ai gateway applicazione (come c
 
 4. È ora possibile testare la configurazione accedendovi con il DNS del profilo di Gestione traffico, in questo esempio TrafficManagerScenario.trafficmanager.net. È possibile inviare nuovamente le richieste, attivare/disattivare le macchine virtuali e i server Web creati in aree geografiche differenti e modificare le impostazioni del profilo di Gestione traffico per testare la configurazione.
 
-### <a name="step-4-create-a-load-balancer"></a>Passaggio 4: Creare un servizio di bilanciamento del carico
+### <a name="step-4-create-a-load-balancer"></a>Passaggio 4: creare un servizio di bilanciamento del carico
 
 In questo scenario Load Balancer distribuisce le connessioni dal livello Web al database all'interno di un cluster a disponibilità elevata.
 
@@ -211,4 +211,4 @@ Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilan
 
 * [Gestione traffico di Azure](traffic-manager-overview.md)
 * [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
-* [Panoramica del servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md)
+* [Panoramica di Azure Load Balancer](../load-balancer/load-balancer-overview.md)

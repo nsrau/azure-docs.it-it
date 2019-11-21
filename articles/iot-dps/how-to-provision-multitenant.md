@@ -1,5 +1,5 @@
 ---
-title: Come effettuare il provisioning di dispositivi per la multi-tenancy nel servizio Device Provisioning in hub IoT di Azure | Microsoft Docs
+title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: Come effettuare il provisioning di dispositivi per la multi-tenancy con l'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116119"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228781"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -25,7 +24,7 @@ I criteri di allocazione definiti dal servizio di provisioning supportano una va
 
 È comune combinare questi due scenari. Ad esempio, una soluzione IoT multi-tenant assegnerà comunemente dispositivi tenant usando un gruppo di hub IoT dislocati tra diverse aree. Questi dispositivi tenant possono essere assegnati all'hub IoT in tale gruppo, che ha la latenza più bassa in base alla posizione geografica.
 
-Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per illustrare come effettuare il provisioning di dispositivi in uno scenario multi-tenant tra più aree geografiche. In questo articolo si eseguiranno i passaggi seguenti:
+Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per illustrare come effettuare il provisioning di dispositivi in uno scenario multi-tenant tra più aree geografiche. In questo articolo si eseguiranno i seguenti passaggi:
 
 * Usare l'interfaccia della riga di comando di Azure per creare due hub IoT a livello di area (**Stati Uniti occidentali** e **Stati Uniti orientali**)
 * Creare una registrazione multi-tenant
@@ -39,7 +38,7 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+* Completamento dell'avvio rapido della [configurazione del servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -90,7 +89,7 @@ Per semplicità, in questo articolo viene usata l'[attestazione con chiave simme
 
 2. Selezionare la scheda **Gestisci registrazioni**, quindi fare clic sul pulsante **Aggiungi gruppo di registrazioni** nella parte superiore della pagina. 
 
-3. In **Aggiungi gruppo di registrazioni** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
+3. In **Aggiungi gruppo di registrazione** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
 
     **Nome gruppo**: immettere **contoso-us-devices**.
 
@@ -98,14 +97,14 @@ Per semplicità, in questo articolo viene usata l'[attestazione con chiave simme
 
     **Genera chiavi automaticamente**: questa casella di controllo dovrebbe essere già selezionata.
 
-    **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Latenza più bassa**.
+    **Selezionare la modalità secondo cui assegnare i dispositivi agli hub**: selezionare **Latenza più bassa**.
 
     ![Aggiungere il gruppo di registrazione multi-tenant per l'attestazione con chiave simmetrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. In **Aggiungi gruppo di registrazione** fare clic su **Collega un nuovo hub IoT** per collegare entrambi gli hub a livello di area.
 
-    **Sottoscrizione** se si hanno più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT a livello di area.
+    **Sottoscrizione**: se si hanno più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT a livello di area.
 
     **Hub IoT**: selezionare uno degli hub a livello di area creato.
 
@@ -420,8 +419,8 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su altre Reprovisioning, vedere [dispositivo Hub IoT un nuovo provisioning concetti](concepts-device-reprovision.md) 
-- Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

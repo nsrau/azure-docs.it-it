@@ -1,5 +1,5 @@
 ---
-title: Assegnare l'accesso ai dati di gestione costi di Azure
+title: Assign access to Azure Cost Management data
 description: Questo articolo illustra in modo dettagliato l'assegnazione di autorizzazioni per i dati di Gestione costi di Azure per vari ambiti di accesso.
 services: cost-management
 keywords: ''
@@ -7,23 +7,23 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: ebc56d27b7adc8f1fea9eafabe1b211f3f0ad560
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e3140ee990127db6815828314103a09dff7cf26e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375136"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219839"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
-Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. Per gli utenti con altri tipi di account Azure, definire il livello di accesso di un utente ai dati di gestione costi è più semplice usando il controllo degli accessi in base al ruolo di Azure. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l’utente può visualizzare i dati in Gestione costi in base al tipo di accesso di cui dispone e all’ambito che ha selezionato nel portale di Azure.
+Per gli utenti con contratti Enterprise di Azure, una combinazione di autorizzazioni concesse nel portale di Azure e nel portale Enterprise (EA) definisce il livello di accesso di un utente ai dati di Gestione costi di Azure. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control. Questo articolo illustra l'assegnazione dell'accesso ai dati di Gestione costi. Dopo l'assegnazione della combinazione di autorizzazioni, l’utente può visualizzare i dati in Gestione costi in base al tipo di accesso di cui dispone e all’ambito che ha selezionato nel portale di Azure.
 
 L'ambito selezionato dall’utente viene usato in Gestione costi per fornire il consolidamento dei dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, gli utenti non possono selezionarne più di uno. Possono tuttavia selezionare un ambito più ampio al quale si riferiscono ambiti secondari e quindi filtrare i contenuti che desiderano visualizzare. È importante comprendere il consolidamento dei dati perché alcuni utenti non devono avere accesso a un ambito padre a cui appartengono ambiti figlio.
 
-Per informazioni sull'assegnazione dell'accesso per visualizzare i costi e gli addebiti con il controllo degli accessi in base al ruolo di Azure, vedere il video su [come assegnare l'accesso con gestione costi di Azure](https://www.youtube.com/watch?v=J997ckmwTa8) .
+Watch the [How to assign access with Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) video to learn about assigning access to view costs and charges with Azure role-based access control.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -64,7 +64,7 @@ Analogamente, se l'opzione **AO view charges** (Visualizzazione addebiti per pro
 - Gruppo di gestione
 - Gruppo di risorse
 
-Sono disponibili vari ambiti dopo che i partner hanno eseguito l'onboarding dei clienti a un contratto di cliente Microsoft. I clienti CSP possono quindi usare le funzionalità di gestione dei costi quando sono abilitate dal partner CSP. Per altre informazioni, vedere [Introduzione a gestione costi di Azure per i partner](get-started-partners.md).
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Abilitare l'accesso ai costi nel portale EA
 
@@ -131,7 +131,7 @@ Dopo aver completato i passaggi precedenti, l'account utente diventa un account 
 
 ## <a name="assign-management-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di gestione
 
-L'accesso per visualizzare l'ambito del gruppo di gestione richiede almeno l'autorizzazione di lettura (o lettura) per la gestione dei costi. È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
+Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. È possibile configurare le autorizzazioni per un gruppo di gestione nel portale di Azure. Per poter abilitare l'accesso per altri utenti, è necessario disporre almeno dell'autorizzazione Amministratore accessi utente (o Proprietario) per il gruppo di gestione. Per gli account di Azure EA, è inoltre necessario abilitare l'impostazione **AO view charges** (Visualizzazione addebiti per proprietari dell'account) nel portale EA.
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nella barra laterale, cercare _Gruppi di gestione_, quindi selezionare **Gruppi di gestione**.
@@ -173,11 +173,11 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
 9. Fare clic su **Salva**
 
-## <a name="cross-tenant-authentication-issues"></a>Problemi di autenticazione tra tenant
+## <a name="cross-tenant-authentication-issues"></a>Cross-tenant authentication issues
 
-Attualmente, gestione costi di Azure ha un supporto limitato per l'autenticazione tra tenant. In alcuni casi, quando si tenta di eseguire l'autenticazione tra i tenant, è possibile che venga visualizzato un errore di **accesso negato** nell'analisi dei costi. Questo problema può verificarsi se si configura il controllo degli accessi in base al ruolo (RBAC) per la sottoscrizione di un altro tenant e quindi si prova a visualizzare i dati sui costi.
+Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
 
-*Per risolvere il problema*: dopo aver configurato il controllo degli accessi in base al ruolo tra tenant, attendere un'ora. Provare quindi a visualizzare i costi nell'analisi dei costi o concedere l'accesso di gestione costi agli utenti in entrambi i tenant.  
+*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

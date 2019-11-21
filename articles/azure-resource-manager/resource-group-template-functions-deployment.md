@@ -1,28 +1,28 @@
 ---
-title: Funzioni di modello-distribuzione
+title: Template functions - deployment
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: 17caf78fb77e330685bb45ab03aaeed611900ba0
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/19/2019
+ms.openlocfilehash: a255cea128241465788f21013eb0522a29f5bd9e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149633"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230227"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
 * [deployment](#deployment)
+* [environment](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
 Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funzioni delle risorse](resource-group-template-functions-resource.md).
 
-<a id="deployment" />
+## <a name="deployment"></a>distribuzione
 
-## <a name="deployment"></a>deployment
 `deployment()`
 
 Restituisce informazioni sull'operazione di distribuzione corrente.
@@ -133,18 +133,115 @@ L'esempio precedente restituisce l'oggetto seguente:
 
 Per un modello a livello di sottoscrizione che usa la funzione di distribuzione, vedere la [funzione di distribuzione per sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). La distribuzione si esegue con i comandi `az deployment create` o `New-AzDeployment`.
 
-<a id="parameters" />
+## <a name="environment"></a>environment
 
-## <a name="parameters"></a>parameters
+`environment()`
+
+Returns information about the Azure environment used for deployment.
+
+### <a name="return-value"></a>Valore restituito
+
+This function returns properties for the current Azure environment.
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
+```
+
+### <a name="example"></a>Esempio
+
+The following example template returns the environment object.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+The preceding example returns the following object when deployed to global Azure:
+
+```json
+{
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
+  "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
+  "authentication": {
+    "loginEndpoint": "https://login.windows.net/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
+  },
+  "suffixes": {
+    "acrLoginServer": ".azurecr.io",
+    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+    "keyvaultDns": ".vault.azure.net",
+    "sqlServerHostname": ".database.windows.net",
+    "storage": "core.windows.net"
+  }
+}
+```
+
+## <a name="parameters"></a>Parametri
+
 `parameters(parameterName)`
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sì |stringa |Nome del parametro da restituire. |
+| parameterName |SÌ |string |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -229,28 +326,27 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | option 1 |
-| intOutput | int | 1 |
-| objectOutput | Object | {"one": "a", "two": "b"} |
+| stringOutput | Stringa | option 1 |
+| intOutput | Int | 1 |
+| objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | String | option 1 |
+| crossOutput | Stringa | option 1 |
 
-Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
-
-<a id="variables" />
+For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
 
 ## <a name="variables"></a>variables
+
 `variables(variableName)`
 
 Restituisce il valore della variabile. Il nome della variabile specificato deve essere definito nella sezione variables del modello.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |Sì |String |Nome della variabile da restituire. |
+| variableName |SÌ |Stringa |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -322,14 +418,14 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | Stringa | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+| exampleOutput3 | Stringa | myVariable |
+| exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
-Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
+For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

@@ -1,5 +1,5 @@
 ---
-title: Gestisci versioni-LUIS
+title: Manage versions - LUIS
 titleSuffix: Azure Cognitive Services
 description: Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una versione diversa dell'app prima di apportare modifiche al modello.
 services: cognitive-services
@@ -9,26 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: aa1cbd08bdf8d92653a8f30ae67ecd813e563999
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 138b84a9b7f54782fd6254304a3fdcf4dba83182
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467522"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221903"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usare le versioni per eseguire modifiche e test senza conseguenze per le app di staging o produzione
 
 Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una [versione](luis-concept-version.md) diversa dell'app prima di apportare modifiche al modello. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 Per usare le versioni, aprire l'app selezionando il relativo nome nella pagina **Mie app**, quindi selezionare **Gestisci** nella barra superiore e successivamente **Versioni** nella sezione di navigazione a sinistra. 
 
-L'elenco delle versioni indica quali versioni sono pubblicate, dove sono pubblicate e quale versione è attualmente attiva. 
+The list of versions shows which versions are published, where they are published, and which version is currently active. 
 
-[![Sezione Gestisci, pagina versioni](./media/luis-how-to-manage-versions/versions-import.png "Gestire una sezione e la pagina versioni")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png "Gestire una sezione e la pagina versioni")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Clonare una versione
 
@@ -45,23 +44,26 @@ L'elenco delle versioni indica quali versioni sono pubblicate, dove sono pubblic
 
 ## <a name="set-active-version"></a>Impostare la versione attiva
 
-Selezionare una versione dall'elenco, quindi selezionare **Attiva** nella barra degli strumenti. 
+Select a version from the list, then select **Activate** from the toolbar. 
 
-[![Gestisci sezione, pagina versioni, Esegui un'azione versione](./media/luis-how-to-manage-versions/versions-other.png "Gestisci sezione, pagina versioni, Esegui un'azione versione")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Manage section, versions page, make a version action](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page, make a version action")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importare la versione
 
-1. Selezionare **Importa versione** nella barra degli strumenti. 
+You can import a `.json` or a `.lu` version of your application.
 
-2. Nel comando **Importa nuova versione** della finestra popup, immettere il nuovo nome della versione di dieci caratteri. È necessario impostare un ID della versione solo se la versione nel file JSON è già presente nell'app.
+1. Select **Import** from the toolbar, then select the format. 
+
+2. Nel comando **Importa nuova versione** della finestra popup, immettere il nuovo nome della versione di dieci caratteri. You only need to set a version ID if the version in the file already exists in the app.
 
     ![Sezione relativa alla gestione della pagina delle versioni, importazione di una nuova versione](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Una volta importata una versione, la nuova versione diventa quella attiva.
 
-### <a name="import-errors"></a>Errori di importazione
+### <a name="import-errors"></a>Import errors
 
-* Errori Tokenizer: se si verifica un **errore Tokenizer** durante l'importazione, si sta tentando di importare una versione che usa un [Tokenizer](luis-language-support.md#custom-tokenizer-versions) diverso da quello attualmente usato dall'app. Per risolvere questo problema, vedere la pagina relativa alla [migrazione tra le versioni Tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#custom-tokenizer-versions) than the app currently uses. To fix this, see [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
@@ -69,5 +71,5 @@ Selezionare una versione dall'elenco, quindi selezionare **Attiva** nella barra 
 
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Elimina** nella barra degli strumenti. Selezionare **OK**. 
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Rinomina** nella barra degli strumenti. Immettere un nuovo nome e selezionare **Fatto**. 
-* Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Scegliere JSON per l'esportazione per il backup, scegliere **Esporta per contenitore** per [usare questa app in un contenitore Luis](luis-container-howto.md).  
+* Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Choose JSON to export for backup, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).  
 

@@ -1,5 +1,5 @@
 ---
-title: Come gestire le identità gestite assegnate dall'utente di Azure mediante REST
+title: Manage user-assigned managed identities using REST - Azure AD
 description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente per eseguire chiamate dell'API REST.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75867242358881c963ab4470bdb7963d0ea4671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d0b4da7f47181341fce7c5fa5e7a6d239fe3070d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440182"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224656"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante chiamate dell'API REST
 
@@ -34,7 +34,7 @@ Questo articolo spiega come creare, elencare ed eliminare un'identità gestita a
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
+- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure utilizzare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
 - Se si usa il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installare la console locale di interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 - Se si usa la console locale di interfaccia della riga di comando di Azure, accedere ad Azure tramite `az login` con un account associato alla sottoscrizione di Azure di cui si intende distribuire o recuperare le informazioni sull'identità gestita assegnata dall'utente.
 - Recuperare un token di accesso Bearer usando `az account get-access-token` per eseguire le seguenti operazioni relative all'identità gestita assegnata dall'utente.
@@ -60,14 +60,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Intestazioni della richiesta**
 
-|Intestazione della richiesta  |Descrizione  |
+|Intestazione della richiesta  |Description  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
 
 **Corpo della richiesta**
 
-|NOME  |Descrizione  |
+|name  |Description  |
 |---------|---------|
 |location     | Richiesto. Percorso della risorsa.        |
 
@@ -83,10 +83,10 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|Intestazione della richiesta  |Descrizione  |
+|Intestazione della richiesta  |Description  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminare un'identità gestita assegnata dall'utente
 
@@ -103,10 +103,10 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|Intestazione della richiesta  |Descrizione  |
+|Intestazione della richiesta  |Description  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

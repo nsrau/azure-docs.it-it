@@ -1,6 +1,6 @@
 ---
-title: Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti-Azure Active Directory
-description: Informazioni sul processo di richiesta per un pacchetto di accesso e quando le notifiche di posta elettronica vengono inviate in Azure Active Directory gestione dei diritti.
+title: Request process and email notifications in Azure AD entitlement management - Azure Active Directory
+description: Learn about the request process for an access package and when email notifications are sent in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,121 +12,147 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/30/2019
+ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34d2c69cc808552a3b0c604804f3cd2597b379b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199980"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206967"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Richiedere il processo e le notifiche tramite posta elettronica in Azure AD gestione dei diritti
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Request process and email notifications in Azure AD entitlement management
 
-Quando un utente invia una richiesta a un pacchetto di accesso, un processo inizia a consegnare la richiesta di accesso. Azure AD la gestione dei diritti Invia notifiche tramite posta elettronica ai responsabili approvazione e ai richiedenti quando si verificano eventi chiave durante il processo. Questo articolo descrive il processo di richiesta e le notifiche di posta elettronica inviate.
+When a user submits a request to an access package, a process begins to deliver that access request. Azure AD entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
 
-## <a name="request-process"></a>Richiedi processo
+## <a name="request-process"></a>Request process
 
-Un utente che deve accedere a un pacchetto di accesso può inviare una richiesta di accesso. A seconda della configurazione dei criteri, la richiesta potrebbe richiedere un'approvazione. Quando una richiesta viene approvata, un processo inizia a assegnare l'accesso utente a ogni risorsa nel pacchetto di accesso. Il diagramma seguente mostra una panoramica del processo e dei diversi stati:
+A user that needs access to an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states:
 
-![Diagramma del processo di approvazione](./media/entitlement-management-process/request-process.png)
+![Approval process diagram](./media/entitlement-management-process/request-process.png)
 
 | Statale | Description |
 | --- | --- |
-| Inviato | L'utente invia una richiesta. |
-| In attesa di approvazione | Se il criterio per un pacchetto di accesso richiede l'approvazione, una richiesta passa a approvazione in sospeso. |
-| Scaduto | Se nessun approvatore approva una richiesta entro il timeout della richiesta di approvazione, la richiesta scade. Per riprovare, l'utente dovrà inviare di nuovo la richiesta. |
-| Negato | Il responsabile approvazione nega una richiesta. |
-| Approved | Il responsabile approvazione approva una richiesta. |
-| Recapito | All'utente **non** è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. Se si tratta di un utente esterno, è possibile che l'utente non abbia ancora eseguito l'accesso alla directory delle risorse e abbia accettato la richiesta di consenso. |
-| Recapitato | All'utente è stato assegnato l'accesso a tutte le risorse nel pacchetto di accesso. |
-| Accesso esteso | Se nel criterio sono consentite le estensioni, l'utente ha esteso l'assegnazione. |
-| Accesso scaduto | L'accesso dell'utente al pacchetto di accesso è scaduto. Per ottenere nuovamente l'accesso, l'utente dovrà inviare una richiesta. |
+| Submitted | User submits a request. |
+| In attesa di approvazione | If the policy for an access package requires approval, a request moves to pending approval. |
+| Scaduto | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
+| Denied | Approver denies a request. |
+| Approved | Approver approves a request. |
+| Recapito | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user may not have accessed the resource directory yet. They also may not have accepted the consent prompt. |
+| Recapitato | User has been assigned access to all the resources in the access package. |
+| Access extended | If extensions are allowed in the policy, the user extended the assignment. |
+| Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
 
 ## <a name="email-notifications"></a>Notifiche tramite posta elettronica
 
-Se si è un responsabile approvazione, vengono inviate notifiche tramite posta elettronica quando è necessario approvare una richiesta di accesso e quando una richiesta di accesso è stata completata. Se si è un richiedente, viene inviata una notifica tramite posta elettronica che indica lo stato della richiesta.
+If you're an approver, you're sent email notifications when you need to approve an access request. You also receive notifications when an access request has been completed. You're also sent email notifications that indicate the status of your request if you're a requestor.
 
-I diagrammi seguenti mostrano quando queste notifiche di posta elettronica vengono inviate ai responsabili approvazione o al richiedente. Fare riferimento alla [tabella delle notifiche di posta elettronica](entitlement-management-process.md#email-notifications-table) per trovare il numero corrispondente alle notifiche di posta elettronica visualizzate nei diagrammi.
+The following diagrams show when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md#email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
 
-### <a name="primary-approvers-and-alternate-approvers"></a>Responsabili approvazione primari e responsabili approvazione alternativi
-Il diagramma seguente illustra l'esperienza dei responsabili approvazione primari e degli approvatori alternativi e le notifiche di posta elettronica ricevute durante il processo di richiesta:
+### <a name="first-approvers-and-alternate-approvers"></a>First approvers and alternate approvers
+The following diagram shows the experience of first approvers and alternate approvers, and the email notifications they receive during the request process:
 
-![Flusso del processo di responsabili approvazione primario e alternativo](./media/entitlement-management-process/primary-approvers-and-alternate-with-escalation-flow.png)
+![First and alternate approvers process flow](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
 
 ### <a name="requestors"></a>Richiedenti
-Il diagramma seguente illustra l'esperienza dei richiedenti e le notifiche di posta elettronica ricevute durante il processo di richiesta:
+The following diagram shows the experience of requestors and the email notifications they receive during the request process:
 
-![Flusso del processo del richiedente](./media/entitlement-management-process/requestor-approval-and-expiration-request-flow.png)
+![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### <a name="email-notifications-table"></a>Tabella delle notifiche di posta elettronica
-Nella tabella seguente vengono fornite informazioni più dettagliate su ognuna di queste notifiche di posta elettronica. Per gestire questi messaggi di posta elettronica, è possibile usare le regole. In Outlook, ad esempio, è possibile creare regole per spostare i messaggi di posta elettronica in una cartella se l'oggetto contiene parole da questa tabella:
+### <a name="2-stage-approval"></a>2-stage approval
+The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
 
-| # | Oggetto del messaggio di posta elettronica | Quando viene inviato | Inviato a |
+![2-stage approval process flow](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
+
+### <a name="email-notifications-table"></a>Email notifications table
+The following table provides more detail about each of these email notifications. To manage these emails, you can use rules. For example, in Outlook, you can create rules to move the emails to a folder if the subject contains words from this table:
+
+| # | Oggetto del messaggio di posta elettronica | When sent | Sent to |
 | --- | --- | --- | --- |
-| 1 | Azione richiesta: approvare o negare la richiesta con inoltri per *[DATE]* | Questo messaggio di posta elettronica verrà inviato ai responsabili approvazione alternativi di staging, dopo l'escalation della richiesta, per eseguire un'azione. | Fase 1 responsabile approvazione alternativo |
-| 2 | Azione richiesta: approva o Nega richiesta da *[DATE]* | Questo messaggio di posta elettronica verrà inviato ai responsabili approvazione primari di staging, se l'escalation è disabilitata, per eseguire un'azione. | Fase 1 responsabile approvazione primario |
-| 3 | Promemoria: approvare o rifiutare la richiesta per *[DATE]* per *[richiedente]* | Questo messaggio di posta elettronica di promemoria verrà inviato ai responsabili approvazione primari di staging, se l'escalation è disabilitata, per eseguire un'azione, solo se non sono ancora state intraprese azioni. | Fase 1 responsabile approvazione primario |
-| 4 | Approva o rifiuta la richiesta da *[Time]* in *[DATE]* | Questo messaggio di posta elettronica verrà inviato ai responsabili approvazione primari di staging (se l'escalation è abilitato) per eseguire un'azione. | Fase 1 responsabile approvazione primario |
-| 5 | Azione richiesta promemoria: approva o nega la richiesta per *[DATE]* per *[richiedente]* | Questo messaggio di posta elettronica di promemoria verrà inviato ai responsabili approvazione primari di staging, se l'escalation è abilitata, per eseguire un'azione, solo se non sono ancora state intraprese azioni. | Fase 1 responsabile approvazione primario |
-| 6 | La richiesta è scaduta per *[access_package]* | Questo messaggio di posta elettronica verrà inviato ai responsabili approvazione primari e/o alla fase 1, di una richiesta a singola fase o in più fasi, dopo la scadenza della richiesta. | Fase 1 responsabile approvazione principale, responsabile approvazione alternativo |
-| 7 | Richiesta approvata per *[richiedente]* a *[access_package]* | Al completamento di una richiesta, questo messaggio di posta elettronica verrà inviato ai responsabili approvazione primari e/o alla fase 1. | Fase 1 responsabile approvazione principale, responsabile approvazione alternativo |
-| 8 | Richiesta approvata per *[richiedente]* a *[access_package]* | Questo messaggio di posta elettronica verrà inviato ai responsabili approvazione primario di staging e/o alla fase 1, di una richiesta a 2 fasi, solo quando viene approvata la fase-1. | Fase 1 responsabile approvazione principale, responsabile approvazione alternativo |
-| 9 | Richiesta negata a *[access_package]* | Questo messaggio di posta elettronica verrà inviato al richiedente solo quando la richiesta viene rifiutata | Richiedente |
-| 10 | La richiesta è scaduta per *[access_package]* | Questo messaggio di posta elettronica verrà inviato al richiedente alla fine della fase-1, di una richiesta a fase singola o in più fasi, dopo la scadenza della richiesta. | Richiedente |
-| 18 | È ora possibile accedere a *[access_package]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali per iniziare a usare l'accesso. | Richiedente |
-| 19 | Estendi accesso per *[access_package]* di *[DATE]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali prima della scadenza dell'accesso. | Richiedente |
-| 20 | L'accesso è terminato per *[access_package]* | Questo messaggio di posta elettronica verrà inviato agli utenti finali dopo la scadenza dell'accesso. | Richiedente |
+| 1 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to Stage-1 alternate approvers (after the request has been escalated) to take action. | Stage-1 alternate approvers |
+| 2 | Action required: Approve or deny request by *[date]* | This email will be sent to the first approver, if escalation is disabled, to take action. | First approver |
+| 3 | Reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the first approver, if escalation is disabled. The email asks them to take action if they haven't. | First approver |
+| 4 | Approve or deny the request by *[time]* on *[date]* | This email will be sent to the first approver (if escalation is enabled) to take action. | First approver |
+| 5 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the first approver, if escalation is enabled. The email asks them to take action if they haven't. | First approver |
+| 6 | Request has expired for *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers after the request has expired. | First approver, stage-1 alternate approvers |
+| 7 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers upon request completion. | First approver, stage-1 alternate approvers |
+| 8 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers of a 2-stage request when the stage-1 request is approved. | First approver, stage-1 alternate approvers |
+| 9 | Request denied to *[access_package]* | This email will be sent to the requestor when their request is denied | Requestor |
+| 10 | Your request has expired for *[access_package]* | This email will be sent to the requestor at the end of a single or 2-stage request. The email notifies the requestor that the request expired. | Requestor |
+| 11 | Action required: Approve or deny request by *[date]* | This email will be sent to the second approver, if escalation is disabled, to take action. | Second approver |
+| 12 | Action required reminder: Approve or deny the request by *[date]* | This reminder email will be sent to the second approver, if escalation is disabled. The notification asks them to take action if they haven't yet. | Second approver |
+| 13 | Action required: Approve or deny the request by *[date]* for *[requestor]* | This email will be sent to second approver, if escalation is enabled, to take action. | Second approver |
+| 14 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the second approver, if escalation is enabled. The notification asks them to take action if they haven't yet. | Second approver |
+| 15 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to stage-2 alternate approvers, if escalation is enabled, to take action. | Stage-2 alternate approvers |
+| 16 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the second approver and stage-2 alternate approvers upon approving the request. | Second approver, Stage-2 alternate approvers |
+| 17 | A request has expired for *[access_package]* | This email will be sent to the second approver or alternate approvers, after the request expires. | Second approver, stage-2 alternate approvers |
+| 18 | You now have access to *[access_package]* | This email will be sent to the end users to start using their access. | Requestor |
+| 19 | Extend access for *[access_package]* by *[date]* | This email will be sent to the end users before their access expires. | Requestor |
+| 20 | Access has ended for *[access_package]* | This email will be sent to the end users after their access expires. | Requestor |
 
-### <a name="access-request-emails"></a>Messaggi di posta elettronica di richiesta di accesso
+### <a name="access-request-emails"></a>Access request emails
 
-Quando un richiedente invia una richiesta di accesso per un pacchetto di accesso configurato per richiedere l'approvazione, tutti i responsabili approvazione aggiunti al criterio riceveranno una notifica tramite posta elettronica con i dettagli della richiesta. I dettagli includono il nome, l'organizzazione, la data di inizio e di fine (se specificato) del richiedente, la motivazione aziendale, il momento in cui la richiesta è stata inviata e la scadenza della richiesta.
+When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy will receive an email notification with details of the request. The details in the email include: requestor's name organization, and business justification; and the requested access start and end date (if provided). The details will also include when the request was submitted and when the request will expire.
 
-Il messaggio di posta elettronica include i responsabili approvazione dei collegamenti possono fare clic su per passare a accesso per approvare o negare la richiesta di accesso. Ecco una notifica di posta elettronica di esempio inviata a un responsabile approvazione quando un richiedente invia una richiesta di accesso:
+The email includes a link approvers can click on to go to My Access to approve or deny the access request. Here is a sample email notification that is sent to the first approver or second approver (if 2-stage approval is enabled) to complete an access request:
 
-![Approva la richiesta di accesso alla posta elettronica del pacchetto](./media/entitlement-management-shared/approver-request-email.png)
+![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
-Ai responsabili approvazione primari viene inviata anche una notifica tramite posta elettronica con un promemoria per intervenire e prendere una decisione per la richiesta. Di seguito è riportato un messaggio di posta elettronica di esempio dei responsabili approvazione primari delle notifiche che ricevono per ricordare di eseguire le operazioni seguenti:
+Approvers can also receive a reminder email. The email asks the approver to make a decision on the request. Here is a sample email notification the approver receives to remind them to take action:
 
-![Messaggio di richiesta di accesso di promemoria](./media/entitlement-management-process/approver-access-request-reminder-email.png)
+![Reminder access request email](./media/entitlement-management-process/approver-access-request-reminder-email.png)
 
-### <a name="alternate-approver-request-emails"></a>Messaggi di posta elettronica di richiesta di approvazione alternativi
+### <a name="alternate-approvers-request-emails"></a>Alternate approvers request emails
 
-Se l'invio a responsabili approvazione alternativi è abilitato, in base ai criteri di invio, se la richiesta è ancora in sospeso, la richiesta verrà trasmessa. Il responsabile approvazione alternativo riceverà un messaggio di posta elettronica di notifica per approvare o rifiutare la richiesta. Di seguito è riportato un messaggio di posta elettronica di esempio della notifica ricevuta dagli approvatori alternativi:
+If the alternate approvers setting is enabled and the request is still pending, it will be forwarded. Alternate approvers will receive an email to approve or deny the request. You can enable alternate approvers in stage-1 and stage-2. Here is a sample email of the notification the alternate approvers receive:
 
-![Messaggio di richiesta di approvazione alternativo](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
+![Alternate approvers request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
 
-Entrambi, i responsabili approvazione primari e gli approvatori alternativi possono approvare o rifiutare la richiesta.
+Both the approver and the alternate approvers can approve or deny the request.
 
-### <a name="approved-or-denied-emails"></a>Email approvate o negate
+### <a name="approved-or-denied-emails"></a>Approved or denied emails
 
-I richiedenti ricevono una notifica quando la richiesta di accesso è approvata e disponibile per l'accesso o quando la richiesta di accesso viene negata. Quando un responsabile approvazione riceve una richiesta di accesso inviata da un richiedente, può approvare o rifiutare la richiesta di accesso. Il responsabile approvazione deve aggiungere una motivazione aziendale per la decisione. Ecco un messaggio di posta elettronica di esempio inviato a responsabili approvazione primari o alternativi dopo l'approvazione di una richiesta:
+ When an approver receives an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision. Here is a sample email sent to the approvers and alternate approvers after a request is approved:
 
-![Verifica indirizzo di posta elettronica richiesta di accesso](./media/entitlement-management-process/approver-request-email-approved.png)
+![Approved request to access package email](./media/entitlement-management-process/approver-request-email-approved.png)
 
-Quando viene approvata una richiesta di accesso e viene effettuato il provisioning dell'accesso, viene inviata una notifica tramite posta elettronica al richiedente che ora ha accesso al pacchetto di accesso. Ecco una notifica di posta elettronica di esempio inviata a un richiedente quando viene concesso l'accesso a un pacchetto di accesso:
+When an access request is approved, and their access is provisioned, an email notification is sent to the requestor that they now have access to the access package. Here is a sample email notification that is sent to a requestor when they're granted access to an access package:
 
-![Messaggio di richiesta di accesso scaduto](./media/entitlement-management-process/requestor-email-approved.png)
+![Approved requestor access request email](./media/entitlement-management-process/requestor-email-approved.png)
 
-Quando una richiesta di accesso viene negata, viene inviata una notifica tramite posta elettronica al richiedente. Ecco una notifica di posta elettronica di esempio inviata a un richiedente quando viene negata la richiesta di accesso:
+When an access request is denied, an email notification is sent to the requestor. Here is a sample email notification that is sent to a requestor when their access request is denied:
 
-![Richiesta di messaggio di posta elettronica negato](./media/entitlement-management-process/requestor-email-denied.png)
+![Requestor request denied email](./media/entitlement-management-process/requestor-email-denied.png)
 
-### <a name="expired-access-request-emails"></a>Messaggi di posta elettronica di richiesta di accesso scaduti
+### <a name="2-stage-approval-access-request-emails"></a>2-stage approval access request emails
 
-Le richieste di accesso possono scadere se nessun responsabile approvazione ha approvato o negato la richiesta. 
+If 2-stage approval is enabled, at least two approvers must approve the request, one from each stage, before the requestor can receive access.
 
-Quando la richiesta raggiunge la data di scadenza configurata e scade, non può più essere approvata o negata dai responsabili approvazione. Di seguito è riportato un messaggio di posta elettronica di esempio della notifica inviata a tutti i responsabili approvazione primari e alternativi:
+During stage-1, the first approver will receive the access request email and make a decision. If they approve the request, all first approvers and alternate approvers in stage-1 (if escalation is enabled) will receive notification that stage-1 is complete. Here is a sample email of the notification that is sent when stage-1 is complete:
 
- ![I responsabili approvazione hanno scaduto la posta elettronica richiesta di accesso](./media/entitlement-management-process/approver-request-email-expired.png)
+![2-stage access request email](./media/entitlement-management-process/approver-request-email-2stage.png)
 
- Al richiedente viene inviata anche una notifica tramite posta elettronica, che informa che la richiesta di accesso è scaduta e che è necessario inviare nuovamente la richiesta di accesso. Ecco una notifica di posta elettronica di esempio inviata a un richiedente quando la richiesta di accesso è scaduta:
+After the first or alternate approvers approve the request in stage-1, stage-2 begins. During stage-2, the second approver will receive the access request notification email. After the second approver or alternate approvers in stage-2 (if escalation is enabled) decide to approve or deny the request, notification emails are sent to the first and second approvers, and all alternate approvers in stage-1 and stage-2, as well as the requestor.
 
-![Messaggio di richiesta di accesso scaduto per il richiedente](./media/entitlement-management-process/requestor-email-request-expired.png)
+### <a name="expired-access-request-emails"></a>Expired access request emails
+
+Access requests could expire if no approver has approved or denied the request. 
+
+When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the first, second (if 2-stage approval is enabled), and alternate approvers:
+
+![Approvers expired access request email](./media/entitlement-management-process/approver-request-email-expired.png)
+
+An email notification is also sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
+
+![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
+
+Here is a sample email notification that is sent to a requestor when their access request has expired:
+
+![Requestor expired access request email](./media/entitlement-management-process/requestor-email-request-expired.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Richiedere l'accesso a un pacchetto di accesso](entitlement-management-request-access.md)
-- [Approva o rifiuta le richieste di accesso](entitlement-management-request-approve.md)
+- [Request access to an access package](entitlement-management-request-access.md)
+- [Approve or deny access requests](entitlement-management-request-approve.md)

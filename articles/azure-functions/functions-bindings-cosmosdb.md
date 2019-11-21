@@ -1,25 +1,21 @@
 ---
 title: Associazioni di Azure Cosmos DB per Funzioni 1.x
 description: Informazioni su come usare trigger e associazioni di Azure Cosmos DB in Funzioni di Azure.
-services: functions
 author: craigshoemaker
 ms.author: cshoe
-manager: gwallace
-keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0e6782c48543723438ee332313de268117dee3e9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9946994f21e19bd2ac0b53054cbb2181f1558bd3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480731"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227340"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 
-> [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versione 1](functions-bindings-cosmosdb.md)
 > * [Versione 2](functions-bindings-cosmosdb-v2.md)
 
@@ -180,11 +176,11 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type** || Il valore deve essere impostato su `cosmosDBTrigger`. |
 |**direction** || Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
-|**name** || Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
+|**nome** || Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Il nome di un'impostazione dell'app che contiene la stringa di connessione usata per connettersi all'account di Azure Cosmos DB monitorato. |
 |**databaseName**|**DatabaseName**  | Il nome del database di Azure Cosmos DB con la raccolta monitorata. |
 |**collectionName** |**CollectionName** | Il nome della raccolta monitorata. |
@@ -1159,11 +1155,11 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `documentdb`.        |
 |**direction**     || Il valore deve essere impostato su `in`.         |
-|**name**     || Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**nome**     || Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** |**DatabaseName** |Database che contiene il documento.        |
 |**collectionName** |**CollectionName** | Nome della raccolta che contiene il documento. |
 |**id**    | **Id** | ID del documento da recuperare. Questa proprietà supporta le [espressioni di associazione](./functions-bindings-expressions-patterns.md). Non impostare entrambe le proprietà **id** e **sqlQuery**. Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta. |
@@ -1577,11 +1573,11 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-examples).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `documentdb`.        |
 |**direction**     || Il valore deve essere impostato su `out`.         |
-|**name**     || Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**nome**     || Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** | **DatabaseName**|Database contenente la raccolta in cui viene creato il documento.     |
 |**collectionName** |**CollectionName**  | Nome della raccolta in cui viene creato il documento. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false* perché le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di costi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/documentdb/).  |
@@ -1600,9 +1596,9 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimenti |
+| Associazione | Riferimento |
 |---|---|
-| Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

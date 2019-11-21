@@ -1,6 +1,6 @@
 ---
-title: Supporto Azure Resource Manager per Load Balancer
-description: In questo articolo, usare Azure PowerShell e modelli con Azure Load Balancer
+title: Azure Resource Manager support for Load Balancer
+description: In this article, use Azure PowerShell and templates with Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: b22b89334fbb55e594ac2b27b486cf5d0bd26f03
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: 57a60a65dee995695224aa1b451e848ea8768ab1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196113"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215399"
 ---
-# <a name="azure-resource-manager-support-with-azure-load-balancer"></a>Supporto Azure Resource Manager con Azure Load Balancer
+# <a name="azure-resource-manager-support-with-azure-load-balancer"></a>Azure Resource Manager support with Azure Load Balancer
 
 
 
@@ -28,27 +28,27 @@ Azure Resource Manager è il framework di gestione preferito dei servizi in Azur
 
 Con Resource Manager, Azure Load Balancer contiene le seguenti risorse figlio:
 
-* Configurazione IP front-end: un servizio di bilanciamento del carico può includere uno o più indirizzi IP front-end, noti anche come IP virtuali (VIP). Questi indirizzi IP vengono usati come ingresso per il traffico.
-* Pool di indirizzi back-end: questo pool è una raccolta di indirizzi IP associati alla scheda di interfaccia di rete (NIC) della macchina virtuale a cui viene distribuito il carico.
-* Regole di bilanciamento del carico: una proprietà della regola esegue il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Un singolo servizio di bilanciamento del carico può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di indirizzo IP e porta front-end e di IP e porta back-end associati alle macchine virtuali.
+* Front-end IP configuration – a load balancer can include one or more frontend IP addresses, otherwise known as a virtual IPs (VIPs). Questi indirizzi IP vengono usati come ingresso per il traffico.
+* Back-end address pool – This pool is a collection of IP addresses associated with the virtual machine Network Interface Card (NIC) to which load is distributed.
+* Load-balancing rules – a rule property maps a given frontend IP and port combination to a set of back-end IP addresses and port combination. A single load balancer can have multiple load-balancing rules. Each rule is a combination of a frontend IP and port and back-end IP and port associated with VMs.
 * Probe: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se un probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
-* Regole NAT in ingresso: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
+* Inbound NAT rules – NAT rules defining the inbound traffic flowing through the frontend IP and distributed to the back-end IP.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
-## <a name="quickstart-templates"></a>Modelli di Guida introduttiva
+## <a name="quickstart-templates"></a>Modelli introduttivi
 
-Gestione risorse di Azure consente di effettuare il provisioning delle applicazioni usando un modello dichiarativo. In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Si usa lo stesso modello per distribuire più volte l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
+Azure Resource Manager ti permette di eseguire il provisioning delle tue applicazioni usando un modello dichiarativo. Con un unico modello, puoi distribuire più servizi insieme alle rispettive dipendenze. Puoi usare lo stesso modello per distribuire ripetutamente la tua applicazione durante ogni fase del suo ciclo di vita.
 
-I modelli possono includere definizioni per:
+Templates may include definitions for:
 * **Macchine virtuali**
 * **Reti virtuali**
 * **Set di disponibilità**
-* **Interfacce di rete (NIC)**
+* **Network interfaces (NICs)**
 * **Account di archiviazione**
 * **Servizi di bilanciamento del carico**
 * **Gruppi di sicurezza di rete**
-* **Indirizzi IP pubblici.** 
+* **Public IPs.** 
 
 Con i modelli è possibile creare tutto il necessario per un'applicazione complessa. Il file modello può essere verificato nel sistema di gestione dei contenuti per il controllo della versione e la collaborazione.
 
@@ -56,17 +56,17 @@ Con i modelli è possibile creare tutto il necessario per un'applicazione comple
 
 [Altre informazioni sulle risorse di rete](../networking/networking-overview.md)
 
-Per i modelli di avvio rapido con Azure Load Balancer, vedere il [repository GitHub](https://github.com/Azure/azure-quickstart-templates) che ospita un set di modelli generati dalla community.
+For Quickstart templates using Azure Load Balancer, see the [GitHub repository](https://github.com/Azure/azure-quickstart-templates) that hosts a set of community-generated templates.
 
 Esempi di modelli:
 
 * [2 macchine virtuali in un bilanciamento del carico e regole di bilanciamento del carico](https://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 macchine virtuali in una VNET con regole di bilanciamento del carico e Load Balancer interne](https://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT in LB](https://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 VMs in a VNET with an Internal Load Balancer and load balancer rules](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 VMs in a load balancer and configure NAT rules on the LB](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Configurazione del bilanciamento del carico di Azure con PowerShell o l'interfaccia della riga di comando
 
-Introduzione ai cmdlet di Azure Resource Manager, agli strumenti da riga di comando e alle API REST
+Get started with Azure Resource Manager cmdlets, command-line tools, and REST APIs
 
 * [cmdlet di rete di Azure](https://docs.microsoft.com/powershell/module/az.network#networking) possono essere usati per creare un bilanciamento del carico.
 * [Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure](load-balancer-get-started-ilb-arm-ps.md)
@@ -75,6 +75,6 @@ Introduzione ai cmdlet di Azure Resource Manager, agli strumenti da riga di coma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Iniziare [a creare un servizio di bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete.
+[Get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure the type of [distribution mode](load-balancer-distribution-mode.md) for specific network traffic behavior.
 
-Informazioni su come gestire [le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Queste impostazioni sono importanti quando è necessario che l'applicazione mantenga le connessioni attive per i server dietro un servizio di bilanciamento del carico.
+Informazioni su come gestire [le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md). These settings are important when your application needs to keep connections alive for servers behind a load balancer.

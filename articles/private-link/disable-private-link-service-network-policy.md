@@ -1,29 +1,29 @@
 ---
-title: "Disabilitare i criteri di rete per l'indirizzo IP di origine del servizio di collegamento privato di Azure "
-description: Informazioni su come disabilitare i criteri di rete per il collegamento privato di Azure
+title: 'Disable network policies for Azure Private Link service source IP address '
+description: Learn how to disable network policies for Azure private Link
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 53df209d080cf91be9c558b43edaa618c0748fc5
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.author: allensu
+ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101547"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228112"
 ---
-# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Disabilitare i criteri di rete per l'indirizzo IP di origine del servizio di collegamento privato
+# <a name="disable-network-policies-for-private-link-service-source-ip"></a>Disable network policies for Private Link service source IP
 
-Per scegliere un indirizzo IP di origine per il servizio di collegamento privato, nella subnet è necessaria un'impostazione di disabilitazione esplicita `privateLinkServiceNetworkPolicies`. Questa impostazione è applicabile solo per l'indirizzo IP privato specifico scelto come IP di origine del servizio di collegamento privato. Per altre risorse nella subnet, l'accesso viene controllato in base alla definizione delle regole di sicurezza dei gruppi di sicurezza di rete (NSG). 
+In order to choose a source IP address for your Private Link service, an explicit disable setting `privateLinkServiceNetworkPolicies` is required on the subnet. This setting is only applicable for the specific private IP address you chose as the source IP of the Private Link service. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
  
-Quando si usa un client di Azure (PowerShell, CLI o modelli), è necessario un passaggio aggiuntivo per modificare questa proprietà. È possibile disabilitare il criterio usando cloud shell dalla portale di Azure o dalle installazioni locali di Azure PowerShell, dall'interfaccia della riga di comando di Azure o usare modelli di Azure Resource Manager.  
+When using any Azure client (PowerShell, CLI or templates), an additional step is required to change this property. You can disable the policy using the cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
  
-Attenersi alla procedura seguente per disabilitare i criteri di rete del servizio di collegamento privato per una rete virtuale denominata *myVirtualNetwork* con una subnet *predefinita* ospitata in un gruppo di risorse denominato *myResourceGroup*. 
+Follow the steps below to disable private link service network policies for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*. 
 
 ## <a name="using-azure-powershell"></a>Uso di Azure PowerShell
-Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando Azure PowerShell.
+This section describes how to disable subnet private endpoint policies using Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando l'interfaccia della riga di comando di Azure.
+This section describes how to disable subnet private endpoint policies using Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +44,7 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 ## <a name="using-a-template"></a>Uso di un modello
-Questa sezione descrive come disabilitare i criteri dell'endpoint privato della subnet usando Azure Resource Manager modello.
+This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
 ```json
 { 
     "name": "myVirtualNetwork", 
@@ -71,5 +71,5 @@ Questa sezione descrive come disabilitare i criteri dell'endpoint privato della 
  
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sull' [endpoint privato di Azure](private-endpoint-overview.md)
+- Learn more about [Azure Private Endpoint](private-endpoint-overview.md)
  

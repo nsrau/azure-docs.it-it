@@ -1,6 +1,6 @@
 ---
-title: Come usare l'archiviazione di Accodamento (C++)-archiviazione di Azure
-description: Informazioni su come usare il servizio di archiviazione di Accodamento in Azure. Gli esempi sono scritti in C++.
+title: How to use Queue storage (C++) - Azure Storage
+description: Learn how to use the Queue storage service in Azure. Gli esempi sono scritti in C++.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/11/2017
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: e268e30e8f8c512dd6efb5a50da45f173e526b62
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6c6e092f16111f3f54ed17e19d28775e35eedc96
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721651"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227795"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Come usare l'archiviazione delle code da C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -39,12 +39,14 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-* **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **Windows:** In Visual Studio fare clic su **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
 
 ```powershell
-Install-Package wastorage
+.\vcpkg.exe install azure-storage-cpp
 ```
+
+You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurazione dell'applicazione per l’accesso ad Archiviazione di accodamento
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle code:  
@@ -81,7 +83,7 @@ Per visualizzare le informazioni dell'account di archiviazione, è possibile usa
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Procedura: Crea una coda
+## <a name="how-to-create-a-queue"></a>Procedura: creare una coda
 L'oggetto **cloud_queue_client** consente di ottenere oggetti di riferimento per le code. Il codice seguente crea un oggetto **cloud_queue_client**.
 
 ```cpp
@@ -102,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: Inserire un messaggio in una coda
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: inserire un messaggio in una coda
 Per inserire un messaggio in una coda esistente, creare prima un nuovo oggetto **cloud_queue_message**. Chiamare successivamente il metodo **add_message**. È possibile creare un oggetto **cloud_queue_message** da una stringa o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
 
 ```cpp
@@ -123,7 +125,7 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedura: Visualizzare il messaggio successivo
+## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
 È possibile visualizzare il messaggio in testa a una coda senza rimuoverlo dalla coda chiamando il metodo **peek_message**.
 
 ```cpp
@@ -143,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: Cambiare il contenuto di un messaggio in coda
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedura: cambiare il contenuto di un messaggio accodato
 È possibile cambiare il contenuto di un messaggio inserito nella coda. Se il messaggio rappresenta un'attività di lavoro, è possibile utilizzare questa funzionalità per aggiornarne lo stato. Il codice seguente consente di aggiornare il messaggio in coda con nuovo contenuto e di impostarne il timeout di visibilità per prolungarlo di altri 60 secondi. In questo modo lo stato del lavoro associato al messaggio viene salvato e il client ha a disposizione un altro minuto per continuare l'elaborazione del messaggio. È possibile usare questa tecnica per tenere traccia di flussi di lavoro composti da più passaggi nei messaggi in coda, senza la necessità di ricominciare dall'inizio se un passaggio di elaborazione non riesce a causa di errori hardware o software. In genere, è consigliabile mantenere anche un conteggio dei tentativi, in modo da eliminare i messaggi per cui vengono effettuati più di n tentativi. In questo modo è possibile evitare che un messaggio attivi un errore dell'applicazione ogni volta che viene elaborato.
 
 ```cpp
@@ -169,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Procedura: Rimuovere il messaggio successivo dalla coda
+## <a name="how-to-de-queue-the-next-message"></a>Procedura: rimuovere il messaggio successivo dalla coda
 Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama **get_message**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **get_message** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message** immediatamente dopo l'elaborazione del messaggio.
 
 ```cpp
@@ -190,7 +192,7 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Procedura: Usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Procedura: usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
 È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene usato il metodo **get_messages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che il conteggio di 5 minuti viene iniziato per tutti i messaggi allo stesso tempo, per cui, dopo 5 minuti dalla chiamata a **get_messages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
 
 ```cpp
@@ -218,7 +220,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedura: Recuperare la lunghezza della coda
+## <a name="how-to-get-the-queue-length"></a>Procedura: recuperare la lunghezza delle code
 È possibile ottenere una stima sul numero di messaggi presenti in una coda. Il metodo **download_attributes** chiede al servizio di accodamento di recuperare gli attributi della coda, incluso il numero di messaggi. Il metodo **approximate_message_count** ottiene il numero approssimativo di messaggi nella coda.
 
 ```cpp
@@ -241,7 +243,7 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>Procedura: Eliminare una coda
+## <a name="how-to-delete-a-queue"></a>Procedura: eliminare una coda
 Per eliminare una coda e tutti i messaggi inclusi, chiamare il metodo **delete_queue_if_exists** sull'oggetto coda.
 
 ```cpp

@@ -1,20 +1,16 @@
 ---
-title: Procedure consigliate per Funzioni di Azure | Documentazione Microsoft
+title: Procedure consigliate per Funzioni di Azure
 description: Informazioni su modelli e procedure consigliate per Funzioni di Azure.
-author: ggailey777
-manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87071b8e1102067110baae70c424aa74a5e0702c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73570819"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227376"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -26,18 +22,18 @@ Questo articolo definisce le procedure consigliate per creare e definire l'archi
 
 ### <a name="avoid-long-running-functions"></a>Evitare funzioni con esecuzione prolungata
 
-Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. Per altre informazioni sui timeout per un piano di hosting specifico, vedere [durata del timeout dell'app](functions-scale.md#timeout)per le funzioni. 
+Le funzioni con esecuzione prolungata e di grandi dimensioni possono causare problemi di timeout imprevisti. To learn more about the timeouts for a given hosting plan, see [function app timeout duration](functions-scale.md#timeout). 
 
-Una funzione può diventare grande a causa di molte dipendenze di node. js. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi. 
+A function can become large because of many Node.js dependencies. L'importazione delle dipendenze può anche fare aumentare i tempi di caricamento causando timeout imprevisti. Le dipendenze vengono caricate in modo sia esplicito che implicito. Un singolo modulo caricato dal codice potrebbe caricare i propri moduli aggiuntivi. 
 
-Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. Ad esempio, un webhook o una funzione di trigger HTTP potrebbe richiedere una risposta di riconoscimento entro un determinato limite di tempo; è comune che i webhook richiedano una risposta immediata. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. Questo approccio consente di rinviare il lavoro effettivo e restituire una risposta immediata.
+Quando è possibile, suddividere le funzioni di grandi dimensioni in gruppi di funzioni più piccoli che possono interagire tra loro e restituire rapidamente le risposte. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it's common for webhooks to require an immediate response. È possibile passare il payload del trigger HTTP in una coda perché venga elaborato da una funzione di trigger della coda. This approach lets you defer the actual work and return an immediate response.
 
 
 ### <a name="cross-function-communication"></a>Comunicazioni tra funzioni
 
 Le [funzioni permanenti](durable/durable-functions-overview.md) e le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) sono progettate per gestire transazioni di stato e comunicazioni tra più funzioni.
 
-Se non si usa Durable Functions o app per la logica per l'integrazione con più funzioni, è preferibile usare le code di archiviazione per la comunicazione tra funzioni. Il motivo principale è che le code di archiviazione sono più convenienti e molto più semplici da effettuare il provisioning rispetto ad altre opzioni di archiviazione. 
+If not using Durable Functions or Logic Apps to integrate with multiple functions, it's best to use storage queues for cross-function communication. The main reason is that storage queues are cheaper and much easier to provision than other storage options. 
 
 Le dimensioni dei singoli messaggi in una coda di archiviazione sono limitate a 64 KB. Se è necessario passare messaggi di dimensioni superiori tra le funzioni, è possibile usare una coda del bus di servizio di Azure per supportare dimensioni dei messaggi fino a 256 kB al livello Standard e fino a 1 MB al livello Premium.
 
@@ -50,19 +46,19 @@ Gli hub eventi sono utili per supportare comunicazioni con volumi elevati.
 
 Le funzioni devono essere senza stato e idempotenti se possibile. Associare ai dati eventuali informazioni obbligatorie sullo stato. Ad esempio, un ordine in fase di elaborazione probabilmente ha un membro `state` associato. Una funzione può elaborare un ordine basato su tale stato rimanendo però una funzione senza stato. 
 
-Le funzioni idempotenti sono consigliate in particolare con i trigger timer. Se, ad esempio, si dispone di un elemento che deve essere assolutamente eseguito una volta al giorno, scriverlo in modo che possa essere eseguito in qualsiasi momento durante il giorno con gli stessi risultati. La funzione può essere chiusa quando non è disponibile alcun lavoro per un determinato giorno. Anche se un'esecuzione precedente non è stata completata, l'esecuzione successiva riprenderà da dove era stata interrotta.
+Le funzioni idempotenti sono consigliate in particolare con i trigger timer. For example, if you have something that absolutely must run once a day, write it so it can run anytime during the day with the same results. The function can exit when there's no work for a particular day. Anche se un'esecuzione precedente non è stata completata, l'esecuzione successiva riprenderà da dove era stata interrotta.
 
 
 ### <a name="write-defensive-functions"></a>Scrivere funzioni difensive
 
 Si supponga che la funzione possa rilevare un'eccezione in qualsiasi momento. Progettare le funzioni con la possibilità di continuare da un punto di errore precedente durante l'esecuzione successiva. Si consideri uno scenario che richiede le azioni seguenti:
 
-1. Eseguire una query per 10.000 righe in un database.
+1. Query for 10,000 rows in a database.
 2. Creare un messaggio in coda per ognuna delle righe da elaborare ulteriormente in un secondo tempo.
  
-A seconda della complessità del sistema, è possibile che si verifichino problemi di funzionamento dei servizi downstream, interruzioni della rete o limiti di quota raggiunti e così via. Tutti questi possono influire sulla funzione in qualsiasi momento. È necessario progettare le funzioni in modo che siano preparate.
+Depending on how complex your system is, you may have: involved downstream services behaving badly, networking outages, or quota limits reached, etc. All of these can affect your function at any time. È necessario progettare le funzioni in modo che siano preparate.
 
-Come reagisce il codice in caso di errore dopo l'inserimento di 5.000 di tali elementi in una coda per l'elaborazione? Tenere traccia degli elementi in un set già completato. In caso contrario, è possibile inserirli di nuovo la volta successiva. Questo doppio inserimento può avere un notevole effetto sul flusso di lavoro, quindi [rendere le funzioni idempotente](functions-idempotent.md). 
+Come reagisce il codice in caso di errore dopo l'inserimento di 5.000 di tali elementi in una coda per l'elaborazione? Tenere traccia degli elementi in un set già completato. In caso contrario, è possibile inserirli di nuovo la volta successiva. This double-insertion can have a serious impact on your work flow, so [make your functions idempotent](functions-idempotent.md). 
 
 Se un elemento della coda è già stato elaborato, consentire alla funzione di essere no-op.
 
@@ -70,11 +66,11 @@ Sfruttare le misure difensive già messe a disposizione per i componenti usati n
 
 ## <a name="scalability-best-practices"></a>Procedure consigliate per la scalabilità
 
-Esistono diversi fattori che influiscono sulle modalità di ridimensionamento delle istanze dell'app per le funzioni. Informazioni dettagliate sono disponibili nella documentazione relativa alla [scalabilità delle funzioni](functions-scale.md).  Di seguito sono descritte alcune procedure consigliate per garantire la scalabilità ottimale di un'app per le funzioni.
+There are a number of factors that impact how instances of your function app scale. Informazioni dettagliate sono disponibili nella documentazione relativa alla [scalabilità delle funzioni](functions-scale.md).  Di seguito sono descritte alcune procedure consigliate per garantire la scalabilità ottimale di un'app per le funzioni.
 
 ### <a name="share-and-manage-connections"></a>Condividere e gestire le connessioni
 
-Riutilizzare le connessioni alle risorse esterne, quando possibile.  Vedere [come gestire le connessioni in Funzioni di Azure](./manage-connections.md).
+Reuse connections to external resources whenever possible.  Vedere [come gestire le connessioni in Funzioni di Azure](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni
 
@@ -82,9 +78,9 @@ Le funzioni all'interno di un'app per le funzioni condividono le risorse. Ad ese
 
 Prestare attenzione a quello che si carica nelle app per le funzioni di produzione. La memoria viene calcolata in ogni funzione nell'app.
 
-Se si dispone di un assembly condiviso a cui si fa riferimento in più funzioni .NET, inserirlo in una cartella condivisa comune. In caso contrario, è possibile distribuire accidentalmente più versioni dello stesso file binario che si comportano in modo diverso tra le funzioni.
+If you have a shared assembly referenced in multiple .NET functions, put it in a common shared folder. Otherwise, you could accidentally deploy multiple versions of the same binary that behave differently between functions.
 
-Non usare la registrazione dettagliata nel codice di produzione, che ha un impatto negativo sulle prestazioni.
+Don't use verbose logging in production code, which has a negative performance impact.
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Usare codice asincrono ma evitare di bloccare le chiamate
 
@@ -96,15 +92,15 @@ La programmazione asincrona è una procedura consigliata. Evitare sempre, tuttav
 
 Alcuni trigger come l'hub eventi consentono di ricevere un batch di messaggi in un'unica chiamata.  L'invio di messaggi in batch offre prestazioni notevolmente migliori.  È possibile configurare le dimensioni massime del batch nel file `host.json` come descritto nella [documentazione di riferimento su host.json](functions-host-json.md)
 
-Per C# le funzioni, è possibile modificare il tipo in una matrice fortemente tipizzata.  Anziché `EventData sensorEvent`, la firma del metodo può essere, ad esempio, `EventData[] sensorEvent`.  Per gli altri linguaggi, è necessario impostare in modo esplicito la proprietà Cardinality nel `function.json` su `many` per abilitare l'invio in batch, [come illustrato di seguito](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+For C# functions, you can change the type to a strongly-typed array.  Anziché `EventData sensorEvent`, la firma del metodo può essere, ad esempio, `EventData[] sensorEvent`.  For other languages, you'll need to explicitly set the cardinality property in your `function.json` to `many` in order to enable batching [as shown here](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurare i comportamenti degli host per migliorare la gestione della concorrenza
 
 Il file `host.json` nell'app per le funzioni consente di configurare i comportamenti del trigger e del runtime dell'host.  Oltre ai comportamenti di invio in batch, è possibile gestire anche la concorrenza in una serie di trigger. La modifica dei valori di queste opzioni consente spesso di applicare a ogni istanza la scalabilità appropriata per soddisfare le esigenze delle funzioni richiamate.
 
-Le impostazioni nel file host. JSON si applicano a tutte le funzioni all'interno dell'app, all'interno di una *singola istanza* della funzione. Ad esempio, se si dispone di un'app per le funzioni con due funzioni HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) richieste impostate su 25, una richiesta a uno dei trigger http viene conteggiata per le 25 richieste simultanee condivise.  Quando l'app per le funzioni viene ridimensionata a 10 istanze, le due funzioni consentono di eseguire in modo efficace 250 richieste simultanee (10 istanze * 25 richieste simultanee per istanza). 
+Settings in the host.json file apply across all functions within the app, within a *single instance* of the function. For example, if you had a function app with two HTTP functions and [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) requests set to 25, a request to either HTTP trigger would count towards the shared 25 concurrent requests.  When that function app is scaled to 10 instances, the two functions effectively allow 250 concurrent requests (10 instances * 25 concurrent requests per instance). 
 
-Altre opzioni di configurazione host sono disponibili nell' [articolo configurazione di host. JSON](functions-host-json.md).
+Other host configuration options are found in the [host.json configuration article](functions-host-json.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

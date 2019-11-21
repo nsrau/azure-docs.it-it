@@ -7,18 +7,18 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: f64856d5b0140d529e939d92d4be61b074928d6e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726420"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227897"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
 
 In questa guida vengono illustrati diversi scenari comuni per l'uso dell'archivio BLOB di Azure. Gli esempi illustrano come caricare, elencare, scaricare ed eliminare i BLOB. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
-Per altre informazioni sull'archivio BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](storage-blobs-introduction.md).
+Per altre informazioni su archiviazione BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](storage-blobs-introduction.md).
 
 > [!NOTE]
 > Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. Microsoft consiglia di usare la versione più recente della libreria client di archiviazione per C++, disponibile tramite [NuGet](https://www.nuget.org/packages/wastorage) oppure [GitHub](https://github.com/Azure/azure-storage-cpp).
@@ -32,10 +32,14 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-* **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows:** In Visual Studio fare clic su **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
-  
-     Install-Package knockoutjs
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
+
+You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione BLOB
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere ai BLOB:  
@@ -66,7 +70,7 @@ Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Sta
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.  
 
-## <a name="retrieve-your-storage-account"></a>Recuperare l'account di archiviazione
+## <a name="retrieve-your-storage-account"></a>Retrieve your storage account
 Per visualizzare le informazioni dell'account di archiviazione, è possibile usare la classe **cloud_storage_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .  
 
 ```cpp
@@ -81,7 +85,7 @@ Ottenere successivamente un riferimento alla classe **cloud_blob_client**, perch
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>Procedura: Creare un contenitore
+## <a name="how-to-create-a-container"></a>Procedura: creare un contenitore
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
 In questo esempio viene creato un contenitore, nel caso in cui non esista già:  
@@ -118,7 +122,7 @@ container.upload_permissions(permissions);
 
 I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, tuttavia è possibile modificarli o eliminarli solo se si dispone della chiave di accesso appropriata.  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>Procedura: Caricare un BLOB in un contenitore
+## <a name="how-to-upload-a-blob-into-a-container"></a>Procedura: caricare un BLOB in un contenitore
 In Archivio BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.  
 
 Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload_from_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore e si presuppone che il contenitore sia già stato creato.  
@@ -153,7 +157,7 @@ blob3.upload_text(U("other text"));
 
 In alternativa, è possibile usare il metodo **upload_from_file** per caricare un file in un BLOB in blocchi.
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>Procedura: Elencare i BLOB in un contenitore
+## <a name="how-to-list-the-blobs-in-a-container"></a>Procedura: elencare i BLOB in un contenitore
 Per elencare i BLOB in un contenitore, ottenere prima un riferimento al contenitore. Sarà successivamente possibile usare il metodo **list_blobs** del contenitore per recuperare i BLOB e/o le directory in esso contenuti. Per accedere al set completo di proprietà e metodi per un **list_blob_item** restituito, è necessario chiamare il metodo **list_blob_item.as_blob** per ottenere un oggetto **cloud_blob** oppure il metodo **list_blob.as_directory** per ottenere un oggetto cloud_blob_directory. Nel codice seguente viene illustrato come recuperare e visualizzare l'URI di ciascun elemento del contenitore **my-sample-container** :
 
 ```cpp
@@ -183,7 +187,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Per ulteriori informazioni sull'elenco di operazioni, vedere [elenco risorse di archiviazione Azure in C++](../storage-c-plus-plus-enumeration.md).
 
-## <a name="how-to-download-blobs"></a>Procedura: Scaricare BLOB
+## <a name="how-to-download-blobs"></a>Procedura: scaricare i BLOB
 Per scaricare BLOB, recuperare prima un riferimento al BLOB e chiamare il metodo **download_to_stream**. Nell'esempio seguente viene usato il metodo **download_to_stream** per trasferire il contenuto del BLOB in un oggetto stream per poterlo mentenere in un file locale.  
 
 ```cpp
@@ -231,7 +235,7 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>Procedura: Eliminare BLOB
+## <a name="how-to-delete-blobs"></a>Procedura: eliminare i BLOB
 Per eliminare un BLOB, ottenere prima un riferimento al BLOB e chiamare il metodo **delete_blob** sul riferimento.  
 
 ```cpp

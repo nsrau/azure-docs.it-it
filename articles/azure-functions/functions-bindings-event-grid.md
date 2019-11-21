@@ -1,21 +1,16 @@
 ---
 title: Trigger Griglia di eventi per Funzioni di Azure
 description: Informazioni su come gestire gli eventi di Griglia di eventi in Funzioni di Azure.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: ff21a1325e341f119fc8615ca03b41b8068aca19
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8820818528835df6379c894eb06c154f4120f507
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991412"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227310"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -526,14 +521,14 @@ Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](
 * Impostare un'intestazione `Content-Type: application/json`.
 * Impostare un'intestazione `aeg-event-type: Notification`.
 * Incollare i dati di RequestBin nel corpo della richiesta.
-* Inserire l'URL della funzione trigger griglia di eventi.
-  * Per 2. x usare il modello seguente:
+* Post to the URL of your Event Grid trigger function.
+  * For 2.x use the following pattern:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * Per 1. x usare:
+  * For 1.x use:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -553,7 +548,7 @@ La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log 
 
 ## <a name="local-testing-with-ngrok"></a>Test locale con ngrok
 
-Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. A tale scopo, è possibile usare uno strumento come [ngrok](https://ngrok.com/):
+Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. You can do that with a tool like [ngrok](https://ngrok.com/):
 
 1. [Creare un endpoint ngrok](#create-an-ngrok-endpoint).
 1. [Eseguire la funzione trigger Griglia di eventi](#run-the-event-grid-trigger-function).

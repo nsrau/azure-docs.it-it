@@ -7,21 +7,21 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: f056515e87d01d0a30fec7f792fcb6e5e91c0c89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f838091f4b4cdcb0535f58926a724074ef080463
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969034"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218864"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Report disponibili nel portale di Cloudyn
 
 Questo articolo illustra lo scopo dei report di Cloudyn costi che sono inclusi nel portale di Cloudyn. Descrive anche come usare in modo efficace i report. La maggior parte dei report presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. La maggior parte delle azioni che è possibile eseguire in un report, è possibile anche in altri report. Per una panoramica su come usare i report di Cloudyn, incluse le procedure per personalizzare e salvare o pianificare i report, vedere [Informazioni sui report dei costi](understanding-cost-reports.md).
 
-Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
+Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per ulteriori informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipi di report
 
@@ -144,9 +144,9 @@ Usare il report dei costi effettivi nel tempo per:
 
 Questo set di report dei costi ammortizzati illustra i corrispettivi di servizio non basati sull'utilizzo linearizzati o i costi una tantum e li ripartisce nel tempo in modo uniforme nel corso della loro vita utile. Ecco alcuni esempi di corrispettivi una tantum:
 
-- Corrispettivi annuali per il supporto tecnico
+- Spese annuali per il supporto tecnico
 - Corrispettivi annuali per i componenti di sicurezza
-- Corrispettivi per l'acquisto di istanze riservate
+- Spese per l'acquisto di istanze riservate
 - Spese per l'acquisto di alcuni elementi di Azure Marketplace
 
 Nel file di fatturazione, le tariffe una tantum sono caratterizzate dal fatto che la data di inizio e la data di fine del consumo del servizio, ovvero timestamp, hanno gli stessi valori. A questo punto il servizio Cloudyn le riconosce come tariffe una tantum che vengono ammortizzate. Altri servizi in base al consumo con costi di relativi all'uso su richiesta non vengono ammortizzati.
@@ -198,7 +198,7 @@ Per creare un addebito personalizzato:
 7. In **Date** se è stata selezionata una tariffa una tantum, in **Data di validità** immettere la data di pagamento dell'addebito. Se è stata selezionata la tariffa ricorrente, immettere l'intervallo di date tra cui la data di inizio e data di fine dell'addebito.
 8. Nell'**albero Entità** selezionare le entità a cui si desidera applicare l'addebito e quindi selezionare **Attivo**.
 
-_Quando gli addebiti vengono assegnati a un'entità, gli utenti non possono modificarli. Gli addebiti che vengono aggiunti da un amministratore a un'entità padre sono di sola lettura._
+_When charges are assigned to an entity, users can't change them. Charges that are added by an administrator to a parent entity are read-only._
 
 Per visualizzare gli addebiti personalizzati:
 
@@ -210,9 +210,9 @@ Allocazione dei costi a 360° consente di creare modelli di allocazione dei cost
 
 Per altre informazioni sulla creazione dei modelli di costo personalizzati, vedere [Esercitazione: Gestire i costi tramite Cloudyn](tutorial-manage-costs.md).
 
-### <a name="cost-vs-budget-over-time-report"></a>Report Costi e budget nel tempo
+### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Budget Over Time report
 
-Il report Costi e budget nel tempo consente di confrontare i principali collaboratori dei costi rispetto al budget. Il budget assegnato viene visualizzato nel report in modo che sia possibile visualizzare il consumo del budget, superato, non superato o in pari, nel corso del tempo. L'uso di Mostra/nascondi campi nella parte superiore del report consente di scegliere di visualizzare il costo, il budget, il costo accumulato e il budget totale.
+The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. Il budget assegnato viene visualizzato nel report in modo che sia possibile visualizzare il consumo del budget, superato, non superato o in pari, nel corso del tempo. L'uso di Mostra/nascondi campi nella parte superiore del report consente di scegliere di visualizzare il costo, il budget, il costo accumulato e il budget totale.
 
 ### <a name="current-month-projected-cost-report"></a>Report Previsione dei costi per il mese corrente
 
@@ -246,7 +246,7 @@ Per importare un file per il budget annuo:
 
 Per esportare il budget completato come file CSV, in **Azioni** selezionare **Esporta** per scaricare il file.
 
-Al termine dell'operazione, il budget viene mostrato nel report Analisi dei costi e nel report Costo e tra costo e budget nel tempo. È anche possibile pianificare i report in base alle soglie di budget.
+When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. È anche possibile pianificare i report in base alle soglie di budget.
 
 ### <a name="azure-resource-explorer-report"></a>Report Azure Resource Explorer
 

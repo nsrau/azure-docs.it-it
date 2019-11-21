@@ -1,23 +1,24 @@
 ---
-title: Copiare dati da e in Dynamics CRM o Dynamics 365 (Common Data Service) utilizzando Azure Data Factory
+title: Copy data in Dynamics (Common Data Service)
 description: Informazioni su come copiare dati da Microsoft Dynamics CRM o Microsoft Dynamics 365 (Common Data Service) in archivi dati di sink supportati o da archivi dati di origine supportati in Dynamics CRM o Dynamics 365 usando un'attività di copia in una pipeline di data factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: c9adcf72eeec82fd4b8f1805fca1f284c0b953b7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+author: linda33wj
+manager: craigg
+ms.reviewer: douglasl
+ms.custom: seo-lt-2019
+ms.date: 10/25/2019
+ms.openlocfilehash: b2eb6f877daf2fddaa5a61a958254cc8222ac6db
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680989"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218595"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiare i dati da e in Dynamics 365 (Common Data Service) o Dynamics CRM usando Azure Data Factory
 
@@ -25,20 +26,20 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore è supportato per le attività seguenti:
+This connector is supported for the following activities:
 
-- [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Dynamics 365 (Common Data Service) o Dynamics CRM in qualsiasi archivio dati di sink supportato. È anche possibile copiare dati da qualsiasi archivio dati di origine supportato a Dynamics 365 (Common Data Service) o Dynamics CRM. Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Questo connettore Dynamics supporta Dynamics versione 7. x a 9. x sia in linea che in locale. Più in particolare,
+This Dynamics connector supports Dynamics version 7.x to 9.x for both online or on-premises. Più in particolare,
 
-- La versione 7. x è mappata a Dynamics CRM 2015
-- La versione 8. x è mappata a Dynamics CRM 2016 e alla prima versione di Dynamics 365
-- La versione 9. x è mappata alla versione più recente di Dynamics 365
+- Version 7.x maps to Dynamics CRM 2015
+- Version 8.x maps to Dynamics CRM 2016 and the early version of Dynamics 365
+- Version 9.x maps to the later version of Dynamics 365
 
-Fare riferimento alla seguente tabella sui tipi di autenticazione supportati e sulle configurazioni per le rispettive versioni/prodotti Dynamics. IFD è l'acronimo di Internet Facing Deployment (distribuzione con connessione Internet).
+Refer to the following table on the supported authentication types and configurations for respective Dynamics versions/products. IFD è l'acronimo di Internet Facing Deployment (distribuzione con connessione Internet).
 
 | Versioni di Dynamics | Tipi di autenticazione | Esempi di servizi collegati |
 |:--- |:--- |:--- |
@@ -55,12 +56,12 @@ Per Dynamics 365 in particolare, sono supportati i tipi di applicazioni seguenti
 
 Altri tipi di applicazioni, ad esempio Finance and Operations, Talent e così via non sono supportati da questo connettore.
 
-Questo connettore Dynamics si basa sugli strumenti di [Dynamics XRM](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+This Dynamics connector is built on top of [Dynamics XRM tooling](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Per copiare dati da **Dynamics 365 for Finance and Operations**, è possibile usare il [connettore di Dynamics AX](connector-dynamics-ax.md).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,15 +73,15 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 e Dynamics CRM Online
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su **Dynamics**, **DynamicsCrm**o **CommonDataServiceForApps**. | Sì |
-| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics online. | Sì |
-| serviceUri | URL del servizio dell'istanza di Dynamics, ad esempio `https://adfdynamics.crm.dynamics.com`. | Sì |
-| authenticationType | Il tipo di autenticazione per la connessione a un server Dynamics. Specificare **"Office365"** per Dynamics online. | Sì |
-| Nome utente | Specificare il nome utente per la connessione a Dynamics. | Sì |
-| password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
+| type | The type property must be set to **Dynamics**, **DynamicsCrm**, or **CommonDataServiceForApps**. | SÌ |
+| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics online. | SÌ |
+| serviceUri | URL del servizio dell'istanza di Dynamics, ad esempio `https://adfdynamics.crm.dynamics.com`. | SÌ |
+| authenticationType | Il tipo di autenticazione per la connessione a un server Dynamics. Specificare **"Office365"** per Dynamics online. | SÌ |
+| Nome utente | Specificare il nome utente per la connessione a Dynamics. | SÌ |
+| password | Specificare la password dell'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone di un runtime di integrazione |
 
 >[!NOTE]
 >Connettore di Dynamics che permette di usare la proprietà facoltativa "organizationName" per identificare l'istanza di Dynamics CRM/365 Online. Durante l'esecuzione, viene consigliato di specificare invece la nuova proprietà "serviceUri" per ottenere prestazioni migliori per l'individuazione dell'istanza.
@@ -115,17 +116,17 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 
 *Proprietà aggiuntive rispetto a Dynamics online sono "hostName" e "port".*
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su **Dynamics**, **DynamicsCrm**o **CommonDataServiceForApps**. | Sì |
-| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"OnPremisesWithIfd"** per Dynamics locale con IFD.| Sì |
-| hostName | Nome host del server Dynamics locale. | Sì |
+| type | The type property must be set to **Dynamics**, **DynamicsCrm**, or **CommonDataServiceForApps**. | SÌ |
+| deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"OnPremisesWithIfd"** per Dynamics locale con IFD.| SÌ |
+| hostName | Nome host del server Dynamics locale. | SÌ |
 | port | Porta del server Dynamics locale. | No, il valore predefinito è 443 |
-| organizationName | Il nome organizzazione dell'istanza di Dynamics. | Sì |
-| authenticationType | Tipo di autenticazione per la connessione al server Dynamics. Specificare **"Ifd"** per Dynamics locale con IFD. | Sì |
-| Nome utente | Specificare il nome utente per la connessione a Dynamics. | Sì |
-| password | Specificare la password dell'account utente specificato per il nome utente. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
+| organizationName | Il nome organizzazione dell'istanza di Dynamics. | SÌ |
+| authenticationType | Tipo di autenticazione per la connessione al server Dynamics. Specificare **"Ifd"** per Dynamics locale con IFD. | SÌ |
+| Nome utente | Specificare il nome utente per la connessione a Dynamics. | SÌ |
+| password | Specificare la password dell'account utente specificato per il nome utente. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non diversamente specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
 
 **Esempio: Dynamics locale con IFD usando l'autenticazione IFD**
 
@@ -159,11 +160,11 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti.
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Dynamics.
 
-Per copiare dati da e in Dynamics, sono supportate le proprietà seguenti.
+To copy data from and to Dynamics, the following properties are supported.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su **DynamicsEntity**, **DynamicsCrmEntity**o **CommonDataServiceForAppsEntity**. |Sì |
+| type | The type property of the dataset must be set to **DynamicsEntity**, **DynamicsCrmEntity**, or **CommonDataServiceForAppsEntity**. |SÌ |
 | entityName | Il nome logico dell'entità da recuperare. | No per l'origine (se nell'origine dell'attività è specificato "query"), Sì per il sink |
 
 **Esempio:**
@@ -191,19 +192,19 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="dynamics-as-a-source-type"></a>Dynamics come tipo di origine
 
-Per copiare dati da Dynamics, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti.
+To copy data from Dynamics, the following properties are supported in the copy activity **source** section.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **DynamicsSource**, **DynamicsCrmSource**o **CommonDataServiceForAppsSource**. | Sì |
-| query | FetchXML è un linguaggio di query proprietario usato in Dynamics (online e locale). Vedere l'esempio seguente. Per altre informazioni, vedere [compilare query con un'FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (se nel set di dati è specificato "entityName") |
+| type | The type property of the copy activity source must be set to **DynamicsSource**, **DynamicsCrmSource**, or **CommonDataServiceForAppsSource**. | SÌ |
+| query | FetchXML è un linguaggio di query proprietario usato in Dynamics (online e locale). Vedere l'esempio seguente. To learn more, see [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (se nel set di dati è specificato "entityName") |
 
 >[!NOTE]
 >La colonna della chiave primaria verrà sempre copiata anche se la proiezione della colonna configurata nella query FetchXML non la contiene.
 
 > [!IMPORTANT]
->- Quando si copiano dati da Dynamics, il mapping esplicito di colonne da Dynamics a sink è facoltativo ma altamente riordinato per assicurare il risultato di una copia deterministica.
->- Quando si importa lo schema nell'interfaccia utente di creazione, ADF deduce lo schema eseguendo il campionamento delle prime righe del risultato della query Dynamics per inizializzare l'elenco delle colonne di origine, nel qual caso le colonne senza valori nelle prime righe verranno omesse. Lo stesso comportamento si applica alle esecuzioni di copia se non esiste alcun mapping esplicito. È possibile esaminare e aggiungere altre colonne nel mapping, che verranno rispettate durante la copia del runtime.
+>- When you copy data from Dynamics, explicit column mapping from Dynamics to sink is optional but highly recommanded to ensure a deterministic copy result.
+>- When importing schema in authoring UI, ADF infers the schema by sampling the top rows from the Dynamics query result to initialize the source column list, in which case columns with no values in top rows will be omitted. The same behavior applies to copy executions if there is no explicit mapping. You can review and add more columns into the mapping, which will be honored during copy runtime.
 
 **Esempio:**
 
@@ -259,13 +260,13 @@ Per copiare dati da Dynamics, nella sezione **origine** dell'attività di copia 
 
 ### <a name="dynamics-as-a-sink-type"></a>Dynamics come tipo di sink
 
-Per copiare i dati in Dynamics, nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
+To copy data to Dynamics, the following properties are supported in the copy activity **sink** section.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del sink dell'attività di copia deve essere impostata su **DynamicsSink**, **DynamicsCrmSink**o **CommonDataServiceForAppsSink**. | Sì |
-| writebehavior | Comportamento dell'azione di scrittura dell'operazione.<br/>Il valore consentito è **"Upsert"** . | Sì |
-| alternateKeyName | Specificare il nome della chiave alternativa definito nell'entità per eseguire "upsert". | No |
+| type | The type property of the copy activity sink must be set to **DynamicsSink**, **DynamicsCrmSink**, or **CommonDataServiceForAppsSink**. | SÌ |
+| writeBehavior | Comportamento dell'azione di scrittura dell'operazione.<br/>Il valore consentito è **"Upsert"** . | SÌ |
+| alternateKeyName | Specify the alternate key name defined on your entity to perform "Upsert". | No |
 | writeBatchSize | Conteggio delle righe di dati scritti da Dynamics in ogni batch. | No (il valore predefinito è 10) |
 | ignoreNullValues | Indica se ignorare i valori null dai dati di input (tranne i campi chiave) durante un'operazione di scrittura.<br/>I valori consentiti sono **true** e **false**.<br>- **True**: i dati nell'oggetto di destinazione rimangono invariati quando si esegue un'operazione di upsert/aggiornamento. Inserire un valore predefinito definito quando si esegue un'operazione di inserimento.<br/>- **False**: i dati nell'oggetto di destinazione vengono aggiornati a NULL quando si esegue un'operazione di upsert/aggiornamento. Inserire un valore NULL quando si esegue un'operazione di inserimento. | No (il valore predefinito è false) |
 
@@ -274,7 +275,7 @@ Per copiare i dati in Dynamics, nella sezione **sink** dell'attività di copia s
 
 Per Dynamics 365 online, è previsto un limite di [2 chiamate di batch simultanee per ogni organizzazione](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Se tale limite viene superato, viene generato un errore "Server occupato" prima che venga eseguita la prima richiesta. Mantenendo "writeBatchSize" minore o uguale a 10 si evita la limitazione delle richieste di chiamate simultanee.
 
-La combinazione ottimale di "**writeBatchSize**" e "**parallelCopies**" dipende dallo schema dell'entità, ad esempio il numero di colonne, le dimensioni delle righe, il numero di plug-in/flussi di lavoro/attività del flusso di lavoro collegati a tali chiamate e così via. L'impostazione predefinita di 10 writeBatchSize * 10 parallelCopies è la raccomandazione in base al servizio Dynamics, che funziona per la maggior parte delle entità Dynamics, ma potrebbe non essere ottimale. È possibile ottimizzare le prestazioni regolando la combinazione nelle impostazioni di attività di copia.
+The optimal combination of "**writeBatchSize**" and "**parallelCopies**" depends on the schema of your entity e.g. number of columns, row size, number of plugins/workflows/workflow activities hooked up to those calls, etc. The default setting of 10 writeBatchSize * 10 parallelCopies is the recommendation according to Dynamics service, which would work for most Dynamics entities though may not be best performance. È possibile ottimizzare le prestazioni regolando la combinazione nelle impostazioni di attività di copia.
 
 **Esempio:**
 
@@ -318,31 +319,31 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 
 | Tipo di dati di Dynamics | Tipo di dati provvisorio di Data Factory | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booleano | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | |
+| AttributeTypeCode.BigInt | Lungo | ✓ | ✓ |
+| AttributeTypeCode.Boolean | boolean | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
-| AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.Decimal | DECIMAL | ✓ | ✓ |
+| AttributeType.Double | DOUBLE | ✓ | ✓ |
+| AttributeType.EntityName | Stringa | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (associata a destinazione singola) |
-| AttributeType.ManagedProperty | Booleano | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | Guid | ✓ | |
+| AttributeType.Lookup | GUID | ✓ | ✓ (associata a destinazione singola) |
+| AttributeType.ManagedProperty | boolean | ✓ | |
+| AttributeType.Memo | Stringa | ✓ | ✓ |
+| AttributeType.Money | DECIMAL | ✓ | ✓ |
+| AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.String | Stringa | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> I tipi di dati di Dynamics AttributeType. CalendarRules, AttributeType. MultiSelectPicklist e AttributeType. party non sono supportati.
+> The Dynamics data types AttributeType.CalendarRules, AttributeType.MultiSelectPicklist and AttributeType.PartyList aren't supported.
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Lookup activity properties
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per un elenco degli archivi dati supportati come origini e sink dall'attività di copia in Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

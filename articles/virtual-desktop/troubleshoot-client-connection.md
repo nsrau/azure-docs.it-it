@@ -1,85 +1,85 @@
 ---
-title: Risolvere i problemi di Desktop remoto desktop virtuale Windows-Azure
-description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di desktop virtuali Windows.
+title: Troubleshoot Remote Desktop Windows Virtual Desktop - Azure
+description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9fcc65768db3029461a5823034336bc883379292
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607380"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227678"
 ---
 # <a name="remote-desktop-client-connections"></a>Connessioni client di Desktop remoto
 
-Usare questo articolo per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows.
+Use this article to resolve issues with Windows Virtual Desktop client connections.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
-## <a name="you-cant-open-a-web-client"></a>Non è possibile aprire un client Web
+## <a name="you-cant-open-a-web-client"></a>You can't open a web client
 
-Verificare che sia presente la connettività Internet aprendo un altro sito Web. ad esempio, [www.Bing.com](https://www.bing.com).
+Confirm there's internet connectivity by opening another web site; for example, [www.Bing.com](https://www.bing.com).
 
-Usare **nslookup** per confermare che DNS può risolvere il nome di dominio completo:
+Use **nslookup** to confirm DNS can resolve the FQDN:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
-Provare a connettersi con un altro client, ad esempio Desktop remoto client per Windows 7 o Windows 10, e verificare se è possibile aprire il client Web.
+Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10, and check to see if you can open the web client.
 
-### <a name="error-opening-another-site-fails"></a>Errore: l'apertura di un altro sito non riesce
+### <a name="error-opening-another-site-fails"></a>Error: Opening another site fails
 
-**Motivo:** Problemi di rete e/o interruzioni.
+**Cause:** Network issues and/or outages.
 
-**Correzione:** Contattare il supporto di rete.
+**Fix:** Contact network support.
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Errore: Impossibile risolvere il nome
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Error: Nslookup cannot resolve the name
 
-**Motivo:** Problemi di rete e/o interruzioni.
+**Cause:** Network issues and/or outages.
 
-**Correzione:** Contattare il supporto di rete
+**Fix:** Contact network support
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Errore: non è possibile connettersi, ma gli altri client possono connettersi
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Error: You can't connect but other clients can connect
 
-**Motivo:** Il browser non funziona come previsto e ha smesso di funzionare.
+**Cause:** The browser isn't behaving as expected and stopped working.
 
-**Correzione:** Seguire queste istruzioni per risolvere i problemi del browser.
+**Fix:** Follow these instructions to troubleshoot the browser.
 
-1. Riavviare il browser.
-2. Cancella i cookie del browser. Vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Cancellare la cache del browser. Vedere [Cancella cache del browser per il browser](https://binged.it/2RKyfdU).
-4. Aprire il browser in modalità privata.
+1. Restart the browser.
+2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+3. Cancellare la cache del browser. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
+4. Open browser in Private mode.
 
-## <a name="web-client-stops-responding-or-disconnects"></a>Il client Web smette di rispondere o si disconnette
+## <a name="web-client-stops-responding-or-disconnects"></a>Web client stops responding or disconnects
 
-Provare a connettersi usando un altro browser o client.
+Try connecting using another browser or client.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Errore: anche altri browser e client malfunzionanti o non vengono aperti
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Error: Other browsers and clients also malfunction or fail to open
 
-**Motivo:** Problemi o interruzioni del sistema operativo di rete e/o
+**Cause:** Network and/or operation system issues or outages
 
-**Correzione:** Contattare il team di supporto.
+**Fix:** Contact support teams.
 
-## <a name="web-client-keeps-prompting-for-credentials"></a>Il client Web continua a richiedere le credenziali
+## <a name="web-client-keeps-prompting-for-credentials"></a>Web client keeps prompting for credentials
 
-Se il client Web continua a richiedere le credenziali, seguire queste istruzioni.
+If the Web client keeps prompting for credentials, follow these instructions.
 
-1. Verificare che l'URL del client Web sia corretto.
-2. Verificare che le credenziali siano per l'ambiente di desktop virtuale Windows associato all'URL.
-3. Cancella i cookie del browser. Vedere [come eliminare i file dei cookie in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cancellare la cache del browser. Vedere [Cancella cache del browser per il browser](https://binged.it/2RKyfdU).
-5. Aprire il browser in modalità privata.
+1. Confirm web client URL is correct.
+2. Confirm that credentials are for the Windows Virtual Desktop environment tied to the URL.
+3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Cancellare la cache del browser. See [Clear browser cache for your browser](https://binged.it/2RKyfdU).
+5. Open browser in Private mode.
 
-## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Desktop remoto client per Windows 7 o Windows 10 smette di rispondere o non può essere aperto
+## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Remote Desktop client for Windows 7 or Windows 10 stops responding or cannot be opened
 
-Usare i cmdlet di PowerShell seguenti per pulire i registri client fuori banda (OOB).
+Use the following PowerShell cmdlets to clean up out-of-band (OOB) client registries.
 
 ```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -91,38 +91,38 @@ Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 ```
 
-Passare a **%AppData%\RdClientRadc** ed eliminare tutto il contenuto.
+Navigate to **%AppData%\RdClientRadc** and delete all content.
 
-Disinstallare e reinstallare Desktop remoto client per Windows 7 e Windows 10.
+Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
 
-## <a name="troubleshooting-end-user-connectivity"></a>Risoluzione dei problemi relativi alla connettività degli utenti finali
+## <a name="troubleshooting-end-user-connectivity"></a>Troubleshooting end-user connectivity
 
-A volte gli utenti possono accedere al feed e alle risorse locali, ma hanno comunque problemi di configurazione, disponibilità o prestazioni che ne impediscono l'accesso alle risorse remote. In questi casi, l'utente riceve messaggi simili ai seguenti:
+Sometimes users can access their feed and local resources, but still have configuration, availability, or performance issues that prevent them from accessing remote resources. In these cases, the user gets messages similar to these:
 
-![Messaggio di errore Connessione Desktop remoto.](media/eb76b666808bddb611448dfb621152ce.png)
+![Remote Desktop Connection error message.](media/eb76b666808bddb611448dfb621152ce.png)
 
-![Non è possibile connettersi al messaggio di errore del gateway.](media/a8fbb9910d4672147335550affe58481.png)
+![Can't connect to the gateway error message.](media/a8fbb9910d4672147335550affe58481.png)
 
-Seguire queste istruzioni generali per la risoluzione dei problemi relativi ai codici di errore della connessione client.
+Follow these general troubleshooting instructions for client connection error codes.
 
-1. Verificare il nome utente e l'ora in cui si è verificato il problema.
-2. Aprire **PowerShell** e stabilire una connessione al tenant di desktop virtuale di Windows in cui è stato segnalato il problema.
-3. Confermare la connessione al tenant corretto con **Get-RdsTenant.**
-4. Usando i cmdlet **Get-RdsHostPool** e **Get-RdsSessionHost** , verificare che la risoluzione dei problemi venga eseguita nel pool di host corretto.
-5. Eseguire il comando seguente per ottenere un elenco di tutte le attività non riuscite di tipo Connection per l'intervallo di tempo specificato:
+1. Confirm user name and time when issue was experienced.
+2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
+3. Confirm connection to the correct tenant with **Get-RdsTenant.**
+4. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
+5. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
     ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-6. Utilizzando **ActivityID** dall'output del cmdlet precedente, eseguire il comando seguente:
+6. Using the **ActivityId** from the previous cmdlet output, run the command below:
 
     ```PowerShell
-    (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
+    (Get-RdsDiagnosticActivities -TenantName <TenantName> -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-7. Il comando genera un output simile all'output riportato di seguito. Usare **ErrorCodeSymbolic** e **ErrorMessage** per risolvere i problemi relativi alla causa principale.
+7. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
     ```PowerShell
     ErrorSource       : <Source>
@@ -135,47 +135,47 @@ Seguire queste istruzioni generali per la risoluzione dei problemi relativi ai c
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Errore: O_ADD_USER_TO_GROUP_FAILED/non è stato possibile aggiungere l'utente = ≤ nomeutente ≥ al gruppo = Desktop remoto utenti. Motivo: Win32. ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Error: O_ADD_USER_TO_GROUP_FAILED / Failed to add user = ≤username≥ to group = Remote Desktop Users. Reason: Win32.ERROR_NO_SUCH_MEMBER
 
-**Motivo:** La macchina virtuale non è stata aggiunta al dominio in cui l'oggetto utente è.
+**Cause:** VM has not been joined to the domain where user object is.
 
-**Correzione:** Aggiungere la macchina virtuale al dominio corretto. Vedere [aggiungere una macchina virtuale Windows Server a un dominio gestito](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Fix:** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Errore: Impossibile risolvere il nome
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Error: Nslookup cannot resolve the name
 
-**Motivo:** Problemi di rete o interruzioni.
+**Cause:** Network issues or outages.
 
-**Correzione:** Contattare il supporto di rete
+**Fix:** Contact network support
 
-### <a name="error-connectionfailedclientprotocolerror"></a>Errore: ConnectionFailedClientProtocolError
+### <a name="error-connectionfailedclientprotocolerror"></a>Error: ConnectionFailedClientProtocolError
 
-**Motivo:** Le macchine virtuali a cui un utente sta tentando di connettersi non sono unite a un dominio.
+**Cause:** VMs that user is attempting to connect to are not domain joined.
 
-**Correzione:** Aggiungere al controller di dominio tutte le macchine virtuali che fanno parte di un pool host.
+**Fix:** Join all VMs that are part of a host pool to the domain controller.
 
-### <a name="error-connectionfailedusersidinformationmismatch"></a>Errore: ConnectionFailedUserSIDInformationMismatch
-**Motivo:** Il SID del token Azure Active Directory (AD) dell'utente non corrisponde al SID restituito dal controller di dominio durante il tentativo di abilitare l'utente per l'accesso remoto. Questo errore si verifica in genere quando si tenta di accedere a un ambiente di Azure Active Directory Domain Services (Azure AD DS) con un utente originariamente originato da un Active Directory di Windows Server.
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Error: ConnectionFailedUserSIDInformationMismatch
+**Cause:** The SID from the user's Azure Active Directory (AD) token doesn't match the SID returned by the domain controller when attempting to enable the user for remote sign in. This error typically happens when attempting to sign in to an Azure Active Directory Domain Services (Azure AD DS) environment with a user originally sourced from a Windows Server AD.
 
-**Correzione:** Questo scenario non è supportato in questo momento. Solo gli utenti originati da Azure Active Directory possono accedere a VM desktop virtuali Windows connesse a Azure AD DS.
+**Fix:** This scenario isn't supported at this time. Only users sourced from Azure Active Directory can sign in to Windows Virtual Desktop VMs connected to Azure AD DS.
 
-## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>L'utente si connette ma non viene visualizzato nulla (nessun feed)
+## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>User connects but nothing is displayed (no feed)
 
-Un utente può avviare Desktop remoto client ed è in grado di eseguire l'autenticazione, tuttavia l'utente non visualizza alcuna icona nel feed di individuazione Web.
+A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
-Verificare che l'utente che ha segnalato i problemi sia stato assegnato ai gruppi di applicazioni utilizzando la riga di comando seguente:
+Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-Verificare che l'utente abbia effettuato l'accesso con le credenziali corrette.
+Confirm that the user is logging in with the correct credentials.
 
-Se il client Web viene utilizzato, verificare che non siano presenti problemi di credenziali memorizzate nella cache.
+If the web client is being used, confirm that there are no cached credentials issues.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
-- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
-- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
-- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
-- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
+- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).

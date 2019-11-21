@@ -1,87 +1,87 @@
 ---
-title: Connettersi a un account Azure Cosmos con collegamento privato di Azure
-description: Informazioni su come accedere in modo sicuro all'account Azure Cosmos da una macchina virtuale creando un endpoint privato.
-author: SnehaGunda
+title: Connect to an Azure Cosmos account with Azure Private Link
+description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
+author: asudbring
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: sngun
-ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.author: allensu
+ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007322"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229412"
 ---
-# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure
+# <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Connect privately to an Azure Cosmos account using Azure Private Link
 
-Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
+Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
 
-In questo articolo si apprenderà come creare una VM in una rete virtuale di Azure e un account Azure Cosmos con un endpoint privato usando il portale di Azure. Quindi, è possibile accedere in modo sicuro all'account Azure Cosmos dalla macchina virtuale.
+In this article, you will learn how to create a VM on an Azure virtual network and an Azure Cosmos account with a Private Endpoint using the Azure portal. Then, you can securely access the Azure Cosmos account from the VM.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
-Accedere al [portale di Azure.](https://portal.azure.com)
+Sign in to the [Azure portal.](https://portal.azure.com)
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-In questa sezione si creerà una rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere alla risorsa di collegamento privato (un account Azure Cosmos in questo esempio).
+In this section, you will create a virtual network and the subnet to host the VM that is used to access your Private Link resource (an Azure Cosmos account in this example).
 
 1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
+    | name | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Location | Selezionare **Stati Uniti centro-occidentali**.|
+    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Località | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 
 1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
-### <a name="create-the-virtual-machine"></a>Creazione della macchina virtuale
+### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
+    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Selezionare **Windows Server 2019 Datacenter**. |
-    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
+    | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
-    | Nome utente | Immettere un nome utente a scelta. |
+    | Username | Enter a username of your choice. |
     | Password | Immettere una password a propria scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Immettere nuovamente la password. |
+    | Confirm Password | Reenter the password. |
     | **REGOLE PORTA IN INGRESSO** |  |
     | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**. |
     | **RISPARMIA** |  |
     | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
     |||
 
-1. Selezionare **Avanti: dischi**.
+1. Select **Next: Disks**.
 
-1. In **creare una macchina virtuale-dischi**lasciare le impostazioni predefinite e selezionare **Avanti: rete**.
+1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | Value |
     | ------- | ----- |
-    | rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
+    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
     | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
@@ -95,15 +95,15 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
 
 ## <a name="create-an-azure-cosmos-account"></a>Creare un account Azure Cosmos
 
-Creare un [account API di Azure Cosmos SQL](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). Per semplicità, è possibile creare l'account Azure Cosmos nella stessa area delle altre risorse (ovvero "WestCentralUS").
+Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). For simplicity, you can create the Azure Cosmos account in the same region as the other resources (that is "WestCentralUS").
 
-## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Creare un endpoint privato per l'account Azure Cosmos
+## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Create a Private Endpoint for your Azure Cosmos account
 
-Creare un collegamento privato per l'account Azure Cosmos, come descritto nella sezione [creare un collegamento privato usando la portale di Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) dell'articolo collegato.
+Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) section of the linked article.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
+Connect to the VM *myVm* from the internet as follows:
 
 1. Nella barra di ricerca del portale immettere *myVm*.
 
@@ -126,58 +126,58 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
-## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Accedere all'account Azure Cosmos privatamente dalla macchina virtuale
+## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Access the Azure Cosmos account privately from the VM
 
-In questa sezione si effettuerà la connessione privata all'account Azure Cosmos usando l'endpoint privato. 
+In this section, you will connect privately to the Azure Cosmos account using the Private Endpoint. 
 
 > [!IMPORTANT]
-> Per la configurazione DNS per l'account Azure Cosmos è necessaria una modifica manuale del file hosts per includere il nome di dominio completo dell'account specifico. Negli scenari di produzione il server DNS viene configurato per l'uso degli indirizzi IP privati. Per lo scopo dimostrativo, tuttavia, è possibile usare le autorizzazioni di amministratore per la macchina virtuale e modificare il file di `c:\Windows\System32\Drivers\etc\hosts` (in Windows) o il file di `/etc/hosts` (in Linux) per includere l'indirizzo IP e il mapping DNS.
+> The DNS configuration for the Azure Cosmos account needs a manual modification on the hosts file to include the FQDN of the specific account. In production scenarios you will configure the DNS server to use the private IP addresses. However for the demo purpose, you can use administrator permissions on the VM and modify the `c:\Windows\System32\Drivers\etc\hosts` file (on Windows) or `/etc/hosts` file (on Linux) to include the IP address and DNS mapping.
 
-1. Per includere l'indirizzo IP e il mapping DNS, accedere alla macchina virtuale *myVM*, aprire il file `c:\Windows\System32\Drivers\etc\hosts` e includere le informazioni DNS del passaggio precedente nel formato seguente:
+1. To include the IP address and DNS mapping, sign into your Virtual machine *myVM*, open the `c:\Windows\System32\Drivers\etc\hosts` file and include the DNS information from previous step in the following format:
 
-   [Indirizzo IP privato] [Endpoint account]. Documents. Azure. com
+   [Private IP Address] [Account endpoint].documents.azure.com
 
    **Esempio:**
 
-   mycosmosaccount.documents.azure.com 10.1.255.13
+   10.1.255.13 mycosmosaccount.documents.azure.com
 
-   mycosmosaccount-eastus.documents.azure.com 10.1.255.14
+   10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. Nel Desktop remoto di *myVM*installare [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+1. In the Remote Desktop of *myVM*, install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
-1. Selezionare **account Cosmos DB (anteprima)** con il pulsante destro del mouse.
+1. Select **Cosmos DB Accounts (Preview)** with the right-click.
 
-1. Selezionare **Connetti a Cosmos DB**.
+1. Select **Connect to Cosmos DB**.
 
 1. Selezionare **API**.
 
-1. Immettere la stringa di connessione incollando le informazioni copiate in precedenza.
+1. Enter the connection string by pasting the information previously copied.
 
 1. Selezionare **Avanti**.
 
 1. Selezionare **Connessione**.
 
-1. Esplorare i database e i contenitori di Azure Cosmos da *mycosmosaccount*.
+1. Browse the Azure Cosmos databases and containers from *mycosmosaccount*.
 
-1. (Facoltativamente) aggiungere nuovi elementi a *mycosmosaccount*.
+1. (Optionally) add new items to *mycosmosaccount*.
 
-1. Chiudere la connessione Desktop remoto a *myVM*.
+1. Close the remote desktop connection to *myVM*.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, l'account Azure Cosmos e la macchina virtuale: 
+When you're done using the Private Endpoint, Azure Cosmos account and the VM, delete the resource group and all of the resources it contains: 
 
 1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca.
 
 1. Selezionare **Elimina gruppo di risorse**.
 
-1. Immettere *myResourceGroup* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata creata una VM in una rete virtuale, un account Azure Cosmos e un endpoint privato. È stata effettuata la connessione alla macchina virtuale da Internet e la comunicazione protetta con l'account Azure Cosmos usando un collegamento privato.
+In this article, you created a VM on a virtual network, an Azure Cosmos account and a Private Endpoint. You connected to the VM from the internet and securely communicated to the Azure Cosmos account using Private Link.
 
-* Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure?](private-endpoint-overview.md).
+* To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
 
-* Per altre informazioni sulla limitazione dell'endpoint privato quando si usa con Azure Cosmos DB, vedere [collegamento privato di Azure con Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) articolo.
+* To learn more about limitation of Private Endpoint when using with Azure Cosmos DB, see [Azure Private Link with Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) article.

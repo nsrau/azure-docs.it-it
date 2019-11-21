@@ -1,6 +1,6 @@
 ---
 title: Creare un servizio Load Balancer con un front-end di zona - Portale di Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come creare un Load Balancer Standard con un front-end di zona usando il portale di Azure
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 9a260c267febb3dc851fe0a8ca8a8e351124116b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 82a773b279780bc4eb784fa107d6b15bd0ff2672
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275145"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225329"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Creare un Load Balancer Standard con un front-end di zona usando il portale di Azure
 

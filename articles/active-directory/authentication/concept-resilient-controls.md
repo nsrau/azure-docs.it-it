@@ -1,5 +1,5 @@
 ---
-title: Creare una strategia di gestione del controllo di accesso resiliente-Azure Active Directory
+title: Create a resilient access control management strategy - Azure AD
 description: Questo documento fornisce materiale sussidiario sulle strategie che un'organizzazione deve adottare per garantire la resilienza e ridurre il rischio di blocco durante interruzioni impreviste
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125119"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208563"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -37,8 +37,8 @@ Questo documento fornisce materiale sussidiario sulle strategie che un'organizza
 Da questo documento si traggono quattro punti chiave:
 
 * Evitare il blocco dell'amministratore usando account di accesso di emergenza.
-* Implementare l'autenticazione a più fattori usando l'accesso condizionale (CA) anziché l'autenticazione a più fattori per utente.
-* Attenuare il blocco degli utenti usando più controlli di accesso condizionale (CA).
+* Implement MFA using Conditional Access (CA) rather than per-user MFA.
+* Mitigate user lockout by using multiple Conditional Access (CA) controls.
 * Ridurre i blocchi dell'utente effettuando il provisioning di più metodi o equivalenti di autenticazione per ciascun utente.
 
 ## <a name="before-a-disruption"></a>Prima di un'interruzione
@@ -49,8 +49,8 @@ La riduzione di un'interruzione reale deve essere l'obiettivo principale di un'o
 
  L'identità è il piano di controllo degli utenti che accedono alle app e risorse. Il sistema di identità consente di controllare quali utenti ottengono accesso alle applicazioni e in quali condizioni, ad esempio tramite controlli di accesso o requisiti di autenticazione. Quando uno o più requisiti di autenticazione o controllo di accesso non sono disponibili per l'autenticazione degli utenti a causa di circostanze impreviste, le organizzazioni possono ritrovarsi in una o entrambe le situazioni seguenti:
 
-* **Blocco dell'amministratore:** Gli amministratori non possono gestire il tenant o i servizi.
-* **Blocco dell'utente:** Gli utenti non possono accedere alle app o risorse.
+* **Administrator lockout:** Administrators can’t manage the tenant or services.
+* **User lockout:** Users can’t access apps or resources.
 
 ### <a name="administrator-lockout-contingency"></a>Piano di emergenza per il blocco dell'amministratore
 
@@ -58,11 +58,11 @@ Per sbloccare l'accesso dell'amministratore al tenant, è consigliabile creare a
 
 ### <a name="mitigating-user-lockout"></a>Riduzione del blocco dell'utente
 
- Per ridurre il rischio di blocco degli utenti, usare i criteri di accesso condizionale con più controlli per offrire agli utenti la possibilità di scegliere la modalità di accesso alle app e alle risorse. Se si permette a un utente di scegliere tra, ad esempio, accedere con autenticazione a più fattori **o** da un dispositivo gestito **o** dalla rete aziendale, se uno dei controlli di accesso non è disponibile l'utente ha altre opzioni per continuare a lavorare.
+ To mitigate the risk of user lockout, use Conditional Access policies with multiple controls to give users a choice of how they will access apps and resources. Se si permette a un utente di scegliere tra, ad esempio, accedere con autenticazione a più fattori **o** da un dispositivo gestito **o** dalla rete aziendale, se uno dei controlli di accesso non è disponibile l'utente ha altre opzioni per continuare a lavorare.
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
 
-Incorporare i controlli di accesso seguenti nei criteri di accesso condizionale esistenti per l'organizzazione:
+Incorporate the following access controls in your existing Conditional Access policies for organization:
 
 1. Effettuare il provisioning di più metodi di autenticazione per ogni utente che si basano su canali di comunicazione diversi, ad esempio l'app Microsoft Authenticator (basata su internet), il token OATH (generato sul dispositivo) e l'autenticazione via SMS (telefonica).
 2. Distribuire Windows Hello for Business nei dispositivi Windows 10 per soddisfare i requisiti di autenticazione a più fattori direttamente dall'accesso del dispositivo.
@@ -77,23 +77,23 @@ Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUse
 
 **Set di criteri di mitigazione dell'accesso condizionale:**
 
-* Criterio 1: Blocca l'accesso a persone all'esterno dei gruppi di destinazione
-  * Utenti e gruppi: Includere tutti gli utenti. Escludi AppUsers CoreAdmins ed EmergencyAccess
-  * App cloud: Includi tutte le app
-  * Condizioni: (nessuna)
-  * Concedi controlli: Blocca
-* Criterio 2: Concedi l'accesso ad AppUsers richiedendo l'autenticazione a più fattori OPPURE un dispositivo attendibile.
-  * Utenti e gruppi: Includi AppUsers. Escludi CoreAdmins ed EmergencyAccess
-  * App cloud: Includi tutte le app
-  * Condizioni: (nessuna)
-  * Concedi controlli: Concedi l'accesso, richiedi l'autenticazione a più fattori, richiedi la conformità del dispositivo. Per più controlli: Richiedi uno dei controlli selezionati.
+* Policy 1: Block access to people outside target groups
+  * Users and Groups: Include all users. Escludi AppUsers CoreAdmins ed EmergencyAccess
+  * Cloud Apps: Include all apps
+  * Conditions: (None)
+  * Grant Control: Block
+* Policy 2: Grant access to AppUsers requiring MFA OR trusted device.
+  * Users and Groups: Include AppUsers. Escludi CoreAdmins ed EmergencyAccess
+  * Cloud Apps: Include all apps
+  * Conditions: (None)
+  * Grant Control: Grant access, require multi-factor authentication, require device to be compliant. For multiple controls: Require one of the selected controls.
 
 ### <a name="contingencies-for-user-lockout"></a>Contingenze per blocco dell'utente
 
 In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi.
 Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è una parte essenziale del processo di pianificazione. Per creare il piano di emergenza, determinare innanzitutto i seguenti requisiti aziendali dell'organizzazione:
 
-1. Determinare in anticipo le app di importanza strategica: Quali sono le app a cui è necessario garantire l'accesso, anche con un livello di rischio/sicurezza inferiore? Compilare un elenco di queste app e assicurarsi che gli altri stakeholder (business, sicurezza, legali, leadership) concordino sul fatto che se tutto il controllo di accesso è indisponibile, l'esecuzione di queste app deve comunque continuare. È probabile che si vadano a formare le seguenti categorie:
+1. Determine your mission critical apps ahead of time: What are the apps that you must give access to, even with a lower risk/security posture? Compilare un elenco di queste app e assicurarsi che gli altri stakeholder (business, sicurezza, legali, leadership) concordino sul fatto che se tutto il controllo di accesso è indisponibile, l'esecuzione di queste app deve comunque continuare. È probabile che si vadano a formare le seguenti categorie:
    * **Categoria 1: app di importanza strategica fondamentale** che non possono essere indisponibili per più di pochi minuti, ad esempio le app che hanno un effetto diretto sui ricavi dell'organizzazione.
    * **Categoria 2: app importanti** che devono tornare accessibili per l'azienda entro poche ore.
    * **Categoria 3: app di priorità bassa** che possono sopportare un'interruzione di alcuni giorni.
@@ -109,7 +109,7 @@ Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
 
-Un criterio di accesso condizionale di emergenza è un **criterio disabilitato** che omette l'autenticazione a più fattori di Azure, l'autenticazione a più fattori di terze parti, i controlli basati sul rischio o sul dispositivo. Quindi, quando l'organizzazione decide di attivare il piano di emergenza, gli amministratori possono abilitare il criterio e disabilitare i normali criteri basati sui controlli.
+A contingency Conditional Access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. Quindi, quando l'organizzazione decide di attivare il piano di emergenza, gli amministratori possono abilitare il criterio e disabilitare i normali criteri basati sui controlli.
 
 >[!IMPORTANT]
 > La disabilitazione dei criteri che applicano la sicurezza sugli utenti, anche solo temporaneamente, ridurrà il livello di sicurezza mentre il piano di emergenza è in funzione.
@@ -117,13 +117,13 @@ Un criterio di accesso condizionale di emergenza è un **criterio disabilitato**
 * Configurare un set di criteri di fallback se un'interruzione in un tipo di credenziali o in un meccanismo di controllo di accesso ha effetti sull'accesso alle app. Configurare un criterio disattivato che richiede il controllo di aggiunta a un dominio come backup per un criterio attivo che richiede un provider di autenticazione a più fattori di terze parti.
 * Ridurre il rischio di password indovinate da malintenzionati, quando l'autenticazione a più fattori non è necessaria, seguendo le procedure consigliate nel white paper relativo alle [indicazioni sulle password](https://aka.ms/passwordguidance).
 * Distribuire [Reimpostazione self-service delle password di Azure AD (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) e [Protezione della password di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) per assicurarsi che gli utenti non usino password comuni e termini esclusi.
-* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. Ad esempio:
+* Usare criteri che limitano l'accesso all'interno delle app se non si raggiunge un determinato livello di autenticazione, anziché eseguire semplicemente il fallback all'accesso completo. ad esempio:
   * Configurare un criterio di backup che invia l'attestazione di sessione con restrizioni a Exchange e SharePoint.
   * Se l'organizzazione usa Microsoft Cloud App Security, è consigliabile eseguire il fallback a un criterio che coinvolga MCAS, quindi che MCAS consenta l'accesso di sola lettura, ma non il caricamento.
 * Assegnare un nome ai criteri per esseri sicuri di trovarli facilmente durante un'interruzione. Includere gli elementi seguenti nel nome dei criteri:
   * Un *numero di etichetta* per i criteri.
-  * Il testo da visualizzare. Questo criterio è destinato solo ai casi di emergenza. Ad esempio:  **ENABLE IN EMERGENCY**
-  * L'*interruzione* a cui si applica il criterio. Ad esempio:  **Durante interruzione MFA**
+  * Il testo da visualizzare. Questo criterio è destinato solo ai casi di emergenza. For example: **ENABLE IN EMERGENCY**
+  * L'*interruzione* a cui si applica il criterio. For example: **During MFA Disruption**
   * Un *numero di sequenza* per mostrare l'ordine in cui è necessario attivare i criteri.
   * Le *app* a cui si applica il criterio.
   * I *controlli* a cui si applicherà il criterio.
@@ -135,72 +135,72 @@ Lo standard di denominazione per i criteri di emergenza avrà il formato seguent
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-L'esempio seguente: **L'esempio A: criteri di accesso condizionale di emergenza per il ripristino dell'accesso alle app di collaborazione di importanza strategica fondamentale** è una tipica emergenza aziendale. In questo scenario, l'organizzazione in genere richiede l'autenticazione a più fattori per tutti gli accessi a Exchange Online e SharePoint Online. In questo caso, l'interruzione coinvolge il servizio del provider di autenticazione a più fattori per il cliente (Azure, provider locale o terze parti). Questo criterio riduce l'interruzione permettendo a utenti di destinazione specifici di accedere a tali app da dispositivi Windows attendibili esclusivamente quando l'accesso all'app si verifica tramite la rete aziendale attendibile. Anche gli account di emergenza e degli amministratori di core saranno esclusi da queste restrizioni. Gli utenti di destinazione otterranno quindi l'accesso a Exchange Online e SharePoint Online, mentre gli altri utenti continueranno a non poter accedere alle app a causa dell'interruzione del servizio. In questo esempio, saranno necessari un percorso di rete denominato **CorpNetwork**, un gruppo di sicurezza **ContingencyAccess** con gli utenti di destinazione, uno denominato **CoreAdmins** con gli amministratori di core e uno denominato **EmergencyAccess** con gli account di accesso di emergenza. L'emergenza richiede quattro criteri per garantire l'accesso desiderato. 
+The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In questo scenario, l'organizzazione in genere richiede l'autenticazione a più fattori per tutti gli accessi a Exchange Online e SharePoint Online. In questo caso, l'interruzione coinvolge il servizio del provider di autenticazione a più fattori per il cliente (Azure, provider locale o terze parti). Questo criterio riduce l'interruzione permettendo a utenti di destinazione specifici di accedere a tali app da dispositivi Windows attendibili esclusivamente quando l'accesso all'app si verifica tramite la rete aziendale attendibile. Anche gli account di emergenza e degli amministratori di core saranno esclusi da queste restrizioni. Gli utenti di destinazione otterranno quindi l'accesso a Exchange Online e SharePoint Online, mentre gli altri utenti continueranno a non poter accedere alle app a causa dell'interruzione del servizio. In questo esempio, saranno necessari un percorso di rete denominato **CorpNetwork**, un gruppo di sicurezza **ContingencyAccess** con gli utenti di destinazione, uno denominato **CoreAdmins** con gli amministratori di core e uno denominato **EmergencyAccess** con gli account di accesso di emergenza. L'emergenza richiede quattro criteri per garantire l'accesso desiderato. 
 
 **Esempio A: criteri di accesso condizionale di emergenza per il ripristino dell'accesso alle app di collaborazione di importanza strategica fondamentale:**
 
-* Criterio 1: Richiedere dispositivi aggiunti a un dominio per Exchange e SharePoint
-  * Nome: EM001 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[1/4] - Exchange SharePoint - Richiedi Aggiunta ad Azure AD ibrido
-  * Utenti e gruppi: Includere ContingencyAccess. Escludere CoreAdmins ed EmergencyAccess
-  * App cloud: Exchange Online e SharePoint Online
-  * Condizioni: Any
-  * Concedere controllo: Richiedere aggiunta a un dominio
-  * Stato: Disabilitata
-* Criterio 2: Bloccare le piattaforme diverse da Windows
-  * Nome: EM002 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[2/4] - Exchange SharePoint - Blocca l'accesso escluso Windows
-  * Utenti e gruppi: Includere tutti gli utenti. Escludere CoreAdmins ed EmergencyAccess
-  * App cloud: Exchange Online e SharePoint Online
-  * Condizioni: La piattaforma del dispositivo include tutte le piattaforme, esclude Windows
-  * Concedere controllo: Blocca
-  * Stato: Disabilitata
-* Criterio 3: Bloccare reti diverse da CorpNetwork
-  * Nome: EM003 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[3/4] - Exchange SharePoint - Blocca l'accesso esclusa rete aziendale
-  * Utenti e gruppi: Includere tutti gli utenti. Escludere CoreAdmins ed EmergencyAccess
-  * App cloud: Exchange Online e SharePoint Online
-  * Condizioni: I percorsi includono qualsiasi percorso, escludono CorpNetwork
-  * Concedere controllo: Blocca
-  * Stato: Disabilitata
-* Criteri 4: Bloccare EAS in modo esplicito
-  * Nome: EM004 - ENABLE IN EMERGENCY: Interruzione autenticazione a più fattori[4/4] - Exchange SharePoint - Blocca EAS per tutti gli utenti
-  * Utenti e gruppi: Includere tutti gli utenti
-  * App cloud: Includere Exchange Online
-  * Condizioni: App client: Exchange Active Sync
-  * Concedere controllo: Blocca
-  * Stato: Disabilitata
+* Policy 1: Require Domain Joined devices for Exchange and SharePoint
+  * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
+  * Users and Groups: Include ContingencyAccess. Escludi CoreAdmins ed EmergencyAccess
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Any
+  * Grant Control: Require Domain Joined
+  * State: Disabled
+* Policy 2: Block platforms other than Windows
+  * Name: EM002 - ENABLE IN EMERGENCY: MFA Disruption[2/4] - Exchange SharePoint - Block access except Windows
+  * Users and Groups: Include all users. Escludi CoreAdmins ed EmergencyAccess
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Device Platform Include All Platforms, exclude Windows
+  * Grant Control: Block
+  * State: Disabled
+* Policy 3: Block networks other than CorpNetwork
+  * Name: EM003 - ENABLE IN EMERGENCY: MFA Disruption[3/4] - Exchange SharePoint - Block access except Corporate Network
+  * Users and Groups: Include all users. Escludi CoreAdmins ed EmergencyAccess
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Locations Include any location, exclude CorpNetwork
+  * Grant Control: Block
+  * State: Disabled
+* Policy 4: Block EAS Explicitly
+  * Name: EM004 - ENABLE IN EMERGENCY: MFA Disruption[4/4] - Exchange - Block EAS for all users
+  * Users and Groups: Include all users
+  * Cloud Apps: Include Exchange Online
+  * Conditions: Client apps: Exchange Active Sync
+  * Grant Control: Block
+  * State: Disabled
 
 Ordine di attivazione:
 
 1. Escludere ContingencyAccess, CoreAdmins ed EmergencyAccess dai criteri di autenticazione a più fattori esistenti. Verificare che un utente in ContingencyAccess possa accedere a SharePoint Online ed Exchange Online.
-2. Abilitare criterio 1: Verificare che gli utenti su dispositivi aggiunti a un dominio che non sono presenti nei gruppi di esclusione siano in grado di accedere a Exchange Online e SharePoint Online. Verificare che gli utenti nel gruppo Exclude possano accedere a SharePoint Online ed Exchange da qualsiasi dispositivo.
-3. Abilitare criterio 2: Verificare che gli utenti non presenti nel gruppo di esclusione non possano accedere a SharePoint Online ed Exchange Online dai dispositivi mobili. Verificare che gli utenti nel gruppo Exclude possano accedere a SharePoint ed Exchange da qualsiasi dispositivo (Windows/iOS/Android).
-4. Abilitare criterio 3: Verificare che gli utenti non presenti nei gruppi di esclusione non possano accedere a SharePoint ed Exchange dalla rete aziendale, anche con un computer aggiunto a un dominio. Verificare che gli utenti nel gruppo di esclusione possano accedere a SharePoint ed Exchange da qualsiasi rete.
-5. Abilitare criterio 4: Verificare che tutti gli utenti non possano accedere a Exchange Online dalle applicazioni native di posta elettronica nei dispositivi mobili.
+2. Enable Policy 1: Verify users on Domain Joined devices who are not in the exclude groups are able to access Exchange Online and SharePoint Online. Verificare che gli utenti nel gruppo Exclude possano accedere a SharePoint Online ed Exchange da qualsiasi dispositivo.
+3. Enable Policy 2: Verify users who are not in the exclude group cannot get to SharePoint Online and Exchange Online from their mobile devices. Verificare che gli utenti nel gruppo Exclude possano accedere a SharePoint ed Exchange da qualsiasi dispositivo (Windows/iOS/Android).
+4. Enable Policy 3: Verify users who are not in the exclude groups cannot access SharePoint and Exchange off the corporate network, even with a domain joined machine. Verificare che gli utenti nel gruppo di esclusione possano accedere a SharePoint ed Exchange da qualsiasi rete.
+5. Enable Policy 4: Verify all users cannot get Exchange Online from the native mail applications on mobile devices.
 6. Disabilitare i criteri di autenticazione a più fattori esistenti per SharePoint Online ed Exchange Online.
 
 In questo esempio successivo, **Esempio B: criteri di accesso condizionale di emergenza per consentire l'accesso a Salesforce da dispositivi mobili**, viene ripristinata l'accesso a un app aziendale. In questo scenario, in genere, il cliente richiede che l'accesso a Salesforce (configurato per l'accesso singolo con Azure AD) da parte degli addetti alla vendita con dispositivi mobili sia consentito solo se tramite dispositivi conformi. L'interruzione, in questo caso, consiste in un problema nella valutazione della conformità dei dispositivi. Si è verificata un'interruzione a un orario delicato, dove il team vendite deve accedere a Salesforce per chiudere delle operazioni commerciali. Questi criteri di emergenza concederanno l'accesso a Salesforce da un dispositivo mobile agli utenti fondamentali, in modo da poter continuare a chiudere operazioni commerciali senza interrompere le attività. In questo esempio, **SalesforceContingency** contiene tutti gli addetti alle vendite che hanno bisogno di mantenere l'accesso, mentre **SalesAdmins** include gli amministratori di Salesforce necessari.
 
 **Esempio B: criteri di accesso condizionale di emergenza:**
 
-* Criterio 1: Bloccare tutti gli utenti non inclusi nel team SalesContingency
-  * Nome: EM001 - ENABLE IN EMERGENCY: Interruzione conformità dispositivi[1/2] - Salesforce - Blocca tutti gli utenti tranne SalesforceContingency
-  * Utenti e gruppi: Includere tutti gli utenti. Escludere SalesAdmins e SalesforceContingency
-  * App cloud: Salesforce.
-  * Condizioni: Nessuna
-  * Concedere controllo: Blocca
-  * Stato: Disabilitata
-* Criterio 2: Bloccare il team vendite da tutte le piattaforme diverse dai dispositivi mobili (per ridurre la superficie di attacco)
-  * Nome: EM002 - ENABLE IN EMERGENCY: Interruzione conformità dispositivi[2/2] - Salesforce - Blocca tutte le piattaforme tranne iOS e Android
-  * Utenti e gruppi: Includere SalesforceContingency. Escludere SalesAdmins
-  * App cloud: Salesforce
-  * Condizioni: La piattaforma del dispositivo include tutte le piattaforme, esclude iOS e Android
-  * Concedere controllo: Blocca
-  * Stato: Disabilitata
+* Policy 1: Block everyone not in the SalesContingency team
+  * Name: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Block All users except SalesforceContingency
+  * Users and Groups: Include all users. Escludere SalesAdmins e SalesforceContingency
+  * Cloud Apps: Salesforce.
+  * Conditions: None
+  * Grant Control: Block
+  * State: Disabled
+* Policy 2: Block the Sales team from any platform other than mobile (to reduce surface area of attack)
+  * Name: EM002 - ENABLE IN EMERGENCY: Device Compliance Disruption[2/2] - Salesforce - Block All platforms except iOS and Android
+  * Users and Groups: Include SalesforceContingency. Escludere SalesAdmins
+  * Cloud Apps: Salesforce
+  * Conditions: Device Platform Include All Platforms, exclude iOS and Android
+  * Grant Control: Block
+  * State: Disabled
 
 Ordine di attivazione:
 
 1. Escludere SalesAdmins e SalesforceContingency dai criteri di conformità del dispositivo esistenti per Salesforce. Verificare che un utente nel gruppo SalesforceContingency possa accedere a Salesforce.
-2. Abilitare criterio 1: Verificare che gli utenti al di fuori di SalesContingency non possano accedere a Salesforce. Verificare che gli utenti in SalesAdmins e SalesforceContingency possano accedere a Salesforce.
-3. Abilitare criterio 2: Verificare che gli utenti del gruppo SalesContingency non possano accedere a Salesforce dai computer portatili Windows o Mac, ma che possano comunque accedere dai dispositivi mobili. Verificare che SalesAdmin possa comunque accedere a Salesforce da qualsiasi dispositivo.
+2. Enable Policy 1: Verify users outside of SalesContingency cannot access Salesforce. Verificare che gli utenti in SalesAdmins e SalesforceContingency possano accedere a Salesforce.
+3. Enable Policy 2: Verify users in the SalesContingency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. Verificare che SalesAdmin possa comunque accedere a Salesforce da qualsiasi dispositivo.
 4. Disabilitare i criteri di conformità del dispositivo esistenti per Salesforce.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Distribuire la sincronizzazione dell'hash delle password, anche in caso di federazione o uso dell'autenticazione pass-through
@@ -232,7 +232,7 @@ A seconda delle mitigazioni o emergenze usate durante un'interruzione, l'organiz
 1. Come parte della strategia di controllo modifiche, documentare tutte le modifiche e lo stato precedente per poter eseguire il rollback di qualsiasi emergenza implementata non appena i controlli di accesso sono completamente operativi.
 2. Presupporre che i malintenzionati tenteranno di rubare password tramite attacchi di tipo password spray o phishing quando si disabilita l'autenticazione a più fattori. Inoltre, i malintenzionati potrebbero avere già password che, se in precedenza non consentivano l'accesso a nessuna risorsa, possono essere tentate durante questo intervallo. Per gli utenti fondamentali, come i dirigenti, è possibile ridurre parzialmente questo rischio reimpostando le loro password prima di disabilitare l'autenticazione a più fattori.
 3. Archiviare tutte le attività di accesso per identificare chi accede a cosa durante la fase in cui l'autenticazione a più fattori è disabilitata.
-4. [Valutazione di tutti i](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) rilevamenti di rischio segnalati durante questa finestra.
+4. [Triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) during this window.
 
 ## <a name="after-a-disruption"></a>Dopo un'interruzione
 
@@ -242,24 +242,24 @@ Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una
 2. Disabilitare i criteri di emergenza. 
 3. Eseguire il rollback delle modifiche apportate e documentate durante l'interruzione.
 4. Se si usa un account di accesso di emergenza, ricordarsi di rigenerare le credenziali e proteggere fisicamente i dettagli delle nuove credenziali come parte delle procedure di account di accesso di emergenza.
-5. Continua a valutare [tutti i](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) rilevamenti dei rischi segnalati dopo l'interferenza per attività sospette.
+5. Continue to [triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) after the disruption for suspicious activity.
 6. Revocare tutti i token di aggiornamento rilasciati [usando PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) e destinati a un set di utenti. La revoca di tutti i token di aggiornamento è importante per gli account con privilegi usati durante l'interruzione. Questa operazione costringerà gli utenti a ripetere l'autenticazione e rispettare il controllo dei criteri ripristinati.
 
 ## <a name="emergency-options"></a>Opzioni di emergenza
 
- In caso di emergenza e l'organizzazione non ha implementato in precedenza un piano di mitigazione o di emergenza, seguire le indicazioni riportate nella sezione [contingenze per il blocco degli utenti](#contingencies-for-user-lockout) se usano già i criteri di accesso condizionale per applicare l'autenticazione a più fattori.
+ In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
 Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'utente, è possibile prendere in considerazione l'alternativa seguente:
 
 1. Se si dispone dell'indirizzo IP in uscita della rete aziendale, è possibile aggiungerli come indirizzi IP attendibili per abilitare l'autenticazione esclusivamente sulla rete aziendale.
    1. Se non si ha l'inventario degli indirizzi IP in uscita, o se è necessario abilitare l'accesso all'interno e all'esterno della rete aziendale, è possibile aggiungere l'intero spazio indirizzi IPv4 come indirizzi IP attendibili specificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
- > Se si ampliano gli indirizzi IP attendibili per sbloccare l'accesso, i rilevamenti dei rischi associati a indirizzi IP (ad esempio, spostamento impossibile o posizioni non note) non verranno generati.
+ > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
 
 >[!NOTE]
  > La configurazione di [indirizzi IP attendibili](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) per l'autenticazione a più fattori di Azure è disponibile solo con [licenze Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 
 * [Documentazione di Autenticazione di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gestire gli account amministrativi di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
@@ -268,5 +268,5 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 * [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
   * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Quali sono le condizioni in Azure Active Directory l'accesso condizionale?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Che cosa sono i controlli di accesso nell'accesso condizionale Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [What are conditions in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [What are access controls in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

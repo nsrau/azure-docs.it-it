@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d847b78ba9623f3543a3cb1e45b5187605deb550
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969073"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229774"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
 
@@ -38,7 +38,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
       - Cost Analysis (Analisi dei costi)
       - Allocation (Allocazione)
-      - Asset Management (Gestione degli asset)
+      - Gestione degli asset
       - Ottimizzazione
 
    Digitare un nome di filtro e quindi fare clic su **Save** (Salva).
@@ -66,16 +66,16 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
     ![Secondo elenco di esempio di tag in base a cui è possibile raggruppare](./media/understanding-cost-reports/groups-tags02.png)
 
     Nei report di allocazione costi i gruppi delle categorie basate su tag possono includere:
-      - `Tags`
+      - Tag
       - Tag di gruppi di risorse
       - Tag di entità di costo Cloudyn
       - Tag di sottoscrizione a scopo di allocazione costi
 
    Ecco alcuni esempi:
    - Centro di costo
-   - department
-   - Applicazione
-   - Environment
+   - Department
+   - Richiesta
+   - Ambiente
    - Codice di costo
 
      Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
@@ -105,14 +105,14 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
        - Tipo di risorsa in uso.
      - **Sub-Type** (Sottotipo)
        - Selezionare il sottotipo.
-     - **operazione**
+     - **Operazione**
        - Selezionare l'operazione o **Show all** (Mostra tutto).
      - **Price Model** (Modello di prezzo)
        - All Upfront (Tutto anticipato)
        - No Upfront (Nessun anticipo)
        - Partial Upfront (Anticipo parziale)
-       - On Demand (Su richiesta)
-       - Reservation
+       - On demand
+       - Prenotazione
        - Spot (Contante)
      - **Charge Type** (Tipo di addebito)
        - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
@@ -144,9 +144,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 8. **Risoluzione**
 
     Usare questo elenco per selezionare la risoluzione dei dati temporali nell'intervallo di date selezionato. La risoluzione determina il numero di unità visualizzate nel report e può essere:
-    - Ogni giorno
+    - Al giorno
     - Settimanale
-    - Mensile
+    - Impegno di spesa
     - Trimestrale
     - Annuale
 
@@ -191,7 +191,7 @@ Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selez
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Salvare un report in una risorsa di archiviazione di un provider di servizi cloud
 
-Per salvare un report con un provider di servizi cloud, è necessario avere già configurato un account di archiviazione. Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione o aggiungerne uno nuovo. Immettere un prefisso che viene aggiunto al nome del file di report. Selezionare un formato di file CSV o JSON e quindi salvare il report.
+Per salvare un report con un provider di servizi cloud, è necessario avere già configurato un account di archiviazione. Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione o aggiungerne uno nuovo. Immettere un prefisso che viene aggiunto al nome del file di report. Select a CSV or JSON file format and then save the report.
 
 ### <a name="schedule-a-report"></a>Pianificare un report
 

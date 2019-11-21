@@ -1,20 +1,14 @@
 ---
 title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: glenga
-ms.openlocfilehash: 896179a393b870390991a8e9942f6e7287ec5c90
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 35ecebfb1956422470bf20e6d510543897ca0910
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063313"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227397"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -34,7 +28,7 @@ La chiave di strumentazione di Application Insights se si usa Application Insigh
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Nella versione 2. x del runtime di funzioni, configura il comportamento dell'app in base all'ambiente di Runtime. Questo valore viene [letto durante l'inizializzazione](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). È possibile impostare `AZURE_FUNCTIONS_ENVIRONMENT` su qualsiasi valore, ma sono supportati [tre valori](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [sviluppo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [gestione temporanea](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produzione](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` non è impostato, il valore predefinito è `Development` in un ambiente locale e `Production` in Azure. Questa impostazione deve essere utilizzata al posto di `ASPNETCORE_ENVIRONMENT` per impostare l'ambiente di Runtime. 
+In version 2.x of the Functions runtime, configures app behavior based on the runtime environment. This value is [read during initialization](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). You can set `AZURE_FUNCTIONS_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). When `AZURE_FUNCTIONS_ENVIRONMENT` isn't set,  it defaults to `Development` on a local environment and `Production` on Azure. This setting should be used instead of `ASPNETCORE_ENVIRONMENT` to set the runtime environment. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -101,7 +95,7 @@ Percorso per il compilatore usato per TypeScript. Consente di eseguire l'overrid
 
 ## <a name="function_app_edit_mode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-Determina se la modifica nella portale di Azure è abilitata. I valori validi sono "readwrite" e "readonly".
+Dictates whether editing in the Azure portal is enabled. I valori validi sono "readwrite" e "readonly".
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -115,18 +109,18 @@ La versione del runtime di Funzioni da utilizzare in questa app per le funzioni.
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
-## <a name="functions_worker_process_count"></a>FUNZIONI\_il processo di\_di lavoro\_conteggio
+## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
-Specifica il numero massimo di processi di lavoro della lingua, il cui valore predefinito è `1`. Il valore massimo consentito è `10`. Le chiamate di funzione sono distribuite uniformemente tra i processi di lavoro del linguaggio. I processi di lavoro del linguaggio vengono generati ogni 10 secondi finché non viene raggiunto il conteggio impostato dalle funzioni\_WORKer\_PROCESS\_COUNT. L'utilizzo di più processi di lavoro in linguaggio non equivale al [ridimensionamento](functions-scale.md). Provare a usare questa impostazione quando il carico di lavoro include una combinazione di chiamate con binding CPU e I/O. Questa impostazione si applica a tutte le lingue non-.NET.
+Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all non-.NET languages.
 
 |Chiave|Valore di esempio|
 |---|------------|
-|FUNZIONI\_il processo di\_di lavoro\_conteggio|2|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzioni.  Corrisponderà al linguaggio usato nell'applicazione (ad esempio, "dotnet"). Per le funzioni in più lingue, sarà necessario pubblicarle in più app, ciascuna con un valore del runtime del ruolo di lavoro corrispondente.  I valori validi sono `dotnet`C#(F#/), `node` (JavaScript/typescript), `java` (Java), `powershell` (PowerShell) e `python` (Python).
+Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzioni.  Corrisponderà al linguaggio usato nell'applicazione (ad esempio, "dotnet"). Per le funzioni in più lingue, sarà necessario pubblicarle in più app, ciascuna con un valore del runtime del ruolo di lavoro corrispondente.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), and `python` (Python).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -134,7 +128,7 @@ Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzio
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Per l'utilizzo & solo piani Premium. Stringa di connessione per l'account di archiviazione in cui sono archiviati il codice e la configurazione dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
+For consumption & Premium plans only. Stringa di connessione per l'account di archiviazione in cui sono archiviati il codice e la configurazione dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -142,7 +136,7 @@ Per l'utilizzo & solo piani Premium. Stringa di connessione per l'account di arc
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Per l'utilizzo & solo piani Premium. Il percorso del file per il codice e la configurazione dell’app per le funzioni. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
+For consumption & Premium plans only. Il percorso del file per il codice e la configurazione dell’app per le funzioni. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -161,12 +155,12 @@ Il numero massimo di istanze che l'app per le funzioni è in grado di scalare or
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_Solo Windows._  
-Imposta la versione di node. js da usare quando si esegue l'app per le funzioni in Windows. È consigliabile usare una tilde (~) per fare in modo che il runtime usi la versione disponibile più recente della versione principale di destinazione. Se, ad esempio, è impostato su `~10`, viene utilizzata la versione più recente di node. JS 10. Quando una versione principale è destinata a una tilde, non è necessario aggiornare manualmente la versione secondaria. 
+_Windows only._  
+Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (~) to have the runtime use the latest available version of the targeted major version. For example, when set to `~10`, the latest version of Node.js 10 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version. 
 
 |Chiave|Valore di esempio|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~ 10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 

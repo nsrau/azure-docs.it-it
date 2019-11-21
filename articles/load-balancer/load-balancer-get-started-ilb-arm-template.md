@@ -1,6 +1,6 @@
 ---
 title: 'Creare un servizio di bilanciamento del carico interno: modello di Azure'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico interno in Gestione risorse con un modello
 services: load-balancer
 documentationcenter: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: f05c90948fe95f204f268d84c01e1e8773bec468
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: bdc9a8079c46a05e5045d72cd6d7b07a9a457899
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275376"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215266"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creare un servizio di bilanciamento del carico interno usando un modello
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Scaricare il file dei parametri sul disco locale.
 3. Modificare il file e salvarlo.
-4. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse usando il modello.
+4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `

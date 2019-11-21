@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: prerequisiti per il gruppo di disponibilità'
+title: 'Tutorial: Prerequisites for availability group'
 description: Questa esercitazione illustra come configurare i prerequisiti per la creazione di un gruppo di disponibilità AlwaysOn di SQL Server nelle VM di Azure.
 services: virtual-machines
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 17b1f58a950f2e0589986e9f1da1295671599341
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037483"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224763"
 ---
-# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
+# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisites for creating Always On availability groups on SQL Server on Azure virtual machines
 
 Questa esercitazione illustra come completare i prerequisiti per la creazione di un [gruppo di disponibilità AlwaysOn di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Dopo il completamento dei prerequisiti, sono presenti un controller di dominio, due VM di SQL Server e un server di controllo in un unico gruppo di risorse.
 
@@ -48,7 +48,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 
 3. Digitare **gruppo di risorse** nella finestra di ricerca del **Marketplace**.
 
-   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
+   ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Fare clic su **Gruppo di risorse**.
 5. Fare clic su **Create**(Crea).
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
@@ -56,7 +56,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
 9. Verificare che l'opzione **Aggiungi al dashboard** sia selezionata. Questa impostazione facoltativa inserisce un collegamento per il gruppo di risorse nel dashboard del portale di Azure.
 
-   ![Resource group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
+   ![Gruppo di risorse](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
 10. Fare clic su **Crea** per creare il gruppo di risorse.
 
@@ -80,11 +80,11 @@ Per creare la rete virtuale:
 
     La tabella seguente descrive le impostazioni per la rete virtuale:
 
-   | **Campo** | Valore |
+   | **Campo** | Value |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Spazio degli indirizzi** |10.33.0.0/24 |
-   | **Nome della subnet** |Amministratore |
+   | **Nome della subnet** |Admin |
    | **Intervallo di indirizzi subnet** |10.33.0.0/29 |
    | **Sottoscrizione** |Specificare la sottoscrizione da usare. Se è disponibile una sola sottoscrizione, il valore di **Sottoscrizione** non è impostato. |
    | **Gruppo di risorse** |Scegliere **Utilizza esistente** e selezionare il nome del gruppo di risorse. |
@@ -92,7 +92,7 @@ Per creare la rete virtuale:
 
    Lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione, sul portale verrà suggerito uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
 
-   Nell'esempio viene usato il nome della subnet **admin**. Questa subnet è per i controller di dominio.
+   The example uses the subnet name **Admin**. This subnet is for the domain controllers.
 
 5. Fare clic su **Create**(Crea).
 
@@ -101,7 +101,7 @@ Per creare la rete virtuale:
 In questo modo, si torna al dashboard del portale e Azure invia una notifica dopo la creazione della rete.
 
 ### <a name="create-a-second-subnet"></a>Creare una seconda subnet
-La nuova rete virtuale ha una subnet, denominata **admin**. I controller di dominio utilizzano questa subnet. Le VM di SQL Server usano una seconda subnet denominata **SQL**. Per configurare questa subnet:
+The new virtual network has one subnet, named **Admin**. The domain controllers use this subnet. Le VM di SQL Server usano una seconda subnet denominata **SQL**. Per configurare questa subnet:
 
 1. Nel dashboard fare clic sul gruppo di risorse creato, **SQL-HA-RG**. Trovare la rete nel gruppo di risorse in **Risorse**.
 
@@ -120,7 +120,7 @@ La nuova rete virtuale ha una subnet, denominata **admin**. I controller di domi
 
 La tabella seguente riepiloga le impostazioni di configurazione della rete:
 
-| **Campo** | Valore |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
@@ -152,7 +152,7 @@ Configurare due set di disponibilità in base ai parametri riportati nella tabel
 Dopo avere creato i set di disponibilità, tornare al gruppo di risorse nel portale di Azure.
 
 ## <a name="create-domain-controllers"></a>Creare controller di dominio
-Dopo la creazione della rete, delle subnet, dei set di disponibilità e di un servizio di bilanciamento del carico con connessione Internet, è possibile creare le macchine virtuali per i controller di dominio.
+After you've created the network, subnets, and availability sets, you're ready to create the virtual machines for the domain controllers.
 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Creare le macchine virtuali per i controller di dominio
 Per creare e configurare i controller di dominio, tornare al gruppo di risorse **SQL-HA-RG** .
@@ -173,10 +173,10 @@ Ripetere i passaggi precedenti per creare due macchine virtuali. Assegnare un no
 
 La tabella seguente descrive le impostazioni per queste due macchine:
 
-| **Campo** | Valore |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |Primo controller di dominio: *ad-primary-dc*.</br>Secondo controller di dominio: *ad-secondary-dc*. |
-| **Tipo di disco VM** |SSD |
+| **Tipo di disco VM** |Unità SSD |
 | **Nome utente** |DomainAdmin |
 | **Password** |Contoso!0000 |
 | **Sottoscrizione** |*Sottoscrizione in uso* |
@@ -189,7 +189,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Indirizzo IP pubblico** |*Lo stesso nome della VM* |
 | **Gruppo di sicurezza di rete** |*Lo stesso nome della VM* |
 | **Set di disponibilità** |adavailabilityset </br>**Domini di errore**:2 </br>**Domini di aggiornamento**:2|
-| **Diagnostica** |Enabled |
+| **Diagnostica** |Attivato |
 | **Account di archiviazione di diagnostica** |*Creato automaticamente* |
 
    >[!IMPORTANT]
@@ -261,7 +261,7 @@ Dopo aver creato il primo controller di dominio e attivato il DNS sul primo serv
 
 3. Fare clic su **Personalizzato** e digitare l'indirizzo IP privato del controller di dominio primario.
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**
 
 ### <a name="configure-the-second-domain-controller"></a>Configurare il secondo controller di dominio
 Dopo il riavvio del controller di dominio primario, è possibile configurare il secondo controller di dominio. Questo passaggio facoltativo serve a garantire una disponibilità elevata. Seguire questi passaggi per configurare il secondo controller di dominio:
@@ -313,8 +313,8 @@ Nei passaggi successivi vengono configurati gli account Active Directory (AD). L
 
 | |Account di installazione<br/> |sqlserver-0 <br/>Account del servizio SQL Agent e SQL Server |sqlserver-1<br/>Account del servizio SQL Agent e SQL Server
 | --- | --- | --- | ---
-|**Nome** |Install |SQLSvc1 | SQLSvc2
-|**Utente SamAccountName** |Install |SQLSvc1 | SQLSvc2
+|**Nome** |Installazione |SQLSvc1 | SQLSvc2
+|**Utente SamAccountName** |Installazione |SQLSvc1 | SQLSvc2
 
 Usare i passaggi seguenti per creare ogni account.
 
@@ -364,7 +364,7 @@ Prima di procedere, considerare le seguenti decisioni di progettazione.
 Creare successivamente tre VM, tra cui due VM di SQL Server e una VM per un nodo del cluster aggiuntivo. Per creare ogni VM, tornare al gruppo di risorse **SQL-HA-RG**, fare clic su **Aggiungi**, cercare l'elemento della raccolta appropriato, fare clic su **Macchina virtuale**, quindi su **Da raccolta**. Usare le informazioni nella tabella seguente per facilitare la creazione di VM:
 
 
-| Page | VM1 | VM2 | VM3 |
+| Pagina | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Selezionare l'elemento della raccolta appropriato |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |**SQL Server 2016 SP1 Enterprise on Windows Server 2016** |
 | **Elementi di base** |**Nome** = cluster-fsw<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-0<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |**Nome** = sqlserver-1<br/>**Nome utente** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Sottoscrizione** = sottoscrizione<br/>**Gruppo di risorse** = SQL-HA-RG<br/>**Posizione** = posizione di Azure |
@@ -463,7 +463,7 @@ Per aggiungere le funzionalità del cluster di failover, seguire questa procedur
 Ripetere i passaggi nell'altra VM di SQL Server.
 
   >[!NOTE]
-  > Questo passaggio, insieme alla possibilità di eseguire il join delle VM SQL Server al cluster di failover, ora può essere automatizzato con l'interfaccia della riga di comando della [VM SQL di Azure](virtual-machines-windows-sql-availability-group-cli.md) e i [modelli di avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md)
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurare il firewall in ogni macchina virtuale di SQL Server
@@ -491,8 +491,8 @@ Il metodo per aprire le porte dipende dalla soluzione firewall in uso. La sezion
    ![Firewall SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 
 5. Fare clic su **Next** (Avanti).
-6. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e quindi fare clic su **Avanti**.
-7. Nella pagina **Profilo** accettare le impostazioni predefinite e quindi fare clic su **Avanti**.
+6. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e fare clic su **Avanti**.
+7. Nella pagina **Profilo** accettare le impostazioni predefinite e fare clic su **Avanti**.
 8. Nella pagina **Nome** specificare un nome per la regola, ad esempio **Probe per Azure LB** nella casella di testo **Nome**, quindi fare clic su **Fine**.
 
 Ripetere questi passaggi per la seconda VM di SQL Server.

@@ -1,6 +1,6 @@
 ---
 title: Creare un servizio di bilanciamento del carico interno di Azure con PowerShell
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell con Azure Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b53225334c6a7d61fcee70327df5979af1e424ee
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275402"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225395"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -251,7 +251,7 @@ Dopo aver creato la macchina virtuale, aggiungere l'interfaccia di rete.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Passaggio 1: Archiviare la risorsa di bilanciamento del carico
 
-Se non è già stato fatto, archiviare la risorsa di bilanciamento del carico in una variabile. Viene usato il nome di variabile **$lb**. Per i valori degli attributi nello script, usare i nomi per le risorse di bilanciamento del carico create nei passaggi precedenti.
+Se non è già stato fatto, archiviare la risorsa di bilanciamento del carico in una variabile. We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -330,5 +330,5 @@ Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare la modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
+* [Configurare la modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
 * [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

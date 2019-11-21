@@ -1,7 +1,7 @@
 ---
-title: Eseguire la migrazione a una risorsa di creazione di Azure
+title: Migrate to an Azure authoring resource
 titleSuffix: Azure Cognitive Services
-description: Eseguire la migrazione a una risorsa di creazione di Azure.
+description: Migrate to an Azure authoring resource.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,49 +9,47 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: bebfad57da41d257749acd3842a75ace114ed643
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a018a03c026f1ee5e0233f3782a7b26a8ae3c4f5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492757"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221636"
 ---
-# <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Passaggi per eseguire la migrazione alla risorsa di creazione di Azure
+# <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Steps to migrate to the Azure authoring resource
 
-Dal portale di Language Understanding (LUIS) eseguire la migrazione di tutte le app di cui si è proprietari per usare la risorsa di creazione di Azure.
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Azure authoring resource.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Facoltativamente**, eseguire il backup delle app dall'elenco di app del portale Luis esportando ogni app o usando l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)di esportazione.
-* **Facoltativamente**, salvare l'elenco collaborator's di ogni app. Tutti i collaboratori possono inviare un messaggio di posta elettronica come parte del processo di migrazione.
-* **Obbligatorio**, è necessario avere una [sottoscrizione di Azure](https://azure.microsoft.com/free/). Una parte del processo di sottoscrizione richiede informazioni sulla fatturazione. È tuttavia possibile usare piani tariffari gratuiti (F0) quando si usa LUIS. È possibile che sia necessario un livello a pagamento, a mano a mano che aumenta l'utilizzo. 
+* **Optionally**, backup the apps from the LUIS portal's apps list by exporting each app or use the export [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
+* **Optionally**, save each app's collaborator's list. All collaborators can be sent an email as part of the migration process.
+* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/free/). A part of the subscription process does require billing information. However, you can use Free (F0) pricing tiers when you use LUIS. You may eventually find you need a paid tier, as your usage increases. 
 
-Se non si ha una sottoscrizione di Azure, [iscriversi](https://azure.microsoft.com/free/). 
+If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/free/). 
 
-## <a name="access-the-migration-process"></a>Accedere al processo di migrazione
+## <a name="access-the-migration-process"></a>Access the migration process
 
-Con cadenza settimanale, viene richiesto di eseguire la migrazione delle app. È possibile annullare questa finestra senza eseguire la migrazione. Se si desidera eseguire la migrazione prima del successivo periodo pianificato, è possibile avviare il processo di migrazione dall'icona del **lucchetto** nella barra degli strumenti superiore del portale Luis. 
+On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal. 
 
-## <a name="app-owner-begins-the-migration-process"></a>Il proprietario dell'app avvia il processo di migrazione
+## <a name="app-owner-begins-the-migration-process"></a>App owner begins the migration process
 
-Il processo di migrazione è disponibile se si è il proprietario di qualsiasi app LUIS. 
+The migration process is available if you are the owner of any LUIS apps. 
 
-1. Accedere a [Luis Portal](https://www.luis.ai) e accettare le condizioni per l'utilizzo.
-1. La finestra popup migrazione consente di continuare la migrazione o eseguire la migrazione in un secondo momento. Selezionare **migrate Now**. Se si sceglie di eseguire la migrazione in un secondo momento, è necessario eseguire la migrazione di 9 mesi alla nuova chiave di creazione in Azure.
+1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
+1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**. If you choose to migrate later, you have 9 months to migrate to the new authoring key in Azure.
 
-    ![Prima finestra popup del processo di migrazione, selezionare Esegui migrazione ora.](./media/migrate-authoring-key/migrate-now.png)
+    ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
 
-1. Facoltativamente, se una delle app dispone di collaboratori, viene richiesto di **inviarle un messaggio di posta elettronica** che informa sulla migrazione. Si tratta di un passaggio facoltativo. 
+1. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. Si tratta di un passaggio facoltativo. 
 
-    Dopo aver eseguito la migrazione dell'account in Azure, le app non saranno più disponibili per i collaboratori.
+    Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
-    Per ogni collaboratore e app, l'applicazione di posta elettronica predefinita si apre con un messaggio di posta elettronica in formato lieve. È possibile modificare il messaggio di posta elettronica prima di inviarlo.
+    For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it.
 
-    Il modello di messaggio di posta elettronica include l'ID app esatto e il nome dell'app. 
+    The email template includes the exact app ID and app name. 
 
     ```html
     Dear Sir/Madam,
@@ -64,11 +62,11 @@ Il processo di migrazione è disponibile se si è il proprietario di qualsiasi a
     Thank you
     ```
 
-1. Scegliere di creare una risorsa LUIS authoring selezionando **inizia creando una risorsa di creazione per la migrazione delle app**. 
+1. Choose to create a LUIS authoring resource by selecting **Start by creating an authoring resource to migrate your apps to**. 
 
     ![Creare la risorsa di creazione](./media/migrate-authoring-key/choose-authoring-resource.png)
 
-1. Nella finestra successiva immettere le informazioni sulla chiave della risorsa. Dopo aver immesso le informazioni, selezionare **Crea risorsa**. È possibile avere 10 risorse di creazione gratuite per ogni area, per sottoscrizione.
+1. In the next window, enter your resource key information. After you enter the information, select **Create resource**. You can have 10 free authoring resources per region, per subscription.
 
     ![Creare la risorsa di creazione](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
@@ -81,41 +79,41 @@ Il processo di migrazione è disponibile se si è il proprietario di qualsiasi a
     * **Località**: la località scelta dipende dalla selezione del **gruppo di risorse**.
     * **Piano tariffario**: il piano tariffario determina il numero massimo di transazioni al secondo e al mese. 
 
-1. Convalidare la risorsa di creazione e **migrare ora**.
+1. Validate your authoring resource and **Migrate now**.
 
     ![Creare la risorsa di creazione](./media/migrate-authoring-key/choose-authoring-resource-and-migrate.png)
 
-1. Quando viene creata la risorsa di creazione, viene visualizzato il messaggio di operazione riuscita. Selezionare **Chiudi** per chiudere la finestra popup.
+1. When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
 
-    ![Creazione della risorsa di creazione completata.](./media/migrate-authoring-key/migration-success.png)
+    ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success.png)
 
-    L'elenco **app personali** Mostra le app di cui è stata eseguita la migrazione alla nuova risorsa di creazione. 
+    The **My apps** list shows the apps migrated to the new authoring resource. 
 
-    Non è necessario essere a conoscenza della chiave della risorsa di creazione per continuare a modificare le app nel portale LUIS. Se si prevede di modificare le app a livello di codice, sono necessari i valori delle chiavi di creazione. Questi valori vengono visualizzati nella pagina **gestisci > risorse di Azure** nel portale Luis e sono disponibili anche nella portale di Azure nella pagina **chiavi** della risorsa.  
+    You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal. If you plan to edit your apps programmatically, you need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page.  
 
-1. Prima di accedere alle app, selezionare la sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che è possibile creare.
+1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
 
-    ![Selezionare sottoscrizione e la risorsa di authoring LUIS per visualizzare le app che possono essere create.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+    ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 
 
-## <a name="app-contributor-begins-the-migration-process"></a>Il collaboratore app avvia il processo di migrazione
+## <a name="app-contributor-begins-the-migration-process"></a>App contributor begins the migration process
 
-Seguire gli stessi passaggi del proprietario dell'app per la migrazione. Il processo crea una nuova risorsa di creazione di tipo `LUIS.Authoring`. 
+Follow the same steps as the app owner for migration. The process creates a new authoring resource of kind `LUIS.Authoring`. 
 
-È necessario eseguire la migrazione dell'account per essere aggiunto come collaboratore per le app di cui è stata eseguita la migrazione di proprietà di altri utenti.  
+You need to migrate your account in order to be added as a contributor to migrated apps owned by others.  
 
-## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>Dopo il processo di migrazione, aggiungere collaboratori alla risorsa di creazione
+## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>After the migration process, add contributors to your authoring resource
 
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
-Informazioni [su come aggiungere collaboratori](luis-how-to-collaborate.md). 
+Learn [how to add contributors](luis-how-to-collaborate.md). 
 
-## <a name="troubleshooting-errors-with-the-migration-process"></a>Risoluzione degli errori con il processo di migrazione
+## <a name="troubleshooting-errors-with-the-migration-process"></a>Troubleshooting errors with the migration process
 
-Se durante il processo di migrazione viene visualizzato un errore di `MissingSubscriptionRegistration` nel portale LUIS con una barra di notifica rossa, creare una risorsa di servizio cognitive nell' [portale di Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o nell'interfaccia della riga di comando di [Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Altre informazioni sulle [cause di questo errore](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
+If you receive a `MissingSubscriptionRegistration` error in the LUIS portal with a red notification bar during the migration process, create a Cognitive Service resource in the [Azure portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Learn more about [causes of this error](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 
-* Esaminare i [concetti](luis-concept-keys.md) relativi alla creazione e alle chiavi di runtime
-* Esaminare [come assegnare chiavi](luis-how-to-azure-subscription.md) e aggiungere [collaboratori](luis-how-to-collaborate.md)
+* Review [concepts](luis-concept-keys.md) about authoring and runtime keys
+* Review [how to assign keys](luis-how-to-azure-subscription.md) and add [contributors](luis-how-to-collaborate.md)

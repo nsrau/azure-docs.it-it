@@ -1,20 +1,16 @@
 ---
-title: Panoramica del runtime di Funzioni di Azure | Documentazione Microsoft
+title: Panoramica di Runtime di Funzioni di Azure
 description: Panoramica di anteprima del runtime di Funzioni di Azure
-services: functions
 author: apwestgarth
-manager: stefsch
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: e67041ca78ba328fad132cc556b12d780eb9b318
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ab04aa4ca7f54e8de120d078a313c3096a350aa5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095982"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226637"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Panoramica di runtime di Funzioni di Azure (anteprima)
 

@@ -1,20 +1,16 @@
 ---
-title: Metadati OpenAPI in Funzioni di Azure | Microsoft Docs
+title: OpenAPI metadata in Azure Functions
 description: Panoramica del supporto OpenAPI in Funzioni di Azure
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 00dedd069914384a1883a54bfb433857286fb49c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097567"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227407"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
 Il supporto per metadati OpenAPI 2.0 (in precedenza Swagger) in Funzioni di Azure è una funzionalità di anteprima che consente di scrivere una definizione di OpenAPI 2.0 all'interno di un'app per le funzioni. Con l'app per le funzioni è poi possibile ospitare quel file.
@@ -44,7 +40,7 @@ Per istruzioni dettagliate, vedere l'[esercitazione introduttiva](./functions-ap
 
 ### <a name="templates"></a>Modelli disponibili
 
-|NOME| Descrizione |
+|name| Description |
 |:-----|:-----|
 |Definizione generata|Una definizione OpenAPI con la quantità massima di informazioni deducibili dai metadati esistenti della funzione.|
 
@@ -55,8 +51,8 @@ La tabella seguente include le impostazioni del portale di Azure e i dati corris
 |Swagger.json|Interfaccia utente del portale|Function.json|
 |:----|:-----|:-----|
 |[Host](https://swagger.io/specification/#fixed-fields-15)|**Impostazioni dell'app per le funzioni** > **Impostazioni del servizio app** > **Panoramica** > **URL**|*Non presente*
-|[Percorsi](https://swagger.io/specification/#paths-object-29)|**Integrazione** > **Metodi HTTP selezionati**|Binding: Route
-|[Elemento del percorso](https://swagger.io/specification/#path-item-object-32)|**Integrazione** > **Modello di route**|Binding: Metodi
+|[Percorsi](https://swagger.io/specification/#paths-object-29)|**Integrazione** > **Metodi HTTP selezionati**|Associazioni: Route
+|[Elemento del percorso](https://swagger.io/specification/#path-item-object-32)|**Integrazione** > **Modello di route**|Associazioni: Metodi
 |[Sicurezza](https://swagger.io/specification/#security-scheme-object-112)|**Chiavi**|*Non presente*|
 |operationID*|**Route + Verbi consentiti**|Route + verbi consentiti|
 

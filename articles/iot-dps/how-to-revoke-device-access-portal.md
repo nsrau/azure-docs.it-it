@@ -1,5 +1,5 @@
 ---
-title: Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
+title: Disenroll device from Azure IoT Hub Device Provisioning Service
 description: Come annullare la registrazione di un dispositivo per impedire il provisioning tramite il servizio Device Provisioning in hub IoT
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0dadf0ec248dac01e5cc65779004477bf4afc823
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6efbc4483e4768014678822e82f4ca4178f51863
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113588"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228772"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
 
@@ -26,7 +26,7 @@ La registrazione di un dispositivo nel servizio Device Provisioning ne consente 
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Inserire i dispositivi usando una voce di registrazione singola nell'elenco di elementi non consentiti
 
-Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. I dispositivi che usano i token di firma di accesso condiviso come meccanismo di attestazione possono eseguire il provisioning solo tramite una registrazione singola. Per inserire un dispositivo con una voce di registrazione singola nell'elenco di elementi non consentiti, è possibile disabilitare o eliminare la relativa voce di registrazione. 
+Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
 
 Per inserire temporaneamente il dispositivo nell'elenco di elementi non consentiti disabilitando la voce di registrazione: 
 

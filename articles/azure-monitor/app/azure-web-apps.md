@@ -1,46 +1,46 @@
 ---
 title: Monitorare le prestazioni dei servizi app di Azure | Microsoft Docs
-description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Tempo di caricamento e di risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
+description: Monitoraggio delle prestazioni applicative per i servizi app di Azure. Chart load and response time, dependency information, and set alerts on performance.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/04/2019
-ms.openlocfilehash: 1937cce03412db55dafc2025c6a59b037deee3d1
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e4fc00d3889d10dddb9ec147a19f06a7211f53be
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677649"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230306"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
-L'abilitazione del monitoraggio nelle applicazioni Web ASP.NET e ASP.NET Core basate su [app Azure Services](https://docs.microsoft.com/azure/app-service/) è ora più semplice che mai. Mentre in precedenza era necessario installare manualmente un'estensione del sito, la versione più recente dell'agente è ora incorporata nell'immagine del servizio app per impostazione predefinita. Questo articolo illustra l'abilitazione del monitoraggio Application Insights, oltre a fornire indicazioni preliminari per l'automazione del processo per le distribuzioni su larga scala.
+Enabling monitoring on your ASP.NET and ASP.NET Core based web applications running on [Azure App Services](https://docs.microsoft.com/azure/app-service/) is now easier than ever. Whereas previously you needed to manually install a site extension, the latest extension/agent is now built into the app service image by default. This article will walk you through enabling Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!NOTE]
-> L'aggiunta manuale di un'estensione del sito Application Insights tramite **gli strumenti di sviluppo**  > **estensioni** è deprecata. Questo metodo di installazione dell'estensione dipende da aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora [preinstallata](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio app. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate sull'agente per abilitare il monitoraggio di seguito, verrà automaticamente rimossa l'estensione deprecata.
+> Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
-Esistono due modi per abilitare il monitoraggio dell'applicazione per le applicazioni ospitate da app Azure Services:
+There are two ways to enable application monitoring for Azure App Services hosted applications:
 
-* **Monitoraggio dell'applicazione basata su agenti** (ApplicationInsightsAgent).  
-    * Questo metodo è il più semplice da abilitare e non è necessaria alcuna configurazione avanzata. Viene spesso definito monitoraggio "Runtime". Per i servizi app Azure si consiglia di abilitare almeno questo livello di monitoraggio, quindi, in base allo scenario specifico, è possibile valutare se è necessario un monitoraggio più avanzato tramite strumentazione manuale.
+* **Agent-based application monitoring** (ApplicationInsightsAgent).  
+    * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
-* **Strumentazione manuale dell'applicazione tramite il codice** tramite l'installazione di Application Insights SDK.
+* **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * Questo approccio è molto più personalizzabile, ma richiede [l'aggiunta di una dipendenza dai pacchetti NuGet di Application Insights SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Questo metodo consente inoltre di gestire gli aggiornamenti alla versione più recente dei pacchetti.
+    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
-    * Se è necessario eseguire chiamate API personalizzate per tenere traccia degli eventi e delle dipendenze non acquisiti per impostazione predefinita con il monitoraggio basato su agenti, è necessario usare questo metodo. Per altre informazioni, vedere l' [articolo relativo all'API per eventi personalizzati e metriche](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) .
-
-> [!NOTE]
-> Se vengono rilevati sia il monitoraggio basato su agente che la strumentazione manuale basata su SDK, verranno rispettate solo le impostazioni di strumentazione manuale. Ciò consente di impedire l'invio di dati duplicati. Per altre informazioni, vedere la [sezione relativa alla risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) di seguito.
-
-## <a name="enable-agent-based-monitoring-for-net-applications"></a>Abilitare il monitoraggio basato su agenti per le applicazioni .NET
+    * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more.
 
 > [!NOTE]
-> La combinazione di APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression non è supportata. Per ulteriori informazioni, vedere la spiegazione nella [sezione risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+> If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
+
+## <a name="enable-agent-based-monitoring-for-net-applications"></a>Enable agent-based monitoring for .NET applications
+
+> [!NOTE]
+> The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 
 1. **Selezionare Application Insights** nel pannello di controllo di Azure per il servizio app.
@@ -54,7 +54,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
      ![Instrumentazione dell'App Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Dopo aver specificato la risorsa da usare, è possibile scegliere il modo in cui Application Insights deve raccogliere i dati per ogni piattaforma per l'applicazione. Il monitoraggio delle app ASP.NET è impostato per impostazione predefinita con due diversi livelli di raccolta.
+2. Dopo aver specificato la risorsa da usare, è possibile scegliere il modo in cui Application Insights deve raccogliere i dati per ogni piattaforma per l'applicazione. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new.png)
 
@@ -67,17 +67,17 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
        * Raccoglie le eccezioni non gestite dal processo host.
        * Migliora la precisione delle metriche di monitoraggio delle prestazioni applicative in condizioni di carico quando viene usato il campionamento.
 
-3. Per configurare impostazioni come il campionamento, che in precedenza era possibile controllare tramite il file applicationinsights. config, è ora possibile interagire con le stesse impostazioni tramite le impostazioni dell'applicazione con un prefisso corrispondente. 
+3. To configure settings like sampling, which you could previously control via the applicationinsights.config file you can now interact with those same settings via Application settings with a corresponding prefix. 
 
-    * Per modificare la percentuale di campionamento iniziale, ad esempio, è possibile creare un'impostazione dell'applicazione: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` e un valore di `100`.
+    * For example, to change the initial sampling percentage, you can create an Application setting of: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
 
-    * Per l'elenco delle impostazioni del processore di telemetria del campionamento adattivo supportato, è possibile consultare il [codice](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) e la [documentazione associata](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) and [associated documentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>Abilitare il monitoraggio basato su agenti per le applicazioni .NET Core
+## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>Enable agent-based monitoring for .NET Core applications
 
-Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2
+The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
-La destinazione del Framework completo da .NET Core, la distribuzione autonoma e la ASP.NET Core 3,0 non sono attualmente **supportate** con il monitoraggio basato su agenti/estensioni. La[Strumentazione manuale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) tramite codice funzionerà in tutti gli scenari precedenti.
+Targeting the full framework from .NET Core, self-contained deployment, and ASP.NET Core 3.0 are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via code will work in all of the previous scenarios.)
 
 1. **Selezionare Application Insights** nel pannello di controllo di Azure per il servizio app.
 
@@ -90,16 +90,16 @@ La destinazione del Framework completo da .NET Core, la distribuzione autonoma e
 
      ![Instrumentazione dell'App Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. .NET Core offre una **raccolta consigliata** o **disabilitata** per .net core 2,0, 2,1 e 2,2.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, and 2.2.
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-for-net-applications"></a>Abilitare il monitoraggio lato client per le applicazioni .NET
+## <a name="enable-client-side-monitoring-for-net-applications"></a>Enable client-side monitoring for .NET applications
 
-Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
+Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
-* Selezionare **impostazioni** > * * * * Impostazioni applicazione * * * *
-   * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
+* Select **Settings** >** **Application settings****
+   * Under Application settings, add a new **app setting name** and **value**:
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -107,47 +107,47 @@ Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare 
 
    * Salvare le impostazioni scegliendo **Salva** e quindi fare clic su **Riavvia** per riavviare l'app.
 
-![Screenshot dell'interfaccia utente delle impostazioni dell'applicazione](./media/azure-web-apps/appinsights-javascript-enabled.png)
+![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
-Per disabilitare il monitoraggio lato client, rimuovere la coppia chiave/valore associata dalle impostazioni dell'applicazione oppure impostare il valore su false.
+To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
-## <a name="enable-client-side-monitoring-for-net-core-applications"></a>Abilitare il monitoraggio lato client per le applicazioni .NET Core
+## <a name="enable-client-side-monitoring-for-net-core-applications"></a>Enable client-side monitoring for .NET Core applications
 
-Il monitoraggio lato client è **abilitato per impostazione predefinita** per le app .NET Core con la **raccolta consigliata**, indipendentemente dal fatto che sia presente l'impostazione dell'app "APPINSIGHTS_JAVASCRIPT_ENABLED".
+Client-side monitoring is **enabled by default** for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present.
 
-Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
+If for some reason you would like to disable client-side monitoring:
 
-* Selezionare **impostazioni**  > **Impostazioni applicazione**
-   * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
+* Select **Settings** > **Application settings**
+   * Under Application settings, add a new **app setting name** and **value**:
 
-     Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valore: `false`
 
    * Salvare le impostazioni scegliendo **Salva** e quindi fare clic su **Riavvia** per riavviare l'app.
 
-![Screenshot dell'interfaccia utente delle impostazioni dell'applicazione](./media/azure-web-apps/appinsights-javascript-disabled.png)
+![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 ## <a name="automate-monitoring"></a>Automatizzare il monitoraggio
 
-Per abilitare la raccolta di dati di telemetria con Application Insights, è necessario impostare solo le impostazioni dell'applicazione:
+In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![Impostazioni dell'applicazione del servizio app con le impostazioni di Application Insights disponibili](./media/azure-web-apps/application-settings.png)
+   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings.png)
 
-### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
+### <a name="application-settings-definitions"></a>Application settings definitions
 
 |Nome impostazione app |  Definizione | Value |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
-|InstrumentationEngine_EXTENSION_VERSION | Controlla se il motore di riscrittura binaria `InstrumentationEngine` sarà attivato. Questa impostazione presenta implicazioni sulle prestazioni e influisce sul tempo di avvio/avvio a freddo. | `~1` |
-|XDT_MicrosoftApplicationInsights_BaseExtensions | Controlla se SQL & il testo della tabella di Azure verrà acquisito insieme alle chiamate alle dipendenze. Avviso di prestazioni: questa impostazione richiede l'`InstrumentationEngine`. | `~1` |
+|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` |
+|XDT_MicrosoftApplicationInsights_Mode |  In default mode only, essential features are enabled in order to insure optimal performance. | `default` or `recommended`. |
+|InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and impacts cold start/startup time. | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL & Azure table text will be captured along with the dependency calls. Performance warning: this setting requires the `InstrumentationEngine`. | `~1` |
 
-### <a name="app-service-application-settings-with-azure-resource-manager"></a>Impostazioni dell'applicazione del servizio app con Azure Resource Manager
+### <a name="app-service-application-settings-with-azure-resource-manager"></a>App Service Application settings with Azure Resource Manager
 
-Le impostazioni dell'applicazione per i servizi app possono essere gestite e configurate con i [modelli Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). Questo metodo può essere usato quando si distribuiscono nuove risorse del servizio app con Azure Resource Manager automazione o per modificare le impostazioni delle risorse esistenti.
+Application settings for App Services can be managed and configured with [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
-Di seguito è riportata la struttura di base del codice JSON delle impostazioni dell'applicazione per un servizio app:
+The basic structure of the application settings JSON for an app service is below:
 
 ```JSON
       "resources": [
@@ -169,21 +169,21 @@ Di seguito è riportata la struttura di base del codice JSON delle impostazioni 
       ]
 ```
 
-Per un esempio di modello di Azure Resource Manager con le impostazioni dell'applicazione configurate per Application Insights, questo [modello](https://github.com/Andrew-MSFT/BasicImageGallery) può essere utile, in particolare la sezione che inizia alla [riga 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
+For an example of an Azure Resource Manager template with Application settings configured for Application Insights, this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful, specifically the section starting on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
 
-### <a name="automate-the-creation-of-an-application-insights-resource-and-link-to-your-newly-created-app-service"></a>Automatizzare la creazione di una risorsa di Application Insights e il collegamento al servizio app appena creato.
+### <a name="automate-the-creation-of-an-application-insights-resource-and-link-to-your-newly-created-app-service"></a>Automate the creation of an Application Insights resource and link to your newly created App Service.
 
-Per creare un modello di Azure Resource Manager con tutte le impostazioni di Application Insights predefinite configurate, avviare il processo come se si creasse una nuova app Web con Application Insights abilitata.
+To create an Azure Resource Manager template with all the default Application Insights settings configured, begin the process as if you were going to create a new Web App with Application Insights enabled.
 
-Selezionare le **Opzioni di automazione**
+Select **Automation options**
 
-   ![Menu di creazione dell'app Web del servizio app](./media/azure-web-apps/create-web-app.png)
+   ![App Service web app creation menu](./media/azure-web-apps/create-web-app.png)
 
-Questa opzione genera il modello di Azure Resource Manager più recente con tutte le impostazioni necessarie configurate.
+This option generates the latest Azure Resource Manager template with all required settings configured.
 
-  ![Modello di app Web del servizio app](./media/azure-web-apps/arm-template.png)
+  ![App Service web app template](./media/azure-web-apps/arm-template.png)
 
-Di seguito è riportato un esempio di sostituzione di tutte le istanze di `AppMonitoredSite` con il nome del sito:
+Below is a sample, replace all instances of  `AppMonitoredSite` with your site name:
 
 ```json
 {
@@ -277,11 +277,11 @@ Di seguito è riportato un esempio di sostituzione di tutte le istanze di `AppMo
 ```
 
 > [!NOTE]
-> Il modello genererà le impostazioni dell'applicazione in modalità "predefinita". Questa modalità consente di ottimizzare le prestazioni, anche se è possibile modificare il modello per attivare qualsiasi funzionalità preferita.
+> The template will generate application settings in “default” mode. This mode is performance optimized, though you can modify the template to activate whichever features you prefer.
 
-### <a name="enabling-through-powershell"></a>Abilitazione tramite PowerShell
+### <a name="enabling-through-powershell"></a>Enabling through PowerShell
 
-Per abilitare il monitoraggio dell'applicazione tramite PowerShell, è necessario modificare solo le impostazioni dell'applicazione sottostante. Di seguito è riportato un esempio che consente il monitoraggio delle applicazioni per un sito Web denominato "AppMonitoredSite" nel gruppo di risorse "AppMonitoredRG" e configura i dati da inviare alla chiave di strumentazione "012345678-ABCD-EF01-2345-6789abcd".
+In order to enable the application monitoring through PowerShell, only the underlying application settings need to be changed. Below is a sample, which enables application monitoring for a website called "AppMonitoredSite" in the resource group "AppMonitoredRG", and configures data to be sent to the "012345678-abcd-ef01-2345-6789abcd" instrumentation key.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -294,79 +294,76 @@ $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable t
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
-## <a name="upgrade-monitoring-extensionagent"></a>Aggiornare l'estensione di monitoraggio/Agent
+## <a name="upgrade-monitoring-extensionagent"></a>Upgrade monitoring extension/agent
 
-### <a name="upgrading-from-versions-289-and-up"></a>Aggiornamento da versioni 2.8.9 e versioni precedenti
+### <a name="upgrading-from-versions-289-and-up"></a>Upgrading from versions 2.8.9 and up
 
-L'aggiornamento dalla versione 2.8.9 avviene automaticamente, senza alcuna azione aggiuntiva. I nuovi bit di monitoraggio vengono recapitati in background al servizio app di destinazione e, al riavvio dell'applicazione, verranno prelevati.
+Upgrading from version 2.8.9 happens automatically, without any additional actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they will be picked up.
 
-Per verificare quale versione dell'estensione in esecuzione, visitare `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+To check which version of the extension you are running visit `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Screenshot del percorso URL http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
+![Screenshot of url path http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
-### <a name="upgrade-from-versions-100---265"></a>Aggiornamento dalla versione 1.0.0-2.6.5
+### <a name="upgrade-from-versions-100---265"></a>Upgrade from versions 1.0.0 - 2.6.5
 
-A partire dalla versione 2.8.9 viene utilizzata l'estensione del sito preinstallata. Se si dispone di una versione precedente, è possibile aggiornare tramite uno dei due modi seguenti:
+Starting with version 2.8.9 the pre-installed site extension is used. If you are an earlier version, you can update via one of two ways:
 
-* [Eseguire l'aggiornamento abilitando tramite il portale](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights). (Anche se è stata installata l'estensione Application Insights per il servizio app Azure, l'interfaccia utente Mostra solo il pulsante **Abilita** . Dietro le quinte, l'estensione del sito privato precedente verrà rimossa.
+* [Upgrade by enabling via the portal](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights). (Even if you have the Application Insights extension for Azure App Service installed, the UI shows only **Enable** button. Behind the scenes, the old private site extension will be removed.)
 
-* [Eseguire l'aggiornamento tramite PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell):
+* [Upgrade through PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell):
 
-    1. Impostare le impostazioni dell'applicazione per abilitare l'estensione del sito preinstallato ApplicationInsightsAgent. Vedere [Abilitazione tramite PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell).
-    2. Rimuovere manualmente l'estensione del sito privato denominata Application Insights estensione per app Azure servizio.
+    1. Set the application settings to enable the pre-installed site extension ApplicationInsightsAgent. See [Enabling through powershell](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enabling-through-powershell).
+    2. Manually remove the private site extension named Application Insights extension for Azure App Service.
 
-Se l'aggiornamento viene eseguito da una versione precedente alla 2.5.1, verificare che le DLL di ApplicationInsigths vengano rimosse dalla cartella bin dell'applicazione, [vedere la procedura di risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti per le applicazioni .NET e .NET Core in esecuzione in app Azure Services.
+Below is our step-by-step troubleshooting guide for extension/agent based monitoring for .NET and .NET Core based applications running on Azure App Services.
 
 > [!NOTE]
-> Le applicazioni Java e node. js sono supportate solo nei servizi app Azure tramite strumentazione manuale basata su SDK, quindi i passaggi seguenti non si applicano a questi scenari.
+> Java and Node.js applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
-> [!NOTE]
-> ASP.NET Core 3,0 le applicazioni non sono supportate. Seguire la [Strumentazione manuale](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) tramite codice per le app ASP.NET Core 3,0.
+1. Check that the application is monitored via `ApplicationInsightsAgent`.
+    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
+2. Ensure that the application meets the requirements to be monitored.
+    * Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-1. Verificare che l'applicazione venga monitorata tramite `ApplicationInsightsAgent`.
-    * Verificare che `ApplicationInsightsAgent_EXTENSION_VERSION` impostazione dell'app sia impostata su un valore pari a "~ 2".
-2. Verificare che l'applicazione soddisfi i requisiti da monitorare.
-    * Passare a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    ![Screenshot della pagina dei risultati di https://yoursitename.scm.azurewebsites/applicationinsights](./media/azure-web-apps/app-insights-sdk-status.png)
+    * Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
+        * If it is not running, follow the [enable Application Insights monitoring instructions](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
 
-    * Verificare che il `Application Insights Extension Status` sia `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Se non è in esecuzione, seguire le [istruzioni per l'abilitazione del monitoraggio Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
+    * Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
+        * If a similar value is not present, it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
 
-    * Verificare che l'origine di stato esista e abbia un aspetto simile al seguente: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
-        * Se non è presente un valore simile, significa che l'applicazione non è attualmente in esecuzione o non è supportata. Per assicurarsi che l'applicazione sia in esecuzione, provare a visitare manualmente gli endpoint dell'applicazione/URL dell'applicazione, in modo da rendere disponibili le informazioni di Runtime.
+    * Confirm that `IKeyExists` is `true`
+        * If it is false, add `APPINSIGHTS_INSTRUMENTATIONKEY with your ikey guid to your application settings.
 
-    * Verificare che `IKeyExists` sia `true`
-        * Se è false, aggiungere ' APPINSIGHTS_INSTRUMENTATIONKEY con il GUID iKey alle impostazioni dell'applicazione.
+    * Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
+        * If any of these entries exist, remove the following packages from your application: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
 
-    * Verificare che non siano presenti voci per `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` e `AppContainsAspNetTelemetryCorrelationAssembly`.
-        * Se una di queste voci esiste, rimuovere i pacchetti seguenti dall'applicazione: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` e `Microsoft.AspNet.TelemetryCorrelation`.
+The table below provides a more detailed explanation of what these values mean, their underlying causes, and recommended fixes:
 
-La tabella seguente fornisce una spiegazione più dettagliata del significato di questi valori, delle cause sottostanti e delle correzioni consigliate:
-
-|Valore problema|Spiegazione|Correzione
+|Problem Value|Spiegazione|Correzione
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti dell'SDK sono già presenti nell'applicazione e che verrà eseguito il backup. Può essere dovuto a un riferimento a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` o `Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita da determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere riferimenti a `Microsoft.ApplicationInsights`.
-|`AppAlreadyInstrumented:true` | Se l'applicazione è destinata a .NET Core 2,1 o 2,2 e si riferisce al metapacchetto [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) , la porta Application Insights e l'estensione verrà riattivata. | Per i clienti di .NET Core 2.1, 2.2 è [consigliabile](https://github.com/aspnet/Announcements/issues/287) usare invece il meta pacchetto Microsoft. AspNetCore. app.|
-|`AppAlreadyInstrumented:true` | Questo valore può anche essere causato dalla presenza delle dll precedenti nella cartella dell'app da una distribuzione precedente. | Pulire la cartella dell'app per assicurarsi che queste DLL vengano rimosse. Controllare sia la directory bin dell'app locale che la directory wwwroot nel servizio app. (Per controllare la directory wwwroot dell'app Web del servizio app: strumenti avanzati (kudu) > console di debug > CMD > home\site\wwwroot).
-|`AppContainsAspNetTelemetryCorrelationAssembly: true` | Questo valore indica che l'estensione ha rilevato riferimenti a `Microsoft.AspNet.TelemetryCorrelation` nell'applicazione e verrà eseguito il backup. | Rimuovere il riferimento.
-|`AppContainsDiagnosticSourceAssembly**:true`|Questo valore indica che l'estensione ha rilevato riferimenti a `System.Diagnostics.DiagnosticSource` nell'applicazione e verrà eseguito il backup.| Rimuovere il riferimento.
-|`IKeyExists:false`|Questo valore indica che la chiave di strumentazione non è presente in AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possibili cause: è possibile che i valori siano stati rimossi accidentalmente, che non siano stati impostati in script di automazione e così via. | Assicurarsi che l'impostazione sia presente nelle impostazioni dell'applicazione del servizio app.
+| `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off. It can be due to a reference to `System.Diagnostics.DiagnosticSource`,  `Microsoft.AspNet.TelemetryCorrelation`, or `Microsoft.ApplicationInsights`  | Remove the references. Some of these references are added by default from certain Visual Studio templates, and older versions of Visual Studio may add references to `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | If the application is targeting .NET Core 2.1 or 2.2, and refers to [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-package, then it brings in Application Insights, and extension will back-off. | Customers on .NET Core 2.1,2.2 are [recommended](https://github.com/aspnet/Announcements/issues/287) to use Microsoft.AspNetCore.App meta-package instead.|
+|`AppAlreadyInstrumented:true` | This value can also be caused by the presence of the above dlls in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot).
+|`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application, and will back-off. | Remove the reference.
+|`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| Remove the reference.
+|`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
 
-### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression non sono supportati
+### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported
 
-Se si usa APPINSIGHTS_JAVASCRIPT_ENABLED = true nei casi in cui il contenuto è codificato, è possibile che vengano visualizzati errori simili ai seguenti: 
+If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded, you might get errors like: 
 
-- 500 errore di riscrittura URL
-- 500,53 errore del modulo di riscrittura URL con le regole di riscrittura in uscita del messaggio non può essere applicato quando il contenuto della risposta HTTP è codificato (' gzip '). 
+- 500 URL rewrite error
+- 500.53 URL rewrite module error with message Outbound rewrite rules cannot be applied when the content of the HTTP response is encoded ('gzip'). 
 
-Ciò è dovuto al fatto che l'impostazione dell'applicazione APPINSIGHTS_JAVASCRIPT_ENABLED è impostata su true e la codifica del contenuto è presente nello stesso momento. Questo scenario non è ancora supportato. La soluzione alternativa consiste nel rimuovere APPINSIGHTS_JAVASCRIPT_ENABLED dalle impostazioni dell'applicazione. Sfortunatamente questo significa che se la strumentazione JavaScript lato client/browser è ancora richiesta, per le pagine Web sono necessarie le indicazioni manuali SDK. Seguire le [istruzioni](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) per la strumentazione manuale con JavaScript SDK.
+This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set to true and content-encoding being present at the same time. This scenario is not supported yet. The workaround is to remove APPINSIGHTS_JAVASCRIPT_ENABLED from your application settings. Unfortunately this means that if client/browser-side JavaScript instrumentation is still required, manual SDK references are needed for your webpages. Please follow the [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) for manual instrumentation with the JavaScript SDK.
 
-Per informazioni aggiornate sull'Application Insights o sull'agente, vedere le [Note sulla versione](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire il profiler sull'app live](../app/profiler.md).

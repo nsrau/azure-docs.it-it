@@ -1,6 +1,6 @@
 ---
 title: Configurare le porte a disponibilità elevata per Azure Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come usare le porte a disponibilità elevata per il bilanciamento del carico del traffico interno su tutte le porte
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275623"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225400"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurare le porte a disponibilità elevata per un servizio di bilanciamento del carico interno
 

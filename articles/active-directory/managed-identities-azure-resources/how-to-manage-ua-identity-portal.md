@@ -1,5 +1,5 @@
 ---
-title: Come gestire un'identità gestita assegnata dall'utente tramite il portale di Azure
+title: Manage a user-assigned managed identity in the Azure portal - Azure AD
 description: Istruzioni dettagliate su come creare, elencare, eliminare e assegnare un ruolo a un'identità gestita assegnata dall'utente.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18a15b8039322fc5e43a2b9dfed8a9bd3fc8b5fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06d25604ca1e8a59ca1da3c8e290d9052856b769
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441651"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224636"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure
 
@@ -43,9 +43,9 @@ Per creare un'identità gestita assegnata dall'utente, all'account deve essere a
 2. Nella casella di ricerca digitare *Identità gestite* e in **Servizi** fare clic su **Identità gestite**.
 3. Fare clic su **Aggiungi** e immettere i valori nei campi seguenti nel riquadro **Crea identità gestita assegnata dall'utente**:
    - **Nome risorsa**: si tratta del nome dell'identità gestita assegnata dall'utente, ad esempio UAI1.
-   - **Sottoscrizione** scegliere la sottoscrizione in cui creare l'identità gestita assegnata dall'utente
+   - **Sottoscrizione**: scegliere la sottoscrizione in cui creare l'identità gestita assegnata dall'utente
    - **Gruppo di risorse**: creare un nuovo gruppo di risorse che conterrà l'identità gestita assegnata dall'utente o scegliere **Usa esistente** per creare l'identità gestita assegnata dall'utente in un gruppo di risorse esistente.
-   - **Località**: scegliere la località in cui distribuire l'identità gestita assegnata dall'utente, ad esempio **Stati Uniti occidentali**.
+   - **Posizione**: scegliere la posizione in cui distribuire l'identità gestita assegnata dall'utente, ad esempio **Stati Uniti occidentali**.
 4. Fare clic su **Create**(Crea).
 
 ![Creare un'identità gestita assegnata dall'utente](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)

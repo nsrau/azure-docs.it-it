@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4be484cdff2014f11c872da9a246ef8406447712
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002099"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230110"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usare gli avvisi per i costi per monitorare l'uso e le spese
 
@@ -35,21 +35,21 @@ Gli avvisi sul credito consentono di ricevere una notifica quando vengono consum
 
 Gli avvisi relativi alla quota di spesa del reparto consentono di ricevere una notifica quando la spesa del reparto raggiunge una soglia fissa della quota. Le quote di spesa sono configurate nel portale EA. Ogni volta che viene raggiunta una soglia, viene generato un messaggio di posta elettronica per i responsabili del reparto e l'evento viene visualizzato negli avvisi per i costi. Ad esempio, al 50% o al 75% della quota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Avviso funzionalità supportate per le categorie di offerta
+## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
 
-Supporto per i tipi di avviso dipende dal tipo di account di Azure che hai (Microsoft) dell'offerta. Nella tabella seguente sono illustrate le funzionalità di avviso supportati da varie offerte di Microsoft. È possibile visualizzare l'elenco completo delle offerte Microsoft al [dati di gestione dei costi comprendere](understand-cost-mgt-data.md).
+Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
 
-| Tipo di avviso | Enterprise Agreement | Contratto del cliente Microsoft | Web direct/Pay-As-You-procedere |
+| Tipo di avviso | Contratto Enterprise Agreement | Contratto del cliente Microsoft | Web direct/Pay-As-You-Go |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | Riconoscimenti | ✔ |✘ | ✘ |
-| Quota di spesa del reparto | ✔ | ✘ | ✘ |
+| Department spending quota | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>Visualizzare gli avvisi per i costi
 
-Per visualizzare gli avvisi di costo, aprire l'ambito desiderato nel portale di Azure e seleziona **budget** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso. Selezionare **costo avvisi** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ![Immagine di esempio degli avvisi visualizzati in Gestione costi](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Quando si visualizzano i dettagli di un avviso ignorato, è possibile riattivarl
 
 ![Immagine di esempio che mostra le opzioni per ignorare e riattivare l'avviso](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - Se non è ancora stato creato un budget o impostate le condizioni di avviso per un budget, completare l'esercitazione [Creare e gestire i budget](tutorial-acm-create-budgets.md).

@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 1323e46d734d047f68652d0b21902e03182e6b62
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4c02632c44d095a6d1d1c583a1ab201acad63bf9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130246"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229005"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Inviare processi da R Tools per Visual Studio
 
-[R Tools per Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) è un'estensione gratuita e open source per le edizioni Community (gratuita), Professional ed Enterprise sia di [Visual Studio 2017](https://www.visualstudio.com/downloads/) che di [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) o versioni successive. RTVS non è disponibile per [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools per Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) è un'estensione gratuita e open source per le edizioni Community (gratuita), Professional ed Enterprise sia di [Visual Studio 2017](https://www.visualstudio.com/downloads/) che di [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) o versioni successive. RTVS is not available for [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
 RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R interattivo](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (completamento del codice), [visualizzazione tracciato](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) tramite librerie R come ggplot2 e ggviz, [debug del codice R](https://docs.microsoft.com/visualstudio/rtvs/debugging)e altro ancora.
 
-## <a name="set-up-your-environment"></a>Configurazione dell'ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
-1. Installare [R Tools per Visual Studio](https://docs.microsoft.com/visualstudio/rtvs/installation).
+1. Installare [R Tools per Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
     ![Installazione di RTVS in Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
@@ -41,14 +41,14 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 
    2. Passare alla voce di menu **Strumenti R**, quindi selezionare **Impostazioni di Data Science**.
 
-       ![Impostazioni di Data Science di Visual Studio](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Visual Studio Data Science Settings](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
       > Usando l'approccio del passaggio 1 è possibile anche salvare e ripristinare il layout personalizzato, piuttosto che ripetere il comando **Impostazioni di Data Science**.
 
 ## <a name="execute-local-r-methods"></a>Eseguire i metodi R locali
 
-1. Creare il cluster HDInsight ML Services.
+1. Create your HDInsight ML Services cluster.
 2. Installare l'[estensione RTVS](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Scaricare il [file zip di esempi](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Aprire `examples/Examples.sln` per avviare la soluzione in Visual Studio.
@@ -56,17 +56,17 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 6. Partendo dall'inizio del file, premere Ctrl + Invio per inviare ogni riga, una alla volta, nella finestra R interattivo. Alcune righe potrebbero richiedere un po' di tempo a causa dell'installazione di pacchetti.
     * In alternativa, è possibile selezionare tutte le righe nel file R (Ctrl + A), quindi eseguirle tutte (Ctrl + Invio) oppure selezionare l'icona Esegui in finestra interattiva sulla barra degli strumenti.
 
-        ![Esecuzione interattiva di Visual Studio](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        ![Visual Studio execute interactive](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
 
 7. Dopo aver eseguito tutte le righe dello script, verrà visualizzato un output simile al seguente:
 
-    ![Strumenti R dell'area di lavoro di Visual Studio](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    ![Visual Studio workspace R tools](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Inviare processi a un cluster HDInsight ML Services
 
 Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di PuTTY, è possibile creare un contesto di calcolo che eseguirà funzioni `RevoScaleR` distribuite dal client locale al cluster HDInsight. Usare `RxSpark` per creare il contesto di calcolo, specificare il nome utente, il nodo perimetrale del cluster Apache Hadoop, gli switch SSH e così via.
 
-1. L'indirizzo del nodo perimetrale di ml Services `CLUSTERNAME-ed-ssh.azurehdinsight.net` in `CLUSTERNAME` HDInsight è dove è il nome del cluster di servizi ml.
+1. The ML Services edge node address on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net` where `CLUSTERNAME` is the name of your ML Services cluster.
 
 1. Incollare il codice seguente nella finestra R interattivo in Visual Studio, modificando i valori delle variabili di installazione in base all'ambiente.
 
@@ -96,7 +96,7 @@ Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di P
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![impostazione del contesto per Apache Spark](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   ![apache spark setting the context](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
 
 1. Nella finestra R interattivo, eseguire i comandi seguenti:
 
@@ -108,22 +108,22 @@ Usando Microsoft ML Server/Microsoft R Client da un computer Windows dotato di P
 
     L'output dovrebbe essere simile al seguente:
 
-    ![Esecuzione](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) comando RX riuscita a
+    ![Successful rx command execution](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
 1. Verificare che `rxHadoopCopy` abbia copiato correttamente il file `people.json` dalla cartella di dati di esempio nella cartella `/user/RevoShare/newUser` appena creata:
 
     1. Nel riquadro del cluster HDInsight ML Services in Azure selezionare **Account di archiviazione** dal menu a sinistra.
 
-        ![Account di Azure Archiviazione HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        ![Azure HDInsight Storage accounts](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. Selezionare l'account di archiviazione predefinito per il cluster, prendendo nota del nome del contenitore o della directory.
 
     3. Selezionare **Contenitori** dal menu a sinistra nel riquadro dell'account di archiviazione.
 
-        ![Contenitori di Azure Archiviazione HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        ![Azure HDInsight Storage containers](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
     4. Selezionare il nome del contenitore del cluster, scegliere la cartella **utente** (potrebbe essere necessario fare clic su *Carica altri* nella parte inferiore dell'elenco), quindi selezionare *RevoShare*, quindi **newUser**. Il file `people.json` dovrebbe comparire nella cartella `newUser`.
 
-        ![HDInsight percorso cartella file copiato](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        ![HDInsight copied file folder location](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
 1. Dopo aver terminato di usare il contesto Apache Spark corrente, è necessario arrestarlo. Non è possibile eseguire contemporaneamente più contesti.
 

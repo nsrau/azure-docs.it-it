@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640625"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209707"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -119,7 +119,7 @@ Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryL
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 
-Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. Ad esempio:
+Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. ad esempio:
 
 1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
 
@@ -180,9 +180,9 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
 * **Ricezione di notifiche relative al dispositivo gemello**. Questa operazione invia notifiche al back-end della soluzione a ogni modifica del dispositivo gemello. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *twinChangeEvents*. Per impostazione predefinita, non vi è nessuna route preesistente, perciò non viene inviata nessuna notifica. Se la frequenza delle modifiche è troppo elevata o per altri motivi, ad esempio un errore interno, l'hub IoT potrebbe inviare solo una notifica che contiene tutte le modifiche. Se pertanto l'applicazione ha bisogno di controllo e registrazione affidabili di tutti gli stati intermedi, è consigliabile usare messaggi da dispositivo a cloud. Il messaggio di notifica relativo al dispositivo gemello include le proprietà e il corpo.
 
-  - Properties
+  - properties
 
-    | Name | Valore |
+    | name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -196,7 +196,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
     Le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
 
-  - Body
+  - Corpo
         
     Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio,
 
@@ -231,7 +231,7 @@ Oltre a queste operazioni, il back-end della soluzione può:
 
 Il dispositivo opera sul dispositivo gemello usando le seguenti operazioni atomiche:
 
-* **Recuperare un dispositivo gemello**. Questa operazione restituisce il documento del dispositivo gemello (incluse le proprietà di sistema desiderate e segnalate) per il dispositivo attualmente connesso. I tag non sono visibili per le app per dispositivi.
+* **Recuperare un dispositivo gemello**. This operation returns the device twin document (including desired and reported system properties) for the currently connected device. (Tags are not visible to device apps.)
 
 * **Aggiornamento parziale delle proprietà segnalate**. Questa operazione consente l'aggiornamento parziale delle proprietà segnalate del dispositivo attualmente connesso. Questa operazione usa lo stesso formato di aggiornamento JSON che il back-end della soluzione usa per un aggiornamento parziale delle proprietà desiderate.
 
@@ -245,11 +245,11 @@ Tutte le operazioni precedenti richiedono l'autorizzazione **DeviceConnect**, co
 
 I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle restrizioni indicate di seguito:
 
-* Tutte le chiavi negli oggetti JSON sono stringhe UTF-8 UNICODE da 64 caratteri con distinzione tra maiuscole e minuscole. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
+* All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
 
 * Tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: booleano, numero, stringa, oggetto. Non sono consentite le matrici. Il valore massimo per il numero intero è 4503599627370495, mentre quello minimo è -4503599627370496.
 
-* Tutti gli oggetti JSON nei tag e nelle proprietà desiderate e segnalate possono avere una profondità massima di 5. Ad esempio, l'oggetto seguente è valido:
+* All JSON objects in tags, desired, and reported properties can have a maximum depth of 10. Ad esempio, l'oggetto seguente è valido:
 
    ```json
    {
@@ -260,7 +260,17 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
                    "three": {
                        "four": {
                            "five": {
-                               "property": "value"
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
                            }
                        }
                    }
@@ -271,7 +281,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
    }
    ```
 
-* Tutti i valori di stringa possono avere una lunghezza massima di 512 byte.
+* Tutti i valori di stringa possono avere una lunghezza massima di 4 KB.
 
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
 
@@ -285,7 +295,7 @@ L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei
 
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del dispositivo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Ad esempio:
+ad esempio:
 
 ```json
 {

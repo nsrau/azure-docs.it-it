@@ -1,20 +1,15 @@
 ---
-title: Linee guida per lo sviluppo di Funzioni di Azure | Documentazione Microsoft
+title: Guidance for developing Azure Functions
 description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure necessari per sviluppare funzioni in Azure in tutti i linguaggi e i binding di programmazione.
-author: ggailey777
-manager: gwallace
-keywords: manuale dello sviluppatore, funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.author: glenga
-ms.openlocfilehash: c60fedfe855cc803ee2f4b1c463e2b0614239c04
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 4aa42e8aef2e2205523be0536cb5aceafd1aa829
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982646"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226666"
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -47,12 +42,12 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 
 | Proprietà | Valori/tipi | Commenti |
 | --- | --- | --- |
-| `type` |string |Tipo di associazione. Ad esempio, `queueTrigger`. |
+| `type` |string |Tipo di associazione. Ad esempio `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
 | `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
 ## <a name="function-app"></a>App per le funzioni
-L'app per le funzioni offre un contesto di esecuzione per le funzioni. Di conseguenza, è l'unità di distribuzione e gestione per le funzioni. Un'app per le funzioni è costituita da una o più singole funzioni che vengono gestite, distribuite e ridimensionate insieme. Tutte le funzioni in un'app per le funzioni condividono lo stesso piano tariffario, il metodo di distribuzione e la versione del runtime. Un'app per le funzioni può essere considerata un modo per organizzare e gestire collettivamente le funzioni. Per altre informazioni, vedere [come gestire un'app](functions-how-to-use-azure-function-app-settings.md)per le funzioni. 
+L'app per le funzioni offre un contesto di esecuzione per le funzioni. As such, it is the unit of deployment and management for your functions. Un'app per le funzioni è costituita da una o più singole funzioni che vengono gestite, distribuite e ridimensionate insieme. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Un'app per le funzioni può essere considerata un modo per organizzare e gestire collettivamente le funzioni. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
 
 > [!NOTE]
 > Tutte le funzioni in un'app per le funzioni devono essere create nello stesso linguaggio. Nelle [versioni precedenti](functions-versions.md) del runtime di Funzioni di Azure questo non è un requisito.

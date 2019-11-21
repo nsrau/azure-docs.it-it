@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fa0fe072fe98d565ad9d6f947540b7e1b039732
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101166"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224678"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Distribuzione di SAP HANA (istanze Large) 
 
@@ -36,7 +36,7 @@ Per la distribuzione di unità di istanze Large di HANA, Microsoft richiede le i
 - Per ogni area di distribuzione di Azure:
     - Intervallo di indirizzi IP /29 per le connessioni ER-P2P che connettono le reti virtuali di Azure a istanze Large di HANA.
     - Blocco CIDR /24 usato per il pool di indirizzi IP del server di istanze Large di HANA.
-    - Facoltativo quando si usa [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da unità locali a istanze large di Hana o il routing tra unità di istanze large di Hana in diverse aree di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo specifico potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
+    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
 - Valori dell'intervallo di indirizzi IP usati nell'attributo dello spazio di indirizzi di ogni rete virtuale di Azure che si connette alle istanze Large di HANA.
 - Dati per ogni sistema di istanze Large di HANA:
   - Nome host desiderato, preferibilmente con un nome di dominio completo.

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b39296e18b38180e1081866d6e8197973dc782b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 676c01a26d67b395340e5b1ed2dacc6b3b824742
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002152"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219748"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connettere un account di Amazon Web Services
 
@@ -45,11 +45,11 @@ Per prima cosa, è necessario ottenere dal portale di Cloudyn la passphrase di c
 1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com/iam/home e selezionare **Roles** (Ruoli).
 2. Fare clic su **Create Role** (Crea ruolo) e quindi selezionare **AWS account** (Account AWS).
 3. Nella casella **Account ID** (ID account) incollare `432263259397`. Questo è l'ID dell'account dell'agente di raccolta dati di Cloudyn assegnato da AWS al servizio Cloudyn. Usare l'ID account esattamente com'è visualizzato.
-4. Accanto a **Options** (Opzioni) selezionare **Require external ID** (Richiedi ID esterno). Incollare il valore univoco copiato in precedenza dal campo **External ID** (ID esterno) in Cloudyn. Fare quindi clic su **Next: Permissions** (Avanti: Autorizzazioni).  
+4. Accanto a **Options** (Opzioni) selezionare **Require external ID** (Richiedi ID esterno). Incollare il valore univoco copiato in precedenza dal campo **External ID** (ID esterno) in Cloudyn. Quindi fare clic su **Next: Permissions** (Avanti: Autorizzazioni).  
     ![Incollare l'ID esterno da Cloudyn nella pagina Create role (Crea ruolo)](./media/connect-aws-account/create-role01.png)
 5. In **Attach permissions policies** (Collega i criteri di autorizzazione), nella casella del filtro di ricerca **Policy type** (Tipo di criteri), digitare `ReadOnlyAccess`, selezionare **ReadOnlyAccess** e quindi fare clic su **Next: Review** (Avanti: Revisione).  
     ![Selezionare ReadOnlyAccess nell'elenco di nomi di criteri](./media/connect-aws-account/readonlyaccess.png)
-6. Nella pagina Review (Revisione) verificare che le selezioni siano corrette e digitare un valore in **Role name** (Nome ruolo). Ad esempio, *Azure-Cost-Mgt*. Immettere una descrizione in **Role description** (Descrizione ruolo). Ad esempio, _Assegnazione di ruolo per Cloudyn_ e quindi fare clic su **Create role** (Crea ruolo).
+6. Nella pagina Review (Revisione) verificare che le selezioni siano corrette e digitare un valore in **Role name** (Nome ruolo). For example, *Azure-Cost-Mgt*. Enter a **Role description**. Ad esempio, _Assegnazione di ruolo per Cloudyn_ e quindi fare clic su **Create role** (Crea ruolo).
 7. Nell'elenco **Roles** (Ruoli) fare clic sul ruolo creato e copiare il valore di **Role ARN** (ARN ruolo) dalla pagina Summary (Riepilogo). L'ARN (Amazon Resource Name) del ruolo sarà utile in un secondo momento, quando si registrerà la configurazione in Cloudyn.  
     ![Copiare il valore di Role ARN (ARN del ruolo) dalla pagina Summary (Riepilogo)](./media/connect-aws-account/role-arn.png)
 
@@ -172,7 +172,7 @@ Occorre creare un bucket S3 in cui archiviare le informazioni di fatturazione de
    }
    ```
 
-9. Fare clic su **Save**.  
+9. Fare clic su **Salva**  
     ![In Bucket policy editor (Editor criteri bucket) fare clic su Save (Salva)](./media/connect-aws-account/bucket-policy-editor.png)
 
 

@@ -1,20 +1,16 @@
 ---
-title: Usare i proxy in Funzioni di Azure | Documentazione Microsoft
+title: Work with proxies in Azure Functions
 description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dffdffdfa80d940c4a50d0a6630c665164f24d5c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773047"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230447"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -29,11 +25,11 @@ Questo articolo illustra come configurare e usare i proxy in Funzioni di Azure. 
 
 In questa sezione viene descritto come creare un proxy nel portale Funzioni.
 
-1. Aprire il [Portale di Azure] e passare all'app per le funzioni.
+1. Aprire il [Azure portal] e passare all'app per le funzioni.
 2. Nel riquadro sinistro selezionare **Nuovo proxy**.
 3. Dare un nome al proxy.
 4. Configurare l'endpoint esposto in questa app per le funzioni, specificando il **Modello di route** e i **Metodi HTTP**. Questi parametri si comportano in base alle regole dei [trigger HTTP].
-5. Impostare l'**URL di back-end** su un altro endpoint. Questo endpoint potrebbe essere una funzione in un'altra app per le funzioni oppure di qualsiasi altra API. Il valore non deve essere statico e può fare riferimento alle [impostazioni dell'applicazione] e ai [parametri della richiesta del client originale].
+5. Impostare l'**URL di back-end** su un altro endpoint. Questo endpoint potrebbe essere una funzione in un'altra app per le funzioni oppure di qualsiasi altra API. Il valore non deve essere statico e può fare riferimento alle [application settings] e ai [parametri della richiesta del client originale].
 6. Fare clic su **Create**(Crea).
 
 Il proxy è ora presente come un nuovo endpoint sull'app per le funzioni. Dalla prospettiva del client, è equivalente a un HttpTrigger nelle Funzioni di Azure. È possibile provare il nuovo proxy copiando l'URL del proxy ed eseguendo un test con il proprio client HTTP preferito.
@@ -44,13 +40,13 @@ Proxy di Funzioni di Azure consente di modificare le richieste al back-end e le 
 
 ### <a name="modify-backend-request"></a>Modificare la richiesta al back-end
 
-Per impostazione predefinita, la richiesta al back-end viene inizializzata come una copia della richiesta originale. Oltre a impostare l'URL di back-end, è possibile apportare modifiche ai parametri del metodo HTTP, delle intestazioni e della stringa di query. I valori modificati possono fare riferimento alle [impostazioni dell'applicazione] e ai [parametri della richiesta del client originale].
+Per impostazione predefinita, la richiesta al back-end viene inizializzata come una copia della richiesta originale. Oltre a impostare l'URL di back-end, è possibile apportare modifiche ai parametri del metodo HTTP, delle intestazioni e della stringa di query. I valori modificati possono fare riferimento alle [application settings] e ai [parametri della richiesta del client originale].
 
 Le richieste di back-end possono essere modificate nel portale espandendo la sezione *Override della richiesta* nella pagina dei dettagli del proxy. 
 
 ### <a name="modify-response"></a>Modificare la risposta
 
-Per impostazione predefinita, la risposta del client viene inizializzata come una copia della risposta back-end. È possibile apportare modifiche al codice di stato, al motivo, alle intestazioni e al corpo della risposta. I valori modificati possono fare riferimento alle [impostazioni dell'applicazione], ai [parametri della richiesta del client originale] e ai [paramenti della risposta back-end].
+Per impostazione predefinita, la risposta del client viene inizializzata come una copia della risposta back-end. È possibile apportare modifiche al codice di stato, al motivo, alle intestazioni e al corpo della risposta. I valori modificati possono fare riferimento alle [application settings], ai [parametri della richiesta del client originale] e ai [paramenti della risposta back-end].
 
 Le richieste di back-end possono essere modificate nel portale espandendo la sezione *Override della richiesta* nella pagina dei dettagli del proxy. 
 
@@ -65,7 +61,7 @@ La configurazione di un proxy non deve essere statica. È possibile condizionarl
 
  
 >[!Note]  
->Se la funzione usa il livello di autorizzazione *function, admin o sys*, sarà necessario specificare il codice e il clientId in base all'URL della funzione originale. In questo caso il riferimento avrà un aspetto simile al seguente: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`Si consiglia di archiviare queste chiavi nelle [impostazioni dell'applicazione] e di farvi riferimento nei proxy. In questo modo si evita di archiviare i segreti nel codice sorgente. 
+>Se la funzione usa il livello di autorizzazione *function, admin o sys*, sarà necessario specificare il codice e il clientId in base all'URL della funzione originale. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` We recommend storing these keys in [application settings] and referencing those in your proxies. This avoids storing secrets in your source code. 
 
 ### <a name="request-parameters"></a>Parametri di riferimento della richiesta
 
@@ -80,7 +76,7 @@ Ad esempio, se un proxy ha un modello di route come `/pets/{petId}`, l'URL di ba
 Oltre ai parametri del modello di route, i valori seguenti possono essere usati nei valori di configurazione:
 
 * **{request.method}** : il metodo HTTP usato nella richiesta originale.
-* **{request. headers. \<HeaderName\>}** : un'intestazione che può essere letta dalla richiesta originale. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
+* **{request.headers.\<HeaderName\>}** : un'intestazione che può essere letta dalla richiesta originale. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella richiesta, il valore sarà una stringa vuota.
 * **{request.querystring.\<ParameterName\>}** : un parametro di stringa di query che può essere letto dalla richiesta originale. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera leggere. Se il parametro non è incluso nella richiesta, il valore sarà una stringa vuota.
 
 ### <a name="response-parameters"></a>Parametri di riferimento della risposta dal back-end
@@ -247,13 +243,13 @@ Un esempio di configurazione apparirà come segue:
 > [!NOTE] 
 > In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Trigger HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definire un oggetto requestOverrides]: #requestOverrides
 [Definire un oggetto responseOverrides]: #responseOverrides
-[impostazioni dell'applicazione]: #use-appsettings
+[application settings]: #use-appsettings
 [Usare le variabili]: #using-variables
 [parametri della richiesta del client originale]: #request-parameters
 [paramenti della risposta back-end]: #response-parameters

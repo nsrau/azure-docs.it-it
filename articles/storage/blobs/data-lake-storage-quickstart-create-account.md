@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 675d1889fc74474a1d732cb5d4e9f46c638ce200
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57350bd00a33c36b5aef3a0ccd3034b4db3d2c55
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467917"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227961"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 [supporta uno spazio dei nomi gerarchico](data-lake-storage-introduction.md) che fornisce un contenitore nativo basato su directory personalizzato per l'uso con HDFS (Hadoop Distributed File System). L'accesso ai dati di Data Lake Storage Gen2 da HDFS è disponibile tramite il [driver ABFS](data-lake-storage-abfs-driver.md).
 
-Questo articolo illustra come creare un account usando il portale di Azure, Azure PowerShell o tramite l'interfaccia della riga di comando di Azure.
+This article demonstrates how to create an account using the Azure portal, Azure PowerShell, or via the Azure CLI.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 |           | Prerequisito |
 |-----------|--------------|
 |di Microsoft Azure     | Nessuno         |
-|PowerShell | Questo articolo richiede il modulo di PowerShell AZ. Storage versione **0,7** o successiva. Eseguire il comando `Get-Module -ListAvailable Az.Storage` per trovare la versione corrente. Se dopo aver eseguito questo comando non vengono visualizzati risultati o se viene indicata una versione inferiore alla **0.7**, è necessario aggiornare il modulo di PowerShell. Vedere la sezione [Aggiornare il modulo di PowerShell](#upgrade-your-powershell-module) della guida.
+|PowerShell | This article requires the PowerShell module Az.Storage version **0.7** or later. Eseguire il comando `Get-Module -ListAvailable Az.Storage` per trovare la versione corrente. Se dopo aver eseguito questo comando non vengono visualizzati risultati o se viene indicata una versione inferiore alla **0.7**, è necessario aggiornare il modulo di PowerShell. Vedere la sezione [Aggiornare il modulo di PowerShell](#upgrade-your-powershell-module) della guida.
 |Interfaccia della riga di comando        | È possibile accedere ad Azure ed eseguire i comandi dell'interfaccia della riga di comando di Azure in uno dei due modi seguenti: <ul><li>È possibile eseguire i comandi dell'interfaccia della riga di comando nel portale di Azure, in Azure Cloud Shell </li><li>È possibile installare l'interfaccia della riga di comando ed eseguire i relativi comandi in locale</li></ul>|
 
 Quando si usa la riga di comando, è possibile scegliere se eseguire Azure Cloud Shell o installare l'interfaccia della riga di comando in locale.
@@ -39,17 +39,17 @@ Azure Cloud Shell è una shell Bash gratuita che è possibile eseguire direttame
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-Il pulsante avvia una shell interattiva che è possibile usare per eseguire la procedura descritta in questo articolo:
+The button launches an interactive shell that you can use to run the steps in this article:
 
 [![Screenshot che mostra la finestra di Cloud Shell nel portale](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Installare l'interfaccia della riga di comando in locale
 
-È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questo articolo richiede la versione 2.0.38 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. This article requires that you are running the Azure CLI version 2.0.38 or later. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Creare un account di archiviazione con Azure Data Lake Storage Gen2 abilitato
 
-Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
+Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
 
 > [!NOTE]
 > È necessario creare nuovi account di archiviazione con tipo **Archiviazione V2 (utilizzo generico v2)** per sfruttare le funzionalità di Data Lake Storage Gen2.  
@@ -62,7 +62,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente. Questo articolo illustra come creare un nuovo gruppo di risorse.
+Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente. This article shows how to create a new resource group.
 
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
@@ -70,16 +70,16 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
 > Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche.
 
 1. Scegliere la sottoscrizione in cui creare l'account di archiviazione.
-2. Nella portale di Azure scegliere il pulsante **Crea una risorsa** , quindi scegliere account di **archiviazione**.
-3. Nel campo **Gruppo di risorse** selezionare **Crea nuovo**. Immettere un nome per il nuovo gruppo di risorse.
+2. In the Azure portal, choose the **Create a resource** button, then choose **Storage account**.
+3. Nel campo **Gruppo di risorse** selezionare **Crea nuovo**. Enter a name for your new resource group.
    
    Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente.
 
 4. Immettere quindi un nome per l'account di archiviazione. Il nome scelto deve essere univoco in Azure. Deve avere inoltre una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 5. Scegliere un paese.
-6. Verificare che **archiviazione V2 (utilizzo generico v2)** venga visualizzato come selezionato nell'elenco a discesa **tipo di account** .
-7. Facoltativamente, modificare i valori in ognuno di questi campi: **prestazioni**, **replica**, **livello di accesso**. Per altre informazioni su queste opzioni, vedere [Introduzione ad archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
-8. Scegliere la scheda **Avanzate** .
+6. Make sure that **StorageV2 (general purpose v2)** appears as selected in the **Account kind** drop-down list.
+7. Optionally change the values in each of these fields: **Performance**, **Replication**, **Access tier**. To learn more about these options, see [Introduction to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
+8. Choose the **Advanced** tab.
 10. Nella sezione **Data Lake Storage Gen2** impostare **Spazio dei nomi gerarchico** su **Abilitato**.
 11. Fare clic su **Rivedi e crea** per creare l'account di archiviazione.
 
@@ -95,7 +95,7 @@ Per rimuovere un gruppo di risorse usando il portale di Azure:
 
 ## <a name="create-an-account-using-powershell"></a>Creare un account con PowerShell
 
-Installare innanzitutto la versione più recente del modulo [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+Installare innanzitutto la versione più recente del modulo [PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Quindi, aggiornare il modulo di PowerShell, accedere alla sottoscrizione di Azure, creare un gruppo di risorse e quindi creare un account di archiviazione.
 
@@ -212,6 +212,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un account di archiviazione con Data Lake Storage Gen2 funzionalità. Per informazioni su come caricare e scaricare BLOB nell'account di archiviazione, consultare l'argomento seguente.
+In this article, you've created a storage account with Data Lake Storage Gen2 capabilities. Per informazioni su come caricare e scaricare BLOB nell'account di archiviazione, consultare l'argomento seguente.
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

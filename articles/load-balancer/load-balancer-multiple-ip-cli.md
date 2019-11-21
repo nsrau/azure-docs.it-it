@@ -1,6 +1,6 @@
 ---
 title: Bilanciamento del carico in più configurazioni IP tramite l'interfaccia della riga di comando di Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: c1606f14650843ea42cfe55381b5f23bf2742a58
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 69d324647af014a5122c404929c104a9077d5f13
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274710"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225297"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Bilanciamento del carico in più configurazioni IP tramite l'interfaccia della riga di comando di Azure
 

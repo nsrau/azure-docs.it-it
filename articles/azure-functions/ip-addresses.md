@@ -1,20 +1,14 @@
 ---
 title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: glenga
-ms.openlocfilehash: d8b6a342dd32d430f7a40a1e0a0a17a482a0816d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469047"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230334"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 

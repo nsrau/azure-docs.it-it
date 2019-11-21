@@ -1,38 +1,38 @@
 ---
 author: ggailey777
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e04151b420b3c5249b29edaec6723447c084f31
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476965"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224455"
 ---
-| Risorsa | [Piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Piano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Piano di servizio app](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Gruppi | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| Scalabilità orizzontale | Basato su eventi | Basato su eventi | [Scalabilità manuale/automatica](../articles/app-service/manage-scale-up.md) | 
+| Scalabilità orizzontale | Event driven | Event driven | [Manual/autoscale](../articles/app-service/manage-scale-up.md) | 
 | Numero massimo di istanze | 200 | 20 | 10-20 |
-|[Durata predefinita timeout](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
-|[Durata](../articles/azure-functions/functions-scale.md#timeout) massima timeout (min) |10 | unbounded | senza limiti<sup>3</sup> |
-| Numero massimo di connessioni in uscita (per istanza) | 600 attivo (1200 totale) | unbounded | unbounded |
-| Dimensioni massime richiesta (MB)<sup>4</sup> | 100 | 100 | 100 |
-| Lunghezza massima stringa di query<sup>4</sup> | 4096 | 4096 | 4096 |
-| Lunghezza massima URL richiesta<sup>4</sup> | 8192 | 8192 | 8192 |
-| [ACU](../articles/virtual-machines/windows/acu.md) per istanza | 100 | 210-840 | 100-840 |
-| Memoria massima (GB per istanza) | 1,5 | 3,5-14 | 1,75-14 |
-| App per le funzioni per piano |100 |100 |non vincolato<sup>5</sup> |
-| [Piani del servizio app](../articles/app-service/overview-hosting-plans.md) | 100 per [area](https://azure.microsoft.com/global-infrastructure/regions/) |100 per gruppo di risorse |100 per gruppo di risorse |
-| Archiviazione<sup>6</sup> |1 GB |250 GB |50-1000 GB |
+|Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
+|Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded | unbounded<sup>3</sup> |
+| Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded |
+| Max request size (MB)<sup>4</sup> | 100 | 100 | 100 |
+| Max query string length<sup>4</sup> | 4096 | 4096 | 4096 |
+| Max request URL length<sup>4</sup> | 8192 | 8192 | 8192 |
+| [ACU](../articles/virtual-machines/windows/acu.md) per instance | 100 | 210-840 | 100-840 |
+| Max memory (GB per instance) | 1,5 | 3.5-14 | 1.75-14 |
+| Function apps per plan |100 |100 |unbounded<sup>5</sup> |
+| [Piani del servizio app](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per gruppo di risorse |100 per gruppo di risorse |
+| Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | Domini personalizzati per applicazione</a> |500<sup>7</sup> |500 |500 |
-| Supporto per il dominio personalizzato [SSL](../articles/app-service/configure-ssl-bindings.md) |connessione SNI SSL non associata inclusa | SNI SSL non vincolate e 1 IP SSL connessioni incluse |SNI SSL non vincolate e 1 IP SSL connessioni incluse | 
+| Supporto per il dominio personalizzato [SSL](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
 
-<sup>1</sup> per i limiti specifici per le varie opzioni del piano di servizio app, vedere i [limiti del piano di servizio app](../articles/azure-subscription-service-limits.md#app-service-limits).  
-<sup>2</sup> per impostazione predefinita, il timeout per il runtime di funzioni 1. x in un piano di servizio app non è associato.  
-<sup>3</sup> richiede che il piano di servizio app sia impostato su [Always on](../articles/azure-functions/functions-scale.md#always-on). Paga con [tariffe](https://azure.microsoft.com/pricing/details/app-service/)standard.  
-<sup>4</sup> questi limiti vengono [impostati nell'host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
-<sup>5</sup> il numero effettivo di app per le funzioni che è possibile ospitare dipende dall'attività delle app, dalle dimensioni delle istanze del computer e dall'utilizzo corrispondente delle risorse.  
-<sup>6</sup> il limite di archiviazione è la dimensione totale del contenuto nell'archiviazione temporanea tra tutte le app nello stesso piano di servizio app. Il piano a consumo usa File di Azure per l'archiviazione temporanea.  
-<sup>7</sup> quando l'app per le funzioni è ospitata in un [piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME. Per le app per le funzioni in un [piano Premium](../articles/azure-functions/functions-scale.md#premium-plan) o un [piano di servizio app](../articles/azure-functions/functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato usando un record CNAME o un record a.
+<sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
+<sup>2</sup> By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  
+<sup>3</sup> Requires the App Service plan be set to [Always On](../articles/azure-functions/functions-scale.md#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/).  
+<sup>4</sup> These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
+<sup>5</sup> The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
+<sup>6</sup> The storage limit is the total content size in temporary storage across all apps in the same App Service plan. Consumption plan uses Azure Files for temporary storage.  
+<sup>7</sup> When your function app is hosted in a [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) or an [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record.

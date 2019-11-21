@@ -1,28 +1,28 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 5e58429b6a3e2f7c7c39c13dc65af48b064f9771
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2a9e9d79328a7bf5c3ff85ea5a8e8a594d68c4cf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67180536"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224491"
 ---
-| Livello | Gratuito | Basic | Standard |
+| Livello | Gratis | Basic | Standard |
 | --- | --- | --- | --- |
-| Chiamate API |500,000 |1,5 milioni per unità |15 milioni per unità |
-| Dispositivi attivi |500 |Senza limitazioni |Senza limitazioni |
-| Scalabilità |N/D |Fino a 6 unità |Unità illimitate |
-| Notifiche push |Livello gratuito di hub di notifica di Azure incluso, fino a 1 milione push |Livello Basic di hub di notifica incluso, fino a 10 milioni push |Livello standard di hub di notifica incluso, fino a 10 milioni push |
-| Messaggistica in tempo reale/<br/>Web Socket |Limitato |350 per servizio mobile |Senza limitazioni |
-| Sincronizzazioni offline |Limitato |Incluso |Incluso |
-| Processi pianificati |Limitato |Incluso |Incluso |
-| Database SQL di Azure (obbligatorio) <br/>applicate tariffe Standard per capacità aggiuntiva |20 MB inclusi |20 MB inclusi |20 MB inclusi |
-| Capacità della CPU |60 minuti al giorno |Senza limitazioni |Senza limitazioni |
-| Costi di trasferimento dei dati in uscita |165 MB al giorno (rollover giornaliero) |Incluso |Incluso |
+| Chiamate API |500.000 |1.5 million per unit |15 million per unit |
+| Active devices |500 |Illimitato |Illimitato |
+| Scalare |N/D |Fino a 6 unità |Unità illimitate |
+| Notifiche push |Azure Notification Hubs Free tier included, up to 1 million pushes |Notification Hubs Basic tier included, up to 10 million pushes |Notification Hubs Standard tier included, up to 10 million pushes |
+| Real-time messaging/<br/>Web Socket |Limitata |350 per mobile service |Illimitato |
+| Sincronizzazioni offline |Limitata |Incluso |Incluso |
+| Scheduled jobs |Limitata |Incluso |Incluso |
+| Azure SQL Database (required) <br/>applicate tariffe Standard per capacità aggiuntiva |20 MB inclusi |20 MB inclusi |20 MB inclusi |
+| Capacità della CPU |60 minutes per day |Illimitato |Illimitato |
+| Trasferimento dei dati in uscita |165 MB per day (daily rollover) |Incluso |Incluso |
 
-Per altre informazioni sui limiti e sui prezzi, vedere [prezzi di servizi mobili di Azure](https://azure.microsoft.com/pricing/details/mobile-services/). 
+For more information on limits and pricing, see [Azure Mobile Services pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
 

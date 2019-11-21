@@ -1,6 +1,6 @@
 ---
 title: Creare un servizio di bilanciamento del carico pubblico - Modello di Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come creare un servizio di bilanciamento del carico pubblico in Resource Manager con un modello
 services: load-balancer
 documentationcenter: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4cfbbfb17e8be3ae78aad5aa5125020762f864c7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275284"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225357"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Creazione di un servizio di bilanciamento del carico pubblico con un modello
 
 > [!div class="op_single_selector"]
-> * [Portale](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [di Microsoft Azure](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -43,7 +43,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
-2. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse usando il modello.
+2. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `

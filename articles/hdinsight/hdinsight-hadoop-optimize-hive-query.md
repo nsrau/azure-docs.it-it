@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.openlocfilehash: 7624f15e878e13a93b5b5f395ef9cf9af48c95e4
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 11/14/2019
+ms.openlocfilehash: 33b000d0ca5cdd4af2ed57c5db6e71ae5a1e4c58
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104523"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215818"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
 In Azure HDInsight esistono molti tipi di cluster e tecnologie in grado di eseguire query Apache Hive. Quando si crea il cluster HDInsight, scegliere il tipo di cluster appropriato alle esigenze del carico di lavoro per aiutare a ottimizzare le prestazioni.
 
-Scegliere, ad esempio, tipo di cluster **Interactive query** per ottimizzare le query interattive ad hoc. Scegliere il tipo di cluster Apache **Hadoop** per ottimizzare le query Hive usate come processo batch. Anche i tipi di cluster **Spark** e **HBase** possono eseguire le query Hive. Per altre informazioni sull'esecuzione di query Hive in vari tipi di cluster HDInsight, vedere [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md) (Che cosa sono Apache Hive e HiveQL in Azure HDInsight?).
+For example, choose **Interactive Query** cluster type to optimize for ad hoc, interactive queries. Scegliere il tipo di cluster Apache **Hadoop** per ottimizzare le query Hive usate come processo batch. Anche i tipi di cluster **Spark** e **HBase** possono eseguire le query Hive. Per altre informazioni sull'esecuzione di query Hive in vari tipi di cluster HDInsight, vedere [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md) (Che cosa sono Apache Hive e HiveQL in Azure HDInsight?).
 
-Per impostazione predefinita, i cluster HDInsight di tipo Hadoop non sono ottimizzati per le prestazioni. Questo articolo descrive alcuni dei modi più comuni di ottimizzare le prestazioni Hive che è possibile applicare alle query.
+HDInsight clusters of Hadoop cluster type aren't optimized for performance by default. Questo articolo descrive alcuni dei modi più comuni di ottimizzare le prestazioni Hive che è possibile applicare alle query.
 
 ## <a name="scale-out-worker-nodes"></a>Scalabilità orizzontale dei nodi di lavoro
 
@@ -29,11 +29,11 @@ Se si aumenta il numero di nodi del ruolo di lavoro in un cluster HDInsight, si 
 
 * Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
   
-    ![Nodi dimensioni del cluster portale di Azure](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
+    ![Azure portal cluster size nodes](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
 
 * Dopo avere creato il cluster, è possibile anche modificare il numero di nodi del ruolo di lavoro per scalare orizzontalmente il cluster senza ricrearne uno:
 
-    ![Dimensioni del cluster portale di Azure scala](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Azure portal scale cluster size](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight clusters](hdinsight-scaling-best-practices.md) (Scalare i cluster HDInsight)
 
@@ -41,12 +41,12 @@ Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight 
 
 [Apache Tez](https://tez.apache.org/) è un motore di esecuzione alternativo al motore di MapReduce. I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
 
-![Diagramma della Panoramica di HDInsight Apache Tez](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![HDInsight Apache Tez overview diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez è più veloce perché:
 
-* **Esegue un grafo aciclico diretto (DAG) come un singolo processo nel motore di MapReduce**. Il DAG richiede che ogni set di mapper sia seguito da un set di reducer. In questo modo, più processi MapReduce vengono eseguiti per ciascuna query Hive. Tez non presenta questo vincolo e può elaborare DAG complessi con un unico processo, riducendo così il sovraccarico di avvio del processo.
-* **Evita scritture non necessarie**. Nel motore di MapReduce vengono usati più processi per elaborare la stessa query Hive. L'output di ogni processo di MapReduce viene scritto in Hadoop Distributed File System (HDFS) per quanto riguarda i dati intermedi. Poiché Tez riduce al minimo il numero di processi per ciascuna query Hive, è in grado di evitare scritture non necessarie.
+* **Esegue un grafo aciclico diretto (DAG) come un singolo processo nel motore di MapReduce**. Il DAG richiede che ogni set di mapper sia seguito da un set di reducer. In questo modo, più processi MapReduce vengono eseguiti per ciascuna query Hive. Tez doesn't have such constraint and can process complex DAG as one job thus minimizing job startup overhead.
+* **Evita scritture non necessarie**. Nel motore di MapReduce vengono usati più processi per elaborare la stessa query Hive. L'output di ogni processo di MapReduce viene scritto in Hadoop Distributed File System (HDFS) per quanto riguarda i dati intermedi. Since Tez minimizes number of jobs for each Hive query, it's able to avoid unnecessary writes.
 * **Riduce al minimo i ritardi di avvio**. Tez è in grado di ridurre al minimo il ritardo di avvio limitando il numero di mapper da avviare e migliorando anche l'ottimizzazione complessiva.
 * **Riusa i contenitori**. Quando possibile, Tez è in grado di riusare i contenitori per assicurare che la latenza dovuta all'avvio dei contenitori venga ridotta.
 * **Usa tecniche di ottimizzazione continua**. In genere l'ottimizzazione viene eseguita durante la fase di compilazione. Tuttavia, sono disponibili ulteriori informazioni sugli input che consentono una migliore ottimizzazione durante il runtime. Tez usa tecniche di ottimizzazione continua che consentono di ottimizzare ulteriormente il piano nella fase di runtime.
@@ -65,7 +65,7 @@ Le operazioni di I/O rappresentano il principale collo di bottiglia nelle presta
 
 Il partizionamento Hive viene implementato riorganizzando i dati non elaborati in nuove directory. Ogni partizione ha una propria directory di file ed è definita dall'utente. Il diagramma seguente illustra il partizionamento di una tabella Hive mediante la colonna *Anno*. Viene creata una nuova directory per ogni anno.
 
-![Partizionamento Apache Hive HDInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![HDInsight Apache Hive partitioning](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Alcune considerazioni sul partizionamento:
 
@@ -80,7 +80,7 @@ CREATE TABLE lineitem_part
       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
       L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
       L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
       L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
 PARTITIONED BY(L_SHIPDATE STRING)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
@@ -93,35 +93,36 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
   
    ```sql
    INSERT OVERWRITE TABLE lineitem_part
-   PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
-   SELECT * FROM lineitem 
-   WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+   PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
+   SELECT * FROM lineitem
+   WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
 
-   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-   LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
+   LOCATION 'wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
 
-* **Partizionamento dinamico** indica che si desidera che Hive crei le partizioni automaticamente per l'utente. Poiché la tabella di partizionamento è già stata creata dalla tabella di gestione temporanea, occorre solo inserire i dati nella tabella partizionata:
+* **Partizionamento dinamico** indica che si desidera che Hive crei le partizioni automaticamente per l'utente. Since you've already created the partitioning table from the staging table, all you need to do is insert data to the partitioned table:
   
    ```hive
    SET hive.exec.dynamic.partition = true;
    SET hive.exec.dynamic.partition.mode = nonstrict;
    INSERT INTO TABLE lineitem_part
    PARTITION (L_SHIPDATE)
-   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY,
        L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
        L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
        L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as L_RETURNFLAG,
        L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as L_SHIPDATE_PS,
        L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as L_RECEIPTDATE,
-       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
+       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE,
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
 
 Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tabelle partizionate).
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
-Hive supporta diversi formati di file. Esempio:
+
+Hive supporta diversi formati di file. ad esempio:
 
 * **Testo**: è il formato di file predefinito e funziona con la maggior parte degli scenari.
 * **Avro**: funziona bene per scenari di interoperabilità.
@@ -147,15 +148,15 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Esempio:
+Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. ad esempio:
 
 ```sql
 INSERT INTO TABLE lineitem_orc
-SELECT L_ORDERKEY as L_ORDERKEY, 
-         L_PARTKEY as L_PARTKEY , 
+SELECT L_ORDERKEY as L_ORDERKEY,
+         L_PARTKEY as L_PARTKEY ,
          L_SUPPKEY as L_SUPPKEY,
          L_LINENUMBER as L_LINENUMBER,
-         L_QUANTITY as L_QUANTITY, 
+         L_QUANTITY as L_QUANTITY,
          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
          L_DISCOUNT as L_DISCOUNT,
          L_TAX as L_TAX,
@@ -163,7 +164,7 @@ SELECT L_ORDERKEY as L_ORDERKEY,
          L_LINESTATUS as L_LINESTATUS,
          L_SHIPDATE as L_SHIPDATE,
          L_COMMITDATE as L_COMMITDATE,
-         L_RECEIPTDATE as L_RECEIPTDATE, 
+         L_RECEIPTDATE as L_RECEIPTDATE,
          L_SHIPINSTRUCT as L_SHIPINSTRUCT,
          L_SHIPMODE as L_SHIPMODE,
          L_COMMENT as L_COMMENT
@@ -197,5 +198,5 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analizzare i dati sui ritardi dei voli usando Interactive query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analyze flight delay data by using Interactive Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analizzare i dati Twitter mediante Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)

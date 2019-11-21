@@ -1,5 +1,5 @@
 ---
-title: Concetti relativi alla sicurezza nel servizio Azure Device Provisioning in hub IoT | Microsoft Docs
+title: Azure IoT Hub Device Provisioning Service - Security concepts
 description: Descrive i concetti relativi al provisioning della sicurezza specifici dei dispositivi con il servizio Device Provisioning e l'hub IoT
 author: nberdy
 ms.author: nberdy
@@ -7,13 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: briz
-ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775118"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228818"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
 
@@ -29,7 +28,7 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 Il servizio Device Provisioning supporta i seguenti tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
 * **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Questa attestazione non richiede un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chiave simmetrica** basata sui [token di sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens) della firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per altre informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
+* **Chiave simmetrica** basata sui [token di sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens) della firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per maggiori informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
@@ -79,7 +78,7 @@ Un certificato intermedio è un certificato X.509 che è stato firmato dal certi
 
 Il certificato foglia, o certificato dell'entità finale, identifica il titolare del certificato. Include il certificato radice nella relativa catena di certificati, nonché zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. Identifica in modo univoco il dispositivo per il servizio di provisioning e a volte viene chiamato anche certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata a questo certificato per rispondere a una richiesta di prova di possesso dal servizio.
 
-Foglia certificati utilizzati con un' [registrazione singola](./concepts-service.md#individual-enrollment) voce sono un requisito che il **nome soggetto** deve essere impostata per l'ID di registrazione della voce di registrazione singola. Foglia certificati utilizzati con un' [gruppo di registrazioni](./concepts-service.md#enrollment-group) la voce verrà visualizzata la **nome soggetto** impostata sull'ID dispositivo desiderato che verranno visualizzate nel **i record di registrazione** per il dispositivo autenticato nel gruppo di registrazione.
+Leaf certificates used with an [Individual enrollment](./concepts-service.md#individual-enrollment) entry have a requirement that the **Subject Name** must be set to the registration ID of the Individual Enrollment entry. Leaf certificates used with an [Enrollment group](./concepts-service.md#enrollment-group) entry should have the **Subject Name** set to the desired device ID which will be shown in the **Registration Records** for the authenticated device in the enrollment group.
 
 Per altre informazioni, vedere [Autenticazione dei dispositivi firmati con i certificati della CA X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 

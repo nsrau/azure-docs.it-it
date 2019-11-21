@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 91377c41699f01eaf57a085ea82e9d7289549990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ac4442aa5a7e5e4367a03d33169412d37b3f1ea
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969152"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229935"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
@@ -53,7 +53,7 @@ La configurazione dell'archiviazione di Azure per l'uso di Cloudyn è semplice. 
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configurare un bucket di archiviazione di AWS
 
-Cloudyn usa le credenziali AWS esistenti, Utente o Ruolo, per salvare i report nel bucket. Per verificare l'accesso, Cloudyn tenta di salvare un file di testo di piccole dimensioni nel bucket con il nome file _check-bucket-permission.txt_.
+Il portale di Cloudyn usa le credenziali AWS esistenti, per l'utente o il ruolo, per salvare i report nel bucket. Per verificare l'accesso, Cloudyn tenta di salvare un file di testo di piccole dimensioni nel bucket con il nome file _check-bucket-permission.txt_.
 
 Specificare il ruolo o l'utente di Cloudyn con l'autorizzazione PutObject per il bucket. Per salvare i report, usare quindi un bucket esistente o crearne uno nuovo. Decidere infine come gestire la classe di archiviazione, impostare le regole del ciclo di vita o rimuovere i file non necessari.
 
@@ -65,7 +65,7 @@ Quando si crea un nuovo criterio, specificare le autorizzazioni esatte necessari
 2. Dall'elenco dei servizi selezionare **IAM**.
 3. Sul lato sinistro della console selezionare **Policies** (Criteri) e quindi fare clic su **Create Policy** (Crea criterio).
 4. Fare clic sulla scheda **JSON**.
-5. Il criterio seguente consente di salvare un report in un bucket di S3. Copiare e incollare l'esempio di criterio seguente nella scheda **JSON**. Sostituire &lt;bucketname&gt; con il nome del bucket.
+5. Il criterio seguente consente di salvare un report in un bucket di S3. Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
 
    ```json
    {
