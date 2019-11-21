@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c2f953c98e41291951f07556bd0cd441d2793d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946593"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232444"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Partner di monitoraggio di Azure Service Fabric
 
@@ -27,7 +27,7 @@ Questo articolo illustra come si possono monitorare applicazioni, cluster e infr
 
 ## <a name="dynatrace"></a>Dynatrace
 
-La nostra Integrazione con Dynatrace offre molte funzionalità predefinite per monitorare i cluster di Service Fabric. L'installazione di Dynatrace OneAgent nelle istanze del set di scalabilità di macchine virtuali offre contatori delle prestazioni e una topologia della distribuzione di Service Fabric fino al livello di app. Dynatrace è anche un'ottima scelta per il monitoraggio locale. Scopri di più le funzionalità elencate nella [annuncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [istruzioni](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) abilitare Dynatrace nel cluster. 
+La nostra Integrazione con Dynatrace offre molte funzionalità predefinite per monitorare i cluster di Service Fabric. L'installazione di Dynatrace OneAgent nelle istanze del set di scalabilità di macchine virtuali offre contatori delle prestazioni e una topologia della distribuzione di Service Fabric fino al livello di app. Dynatrace è anche un'ottima scelta per il monitoraggio locale. Check out more of the features listed in the [announcement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) to enable Dynatrace on your cluster. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -47,7 +47,7 @@ Lo stack ELK è una raccolta di tecnologie open source: Elasticsearch, Logstash 
 
 ## <a name="humio"></a>Humio
 
-Humio è un servizio di raccolta log che consente di raccogliere i log da applicazioni e gli eventi di Service Fabric nel cloud o in locale in tempo reale. Oltre all'osservabilità in tempo reale, Humio offre funzionalità di analisi e visualizzazione all'avanguardia per la visualizzazione e la raccolta di informazioni dettagliate dalla diagnostica. Humio prevede piani tariffari economicamente convenienti e incorporata di scalabilità, mantenendo lo è l'opzione velocità elevata. Si integra direttamente con gli eventi della piattaforma Service Fabric e i dati di telemetria dell'applicazione. Altre informazioni sull'integrazione Humio e Service Fabric [qui](https://github.com/humio/service-fabric-humio).
+Humio is a log collection service that can gather logs from your applications and events from Service Fabric in the cloud or on-premises in real time. In addition to live observability, Humio offers state of the art analysis and visualization capabilities for viewing and collecting insights from your diagnostics. Humio has cost effective pricing plans and is built to scale while retaining it's lightening fast speed. It directly integrates with Service Fabric platform events and Application telemetry. You can read more about the Humio and Service Fabric integration [here](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

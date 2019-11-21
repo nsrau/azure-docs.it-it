@@ -1,20 +1,16 @@
 ---
 title: Hub attività in Funzioni permanenti - Azure
-description: Informazioni sugli hub attività nell'estensione Funzioni permanenti per Funzioni di Azure. Informazioni su come configurare gli hub attività.
-services: functions
+description: Informazioni sugli hub attività nell'estensione Funzioni permanenti per Funzioni di Azure. Learn how to configure task hubs.
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b42294fdcf60add8496116bd1f83bf64f54a5f63
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 38c7da8a1de57ed5acf3248fc6a71431de0bd1e2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614695"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232782"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hub attività in Funzioni permanenti (Funzioni di Azure)
 
@@ -33,15 +29,15 @@ Un hub di attività è costituito dalle risorse di archiviazione seguenti:
 * Una tabella di cronologia.
 * Una tabella di istanze.
 * Un contenitore di archiviazione che contiene uno o più BLOB del lease.
-* Contenitore di archiviazione contenente payload di messaggi di grandi dimensioni, se applicabile.
+* A storage container containing large message payloads, if applicable.
 
-Tutte queste risorse vengono create automaticamente nell'account di archiviazione di Azure predefinito quando le funzioni di orchestrazione, entità o attività vengono eseguite o pianificate per l'esecuzione. Nell'articolo [Prestazioni e scalabilità](durable-functions-perf-and-scale.md) viene descritto l'uso di queste risorse.
+All of these resources are created automatically in the default Azure Storage account when orchestrator, entity, or activity functions run or are scheduled to run. Nell'articolo [Prestazioni e scalabilità](durable-functions-perf-and-scale.md) viene descritto l'uso di queste risorse.
 
 ## <a name="task-hub-names"></a>Nomi degli hub attività
 
 Gli hub attività sono identificati mediante un nome dichiarato nel file *host.json* file, come illustrato nell'esempio seguente:
 
-### <a name="hostjson-functions-20"></a>host. JSON (funzioni 2,0)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -64,9 +60,9 @@ Gli hub attività sono identificati mediante un nome dichiarato nel file *host.j
 }
 ```
 
-Gli hub attività possono anche essere configurati usando le impostazioni dell'app, come illustrato nel file di esempio `host.json` seguente:
+Task hubs can also be configured using app settings, as shown in the following `host.json` example file:
 
-### <a name="hostjson-functions-10"></a>host. JSON (funzioni 1,0)
+### <a name="hostjson-functions-10"></a>host.json (Functions 1.0)
 
 ```json
 {
@@ -76,7 +72,7 @@ Gli hub attività possono anche essere configurati usando le impostazioni dell'a
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host. JSON (funzioni 2,0)
+### <a name="hostjson-functions-20"></a>host.json (Functions 2.0)
 
 ```json
 {
@@ -100,7 +96,7 @@ Il nome dell'hub attività verrà impostato in base al valore dell’impostazion
 }
 ```
 
-Il codice seguente è un C# esempio precompilato di come scrivere una funzione che usa l'associazione del [client di orchestrazione](durable-functions-bindings.md#orchestration-client) per usare un hub attività configurato come impostazione dell'app:
+The following code is a precompiled C# example of how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
 ### <a name="c"></a>C#
 
@@ -123,7 +119,7 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> L'esempio C# precedente è per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -138,19 +134,19 @@ La proprietà dell'hub attività nel file `function.json` viene configurata tram
 }
 ```
 
-I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. Se non specificato, verrà usato un nome predefinito dell'hub attività, come illustrato nella tabella seguente:
+I nomi degli hub attività devono iniziare con una lettera e contenere solo lettere e numeri. If not specified, a default task hub name will be used as shown in the following table:
 
-| Versione durevole dell'estensione | Nome dell'hub attività predefinito |
+| Durable extension version | Default task hub name |
 | - | - |
-| 2.x | Quando viene distribuito in Azure, il nome dell'hub attività viene derivato dal nome dell' _app_per le funzioni. Quando viene eseguito all'esterno di Azure, il nome predefinito dell'hub attività è `TestHubName`. |
-| 1.x | Il nome predefinito dell'hub attività per tutti gli ambienti è `DurableFunctionsHub`. |
+| 2.x | When deployed in Azure, the task hub name is derived from the name of the _function app_. When running outside of Azure, the default task hub name is `TestHubName`. |
+| 1.x | The default task hub name for all environments is `DurableFunctionsHub`. |
 
-Per ulteriori informazioni sulle differenze tra le versioni delle estensioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+For more information about the differences between extension versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 > [!NOTE]
-> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare in modo esplicito nomi diversi per ogni hub attività nei file *host.json*. In caso contrario, le app per più funzioni competono tra loro per i messaggi, che potrebbero causare un comportamento indefinito, incluse le orchestrazioni che si bloccano in modo imprevisto nello stato `Pending` o `Running`.
+> Il nome è ciò che distingue un hub attività da un altro quando sono presenti più hub attività in un account di archiviazione condiviso. Se si dispone di più app per le funzioni che condividono lo stesso account di archiviazione condiviso, è necessario configurare in modo esplicito nomi diversi per ogni hub attività nei file *host.json*. Otherwise the multiple function apps will compete with each other for messages, which could result in undefined behavior, including orchestrations getting unexpectedly "stuck" in the `Pending` or `Running` state.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come gestire il controllo delle versioni delle orchestrazioni](durable-functions-versioning.md)
+> [Learn how to handle orchestration versioning](durable-functions-versioning.md)

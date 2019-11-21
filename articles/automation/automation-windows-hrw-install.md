@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8f6d46b8db6761204e39f14bbb51a493445ad26
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 695fffdcd73c2500c50f22d1b5706834ea77545c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477906"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231592"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -53,17 +53,17 @@ Seguire questa procedura per automatizzare l'installazione e la configurazione d
 
    Per l'esecuzione dello script New-OnPremiseHybridWorker.ps1 sono necessari i parametri seguenti:
 
-   * *AutomationAccountName* (obbligatorio): nome dell'account di Automazione.
-   * *AAResourceGroupName* (obbligatorio): nome del gruppo di risorse associato all'account di Automazione.
+   * *AutomationAccountName* (obbligatorio): nome dell'account di automazione.
+   * *AAResourceGroupName* (obbligatorio): nome del gruppo di risorse associato all'account di automazione.
    * *OMSResourceGroupName* (facoltativo): nome del gruppo di risorse per l'area di lavoro Log Analytics. Se il gruppo di risorse non è specificato, verrà usato *AAResourceGroupName*.
    * *HybridGroupName* (obbligatorio): nome di un gruppo di ruoli di lavoro ibridi per runbook specificato come destinazione per i runbook che supportano questo scenario.
    * *SubscriptionID* (obbligatorio): ID sottoscrizione di Azure in cui si trova l'account di Automazione.
-   * *WorkspaceName* (facoltativo): Nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una.
+   * *WorkspaceName* (facoltativo): nome dell'area di lavoro Log Analytics. Se non si dispone di un'area di lavoro Log Analytics, lo script ne crea e configura una.
 
    > [!NOTE]
    > Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
    >
-   > Per un elenco di coppie di mapping supportati, vedere [mapping di area per area di lavoro di Account di automazione e Log Analitica](how-to/region-mappings.md).
+   > For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
 
 2. Nel computer in uso aprire **Windows PowerShell** dalla schermata **Start** in modalità amministratore.
 3. Dalla shell della riga di comando di PowerShell, passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*. Quindi, eseguire lo script.
@@ -87,31 +87,31 @@ Eseguire i primi due passaggi una volta per l'ambiente di automazione e quindi r
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-#### <a name="1-create-a-log-analytics-workspace"></a>1. Creare un'area di lavoro Log Analytics
+#### <a name="1-create-a-log-analytics-workspace"></a>1. Create a Log Analytics workspace
 
 Se non si ha ancora un'area di lavoro Log Analytics, crearne una seguendo le istruzioni contenute in [Gestire le aree di lavoro](../azure-monitor/platform/manage-access.md). Se già si dispone di un'area di lavoro, è possibile usarla.
 
-#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Aggiungere la soluzione Automazione all'area di lavoro Log Analytics
+#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Add the Automation solution to the Log Analytics workspace
 
-La soluzione di log di monitoraggio di Azure di automazione aggiunge funzionalità per automazione di Azure, incluso il supporto per Hybrid Runbook Workers. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
+The Automation Azure Monitor logs solution adds functionality for Azure Automation, including support for Hybrid Runbook Worker. Quando si aggiunge la soluzione all'area di lavoro, i componenti del ruolo di lavoro vengono automaticamente propagati al computer dell'agente che verrà installato nel passaggio successivo.
 
-Per aggiungere il **automazione** monitoraggio di Azure registra soluzione all'area di lavoro, eseguire il comando PowerShell seguente.
+To add the **Automation** Azure Monitor logs solution to your workspace, run the following PowerShell.
 
 ```powershell-interactive
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installare Microsoft Monitoring Agent
+#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Install the Microsoft Monitoring Agent
 
-Microsoft Monitoring Agent connette i computer per i log di monitoraggio di Azure. Quando si installa l'agente nel computer locale e lo si connette all'area di lavoro, viene eseguito automaticamente il download dei componenti necessari per il ruolo di lavoro ibrido per runbook.
+The Microsoft Monitoring Agent connects computers to Azure Monitor logs. Quando si installa l'agente nel computer locale e lo si connette all'area di lavoro, viene eseguito automaticamente il download dei componenti necessari per il ruolo di lavoro ibrido per runbook.
 
-Per installare l'agente nel computer locale, seguire le istruzioni riportate in [i computer Windows di connettersi ai log di monitoraggio di Azure](../log-analytics/log-analytics-windows-agent.md). È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
+To install the agent on the on-premises computer, follow the instructions at [Connect Windows computers to Azure Monitor logs](../log-analytics/log-analytics-windows-agent.md). È possibile ripetere questo processo per più computer per aggiungere più ruoli di lavoro nell'ambiente.
 
-Quando l'agente è connesso a log di monitoraggio di Azure, verrà elencata nel **Connected Sources** scheda della finestra di analitica log **impostazioni** pagina. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\Programmi\Microsoft Monitoring Agent\Agent. Per verificare la versione del ruolo di lavoro ibrido per runbook, passare a C:\Programmi\Microsoft Monitoring Agent\Agent\AzureAutomation\ e prendere nota della sottocartella \\*version*.
+When the agent has successfully connected to Azure Monitor logs, it's listed on the **Connected Sources** tab of the log analytics **Settings** page. È possibile verificare che l'agente abbia scaricato correttamente la soluzione di automazione se include una cartella **AzureAutomationFiles** in C:\Programmi\Microsoft Monitoring Agent\Agent. Per verificare la versione del ruolo di lavoro ibrido per runbook, passare a C:\Programmi\Microsoft Monitoring Agent\Agent\AzureAutomation\ e prendere nota della sottocartella \\*version*.
 
-#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Installare l'ambiente runbook e connettersi ad Automazione di Azure
+#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Install the runbook environment and connect to Azure Automation
 
-Quando si aggiunge un agente a log di monitoraggio di Azure, la soluzione automazione esegue il push il **HybridRegistration** modulo di PowerShell, che contiene il **Add-HybridRunbookWorker** cmdlet. È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
+When you add an agent to Azure Monitor logs, the Automation solution pushes down the **HybridRegistration** PowerShell module, which contains the **Add-HybridRunbookWorker** cmdlet. È possibile usare questo cmdlet per installare l'ambiente runbook nel computer e registrarlo in Automazione di Azure.
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire i comandi seguenti per importare il modulo:
 
@@ -136,13 +136,13 @@ Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
 Per ricevere informazioni dettagliate sull'installazione, usare l'opzione **-Verbose** con **Add-HybridRunbookWorker**.
 
-#### <a name="5-install-powershell-modules"></a>5. Installare i moduli di PowerShell
+#### <a name="5-install-powershell-modules"></a>5. Install PowerShell modules
 
 I runbook possono usare tutte le attività e i cmdlet definiti nei moduli installati nell'ambiente di Automazione di Azure. Questi moduli tuttavia non vengono distribuiti automaticamente nei computer locali, pertanto è necessario installarli manualmente. L'unica eccezione è rappresentata dal modulo Azure, che viene installato per impostazione predefinita, garantendo l'accesso ai cmdlet per tutti i servizi e le attività di Azure per Automazione di Azure.
 
-Poiché lo scopo principale della funzionalità ruolo di lavoro ibrido per runbook è gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere il [relativo articolo](/powershell/developer/windows-powershell). 
+Poiché lo scopo principale della funzionalità ruolo di lavoro ibrido per runbook è gestire le risorse locali, probabilmente sarà necessario installare i moduli che supportano queste risorse. Per informazioni sull'installazione dei moduli di Windows PowerShell, vedere il [relativo articolo](/powershell/scripting/developer/windows-powershell). 
 
-I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente **PSModulePath**, in modo da venire importati automaticamente dal ruolo di lavoro ibrido. Per altre informazioni, vedere [Modifying the PSModulePath Installation Path](/powershell/developer/windows-powershell) (Modifica del percorso di installazione di PSModulePath).
+I moduli installati devono trovarsi in un percorso a cui fa riferimento la variabile di ambiente **PSModulePath**, in modo da venire importati automaticamente dal ruolo di lavoro ibrido. Per altre informazioni, vedere [Modifying the PSModulePath Installation Path](/powershell/scripting/developer/windows-powershell) (Modifica del percorso di installazione di PSModulePath).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

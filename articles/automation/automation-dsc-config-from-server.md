@@ -1,7 +1,7 @@
 ---
-title: Creare configurazioni da server esistenti-automazione di Azure
-description: Informazioni su come creare configurazioni da server esistenti per automazione di Azure.
-keywords: DSC, PowerShell, configurazione, configurazione
+title: Create configurations from existing servers - Azure Automation
+description: Learn how to create configurations from existing servers for Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,41 +10,41 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b8c39ba6c12d43da1b2311ae4d7d85dd13946f25
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 35f967e946854c3ca097db379015a7ee0bbe2f3d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559401"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231676"
 ---
-# <a name="create-configurations-from-existing-servers"></a>Creazione di configurazioni da server esistenti
+# <a name="create-configurations-from-existing-servers"></a>Create configurations from existing servers
 
-> Si applica a: Windows PowerShell 5.1
+> Applies To: Windows PowerShell 5.1
 
-La creazione di configurazioni da server esistenti può essere un'attività complessa.
-È possibile che non si desiderino *tutte* le impostazioni, solo quelle a cui si è interessati.
-È anche necessario conoscere l'ordine in cui devono essere applicate le impostazioni affinché la configurazione venga applicata correttamente.
+Creating configurations from existing servers can be a challenging task.
+You might not want *all* settings, just those that you care about.
+Even then you need to know in what order the settings must be applied in order for the configuration to apply successfully.
 
 > [!NOTE]
-> Questo articolo fa riferimento a una soluzione gestita dalla community open source.
-> Il supporto è disponibile solo sotto forma di collaborazione con GitHub, non da Microsoft.
+> This article refers to a solution that is maintained by the Open Source community.
+> Support is only available in the form of GitHub collaboration, not from Microsoft.
 
-## <a name="community-project-reversedsc"></a>Progetto della community: ReverseDSC
+## <a name="community-project-reversedsc"></a>Community project: ReverseDSC
 
-È stata creata una soluzione gestita dalla community denominata [ReverseDSC](https://github.com/microsoft/reversedsc) per lavorare in quest'area, avviando SharePoint.
+A community maintained solution named [ReverseDSC](https://github.com/microsoft/reversedsc) has been created to work in this area starting SharePoint.
 
-La soluzione si basa sulla [risorsa SharePointDSC](https://github.com/powershell/sharepointdsc) e la estende per orchestrare la [raccolta di informazioni](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) dai server di SharePoint esistenti.
-La versione più recente include più [modalità di estrazione](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) per determinare il livello di informazioni da includere.
+The solution builds on the [SharePointDSC resource](https://github.com/powershell/sharepointdsc) and extends it to orchestrate [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) from existing SharePoint servers.
+The latest version has multiple [extraction modes](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) to determine what level of information to include.
 
-Il risultato dell'uso della soluzione è la generazione di [dati di configurazione](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) da usare con gli script di configurazione SharePointDSC.
+The result of using the solution is generating [Configuration Data](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) to be used with SharePointDSC configuration scripts.
 
-Una volta generati i file di dati, è possibile usarli con gli [script di configurazione DSC](/powershell/dsc/overview/overview) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle configurazioni.
+Once the data files have been generated, you can use them with [DSC Configuration scripts](/powershell/scripting/dsc/overview/overview) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
 
-Per provare ReverseDSC, visitare il [PowerShell Gallery](https://www.powershellgallery.com/packages/ReverseDSC/) e scaricare la soluzione oppure fare clic su "Project Site" per visualizzare la [documentazione](https://github.com/Microsoft/sharepointDSC.reverse).
+To try out ReverseDSC, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/ReverseDSC/) and download the solution or click "Project Site" to view the [documentation](https://github.com/Microsoft/sharepointDSC.reverse).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/dsc/overview/overview)
-- [Risorse DSC](/powershell/dsc/resources/resources)
-- [Configurazione della Configuration Manager locale](/powershell/dsc/managing-nodes/metaconfig)
+- [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview)
+- [DSC Resources](/powershell/scripting/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
