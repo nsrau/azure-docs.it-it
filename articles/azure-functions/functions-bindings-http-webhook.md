@@ -1,21 +1,16 @@
 ---
 title: Trigger e associazioni HTTP di Funzioni di Azure
 description: Informazioni su come usare i trigger e le associazioni HTTP in Funzioni di Azure.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, HTTP, API, REST
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 7cce1c9ee6ca5e01b91afd5284ca9abf84d0b56f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158097"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231179"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Trigger e associazioni HTTP di Funzioni di Azure
 
@@ -73,7 +68,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
@@ -284,7 +279,7 @@ Ecco il file *function.json*:
 }
 ```
 
-#### <a name="read-parameter-from-the-query-string"></a>Leggi parametro dalla stringa di query
+#### <a name="read-parameter-from-the-query-string"></a>Read parameter from the query string
 
 Questo esempio legge un parametro, denominato ```id```, dalla stringa di query e lo usa per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```. 
 
@@ -323,7 +318,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-body-from-a-post-request"></a>Legge il corpo da una richiesta POST
+#### <a name="read-body-from-a-post-request"></a>Read body from a POST request
 
 Questo esempio legge il corpo di una richiesta POST, come ```String```, e lo usa per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```.
 
@@ -359,7 +354,7 @@ Questo esempio legge il corpo di una richiesta POST, come ```String```, e lo usa
     }
 ```
 
-#### <a name="read-parameter-from-a-route"></a>Leggi parametro da una route
+#### <a name="read-parameter-from-a-route"></a>Read parameter from a route
 
 Questo esempio legge un parametro obbligatorio, denominato ```id```, e un parametro facoltativo ```name``` dal percorso della route e usa tali parametri per creare un documento JSON restituito al client, con tipo di contenuto ```application/json```. T
 
@@ -397,7 +392,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-pojo-body-from-a-post-request"></a>Leggi il corpo di POJO da una richiesta POST
+#### <a name="read-pojo-body-from-a-post-request"></a>Read POJO body from a POST request
 
 Ecco il codice per la classe ```ToDoItem``` a cui si fa riferimento in questo esempio:
 
@@ -465,13 +460,13 @@ public HttpResponseMessage run(
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-Nelle [ C# librerie di classi](functions-dotnet-class-library.md) e in Java, l'attributo `HttpTrigger` è disponibile per configurare la funzione.
+In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HttpTrigger` attribute is available to configure the function.
 
-È possibile impostare il livello di autorizzazione e i metodi HTTP consentiti nei parametri del costruttore dell'attributo, nel tipo di Webhook e in un modello di route. Per altre informazioni su queste impostazioni, vedere [Trigger - configurazione](#trigger---configuration).
+You can set the authorization level and allowable HTTP methods in attribute constructor parameters, webhook type, and a route template. Per altre informazioni su queste impostazioni, vedere [Trigger - configurazione](#trigger---configuration).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Questo esempio illustra come usare l'attributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) .
+This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute.
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -482,23 +477,23 @@ public static Task<IActionResult> Run(
 }
 ```
 
-Per un esempio completo, vedere l' [esempio di trigger](#trigger---example).
+For a complete example, see the [trigger example](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-Gli attributi non sono supportati C# dallo script.
+Attributes are not supported by C# Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Gli attributi non sono supportati da JavaScript.
+Attributes are not supported by JavaScript.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Gli attributi non sono supportati da Python.
+Attributes are not supported by Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Questo esempio illustra come usare l'attributo [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) .
+This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) attribute.
 
 ```java
 @FunctionName("HttpTriggerJava")
@@ -512,7 +507,7 @@ public HttpResponseMessage<String> HttpTrigger(
 }
 ```
 
-Per un esempio completo, vedere l' [esempio di trigger](#trigger---example).
+For a complete example, see the [trigger example](#trigger---example).
 
 ---
 
@@ -520,7 +515,7 @@ Per un esempio completo, vedere l' [esempio di trigger](#trigger---example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 | **type** | N/D| Obbligatoria. Deve essere impostata su `httpTrigger`. |
 | **direction** | N/D| Obbligatoria. Deve essere impostata su `in`. |
@@ -532,7 +527,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="trigger---usage"></a>Trigger - uso
 
-Il tipo di input del trigger viene dichiarato come `HttpRequest` o come tipo personalizzato. Se si sceglie `HttpRequest`, si ottiene accesso completo all'oggetto richiesta. Per un tipo personalizzato, il runtime cerca di analizzare il corpo della richiesta JSON per impostare le proprietà dell'oggetto.
+The trigger input type is declared as either `HttpRequest` or a custom type. Se si sceglie `HttpRequest`, si ottiene accesso completo all'oggetto richiesta. Per un tipo personalizzato, il runtime cerca di analizzare il corpo della richiesta JSON per impostare le proprietà dell'oggetto.
 
 ### <a name="customize-the-http-endpoint"></a>Personalizzare l'endpoint HTTP
 
@@ -585,7 +580,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
 
@@ -605,9 +600,9 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Nel nodo, il runtime di funzioni fornisce il corpo della richiesta dall'oggetto `context`. Per altre informazioni, vedere l'[esempio di trigger JavaScript](#trigger---example).
+In Node, the Functions runtime provides the request body from the `context` object. Per altre informazioni, vedere l'[esempio di trigger JavaScript](#trigger---example).
 
-Nell'esempio seguente viene illustrato come leggere i parametri di route da `context.bindingData`.
+The following example shows how to read route parameters from `context.bindingData`.
 
 ```javascript
 module.exports = function (context, req) {
@@ -626,9 +621,9 @@ module.exports = function (context, req) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Il contesto di esecuzione della funzione viene esposto tramite un parametro dichiarato come `func.HttpRequest`. Questa istanza consente a una funzione di accedere ai parametri della route di dati, ai valori della stringa di query e ai metodi che consentono di restituire risposte HTTP.
+The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
 
-Una volta definito, i parametri della route sono disponibili per la funzione chiamando il metodo `route_params`.
+Once defined, the route parameters are available to the function by calling the `route_params` method.
 
 ```python
 import logging
@@ -646,9 +641,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Il contesto di esecuzione della funzione è proprietà dichiarate nell'attributo `HttpTrigger`. L'attributo consente di definire parametri di route, livelli di autorizzazione, verbi HTTP e l'istanza della richiesta in ingresso.
+The function execution context is properties as declared in the `HttpTrigger` attribute. The attribute allows you to define route parameters, authorization levels, HTTP verbs and the incoming request instance.
 
-I parametri di route vengono definiti tramite l'attributo `HttpTrigger`.
+Route parameters are defined via the `HttpTrigger` attribute.
 
 ```java
 package com.function;
@@ -693,7 +688,7 @@ Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Le informazioni relative ai client autenticati sono disponibili come [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
 
 ```csharp
 using System.Net;
@@ -723,9 +718,9 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-Le informazioni relative ai client autenticati sono disponibili come [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
 
 ```csharp
 using System.Net;
@@ -759,15 +754,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
@@ -799,7 +794,7 @@ Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crit
 
 ![Gestire le chiavi di funzione nel portale.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-È possibile ottenere le chiavi della funzione a livello di codice usando le [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+You may obtain function keys programmatically by using [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorizzazione della chiave API
 
@@ -812,7 +807,7 @@ La chiave può essere inclusa in una variabile della stringa di query denominata
 È possibile consentire le richieste anonime, che non richiedono chiavi. È anche possibile richiedere l'uso della chiave master. Per modificare il livello di autorizzazione predefinito, usare la proprietà `authLevel` nel file JSON di binding. Per altre informazioni, vedere [Trigger - configurazione](#trigger---configuration)
 
 > [!NOTE]
-> Quando si eseguono funzioni localmente, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autenticazione specificata. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger. Le chiavi sono comunque necessarie quando si esegue [localmente in un contenitore](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> Quando si eseguono funzioni localmente, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autenticazione specificata. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Proteggere un endpoint HTTP nell'ambiente di produzione
@@ -865,7 +860,7 @@ Usare l'associazione di output HTTP per rispondere al mittente della richiesta H
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Per le librerie di classe C# non vi sono proprietà di attributo che corrispondano a queste proprietà *function.json*.
 
-|Proprietà  |DESCRIZIONE  |
+|Proprietà  |Description  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
@@ -904,13 +899,13 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
-| customHeaders|nessuno|Consente di impostare intestazioni personalizzate nella risposta HTTP. Nell'esempio precedente l'intestazione `X-Content-Type-Options` viene aggiunta alla risposta per evitare l'analisi dei tipi di contenuto. |
-|dynamicThrottlesEnabled|true<sup>\*</sup>|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.<br/><sup>\*</sup> Il valore predefinito in un piano a consumo è `true`. Il valore predefinito in un piano dedicato è `false`.|
-|HSTS|non abilitato|Quando `isEnabled` è impostato su `true`, viene applicato il [comportamento di sicurezza del trasporto http Strict (HSTS) di .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) , come definito nella [classe`HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Nell'esempio precedente viene inoltre impostata la proprietà [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) su 10 giorni. Le proprietà supportate di `hsts` sono: <table><tr><th>Proprietà</th><th>DESCRIZIONE</th></tr><tr><td>excludedHosts</td><td>Matrice di stringhe di nomi host per cui non viene aggiunta l'intestazione HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valore booleano che indica se il parametro includeSubDomain dell'intestazione Strict-Transport-Security è abilitato.</td></tr><tr><td>maxAge</td><td>Stringa che definisce il parametro max-age dell'intestazione Strict-Transport-Security.</td></tr><tr><td>precaricare</td><td>Valore booleano che indica se il parametro preload dell'intestazione Strict-Transport-Security è abilitato.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|Numero massimo di funzioni http eseguite in parallelo. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, potrebbe essere presente una funzione HTTP che usa una quantità di risorse di sistema (memoria/CPU/socket) tale da creare problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione. <br/><sup>*</sup> Il valore predefinito per un piano a consumo è 100. Il valore predefinito per un piano dedicato è unbounded (`-1`).|
-|maxOutstandingRequests|200<sup>\*</sup>|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione. <br/><sup>\*</sup>valore predefinito \il per un piano a consumo è 200. Il valore predefinito per un piano dedicato è unbounded (`-1`).|
+| customHeaders|None|Allows you to set custom headers in the HTTP response. The previous example adds the `X-Content-Type-Options` header to the response to avoid content type sniffing. |
+|dynamicThrottlesEnabled|true<sup>\*</sup>|Quando è abilitata, questa impostazione determina la pipeline di elaborazione della richiesta per il controllo periodico delle prestazioni dei contatori del sistema, ad esempio connessioni/thread/processi/memoria/CPU e così via. Se uno di questi contatori supera una soglia massima predefinita (80%), le richieste verranno rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.<br/><sup>\*</sup>The default in a consumption plan is `true`. The default in a dedicated plan is `false`.|
+|hsts|not enabled|When `isEnabled` is set to `true`, the [HTTP Strict Transport Security (HSTS) behavior of .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) is enforced, as defined in the [`HstsOptions` class](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). The above example also sets the [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) property to 10 days. Supported properties of `hsts` are: <table><tr><th>Proprietà</th><th>Description</th></tr><tr><td>excludedHosts</td><td>A string array of host names for which the HSTS header isn't added.</td></tr><tr><td>includeSubDomains</td><td>Boolean value that indicates whether the includeSubDomain parameter of the Strict-Transport-Security header is enabled.</td></tr><tr><td>maxAge</td><td>String that defines the max-age parameter of the Strict-Transport-Security header.</td></tr><tr><td>preload</td><td>Boolean that indicates whether the preload parameter of the Strict-Transport-Security header is enabled.</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|The maximum number of http functions that are executed in parallel. Ciò consente di controllare la concorrenza e pertanto di semplificare la gestione dell'uso delle risorse. Ad esempio, potrebbe essere presente una funzione HTTP che usa una quantità di risorse di sistema (memoria/CPU/socket) tale da creare problemi quando la concorrenza è troppo elevata. Oppure potrebbe essere presente una funzione che invia richieste a un servizio di terze parti e tali chiamate devono essere a frequenza limitata. In questi casi potrebbe risultare utile l'applicazione di una limitazione. <br/><sup>*</sup>The default for a consumption plan is 100. The default for a dedicated plan is unbounded (`-1`).|
+|maxOutstandingRequests|200<sup>\*</sup>|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo. Questo limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". Ciò consente ai chiamanti di usare strategie di ripetizione dei tentativi basate sul tempo e di controllare la latenza massima delle richieste. Questa impostazione controlla solo l'accodamento che si verifica all'interno del percorso di esecuzione dell'host dello script. Altre code, ad esempio la coda di richieste ASP.NET, saranno valide e non interessate da questa impostazione. <br/><sup>\*</sup>\The default for a consumption plan is 200. The default for a dedicated plan is unbounded (`-1`).|
 |routePrefix|api|Il prefisso della route che si applica a tutte le route. Utilizzare una stringa vuota per rimuovere il prefisso predefinito. |
 
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: 6b5d48a1d198b62af853a6334de41bad01b3c98c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422130"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232543"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Come configurare i parametri di server in Database di Azure per MySQL usando il portale di Azure
 
@@ -35,30 +35,23 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 
 ## <a name="non-configurable-server-parameters"></a>Elenco di parametri del server non configurabili
 
-Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collegati al [piano tariffario](concepts-service-tiers.md).
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
-|**Piano tariffario**| **Generazione di calcolo**|**vCore**|**Pool di buffer InnoDB (MB)**| **Numero massimo di connessioni**|
-|---|---|---|---|--|
-|Basic| Generazione 4| 1| 960| 50|
-|Basic| Generazione 4| 2| 2560| 100|
-|Basic| Generazione 5| 1| 960| 50|
-|Basic| Generazione 5| 2| 2560| 100|
-|Utilizzo generico| Generazione 4| 2| 3584| 300|
-|Utilizzo generico| Generazione 4| 4| 7680| 625|
-|Utilizzo generico| Generazione 4| 8| 15360| 1250|
-|Utilizzo generico| Generazione 4| 16| 31232| 2500|
-|Utilizzo generico| Generazione 4| 32| 62976| 5000|
-|Utilizzo generico| Generazione 5| 2| 3584| 300|
-|Utilizzo generico| Generazione 5| 4| 7680| 625|
-|Utilizzo generico| Generazione 5| 8| 15360| 1250|
-|Utilizzo generico| Generazione 5| 16| 31232| 2500|
-|Utilizzo generico| Generazione 5| 32| 62976| 5000|
-|Utilizzo generico| Generazione 5| 64| 125952| 10000|
-|Con ottimizzazione per la memoria| Generazione 5| 2| 7168| 600|
-|Con ottimizzazione per la memoria| Generazione 5| 4| 15360| 1250|
-|Con ottimizzazione per la memoria| Generazione 5| 8| 30720| 2500|
-|Con ottimizzazione per la memoria| Generazione 5| 16| 62464| 5000|
-|Con ottimizzazione per la memoria| Generazione 5| 32| 125952| 10000|
+|**Piano tariffario**|**vCore**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|:---|---:|---:|---:|
+|Basic| 1| 960| |
+|Basic| 2| 2560| |
+|Scopo generico| 2| 3584| 7168|
+|Scopo generico| 4| 7680| 15360|
+|Scopo generico| 8| 15360| 30720|
+|Scopo generico| 16| 31232| 62464|
+|Scopo generico| 32| 62976| 125952|
+|Scopo generico| 64| 125952| 251904|
+|Ottimizzate per la memoria| 2| 7168| 14336|
+|Ottimizzate per la memoria| 4| 15360| 30720|
+|Ottimizzate per la memoria| 8| 30720| 61440|
+|Ottimizzate per la memoria| 16| 62464| 124928|
+|Ottimizzate per la memoria| 32| 125952| 251904|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 
@@ -67,7 +60,7 @@ Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 |innodb_file_per_table nel livello Basic|DISATTIVA|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|512 MB|
 
 Gli altri parametri del server che non sono elencati qui vengono impostati sui valori predefiniti MySQL per le versioni [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 

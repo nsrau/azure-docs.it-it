@@ -1,6 +1,6 @@
 ---
 title: Monitorare operazioni, eventi e contatori per Load Balancer Basic pubblico
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Informazioni su come abilitare gli eventi di avviso e la registrazione dello stato di integrità del probe per Load Balancer Basic pubblico
 services: load-balancer
 documentationcenter: na
@@ -13,89 +13,89 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: df35168d0fab0b01ff11c4105a1fcc5b16e21f30
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350733"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214921"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Log di monitoraggio di Azure per Load Balancer di base pubblici
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor logs for public Basic Load Balancer
 
 >[!IMPORTANT] 
->Azure Load Balancer supporta due tipi diversi: Di base e standard. Questo articolo illustra Load Balancer Basic. Per ulteriori informazioni su Load Balancer Standard, vedere [Panoramica di Load Balancer Standard](load-balancer-standard-overview.md) che espone i dati di telemetria tramite le metriche multidimensionali in Monitoraggio di Azure.
+>Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Basic. Per ulteriori informazioni su Load Balancer Standard, vedere [Panoramica di Load Balancer Standard](load-balancer-standard-overview.md) che espone i dati di telemetria tramite le metriche multidimensionali in Monitoraggio di Azure.
 
-È possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di Load Balancer Basic. Alcuni di questi log sono accessibili tramite il portale I log possono essere trasmessi a un hub eventi o a un'area di lavoro Log Analytics. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in diversi strumenti, ad esempio Excel e Power BI.  L'elenco seguente contiene altre informazioni sui diversi tipi di log.
+È possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di Load Balancer Basic. Alcuni di questi log sono accessibili tramite il portale Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
-* **Log attività:** È possibile usare [Visualizza log attività per monitorare le azioni sulle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) per visualizzare tutte le attività inviate alle sottoscrizioni di Azure e il relativo stato. I log attività sono abilitati per impostazione predefinita e possono essere visualizzati nel portale di Azure.
+* **Activity logs:** You can use [View activity logs to monitor actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) to view all activity being submitted to your Azure subscription(s), and their status. Activity logs are enabled by default, and can be viewed in the Azure portal.
 * **Log eventi di avviso:** è possibile usare questo log per visualizzare gli avvisi generati per il bilanciamento del carico. Le informazioni di stato per il bilanciamento del carico vengono raccolte ogni cinque minuti. Questo log viene scritto solo se viene generato un evento di avviso del bilanciamento del carico.
 * **Log del probe di integrità:** è possibile usare questo registro per visualizzare i problemi rilevati dal probe di integrità, ad esempio il numero di istanze del pool di back-end che non stanno ricevendo richieste dal servizio di bilanciamento del carico a causa di problemi del probe di integrità. Questo log viene scritto quando si apporta una modifica nello stato del probe di integrità.
 
 > [!IMPORTANT]
-> I log di monitoraggio di Azure attualmente funzionano solo per i bilanciamenti del carico di base pubblici. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor logs currently works only for public Basic load balancers. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="enable-logging"></a>Abilita registrazione
+## <a name="enable-logging"></a>Abilitazione della registrazione
 
-Registrazione attività viene abilitata automaticamente per tutte le risorse di Resource Manager. Abilitare la registrazione di eventi e probe di integrità per iniziare a raccogliere i dati disponibili tramite tali log. Eseguire questa procedura per abilitare la registrazione.
+Registrazione attività viene abilitata automaticamente per tutte le risorse di Resource Manager. Enable event and health probe logging to start collecting the data available through those logs. Eseguire questa procedura per abilitare la registrazione.
 
 Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [creare un servizio di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) , se non se ne ha già uno.
 
-1. Nel portale fare clic su **gruppi di risorse**.
-2. Selezionare **\<resource-Group-name >** in cui si trova il servizio di bilanciamento del carico.
-3. Selezionare il servizio di bilanciamento del carico.
-4. Selezionare **monitoraggio** **impostazioni di diagnostica** > .
-5. Nel riquadro **Impostazioni** di diagnostica, in **impostazioni di diagnostica**, selezionare **+ Aggiungi impostazione di diagnostica**.
-6. Nel riquadro di creazione **impostazioni di diagnostica** immettere **MyLBDiagnostics** nel campo **nome** .
-7. Sono disponibili tre opzioni per le **impostazioni di diagnostica**.  È possibile scegliere uno, due o tutti e tre e configurare ognuno per i requisiti:
-   * **Archivia in un account di archiviazione**
-   * **Trasmettere a un hub eventi**
-   * **Invia a Log Analytics**
+1. In the portal, click **Resource groups**.
+2. Select **\<resource-group-name>** where your load balancer is.
+3. Select your load balancer.
+4. Select **Monitoring** > **Diagnostic settings**.
+5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
+6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** field.
+7. You have three options for the **Diagnostics settings**.  You can choose one, two or all three and configure each for your requirements:
+   * **Archive to a storage account**
+   * **Stream to an event hub**
+   * **Send to Log Analytics**
 
     ### <a name="archive-to-a-storage-account"></a>Archivia in un account di archiviazione
-    Per questo processo è necessario un account di archiviazione già creato.  Per creare un account di archiviazione, vedere [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
-    1. Selezionare la casella di controllo accanto a **archivia in un account di archiviazione**.
-    2. Selezionare **Configura** per aprire il riquadro **selezionare un account di archiviazione** .
-    3. Selezionare la **sottoscrizione** in cui è stato creato l'account di archiviazione nella casella a discesa.
-    4. Selezionare il nome dell'account di archiviazione in **account di archiviazione** nella casella di riepilogo a discesa. 
-    5. Fare clic su OK.
+    1. Select the checkbox next to **Archive to a storage account**.
+    2. Select **Configure** to open the **Select a storage account** pane.
+    3. Select the **Subscription** where your storage account was created in the pull-down box.
+    4. Select the name of your storage account under **Storage account** in the pull-down box. 
+    5. Select OK.
 
     ### <a name="stream-to-an-event-hub"></a>Streaming in un hub eventi
-    Per questo processo è necessario un hub eventi già creato.  Per creare un hub eventi, vedere [Quickstart: Creare un hub eventi usando portale di Azure @ no__t-0
+    You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-    1. Selezionare la casella di controllo accanto a **Stream a un hub eventi**
-    2. Selezionare **Configura** per aprire il riquadro **Seleziona Hub eventi** .
-    3. Selezionare la **sottoscrizione** in cui è stato creato l'hub eventi nella casella a discesa.
-    4. Nella casella a discesa **selezionare spazio dei nomi dell'hub eventi** .
-    5. Nella casella a discesa **selezionare Nome criterio Hub eventi** .
-    6. Fare clic su OK.
+    1. Select the checkbox next to **Stream to an event hub**
+    2. Select **Configure** to open the **Select event hub** pane.
+    3. Select the **Subscription** where your event hub was created in the pull-down box.
+    4. **Select event hub namespace** in the pull-down box.
+    5. **Select event hub policy name** in the pull-down box.
+    6. Select OK.
 
     ### <a name="send-to-log-analytics"></a>Invia a Log Analytics
-    È necessario che sia già stata creata e configurata un'area di lavoro di log Analytics per questo processo.  Per creare un'area di lavoro Log Analytics, vedere [creare un'area di lavoro log Analytics nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-    1. Selezionare la casella di controllo accanto a **Invia a log Analytics**.
-    2. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro log Analytics nella casella a discesa.
-    3. Selezionare l' **area di lavoro log Analytics** nella casella a discesa.
+    1. Select the checkbox next to **Send to Log Analytics**.
+    2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
+    3. Select the **Log Analytics Workspace** in the pull-down box.
 
 
-8. Sotto la sezione **log** nel riquadro **impostazioni di diagnostica** Selezionare la casella di controllo accanto a entrambi:
+8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
    * **LoadBalancerAlertEvent**
    * **LoadBalancerProbeHealthStatus**
 
-9.  Sotto la sezione **metrica** del riquadro **impostazioni di diagnostica** , selezionare la casella di controllo accanto a:
+9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
    * **AllMetrics**
 
-11. Verificare che tutti gli elementi siano corretti e fare clic su **Salva** nella parte superiore del riquadro crea **impostazioni di diagnostica** .
+11. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
 
 ## <a name="activity-log"></a>Log attività
 
-Il log attività viene generato per impostazione predefinita. I log vengono conservati per 90 giorni nell'archivio dei log eventi di Azure. Per altre informazioni su questi log, leggere l'articolo [visualizzare i log attività per monitorare le azioni sulle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) .
+The activity log is generated by default. I log vengono conservati per 90 giorni nell'archivio dei log eventi di Azure. Learn more about these logs by reading the [View activity logs to monitor actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) article.
 
-## <a name="archive-to-storage-account-logs"></a>Archivia nei log degli account di archiviazione
+## <a name="archive-to-storage-account-logs"></a>Archive to storage account logs
 
 ### <a name="alert-event-log"></a>Log eventi di avviso
 
-Questo log viene generato solo se è stato abilitato per ogni bilanciamento del carico. Gli eventi vengono registrati in formato JSON e archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. L'esempio seguente è relativo a un evento.
+Questo log viene generato solo se è stato abilitato per ogni bilanciamento del carico. Gli eventi vengono registrati in formato JSON e archiviati nell'account di archiviazione specificato quando è stata abilitata la registrazione. The following example is of an event.
 
 ```json
 {
@@ -114,7 +114,7 @@ Questo log viene generato solo se è stato abilitato per ogni bilanciamento del 
 }
 ```
 
-L'output JSON Mostra la proprietà *EventName* , che descrive il motivo per cui il servizio di bilanciamento del carico ha creato un avviso. In questo caso, l'avviso è stato generato a causa dell'esaurimento delle porte TCP causato da limiti NAT IP di origine (SNAT).
+The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was because of TCP port exhaustion caused by source IP NAT limits (SNAT).
 
 ### <a name="health-probe-log"></a>Log del probe di integrità
 
@@ -154,27 +154,27 @@ Questo log viene generato solo se è stato abilitato per ogni bilanciamento del 
 }
 ```
 
-L'output JSON mostra nel campo proprietà le informazioni di base per lo stato di integrità del probe. La proprietà *dipDownCount* Visualizza il numero totale di istanze nel back-end che non ricevono il traffico di rete a causa di risposte probe non riuscite.
+L'output JSON mostra nel campo proprietà le informazioni di base per lo stato di integrità del probe. The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic because of failed probe responses.
 
 ### <a name="view-and-analyze-the-audit-log"></a>Visualizzare e analizzare il log di controllo
 
 È possibile visualizzare e analizzare i dati del log di controllo con uno dei metodi seguenti:
 
-* **Strumenti di Azure:** Recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure (CLI), l'API REST di Azure o il portale di Azure. Per istruzioni dettagliate per ogni metodo, vedere l'articolo [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md) .
-* **Power BI:** se non esiste ancora un account [Power BI](https:// .microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Con il [pacchetto di contenuto dei log di controllo di Azure per Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) è possibile analizzare i dati con dashboard preconfigurati oppure personalizzare le viste in base alle esigenze.
+* **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Per istruzioni dettagliate per ogni metodo, vedere l'articolo [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md) .
+* **Power BI:** se non esiste ancora un account [Power BI](https:// .microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Con il [pacchetto di contenuto dei log di controllo di Azure per Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) è possibile analizzare i dati con dashboard preconfigurati oppure personalizzare le viste in base alle esigenze.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualizzare e analizzare il log eventi e del probe di integrità
 
-Connettersi all'account di archiviazione e recuperare le voci di log JSON per i log di eventi e di probe di integrità. Una volta scaricati i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, Power BI o qualsiasi altro strumento di visualizzazione dei dati.
+Connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, Power BI, or any other data visualization tool.
 
 > [!TIP]
 > Se si ha familiarità con Visual Studio e i concetti di base della modifica dei valori di costanti e variabili in C#, è possibile usare i [convertitori di log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibili in GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Streaming in un hub eventi
-Quando le informazioni di diagnostica vengono trasmesse a un hub eventi, possono essere usate per l'analisi centralizzata dei log in uno strumento SIEM di terze parti con l'integrazione di monitoraggio di Azure. Per altre informazioni, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+When diagnostic information is streamed to an event hub, it can be used for centralized log analysis in a third-party SIEM tool with Azure Monitor Integration. For more information, see [Stream Azure monitoring data to an event hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Invia a Log Analytics
-Le risorse in Azure possono avere le informazioni di diagnostica inviate direttamente a un'area di lavoro Log Analytics in cui è possibile eseguire query complesse sulle informazioni per la risoluzione dei problemi e l'analisi.  Per altre informazioni, vedere [raccogliere i log delle risorse di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
+Resources in Azure can have their diagnostic information sent directly to a Log Analytics workspace where complex queries can be run against the information for troubleshooting and analysis.  For more information, see [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

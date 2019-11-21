@@ -1,5 +1,5 @@
 ---
-title: Come usare le identità gestite di sistema o assegnate dall'utente in una macchina virtuale di Azure usando REST
+title: Configure managed identities on Azure VM using REST - Azure AD
 description: Istruzioni dettagliate per configurare identità gestite di sistema e assegnate dall'utente in una macchina virtuale di Azure usando CURL per effettuare le chiamate API REST.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2eadbad5332147add9a1b30a25b9ad2403f1a108
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112706"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224582"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità di sistema gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità di sistema gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza inserire le credenziali nel codice. 
 
 Questo articolo illustra come eseguire queste operazioni di identità gestite per risorse di Azure in una macchina virtuale di Azure usando CURL per effettuare le chiamate all'endpoint REST di Azure Resource Manager:
 
@@ -37,7 +37,7 @@ Questo articolo illustra come eseguire queste operazioni di identità gestite pe
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
+- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure utilizzare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
 - [Installare la console locale di interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), se si utilizzano i [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux del sistema operativo](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se si usa la console locale dell'interfaccia della riga di comando di Azure, accedere ad Azure tramite `az login` con un account associato alla sottoscrizione di Azure di cui si intende gestire le identità gestite assegnate dal sistema o dall'utente.
 
@@ -81,10 +81,10 @@ Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal 
    
    **Intestazioni della richiesta**
    
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
    
    **Corpo della richiesta**
 
@@ -170,10 +170,10 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
    
    **Corpo della richiesta**
     
@@ -202,10 +202,10 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -237,10 +237,10 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
     
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -280,10 +280,10 @@ Per disabilitare l'identità gestita assegnata dal sistema in una macchina virtu
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -339,10 +339,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -420,10 +420,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -511,11 +511,11 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
 
-    Se si dispone di qualsiasi utente o assegnato dal sistema gestito le identità assegnate alla macchina virtuale come indicato nella `identity` valore nella risposta, andare al passaggio 5 che illustra come mantenere l'identità gestita assegnato dal sistema durante l'aggiunta di un'identità gestita assegnata dall'utente in la macchina virtuale.
+    If you have any user or system-assigned managed identities assigned to the VM as identified in the `identity` value in the response, skip to step 5 that shows you how to retain the system-assigned managed identity while adding a user-assigned managed identity on your VM.
 
 4. Se non si dispone di identità gestite assegnate dall'utente associate alla macchina virtuale, usare il comando CURL seguente per chiamare all'endpoint REST di Azure Resource Manager e assegnare la prima identità gestita assegnata dall'utente alla macchina virtuale.
 
@@ -532,10 +532,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    ```
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        |
  
    **Corpo della richiesta**
 
@@ -564,10 +564,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -600,10 +600,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -639,10 +639,10 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -680,10 +680,10 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
  
    Se sono state gestite identità assegnate alla macchina virtuale, sono elencate nella risposta nel valore `identity`.
 
@@ -703,10 +703,10 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -735,10 +735,10 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
 
    **Intestazioni della richiesta**
 
-   |Intestazione della richiesta  |Descrizione  |
+   |Intestazione della richiesta  |Description  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-   |*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+   |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
 
    **Corpo della richiesta**
 
@@ -765,10 +765,10 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Intestazioni della richiesta**
 
-|Intestazione della richiesta  |Descrizione  |
+|Intestazione della richiesta  |Description  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido. | 
 
 **Corpo della richiesta**
 
@@ -792,10 +792,10 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Intestazioni della richiesta**
 
-|Intestazione della richiesta  |Descrizione  |
+|Intestazione della richiesta  |Description  |
 |---------|---------|
 |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
-|*Autorizzazione*     | Richiesto. Impostare su un token di accesso `Bearer` valido.| 
+|*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.| 
 
 **Corpo della richiesta**
 

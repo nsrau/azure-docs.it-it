@@ -1,39 +1,39 @@
 ---
-title: Informazioni sull'indirizzo IP dell'hub Internet delle cose | Microsoft Docs
-description: Informazioni su come eseguire una query sull'indirizzo IP dell'hub Internet e sulle relative proprietà. È possibile modificare l'indirizzo IP dell'hub Internet in determinati scenari, ad esempio il ripristino di emergenza o il failover a livello di area.
+title: Understanding the IP address of your IoT hub | Microsoft Docs
+description: Understand how to query your IoT hub IP address and its properties. The IP address of your IoT hub can change during certain scenarios such as disaster recovery or regional failover.
 author: philmea
 ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 3370442b29bc04ac2ba68d7346ac1c0a881cc080
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841539"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215449"
 ---
-# <a name="understanding-the-ip-address-of-your-iot-hub"></a>Informazioni sull'indirizzo IP dell'hub Internet delle cose
+# <a name="understanding-the-ip-address-of-your-iot-hub"></a>Understanding the IP address of your IoT hub
 
-L'indirizzo IP dell'hub Internet è un endpoint pubblico con carico bilanciato per l'hub e non un indirizzo IP dedicato. L'indirizzo è determinato dall'intervallo di indirizzi di rete dell'area di Azure in cui viene distribuito. Questo indirizzo IP è soggetto a modifiche senza preavviso. Gli aggiornamenti della rete per il Data Center, il ripristino di emergenza del Data Center o il failover a livello di area di un hub delle cose possono modificare l'indirizzo IP dell'hub. Vedere [disponibilità elevata e ripristino di emergenza dell'hub](iot-hub-ha-dr.md) Internet per altri dettagli sul failover e sulla disponibilità dell'hub Azure.
+The IP address of your IoT hub is a load-balanced public endpoint for your hub and NOT a dedicated IP address. The address is determined by the network address range of the Azure region where it is deployed. This IP address is subject to change without notice. Datacenter network updates, datacenter disaster recovery, or regional failover of an IoT hub can change your IoT hub IP address. See [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md) for more detail on Azure IoT Hub regional failover and availability.
 
-L'indirizzo IP dell'hub Internet viene modificato dopo un failover in un'altra area. È possibile testare questa funzionalità seguendo l'esercitazione [eseguire un failover manuale di un hub](tutorial-manual-failover.md)Internet.
+The IP address of your IoT hub changes after a failover to another region. You can test this functionality by following the tutorial [Perform a manual failover of an IoT hub](tutorial-manual-failover.md).
 
-## <a name="discover-your-iot-hub-ip-address"></a>Individuare l'indirizzo IP dell'hub Internet
+## <a name="discover-your-iot-hub-ip-address"></a>Discover your IoT hub IP address
 
-È possibile individuare l'indirizzo IP dell'hub Internet delle cose usando una ricerca DNS inversa su CNAME ([*nome-Hub-* Internet]. Azure-Devices.NET). È possibile usare **nslookup** per verificare l'indirizzo IP di un'istanza dell'hub Internet delle cose:
+Your IoT Hub IP address can be discovered by using a DNS lookup on the CNAME ([*iot-hub-name*].azure-devices.net). You can use **nslookup** to verify the IP address of an IoT hub instance:
 
 ```cmd/sh
 nslookup {YourIoTHubName}.azure-devices.net
 ```
 
-Questo indirizzo IP può cambiare senza preavviso. In uno scenario di failover o di ripristino di emergenza è necessario eseguire il polling dell'indirizzo IP dell'hub Internet nell'area secondaria.
+This IP address can change without notice. In a failover or disaster recovery scenario, you'll have to poll your IoT hub IP address in the secondary region.
 
-## <a name="outbound-firewall-rules-for-iot-hub"></a>Regole del firewall in uscita per l'hub Internet
+## <a name="outbound-firewall-rules-for-iot-hub"></a>Outbound firewall rules for IoT hub
 
-Provare a creare regole del firewall e filtrare in base al nome host o al dominio dell'hub Internet. Se è possibile consentire il traffico in uscita solo a indirizzi specifici, eseguire regolarmente il polling dell'indirizzo IP dell'hub Internet e aggiornare le regole del firewall.
+Try to create firewall rules and filtering based on the IoT hub host name or domain. If you can only allow outbound traffic to specific addresses, poll your IoT hub IP address regularly and update your firewall rules.
 
-## <a name="support-for-ipv6"></a>Supporto per IPv6 
+## <a name="support-for-ipv6"></a>Support for IPv6 
 
-IPv6 non è attualmente supportato nell'hub Internet delle cose.
+IPv6 is currently not supported on IoT Hub.

@@ -1,6 +1,6 @@
 ---
-title: Gestire i dispositivi connessi nel portale account personale-Azure AD
-description: Come visualizzare e disabilitare i dispositivi connessi dalla pagina dispositivi del portale account personale.
+title: Manage your connected devices from the My Account portal - Azure AD
+description: How to view and disable devices connected to your work or school account from the Devices page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c0eb691abaabf09ae8f89354e1fdb6f18cf8e5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73804266"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233207"
 ---
-# <a name="manage-your-connected-devices-from-the-my-account-portal"></a>Gestire i dispositivi connessi dal portale account personale
+# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Manage devices connected to your work or school account from the Devices page
 
-Dalla pagina **dispositivi** del portale **account personale** è possibile:
+From the **Devices** page of the **My Account** portal, you can:
 
-- Visualizzare i dispositivi connessi all'account aziendale o dell'Istituto di istruzione.
+- View your work or school account-connected devices.
 
-- Disabilitare i dispositivi di cui non si è più proprietari, quelli smarriti o che sono stati rubati.
+- Disable any devices you no longer own, have lost, or that have been stolen.
 
 ## <a name="view-your-connected-devices"></a>Visualizzare i dispositivi connessi
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
 
 2. Selezionare **Dispositivi** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci i dispositivi** nel blocco **Dispositivi**.
 
-    ![Pagina account personale, che mostra i collegamenti ai dispositivi evidenziati](media/my-account-portal/my-account-portal-devices.png)
+    ![My Account page, showing highlighted Devices links](media/my-account-portal/my-account-portal-devices.png)
 
 3. Verificare le informazioni dei dispositivi connessi, assicurandosi di riconoscerli tutti.
 
@@ -41,7 +41,7 @@ Dalla pagina **dispositivi** del portale **account personale** è possibile:
 
 ## <a name="disable-a-device"></a>Disabilitare un dispositivo
 
-È possibile disabilitare uno o più dispositivi connessi in qualsiasi momento. Questa possibilità è particolarmente importante se si hanno dubbi sulla provenienza di un dispositivo o in caso di furto o smarrimento. Una volta disabilitato, il dispositivo non potrà più essere autenticato dall'organizzazione e non sarà in grado di accedere alle risorse dell'organizzazione.
+È possibile disabilitare uno o più dispositivi connessi in qualsiasi momento. Questa possibilità è particolarmente importante se si hanno dubbi sulla provenienza di un dispositivo o in caso di furto o smarrimento. After you disable a device, it can no longer be authenticated by your organization, and will be unable to access any of your organization's resources.
 
 >[!Important]
 >Se si disabilita un dispositivo per errore, non è possibile annullare l'azione. Sarà necessario contattare l'amministratore dell'organizzazione per aggiungere di nuovo il dispositivo.
@@ -52,24 +52,24 @@ Dalla pagina **dispositivi** del portale **account personale** è possibile:
 
 2. Selezionare **Sì** per confermare l'intenzione di disabilitare il dispositivo.
 
-## <a name="view-a-bitlocker-key"></a>Visualizzare una chiave di BitLocker
+## <a name="view-a-bitlocker-key"></a>View a BitLocker key
 
-Se si è bloccati dal dispositivo o si è verificata un'errore irreversibile, è possibile passare a un altro dispositivo e visualizzare la chiave di BitLocker dal portale **account personale** .
+If you're locked out of your device or have a fatal error, you can go to another device and view your BitLocker key from the **My Account** portal.
 
-1. In un altro dispositivo, in cui non si è bloccati, passare alla pagina **dispositivi** del portale **account personale** .
+1. On another device, where you're not locked out, go to the **Devices** page of the **My Account** portal.
 
-    ![Pagina dispositivo con opzione chiave BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Selezionare **Visualizza chiavi BitLocker** per il dispositivo bloccato e annotare la chiave BitLocker per il dispositivo bloccato.
+2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver visualizzato i dispositivi connessi, è possibile:
+After viewing your connected devices, you can:
 
-- Selezionare per visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md).
+- Select to view or manage your [security info](user-help-security-info-overview.md).
 
-- Visualizzazione e gestione delle [organizzazioni](my-account-portal-organizations-page.md).
+- View and manage your [organizations](my-account-portal-organizations-page.md).
 
-- Visualizzare l' [attività di accesso](my-account-portal-sign-ins-page.md).
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- Visualizzare il modo in cui l'organizzazione [Usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

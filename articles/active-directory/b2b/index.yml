@@ -5,19 +5,19 @@ metadata:
   title: Documentazione della gestione delle applicazioni
   description: Informazioni su come usare le funzionalità di Collaborazione B2B (Business-to-Business) di Azure AD per condividere in modo sicuro le applicazioni e i servizi aziendali con utenti guest e partner esterni da qualsiasi organizzazione, mantenendo al tempo stesso il controllo sui dati aziendali.
   ms.service: active-directory
-  ms.subservice: manage-apps
+  ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 08/27/2019
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: a1822b3bd6ec7950bc3c0ab9304ea2f60a7127e4
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
+  ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70125166"
+  ms.lasthandoff: 11/21/2019
+  ms.locfileid: "74272689"
 landingContent:
 - title: Informazioni su Collaborazione B2B
   linkLists:

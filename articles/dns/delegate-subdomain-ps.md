@@ -1,22 +1,22 @@
 ---
-title: Delegare un sottodominio DNS di Azure con Azure PowerShell
-description: Informazioni su come delegare un sottodominio DNS di Azure con Azure PowerShell.
+title: Delegate a subdomain - Azure PowerShell - Azure DNS
+description: With this learning path, get started delegating an Azure DNS subdomain using Azure PowerShell.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: victorh
-ms.openlocfilehash: 4ee4d9e6390c9a091096bb7c06160b76fd8af90f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b6023adb65469dedeeba664a51917306e634146f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730296"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212494"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegare un sottodominio DNS di Azure con Azure PowerShell
 
-È possibile usare Azure PowerShell per delegare un sottodominio DNS. Se ad esempio si è proprietari del dominio contoso.com, è possibile delegare un sottodominio denominato *engineering* a un'altra zona distinta che può essere amministrata separatamente dalla zona di contoso.com.
+È possibile usare Azure PowerShell per delegare un sottodominio DNS. Se, ad esempio, si è proprietari del dominio contoso.com, è possibile delegare un sottodominio denominato *engineering* a un'altra zona distinta che può essere amministrata separatamente dalla zona di contoso.com.
 
 Se si preferisce, è possibile delegare un sottodominio usando il [portale di Azure](delegate-subdomain.md).
 

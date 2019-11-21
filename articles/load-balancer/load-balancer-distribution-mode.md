@@ -1,7 +1,7 @@
 ---
 title: Configurare la modalità di distribuzione di Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Come configurare la modalità di Azure Load Balancer per supportare l'affinità IP di origine.
+titleSuffix: Azure Load Balancer
+description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 0d3ddf2e005338a19972cfcdef025579764f7f23
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114725"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225369"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurare la modalità di distribuzione per Azure Load Balancer
 
@@ -26,24 +26,33 @@ ms.locfileid: "70114725"
 
 ## <a name="hash-based-distribution-mode"></a>Modalità di distribuzione basata su hash
 
-La modalità di distribuzione predefinita per Azure Load Balancer è un hash a 5 tuple. La tupla è formata da IP di origine, porta di origine, IP di destinazione, porta di destinazione e tipo di protocollo. L'hash viene usato per eseguire il mapping del traffico ai server disponibili e l'algoritmo fornisce persistenza solo all'interno di una sessione di trasporto. I pacchetti che si trovano nella stessa sessione vengono indirizzati alla stessa istanza di IP di data center (DIP) nell'endpoint con carico bilanciato. Quando il client avvia una nuova sessione dallo stesso IP di origine, la porta di origine cambia e il traffico quindi viene indirizzato a un endpoint DIP diverso.
+The default distribution mode for Azure Load Balancer is a five-tuple hash. 
 
-![Modalità di distribuzione basata su hash a 5 tuple](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
+The tuple is composed of the:
+* **Source IP**
+* **Source port**
+* **Destination IP**
+* **Destination port**
+* **Protocol type**
+
+The hash is used to map traffic to the available servers. The algorithm provides stickiness only within a transport session. Packets that are in the same session are directed to the same datacenter IP behind the load-balanced endpoint. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different datacenter endpoint.
+
+![Five-tuple hash-based distribution mode](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>Modalità di affinità IP di origine
 
-Load Balancer può anche essere configurato usando la modalità di distribuzione affinità IP di origine. Questa modalità di distribuzione è nota anche come affinità di sessione o affinità IP client. La modalità usa un hash a 2 tuple (IP di origine e IP di destinazione) o a 3 tuple (IP di origine, IP di destinazione e tipo di protocollo) per eseguire il mapping del traffico ai server disponibili. Utilizzando l'affinità IP di origine, le connessioni avviate dallo stesso computer client passano allo stesso endpoint DIP.
+The load balancer can also be configured by using the source IP affinity distribution mode. Questa modalità di distribuzione è nota anche come affinità di sessione o affinità IP client. The mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are started from the same client computer go to the same datacenter endpoint.
 
-La figura seguente illustra una configurazione a 2 tuple. Si noti che la configurazione a 2 tuple viene eseguita tramite il bilanciamento del carico nella macchina virtuale 1 (VM1). Quindi viene eseguito il backup di VM1 in VM2 e VM3.
+The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). Quindi viene eseguito il backup di VM1 in VM2 e VM3.
 
-![Modalità di distribuzione affinità sessione a 2 tuple](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![Two-tuple session affinity distribution mode](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 La modalità affinità IP di origine risolve un'incompatibilità tra Azure Load Balancer e il Gateway Desktop remoto. Mediante questa modalità è possibile creare una farm di gateway Desktop remoto in un singolo servizio cloud.
 
 Un altro scenario d'uso è il caricamento di contenuti multimediali. Il caricamento dei dati avviene tramite UDP, ma il piano di controllo viene raggiunto tramite TCP:
 
-* Un client avvia una sessione TCP all'indirizzo pubblico con carico bilanciato e viene indirizzata a un DIP specifico. Il canale viene lasciato attivo per monitorare lo stato della connessione.
-* Viene avviata una nuova sessione UDP dallo stesso computer client allo stesso endpoint pubblico con carico bilanciato. La connessione viene indirizzata allo stesso endpoint DIP della connessione TCP precedente. Il caricamento del supporto può essere eseguito con una velocità effettiva elevata mantenendo un canale di controllo tramite TCP.
+* A client starts a TCP session to the load-balanced public address and is directed to a specific DIP. Il canale viene lasciato attivo per monitorare lo stato della connessione.
+* A new UDP session from the same client computer is started to the same load-balanced public endpoint. La connessione viene indirizzata allo stesso endpoint DIP della connessione TCP precedente. Il caricamento del supporto può essere eseguito con una velocità effettiva elevata mantenendo un canale di controllo tramite TCP.
 
 > [!NOTE]
 > Quando il set con carico bilanciato viene modificato (rimozione o aggiunta di una macchina virtuale), la distribuzione delle richieste client viene ricalcolata. Non è possibile dipendere da nuove connessioni da client esistenti che terminano nello stesso server. Inoltre, l'uso della modalità di distribuzione dell'affinità IP di origine può comportare una distribuzione diversa del traffico. I client in esecuzione dietro i proxy possono essere visti come un'applicazione client univoca.
@@ -52,22 +61,22 @@ Un altro scenario d'uso è il caricamento di contenuti multimediali. Il caricame
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-È possibile modificare la configurazione della modalità di distribuzione modificando la regola di bilanciamento del carico nel portale.
+You can change the configuration of the distribution mode by modifying the load-balancing rule in the portal.
 
-1. Accedere al portale di Azure e individuare il gruppo di risorse contenente il servizio di bilanciamento del carico che si desidera modificare facendo clic su **gruppi di risorse**.
-2. Nel pannello panoramica del servizio di bilanciamento del carico fare clic su **regole di bilanciamento del carico** in **Impostazioni**.
-3. Nel pannello regole di bilanciamento del carico fare clic sulla regola di bilanciamento del carico per cui si vuole modificare la modalità di distribuzione.
-4. Nella regola, la modalità di distribuzione viene modificata modificando la casella di riepilogo a discesa **persistenza sessione** .  Sono disponibili le seguenti opzioni:
+1. Sign in to the Azure portal and locate the Resource Group containing the load balancer you wish to change by clicking on **Resource Groups**.
+2. In the load balancer overview screen, click on **Load-balancing rules** under **Settings**.
+3. In the load-balancing rules screen, click on the load-balancing rule that you wish to change the distribution mode.
+4. Under the rule, the distribution mode is changed by changing the **Session persistence** drop down box.  Sono disponibili le opzioni seguenti:
     
-    * **None (basato su hash)** : specifica che le richieste successive provenienti dallo stesso client possono essere gestite da qualsiasi macchina virtuale.
-    * **IP client (affinità IP di origine 2-tupla)** : specifica che le richieste successive provenienti dallo stesso indirizzo IP client verranno gestite dalla stessa macchina virtuale.
-    * **IP e protocollo client (affinità IP di origine 3-tupla)** : specifica che le richieste successive provenienti dalla stessa combinazione di indirizzo IP e protocollo client verranno gestite dalla stessa macchina virtuale.
+    * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
+    * **Client IP (source IP affinity 2-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
+    * **Client IP and protocol (source IP affinity 3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
 
-5. Scegliere la modalità di distribuzione e quindi fare clic su **Salva**.
+5. Choose the distribution mode and then click **Save**.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Per le macchine virtuali distribuite con Gestione risorse, usare PowerShell per modificare le impostazioni di distribuzione del servizio di bilanciamento del carico in una regola di bilanciamento del carico esistente. Il comando seguente aggiorna la modalità di distribuzione: 
+For virtual machines deployed with Resource Manager, use PowerShell to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode: 
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
@@ -81,7 +90,7 @@ Per le macchine virtuali classiche, usare Azure PowerShell per modificare le imp
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-Impostare il valore dell'elemento `LoadBalancerDistribution` per la quantità desiderata di bilanciamento del carico. Specificare sourceIP per il bilanciamento del carico a 2 tuple (IP di origine e IP di destinazione). Specificare sourceIPProtocol per il bilanciamento del carico a 3 tuple (IP di origine, IP di destinazione e tipo di protocollo). Specificare none per il comportamento predefinito del bilanciamento del carico a 5 tuple.
+Set the value of the `LoadBalancerDistribution` element for the amount of load balancing required. Specify sourceIP for two-tuple (source IP and destination IP) load balancing. Specify sourceIPProtocol for three-tuple (source IP, destination IP, and protocol type) load balancing. Specify none for the default behavior of five-tuple load balancing.
 
 Recuperare una configurazione di modalità di distribuzione del bilanciamento del carico con endpoint usando queste impostazioni:
 
@@ -105,7 +114,7 @@ Recuperare una configurazione di modalità di distribuzione del bilanciamento de
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Quando l' `LoadBalancerDistribution` elemento non è presente, Azure Load Balancer usa l'algoritmo a 5 tuple predefinito.
+When the `LoadBalancerDistribution` element isn't present, Azure Load Balancer uses the default five-tuple algorithm.
 
 ### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurare la modalità di distribuzione su un set di endpoint con carico bilanciato
 
@@ -170,9 +179,9 @@ Per modificare una configurazione di distribuzione esistente, usare il modello d
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Come descritto in precedenza, impostare l'elemento `LoadBalancerDistribution` su sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o none per nessuna affinità (affinità a 5 tuple).
+As previously described, set the `LoadBalancerDistribution` element to sourceIP for two-tuple affinity, sourceIPProtocol for three-tuple affinity, or none for no affinity (five-tuple affinity).
 
-#### <a name="response"></a>Risposta
+#### <a name="response"></a>Response
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

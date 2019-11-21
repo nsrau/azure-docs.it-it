@@ -1,32 +1,30 @@
 ---
-title: Metriche e avvisi di DNS di Azure | Microsoft Docs
-description: Informazioni sugli avvisi e le metriche di DNS di Azure.
+title: Metrics and alerts - Azure DNS
+description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jennoc
-editor: ''
-ms.assetid: ''
+author: asudbring
+manager: kumudD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: victorh
-ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: dc4d7de3d235fcdaf4a7f681065ba6e2857eb2ce
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699146"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212409"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Metriche e avvisi di DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Questo articolo descrive le metriche e gli avvisi per il servizio DNS di Azure.
 
 ## <a name="azure-dns-metrics"></a>Metriche di DNS di Azure
 
-DNS di Azure fornisce le metriche per i clienti consentire loro di monitorare aspetti specifici delle relative zone DNS ospitate nel servizio. In aggiunta con le metriche di DNS di Azure, è possibile configurare e ricevere avvisi in base alle condizioni di interesse. Le metriche sono disponibili tramite il [servizio Monitoraggio di Azure](../azure-monitor/index.yml). DNS di Azure contiene le metriche seguenti tramite Monitoraggio di Azure per le zone DNS:
+Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. In aggiunta con le metriche di DNS di Azure, è possibile configurare e ricevere avvisi in base alle condizioni di interesse. Le metriche sono disponibili tramite il [servizio Monitoraggio di Azure](../azure-monitor/index.yml). DNS di Azure contiene le metriche seguenti tramite Monitoraggio di Azure per le zone DNS:
 
 -   QueryVolume
 -   RecordSetCount
@@ -36,7 +34,7 @@ DNS di Azure fornisce le metriche per i clienti consentire loro di monitorare as
 >[!NOTE]
 > In questo momento le metriche sono disponibili solo per le zone DNS pubbliche ospitate in DNS di Azure. Se in DNS di Azure sono ospitate zone private, le metriche non indicheranno i dati per queste zone. In aggiunta le metriche e la funzionalità di avviso sono supportate solo nel cloud pubblico di Azure. Il supporto per i cloud sovrani verrà effettuato in un secondo momento. 
 
-L'elemento più granulare che è possibile visualizzare le metriche per è una zona DNS. Attualmente non è possibile visualizzare le metriche per i singoli record di risorse all'interno di una zona.
+The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
 
 ### <a name="query-volume"></a>Volume delle query
 

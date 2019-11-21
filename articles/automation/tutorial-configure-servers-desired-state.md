@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: b44bcf7edeaad07fbe0b3093ba3c7100cb0c24c4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432072"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231491"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurare i server sullo stato desiderato e gestire gli orientamenti
 
@@ -65,7 +65,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> Negli scenari più avanzati in cui è necessario importare più moduli che forniscono risorse DSC, assicurarsi che ogni modulo disponga di una riga `Import-DscResource` univoca nella configurazione.
+> In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources, make sure each module has a unique `Import-DscResource` line in your configuration.
 
 Chiamare il cmdlet `Import-AzureRmAutomationDscConfiguration` per caricare la configurazione nell'account di Automazione:
 
@@ -134,16 +134,16 @@ In questo modo si assegna la configurazione nodo denominata `TestConfig.WebServe
 Per impostazione predefinita, il nodo DSC viene verificato per la conformità con la configurazione nodo ogni 30 minuti.
 Per informazioni su come modificare l'intervallo di controllo della conformità, vedere [Configuring the Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig) (Configurazione di Gestione configurazione locale).
 
-## <a name="working-with-partial-configurations"></a>Utilizzo di configurazioni parziali
+## <a name="working-with-partial-configurations"></a>Working with Partial Configurations
 
-La configurazione dello stato di automazione di Azure supporta l'utilizzo di [configurazioni parziali](/powershell/dsc/pull-server/partialconfigs).
-In questo scenario DSC è configurato per gestire più configurazioni in modo indipendente e ogni configurazione viene recuperata da automazione di Azure.
-Tuttavia, è possibile assegnare una sola configurazione a un nodo per ogni account di automazione.
-Ciò significa che se si usano due configurazioni per un nodo, saranno necessari due account di automazione.
+Azure Automation State Configuration supports usage of [partial configurations](/powershell/scripting/dsc/pull-server/partialconfigs).
+In this scenario, DSC is configured to manage multiple configurations independently, and each configuration is retrieved from Azure Automation.
+However, only one configuration can be assigned to a node per automation account.
+This means if you are using two configurations for a node you will require two automation accounts.
 
-Per informazioni dettagliate su come registrare una configurazione parziale dal servizio di pull, vedere la documentazione per le [configurazioni parziali](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+For details about how to register a partial configuration from pull service, see the documentation for [partial configurations](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
-Per altre informazioni su come i team possono collaborare per gestire i server in modo collaborativo usando la configurazione come codice, vedere [informazioni sul ruolo di DSC in una pipeline ci/CD](/powershell/dsc/overview/authoringadvanced).
+For more information about how teams can work together to collaboratively manage servers using configuration as code see [Understanding DSC's role in a CI/CD Pipeline](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Controllare lo stato di conformità di un nodo gestito
 
@@ -160,26 +160,26 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="removing-nodes-from-service"></a>Rimozione di nodi dal servizio
+## <a name="removing-nodes-from-service"></a>Removing nodes from service
 
-Quando si aggiunge un nodo alla configurazione dello stato di automazione di Azure, le impostazioni in Configuration Manager locali sono impostate per la registrazione con il servizio e le configurazioni pull e i moduli richiesti per configurare il computer.
-Se si sceglie di rimuovere il nodo dal servizio, è possibile farlo usando il portale di Azure o i cmdlet AZ.
+When you add a node to Azure Automation State Configuration, the settings in Local Configuration Manager are set to register with the service and pull configurations and required modules to configure the machine.
+If you choose to remove the node from the service, you can do so using either the Azure portal or the Az cmdlets.
 
 > [!NOTE]
-> Se si annulla la registrazione di un nodo dal servizio, vengono impostate solo le impostazioni di Configuration Manager locali in modo che il nodo non si connetta più al servizio.
-> Questa operazione non influisce sulla configurazione attualmente applicata al nodo.
-> Per rimuovere la configurazione corrente, usare [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) o eliminare il file di configurazione locale (questa è l'unica opzione per i nodi Linux).
+> Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service.
+> This does not effect the configuration that is currently applied to the node.
+> To remove the current configuration, use the [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) or delete the local configuration file (this is the only option for Linux nodes).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Da automazione di Azure fare clic su **configurazione stato (DSC)** nel sommario.
-Fare quindi clic su **nodi** per visualizzare l'elenco di nodi registrati con il servizio.
-Fare clic sul nome del nodo che si desidera rimuovere.
-Nella visualizzazione nodi visualizzata fare clic su **Annulla registrazione**.
+From Azure Automation, click on **State configuration (DSC)** in the table of contents.
+Next click **Nodes** to view the list of nodes that are registered with the service.
+Click on the name of the node you wish to remove.
+In the Node view that opens, click **Unregister**.
 
 ### <a name="powershell"></a>PowerShell
 
-Per annullare la registrazione di un nodo dal servizio di configurazione dello stato di automazione di Azure tramite PowerShell, seguire la documentazione del cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+To unregister a node from Azure Automation State Configuration service using PowerShell, follow the documentation for the cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

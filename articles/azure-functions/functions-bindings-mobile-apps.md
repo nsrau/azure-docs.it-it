@@ -1,21 +1,16 @@
 ---
 title: Associazioni di app per dispositivi mobili per Funzioni di Azure
 description: Informazioni su come usare le associazioni di app per dispositivi mobili in Funzioni di Azure
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 37192a25bff794ac019fd29b47e0e8ad161790c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097316"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231122"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
 
@@ -139,11 +134,11 @@ Per informazioni sulle proprietà degli attributi che è possibile configurare, 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "in"|
-| **name**|| Nome del parametro di input nella firma della funzione.|
+| **nome**|| Nome del parametro di input nella firma della funzione.|
 |**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
 | **id**| **Id** | Identificatore del record da recuperare. Può essere statico o basato sul trigger che richiama la funzione. Se, ad esempio, si usa un trigger della coda per la funzione, `"id": "{queueTrigger}"` userà il valore di stringa del messaggio della coda come ID del record da recuperare.|
 |**connessione**|**Connection**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
@@ -297,11 +292,11 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "out"|
-| **name**|| Nome del parametro di output nella firma della funzione.|
+| **nome**|| Nome del parametro di output nella firma della funzione.|
 |**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
 |**connessione**|**MobileAppUriSetting**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|Il nome di un'impostazione dell'app con la chiave API dell'app per dispositivi mobili. Specificare la chiave API se si [implementa una chiave API nel back-end dell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o se si [implementa una chiave API nel back-end dell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Per specificare la chiave, creare un'impostazione nell'app per le funzioni che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. |

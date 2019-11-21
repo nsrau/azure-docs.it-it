@@ -1,6 +1,6 @@
 ---
-title: Accedere con la verifica a due fattori-Azure AD
-description: Informazioni su come accedere all'account aziendale o dell'Istituto di istruzione usando i vari metodi di verifica a due fattori.
+title: Sign-in using authentication with a work or school account - Azure AD
+description: Learn how to sign in to your work or school account using the various two-factor verification methods.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,14 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86c7be7f786a4fcecc39ea9af552a0dc03f2fcac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820433"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233224"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Accedere all'account aziendale o dell'Istituto di istruzione usando la verifica a due fattori
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Sign in to your work or school account using your two-factor verification method
 
 > [!NOTE]
 > Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull’accesso o per la risoluzione dei problemi, vedere [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).

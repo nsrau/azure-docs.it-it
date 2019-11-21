@@ -1,26 +1,21 @@
 ---
 title: Interazione umana e timeout in Funzioni permanenti - Azure
 description: Informazioni su come gestire l'interazione umana e i timeout nell'estensione Funzioni permanenti per Funzioni di Azure.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0c1c92dde2d698fb2c92fb3680ab05393a25573d
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614730"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232817"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
 Questo esempio illustra come creare un'orchestrazione di [Funzioni permanenti](durable-functions-overview.md) che prevede interazione umana. Ogni volta che una persona reale è coinvolta in un processo automatizzato, il processo deve essere in grado di inviare notifiche alla persona e di ricevere risposte in modo asincrono. È inoltre necessario consentire la possibilità che la persona non sia disponibile. In questa parte i timeout diventano importanti.
 
-L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tipi di flussi vengono spesso usati quando si verifica il numero di telefono di un cliente o per l'autenticazione a più fattori. Si tratta di un esempio potente, perché l'intera implementazione viene eseguita utilizzando due funzioni di piccole dimensioni. Non è necessario alcun archivio dati esterno, ad esempio un database.
+L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tipi di flussi vengono spesso usati quando si verifica il numero di telefono di un cliente o per l'autenticazione a più fattori. It is a powerful example because the entire implementation is done using a couple small functions. Non è necessario alcun archivio dati esterno, ad esempio un database.
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
@@ -30,7 +25,7 @@ L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tip
 
 La verifica telefonica viene usata per assicurarsi che gli utenti finali dell'applicazione non siano spammer e che siano effettivamente chi affermano di essere. L'autenticazione a più fattori è un metodo di uso comune per proteggere gli account utente da pirati informatici. Il problema nell'implementazione di una verifica telefonica consiste nella necessità di un'**l'interazione con stato** con una persona fisica. A un utente finale viene in genere inviato un codice, ad esempio un numero di 4 cifre, e l'utente deve rispondere **in un intervallo di tempo ragionevole**.
 
-Funzioni di Azure è un servizio normalmente senza stato (come molti altri endpoint cloud su altre piattaforme), quindi questi tipi di interazioni comportano la gestione esplicita di uno stato esternamente, ad esempio in un database o in un altro archivio permanente. L'interazione deve essere anche suddivisa in più funzioni che possono essere coordinate tra loro. È necessario ad esempio disporre almeno di una funzione per la scelta di un codice, la permanenza in un punto e l'invio al telefono dell'utente. È necessaria anche almeno un'altra funzione per ricevere una risposta da parte dell'utente e associarla alla chiamata di funzione originale al fine di convalidare il codice. Un timeout è un aspetto importante per garantire la protezione. Può diventare piuttosto complesso rapidamente.
+Funzioni di Azure è un servizio normalmente senza stato (come molti altri endpoint cloud su altre piattaforme), quindi questi tipi di interazioni comportano la gestione esplicita di uno stato esternamente, ad esempio in un database o in un altro archivio permanente. L'interazione deve essere anche suddivisa in più funzioni che possono essere coordinate tra loro. È necessario ad esempio disporre almeno di una funzione per la scelta di un codice, la permanenza in un punto e l'invio al telefono dell'utente. È necessaria anche almeno un'altra funzione per ricevere una risposta da parte dell'utente e associarla alla chiamata di funzione originale al fine di convalidare il codice. Un timeout è un aspetto importante per garantire la protezione. It can get fairly complex quickly.
 
 La complessità dello scenario viene notevolmente ridotta grazie all'uso di Funzioni permanenti. Come si vedrà in questo esempio, una funzione dell'agente di orchestrazione può gestire l'interazione con stato in modo semplice e senza coinvolgere alcun archivio dati esterno. Poiché le funzioni dell'agente di orchestrazione sono *permanenti*, questi flussi interattivi sono anche estremamente affidabili.
 
@@ -45,7 +40,7 @@ L'articolo illustra le funzioni seguenti nell'app di esempio:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per C# gli script e JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+The following sections explain the configuration and code that is used for C# scripting and JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
 
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestrazione di verifica SMS (Visual Studio Code e codice di esempio del portale di Azure)
 
@@ -59,7 +54,7 @@ Di seguito è riportato il codice che implementa la funzione:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -73,7 +68,7 @@ Dopo l'avvio, le operazioni di questa funzione dell'agente di orchestrazione son
 L'utente riceve un messaggio SMS con un codice di quattro cifre e ha 90 secondi di tempo per inviare lo stesso codice all'istanza della funzione dell'agente di orchestrazione per completare il processo di verifica. Se invia il codice non corretto, l'utente ha a disposizione altri tre tentativi (all'interno dello stesso intervallo di 90 secondi).
 
 > [!NOTE]
-> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. È deterministica perché le proprietà `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript) vengono utilizzate per calcolare l'ora di scadenza del timer e queste proprietà restituiscono lo stesso valore per ogni riproduzione in questo punto nel codice dell'agente di orchestrazione. Questo comportamento è importante per garantire che lo stesso `winner` risulti da ogni chiamata ripetuta a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript).
+> Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. It is deterministic because the `CurrentUtcDateTime` (.NET) and `currentUtcDateTime` (JavaScript) properties are used to calculate the timer expiration time, and these properties return the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > È importante [annullare i timer](durable-functions-timers.md) se non è più necessario che scadano, come illustrato nell'esempio precedente, quando viene accettata una risposta alla richiesta.
@@ -90,7 +85,7 @@ Di seguito viene riportato il codice che genera il codice di autenticazione a 4 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -164,7 +159,7 @@ Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio sono state illustrate alcune delle funzionalità avanzate di Durable Functions, in particolare `WaitForExternalEvent` e `CreateTimer` API. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
+This sample has demonstrated some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `CreateTimer` APIs. È stato illustrato come queste funzionalità possono essere combinate con `Task.WaitAny` per implementare un sistema di timeout affidabile, spesso utile per l'interazione con utenti reali. Per altre informazioni su come usare Funzioni permanenti, fare riferimento alla serie di articoli in cui sono trattati in dettaglio argomenti specifici.
 
 > [!div class="nextstepaction"]
 > [Passare al primo articolo della serie](durable-functions-bindings.md)

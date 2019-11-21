@@ -1,20 +1,15 @@
 ---
 title: Scenari di fan-out/fan-in Funzioni permanenti - Azure
 description: Informazioni su come implementare uno scenario di fan-out/fan-it nell'estensione Funzioni permanenti per Funzioni di Azure.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e2f1042fe1210fe51ae79b1152e51191e7fb066a
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: a87a4edd544c2f7d8ff9c6415df2f2dda125f2bf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615022"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232988"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenario di fan-out/fan-it in Funzioni permanenti - Esempio di backup cloud
 
@@ -28,9 +23,9 @@ ms.locfileid: "73615022"
 
 In questo esempio le funzioni caricano tutti i file in modo ricorsivo in una directory specificata nell'archiviazione BLOB e contano anche il numero totale di byte caricati.
 
-È possibile scrivere una singola funzione che esegua tutte le operazioni. Il problema principale da affrontare è costituito dalla **scalabilità**. Una singola funzione può essere eseguita solo in un'unica macchina virtuale, pertanto la velocità effettiva sarà limitata a quella di tale macchina. Un altro problema da affrontare è l'**affidabilità**. Se si verifica un errore a metà o se l'intero processo richiede più di 5 minuti, il backup potrebbe avere esito negativo in uno stato parzialmente completato. con la necessità di essere riavviato.
+È possibile scrivere una singola funzione che esegua tutte le operazioni. Il problema principale da affrontare è costituito dalla **scalabilità**. Una singola funzione può essere eseguita solo in un'unica macchina virtuale, pertanto la velocità effettiva sarà limitata a quella di tale macchina. Un altro problema da affrontare è l'**affidabilità**. If there's a failure midway through, or if the entire process takes more than 5 minutes, the backup could fail in a partially completed state. con la necessità di essere riavviato.
 
-Un approccio più efficace consiste nello scrivere due funzioni regolari, una per enumerare i file e aggiungere i nomi di file a una coda e un'altra per leggere dalla coda e caricare i file nell'archiviazione BLOB. Questo approccio è migliore in termini di velocità effettiva e affidabilità, ma richiede il provisioning e la gestione di una coda. Aspetto ancora più importante, in questo caso viene introdotta una complessità significativa in termini di **gestione dello stato** e di **coordinamento** se si desidera eseguire altre operazioni, ad esempio indicare il numero totale di byte caricati.
+Un approccio più efficace consiste nello scrivere due funzioni regolari, una per enumerare i file e aggiungere i nomi di file a una coda e un'altra per leggere dalla coda e caricare i file nell'archiviazione BLOB. This approach is better in terms of throughput and reliability, but it requires you to provision and manage a queue. Aspetto ancora più importante, in questo caso viene introdotta una complessità significativa in termini di **gestione dello stato** e di **coordinamento** se si desidera eseguire altre operazioni, ad esempio indicare il numero totale di byte caricati.
 
 Un approccio tramite Funzioni permanenti è caratterizzato da tutti i vantaggi citati con un overhead molto basso.
 
@@ -42,7 +37,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-Nelle sezioni seguenti vengono illustrate la configurazione e il codice utilizzati C# per lo scripting. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+The following sections explain the configuration and code that is used for C# scripting. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestrazione di backup del cloud (Visual Studio Code e codice di esempio del portale di Azure)
 
@@ -56,7 +51,7 @@ Il codice che implementa la funzione dell'agente di orchestrazione è il seguent
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -68,7 +63,7 @@ Le operazioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 4. Attesa del completamento di tutti i caricamenti.
 5. Restituzione dei byte totali caricati in Archiviazione BLOB di Azure.
 
-Si notino le righe `await Task.WhenAll(tasks);` (C#) e `yield context.df.Task.all(tasks);` (JavaScript). Tutte le singole chiamate alla funzione `E2_CopyFileToBlob` *non* sono state attese, il che ne consente l'esecuzione in parallelo. Quando si passa questa matrice di attività a `Task.WhenAll` (C#) o `context.df.Task.all` (JavaScript), viene restituita un'attività che non viene completata *finché non sono completate tutte le operazioni di copia*. Se si ha familiarità con Task Parallel Library (TPL) in .NET o [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, questo scenario non è una novità. La differenza è che queste attività potrebbero essere in esecuzione in più macchine virtuali contemporaneamente e l'estensione di Funzioni permanenti assicura che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
+Si notino le righe `await Task.WhenAll(tasks);` (C#) e `yield context.df.Task.all(tasks);` (JavaScript). All the individual calls to the `E2_CopyFileToBlob` function were *not* awaited, which allows them to run in parallel. Quando si passa questa matrice di attività a `Task.WhenAll` (C#) o `context.df.Task.all` (JavaScript), viene restituita un'attività che non viene completata *finché non sono completate tutte le operazioni di copia*. Se si ha familiarità con Task Parallel Library (TPL) in .NET o [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, questo scenario non è una novità. La differenza è che queste attività potrebbero essere in esecuzione in più macchine virtuali contemporaneamente e l'estensione di Funzioni permanenti assicura che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
 
 > [!NOTE]
 > Anche se le attività sono concettualmente simili alle promesse JavaScript, le funzioni di orchestrazione dovrebbero usare `context.df.Task.all` e `context.df.Task.any` invece di `Promise.all` e `Promise.race` per gestire la parallelizzazione delle attività.
@@ -87,7 +82,7 @@ Di seguito ne viene riportata l'implementazione:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -100,13 +95,13 @@ Il file *function.json* per `E2_CopyFileToBlob` è analogamente semplice:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-Anche C# l'implementazione è semplice. perché usa alcune funzionalità avanzate delle associazioni di Funzioni di Azure (ovvero l'uso del parametro `Binder`), senza che sia necessario preoccuparsi di tali informazioni per gli scopi di questa procedura dettagliata.
+The C# implementation is also straightforward. perché usa alcune funzionalità avanzate delle associazioni di Funzioni di Azure (ovvero l'uso del parametro `Binder`), senza che sia necessario preoccuparsi di tali informazioni per gli scopi di questa procedura dettagliata.
 
 ### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (solo funzioni 2,0)
+### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
 L'implementazione JavaScript non dispone dell'accesso alla funzionalità `Binder` di Funzioni di Azure, pertanto [Azure Storage SDK per Node](https://github.com/Azure/azure-storage-node) ne esegue la funzione.
 
@@ -175,7 +170,7 @@ Ora è possibile visualizzare che l'orchestrazione è stata completata e appross
 Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di Visual Studio:
 
 > [!NOTE]
-> È necessario installare il pacchetto NuGet `Microsoft.Azure.WebJobs.Extensions.Storage` per eseguire il codice di esempio riportato di seguito.
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package to run the sample code below.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

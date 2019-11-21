@@ -1,6 +1,6 @@
 ---
-title: Gestire le organizzazioni nel portale account personale-Azure AD
-description: Come visualizzare e lasciare le organizzazioni dalla pagina delle organizzazioni del portale account personale.
+title: Manage your organizations from the My Account portal - Azure AD
+description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b81ec4996ae91714b442dd2e62a0bc45c6bfd39
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820407"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231854"
 ---
-# <a name="manage-your-organizations-from-the-my-account-portal"></a>Gestire le organizzazioni dal portale per gli account personali
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Manage organizations connected to your work or school account from the Organizations page
 
-È possibile gestire le organizzazioni dalla pagina **organizzazioni** del portale **account personale** .
+You can manage your organizations from the **Organizations** page of the **My Account** portal.
 
 Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
@@ -30,15 +30,15 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 - **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
     >[!NOTE]
-    > Se non si dispone di un'organizzazione domestica assegnata, verrà visualizzata solo una singola intestazione che indica alle organizzazioni l'elenco delle organizzazioni associate.
+    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with the list of your associated organizations.
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
 
 2. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
 
-    ![Pagina account personale, che mostra i collegamenti delle organizzazioni evidenziate](media/my-account-portal/my-account-portal-organizations.png)
+    ![My Account page, showing highlighted Organizations links](media/my-account-portal/my-account-portal-organizations.png)
 
 3. Verificare le informazioni in **Organizzazione principale**.
 
@@ -51,20 +51,20 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 È possibile uscire da qualsiasi organizzazione eccetto l'organizzazione principale.
 
 >[!Important]
->Se si esce da un'organizzazione per errore, non è possibile annullare l'azione. È necessario attendere che l'amministratore dell'organizzazione voglia invitare di nuovo l'utente.
+>Se si esce da un'organizzazione per errore, non è possibile annullare l'azione. You'll have to wait for the administrator of that organization to invite you again.
 
-1. Selezionare **lascia l'organizzazione** accanto all'organizzazione che si vuole lasciare, quindi selezionare **lascia** per confermare che si desidera uscire.
+1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
 
     ![Pagina Organizzazioni con il collegamento Esci dall'organizzazione evidenziato](media/my-account-portal/my-account-portal-organizations-leave.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver visualizzato le organizzazioni, è possibile:
+After viewing your organizations, you can:
 
-- Visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md).
+- View or manage your [security info](user-help-security-info-overview.md).
 
-- Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md)connessi.
+- View or manage your connected [devices](my-account-portal-devices-page.md).
 
-- Visualizzare l' [attività di accesso](my-account-portal-sign-ins-page.md).
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- Visualizzare il modo in cui l'organizzazione [Usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

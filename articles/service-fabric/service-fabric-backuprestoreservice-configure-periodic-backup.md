@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 47faeff22db4e4a2b3630104c9b492b43e29fd7b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819276"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232508"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informazioni sulla configurazione del backup periodico in Azure Service Fabric
 
@@ -98,7 +98,7 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
         }
         ```
 
-    2. **Condivisione file**: questo tipo di archiviazione va selezionato per i cluster _autonomi_ quando si vuole archiviare i dati di backup in locale. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
+    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. La descrizione di questo tipo di archiviazione richiede il percorso di condivisione file in cui devono essere caricati i backup. L'accesso alla condivisione file può essere configurato usando una delle seguenti opzioni
         1. _Autenticazione di Windows integrata_: l'accesso alla condivisione di file è consentito a tutti i computer appartenenti al cluster Service Fabric. In questo caso impostare i campi seguenti per configurare l'archiviazione di backup basata sulla _condivisione file_.
 
             ```json
@@ -127,8 +127,8 @@ Un criterio di backup è costituito dalle configurazioni seguenti:
 > Verificare che l'affidabilità di archiviazione soddisfi o superi i requisiti di affidabilità dei dati di backup.
 >
 
-* **Criteri di conservazione**: specifica i criteri per conservare i backup nell'archiviazione configurata. Sono supportati solo i criteri di conservazione di base.
-    1. **Criteri di conservazione di base**: questi criteri di conservazione consentono di garantire un utilizzo ottimale dello spazio di archiviazione rimuovendo i file di backup che non sono più necessari. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
+* **Retention Policy**: Specifies the policy to retain backups in the configured storage. Sono supportati solo i criteri di conservazione di base.
+    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. Specificare `RetentionDuration` per impostare l'intervallo di tempo in cui i backup devono essere conservati nella risorsa di archiviazione. `MinimumNumberOfBackups` è un parametro facoltativo che può essere specificato per assicurarsi che venga sempre mantenuto il numero specificato di backup indipendentemente da `RetentionDuration`. L'esempio seguente illustra la configurazione che consente di conservare i backup per _10_ giorni e non consente che il numero di backup scenda a meno di _20_.
 
         ```json
         {

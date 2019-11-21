@@ -1,6 +1,6 @@
 ---
-title: Visualizzare le informazioni relative alla privacy nel portale per gli account personali-Azure AD
-description: Come visualizzare le informazioni sulla privacy dalla pagina privacy del portale account personale.
+title: View privacy-related info from the My Account portal - Azure AD
+description: Learn how your organization uses your privacy-related information from the Privacy page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb05bdb3aa2cf89328051b196475338eb5a3b3b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820359"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231828"
 ---
-# <a name="view-your-privacy-related-info-from-the-my-account-portal"></a>Visualizzare le informazioni relative alla privacy dal portale per gli account personali
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>View how your organization uses your privacy-related data
 
-È possibile visualizzare il modo in cui l'organizzazione usa i dati dalla pagina **privacy** del portale **account personale** .
+You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
 
 ## <a name="view-your-privacy-related-info"></a>Visualizzare informazioni relative alla privacy
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
 
 2. Selezionare **Privacy** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Verifica la privacy** nel blocco **Privacy**.
 
-    ![Pagina account personale, che mostra i collegamenti alla privacy evidenziati](media/my-account-portal/my-account-portal-privacy.png)
+    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
 
 3. Esaminare le informazioni, tra cui:
 
@@ -39,14 +39,14 @@ ms.locfileid: "73820359"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver visualizzato il modo in cui l'organizzazione usa i dati, è possibile:
+After viewing how your organization uses your data, you can:
 
-- Visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md).
+- View or manage your [security info](user-help-security-info-overview.md).
 
-- Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md)connessi.
+- View or manage your connected [devices](my-account-portal-devices-page.md).
 
-- Visualizzare o gestire le [organizzazioni](my-account-portal-organizations-page.md).
+- View or manage your [organizations](my-account-portal-organizations-page.md).
 
-- Visualizzare l' [attività di accesso](my-account-portal-sign-ins-page.md).
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- È anche possibile visualizzare le preferenze di contatto relative a Microsoft Office e le informazioni sulla privacy dalla pagina relativa alla [privacy del portale di Office, alla sicurezza &](https://portal.office.com/account/#security).
+- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).

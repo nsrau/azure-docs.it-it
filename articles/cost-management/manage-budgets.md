@@ -1,5 +1,5 @@
 ---
-title: Gestire i budget Cloudyn in Azure
+title: Manage Cloudyn budgets in Azure
 description: Questo articolo consente di creare rapidamente i budget e di iniziare a gestirli in Cloudyn.
 services: cost-management
 keywords: ''
@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: ad0566f0b93593140d217767f8d97f410dfcbb3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9d7d0e049d3c35aab56145beb94c8e41e56c5785
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259244"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219092"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gestire i budget di Azure con Cloudyn
 
@@ -54,7 +54,7 @@ Per esportare il budget completato come file CSV, in **Azioni** selezionare **Es
 
 ## <a name="view-budget-in-reports"></a>Visualizzare il budget nei report
 
-Dopo che è stato completato, il budget viene mostrato nella maggior parte dei report sui costi in **Costi** &gt; **Analisi dei costi** e nel report di confronto tra costo e budget nel tempo. È inoltre possibile pianificare i report basati sulle soglie di budget usando **Azioni**.
+When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. È inoltre possibile pianificare i report basati sulle soglie di budget usando **Azioni**.
 
 Ecco un esempio del report Analisi dei costi. Questo report mostra il budget e il costo totali in base al carico di lavoro e ai tipi di utilizzo partendo dall'inizio dell'anno.
 
@@ -64,7 +64,7 @@ In questo esempio si presuppone che la data corrente sia il 22 giugno. Il costo 
 
 Un altro modo per visualizzare il report consiste nell'esaminare il costo accumulato rispetto al budget. Per vedere i costi accumulati, in **Mostra/Nascondi campi** selezionare **Costo accumulato** e **Budget totale**. Ecco un esempio che mostra il costo accumulato dall'inizio dell'anno.
 
-![Esempio di costo accumulato e di budget totale visualizzato nel report Costi e budget nel tempo](./media/manage-budgets/accumulated-budget.png)
+![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
 
 È possibile che a un certo punto il costo accumulato superi il budget. Questa situazione è più facile da vedere se si imposta la visualizzazione del grafico sul tipo _a linee_.
 
@@ -79,7 +79,7 @@ Nell'esempio precedente si nota che il costo accumulato si è avvicinato al valo
 
 Ecco un esempio.
 
-Nel report di confronto tra costo e budget nel tempo fare clic su **Azioni** e quindi selezionare **Pianifica report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Salva**.
+In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Salva**
 
 ![Creazione di un avviso del budget nella finestra Save or Schedule this report (Salva o pianifica questo report)](./media/manage-budgets/budget-alert.png)
 

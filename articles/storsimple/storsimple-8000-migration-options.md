@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d51891c076f1784fbddb88bfaed28ac1d889afdc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631610"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227773"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opzioni di migrazione dei dati da un dispositivo StorSimple serie 5000-7000 
 
 > [!IMPORTANT]
-> 9 luglio 2019 della serie StorSimple 5000/7000 terminerà lo stato di supporto (May). È consigliabile che i clienti della serie StorSimple 5000/7000 eseguano la migrazione a una delle alternative descritte nel documento.
+> On July 9, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. È consigliabile che i clienti della serie StorSimple 5000/7000 eseguano la migrazione a una delle alternative descritte nel documento.
 
 A luglio 2019, StorSimple serie 5000-7000 volgerà al [termine del supporto](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series). I clienti che stanno eseguendo StorSimple serie 5000-7000 possono per eseguire l'aggiornamento ad altri servizi ibridi prodotti direttamente da Azure. Questo articolo descrive le opzioni ibride di Azure disponibili per la migrazione dei dati. 
 
@@ -57,19 +57,19 @@ Questa migrazione è supportata da Panzura e per iniziare i clienti possono rich
 
 Cohesity consente di eseguire la migrazione dei dati da StorSimple 5000-7000 alla piattaforma dati Cohesity in Azure. La piattaforma dati Cohesity è una soluzione sul Web software-defined che consente di consolidare file, backup, oggetti e macchine virtuali in un'unica soluzione nativa nel cloud. Dopo la migrazione alla piattaforma dati, è possibile gestire, proteggere ed eseguire il provisioning dei dati e delle app da cloud a core tramite un unico riquadro. Con Cohesity, iniziare con non più di tre nodi. 
 
-Altre informazioni, vedere [migrazione alla piattaforma di dati di Cohesity](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+Learn more on [migration to the Cohesity Data Platform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
-#### <a name="migrate-to-nasuni"></a>Eseguire la migrazione a Nasuni
+#### <a name="migrate-to-nasuni"></a>Migrate to Nasuni
 
-Nasuni semplifica ai clienti di StorSimple 5000-7000 di eseguire la migrazione e conservano i dati in Azure.  Nasuni è un'importante soluzione di archiviazione NAS basato su Azure, fornendo ai clienti prestazioni e sicurezza che si aspettano da soluzioni in locale, con costi del cloud e la scala.  Oltre ad archiviazione file ad alte prestazioni, Nasuni e Azure handle di backup e ripristino di emergenza, consentendo di condividere e collaborare sui dati in tutto il mondo con la gestione archiviazione centralizzata dei file. 
+Nasuni makes it easy for StorSimple 5000-7000 customers to migrate and keep their data in Azure.  Nasuni is a leading Azure-based NAS storage solution, giving customers the performance and security they expect from on-prem solutions, with cloud economics and scale.  In addition to high performance file storage, Nasuni and Azure handle backup and DR, while allowing you to share and collaborate on your data around the globe with centralized file storage management. 
 
-Nasuni offre l'esperienza per facilitare la migrazione: inizia subito: https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni has the experience to make your migration easy – get started today: https://info.nasuni.com/nasuni-storsimple-migration
 
-#### <a name="migrate-to-talon-fast"></a>Eseguire la migrazione a Talon FAST
+#### <a name="migrate-to-talon-fast"></a>Migrate to Talon FAST
 
-Talon semplifica ai clienti di StorSimple 5000-7000 di continuare a sfruttare i vantaggi che sono con valori di gran parte della piattaforma di StorSimple (piccolo footprint sul posto supportati da risorse cloud senza limiti) con la funzione ancora maggiore.  Con la soluzione FAST Talon, i clienti possono eseguire la migrazione e mantenere i propri dati in Azure, mentre ora avere un footprint in sede solo software anche più piccolo e l'aggiunta di vantaggi, ad esempio file globale il blocco per lo spazio dei nomi globale e la collaborazione di più siti.  Talon è un'importante soluzione ecosistema di Azure, con i clienti globali per eseguire la migrazione dei carichi di lavoro server file dall'istanza locale di un footprint consolidato, basato su Azure senza compromessi in termini di flusso di lavoro utente o esperienza.  
+Talon makes it easy for StorSimple 5000-7000 customers to continue to leverage the benefits they valued so much in the StorSimple platform (small on-site footprint backed by unlimited cloud resources) with even greater function.  With the Talon FAST solution, customers can migrate and keep their data in Azure, while now having an even smaller software-only onsite footprint and adding benefits such as global file locking, global namespace, and multi-site collaboration.  Talon is a leading Azure ecosystem solution, working with global customers to migrate their on-premises file server workloads into a consolidated, Azure-based footprint without compromising user workflow or experience.  
 
-Altre informazioni sull'evoluzione di un'azienda consolidata cloud in https://www.talonstorage.com/alliances/microsoft-storsimple.
+Learn more about how to evolve to a cloud-consolidated enterprise at https://www.talonstorage.com/alliances/microsoft-storsimple.
 
 
 ## <a name="migration---frequently-asked-questions"></a>Migrazioni: domande frequenti

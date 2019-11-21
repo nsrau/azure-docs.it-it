@@ -1,254 +1,254 @@
 ---
-title: Comprendere e usare gli ambiti di gestione dei costi di Azure
-description: Questo articolo consente di comprendere gli ambiti di fatturazione e di gestione delle risorse disponibili in Azure e come usare gli ambiti in gestione costi e API.
+title: Understand and work with Azure Cost Management scopes
+description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 10/17/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 91a71f914cff25dcdf4a85f3baafcfd9bc96b104
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597088"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218882"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
-Questo articolo consente di comprendere gli ambiti di fatturazione e di gestione delle risorse disponibili in Azure e come usare gli ambiti in gestione costi e API.
+This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 
 ## <a name="scopes"></a>Ambiti
 
-Un _ambito_ è un nodo nella gerarchia di risorse di Azure in cui Azure ad utenti accedono e gestiscono i servizi. La maggior parte delle risorse di Azure viene creata e distribuita in gruppi di risorse, che fanno parte di sottoscrizioni. Microsoft offre anche due gerarchie sopra le sottoscrizioni di Azure con ruoli specializzati per gestire i dati di fatturazione:
-- Dati di fatturazione, ad esempio pagamenti e fatture
-- Servizi cloud, ad esempio costi e governance dei criteri
+A _scope_ is a node in the Azure resource hierarchy where Azure AD users access and manage services. Most Azure resources are created and deployed into resource groups, which are part of subscriptions. Microsoft also offers two hierarchies above Azure subscriptions that have specialized roles to manage billing data:
+- Billing data, such as payments and invoices
+- Cloud services, such as cost and policy governance
 
-Gli ambiti sono la posizione in cui si gestiscono i dati di fatturazione, i ruoli specifici dei pagamenti, la visualizzazione delle fatture e la gestione generale degli account. I ruoli fatturazione e account vengono gestiti separatamente da quelli usati per la gestione delle risorse, [che usano il](../role-based-access-control/overview.md)controllo degli accessi in base al ruolo Per distinguere chiaramente lo scopo degli ambiti distinti, incluse le differenze relative al controllo di accesso, questi sono denominati rispettivamente _ambiti di fatturazione_ e _ambiti RBAC_.
+Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from those used for resource management, which use [Azure RBAC](../role-based-access-control/overview.md). To clearly distinguish the intent of the separate scopes, including the access control differences, these are referred to as _billing scopes_ and _RBAC scopes_, respectively.
 
-## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in gestione costi
+## <a name="how-cost-management-uses-scopes"></a>How Cost Management uses scopes
 
-Gestione costi funziona in tutti gli ambiti sopra le risorse per consentire alle organizzazioni di gestire i costi a livello di accesso, sia che si tratti dell'intero account di fatturazione o di un singolo gruppo di risorse. Anche se gli ambiti di fatturazione variano in base al contratto Microsoft (tipo di sottoscrizione), gli ambiti RBAC non lo sono.
+Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the RBAC scopes do not.
 
-## <a name="azure-rbac-scopes"></a>Ambiti RBAC di Azure
+## <a name="azure-rbac-scopes"></a>Azure RBAC scopes
 
-Azure supporta tre ambiti per la gestione delle risorse. Ogni ambito supporta la gestione dell'accesso e della governance, tra cui la gestione dei costi.
+Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Gruppi di gestione**](../governance/management-groups/overview.md) : contenitori gerarchici, fino a otto livelli, per organizzare le sottoscrizioni di Azure.
+- [**Management groups**](../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
-    Tipo di risorsa: [Microsoft. Management/managementGroups](/rest/api/resources/managementgroups)
+    Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
-- **Sottoscrizioni** : contenitori primari per le risorse di Azure.
+- **Subscriptions** - Primary containers for Azure resources.
 
-    Tipo di risorsa: [Microsoft. resources/subscriptions](/rest/api/resources/subscriptions)
+    Resource type: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Gruppi di risorse**](../azure-resource-manager/resource-group-overview.md#resource-groups) : raggruppamenti logici di risorse correlate per una soluzione di Azure che condividono lo stesso ciclo di vita. Ad esempio risorse distribuite ed eliminate insieme.
+- [**Resource groups**](../azure-resource-manager/resource-group-overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
 
-    Tipo di risorsa: [Microsoft. resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
-I gruppi di gestione consentono di organizzare le sottoscrizioni in una gerarchia. Ad esempio, è possibile creare una gerarchia di organizzazioni logiche usando i gruppi di gestione. Assegnare quindi ai team le sottoscrizioni per i carichi di lavoro di produzione e di sviluppo/test. E quindi creare gruppi di risorse nelle sottoscrizioni per gestire ogni sottosistema o componente.
+Management groups allow you to organize subscriptions into a hierarchy. For example, you might create a logical organization hierarchy using management groups. Then, give teams subscriptions for production and dev/test workloads. And then create resource groups in the subscriptions to manage each sub-system or component.
 
-La creazione di una gerarchia organizzativa consente il rollup dei costi e della conformità dei criteri organizzazione. Ogni leader può quindi visualizzare e analizzare i costi correnti. Possono quindi creare budget per limitare i modelli di spesa e ottimizzare i costi con le raccomandazioni di Advisor al livello più basso.
+Creating an organizational hierarchy allows cost and policy compliance roll-up organizationally. Then, each leader can view and analyze their current costs. And then they can create budgets to curb bad spending patterns and optimize costs with Advisor recommendations at the lowest level.
 
-La concessione dell'accesso per visualizzare i costi e, facoltativamente, la gestione della configurazione dei costi, ad esempio i budget e le esportazioni, viene eseguita sugli ambiti di governance usando il controllo degli accessi Usare il controllo degli accessi in base al ruolo di Azure per concedere a Azure AD utenti e gruppi l'accesso per eseguire un set predefinito di azioni definite in un ruolo in un ambito specifico e sotto. Ad esempio, un ruolo assegnato a un ambito del gruppo di gestione concede anche le stesse autorizzazioni per le sottoscrizioni annidate e i gruppi di risorse.
+Granting access to view costs and optionally manage cost configuration, such as budgets and exports, is performed on governance scopes using Azure RBAC. You use Azure RBAC to grant Azure AD users and groups access to perform a predefined set of actions that are defined in a role on a specific scope and below. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
 
-Gestione costi supporta i ruoli predefiniti seguenti per ognuno degli ambiti seguenti:
+Cost Management supports the following built-in roles for each of the following scopes:
 
-- [**Proprietario**](../role-based-access-control/built-in-roles.md#owner) : può visualizzare i costi e gestire tutti gli elementi, inclusa la configurazione dei costi.
-- [**Collaboratore**](../role-based-access-control/built-in-roles.md#contributor) : può visualizzare i costi e gestire tutti gli elementi, inclusa la configurazione dei costi, escluso il controllo degli accessi.
-- [**Reader**](../role-based-access-control/built-in-roles.md#reader) : può visualizzare tutti gli elementi, inclusi i dati relativi ai costi e la configurazione, ma non può apportare modifiche.
-- [**Collaboratore gestione costi**](../role-based-access-control/built-in-roles.md#cost-management-contributor) : può visualizzare i costi, gestire la configurazione dei costi e visualizzare le raccomandazioni.
-- [**Lettore di gestione costi**](../role-based-access-control/built-in-roles.md#cost-management-reader) : può visualizzare i dati sui costi, la configurazione dei costi e le raccomandazioni per la visualizzazione.
+- [**Owner**](../role-based-access-control/built-in-roles.md#owner) – Can view costs and manage everything, including cost configuration.
+- [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) – Can view costs and manage everything, including cost configuration, but excluding access control.
+- [**Reader**](../role-based-access-control/built-in-roles.md#reader) – Can view everything, including cost data and configuration, but cannot make any changes.
+- [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs, manage cost configuration, and view recommendations.
+- [**Cost Management Reader**](../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data, cost configuration, and view recommendations.
 
-Collaboratore gestione costi è il ruolo con privilegi minimi consigliato. Consente agli utenti di accedere per creare e gestire i budget e le esportazioni in modo da monitorare e segnalare in modo più efficace i costi. I collaboratori di gestione costi potrebbero anche richiedere ruoli aggiuntivi per supportare scenari di gestione dei costi end-to-end. Esaminare gli scenari seguenti:
+Cost Management Contributor is the recommended least-privilege role. It allows people access to create and manage budgets and exports to more effectively monitor and report on costs. Cost Management Contributors might also require additional roles to support end-to-end cost management scenarios. Esaminare gli scenari seguenti:
 
-- **Agire quando vengono superati i budget: i** collaboratori di gestione costi devono anche accedere per creare e/o gestire i gruppi di azioni per rispondere automaticamente alle eccedenze. Considerare la possibilità di concedere il [collaboratore al monitoraggio](../role-based-access-control/built-in-roles.md#monitoring-contributor) a un gruppo di risorse che contiene il gruppo di azioni da usare quando vengono superate le soglie del budget. L'automazione di azioni specifiche richiede ruoli aggiuntivi per i servizi specifici usati, ad esempio automazione e funzioni di Azure.
-- **Pianificare l'esportazione dei dati sui costi: i** collaboratori di gestione costi devono anche accedere per gestire gli account di archiviazione per pianificare un'esportazione per la copia dei dati in un account di archiviazione. Prendere in considerazione la concessione di un [collaboratore account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor) a un gruppo di risorse che contiene l'account di archiviazione in cui vengono esportati i dati
-- **Visualizzazione delle raccomandazioni di risparmio** sui costi: i lettori di gestione costi e i collaboratori di gestione costi hanno accesso per *visualizzare* le raccomandazioni sui costi per impostazione predefinita. Tuttavia, l'accesso per agire sulle raccomandazioni sui costi richiede l'accesso alle singole risorse. Si consiglia di concedere un [ruolo specifico del servizio](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) se si desidera agire su una raccomandazione basata sui costi.
+- **Act when budgets are exceeded** – Cost Management Contributors also need access to create and/or manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires additional roles for the specific services used, such as Automation and Azure Functions.
+- **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
+- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) if you want to act on a cost-based recommendation.
 
-## <a name="enterprise-agreement-scopes"></a>Ambiti di Enterprise Agreement
+## <a name="enterprise-agreement-scopes"></a>Enterprise Agreement scopes
 
-Gli account di fatturazione Enterprise Agreement (EA), denominati anche registrazioni, hanno gli ambiti seguenti:
+Enterprise Agreement (EA) billing accounts, also called enrollments, have the following scopes:
 
-- [**Account di fatturazione**](../billing/billing-view-all-accounts.md) : rappresenta una registrazione EA. Le fatture vengono generate in questo ambito. Gli acquisti che non sono basati sull'utilizzo, ad esempio il Marketplace e le prenotazioni, sono disponibili solo in questo ambito. Non sono rappresentati nei reparti o negli account di registrazione.
+- [**Billing account**](../billing/billing-view-all-accounts.md) - Represents an EA enrollment. Invoices are generated at this scope. Purchases that aren't usage-based, such as Marketplace and reservations, are only available at this scope. They aren't represented in departments or enrollment accounts.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
-- **Reparto** : raggruppamento facoltativo di account di registrazione.
+    Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+- **Department** - Optional grouping of enrollment accounts.
 
-    Tipo di risorsa: `Billing/billingAccounts/departments`
+    Resource type: `Billing/billingAccounts/departments`
 
-- **Account di registrazione** : rappresenta un singolo proprietario dell'account. Non supporta la concessione dell'accesso a più persone.
+- **Enrollment account** - Represents a single account owner. Doesn't support granting access to multiple people.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
+    Resource type: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
-Sebbene gli ambiti di governance siano associati a una singola directory, gli ambiti di fatturazione con contratto Enterprise non lo sono. Un account di fatturazione EA può avere sottoscrizioni in un numero qualsiasi di directory Azure AD.
+Although governance scopes are bound to a single directory, EA billing scopes aren't. An EA billing account may have subscriptions across any number of Azure AD directories.
 
-Gli ambiti di fatturazione EA supportano i ruoli seguenti:
+EA billing scopes support the following roles:
 
-- **Enterprise Admin** : può gestire le impostazioni e l'accesso agli account di fatturazione, può visualizzare tutti i costi e può gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, l'ambito di fatturazione EA è lo stesso [ruolo di Collaboratore gestione costi di Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Utente di sola lettura aziendale** : può visualizzare le impostazioni dell'account di fatturazione, i dati sui costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, l'ambito di fatturazione EA corrisponde al ruolo di [lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Amministratore del reparto** : può gestire le impostazioni del reparto, ad esempio il centro di costo, e può accedere, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni.  Per **visualizzare i costi** , è necessario abilitare l'impostazione per l'account di fatturazione per gli amministratori del reparto e per gli utenti di sola lettura. Se gli **addebiti** per le viste sono disabilitati, gli utenti del reparto non possono visualizzare i costi a qualsiasi livello, anche se sono proprietari di un account o di una sottoscrizione.
-- **Utente** di sola lettura del reparto: può visualizzare le impostazioni del reparto, i dati relativi ai costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. Se gli **addebiti** per le viste sono disabilitati, gli utenti del reparto non possono visualizzare i costi a qualsiasi livello, anche se sono proprietari di un account o di una sottoscrizione.
-- **Proprietario dell'account** : può gestire le impostazioni dell'account di registrazione, ad esempio il centro di costo, visualizzare tutti i costi e gestire la configurazione dei costi, ad esempio i budget e le esportazioni, per l'account di registrazione. Per visualizzare i costi, è necessario abilitare l'impostazione dell'account di fatturazione per le **visualizzazioni Ao** per i proprietari degli account e gli utenti RBAC.
+- **Enterprise admin** – Can manage billing account settings and access, can view all costs, and can manage cost configuration. For example, budgets and exports. In function, the EA billing scope is the same as [Cost Management Contributor Azure RBAC role](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration. For example, budgets and exports. In function, the EA billing scope is the same as the [Cost Management Reader Azure RBAC role](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Department admin** – Can manage department settings, such as cost center, and can access, view all costs, and manage cost configuration. For example, budgets and exports.  The **DA view charges** billing account setting must be enabled for department admins and read-only users to see costs. If **DA view charges** is disabled, department users can't see costs at any level, even if they are an account or subscription owner.
+- **Department read-only user** – Can view department settings, cost data, and cost configuration. For example, budgets and exports. If **DA view charges** is disabled, department users can't see costs at any level, even if they are an account or subscription owner.
+- **Account owner** – Can manage enrollment account settings (such as cost center), view all costs, and manage cost configuration (such as budgets and exports) for the enrollment account. The **AO view charges** billing account setting must be enabled for account owners and RBAC users to see costs.
 
-Gli utenti dell'account di fatturazione EA non hanno accesso diretto alle fatture. Le fatture sono disponibili da un sistema di contratti multilicenza esterno.
+EA billing account users don't have direct access to invoices. Invoices are available from an external volume licensing system.
 
-Le sottoscrizioni di Azure sono annidate in account di registrazione. Gli utenti di fatturazione hanno accesso ai dati sui costi per le sottoscrizioni e i gruppi di risorse che si trovano nei rispettivi ambiti. Non hanno accesso per visualizzare o gestire le risorse nella portale di Azure. Gli utenti di fatturazione possono visualizzare i costi passando a **Gestione costi e fatturazione** nell'elenco portale di Azure dei servizi. Quindi, possono filtrare i costi per le sottoscrizioni e i gruppi di risorse specifici per i quali è necessario creare un report.
+Azure subscriptions are nested under enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups which are under their respective scopes. They don't have access to see or manage resources in the Azure portal. Billing users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, they can filter costs to the specific subscriptions and resource groups they need to report on.
 
-Gli utenti che eseguono la fatturazione non hanno accesso ai gruppi di gestione perché non rientrano in modo esplicito con un account di fatturazione specifico. È necessario concedere l'accesso ai gruppi di gestione in modo esplicito. I gruppi di gestione eseguono il rollup dei costi di tutte le sottoscrizioni nidificate. Tuttavia, includono solo acquisti basati sull'utilizzo. Non includono acquisti come prenotazioni e offerte di Marketplace di terze parti. Per visualizzare questi costi, usare l'account di fatturazione EA.
+Billing users don't have access to management groups because they don't fall explicitly under a specific billing account. Access must be granted to management groups explicitly. Management groups roll-up costs from all nested subscriptions. However, they only include usage-based purchases. They don't include purchases such as reservations and third-party Marketplace offerings. To view these costs, use the EA billing account.
 
-## <a name="individual-agreement-scopes"></a>Ambiti di singoli contratti
+## <a name="individual-agreement-scopes"></a>Individual agreement scopes
 
-Le sottoscrizioni di Azure create da singole offerte come il pagamento in base al consumo e i tipi correlati come la versione di valutazione gratuita e le offerte per sviluppo/test non hanno un ambito di account di fatturazione esplicito. Al contrario, ogni sottoscrizione ha un proprietario dell'account o un amministratore dell'account, ad esempio il proprietario dell'account EA.
+Azure subscriptions created from individual offers like pay-as-you-go and related types like Free Trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
 
-- [**Account di fatturazione**](../billing/billing-view-all-accounts.md) : rappresenta un singolo proprietario dell'account per una o più sottoscrizioni di Azure. Attualmente non supporta la concessione dell'accesso a più persone o l'accesso alle visualizzazioni di costo aggregate.
+- [**Billing account**](../billing/billing-view-all-accounts.md) - Represents a single account owner for one or more Azure subscriptions. It doesn't currently support granting access to multiple people or access to aggregated cost views.
 
-    Tipo di risorsa: non applicabile
+    Resource type: Not applicable
 
-Gli amministratori dell'account di sottoscrizione di Azure singoli possono visualizzare e gestire i dati di fatturazione, ad esempio fatture e pagamenti, dal [centro account di Azure](https://account.azure.com/subscriptions). Tuttavia, non possono visualizzare i dati sui costi o gestire le risorse nella portale di Azure. Per concedere l'accesso all'amministratore dell'account, usare i ruoli di gestione costi indicati in precedenza.
+Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
 
-Diversamente da EA, i singoli amministratori di account di sottoscrizione di Azure possono visualizzare le fatture nel portale di Azure. Tenere presente che i ruoli di collaboratore per la gestione dei costi e i lettori non forniscono l'accesso alle fatture. Per ulteriori informazioni, vedere [come concedere l'accesso alle fatture](../billing/billing-manage-access.md##give-read-only-access-to-billing).
+Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="microsoft-customer-agreement-scopes"></a>Ambiti del contratto clienti Microsoft
+## <a name="microsoft-customer-agreement-scopes"></a>Microsoft Customer Agreement scopes
 
-Gli account di fatturazione del contratto cliente Microsoft hanno gli ambiti seguenti:
+Microsoft Customer Agreement billing accounts have the following scopes:
 
-- **Account di fatturazione** : rappresenta un contratto del cliente per più prodotti e servizi Microsoft. Gli account di fatturazione del contratto clienti non sono funzionalmente identici alle registrazioni EA. Le registrazioni EA sono strettamente allineate ai profili di fatturazione.
+- **Billing account** - Represents a customer agreement for multiple Microsoft products and services. Customer Agreement billing accounts aren't functionally the same as EA enrollments. EA enrollments are more closely aligned to billing profiles.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+    Resource type: `Microsoft.Billing/billingAccounts (accountType = Organization)`
 
-- **Profilo di fatturazione** : definisce le sottoscrizioni incluse in una fattura. I profili di fatturazione sono l'equivalente funzionale di una registrazione EA, poiché si tratta dell'ambito in cui vengono generate le fatture. Analogamente, gli acquisti che non sono basati sull'utilizzo (ad esempio Marketplace e prenotazioni) sono disponibili solo in questo ambito. Non sono incluse nelle sezioni della fattura.
+- **Billing profile** - Defines the subscriptions that are included in an invoice. Billing profiles are the functional equivalent of an EA enrollment, since that's the scope that invoices are generated at. Similarly, purchases that aren't usage-based (such as Marketplace and reservations) are only available at this scope. They aren't included in invoice sections.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts/billingProfiles`
+    Resource type: `Microsoft.Billing/billingAccounts/billingProfiles`
 
-- **Sezione fattura** : rappresenta un gruppo di sottoscrizioni in una fattura o un profilo di fatturazione. Le sezioni della fattura sono simili ai reparti: più persone possono accedere a una sezione di fattura.
+- **Invoice section** - Represents a group of subscriptions in an invoice or billing profile. Invoice sections are like departments—multiple people can have access to an invoice section.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts/invoiceSections`
+    Resource type: `Microsoft.Billing/billingAccounts/invoiceSections`
 
-- **Cliente** : rappresenta un gruppo di sottoscrizioni associate a un cliente specifico che è stato caricato in un contratto cliente Microsoft dal partner. Questo ambito è specifico per CSP.
+- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to CSP.
 
-Diversamente dagli ambiti di fatturazione EA, gli account di fatturazione del contratto cliente _sono_ associati a una singola directory e non possono avere sottoscrizioni tra più directory Azure ad.
+Unlike EA billing scopes, Customer Agreement billing accounts _are_ bound to a single directory and can't have subscriptions across multiple Azure AD directories.
 
-Gli ambiti di fatturazione del contratto del cliente non si applicano ai partner. I ruoli e le autorizzazioni del partner sono documentati in [assegnare ruoli e autorizzazioni agli utenti](/partner-center/permissions-overview).
+Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Gli ambiti di fatturazione del contratto del cliente supportano i ruoli seguenti:
+Customer Agreement billing scopes support the following roles:
 
-- **Proprietario** : può gestire le impostazioni di fatturazione e l'accesso, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di collaboratore di gestione costi di Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Collaboratore** : può gestire le impostazioni di fatturazione ad eccezione dell'accesso, visualizzare tutti i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di collaboratore di gestione costi di Azure RBAC](../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Reader** : può visualizzare le impostazioni di fatturazione, i dati relativi ai costi e la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Responsabile delle fatture** : può visualizzare e pagare le fatture e può visualizzare i dati sui costi e la configurazione. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al [ruolo di lettura gestione costi di Azure](../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Creatore della sottoscrizione di Azure** : può creare sottoscrizioni di Azure, visualizzare i costi e gestire la configurazione dei costi. Ad esempio, i budget e le esportazioni. In funzione, questo ambito di fatturazione del contratto del cliente corrisponde al ruolo di proprietario dell'account di registrazione EA.
+- **Owner** – Can manage billing settings and access, view all costs, and manage cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Contributor Azure RBAC role](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Contributor** – Can manage billing settings except access, view all costs, and manage cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Contributor Azure RBAC role](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Reader** – Can view billing settings, cost data, and cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Reader Azure RBAC role](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Invoice manager** – Can view and pay invoices and can view cost data and configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Reader Azure RBAC role](../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Azure subscription creator** – Can create Azure subscriptions, view costs, and manage cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the EA enrollment account owner role.
 
-Le sottoscrizioni di Azure sono annidate in sezioni di fattura, ad esempio come sono in account di registrazione EA. Gli utenti di fatturazione hanno accesso ai dati sui costi per le sottoscrizioni e i gruppi di risorse che si trovano nei rispettivi ambiti. Tuttavia, non hanno accesso per visualizzare o gestire le risorse nella portale di Azure. Gli utenti di fatturazione possono visualizzare i costi passando a **Gestione costi e fatturazione** nell'elenco portale di Azure dei servizi. Filtrare quindi i costi per le sottoscrizioni e i gruppi di risorse specifici per i quali è necessario creare un report.
+Azure subscriptions are nested under invoice sections, like how they are under EA enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups that are under their respective scopes. However, they don't have access to see or manage resources in the Azure portal. Billing users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, filter costs to the specific subscriptions and resource groups they need to report on.
 
-Gli utenti che eseguono la fatturazione non hanno accesso ai gruppi di gestione perché non rientrano in modo esplicito con l'account di fatturazione. Tuttavia, quando i gruppi di gestione sono abilitati per l'organizzazione, viene eseguito il rollup di tutti i costi della sottoscrizione all'account di fatturazione e al gruppo di gestione radice perché sono entrambi vincolati a una singola directory. I gruppi di gestione includono solo gli acquisti basati sull'utilizzo. Gli acquisti come le prenotazioni e le offerte di Marketplace di terze parti non sono inclusi nei gruppi di gestione. L'account di fatturazione e il gruppo di gestione radice possono quindi segnalare totali diversi. Per visualizzare questi costi, utilizzare l'account di fatturazione o il rispettivo profilo di fatturazione.
+Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they are both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
 
-## <a name="aws-scopes"></a>Ambiti AWS
+## <a name="aws-scopes"></a>AWS scopes
 
-Al termine dell'integrazione di AWS, vedere [Setup and Configure AWS Integration](aws-integration-set-up-configure.md). Sono disponibili gli ambiti seguenti:
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
 
-- **Account di fatturazione esterno** : rappresenta un contratto del cliente con un fornitore di terze parti. Questa operazione è simile all'account di fatturazione EA.
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
 
-    Tipo di risorsa: `Microsoft.CostManagement/externalBillingAccounts`
+    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
 
-- **Sottoscrizione esterna** : rappresenta un account operativo del cliente con un fornitore di terze parti. Questa operazione è simile a una sottoscrizione di Azure.
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
 
-    Tipo di risorsa: `Microsoft.CostManagement/externalSubscriptions`
+    Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
-## <a name="cloud-solution-provider-csp-scopes"></a>Ambiti del provider di soluzioni cloud (CSP)
+## <a name="cloud-solution-provider-csp-scopes"></a>Cloud Solution Provider (CSP) scopes
 
-Gli ambiti seguenti sono supportati per i CSP con i clienti di un contratto di servizio Microsoft:
+The following scopes are supported for CSPs with customers on a Microsoft Customer Agreement:
 
-- **Account di fatturazione** : rappresenta un contratto del cliente per più prodotti e servizi Microsoft. Gli account di fatturazione del contratto clienti non sono funzionalmente identici alle registrazioni EA. Le registrazioni EA sono strettamente allineate ai profili di fatturazione.
+- **Billing account** - Represents a customer agreement for multiple Microsoft products and services. Customer Agreement billing accounts aren't functionally the same as EA enrollments. EA enrollments are more closely aligned to billing profiles.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+    Resource type: `Microsoft.Billing/billingAccounts (accountType = Organization)`
 
-- **Profilo di fatturazione** : definisce le sottoscrizioni incluse in una fattura. I profili di fatturazione sono l'equivalente funzionale di una registrazione EA, poiché si tratta dell'ambito in cui vengono generate le fatture. Analogamente, gli acquisti che non sono basati sull'utilizzo (ad esempio Marketplace e prenotazioni) sono disponibili solo in questo ambito.
+- **Billing profile** - Defines the subscriptions that are included in an invoice. Billing profiles are the functional equivalent of an EA enrollment, since that's the scope that invoices are generated at. Similarly, purchases that aren't usage-based (such as Marketplace and reservations) are only available at this scope.
 
-    Tipo di risorsa: `Microsoft.Billing/billingAccounts/billingProfiles`
+    Resource type: `Microsoft.Billing/billingAccounts/billingProfiles`
 
-- **Cliente** : rappresenta un gruppo di sottoscrizioni associate a un cliente specifico che è stato caricato in un contratto per i clienti Microsoft da un partner.
+- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by a partner.
 
-Solo gli utenti con ruoli di *amministratore globale* e *amministratore* globale possono gestire e visualizzare i costi per gli account di fatturazione, i profili di fatturazione e i clienti direttamente nel tenant di Azure del partner. Per altre informazioni sui ruoli del centro per i partner, vedere [assegnare utenti ruoli e autorizzazioni](/partner-center/permissions-overview).
+Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Gestione costi di Azure supporta solo i clienti del partner CSP se i clienti dispongono di un contratto per i clienti Microsoft. Per i clienti supportati da CSP che non sono ancora in un contratto per i clienti Microsoft, vedere il centro per i [partner](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who are not yet on a Microsoft Customer Agreement, see [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
-## <a name="switch-between-scopes-in-cost-management"></a>Passare da un ambito all'altra in gestione costi
+## <a name="switch-between-scopes-in-cost-management"></a>Switch between scopes in Cost Management
 
-Tutte le viste di gestione dei costi nel portale di Azure includono una pillola di selezione dell' **ambito** nella parte superiore sinistra della visualizzazione. Usarlo per modificare rapidamente l'ambito. Fare clic sulla pillola **ambito** per aprire la selezione ambito. Mostra gli account di fatturazione, il gruppo di gestione radice e tutte le sottoscrizioni non annidate nel gruppo di gestione radice. Per selezionare un ambito, fare clic sullo sfondo per evidenziarlo, quindi fare clic su **Seleziona** nella parte inferiore. Per eseguire il drill-in degli ambiti annidati, ad esempio i gruppi di risorse in una sottoscrizione, fare clic sul collegamento nome ambito. Per selezionare l'ambito padre a qualsiasi livello annidato, fare clic su **Seleziona questa &lt;scope &gt;** nella parte superiore della selezione ambito.
+All Cost Management views in the Azure portal include a **Scope** selection pill at the top-left of the view. Use it to quickly change scope. Click the **Scope** pill to open the scope picker. It shows billing accounts, the root management group, and any subscriptions that aren't nested under the root management group. To select a scope, click the background to highlight it and then click **Select** at the bottom. To drill-in to nested scopes, like resource groups in a subscription, click the scope name link. To select the parent scope at any nested level, click **Select this &lt;scope&gt;** at the top of the scope picker.
 
-## <a name="identify-the-resource-id-for-a-scope"></a>Identificare l'ID risorsa per un ambito
+## <a name="identify-the-resource-id-for-a-scope"></a>Identify the resource ID for a scope
 
-Quando si lavora con le API di gestione costi, la conoscenza dell'ambito è fondamentale. Usare le informazioni seguenti per compilare l'URI di ambito appropriato per le API di gestione dei costi.
+When working with Cost Management APIs, knowing the scope is critical. Use the following information to build the proper scope URI for Cost Management APIs.
 
-### <a name="billing-accounts"></a>Account di fatturazione
+### <a name="billing-accounts"></a>Billing accounts
 
-1. Aprire il portale di Azure, quindi passare a **Gestione costi e fatturazione** nell'elenco dei servizi.
-2. Scegliere **Proprietà** dal menu account di fatturazione.
-3. Copiare l'ID dell'account di fatturazione.
-4. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+1. Open the Azure portal and then navigate to **Cost Management + Billing** in the list of services.
+2. Select **Properties** in the billing account menu.
+3. Copy the billing account ID.
+4. Your scope is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
 ### <a name="billing-profiles"></a>Profili di fatturazione
 
-1. Aprire il portale di Azure, quindi passare a **Gestione costi e fatturazione** nell'elenco dei servizi.
-2. Selezionare **profili di fatturazione** nel menu account di fatturazione.
-3. Fare clic sul nome del profilo di fatturazione desiderato.
-4. Scegliere **Proprietà** dal menu Profilo di fatturazione.
-5. Copiare gli ID del profilo di fatturazione e dell'account di fatturazione.
-6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+1. Open the Azure portal and then navigate to **Cost Management + Billing** in the list of services.
+2. Select **Billing profiles** in the billing account menu.
+3. Click the name of the desired billing profile.
+4. Select **Properties** in the billing profile menu.
+5. Copy the billing account and billing profile IDs.
+6. Your scope is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
 ### <a name="invoice-sections"></a>Sezioni della fattura
 
-1. Aprire il portale di Azure, quindi passare a **Gestione costi e fatturazione** nell'elenco dei servizi.
-2. Selezionare le **sezioni fattura** nel menu account di fatturazione.
-3. Fare clic sul nome della sezione della fattura desiderata.
-4. Scegliere **Proprietà** dal menu della sezione fattura.
-5. Copiare gli ID della sezione fattura e account di fatturazione.
-6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
+1. Open the Azure portal and then navigate to **Cost Management + Billing** in the list of services.
+2. Select **Invoice sections** in the billing account menu.
+3. Click the name of the desired invoice section.
+4. Select **Properties** in the invoice section menu.
+5. Copy the billing account and invoice section IDs.
+6. Your scope is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
 
-### <a name="ea-departments"></a>Dipartimenti EA
+### <a name="ea-departments"></a>EA departments
 
-1. Aprire il portale di Azure, quindi passare a **Gestione costi e fatturazione** nell'elenco dei servizi.
-2. Selezionare **reparti** nel menu account di fatturazione.
-3. Fare clic sul nome del reparto desiderato.
-4. Scegliere **Proprietà** dal menu reparto.
-5. Copiare l'account di fatturazione e gli ID reparto.
-6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
+1. Open the Azure portal and then navigate to **Cost Management + Billing** in the list of services.
+2. Select **Departments** in the billing account menu.
+3. Click the name of the desired department.
+4. Select **Properties** in the department menu.
+5. Copy the billing account and department IDs.
+6. Your scope is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
 
-### <a name="ea-enrollment-account"></a>Account di registrazione EA
+### <a name="ea-enrollment-account"></a>EA enrollment account
 
-1. Aprire il portale di Azure e passare a **Gestione costi e fatturazione** nell'elenco dei servizi.
-2. Selezionare **account di registrazione** nel menu account di fatturazione.
-3. Fare clic sul nome dell'account di registrazione desiderato.
-4. Selezionare **Proprietà** nel menu account di registrazione.
-5. Copiare l'account di fatturazione e gli ID dell'account di registrazione.
-6. L'ambito è: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
+1. Open the Azure portal and navigate to **Cost Management + Billing** in the list of services.
+2. Select **Enrollment accounts** in the billing account menu.
+3. Click the name of the desired enrollment account.
+4. Select **Properties** in the enrollment account menu.
+5. Copy the billing account and enrollment account IDs.
+6. Your scope is: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
 
 ### <a name="management-group"></a>Gruppo di gestione
 
-1. Aprire il portale di Azure e passare a **gruppi di gestione** nell'elenco dei servizi.
-2. Passare al gruppo di gestione desiderato.
-3. Copiare l'ID del gruppo di gestione dalla tabella.
-4. L'ambito è: `"/providers/Microsoft.Management/managementGroups/{id}"`
+1. Open the Azure portal and navigate to **Management groups** in the list of services.
+2. Navigate to the desired management group.
+3. Copy the management group ID from the table.
+4. Your scope is: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
 ### <a name="subscription"></a>Sottoscrizione
 
-1. Aprire il portale di Azure e passare alle **sottoscrizioni** nell'elenco dei servizi.
-2. Copiare l'ID sottoscrizione dalla tabella.
-3. L'ambito è: `"/subscriptions/{id}"`
+1. Open the Azure portal and navigate to **Subscriptions** in the list of services.
+2. Copy the subscription ID from the table.
+3. Your scope is: `"/subscriptions/{id}"`
 
 ### <a name="resource-groups"></a>Gruppi di risorse
 
-1. Aprire il portale di Azure e passare a **gruppi di risorse** nell'elenco dei servizi.
-2. Fare clic sul nome del gruppo di risorse desiderato.
-3. Selezionare **Proprietà** nel menu gruppo di risorse.
-4. Copiare il valore del campo ID risorsa.
-5. L'ambito è: `"/subscriptions/{id}/resourceGroups/{name}"`
+1. Open the Azure portal and navigate to **Resource groups** in the list of services.
+2. Click the name of the desired resource group.
+3. Select **Properties** in the resource group menu.
+4. Copy the resource ID field value.
+5. Your scope is: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Gestione costi è attualmente supportato in Azure [Global](https://management.azure.com) e in [Azure per enti pubblici](https://management.usgovcloudapi.net). Per altre informazioni su Azure per enti pubblici, vedere [endpoint dell'API globale e per enti pubblici di Azure](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
+Cost Management is currently supported in [Azure Global](https://management.azure.com) and [Azure Government](https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Passaggi successivi
 

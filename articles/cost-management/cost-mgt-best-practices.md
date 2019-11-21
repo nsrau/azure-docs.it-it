@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7c562e6f0a1358d16b9abef08a5e582e4ff84472
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8662de2195696c94f27e31289d5b5f7ea97b507d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002033"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219126"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 
@@ -95,7 +95,7 @@ Per altre informazioni sulle diverse opzioni, vedere [Come acquistare Azure](htt
 
 - Nessun pagamento minimo o impegno
 - Prezzi competitivi
-- Pagamento in base all'utilizzo
+- Pagamento solo per le risorse usate
 - Massima libertà di annullamento
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -107,7 +107,7 @@ Per altre informazioni sulle diverse opzioni, vedere [Come acquistare Azure](htt
 
 Prima di distribuire qualsiasi infrastruttura, valutare quanto costerà la soluzione. La valutazione aiuterà a creare un budget iniziale per l'organizzazione per il carico di lavoro. Sarà quindi possibile usare il budget nel tempo per valutare la validità della stima iniziale e confrontarla con il costo effettivo della soluzione distribuita.
 
-### <a name="azure-pricing-calculator"></a>Calcolatore prezzi di Azure
+### <a name="azure-pricing-calculator"></a>Calcolatore dei prezzi di Azure
 
 Il calcolatore prezzi di Azure consente di creare diverse combinazioni di servizi di Azure per visualizzare una stima dei costi. È possibile implementare la soluzione in Azure in modi diversi, ognuno dei quali potrebbe influire sulla spesa complessiva. Considerando in anticipo tutte le esigenze di infrastruttura della distribuzione cloud, è possibile usare lo strumento nel modo più efficiente possibile. È possibile realizzare una stima attendibile delle spese previste in Azure.
 
@@ -187,7 +187,7 @@ Se si hanno già licenze di Windows Server o SQL Server nelle distribuzioni loca
 
 Per altre informazioni, vedere [Calcolatore del risparmio generato dal vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-### <a name="other-resources"></a>Altre risorse:
+### <a name="other-resources"></a>Altre risorse
 
 Azure offre anche un servizio che consente di creare servizi che sfruttano la capacità in eccedenza in Azure per ridurre le tariffe. Per altre informazioni, vedere [Usare le macchine virtuali con priorità bassa in Batch](../batch/batch-low-pri-vms.md).
 

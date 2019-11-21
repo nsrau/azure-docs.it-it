@@ -1,6 +1,6 @@
 ---
-title: White paper che descrivono Azure Data Factory
-description: Questi white paper descrivono Azure Data Factory in modo approfondito.
+title: Whitepapers that describe Azure Data Factory
+description: These whitepapers describe Azure Data Factory in depth.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 960969b13799eb2e56c2391393a0f9a71749bac8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e24d7507cf567103d62321c08491bdaaa7a46e5e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278159"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217114"
 ---
-# <a name="azure-data-factory-whitepapers"></a>Azure Data Factory white paper 
+# <a name="azure-data-factory-whitepapers"></a>Azure Data Factory whitepapers 
 
-White paper consentono di esplorare Azure Data Factory a un livello più profondo. Questo articolo fornisce un elenco di white paper disponibili per Azure Data Factory.
+Whitepapers allow you to explore Azure Data Factory at a deeper level. This article provides you with a list of available whitepapers for Azure Data Factory.
 
 | **Whitepaper** | **Descrizione** |
 | --- | --- |
-|[Azure Data Factory-integrazione dei dati nel cloud](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-data-integration-in-the-cloud/Azure_Data_Factory_Data_Integration_in_the_Cloud.pdf) | In questo documento viene descritto come Azure Data Factory possibile consentire di creare una data warehouse moderna, abilitare l'analisi avanzata per gestire le applicazioni SaaS intelligenti e sollevare i pacchetti dei servizi di integrazione SQL Server in Azure.|
-|[Migrazione dei dati da data warehouse relazionali locali ad Azure tramite Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf) | Questo documento illustra la complessità della migrazione dei dati di decine di TB da data warehouse relazionali locali esistenti (ad esempio, Netezza, Oracle, Teradata, SQL Server) ad Azure (ad esempio, archiviazione BLOB o Azure Data Lake Storage) usando Azure Data Factory. I problemi e le procedure consigliate vengono illustrati per la resilienza, le prestazioni, la scalabilità, la gestione e la sicurezza per il percorso di inserimento Big Data in Azure Azure Data Factory. |
-|[Integrazione dei dati SAP con Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) | In questo documento viene riepilogato il supporto di Azure Data Factory per l'integrazione dei dati SAP, incluso lo scenario di destinazione, le opzioni del connettore SAP e il confronto per i diversi requisiti e l'introduzione di ogni connettore SAP in Data Factory. | 
-|[Azure Data Factory: SSIS nel cloud](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-ssis-in-the-cloud/Azure_Data_Factory_SSIS_in_the_Cloud.pdf)| Questo documento descrive il motivo per cui si vuole eseguire la migrazione dei carichi di lavoro SSIS esistenti per Azure Data Factory e risolvere le considerazioni e i problemi più comuni. Verranno quindi illustrati i dettagli tecnici della creazione di un Azure-SSIS IR e verrà illustrato come caricare, eseguire e monitorare i pacchetti tramite Azure Data Factory utilizzando gli strumenti che probabilmente si conoscono come SQL Server Management Studio (SSMS). |
-|[Azure Data Factory-passaggio di parametri](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)| Questo articolo illustra come passare i parametri tra una pipeline e un'attività, nonché tra le attività. |
-|[Data Factory di Azure-DevOps](https://azure.microsoft.com/mediahandler/files/resourcefiles/whitepaper-adf-on-azuredevops/Azure%20data%20Factory-Whitepaper-DevOps.pdf)| In questo white paper vengono illustrate alcune delle procedure consigliate per l'integrazione e la distribuzione continue dei Azure Data Factory. |
+|[Azure Data Factory—Data Integration in the Cloud](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-data-integration-in-the-cloud/Azure_Data_Factory_Data_Integration_in_the_Cloud.pdf) | This paper describes how Azure Data Factory can enable you to build a modern data warehouse, enable advanced analytics to drive intelligent SaaS applications and lift your SQL Server Integrations Services packages to Azure.|
+|[Data Migration from on-premises relational Data Warehouse to Azure using Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf) | This paper addresses the complexity of migrating tens of TB data from existing on-premises relational data warehouse (for example, Netezza, Oracle, Teradata, SQL server) to Azure (for example, Blob Storage or Azure Data Lake Storage) using Azure Data Factory. The challenges and best practices are illustrated around resilience, performance, scalability, management, and security for the big data ingestion journey to Azure by Azure Data Factory. |
+|[SAP data integration using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) | This paper summarizes Azure Data Factory's current support on SAP data integration, including target scenario, SAP connector options and comparison for different requirements, and introduction on each SAP connector in Data Factory. | 
+|[Azure Data Factory: SSIS in the Cloud](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-ssis-in-the-cloud/Azure_Data_Factory_SSIS_in_the_Cloud.pdf)| This paper goes over why you would want to migrate your existing SSIS workloads to Azure Data Factory and address common considerations and concerns. We'll then walk you through the technical details of creating an Azure-SSIS IR and then show you how to upload, execute, and monitor your packages through Azure Data Factory using the tools you are probably are familiar with like SQL Server Management Studio (SSMS). |
+|[Azure data Factory –Passing Parameters](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)| This article walks you through how to pass parameters between a pipeline and activity as well as between the activities. |
+|[Azure data Factory –DevOps](https://azure.microsoft.com/mediahandler/files/resourcefiles/whitepaper-adf-on-azuredevops/Azure%20data%20Factory-Whitepaper-DevOps.pdf)| This whitepaper covers some of the best practices around continuous integration and deployment of Azure Data Factory. |
 

@@ -1,116 +1,116 @@
 ---
-title: Common Cost Analysis USA in gestione costi di Azure
-description: Questo articolo illustra come ottenere risultati per le attività comuni di analisi dei costi in gestione costi di Azure.
+title: Common cost analysis uses in Azure Cost Management
+description: This article explains how you can get results for common cost analysis tasks in Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 10/16/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: cc133a75506dcbe552d380e2a6de219a47aca3d8
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600189"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219481"
 ---
-# <a name="common-cost-analysis-uses"></a>Uso di analisi dei costi comuni
+# <a name="common-cost-analysis-uses"></a>Common cost analysis uses
 
-Gli utenti di gestione costi di Azure spesso vogliono rispondere alle domande poste da molti altri utenti. Questo articolo illustra come ottenere risultati per le attività comuni di analisi dei costi in gestione costi.
+Azure Cost Management users often want answers to questions that many others ask. This article walks you through getting results for common cost analysis tasks in Cost Management.
 
-## <a name="view-cost-breakdown-by-azure-service"></a>Visualizza suddivisione dei costi per servizio di Azure
+## <a name="view-cost-breakdown-by-azure-service"></a>View cost breakdown by Azure service
 
-La visualizzazione dei costi da parte di un servizio di Azure può aiutare a comprendere meglio le parti dell'infrastruttura più convenienti. Ad esempio, i costi di calcolo della macchina virtuale potrebbero essere ridotti. Tuttavia, è possibile che si accumulino costi di rete significativi a causa della quantità di informazioni emesse dalle macchine virtuali. Comprendere i principali fattori di costo dei servizi di Azure è essenziale per poter modificare l'utilizzo del servizio, in base alle esigenze.
+Viewing costs by an Azure service can help you to better understand the parts of your infrastructure that cost the most. For example, VM compute costs might be small. Yet you might accrue significant networking costs because of the amount of information emitting from the VMs. Understanding the primary cost drivers of your Azure services is essential so that you can adjust service usage, as needed.
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Selezionare **costo per servizio** e quindi raggruppare in base al **livello di servizio**.
-1. Modificare la visualizzazione in **tabella**.
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select **Cost by service** and then group by **Service tier**.
+1. Change the view to **Table**.
 
-![Suddivisione dei costi per servizio di Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)
+![Cost breakdown by Azure service](./media/cost-analysis-common-uses/breakdown-by-service.png)
 
-## <a name="view-cost-breakdown-by-azure-resource"></a>Visualizzare la suddivisione dei costi per risorsa di Azure
+## <a name="view-cost-breakdown-by-azure-resource"></a>View cost breakdown by Azure resource
 
-I servizi sono compilati con risorse di Azure. La revisione dei costi in base alle risorse consente di identificare rapidamente i collaboratori di costo primario. Se un servizio dispone di risorse troppo onerose, provare a apportare modifiche per ridurre i costi.
+Your services are built with Azure resources. Reviewing costs based on resources can help you quickly identify your primary cost contributors. If a service has resources that are too expensive, consider making changes to reduce your costs.
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Selezionare **costo per risorsa**.
-1. Modificare la visualizzazione in **tabella**.
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select **Cost by resource**.
+1. Change the view to **Table**.
 
-![Visualizzare la suddivisione dei costi per risorsa di Azure](./media/cost-analysis-common-uses/cost-by-resource.png)
+![View cost breakdown by Azure resource](./media/cost-analysis-common-uses/cost-by-resource.png)
 
-## <a name="view-cost-breakdown-by-selected-dimensions"></a>Visualizza suddivisione dei costi in base alle dimensioni selezionate
+## <a name="view-cost-breakdown-by-selected-dimensions"></a>View cost breakdown by selected dimensions
 
-Le dimensioni consentono di organizzare i costi in base ai diversi valori dei metadati indicati negli addebiti. È ad esempio possibile raggruppare i costi in base alla località.
+Dimensions allow you to organize your costs based on various metadata values shown in your charges. For example, you could group your costs by location.
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Selezionare il filtro **Raggruppa per** .  
-    ![Select un elemento Group by ](./media/cost-analysis-common-uses/group-by.png)
-1. Facoltativamente, è possibile salvare la vista per un uso successivo.
-1. Fare clic su un grafico a torta al di sotto del grafico per visualizzare dati più dettagliati.  
-    ![Visualizza suddivisione dei costi in base alle dimensioni selezionate](./media/cost-analysis-common-uses/drill-down.png)
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select the **Group by** filter.  
+    ![Select a Group by item](./media/cost-analysis-common-uses/group-by.png)
+1. Optionally, you save the view for later use.
+1. Click a pie chart below the graph to view more detailed data.  
+    ![View cost breakdown by selected dimensions](./media/cost-analysis-common-uses/drill-down.png)
 
-## <a name="view-costs-per-day-or-by-month"></a>Visualizza i costi al giorno o al mese
+## <a name="view-costs-per-day-or-by-month"></a>View costs per day or by month
 
-Esaminare i costi giornalieri e mensili può essere utile per comprendere meglio se è presente un'ora della settimana o dell'anno in cui i costi sono maggiori. Se si dispone di più traffico dei clienti in un periodo festivo, questo comporta un aumento corrispondente dei costi di Azure? Venerdì è un giorno più costoso del lunedì?
+Looking at daily and monthly costs can help you to better understand if there’s a time of the week or year where your costs are higher. If you have more customer traffic in a holiday period, does that lead to a corresponding increase in your Azure costs? Is Friday a more costly day than Monday?
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Impostare la **granularità** su **mensile** o **giornaliera**.
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Set the **Granularity** to **Monthly** or **Daily**.
 
-![Visualizza costi al giorno](./media/cost-analysis-common-uses/daily-granularity.png)
+![View costs per day](./media/cost-analysis-common-uses/daily-granularity.png)
 
-## <a name="view-costs-for-a-specific-tag"></a>Visualizzare i costi per un tag specifico
+## <a name="view-costs-for-a-specific-tag"></a>View costs for a specific tag
 
-Molti utenti di Azure applicano i tag alle risorse, ad esempio un centro di costo o un ambiente di sviluppo (produzione e test), per classificare meglio i costi. I tag vengono visualizzati come dimensione nell'analisi dei costi. È possibile usare la dimensione per ottenere informazioni dettagliate sulle categorizzazioni personalizzate per l'assegnazione di tag.
+Many Azure users apply tags to their resources such as a cost center or development environment (production and test) to better categorize charges. Tags appear as a dimension in cost analysis. You can use the dimension to gain insights into your custom tagging categorizations.
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Selezionare **Group by** per il tag.
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select **Group by** for your tag.
 
-![Visualizzare i costi per un tag specifico](./media/cost-analysis-common-uses/tag.png)
+![View costs for a specific tag](./media/cost-analysis-common-uses/tag.png)
 
 ## <a name="download-your-usage-details"></a>Scaricare i dettagli di utilizzo
 
-Il file di report dei dettagli sull'utilizzo in formato CSV fornisce una ripartizione di tutti gli addebiti accumulati per una fattura. È possibile utilizzare il report per confrontarlo e comprendere meglio la fattura. Ogni addebito addebitato sulla fattura corrisponde a costi interrotti nel report sull'utilizzo.
+Your usage details report file, in CSV format, provides a breakdown of all the charges that accrued towards an invoice. You can use the report to compare it to, and better understand, your invoice. Each billed charge on your invoice corresponds to broken-down charges in the usage report.
 
-1. Nella portale di Azure passare alla scheda **utilizzo e addebiti** per un account o una sottoscrizione di fatturazione. Ad esempio: **Gestione costi + fatturazione**  > **fatturazione**  > **utilizzo + addebiti**.
-1. Selezionare la voce da scaricare e quindi fare clic sul simbolo di download.  
-    ![Scarica utilizzo e addebiti](./media/cost-analysis-common-uses/download1.png)
-1.  Selezionare il file di utilizzo da scaricare.  
-    ![Scegliere un file di utilizzo da scaricare](./media/cost-analysis-common-uses/download2.png)
+1. In the Azure portal, navigate to the **Usage and Charges** tab for a billing account or subscription. For example: **Cost Management + Billing** > **Billing** > **Usage + charges**.
+1. Select the line item to download from and then click the download symbol.  
+    ![Download usage and charges](./media/cost-analysis-common-uses/download1.png)
+1.  Select the usage file to download.  
+    ![Choose a usage file to download](./media/cost-analysis-common-uses/download2.png)
 
-## <a name="view-monthly-ea-cost-breakdown"></a>Visualizza ripartizione costi di EA mensile
+## <a name="view-monthly-ea-cost-breakdown"></a>View monthly EA cost breakdown
 
-La registrazione EA accumula i costi per l'intera organizzazione. Conoscere il modo in cui i costi accumulati e vengono fatturati nel tempo consente di coinvolgere le parti interessate appropriate per garantire che i costi siano gestiti in modo responsabile.
+Your EA enrollment accrues costs for your entire organization. Understanding how costs accrue and are invoiced over time helps you to engage the appropriate stakeholders to ensure that costs are managed responsibly.
 
-1. Nella portale di Azure passare a **Gestione costi + fatturazione**  > **Panoramica**.
-1. Fare clic su **suddivisione** per il mese corrente e visualizzare il Burn-down dell'impegno monetario.  
-    Panoramica dei costi ![EA-Riepilogo suddivisione ](./media/cost-analysis-common-uses/breakdown1.png)
-1.  Fare clic sulla scheda **utilizzo e addebiti** e visualizzare la suddivisione del mese precedente nell'intervallo di tempo scelto.  
-    scheda ![Usage e addebiti ](./media/cost-analysis-common-uses/breakdown2.png)
+1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
+1. Click **Breakdown** for the current month and view your monetary commitment burn down.  
+    ![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)
+1.  Click the **Usage and Charges** tab and view the prior month’s breakdown in the chosen timespan.  
+    ![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)
 
-## <a name="view-enrollment-monthly-cost-by-term"></a>Visualizza il costo mensile per la registrazione per termine
+## <a name="view-enrollment-monthly-cost-by-term"></a>View enrollment monthly cost by term
 
-Usare una visualizzazione grafica dei costi mensili della registrazione per comprendere le tendenze dei costi e gli importi fatturati per un determinato periodo.
+Use a graphical view of your enrollment’s monthly costs to understand the cost trends and invoiced amounts for a given period.
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Selezionare la registrazione e impostare il termine di registrazione.
-1. Impostare la granularità su mensile, quindi impostare la visualizzazione su **colonna (in pila)** .
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select your enrollment and set the enrollment term.
+1. Set the granularity to monthly and then set the view to **Column     (stacked)** .
 
-È possibile raggruppare e filtrare i dati per un'analisi più dettagliata.
+You can group by and filter your data for a more detailed analysis.
 
-![Costo di registrazione mensile per termine](./media/cost-analysis-common-uses/enrollment-term1.png)
+![Monthly enrollment cost by term](./media/cost-analysis-common-uses/enrollment-term1.png)
 
-## <a name="view-ea-enrollment-accumulated-costs"></a>Visualizza i costi accumulati per la registrazione EA
+## <a name="view-ea-enrollment-accumulated-costs"></a>View EA enrollment accumulated costs
 
-Consente di visualizzare i costi cumulativi netti nel tempo per comprendere le spese complessive per l'organizzazione per un determinato periodo.
+View the net accumulated charges over time to understand overall expenditures for your organization for a given period.
 
-1. Nella portale di Azure passare all'analisi dei costi per l'ambito. Ad esempio: **Gestione costi + fatturazione**  > **Gestione costi**  >  l'**analisi dei costi**.
-1. Selezionare la registrazione e quindi visualizzare i costi accumulati correnti.
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select your enrollment and then view your current accumulated costs.
 
-![Costi accumulati per la registrazione](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+![Enrollment accumulated costs](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Se non è stata ancora completata la prima guida introduttiva di Gestione costi, esaminarla in [Avviare l’analisi dei costi](quick-acm-cost-analysis.md).
-- Leggere la [documentazione di gestione dei costi](index.yml).
+- Read the [Cost Management documentation](index.yml).

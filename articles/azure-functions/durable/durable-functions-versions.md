@@ -1,72 +1,70 @@
 ---
-title: Panoramica delle versioni di Durable Functions-funzioni di Azure
-description: Informazioni sulle versioni Durable Functions.
+title: Durable Functions versions overview - Azure Functions
+description: Learn about Durable Functions versions.
 author: cgillum
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5d6c8bcf610bfc8900e0f2a5237228208cd633ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 93c35eb4f69cc4f9b16f669d96c2df53f50bcf84
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614542"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231183"
 ---
-# <a name="durable-functions-versions-overview"></a>Panoramica sulle versioni di Durable Functions
+# <a name="durable-functions-versions-overview"></a>Durable Functions versions overview
 
-*Funzioni permanenti* è un'estensione di [Funzioni di Azure](../functions-overview.md) e [Processi Web di Azure](../../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii. Se non si ha già familiarità con Durable Functions, vedere la [documentazione di panoramica](durable-functions-overview.md).
+*Funzioni permanenti* è un'estensione di [Funzioni di Azure](../functions-overview.md) e [Processi Web di Azure](../../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
 
-## <a name="new-features-in-2x"></a>Nuove funzionalità in 2. x
+## <a name="new-features-in-2x"></a>New features in 2.x
 
-In questa sezione vengono descritte le funzionalità di Durable Functions aggiunte nella versione 2. x.
+This section describes the features of Durable Functions that are added in version 2.x.
 
-### <a name="durable-entities"></a>Entità durevoli
+### <a name="durable-entities"></a>Durable entities
 
-In Durable Functions 2. x è stato introdotto un nuovo concetto di [funzioni di entità](durable-functions-entities.md) .
+In Durable Functions 2.x, we introduced a new [entity functions](durable-functions-entities.md) concept.
 
-Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccole parti di stato, note come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, il *trigger di entità*. Diversamente dalle funzioni dell'agente di orchestrazione, le funzioni di entità non hanno vincoli di codice specifici. Le funzioni di entità, inoltre, gestiscono lo stato in modo esplicito anziché in modo implicito, rappresentandolo tramite flusso di controllo.
+Le funzioni di entità definiscono le operazioni per la lettura e l'aggiornamento di piccole parti di stato, note come *entità durevoli*. Come le funzioni dell'agente di orchestrazione, le funzioni di entità sono funzioni con un tipo di trigger speciale, il *trigger di entità*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Le funzioni di entità, inoltre, gestiscono lo stato in modo esplicito anziché in modo implicito, rappresentandolo tramite flusso di controllo.
 
-Per altre informazioni, vedere l'articolo sulle [entità durevoli](durable-functions-entities.md) .
+To learn more, see the [durable entities](durable-functions-entities.md) article.
 
-### <a name="durable-http"></a>HTTP durevole
+### <a name="durable-http"></a>Durable HTTP
 
-In Durable Functions 2. x è stata introdotta una nuova funzionalità [http durevole](durable-functions-http-features.md#consuming-http-apis) che consente di:
+In Durable Functions 2.x, we introduced a new [Durable HTTP](durable-functions-http-features.md#consuming-http-apis) feature that allows you to:
 
-* Chiamare le API HTTP direttamente dalle funzioni di orchestrazione (con alcune limitazioni documentate).
-* Implementare il polling dello stato HTTP 202 sul lato client automatico.
-* Supporto incorporato per le [identità gestite di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+* Call HTTP APIs directly from orchestration functions (with some documented limitations).
+* Implement automatic client-side HTTP 202 status polling.
+* Built-in support for [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Per altre informazioni, vedere l'articolo sulle [funzionalità http](durable-functions-http-features.md#consuming-http-apis) .
+To learn more, see the [HTTP features](durable-functions-http-features.md#consuming-http-apis) article.
 
-## <a name="migrate-from-1x-to-2x"></a>Eseguire la migrazione da 1. x a 2. x
+## <a name="migrate-from-1x-to-2x"></a>Migrate from 1.x to 2.x
 
-In questa sezione viene descritto come eseguire la migrazione della versione 1. x Durable Functions esistente alla versione 2. x per sfruttare le nuove funzionalità.
+This section describes how to migrate your existing version 1.x Durable Functions to version 2.x to take advantage of the new features.
 
-### <a name="upgrade-the-extension"></a>Aggiornare l'estensione
+### <a name="upgrade-the-extension"></a>Upgrade the extension
 
-Installare la versione 2. x dell' [estensione Durable Functions bindings](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) nel progetto. Per altre informazioni, vedere [registrare le estensioni di binding di funzioni di Azure](../functions-bindings-register.md) .
+Install version 2.x of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your project. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
 
-### <a name="update-your-code"></a>Aggiornare il codice
+### <a name="update-your-code"></a>Update your code
 
-Durable Functions 2. x introduce diverse modifiche di rilievo. Le applicazioni Durable Functions 1. x non sono compatibili con Durable Functions 2. x senza modifiche al codice. In questa sezione sono elencate alcune delle modifiche che è necessario apportare durante l'aggiornamento delle funzioni versione 1. x a 2. x.
+Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x applications are not compatible with Durable Functions 2.x without code changes. This section lists some of the changes you must make when upgrading your version 1.x functions to 2.x.
 
-#### <a name="hostjson-schema"></a>Schema host. JSON
+#### <a name="hostjson-schema"></a>Host.json schema
 
-Durable Functions 2. x usa un nuovo schema host. JSON. Di seguito sono riportate le modifiche principali da 1. x:
+Durable Functions 2.x uses a new host.json schema. The main changes from 1.x include:
 
-* `"storageProvider"` (e la sottosezione `"azureStorage"`) per la configurazione specifica dell'archiviazione.
-* `"tracking"` per la configurazione del rilevamento e della registrazione.
-* `"notifications"` (e la sottosezione `"eventGrid"`) per la configurazione delle notifiche di griglia di eventi.
+* `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
+* `"tracking"` for tracking and logging configuration.
+* `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
 
-Per informazioni dettagliate, vedere la [documentazione di riferimento di Durable Functions host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
+See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
 
-#### <a name="public-interface-changes-net-only"></a>Modifiche all'interfaccia pubblica (solo .NET)
+#### <a name="public-interface-changes-net-only"></a>Public interface changes (.NET only)
 
-Nella versione 1. x, i vari oggetti di _contesto_ supportati da Durable Functions hanno classi di base astratte destinate all'uso nel testing unità. Come parte di Durable Functions 2. x, queste classi di base astratte vengono sostituite con le interfacce.
+In version 1.x, the various _context_ objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
 
-La tabella seguente rappresenta le modifiche principali:
+The following table represents the main changes:
 
 | 1.x | 2.x |
 |----------|----------|
@@ -75,8 +73,8 @@ La tabella seguente rappresenta le modifiche principali:
 | `DurableActivityContext` oppure `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-Nel caso in cui una classe base astratta contenesse metodi virtuali, questi metodi virtuali sono stati sostituiti dai metodi di estensione definiti in `DurableContextExtensions`.
+In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>modifiche di Function. JSON (JavaScript C# e script)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>function.json changes (JavaScript and C# Script)
 
-In Durable Functions 1. x, l'associazione del client di orchestrazione utilizza una `type` di `orchestrationClient`. La versione 2. x usa invece `durableClient`.
+In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.

@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd-Azure Active Directory
-description: Uso dell'output di dsregcmd per comprendere lo stato dei dispositivi in Azure AD
+title: Troubleshooting devices using the dsregcmd command - Azure Active Directory
+description: Using the output from dsregcmd to understand the state of devices in Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,37 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c2769210b40b011a35973e48eebce60526f6fc10
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987161"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207156"
 ---
-# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd
+# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Troubleshooting devices using the dsregcmd command
 
-L'utilità dsregcmd/status deve essere eseguita come account utente di dominio.
+The dsregcmd /status utility must be run as a domain user account.
 
 ## <a name="device-state"></a>Stato del dispositivo
 
-Questa sezione elenca i parametri di stato di join del dispositivo. La tabella seguente elenca i criteri per il dispositivo in diversi Stati di join.
+This section lists the device join state parameters. The table below lists the criteria for the device to be in various join states.
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Stato del dispositivo |
 | ---   | ---   | ---   | ---   |
-| YES | NO | NO | Aggiunto ad Azure AD |
-| NO | NO | YES | Aggiunto a un dominio |
-| YES | NO | YES | Aggiunto AD ibrido |
-| NO | YES | YES | Unitamente a DRS locale |
+| SÌ | NO | NO | Azure AD Joined |
+| NO | NO | SÌ | Domain Joined |
+| SÌ | NO | SÌ | Hybrid AD Joined |
+| NO | SÌ | SÌ | On-premises DRS Joined |
 
 > [!NOTE]
-> Lo stato Workplace Join (Azure AD registrato) viene visualizzato nella sezione "stato utente"
+> Workplace Join (Azure AD registered) state is displayed in the "User State" section
 
-- **AzureAdJoined:** impostare su "Yes" Se il dispositivo è stato aggiunto al Azure ad. "NO" in caso contrario.
-- **EnterpriseJoined:** impostare su "Yes" Se il dispositivo è stato aggiunto a un DRS locale. Un dispositivo non può essere sia EnterpriseJoined che AzureAdJoined.
-- **DomainJoined:** impostare su "Yes" Se il dispositivo è aggiunto a un dominio (ad).
-- **DomainName:** -impostare sul nome del dominio se il dispositivo è aggiunto a un dominio.
+- **AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
+- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an on-premises DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
+- **DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
+- **DomainName:** - Set to the name of the domain if the device is joined to a domain.
 
-### <a name="sample-device-state-output"></a>Esempio di output dello stato del dispositivo
+### <a name="sample-device-state-output"></a>Sample device state output
 
 ```
 +----------------------------------------------------------------------+
@@ -54,18 +54,18 @@ Questa sezione elenca i parametri di stato di join del dispositivo. La tabella s
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Device details
+## <a name="device-details"></a>Dettagli dispositivo
 
-Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD aggiunto (non Azure AD registrato). Questa sezione elenca i dettagli di identificazione del dispositivo archiviati nel cloud.
+Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
 
-- **DeviceID:** ID univoco del dispositivo nel tenant Azure ad
-- **Identificazione personale:** -identificazione personale del certificato del dispositivo 
-- **DeviceCertificateValidity:** validità del certificato del dispositivo
-- **KeyContainerId:** -ContainerId della chiave privata del dispositivo associata al certificato del dispositivo
-- Chiave-fornito **:** -chiave (hardware/software) usata per archiviare la chiave privata del dispositivo.
-- **TpmProtected:** -"Yes" se la chiave privata del dispositivo è archiviata in un TPM hardware.
+- **DeviceId:** - Unique ID of the device in the Azure AD tenant
+- **Thumbprint:** - Thumbprint of the device certificate 
+- **DeviceCertificateValidity:** - Validity of the device certificate
+- **KeyContainerId:** - ContainerId of the device private key associated with the device certificate
+- **KeyProvider:** - KeyProvider (Hardware/Software) used to store the device private key.
+- **TpmProtected:** - “YES” if the device private key is stored in a Hardware TPM.
 
-### <a name="sample-device-details-output"></a>Output dei dettagli del dispositivo di esempio
+### <a name="sample-device-details-output"></a>Sample device details output
 
 ```
 +----------------------------------------------------------------------+
@@ -81,14 +81,17 @@ Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD a
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Dettagli tenant
+## <a name="tenant-details"></a>Tenant details
 
-Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD aggiunto (non Azure AD registrato). Questa sezione elenca i dettagli del tenant comune quando un dispositivo viene aggiunto al Azure AD.
+Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists the common tenant details when a device is joined to Azure AD.
 
 > [!NOTE]
-> Anche se vengono visualizzati URL MDM, questo non significa che il dispositivo è gestito da MDM. Le informazioni vengono visualizzate se il tenant ha una configurazione MDM per la registrazione automatica anche se il dispositivo stesso non è gestito. 
+> If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
 
-### <a name="sample-tenant-details-output"></a>Output dei dettagli del tenant di esempio
+> [!NOTE]
+> Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
+
+### <a name="sample-tenant-details-output"></a>Sample tenant details output
 
 ```
 +----------------------------------------------------------------------+
@@ -121,22 +124,22 @@ Visualizzato solo quando il dispositivo è Azure AD aggiunto o ibrido Azure AD a
 
 ## <a name="user-state"></a>Stato dell'utente
 
-Questa sezione elenca lo stato di diversi attributi per l'utente attualmente connesso al dispositivo.
+This section lists the status of various attributes for the user currently logged into the device.
 
 > [!NOTE]
-> Il comando deve essere eseguito in un contesto utente per recuperare lo stato valido.
+> The command must run in a user context to retrieve valid status.
 
-- **NgcSet:** impostare su "Sì" se è impostato un tasto Hello Windows per l'utente che ha eseguito l'accesso corrente.
-- **NgcKeyId:** -ID del tasto Hello Windows se ne è stato impostato uno per l'utente connesso corrente.
-- **Ripristinare:** indica se il tasto Windows Hello può essere reimpostato dall'utente. 
-- **Valori possibili:** -DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive o Unknown se error. 
-- **WorkplaceJoined:** impostare su "Yes" se Azure ad account registrati sono stati aggiunti al dispositivo nel contesto Ntuser corrente.
-- **WamDefaultSet:** impostare su "Yes" Se viene creato un account WebAccount predefinito WAM per l'utente connesso. Questo campo potrebbe visualizzare un errore se dsreg/status viene eseguito nel contesto di amministrazione. 
-- **WamDefaultAuthority:** impostare su "Organizations" per Azure ad.
-- **WamDefaultId:** -always https://login.microsoft.com"" per Azure ad.
-- **WamDefaultGUID:** il GUID del provider wam (Azure AD/account Microsoft) per l'account predefinito WAM. 
+- **NgcSet:** - Set to “YES” if a Windows Hello key is set for the current logged on user.
+- **NgcKeyId:** - ID of the Windows Hello key if one is set for the current logged on user.
+- **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
+- **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
+- **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
+- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
+- **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
+- **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
+- **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
 
-### <a name="sample-user-state-output"></a>Output dello stato utente di esempio
+### <a name="sample-user-state-output"></a>Sample user state output
 
 ```
 +----------------------------------------------------------------------+
@@ -155,23 +158,23 @@ Questa sezione elenca lo stato di diversi attributi per l'utente attualmente con
 +----------------------------------------------------------------------+
 ```
 
-## <a name="sso-state"></a>Stato SSO
+## <a name="sso-state"></a>SSO state
 
-Questa sezione può essere ignorata per Azure AD dispositivi registrati.
+This section can be ignored for Azure AD registered devices.
 
 > [!NOTE]
-> Il comando deve essere eseguito in un contesto utente per recuperare lo stato valido per tale utente.
+> The command must run in a user context to retrieve valid status for that user.
 
-- **AzureAdPrt:** impostare su "Yes" Se nel dispositivo è presente un PRT per l'utente connesso.
-- **AzureAdPrtUpdateTime:** -impostare sull'ora UTC in cui è stato eseguito l'ultimo aggiornamento del PRT.
-- **AzureAdPrtExpiryTime:** -impostare sull'ora UTC in cui il PRT scadrà se non viene rinnovato.
-- **AzureAdPrtAuthority:** -URL autorità Azure ad
-- **EnterprisePrt:** impostare su "Yes" Se il dispositivo ha PRT da ADFS locale. Per i dispositivi ibridi Azure AD aggiunti, il dispositivo potrebbe avere PRT sia da Azure AD sia da AD locale simultaneamente. I dispositivi aggiunti in locale avranno solo un PRT Enterprise.
-- **EnterprisePrtUpdateTime:** -impostare sull'ora UTC in cui è stato eseguito l'ultimo aggiornamento dell'azienda PRT.
-- **EnterprisePrtExpiryTime:** -impostare sull'ora UTC in cui il PRT scadrà se non viene rinnovato.
-- **EnterprisePrtAuthority:** -URL autorità ADFS
+- **AzureAdPrt:** - Set to “YES” if a PRT is present on the device for the logged-on user.
+- **AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.
+- **AzureAdPrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
+- **AzureAdPrtAuthority:** - Azure AD authority URL
+- **EnterprisePrt:** - Set to “YES” if the device has PRT from on-premises ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and on-premises AD simultaneously. On-premises joined devices will only have an Enterprise PRT.
+- **EnterprisePrtUpdateTime:** - Set to the time in UTC when the Enterprise PRT was last updated.
+- **EnterprisePrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
+- **EnterprisePrtAuthority:** - ADFS authority URL
 
-### <a name="sample-sso-state-output"></a>Output dello stato SSO di esempio
+### <a name="sample-sso-state-output"></a>Sample SSO state output
 
 ```
 +----------------------------------------------------------------------+
@@ -192,35 +195,35 @@ Questa sezione può essere ignorata per Azure AD dispositivi registrati.
 
 ## <a name="diagnostic-data"></a>Dati di diagnostica
 
-### <a name="pre-join-diagnostics"></a>Diagnostica di pre-join
+### <a name="pre-join-diagnostics"></a>Pre-join diagnostics
 
-Questa sezione viene visualizzata solo se il dispositivo è aggiunto a un dominio e non è in grado di ibrido Azure AD join.
+This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 
-Questa sezione esegue vari test per facilitare la diagnosi degli errori di join. In questa sezione sono inoltre inclusi i dettagli della precedente (?). Queste informazioni includono la fase di errore, il codice di errore, l'ID richiesta server, lo stato HTTP risposta server, il messaggio di errore risposta server.
+This section performs various tests to help diagnose join failures. This section also includes the details of the previous (?). This information includes the error phase, the error code, the server request ID, server response http status, server response error message.
 
-- **Contesto utente:** il contesto in cui vengono eseguite le operazioni di diagnostica. Valori possibili: SISTEMA, utente non con privilegi elevati, utente con privilegi elevati. 
+- **User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User. 
 
    > [!NOTE]
-   > Poiché il join effettivo viene eseguito nel contesto di sistema, l'esecuzione della diagnostica nel contesto di sistema è più vicina allo scenario di join effettivo. Per eseguire la diagnostica in un contesto di sistema, è necessario eseguire il comando dsregcmd/status da un prompt dei comandi con privilegi elevati.
+   > Since the actual join is performed in SYSTEM context, running the diagnostics in SYSTEM context is closest to the actual join scenario. To run diagnostics in SYSTEM context, the dsregcmd /status command must be run from an elevated command prompt.
 
-- **Client Time:** ora di sistema in formato UTC.
-- **Ad Connectivity test:** -test esegue un test di connettività al controller di dominio. Un errore in questo test comporterà probabilmente errori di join nella fase di controllo preliminare.
-- **Test di configurazione di Active Directory:** -il test legge e verifica se l'oggetto SCP è configurato correttamente nella foresta ad locale. Gli errori in questo test potrebbero causare errori di join nella fase di individuazione con il codice di errore 0x801c001d.
-- **Test DRS Discovery:** -test ottiene gli endpoint DRS dall'endpoint dei metadati di individuazione ed esegue una richiesta di autenticazione utente. Gli errori in questo test potrebbero causare errori di join nella fase di individuazione.
-- **Test di connettività DRS:** -test esegue un test di connettività di base per l'endpoint DRS.
-- **Test di acquisizione dei token:** -test tenta di ottenere un token di autenticazione Azure ad se il tenant utente è federato. Gli errori in questo test potrebbero causare errori di join nella fase di autenticazione. Se l'autenticazione non riesce, il join di sincronizzazione verrà tentato come fallback, a meno che il fallback non venga disabilitato esplicitamente con una chiave del registro di sistema
-- **Fallback per Sync-join:** -impostare su "Enabled" se la chiave del registro di sistema, per impedire il fallback per sincronizzare il join con errori di autenticazione, non è presente. Questa opzione è disponibile in Windows 10 1803 e versioni successive.
-- **Registrazione precedente:** ora in cui si è verificato il tentativo di join precedente. Vengono registrati solo i tentativi di join non riusciti.
-- **Fase di errore:** -la fase del join in cui è stata interrotta. I valori possibili sono pre-check, Discovery, auth, join.
-- **ErrorCode client:** -codice di errore client restituito (HRESULT).
-- **Server ErrorCode:** -codice di errore del server se una richiesta è stata inviata al server e il server ha restituito un codice di errore. 
-- **Messaggio Server:** -messaggio Server restituito insieme al codice di errore.
-- **Stato https:** -stato HTTP restituito dal server.
-- **ID richiesta:** -il client RequestId inviato al server. Utile per la correlazione con i log sul lato server.
+- **Client Time:** - The system time in UTC.
+- **AD Connectivity Test:** - Test performs a connectivity test to the domain controller. Error in this test will likely result in Join errors in pre-check phase.
+- **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-premises AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
+- **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
+- **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
+- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
+- **Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
+- **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
+- **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
+- **Client ErrorCode:** - Client error code returned (HRESULT).
+- **Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code. 
+- **Server Message:** - Server message returned along with the error code.
+- **Https Status:** - Http status returned by the server.
+- **Request ID:** - The client requestId sent to the server. Useful to correlate with server-side logs.
 
-### <a name="sample-pre-join-diagnostics-output"></a>Esempio di output di diagnostica pre-join
+### <a name="sample-pre-join-diagnostics-output"></a>Sample pre-join diagnostics output
 
-Nell'esempio seguente viene illustrato un errore di individuazione del test di diagnostica.
+The following example shows diagnostics test failing with a discovery error.
 
 ```
 +----------------------------------------------------------------------+
@@ -244,7 +247,7 @@ Nell'esempio seguente viene illustrato un errore di individuazione del test di d
 +----------------------------------------------------------------------+
 ```
 
-Nell'esempio seguente vengono illustrati i test di diagnostica che passano, ma il tentativo di registrazione non è riuscito con un errore di directory, previsto per Sync join. Al termine del processo di sincronizzazione Azure AD Connect, il dispositivo sarà in grado di partecipare.
+The following example shows diagnostics tests are passing but the registration attempt failed with a directory error, which is expected for sync join. Once the Azure AD Connect synchronization job completes, the device will be able to join.
 
 ```
 +----------------------------------------------------------------------+
@@ -273,14 +276,14 @@ Nell'esempio seguente vengono illustrati i test di diagnostica che passano, ma i
 +----------------------------------------------------------------------+
 ```
 
-### <a name="post-join-diagnostics"></a>Diagnostica post-join
+### <a name="post-join-diagnostics"></a>Post-join diagnostics
 
-In questa sezione viene visualizzato l'output dei controlli di integrità di integrità eseguiti in un dispositivo aggiunto al cloud.
+This section displays the output of sanity checks performed on a device joined to the cloud.
 
-- **AadRecoveryEnabled:** se l'opzione è impostata su "Sì", le chiavi archiviate nel dispositivo non sono utilizzabili e il dispositivo è contrassegnato per il ripristino. Il successivo accesso attiverà il flusso di ripristino e registrerà nuovamente il dispositivo.
-- **KeySignTest:** se "superato", le chiavi del dispositivo sono in stato valido. Se KeySignTest ha esito negativo, il dispositivo viene in genere contrassegnato per il ripristino. Il successivo accesso attiverà il flusso di ripristino e registrerà nuovamente il dispositivo. Per i dispositivi ibridi Azure AD aggiunti il ripristino è invisibile all'utente. Se Azure AD aggiunto o Azure AD registrato, i dispositivi richiederanno l'autenticazione utente per il ripristino e la registrazione del dispositivo, se necessario. **Il KeySignTest richiede privilegi elevati.**
+- **AadRecoveryEnabled:** - If “YES”, the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
+- **KeySignTest:** - If “PASSED” the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
 
-#### <a name="sample-post-join-diagnostics-output"></a>Esempio di output di diagnostica post-join
+#### <a name="sample-post-join-diagnostics-output"></a>Sample post-join diagnostics output
 
 ```
 +----------------------------------------------------------------------+
@@ -292,14 +295,14 @@ In questa sezione viene visualizzato l'output dei controlli di integrità di int
 +----------------------------------------------------------------------+
 ```
 
-## <a name="ngc-prerequisite-check"></a>Controllo dei prerequisiti NGC
+## <a name="ngc-prerequisite-check"></a>NGC prerequisite check
 
-Questa sezione esegue i controlli prerequisito per il provisioning di una chiave NGC. 
+This section performs the perquisite checks for the provisioning of an NGC key. 
 
 > [!NOTE]
-> Non è possibile visualizzare i dettagli del controllo dei prerequisiti NGC in dsregcmd/status se l'utente ha già configurato le credenziali NGC.
+> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured NGC credentials.
 
-### <a name="sample-ngc-prerequisite-check-output"></a>Output controllo prerequisiti NGC di esempio
+### <a name="sample-ngc-prerequisite-check-output"></a>Sample NGC prerequisite check output
 
 ```
 +----------------------------------------------------------------------+

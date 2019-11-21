@@ -1,21 +1,16 @@
 ---
 title: Debug locale della griglia di eventi di Funzioni di Azure
 description: Informazioni sul debug locale delle Funzioni di Azure attivate da una Griglia di eventi
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: funzioni di azure, funzioni, architettura serverless
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085680"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227076"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debug locale del trigger della Griglia di eventi di Funzioni di Azure
 
@@ -27,7 +22,7 @@ Questo articolo illustra come eseguire il debug di una funzione locale che gesti
 - Creare o usare un account di archiviazione esistente
 - Scaricare [ngrok](https://ngrok.com/) per consentire ad Azure di chiamare la funzione locale
 
-## <a name="create-a-new-function"></a>Crea una nuova funzione
+## <a name="create-a-new-function"></a>Creare una nuova funzione
 
 Aprire l'app per le funzioni in Visual Studio, fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e fare clic su **Aggiungi > Nuova funzione di Azure**.
 
@@ -86,7 +81,7 @@ Dopo aver immesso il valore appropriato, fare clic su **Confermare la selezione*
 > [!IMPORTANT]
 > Ogni volta che si avvia *ngrok*, l'URL HTTPS viene rigenerato e il valore cambia. Pertanto è necessario creare una nuova Sottoscrizione di eventi ogni volta che si espone la propria funzione ad Azure tramite *ngrok*.
 
-## <a name="upload-a-file"></a>Carica un file
+## <a name="upload-a-file"></a>Caricare un file
 
 Ora è possibile caricare un file nell'account di archiviazione per attivare un evento della Griglia di eventi per la funzione locale da gestire. 
 

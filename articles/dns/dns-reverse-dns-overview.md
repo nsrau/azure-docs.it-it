@@ -1,23 +1,23 @@
 ---
-title: Panoramica del DNS inverso in Azure | Microsoft Docs
-description: Informazioni sul funzionamento del DNS inverso e su come usarlo in Azure
+title: Overview of reverse DNS in Azure - Azure DNS
+description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: asudbring
+manager: KumuD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
-ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 2788cc3957e9822e61c10f5f06a29802e225bcbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60192983"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211020"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Panoramica del DNS inverso e supporto in Azure
 
@@ -33,7 +33,7 @@ I record DNS inversi vengono usati in varie situazioni. I record DNS inversi, ad
 
 I record DNS inversi sono ospitati in speciali zone DNS, chiamate zone "ARPA".  Queste zone costituiscono una gerarchia DNS separata parallela alla normale gerarchia che ospita domini come "contoso.com".
 
-Il record DNS "www.contoso.com", ad esempio, viene implementato usando un record "A" DNS con il nome "www" nella zona "contoso.com".  Questo record A fa riferimento all'indirizzo IP corrispondente, in questo caso 64.4.6.100.  La ricerca inversa viene implementata separatamente, usando un record "PTR" denominato "100" nella zona "6.4.64.in-addr.arpa". Si noti che gli indirizzi IP sono inversi nelle zone ARPA.  Questo record PTR, se è stato configurato correttamente, fa riferimento al nome "www.contoso.com".
+Il record DNS "www.contoso.com", ad esempio, viene implementato usando un record "A" DNS con il nome "www" nella zona "contoso.com".  Questo record A fa riferimento all'indirizzo IP corrispondente, in questo caso 64.4.6.100.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
 
 Quando a un'organizzazione viene assegnato un blocco di indirizzi IP, acquisisce anche il diritto di gestire la zona ARPA corrispondente. Le zone ARPA corrispondenti ai blocchi di indirizzi IP usati da Azure vengono ospitate e gestite da Microsoft. L'ISP può ospitare per l'utente la zona ARPA per gli indirizzi IP o può consentire di ospitare la zona ARPA nel servizio DNS preferito, ad esempio DNS di Azure.
 

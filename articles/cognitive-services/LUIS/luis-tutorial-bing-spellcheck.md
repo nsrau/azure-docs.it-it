@@ -1,5 +1,5 @@
 ---
-title: Correggi parole errate-LUIS
+title: Correct misspelled words - LUIS
 titleSuffix: Azure Cognitive Services
 description: È possibile correggere le parole in espressioni errate aggiungendo API Controllo ortografico Bing v7 alle query di endpoint LUIS.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 238b76040559148c48aa67b99e856a5987b71a7e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123165"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225457"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Ortografia corretta con il Controllo ortografico Bing
 
@@ -26,6 +26,7 @@ ms.locfileid: "74123165"
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Creare la prima chiave per Controllo ortografico Bing V7
+
 La [prima chiave API Controllo ortografico Bing v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) è gratuita. 
 
 ![Creare una chiave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
@@ -61,9 +62,10 @@ Se la chiave gratuita è scaduta, creare una chiave endpoint.
 
 10. Copiare la prima chiave. È necessaria solo una delle due chiavi. 
 
-## <a name="using-the-key-in-luis-test-panel"></a>Utilizzare la chiave nel pannello di test LUIS
-Esistono due posizioni in LUIS per usare la chiave. La prima è il [pannello test](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La chiave non viene salvata in LUIS ma è invece una variabile di sessione. È necessario impostare la chiave ogni volta che si desidera che il pannello di test applichi il servizio di API Controllo ortografico Bing v7 all’espressione. Vedere [istruzioni](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) nel pannello di test per l'impostazione della chiave.
-
+<!--
+## Using the key in LUIS test panel
+There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
+-->
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Aggiungere la chiave all'URL dell'endpoint
 La query di endpoint richiede che la chiave sia passata nei parametri della stringa query per ogni query che si desidera applicare alla correzione ortografica. Si può avere un chatbot che chiama LUIS o si può chiamare direttamente l'API dell'endpoint LUIS. Indipendentemente dal modo in cui l'endpoint viene chiamato, ogni chiamata deve includere le informazioni necessarie affinché le correzioni ortografiche funzionino correttamente.
 
@@ -94,12 +96,12 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorare errori di ortografia
 
-Se non si vuole usare il servizio Controllo ortografico Bing API V7, è necessario aggiungere l'ortografia corretta e non corretta. 
+If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
 
-Sono disponibili due soluzioni:
+Two solutions are:
 
-* Etichettare espressioni di esempio con tutte le ortografie diverse in modo che LUIS possa apprendere l'ortografia corretta e gli errori di digitazione. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
-* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione non è necessario etichettare le varianti di parola nelle espressioni di esempio. 
+* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
+* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
 
 ## <a name="publishing-page"></a>Pubblicazione di una pagina
 La pagina di [pubblicazione](luis-how-to-publish-app.md) contiene una casella di controllo **Abilita correttore ortografico Bing**. Si tratta di una comodità per creare la chiave e capire come cambia l'URL dell'endpoint. È comunque necessario usare i parametri di endpoint corretti per avere il controllo ortografico corretto per ogni espressione. 

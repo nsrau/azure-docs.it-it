@@ -1,6 +1,6 @@
 ---
-title: Creare password di app in info di sicurezza (anteprima)-Azure AD
-description: Configurare le password generate automaticamente (password dell'app) da usare con qualsiasi app non basate su browser o qualsiasi app che non supporta la verifica a due fattori nell'organizzazione. Questa password dell'app è distinta da una password normale e può essere configurata dalla pagina Info di sicurezza.
+title: Create app passwords from Security info (preview) page - Azure AD
+description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. Questa password dell'app è distinta da una password normale e può essere configurata dalla pagina Info di sicurezza.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820333"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231798"
 ---
-# <a name="create-app-passwords-from-your-security-info-preview-page"></a>Creare password di app dalla pagina delle info di sicurezza (anteprima)
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Create app passwords from the Security info (preview) page
 
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
@@ -30,7 +30,7 @@ Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'ass
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 
-- Le password dell'app vengono generate automaticamente e devono essere create e immesse una volta per ogni app.
+- App passwords are auto-generated, and should be created and entered once per app.
 
 - Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
 
@@ -46,7 +46,7 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 
 ### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
 
     ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 

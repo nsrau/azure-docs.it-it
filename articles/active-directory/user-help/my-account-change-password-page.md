@@ -1,6 +1,6 @@
 ---
-title: Modificare la password dal portale account personale-Azure Active Directory | Microsoft Docs
-description: Come modificare la password dell'account aziendale o dell'Istituto di istruzione dalla pagina Cambia password del portale account personale.
+title: Change your work or school account password - Azure AD
+description: Learn to change your work or school account password from the Change Password page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,48 +12,48 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4716ef932debe50bfe0aee6519b53e3a19e8d51
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587862"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231863"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Modificare la password dell'account aziendale o dell'Istituto di istruzione dal portale account personale
+# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Change your work or school account password from the My Account portal
 
-Nella pagina **Cambia password** del portale **account personale** è possibile aggiornare la password dell'account aziendale o dell'Istituto di istruzione. Questa operazione funzionerà solo se si conosce la password esistente e se l'account non è bloccato.
+From the **Change password** page of the **My Account** portal, you can update your work or school account password. This will only work if you know your existing password and if you aren't locked out of your account.
 
-Se non si ricorda la password, se l'account è stato bloccato o se non si è mai avuta una password dal team di supporto tecnico aziendale, è possibile usare le info di sicurezza e il dispositivo mobile per reimpostare la password. Per altre informazioni, vedere [Reimpostare la password aziendale o scolastica](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+If you don't remember your password, if you've been locked out of your account, or if you never got a password from your company support team, you can use your security info and your mobile device to reset your password. Per altre informazioni, vedere [Reimpostare la password aziendale o scolastica](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
 
 >[!Note]
->Se si sta provando a tornare a un account personale come per Xbox, hotmail.com o outlook.com, provare i suggerimenti nel [quando non è possibile accedere al account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) articolo.
+>If you're trying to get back into a personal account like for Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>Per modificare la password dal portale account personale
+## <a name="to-change-your-password-from-the-my-account-portal"></a>To change your password from the My Account portal
 
-1. Accedere al proprio account aziendale o dell'Istituto di istruzione, usando la password esistente, quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
 
-2. Selezionare **password** dal riquadro di spostamento a sinistra oppure selezionare il collegamento **Cambia password** dal blocco **password** .
+2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
 
-    ![Pagina account personale, che mostra il collegamento modifica password evidenziato](media/my-account-portal/my-account-portal-change-password.png)
+    ![My Account page, showing highlighted Change password link](media/my-account-portal/my-account-portal-change-password.png)
 
-3. Digitare la vecchia password, quindi creare e confermare la nuova password.
+3. Type your old password, and then create and confirm your new password.
 
-    ![Modificare la pagina password, mostrando i campi password](media/my-account-portal/my-account-portal-change-password-page.png)
+    ![Change password page, showing password fields](media/my-account-portal/my-account-portal-change-password-page.png)
 
 4. Selezionare **Submit** (Invia).
 
-    La password verrà modificata e verrà chiesto di accedere di nuovo all'account aziendale o dell'Istituto di istruzione.
+    Your password will be changed and you'll be asked to sign in to your work or school account again.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver modificato la password, è possibile:
+After changing your password, you can:
 
-- Visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md).
+- View or manage your [security info](user-help-security-info-overview.md).
 
-- Visualizzare o gestire i [dispositivi](my-account-portal-devices-page.md)connessi.
+- View or manage your connected [devices](my-account-portal-devices-page.md).
 
-- Visualizzare o gestire le [organizzazioni](my-account-portal-organizations-page.md).
+- View or manage your [organizations](my-account-portal-organizations-page.md).
 
-- Visualizzare l' [attività di accesso](my-account-portal-sign-ins-page.md).
+- View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- Visualizzare il modo in cui l'organizzazione [Usa i dati relativi alla privacy](my-account-portal-privacy-page.md).
+- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).

@@ -1,19 +1,16 @@
 ---
 title: Associazioni di Microsoft Graph per Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni di Microsoft Graph in Funzioni di Azure.
-services: functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 1db929e3ec4b400113d04cb7dd1cd4b8d2e86a9a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f253aeb202671a3f90eabb1d04af95333540a239
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176602"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231160"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -208,12 +205,12 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Token`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di input per il token di autenticazione nel codice](#token-input-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di input per il token di autenticazione nel codice](#token-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `token`.|
 |**direction**||Obbligatoria. Deve essere impostata su `in`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
 |**Risorsa**|**resource**|Obbligatoria: un URL della risorsa Azure AD per il quale viene richiesto il token.|
@@ -343,12 +340,12 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Excel`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per la tabella di Excel. Vedere [Usare un'associazione di input per la tabella di Excel nel codice](#excel-input-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per la tabella di Excel. Vedere [Usare un'associazione di input per la tabella di Excel nel codice](#excel-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `excel`.|
 |**direction**||Obbligatoria. Deve essere impostata su `in`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
 |**path**|**Percorso**|Obbligatoria: il percorso della cartella di lavoro di Excel in OneDrive.|
@@ -360,14 +357,14 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Resource|Autorizzazione|
+|Gruppi|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Leggere i file dell'utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - stringa[][]
 - Microsoft.Graph.WorkbookTable
-- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -505,25 +502,25 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Excel`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di ouput per la tabella di Excel nel codice](#excel-output-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di ouput per la tabella di Excel nel codice](#excel-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `excel`.|
 |**direction**||Obbligatoria. Deve essere impostata su `out`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**UserId** |**userId** |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
 |**path**|**Percorso**|Obbligatoria: il percorso della cartella di lavoro di Excel in OneDrive.|
 |**worksheetName**|**WorksheetName**|Il foglio di lavoro in cui si trova la tabella.|
 |**tableName**|**TableName**|Nome della tabella. Se non specificato, verrà usato il contenuto del foglio di lavoro.|
-|**updateType**|**UpdateType**|Obbligatoria: tipo di modifica da apportare alla tabella. Il valore può essere uno dei seguenti:<ul><li><code>update</code>: sostituisce il contenuto della tabella in OneDrive.</li><li><code>append</code>: aggiunge il payload alla fine della tabella in OneDrive mediante la creazione di nuove righe.</li></ul>|
+|**updateType**|**UpdateType**|Obbligatoria: tipo di modifica da apportare alla tabella. Può avere uno dei valori seguenti:<ul><li><code>update</code>: sostituisce il contenuto della tabella in OneDrive.</li><li><code>append</code>: aggiunge il payload alla fine della tabella in OneDrive mediante la creazione di nuove righe.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Output di Excel: utilizzo
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Resource|Autorizzazione|
+|Gruppi|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
 
@@ -531,7 +528,7 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 - stringa[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
-- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -651,12 +648,12 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `OneDrive`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di input per i file di OneDrive nel codice](#onedrive-input-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di input per i file di OneDrive nel codice](#onedrive-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `onedrive`.|
 |**direction**||Obbligatoria. Deve essere impostata su `in`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
 |**path**|**Percorso**|Obbligatoria: il percorso del file in OneDrive.|
@@ -666,7 +663,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Resource|Autorizzazione|
+|Gruppi|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Leggere i file dell'utente|
 
@@ -799,12 +796,12 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `OneDrive`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di output per i file di OneDrive nel codice](#onedrive-output-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di output per i file di OneDrive nel codice](#onedrive-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `onedrive`.|
 |**direction**||Obbligatoria. Deve essere impostata su `out`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**UserId** |**userId** |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
 |**path**|**Percorso**|Obbligatoria: il percorso del file in OneDrive.|
@@ -814,7 +811,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Resource|Autorizzazione|
+|Gruppi|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
 
@@ -950,12 +947,12 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Outlook`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `outlook`.|
 |**direction**||Obbligatoria. Deve essere impostata su `out`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
 
@@ -964,7 +961,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Resource|Autorizzazione|
+|Gruppi|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Inviare un messaggio di posta elettronica come utente|
 
@@ -972,14 +969,14 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
 - string
-- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
 
 
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhook
 
 I webhook consentono di rispondere agli eventi in Microsoft Graph. Per supportare i webhook, le funzioni devono creare, aggiornare e rispondere alle _sottoscrizioni webhook_. Una soluzione webhook completa richiede una combinazione delle associazioni seguenti:
 - Un [trigger webhook di Microsoft Graph](#webhook-trigger) che consente di rispondere a un webhook in ingresso.
@@ -1087,15 +1084,15 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Trigger di webhook: attributi
 
-In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) .
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) attribute.
 
 ### <a name="webhook-trigger---configuration"></a>Trigger di webhook: configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `graphWebhook`.|
 |**direction**||Obbligatoria. Deve essere impostata su `trigger`.|
 |**resourceType**|**ResourceType**|Obbligatoria: la risorsa del grafico per cui questa funzione deve rispondere ai webhook. Può avere uno dei valori seguenti:<ul><li><code>#Microsoft.Graph.Message</code>: le modifiche apportate ai messaggi di Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code>: le modifiche apportate agli elementi radice di OneDrive.</li><li><code>#Microsoft.Graph.Contact</code>: modifiche apportate ai contatti personali in Outlook.</li><li><code>#Microsoft.Graph.Event</code>: modifiche apportate agli elementi del calendario di Outlook.</li></ul>|
@@ -1107,7 +1104,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - Tipi di Microsoft Graph SDK pertinenti al tipo di risorsa, ad esempio `Microsoft.Graph.Message` o `Microsoft.Graph.DriveItem`.
-- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -1239,15 +1236,15 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Input di webhook: attributi
 
-In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) .
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### <a name="webhook-input---configuration"></a>Input di webhook: configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookSubscription`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
 |**direction**||Obbligatoria. Deve essere impostata su `in`.|
 |**filter**|**Filter**| Se impostata su `userFromRequest`, l'associazione recupererà solo le sottoscrizioni di proprietà dell'utente chiamante. Questa operazione è valida solo con il [trigger HTTP].| 
@@ -1380,21 +1377,21 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Output di webhook: attributi
 
-In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) .
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### <a name="webhook-output---configuration"></a>Output di webhook: configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookSubscription`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |Description|
 |---------|---------|----------------------|
-|**name**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
+|**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
 |**direction**||Obbligatoria. Deve essere impostata su `out`.|
-|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Il valore può essere uno dei seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
+|**identity**|**Identità**|Obbligatoria: l'identità che verrà usata per eseguire l'azione. Può avere uno dei valori seguenti:<ul><li><code>userFromRequest</code>: valido solo con il [trigger HTTP]. Usa l'identità dell'utente chiamante.</li><li><code>userFromId</code>: usa l'identità di un utente registrato in precedenza con l'ID specificato. Vedere la proprietà <code>userId</code>.</li><li><code>userFromToken</code>: usa l'identità rappresentata dal token specificato. Vedere la proprietà <code>userToken</code>.</li><li><code>clientCredentials</code>: usa l'identità dell'app per le funzioni.</li></ul>|
 |**userId**|**UserId**  |Necessaria solo nel caso in cui _identity_ sia impostata su `userFromId`. ID dell'entità utente associato a un utente registrato in precedenza.|
 |**userToken**|**UserToken**|Necessaria solo nel caso in cui _identity_ sia impostata su `userFromToken`. Un token valido per l'app per le funzioni. |
-|**action**|**Azione**|Obbligatoria: specifica l'azione che l'associazione deve eseguire. Il valore può essere uno dei seguenti:<ul><li><code>create</code>: registra una nuova sottoscrizione.</li><li><code>delete</code>: elimina una sottoscrizione specifica.</li><li><code>refresh</code>: consente di aggiornare una sottoscrizione specifica per impedire che scada.</li></ul>|
+|**action**|**Azione**|Obbligatoria: specifica l'azione che l'associazione deve eseguire. Può avere uno dei valori seguenti:<ul><li><code>create</code>: registra una nuova sottoscrizione.</li><li><code>delete</code>: elimina una sottoscrizione specifica.</li><li><code>refresh</code>: consente di aggiornare una sottoscrizione specifica per impedire che scada.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Necessaria solo nel caso in cui _action_ sia impostata su `create`. Specifica la risorsa di Microsoft Graph di cui verranno monitorate le modifiche. Vedere [Usare i webhook in Microsoft Graph]. |
 |**changeType**|**ChangeType**|Necessaria solo nel caso in cui _action_ sia impostata su `create`. Indica il tipo di modifica nella risorsa sottoscritta che genera una notifica. I valori supportati sono: `created`, `updated`, `deleted`. È possibile combinare più valori usando un elenco delimitato da virgole.|
 
@@ -1412,7 +1409,7 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 
 Esistono due approcci all'aggiornamento delle sottoscrizioni:
 
-- Usare l'identità di applicazione per gestire tutte le sottoscrizioni. Questa operazione richiede il consenso di un amministratore di Azure Active Directory. Può essere usata con tutte le lingue supportate da Funzioni di Azure.
+- Usare l'identità di applicazione per gestire tutte le sottoscrizioni. This will require consent from an Azure Active Directory admin. This can be used by all languages supported by Azure Functions.
 - Usare l'identità associata a ogni sottoscrizione associando manualmente ogni ID utente. Affinché questa operazione esegua l'associazione è necessario il codice personalizzato. Questa può essere usata solo dalle funzioni .NET.
 
 In questa sezione contiene un esempio per ognuno di questi approcci:

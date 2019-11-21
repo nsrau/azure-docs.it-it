@@ -1,21 +1,16 @@
 ---
 title: Associazioni di Hub di notifica per Funzioni di Azure
 description: Informazioni su come usare l'associazione di Hub di notifica di Azure in Funzioni di Azure.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: cde565fbafec7f1209d0c65d6f3ebc121f38e6f5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8bc7f879a2c2e8b1e0e2d82216241704a466ad60
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991386"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231148"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associazioni di output di Hub di notifica per Funzioni di Azure
 
@@ -26,7 +21,7 @@ Hub di notifica di Azure deve essere configurato per il sistema PNS (Platform No
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google ha [deprecato Google Cloud Messaging (GCM) a favore di Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Questa associazione di output non supporta FCM. Per inviare notifiche tramite FCM, usare l' [API Firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) direttamente nella funzione o usare le [notifiche del modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google has [deprecated Google Cloud Messaging (GCM) in favor of Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). This output binding doesn't support FCM. To send notifications using FCM, use the [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directly in your function or use [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 

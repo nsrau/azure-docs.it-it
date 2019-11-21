@@ -1,26 +1,22 @@
 ---
-title: Uso del valore restituito da una funzione di Azure
-description: Informazioni su come gestire i valori restituiti per funzioni di Azure
-services: functions
-documentationcenter: na
+title: Using return value from an Azure Function
+description: Learn to manage return values for Azure Functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 30c9caf267482d7c3731d4848cfb26cc8120b1ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074408"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231076"
 ---
-# <a name="using-the-azure-function-return-value"></a>Uso del valore restituito della funzione di Azure
+# <a name="using-the-azure-function-return-value"></a>Using the Azure Function return value
 
-Questo articolo illustra in che modo i valori restituiti funzionano all'interno di una funzione.
+This article explains how return values work inside a function.
 
-Nei linguaggi che hanno un valore restituito, è possibile associare un' [associazione di output](./functions-triggers-bindings.md#binding-direction) di funzione al valore restituito:
+In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
 
 * In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
 * In altri linguaggi impostare la proprietà `name` in *function.json* su `$return`.
@@ -55,7 +51,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 Di seguito è riportata l'associazione di output nel file *function.json*:
 
@@ -161,4 +157,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Gestire gli errori di associazione di funzioni di Azure](./functions-bindings-errors.md)
+> [Handle Azure Functions binding errors](./functions-bindings-errors.md)

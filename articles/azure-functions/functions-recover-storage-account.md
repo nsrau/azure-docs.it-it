@@ -1,22 +1,16 @@
 ---
 title: Come risolvere il problema del runtime di Funzioni di Azure che non è raggiungibile.
 description: Informazioni su come risolvere il problema di un account di archiviazione non valido.
-services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
-ms.service: azure-functions
-ms.workload: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: d5959acc7719e2b02d529bca8261bc09d5b93634
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085336"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226769"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
@@ -26,10 +20,10 @@ Questo documento è destinato a risolvere l'errore seguente quando visualizzato 
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 Questo problema si verifica quando non è possibile avviare il runtime di Funzioni di Azure. Il motivo più comune per cui si verifica questo errore è che l'app per le funzioni perde l'accesso al relativo account di archiviazione. [Altre informazioni sui requisiti dell'account di archiviazione sono reperibili qui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="troubleshooting"></a>risoluzione dei problemi
 Verranno esaminati i quattro casi di errore più comuni, come identificare e come risolvere ogni caso.
 
 1. Account di archiviazione eliminato
@@ -62,10 +56,10 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 [Informazioni su queste impostazioni dell'applicazione qui](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>Materiale sussidiario
+### <a name="guidance"></a>Guida
 
 * Non selezionare "impostazione slot" per qualsiasi di queste impostazioni. Quando si scambiano gli slot di distribuzione la funzione verrà interrotta.
-* Non modificare queste impostazioni come parte delle distribuzioni automatiche.
+* Do not modify these settings as part of automated deployments.
 * Queste impostazioni devono essere valide e devono essere indicate al momento della creazione. Una distribuzione automatizzata che non contiene queste impostazioni comporterà un'app non funzionante, anche se le impostazioni vengono aggiunte al termine dell'attività.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenziali dell'account di archiviazione non valide
