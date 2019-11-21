@@ -193,7 +193,7 @@
             - name: Prevedere i ritardi dei voli
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: Classificazione testo
+            - name: Classificazione del testo
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: Usare le stime per Machine Learning

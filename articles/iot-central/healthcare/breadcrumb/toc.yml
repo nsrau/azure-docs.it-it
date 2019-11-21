@@ -10,6 +10,6 @@
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:
-            - name: IoT Central per il settore sanitario
+            - name: IoT Central per l'assistenza sanitaria (funzionalità di anteprima)
               tocHref: /azure/iot-central/
               topicHref: /azure/iot-central/healthcare/index/

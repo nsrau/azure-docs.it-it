@@ -10,6 +10,6 @@
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:
-            - name: IoT Central per la vendita al dettaglio
+            - name: IoT Central per la vendita al dettaglio (funzionalità di anteprima)
               tocHref: /azure/iot-central/
               topicHref: /azure/iot-central/retail/index/

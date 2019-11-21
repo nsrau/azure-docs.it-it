@@ -3,12 +3,12 @@ title: Esempio di progetto IRS 1075 - Panoramica
 description: Panoramica dell'esempio di progetto IRS 1075. Questo esempio di progetto consente ai clienti di valutare specifici controlli IRS 1075.
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210198"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267369"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Panoramica dell'esempio di progetto IRS 1075
 
@@ -24,6 +24,7 @@ La sezione sul mapping dei controlli fornisce informazioni sui criteri inclusi i
 
 > [!div class="nextstepaction"]
 > [Progetto IRS 1075 - Mapping dei controlli](./control-mapping.md)
+> [Progetto IRS 1075 - Procedura di distribuzione](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:
 

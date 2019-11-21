@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Creare un dominio gestito avanzato
       href: tutorial-create-instance-advanced.md
+    - name: Creare un trust tra foreste (anteprima)
+      href: tutorial-create-forest-trust.md
 - name: Esempi
   items:
     - name: Creare un dominio gestito con Azure PowerShell
@@ -33,6 +35,12 @@
       href: administration-concepts.md
     - name: Scenari comuni di distribuzione
       href: scenarios.md
+    - name: Foreste e trust
+      items:
+        - name: Foreste di risorse
+          href: concepts-resource-forest.md
+        - name: Trust tra foreste
+          href: concepts-forest-trust.md
     - name: Funzionamento della sincronizzazione di Azure Active Directory Domain Services
       href: synchronization.md
     - name: Funzionamento della sincronizzazione dell'hash delle password

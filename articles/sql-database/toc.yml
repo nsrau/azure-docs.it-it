@@ -112,14 +112,6 @@
               items:
                 - name: Introduzione al controllo del database SQL
                   href: sql-database-auditing.md
-        - name: Sicurezza di rete
-          items:
-            - name: Endpoint della rete virtuale
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Endpoint della rete virtuale - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Collegamento privato
-              href: sql-database-private-endpoint-overview.md
         - name: Gestione della sicurezza
           items:
             - name: Sicurezza dei dati avanzata
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: Sicurezza del database singolo
           items:
+            - name: Controlli di accesso alla rete
+              href: sql-database-networkaccess-overview.md
+            - name: Firewall basato su IP
+              href: sql-database-firewall-configure.md
+            - name: Regole del firewall della rete virtuale
+              items:
+                - name: Endpoint della rete virtuale
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Endpoint della rete virtuale - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Collegamento privato
+              href: sql-database-private-endpoint-overview.md
             - name: Formato del log di controllo
               href: sql-database-audit-log-format.md
             - name: Accesso condizionale
               href: sql-database-conditional-access.md
-            - name: Regole del firewall IP a livello di server
-              items:
-                - name: Creare e gestire
-                  href: sql-database-firewall-configure.md
         - name: Sicurezza dell'istanza gestita
           items:
             - name: Proteggere gli endpoint pubblici

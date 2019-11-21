@@ -38,6 +38,8 @@
           href: class-type-shell-scripting-linux.md
         - name: Hacking etico
           href: class-type-ethical-hacking.md
+        - name: Gestione di database
+          href: class-type-database-management.md
     - name: Creare e configurare account lab (proprietario di account lab)
       items:
         - name: Creare e gestire account di lab

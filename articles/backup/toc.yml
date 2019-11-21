@@ -168,6 +168,12 @@
               href: backup-azure-vms-encryption.md
             - name: Ripristinare le chiavi e il segreto per macchine virtuali crittografate
               href: backup-azure-restore-key-secret.md
+    - name: Eventi di diagnostica per insiemi di credenziali di Servizi di ripristino
+      items:
+        - name: Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino
+          href: backup-azure-diagnostic-events.md
+        - name: Modello di dati di Log Analytics per eventi di diagnostica specifici delle risorse
+          href: backup-azure-log-analytics-new-data-model.md
     - name: Configurare report di Backup di Azure
       items:
         - name: Configurare report di Backup di Azure
