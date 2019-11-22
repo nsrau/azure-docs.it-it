@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073249"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107668"
 ---
 # <a name="import-soap-api"></a>Importare un'API SOAP
 
@@ -60,7 +60,7 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
     * **Illimitato**   
 10. Selezionare **Create** (Crea).
 
-### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Testare la nuova API di Gestione API nel portale amministrativo
+### <a name="test-the-new-api-in-the-administrative-portal"></a>Testare la nuova API nel portale amministrativo
 
 È possibile chiamare le operazioni direttamente dal portale amministrativo, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.  
 
@@ -72,21 +72,6 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
 1. Fare clic su **Invia**.
 
     Il back-end risponde con **200 OK** e alcuni dati.
-
-### <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
-
-Le operazioni possono essere chiamate anche dal **portale per sviluppatori** per testare le API. 
-
-1. Selezionare l'API creata nel passaggio "Importare e pubblicare un'API back-end".
-2. Fare clic su **Portale per sviluppatori**.
-
-    Viene aperto il sito "Portale per sviluppatori".
-3. Selezionare l'**API** creata.
-4. Fare clic sull'operazione che si vuole testare.
-5. Fare clic su **Prova**.
-6. Fare clic su **Invia**.
-    
-    Dopo aver richiamato un'operazione, nel portale per sviluppatori vengono visualizzati lo **stato della risposta**, le **intestazioni della risposta** e l'eventuale **contenuto della risposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

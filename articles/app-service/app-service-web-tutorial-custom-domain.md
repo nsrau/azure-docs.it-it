@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471354"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835864"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -330,7 +330,7 @@ Nella parte inferiore della pagina la directory virtuale radice `/` punta per im
 
 ![Personalizzare la directory virtuale](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Al termine dell'operazione, l'app dovrebbe restituire la pagina corretta nel percorso radice (ad esempio http://contoso.com).
+Al termine dell'operazione, l'app dovrebbe restituire la pagina corretta nel percorso radice, ad esempio `http://contoso.com`.
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 

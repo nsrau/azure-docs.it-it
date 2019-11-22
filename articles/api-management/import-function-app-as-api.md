@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073343"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107855"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -36,7 +36,7 @@ Si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completare la guida introduttiva [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+* Completare l'argomento di avvio rapido [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 * Verificare che nella sottoscrizione sia disponibile un'app Funzioni di Azure. Per altre informazioni, vedere [come creare un'app per le funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Deve contenere funzioni con trigger HTTP e livello di autorizzazione impostato su *Anonimo* o su *Funzione*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -142,7 +142,7 @@ Passare all'istanza di Gestione API di Azure e selezionare **Valori denominati**
 
 ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Testare la nuova API di Gestione API nel portale di Azure
+## <a name="test-in-azure-portal"></a> Testare la nuova API nel portale di Azure
 
 È possibile chiamare le operazioni direttamente dal portale di Azure. Il portale di Azure offre un sistema pratico per visualizzare e testare le operazioni di un'API.  
 
@@ -157,26 +157,6 @@ Passare all'istanza di Gestione API di Azure e selezionare **Valori denominati**
 4. Selezionare **Send** (Invia).
 
     Il back-end risponde con **200 OK** e alcuni dati.
-
-## <a name="test-in-developer-portal"></a> Chiamare un'operazione dal portale per sviluppatori
-
-È anche possibile chiamare le operazioni dal portale per sviluppatori per testare le API. 
-
-1. Selezionare l'API creata nella sezione relativa all'importazione e alla pubblicazione di un'API back-end.
-
-2. Selezionare **Portale per sviluppatori**.
-
-    Verrà aperto il sito Portale per sviluppatori.
-
-3. Selezionare l'**API** creata.
-
-4. Selezionare l'operazione che si vuole testare.
-
-5. Selezionare **Prova**.
-
-6. Selezionare **Send** (Invia).
-    
-    Dopo aver richiamato un'operazione, nel portale per sviluppatori vengono visualizzati lo **stato della risposta**, le **intestazioni della risposta** e l'eventuale **contenuto della risposta**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

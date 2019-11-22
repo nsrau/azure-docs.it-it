@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564926"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936041"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Esercitazione: Moderare immagini di prodotti per l'e-commerce con Azure Content Moderator
 
@@ -65,7 +65,9 @@ Questa esercitazione usa tre servizi cognitivi, pertanto sono necessari le tre c
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Sarà necessario aggiornare i campi `___Key` con il valore delle chiavi di sottoscrizione ( si otterrà `CustomVisionKey` più avanti) e potrebbe essere necessario modificare i campi `___Uri` in modo che contengano gli identificatori di area corretti. Compilare la parte `YOURTEAMID` del campo `ReviewUri` con l'ID del team di revisione creato in precedenza. Si compilerà la parte finale del campo `CustomVisionUri` in un secondo momento.
+Sarà necessario aggiornare i campi `___Key` con i valori delle chiavi di sottoscrizione e modificare i campi `___Uri` con gli URL degli endpoint corretti (la chiave e l'endpoint di Visione personalizzata saranno disponibili più avanti). È possibile trovare questi valori nelle schede **Avvio rapido** di ogni risorsa di Azure. Compilare la parte `YOURTEAMID` del campo `ReviewUri` con l'ID del team di revisione creato in precedenza. Si compilerà la parte finale del campo `CustomVisionUri` in un secondo momento.
+
+[!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="primary-method-calls"></a>Chiamate al metodo principale
 

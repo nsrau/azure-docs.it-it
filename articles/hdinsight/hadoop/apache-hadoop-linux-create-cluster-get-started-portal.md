@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Apache Hadoop e Apache Hive in HDInsight con il portale di Azure'
+title: 'Guida introduttiva: Apache Hadoop, Apache Hive e il portale di Azure in HDInsight'
 description: In questo argomento di avvio rapido si userà il portale di Azure per creare un cluster Hadoop in HDInsight.
 keywords: introduzione a Hadoop, Hadoop basato su Linux, guida introduttiva a Hadoop, introduzione a Hive, guida introduttiva a Hive
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 09/25/2019
-ms.openlocfilehash: 5d87cc7fdcd9c8065c2a9886b970b406df0d8fc8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: cab46c4fe2ff0bd1f86c6d98a3b37efb3547a3ce
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677922"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044578"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Hadoop in Azure HDInsight usando il portale di Azure
 
@@ -34,7 +34,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
 
 1. Dal portale di Azure passare a **Crea una risorsa** > **Analisi** > **HDInsight**.
 
-    ![Creare una risorsa cluster HDInsight](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Creare una risorsa cluster HDInsight")
+    ![Creazione di un cluster HDInsight di risorse](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Creazione di un cluster HDInsight di risorse")
 
 1. In **Generale** immettere o selezionare i valori seguenti:
 
@@ -50,7 +50,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
     |Nome utente Secure Shell (SSH) | Il nome utente predefinito è **sshuser**.  È possibile fornire un altro nome come nome utente SSH. |
     |Usare la password di accesso del cluster per SSH| Selezionare questa casella di controllo se si vuole usare per l'utente SSH la stessa password fornita per l'utente di accesso del cluster.|
 
-    ![HDInsight Linux guida introduttiva fornisce i valori di base per il cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Fornire i valori di base per la creazione di un cluster HDInsight")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di base](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Specifica dei valori di base per la creazione di un cluster HDInsight")
 
     Fare clic sul pulsante **Avanti: Archiviazione>>** per passare alle impostazioni di archiviazione.
 
@@ -63,19 +63,19 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
     |Account di archiviazione primario|Usare l'elenco a discesa per scegliere un account di archiviazione esistente oppure selezionare **Crea nuovo**. Se si crea un nuovo account, il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole|
     |Contenitore|Usare il valore inserito automaticamente.|
 
-    ![HDInsight Linux guida introduttiva fornisce i valori di archiviazione per il cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage-blank.png "Fornire i valori di archiviazione per la creazione di un cluster HDInsight")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di archiviazione](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage-blank.png "Specifica dei valori di archiviazione per la creazione di un cluster HDInsight")
 
     Selezionare la scheda **Rivedi e crea**.
 
 1. Nella scheda **Rivedi e crea** verificare i valori selezionati nei passaggi precedenti.
 
-    ![HDInsight Linux guida introduttiva riepilogo del cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png "HDInsight Linux guida introduttiva riepilogo del cluster")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Riepilogo](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png "Introduzione alla creazione di un cluster HDInsight Linux - Riepilogo")
 
 1. Selezionare **Create** (Crea). La creazione di un cluster richiede circa 20 minuti.
 
 Dopo la creazione del cluster, compare la pagina di panoramica cluster nel portale di Azure.
 
-![Impostazioni iniziali del cluster HDInsight basato su Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "Proprietà del cluster HDInsight")
+![Introduzione alla creazione di un cluster HDInsight Linux - Impostazioni](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "Proprietà del cluster HDInsight")
 
 Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdinsight-hadoop-use-blob-storage.md) o da un [account Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e l'account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
 
@@ -88,13 +88,13 @@ Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdin
 
 1. Per aprire Ambari, nello screenshot precedente selezionare **Dashboard cluster**.  È anche possibile accedere a `https://ClusterName.azurehdinsight.net`, dove `ClusterName` è il cluster creato nella sezione precedente.
 
-    ![Guida introduttiva di HDInsight Linux al dashboard del cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png "Guida introduttiva di HDInsight Linux al dashboard del cluster")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Dashboard](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png "Introduzione alla creazione di un cluster HDInsight Linux - Dashboard")
 
 2. Immettere il nome utente e la password Hadoop specificati durante la creazione del cluster. Il nome utente predefinito è **admin**.
 
 3. Aprire la **visualizzazione Hive** come illustrato nella schermata seguente:
 
-    ![Selezione della vista Hive da Ambari](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "Menu del visualizzatore per Hive in HDInsight")
+    ![Selezione della visualizzazione Hive da Ambari](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "Menu del visualizzatore Hive di HDInsight")
 
 4. Nella scheda **QUERY** incollare le istruzioni HiveQL seguenti nel foglio di lavoro:
 
@@ -102,13 +102,13 @@ Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdin
     SHOW TABLES;
     ```
 
-    ![Editor di query per la vista Hive in HDInsight](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "Editor di query per la vista Hive in HDInsight")
+    ![Visualizzazione Hive di HDInsight - Editor di query](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "Visualizzazione Hive di HDInsight - Editor di query")
 
 5. Scegliere **Execute**(Esegui). Viene visualizzata una scheda **RESULTS** (RISULTATI) sotto la scheda **QUERY** e vengono visualizzate informazioni sul processo. 
 
     Al termine dell'elaborazione della query, nella scheda **QUERY** vengono visualizzati i risultati dell'operazione. Verrà visualizzata una tabella denominata **hivesampletable**. Questa tabella Hive di esempio è disponibile in tutti i cluster HDInsight.
 
-    ![Risultati della vista Apache Hive per HDInsight](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "Risultati della vista Apache Hive per HDInsight")
+    ![Hive Apache di HDInsight - Visualizzazione dei risultati](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "Hive Apache di HDInsight - Visualizzazione dei risultati")
 
 6. Ripetere i passaggi 4 e 5 per eseguire questa query:
 
@@ -118,7 +118,7 @@ Ogni cluster ha una dipendenza da un [account di archiviazione di Azure](../hdin
 
 7. È anche possibile salvare i risultati della query. Selezionare il pulsante del menu a destra e specificare se si vuole scaricare i risultati come file CSV o archiviarli nell'account di archiviazione associato al cluster.
 
-    ![Salvare il risultato della query Apache Hive](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Salvare il risultato della query Apache Hive")
+    ![Salvataggio del risultato della query Apache Hive](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Salvataggio del risultato della query Apache Hive")
 
 Dopo aver completato un processo Hive, è possibile [esportare i risultati in un database SQL di Azure o in un database di SQL Server](apache-hadoop-use-sqoop-mac-linux.md). È anche possibile [visualizzare i risultati in Excel](apache-hadoop-connect-excel-power-query.md). Per altre informazioni sull'uso di Hive in HDInsight, vedere [Usare Apache Hive e HiveQL con Apache Hadoop in HDInsight per analizzare un file Apache log4j di esempio](hdinsight-use-hive.md).
 
@@ -133,7 +133,7 @@ Al termine dell'argomento di avvio rapido, può essere opportuno eliminare il cl
 
 1. Tornare alla scheda del browser in cui è visualizzato il portale di Azure. Occorre visualizzare la pagina di panoramica del cluster. Se si vuole solo eliminare il cluster ma conservare l'account di archiviazione predefinito, scegliere **Elimina**.
 
-    ![Azure HDInsight: eliminare il cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Eliminare il cluster Azure HDInsight")
+    ![Azure HDInsight - Eliminazione del cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Eliminazione del cluster Azure HDInsight")
 
 2. Se si intende eliminare il cluster, nonché l'account di archiviazione predefinito, selezionare il nome del gruppo di risorse (evidenziato nello screenshot precedente) per aprire la pagina di gruppo di risorse.
 

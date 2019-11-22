@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 484621668b582953d49c366336a49970d82c3fbf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073255"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108496"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importare un'app per le API come API
 
@@ -58,7 +58,7 @@ In questo articolo viene spiegato come:
     * **Illimitato**   
 7. Selezionare **Create** (Crea).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testare la nuova API nel portale di Azure
 
 È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.  
 
@@ -70,21 +70,6 @@ In questo articolo viene spiegato come:
 1. Fare clic su **Invia**.
 
     Il back-end risponde con **200 OK** e alcuni dati.
-
-## <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
-
-Le operazioni possono essere chiamate anche dal **portale per sviluppatori** per testare le API. 
-
-1. Selezionare l'API creata nel passaggio "Importare e pubblicare un'API back-end".
-2. Fare clic su **Portale per sviluppatori**.
-
-    Viene aperto il sito "Portale per sviluppatori".
-3. Selezionare l'**API** creata.
-4. Fare clic sull'operazione che si vuole testare.
-5. Fare clic su **Prova**.
-6. Fare clic su **Invia**.
-    
-    Dopo aver richiamato un'operazione, nel portale per sviluppatori vengono visualizzati lo **stato della risposta**, le **intestazioni della risposta** e l'eventuale **contenuto della risposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

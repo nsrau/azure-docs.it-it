@@ -1,19 +1,20 @@
 ---
-title: 'Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL - Interfaccia della riga di comando di Azure'
+title: "Esercitazione: Reindirizzamento basato sui percorsi URL con l'interfaccia della riga di comando"
+titleSuffix: Azure Application Gateway
 description: Questa esercitazione illustra come creare un gateway applicazione con traffico reindirizzato in base ai percorsi URL usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 7/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315944"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074432"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 

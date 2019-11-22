@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380764"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150055"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Guida introduttiva: Compilazione di un'app a singola pagina AngularJS per l'accesso e la disconnessione con Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft Identity Platform](v2-overview.md) è un'evoluzione della piattaforma per sviluppatori di Azure Active Directory (Azure AD). Consente agli sviluppatori di creare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare API Microsoft, come Microsoft Graph o API create dagli sviluppatori.
+> Se è necessario abilitare l'accesso per gli account personali, oltre che per gli account aziendali e dell'istituto di istruzione, è possibile usare l' *[endpoint di Microsoft Identity Platform](azure-ad-endpoint-comparison.md)* .
+> Questo avvio rapido è relativo all'endpoint Azure AD v1.0. Per i nuovi progetti è consigliabile usare l'endpoint v2.0. Per altre informazioni, vedere [questa esercitazione su JavaScript SPA](tutorial-v2-javascript-spa.md) e [questo articolo](active-directory-v2-limitations.md) che illustra le caratteristiche dell'*endpoint di Microsoft Identity Platform*.
 
 Azure Active Directory (Azure AD) rende semplice e pratico aggiungere accesso, disconnessione e protezione delle chiamate API OAuth alle app a singola pagina. Consente alle app di autenticare gli utenti con gli account Windows Server Active Directory e di utilizzare qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
@@ -45,9 +50,6 @@ Per compilare l'applicazione funzionante completa, sarà necessario:
 1. Registrare l'app con Azure AD.
 2. Installare ADAL e configurare l'app a singola pagina.
 3. Usare ADAL per proteggere le pagine nell'app a singola pagina.
-
-> [!NOTE]
-> Se è necessario abilitare gli accessi per gli account personali, oltre che per gli account aziendali e dell'istituto di istruzione, è possibile usare l' *[endpoint di Microsoft Identity Platform](azure-ad-endpoint-comparison.md)* . Per altre informazioni, vedere [questa esercitazione su JavaScript SPA](tutorial-v2-javascript-spa.md) e [questo articolo](active-directory-v2-limitations.md) che illustra le caratteristiche dell'*endpoint di Microsoft Identity Platform*. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

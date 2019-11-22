@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: f0399f084e663ab891d59384af263a7faac2f42e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694728"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73943823"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -45,6 +45,12 @@ Per aggiungere un'applicazione locale ad Azure AD, sono necessari:
 Per usare il proxy di applicazione, è necessario un server Windows che esegue Windows Server 2012 R2 o versione successiva. Il connettore del proxy di applicazione verrà installato nel server. Questo server del connettore deve connettersi ai servizi proxy di applicazione in Azure e alle applicazioni locali che si intende pubblicare.
 
 Per la disponibilità elevata nell'ambiente di produzione è consigliabile avere più server Windows. Per questa esercitazione è sufficiente un unico server Windows.
+
+> [!IMPORTANT]
+> Se si installa il connettore in Windows Server 2019, esiste una limitazione relativa a HTTP2. Una soluzione alternativa per usare il connettore in questa versione consiste nell'aggiungere la chiave del Registro di sistema seguente e riavviare il server. Tenere presente che si tratta di una chiave del Registro di sistema a livello di computer. 
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
 
 #### <a name="recommendations-for-the-connector-server"></a>Raccomandazioni per il server del connettore
 
@@ -142,7 +148,7 @@ Per verificare che il connettore sia stato installato e registrato correttamente
 1. Nel pannello di spostamento a sinistra selezionare **Azure Active Directory** e quindi selezionare **Proxy di applicazione** nella sezione **Gestisci**. Tutti i connettori e i gruppi di connettori vengono visualizzati in questa pagina.
 1. Visualizzare un connettore per verificarne i dettagli. I connettori devono essere espansi per impostazione predefinita. Se il connettore che si vuole visualizzare non lo è, espandere il connettore per visualizzare i dettagli. Un'etichetta verde (Attivo) indica che il connettore può connettersi al servizio. Tuttavia, anche se l'etichetta è verde, un problema di rete potrebbe comunque impedire al connettore di ricevere messaggi.
 
-    ![Connettori di Azure AD Application Proxy](./media/application-proxy-connectors/app-proxy-connectors.png)
+    ![Connettori di Azure AD Application Proxy](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
 
 Per ulteriore assistenza con l'installazione di un connettore, vedere [Problemi di installazione del connettore dell'agente proxy dell'applicazione](application-proxy-connector-installation-problem.md).
 
@@ -155,7 +161,7 @@ Per verificare che il connettore sia stato installato e registrato correttamente
    - **Microsoft AAD Application Proxy Connector** abilita la connettività.
    - **Microsoft AAD Application Proxy Connector Updater** è un servizio di aggiornamento automatico. Lo strumento di aggiornamento controlla la presenza di nuove versioni del connettore e aggiorna il connettore in base alle esigenze.
 
-     ![Servizi del connettore proxy di applicazione - Screenshot](./media/application-proxy-enable/app_proxy_services.png)
+     ![Servizi del connettore proxy di applicazione - Screenshot](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
 1. Se lo stato dei servizi non è **In esecuzione**, fare clic con il pulsante destro del mouse su ogni servizio e scegliere **Avvia**.
 
@@ -164,10 +170,10 @@ Per verificare che il connettore sia stato installato e registrato correttamente
 Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per aggiungere le applicazioni locali ad Azure AD.  
 
 1. Accedere come amministratore al [portale di Azure](https://portal.azure.com/).
-1. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
-1. Selezionare **Applicazioni aziendali** e quindi selezionare **Nuova applicazione**.
-1. Selezionare **Applicazione locale**.  
-1. Nella sezione **Aggiungi applicazione locale personalizzata** fornire le informazioni seguenti sull'applicazione:
+2. Nel riquadro di spostamento a sinistra selezionare **Azure Active Directory**.
+3. Selezionare **Applicazioni aziendali** e quindi selezionare **Nuova applicazione**.
+4. Nella sezione **Applicazioni locali** selezionare **Aggiungi un'applicazione locale**.
+5. Nella sezione **Aggiungi applicazione locale personalizzata** fornire le informazioni seguenti sull'applicazione:
 
     | Campo | DESCRIZIONE |
     | :---- | :---------- |
@@ -177,7 +183,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
     | **Preautenticazione** | Come il proxy di applicazione verifica gli utenti prima di concedere loro l'accesso all'applicazione.<br><br>**Azure Active Directory**: il proxy di applicazione reindirizza gli utenti in modo che eseguano l'accesso con Azure AD, che ne autentica le autorizzazioni per la directory e l'applicazione. È consigliabile lasciare questa opzione come impostazione predefinita, in modo da poter usufruire delle funzionalità di sicurezza di Azure AD come Accesso condizionale e Multi-Factor Authentication. Per monitorare l'applicazione con Microsoft Cloud App Security, è richiesto **Azure Active Directory**.<br><br>**Passthrough**: gli utenti non devono eseguire l'autenticazione ad Azure AD per accedere all'applicazione. È comunque possibile configurare i requisiti di autenticazione sul back-end. |
     | **Gruppo di connettori** | I connettori elaborano l'accesso remoto all'applicazione, mentre i gruppi di connettori aiutano a organizzare connettori e app in base all'area geografica, alla rete o allo scopo. Se ancora non si dispone di tutti i gruppi connettore creati, l'app viene assegnata a **Impostazione predefinita**.<br><br>Se l'applicazione usa WebSocket per la connessione, la versione di tutti i connettori nel gruppo deve essere 1.5.612.0 o versione successiva.|
 
-1. Se necessario, configurare le **impostazioni aggiuntive**. Per la maggior parte delle applicazioni, è consigliabile mantenere queste impostazioni nei rispettivi stati predefiniti. 
+6. Se necessario, configurare le **impostazioni aggiuntive**. Per la maggior parte delle applicazioni, è consigliabile mantenere queste impostazioni nei rispettivi stati predefiniti. 
 
     | Campo | DESCRIZIONE |
     | :---- | :---------- |
@@ -188,7 +194,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
     | **Convertire l'URL nelle intestazioni** | Mantenere questo valore su **Sì**, a meno che l'applicazione non richieda l'intestazione host originale nella richiesta di autenticazione. |
     | **Convertire gli URL nel corpo dell'applicazione** | Mantenere questo valore su **No**, a meno che non si sia in possesso di collegamenti HTML hardcoded ad altre applicazioni locali e non si usino domini personalizzati. Per altre informazioni, vedere [Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD](application-proxy-configure-hard-coded-link-translation.md).<br><br>Impostare questo valore su **Sì** se si intende monitorare questa applicazione con Microsoft Cloud App Security (MCAS). Per altre informazioni, vedere [Configurare il monitoraggio in tempo reale degli accessi alle applicazioni con Microsoft Cloud App Security e Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 
-1. Selezionare **Aggiungi**.
+7. Selezionare **Aggiungi**.
 
 ## <a name="test-the-application"></a>Test dell'applicazione
 
@@ -201,11 +207,11 @@ Prima di aggiungere un utente all'applicazione, verificare che l'account utente 
 Per aggiungere un utente di test:
 
 1. Selezionare **Applicazioni aziendali** e quindi selezionare l'applicazione da testare.
-1. Selezionare **Attività iniziali** e quindi selezionare **Assegna utente per il test**.
-1. In **Utenti e gruppi** selezionare **Aggiungi utente**.
-1. In **Aggiungi assegnazione** selezionare **Utenti e gruppi**. Viene visualizzata la sezione **Utenti e gruppi**.
-1. Scegliere l'account da aggiungere.
-1. Scegliere **Seleziona** e quindi selezionare **Assegna**.
+2. Selezionare **Attività iniziali** e quindi selezionare **Assegna utente per il test**.
+3. In **Utenti e gruppi** selezionare **Aggiungi utente**.
+4. In **Aggiungi assegnazione** selezionare **Utenti e gruppi**. Viene visualizzata la sezione **Utenti e gruppi**.
+5. Scegliere l'account da aggiungere.
+6. Scegliere **Seleziona** e quindi selezionare **Assegna**.
 
 ### <a name="test-the-sign-on"></a>Testare l'accesso
 

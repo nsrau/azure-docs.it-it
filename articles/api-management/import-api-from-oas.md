@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072131"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108504"
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 
@@ -43,6 +43,7 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
 
 1. Selezionare **API** in **GESTIONE API**.
 2. Selezionare **Specifica OpenAPI** dall'elenco **Add a new API** (Aggiungere una nuova API).
+
     ![Specifica OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Immettere le impostazioni appropriate. Durante la creazione, è possibile impostare tutti i valori dell'API. In alternativa è possibile impostarne alcuni successivamente andando alla scheda **Impostazioni**. <br/> Se si preme **TAB** alcuni o tutti i campi verranno compilati con le informazioni provenienti dal servizio back-end specificato.
 
@@ -63,40 +64,18 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
 > [!NOTE]
 > Le limitazioni relative all'importazione delle API sono documentate in [un altro articolo](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testare la nuova API nel portale di Azure
+
+![Mappa di test API](./media/api-management-get-started/01-import-first-api-01.png)
 
 È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
 
-![Testare l'API](./media/api-management-get-started/01-import-first-api-01.png)
-
-1. Selezionare l'API creata nel passaggio precedente.
+1. Selezionare l'API creata nel passaggio precedente nella scheda **API**.
 2. Fare clic sulla scheda **Test**.
-3. Fare clic su **GetSpeakers**.
-
-    La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
+3. Fare clic su **GetSpeakers**. La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. La chiave viene compilata automaticamente.
 4. Fare clic su **Invia**.
 
     Il back-end risponde con **200 OK** e alcuni dati.
-
-## <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
-
-Le operazioni possono essere chiamate anche dal **portale per sviluppatori** per testare le API.
-
-1. Selezionare l'API creata nel passaggio "Importare e pubblicare un'API back-end".
-2. Fare clic su **Portale per sviluppatori**.
-
-    ![Eseguire il test nel portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
-
-    Viene aperto il sito "Portale per sviluppatori".
-3. Selezionare **API**.
-4. Selezionare **Demo Conference API**.
-5. Fare clic su **GetSpeakers**.
-
-    La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
-6. Fare clic su **Prova**.
-7. Fare clic su **Invia**.
-
-    Dopo aver richiamato un'operazione, nel portale per sviluppatori vengono visualizzati lo **stato della risposta**, le **intestazioni della risposta** e l'eventuale **contenuto della risposta**.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

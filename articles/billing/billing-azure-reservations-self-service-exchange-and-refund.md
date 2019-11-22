@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543014"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052166"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -44,7 +44,7 @@ In primo luogo, Microsoft annulla la prenotazione esistente e rimborsa l'importo
 
 ### <a name="enterprise-agreement-customers"></a>Clienti con Contratto Enterprise
 
-Il denaro viene aggiunto all'impegno monetario per gli scambi e i rimborsi se l'acquisto originale è stato effettuato usando uno di questi. Tutte le fatture in eccedenza dall'acquisto originale vengono riaperte e rivalutate per assicurarsi che venga usato l'impegno monetario. Se il termine dell'impegno monetario con cui è stata acquistata la prenotazione non è più attivo, il credito viene aggiunto al termine dell'impegno monetario del contratto Enterprise corrente.
+Il denaro viene aggiunto all'impegno monetario per gli scambi e i rimborsi se l'acquisto originale è stato effettuato usando uno di questi. Tutte le fatture in eccedenza dall'acquisto originale vengono riaperte e rivalutate per assicurarsi che venga usato l'impegno monetario. Se il termine dell'impegno monetario con cui è stata acquistata la prenotazione non è più attivo, il credito viene aggiunto al termine dell'impegno monetario del contratto Enterprise corrente. Il credito è valido per 90 giorni dalla data di rimborso. Il credito inutilizzato scade al termine dei 90 giorni.
 
 Se l'acquisto originale è stato effettuato come eccedenza, Microsoft rilascia una nota di credito.
 

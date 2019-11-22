@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072110"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108548"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API 
 
@@ -75,7 +75,7 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 > [!TIP]
 > In caso di problemi nell'importazione della definizione API, [vedere l'elenco delle restrizioni e dei problemi noti](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testare la nuova API nel portale di Azure
 
 ![Mappa di test API](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -88,23 +88,6 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
     Il back-end risponde con **200 OK** e alcuni dati.
 
-## <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
-
-È anche possibile chiamare le operazioni dal **portale per sviluppatori** per testare le API.
-
-1. Passare al **portale per sviluppatori**.
-
-    ![Portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
-
-2. Selezionare **API**, fare clic su **Demo Conference API** (API Demo Conference) e quindi su **GetSpeakers**.
-
-    La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
-
-3. Fare clic su **Prova**.
-4. Fare clic su **Invia**.
-
-    Dopo la chiamata di un'operazione, nel portale per sviluppatori vengono visualizzate le risposte.  
-
 ## <a name="next-steps"> </a>Passaggi successivi
 
 Questa esercitazione illustra come:
@@ -112,7 +95,6 @@ Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Importare la prima API
 > * Testare l'API nel portale di Azure
-> * Testare l'API nel portale per sviluppatori
 
 Passare all'esercitazione successiva:
 

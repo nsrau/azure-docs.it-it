@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851775"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175036"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -30,7 +30,7 @@ Per proteggere questi asset, il personale IT deve gestire prima di tutto le iden
 - Gli utenti hanno accesso agli asset dell'organizzazione di cui hanno bisogno. 
 - Il personale IT dispone dei controlli necessari per proteggere l'organizzazione.
 
-La gestione delle identità dei dispositivi è un elemento fondamentale per l'[accesso condizionale basato su dispositivo](../conditional-access/require-managed-devices.md). Con i criteri di accesso condizionale basato su dispositivo, è possibile assicurarsi che l'accesso alle risorse nell'ambiente in uso sia possibile solo con dispositivi gestiti.
+La gestione delle identità dei dispositivi costituisce un elemento fondamentale per l'[accesso condizionale basato su dispositivo](../conditional-access/require-managed-devices.md). Con i criteri di accesso condizionale basato su dispositivo, è possibile assicurarsi che l'accesso alle risorse nell'ambiente in uso sia possibile solo con dispositivi gestiti.
 
 ## <a name="getting-devices-in-azure-ad"></a>Inserire i dispositivi in Azure AD
 

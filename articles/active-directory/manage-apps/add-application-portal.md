@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e5ee40f6fcd77465b67a7c409493027fefa48ca9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477315"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062980"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory
 
@@ -43,24 +43,26 @@ Per testare i passaggi di questa esercitazione è consigliabile usare un ambient
 Per aggiungere un'applicazione della raccolta al tenant di Azure AD:
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
-1. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**.
-1. Verrà visualizzato il riquadro **Tutte le applicazioni**, contenente un campione casuale delle applicazioni nel tenant di Azure AD. Selezionare **Nuova applicazione** nella parte superiore del riquadro **Tutte le applicazioni** per aggiungere un'app della raccolta al tenant.
+
+2. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**. Verrà aperto il riquadro **Tutte le applicazioni**, in cui è visualizzato un campione casuale delle applicazioni presenti nel tenant di Azure AD.
+
+3. Per aggiungere un'app della raccolta al tenant, selezionare **Nuova applicazione**. 
 
     ![Selezionare Nuova applicazione per aggiungere un'app della raccolta al tenant](media/add-application-portal/new-application.png)
 
-1. Nell'area **Applicazioni in primo piano** del riquadro **Categorie** sono visualizzate icone che sono un campione casuale delle applicazioni presenti nella raccolta. Per visualizzare altre applicazioni, è possibile selezionare **Mostra di più**, ma non è consigliabile eseguire la ricerca in questo modo perché la raccolta contiene diverse migliaia di applicazioni.
+ 4. Passare alla nuova esperienza di anteprima della raccolta: Nel banner nella parte superiore della **pagina Aggiungi applicazione** selezionare il collegamento **Fare clic qui per provare la nuova raccolta di app migliorata**.
 
-    ![Cercare un'app per nome o categoria](media/add-application-portal/categories.png)
+5. Viene visualizzato il riquadro **Esplora la raccolta di Azure AD (anteprima)** , contenente sezioni per le piattaforme cloud, le applicazioni locali e le applicazioni in primo piano. Si noti che per le applicazioni elencate nella sezione **Applicazioni in primo piano** vengono visualizzate icone che indicano se l'accesso Single Sign-On (SSO) federato e il provisioning sono supportati.
 
-1. Per cercare un'applicazione, immettere il nome dell'applicazione che si vuole aggiungere in **Aggiungi dalla raccolta**. Selezionare l'applicazione nei risultati e fare clic su **Aggiungi**. L'esempio seguente mostra il modulo **Aggiungi app** visualizzato dopo la ricerca di GitHub.com.
+    ![Cercare un'app per nome o categoria](media/add-application-portal/browse-gallery.png)
 
-    ![Mostra come aggiungere un'applicazione dalla raccolta](media/add-application-portal/add-an-application.png)
+6. È possibile sfogliare la raccolta per individuare l'applicazione da aggiungere oppure cercare l'applicazione immettendone il nome nella casella di ricerca. Selezionare quindi l'applicazione nei risultati. Nel modulo è possibile modificare il nome dell'applicazione in base alle esigenze dell'organizzazione. In questo esempio il nome è stato modificato in **GitHub-test**.
 
-1. Nel modulo specifico dell'applicazione è possibile modificare le informazioni delle proprietà. Ad esempio, si può modificare il nome dell'applicazione in base alle esigenze dell'organizzazione. In questo esempio viene usato il nome **GitHub-test**.
-1. Dopo aver apportato le modifiche alle proprietà, selezionare **Aggiungi**.
-1. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
+    ![Mostra come aggiungere un'applicazione dalla raccolta](media/add-application-portal/create-application.png)
 
-L'aggiunta dell'applicazione è completata. È ora possibile fare una pausa. Le sezioni successive illustreranno come modificare il logo e altre proprietà dell'applicazione.
+7. Selezionare **Create** (Crea). Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
+
+L'aggiunta dell'applicazione è completata. Le sezioni successive illustreranno come modificare il logo e altre proprietà dell'applicazione.
 
 ## <a name="find-your-azure-ad-tenant-application"></a>Trovare l'applicazione del tenant di Azure AD
 
@@ -81,17 +83,17 @@ Dopo aver trovato l'applicazione, è possibile aprirla e configurarne le proprie
 Per modificare le proprietà dell'applicazione:
 
 1. Selezionare l'applicazione per aprirla.
-1. Selezionare **Proprietà** per aprire il riquadro delle proprietà per la modifica.
+2. Selezionare **Proprietà** per aprire il riquadro delle proprietà per la modifica.
 
     ![Mostra la schermata Proprietà e le proprietà modificabili dell'app](media/add-application-portal/edit-properties.png)
 
-1. Esaminare le opzioni di accesso. Le opzioni determinano la modalità di accesso all'applicazione per gli utenti assegnati o non assegnati all'applicazione, nonché se un utente può visualizzare l'applicazione nel pannello di accesso.
+3. Esaminare le opzioni di accesso. Le opzioni determinano la modalità di accesso all'applicazione per gli utenti assegnati o non assegnati all'applicazione, nonché se un utente può visualizzare l'applicazione nel pannello di accesso.
 
-    - **Abilitata per l'accesso degli utenti** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
+    - **Abilitata per l'accesso degli utenti?** determina se gli utenti assegnati all'applicazione potranno eseguire l'accesso.
     - **Assegnazione di utenti obbligatoria** determina se gli utenti non assegnati all'applicazione potranno eseguire l'accesso.
-    - **Visibile agli utenti** determina se un'app verrà visualizzata agli utenti assegnati nel pannello di accesso e nell'icona di avvio delle app di O365.
+    - **Visibile agli utenti?** determina se un'app verrà visualizzata agli utenti assegnati nel pannello di accesso e nell'icona di avvio delle app di O365.
 
-1. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
+4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
 
    - Comportamento per gli utenti **assegnati**:
 
@@ -131,9 +133,12 @@ Per usare un logo personalizzato:
 1. Dal momento che l'applicazione è già stata trovata, fare clic su di essa.
 1. Nel riquadro di sinistra selezionare **Proprietà**.
 1. Caricare il logo.
-1. Al termine, fare clic su **Salva**.
+1. Al termine, fare clic su **Salva**. 
 
     ![Mostra come cambiare il logo nella pagina delle proprietà dell'app](media/add-application-portal/change-logo.png)
+
+   > [!NOTE]
+   > L'anteprima visualizzata in questo riquadro **Proprietà** non viene aggiornata immediatamente. Per visualizzare l'icona aggiornata, è possibile chiudere e riaprire le proprietà.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

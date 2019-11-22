@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/14/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 7075e127192635c08aa2da2b4798dea6d6abb13b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f027926a7b90ac99b04456ad3635466a6e27655
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639406"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968784"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Eseguire il backup di una macchina virtuale in Azure usando un modello di Azure Resource Manager
 
@@ -58,7 +58,7 @@ Per monitorare il processo di backup, vedere [Monitorare il processo di backup](
 
 Se non è più necessario eseguire il backup della VM, è possibile eseguire la pulizia.
 
-- Se si vuole provare a ripristinare la VM, ignorare questo passaggio.
+- Se si vuole provare a ripristinare la macchina virtuale, ignorare la pulizia.
 - Se è stata usata una VM esistente, si può ignorare il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) finale e mantenere così il gruppo di risorse e la VM.
 
 Disabilitare la protezione, rimuovere i punti di ripristino e l'insieme di credenziali. Quindi, eliminare il gruppo di risorse e le risorse VM associate, come segue:

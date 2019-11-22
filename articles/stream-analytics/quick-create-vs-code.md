@@ -1,5 +1,5 @@
 ---
-title: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
+title: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code
 description: Questo argomento di avvio rapido descrive come iniziare a creare un processo di analisi di flusso, configurare gli input e gli output e definire una query con Visual Studio Code.
 ms.service: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 35e2711bbb3cd6dc0662146a566014dd65d879bc
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673142"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935095"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Guida introduttiva: Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)
 

@@ -1,5 +1,5 @@
 ---
-title: Identificare se un utente specifico è in grado di accedere a un'applicazione | Microsoft Docs
+title: Scoprire quando un utente specifico sarà in grado di accedere a un'app
 description: Come identificare se un utente fondamentale è in grado di accedere a un'applicazione configurata per il provisioning utenti con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057773"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275730"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificare lo stato del provisioning utenti
 
@@ -40,7 +40,7 @@ Quando si configura per la prima volta il provisioning automatico, la sezione **
 
 Al termine di un ciclo di provisioning, nella sezione **statistiche per data** vengono visualizzati i numeri cumulativi di utenti e gruppi di cui è stato effettuato il provisioning in data, insieme alla data di completamento e alla durata dell'ultimo ciclo. L' **ID attività** identifica in modo univoco il ciclo di provisioning più recente. L' **ID del processo** è un identificatore univoco per il processo di provisioning ed è specifico dell'app nel tenant.
 
-Lo stato di avanzamento del provisioning può essere visualizzato nella portale di Azure, nella scheda **provisioning del &gt; nome\] &gt; dell'applicazione Azure Active Directory app &gt; \[aziendali** .
+Lo stato di avanzamento del provisioning può essere visualizzato nella portale di Azure, nel **Azure Active Directory &gt; app aziendali &gt; \[nome dell'applicazione\] &gt; scheda Provisioning** .
 
 ![Indicatore di stato della pagina di provisioning](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -48,7 +48,7 @@ Lo stato di avanzamento del provisioning può essere visualizzato nella portale 
 
 Per visualizzare lo stato di provisioning per un utente selezionato, consultare i [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure ad. Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registrate nei log di provisioning di Azure AD. Sono incluse tutte le operazioni di lettura e scrittura effettuate nei sistemi di origine e di destinazione e i dati utente letti o scritti durante ogni operazione.
 
-È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **log di provisioning** di **app** &gt; aziendali (anteprima) nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+È possibile accedere ai log di provisioning nel portale di Azure selezionando **Azure Active Directory** &gt; **app aziendali** &gt; i **log di provisioning (anteprima)** nella sezione **attività** . È possibile cercare i dati di provisioning in base al nome dell'utente o all'identificatore nel sistema di origine o nel sistema di destinazione. Per informazioni dettagliate, vedere [log di provisioning (anteprima)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 I log di provisioning registrano tutte le operazioni eseguite dal servizio di provisioning, tra cui:
 
@@ -66,7 +66,7 @@ Il tempo necessario per il provisioning di un determinato utente dipende princip
 
 - Per il **ciclo iniziale**, il tempo di esecuzione del processo dipende da molti fattori, tra cui il numero di utenti e gruppi nell'ambito per il provisioning e il numero totale di utenti e gruppi nel sistema di origine. La prima sincronizzazione tra Azure AD e un'app può richiedere da 20 minuti a diverse ore, a seconda delle dimensioni della directory di Azure AD e del numero di utenti inclusi nell'ambito del provisioning. Un elenco completo dei fattori che influiscono sulle prestazioni del ciclo iniziale viene riepilogato più avanti in questa sezione.
 
-- Per i **cicli incrementali** dopo il ciclo iniziale, i tempi dei processi tendono a essere più veloci (ad esempio entro 10 minuti), perché il servizio di provisioning archivia le filigrane che rappresentano lo stato di entrambi i sistemi dopo il ciclo iniziale, migliorando le prestazioni delle successive Sincronizza. Il tempo di esecuzione del processo dipende dal numero di modifiche rilevate nel ciclo di provisioning. Se sono presenti meno di 5.000 modifiche dell'appartenenza a un utente o a un gruppo, il processo può terminare con un singolo ciclo di provisioning incrementale. 
+- Per i **cicli incrementali** dopo il ciclo iniziale, i tempi dei processi tendono a essere più veloci (ad esempio entro 10 minuti), perché il servizio di provisioning archivia le filigrane che rappresentano lo stato di entrambi i sistemi dopo il ciclo iniziale, migliorando le prestazioni delle sincronizzazioni successive. Il tempo di esecuzione del processo dipende dal numero di modifiche rilevate nel ciclo di provisioning. Se sono presenti meno di 5.000 modifiche dell'appartenenza a un utente o a un gruppo, il processo può terminare con un singolo ciclo di provisioning incrementale. 
 
 La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di provisioning più comuni. In questi scenari, il sistema di origine è Azure AD e il sistema di destinazione è un'applicazione SaaS. I tempi di sincronizzazione sono derivati da un'analisi statistica dei processi di sincronizzazione per le applicazioni SaaS ServiceNow, area di lavoro, Salesforce e G Suite.
 
