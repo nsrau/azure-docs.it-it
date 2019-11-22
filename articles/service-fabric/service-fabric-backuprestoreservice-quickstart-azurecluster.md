@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 43adb9f9d9989b39faa3af705a61ae8b0626a43e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 83a267453cd0c4f36fa5819d9d29934cf543bb76
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005543"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209637"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e ripristino periodici in Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -185,6 +185,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Utilizzo di Service Fabric Explorer
+
+1. In Service Fabric Explorer passare alla scheda backup e selezionare azioni > Crea criterio di backup.
+
+    ![Crea criterio di backup][6]
+
+2. Compilare le informazioni. Per i cluster di Azure, è necessario selezionare AzureBlobStore.
+
+    ![Creare criteri di backup archiviazione BLOB di Azure][7]
+
 ### <a name="enable-periodic-backup"></a>Abilitare il backup periodico
 Dopo aver definito il criterio di backup per soddisfare i requisiti di protezione dei dati dell'applicazione, il criterio di backup deve essere associato all'applicazione. A seconda del requisito, il criterio di backup può essere associato a un'applicazione, un servizio o una partizione.
 
@@ -310,3 +320,5 @@ Per visualizzare i backup in Service Fabric Explorer, passare a una partizione e
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp.png

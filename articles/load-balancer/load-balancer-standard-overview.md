@@ -1,7 +1,7 @@
 ---
 title: Informazioni su Load Balancer Standard di Azure
 titleSuffix: Azure Load Balancer
-description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
+description: Con questo percorso di apprendimento, iniziare con una panoramica delle funzionalità di Azure Load Balancer Standard.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: fd7575da281d3415320e01133115d25f0cd1300e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: ce85c3ab1bf642dc7e9a92f08acdec2bd754d2f9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225232"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278038"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -40,7 +40,9 @@ Un aspetto chiave è l'ambito della rete virtuale per la risorsa.  Mentre Basic 
 Le risorse di Load Balancer sono oggetti all'interno dei quali è possibile esprimere in che modo Azure deve programmare la propria infrastruttura multi-tenant per ottenere lo scenario che si vuole creare.  Non esiste una relazione diretta tra le risorse di Load Balancer e l'infrastruttura effettiva; la creazione di un bilanciamento del carico non crea un'istanza e la capacità è sempre disponibile. Inoltre, non ci sono start up o ritardi di scalabilità da considerare. 
 
 >[!NOTE]
-> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari.  Se si desidera terminare TLS ("offload SSL") o elaborare a livello di applicazione per richiesta HTTP/HTTPS, esaminare l'articolo relativo al [gateway applicazione](../application-gateway/application-gateway-introduction.md).  Se si desidera il bilanciamento del carico DNS globale, esaminare l'articolo relativo a [Gestione traffico di Microsoft Azure](../traffic-manager/traffic-manager-overview.md).  Gli scenari end-to-end potrebbero trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
+> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Se si sta cercando la terminazione del protocollo Transport Layer Security (TLS) ("offload SSL") o una richiesta per HTTP/HTTPS, l'elaborazione a livello di applicazione, vedere [che cos'è applicazione Azure gateway](../application-gateway/overview.md). Per informazioni sul bilanciamento del carico DNS globale, vedere [che cos'è > gestione traffico](../traffic-manager/traffic-manager-overview.md). Gli scenari end-to-end possono trarre vantaggio dalla combinazione di queste soluzioni.
+>
+> Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-standard-load-balancer"></a>Perché usare Load Balancer Standard?
 
@@ -75,7 +77,7 @@ Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](load
 ### <a name="az"></a>Zone di disponibilità
 
 >[!IMPORTANT]
->Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
+>Esaminare [zone di disponibilità](../availability-zones/az-overview.md) per gli argomenti correlati, incluse le informazioni specifiche dell'area.
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
@@ -91,7 +93,7 @@ Consultare [per ulteriori dettagli sulle abilità associate alle zone di disponi
 
 Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitoraggio di Azure.  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato.  Ecco di seguito una breve panoramica della diagnostica supportata:
 
-| Metrica | Description |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.
@@ -204,7 +206,7 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 >
 >Per le risorse di Load Balancer e IP pubblico è necessario usare SKU corrispondenti. Non è possibile avere una combinazione di risorse SKU Basic e risorse SKU Standard. Non è possibile collegare le macchine virtuali autonome, le macchine virtuali in una risorsa del set di disponibilità, o una risorsa di un set di scalabilità di macchina virtuale per entrambi gli SKU contemporaneamente.
 
-## <a name="region-availability"></a>Disponibilità in base all'area
+## <a name="region-availability"></a>Aree di disponibilità
 
 Load Balancer Standard è attualmente disponibile in tutte le aree di cloud pubblico.
 
@@ -244,7 +246,7 @@ Per informazioni sui prezzi di Load Balancer Standard, visitare la pagina [Prezz
 - Informazioni su [Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 - Informazioni sull'uso di [Load Balancer con più front-end](load-balancer-multivip-overview.md).
 - Informazioni sulle [reti virtuali](../virtual-network/virtual-networks-overview.md).
-- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+- Altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 - Informazioni sugli [endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
 - Vedere altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
