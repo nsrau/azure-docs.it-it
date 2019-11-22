@@ -13,21 +13,21 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f595013d5404f0cbcb17a0d24d6395a84fa5b607
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028521"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266977"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Eseguire l'accesso usando la verifica in due passaggi o le informazioni di sicurezza
 
-Dopo aver impostato la verifica in due passaggi o le informazioni di sicurezza, sarà possibile accedere all'account usando il metodo di autenticazione specificato.
+Dopo aver configurato la verifica in due passaggi o le informazioni di sicurezza, sarà possibile accedere al proprio account usando il metodo di verifica specificato.
 
 > [!Note]
-> Se si usa ancora l'esperienza di verifica in due passaggi, è necessario configurare i metodi di autenticazione seguendo le istruzioni riportate nell'articolo [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
+> Se si sta ancora usando l'esperienza di verifica in due passaggi, è necessario configurare i metodi di verifica seguendo le istruzioni riportate nell'articolo [configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md) .
 >
-> Se l'amministratore ha attivato l'esperienza per le informazioni di sicurezza, è necessario impostare i metodi di autenticazione usando questi articoli di procedure dettagliate:<ul><li>[Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di SMS](security-info-setup-text-msg.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica](security-info-setup-phone-number.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md)</li></ul>
+> Se l'amministratore ha attivato l'esperienza di informazioni di sicurezza, sarà necessario impostare i metodi di verifica usando questi articoli step-by-Step:<ul><li>[Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di SMS](security-info-setup-text-msg.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica](security-info-setup-phone-number.md)</li><li>[Configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Eseguire l'accesso usando una notifica dell'app di autenticazione nel dispositivo mobile
 

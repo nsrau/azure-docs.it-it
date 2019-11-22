@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: MT
+ms.openlocfilehash: b83ece803a72fe6132c1ba98414e95897a0fcc90
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132612"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304876"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installare ed eseguire i contenitori dei servizi vocali
 
@@ -155,10 +155,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### <a name="speech-to-text-locales"></a>Impostazioni locali per sintesi vocale
 
-Tutti i tag, ad eccezione di `latest`, sono nel formato seguente, in cui il `<culture>` indica il contenitore delle impostazioni locali:
+Tutti i tag, ad eccezione di `latest`, sono nel formato seguente e fanno distinzione tra maiuscole e minuscole:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
 Il seguente tag è un esempio del formato:
@@ -197,10 +197,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### <a name="text-to-speech-locales"></a>Impostazioni locali per sintesi vocale
 
-Tutti i tag, ad eccezione di `latest`, sono nel formato seguente, in cui il `<culture>` indica le impostazioni locali e il `<voice>` indica la voce del contenitore:
+Tutti i tag, ad eccezione di `latest`, sono nel formato seguente e fanno distinzione tra maiuscole e minuscole:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
 Il seguente tag è un esempio del formato:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 5e71f30723826a18f10d4c8e1b9d34e356c9962b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9071596d384d09bf6cbc46316a7f33c69c7b32e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114631"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278464"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creare, modificare o eliminare un indirizzo IP pubblico
 
@@ -45,7 +45,7 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
 
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-1. Nell'angolo superiore sinistro del portale selezionare **+ Crea una risorsa**.
+1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**.
 2. Immettere *indirizzo ip pubblico* nella casella *Cerca nel Marketplace*. Selezionare la voce **Indirizzo IP pubblico** visualizzata nei risultati della ricerca.
 3. In **Indirizzo IP pubblico**, selezionare **Crea**.
 4. In **Crea indirizzi IP pubblici** immettere o selezionare i valori per le impostazioni seguenti, quindi selezionare **Crea**:
@@ -61,7 +61,7 @@ Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare
    |Crea un indirizzo IPv6 (o IPv4)|No| A seconda del valore selezionato in **Versione indirizzo IP**, viene visualizzato l'indirizzo IPv6 o IPv4. Se ad esempio si seleziona **IPv4** per **Versione indirizzo IP**, qui viene visualizzato **IPv6**. Se si seleziona *Standard* per **SKU**, non è possibile creare un indirizzo IPv6.
    |Nome (visibile solo se è stata selezionata la casella di controllo **Crea un indirizzo IPv6 (o IPv4)** )|Sì, se si seleziona la casella di controllo **Crea un indirizzo IPv6** (o IPv4).|Il nome deve essere diverso da quello immesso come primo **nome** in questo elenco. Se si sceglie di creare sia un indirizzo IPv4 che un indirizzo IPv6, il portale crea due risorse indirizzo IP pubblico separate, a ognuna delle quali è assegnata una versione dell'indirizzo IP.|
    |Assegnazione indirizzi IP (visibile solo se è stata selezionata la casella di controllo **Crea un indirizzo IPv6 (o IPv4)** )|Sì, se si seleziona la casella di controllo **Crea un indirizzo IPv6** (o IPv4).|Se la casella di controllo visualizzata è **Crea un indirizzo IPv4**, è possibile selezionare un metodo di assegnazione. Se la casella di controllo visualizzata è **Crea un indirizzo IPv6**, non è possibile selezionare un metodo di assegnazione, perché deve essere **Dinamico**.|
-   |sottoscrizione|Sì|Deve essere inclusa nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa cui si vuole associare l'indirizzo IP pubblico.|
+   |Sottoscrizione|Sì|Deve essere inclusa nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa cui si vuole associare l'indirizzo IP pubblico.|
    |Resource group|Sì|Può trovarsi nello stesso [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa cui si vuole associare l'indirizzo IP pubblico oppure in un gruppo di risorse diverso.|
    |Location|Sì|Deve trovarsi nella stessa [località](https://azure.microsoft.com/regions), chiamata anche area, di quella della risorsa cui si vuole associare l'indirizzo IP pubblico.|
    |Zona di disponibilità| No | Questa impostazione viene visualizzata solo se si seleziona una località supportata. Per un elenco di località supportate, vedere [Panoramica di Zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se è stato selezionato lo SKU **Basic**, viene selezionata automaticamente l'opzione *Nessuna*. Se si preferisce garantire una zona specifica, è possibile selezionarne una. Entrambe le opzioni non prevedono la ridondanza della zona. Se è stato selezionato lo SKU **Standard**: viene selezionata automaticamente l'opzione con ridondanza della zona e il percorso dei dati è resiliente agli errori a livello di zona. Se si preferisce garantire una zona specifica, non resiliente agli errori a livello di zona, è possibile selezionarne una.

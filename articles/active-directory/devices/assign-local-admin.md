@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b222e67d06bc9fa0fabcc0bc3c0ddd2c6855fbc3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062264"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271296"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -24,7 +24,7 @@ Per gestire un dispositivo Windows, è necessario essere un membro del gruppo di
 
 Questo articolo illustra come funziona l'aggiornamento dell'appartenenza e come è possibile personalizzarlo durante un'aggiunta ad Azure AD. Il contenuto di questo articolo non si applica a un'aggiunta ad Azure AD **ibrida**.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si connette un dispositivo Windows con Azure AD usando un'aggiunta ad Azure AD, Azure AD aggiunge i principi di sicurezza seguenti al gruppo di amministratori locale nel dispositivo:
 
@@ -48,7 +48,7 @@ Per visualizzare e aggiornare l'appartenenza al ruolo Amministratore globale, ve
 Nel portale di Azure è possibile gestire il ruolo Amministratore dispositivo nella pagina **Dispositivi**. Per aprire la pagina **Dispositivi**:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale o amministratore dispositivo.
-1. Sulla barra di spostamento a sinistra fare clic su **Azure Active Directory**. 
+1. Cercare e selezionare *Azure Active Directory*.
 1. Nella sezione **Gestisci** fare clic su **Dispositivi**.
 1. Nella pagina **Dispositivi** fare clic su **Impostazioni del dispositivo**.
 

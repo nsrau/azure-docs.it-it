@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f36d3bcb16876f080f780658bc59afd794e3431e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699192"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269368"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -39,7 +39,7 @@ Windows 8, Windows Server 2012 e le versioni successive di ciascuno dei due sist
 1. Eseguire la connessione da un client che supporta la crittografia SMB (Windows 8, Windows Server 2012 o versioni successive) o da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
 2. Se il client non supporta la crittografia SMB, verificare che l'opzione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: nell'account di archiviazione sono abilitate regole di rete virtuale o del firewall. 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione 
 
 Se nell'account di archiviazione sono configurate regole di rete virtuale o del firewall, verrà negato l'accesso al traffico di rete a meno che all'indirizzo IP o alla rete virtuale client sia consentito l'accesso.
 
@@ -56,13 +56,13 @@ Quando si prova a montare una condivisione file da locale o da un data center di
 - Errore di sistema 67. Impossibile trovare il nome della rete.
 - Errore di sistema 87. Parametro non corretto.
 
-### <a name="cause-1-port-445-is-blocked"></a>Causa 1: la porta 445 è bloccata
+### <a name="cause-1-port-445-is-blocked"></a>Motivo 1: la porta 445 è bloccata
 
 L'errore di sistema 53 o 67 può verificarsi se la comunicazione in uscita dalla porta 445 verso un data center di File di Azure è bloccata. Passare a [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) per visualizzare un riepilogo degli ISP in grado di consentire o proibire l'accesso dalla porta 445.
 
 È possibile verificare se la porta 445 è bloccata dal firewall o dai vincoli dell'ISP con lo strumento [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) o il cmdlet `Test-NetConnection`. 
 
-Per usare il `Test-NetConnection` cmdlet, è necessario installare il modulo Azure PowerShell. per altre informazioni, vedere [Install Azure PowerShell Module](/powershell/azure/install-Az-ps) . Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
+Per usare il cmdlet di `Test-NetConnection`, è necessario installare il modulo Azure PowerShell. per ulteriori informazioni, vedere [Install Azure PowerShell Module](/powershell/azure/install-Az-ps) . Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -94,11 +94,11 @@ Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Soluzione 1: usare Sincronizzazione file di Azure
-Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure funziona sulla porta 443 e pertanto può essere utilizzato come soluzione alternativa per accedere File di Azure da client con la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure funziona sulla porta 443 e pertanto può essere utilizzato come soluzione alternativa per accedere File di Azure da client con la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Soluzione 2: usare la VPN
-Impostando una VPN per l'account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite Internet. Seguire le [istruzioni per configurare la](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) VPN per accedere file di Azure da Windows.
+Impostando una VPN per l'account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite Internet. Seguire le [istruzioni per configurare la VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) per accedere file di Azure da Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Soluzione 3-sbloccare la porta 445 con l'aiuto dell'amministratore IT/ISP
 Collaborare con il reparto IT o l'ISP per aprire la porta 445 in uscita per gli [intervalli IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -106,7 +106,7 @@ Collaborare con il reparto IT o l'ISP per aprire la porta 445 in uscita per gli 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Soluzione 4: usare strumenti basati su API REST come Storage Explorer/PowerShell
 File di Azure supporta anche REST oltre a SMB. L'accesso REST funziona sulla porta 443 (TCP standard). Sono disponibili diversi strumenti che vengono scritti usando l'API REST che consente un'esperienza avanzata dell'interfaccia utente. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) è uno di essi. [Scaricare e installare Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e connettersi alla condivisione file supportata da file di Azure. È anche possibile usare [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) che è anche l'API REST dell'utente.
 
-### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: è abilitata la comunicazione NTLMv1
+### <a name="cause-2-ntlmv1-is-enabled"></a>Motivo 2: NTLMv1 è abilitato
 
 L'errore di sistema 53 o 87 può verificarsi se sul client è abilitata la comunicazione NTLMv1. File di Azure supporta solo l'autenticazione NTLMv2. Con la comunicazione NTLMv1 abilitata, il client è meno sicuro. Di conseguenza, la comunicazione viene bloccata per File di Azure. 
 
@@ -154,7 +154,7 @@ L'utente non è autorizzato ad accedere
 
 Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: nell'account di archiviazione sono abilitate regole di rete virtuale o del firewall.
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 

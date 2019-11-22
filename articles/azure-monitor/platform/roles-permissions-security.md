@@ -1,5 +1,5 @@
 ---
-title: Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
+title: Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
 description: Informazioni su come usare le autorizzazioni e i ruoli predefiniti di monitoraggio di Azure per limitare l'accesso alle risorse di monitoraggio.
 author: johnkemnetz
 services: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260611"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305164"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Se, ad esempio, si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto tecnico, DevOps Engineers) o se si usa un provider di servizi gestiti, è possibile concedere loro l'accesso solo ai dati di monitoraggio, limitando la possibilità di creare, modificare o Elimina risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
 
 ## <a name="built-in-monitoring-roles"></a>Ruoli di monitoraggio predefiniti
-I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso alle risorse in una sottoscrizione e allo stesso tempo consentire ai responsabili del monitoraggio dell'infrastruttura di ottenere e configurare i dati necessari. Monitoraggio di Azure offre due ruoli predefiniti: Un lettore di monitoraggio e un collaboratore al monitoraggio.
+I ruoli predefiniti del monitoraggio di Azure consentono di limitare l'accesso alle risorse in una sottoscrizione e allo stesso tempo consentire ai responsabili del monitoraggio dell'infrastruttura di ottenere e configurare i dati necessari. Il monitoraggio di Azure fornisce due ruoli predefiniti: un lettore di monitoraggio e un collaboratore al monitoraggio.
 
-### <a name="monitoring-reader"></a>Ruolo con autorizzazioni di lettura dei dati di monitoraggio
+### <a name="monitoring-reader"></a>Lettore di monitoraggio
 Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione ma non possono modificare alcuna risorsa o impostazione relativa alle risorse di monitoraggio. Questo ruolo è appropriato per gli utenti di un'organizzazione, ad esempio tecnici del supporto o delle operazioni, che devono essere in grado di:
 
 * Visualizzare i dashboard di monitoraggio nel portale e creare dashboard di monitoraggio privati.
@@ -48,7 +48,7 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Collaboratore per il monitoraggio
+### <a name="monitoring-contributor"></a>Collaboratore al monitoraggio
 Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione e creare o modificare le impostazioni, ma non possono modificare altre risorse. Questo ruolo è un soprainsieme del ruolo di lettore di monitoraggio ed è adatto ai membri del team di monitoraggio di un'organizzazione o ai fornitori di servizi gestiti che, oltre alle autorizzazioni di cui sopra, devono essere in grado di:
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
@@ -61,7 +61,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 * Consente di creare ed eliminare ed eseguire ricerche salvate nell'area di lavoro Log Analytics.
 * Creare ed eliminare la configurazione di archiviazione dell'area di lavoro Log Analytics.
 
-\*all'utente deve essere concessa anche l'autorizzazione ListKeys per la risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi) per impostare un profilo di log o un'impostazione di diagnostica.
+a \*utente deve essere concessa anche l'autorizzazione ListKeys per la risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi) per impostare un profilo di log o un'impostazione di diagnostica.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -71,7 +71,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorizzazioni per il monitoraggio e ruoli personalizzati nel Controllo degli accessi in base al ruolo
 Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../../role-based-access-control/custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Gruppi di azioni di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Avvisi del log attività di lettura, scrittura ed eliminazione. |

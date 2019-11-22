@@ -1,5 +1,5 @@
 ---
-title: Configurare App SaaS per collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Configurare app SaaS per la collaborazione B2B-Azure AD
 description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811952"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272942"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
@@ -79,14 +79,14 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
 2. Configurare l'accesso Single Sign-On nell'ordine seguente:
 
-   ![Screenshot che mostra le impostazioni di configurazione dell'accesso single sign-on](media/configure-saas-apps/configure-box-sso.png)
+   ![Screenshot che illustra le impostazioni di configurazione di Single Sign-On](media/configure-saas-apps/configure-box-sso.png)
 
    a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com e deve seguire la convenzione di denominazione *https://.box.com* .  
    Il campo **Identificatore** non si applica a questa app, ma viene comunque visualizzato come obbligatorio.
 
    b. Nella casella **Identificatore utente** immettere **user.mail** (per l'accesso SSO per account guest).
 
-   c. In **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
+   C. In **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
    d. Per iniziare a configurare il tenant di Box.com per l'uso di Azure AD come provider di identità, scaricare il file di metadati e quindi salvarlo nell'unità locale.
 

@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173643"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279644"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informazioni sull'integrità del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
-Con monitoraggio di Azure per i contenitori, monitora e segnala lo stato di integrità dei componenti dell'infrastruttura gestita e di tutti i nodi in esecuzione su qualsiasi cluster Kubernetes supportato da monitoraggio di Azure per i contenitori. Questa esperienza si estende oltre lo stato di integrità del cluster calcolato e segnalato sulla visualizzazione a più [cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), in cui è ora possibile capire se uno o più nodi del cluster sono vincolati alle risorse oppure se un nodo o un pod non è disponibile che può influisca su un'applicazione in esecuzione nel cluster in base a metriche curate. 
+Con monitoraggio di Azure per i contenitori, monitora e segnala lo stato di integrità dei componenti dell'infrastruttura gestita e di tutti i nodi in esecuzione su qualsiasi cluster Kubernetes supportato da monitoraggio di Azure per i contenitori. Questa esperienza si estende oltre lo stato di integrità del cluster calcolato e segnalato sulla visualizzazione a più [cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), in cui è ora possibile capire se uno o più nodi del cluster sono vincolati alle risorse oppure se un nodo o un pod non è disponibile che può influisca su un'applicazione in esecuzione nel cluster in base a metriche curate.
+
+>[!NOTE]
+>La funzionalità di integrità è attualmente in anteprima pubblica.
+>
 
 Per informazioni su come abilitare monitoraggio di Azure per i contenitori, vedere caricare il [monitoraggio di Azure per i contenitori](container-insights-onboard.md).
 
@@ -33,7 +37,7 @@ Per informazioni su come abilitare monitoraggio di Azure per i contenitori, vede
 
 ## <a name="overview"></a>Overview
 
-In monitoraggio di Azure per i contenitori la funzionalità di integrità fornisce il monitoraggio proattivo dello stato del cluster Kubernetes per facilitare l'identificazione e la diagnosi dei problemi. Offre la possibilità di visualizzare problemi significativi rilevati. I monitoraggi che valutano l'integrità del cluster vengono eseguiti nell'agente in contenitori nel cluster e i dati di integrità vengono scritti nella tabella **KubeHealth** dell'area di lavoro log Analytics. 
+In monitoraggio di Azure per i contenitori la funzionalità integrità (anteprima) fornisce il monitoraggio proattivo dello stato del cluster Kubernetes per consentire l'identificazione e la diagnosi dei problemi. Offre la possibilità di visualizzare problemi significativi rilevati. I monitoraggi che valutano l'integrità del cluster vengono eseguiti nell'agente in contenitori nel cluster e i dati di integrità vengono scritti nella tabella **KubeHealth** dell'area di lavoro log Analytics. 
 
 L'integrità del cluster Kubernetes si basa su una serie di scenari di monitoraggio organizzati dagli oggetti e dalle astrazioni di Kubernetes seguenti:
 
@@ -72,7 +76,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visualizzare l'integrità di un cluster AKS o non AKS
 
-L'accesso alla funzionalità di monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro a sinistra nel portale di Azure. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**. 
+L'accesso alla funzionalità di monitoraggio di Azure per i contenitori (anteprima) è disponibile direttamente da un cluster AKS selezionando **Insights** nel riquadro a sinistra nel portale di Azure. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**. 
 
 Per visualizzare l'integrità da un cluster non AKS, ovvero un cluster del motore AKS ospitato in locale o in Azure Stack, selezionare **monitoraggio di Azure** nel riquadro sinistro della portale di Azure. Nella sezione **Informazioni dettagliate** selezionare **Contenitori**.  Nella pagina multicluster selezionare il cluster non AKS dall'elenco.
 

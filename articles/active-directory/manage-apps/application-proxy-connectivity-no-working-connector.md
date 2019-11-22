@@ -1,5 +1,5 @@
 ---
-title: Nessun gruppo di connettori funzionante trovato per un'applicazione Proxy di applicazione | Microsoft Docs
+title: Nessun gruppo di connettori funzionante trovato per un'applicazione proxy di applicazione
 description: Risoluzione dei problemi riscontrati quando non esiste alcun connettore funzionante in un gruppo di connettori per l'applicazione con Proxy di applicazione di Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f829b8e8a4bc08b43d3c30a6333771ccd4e26e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ab0d1b3bbab9c97c04da4f918f3aaa2f1d07e4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783616"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275611"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nessun gruppo di connettori funzionante trovato per un'applicazione Proxy di applicazione
 
@@ -32,7 +32,7 @@ Se nella propria applicazione non è presente alcun connettore funzionante in un
 
 -   Se il gruppo non contiene connettori, è possibile:
 
-    -   Scaricare un nuovo connettore nella parte destra nel server locale e assegnarlo a questo gruppo
+    -   Scaricare un nuovo connettore sul server locale a destra e assegnarlo a questo gruppo
 
     -   Spostare un connettore attivo nel gruppo
 
@@ -69,6 +69,6 @@ Se il gruppo include solo connettori inattivi, sono probabilmente in un computer
 Vedere il documento di risoluzione dei problemi relativi alle porte per informazioni dettagliate sull'analisi di questo problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
+[Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md)
 
 

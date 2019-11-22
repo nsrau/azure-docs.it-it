@@ -1,6 +1,6 @@
 ---
-title: Accesso collegato per applicazioni Azure AD-piattaforma di identità Microsoft | Microsoft Docs
-description: Configurare l'accesso Single Sign-on (SSO) collegato alle applicazioni aziendali Azure AD in Microsoft Identity Platform (Azure AD)
+title: Accesso collegato per app Azure AD-piattaforma di identità Microsoft
+description: Configurare l'Single Sign-On collegato (SSO) per le applicazioni aziendali Azure AD nella piattaforma di identità Microsoft (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1e26a3c7d284a60b830f6f66cdcecef97db4d6
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2c4547bddeea8b67bd3377124b1c299662fea3e6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834628"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274179"
 ---
 # <a name="configure-linked-sign-on"></a>Configurare l'accesso collegato
 
-Quando si aggiunge una raccolta o un'applicazione Web non raccolta, una delle opzioni di accesso Single Sign-on disponibile per l'utente è l' [accesso collegato](what-is-single-sign-on.md). Selezionare questa opzione per aggiungere un collegamento all'applicazione nel pannello di accesso Azure AD o nel portale di Office 365 dell'organizzazione. È possibile utilizzare questo metodo per aggiungere collegamenti alle applicazioni Web personalizzate che attualmente utilizzano Active Directory Federation Services (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente.
+Quando si aggiunge una raccolta o un'applicazione Web non raccolta, una delle opzioni di Single Sign-On disponibili è l' [accesso collegato](what-is-single-sign-on.md). Selezionare questa opzione per aggiungere un collegamento all'applicazione nel pannello di accesso Azure AD o nel portale di Office 365 dell'organizzazione. È possibile utilizzare questo metodo per aggiungere collegamenti alle applicazioni Web personalizzate che attualmente utilizzano Active Directory Federation Services (o un altro servizio federativo) anziché Azure AD per l'autenticazione. In alternativa, è possibile aggiungere collegamenti diretti a pagine specifiche di SharePoint o ad altre pagine Web da visualizzare nei riquadri di accesso dell'utente.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

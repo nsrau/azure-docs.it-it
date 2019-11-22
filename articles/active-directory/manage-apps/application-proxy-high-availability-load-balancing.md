@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata e bilanciamento del carico per Azure AD proxy di applicazione | Microsoft Docs
+title: Disponibilità elevata e bilanciamento del carico-proxy applicazione Azure AD
 description: Funzionamento della distribuzione del traffico con la distribuzione del proxy di applicazione. Include suggerimenti su come ottimizzare le prestazioni del connettore e utilizzare il bilanciamento del carico per i server back-end.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169797"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275527"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Disponibilità elevata e bilanciamento del carico delle applicazioni e dei connettori proxy dell'applicazione
 
@@ -81,24 +81,24 @@ In alcune situazioni, ad esempio il controllo, il bilanciamento del carico e cos
 
 ## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Procedure consigliate per il bilanciamento del carico tra più server app
 Quando il gruppo di connettori assegnato all'applicazione proxy di applicazione dispone di due o più connettori e si esegue l'applicazione Web back-end su più server (server farm), è necessaria una strategia di bilanciamento del carico adeguata. Una strategia efficace garantisce che i server prelevino le richieste client in modo uniforme e impediscano il sovrautilizzo dei server nel server farm.
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: L'applicazione back-end non richiede la persistenza della sessione
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: l'applicazione back-end non richiede la persistenza della sessione
 Lo scenario più semplice è quello in cui l'applicazione Web back-end non richiede la persistenza della sessione (persistenza della sessione). Qualsiasi richiesta dell'utente può essere gestita da qualsiasi istanza dell'applicazione back-end nel server farm. È possibile usare un servizio di bilanciamento del carico di livello 4 e configurarlo senza affinità. Alcune opzioni includono il bilanciamento del carico di rete Microsoft e Azure Load Balancer o un servizio di bilanciamento del carico da un altro fornitore. In alternativa, è possibile configurare il DNS round robin.
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: L'applicazione back-end richiede la persistenza della sessione
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: l'applicazione back-end richiede la persistenza della sessione
 In questo scenario, l'applicazione Web back-end richiede la persistenza della sessione (persistenza della sessione) durante la sessione autenticata. Tutte le richieste dell'utente devono essere gestite dall'istanza dell'applicazione back-end eseguita nello stesso server del server farm.
 Questo scenario può essere più complesso perché il client di solito stabilisce più connessioni al servizio proxy di applicazione. Le richieste su connessioni diverse possono arrivare a connettori e server diversi nella farm. Poiché ogni connettore usa il proprio indirizzo IP per questa comunicazione, il servizio di bilanciamento del carico non può garantire la viscosità della sessione in base all'indirizzo IP dei connettori. Non è possibile usare l'affinità IP di origine.
 Di seguito sono riportate alcune opzioni per lo scenario 2:
 
-- Opzione 1: Basare la persistenza della sessione su un cookie di sessione impostato dal servizio di bilanciamento del carico. Questa opzione è consigliata perché consente di distribuire il carico in modo più uniforme tra i server back-end. Richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e che può gestire il traffico HTTP e terminare la connessione SSL. È possibile usare applicazione Azure Gateway (affinità di sessione) o un servizio di bilanciamento del carico da un altro fornitore.
+- Opzione 1: basare la persistenza della sessione su un cookie di sessione impostato dal servizio di bilanciamento del carico. Questa opzione è consigliata perché consente di distribuire il carico in modo più uniforme tra i server back-end. Richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e che può gestire il traffico HTTP e terminare la connessione SSL. È possibile usare applicazione Azure Gateway (affinità di sessione) o un servizio di bilanciamento del carico da un altro fornitore.
 
-- Opzione 2: Basare la persistenza della sessione nel campo dell'intestazione X-Inoltred-for. Questa opzione richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e che può gestire il traffico HTTP e terminare la connessione SSL.  
+- Opzione 2: basare la persistenza della sessione nel campo dell'intestazione X-Inoltred-for. Questa opzione richiede un servizio di bilanciamento del carico di livello 7 con questa funzionalità e che può gestire il traffico HTTP e terminare la connessione SSL.  
 
-- Opzione 3: Configurare l'applicazione back-end in modo che non richieda la persistenza della sessione.
+- Opzione 3: configurare l'applicazione back-end in modo che non richieda la persistenza della sessione.
 
 Per informazioni sui requisiti di bilanciamento del carico dell'applicazione back-end, consultare la documentazione del fornitore del software.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare il proxy dell'applicazione](application-proxy-add-on-premises-application.md)
+- [Abilitare il proxy dell’applicazione](application-proxy-add-on-premises-application.md)
 - [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)

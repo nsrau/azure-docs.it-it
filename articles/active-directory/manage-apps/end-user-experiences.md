@@ -1,5 +1,5 @@
 ---
-title: Esperienze per gli utenti finali per le applicazioni - Azure Active Directory | Microsoft Docs
+title: Esperienza dell'utente finale per le applicazioni-Azure Active Directory
 description: Azure Active Directory (Azure AD) fornisce diverse soluzioni personalizzabili per distribuire le applicazioni agli utenti finali all'interno dell'organizzazione.
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a091abff02e544f97f5621b56836cf6ba6e237
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175968"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274213"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 

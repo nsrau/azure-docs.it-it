@@ -1,5 +1,5 @@
 ---
-title: Sincronizzare gli account dei partner locali al cloud come utenti B2B - Azure Active Directory | Microsoft Docs
+title: Sincronizzare gli account partner locali nel cloud come utenti B2B-Azure AD
 description: Concedere ai partner esterni gestiti in locale l'accesso alle risorse locali e cloud usando le stesse credenziali con Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ae75311ab61449f37ccea15a0bcb88fed80c3ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcc8c0538bb3362818a4172dd42905fd72b19812
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767347"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272606"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Concedere agli account partner gestiti in locale l'accesso alle risorse cloud usando Collaborazione B2B di Azure AD
 
@@ -32,7 +32,7 @@ Per abilitare la sincronizzazione dell'attributo UserType, è prima necessario d
 A questo scopo, due approcci comuni sono:
 
 - Individuare un attributo di Active Directory locale non usato, ad esempio extensionAttribute1, e usarlo come attributo di origine. 
-- In alternativa, è possibile ricavare il valore dell'attributo UserType da altre proprietà. Ad esempio, si desidera sincronizzare tutti gli utenti come Guest se il relativo attributo UserPrincipalName di Active Directory locale termina con il dominio  *\@partners.contoso.com*.
+- In alternativa, è possibile ricavare il valore dell'attributo UserType da altre proprietà. Si desidera, ad esempio, sincronizzare tutti gli utenti come Guest se il relativo attributo Active Directory UserPrincipalName locale termina con il dominio *\@Partners.contoso.com*.
  
 Per altre informazioni sui requisiti per gli attributi, vedere [Abilitare la sincronizzazione di UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

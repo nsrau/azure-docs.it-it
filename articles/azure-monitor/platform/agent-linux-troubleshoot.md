@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 11/13/2018
-ms.openlocfilehash: 5b828f62d5a8c7c518f3d28e92f52aac3b77f65c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/21/2019
+ms.openlocfilehash: ca0fcd3b68722d44fc285b2dff52b560c591d0be
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932804"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306554"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -28,7 +28,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Percorsi di log importanti e agente di raccolta log
 
- File | path
+ File | Path
  ---- | -----
  File di log dell'agente di Log Analytics per Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  File di log di configurazione dell'agente di Log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`
@@ -39,7 +39,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 
  Categoria | Percorso file
  ----- | -----
- syslog | `/etc/syslog-ng/syslog-ng.conf` o `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
+ Syslog | `/etc/syslog-ng/syslog-ng.conf` o `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
  Output e agente generale di Performance, Nagios, Zabbix e Log Analytics | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  Configurazioni aggiuntive | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
@@ -165,7 +165,8 @@ Al di sotto del plug-in dell'output, rimuovere il carattere di commento `#` all'
     |*.ods.opinsights.azure.com | Porta 443| In ingresso e in uscita |  
     |*.oms.opinsights.azure.com | Porta 443| In ingresso e in uscita |  
     |*.blob.core.windows.net | Porta 443| In ingresso e in uscita |  
-    |*.azure-automation.net | Porta 443| In ingresso e in uscita | 
+
+    Se si prevede di usare il ruolo di lavoro ibrido per Runbook di automazione di Azure per connettersi e registrarsi al servizio di automazione per usare manuali operativi o soluzioni di gestione nell'ambiente, deve avere accesso al numero di porta e agli URL descritti in [configurare la rete per il ruolo di lavoro ibrido per Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: Viene visualizzato un errore 403 durante il tentativo di onboarding
 
@@ -196,11 +197,11 @@ I bug correlati alle prestazioni non si verificano continuamente e sono molto di
 2. Esegui diagnostica per 24 ore con soglia CPU 30% <br/>
 `bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
 
-3. Il dump di stack verrà eseguito nel file omiagent_trace. Se si notano molte chiamate di funzione CURL e NSS, seguire la procedura di risoluzione riportata di seguito.
+3. Il dump di stack verrà eseguito in omiagent_trace file. Se si notano molte chiamate di funzione CURL e NSS, seguire la procedura di risoluzione riportata di seguito.
 
 ### <a name="resolution-step-by-step"></a>Risoluzione (procedura dettagliata)
 
-1. Aggiornare il pacchetto NSS-PEM a [v 1.0.3 5. EL7 _ 6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
+1. Aggiornare il pacchetto NSS-PEM a [v 1.0.3-5. el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
 `sudo yum upgrade nss-pem`
 
 2. Se NSS-PEM non è disponibile per l'aggiornamento (si verifica principalmente in CentOS), effettuare il downgrade di curl a 7.29.0-46. Se per errore si esegue "yum update", curl verrà aggiornato a 7.29.0-51 e il problema si verificherà nuovamente. <br/>
@@ -412,7 +413,7 @@ Quando si prova a eseguire nuovamente l'onboarding a una nuova area di lavoro, �
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
-Oppure
+oppure
 
 ```
 sudo sh ./onboard_agent.sh --purge

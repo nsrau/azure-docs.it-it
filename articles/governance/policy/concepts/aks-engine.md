@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per il motore AKS
 description: Informazioni su come i criteri di Azure usano CustomResourceDefinitions e aprono l'agente criteri da Gatekeeper V3 per gestire i cluster con il motore AKS.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 904575680b62233ad5ec7422abbf66cf57dc4e11
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072054"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267260"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Informazioni sui criteri di Azure per il motore AKS
 
@@ -282,6 +282,6 @@ Le informazioni raccolte dal componente aggiuntivo non sono dati personali. Sono
 - Vedere la [struttura delle definizioni dei criteri](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
 - Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

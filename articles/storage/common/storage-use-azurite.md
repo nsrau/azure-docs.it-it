@@ -1,5 +1,5 @@
 ---
-title: Usare l'emulatore open source azzurrite per lo sviluppo e il test di archiviazione di Azure (anteprima)
+title: Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
 description: L'emulatore open source azzurrite (anteprima) fornisce un ambiente locale gratuito per il test delle applicazioni di archiviazione di Azure.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309551"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269465"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Usare l'emulatore open source azzurrite per lo sviluppo e il test di archiviazione di Azure (anteprima)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usare l'emulatore di azzurrite per lo sviluppo e il testing di archiviazione di Azure locale (anteprima)
 
 L'emulatore open source azzurrite versione 3,2 (anteprima) fornisce un ambiente locale gratuito per il test delle applicazioni di archiviazione BLOB e di Accodamento di Azure. Quando si è soddisfatti del funzionamento dell'applicazione in locale, passare a usare un account di archiviazione di Azure nel cloud. L'emulatore fornisce supporto multipiattaforma in Windows, Linux e MacOS. Azzurrite V3 supporta le API implementate dal servizio BLOB di Azure.
 
@@ -39,15 +39,15 @@ In alternativa, passare a [vs code Market Extension](https://marketplace.visuals
 
 L'estensione supporta i comandi di Visual Studio Code seguenti:
 
-   * **Azzurrite Start** : avvia tutti i servizi azzurrite
-   * **Azzurrite Chiudi** chiudere tutti i servizi azzurrite
-   * **Azzurrite Pulisci** -Reimposta tutti i servizi azzurrite persistenza
-   * **Azzurrite Avviare il servizio** BLOB-avviare il servizio BLOB
-   * **Azzurrite Chiudi servizio** BLOB-Chiudi servizio BLOB
-   * **Azzurrite Pulisci servizio** BLOB-Pulisci servizio BLOB
-   * **Azzurrite Avvia servizio** di Accodamento-avvia servizio di Accodamento
-   * **Azzurrite Chiudi servizio** di Accodamento-Chiudi servizio di Accodamento
-   * **Azzurrite Pulisci servizio** di Accodamento-servizio di Accodamento
+   * **Azzurrite: avviare** tutti i servizi azzurrite
+   * **Azzurrite: chiudere** tutti i servizi azzurrite
+   * **Azzurrite: Pulisci** -Reimposta tutti i servizi azzurrite dati persistenza
+   * **Azzurrite: Avvia servizio BLOB** -avvia servizio BLOB
+   * **Azzurrite: Chiudi servizio BLOB** -Chiudi servizio BLOB
+   * **Azzurrite: Pulisci servizio BLOB** -Pulisci servizio BLOB
+   * **Azzurrite: avvio del servizio di Accodamento** -avvio del servizio di Accodamento
+   * **Azzurrite: Chiudi servizio di Accodamento** -Chiudi servizio di Accodamento
+   * **Azzurrite: Pulisci servizio di Accodamento** -Pulisci servizio di Accodamento
 
 Per configurare azzurrite in Visual Studio Code, selezionare il riquadro estensioni. Selezionare l'icona **Gestisci** (ingranaggio) per **azzurrite**. Selezionare **Configura impostazioni estensioni**.
 
@@ -55,13 +55,13 @@ Per configurare azzurrite in Visual Studio Code, selezionare il riquadro estensi
 
 Sono supportate le impostazioni seguenti:
 
-   * **Azzurrite Host** BLOB: endpoint di ascolto del servizio BLOB. L'impostazione predefinita è 127.0.0.1.
-   * **Azzurrite Porta** BLOB: porta di ascolto del servizio BLOB. La porta predefinita è 10000.
-   * **Azzurrite Debug** : consente di restituire il log di debug al canale azzurrite. Il valore predefinito è **false**.
-   * **Azzurrite Location** : percorso dell'area di lavoro. Il valore predefinito è la cartella di lavoro Visual Studio Code.
-   * **Azzurrite Host** della coda: endpoint di ascolto servizio di Accodamento. L'impostazione predefinita è 127.0.0.1.
-   * **Azzurrite Porta** di Accodamento: porta di attesa servizio di Accodamento. La porta predefinita è 10001.
-   * **Azzurrite**  In modalità invisibile all'utente viene disabilitato il log di accesso. Il valore predefinito è **false**.
+   * **Azzurrite: host BLOB:** endpoint di ascolto del servizio BLOB. L'impostazione predefinita è 127.0.0.1.
+   * **Azzurrite: porta BLOB:** porta di ascolto del servizio BLOB. La porta predefinita è 10000.
+   * **Azzurrite: debug:** consente di restituire il log di debug al canale azzurrite. Il valore predefinito è **false**.
+   * **Azzurrite: location** -percorso dell'area di lavoro. Il valore predefinito è la cartella di lavoro Visual Studio Code.
+   * **Azzurrite: host della coda:** l'endpoint di ascolto servizio di Accodamento. L'impostazione predefinita è 127.0.0.1.
+   * **Azzurrite: porta di coda** -la porta di attesa servizio di Accodamento. La porta predefinita è 10001.
+   * **Azzurrite:** la modalità invisibile all'utente disabilita il log di accesso. Il valore predefinito è **false**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installare ed eseguire azzurrite usando NPM
 
@@ -83,7 +83,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Eseguire l'immagine Docker azzurrite**:
 
-Il comando seguente esegue l'immagine Docker azzurrite. Il `-p 10000:10000` parametro reindirizza le richieste dalla porta 10000 del computer host all'istanza docker.
+Il comando seguente esegue l'immagine Docker azzurrite. Il parametro `-p 10000:10000` reindirizza le richieste dalla porta 10000 del computer host all'istanza docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
@@ -91,7 +91,7 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 
 **Specificare il percorso dell'area di lavoro**:
 
-Nell'esempio seguente il `-v c:/azurite:/data` parametro specifica *c:/azzurrite* come percorso dati permanente azzurrite. È necessario creare la directory *c:/azzurrite*prima di eseguire il comando docker.
+Nell'esempio seguente, il parametro `-v c:/azurite:/data` specifica *c:/azzurrite* come percorso dati permanente azzurrite. È necessario creare la directory *c:/azzurrite*prima di eseguire il comando docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
@@ -290,8 +290,8 @@ Connettersi a azzurrite da SDK o strumenti di archiviazione di Azure, ad esempio
 
 Con azzurrite è possibile usare il nome e la chiave dell'account seguenti. Si tratta dello stesso account e chiave ben noti usati dall'emulatore di archiviazione di Azure legacy.
 
-* Nome account:`devstoreaccount1`
-* Chiave account:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+* Nome account: `devstoreaccount1`
+* Chiave account: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
 > Oltre all'autenticazione SharedKey, azzurrite supporta l'autenticazione della firma di accesso condiviso dell'account e del servizio. L'accesso anonimo è disponibile anche quando un contenitore è impostato per consentire l'accesso pubblico.

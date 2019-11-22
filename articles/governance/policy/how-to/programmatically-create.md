@@ -3,18 +3,18 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione a livello di codice e la gestione dei criteri per Criteri di Azure.
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bc97eac8f66a3c289bb22bfac8617177d60b4583
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959426"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267245"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
 Questo articolo illustra la creazione a livello di codice e la gestione dei criteri. Le definizioni di criteri di Azure applicano regole e effetti differenti sulle risorse. L'imposizione consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
 
-Per informazioni sulla conformità, vedere [Ottenere dati sulla conformità](getting-compliance-data.md).
+Per informazioni sulla conformità, vedere [Ottenere dati sulla conformità](get-compliance-data.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 

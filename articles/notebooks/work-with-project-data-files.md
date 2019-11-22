@@ -1,23 +1,14 @@
 ---
 title: Importare ed esportare dati in progetti di Azure Notebooks
 description: Informazioni su come importare dati di origini esterne in un progetto di Azure Notebooks e su come esportare dati da un progetto.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: b33d5dbfa354061b9b25069b3b300010b7cd49bf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970202"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277391"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Usare file di dati in progetti di Azure Notebooks
 
@@ -41,11 +32,11 @@ Il resto di questo articolo descrive in dettaglio le operazioni su file a livell
 
 1. Selezionare il comando **Upload** (Carica), quindi selezionare **From URL** (Da URL) o **From computer** (Da computer) e specificare i dettagli necessari per i dati da importare:
 
-   - **From URL** (Da URL): Immettere l'indirizzo dell'origine nel campo **File URL** (URL del file) e il nome file da assegnare al notebook nel progetto nel campo **File Name** (Nome file). Selezionare quindi **+ Add File** (+Aggiunta file) per aggiungere l'URL all'elenco dei caricamenti. Ripetere la procedura per tutti gli URL da aggiungere, quindi selezionare **Done** (Chiudi).
+   - **Da URL**: immettere l'indirizzo di origine nel campo **URL file** e il nome file da assegnare al notebook nel progetto nel campo **nome file** . Selezionare quindi **+ Add File** (+Aggiunta file) per aggiungere l'URL all'elenco dei caricamenti. Ripetere la procedura per tutti gli URL da aggiungere, quindi selezionare **Done** (Chiudi).
 
      ![Caricamento dalla finestra popup dell'URL](media/quickstarts/upload-from-url-popup.png)
 
-   - **From computer** (Da computer): Trascinare i file nella finestra popup o selezionare **Choose Files** (Scegli file), quindi passare ai file di dati da importare e selezionarli. È possibile eliminare o scegliere un numero qualsiasi di file, di qualsiasi tipo e formato in quanto è compito del codice nel notebook aprire il file e analizzarne i dati.
+   - **Da computer**: trascinare i file nella finestra popup oppure selezionare **Scegli file**, quindi individuare e selezionare i file di dati che si desidera importare. È possibile eliminare o scegliere un numero qualsiasi di file, di qualsiasi tipo e formato in quanto è compito del codice nel notebook aprire il file e analizzarne i dati.
 
      ![Caricamento dalla finestra popup del computer](media/quickstarts/upload-from-computer-popup.png)
 
@@ -61,9 +52,9 @@ Il resto di questo articolo descrive in dettaglio le operazioni su file a livell
 
 1. Nella finestra popup **Upload status** (Stato caricamento) che viene visualizzata selezionare una **cartella di destinazione** nell'elenco a discesa:
 
-    - Cartella di sessione ( *~/* ): consente di caricare i file nella sessione corrente del notebook, ma non crea i file nel progetto. La cartella di sessione è un peer della cartella di progetto, ma non viene conservata al termine della sessione. Per accedere ai file della sessione nel codice, anteporre ai nomi file il percorso relativo *.../* .
+    - Cartella sessione ( *~/* ): carica i file nella sessione del notebook corrente, ma non crea file nel progetto. La cartella di sessione è un peer della cartella di progetto, ma non viene conservata al termine della sessione. Per accedere ai file della sessione nel codice, anteporre ai nomi file il percorso relativo *.../* .
 
-        La cartella di sessione è utile per fare delle prove ed evita di riempire il progetto di file che potrebbero non servire a lungo termine. Nella cartella di sessione è possibile caricare anche file con nomi identici ai file nel progetto senza che si generino conflitti e che li si debba rinominare. Si supponga ad esempio che nel progetto esista già una versione del file *data.csv*, ma che si voglia sperimentare *una versione diversa*. Se si carica il file nella cartella di sessione, è possibile eseguire il notebook usando i dati presenti nel file caricato (facendovi riferimento nel codice come *../data.csv*) invece di quelli presenti nel file del progetto.
+        La cartella di sessione è utile per fare delle prove ed evita di riempire il progetto di file che potrebbero non servire a lungo termine. Nella cartella di sessione è possibile caricare anche file con nomi identici ai file nel progetto senza che si generino conflitti e che li si debba rinominare. Si supponga ad esempio che nel progetto esista già una versione del file *data.csv*, ma che si voglia sperimentare una versione diversa. Se si carica il file nella cartella di sessione, è possibile eseguire il notebook usando i dati presenti nel file caricato (facendovi riferimento nel codice come *../data.csv*) invece di quelli presenti nel file del progetto.
 
     - Cartella di progetto ( */progetto*): consente di caricare file nel progetto. È possibile accedere a questi file usando percorsi relativi nel codice. La procedura di caricamento di un file in questa cartella è la stessa prevista per il caricamento di un file nel dashboard del progetto. Il file viene salvato con il progetto ed è disponibile nelle sessioni successive.
 
@@ -121,4 +112,4 @@ Nel dashboard del progetto fare clic con il pulsante destro del mouse su un file
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md) (Accedere ai dati nel cloud in un notebook)
+- [Accedere ai dati cloud in un notebook](access-data-resources-jupyter-notebooks.md)

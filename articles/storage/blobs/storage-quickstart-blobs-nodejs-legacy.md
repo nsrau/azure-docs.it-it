@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: libreria client di archiviazione BLOB di Azure V2 per JavaScript'
-description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di Archiviazione di Azure per Node.js v2 per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Usare la libreria client di archiviazione di Azure per node. js V2 per caricare un BLOB, scaricare un BLOB ed elencare i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825340"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269693"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V2 per JavaScript
 
@@ -22,7 +22,7 @@ Questa guida pratica illustra come usare la libreria client per Node.js v2 per c
 > [!TIP]
 > La versione più recente della libreria client di Archiviazione di Azure per Node.js è v10. È consigliabile usare la versione della libreria client più recente quando possibile. Per iniziare a usare V10, vedere [Guida introduttiva: caricare, scaricare, elencare ed eliminare BLOB usando la libreria client di archiviazione di Azure per JavaScript V10 (anteprima)](storage-quickstart-blobs-nodejs-v10.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -88,7 +88,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-Il modulo *dotenv* carica le variabili di ambiente quando esegue l'app in locale per il debug. Le variabili di ambiente vengono definite in un file denominato *ENV* e caricate nel contesto di esecuzione corrente. In contesti di produzione, la configurazione del server fornisce questi valori; questo è il motivo per cui questo codice viene eseguito solo quando lo script non è in esecuzione in un contesto di "produzione".
+Il modulo *dotenv* carica le variabili di ambiente quando esegue l'app in locale per il debug. Le variabili di ambiente vengono definite in un file denominato *.env* e caricate nel contesto di esecuzione corrente. In contesti di produzione, la configurazione del server fornisce questi valori; questo è il motivo per cui questo codice viene eseguito solo quando lo script non è in esecuzione in un contesto di "produzione".
 
 ```javascript
 const path = require('path');

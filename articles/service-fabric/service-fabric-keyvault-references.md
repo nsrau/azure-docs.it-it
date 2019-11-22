@@ -8,18 +8,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: atsenthi
-ms.openlocfilehash: b0f1a081727721ea0325276cf9edd52c6d71fb6b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243860"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307322"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Supporto di KeyVaultReference per applicazioni Service Fabric (anteprima)
 
 Un problema comune durante la creazione di applicazioni cloud è come archiviare in modo sicuro i segreti richiesti dall'applicazione. Ad esempio, potrebbe essere necessario archiviare le credenziali del repository del contenitore nell'insieme di credenziali delle chiavi e farvi riferimento nel manifesto dell'applicazione. Service Fabric KeyVaultReference USA Service Fabric identità gestita e rende più semplice fare riferimento ai segreti dell'insieme di credenziali delle chiavi. Il resto di questo articolo illustra in dettaglio come usare Service Fabric KeyVaultReference e include un utilizzo tipico.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Identità gestita per l'applicazione (MIT)
     
@@ -37,7 +37,7 @@ Un problema comune durante la creazione di applicazioni cloud è come archiviare
         ...
     {
         "parameters":  [
-            "name":  "CentralSecretService"
+            "name":  "CentralSecretService",
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -142,7 +142,7 @@ KeyVaultReference è un tipo supportato per il RepositoryCredentials del conteni
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 - È necessario abilitare l'identità gestita per il supporto di KeyVaultReference. l'attivazione dell'applicazione avrà esito negativo se si usa KeyVaultReference senza abilitare l'identità gestita.
 
 - Se si usa l'identità assegnata dal sistema, questa viene creata solo dopo la distribuzione dell'applicazione e viene creata una dipendenza circolare. Una volta distribuita l'applicazione, è possibile concedere al sistema l'autorizzazione di accesso alle identità per l'insieme di credenziali delle credenziali. È possibile trovare l'identità assegnata dal sistema in base al nome {cluster}/{Application}/{ServiceName}

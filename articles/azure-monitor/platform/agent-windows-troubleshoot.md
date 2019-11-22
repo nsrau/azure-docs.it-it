@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 06/12/2019
-ms.openlocfilehash: 7bf0c8429eaecd6cba83872cbea5876cc0c31221
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.date: 11/21/2019
+ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199018"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305360"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Come risolvere i problemi relativi all'agente Log Analytics per Windows 
 
@@ -36,12 +36,11 @@ Verificare che il firewall o il proxy sia configurato per consentire le porte e 
 
 |Risorsa agente|Porte |Direzione |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porta 443 |In uscita|SÌ |  
-|*.oms.opinsights.azure.com |Porta 443 |In uscita|SÌ |  
-|*.blob.core.windows.net |Porta 443 |In uscita|SÌ |  
-|*.azure-automation.net |Porta 443 |In uscita|SÌ |  
+|*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
+|*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
+|*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
 
-Per informazioni sul firewall richieste per Azure per enti pubblici, vedere [gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Per informazioni sul firewall richieste per Azure per enti pubblici, vedere [gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Se si prevede di usare il ruolo di lavoro ibrido per Runbook di automazione di Azure per connettersi e registrarsi al servizio di automazione per usare manuali operativi o soluzioni di gestione nell'ambiente, deve avere accesso al numero di porta e agli URL descritti in [configurare la rete per il ruolo di lavoro ibrido per Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Esistono diversi modi per verificare se l'agente è in grado di comunicare correttamente con monitoraggio di Azure.
 
@@ -61,9 +60,9 @@ Esistono diversi modi per verificare se l'agente è in grado di comunicare corre
 
     ![Risultati dell'esecuzione dello strumento TestCloudConnection](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- Filtrare il registro eventi *Operations Manager* per **origini evento** - *servizio integrità Modules*, *HealthService*e *Service Connector* e filtrare per *avviso* a **livello di evento** ed *errore* in verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
+- Filtrare il registro eventi *Operations Manager* per **origini evento** - *servizio integrità Modules*, *HealthService*e *Service Connector* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
 
-    |ID evento |Source (Sorgente) |Description |Risoluzione |
+    |ID evento |Source |DESCRIZIONE |Risoluzione |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Servizio integrità |Connessione al servizio dall'agente non riuscita |Questo errore può verificarsi quando l'agente non è in grado di comunicare direttamente o tramite un firewall o un server proxy per il servizio monitoraggio di Azure. Verificare le impostazioni del proxy di Agent o che il firewall/proxy di rete consenta il traffico TCP dal computer al servizio.|
     |2138 |Moduli Servizio integrità |Il proxy richiede l'autenticazione |Configurare le impostazioni proxy di Agent e specificare il nome utente e la password necessari per l'autenticazione con il server proxy. |
@@ -99,11 +98,11 @@ Se la query restituisce risultati, è necessario determinare se un particolare t
 
     ![Descrizione ID evento 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 
-3. Se dopo alcuni minuti i dati previsti non vengono visualizzati nei risultati della query o nella visualizzazione, a seconda che si stiano visualizzando i dati da una soluzione o da informazioni dettagliate, dal registro eventi *Operations Manager* cercare **origini evento** *HealthService* e *servizio integrità moduli* e filtrano in base al **livello di evento** *warning* ed *Error* per verificare se sono stati scritti eventi dalla tabella seguente.
+3. Se dopo alcuni minuti non vengono visualizzati i dati previsti nei risultati della query o nella visualizzazione, a seconda che si stiano visualizzando i dati da una soluzione o da informazioni dettagliate, dal registro eventi *Operations Manager* cercare le **origini evento** *HealthService* e *servizio integrità moduli* e filtrare in base a livello di **evento** *avviso* ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente.
 
-    |ID evento |Source (Sorgente) |Description |Risoluzione |
+    |ID evento |Source |DESCRIZIONE |Risoluzione |
     |---------|-------|------------|
-    |8000 |HealthService |Questo evento specifica se un flusso di lavoro relativo a prestazioni, eventi o altri tipi di dati raccolti non è in grado di eseguire l'invio al servizio per l'inserimento nell'area di lavoro. | L'ID evento 2136 dall'origine HealthService viene scritto insieme a questo evento e può indicare che l'agente non è in grado di comunicare con il servizio, probabilmente a causa di una configurazione errata del proxy e delle impostazioni di autenticazione, dell'interruzione della rete o del firewall di rete/ il proxy non consente il traffico TCP dal computer al servizio.| 
+    |8000 |HealthService |Questo evento specifica se un flusso di lavoro relativo a prestazioni, eventi o altri tipi di dati raccolti non è in grado di eseguire l'invio al servizio per l'inserimento nell'area di lavoro. | L'ID evento 2136 dall'origine HealthService viene scritto insieme a questo evento e può indicare che l'agente non è in grado di comunicare con il servizio, probabilmente a causa di una configurazione errata del proxy e delle impostazioni di autenticazione, interruzione della rete o il firewall/proxy di rete non consente il traffico TCP dal computer al servizio.| 
     |10102 e 10103 |Moduli Servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se l'istanza o il contatore delle prestazioni specificato non esiste nel computer o non è definito correttamente nelle impostazioni dei dati dell'area di lavoro. Se si tratta di un [contatore delle prestazioni](data-sources-performance-counters.md#configuring-performance-counters)specificato dall'utente, verificare che le informazioni specificate siano successive al formato corretto e che esista nei computer di destinazione. |
     |26002 |Moduli Servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se il registro eventi di Windows specificato non esiste nel computer. Questo errore può essere ignorato se nel computer non è previsto che il registro eventi sia registrato. in caso contrario, se si tratta di un [registro eventi](data-sources-windows-events.md#configuring-windows-event-logs)specificato dall'utente, verificare che le informazioni specificate siano corrette. |
 

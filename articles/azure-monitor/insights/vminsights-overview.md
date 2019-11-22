@@ -1,18 +1,18 @@
 ---
 title: Descrizione di Monitoraggio di Azure per le macchine virtuali (anteprima) | Documentazione di Microsoft
-description: Monitoraggio di Azure per le macchine virtuali è una funzionalità di Monitoraggio di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo offre una panoramica.
+description: Panoramica di Monitoraggio di Azure per le macchine virtuali che monitora l'integrità e le prestazioni delle macchine virtuali di Azure, oltre a individuare ed eseguire automaticamente il mapping dei componenti dell'applicazione e delle relative dipendenze.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/14/2019
-ms.openlocfilehash: 84ebf92f795dfe1a21570d782bf24fad27f50eda
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e9a3df0172f276800a3049675f6e858db7f0370c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109049"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307281"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali (anteprima)
 

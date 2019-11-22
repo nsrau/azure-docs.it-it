@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572086"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271292"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Usare un certificato SSL nel codice nel servizio app Azure
 
@@ -29,7 +29,7 @@ Questo approccio all'uso dei certificati nel codice usa la funzionalità SSL nel
 
 Quando si consente al servizio app di gestire i certificati SSL, è possibile tenere separati i certificati e il codice dell'applicazione e proteggere i dati sensibili.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida pratica:
 
@@ -38,7 +38,7 @@ Per completare questa guida pratica:
 
 ## <a name="find-the-thumbprint"></a>Trovare l'identificazione personale
 
-Nel menu a sinistra della <a href="https://portal.azure.com" target="_blank">portale di Azure</a>selezionare **servizi app** >  **\<nome app >** .
+Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
 
 Dall'area di spostamento a sinistra dell'app selezionare **Impostazioni TLS/SSL**, quindi selezionare **certificati di chiave privata (con estensione pfx)** o **certificati di chiave pubblica (. cer)** .
 
@@ -141,6 +141,8 @@ Se è necessario caricare un file di certificato caricato manualmente, è prefer
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> Questo approccio all'uso dei certificati nel codice usa la funzionalità SSL nel servizio app, che richiede che l'app sia nel livello **Basic** o superiore.
 
 Nell'esempio C# seguente viene caricato un certificato pubblico da un percorso relativo nell'app:
 

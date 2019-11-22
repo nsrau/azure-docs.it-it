@@ -1,5 +1,5 @@
 ---
-title: Accesso condizionale per gli utenti di collaborazione B2B-Azure Active Directory | Microsoft Docs
+title: Accesso condizionale per gli utenti di collaborazione B2B-Azure AD
 description: La Collaborazione B2B di Azure Active Directory supporta l'autenticazione a più fattori (MFA) per l'accesso selettivo alle applicazioni aziendali
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357127"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273006"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di collaborazione B2B
 
@@ -46,7 +46,7 @@ Guardare l'animazione seguente per visualizzare l'esperienza di riscatto:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Reimpostazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
 L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B di ripetere l'identificazione solo usando i cmdlet di PowerShell seguenti:
 
-1. Connessione ad Azure AD
+1. Connettersi ad Azure AD
 
    ```
    $cred = Get-Credential
@@ -85,7 +85,7 @@ In aggiunta, anche se Contoso ha una funzionalità di autenticazione a più fatt
 
 Infine, l'autenticazione a più fattori del tenant delle risorse funziona anche per account del servizio gestito, ID per social network e organizzazioni partner che non hanno configurato l'autenticazione a più fattori.
 
-Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. In alcuni casi, questo requisito può causare la duplicazione dell'autenticazione a più fattori, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
+Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. Questo requisito potrebbe causare la duplicazione dell'autenticazione a più fattori in alcuni casi, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato sul dispositivo, basato sulla posizione e sul rischio per gli utenti B2B
 
@@ -110,5 +110,5 @@ Attualmente non è possibile applicare criteri di accesso basati sui rischi agli
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
 * [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-* [Licenze per la Collaborazione B2B di Azure AD](licensing-guidance.md)
+* [Licenze per la collaborazione B2B di Azure AD](licensing-guidance.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)

@@ -2,18 +2,18 @@
 title: 'Vantaggi: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
 description: Motivazione e vantaggi per eseguire la migrazione di cluster Hadoop locali ad Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494935"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267316"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
 
@@ -45,7 +45,7 @@ Azure HDInsight è una distribuzione cloud dei componenti di Hadoop. Azure HDIns
 
 - **Sicurezza e conformità** - HDInsight consente di proteggere i dati aziendali usando  [Rete virtuale di Azure](../hdinsight-plan-virtual-network-deployment.md), la  [crittografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight soddisfa anche i più diffusi  [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.
 
-- **Gestione semplificata della versione** - Azure HDInsight gestisce la versione dei componenti dell'ecosistema Hadoop e li mantiene aggiornati. Gli aggiornamenti software sono in genere un processo complesso per le distribuzioni locali.
+- **Gestione semplificata delle versioni** : Azure HDInsight gestisce la versione dei componenti di Hadoop Eco-System e li mantiene aggiornati. Gli aggiornamenti software sono in genere un processo complesso per le distribuzioni locali.
 
 - **Cluster ridotti ottimizzati per specifici carichi di lavoro con minori dipendenze tra i componenti** - Una tipica configurazione Hadoop locale usa un singolo cluster per molte finalità. Con Azure HDInsight è possibile creare cluster specifici per carico di lavoro. La creazione di cluster per carichi di lavoro specifici rimuove gli oneri di gestione di un singolo cluster con complessità crescenti.
 
@@ -58,10 +58,10 @@ Azure HDInsight è una distribuzione cloud dei componenti di Hadoop. Azure HDIns
 - **Integrazione con altri servizi di Azure** - HDInsight può essere integrato facilmente con altri popolari servizi di Azure, tra cui:
 
     - Azure Data Factory
-    - Archiviazione BLOB di Azure
+    - Archivio BLOB di Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - Database SQL di Azure
+    - database SQL di Azure
     - Azure Analysis Services
 
 - **Riparazione automatica di processi e i componenti** - HDInsight controlla costantemente i componenti open source e dell'infrastruttura mediante la propria infrastruttura di monitoraggio. Ripristina automaticamente anche errori critici, ad esempio l'assenza di disponibilità di nodi e componenti open source. Vengono attivati avvisi in Ambari in caso di errore in qualsiasi componente OSS.
@@ -85,7 +85,7 @@ Questa sezione offre questionari modello per semplificare la raccolta di informa
 - Dettagli del progetto
 - Requisiti di Azure
 
-### <a name="on-premises-deployment-questionnaire"></a>Questionario di distribuzione locale
+### <a name="on-premises-deployment-questionnaire"></a>Questionario sulla distribuzione locale
 
 | **Domanda** | **Esempio** | **Risposta** |
 |---|---|---|

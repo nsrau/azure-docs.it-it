@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano la configurazione Guest per controllare le impostazioni all'interno di una macchina di Azure.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5148ecb2f10a2ac517c5cf6c7f682a0f25808910
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: c01f6d02c15dbd7519bfafdc413d70a05498c7c4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959775"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279384"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -61,7 +61,7 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 |Sistema operativo|Strumento di convalida|note|
 |-|-|-|
-|Windows|[Microsoft DSC (Desired State Configuration)](/powershell/dsc) v2| |
+|Windows|[Windows PowerShell DSC (Desired state Configuration](/powershell/scripting/dsc/overview/overview) ) V2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python vengono installati dall'estensione della configurazione guest. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
@@ -113,7 +113,7 @@ Se l'assegnazione **DeployIfNotExists** non è conforme, è possibile utilizzare
 
 Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** usa gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
-Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/getting-compliance-data.md).
+Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati. Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
@@ -198,6 +198,6 @@ Gli esempi per la configurazione Guest per i criteri sono disponibili nei percor
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
 - Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593962"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278123"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso della rete CDN di Azure con CORS
 ## <a name="what-is-cors"></a>Informazioni su CORS
@@ -63,12 +63,21 @@ Se sono state inviate richieste alla rete CDN prima che la condivisione CORS ven
 ## <a name="multiple-origin-scenarios"></a>Scenari con più origini
 Se si desidera autorizzare per CORS uno specifico elenco di origini, le operazioni da eseguire sono più complesse. Il problema si verifica quando la rete CDN memorizza nella cache l'intestazione **Access-Control-Allow-Origin** per la prima origine CORS.  Quando un'origine CORS differente effettua una richiesta successiva, la rete CDN gestisce l'intestazione **Access-Control-Allow-Origin** memorizzata nella cache, che però non corrisponde.  Esistono diversi modi per risolvere il problema.
 
+### <a name="azure-cdn-standard-profiles"></a>Profili di rete CDN Standard di Azure
+Nella rete CDN standard di Azure di Microsoft è possibile creare una regola nel [motore regole standard](cdn-standard-rules-engine-reference.md) per controllare l'intestazione **Origin** nella richiesta. Se si tratta di un'origine valida, la regola imposterà l'intestazione **Access-Control-Allow-Origin** con il valore desiderato. In questo caso, l'intestazione **Access-Control-Allow-Origin** dal server di origine del file viene ignorata e il motore delle regole della rete CDN gestisce completamente le origini CORS consentite.
+
+![Esempio di regole con il motore regole standard](./media/cdn-cors/cdn-standard-cors.png)
+
+> [!TIP]
+> È possibile aggiungere altre azioni alla regola per modificare intestazioni di risposta aggiuntive, ad esempio **Access-Control-Allow-Methods**.
+> 
+
+Nella rete **CDN standard di Azure di Akamai**, l'unico meccanismo per consentire più origini senza usare l'origine con caratteri jolly consiste nell'usare la [memorizzazione nella cache della stringa di query](cdn-query-string.md). Abilitare l'impostazione della stringa di query per l'endpoint della rete CDN e usare quindi una stringa di query univoca per le richieste provenienti da ciascun dominio consentito. Con questa operazione la rete CDN memorizza nella cache un oggetto separato per ciascuna stringa di query univoca. Questo approccio tuttavia non rappresenta la soluzione ideale, poiché avrà come risultato la memorizzazione nella cache di più copie dello stesso file nella rete CDN.  
+
 ### <a name="azure-cdn-premium-from-verizon"></a>Rete CDN Premium di Azure fornita da Verizon
-Il modo migliore per abilitare questa rete consiste nell'usare la **rete CDN Premium di Azure fornita da Verizon**, in cui sono disponibili alcune funzionalità avanzate. 
+Usando il motore delle regole Premium di Verizon, è necessario [creare una regola](cdn-rules-engine.md) per controllare l'intestazione **Origin** nella richiesta.  Se l'origine è valida, la regola imposterà l'intestazione **Access-Control-Allow-Origin** sull'origine indicata nella richiesta.  Se l'origine specificata nell'intestazione **Origin** non è consentita, la regola dovrà omettere l'intestazione **Access-Control-Allow-Origin**, che causerà il rifiuto della richiesta da parte del browser. 
 
-È necessario [creare una regola](cdn-rules-engine.md) per verificare l'intestazione **Origin** nella richiesta.  Se l'origine è valida, la regola imposterà l'intestazione **Access-Control-Allow-Origin** sull'origine indicata nella richiesta.  Se l'origine specificata nell'intestazione **Origin** non è consentita, la regola dovrà omettere l'intestazione **Access-Control-Allow-Origin**, che causerà il rifiuto della richiesta da parte del browser. 
-
-Per eseguire questa operazione è possibile procedere in due modi usando il motore regole: In entrambi i casi, l'intestazione **Access-Control-Allow-Origin** proveniente dal server di origine del file viene ignorata e il motore regole della rete CDN gestisce interamente le origini CORS consentite.
+Esistono due modi per eseguire questa operazione con il motore regole Premium. In entrambi i casi, l'intestazione **Access-Control-Allow-Origin** proveniente dal server di origine del file viene ignorata e il motore regole della rete CDN gestisce interamente le origini CORS consentite.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Un'espressione regolare con tutte le origini valide
 In questo caso verrà creata un'espressione regolare che include tutte le origini che si desidera consentire: 
@@ -85,7 +94,7 @@ Se l'espressione regolare corrisponde, la regola specificata sostituirà l'intes
 ![Esempio di regole con espressione regolare](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Regola intestazione richiesta per ciascuna origine.
-Anziché usare espressioni regolari, è possibile creare una regola separata per ogni origine che si vuole consentire usando la [condizione di corrispondenza](/previous-versions/azure/mt757336(v=azure.100)#match-conditions) **Request Header Wildcard** (Carattere jolly intestazione richiesta). Come per il metodo delle espressioni regolari, il motore regole imposta le intestazioni CORS. 
+Anziché usare espressioni regolari, è possibile creare una regola separata per ciascuna origine che si desidera consentire usando la **condizione di corrispondenza** [Request Header Wildcard](/previous-versions/azure/mt757336(v=azure.100)#match-conditions)(Carattere jolly intestazione richiesta). Come per il metodo delle espressioni regolari, il motore regole imposta le intestazioni CORS. 
 
 ![Esempio di regole senza espressione regolare](./media/cdn-cors/cdn-cors-no-regex.png)
 
@@ -94,6 +103,5 @@ Anziché usare espressioni regolari, è possibile creare una regola separata per
 > 
 > 
 
-### <a name="azure-cdn-standard-profiles"></a>Profili di rete CDN Standard di Azure
-Nei profili di rete CDN Standard di Azure (**rete CDN Standard di Azure CDN con tecnologia Microsoft**, **rete CDN Standard di Azure CDN con tecnologia Akamai** e **rete CDN Standard di Azure CDN con tecnologia Verizon**), l'unico meccanismo per consentire più origini senza l'uso dell'origine dei caratteri jolly consiste nell'usare la [memorizzazione delle stringhe di query](cdn-query-string.md). Abilitare l'impostazione della stringa di query per l'endpoint della rete CDN e usare quindi una stringa di query univoca per le richieste provenienti da ciascun dominio consentito. Con questa operazione la rete CDN memorizza nella cache un oggetto separato per ciascuna stringa di query univoca. Questo approccio tuttavia non rappresenta la soluzione ideale, poiché avrà come risultato la memorizzazione nella cache di più copie dello stesso file nella rete CDN.  
+
 

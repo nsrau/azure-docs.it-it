@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2d22c4a7a8b95f5a200518a3c46fc33f55c66a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 316d82cbfd0c96fba2ac9714f8025d71c743d7d5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569854"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269552"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Come richiedere la verifica in due passaggi per un utente
 
@@ -41,7 +41,7 @@ Abilitato da Azure AD Identity Protection: questo metodo usa i criteri di rischi
 
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-| Stato | Descrizione | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
+| Stato | DESCRIZIONE | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
 |:---:|:---:|:---:|:--:|:--:|
 | Disabled |Stato predefinito per un nuovo utente non registrato in Azure MFA. |No |No |No |
 | Enabled |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Viene richiesto di eseguire la registrazione al successivo accesso. |No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Dopo la scadenza della sessione, è necessaria la registrazione ad Azure MFA.| Sì. Dopo la scadenza dei token di accesso, è necessaria la registrazione ad Azure MFA. |
@@ -56,7 +56,7 @@ Tutti gli utenti iniziano con *Disabilitato*. Quando si registrano gli utenti in
 Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati utente, procedere come segue:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare ad **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**.
+2. Cercare e selezionare *Azure Active Directory*. Selezionare **Utenti** > **Tutti gli utenti**.
 3. Selezionare **Multi-Factor Authentication**.
    ![Selezionare Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. Verrà visualizzata una nuova pagina in cui sono elencati gli stati utente.

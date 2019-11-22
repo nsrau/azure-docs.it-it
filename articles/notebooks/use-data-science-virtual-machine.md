@@ -1,23 +1,17 @@
 ---
 title: Usare macchine virtuali di Data Science di Azure
 description: Connettersi a un Data Science Virtual Machine di Azure (DSVM) per estendere la potenza di calcolo disponibile per l'Azure Notebooks.
-services: app-service
-documentationcenter: ''
 author: getroyer
 manager: andneil
-ms.assetid: 0ccc2529-e17f-4221-b7c7-9496d6a731cc
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.author: getroyer
 ms.topic: article
 ms.date: 06/13/2019
-ms.author: getroyer
-ms.openlocfilehash: 0f06475708adaf1324eedbd8e315fe4d731339be
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970110"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277411"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare macchine virtuali di Data Science di Azure
 

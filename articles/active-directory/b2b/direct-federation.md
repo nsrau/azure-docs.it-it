@@ -1,5 +1,5 @@
 ---
-title: Configurare la Federazione diretta con un provider di identità per B2B-Azure Active Directory | Microsoft Docs
+title: Federazione diretta con un provider di identità per B2B-Azure AD
 description: Eseguire direttamente la Federazione con un provider di identità SAML o WS-Fed, in modo che gli utenti possano accedere alle app Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853609"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272744"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con AD FS e provider di terze parti per utenti Guest (anteprima)
 |     |
@@ -28,10 +28,10 @@ ms.locfileid: "68853609"
 Questo articolo descrive come configurare la Federazione diretta con un'altra organizzazione per la collaborazione B2B. È possibile configurare la Federazione diretta con qualsiasi organizzazione il cui provider di identità (IdP) supporta il protocollo SAML 2,0 o WS-Fed.
 Quando si configura la Federazione diretta con l'IdP di un partner, i nuovi utenti guest di tale dominio possono usare il proprio account aziendale gestito da IdP per accedere al tenant di Azure AD e iniziare a collaborare con l'utente. Non è necessario che l'utente Guest crei un account Azure AD separato.
 > [!NOTE]
-> Gli utenti guest di federazione diretta devono accedere usando un collegamento che includa il contesto del tenant ( `https://myapps.microsoft.com/?tenantid=<tenant id>` ad `https://portal.azure.com/<tenant id>`esempio, o o nel caso `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`di un dominio verificato). È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti di federazione diretta non sono attualmente in grado di eseguire l'accesso usando endpoint comuni senza contesto tenant. Ad esempio, se `https://myapps.microsoft.com`si `https://portal.azure.com`USA, `https://teams.microsoft.com` o verrà generato un errore.
+> Gli utenti guest di federazione diretta devono accedere usando un collegamento che include il contesto del tenant (ad esempio, `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>`o nel caso di un dominio verificato, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti di federazione diretta non sono attualmente in grado di eseguire l'accesso usando endpoint comuni senza contesto tenant. Se, ad esempio, si utilizza `https://myapps.microsoft.com`, `https://portal.azure.com`o `https://teams.microsoft.com`, verrà generato un errore.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Quando un utente guest esegue l'autenticazione con la Federazione diretta?
-Dopo aver configurato la Federazione diretta con un'organizzazione, tutti i nuovi utenti Guest invitati verranno autenticati tramite federazione diretta. È importante notare che la configurazione della Federazione diretta non modifica il metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. Ecco alcuni esempi:
+Dopo aver configurato la Federazione diretta con un'organizzazione, tutti i nuovi utenti Guest invitati verranno autenticati tramite federazione diretta. È importante notare che la configurazione della Federazione diretta non modifica il metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. Di seguito sono riportati alcuni esempi:
  - Se gli utenti Guest hanno già riscattato gli inviti e successivamente si è configurata la Federazione diretta con l'organizzazione, gli utenti Guest continueranno a usare lo stesso metodo di autenticazione usato prima di configurare la Federazione diretta.
  - Se si configura la Federazione diretta con un'organizzazione partner e si invitano utenti guest e quindi l'organizzazione partner passa successivamente a Azure AD, gli utenti guest che hanno già riscattato gli inviti continueranno a usare la Federazione diretta, purché il criteri di Federazione nel tenant esistente.
  - Se si elimina la Federazione diretta con un'organizzazione partner, gli utenti guest che attualmente usano la Federazione diretta non saranno in grado di eseguire l'accesso.
@@ -57,7 +57,7 @@ La Federazione diretta è consentita solo per i criteri in cui il dominio dell'U
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Ad esempio, quando si configura la Federazione diretta per **Fabrikam.com**, l'URL `https://fabrikam.com/adfs` di autenticazione passerà la convalida. Viene anche passato un host nello stesso dominio, ad esempio `https://sts.fabrikam.com/adfs`. Tuttavia, l'URL `https://fabrikamconglomerate.com/adfs` di autenticazione o `https://fabrikam.com.uk/adfs` per lo stesso dominio non passerà.
+Ad esempio, quando si configura la Federazione diretta per **Fabrikam.com**, l'URL di autenticazione `https://fabrikam.com/adfs` supererà la convalida. Viene passato anche un host nello stesso dominio, ad esempio `https://sts.fabrikam.com/adfs`. Tuttavia, l'URL di autenticazione `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` per lo stesso dominio non passerà.
 
 ### <a name="signing-certificate-renewal"></a>Rinnovo del certificato di firma
 Se si specifica l'URL dei metadati nelle impostazioni del provider di identità, Azure AD rinnoverà automaticamente il certificato di firma alla scadenza. Tuttavia, se il certificato viene ruotato per qualsiasi motivo prima della data di scadenza o se non si specifica un URL di metadati, Azure AD non sarà in grado di rinnovarlo. In questo caso, sarà necessario aggiornare manualmente il certificato di firma.
@@ -72,7 +72,7 @@ Quando la Federazione diretta viene stabilita con un'organizzazione partner, ha 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>I problemi di accesso diretti alla Federazione sono dovuti a una locazione parzialmente sincronizzata?
 No, in questo scenario deve essere utilizzata la funzionalità di accesso monouso per la [posta elettronica](one-time-passcode.md) . Un "tenant parzialmente sincronizzato" si riferisce a un partner Azure AD tenant in cui le identità utente locali non sono completamente sincronizzate nel cloud. Un guest la cui identità non esiste ancora nel cloud, ma che tenta di riscattare l'invito B2B non sarà in grado di eseguire l'accesso. Il servizio di accesso monouso consente a questo Guest di eseguire l'accesso. La funzionalità di federazione diretta risolve scenari in cui il Guest dispone di un proprio account aziendale gestito da IdP, ma l'organizzazione non ha alcuna Azure AD presenza.
 
-## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Passaggio 1: Configurare il provider di identità dell'organizzazione partner
+## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Passaggio 1: configurare il provider di identità dell'organizzazione partner
 Per prima cosa, l'organizzazione partner deve configurare il provider di identità con le attestazioni richieste e i trust relying party. 
 
 > [!NOTE]
@@ -90,16 +90,16 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori per la risposta SAML 2,0 da IdP:
 
-|Attributo  |Value  |
+|Attribute  |Valore  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
-|Rilasciato da     |URI dell'autorità emittente dell'IdP partner, ad esempio`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Autorità di certificazione     |URI dell'autorità emittente dell'IdP partner, ad esempio `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Attestazioni necessarie per il token SAML 2,0 emesso da IdP:
 
-|Attributo  |Valore  |
+|Attribute  |Valore  |
 |---------|---------|
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,24 +116,24 @@ Le tabelle seguenti illustrano i requisiti per attributi e attestazioni specific
 
 Attributi obbligatori nel messaggio WS-Fed dall'IdP:
  
-|Attributo  |Value  |
+|Attribute  |Valore  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Destinatari     |`urn:federation:MicrosoftOnline`         |
-|Rilasciato da     |URI dell'autorità emittente dell'IdP partner, ad esempio`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Autorità di certificazione     |URI dell'autorità emittente dell'IdP partner, ad esempio `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Attestazioni necessarie per il token WS-Fed emesso da IdP:
 
-|Attributo  |Valore  |
+|Attribute  |Valore  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Passaggio 2: Configurare la Federazione diretta in Azure AD 
+## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Passaggio 2: configurare la Federazione diretta in Azure AD 
 Si configurerà quindi la Federazione con il provider di identità configurato nel passaggio 1 Azure AD. È possibile usare il portale di Azure AD o PowerShell. Potrebbero essere necessari 5-10 minuti prima che i criteri di federazione diretta abbiano effetto. Durante questo periodo, non tentare di riscattare un invito per il dominio federativo diretto. Gli attributi seguenti sono obbligatori:
-- URI dell'Autorità di certificazione dell'IdP partner
+- URI dell'autorità emittente dell'IdP partner
 - Endpoint di autenticazione passiva dell'IdP partner (è supportato solo HTTPS)
-- Certificato
+- Certificate
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Per configurare la Federazione diretta nel portale di Azure AD
 
@@ -151,8 +151,8 @@ Si configurerà quindi la Federazione con il provider di identità configurato n
 6. È possibile caricare un file di metadati per popolare i dettagli dei metadati. Se si sceglie di immettere i metadati manualmente, immettere le informazioni seguenti:
    - Nome di dominio dell'IdP partner
    - ID entità dell'IdP partner
-   - Endpoint richiedente passivo dell'IdP partner
-   - Certificato
+   - Endpoint del richiedente passivo dell'IdP partner
+   - Certificate
    > [!NOTE]
    > L'URL dei metadati è facoltativo, ma è consigliabile. Se si specifica l'URL dei metadati, Azure AD possibile rinnovare automaticamente il certificato di firma al termine della scadenza. Se il certificato viene ruotato per qualsiasi motivo prima della data di scadenza o se non si specifica un URL dei metadati, Azure AD non sarà in grado di rinnovarlo. In questo caso, sarà necessario aggiornare manualmente il certificato di firma.
 
@@ -166,7 +166,7 @@ Si configurerà quindi la Federazione con il provider di identità configurato n
    Connect-AzureAD
    ```
 1. Al prompt di accesso, accedere con l'account di amministratore globale gestito. 
-2. Eseguire i comandi seguenti, sostituendo i valori dal file di metadati della Federazione. Per AD FS server e Okta, il file di federazione è FederationMetadata. XML, ad esempio `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`:. 
+2. Eseguire i comandi seguenti, sostituendo i valori dal file di metadati della Federazione. Per AD FS server e Okta, il file di federazione è FederationMetadata. XML, ad esempio: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -180,7 +180,7 @@ Si configurerà quindi la Federazione con il provider di identità configurato n
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
 
-## <a name="step-3-test-direct-federation-in-azure-ad"></a>Passaggio 3: Test della Federazione diretta in Azure AD
+## <a name="step-3-test-direct-federation-in-azure-ad"></a>Passaggio 3: testare la Federazione diretta in Azure AD
 A questo punto, testare la configurazione della Federazione diretta invitando un nuovo utente Guest B2B. Per informazioni dettagliate, vedere [aggiungere Azure ad utenti di collaborazione B2B nel portale di Azure](add-users-administrator.md).
  
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Ricerca per categorie modificare una relazione di federazione diretta?

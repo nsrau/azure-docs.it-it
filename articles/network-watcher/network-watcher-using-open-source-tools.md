@@ -1,5 +1,6 @@
 ---
-title: Visualizzare modelli di traffico di rete con Azure Network Watcher e strumenti open source | Microsoft Docs
+title: Visualizzare i modelli di traffico di rete con strumenti open source
+titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come usare l'acquisizione pacchetti di Network Watcher con CapAnalysis per visualizzare i modelli di traffico da e verso le macchine virtuali.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64936015"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277768"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizzare i modelli di traffico di rete da e verso le macchine virtuali usando strumenti open source
 
@@ -33,7 +34,7 @@ Una semplice applicazione Web è distribuita in una macchina virtuale in Azure e
 
 ![scenario][1]
 
-## <a name="steps"></a>Passaggi
+## <a name="steps"></a>Passi
 
 ### <a name="install-capanalysis"></a>Installare CapAnalysis
 
@@ -76,7 +77,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
 1. Mappa geografica
 
-    Questo riquadro consente di visualizzare una mappa del traffico di rete, con i colori di ridimensionamento per il volume di traffico da ogni paese/area geografica. È possibile selezionare i paesi evidenziati per visualizzare altre statistiche sui flussi, ad esempio la proporzione di dati inviati e ricevuti dagli indirizzi IP in tale paese/area geografica.
+    Questo riquadro offre una visualizzazione mappa del traffico di rete, con il ridimensionamento dei colori al volume di traffico da ogni paese/area geografica. È possibile selezionare i paesi o le aree evidenziati per visualizzare statistiche di flusso aggiuntive, ad esempio la percentuale di dati inviati e ricevuti dagli indirizzi IP in tale paese/area geografica.
 
     ![Mappa geografica][8]
 
@@ -88,7 +89,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
     Per altre informazioni su tutte le funzionalità di CapAnalysis, vedere [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 La funzionalità di acquisizione pacchetti di Network Watcher permette di acquisire i dati necessari per eseguire l'analisi della rete e comprendere meglio il traffico di rete. In questo scenario è stato illustrato come integrate facilmente le acquisizioni pacchetti di Network Watcher con strumenti di visualizzazione open source. L'uso di strumenti open source come CapAnalysis per visualizzare le acquisizioni pacchetti permette di eseguire ispezioni approfondite dei pacchetti e di identificare rapidamente le tendenze all'interno del traffico di rete.
 

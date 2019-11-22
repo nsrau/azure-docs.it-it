@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un non account Microsoft a un'app Authenticator-Azure AD
-description: Come aggiungere gli account non Microsoft, ad esempio per Google, Facebook o GitHub, all'app Microsoft Authenticator per la verifica a due fattori.
+title: Aggiungere account non Microsoft all'app Microsoft Authenticator-Azure AD
+description: Aggiungere account non Microsoft, ad esempio per Google o Facebook all'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803673"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278886"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>Aggiungere gli account non Microsoft
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Aggiungere account non Microsoft all'app Microsoft Authenticator
 
 Aggiungere gli account non Microsoft, ad esempio per Google, Facebook o GitHub, all'app Microsoft Authenticator per la verifica a due fattori. L'app Microsoft Authenticator funziona con qualsiasi app che usa la verifica a due fattori e qualsiasi account che supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
 

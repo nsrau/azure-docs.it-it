@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597103"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267894"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -42,7 +42,7 @@ Quando il flusso di dati viene eseguito in Spark, Azure Data Factory determina i
 
 * Quando si selezionano le singole trasformazioni, si riceveranno ulteriori commenti e suggerimenti sul pannello di destra che mostra le statistiche delle partizioni, i conteggi delle colonne, l'asimmetria (in modo uniforme i dati distribuiti tra le partizioni) e curtosi (come Spiky rappresenta i dati).
 
-* Quando si fa clic sul sink nella visualizzazione del nodo, viene visualizzata la derivazione della colonna. Esistono tre metodi diversi in cui vengono accumulate le colonne lungo il flusso di dati per raggiungere il sink. Sono:
+* Quando si fa clic sul sink nella visualizzazione del nodo, viene visualizzata la derivazione della colonna. Esistono tre metodi diversi in cui vengono accumulate le colonne lungo il flusso di dati per raggiungere il sink. Vale a dire:
 
   * Calcolato: si usa la colonna per l'elaborazione condizionale o all'interno di un'espressione nel flusso di dati, ma non viene visualizzata nel sink
   * Derivato: la colonna è una nuova colonna generata nel flusso, ovvero non è presente nell'origine
@@ -51,7 +51,7 @@ Quando il flusso di dati viene eseguito in Spark, Azure Data Factory determina i
   * Tempo di avvio del cluster: periodo di tempo per l'acquisizione dell'ambiente di calcolo Spark JIT per l'esecuzione del flusso di dati
   * Numero di trasformazioni: il numero di passaggi di trasformazione eseguiti nel flusso
   
-![Monitoraggio del flusso di dati ACIT](media/data-flow/monitornew.png "Monitoraggio del flusso di dati nuovo")  
+![Monitoraggio dei flussi di dati](media/data-flow/monitornew.png "Monitoraggio del flusso di dati nuovo")  
   
 ## <a name="monitor-icons"></a>Icona di monitoraggio
 

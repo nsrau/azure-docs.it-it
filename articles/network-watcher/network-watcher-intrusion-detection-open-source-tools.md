@@ -1,5 +1,6 @@
 ---
-title: Eseguire il rilevamento di intrusioni di rete con Azure Network Watcher e strumenti open source | Microsoft Docs
+title: Eseguire il rilevamento delle intrusioni di rete con strumenti open source
+titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come usare Azure Network Watcher e strumenti open source per eseguire il rilevamento di intrusioni di rete
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605713"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275929"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
 
@@ -35,7 +36,7 @@ Questo articolo illustra come configurare l'ambiente per eseguire il rilevamento
 
 Entrambi gli strumenti open source possono essere configurati in una VM di Azure, consentendo di eseguire questa analisi nell'ambiente di rete di Azure.
 
-## <a name="steps"></a>Passaggi
+## <a name="steps"></a>Passi
 
 ### <a name="install-suricata"></a>Installare Suricata
 
@@ -255,7 +256,7 @@ Per questo articolo, è stato fornito un dashboard di esempio per visualizzare t
 
 Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suricata:
 
-1. Avvisi da GeoIP: una mappa che illustra la distribuzione di avvisi per i relativi paesi di origine basato su posizione geografica (determinata dall'IP)
+1. Avvisi di GeoIP: una mappa che mostra la distribuzione degli avvisi in base al paese/regione di origine in base alla posizione geografica (determinata dall'IP)
 
     ![IP geografico][3]
 
@@ -277,7 +278,7 @@ Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suric
 
 Per altri documenti sulla creazione di visualizzazioni e dashboard personalizzati, vedere la [documentazione ufficiale di Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Combinando le acquisizioni di pacchetti fornite da Network Watcher e da strumenti IDS open source come Suricata, è possibile eseguire il rilevamento di intrusioni di rete per svariate minacce. Questi dashboard consentono di trovare rapidamente tendenze e anomalie nella rete, oltre che esaminare i dati per trovare le cause radice degli avvisi, ad esempio agenti utenti malintenzionati o porte vulnerabili. Con i dati estratti, è possibile prendere decisioni informate su come reagire e proteggere la rete da qualsiasi tentativo di intrusione dannoso e creare regole per impedire intrusioni future nella rete.
 

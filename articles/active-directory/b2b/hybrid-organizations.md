@@ -1,5 +1,5 @@
 ---
-title: Collaborazione B2B per organizzazioni ibride - Azure Active Directory | Microsoft Docs
+title: Collaborazione B2B per organizzazioni ibride-Azure AD
 description: Concedere ai partner l'accesso alle risorse locali e cloud con Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b30e9c14863f67d28203eac916606e8786101e3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65768274"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272481"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Collaborazione B2B di Azure Active Directory per organizzazioni ibride
 

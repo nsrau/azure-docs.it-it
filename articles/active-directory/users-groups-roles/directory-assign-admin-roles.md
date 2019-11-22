@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9565f44fdb868bc45d2f99de1d4036e1d5d123
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181152"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266905"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -238,6 +238,7 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 >- [Azure ad portale](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -lettore globale non è in grado di leggere la modalità di provisioning di un'app aziendale.
 >- Interfaccia di [amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Impossibile leggere le richieste dell'archivio clienti. Non è possibile trovare la scheda **richieste di archivio archivi clienti** in **supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
 >- [Centro sicurezza M365](https://security.microsoft.com/homepage) : il lettore globale non è in grado di leggere le etichette di riservatezza e conservazione. Non sono disponibili le **etichette di riservatezza**, le **etichette di conservazione**e le schede di **analisi etichette** nel riquadro sinistro del Centro sicurezza M365.
+>- [Office Centro sicurezza e conformità](https://protection.microsoft.com) -Reader globale non è in grado di leggere i log di controllo di SCC o eseguire ricerche nel contenuto.
 >- Interfaccia di [amministrazione dei team](https://admin.teams.microsoft.com) : il lettore globale non è in grado di leggere il ciclo **di vita**dei **Team**, i **report di analisi &** , la **gestione dei dispositivi Phone**
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) non supporta il ruolo di lettore globale.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) -Global Reader è supportato solo [per la creazione di report centrali](https://docs.microsoft.com/azure/information-protection/reports-aip) e quando l'organizzazione Azure ad non si trova nella [piattaforma di etichettatura unificata](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).

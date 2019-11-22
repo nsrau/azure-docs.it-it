@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811634"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271686"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "71811634"
 
 ## <a name="enable-client-certificates"></a>Abilita certificati client
 
-Per configurare l'app in modo da richiedere i certificati client, è necessario impostare l'impostazione `clientCertEnabled` per l'app su `true`. Per impostare l'impostazione, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com).
+Per configurare l'app in modo da richiedere i certificati client, è necessario impostare l'impostazione di `clientCertEnabled` per l'app su `true`. Per impostare l'impostazione, eseguire il comando seguente nella [cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
@@ -41,7 +41,7 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
 Quando si Abilita l'autenticazione reciproca per l'applicazione, tutti i percorsi sotto la radice dell'app richiedono un certificato client per l'accesso. Per consentire a determinati percorsi di rimanere aperti per l'accesso anonimo, è possibile definire i percorsi di esclusione come parte della configurazione dell'applicazione.
 
-È possibile configurare i percorsi di esclusione selezionando **Configuration** > **General Settings** e definendo un percorso di esclusione. In questo esempio, qualsiasi elemento in un percorso `/public` per l'applicazione non richiede un certificato client.
+È possibile configurare i percorsi di esclusione selezionando **configurazione** > **Impostazioni generali** e definendo un percorso di esclusione. In questo esempio, qualsiasi elemento sotto `/public` percorso dell'applicazione non richiede un certificato client.
 
 ![Percorsi di esclusione dei certificati][exclusion-paths]
 
@@ -64,7 +64,7 @@ Per gli altri stack di applicazioni (node. js, PHP e così via), il certificato 
 
     namespace ClientCertificateUsageSample
     {
-        public partial class cert : System.Web.UI.Page
+        public partial class Cert : System.Web.UI.Page
         {
             public string certHeader = "";
             public string errorString = "";
@@ -180,7 +180,7 @@ Per gli altri stack di applicazioni (node. js, PHP e così via), il certificato 
 
 ## <a name="nodejs-sample"></a>Esempio node. js
 
-Il codice di esempio node. js seguente ottiene l'intestazione `X-ARR-ClientCert` e USA [node-Forge](https://github.com/digitalbazaar/forge) per convertire la stringa PEM con codifica Base64 in un oggetto Certificate e convalidarla:
+Il codice di esempio node. js seguente ottiene l'intestazione `X-ARR-ClientCert` e USA [node-Forge](https://github.com/digitalbazaar/forge) per convertire la stringa PEM con codifica Base64 in un oggetto certificato e convalidarla:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';

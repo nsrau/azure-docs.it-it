@@ -1,5 +1,5 @@
 ---
-title: Consentire o bloccare gli inviti a organizzazioni specifiche-Azure Active Directory | Microsoft Docs
+title: Consentire o bloccare gli inviti a organizzazioni specifiche-Azure AD
 description: Viene illustrato come un amministratore può usare il portale di Azure o PowerShell per impostare un elenco di accesso consentito o negato per consentire o impedire agli utenti di B2B di accedere da determinati domini.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474175"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273415"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche
 
@@ -45,7 +45,7 @@ Per aggiungere un elenco di accesso negato:
 2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
 3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
 4. In **Collaboration restrictions** (Restrizioni per la collaborazione) selezionare **Deny invitations to the specified domains** (Nega inviti ai domini specificati).
-5. In **Domini di destinazione** immettere il nome di uno dei domini che si vuole bloccare. Per specificare più domini, immettere ognuno in una nuova riga. ad esempio:
+5. In **Domini di destinazione** immettere il nome di uno dei domini che si vuole bloccare. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:
 
    ![Mostra l'opzione di negazione con i domini aggiunti](./media/allow-deny-list/DenyListSettings.png)
  
@@ -66,7 +66,7 @@ Per aggiungere un elenco di accesso consentito:
 2. Selezionare **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
 3. In **Utenti esterni** selezionare **Manage external collaboration settings** (Gestisci impostazioni di collaborazione esterna).
 4. In **Restrizioni di collaborazione** selezionare **Consenti l'invio di inviti solo ai domini specificati (più restrittivo)** .
-5. In **DOMINI DI DESTINAZIONE** immettere il nome di uno dei domini che si vuole consentire. Per specificare più domini, immettere ognuno in una nuova riga. ad esempio:
+5. In **DOMINI DI DESTINAZIONE** immettere il nome di uno dei domini che si vuole consentire. Per specificare più domini, immettere ognuno in una nuova riga. Ad esempio:
 
    ![Mostra l'opzione Consenti con i domini aggiunti](./media/allow-deny-list/AllowListSettings.png)
  
@@ -140,19 +140,19 @@ Di seguito è riportato lo stesso esempio, ma con la definizione del criterio in
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Per impostare il criterio per l'elenco di accesso consentito o negato, usare il cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). ad esempio:
+Per impostare il criterio per l'elenco di accesso consentito o negato, usare il cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Per ottenere il criterio, usare il cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). ad esempio:
+Per ottenere il criterio, usare il cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Per rimuovere il criterio, usare il cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). ad esempio:
+Per rimuovere il criterio, usare il cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Ad esempio:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

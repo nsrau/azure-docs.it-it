@@ -1,6 +1,6 @@
 ---
-title: Set up the Microsoft Authenticator app as your authentication method - Azure AD
-description: How to set up your Security info to verify your identity using the Microsoft Authenticator app as your authentication method.
+title: Configurare l'app Microsoft Authenticator come metodo di verifica-Azure AD
+description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità usando l'app Microsoft Authenticator come metodo di verifica.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761c9d3ed4cb49a7dc95ea98ce6f884930185643
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233205"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279075"
 ---
-# <a name="set-up-the-microsoft-authenticator-app-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up the Microsoft Authenticator app as your authentication method from the Security info (preview) page
+# <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurare l'app Microsoft Authenticator come metodo di verifica
 
 È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
-Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere i passaggi dettagliati nell'articolo [Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso](security-info-setup-signin.md).
+Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere i passaggi dettagliati nell'articolo [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) (Configurare le informazioni di sicurezza dal prompt della pagina di accesso).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se l'opzione relativa all'app di autenticazione non viene visualizzata, è possibile che l'organizzazione non consenta l'uso di un'app di autenticazione per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
+>Se l'opzione relativa all'app di autenticazione non viene visualizzata, è possibile che l'organizzazione non consenta l'uso di un'app di autenticazione per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurare l'app Microsoft Authenticator dalla pagina Informazioni di sicurezza
 
@@ -109,15 +109,15 @@ Per non usare più l'app di autenticazione come metodo di gestione delle informa
 
     L'account verrà completamente rimosso dall'app di autenticazione per le richieste di verifica a due fattori e reimpostazione della password.
 
-## <a name="change-your-default-security-info-method"></a>Modificare il metodo di gestione delle informazioni di sicurezza predefinito
+## <a name="change-your-default-security-info-method"></a>Cambiare il metodo di gestione delle informazioni di sicurezza predefinito
 
 Se si desidera impostare l'app di autenticazione come metodo predefinito da usare quando si accede all'account aziendale o dell'istituto di istruzione con la verifica a due fattori o per le richieste di reimpostazione della password, è possibile farlo dalla pagina **Informazioni di sicurezza**.
 
-### <a name="to-change-your-default-security-info-method"></a>Per modificare il metodo di gestione delle informazioni di sicurezza predefinito
+### <a name="to-change-your-default-security-info-method"></a>Per cambiare il metodo di gestione delle informazioni di sicurezza predefinito
 
 1. Nella pagina **Informazioni di sicurezza** selezionare il collegamento **Modifica** accanto alle informazioni **Metodo di accesso predefinito**.
 
-    ![Modificare il collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+    ![Cambiare collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
 
 2. Scegliere **Microsoft Authenticator - Notifica** dall'elenco a discesa di metodi disponibili. Se non si usa l'app Microsoft Authenticator, selezionare l'opzione **App Authenticator o token hardware**.
 
@@ -127,7 +127,7 @@ Se si desidera impostare l'app di autenticazione come metodo predefinito da usar
 
     Il metodo predefinito usato per l'accesso passa all'app Microsoft Authenticator.
 
-## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
+## <a name="additional-security-info-methods"></a>Altri metodi per le informazioni di sicurezza
 
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
@@ -135,7 +135,7 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 - **Chiamata sul dispositivo mobile o sul telefono dell'ufficio.** Immettere il numero del dispositivo mobile per ricevere una chiamata per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un numero di telefono, vedere [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche](security-info-setup-phone-number.md).
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
 
 - **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
@@ -146,7 +146,7 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Sign-in using the Microsoft Authenticator app, following steps in the [Sign in using two-step verification or security info](security-info-setup-signin.md) article.
+- Eseguire l'accesso con l'app Microsoft Authenticator, seguendo la procedura illustrata nell'articolo [accedere usando la verifica in due passaggi o le informazioni sulla sicurezza](security-info-setup-signin.md) .
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md).
 

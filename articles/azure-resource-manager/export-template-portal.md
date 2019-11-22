@@ -2,13 +2,13 @@
 title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 6e05a8bff27e56bc5942a7c16ab63921c489f44c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/21/2019
+ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149860"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306789"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -33,7 +33,7 @@ A seconda dell'opzione scelta, i modelli esportati hanno qualità differenti.
 | Il modello è uno snapshot dello stato corrente delle risorse. Sono incluse eventuali modifiche manuali apportate dopo la distribuzione. | Il modello Mostra solo lo stato delle risorse al momento della distribuzione. Eventuali modifiche manuali apportate dopo la distribuzione non sono incluse. |
 | È possibile selezionare le risorse da esportare in un gruppo di risorse. | Sono incluse tutte le risorse per una distribuzione specifica. Non è possibile selezionare un subset di tali risorse o aggiungere risorse aggiunte in un momento diverso. |
 | Il modello include tutte le proprietà per le risorse, incluse alcune proprietà che in genere non vengono impostate durante la distribuzione. Potrebbe essere necessario rimuovere o pulire queste proprietà prima di riutilizzare il modello. | Il modello include solo le proprietà necessarie per la distribuzione. Il modello è pronto per l'uso. |
-| Il modello probabilmente non include tutti i parametri necessari per il riutilizzo. La maggior parte dei valori delle proprietà è hardcoded nel modello. Per ridistribuire il modello in altri ambienti, è necessario aggiungere parametri che aumentano la capacità di configurare le risorse. | Il modello include parametri che facilitano la ridistribuzione in ambienti diversi. |
+| Il modello probabilmente non include tutti i parametri necessari per il riutilizzo. La maggior parte dei valori delle proprietà è hardcoded nel modello. Per ridistribuire il modello in altri ambienti, è necessario aggiungere parametri che aumentano la capacità di configurare le risorse.  È anche possibile deselezionare l'opzione **Includi parametri** per poter creare parametri personalizzati. | Il modello include parametri che facilitano la ridistribuzione in ambienti diversi. |
 
 Esportare il modello da un gruppo di risorse o una risorsa quando:
 
@@ -62,6 +62,8 @@ Per esportare una o più risorse da un gruppo di risorse:
 
    ![Mostrare il modello](./media/export-template-portal/show-template.png)
 
+   I **parametri di inclusione** sono selezionati per impostazione predefinita.  Quando questa opzione è selezionata, durante la generazione del modello verranno inclusi tutti i parametri del modello. Per creare parametri personalizzati, impostare questa casella di controllo in modo da non includerli.
+
 ## <a name="export-template-from-a-resource"></a>Esportare il modello da una risorsa
 
 Per esportare una risorsa:
@@ -74,7 +76,7 @@ Per esportare una risorsa:
 
    ![Esporta risorsa](./media/export-template-portal/export-single-resource.png)
 
-1. Il modello esportato viene visualizzato ed è disponibile per il download e la distribuzione. Il modello contiene solo la risorsa singola.
+1. Il modello esportato viene visualizzato ed è disponibile per il download e la distribuzione. Il modello contiene solo la risorsa singola. I **parametri di inclusione** sono selezionati per impostazione predefinita.  Quando questa opzione è selezionata, durante la generazione del modello verranno inclusi tutti i parametri del modello. Per creare parametri personalizzati, impostare questa casella di controllo in modo da non includerli.
 
 ## <a name="export-template-before-deployment"></a>Esporta modello prima della distribuzione
 

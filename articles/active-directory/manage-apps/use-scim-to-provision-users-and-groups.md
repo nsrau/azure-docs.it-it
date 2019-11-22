@@ -1,5 +1,5 @@
 ---
-title: Provisioning utenti di SCIM con Azure Active Directory | Microsoft Docs
+title: Automatizzare il provisioning delle app usando SCIM in Azure AD
 description: Informazioni su come creare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e avviare l'automazione del provisioning di utenti e gruppi nelle applicazioni.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195458"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276481"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>Provisioning utenti di SCIM con Azure Active Directory (Azure AD)
 

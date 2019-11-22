@@ -1,5 +1,6 @@
 ---
-title: Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Diagnosticare un problema di routing di rete VM-interfaccia della riga di comando di Azure
+titleSuffix: Azure Network Watcher
 description: In questo articolo si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688206"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276100"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
@@ -42,7 +43,7 @@ Prima di poter creare una macchina virtuale, è necessario creare un gruppo di r
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
 ```azurecli-interactive
 az vm create \

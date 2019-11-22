@@ -1,5 +1,5 @@
 ---
-title: Applicazioni con carattere jolly in Azure Active Directory Application Proxy | Microsoft Docs
+title: Applicazioni con carattere jolly nel proxy di applicazione Azure AD
 description: Informazioni su come usare le applicazioni con carattere jolly in Azure Active Directory Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828001"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275038"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -53,15 +53,15 @@ Se sono presenti altre applicazioni con impostazioni di configurazione diverse, 
 
 La creazione di un'applicazione con carattere jolly è basata sullo stesso [flusso di pubblicazione](application-proxy-add-on-premises-application.md) disponibile per tutte le altre applicazioni. L'unica differenza è che viene incluso un carattere jolly negli URL e potenzialmente nella configurazione SSO.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per iniziare, assicurarsi di che aver soddisfatto questi requisiti.
+Per iniziare, verificare di aver soddisfatto i requisiti.
 
 ### <a name="custom-domains"></a>Domini personalizzati
 
 Mentre i [domini personalizzati](application-proxy-configure-custom-domain.md) sono facoltativi per tutte le altre applicazioni, per le applicazioni con carattere jolly costituiscono un prerequisito. Per creare domini personalizzati è necessario:
 
-1. Creare un dominio verificato all'interno di Azure.
+1. Creare un dominio verificato in Azure.
 1. Caricare un certificato SSL in formato PFX nel proxy dell'applicazione.
 
 Può essere opportuno usare un certificato con carattere jolly corrispondente all'applicazione che si intende creare. In alternativa, è anche possibile usare un certificato contenente un elenco di applicazioni specifiche. In questo caso, solo le applicazioni elencate nel certificato saranno accessibili tramite l'applicazione con carattere jolly.
@@ -78,17 +78,17 @@ Per verificare la corretta configurazione del record CNAME, è possibile usare [
 
 ## <a name="considerations"></a>Considerazioni
 
-Di seguito sono riportate alcune considerazioni, che è consigliabile prendere in considerazione per le applicazioni con caratteri jolly.
+Di seguito sono riportate alcune considerazioni da tenere in considerazione per le applicazioni con caratteri jolly.
 
 ### <a name="accepted-formats"></a>Formati accettati
 
 Per le applicazioni con carattere jolly, il campo **URL interno** deve contenere un valore con formato `http(s)://*.<domain>`.
 
-![Per l'URL interno, usare il formato http (s) :/ / *. \<dominio >](./media/application-proxy-wildcard/22.png)
+![Per URL interno, usare il formato http (s)://*. >\<dominio](./media/application-proxy-wildcard/22.png)
 
 Quando si configura un valore nel campo **URL esterno**, è necessario usare il formato seguente: `https://*.<custom domain>`
 
-![Per l'URL esterno, usare il formato https://*. \<dominio personalizzate >](./media/application-proxy-wildcard/21.png)
+![Per URL esterno usare il formato https://*.\<> di dominio personalizzato](./media/application-proxy-wildcard/21.png)
 
 Altre posizioni del carattere jolly, altre stringhe regex o caratteri jolly multipli non sono supportati e possono causare errori.
 
@@ -118,7 +118,7 @@ L'applicazione con carattere jolly è rappresentata con un solo riquadro nel [pa
 
 Per le applicazioni che usano la [delega vincolata Kerberos (KCD) come metodo SSO](application-proxy-configure-single-sign-on-with-kcd.md) può essere necessario un carattere jolly anche per il nome dell'entità servizio elencato per il metodo SSO. Ad esempio, il nome dell'entità servizio può essere `HTTP/*.adventure-works.com`. È comunque necessario configurare i singoli nomi dell'entità servizio nei server back-end (ad esempio, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
-## <a name="scenario-1-general-wildcard-application"></a>Scenario 1: Applicazione con caratteri jolly generica
+## <a name="scenario-1-general-wildcard-application"></a>Scenario 1: Applicazione con carattere jolly generica
 
 In questo scenario sono presenti tre diverse applicazioni da pubblicare:
 
@@ -142,28 +142,28 @@ Seguendo le [procedure descritte](application-proxy-add-on-premises-application.
 
 - URL interno:
 
-    ![Esempio: Con caratteri jolly nell'URL interno](./media/application-proxy-wildcard/42.png)
+    ![Esempio: carattere jolly nell'URL interno](./media/application-proxy-wildcard/42.png)
 
 - URL esterno:
 
-    ![Esempio: Carattere jolly nel URL esterno](./media/application-proxy-wildcard/43.png)
+    ![Esempio: carattere jolly nell'URL esterno](./media/application-proxy-wildcard/43.png)
 
 - Nome dell'entità servizio dell'applicazione interna:
 
-    ![Esempio: Carattere jolly nella configurazione del nome SPN](./media/application-proxy-wildcard/44.png)
+    ![Esempio: carattere jolly nella configurazione SPN](./media/application-proxy-wildcard/44.png)
 
 Con la pubblicazione dell'applicazione con carattere jolly è ora possibile accedere alle tre applicazioni passando agli URL che si conoscono (ad esempio, `travel.adventure-works.com`).
 
 La configurazione implementa la struttura seguente:
 
-![Viene illustrata la struttura implementata dalla configurazione di esempio](./media/application-proxy-wildcard/05.png)
+![Mostra la struttura implementata dalla configurazione di esempio](./media/application-proxy-wildcard/05.png)
 
-| Colore | Descrizione |
+| Colore | DESCRIZIONE |
 | ---   | ---         |
-| Blu  | Applicazioni pubblicate in modo esplicito e visibili nel portale di Azure. |
+| Blu  | Le applicazioni sono pubblicate e visibili in modo esplicito nella portale di Azure. |
 | Grigio  | Applicazioni accessibili tramite l'applicazione padre. |
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenario 2: Applicazione con caratteri jolly generica con un'eccezione
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenario 2: Applicazione con carattere jolly generica con un'eccezione
 
 In questo scenario, oltre alle tre applicazioni generiche, è presente un'altra applicazione, `finance.adventure-works.com`, che deve essere accessibile solo dal reparto finanziario. Con la struttura corrente, l'applicazione finanziaria è accessibile da tutti i dipendenti attraverso l'applicazione con carattere jolly. Per modificare questa impostazione, è necessario escludere l'applicazione dall'applicazione con carattere jolly configurando l'applicazione finanziaria come separata e dotata di autorizzazioni più restrittive.
 
@@ -173,19 +173,19 @@ Secondo le [procedure descritte](application-proxy-add-on-premises-application.m
 
 - Nel campo **URL interno** è necessario impostare **finance** anziché un carattere jolly.
 
-    ![Esempio: Impostare finance anziché un carattere jolly nell'URL interno](./media/application-proxy-wildcard/52.png)
+    ![Esempio: impostare Finance anziché un carattere jolly nell'URL interno](./media/application-proxy-wildcard/52.png)
 
 - Nel campo **URL esterno** è necessario impostare **finance** anziché un carattere jolly.
 
-    ![Esempio: Impostare finance anziché un carattere jolly nell'URL esterno](./media/application-proxy-wildcard/53.png)
+    ![Esempio: impostare Finance anziché un carattere jolly nell'URL esterno](./media/application-proxy-wildcard/53.png)
 
 - Nel campo Nome dell'entità servizio dell'applicazione interna è necessario impostare **finance** anziché un carattere jolly.
 
-    ![Esempio: Impostare finance anziché un carattere jolly nella configurazione del nome SPN](./media/application-proxy-wildcard/54.png)
+    ![Esempio: impostare Finance anziché un carattere jolly nella configurazione SPN](./media/application-proxy-wildcard/54.png)
 
 Questa configurazione implementa lo scenario seguente:
 
-![Viene illustrata la configurazione implementata per lo scenario di esempio](./media/application-proxy-wildcard/09.png)
+![Mostra la configurazione implementata dallo scenario di esempio](./media/application-proxy-wildcard/09.png)
 
 Poiché `finance.adventure-works.com` è un URL più specifico di `*.adventure-works.com`, ha la precedenza. Gli utenti che accedono a `finance.adventure-works.com` sperimentano l'applicazione in base alle impostazioni specificate in Finance Resources. In questo caso, solo i dipendenti del reparto finanziario possono accedere a `finance.adventure-works.com`.
 
@@ -193,5 +193,5 @@ Se sono state pubblicate più applicazioni per il dominio finance e `finance.adv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle **domini personalizzati**, vedere [utilizzo di domini personalizzati nel Proxy applicazione Azure AD](application-proxy-configure-custom-domain.md).
-- Per altre informazioni sulle **pubblicazione di applicazioni**, vedere [pubblicare applicazioni mediante Proxy applicazione Azure AD](application-proxy-add-on-premises-application.md)
+- Per ulteriori informazioni sui **domini personalizzati**, vedere [utilizzo di domini personalizzati nel Proxy di applicazione Azure ad](application-proxy-configure-custom-domain.md).
+- Per altre informazioni sulla **pubblicazione di applicazioni**, vedere [pubblicare applicazioni con Azure ad proxy di applicazione](application-proxy-add-on-premises-application.md)

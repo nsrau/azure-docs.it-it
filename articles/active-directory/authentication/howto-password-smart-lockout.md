@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d4cb2d424d242fd9ea078d981a85516a00c8115f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125011"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268660"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -33,7 +33,7 @@ Le distribuzioni federate con AD FS 2016 e AF FS 2019 possono offrire vantaggi s
 
 Il blocco intelligente è sempre attivo per tutti i clienti di Azure AD con le impostazioni predefinite che offrono la giusta combinazione di sicurezza e usabilità. Per personalizzare le impostazioni di blocco Smart, con valori specifici per l'organizzazione, è necessario disporre di licenze a pagamento Azure AD per gli utenti.
 
-L'uso del blocco intelligente non garantisce che un utente originale non venga mai bloccato. Quando il blocco intelligente blocca un account utente, viene eseguito un tentativo di non bloccare l'utente originale. Il servizio di blocco cerca di garantire che gli utenti non autorizzati non possano accedere all'account degli utenti originali.  
+L'utilizzo del blocco intelligente non garantisce che un utente autentico non venga mai bloccato. Quando il blocco intelligente blocca un account utente, è possibile provare a non bloccare l'utente autentico. Il servizio di blocco cerca di garantire che gli utenti non autorizzati non possano accedere all'account degli utenti originali.  
 
 * Ogni data center di Azure Active Directory tiene traccia del blocco in modo indipendente. Un utente disporrà di un numero di tentativi pari a (limite_soglia * conteggio_datacenter), se l'utente esegue l'accesso a ogni data center.
 * Il blocco intelligente usa la differenziazione tra posizioni conosciute e sconosciute per individuare gli utenti originali e distinguerli da quelli non autorizzati. Le posizioni conosciute e quelle sconosciute disporranno entrambe di contatori di blocco distinti.
@@ -67,7 +67,8 @@ In base alle esigenze dell'organizzazione, può essere necessario personalizzare
 
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory** > **Metodi** > di autenticazione**Password Protection**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i **metodi di autenticazione** > la protezione con **password**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco. Il valore predefinito è 10.
 1. Impostare il valore di **Durata del blocco in secondi** sulla durata in secondi di ogni blocco. Il valore predefinito è 60 secondi (1 minuto).
 
@@ -80,7 +81,7 @@ Per verificare o modificare i valori del blocco intelligente per l'organizzazion
 
 Quando viene attivata la soglia di blocco Smart, si riceverà il messaggio seguente quando l'account è bloccato:
 
-**L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare più tardi. Se il problema persiste, contattare l'amministratore.**
+**L'account è temporaneamente bloccato per impedire l'uso non autorizzato. Riprovare più tardi. se il problema persiste, contattare l'amministratore.**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Gli utenti GRANT B2B accedere alle App in locale - Azure Active Directory | Microsoft Docs
-description: Viene illustrato come concedere l'accesso agli utenti B2B a per le app locali con collaborazione B2B di Azure AD di cloud.
+title: Concedere agli utenti B2B l'accesso alle app locali-Azure AD
+description: Mostra come concedere agli utenti B2B del cloud l'accesso alle app locali con Azure AD collaborazione B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d3fa8e71df3d1184956e1802d1b6b72411b6449
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 098f464b6af5f10866403e1cd1549d571d883ac1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113043"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272806"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -64,7 +64,7 @@ Il diagramma seguente offre una panoramica generale del funzionamento combinato 
 È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Ad esempio:
 
 - È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
-- Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato tramite i criteri di gestione del ciclo di vita, anche l'utente locale viene eliminato mediante la sincronizzazione MIM oppure la sincronizzazione di Azure AD Connect. Per altre informazioni, vedere [Gestire l'accesso guest con le verifiche di accesso di Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+- Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato attraverso i criteri di gestione del ciclo di vita, l'utente locale viene anche eliminato dalla sincronizzazione MIM o tramite Azure AD Connect sincronizzazione. Per altre informazioni, vedere [gestire l'accesso guest con le verifiche di accesso Azure ad](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Creare oggetti utente guest B2B con MIM
 

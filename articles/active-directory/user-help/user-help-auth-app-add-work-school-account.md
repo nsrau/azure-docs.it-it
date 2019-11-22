@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un account aziendale o dell'Istituto di istruzione a un'app di autenticazione-Azure AD
-description: Come aggiungere l'account aziendale o dell'istituto di istruzione all'app Microsoft Authenticator per la verifica a due fattori.
+title: Aggiungere un account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator-Azure AD
+description: Aggiungere l'account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803743"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267135"
 ---
-# <a name="add-your-work-or-school-account"></a>Aggiungere l'account aziendale o dell'istituto di istruzione
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Aggiungere l'account aziendale o dell'Istituto di istruzione all'app Microsoft Authenticator
 
 Se l'organizzazione usa la verifica a due fattori, è possibile impostare l'account aziendale o dell'istituto di istruzione in modo da usare l'app Microsoft Authenticator come uno dei metodi di verifica.
 

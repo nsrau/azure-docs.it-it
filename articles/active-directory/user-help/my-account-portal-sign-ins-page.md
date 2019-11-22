@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587628"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279029"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualizza e cerca le attività di accesso recenti dalla pagina di accesso (anteprima)
 
@@ -31,7 +31,7 @@ ms.locfileid: "73587628"
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visualizzare le attività di accesso recenti
 
-1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
+1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
 
 2. Selezionare **accessi personali (anteprima)** nel riquadro di spostamento a sinistra oppure selezionare il collegamento **Controlla attività recente** dal blocco **accessi (anteprima)** .
 
@@ -49,7 +49,7 @@ Prima di determinare se un elemento non è corretto, assicurarsi che non venga v
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Se viene visualizzato un accesso non riuscito
 
-Un accesso non riuscito, senza attività di sessione, significa che il metodo di autenticazione principale (nome utente/password) non è riuscito. Questo potrebbe significare che il nome utente o la password è stata digitata in modo errato, ma potrebbe anche significare che un utente malintenzionato sta provando a indovinare la password. Se si ritiene che l'utente malintenzionato provi senza riuscirvi a indovinare la password, non è necessario modificare la password, ma è consigliabile registrarsi per Azure Multi-Factor Authentication (multi-factor authentication). Con l'autenticazione a più fattori, anche se il pirata informatico Indovina la password, non sarà sufficiente per accedere all'account.
+Un accesso non riuscito, senza attività di sessione, significa che il metodo di verifica principale (nome utente/password) non è riuscito. Questo potrebbe significare che il nome utente o la password è stata digitata in modo errato, ma potrebbe anche significare che un utente malintenzionato sta provando a indovinare la password. Se si ritiene che l'utente malintenzionato provi senza riuscirvi a indovinare la password, non è necessario modificare la password, ma è consigliabile registrarsi per Azure Multi-Factor Authentication (multi-factor authentication). Con l'autenticazione a più fattori, anche se il pirata informatico Indovina la password, non sarà sufficiente per accedere all'account.
 
 Se viene visualizzato un accesso non riuscito, con una nota nell'attività della sessione che indica che la **verifica aggiuntiva non è riuscita, il codice non è valido**, significa che l'autenticazione principale (nome utente/password) ha avuto esito positivo, ma l'autenticazione a più fattori non è riuscita. Se si trattasse di un utente malintenzionato, la password è stata indovinata, ma non è ancora stato possibile superare la richiesta di autenticazione a più fattori. In questo caso, è comunque consigliabile modificare la password, poiché l'autore dell'attacco ha ottenuto tale diritto, quindi passare alla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info) per aggiornare le impostazioni di sicurezza.
 

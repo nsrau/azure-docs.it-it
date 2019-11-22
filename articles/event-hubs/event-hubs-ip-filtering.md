@@ -11,18 +11,18 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468430"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279677"
 ---
-# <a name="use-firewall-rules"></a>Uso delle regole del firewall
+# <a name="use-firewall-rules"></a>Usare le regole del firewall
 
 Per gli scenari in cui Hub eventi di Azure deve essere accessibile solo da determinati siti noti, le regole del firewall consentono di configurare regole per accettare il traffico proveniente da indirizzi IPv4 specifici, ad esempio quelli di un gateway NAT aziendale.
 
-## <a name="when-to-use"></a>Quando usare questa opzione
+## <a name="when-to-use"></a>Quando usare la funzionalità
 
 Se si desidera configurare lo spazio dei nomi in Hub eventi in modo che riceva il traffico solo da un intervallo specificato di indirizzi IP e rifiutare tutto il resto, è possibile usare una *regola del firewall* per bloccare gli endpoint di Hub eventi da altri indirizzi IP. Ad esempio, se si usa hub eventi con [Azure Express Route][express-route], è possibile creare una *regola del firewall* per limitare il traffico dagli indirizzi IP dell'infrastruttura locale.
 
@@ -46,8 +46,7 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 > I servizi Microsoft attendibili non sono supportati quando sono implementate le funzionalità di filtro IP (firewall), ma saranno presto disponibili.
 >
 > Scenari comuni di Azure che non supportano il filtro IP (l'elenco **NON** è esaustivo)
-> - Monitoraggio di Azure
-> - Analisi di flusso di Azure
+> - Azure Stream Analytics
 > - Integrazione con Griglia di eventi di Azure
 > - Route dell'hub IoT di Azure
 > - Azure IoT Device Explorer
@@ -71,11 +70,11 @@ Parametri del modello:
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
 > Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
 > 
-> from
+> Da
 > ```json
 > "defaultAction": "Allow"
 > ```
-> to
+> To
 > ```json
 > "defaultAction": "Deny"
 > ```

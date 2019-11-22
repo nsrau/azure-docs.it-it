@@ -1,5 +1,5 @@
 ---
-title: Eseguire operazioni nell'archivio code di Azure con PowerShell-archiviazione di Azure
+title: Eseguire azioni di archiviazione code di Azure in PowerShell
 description: Come eseguire operazioni nell'archivio code di Azure con PowerShell
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 98c59555f2b9b93ee3f78da91f85a7728679235d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721218"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269388"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
@@ -21,20 +21,20 @@ Archiviazione code di Azure è un servizio che consente di archiviare grandi qua
 
 > [!div class="checklist"]
 >
-> * Crea una coda
+> * Creare una coda
 > * Recuperare una coda
 > * Aggiungere un messaggio
 > * Leggere un messaggio
 > * Eliminare un messaggio
 > * Eliminare una coda
 
-Questa procedura richiede il modulo Azure PowerShell Az 0.7 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
+Questa procedura richiede il modulo Azure PowerShell Az 0.7 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell).
 
 Non sono disponibili cmdlet di PowerShell per il piano dati per le code. Per eseguire le operazioni del piano dati come aggiungere, leggere ed eliminare un messaggio, è necessario usare la libreria client di dell'archivio .NET come mostrato in PowerShell. Creare un oggetto messaggio e usare i comandi, ad esempio AddMessage per eseguire operazioni su tale messaggio. Questo articolo mostra come eseguire questa operazione.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -51,7 +51,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Crea gruppo di risorse
+## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
@@ -62,7 +62,7 @@ $resourceGroup = "howtoqueuesrg"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-## <a name="create-storage-account"></a>Creare un account di archiviazione
+## <a name="create-storage-account"></a>Crea account di archiviazione
 
 Creare un account di archiviazione standard per utilizzo generico con archiviazione con ridondanza locale mediante [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Ottenere il contesto che definisce l'account di archiviazione da usare. Quando si usa un account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali.
 
@@ -76,7 +76,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Crea una coda
+## <a name="create-a-queue"></a>Creare una coda
 
 Innanzitutto viene stabilita una connessione ad Archiviazione di Azure usando il contesto dell'account di archiviazione che include il nome dell'account di archiviazione e la relativa chiave di accesso. Viene poi chiamato il cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) per creare una coda denominata 'queuename'.
 
@@ -185,7 +185,7 @@ In questa procedura è stata illustrata la gestione di base dell'archivio delle 
 
 > [!div class="checklist"]
 >
-> * Crea una coda
+> * Creare una coda
 > * Recuperare una coda
 > * Aggiungere un messaggio
 > * Leggere il messaggio successivo

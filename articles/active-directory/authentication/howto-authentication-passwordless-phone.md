@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3ca668036a8b4a4af261ee85b8a884c22258beb4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474351"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269494"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -29,7 +29,7 @@ Anziché visualizzare la richiesta di una password dopo l'immissione di un nome 
 > [!NOTE]
 > Questa funzionalità è stata rilevata nell'app Microsoft Authenticator da marzo 2017, quindi è possibile che, quando il criterio è abilitato per una directory, gli utenti possano riscontrare immediatamente questo flusso e visualizzare un messaggio di errore se non sono stati abilitati dai criteri. Tenere presente queste informazioni e preparare gli utenti per questa modifica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Multi-Factor Authentication di Azure, con notifiche push consentite come metodo di verifica 
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.
@@ -46,7 +46,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Abilitare i metodi di autenticazione per l'accesso tramite telefono senza password
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Passare a **Azure ad sicurezza** > **metodi di autenticazione** > **criteri metodo di autenticazione (anteprima)**
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i **metodi di autenticazione** > **sicurezza** > **criteri metodo di autenticazione (anteprima)**
 1. In **accesso con telefono senza password**scegliere le opzioni seguenti
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati

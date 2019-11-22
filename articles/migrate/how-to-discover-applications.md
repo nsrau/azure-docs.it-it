@@ -4,14 +4,14 @@ description: Viene descritto come individuare app, ruoli e funzionalità nei ser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/20/2019
 ms.author: snehaa
-ms.openlocfilehash: 14ecc6454c3d0f167c671532dd8e659e767cda66
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158644"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278483"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
@@ -19,10 +19,10 @@ Questo articolo descrive come individuare applicazioni, ruoli e funzionalità ne
 
 L'individuazione dell'inventario delle app e dei ruoli e delle funzionalità in esecuzione nei computer locali ti permette di identificare e pianificare un percorso di migrazione ad Azure personalizzato per i tuoi carichi di lavoro.
 
-Individuazione app con Azure Migrate: la valutazione del server è senza agente. Non è necessario installare nulla in computer e macchine virtuali. Server Assessment usa il dispositivo Azure Migrate per eseguire l'individuazione insieme alle credenziali Guest del computer. L'appliance accede in remoto ai computer usando le chiamate WMI e SSH.
-
 > [!NOTE]
 > L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware ed è limitata all'individuazione. Non è ancora stata offerta una valutazione basata su app.  Attualmente la valutazione server attualmente valuta le VM VMware locali, le VM Hyper-V e i server fisici a livello di computer, per le migrazioni in modalità Lift-and-Shift.
+
+Individuazione app con Azure Migrate: la valutazione del server è senza agente. Non è necessario installare nulla in computer e macchine virtuali. Server Assessment usa il dispositivo Azure Migrate per eseguire l'individuazione insieme alle credenziali Guest del computer. L'appliance accede in remoto ai computer VMware usando le API VMware.
 
 
 ## <a name="before-you-start"></a>Prima di iniziare

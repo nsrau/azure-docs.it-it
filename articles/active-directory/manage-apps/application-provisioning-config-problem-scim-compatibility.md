@@ -1,5 +1,5 @@
 ---
-title: Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD | Microsoft Docs
+title: Problemi noti relativi alla conformità del protocollo SCIM 2,0-Azure AD
 description: Risoluzione dei problemi comuni di compatibilità con il protocollo riscontrati durante l'aggiunta in Azure AD di un'applicazione non inclusa nella raccolta che supporta SCIM 2.0
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963185"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275806"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -38,10 +38,10 @@ In questo articolo sono descritti i problemi correnti e passati relativi alla co
 
 | **Problema di conformità con SCIM 2.0** |  **Risolto?** | **Data di risoluzione**  |  
 |---|---|---|
-| In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Yes  |  18 dicembre 2018 | 
-| Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Yes  | 18 dicembre 2018  | 
-|  Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Yes  |  18 dicembre 2018  | 
-|  Le richieste di creazione dei gruppi contengono un URI di schema non valido | Yes  |  18 dicembre 2018  |  
+| In Azure AD, "/ scim" deve trovarsi nella radice dell’URL endpoint SCIM dell’applicazione  | Sì  |  18 dicembre 2018 | 
+| Per gli attributi di estensione, si utilizza la notazione punto "." prima dei nomi di attributo anziché i due punti ":" |  Sì  | 18 dicembre 2018  | 
+|  Le richieste di patch per gli attributi multivalore contengono una sintassi del filtro del percorso non valida | Sì  |  18 dicembre 2018  | 
+|  Le richieste di creazione dei gruppi contengono un URI di schema non valido | Sì  |  18 dicembre 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Le correzioni dei servizi descritte sono state applicate automaticamente all’app SCIM preesistente?
 
@@ -66,7 +66,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Get Jobs](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get Jobs") 
+   ![Ottenere i processi](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Ottenere i processi") 
 
 
 6. Nei risultati, copiare la stringa "ID" completa che inizia con "customappsso" o "scim".
@@ -74,7 +74,7 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Get Schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
+   ![Ottenere lo schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Ottenere lo schema") 
 
 8. Copiare l'output JSON dall'ultimo passaggio e salvarlo in un file di testo. Questo file contiene tutti i mapping degli attributi personalizzati aggiunti all’app precedente e include alcune migliaia di righe di JSON.
 9. Eseguire il comando seguente per eliminare il processo di provisioning:

@@ -1,5 +1,5 @@
 ---
-title: Opzioni avanzate di firma del certificato SAML per le app Azure AD preintegrate | Microsoft Docs
+title: Opzioni avanzate di firma del certificato SAML per le app Azure AD
 description: Informazioni su come usare le opzioni avanzate di firma del certificato nel token SAML per le app preintegrate in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381273"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274752"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opzioni avanzate di firma del certificato nel token SAML per le app della raccolta in Azure Active Directory
 
-Azure Active Directory (Azure AD) supporta attualmente migliaia di applicazioni preintegrate nella raccolta di app di Azure Active Directory. Oltre 500 le applicazioni supportano l'accesso Single Sign-on usando il protocollo [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2,0, ad esempio l'applicazione [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) . Quando un cliente esegue l'autenticazione a un'applicazione tramite Azure AD usando SAML, Azure AD invia un token all'applicazione (tramite un HTTP POST). L'applicazione quindi convalida e usa il token per accedere al cliente anziché richiedere un nome utente e una password. I token SAML vengono firmati con il certificato univoco generato in Azure AD e algoritmi standard specifici.
+Azure Active Directory (Azure AD) supporta attualmente migliaia di applicazioni preintegrate nella raccolta di app di Azure Active Directory. Oltre 500 le applicazioni supportano Single Sign-On usando il protocollo di [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2,0, ad esempio l'applicazione [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) . Quando un cliente esegue l'autenticazione a un'applicazione tramite Azure AD usando SAML, Azure AD invia un token all'applicazione (tramite un HTTP POST). L'applicazione quindi convalida e usa il token per accedere al cliente anziché richiedere un nome utente e una password. I token SAML vengono firmati con il certificato univoco generato in Azure AD e algoritmi standard specifici.
 
 Azure AD usa alcune delle impostazioni predefinite per le applicazioni della raccolta. I valori predefiniti vengono configurati in base ai requisiti dell'applicazione.
 
@@ -57,20 +57,20 @@ Per modificare le opzioni di firma del certificato SAML di un'applicazione e l'a
 1. Nel riquadro sinistro selezionare **Applicazioni aziendali**. Viene visualizzato un elenco delle applicazioni aziendali nell'account.
 1. Selezionare un'applicazione. Viene visualizzata una pagina di panoramica per l'applicazione.
 
-   ![Esempio: Pagina Panoramica applicazione](./media/certificate-signing-options/application-overview-page.png)
+   ![Esempio: pagina Panoramica applicazione](./media/certificate-signing-options/application-overview-page.png)
 
 Modificare quindi le opzioni di firma del certificato nel token SAML per l'applicazione:
 
 1. Nel riquadro sinistro della pagina Panoramica applicazione selezionare **Single Sign-on**.
 1. Se viene visualizzata la pagina **Configura accesso Single Sign-on con SAML-Preview** , andare al passaggio 5.
-1. Se non viene visualizzata la pagina **Seleziona un metodo Single Sign-on** , selezionare **modifica modalità Single Sign-on** per visualizzare la pagina.
-1. Nella pagina **selezionare un metodo Single Sign-on** selezionare **SAML** , se disponibile. Se **SAML** non è disponibile, l'applicazione non supporta SAML ed è possibile ignorare il resto di questa procedura e di questo articolo.
+1. Se la pagina **selezionare un metodo di Single Sign-on** non viene visualizzata, selezionare **modifica modalità Single Sign-on** per visualizzare la pagina.
+1. Nella pagina **selezionare un metodo di Single Sign-on** selezionare **SAML** , se disponibile. Se **SAML** non è disponibile, l'applicazione non supporta SAML ed è possibile ignorare il resto di questa procedura e di questo articolo.
 1. Nella pagina **Configura accesso Single Sign-on con SAML-Preview** trovare l'intestazione **certificato di firma SAML** e selezionare l'icona di **modifica** (matita). Viene visualizzata la pagina **certificato di firma SAML** .
 
-   ![Esempio: Pagina certificato di firma SAML](./media/certificate-signing-options/saml-signing-page.png)
+   ![Esempio: pagina certificato di firma SAML](./media/certificate-signing-options/saml-signing-page.png)
 
-1. Nell'elenco a discesa **opzione di firma** scegliere **firma risposta SAML**, **firma asserzione SAML**o **firma risposta e asserzione SAML**. Le descrizioni di queste opzioni vengono visualizzate in precedenza in questo articolo nelle [Opzioni di firma del certificato](#certificate-signing-options).
-1. Nell'elenco a discesa **algoritmo di firma** scegliere **SHA-1** o **SHA-256**. Le descrizioni di queste opzioni sono illustrate in precedenza in questo articolo nella sezione [algoritmi di firma del certificato](#certificate-signing-algorithms) .
+1. Nell'elenco a discesa **Opzioni di firma** scegliere **Firma risposta SAML**, **Firma asserzione SAML** o **Firma risposta e asserzione SAML**. Le descrizioni di queste opzioni vengono visualizzate in precedenza in questo articolo nelle [Opzioni di firma del certificato](#certificate-signing-options).
+1. Nell'elenco a discesa **Algoritmo di firma** scegliere **SHA-1** o **SHA-256**. Le descrizioni di queste opzioni sono illustrate in precedenza in questo articolo nella sezione [algoritmi di firma del certificato](#certificate-signing-algorithms) .
 1. Se si è soddisfatti delle scelte, selezionare **Salva** per applicare le nuove impostazioni del certificato di firma SAML. In caso contrario, selezionare la **X** per annullare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi

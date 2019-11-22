@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b3e6f84051aec97691d2bedda6665d3c9c0ceb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125074"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275726"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurare il provisioning usando le API di Microsoft Graph
 
-Il portale di Azure è un modo pratico per configurare il provisioning per le singole app una alla volta. Tuttavia, se si creano diverse istanze di un'applicazione, o addirittura centinaia, può essere più facile automatizzare la creazione e la configurazione delle app con Microsoft Graph API. Questo articolo illustra come automatizzare la configurazione del provisioning tramite le API. Questo metodo viene comunemente usato per applicazioni come [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on).
+Il portale di Azure è un modo pratico per configurare il provisioning per le singole app una alla volta. Tuttavia, se si creano diverse istanze di un'applicazione, o addirittura centinaia, può essere più facile automatizzare la creazione e la configurazione delle app con Microsoft Graph API. Questo articolo illustra come automatizzare la configurazione del provisioning tramite le API. Questo metodo viene comunemente usato per applicazioni come [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
 
 **Panoramica dei passaggi per l'uso delle API di Microsoft Graph per automatizzare la configurazione del provisioning**
 

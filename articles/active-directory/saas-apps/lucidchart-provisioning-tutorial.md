@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare LucidChart per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: provisioning utenti per LucidChart-Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in LucidChart.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9540cf882af6b11f0e8624e477ad336f6d5d9ad3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3791992586edbdc5188c3078b1f1bb108ce580d7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963672"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276860"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Esercitazione: Configurare LucidChart per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in LucidChart e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a LucidChart. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -36,7 +36,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assigning-users-to-lucidchart"></a>Assegnazione di utenti a LucidChart
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app LucidChart. Dopo aver stabilito questo, è possibile assegnare tali utenti all'app LucidChart seguendo le istruzioni riportate nell'articolo seguente:
 
@@ -75,7 +75,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 7. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo "Invia una notifica di posta elettronica in caso di errore".
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
 9. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to LucidChart** (Sincronizza utenti di Azure Active Directory in LucidChart).
 
@@ -83,11 +83,11 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 11. Per abilitare il servizio di provisioning di Azure AD per LucidChart, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-12. Fare clic su **Save**.
+12. Fare clic su **Salva**.
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a LucidChart nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning che descrivono tutte le azioni eseguite dal servizio di provisioning.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
