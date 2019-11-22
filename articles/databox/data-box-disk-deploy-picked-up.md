@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128694"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092087"
 ---
 ::: zone target="chromeless"
 
@@ -137,11 +137,25 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
     - Passare a **Panoramica > Scarica etichetta di spedizione** e ottenere un'etichetta di spedizione per reso.
     - Applicare l'etichetta sul dispositivo. Assicurarsi che l'etichetta sia visibile.
 
-2. Per richiedere il ritiro:
-    - Chiamare l'assistenza clienti **SingPost** al numero **6845 6485** durante l'orario di ufficio (dalle 9.00 alle 17.00, da lunedì a venerdì).  
-    - Indicare *Ritiro Microsoft Azure* e il numero della richiesta di servizio (numero di monitoraggio sull'etichetta indirizzo di reso) per organizzare il ritiro. 
-    - Si riceverà una conferma verbale della pianificazione del prelievo. 
-    - Qualora il corriere non si presenti, chiamare **SingPost** al numero **6845 6485** per accordarsi in merito a un ritiro alternativo. 
+2. Per richiedere il ritiro, inviare un messaggio di posta elettronica al Servizio clienti SingPost usando il modello seguente con il numero tracciabilità (il numero tracciabilità si trova sull'etichetta di reso fornita nel pacco consegnato).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > Per le richieste di prenotazione ricevute in un giorno lavorativo:
+   > - Prima delle 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 9:00 e le 13:00.
+   > - Dopo le 15:00 il ritiro verrà effettuato il giorno lavorativo successivo tra le 14:00 e le 18:00.
+
+   In caso di problemi, contattare Data Box Operations Asia all'indirizzo adbo@microsoft.com. Specificare il nome del processo nell'intestazione dell'oggetto e il problema riscontrato.
+
 3. Consegnare la scatola al corriere. 
 
 

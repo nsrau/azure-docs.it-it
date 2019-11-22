@@ -1,18 +1,19 @@
 ---
-title: 'Esercitazione: Creare un record alias DNS di Azure per supportare i nomi della radice del dominio con Gestione traffico'
+title: 'Esercitazione: Creare un record alias per supportare i nomi della radice del dominio - Gestione traffico'
+titleSuffix: Azure DNS
 description: Questa esercitazione illustra come configurare un record alias DNS di Azure per supportare l'uso dei nomi della radice del dominio con Gestione traffico.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: allensu
+ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530961"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082261"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi di dominio radice con Gestione traffico 
 
@@ -70,7 +71,7 @@ Installare IIS sia in **Web-01** che in **Web-02**.
 
 1. Connettersi a **Web-01** ed eseguire l'accesso.
 2. Nel dashboard **Server Manager** selezionare **Aggiungi ruoli e funzionalità**.
-3. Selezionare **Avanti** per tre volte. Nella pagina **Ruoli server** selezionare **Server Web (IIS)**.
+3. Selezionare **Avanti** per tre volte. Nella pagina **Ruoli server** selezionare **Server Web (IIS)** .
 4. Selezionare **Aggiungi funzionalità** e quindi **Avanti**.
 5. Selezionare **Avanti** per quattro volte. Selezionare quindi **Installa**. Il completamento di questa procedura richiede alcuni minuti.
 6. Al termine dell'installazione, selezionare **Chiudi**.
@@ -84,7 +85,7 @@ Ripetere questa procedura per installare IIS in **Web-02**.
 1. Aprire il gruppo di risorse **RG-DNS-Alias-TM** e selezionare l'indirizzo IP pubblico **Web-01-ip**. Prendere nota dell'indirizzo IP per usarlo in seguito. Ripetere questo passaggio per l'indirizzo IP pubblico **Web-02-ip**.
 1. Selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico**.
 2. Per il nome immettere **TM-alias-test**. Inserirla nel gruppo di risorse **RG-DNS-Alias-TM**.
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 4. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 5. Nella pagina del profilo di Gestione traffico selezionare **Endpoint** in **Impostazioni**.
 6. Selezionare **Aggiungi**.

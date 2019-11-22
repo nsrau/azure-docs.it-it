@@ -1,22 +1,29 @@
 ---
 title: Migrazione di zone private legacy di DNS di Azure nel nuovo modello di risorsa
+titleSuffix: Azure DNS
 description: Questa guida offre istruzioni dettagliate su come eseguire la migrazione di zone DNS private legacy nel modello di risorsa più recente
 services: dns
-author: rohinkoul
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: rohink
-ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960563"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076739"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrazione di zone private legacy di DNS di Azure nel nuovo modello di risorsa
 
-La versione corrente delle zone private di DNS di Azure offre nuove funzionalità ed elimina diverse limitazioni e restrizioni rispetto all'anteprima pubblica iniziale. Tuttavia, questi vantaggi non sono disponibili per le zone DNS privato create tramite l'API in anteprima. Per ottenere i vantaggi della nuova versione, è necessario eseguire la migrazione delle risorse delle zone DNS privato legacy nel nuovo modello di risorsa. Il processo di migrazione è semplice ed è disponibile uno script di PowerShell per automatizzarlo. Questa guida offre istruzioni dettagliate per la migrazione delle zone private di DNS di Azure al nuovo modello di risorsa.
+Durante l'anteprima pubblica, le zone DNS private sono state create usando la risorsa "dnszones" con la proprietà "zoneType" impostata su "Private". Tali zone non saranno supportate dopo il 31 dicembre 2019 ed è necessario eseguirne la migrazione al modello di risorsa GA, che usa il tipo di risorsa "privateDnsZones" invece di "dnszones". Il processo di migrazione è semplice ed è disponibile uno script di PowerShell per automatizzarlo. Questa guida offre istruzioni dettagliate per la migrazione delle zone private di DNS di Azure al nuovo modello di risorsa.
+
+Per individuare le risorse dnszones che richiedono la migrazione, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
+```azurecli
+az account set --subscription <SubscriptionId>
+az network dns zone list --query "[?zoneType=='Private']"
+```
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -25,7 +32,7 @@ Verificare di aver installato la versione più recente di Azure PowerShell. Per 
 Assicurarsi di avere a disposizione il modulo Az.PrivateDns per la versione di Azure PowerShell installata. Per installare questo modulo, aprire una finestra di PowerShell con privilegi elevati (modalità di amministrazione) e immettere il comando seguente
 
 ```powershell
-Install-Module -Name Az.PrivateDns -AllowPrerelease
+Install-Module -Name Az.PrivateDns
 ```
 
 >[!IMPORTANT]
@@ -44,6 +51,9 @@ Immettere "A" quando viene chiesto se installare lo script
 ![Installazione dello script](./media/private-dns-migration-guide/install-migration-script.png)
 
 È anche possibile ottenere manualmente la versione più recente dello script di PowerShell all'indirizzo https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
+
+>[!IMPORTANT]
+>Lo script di migrazione non deve essere eseguito in Azure Cloud Shell e deve essere eseguito in una macchina virtuale o in un computer locale connesso a Internet.
 
 ## <a name="running-the-script"></a>Esecuzione dello script
 

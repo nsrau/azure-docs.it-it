@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione REST: Creare una pipeline di arricchimento tramite intelligenza artificiale per estrarre il testo e la struttura dai BLOB JSON'
+title: 'Esercitazione: Estrarre testo e struttura da BLOB JSON'
 titleSuffix: Azure Cognitive Search
 description: Procedura di esempio di estrazione del testo ed elaborazione del linguaggio naturale su contenuto in BLOB JSON con Postman e API REST di Ricerca cognitiva di Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790184"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113667"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>Esercitazione: Aggiungere struttura a "contenuto non strutturato" con l'arricchimento tramite intelligenza artificiale
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>Esercitazione: Estrarre testo e struttura da BLOB JSON in Azure usando le API REST (Ricerca cognitiva di Azure)
 
-Se si dispone di contenuto di testo o immagine non strutturato, è possibile usare la [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di knowledge mining. Anche se la pipeline consente di elaborare file di immagine (JPG, PNG, TIFF), questa esercitazione è incentrata sul contenuto basato su parole, sull'applicazione del rilevamento della lingua e dell'analisi del testo per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
+Se si dispone di contenuto di immagini o di testo non strutturato in Archiviazione BLOB di Azure, è possibile usare la [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di knowledge mining. Anche se la pipeline consente di elaborare file di immagine (JPG, PNG, TIFF), questa esercitazione è incentrata sul contenuto basato su parole, sull'applicazione del rilevamento della lingua e dell'analisi del testo per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
 
 > [!div class="checklist"]
 > * Iniziare con documenti interi (testo non strutturato) come PDF, MD, DOCX e PPTX in Archiviazione BLOB di Azure.

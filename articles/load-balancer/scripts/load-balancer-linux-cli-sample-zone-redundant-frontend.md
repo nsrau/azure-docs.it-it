@@ -1,5 +1,5 @@
 ---
-title: Esempio di interfaccia della riga di comando - Servizio Load Balancer per il bilanciamento del carico delle macchine virtuali tra zone di disponibilità - Azure | Microsoft Docs
+title: Bilanciare il carico delle macchine virtuali tra zone di disponibilità - Interfaccia della riga di comando di Azure - Azure Load Balancer
 description: Questo esempio di script dell'interfaccia della riga di comando di Azure illustra come bilanciare il carico del traffico verso le macchine virtuali tra zone di disponibilità
 services: load-balancer
 documentationcenter: load-balancer
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: fdfd1de3d20a275dbc19ed414a22ebe2a6864eeb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 92f03981a573a9688115d9505266e94b7cab0e78
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273718"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048893"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Bilanciare il carico delle VM tra zone di disponibilità
 

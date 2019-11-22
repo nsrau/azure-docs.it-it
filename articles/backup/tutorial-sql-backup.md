@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747039"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074650"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Eseguire il backup di un database di SQL Server in una VM di Azure
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come eseguire il backup di un database di SQL Serv
 > * Creare e configurare un insieme di credenziali.
 > * Individuare i database e configurare i backup.
 > * Configurare la protezione automatica per i database.
-> * Eseguire un backup ad hoc.
+> * Eseguire un backup su richiesta.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -215,7 +215,7 @@ Per creare un criterio di backup:
 
 14. Dopo aver completato le modifiche ai criteri di backup, selezionare **OK**.
 
-## <a name="run-an-ad-hoc-backup"></a>Eseguire un backup ad hoc
+## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 
 1. Nell'insieme di credenziali di Servizi di ripristino scegliere Elementi di backup.
 2. Fare clic su "SQL Server in una macchina virtuale di Azure".
@@ -233,7 +233,7 @@ In questa esercitazione è stato usato il portale di Azure per eseguire le opera
 > * Creare e configurare un insieme di credenziali.
 > * Individuare i database e configurare i backup.
 > * Configurare la protezione automatica per i database.
-> * Eseguire un backup ad hoc.
+> * Eseguire un backup su richiesta.
 
 Proseguire con l'esercitazione successiva sul ripristino di una macchina virtuale di Azure da disco.
 

@@ -1,19 +1,19 @@
 ---
 title: Esercitazione per C# su completamento automatico e suggerimenti
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure" per aggiungere il completamento automatico e i suggerimenti. L'obiettivo è di migliorare l'esperienza utente. Vengono fornite informazioni su come combinare un elenco a discesa di suggerimenti con il completamento automatico inline.
+description: Questa esercitazione illustra il completamento automatico e i suggerimenti come un modo per raccogliere l'input del termine di ricerca dagli utenti usando l'elenco a discesa. Si basa su un progetto di hotel esistente.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786496"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114570"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca cognitiva di Azure
 

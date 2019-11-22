@@ -1,19 +1,19 @@
 ---
 title: Esercitazione per C# sull'ordinamento dei risultati
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure" per aggiungere l'ordinamento dei risultati della ricerca. Vengono fornite informazioni su come ordinare i risultati in base a una proprietà primaria e, per i risultati con la stessa proprietà primaria, come ordinare i risultati in base a una proprietà secondaria. Vengono infine fornite informazioni su come ordinare i risultati in base a un profilo di punteggio.
+description: Questa esercitazione illustra come ordinare i risultati della ricerca. Si basa su un progetto di hotel precedente, ordinando per proprietà primaria, proprietà secondaria e include un profilo di punteggio per aggiungere i criteri di aumento priorità.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794047"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112675"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Esercitazione per C#: Ordinare i risultati - Ricerca cognitiva di Azure
 

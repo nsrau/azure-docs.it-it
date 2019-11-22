@@ -1,19 +1,19 @@
 ---
 title: Esercitazione per C# su come creare la prima app
 titleSuffix: Azure Cognitive Search
-description: Esercitazione passo passo per creare la prima app di ricerca. L'esercitazione fornisce sia un collegamento a un'app funzionante su GitHub che il processo completo per creare l'app da zero. Informazioni sui componenti fondamentali di Ricerca cognitiva di Azure.
+description: Esercitazione passo passo per creare la prima app di ricerca per C#. L'esercitazione fornisce sia un collegamento a un'app funzionante su GitHub che il processo completo per creare l'app da zero. Informazioni sui componenti fondamentali di Ricerca cognitiva di Azure.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794143"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112242"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Esercitazione per C#: Creare la prima app - Ricerca cognitiva di Azure
 

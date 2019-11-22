@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione per Python: Chiamare Servizi cognitivi in una pipeline di arricchimento tramite intelligenza artificiale'
+title: 'Esercitazione: Creare un set di competenze in Python con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Esempio di estrazione dei dati, linguaggio naturale ed elaborazione di immagini tramite intelligenza artificiale in Ricerca cognitiva di Azure usando un notebook Jupyter Python. I dati estratti vengono indicizzati e sono facilmente accessibile dalle query.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790214"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113672"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Esercitazione per Python: Chiamare le API Servizi cognitivi in una pipeline di arricchimento di Ricerca cognitiva di Azure
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Esercitazione: Creare una pipeline di arricchimento tramite intelligenza artificiale con REST e Python
 
 In questa esercitazione vengono illustrati i meccanismi di programmazione dell'arricchimento dei dati in Ricerca cognitiva di Azure usando *competenze cognitive*. Le competenze sono supportate da funzionalità di elaborazione del linguaggio naturale e analisi delle immagini in Servizi cognitivi. Tramite la composizione e la configurazione del set di competenze, è possibile estrarre testo e rappresentazioni di testo da un'immagine o da un file di documento digitalizzato. È anche possibile rilevare lingue, entità, frasi chiave e altro ancora. Ne risulta contenuto aggiuntivo avanzato in un indice di ricerca, creato con arricchimenti tramite intelligenza artificiale in una pipeline di indicizzazione. 
 

@@ -1,5 +1,5 @@
 ---
-title: Esempio di Azure PowerShell - Eseguire il bilanciamento del carico di più siti Web con Azure PowerShell | Microsoft Docs
+title: Bilanciare il carico di più siti Web - Azure PowerShell - Azure Load Balancer
 description: Questo esempio di script di Azure PowerShell illustra come eseguire il bilanciamento del carico di più siti Web verso la stessa macchina virtuale
 services: load-balancer
 documentationcenter: load-balancer
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 098d300efc0b151d07b087959750a209c392872f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 82bd8a82418bad44786f009c75d742fcc0fc66e7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273606"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048897"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Esempio di script di Azure PowerShell: Eseguire il bilanciamento del carico per più siti Web
 

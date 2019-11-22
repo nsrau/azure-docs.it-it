@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666101"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837422"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
 Questa esercitazione illustra come aggiungere un dominio personalizzato a un endpoint della rete CDN di Azure. Quando si usa un endpoint della rete CDN per distribuire il contenuto, è necessario un dominio personalizzato se si vuole che il nome di dominio sia visibile nell'URL della rete CDN. Avere un nome di dominio visibile può essere pratico per i clienti e utile a scopo di personalizzazione. 
@@ -145,7 +145,7 @@ Dopo aver completato la registrazione del dominio personalizzato, verificare che
  
 1. Assicurarsi di disporre di contenuto pubblico memorizzato nella cache nell'endpoint. Ad esempio, se l'endpoint della rete CDN è associato a un account di archiviazione, la rete CDN di Azure memorizzerà il contenuto in un contenitore pubblico della cache. Per testare il dominio personalizzato, verificare che il contenitore sia impostato per poter consentire l'accesso pubblico e che contenga almeno un file.
 
-2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Se il dominio personalizzato è www.contoso.com, ad esempio, l'URL del file memorizzato nella cache sarà simile al seguente: http:\//www.contoso.com/my-public-container/my-file.jpg. Verificare che il risultato sia lo stesso di quando si accede all'endpoint della rete CDN direttamente in  *&lt;nome host dell'endpoint&gt;* .azureedge.net.
+2. Nel browser passare all'indirizzo del file usando il dominio personalizzato. Ad esempio, se il dominio personalizzato è `www.contoso.com`, l'URL del file memorizzato nella cache dovrebbe essere simile all'URL seguente: `http://www.contoso.com/my-public-container/my-file.jpg`. Verificare che il risultato sia lo stesso di quando si accede all'endpoint della rete CDN direttamente in  *&lt;nome host dell'endpoint&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605540"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907117"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Eseguire la migrazione di server fisici o virtuali ad Azure 
 
@@ -123,7 +123,7 @@ Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azur
 > [!NOTE]
 > La migrazione basata su agente con lo strumento Migrazione server di Azure Migrate si basa sulle funzionalità del servizio Azure Site Recovery. Alcuni requisiti potrebbero includere collegamenti alla documentazione di Site Recovery.
 
-1. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) i requisiti dei server VMware.
+1. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) i requisiti dei server.
 2. [Verificare](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) i requisiti di supporto delle macchine virtuali per la migrazione.
 3. Verificare le impostazioni delle macchine virtuali. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
 
@@ -265,7 +265,7 @@ Selezionare ora le VM per la migrazione.
 
     ![Replicare le VM](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. In **Replica** > **Impostazioni origine** > **I computer sono virtualizzati?** selezionare **Sì, con VMware vSphere**.
+2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Non virtualizzato/Altro**.
 3. In **Appliance locale** selezionare il nome dell'appliance di Azure Migrate configurata.
 4. In **Server vCenter** specificare il nome del server vCenter che gestisce le VM, ovvero il server vSphere che le ospita.
 5. In **Server di elaborazione** selezionare il nome dell'appliance di replica.

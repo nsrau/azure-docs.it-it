@@ -1,18 +1,18 @@
 ---
-title: Esercitazione - Creare un gateway applicazione con un web application firewall - Portale di Azure
+title: 'Esercitazione: Creare un gateway applicazione tramite il portale - Web application firewall'
 description: Questa esercitazione illustra come creare un gateway applicazione con un web application firewall tramite il portale di Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d439703f1637282c73cd960923733460502c55bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509745"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049228"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Esercitazione: Creare un gateway applicazione con un web application firewall tramite il portale di Azure
 

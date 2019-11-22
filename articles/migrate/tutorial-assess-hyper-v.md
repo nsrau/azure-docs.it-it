@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ff46ec437de671d5804eeb31a5d1fb0284a8946
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639993"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123527"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Valutare le VM Hyper-V con Valutazione server di Azure Migrate
 
@@ -223,7 +223,7 @@ Connettersi dall'appliance agli host o cluster Hyper-V e avviare l'individuazion
     - È possibile aggiungere un cluster, anche in caso di problemi con host specifici al suo interno.
 4. Dopo la convalida fare clic su **Salva e avvia individuazione** per avviare il processo di individuazione.
 
-Viene avviata l'individuazione. Per visualizzare i metadati delle VM individuate nel portale di Azure, sono necessari circa 15 minuti.
+Viene avviata l'individuazione. Per visualizzare i metadati dei server individuati nel portale di Azure, sono necessari circa 1,5 minuti per host. 
 
 ### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale
 

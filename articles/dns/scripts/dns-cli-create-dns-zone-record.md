@@ -1,5 +1,5 @@
 ---
-title: Esempio di interfaccia della riga di comando di Azure - Creare una zona DNS e un record per un nome di dominio
+title: Creare una zona DNS e un record per un nome di dominio - Interfaccia della riga di comando di Azure - DNS di Azure
 description: Questo esempio di interfaccia della riga di comando di Azure mostra come creare una zona DNS e un record per un nome di dominio
 services: dns
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 691eeebf61ffd4ea7bee6b5ac6c60cafb076e11d
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 8ae4e8c515b658ac3f0bb4eb0d88706814993355
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156496"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037161"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Creare una zona e un record DNS
 

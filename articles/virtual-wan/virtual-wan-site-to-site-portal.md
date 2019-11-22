@@ -1,5 +1,5 @@
 ---
-title: Usare la rete WAN virtuale di Azure per creare una connessione da sito a sito in Azure | Microsoft Docs
+title: 'Rete WAN virtuale di Azure: Creare connessioni da sito a sito'
 description: In questa esercitazione si vedrà come usare la rete WAN virtuale di Azure per creare una connessione VPN da sito a sito ad Azure.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8824111edff23b8bdc93a64707cf5198288b3a6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 82f662dd00805cf53c0581fb0a2b3322a0207a11
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488966"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005719"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 

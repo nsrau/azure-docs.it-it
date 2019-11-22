@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300909"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904920"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Esercitazione: Distribuire uno strumento di gestione
 
@@ -103,9 +103,14 @@ Per avviare lo strumento, seguire queste istruzioni:
 1. Selezionare la risorsa Servizi app di Azure con il nome specificato nel modello, ad esempio Apr3UX, e passare all'URL associato, ad esempio <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Accedere con le credenziali di Desktop virtuale Windows.
 3. Quando viene chiesto di scegliere un gruppo di tenant, selezionare **Default Tenant Group** (Gruppo di tenant predefinito) nell'elenco a discesa.
+4. Quando si seleziona Default Tenant Group (Gruppo di tenant predefinito), viene visualizzato un menu sul lato destro della finestra. In questo menu trovare il nome del gruppo di tenant e selezionarlo.
 
 > [!NOTE]
 > Se è disponibile un gruppo di tenant personalizzato, immettere il nome manualmente invece di scegliere una voce dell'elenco a discesa.
+
+## <a name="report-issues"></a>Segnalare i problemi
+
+Se si verificano problemi con lo strumento di gestione o altri strumenti di Desktop virtuale Windows, seguire le istruzioni nell'articolo relativo ai [modelli di Azure Resource Manager per Servizi Desktop remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) per segnalarli in GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

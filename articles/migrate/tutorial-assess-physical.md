@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 7574e80101784961448ff3c3b5a49d9e2c2f9807
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720222"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123500"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Valutare i server fisici con Azure Migrate: Server Assessment
 
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 - [Completare](tutorial-prepare-physical.md) la prima esercitazione di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
 - Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:
     - [Configurare le autorizzazioni di Azure](tutorial-prepare-physical.md#prepare-azure) per Azure Migrate.
-    - [Preparare i server fisici](tutorial-prepare-physical.md#prepare-azure) per la valutazione. È necessario verificare i requisiti dell'appliance. È necessario anche un account configurato per l'individuazione di server fisici. Le porte necessarie devono essere disponibili e occorre essere a conoscenza degli URL necessari per l'accesso ad Azure.
+    - [Preparare i server fisici](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) per la valutazione. È necessario verificare i requisiti dell'appliance. È necessario anche un account configurato per l'individuazione di server fisici. Le porte necessarie devono essere disponibili e occorre essere a conoscenza degli URL necessari per l'accesso ad Azure.
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurare un progetto di Azure Migrate
@@ -104,9 +104,10 @@ Scaricare il file compresso per l'appliance.
 Prima di distribuire il file compresso, verificarne la sicurezza.
 
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
-2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
+2. Eseguire il comando seguente per generare il codice hash per il file compresso
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
+
 3.  Per la versione 1.19.05.10 dell'appliance, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
@@ -114,27 +115,32 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
   SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate
-= Il programma di installazione esegue le operazioni seguenti:
+
+Lo script del programma di installazione esegue le operazioni seguenti:
 
 - Installa gli agenti e un'applicazione Web per l'individuazione e la valutazione dei server fisici.
 - Installa i ruoli di Windows, tra cui il Servizio Attivazione Windows, IIS e PowerShell ISE.
 - Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435)
 - Aggiorna una chiave del Registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
 - Crea i seguenti file nei relativi percorsi:
-    - **File di configurazione**: %Programdata%\Microsoft Azure\Config
-    - **File di log**: %Programdata%\Microsoft Azure\Logs
+    - **File di configurazione**: %ProgramData%\Microsoft Azure\Config
+    - **File di log**: %ProgramData%\Microsoft Azure\Logs
 
 Eseguire lo script nel modo seguente:
 
 1. Estrarre il file compresso in una cartella nel server che ospiterà l'appliance.
 2. Avviare PowerShell nello stesso server con privilegi amministrativi (elevati).
 3. Modificare la directory di PowerShell nella cartella in cui è stato estratto il contenuto del file compresso scaricato.
-4. Eseguire lo script eseguendo il comando seguente:
+4. Eseguire lo script denominato **AzureMigrateInstaller.ps1** eseguendo il comando seguente:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-Lo script avvierà l'applicazione Web dell'appliance al termine dell'operazione.
+Lo script avvierà l'applicazione Web dell'appliance al termine dell'operazione. 
 
+In caso di problemi, è possibile accedere ai log degli script in C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log per la risoluzione dei problemi.
+
+> [!NOTE]
+> Non eseguire lo script del programma di installazione di Azure Migrate in un'appliance di Azure Migrate esistente.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
@@ -182,7 +188,7 @@ A questo punto, connettersi dall'appliance ai server fisici da individuare e avv
     - Per rimuovere un server, selezionare > **Elimina**.
 4. Dopo la convalida fare clic su **Salva e avvia individuazione** per avviare il processo di individuazione.
 
-Viene avviata l'individuazione. Per visualizzare i metadati dei server individuati nel portale di Azure, sono necessari circa 15 minuti. 
+Viene avviata l'individuazione. Per visualizzare i metadati del server individuato nel portale di Azure, sono necessari circa 1,5 minuti per server. 
 
 ### <a name="verify-servers-in-the-portal"></a>Verificare i server nel portale
 

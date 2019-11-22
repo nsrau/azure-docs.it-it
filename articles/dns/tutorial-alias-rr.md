@@ -1,20 +1,21 @@
 ---
-title: 'Esercitazione: Creare un record alias servizio DNS di Azure per fare riferimento a un record di risorsa nella zona.'
+title: 'Esercitazione: Creare un record alias per fare riferimento a un record di risorse in una zona'
+titleSuffix: Azure DNS
 description: Questa esercitazione illustra come configurare un record alias servizio DNS di Azure per fare riferimento a un record di risorsa nella zona.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: allensu
+ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091641"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082884"
 ---
-# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Esercitazione: Creare un record alias per fare riferimento a un record di risorsa nella zona
+# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Esercitazione: Creare un record alias per fare riferimento a un record di risorse della zona
 
 I record alias possono fare riferimento ad altri set di record dello stesso tipo. È ad esempio possibile avere un set di record CNAME DNS come alias per un altro set di record CNAME dello stesso tipo. Questa funzionalità è utile se si intende definire alcuni set di record come alias e altri come non alias dal punto di vista del comportamento.
 
@@ -57,7 +58,7 @@ Creare un record alias che rimandi a un record di risorsa nella zona.
 ## <a name="test-the-alias-record"></a>Testare il record alias
 
 1. Avviare lo strumento nslookup preferito. Una possibilità consiste nel passare a [ https://network-tools.com/nslook ](https://network-tools.com/nslook).
-2. Impostare il tipo di query per i record A e cercare **test.\<nome di dominio\>**. La risposta è **10.10.10.10**.
+2. Impostare il tipo di query per i record A e cercare **test.\<nome di dominio\>** . La risposta è **10.10.10.10**.
 3. Nel portale di Azure, modificare il record A **server** in **10.11.11.11**.
 4. Attendere qualche minuto e quindi usare nuovamente nslookup per il record **test**. La risposta è **10.11.11.11**.
 
