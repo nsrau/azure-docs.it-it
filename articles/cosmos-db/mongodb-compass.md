@@ -22,7 +22,7 @@ Cosmos DB è il servizio di database di Microsoft multimodello distribuito a liv
 
 
 ## <a name="pre-requisites"></a>Prerequisiti 
-Per connettersi all'account Cosmos DB usando Robo 3T, è necessario:
+Per connettersi all'account Cosmos DB usando Compass, è necessario:
 
 * Scaricare e installare [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Avere le informazioni relative alla [stringa di connessione](connect-mongodb-account.md) di Cosmos DB
