@@ -1,5 +1,5 @@
 ---
-title: Configurare il metodo di routing del traffico subnet con Gestione traffico di Azure
+title: 'Esercitazione: Configurare il routing del traffico subnet - Gestione traffico di Azure'
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico dalle subnet utente agli endpoint specifici.
 services: traffic-manager
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: da2d4816f3f7a99ac2d213d72d7e801cf630e165
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304945"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048821"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet di utente usando Gestione traffico
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Esercitazione: Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
 Questo articolo descrive come configurare il metodo di routing del traffico della subnet. Il metodo di routing del traffico**Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP a endpoint specifici e quando si riceve una richiesta da Gestione traffico, controlla l'indirizzo IP di origine della richiesta e restituisce l'endpoint associato.
 
@@ -156,8 +156,8 @@ Creare un profilo di Gestione traffico che consente di restituire specifici endp
     | ---                     | ---                                                |
     | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Subnet**.                                       |
-    | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
-    | Gruppo di risorse          | Selezionare **Esistente** e immettere *myResourceGroupTM1*. |
+    | Subscription            | Selezionare la propria sottoscrizione.                          |
+    | Resource group          | Selezionare **Esistente** e immettere *myResourceGroupTM1*. |
     | |                              |
     |
 
