@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714e67bc7cf9e9c928eb4fd0764619041c9c1424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 741efbae84e18c811beb6c0579c1949c5ddf619c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092602"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Esercitazione: Integrazione di Azure Active Directory con Samanage
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Samanage, è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Samanage](#configure-samanage-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Samanage](#create-samanage-test-user)** : per avere una controparte di Britta Simon in Samanage collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Samanage, seguire quest
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<Company Name>.samanage.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<Company Name>.samanage.com`
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. La procedura è descritta più avanti nell'esercitazione. Per altri dettagli, contattare il [team di supporto clienti di Samanage](https://www.samanage.com/support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -132,7 +133,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Samanage, seguire quest
 
 2. Fare clic su **Dashboard** e selezionare **Setup** (Configurazione) nel riquadro di spostamento a sinistra.
    
-    ![Dashboard](./media/samanage-tutorial/tutorial_samanage_001.png "Dashboard")
+    ![Dashboard](./media/samanage-tutorial/tutorial_samanage_001.png "dashboard")
 
 3. Fare clic su **Single Sign-On**.
    
@@ -140,7 +141,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Samanage, seguire quest
 
 4. Nella sezione **Login using SAML** (Accesso tramite SAML) seguire questa procedura:
    
-    ![Login using SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
+    ![Accesso tramite SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
  
     a. Fare clic su **Enable Single Sign-On with SAML**(Abilita Single Sign-On con SAML).  
  
@@ -158,7 +159,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Samanage, seguire quest
  
     h. Fare clic su **Update**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -181,7 +182,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -220,7 +221,7 @@ Nel caso di Samanage, il provisioning è un'attività manuale.
 
 2. Fare clic su **Dashboard** e selezionare **Setup** (Configurazione) nel riquadro di spostamento a sinistra.
    
-    ![Installazione](./media/samanage-tutorial/tutorial_samanage_001.png "Installazione")
+    ![Configurazione](./media/samanage-tutorial/tutorial_samanage_001.png "Configurazione")
 
 3. Fare clic sulla scheda **Users** .
    
@@ -228,11 +229,11 @@ Nel caso di Samanage, il provisioning è un'attività manuale.
 
 4. Fare clic su **Nuovo utente**.
    
-    ![Nuovo utente](./media/samanage-tutorial/tutorial_samanage_007.png "Nuovo utente")
+    ![New User](./media/samanage-tutorial/tutorial_samanage_007.png "Nuovo utente")
 
 5. In **Name** (Nome) e **Email Address** (Indirizzo di posta elettronica) digitare nome e indirizzo di posta elettronica di un account Azure Active Directory di cui si vuole effettuare il provisioning e fare clic su **Create user** (Crea utente).
    
-    ![Crea utente](./media/samanage-tutorial/tutorial_samanage_008.png "Crea utente")
+    ![Creare l'utente](./media/samanage-tutorial/tutorial_samanage_008.png "Crea utente")
    
    >[!NOTE]
    >Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo. È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Samanage per eseguire il provisioning degli account utente di Azure Active Directory.

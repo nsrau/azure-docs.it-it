@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f248fe125873b4ed1e930e56865e4e403bcceea6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529005"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053834"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Creare e pubblicare una definizione di applicazione gestita
 
@@ -87,7 +87,7 @@ Salvare il file mainTemplate.json.
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definizione dell'esperienza di creazione con createUiDefinition.json
 
-L'editore definisce l'esperienza di creazione usando il file **createUiDefinition.json**, che genera l'interfaccia per gli utenti che creano applicazioni gestite. È possibile definire il modo in cui gli utenti specificheranno l'input per ogni parametro usando [elementi di controllo] (create-uidefinition-elements.md), ad esempio elenchi a discesa, caselle di testo e caselle per password.
+L'editore definisce l'esperienza di creazione usando il file **createUiDefinition.json**, che genera l'interfaccia per gli utenti che creano applicazioni gestite. È possibile definire il modo in cui gli utenti specificheranno l'input per ogni parametro usando [elementi di controllo](create-uidefinition-elements.md), ad esempio elenchi a discesa, caselle di testo e caselle per password.
 
 Creare un file denominato **createUiDefinition.json**. Per il nome viene fatta distinzione tra maiuscole e minuscole.
 

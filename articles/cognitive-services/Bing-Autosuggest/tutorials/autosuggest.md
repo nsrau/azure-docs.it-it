@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Ottenere risultati di suggerimenti automatici usando l'API Suggerimenti automatici Bing"
 titleSuffix: Azure Cognitive Services
-description: Informazioni sull'uso di Suggerimenti automatici Bing.
+description: In questa esercitazione verrà creata una pagina Web che consente agli utenti di eseguire query sull'API Suggerimenti automatici Bing e visualizzarne i risultati.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d208187b7ba61fc0d217cef05a1bda559ca0c42b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996799"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072830"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Esercitazione: Ottenere risultati di suggerimenti automatici in una pagina Web
 

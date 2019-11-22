@@ -1,5 +1,5 @@
 ---
-title: Trovare stanze disponibili - Gemelli digitali di Azure | Microsoft Docs
+title: 'Guida introduttiva: Trovare le stanze disponibili - Gemelli digitali di Azure'
 description: In questa guida introduttiva si eseguono due applicazioni .NET Core di esempio per inviare dati di telemetria simulati relativi a movimento ed emissioni di anidride carbonica in uno spazio in Gemelli digitali di Azure. L'obiettivo è trovare le stanze disponibili con aria pulita dalle API di gestione dopo l'elaborazione nel cloud.
 ms.author: alinast
 author: alinamstanciu
@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 10/03/2019
-ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.date: 11/12/2019
+ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958900"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123202"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
@@ -59,6 +59,8 @@ Compilare l'applicazione di occupazione seguendo questa procedura.
     - **Tenant**: immettere l'ID directory del tenant di Azure AD, di cui si è preso nota nella sezione precedente.
     - **BaseUrl**: URL dell'API di gestione dell'istanza di Gemelli digitali nel formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Sostituire i segnaposto in questo URL con i valori per l'istanza dalla sezione precedente.
 
+    Salvare il file aggiornato.
+
 ## <a name="provision-graph"></a>Effettuare il provisioning del grafico
 
 In questo passaggio viene effettuato il provisioning del grafico spaziale di Gemelli digitali con:
@@ -74,30 +76,32 @@ Il provisioning del grafico spaziale viene effettuato usando il file [provisionS
 1. Eseguire `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >Per autenticare l'utente in Azure AD viene usato lo strumento Accesso dispositivo dell'interfaccia della riga di comando di Azure. L'utente deve immettere un codice specifico per eseguire l'autenticazione tramite la pagina di [accesso Microsoft](https://microsoft.com/devicelogin). Dopo l'inserimento del codice, seguire la procedura per l'autenticazione. L'utente deve eseguire l'autenticazione quando viene eseguito lo strumento.
+    >Per autenticare l'utente in Azure AD viene usato lo strumento Accesso dispositivo dell'interfaccia della riga di comando di Azure. L'utente deve immettere un codice specifico per eseguire l'autenticazione tramite la pagina di [accesso Microsoft](https://microsoft.com/devicelogin). Dopo l'immissione del codice, seguire la procedura per l'autenticazione. L'utente deve eseguire l'autenticazione quando viene eseguito lo strumento.
 
     >[!TIP]
     > Quando si esegue questo passaggio, assicurarsi che le variabili siano state copiate correttamente se viene visualizzato il messaggio di errore seguente: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 1. Il passaggio di provisioning potrebbe richiedere alcuni minuti. Viene effettuato anche il provisioning di un hub IoT nell'istanza di Gemelli digitali. Si ripeterà in ciclo finché lo stato dell'hub IoT non è `Running`.
 
-    [![Effettuare il provisioning dell'esempio](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![Provisioning dell'esempio - Stato = Running](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. Al termine dell'esecuzione, copiare il valore `ConnectionString` del dispositivo per usarlo nell'esempio del simulatore di dispositivo. Copiare solo la stringa evidenziata nell'immagine seguente.
 
-    [![Copiare la stringa di connessione](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Copiare la stringa di connessione](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > È possibile visualizzare e modificare il grafo spaziale con il [Visualizzatore di Microsoft Azure Active Directory Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
+Mantenere aperta la finestra della console per un uso successivo.
+
 ## <a name="send-sensor-data"></a>Inviare i dati dei sensori
 
-Compilare ed eseguire l'applicazione del simulatore di sensori seguendo la procedura seguente.
+Compilare ed eseguire l'applicazione del dispositivo simulatore di sensori seguendo la procedura seguente.
 
-1. Aprire un nuovo prompt dei comandi. Passare al progetto scaricato nella cartella digital-twins-esempi-csharp-master.
+1. Aprire un nuovo prompt dei comandi. Passare al progetto scaricato nella cartella `digital-twins-samples-csharp-master`.
 1. Eseguire `cd device-connectivity`.
 1. Eseguire `dotnet restore`.
-1. Modificare [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) per aggiornare **DeviceConnectionString** con il valore `ConnectionString` precedente.
+1. Modificare [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) per aggiornare **DeviceConnectionString** con il valore `ConnectionString` precedente. Salvare il file aggiornato.
 1. Eseguire `dotnet run` per iniziare a inviare i dati dei sensori. Dovrebbero essere inviati al servizio Gemelli digitali come illustrato nell'immagine seguente.
 
      [![Connettività dei dispositivi](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
@@ -115,21 +119,21 @@ L'esempio dei sensori simula valori di dati casuali per i due sensori: di movime
 1. Eseguire `dotnet run GetAvailableAndFreshSpaces`.
 1. Esaminare fianco a fianco questo prompt dei comandi e il prompt dei comandi dei dati dei sensori.
 
-    Un prompt dei comandi invia i dati simulati relativi a movimento e anidride carbonica a Gemelli digitali ogni 5 secondi. L'altro prompt legge in tempo reale il grafico per trovare le stanze disponibili con aria pulita in base ai dati simulati casuali. Mostra una delle condizioni seguenti in tempo quasi reale, in base agli ultimi dati dei sensori inviati:
-   - Stanze disponibili con aria pulita.
-   - Occupata o con qualità dell'aria non soddisfacente.
+    Un prompt dei comandi dei dati dei sensori invia i dati simulati relativi a movimento e anidride carbonica a Gemelli digitali ogni cinque secondi. L'altro prompt dei comandi legge in tempo reale il grafico per trovare le stanze disponibili con aria pulita in base ai dati simulati casuali. Mostra una delle condizioni seguenti in tempo quasi reale, in base agli ultimi dati dei sensori inviati:
+   - `Room is available and air is fresh`
+   - `Room is not available or air quality is poor`
 
      [![Ottenere gli spazi disponibili con aria pulita](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
-Per comprendere cosa è accaduto in questa guida introduttiva e quali API sono state chiamate, aprire [Visual Studio Code](https://code.visualstudio.com/Download) con il progetto di codice dell'area di lavoro trovato in digital-twins-samples-csharp. Usare il comando seguente:
+Per comprendere cosa è accaduto in questo avvio rapido e quali API sono state chiamate, aprire [Visual Studio Code](https://code.visualstudio.com/Download) con il progetto di codice dell'area di lavoro trovato in `digital-twins-samples-csharp`. Usare il comando seguente:
 
-```plaintext
+```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
 Le esercitazioni approfondiscono l'esame del codice e illustrano come modificare i dati di configurazione e quali sono le API chiamate. Per altre informazioni sulle API di gestione, andare alla pagina Swagger per Gemelli digitali:
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
@@ -157,7 +161,7 @@ Per continuare con le esercitazioni, non eliminare le risorse create in questa g
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo guida introduttiva ha usato uno scenario semplice per mostrare come trovare stanze con condizioni lavorative ottimali. Per un'analisi più approfondita di questo scenario,vedere questa esercitazione:
+In questo avvio rapido vengono impiegati uno scenario semplice e applicazioni di esempio per illustrare in che modo usare Gemelli digitali per trovare camere in buone condizioni. Per un'analisi più approfondita di questo scenario,vedere questa esercitazione:
 
 >[!div class="nextstepaction"]
 >[Esercitazione: Distribuire Gemelli digitali di Azure e configurare un grafico spaziale](tutorial-facilities-setup.md)

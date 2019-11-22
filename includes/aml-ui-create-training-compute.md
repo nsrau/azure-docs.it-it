@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ee90e0c99234497b072bbee0b92d76129baea48
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493571"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929677"
 ---
 Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di calcolo collegata all'area di lavoro. Dopo aver creato una destinazione di calcolo, è possibile riusarla per le esecuzioni future.
 
@@ -25,9 +25,9 @@ Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di
     Se è già disponibile una destinazione di calcolo, è possibile selezionarla per eseguire questa pipeline.
 
     > [!NOTE]
-    > La finestra di progettazione può eseguire gli esperimenti solo nelle destinazioni dell'ambiente di calcolo di Machine Learning. Altre destinazioni di calcolo non verranno visualizzate.
+    > La finestra di progettazione può eseguire esperimenti nelle destinazioni dell'ambiente di calcolo di Azure Machine Learning. Altre destinazioni di calcolo non vengono visualizzate.
 
-1. Specificare un nome per la risorsa di calcolo.
+1. Immettere un nome per la risorsa di calcolo.
 
 1. Selezionare **Salva**.
 
@@ -35,18 +35,18 @@ Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di
 
 1. Selezionare **Run** (Esegui).
 
-1. Nella finestra di dialogo **Configura esecuzione della pipeline** selezionare **+ Nuovo esperimento** per **Esperimento**
+1. Nella finestra di dialogo **Configura esecuzione della pipeline** selezionare **+ Nuovo esperimento** per **Esperimento**.
 
     > [!NOTE]
     > Gli esperimenti raggruppano esecuzioni di pipeline simili. Se una pipeline viene eseguita più volte, è possibile selezionare lo stesso esperimento per le esecuzioni successive.
 
-    * Immettere un nome descrittivo per il **Nome esperimento**
+    1. Immettere un nome descrittivo per il **Nome esperimento**.
 
-    * Selezionare **Esegui**
+    1. Selezionare **Run** (Esegui).
     
     È possibile visualizzare lo stato di esecuzione e i dettagli nella parte superiore destra dell'area di disegno.
 
     > [!NOTE]
-    > La creazione di una risorsa di calcolo richiede circa 5 minuti. Dopo aver creato la risorsa, è possibile riusarla e saltare questo tempo di attesa per le esecuzioni future.
+    > La creazione di una risorsa di calcolo richiede circa cinque minuti. Dopo aver creato la risorsa, è possibile riusarla e saltare questo tempo di attesa per le esecuzioni future.
     >
-    > La risorsa di calcolo verrà ridimensionata automaticamente a 0 nodi quando è inattiva per risparmiare sui costi.  Quando la si usa di nuovo dopo un breve intervallo di tempo, è possibile che si verifichi nuovamente un tempo di attesa di circa 5 minuti, mentre viene riaumentato il numero di nodi.
+    > La risorsa di calcolo si ridimensiona automaticamente a zero nodi quando è inattiva per risparmiare sui costi. Quando la si usa di nuovo dopo un breve intervallo di tempo, è possibile che si verifichi nuovamente un tempo di attesa di circa cinque minuti, mentre viene riaumentato il numero di nodi.

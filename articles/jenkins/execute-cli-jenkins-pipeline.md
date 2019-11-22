@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
-ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2019
+ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162192"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882128"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuire nel servizio app di Azure con Jenkins e l'interfaccia della riga di comando di Azure
 Per distribuire un'app Web di Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
@@ -31,13 +31,13 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-and-configure-jenkins-instance"></a>Creare e configurare un'istanza di Jenkins
-Se si dispone già di un master di Jenkins, iniziare con il [modello di soluzione](install-jenkins-solution-template.md) che include il plug-in delle [credenziali di Azure](https://plugins.jenkins.io/azure-credentials) richiesto per impostazione predefinita. 
+Se ancora non si dispone di un master di Jenkins, iniziare con il [modello di soluzione](install-jenkins-solution-template.md) che include il plug-in delle [credenziali di Azure](https://plugins.jenkins.io/azure-credentials) richiesto per impostazione predefinita. 
 
 Il plug-in delle credenziali di Azure consente di archiviare le credenziali dell'entità servizio di Microsoft Azure in Jenkins. Nella versione 1.2 è stato aggiunto il supporto affinché Jenkins Pipeline possa ottenere le credenziali di Azure. 
 
 Assicurarsi di disporre della versione 1.2 o versioni successive:
 * Nel dashboard di Jenkins, fare clic su **Manage Jenkins -> Plugin Manager ->** e cercare **Azure Credential**. 
-* Se la versione è precedente alla 1.2, aggiornare il plug-in.
+* Se la versione è meno recente della 1.2, aggiornare il plug-in.
 
 Anche Java JDK e Maven sono necessari nel master di Jenkins. Per l'installazione, accedere al master di Jenkins usando SSH ed eseguire i comandi seguenti:
 ```bash

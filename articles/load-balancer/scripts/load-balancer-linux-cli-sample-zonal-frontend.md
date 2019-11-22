@@ -1,12 +1,10 @@
 ---
-title: Esempio di interfaccia della riga di comando - Bilanciamento del carico delle macchine virtuali all'interno di una zona - Azure | Microsoft Docs
+title: Bilanciare il carico delle macchine virtuali all'interno di una zona - Interfaccia della riga di comando di Azure
 description: Questo esempio di script dell'interfaccia della riga di comando di Azure illustra come bilanciare il carico del traffico verso le macchine virtuali in una zona di disponibilità specifica
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
+manager: kumudD
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
@@ -16,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 29671283a1ef2906e03685a59d62ccc13c1307fe
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c99e232243e95d3aa0a85e09c2534973114e28ea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273726"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068754"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Bilanciare il carico del traffico verso le macchine virtuali all'interno di una zona di disponibilità specifica
 
 Questo script di esempio dell'interfaccia della riga di comando di Azure crea tutti gli elementi necessari per eseguire più macchine virtuali Ubuntu configurate in una configurazione a disponibilità elevata e con bilanciamento del carico in una zona di disponibilità specifica. Dopo aver eseguito lo script, si disporrà di tre macchine virtuali, in una singola zona di disponibilità all'interno di un'area, accessibili tramite Azure Load Balancer Standard. 
 

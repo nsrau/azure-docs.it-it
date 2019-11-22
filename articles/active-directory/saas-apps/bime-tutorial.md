@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106269"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Esercitazione: Integrazione di Azure Active Directory con Bime
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Bime, è nece
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Bime](#configure-bime-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Bime](#create-bime-test-user)** : per avere una controparte di Britta Simon in Bime collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bime, seguire questa pr
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenant-name>.Bimeapp.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant-name>.Bimeapp.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<tenant-name>.Bimeapp.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Bime](https://bime.zendesk.com/hc/categories/202604307-Support-tech-notes-and-tips-). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -136,11 +137,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bime, seguire questa pr
 
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Account**.
   
-    ![Amministratore](./media/bime-tutorial/ic775558.png "Amministratore")
+    ![Admin](./media/bime-tutorial/ic775558.png "Admin")
 
 3. Nella pagina di configurazione dell’account, eseguire la procedura seguente:
   
-    ![Configurare l'accesso Single Sign-On](./media/bime-tutorial/ic775559.png "Configurare l'accesso Single Sign-On")
+    ![Configura accesso Single Sign-On](./media/bime-tutorial/ic775559.png "Configure Single Sign-On")
 
     a. Selezionare **Enable SAML authentication**.
 
@@ -148,9 +149,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bime, seguire questa pr
 
     c. Nella casella di testo **Certificate Fingerprint** (Impronta digitale certificato) incollare il valore di **IDENTIFICAZIONE PERSONALE** copiato dal portale di Azure.
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -173,7 +174,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -211,7 +212,7 @@ Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguir
 
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Users** (Utenti).
 
-    ![Amministratore](./media/bime-tutorial/ic775561.png "Amministratore")
+    ![Admin](./media/bime-tutorial/ic775561.png "Admin")
 
 3. In **Users List** (Elenco utenti) fare clic su **"+"** per aggiungere un nuovo utente.
 

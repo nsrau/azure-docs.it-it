@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c9925e11325c87598f90af1b677246eca805e6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101699"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Esercitazione: Integrazione di Azure Active Directory con Gigya
 
@@ -78,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Gigya è nece
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Gigya](#configure-gigya-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Gigya](#create-gigya-test-user)** : per avere una controparte di Britta Simon in Gigya collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -106,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Gigya, seguire questa p
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `http://<companyname>.gigya.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://fidm.gigya.com/saml/v2.0/<companyname>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://fidm.gigya.com/saml/v2.0/<companyname>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Gigya](https://www.gigya.com/support-policy/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -131,11 +132,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Gigya, seguire questa p
 
 2. Passare a **Impostazioni \> SAML Login (Accesso a SAML)** , quindi fare clic sul pulsante **Aggiungi**.
    
-    ![Login SAML](./media/gigya-tutorial/ic789532.png "Login SAML")
+    ![Accesso SAML](./media/gigya-tutorial/ic789532.png "SAML login")
 
 3. Nella sezione **SAML Login** seguire questa procedura:
    
-    ![Configurazione SAML](./media/gigya-tutorial/ic789533.png "Configurazione SAML")
+    ![Configurazione SAML](./media/gigya-tutorial/ic789533.png "SAML Configuration")
    
     a. Nella casella di testo **Name** digitare un nome per la configurazione.
    
@@ -149,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Gigya, seguire questa p
    
     f. Fare clic su **Salva impostazioni**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -172,7 +173,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -210,11 +211,11 @@ Per consentire agli utenti di Azure AD di accedere a Gigya, è necessario esegui
 
 2. Passare a **Amministratore \> Gestisci utenti**  e quindi fare clic su **Invita utenti**.
    
-    ![Gestione utenti](./media/gigya-tutorial/ic789535.png "Gestione utenti")
+    ![Gestire gli utenti](./media/gigya-tutorial/ic789535.png "Manage Users")
 
 3. Nella finestra di dialogo Invite Users seguire questa procedura:
    
-    ![Invitare utenti](./media/gigya-tutorial/ic789536.png "Invitare utenti")
+    ![Invitare gli utenti](./media/gigya-tutorial/ic789536.png "Invite Users")
    
     a. Nella casella di testo **Email** digitare l'alias di posta elettronica di un account di Azure Active Directory valido di cui si vuole eseguire il provisioning.
     

@@ -1,22 +1,19 @@
 ---
-title: Creare una topologia di rete ibrida hub-spoke con Terraform in Azure
+title: Esercitazione - Creare una topologia di rete ibrida hub-spoke con Terraform in Azure
 description: Esercitazione che illustra come creare un'intera architettura di riferimento di rete ibrida in Azure usando Terraform
-services: terraform
-ms.service: azure
-keywords: terraform, hub-spoke, reti, reti ibride, devops, macchina virtuale, azure, peering reti virtuali, appliance virtuale di rete
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173444"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969401"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Esercitazione: Creare una topologia di rete ibrida hub-spoke con Terraform in Azure
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Esercitazione: Creare una topologia di rete ibrida hub-spoke con Terraform in Azure
 
 Questa serie di esercitazioni illustra come usare Terraform per implementare in Azure una [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 

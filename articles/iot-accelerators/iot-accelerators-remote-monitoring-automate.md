@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Rilevare i problemi dei dispositivi in una soluzione di monitoraggio remoto - Azure | Microsoft Docs'
+title: Usare la soluzione di monitoraggio remoto per rilevare i problemi dei dispositivi - Azure | Microsoft Docs
 description: Questa esercitazione mostra come usare regole e azioni per rilevare automaticamente problemi dei dispositivi in base alle soglie nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598681"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888880"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: Rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
@@ -54,7 +54,7 @@ Per creare una regola che generi un avviso quando la pressione in un dispositivo
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
 | Nome regola        | Chiller warning (Avviso refrigeratore)                       |
-| Descrizione      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
+| DESCRIZIONE      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
 | Gruppo di dispositivi     | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Calcolo      | Istantaneo                               |
 | Campo condizione 1| pressure                              |
@@ -77,7 +77,7 @@ Per creare una regola con più condizioni che genera un avviso critico quando ne
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
 | Nome regola        | Umidità refrigeratore e temperatura critiche    |
-| Descrizione      | Temperatura e umidità sono critiche |
+| DESCRIZIONE      | Temperatura e umidità sono critiche |
 | Gruppo di dispositivi     | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Calcolo      | Media                               |
 | Periodo di tempo      | 5                                     |

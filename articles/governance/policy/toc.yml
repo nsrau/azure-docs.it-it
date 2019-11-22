@@ -279,7 +279,7 @@
       href: ./concepts/guest-configuration.md
 - name: Guide alle procedure
   items:
-    - name: Estensione di Criteri di Azure per VSCode
+    - name: Estensione Criteri di Azure per VS Code
       displayName: visual studio code
       href: ./how-to/extension-for-vscode.md
     - name: Creare criteri a livello di programmazione

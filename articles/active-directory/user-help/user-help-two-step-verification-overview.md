@@ -1,5 +1,5 @@
 ---
-title: Panoramica per la verifica a due fattori e l'account aziendale o dell'istituto di istruzione - Azure Active Directory | Microsoft Docs
+title: Verifica della sicurezza e account aziendale o dell'istituto di istruzione - Azure AD
 description: Informazioni su come configurare i metodi di verifica della sicurezza per usare la verifica a due fattori con l'account aziendale o dell'istituto di istruzione.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615992"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028474"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>Panoramica per la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>Verifica a due fattori e account aziendale o dell'istituto di istruzione
 
 Si riceve una e-mail da un referente IT o dal proprio capo in cui si afferma che l'organizzazione ha aggiunto altre verifiche di sicurezza all'account. Cosa significa? Significa che l'organizzazione sta prendendo altri provvedimenti per accertare l'identità dell'utente al momento dell'accesso. Questa verifica aggiuntiva, nota anche come verifica a due fattori, viene eseguita con una combinazione di nome utente, password e dispositivo mobile o telefono.
 

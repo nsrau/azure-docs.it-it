@@ -1522,9 +1522,9 @@
       href: /azure/databricks/dev-tools/stack
       maintainContext: true
     - name: API REST di Azure Databricks
-      href: /azure/databricks//rest/api/databricks
+      href: /rest/api/databricks
     - name: Modello di Resource Manager
-      href: /azure/databricks//azure/templates/microsoft.databricks/workspaces
+      href: /azure/templates/microsoft.databricks/workspaces
 - name: Risorse
   items:
     - name: Note sulla versione

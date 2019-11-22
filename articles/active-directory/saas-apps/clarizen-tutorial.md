@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105372"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Clarizen, è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Clarizen](#configure-clarizen-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Clarizen](#create-clarizen-test-user)** : per avere una controparte di Britta Simon in Clarizen collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -132,15 +133,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
 1. Fare clic sul nome utente e quindi su **Settings** (Impostazioni).
 
-    ![Clic su "Settings" (Impostazioni) sotto il nome utente](./media/clarizen-tutorial/tutorial_clarizen_001.png "Settings (Impostazioni)")
+    ![Clic sulla voce relativa alle impostazioni sotto il nome utente](./media/clarizen-tutorial/tutorial_clarizen_001.png "Impostazioni")
 
 1. Fare clic sulla scheda **Global Settings** (Impostazioni globali), quindi accanto a **Federated Authentication** (Autenticazione federata) fare clic su **edit** (modifica).
 
-    ![Scheda "Global Settings" (Impostazioni globali)](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings (Impostazioni globali)")
+    ![Scheda delle impostazioni globali](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
 
 1. Nella finestra di dialogo **Federated Authentication** (Autenticazione federata) seguire questa procedura:
 
-    ![Finestra di dialogo "Federated Authentication"(Autenticazione federata)](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication (Autenticazione federata)")
+    ![Finestra di dialogo di autenticazione federata](./media/clarizen-tutorial/tutorial_clarizen_003.png "Autenticazione federata")
 
     a. Selezionare **Enable Federated Authentication** (Abilita autenticazione federata).
 
@@ -154,7 +155,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
     f. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -177,7 +178,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -217,15 +218,15 @@ Per consentire agli utenti di Azure AD di accedere a Clarizen, è necessario eff
 
 2. Fare clic su **Persone**.
 
-    ![Clic su "People" (Persone)](./media/clarizen-tutorial/create_aaduser_001.png "People (Persone)")
+    ![Clic sull'opzione relativa alle persone](./media/clarizen-tutorial/create_aaduser_001.png "Persone")
 
 3. Fare clic su **Invite User**.
 
-    ![Pulsante "Invite User" (Invita l'utente)](./media/clarizen-tutorial/create_aaduser_002.png "Invitare utenti")
+    ![Pulsante di invito dell'utente](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users")
 
 1. Nella finestra di dialogo **Invite People** (Invita persone) seguire questa procedura:
 
-    ![Finestra di dialogo "Invite People" (Invita persone)](./media/clarizen-tutorial/create_aaduser_003.png "Invite People (Invita persone)")
+    ![Finestra di dialogo di invito delle persone](./media/clarizen-tutorial/create_aaduser_003.png "Invita persone")
 
     a. Nella casella **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica dell'account di Britta Simon.
 

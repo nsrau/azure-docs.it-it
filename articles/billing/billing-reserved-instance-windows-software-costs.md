@@ -1,25 +1,22 @@
 ---
-title: Costi del software per la prenotazione di Azure | Microsoft Docs
+title: Costi del software per la prenotazione di Azure
 description: Informazioni sui contatori relativi al software non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
-services: billing
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 11/14/2019
 ms.author: banders
-ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 82a3dfa9534d58d425b15a433a69a224235e027f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719649"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111545"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software non inclusi nelle istanze di macchina virtuale riservate di Azure
 
@@ -64,7 +61,7 @@ Gli sconti relativi alla capacità riservata SQL e all'istanza di macchina virtu
 |dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Licenza vCPU servizi cloud 64|
 |7a803026-244c-4659-834c-11e6b2d6b76f|Licenza vCPU servizi cloud 80|
 
-## <a name="rates-for-azure-meters"></a>Tariffe per i contatori di Azure
+## <a name="get-rates-for-azure-meters"></a>Ottenere le tariffe per i contatori di Azure
 
 È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 

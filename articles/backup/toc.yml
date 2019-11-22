@@ -28,6 +28,8 @@
       href: tutorial-restore-files.md
     - name: Eseguire il backup di SQL Server nelle VM di Azure
       href: tutorial-sql-backup.md
+    - name: Eseguire il backup di database SAP HANA nelle VM di Azure
+      href: tutorial-backup-sap-hana-db.md
     - name: Eseguire il backup di condivisioni file di Azure
       href: tutorial-backup-azure-files.md
     - name: Eseguire il backup di Windows Server
@@ -52,6 +54,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matrice di supporto per l'agente MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matrice di supporto del backup di SAP HANA
+          href: sap-hana-backup-support-matrix.md
     - name: Security
       items:
         - name: Controllo degli accessi in base al ruolo
@@ -74,6 +78,8 @@
           href: backup-azure-files-faq.md
         - name: Domande frequenti - Eseguire il backup di database SQL Server in macchine virtuali di Azure
           href: faq-backup-sql-server.md
+        - name: Domande frequenti - Eseguire il backup di database SAP HANA nelle VM di Azure
+          href: sap-hana-faq-backup-azure-vm.md
         - name: 'Domande frequenti: DPM e server di Backup di Azure'
           href: backup-azure-dpm-azure-server-faq.md
         - name: 'Domande frequenti: avviso di monitoraggio di Backup di Azure'
@@ -228,8 +234,14 @@
           href: restore-sql-database-azure-vm.md
         - name: Gestire database SQL Server di cui è stato eseguito il backup
           href: manage-monitor-sql-database-backup.md
-    - name: Eseguire il backup di database SAP HANA in macchine virtuali di Azure
-      href: backup-azure-sap-hana-database.md
+    - name: Database SAP HANA nelle VM di Azure
+      items:
+        - name: Eseguire il backup di database SAP HANA in macchine virtuali di Azure
+          href: backup-azure-sap-hana-database.md
+        - name: Ripristinare i database SAP HANA nelle VM di Azure
+          href: sap-hana-db-restore.md
+        - name: Gestire i backup dei database SAP HANA
+          href: sap-hana-db-manage.md
     - name: Windows Server
       items:
         - name: Eseguire un backup dei file e delle cartelle di Windows Server

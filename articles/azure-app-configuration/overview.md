@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687037"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129692"
 ---
 # <a name="what-is-azure-app-configuration"></a>Informazioni su Configurazione app di Azure
 
@@ -30,7 +30,7 @@ Configurazione app è attualmente in anteprima pubblica. È gratuita durante il 
 
 Le applicazioni basate sul cloud vengono spesso eseguite in più macchine virtuali o contenitori in più aree e usano più servizi esterni. Creare un'applicazione distribuita che sia robusta e scalabile è una sfida.
 
-Diverse metodologie di programmazione consentono agli sviluppatori di far fronte alla crescente complessità legata alla compilazione di queste applicazioni. Ad esempio, l'app a 12 fattori illustra molti modelli di architettura e procedure consigliate ben testati per l'uso con le applicazioni cloud. Un consiglio fondamentale di questa guida è quello di separare la configurazione dal codice. In questo caso, le impostazioni di configurazione di un'applicazione devono essere mantenute esterne al relativo eseguibile e lette dall'ambiente di runtime o da un'origine esterna.
+Diverse metodologie di programmazione consentono agli sviluppatori di far fronte alla crescente complessità legata alla compilazione di queste applicazioni. Ad esempio, [Twelve-Factor App](https://12factor.net/) illustra molti modelli di architettura e procedure consigliate ben testati per l'uso con le applicazioni cloud. Un consiglio fondamentale di questa guida è quello di separare la configurazione dal codice. In questo caso, le impostazioni di configurazione di un'applicazione devono essere mantenute esterne al relativo eseguibile e lette dall'ambiente di runtime o da un'origine esterna.
 
 Di seguito sono riportati esempi dei tipi di applicazione che traggono vantaggio dall'uso di Configurazione app, che può comunque essere usato da qualsiasi applicazione:
 

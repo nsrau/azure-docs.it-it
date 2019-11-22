@@ -1,21 +1,21 @@
 ---
-title: Questa guida introduttiva illustra come registrare i dispositivi X.509 nel servizio Device Provisioning di Azure con Java | Microsoft Docs
+title: 'Guida introduttiva: Come registrare i dispositivi X.509 nel servizio Azure Device Provisioning con Java'
 description: Questa guida introduttiva usa sia registrazioni di gruppo che registrazioni singole. In questa guida introduttiva verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con Java.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412772"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904772"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
 
@@ -58,7 +58,7 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. Nel codice sorgente scaricato passare alla cartella dell'esempio **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Aprire il file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** nell'editor preferito e aggiungere i dettagli seguenti:
+2. Nel codice sorgente scaricato passare alla cartella dell'esempio **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Aprire il file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** nell'editor preferito e aggiungere i dettagli seguenti:
 
     1. Aggiungere `[Provisioning Connection String]` per il servizio di provisioning dal portale, come indicato di seguito:
         1. Passare al servizio di provisioning nel [portale di Azure](https://portal.azure.com). 
@@ -74,7 +74,7 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
             ```
 
     2. Aggiungere il certificato radice per il gruppo di dispositivi. Se è necessario un certificato radice di esempio, usare lo strumento _generatore di certificati X.509_ come segue:
-        1. In una finestra di comando passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_**.
+        1. In una finestra di comando passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** .
         2. Compilare lo strumento con questo comando:
 
                 ```cmd\sh
@@ -90,7 +90,7 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
 
         5. Quando richiesto, è facoltativamente possibile immettere un _nome comune_ per i certificati.
         6. Lo strumento genera in locale un **certificato client**, la **chiave privata del certificato client** e il **certificato radice**.
-        7. Copiare il **certificato radice**, incluse le righe **_-----BEGIN CERTIFICATE-----_** ed **_-----END CERTIFICATE-----_**. 
+        7. Copiare il **certificato radice**, incluse le righe **_-----BEGIN CERTIFICATE-----_** ed **_-----END CERTIFICATE-----_** . 
         8. Assegnare il valore del **certificato radice** al parametro **PUBLIC_KEY_CERTIFICATE_STRING**, come illustrato sotto:
 
                 ```Java
@@ -142,7 +142,7 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
 
 ## <a name="build-and-run-sample-group-enrollment"></a>Compilare ed eseguire la registrazione del gruppo di esempio
 
-1. Aprire una finestra di comando e passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
+1. Aprire una finestra di comando e passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 
 2. Compilare il codice di esempio usando questo comando:
 

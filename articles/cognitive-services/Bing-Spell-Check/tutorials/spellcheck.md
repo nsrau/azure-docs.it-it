@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Ottenere i risultati del controllo ortografico usando l'API Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
-description: Informazioni sull'uso del Controllo ortografico Bing.
+description: In questa esercitazione verrà creata una pagina Web che consente agli utenti di eseguire query sull'API Controllo ortografico Bing e visualizzare i risultati.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 73466b80915d5eb7228eef397d5aad68d27faa15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996841"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111458"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Esercitazione: Creare un client di controllo ortografico per una pagina Web
 

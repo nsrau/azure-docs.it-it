@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva - Creare una macchina virtuale Windows con Azure PowerShell | Microsoft Docs
+title: Avvio rapido - Creare una macchina virtuale Windows con Azure PowerShell
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una macchina virtuale Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0a8e6ab04cbb1c5a3ef9be299a08380912aad7ef
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088803"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073447"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows in Azure con PowerShell
 

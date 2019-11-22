@@ -1,5 +1,5 @@
 ---
-title: Configurare il routing dei messaggi per l'hub IoT di Azure usando un modello di Azure Resource Manager | Microsoft Docs
+title: Configurare il routing dei messaggi per l'hub IoT di Azure usando un modello di Azure Resource Manager
 description: Configurare il routing dei messaggi per l'hub IoT di Azure usando un modello di Azure Resource Manager
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163294"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084396"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare un modello di Azure Resource Manager per configurare il routing dei messaggi per l'hub IoT
 
@@ -370,7 +370,7 @@ I file vengono caricati nella condivisione usata dall'istanza di Cloud Shell.
 
 Eseguire lo script per avviare la distribuzione. L'ultima riga dello script recupera la variabile da restituire, ossia la stringa di connessione della coda del bus di servizio.
 
-Nello script vengono impostate queste variabili.
+Lo script imposta e usa queste variabili:
 
 **$RGName** è il nome del gruppo di risorse in cui viene distribuito il modello. Questo campo viene creato prima della distribuzione del modello.
 

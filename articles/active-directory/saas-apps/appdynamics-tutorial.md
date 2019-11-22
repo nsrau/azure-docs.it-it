@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d0a8151610658d8302d90f9a3cb3159a877925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43245a88ee48b016e1947047d12349423cca6047
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106854"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Esercitazione: Integrazione di Azure Active Directory con AppDynamics
 
@@ -81,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con AppDynamics, 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di AppDynamics](#configure-appdynamics-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di AppDynamics](#create-appdynamics-test-user)** : per avere una controparte di Britta Simon in AppDynamics collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -109,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AppDynamics, seguire qu
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.saas.appdynamics.com/controller`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di AppDynamics](https://www.appdynamics.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -134,15 +135,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con AppDynamics, seguire qu
 
 1. Nella barra degli strumenti in alto fare clic su **Settings** e quindi su **Administration**.
 
-    ![Amministrazione](./media/appdynamics-tutorial/ic790216.png "Amministrazione")
+    ![Amministrazione](./media/appdynamics-tutorial/ic790216.png "Administration")
 
 1. Fare clic sulla scheda **Authentication Provider** .
 
-    ![Authentication Provider](./media/appdynamics-tutorial/ic790224.png "Authentication Provider")
+    ![Provider di autenticazione](./media/appdynamics-tutorial/ic790224.png "Authentication Provider")
 
 1. Nella sezione **Authentication Provider** seguire questa procedura:
 
-   ![Configurazione SAML](./media/appdynamics-tutorial/ic790225.png "Configurazione SAML")
+   ![Configurazione SAML](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")
 
    a. Per **Authentication Provider** selezionare **SAML**.
 
@@ -154,7 +155,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AppDynamics, seguire qu
 
    e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -177,7 +178,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

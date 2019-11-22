@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529248"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890623"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
@@ -134,7 +134,7 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
       )
       ```
 
-   3. Aggiungere **my_parson** all'elenco di librerie nella sezione **target_link_libraries** del file CMakeLists.txt.
+   3. Aggiungere `my_parson` all'elenco di librerie nella sezione **target_link_libraries** del file CMakeLists.txt.
 
    4. Salvare il file **CMakeLists.txt**.
 
@@ -174,6 +174,14 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
 4. Trovare la funzione `InputQueue1Callback` e sostituirla interamente con il codice seguente. Questa funzione implementa i filtri effettivi per i messaggi. Quando viene ricevuto un messaggio, verifica se la temperatura segnalata supera la soglia. In caso affermativo, inoltra il messaggio tramite la relativa coda di output. In caso negativo, ignora il messaggio. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -183,7 +191,10 @@ Il codice del modulo predefinito riceve i messaggi in una coda di input e li pas
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }

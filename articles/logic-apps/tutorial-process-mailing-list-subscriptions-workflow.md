@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f720e22542533d17fc7ab581f8ba8d9c03a89570
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034593"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025570"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure
 
@@ -41,7 +41,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, [iscriversi per creare un account di Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-* Un account MailChimp che contiene una lista denominata "test-members-ML", in cui l'app per la logica può aggiungere gli indirizzi di posta elettronica dei membri approvati. Se non si ha un account, [registrarsi per ottenerne uno gratuito](https://login.mailchimp.com/signup/) e vedere [come creare una lista MailChimp](https://us17.admin.mailchimp.com/lists/#).
+* Un account MailChimp che contiene un elenco denominato "test-members-ML", in cui l'app per la logica può aggiungere gli indirizzi di posta elettronica dei membri approvati. Se non si ha un account, [registrarsi per ottenerne uno gratuito](https://login.mailchimp.com/signup/) e vedere [come creare una lista MailChimp](https://us17.admin.mailchimp.com/lists/#).
 
 * Una account di posta elettronica in Office 365 Outlook o Outlook.com, che supporta i flussi di lavoro basati su approvazione. Questo articolo usa Outlook per Office 365. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 

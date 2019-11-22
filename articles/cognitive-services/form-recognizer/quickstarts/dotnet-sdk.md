@@ -1,6 +1,6 @@
 ---
 title: 'Guida introduttiva: Libreria client di Riconoscimento modulo per .NET | Microsoft Docs'
-description: Introduzione alla libreria client di Riconoscimento modulo per .NET.
+description: Iniziare a usare la libreria client di Riconoscimento modulo per .NET per eseguire il training, estrarre, analizzare e generare l'output di dati strutturati.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264447"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904613"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Guida introduttiva: Libreria client di Riconoscimento modulo per .NET
 
@@ -43,7 +43,7 @@ Usare la libreria client di Riconoscimento modulo per .NET per:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare una variabile di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave, denominata `FORM_RECOGNIZER_KEY`.
+Dopo aver ottenuto una chiave dalla sottoscrizione di valutazione o dalla risorsa, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint, denominate rispettivamente `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
@@ -120,7 +120,6 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 
 Prima di definire i metodi, aggiungere le definizioni delle variabili seguenti all'inizio della classe **Program**. Sarà necessario inserire manualmente alcune variabili. 
 
-* Il valore dell'endpoint del servizio è reperibile nella sezione **Panoramica** del portale di Azure. 
 * Per recuperare l'URL di firma di accesso condiviso per i dati di training, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Se è necessario un modulo di esempio da analizzare, è possibile usare uno dei file includi nella cartella **Test** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Questa guida usa moduli PDF.
 

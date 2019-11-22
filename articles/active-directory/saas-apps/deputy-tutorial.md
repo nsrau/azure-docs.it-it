@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104240"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Esercitazione: Integrazione di Azure Active Directory con Deputy
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Deputy, è ne
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Deputy](#configure-deputy-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Deputy](#create-deputy-test-user)** : per avere una controparte di Britta Simon in Deputy collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -193,7 +194,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Deputy, seguire questa 
    
     f. Fare clic su **Salva impostazioni**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -216,7 +217,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -254,15 +255,15 @@ Per consentire agli utenti di Azure AD di accedere a Deputy è necessario esegui
 
 2. Nel pannello di navigazione in alto fare clic su **People**(Persone).
    
-    ![Persone](./media/deputy-tutorial/tutorial_deputy_001.png "Persone")
+    ![People](./media/deputy-tutorial/tutorial_deputy_001.png "Persone")
 
 3. Fare clic su **Add People** (Aggiungi persone) e quindi su **Add a single person** (Aggiungi una singola persona).
    
-    ![Aggiungere persone](./media/deputy-tutorial/tutorial_deputy_002.png "Aggiungere persone")
+    ![Aggiungere persone](./media/deputy-tutorial/tutorial_deputy_002.png "Add People (Aggiungi persone)")
 
 4. Eseguire i passaggi seguenti e fare clic su **Save & Invite** (Salva e invita).
    
-    ![Nuovo utente](./media/deputy-tutorial/tutorial_deputy_003.png "Nuovo utente")
+    ![New User](./media/deputy-tutorial/tutorial_deputy_003.png "Nuovo utente")
 
     a. Nella casella di testo **Name** (Nome) digitare il nome dell'utente, ad esempio **BrittaSimon**.
    

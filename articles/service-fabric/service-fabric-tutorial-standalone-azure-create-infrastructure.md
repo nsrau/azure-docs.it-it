@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: v-vasuke
 ms.custom: mvc
-ms.openlocfilehash: d9db71a1b64ea6bf2dc73500160ce8e5e6022ef6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385019"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177736"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare un'infrastruttura di macchine virtuali di Azure per ospitare un cluster di Service Fabric
 
@@ -90,18 +90,12 @@ Avviare altre due **macchine virtuali**, assicurandosi di mantenere le stesse im
  
 4. Aprire il file RDP e, quando richiesto, immettere il nome utente e la password specificati durante la configurazione della macchina virtuale.
 
-5. Dopo la connessione a un'istanza è necessario verificare che Registro di sistema remoto sia in esecuzione, abilitare SMB e aprire le porte necessarie per SMB e Registro di sistema remoto.
-
-   Per abilitare SMB usare questo comando PowerShell:
-
-   ```powershell
-   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-   ```
+5. Dopo la connessione a un'istanza, è necessario verificare che Registro di sistema remoto fosse in esecuzione e aprire le porte necessarie.
 
 6. Questo è il comando di PowerShell per aprire le porte nel firewall:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
    ```
 
 7. Ripetere questo processo per le altre istanze, prendendo di nuovo nota degli indirizzi IP privati.
@@ -117,15 +111,6 @@ Avviare altre due **macchine virtuali**, assicurandosi di mantenere le stesse im
    ```
 
    Se l'output avrà un aspetto simile a `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` ripetuto quattro volte, significa che la connessione tra le istanze è funzionante.
-
-3. A questo punto convalidare che la condivisione SMB funzioni con il comando seguente:
-
-   ```
-   net use * \\172.31.20.163\c$
-   ```
-
-   L'output restituito dovrebbe essere `Drive Z: is now connected to \\172.31.20.163\c$.`.
-
 
    Le istanze sono state preparate correttamente per Service Fabric.
 

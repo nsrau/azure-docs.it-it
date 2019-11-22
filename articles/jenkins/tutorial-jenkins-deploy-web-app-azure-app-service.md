@@ -7,14 +7,14 @@ author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 10/23/2019
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 24dbe67052d185de0eb308c4c869e63dbc825d9e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172829"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882017"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Azure con integrazione continua e distribuzione continua di Jenkins
 
@@ -64,7 +64,7 @@ Per completare questa esercitazione, è necessario quanto segue:
 
    - [Servizio app di Azure](https://plugins.jenkins.io/azure-app-service)
    - [GitHub Branch Source](https://plugins.jenkins.io/github-branch-source)
-   - [Environment Injector Plugin](https://plugins.jenkins.io/envinject) Jenkins
+   - [Environment Injector Plug-in](https://plugins.jenkins.io/envinject) Jenkins
    - [Azure Credentials](https://plugins.jenkins.io/azure-credentials)
 
    Se i plug-in non vengono visualizzati, verificare che non siano già installati controllando la scheda **Installed** (Installato).

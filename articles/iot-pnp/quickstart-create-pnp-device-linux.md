@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 203725ba109922a8704c0e31a6e61dc6eadf6bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 087f1d76aaab4b05425262e0c1fb87b168c99b95
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585927"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931225"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Guida introduttiva: Usare un modello di funzionalità di dispositivo per creare un dispositivo di anteprima Plug and Play IoT (Linux)
 
@@ -25,7 +25,7 @@ Questa guida di avvio rapido presuppone che si stia usando Ubuntu Linux con un a
 
 Per completare questa guida di avvio rapido, è necessario installare il software seguente nel computer Linux locale:
 
-* Installare **GCC**, **Git**, **cmake** e tutte le dipendenze usando il comando `apt-get`:
+* Installare **GCC**, **Git**, **cmake** e tutte le dipendenze tramite il comando `apt-get`:
 
     ```sh
     sudo apt-get update
@@ -57,11 +57,11 @@ La _stringa di connessione del repository dei modelli aziendali_ è disponibile 
 
 ## <a name="prepare-an-iot-hub"></a>Preparare un hub IoT
 
-Per completare questa guida di avvio rapido, è necessario un hub IoT di Azure nella sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per completare questa guida di avvio rapido, la sottoscrizione di Azure deve includere anche un hub IoT di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. Se non si dispone di un hub IoT, di seguito è riportata la procedura per crearne uno.
 
 Se si usa l'interfaccia della riga di comando di Azure in locale, è necessario che la versione di `az` sia la **2.0.75** o versioni successive. Azure Cloud Shell usa la versione più recente. Usare il comando `az --version` per verificare la versione installata nel computer.
 
-Aggiungere l'estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure:
+Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -69,11 +69,11 @@ az extension add --name azure-cli-iot-ext
 
 I passaggi in questa guida di avvio rapido richiedono la versione **0.8.5** o successiva dell'estensione. Usare il comando `az extension list` per verificare la versione installata e il comando `az extension update` per eseguire l'aggiornamento, se necessario.
 
-Se non si dispone di un hub IoT, crearne uno usando i comandi seguenti, sostituendo `{YourIoTHubName}` con un nome univoco a scelta. Se si eseguono questi comandi localmente, accedere prima alla sottoscrizione di Azure usando `az login`. Se si eseguono questi comandi in Azure Cloud Shell, si è connessi automaticamente:
+Se non si dispone di un hub IoT, crearne uno usando i comandi seguenti, sostituendo `<YourIoTHubName>` con un nome univoco a scelta. Se si eseguono questi comandi localmente, accedere prima alla sottoscrizione di Azure usando `az login`. Se si eseguono questi comandi in Azure Cloud Shell, si è connessi automaticamente:
 
   ```azurecli-interactive
   az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name {YourIoTHubName} \
+  az iot hub create --name <YourIoTHubName> \
     --resource-group pnpquickstarts_rg --sku S1
   ```
 
@@ -82,23 +82,23 @@ I comandi precedenti creano un gruppo di risorse denominato `pnpquickstarts_rg` 
 > [!IMPORTANT]
 > Durante la fase di anteprima pubblica, le funzionalità Plug and Play IoT sono disponibili solo negli hub IoT creati nelle aree **Stati Uniti centrali**, **Europa settentrionale** e **Giappone orientale**.
 
-Eseguire questo comando per creare l'identità di un dispositivo denominato `mypnpdevice` nell'hub IoT. Sostituire il segnaposto `{YourIoTHubName}` con il nome dell'hub IoT:
+Eseguire il comando seguente per creare l'identità di un dispositivo nell'hub IoT. Sostituire i segnaposto **YourIoTHubName** e **YourDevice** con i nomi effettivi.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name {YourIoTHubName} --device-id mypnpdevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
 ```
 
-Eseguire questi comandi per ottenere la _stringa di connessione_ per il dispositivo appena registrato. Questa stringa di connessione sarà necessaria più avanti in questa guida di avvio rapido:
+Eseguire questi comandi per ottenere la _stringa di connessione_ per il dispositivo appena registrato.
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id mypnpdevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## <a name="author-your-model"></a>Creare il modello
 
 In questa guida di avvio rapido si useranno un modello di funzionalità di dispositivo di esempio esistente e le interfacce associate.
 
-1. Creare una directory `pnp_app` nella home directory. Questa cartella viene usata per i file del modello di dispositivo e lo stub del codice del dispositivo.
+1. Creare una directory `pnp_app` nell'unità locale. Questa cartella viene usata per i file del modello di dispositivo e lo stub del codice del dispositivo.
 
     ```bash
     cd ~
@@ -126,11 +126,11 @@ A questo punto, si dispone di un modello di funzionalità di dispositivo e delle
 1. Con la cartella `pnp_app` aperta in VS Code, usare **CTRL+MAIUSC+P** per aprire il riquadro comandi, immettere **Plug and Play IoT** e selezionare **Generate Device Code Stub** (Genera stub codice dispositivo).
 
     > [!NOTE]
-    > La prima volta che si usa l'utilità del generatore di codice di Plug and Play IoT è necessario attendere alcuni secondi il completamento del download.
+    > La prima volta che si usa l'utilità del generatore di codice di Plug and Play IoT è necessario attendere alcuni secondi il completamento del download e l'installazione.
 
 1. Scegliere il file **SampleDevice.capabilitymodel.json** da usare per generare lo stub del codice del dispositivo.
 
-1. Immettere il nome del progetto **sample_device**, che sarà il nome dell'applicazione del dispositivo.
+1. Immettere il nome di progetto **sample_device**. Si tratta del nome dell'applicazione del dispositivo.
 
 1. Scegliere **ANSI C** come linguaggio.
 
@@ -140,7 +140,7 @@ A questo punto, si dispone di un modello di funzionalità di dispositivo e delle
 
 1. Scegliere **Via Source Code** (Tramite codice sorgente) come modo per includere l'SDK.
 
-1. VS Code apre una nuova finestra contenente i file stub di codice di dispositivo generati.
+1. Nello stesso percorso del file DCM verrà creata una nuova cartella denominata **sample_device**, contenente i file stub del codice del dispositivo generati. VS Code apre una nuova finestra per visualizzarli.
     ![Codice del dispositivo](media/quickstart-create-pnp-device-linux/device-code.png)
 
 ## <a name="build-and-run-the-code"></a>Compilare ed eseguire il codice
@@ -173,7 +173,7 @@ Per compilare lo stub del codice del dispositivo generato, si usa il codice sorg
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "{IoT Hub device connection string}"
+    ./sample_device "<device connection string>"
     ```
 
 1. L'applicazione del dispositivo inizia a inviare dati all'hub IoT.
@@ -207,13 +207,13 @@ Dopo l'avvio del dispositivo client di esempio, è possibile verificare che funz
 Usare il comando seguente per visualizzare i dati di telemetria inviati dal dispositivo di esempio. Potrebbe essere necessario attendere un minuto o due prima che i dati di telemetria vengano visualizzati nell'output:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 ```
 
 Usare il comando seguente per visualizzare tutte le proprietà inviate dal dispositivo:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id mypnpdevice --hub-name {Your IoT hub name} --source private --repo-login "{Your company model repository connection string}"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<Your company model repository connection string>"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,19 +1,19 @@
 ---
 title: Esercitazione per C# sulla paginazione dei risultati della ricerca
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione si basa sul progetto "Creare la prima app - Ricerca cognitiva di Azure" e consente di scegliere tra due sistemi di paginazione. Il primo usa un intervallo di pulsanti di numeri di pagina, nonché i pulsanti della prima, della successiva, della precedente e dell'ultima pagina. Il secondo sistema di paginazione usa lo scorrimento infinito, attivato dallo spostamento di una barra di scorrimento verticale fino al limite inferiore.
+description: Questa esercitazione illustra la paginazione dei risultati della ricerca. Si basa su un progetto di hotel esistente, con pulsanti di paginazione per prima pagina, pagina successiva, pagina precedente, ultima pagina e paginazione numerata. Un secondo sistema di paginazione usa lo scorrimento infinito, attivato dallo spostamento di una barra di scorrimento verticale fino al limite inferiore.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794008"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113759"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure
 

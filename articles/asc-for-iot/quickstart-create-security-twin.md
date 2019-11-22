@@ -1,6 +1,6 @@
 ---
-title: Creare un modulo gemello di sicurezza per il Centro sicurezza di Azure per IoT | Microsoft Docs
-description: Informazioni su come creare un modulo gemello del Centro sicurezza di Azure per IoT per l'uso con il Centro sicurezza di Azure per IoT.
+title: 'Guida introduttiva: Creare un modulo gemello di sicurezza per il Centro sicurezza di Azure per IoT'
+description: In questo avvio rapido sono disponibili informazioni su come creare un modulo gemello del Centro sicurezza di Azure per IoT per l'uso con il Centro sicurezza di Azure per IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 92bf79aa5ae55bad16d68a26dc13d292285a4d46
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b362130c2b717f813a6332f81a3c8179bea4166a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597070"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904156"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Guida introduttiva: Creare un modulo gemello azureiotsecurity
 

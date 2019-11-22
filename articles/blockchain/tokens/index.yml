@@ -2,7 +2,7 @@
 title: Documentazione di Token di blockchain di Azure
 summary: Informazioni su come creare, emettere e gestire i token di blockchain.
 metadata:
-  title: Documentazione di Token di blockchain di Azure - Esercitazioni e informazioni di riferimento sulle API
+  title: Documentazione di Token di blockchain di Azure
   description: Informazioni su come emettere e gestire i token di blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Token di blockchain di Azure per creare e gestire i token di blockchain in Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 6df625c2264db279e29c4ebcf5aab5695b335a0e
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 1bc9c7e862a987747887b536f8657bda12eb1c40
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73508432"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74325101"
 landingContent:
 - title: Informazioni su Token di blockchain di Azure
   linkLists:

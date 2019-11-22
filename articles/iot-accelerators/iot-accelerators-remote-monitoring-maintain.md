@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Uso degli avvisi e correzione dei problemi dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs'
+title: Usare gli avvisi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione illustra come usare gli avvisi per identificare e correggere i problemi con dispositivi connessi all'acceleratore della soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451718"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890930"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Esercitazione: Risolvere e correggere i problemi dei dispositivi
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: cce7562c74577f6fd545bcaed3ee3e0968fd40b4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607519"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132900"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Esercitazione: Ridimensionare un'applicazione in Azure Spring Cloud
 
@@ -31,13 +31,15 @@ Per completare questa esercitazione, sono necessari:
 
 1. Passare alla pagina **Panoramica** di Azure Spring Cloud.
 
+1. Selezionare il gruppo di risorse contenente il servizio.
+
 1. Passare alla scheda **App** sotto l'intestazione **Impostazioni** nel menu a sinistra.
 
 1. Selezionare l'applicazione da ridimensionare. In questo esempio verrà ridimensionata l'applicazione denominata "account-service". Verrà visualizzata la pagina **Panoramica** dell'applicazione.
 
-1. Passare alla scheda **Piano** sotto l'intestazione **Impostazioni** nel menu a sinistra. Verrà visualizzato un modulo con le righe per ognuno degli attributi di scalabilità citati in precedenza.
+1. Passare alla scheda **Piano** sotto l'intestazione **Impostazioni** nel menu a sinistra. Verranno visualizzate le opzioni per gli attributi di ridimensionamento illustrati nella sezione seguente.
 
-## <a name="scale-your-application"></a>Aumentare o ridurre le prestazioni dell'applicazione
+## <a name="scale-your-application"></a>Ridimensionare l'applicazione
 
 È possibile modificare gli attributi di ridimensionamento. Tenere presente le note seguenti.
 
@@ -47,7 +49,9 @@ Per completare questa esercitazione, sono necessari:
 
 * **Numero di istanze**: È possibile aggiungere un massimo di 20 istanze nel livello Standard. Questo valore modifica il numero di istanze in esecuzione separate dell'applicazione di microservizi.
 
-Assicurarsi di fare clic sul pulsante **Salva** per applicare le impostazioni di scalabilità.
+Assicurarsi di fare clic sul pulsante **Salva** per applicare le impostazioni di ridimensionamento.
+
+![Ridimensionare il servizio nel portale di Azure](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
 Dopo alcuni secondi, le modifiche apportate verranno visualizzate nella pagina **Panoramica**, con ulteriori dettagli disponibili nella scheda **Istanze dell'applicazione**. Il ridimensionamento non richiede alcuna modifica del codice o ridistribuzione.
 

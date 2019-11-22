@@ -1,7 +1,7 @@
 ---
 title: "Guida introduttiva: Creare un'istanza di Load Balancer Basic - Azure PowerShell"
-titlesuffix: Azure Load Balancer
-description: In questa guida introduttiva si apprende come creare un'istanza di Load Balancer Basic usando PowerShell
+titleSuffix: Azure Load Balancer
+description: In questo avvio rapido si apprende come creare un'istanza di Load Balancer Basic usando PowerShell.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 378904b139edb7fe5d7c4376102ca6b153d84fb6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0743c1aff07014e83d72c43bdf85ad2d36f31d0a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129069"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075990"
 ---
-# <a name="get-started"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico pubblico con Azure PowerShell
+# <a name="get-started"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico con Azure PowerShell
 
 In questa guida introduttiva si apprende come creare un'istanza di Load Balancer Basic usando Azure PowerShell. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali che eseguono Windows Server e si bilancia il carico di un'app Web tra le due macchine virtuali.
 

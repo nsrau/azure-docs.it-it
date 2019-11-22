@@ -1,6 +1,6 @@
 ---
-title: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure
+title: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure
+description: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure. A seconda delle proprietà del messaggio, è possibile configurare il routing a un account di archiviazione o a una coda del bus di servizio.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 103a18389a2b956f20b61ce45d045fb9a11c4356
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 340ea35bc3ed0c889a1a851da47f7e955116e103
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984721"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084460"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure per configurare il routing dei messaggi per l'hub IoT
 
@@ -30,17 +30,17 @@ Se si vuole visualizzare lo script completato, scaricare gli [esempi in C# di Az
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Usare l'interfaccia della riga di comando di Azure per creare le risorse
 
+Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script viene eseguito una riga alla volta. La prima sezione dello script creerà le risorse di base per questa esercitazione, come l'account di archiviazione, l'hub IoT, lo spazio dei nomi del bus di servizio e la coda del bus di servizio. Mentre si procede con il resto dell'esercitazione, copiare ogni blocco dello script e incollarlo in Cloud Shell per eseguirlo.
+
+> [!TIP]
+> Suggerimento sul debug: questo script usa il simbolo di continuazione (barra rovesciata `\`) per migliorare la leggibilità. Se si verifica un problema durante l'esecuzione dello script, assicurarsi che la sessione Cloud Shell esegua `bash` e che non vi siano spazi dopo le barre rovesciate.
+> 
+
 Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplicità, a questi nomi di risorse viene aggiunto un valore alfanumerico casuale denominato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico. 
 
 > [!IMPORTANT]
 > Le variabili impostate nello script iniziale vengono usate anche dallo script di routing, quindi eseguire tutto lo script nella stessa sessione di Cloud Shell. Se si apre una nuova sessione per eseguire lo script per la configurazione del routing, i valori di diverse variabili risulteranno mancanti.
 >
-
-Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script viene eseguito una riga alla volta. La prima sezione dello script creerà le risorse di base per questa esercitazione, come l'account di archiviazione, l'hub IoT, lo spazio dei nomi del bus di servizio e la coda del bus di servizio. Mentre si procede con il resto dell'esercitazione, copiare ogni blocco dello script e incollarlo in Cloud Shell per eseguirlo.
-
-> [!TIP]
-> Suggerimento sul debug: questo script usa il simbolo di continuazione (barra rovesciata `\`) per migliorare la leggibilità. Se si verifica un problema con l'esecuzione dello script, assicurarsi che non vi siano spazi dopo le barre rovesciate.
-> 
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
@@ -155,7 +155,7 @@ Per creare l'endpoint di routing, usare [az iot hub routing-endpoint create](/cl
 
 Configurare prima di tutto l'endpoint per l'account di archiviazione, quindi configurare la route. 
 
-Vengono impostate queste variabili:
+Queste sono le variabili usate dallo script che devono essere impostate all'interno della sessione di Cloud Shell:
 
 **storageConnectionString**: questo valore viene recuperato dall'account di archiviazione configurato nello script precedente. Viene usato dal routing dei messaggi per accedere all'account di archiviazione.
 
@@ -257,7 +257,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Configurare ora l'endpoint di routing e la route dei messaggi per la coda del bus di servizio. Vengono impostate queste variabili:
+Configurare ora l'endpoint di routing e la route dei messaggi per la coda del bus di servizio. Queste sono le variabili usate dallo script che devono essere impostate all'interno della sessione di Cloud Shell:
 
 **endpointName**: il nome che identifica l'endpoint. 
 

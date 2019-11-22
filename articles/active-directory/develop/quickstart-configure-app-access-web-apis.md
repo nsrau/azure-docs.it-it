@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473687"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106603"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Guida introduttiva: Configurare un'applicazione client per accedere alle API Web
 
@@ -171,13 +171,40 @@ Per aggiungere una credenziale all'applicazione Web:
 Per aggiungere autorizzazioni per accedere ad API di risorsa dal client:
 
 1. Nella pagina **Panoramica** dell'app selezionare **Autorizzazioni API**.
-1. Selezionare il pulsante **Aggiungi un'autorizzazione**.
+1. Nella sezione **Autorizzazioni configurate** selezionare il pulsante **Aggiungi un'autorizzazione**.
 1. Per impostazione predefinita, la visualizzazione consente di selezionare tra **API Microsoft**. Selezionare la sezione delle API a cui si è interessati:
     * **API Microsoft** consente di selezionare le autorizzazioni per API Microsoft come Microsoft Graph.
     * **API usate dall'organizzazione** consente di selezionare le autorizzazioni per le API che sono state esposte dall'organizzazione o con cui l'organizzazione ha eseguito l'integrazione.
     * **API personali** consente di selezionare le autorizzazioni per le API esposte dall'utente.
 1. Al termine della selezione delle API, verrà visualizzata la pagina **Richiedi le autorizzazioni dell'API**. Se l'API espone autorizzazioni sia delegate che di tipo applicazione, selezionare il tipo di autorizzazione necessario all'applicazione.
 1. Al termine, selezionare **Aggiungi autorizzazioni**. Verrà nuovamente visualizzata la pagina **Autorizzazioni API**, con le autorizzazioni salvate e aggiunte alla tabella.
+
+## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Informazioni sulle autorizzazioni API e sull'interfaccia utente di consenso amministratore
+
+### <a name="configured-permissions"></a>Autorizzazioni configurate
+
+Questa sezione illustra le autorizzazioni configurate in modo esplicito nell'oggetto applicazione (autorizzazioni \the che fanno parte dell'elenco di accesso alle risorse richiesto dall'app). È possibile aggiungere o rimuovere autorizzazioni da questa tabella. In qualità di amministratore, è anche possibile concedere/revocare il consenso amministratore per un set di autorizzazioni o per singole autorizzazioni di un'API in questa sezione.
+
+### <a name="other-permissions-granted"></a>Altre autorizzazioni concesse
+
+Se l'applicazione è registrata in un tenant, è possibile che venga visualizzata una sezione aggiuntiva intitolata **Altre autorizzazioni concesse per Tenant**. Questa sezione illustra le autorizzazioni concesse per il tenant, ma non configurate in modo esplicito nell'oggetto applicazione (ad esempio, le autorizzazioni richieste e consentite in modo dinamico). Questa sezione viene visualizzata solo se è presente almeno un'autorizzazione applicabile.
+
+È possibile aggiungere un set di autorizzazioni o singole autorizzazioni di un'API visualizzate in questa sezione sulla sezione **Autorizzazioni configurate**. In qualità di amministratore, è anche possibile revocare il consenso amministratore per singole API o autorizzazioni in questa sezione.
+
+### <a name="admin-consent-button"></a>Pulsante Consenso amministratore
+
+Se l'applicazione è registrata in un tenant, verrà visualizzato un pulsante **Concedi consenso amministratore per Tenant**. Verrà disabilitato se non si è un amministratore o se non sono state configurate autorizzazioni per l'applicazione.
+Questo pulsante consente a un amministratore di concedere facilmente il consenso amministratore alle autorizzazioni configurate per l'applicazione. Facendo clic sul pulsante Consenso amministratore, viene avviata una nuova finestra con una richiesta di consenso che mostra tutte le autorizzazioni configurate.
+
+> [!NOTE]
+> Si verifica un ritardo tra la configurazione delle autorizzazioni per l'applicazione e la relativa visualizzazione nella richiesta di consenso. Se non vengono visualizzate tutte le autorizzazioni configurate nella richiesta di consenso, chiuderla e riavviarla.
+
+In caso di autorizzazioni concesse ma non configurate, quando si fa clic sul pulsante Consenso amministratore, verrà richiesto di decidere come gestire tali autorizzazioni. È possibile aggiungerle alle autorizzazioni configurate o rimuoverle.
+
+La richiesta di consenso fornisce le opzioni **Accetta** o **Annulla**. Se si seleziona **Accetta**, viene concesso il consenso amministratore. Se si seleziona **Annulla**, il consenso amministratore non viene concesso e verrà visualizzato un errore indicante che il consenso è stato rifiutato.
+
+> [!NOTE]
+> Si è verificato un ritardo tra la concessione del consenso amministratore (selezionando **Accetta** nella richiesta di consenso) e lo stato del consenso amministratore riflesso nell'interfaccia utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

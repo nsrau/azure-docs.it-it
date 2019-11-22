@@ -1,25 +1,25 @@
 ---
-title: Guida introduttiva per l'aggiunta di criteri di denominazione per i gruppi di Office 365 - Azure Active Directory | Microsoft Docs
+title: Avvio rapido all'aggiunta di criteri di denominazione per i gruppi - Azure Active Directory | Microsoft Docs
 description: Viene illustrato come aggiungere nuovi utenti o eliminare utenti esistenti in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734725"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026940"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
 

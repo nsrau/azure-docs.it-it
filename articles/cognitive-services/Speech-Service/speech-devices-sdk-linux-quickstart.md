@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490969"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090434"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Guida introduttiva: Eseguire l'app di esempio Speech Devices SDK su Linux
 
@@ -80,11 +80,34 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
 
    ![Screenshot di Esplora pacchetti](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Aprire il file pom.xml e modificarlo.
+
+    Alla fine del file, prima del tag di chiusura `</project>`, creare elementi `repositories` e `dependencies`, come illustrato di seguito, e verificare che `version` corrisponda alla versione corrente:
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. In **Esplora pacchetti**, fare clic con il pulsante destro del mouse sul progetto. Scegliere **Proprietà**, quindi **Esegui/Impostazioni di debug** > **Nuovo…** > **Applicazione Java**. 
 
 1. Viene visualizzata la finestra **Modifica configurazione**. Nel campo **Nome** immettere **Main** e usare **Cerca** per cercare la **Main class** e trovare e selezionare **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
    ![Screenshot di Modifica configurazione](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. Copiare i file binari audio per l'architettura di destinazione, da **Linux-arm** o **Linux-x64**, nel percorso del progetto Java, ad esempio **/home/wcaltest/JRE-Sample-Release**
 
 1. Sempre dalla finestra **Modifica configurazione** selezionare la pagina **Ambiente** e quindi **Nuovo**. Verrà visualizzata la finestra **Nuova variabile di ambiente**. Nel campo **Nome** immettere **LD_LIBRARY_PATH** e nel campo **valore** immettere la cartella contenente i file *.so, ad esempio **/home/wcaltest/JRE-Sample-Release**
 
@@ -118,15 +141,14 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
    > [!TIP]
    > È anche possibile [creare una parola chiave personalizzata](speech-devices-sdk-create-kws.md).
 
-    Per usare una nuova parola chiave, aggiornare le due righe seguenti in `FunctionsList.java` e copiare il pacchetto di parole chiave nell'app. Ad esempio, per usare la parola chiave 'Machine' del pacchetto di parole chiave `kws-machine.zip`:
+    Per usare una nuova parola chiave, aggiornare la riga seguente in `FunctionsList.java` e copiare la parola chiave nell'app. Ad esempio, per usare la parola chiave 'Machine' del pacchetto di parole chiave `machine.zip`:
 
-   * Copiare il pacchetto di parole chiave nella cartella del progetto **target/classes**.
+   * Copiare il file `kws.table` dal pacchetto ZIP nella cartella del progetto **target/classes**.
 
-   * Aggiornare `FunctionsList.java` con la parola chiave e il nome del pacchetto:
+   * Aggiornare `FunctionsList.java` con il nome della parola chiave:
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Eseguire l'applicazione di esempio da Eclipse

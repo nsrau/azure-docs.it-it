@@ -156,7 +156,7 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Pubblicizzare route personalizzate ai client da punto a sito
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Creare un gateway di rete virtuale con ridondanza della zona nelle zone di disponibilità di Azure
+    - name: Creare un gateway con ridondanza della zona
       href: create-zone-redundant-vnet-gateway.md
     - name: Configurare i criteri IPsec/IKE per le connessioni
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md

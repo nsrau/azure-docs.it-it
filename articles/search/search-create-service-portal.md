@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un servizio Ricerca cognitiva di Azure nel portale'
+title: 'Guida introduttiva: Creare un servizio di ricerca nel portale'
 titleSuffix: Azure Cognitive Search
 description: Effettuare il provisioning di una risorsa Ricerca cognitiva di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 21f55805e0486d987922a1aa160f2938f3a50155
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792427"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112110"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Guida introduttiva: Creare un servizio Ricerca cognitiva di Azure nel portale
 
 Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, ma è possibile usarlo anche come componente autonomo oppure integrarlo con le app nei server di rete o con il software in esecuzione in altre piattaforme cloud.
 
-Questo articolo illustra come creare una risorsa Ricerca cognitiva di Azure nel [portale di Azure](https://portal.azure.com/).
+In questo articolo verrà illustrato come creare una risorsa nel [portale di Azure](https://portal.azure.com/).
 
 [![GIF animata](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -37,24 +37,26 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 2. Fare clic sul segno più ("+ Crea risorsa") nell'angolo superiore sinistro.
 3. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure**.
 
-![Passare a una risorsa Ricerca cognitiva di Azure](./media/search-create-service-portal/find-search3.png "Percorso di navigazione a Ricerca cognitiva di Azure")
+![Creare una risorsa nel portale](./media/search-create-service-portal/find-search3.png "Creare una risorsa nel portale")
 
-## <a name="select-a-subscription"></a>Selezionare una sottoscrizione
+## <a name="choose-a-subscription"></a>Scegliere una sottoscrizione.
 
-Se sono disponibili più sottoscrizioni, sceglierne una che includa anche i servizi di archiviazione file o dati. Ricerca cognitiva di Azure consente il rilevamento automatico in archiviazione BLOB e archiviazione tabelle di Azure, nel database SQL e in Azure Cosmos DB per l'indicizzazione tramite [*indicizzatori*](search-indexer-overview.md), ma solo per i servizi nella stessa sottoscrizione.
+L'impostazione dell'ID sottoscrizione e del gruppo di risorse è il primo passaggio. Se sono disponibili più sottoscrizioni, sceglierne una che includa anche i servizi di archiviazione file o dati. Ricerca cognitiva di Azure consente il rilevamento automatico in archiviazione BLOB e archiviazione tabelle di Azure, nel database SQL e in Azure Cosmos DB per l'indicizzazione tramite [*indicizzatori*](search-indexer-overview.md), ma solo per i servizi nella stessa sottoscrizione.
 
 ## <a name="set-a-resource-group"></a>Impostare un gruppo di risorse
 
-Un gruppo di risorse è necessario e utile per la gestione a livello globale delle risorse, inclusa la gestione dei costi. Un gruppo di risorse può essere costituito da un servizio o da più servizi usati in combinazione. Se, ad esempio, si usa Ricerca cognitiva di Azure per l'indicizzazione di un database di Azure Cosmos DB, è possibile inserire i due servizi nello stesso gruppo di risorse per agevolarne la gestione. 
+Un gruppo di risorse è necessario e utile per la gestione a livello globale delle risorse, inclusi i costi. Un gruppo di risorse può essere costituito da un servizio o da più servizi usati in combinazione. Se, ad esempio, si usa Ricerca cognitiva di Azure per l'indicizzazione di un database di Azure Cosmos DB, è possibile inserire i due servizi nello stesso gruppo di risorse per agevolarne la gestione. 
 
 Se non si combinano le risorse in un singolo gruppo o se i gruppi di risorse esistenti sono riempiti con risorse usate in soluzioni non correlate, creare un nuovo gruppo di risorse solo per la risorsa Ricerca cognitiva di Azure. 
 
-Quando si usa il servizio, è possibile tenere traccia dei costi correnti e previsti a livello globale, come illustrato nello screenshot, oppure scorrere verso il basso per visualizzare i costi per le singole risorse.
+![Creare un nuovo gruppo di risorse](./media/search-create-service-portal/new-resource-group.png "Creare un nuovo gruppo di risorse")
+
+Nel tempo, è possibile tenere traccia dei costi correnti e previsti a livello globale, come illustrato nello screenshot, oppure scorrere verso il basso per visualizzare i costi per le singole risorse. Lo screenshot seguente mostra il tipo di informazioni sui costi che è possibile prevedere quando si combinano più risorse in un unico gruppo.
 
 ![Gestire i costi a livello di gruppo di risorse](./media/search-create-service-portal/resource-group-cost-management.png "Gestire i costi a livello di gruppo di risorse")
 
 > [!TIP]
-> L'eliminazione di un gruppo di risorse elimina anche i servizi in esso contenuti. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto.
+> I gruppi di risorse semplificano la pulizia, in quanto l'eliminazione di un gruppo elimina anche i servizi al suo interno. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto.
 
 ## <a name="name-the-service"></a>Assegnare un nome al servizio
 
@@ -77,7 +79,7 @@ Ricerca cognitiva di Azure, in qualità di servizio di Azure, può essere ospita
 
 È possibile ridurre al minimo o evitare i costi per la larghezza di banda scegliendo la stessa posizione per più servizi. Se, ad esempio, si esegue l'indicizzazione dei dati forniti da un altro servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), creando il servizio Ricerca cognitiva di Azure nella stessa area è possibile evitare i costi relativi alla larghezza di banda, in quanto non vengono addebitati costi per i dati in uscita quando i servizi si trovano nella stessa area.
 
-Se inoltre si usano arricchimenti tramite intelligenza artificiale per la ricerca cognitiva, creare il servizio nella stessa area della risorsa di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
+Se inoltre si usano arricchimenti tramite intelligenza artificiale, creare il servizio nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
 
 > [!Note]
 > L'area India centrale no n è attualmente disponibile per i nuovi servizi. Per i servizi già in India centrale, è possibile aumentare le prestazioni senza alcuna restrizione e il servizio è completamente supportato in tale area. La restrizione in quest'area è temporanea ed è limitata solo ai nuovi servizi. Quando la restrizione non sarà più valida, questa nota verrà rimossa.
@@ -104,9 +106,9 @@ Il servizio, che può essere monitorato tramite le notifiche di Azure, viene dis
 
 A meno che non si usi il portale, per accedere al nuovo servizio a livello di codice è necessario specificare l'endpoint dell'URL e una chiave API di autenticazione.
 
-1. Nella pagina di panoramica del servizio individuare e copiare l'endpoint dell'URL visualizzato a destra.
+1. Nella pagina **Panoramica** individuare e copiare l'endpoint dell'URL visualizzato a destra.
 
-2. Nel riquadro di spostamento sinistro selezionare **Chiavi** e quindi copiare una delle due chiavi di amministrazione (sono equivalenti). Le chiavi API di amministrazione sono necessarie per creare, aggiornare ed eliminare oggetti nel servizio.
+2. Nella pagina **Chiavi** copiare una delle chiavi di amministrazione (equivalenti). Le chiavi API di amministrazione sono necessarie per creare, aggiornare ed eliminare oggetti nel servizio. Al contrario, le chiavi di query forniscono l'accesso in lettura al contenuto dell'indice.
 
    ![Pagina Panoramica del servizio con endpoint dell'URL](./media/search-create-service-portal/get-url-key.png "Endpoint dell'URL e altri dettagli del servizio")
 
@@ -151,7 +153,7 @@ Non è necessario un secondo servizio per la disponibilità elevata. La disponib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo il provisioning di un servizio Ricerca cognitiva di Azure, è possibile continuare nel portale con la creazione del primo indice.
+Dopo il provisioning di un servizio, è possibile continuare nel portale con la creazione del primo indice.
 
 > [!div class="nextstepaction"]
 > [Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale](search-get-started-portal.md)

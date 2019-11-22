@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094445"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Esercitazione: Integrazione di Azure Active Directory con Picturepark
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Picturepark, 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Picturepark](#configure-picturepark-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Picturepark](#create-picturepark-test-user)** : per avere una controparte di Britta Simon in Picturepark collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Picturepark, seguire qu
     | |
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Picturepark](https://picturepark.com/about/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Picturepark](https://picturepark.com/company/picturepark-customer-support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella sezione **Certificato di firma SAML**  fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Certificato di firma SAML** .
 
@@ -148,11 +148,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Picturepark, seguire qu
 
 3. Fare clic su **Autenticazione**, quindi su **Provider di identità**.
    
-    ![Autenticazione](./media/picturepark-tutorial/ic795063.png "Autenticazione")
+    ![autenticazione](./media/picturepark-tutorial/ic795063.png "Authentication")
 
 4. Nella sezione **Configurazione provider di identità** , eseguire questa procedura:
    
-    ![Configurazione del provider di identità](./media/picturepark-tutorial/ic795064.png "Configurazione del provider di identità")
+    ![Configurazione del provider di identità](./media/picturepark-tutorial/ic795064.png "Configurazione provider di identità")
    
     a. Fare clic su **Aggiungi**.
   
@@ -170,7 +170,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Picturepark, seguire qu
 
       ![Configurazione](./media/picturepark-tutorial/ic795065.png "Configurazione")
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -192,7 +192,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -234,11 +234,11 @@ Per consentire agli utenti di Azure AD di accedere a Picturepark, è necessario 
 
 1. Nella scheda **Panoramica utenti** fare clic su **Nuovo**.
    
-    ![Gestione degli utenti](./media/picturepark-tutorial/ic795068.png "Gestione degli utenti")
+    ![Gestione utente](./media/picturepark-tutorial/ic795068.png "Gestione utente")
 
 1. Nella finestra di dialogo **Crea utente** eseguire i passaggi seguenti per un utente di Azure Active Directory valido di cui si vuole eseguire il provisioning:
    
-    ![Crea utente](./media/picturepark-tutorial/ic795069.png "Crea utente")
+    ![Creare l'utente](./media/picturepark-tutorial/ic795069.png "Crea utente")
    
     a. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) digitare l'**indirizzo di posta elettronica** dell'utente `BrittaSimon@contoso.com`.  
    

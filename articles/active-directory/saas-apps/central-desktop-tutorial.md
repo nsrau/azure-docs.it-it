@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105729"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Esercitazione: Integrazione di Azure Active Directory con Central Desktop
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Central Deskt
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Central Desktop](#configure-central-desktop-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Central Desktop](#create-central-desktop-test-user)** : per avere una controparte di Britta Simon in Central Desktop collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -140,11 +141,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Central Desktop, seguir
 
 2. Passare a **Impostazioni**. Selezionare **Advanced** (Avanzate) e quindi selezionare **Single Sign On** (Single Sign-On).
 
-    ![Installazione - Avanzate](./media/central-desktop-tutorial/ic769563.png "Installazione - Avanzate")
+    ![Configurazione - Avanzate](./media/central-desktop-tutorial/ic769563.png "Setup - Advanced")
 
 3. Nella pagina **Single Sign-On Settings** (Impostazioni Single Sign-On) seguire questa procedura:
 
-    ![Impostazioni di Single Sign-On](./media/central-desktop-tutorial/ic769564.png "Impostazioni di Single Sign-On")
+    ![Impostazioni di Single Sign-On](./media/central-desktop-tutorial/ic769564.png "Single Sign-On Settings")
 
     a. Selezionare **Enable SAML v2 Single Sign On**.
 
@@ -156,7 +157,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Central Desktop, seguir
 
 4. Nella sezione **Message Signature Verification Method** (Metodo di verifica della firma del messaggio) seguire questa procedura:
 
-    ![Message Signature Verification Method](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
+    ![Metodo di verifica della firma del messaggio](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
     
     a. Selezionare **Certificate**.
 
@@ -168,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Central Desktop, seguir
 
     e. Selezionare **Aggiorna**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -191,7 +192,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -232,11 +233,11 @@ Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il p
 
 2. Selezionare **People** (Persone) e quindi **Add Internal Members** (Aggiungi membri interni).
 
-    ![Persone](./media/central-desktop-tutorial/ic781051.png "Persone")
+    ![People](./media/central-desktop-tutorial/ic781051.png "Persone")
 
 3. Nella casella **Email Address of New Members** (Indirizzo posta elettronica nuovi membri) digitare un account Azure AD di cui si vuole effettuare il provisioning e quindi selezionare **Next** (Avanti).
 
-    ![Email Addresses of New Members (Indirizzi di posta elettronica dei nuovi membri)](./media/central-desktop-tutorial/ic781052.png "Email Addresses of New Members (Indirizzi di posta elettronica dei nuovi membri)")
+    ![Indirizzi di posta elettronica dei nuovi membri](./media/central-desktop-tutorial/ic781052.png "Indirizzi di posta elettronica dei nuovi membri")
 
 4. Selezionare **Add Internal member(s)** (Aggiungi membri interni).
 

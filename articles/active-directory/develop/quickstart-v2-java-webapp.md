@@ -14,33 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev
-ms.openlocfilehash: 8bb9073ccb4aef81b46b3b2b87730ddede5c0ff7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.custom: aaddev, scenarios:getting-started, languages:Java
+ms.openlocfilehash: 93ae820f8c98b749ef8f71b17bf3d540d7886ed6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240202"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832136"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Java
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Questo argomento di avvio rapido descrive come integrare un'app Web Java con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph. 
+Questo argomento di avvio rapido descrive come integrare un'app Web Java con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph.
 
-Al termine della guida, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda o organizzazione che usa Azure Active Directory.
+Al termine dell'avvio rapido, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda e organizzazione che usa Azure Active Directory.
 
 ![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Ecco i prerequisiti per eseguire questo esempio:
+
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 o versione successiva e [Maven](https://maven.apache.org/).
+- Un tenant di Azure Active Directory (Azure AD). Per altre informazioni su come ottenere un tenant di Azure AD, vedere [Come ottenere un tenant di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
 > Per avviare l'applicazione della guida di avvio rapido sono disponibili due opzioni: rapida (Opzione 1) o manuale (Opzione 2)
-> 
+>
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
 > 1. Passare a [Registrazioni app nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
@@ -48,88 +50,111 @@ Ecco i prerequisiti per eseguire questo esempio:
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio
-> 
 >
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
+>
 > Per registrare l'applicazione e aggiungere manualmente le informazioni di registrazione dell'app alla soluzione, seguire questa procedura:
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+>
+> 1. Passare alla pagina [Registrazioni app](/azure/active-directory/develop/) di Microsoft Identity Platform per sviluppatori.
 > 1. Selezionare **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 >    - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `java-webapp`.
 >    - Lasciare vuoto il campo **URI di reindirizzamento** per il momento e selezionare **Registra**.
-> 1. Trovare il valore **ID applicazione (client)** dell'applicazione. Copiare questo valore perché sarà necessario più avanti.
-> 1. Trovare il valore **ID directory (tenant)** dell'applicazione. Copiare questo valore perché sarà necessario più avanti.
-> 1. Selezionare il menu **Autenticazione** e quindi aggiungere le informazioni seguenti:
->    - In **URI di reindirizzamento** aggiungere `http://localhost:8080/msal4jsamples/secure/aad` e `https://localhost:8080/msal4jsamples/graph/users`.
+> 1. Nella pagina **Informazioni generali** individuare i valori di **ID applicazione (client)** e **ID della directory (tenant)** dell'applicazione. Copiare questi valori per un utilizzo successivo.
+> 1. Selezionare **Autenticazione** dal menu e quindi aggiungere le informazioni seguenti:
+>    - In **URI di reindirizzamento** aggiungere `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
 >    - Selezionare **Salva**.
-> 1. Nel menu a sinistra scegliere **Certificati e segreti** e fare clic su **Nuovo segreto client** nella sezione **Segreti client**:
->     
->    - Digitare una descrizione della chiave, ad esempio app secret.
+> 1. Nel menu a sinistra scegliere **Certificati e segreti** e nella sezione **Segreti client** fare clic su **Nuovo segreto client**:
+>
+>    - Digitare una descrizione della chiave (ad esempio, segreto dell'app).
 >    - Selezionare **Tra 1 anno** per la durata della chiave.
->    - Quando si fa clic su **Aggiungi**, verrà visualizzato il valore della chiave. 
->    - Copiare il valore della chiave perché sarà necessario più avanti.
+>    - Il valore della chiave viene visualizzato quando si seleziona **Aggiungi**.
+>    - Copiare il valore della chiave per un utilizzo successivo. Il valore della chiave non viene visualizzato di nuovo, né può essere recuperato in altro modo, di conseguenza è opportuno prenderne nota non appena viene visualizzato nel portale di Azure.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
+>
 > Per il corretto funzionamento del codice di esempio di questo argomento di avvio rapido, è necessario:
-> 1. Aggiungere gli URL di risposta, come `http://localhost:8080/msal4jsamples/secure/aad` e `https://localhost:8080/msal4jsamples/graph/users`.
+>
+> 1. Aggiungere gli URL di risposta, come `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
 > 1. Creare un segreto client.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Apporta questa modifica per me]()
+> > [Apporta queste modifiche per me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Già configurata](media/quickstart-v2-aspnet-webapp/green-check.png) L'applicazione è configurata con questi attributi.
 
 #### <a name="step-2-download-the-code-sample"></a>Passaggio 2: Scaricare il codice di esempio
- 
+
  [Scaricare il codice di esempio](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
- 
- #### <a name="step-3-configure-the-code-sample"></a>Passaggio 3: Configurare il codice di esempio 
- 
+
+#### <a name="step-3-configure-the-code-sample"></a>Passaggio 3: Configurare il codice di esempio
+
  1. Estrarre il file ZIP in una cartella locale.
  1. Se si usa un IDE (Integrated Development Environment), aprire l'esempio al suo interno.
- 1. Aprire il file **application.properties**, disponibile nel percorso *src/main/resources/* .
- 1. Sostituire le proprietà dell'applicazione.
-   1. Trovare `aad.clientId` e aggiornare il valore di `Enter_the_Application_Id_here` con il valore dell'**ID applicazione (client)** dell'applicazione registrata. 
-   1. Trovare `aad.authority` e aggiornare il valore di `Enter_the_Tenant_Name_Here` con il valore dell'**ID directory (tenant)** dell'applicazione registrata.
-   1. Trovare `aad.secretKey` e aggiornare il valore di `Enter_the_Client_Secret_Here` con il valore di **Segreto client** creato in **Certificati e segreti** per l'applicazione registrata.
+
+ 1. Aprire il file application.properties, disponibile nella cartella src/main/resources/, e sostituire il valore dei campi *aad.clientId*, *aad.authority* e *aad.secretKey* con i rispettivi valori di **ID applicazione**, **ID tenant** e **Segreto client** come segue:
+
+    ```file
+    aad.clientId=Enter_the_Application_Id_here
+    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
+    aad.secretKey=Enter_the_Client_Secret_Here
+    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    ```
 
 > [!div renderon="docs"]
 > Dove:
 >
 > - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
 > - `Enter_the_Client_Secret_Here` corrisponde al valore di **Segreto client** creato in **Certificati e segreti** per l'applicazione registrata.
+> - `Enter_the_Tenant_Info_Here` - è il valore dell'**ID directory (tenant)** dell'applicazione registrata.
 
 #### <a name="step-4-run-the-code-sample"></a>Passaggio 4: Eseguire il codice di esempio
-1. Eseguire il codice di esempio, aprire un browser e passare a *http://localhost:8080* .
-1. La prima pagina contiene un pulsante di **accesso**. Fare clic sul pulsante di **accesso** per essere reindirizzati in Azure Active Directory. All'utente verranno richieste le credenziali.  
-1. Una volta eseguita l'autenticazione in Azure Active Directory, verranno reindirizzati in *http://localhost:8080/msal4jsamples/secure/aad* . Sono ufficialmente connessi all'applicazione e nella pagina dovrebbero essere visualizzate informazioni per l'account che ha eseguito l'accesso. Include inoltre i pulsanti seguenti: 
+
+Per eseguire il progetto, è possibile effettuare una delle operazioni seguenti:
+
+Eseguirlo direttamente dall'ambiente IDE usando il server Spring Boot incorporato o comprimerlo in un file WAR mediante [maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) e distribuirlo in una soluzione contenitore J2EE, ad esempio [Apache Tomcat](http://tomcat.apache.org/).
+
+##### <a name="running-from-ide"></a>Esecuzione dall'ambiente IDE
+
+Se si esegue l'applicazione Web da un ambiente IDE, fare clic su Esegui, quindi passare alla home page del progetto. Per questo esempio, l'URL dell'home page standard è http://localhost:8080
+
+1. Nella pagina iniziale selezionare il pulsante **Login** (Accedi) per essere reindirizzati ad Azure Active Directory e richiedere le credenziali all'utente.
+
+1. Dopo l'autenticazione, l'utente viene reindirizzato a *http://localhost:8080/msal4jsamples/secure/aad* . Una volta eseguito l'accesso, nella pagina vengono visualizzate le informazioni sull'account. L'interfaccia utente di esempio presenta i pulsanti seguenti:
     - *Disconnetti*: disconnette l'utente corrente dall'applicazione e lo reindirizza alla home page.
-    - *Mostra utenti*: acquisisce un token per Microsoft Graph, quindi chiama Microsoft Graph con il token collegato alla richiesta per ottenere tutti gli utenti del tenant.
+    - *Show User Info* (Mostra informazioni utente): acquisisce un token per Microsoft Graph e chiama Microsoft Graph con una richiesta contenente il token, che restituisce informazioni di base sull'utente che ha eseguito l'accesso.
+
+> [!IMPORTANT]
+> Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'utilizzo di un certificato, vedere [Credenziali del certificato per l'autenticazione dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## <a name="more-information"></a>Altre informazioni
 
 ### <a name="getting-msal"></a>Recupero di MSAL
-MSAL4J è la libreria usata per far accedere gli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. È possibile aggiungere MSAL4J all'applicazione usando Maven o Gradle per gestire le dipendenze apportando le modifiche seguenti al file pom.xml o build.gradle nell'applicazione. 
+
+MSAL4J è la libreria Java usata per far accedere gli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform.
+
+Aggiungere MSAL4J all'applicazione usando Maven o Gradle per gestire le dipendenze apportando le modifiche seguenti al file pom.xml (Maven) o build.gradle (Gradle) dell'applicazione.
 
 ```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
-    <version>0.5.0-preview</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ```$xslt
-compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
+compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 ```
 
-
 ### <a name="msal-initialization"></a>Inizializzazione della libreria MSAL
-È possibile inserire il riferimento a MSAL4J aggiungendo il codice seguente all'inizio del file in cui verrà usato MSAL4J: 
+
+Aggiungere un riferimento a MSAL4J aggiungendo il codice seguente all'inizio del file in cui verrà usato MSAL4J:
 
 ```Java
 import com.microsoft.aad.msal4j.*;
@@ -140,12 +165,12 @@ import com.microsoft.aad.msal4j.*;
 Altre informazioni sulle autorizzazioni e sul consenso:
 
 > [!div class="nextstepaction"]
-> [Autorizzazioni e consenso](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+> [Autorizzazioni e consenso](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 Per altre informazioni sul flusso di autenticazione per questo scenario, vedere il flusso del codice di autorizzazione Oauth 2.0:
 
 > [!div class="nextstepaction"]
-> [Flusso Oauth del codice di autorizzazione](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Flusso Oauth del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 
 Contribuire al miglioramento di Microsoft Identity Platform. Completare un breve sondaggio di due domande per condividere la propria opinione.
 

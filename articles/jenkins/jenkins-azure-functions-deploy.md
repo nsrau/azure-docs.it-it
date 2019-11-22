@@ -7,15 +7,15 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
-ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 10/23/2019
+ms.openlocfilehash: 58267c607b0c4f2eaaf242c8e0752451f8c04c9a
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815747"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882031"
 ---
-# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Eseguire la distribuzione in Funzioni di Azure tramite il plug-in Jenkins per Funzioni di Azure
+# <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Eseguire la distribuzione in Funzioni di Azure tramite il plug-in Jenkins per Funzioni di Azure
 
 [Funzioni di Azure](/azure/azure-functions/) è un servizio di calcolo senza server. Usando Funzioni di Azure è possibile eseguire codice on demand senza provisioning o gestione dell'infrastruttura. Questa esercitazione mostra come distribuire una funzione Java in Funzioni di Azure tramite il plug-in per Funzioni di Azure.
 
@@ -76,7 +76,7 @@ La procedura seguente descrive come preparare il server Jenkins:
 
 1. Nel dashboard di Jenkins installare i plug-in seguenti:
 
-    - Plug-in per Funzioni di Azure
+    - Plug-in di Funzioni di Azure
     - Plug-in EnvInject
 
 1. Jenkins richiede un'entità servizio di Azure per l'autenticazione e l'accesso alle risorse di Azure. Per istruzioni dettagliate, fare riferimento a [Eseguire la distribuzione in Servizio app di Azure](./tutorial-jenkins-deploy-web-app-azure-app-service.md).

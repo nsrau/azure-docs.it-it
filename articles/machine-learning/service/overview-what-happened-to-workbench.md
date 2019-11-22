@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1ff70a8a794cbc4c201512a0cf578eb0a890a5e4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647108"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904427"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
@@ -99,8 +99,8 @@ Informazioni sull'[architettura più recente per Azure Machine Learning](concept
 Per una panoramica del servizio, vedere [Informazioni su Azure Machine Learning](overview-what-is-azure-ml.md).
 
 Creare il primo esperimento con il metodo preferito:
-  + [Usare i notebook di Python per eseguire il training e la distribuzione di modelli di Machine Learning](tutorial-1st-experiment-sdk-setup.md)
-  + [Usare R Markdown per eseguire il training e la distribuzione di modelli di Machine Learning]( tutorial-1st-r-experiment.md) 
-  + [Usare il servizio Machine Learning automatizzato per eseguire il training e la distribuzione di modelli di Machine Learning](ui-tutorial-automobile-price-train-score.md) 
-  + [Usare le funzionalità di trascinamento della selezione della finestra di progettazione per eseguire il training e la distribuzione](tutorial-first-experiment-automated-ml.md) 
-  + [Usare l'interfaccia della riga di comando di Machine Learning per eseguire il training e la distribuzione di un modello](tutorial-train-deploy-model-cli.md)
+  + [Usare i notebook di Python](tutorial-1st-experiment-sdk-setup.md)
+  + [Usare R Markdown]( tutorial-1st-r-experiment.md) 
+  + [Usare Machine Learning automatizzato](ui-tutorial-automobile-price-train-score.md) 
+  + [Usare le funzionalità di trascinamento della selezione della finestra di progettazione](tutorial-first-experiment-automated-ml.md) 
+  + [Usare l'estensione ML per l'interfaccia della riga di comando](tutorial-train-deploy-model-cli.md)

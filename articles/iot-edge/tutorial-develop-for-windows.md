@@ -1,20 +1,20 @@
 ---
-title: Sviluppare moduli per dispositivi Windows - Azure IoT Edge | Microsoft Docs
+title: 'Esercitazione: Sviluppare moduli per dispositivi Windows - Azure IoT Edge'
 description: Questa esercitazione illustra in modo dettagliato come configurare il computer di sviluppo e le risorse cloud per sviluppare moduli IoT Edge usando contenitori Windows per dispositivi Windows
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/15/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 755290997cb6aab328cd38ce81a21c598c737b5f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 67a80178c5cd800ea08d9f5493efd0f37422fe36
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429018"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113992"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Windows
 

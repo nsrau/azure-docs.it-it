@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Usare le API Apache Kafka Producer e Consumer - Azure HDInsight '
+title: 'Esercitazione: API Apache Kafka Producer e Consumer - Azure HDInsight'
 description: Informazioni su come usare l'API Apache Kafka Producer e Consumer con Kafka in HDInsight. In questa esercitazione si apprenderà come usare queste API con Kafka in HDInsight da un'applicazione Java.
 author: dhgoelmsft
 ms.author: dhgoel
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/08/2019
+ms.openlocfilehash: ad810ac2f8751554aaf0afcd2b15e1da83f38fe1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446409"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242002"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -59,9 +59,9 @@ Gli aspetti importanti da comprendere nel file `pom.xml` sono:
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
@@ -140,47 +140,48 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Installare [jq](https://stedolan.github.io/jq/), un processore JSON da riga di comando. Dalla connessione SSH aperta, immettere il comando seguente per installare `jq`:
+1. Installare [jq](https://stedolan.github.io/jq/), un processore JSON da riga di comando. Dalla connessione SSH aperta, immettere il comando seguente per installare `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Impostare le variabili di ambiente. Sostituire `PASSWORD` e `CLUSTERNAME` rispettivamente con la password di accesso al cluster e il nome del cluster, quindi immettere il comando:
+1. Configurare la variabile di password. Sostituire `PASSWORD` con la password di accesso al cluster e quindi immettere il comando:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Estrarre il nome del cluster con l'uso corretto di maiuscole e minuscole. L'uso effettivo di maiuscole e minuscole nel nome del cluster può differire dal previsto, a seconda della modalità di creazione del cluster. Questo comando ottiene le maiuscole e minuscole effettive, le archivia in una variabile e quindi visualizza il nome con le maiuscole e minuscole corrette e il nome specificato in precedenza. Immettere il comando seguente:
+1. Estrarre il nome del cluster con l'uso corretto di maiuscole e minuscole. L'uso effettivo di maiuscole e minuscole nel nome del cluster può differire dal previsto, a seconda della modalità di creazione del cluster. Questo comando otterrà la combinazione di maiuscole e minuscole effettiva e quindi la archivierà in una variabile. Immettere il comando seguente:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Se si sta eseguendo questo processo dall'esterno del cluster, esiste una procedura diversa per l'archiviazione del nome del cluster. Reperire il nome del cluster in lettere minuscole dal portale di Azure. Sostituire quindi il nome del cluster con `<clustername>` nel comando seguente ed eseguirlo: `export clusterName='<clustername>'`.  
 
-5. Per ottenere gli host del broker Kafka e gli host Apache Zookeeper, usare il comando seguente:
+1. Per ottenere gli host del broker Kafka, usare il comando seguente:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-6. Per creare l'argomento Kafka `myTest`, immettere il comando seguente:
+    > [!Note]  
+    > Questo comando richiede l'accesso ad Ambari. Se il cluster è protetto da un gruppo NSG, eseguire questo comando da un computer in grado di accedere ad Ambari.
+
+1. Per creare l'argomento Kafka `myTest`, immettere il comando seguente:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
     ```
 
-7. Per eseguire il producer e scrivere i dati nell'argomento, usare il comando seguente:
+1. Per eseguire il producer e scrivere i dati nell'argomento, usare il comando seguente:
 
     ```bash
     java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
     ```
 
-8. Quando l'esecuzione del producer è terminata, usare il comando seguente per leggere dall'argomento:
+1. Quando l'esecuzione del producer è terminata, usare il comando seguente per leggere dall'argomento:
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
@@ -188,7 +189,7 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
 
     Verranno visualizzati i record letti e il numero di record.
 
-9. Usare __Ctrl + C__ per uscire dal consumer.
+1. Usare __Ctrl + C__ per uscire dal consumer.
 
 ### <a name="multiple-consumers"></a>Consumer multipli
 

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16dda6b-fdf9-43cc-9bbb-a523f085a8af
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a312e0ca70ef3a37b43f1ffb68a974a8aedaf982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9307bbe58afc45468f222f5b510585d528de532a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100787"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Esercitazione: Integrazione di Azure Active Directory con IdeaScale
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con IdeaScale è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per IdeaScale](#configure-ideascale-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di IdeaScale](#create-ideascale-test-user)** : per avere una controparte di Britta Simon in IdeaScale collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -141,15 +142,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con IdeaScale, seguire ques
 
 3. Passare a **Security (Sicurezza) \> Single Signon Settings (Impostazioni di Single Sign-O)** .
 
-    ![Impostazioni di Single Sign-On](./media/ideascale-tutorial/ic790848.png "Impostazioni di Single Sign-On")
+    ![Impostazioni di Single Sign-On](./media/ideascale-tutorial/ic790848.png "Impostazioni di Single Sign-O")
 
 4. In **Single-Signon Type** (Tipo di accesso Single Sign-On) selezionare **SAML 2.0**.
 
-    ![Single Signon Type](./media/ideascale-tutorial/ic790849.png "Single Signon Type")
+    ![Tipo di accesso Single Sign-On](./media/ideascale-tutorial/ic790849.png "Single Signon Type")
 
 5. Nella finestra di dialogo **Impostazioni di Single Sign-O** seguire questa procedura:
 
-    ![Impostazioni di Single Sign-On](./media/ideascale-tutorial/ic790850.png "Impostazioni di Single Sign-On")
+    ![Impostazioni di Single Sign-On](./media/ideascale-tutorial/ic790850.png "Impostazioni di Single Sign-O")
 
     a. Nella casella di testo **SAML IdP Entity ID** (ID entità provider di identità SAML) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
@@ -159,7 +160,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IdeaScale, seguire ques
 
     d. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -182,7 +183,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -226,11 +227,11 @@ Per consentire agli utenti di Azure AD di accedere a IdeaScale, è necessario es
 
 4. Fare clic su **Aggiungi membro**.
 
-    ![Member Management](./media/ideascale-tutorial/ic790852.png "Member Management")
+    ![Gestione dei membri](./media/ideascale-tutorial/ic790852.png "Member Management")
 
 5. Nella sezione Add New Member seguire questa procedura:
 
-    ![Add New Member](./media/ideascale-tutorial/ic790853.png "Add New Member")
+    ![Aggiungere un nuovo membro](./media/ideascale-tutorial/ic790853.png "Add New Member")
 
     a. Nella casella di testo **Email Addresses** (Indirizzi di posta elettronica) digitare l'indirizzo di posta elettronica di un account Azure AD valido di cui si vuole eseguire il provisioning.
 

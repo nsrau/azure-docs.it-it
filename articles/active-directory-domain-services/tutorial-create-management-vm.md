@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618791"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172316"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Creare una VM di gestione per configurare e amministrare un dominio gestito di Azure Active Directory Domain Services
 
@@ -101,7 +101,7 @@ I domini gestiti di Azure AD DS vengono gestiti con gli stessi strumenti di ammi
 
 Per installare gli strumenti di amministrazione di Active Directory in una VM aggiunta al dominio, seguire questa procedura:
 
-1. Quando si accede alla macchina virtuale, per impostazione predefinita dovrebbe essere visualizzata la finestra di **Server Manager**. In caso contrario, scegliere **Server Manager** dal menu **Start**.
+1. Se **Server Manager** non viene aperto per impostazione predefinita quando si accede alla macchina virtuale, selezionare il menu **Start** e quindi scegliere **Server Manager**.
 1. Fare clic su *Aggiungi ruoli e funzionalità* nel riquadro **Dashboard** della finestra **Server Manager**.
 1. Nella pagina **Prima di iniziare** dell'*aggiunta guidata ruoli e funzionalità* selezionare **Avanti**.
 1. Per *Tipo di installazione* lasciare selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità** e selezionare **Avanti**.
@@ -131,13 +131,15 @@ Una volta installati gli strumenti di amministrazione, ecco come usarli per ammi
 
 1. Per visualizzare gli utenti e i gruppi che appartengono al dominio gestito di Azure AD DS, selezionare il contenitore **AADDC Users**. In questo contenitore vengono visualizzati gli account utente e gruppi del tenant di Azure AD.
 
-    Nell'output di esempio seguente in questo contenitore vengono visualizzati un account utente denominato *contosoadmin* e un gruppo per gli *Amministratori di AAD DC*.
+    Nell'output di esempio seguente in questo contenitore vengono visualizzati un account utente denominato *Contoso Admin* e un gruppo per *AAD DC Administrators*.
 
     ![Visualizzare l'elenco degli utenti del dominio di Azure AD DS nel Centro di amministrazione di Active Directory](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Per visualizzare i computer aggiunti al dominio gestito di Azure AD DS, selezionare il contenitore **AADDC Computers**. Viene visualizzata una voce per la macchina virtuale corrente, ad esempio *myVM*. In questo contenitore *AADDC Computers* sono archiviati gli account di tutti i computer aggiunti al dominio gestito di Azure AD DS.
 
-Sono disponibili azioni comuni del Centro di amministrazione di Active Directory, ad esempio la reimpostazione della password di un account utente o la gestione dell'appartenenza ai gruppi. È anche possibile usare il *modulo di Active Directory per Windows PowerShell*, installato come parte degli strumenti di amministrazione, per gestire le azioni comuni nel dominio gestito di Azure AD DS.
+Sono disponibili azioni comuni del Centro di amministrazione di Active Directory, ad esempio la reimpostazione della password di un account utente o la gestione dell'appartenenza ai gruppi. Queste azioni funzionano solo per utenti e gruppi creati direttamente nel dominio gestito di Azure AD DS. Le informazioni di identità si sincronizzano solo *da* Azure AD ad Azure AD DS. Non viene eseguito il writeback da Azure AD DS ad Azure AD. Non è possibile modificare le password o l'appartenenza a gruppi gestiti per gli utenti sincronizzati da Azure AD e fare in modo che tali modifiche vengano sincronizzate.
+
+È anche possibile usare il *modulo di Active Directory per Windows PowerShell*, installato come parte degli strumenti di amministrazione, per gestire le azioni comuni nel dominio gestito di Azure AD DS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

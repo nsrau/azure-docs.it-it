@@ -10,18 +10,19 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5e7feac35ddd607d36cb0ddd3bae10cf1b9bc7a7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488811"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278588"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Accedere al portale LUIS
 
 Un nuovo utente di LUIS deve seguire questa procedura:
 
-1. Accedere al [portale LUIS](https://www.luis.ai), selezionare il paese e accettare le condizioni per l'utilizzo.
+1. Accedere al [portale LUIS (anteprima)](https://preview.luis.ai), selezionare il proprio paese e accettare le condizioni per l'utilizzo. Se invece si visualizza **App personali**, significa che esiste già una risorsa LUIS ed è necessario procedere alla creazione di un'app.
+
 1. Selezionare **Create Azure resource** (Crea risorsa di Azure) e quindi **Create an authoring resource to migrate your apps to** (Crea una risorsa di creazione in cui eseguire la migrazione delle app).
 
     ![Scegliere un tipo di risorsa di creazione Language Understanding](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 863989f8e2cb90fe5ec0921ea6e080b61fc1b4ae
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271583"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808877"
 ---
 Il [routing dei messaggi](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, le code del bus di servizio, gli argomenti del bus di servizio e Hub eventi. Per configurare il routing dei messaggi personalizzato, creare [query di routing](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) per personalizzare la route che corrisponde a una determinata condizione. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. Se un messaggio non corrisponde ad alcuna delle query di routing definita, viene indirizzato all'endpoint predefinito.
 
 In questa esercitazione in due parti, si apprenderà come configurare e usare le query di routing personalizzate con l'hub IoT. Si indirizzano i messaggi di routing da un dispositivo IoT a uno degli endpoint multipli, compresa l'archiviazione BLOB e una coda del bus di servizio. I messaggi per la coda del bus di servizio saranno prelevati da un'App per la logica e inviati tramite posta elettronica. I messaggi per cui non è stato definito il routing personalizzato vengono inviati all'endpoint predefinito, selezionati da Analisi di flusso di Azure e visualizzati in una visualizzazione di Power BI.
 
-Per completate le parti 1 e 2 di questa esercitazione, sono state eseguite le attività seguenti:
+Per completate la prima e la seconda parte di questa esercitazione, eseguire le seguenti attività:
 
 **Parte I: Creare risorse e configurare il routing dei messaggi**
 > [!div class="checklist"]
-> * Creare le risorse, ossia un hub IoT, un account di archiviazione, una coda del bus di servizio e un dispositivo simulato. È possibile farlo usando il portale di Azure, l'interfaccia della riga di comando di Azure, Azure PowerShell o un modello di Azure Resource Manager.
+> * Creare le risorse, ossia un hub IoT, un account di archiviazione, una coda del bus di servizio e un dispositivo simulato. A tale scopo, usare il portale di Azure, un modello di Azure Resource Manager, l'interfaccia della riga di comando di Azure o Azure PowerShell.
 > * Configurare gli endpoint e le route dei messaggi nell'hub IoT per l'account di archiviazione e la coda del bus di servizio.
 
 **Parte II: Inviare messaggi all'hub e visualizzare i risultati instradati**
@@ -44,7 +44,7 @@ Per completate le parti 1 e 2 di questa esercitazione, sono state eseguite le at
 * Per la seconda parte di questa esercitazione:
   - È necessario aver completato la prima parte di questa esercitazione e avere ancora a disposizione le risorse.
   - Installare [Visual Studio](https://www.visualstudio.com/).
-  - Un account di Power BI per analizzare l'analisi di flusso dell'endpoint predefinito. ([Provare gratuitamente Power BI](https://app.powerbi.com/signupredirect?pbi_source=web).)
-  - Un account Office 365 per inviare notifiche tramite messaggi di posta elettronica.
+  - Avere accesso a un account di Power BI per analizzare l'analisi di flusso dell'endpoint predefinito. ([Provare gratuitamente Power BI](https://app.powerbi.com/signupredirect?pbi_source=web).)
+  - Disporre di un account Office 365 per l'invio di notifiche tramite posta elettronica.
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

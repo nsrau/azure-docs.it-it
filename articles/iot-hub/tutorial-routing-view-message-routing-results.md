@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i risultati del routing di messaggi nell'hub IoT di Azure (.NET) | Microsoft Docs
-description: Visualizzare il risultati del routing di messaggi nell'hub IoT di Azure
+description: Dopo aver configurato tutte le risorse usando la prima parte dell'esercitazione, aggiungere la funzionalità di routing dei messaggi ad Analisi di flusso di Azure e visualizzazione dei risultati in Power BI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330549"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890401"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
@@ -26,7 +26,7 @@ ms.locfileid: "67330549"
 
 Queste sono le regole per il routing dei messaggi, che sono state configurate nella parte 1 di questa esercitazione e che in questa seconda parte vengono viste in azione.
 
-|value |Risultato|
+|Valore |Risultato|
 |------|------|
 |level="storage" |Scrivere ad archiviazione di Azure|
 |level="critical" |Scrivere a una coda del bus di servizio. Un'app per la logica recupera il messaggio dalla coda e usa Office 365 per inviare il messaggio con posta elettronica.|
@@ -52,9 +52,11 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    ![Schermata Crea app per la logica](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Selezionare **Create** (Crea).
+   Selezionare **Create** (Crea). La distribuzione dell'app potrebbe richiedere alcuni minuti.
 
-2. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica nell'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione delle app per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** , quindi selezionarlo. La scheda predefinita è "Per l'utente". Se questo riquadro è vuoto, selezionare **Tutti** per visualizzare tutti i connettori e i trigger disponibili.
+2. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica nell'elenco di risorse. 
+
+    Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione delle app per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** , quindi selezionarlo. La scheda predefinita è "Per l'utente". Se questo riquadro è vuoto, selezionare **Tutti** per visualizzare tutti i connettori e i trigger disponibili.
 
 3. Selezionare **Bus di servizio** nell'elenco di connettori.
 
@@ -76,7 +78,7 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    ![Le opzioni della coda](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. Configurare ora l'azione per inviare un messaggio di posta elettronica quando viene ricevuto un messaggio nella coda. Nella finestra di progettazione delle app per la logica selezionare **+ Nuovo passaggio** per aggiungere un passaggio, quindi selezionare **Tutti** per visualizzare tutte le opzioni disponibili. Nel riquadro **Scegliere un'azione**, trovare e selezionare **Office 365 Outlook**. Nella schermata dei trigger, selezionare **Invia un messaggio di posta elettronica/Office 365 Outlook**.  
+7. Configurare ora l'azione per inviare un messaggio di posta elettronica quando viene ricevuto un messaggio nella coda. Nella finestra di progettazione delle app per la logica selezionare **+ Nuovo passaggio** per aggiungere un passaggio, quindi selezionare **Tutti** per visualizzare tutte le opzioni disponibili. Nel riquadro **Scegliere un'azione**, trovare e selezionare **Office 365 Outlook**. Nella schermata Azioni selezionare **Invia un messaggio di posta elettronica/Office 365 Outlook**.  
 
    ![Le opzioni di Office365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
@@ -108,13 +110,15 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    ![Creare il processo di Analisi di flusso](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. Fare clic su **Crea** per creare il processo. Per tornare al processo, selezionare **Gruppi di risorse**. Questa esercitazione usa **ContosoResources**. Selezionare il gruppo di risorse, quindi il processo di Analisi di flusso nell'elenco di risorse.
+3. Fare clic su **Crea** per creare il processo. La distribuzione potrebbe richiedere alcuni minuti.
+
+    Per tornare al processo, selezionare **Gruppi di risorse**. Questa esercitazione usa **ContosoResources**. Selezionare il gruppo di risorse, quindi il processo di Analisi di flusso nell'elenco di risorse.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
-4. In **Topologia processo** selezionare **Input**.
+1. In **Topologia processo** selezionare **Input**.
 
-5. Nel riquadro **Input** selezionare **Aggiungi input del flusso** e quindi Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
+2. Nel riquadro **Input** selezionare **Aggiungi input del flusso** e quindi Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
    **Alias di input**: Questa esercitazione usa **contosoinputs**.
 
@@ -128,13 +132,13 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    **Nome criteri di accesso condiviso**: Selezionare **Servizio**. Nel portale viene inserita la chiave di criteri di accesso condivisi per l'utente.
 
-   **Gruppo di consumer**: selezionare il gruppo di consumer configurato nel passaggio 1 di questa esercitazione. Questa esercitazione usa **contosoconsumers**.
+   **Gruppo di consumer**: selezionare il gruppo di consumer configurato nella parte 1 di questa esercitazione. Questa esercitazione usa **contosoconsumers**.
    
    Accettare i valori predefiniti nei campi rimanenti. 
 
    ![Configurare gli input per il processo di Analisi di flusso](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. Selezionare **Salva**.
+3. Selezionare **Salva**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
@@ -178,20 +182,20 @@ Per configurare il report di Power BI, sono necessari dei dati, pertanto si impo
 
 ## <a name="run-simulated-device-app"></a>Eseguire l'app del dispositivo simulato
 
-Nella parte 1 di questa esercitazione è stato configurato un dispositivo per simulare l'uso di un dispositivo IoT. In questa sezione scaricare l'app console .NET che simula questo dispositivo che invia messaggi da dispositivo a cloud a un hub IoT, presupponendo che l'app e le risorse non siano già state scaricate nella parte 1 dell'esercitazione.
+Nella parte 1 di questa esercitazione è stato configurato un dispositivo per simulare l'uso di un dispositivo IoT. In questa sezione si scarica l'app console .NET che simula questo dispositivo che invia messaggi da dispositivo a cloud a un hub IoT, presupponendo che l'app e le risorse non siano già state scaricate nella parte 1.
 
 Questa applicazione invia messaggi per ognuno dei diversi metodi di routing. Il download include anche una cartella contenente il modello di Azure Resource Manager completo e il file di parametri, oltre agli script dell'interfaccia della riga di comando di Azure e di PowerShell.
 
-Se i file non sono stati scaricati dal repository nel passaggio 1 di questa esercitazione, procedere a scaricarli ora dalla [simulazione di dispositivi IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Selezionando questo collegamento viene scaricato un repository contenente diverse applicazioni; la soluzione desiderata si trova in iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
+Se i file non sono stati scaricati dal repository nella parte 1 di questa esercitazione, procedere a scaricarli ora dalla [simulazione di dispositivi IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Selezionando questo collegamento viene scaricato un repository contenente diverse applicazioni; la soluzione desiderata si trova in iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
 
-Fare doppio clic sul file di soluzione (IoT_SimulatedDevice.sln) per aprire il codice in Visual Studio, quindi aprire Program.cs. Sostituire `{iot hub hostname}` con il nome host dell'hub IoT. Il formato del nome host dell'hub IoT **{nome hub iot} .azure-devices.net**. Per questa esercitazione, il nome host dell'hub è **ContosoTestHub.azure devices.net**. Successivamente, sostituire `{device key}` con la chiave del dispositivo salvato in precedenza durante la configurazione del dispositivo simulato. 
+Fare doppio clic sul file di soluzione (IoT_SimulatedDevice.sln) per aprire il codice in Visual Studio, quindi aprire Program.cs. Sostituire `{your hub name}` con il nome host dell'hub IoT. Il formato del nome host dell'hub IoT **{nome hub iot} .azure-devices.net**. Per questa esercitazione, il nome host dell'hub è **ContosoTestHub.azure devices.net**. Successivamente, sostituire `{your device key}` con la chiave del dispositivo salvato in precedenza durante la configurazione del dispositivo simulato. 
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
+        static string s_myDeviceId = "Contoso-Test-Device";
+        static string s_iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
+        static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>Esecuzione e test
@@ -212,7 +216,9 @@ Se tutto è configurato correttamente, a questo punto si dovrebbero visualizzare
    * L'app per la logica che recupera il messaggio dalla coda del Bus di servizio funziona correttamente.
    * Il connettore app per la logica per Outlook funziona correttamente. 
 
-2. Nel [portale di Azure](https://portal.azure.com) selezionare **Gruppi di risorse** e quindi il proprio gruppo di risorse. Questa esercitazione usa **ContosoResources**. Selezionare l'account di archiviazione, **BLOB** e quindi il contenitore. Questa esercitazione usa **contosoresults**. Dovrebbe essere visualizzata una cartella ed è possibile eseguire il drill-down nelle directory fino a quando non viene visualizzato uno o più file. Aprire uno di tali file; essi contengono le voci indirizzate all'account di archiviazione. 
+2. Nel [portale di Azure](https://portal.azure.com) selezionare **Gruppi di risorse** e quindi il proprio gruppo di risorse. Questa esercitazione usa **ContosoResources**. 
+
+    Selezionare l'account di archiviazione, selezionare **Contenitori** e quindi il contenitore. Questa esercitazione usa **contosoresults**. Dovrebbe essere visualizzata una cartella ed è possibile eseguire il drill-down nelle directory fino a quando non viene visualizzato uno o più file. Aprire uno di tali file; essi contengono le voci indirizzate all'account di archiviazione. 
 
    ![I file dei risultati nella risorsa di archiviazione](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -220,7 +226,7 @@ Questo risultato implica che l'affermazione seguente è vera.
 
    * Il routing all'account di archiviazione funziona correttamente.
 
-Ora con l'applicazione ancora in esecuzione, configurare la visualizzazione di Power BI per visualizzare i messaggi in arrivo tramite il routing predefinito.
+Ora, con l'applicazione ancora in esecuzione, configurare la visualizzazione di Power BI per visualizzare i messaggi in arrivo tramite il routing predefinito.
 
 ## <a name="set-up-the-power-bi-visualizations"></a>Configurare le visualizzazioni di Power BI
 
@@ -250,11 +256,11 @@ Ora con l'applicazione ancora in esecuzione, configurare la visualizzazione di P
 
    Viene creato un grafico a linee. L'asse x mostra data e ora per il fuso orario UTC. L'asse y mostra la temperatura dal sensore.
 
-6. Creare un altro grafico a linee in modo da visualizzare in tempo reale l'umidità nel tempo. Per configurare il secondo grafico, attenersi alla stessa procedura precedente e inserire **EventEnqueuedUtcTime** sull'asse x e l'**umidità** sull'asse y.
+6. Creare un altro grafico a linee in modo da visualizzare in tempo reale l'umidità nel tempo. Per configurare il secondo grafico, seguire la stessa procedura relativa al primo grafico, inserendo **EventEnqueuedUtcTime** sull'asse x (**Asse**) e l'**umidità** sull'asse y (**Valori**).
 
    ![Il report finale di Power BI con i due grafici](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. Selezionare **Salva** per salvare il report.
+7. Selezionare **Salva** per salvare il report, immettendo un nome se richiesto.
 
 Dovrebbe essere possibile visualizzare i dati su entrambi i grafici. Questo risultato implica che le affermazioni seguenti sono vere:
 
@@ -266,7 +272,7 @@ Dovrebbe essere possibile visualizzare i dati su entrambi i grafici. Questo risu
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 
-Per rimuovere tutte le risorse create nelle due parti di questa esercitazione, eliminare il gruppo di risorse. Questa azione elimina tutte le risorse contenute all'interno del gruppo. In questo caso, rimuove l'hub IoT, lo spazio dei nomi del Bus di servizio e la coda, l'App per la logica, l'account di archiviazione e il gruppo di risorse. 
+Se si vogliono rimuovere tutte le risorse di Azure create nelle due parti di questa esercitazione, eliminare il gruppo di risorse. Questa azione elimina tutte le risorse contenute all'interno del gruppo. In questo caso, rimuove l'hub IoT, lo spazio dei nomi del Bus di servizio e la coda, l'App per la logica, l'account di archiviazione e il gruppo di risorse. È anche possibile rimuovere le risorse di Power BI e cancellare i messaggi di posta elettronica inviati durante l'esercitazione.
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Pulire le risorse nella visualizzazione di Power BI
 
@@ -287,6 +293,10 @@ Per rimuovere il gruppo di risorse, usare il comando [Remove-AzResourceGroup](ht
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
+
+### <a name="clean-up-test-emails"></a>Pulire i messaggi di posta elettronica di test
+
+È anche possibile eliminare la quantità di messaggi di posta elettronica nella posta in arrivo generati tramite l'app per la logica durante l'esecuzione dell'applicazione del dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

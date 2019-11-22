@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477274"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062607"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Aggiungere un'app della raccolta all'organizzazione di Azure AD
 
@@ -34,27 +34,30 @@ Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di appl
 
 1. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali**.
 
-    ![Aprire Applicazioni aziendali](media/add-application-portal/open-enterprise-apps.png)
+    ![Aprire Applicazioni aziendali](media/add-gallery-app/open-enterprise-apps.png)
 
-1. Selezionare **Nuova applicazione**.
 
-    ![Nuova applicazione](media/add-application-portal/new-application.png)
+3. Per aggiungere un'app della raccolta al tenant, selezionare **Nuova applicazione**.
 
-1. Nella casella di ricerca in **Aggiungi dalla raccolta** immettere il nome dell'applicazione da aggiungere. 
+    ![Selezionare Nuova applicazione per aggiungere un'app della raccolta al tenant](media/add-gallery-app/new-application.png)
 
-    ![Ricerca per nome o categoria](media/add-application-portal/categories.png)
+ 4. Passare alla nuova esperienza di anteprima della raccolta: Nel banner nella parte superiore della **pagina Aggiungi applicazione** selezionare il collegamento **Fare clic qui per provare la nuova raccolta di app migliorata**.
 
-1. Selezionare l'applicazione nei risultati.
+5. Viene visualizzato il riquadro **Esplora la raccolta di Azure AD**, contenente sezioni per le piattaforme cloud, le applicazioni locali e le applicazioni in primo piano. Si noti che per le applicazioni elencate nella sezione **Applicazioni in primo piano** vengono visualizzate icone che indicano se sono supportati l'accesso Single Sign-On (SSO) federato e il provisioning.
 
-1. (Facoltativo) Nel modulo specifico dell'applicazione è possibile modificare il nome dell'applicazione in base alle esigenze dell'organizzazione.
+    ![Cercare un'app per nome o categoria](media/add-gallery-app/browse-gallery.png)
 
-1. Selezionare **Aggiungi**. Viene visualizzata la pagina **Panoramica** dell'applicazione.
+6. Cercare nella raccolta l'applicazione che si vuole aggiungere o cercare l'applicazione immettendone il nome nella casella di ricerca. Selezionare quindi l'applicazione nei risultati. (Facoltativo) Nel modulo è possibile modificare il nome dell'applicazione in base alle esigenze dell'organizzazione.
+
+    ![Mostra come aggiungere un'applicazione dalla raccolta](media/add-gallery-app/create-application.png)
+
+7. Selezionare **Create** (Crea). Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione.
 
 ## <a name="configure-user-sign-in-properties"></a>Configurare le proprietà di accesso degli utenti
 
 1. Selezionare **Proprietà** per aprire il riquadro delle proprietà per la modifica.
 
-    ![Riquadro Modifica proprietà](media/add-application-portal/edit-properties.png)
+    ![Riquadro Modifica proprietà](media/add-gallery-app/edit-properties.png)
 
 1. Impostare le opzioni seguenti per determinare il modo in cui gli utenti assegnati o non assegnati all'applicazione possono accedere all'applicazione e se un utente può visualizzare l'applicazione nel pannello di accesso.
 
@@ -94,7 +97,7 @@ Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di appl
 
 1. Per usare un logo personalizzato, crearne uno di 215 x 215 pixel e salvarlo in formato PNG. Quindi selezionare il logo e caricarlo.
 
-    ![Modificare il logo](media/add-application-portal/change-logo.png)
+    ![Modificare il logo](media/add-gallery-app/change-logo.png)
 
 1. Al termine, fare clic su **Salva**.
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813127"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008561"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Guida introduttiva: Aggiungere utenti guest alla directory nel portale di Azure
 
@@ -46,9 +46,13 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 
     ![Screenshot che mostra dove selezionare l'opzione Nuovo utente guest](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.  In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. In **Includi un messaggio personale con l'invito** digitare un messaggio di benvenuto. 
+5. Nella pagina **Nuovo utente** selezionare **Invita l'utente** e quindi aggiungere le informazioni dell'utente Guest. 
 
-    ![Screenshot che mostra dove immettere il messaggio di invito per l'utente guest](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **Nome.** Nome e cognome dell'utente guest.
+   - **Indirizzo e-mail (obbligatorio)** . Indirizzo e-mail dell'utente guest.
+   - **Messaggio personale (facoltativo)** .Includere un messaggio di benvenuto personale per l'utente guest.
+   - **Gruppi**. È possibile aggiungere l'utente guest a uno o più gruppi esistenti, anche in un secondo momento.
+   - **Ruolo della directory**. Se sono necessari autorizzazioni amministrative Azure AD per l'utente, è possibile aggiungerle a un ruolo di Azure AD. 
 
 6. Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. Viene visualizzata una notifica in alto a destra con il messaggio **L'utente è stato invitato**. 
 7.  Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.

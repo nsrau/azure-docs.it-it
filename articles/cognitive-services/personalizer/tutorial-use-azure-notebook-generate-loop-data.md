@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 669ebbf595629e8093c51d76b0816edeb5f80f93
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467240"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007595"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Esercitazione: Usare Personalizza esperienze in Azure Notebooks
 
@@ -589,7 +589,7 @@ Per trovare un criterio di apprendimento migliore, in base ai dati dell'API di c
 1. Immettere i dati necessari per il nome della valutazione e l'intervallo di date per la valutazione del ciclo. L'intervallo di date deve includere solo i giorni sui quali ci si vuole concentrare per la valutazione. 
     ![Nel portale di Azure aprire la pagina Valutazioni della risorsa di Personalizza esperienze. Selezionare Crea valutazione. Immettere il nome e l'intervallo di date della valutazione.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    Lo scopo dell'esecuzione di questa valutazione offline è determinare se esistono criteri di apprendimento migliori per le funzionalità e le azioni usate in questo ciclo. Per trovare questi criteri di apprendimento migliori, assicurarsi che l'opzione **Optimization policy** (Criteri di ottimizzazione) sia attivata.
+    Lo scopo dell'esecuzione di questa valutazione offline è determinare se esistono criteri di apprendimento migliori per le funzionalità e le azioni usate in questo ciclo. Per trovare questi criteri di apprendimento migliori, assicurarsi che l'opzione **Individuazione ottimizzazione** sia attivata.
 
 1. Scegliere **OK** per iniziare la valutazione. 
 1. Questa pagina **Valutazioni** mostra la nuova valutazione e il suo stato corrente. Il tempo necessario per l'esecuzione della valutazione dipende dalla quantità di dati disponibili. È possibile tornare a questa pagina dopo alcuni minuti per visualizzare i risultati. 

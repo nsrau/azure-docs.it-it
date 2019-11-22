@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Acquisire eventi da uno spazio di Gemelli digitali di Azure | Microsoft Docs'
+title: 'Esercitazione: Acquisire eventi da uno spazio di Gemelli digitali di Azure'
 description: Informazioni su come ricevere notifiche dagli spazi grazie all'integrazione di Gemelli digitali di Azure con App per la logica seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949167"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129205"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Esercitazione: Ricevere notifiche dagli spazi di Gemelli digitali di Azure usando App per la logica
 
@@ -38,7 +38,7 @@ Questa esercitazione presuppone che siano già state effettuate le attività di 
 - Un'istanza di Gemelli digitali in esecuzione.
 - Gli [esempi C# di Gemelli digitali](https://github.com/Azure-Samples/digital-twins-samples-csharp) scaricati ed estratti nel computer di lavoro.
 - [.NET Core SDK versione 2.1.403 o successiva](https://www.microsoft.com/net/download) nel computer di sviluppo per eseguire l'esempio. Eseguire `dotnet --version` per verificare se è installata la versione corretta.
-- Un account Office 365 per inviare notifiche tramite messaggi di posta elettronica.
+- Un account [Office 365](https://products.office.com/home) per inviare notifiche tramite messaggi di posta elettronica.
 
 > [!TIP]
 > Se si esegue il provisioning di una nuova istanza, usare un nome istanza di Gemelli digitali univoco.
@@ -63,7 +63,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
 1. Passare all'argomento di Griglia di eventi dal gruppo di risorse, selezionare **Panoramica** e copiare il valore di **Endpoint argomento** in un file temporaneo. Questo URL servirà nella sezione successiva. 
 
-1. Selezionare **Chiavi di accesso** e copiare i valori di **YOUR_KEY_1** e **YOUR_KEY_2** in un file temporaneo. Questi valori saranno necessari per creare l'endpoint nella sezione successiva.
+1. Selezionare **Chiavi di accesso** e copiare i valori di **Chiave 1** e **Chiave 2** in un file temporaneo. Questi valori saranno necessari per creare l'endpoint nella sezione successiva.
 
     [![Chiavi di Griglia di eventi](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Sostituire il segnaposto `<Primary connection string for your Event Grid>` con il valore di **YOUR_KEY_1**.
+1. Sostituire il segnaposto `<Primary connection string for your Event Grid>` con il valore di **Chiave 1**.
 
-1. Sostituire il segnaposto `<Secondary connection string for your Event Grid>` con il valore di **YOUR_KEY_2**.
+1. Sostituire il segnaposto `<Secondary connection string for your Event Grid>` con il valore di **Chiave 2**.
 
 1. Sostituire il segnaposto per il **percorso** con il percorso dell'argomento di Griglia di eventi. Per ottenere questo percorso, rimuovere **https://** e i percorsi delle risorse finali dall'URL di **Endpoint argomento**. Il formato dovrebbe essere simile al seguente: *NomeGrigliaDiEventi.Località.eventgrid.azure.net*.
 
@@ -178,7 +178,7 @@ Un [argomento di Griglia di eventi](../event-grid/concepts.md#topics) forniscono
 
    a. Selezionare **Aggiungi un'azione** e selezionare **Office 365 Outlook**.
 
-   b. Nell'elenco **Azioni** selezionare **Invia un messaggio di posta elettronica**. Selezionare **Accedi** e usare le credenziali del proprio account di posta elettronica. Selezionare **Consenti l'accesso**, se viene richiesto.
+   b. Nell'elenco **Azioni** selezionare **Invia un messaggio di posta elettronica (v2)** . Selezionare **Accedi** e usare le credenziali del proprio account di posta elettronica. Selezionare **Consenti l'accesso**, se viene richiesto.
 
    c. Nella casella **A** immettere l'ID di posta elettronica per la ricezione delle notifiche. In **Oggetto** immettere il testo **Notifica di Gemelli digitali per la qualità scadente dell'aria nello spazio**, quindi selezionare **TopologyObjectId** nell'elenco **Contenuto dinamico** per **Analizza JSON**.
 

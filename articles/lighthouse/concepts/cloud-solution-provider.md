@@ -1,24 +1,20 @@
 ---
 title: Considerazioni sul programma Cloud Solution Provider
 description: Per i partner CSP, la gestione risorse delegate di Azure consente di migliorare la sicurezza e il controllo abilitando autorizzazioni granulari.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: cdb9eaf0b1f1a6e7a136432586ad186308e4e3d3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3ea32418cdf6808ad311d343d28ba2778740dbe4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550302"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132519"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e programma Cloud Solution Provider
 
 I partner [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) possono già accedere alle sottoscrizioni di Azure create per i clienti tramite il programma CSP usando la funzionalità [Amministra per conto terzi](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO). Questo accesso consente di supportare, configurare e gestire le sottoscrizioni dei clienti direttamente.
 
-Con Azure Lighthouse è possibile usare la gestione risorse delegate di Azure insieme ad Amministra per conto terzi. In questo modo è possibile migliorare la sicurezza e ridurre l'accesso non necessario abilitando autorizzazioni più granulari per gli utenti. È inoltre possibile aumentare l'efficienza e la scalabilità, in quanto gli utenti possono lavorare con più sottoscrizioni dei clienti usando un unico account di accesso nel tenant.
+Con [Azure Lighthouse](../overview.md) è possibile usare la gestione risorse delegate di Azure insieme ad Amministra per conto terzi. In questo modo è possibile migliorare la sicurezza e ridurre l'accesso non necessario abilitando autorizzazioni più granulari per gli utenti. È inoltre possibile aumentare l'efficienza e la scalabilità, in quanto gli utenti possono lavorare con più sottoscrizioni dei clienti usando un unico account di accesso nel tenant.
 
 > [!TIP]
 > Per proteggere le risorse dei clienti, assicurarsi di esaminare e seguire le [procedure di sicurezza consigliate](recommended-security-practices.md) insieme ai [requisiti di sicurezza dei partner](https://docs.microsoft.com/partner-center/partner-security-requirements).
@@ -36,6 +32,11 @@ Usando la gestione delle risorse delegate di Azure, è possibile assegnare grupp
 Per eseguire l'onboarding di una sottoscrizione creata tramite il programma CSP, seguire la procedura descritta in [Eseguire l'onboarding di una sottoscrizione nella gestione risorse delegate di Azure](../how-to/onboard-customer.md). Tutti gli utenti che hanno il ruolo Agente amministratore nel tenant possono eseguire questa operazione di onboarding.
 
 ![Gestione dei tenant tramite la funzionalità Amministra per conto terzi e la gestione risorse delegate di Azure](../media/csp-2.jpg)
+
+> [!NOTE]
+> La pagina [**Clienti personali** nel portale di Azure](../how-to/view-manage-customers.md) include ora una sezione **Cloud Solution Provider (anteprima)** , che visualizza le informazioni e le risorse di fatturazione per i clienti CSP che hanno [firmato il Contratto del cliente Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e sottoscritto il piano di Azure. Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](https://docs.microsoft.com/azure/billing/mpa-overview).
+>
+> I clienti CSP possono essere visualizzati in questa sezione indipendentemente dal fatto che siano stati sottoposti a onboarding per la gestione risorse delegate di Azure. In questo caso, verranno visualizzati anche nella sezione **Clienti**, come descritto in [Visualizzare e gestire clienti e risorse delegate](../how-to/view-manage-customers.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,22 +1,18 @@
 ---
 title: Azure Lighthouse in scenari aziendali
 description: Le funzionalità di Azure Lighthouse possono essere usate per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/25/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: fbd87cc801824729025feb7aefa411ac38048949
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266678"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132493"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
-Lo scenario più comune per Azure Lighthouse è quello di un provider di servizi che gestisce le risorse nei tenant di Azure Active Directory (Azure AD) dei clienti. Le funzionalità di Azure Lighthouse possono tuttavia essere usate anche per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
+Lo scenario più comune per [Azure Lighthouse](../overview.md) è quello di un provider di servizi che gestisce le risorse nei tenant di Azure Active Directory (Azure AD) dei clienti. Le funzionalità di Azure Lighthouse possono tuttavia essere usate anche per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Tenant singolo o più tenant
 

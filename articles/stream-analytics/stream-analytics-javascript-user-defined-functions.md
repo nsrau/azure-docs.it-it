@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure | Microsoft Docs "
+title: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
 description: In questa esercitazione si eseguono meccanismi di query avanzate con funzioni JavaScript definite dall'utente
 services: stream-analytics
 author: rodrigoamicrosoft
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329370"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990232"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -71,6 +71,9 @@ Per creare una semplice funzione JavaScript definita dall'utente in un processo 
 6.  Selezionare **Salva**. La funzione viene visualizzata nell'elenco delle funzioni.
 7.  Selezionare la nuova funzione **hex2Int** e controllare la definizione di funzione. Per ogni funzione, all'alias della funzione viene aggiunto un prefisso della **funzione definita dall'utente**. È necessario *includere il prefisso* quando si chiama la funzione nella query Analisi di flusso. In questo caso, si chiama **UDF.hex2Int**.
 
+## <a name="testing-javascript-udfs"></a>Test delle funzioni definite dall'utente JavaScript 
+È possibile testare ed eseguire il debug della logica delle funzioni definite dall'utente JavaScript in qualsiasi browser. Il debug e il test della logica di queste funzioni definite dall'utente non sono attualmente supportati nel portale di Analisi di flusso. Quando la funzione si comporta come previsto, è possibile aggiungerla al processo di analisi di flusso come indicato in precedenza e quindi richiamarla direttamente dalla query.
+
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chiamare una funzione JavaScript definita dall'utente nella query
 
 1. Nell'editor di query, nell'intestazione **Topologia processo**, selezionare **Query**.
@@ -125,7 +128,6 @@ Il linguaggio JavaScript distingue tra maiuscole/minuscole e le maiuscole e le m
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 Gli errori di runtime in JavaScript sono considerati irreversibili ed esposti tramite il log attività. Per recuperare il log, nel portale di Azure passare al processo e selezionare **Log attività**.
-
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Altri modelli della funzione JavaScript definita dall'utente
 

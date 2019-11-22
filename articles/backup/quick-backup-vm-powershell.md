@@ -1,5 +1,5 @@
 ---
-title: Guida di avvio rapido di Azure - Eseguire il backup di una macchina virtuale con PowerShell
+title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con PowerShell
 description: Questa Guida di avvio rapido illustra come eseguire il backup delle macchine virtuali di Azure con il modulo Azure PowerShell.
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747093"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073971"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
@@ -106,18 +106,18 @@ Abilitare il backup come segue:
 
 ## <a name="start-a-backup-job"></a>Avviare un processo di backup
 
-I backup vengono eseguiti in conformità alla pianificazione specificata nei relativi criteri. È anche possibile eseguire un backup ad hoc:
+I backup vengono eseguiti in base alla pianificazione specificata nei relativi criteri. È inoltre possibile eseguire un backup su richiesta:
 
 - Il primo processo di backup iniziale crea un punto di ripristino completo.
 - Dopo il backup iniziale, ogni processo crea punti di ripristino incrementali.
 - I punti di ripristino incrementali sono veloci ed efficienti in termini di archiviazione, perché trasferiscono solo le modifiche eseguite dopo l'ultimo backup.
 
-Per eseguire un backup ad hoc, usare [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+Per eseguire un backup su richiesta, usare [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
 - Specificare un contenitore nell'insieme di credenziali che memorizzi i dati di backup con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Ogni VM di cui deve essere eseguito il backup viene considerata come un elemento. Per avviare un processo di backup, ottenere le informazioni relative alla VM con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
-Eseguire un processo di backup ad hoc come segue:
+Eseguire un processo di backup su richiesta come indicato di seguito:
 
 1. Specificare il contenitore, ottenere le informazioni della VM ed eseguire il backup.
 

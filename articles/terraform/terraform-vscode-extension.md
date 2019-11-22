@@ -1,30 +1,27 @@
 ---
-title: Installare e usare l'estensione Azure Terraform di Visual Studio Code
+title: Esercitazione - Configurare l'estensione Azure Terraform di Visual Studio Code
 description: Questo articolo illustra come installare e usare l'estensione Azure Terraform in Visual Studio Code.
-services: terraform
-ms.service: azure
-keywords: terraform, azure, devops, visual studio code, estensione
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 93ec85a2e37350ef56ff8c2e1a0ea16bb3be355e
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169924"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969323"
 ---
-# <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installare e usare l'estensione Azure Terraform di Visual Studio Code
+# <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Esercitazione: Configurare l'estensione Azure Terraform di Visual Studio Code
 
-L'estensione Microsoft Azure Terraform di Visual Studio Code è stata progettata per aumentare la produttività degli sviluppatori durante la creazione, il test e l'uso di Terraform con Azure. L'estensione offre supporto per i comandi di Terraform, la visualizzazione del grafico delle risorse e l'integrazione di Cloud Shell direttamente in Visual Studio Code.
+L'estensione Azure Terraform di Visual Studio Code consente di lavorare con Terraform dall'editor. Con tale estensione, è possibile creare, testare ed eseguire configurazioni Terraform. L'estensione inoltre supporta la visualizzazione Diagramma risorse.
 
 In questo articolo viene spiegato come:
 > [!div class="checklist"]
-> * Usare Terraform per automatizzare e semplificare il provisioning dei servizi di Azure.
-> * Installare e usare l'estensione Microsoft Terraform di Visual Studio Code per i servizi di Azure.
-> * Usare Visual Studio Code per scrivere, configurare ed eseguire i piani di Terraform.
+> * Automatizzare il provisioning dei servizi di Azure con Terraform.
+> * Installare e usare l'estensione Terraform di Visual Studio Code per i servizi di Azure.
+> * Usare Visual Studio Code per scrivere, definire ed eseguire i piani Terraform.
 
 ## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
@@ -144,7 +141,7 @@ In questo esercizio si crea ed esegue un file di configurazione di Terraform di 
 
     ![Messaggio di richiesta di apertura di Cloud Shell](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. La prima volta che si avvia Cloud Shell da una nuova cartella, viene chiesto di configurare l'applicazione Web. Scegliere **Open**(Apri).
+1. La prima volta che si avvia Cloud Shell da una nuova cartella, viene richiesto di creare un'applicazione Web. Scegliere **Open**(Apri).
 
     ![Primo avvio di Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -287,7 +284,7 @@ Dopo qualche istante, nel riquadro Terminal (Terminale) viene visualizzato un el
 
 ![Risultati del test Lint](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### <a name="module-test-end-to-end"></a>Test del modulo: *end-to-end*
+### <a name="test-the-module"></a>Testare il modulo
 
 1. Dalla barra dei menu selezionare **View > Command Palette > Azure Terraform: Execute Test** (Visualizza > Riquadro comandi > Azure Terraform: Execute Test).
 
@@ -304,7 +301,7 @@ Dopo qualche istante, nel riquadro Terminal (Terminale) viene visualizzato un el
 
 Dopo qualche istante, nel riquadro Terminal (Terminale) viene visualizzato un elenco simile a questo esempio:
 
-![Risultati del test end-to-end](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![Risultati del test](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

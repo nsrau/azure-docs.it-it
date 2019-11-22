@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227492"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Esercitazione: Integrazione di Azure Active Directory con AnswerHub
 
@@ -144,7 +145,7 @@ In questa sezione viene configurato l'accesso Single Sign-On per AnswerHub.
 
 4. Nella scheda **IDP Config** (Configurazione IDP) completare questa procedura:
 
-    ![Scheda Users and Groups](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
+    ![Scheda per utenti e gruppi](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
     a. Nella casella **IDP Login URL** (URL di accesso IDP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
   
@@ -156,7 +157,7 @@ In questa sezione viene configurato l'accesso Single Sign-On per AnswerHub.
 
 5. Nella sezione **Keys and Certificates** (Chiavi e certificati) completare questa procedura:
 
-    ![Sezione Keys and Certificates](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
+    ![Sezione relativa a chiavi e certificati](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
 
     a. Aprire nel Blocco note il certificato con codifica Base64 scaricato dal portale di Azure e quindi incollarne il contenuto nella casella **IDP Public Key (x509 Format)** (Chiave pubblica IDP - formato x509).
   
@@ -164,7 +165,7 @@ In questa sezione viene configurato l'accesso Single Sign-On per AnswerHub.
 
 6. Nella scheda **IDP Config** (Configurazione IDP) selezionare di nuovo **Save** (Salva).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
@@ -235,7 +236,7 @@ Per consentire agli utenti di Azure AD di accedere ad AnswerHub, è necessario a
 
 4. Nel riquadro sinistro selezionare **Create or import users** (Crea o importa utenti) nella sezione **Manage Users** (Gestisci utenti) e quindi selezionare **Users & Groups** (Utenti e gruppi).
 
-   Scheda ![Users & Groups](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+   ![Scheda per utenti e gruppi](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
 5. Nelle caselle appropriate immettere l'**indirizzo di posta elettronica**, il **nome utente** e la **password** di un account Azure AD valido da aggiungere e quindi selezionare **Save** (Salva).
 

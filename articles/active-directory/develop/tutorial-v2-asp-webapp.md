@@ -1,5 +1,6 @@
 ---
-title: Introduzione al server Web ASP.NET per Azure AD v2.0 | Microsoft Docs
+title: Introduzione al server Web ASP.NET per Azure AD v2.0
+titleSuffix: Microsoft identity platform
 description: Implementazione delle informazioni di accesso Microsoft in una soluzione ASP.NET con un'applicazione tradizionale basata su Web browser e lo standard OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1ce7197a195b37787d1a43a44efd8438154e9f9
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113639"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803713"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
@@ -269,7 +270,7 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Altre informazioni
-> Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere le [Linee guida sulla personalizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Linee guida sulla personalizzazione").
+> Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "BLinee guida sulla personalizzazione).
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Aggiungere un controller per visualizzare le attestazioni dell'utente
@@ -410,7 +411,7 @@ Quando si è pronti per eseguire il test, usare un account Azure AD (aziendale o
 >  > - Lo sviluppatore dell'applicazione inserisce autorizzazioni aggiuntive che richiedono il **consenso dell'amministratore**.
 >  > - La configurazione del tenant (accessibile in **Applicazioni aziendali -> Impostazioni utente**) è tale che gli utenti non possono concedere alle app il consenso per accedere ai dati aziendali per proprio conto.
 >
-> Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+> Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
 <!--end-collapse-->
 
 #### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione

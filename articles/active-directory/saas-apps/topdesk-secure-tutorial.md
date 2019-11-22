@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcf9c8ea62610b6e4eb4ad642107df81ae712054
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3125f5b9075a69289bd6a44d62c3d06d5e6d910d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950394"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Secure
 
@@ -138,21 +139,21 @@ Per configurare Single Sign-On di Azure AD con TOPdesk - Secure, seguire questa 
 
 3. Fare clic su **Login Settings**.
 
-    ![Login Settings](./media/topdesk-secure-tutorial/ic790599.png "Login Settings")
+    ![Impostazioni di accesso](./media/topdesk-secure-tutorial/ic790599.png "Login Settings")
 
 4. Espandere il menu **Login Settings** (Impostazioni accesso) e quindi fare clic su **General** (Generale).
 
-    ![General](./media/topdesk-secure-tutorial/ic790600.png "General")
+    ![Generale](./media/topdesk-secure-tutorial/ic790600.png "General")
 
 5. Nell'area **Secure** (Sicura) della sezione di configurazione **SAML login** (Accesso SAML) seguire questa procedura:
 
-    ![Technical Settings](./media/topdesk-secure-tutorial/ic790855.png "Technical Settings")
+    ![Impostazioni tecniche](./media/topdesk-secure-tutorial/ic790855.png "Technical Settings")
 
     a. Fare clic su **Download** per scaricare il file di metadati pubblici e quindi salvarlo in locale nel computer.
 
     b. Aprire il file dei metadati e quindi individuare il nodo **AssertionConsumerService** .
 
-    ![Assertion Consumer Service](./media/topdesk-secure-tutorial/ic790856.png "Assertion Consumer Service")
+    ![AssertionConsumerService](./media/topdesk-secure-tutorial/ic790856.png "AssertionConsumerService")
 
     c. Copiare il valore **AssertionConsumerService** incollarlo nella casella di testo URL di risposta nella sezione **URL e dominio TOPdesk - Secure**.
 
@@ -170,11 +171,11 @@ Per configurare Single Sign-On di Azure AD con TOPdesk - Secure, seguire questa 
 
 7. Nell'area **Public** (Pubblica) fare clic su **Add** (Aggiungi).
 
-    ![Add](./media/topdesk-secure-tutorial/ic790607.png "Add")
+    ![Aggiungere](./media/topdesk-secure-tutorial/ic790607.png "Add")
 
 8. Nella pagina **SAML configuration assistant** seguire questa procedura:
 
-    ![SAML Configuration Assistant](./media/topdesk-secure-tutorial/ic790608.png "SAML Configuration Assistant")
+    ![Assistente alla configurazione SAML](./media/topdesk-secure-tutorial/ic790608.png "SAML configuration assistant")
 
     a. Per caricare il file di metadati scaricato dal portale di Azure, in **Metadati della federazione** fare clic su **Sfoglia**.
 
@@ -192,7 +193,7 @@ Per configurare Single Sign-On di Azure AD con TOPdesk - Secure, seguire questa 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -215,7 +216,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a TOPdesk - Secure.
 
@@ -252,11 +253,11 @@ Nel caso di TOPdesk - Secure, il provisioning è un'attività manuale.
 
 2. Nel menu in alto fare clic su **TOPdesk \> New (Nuovo) \> Support Files (File di supporto) \> Operator (Operatore)** .
 
-    ![Operator](./media/topdesk-secure-tutorial/ic790610.png "Operator")
+    ![Operatore](./media/topdesk-secure-tutorial/ic790610.png "Operatore")
 
 3. Nella finestra di dialogo **New Operator** seguire questa procedura:
 
-    ![New Operator](./media/topdesk-secure-tutorial/ic790611.png "New Operator")
+    ![Nuovo operatore](./media/topdesk-secure-tutorial/ic790611.png "New Operator")
 
     a. Fare clic sulla scheda **General** (Generale).
 

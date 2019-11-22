@@ -1,19 +1,19 @@
 ---
-title: Generare dati di dispositivi simulati - Machine Learning in Azure IoT Edge | Microsoft Docs
-description: Creare dispositivi virtuali che generano dati di telemetria simulati da usare in seguito per eseguire il training di un modello di Machine Learning.
+title: 'Esercitazione: Generare dati di dispositivi simulati - Machine Learning in Azure IoT Edge'
+description: 'Esercitazione: Creare dispositivi virtuali che generano dati di telemetria simulati da usare in seguito per eseguire il training di un modello di Machine Learning.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 666172e3685b923ca0d0e5fa02878341fcd0a216
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 51d93e5b83d203f3fa99b69cc5f2877bbfdb6fb1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543867"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112860"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Esercitazione: Generare dati di dispositivi simulati
 

@@ -2,7 +2,7 @@
 title: Documentazione del servizio Azure Blockchain
 summary: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.
 metadata:
-  title: Documentazione del servizio Azure Blockchain - Esercitazioni e informazioni di riferimento sulle API
+  title: Documentazione del servizio Azure Blockchain
   description: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come usare il servizio Azure Blockchain per creare, sviluppare e gestire applicazioni blockchain in Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 9e4def49e2d0e1fc91259bbdf744ec7e40a34547
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 5af8999a32682df18d1e4f1be192c2d4be628860
+  ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73577332"
+  ms.lasthandoff: 11/21/2019
+  ms.locfileid: "74285069"
 landingContent:
 - title: Informazioni sul servizio Azure Blockchain
   linkLists:

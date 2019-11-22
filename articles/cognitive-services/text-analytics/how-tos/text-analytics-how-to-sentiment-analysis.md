@@ -1,7 +1,7 @@
 ---
-title: Analisi del sentiment con l'API REST Analisi del testo di Servizi cognitivi di Azure
+title: Eseguire l'analisi del sentiment con l'API REST Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come rilevare il sentiment con l'API REST Analisi del testo.
+description: In questo articolo viene illustrato come rilevare il sentiment nel testo con l'API REST Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494438"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031452"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Esempio: Rilevare il sentiment con Analisi del testo
 
@@ -36,7 +36,7 @@ La funzione Analisi del sentiment viene eseguita sull'intero documento, a differ
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Anteprima pubblica di Analisi del sentiment versione 3
 
-La [prossima versione di Analisi del sentiment](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9) è ora disponibile per l'anteprima pubblica. Offre miglioramenti significativi nell'accuratezza e nel dettaglio dell'API per la categorizzazione del testo e l'assegnazione del punteggio.
+La [prossima versione di Analisi del sentiment](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) è ora disponibile per l'anteprima pubblica. Offre miglioramenti significativi nell'accuratezza e nel dettaglio dell'API per la categorizzazione del testo e l'assegnazione del punteggio.
 
 > [!NOTE]
 > * Il formato della richiesta e i [limiti dei dati](../overview.md#data-limits) di Analisi del sentiment versione 3 sono gli stessi della versione precedente.

@@ -11,23 +11,34 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a26a7fc27fa13d86eb3b82fd4be70e5b371581f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677973"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242213"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Accesso utenti e chiamata di Microsoft Graph da un'app Android
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Esercitazione: Accesso utenti e chiamata di Microsoft Graph da un'app Android
+
+> [!NOTE]
+> Questa esercitazione non è ancora stata aggiornata per l'uso con la libreria MSAL per Android versione 1.0. Funziona con una versione precedente, come configurato in questa esercitazione.
 
 In questa esercitazione si apprenderà come integrare un'app Android con Microsoft Identity Platform. L'app consentirà l'accesso di un utente, otterrà un token di accesso per chiamare l'API Microsoft Graph e creerà una richiesta all'API Microsoft Graph.  
 
-Al termine della guida, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda o organizzazione che usa Azure Active Directory.
+> [!div class="checklist"]
+> * Integrazione di un'app Android con Microsoft Identity Platform
+> * Accesso di un utente
+> * Reperimento di un token di accesso per chiamare l'API Microsoft Graph
+> * Chiamata all'API Microsoft Graph  
+
+Al termine dell'esercitazione, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda o organizzazione che usi Azure Active Directory.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="how-this-tutorial-works"></a>Contenuto dell'esercitazione
 
@@ -53,7 +64,7 @@ Questo esempio usa Microsoft Authentication Library per Android (MSAL) per imple
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-Questa esercitazione creerà un nuovo progetto. Se si preferisce scaricare invece l'esercitazione completata [scaricare il codice](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
+Questa esercitazione creerà un nuovo progetto. Se si preferisce scaricare invece l'esercitazione completata [scaricare il codice](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
 1. Aprire Android Studio e selezionare **Start a new Android Studio project** (Avvia un nuovo progetto di Android Studio).
 2. Selezionare **Basic Activity** (Attività di base) e quindi **Next** (Avanti).
@@ -177,7 +188,7 @@ Questa esercitazione creerà un nuovo progetto. Se si preferisce scaricare invec
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:0.3+'
     ```
 
 ### <a name="use-msal"></a>Usare MSAL
@@ -535,6 +546,10 @@ Dopo l'accesso, l'app visualizzerà i dati restituiti dall'endpoint `/me` di Mic
 ### <a name="consent"></a>Consenso
 
 Al primo accesso di qualsiasi utente nell'app, verrà richiesto il consenso per le autorizzazioni richieste da Microsoft Identity Platform.  Anche se la maggior parte degli utenti sarà in grado di fornire il consenso, alcuni tenant di Azure AD hanno disabilitato il consenso dell'utente e sarà quindi necessario che gli amministratori forniscano il consenso per conto di tutti gli utenti. Per supportare questo scenario, registrare gli ambiti dell'app nel portale di Azure.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare l'oggetto app creato nel passaggio [Registrare l'applicazione](#register-your-application).
 
 ## <a name="get-help"></a>Ottenere aiuto
 

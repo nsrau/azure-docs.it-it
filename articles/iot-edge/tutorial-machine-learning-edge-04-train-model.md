@@ -1,19 +1,19 @@
 ---
-title: Eseguire il training e la distribuzione di un modello - Machine Learning in Azure IoT Edge | Microsoft Docs
-description: Eseguire il training di un modello di Machine Learning con Azure Machine Learning e quindi inserirlo in un pacchetto come immagine di contenitore che è possibile distribuire in un modulo Azure IoT Edge.
+title: 'Esercitazione: Eseguire il training e la distribuzione di un modello - Machine Learning in Azure IoT Edge'
+description: 'Esercitazione: Eseguire il training di un modello di Machine Learning con Azure Machine Learning e quindi inserirlo in un pacchetto come immagine di contenitore che è possibile distribuire in un modulo Azure IoT Edge.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8cb3d0329c41256823a66fc3276711c43da61cdd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493977"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112474"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Esercitazione: Eseguire il training e distribuire un modello di Azure Machine Learning
 

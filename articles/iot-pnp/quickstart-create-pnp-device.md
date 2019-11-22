@@ -1,5 +1,5 @@
 ---
-title: Creare un dispositivo Plug and Play IoT (anteprima) | Microsoft Docs
+title: Creare un dispositivo di anteprima Plug and Play IoT (Windows) | Microsoft Docs
 description: Usare un modello di funzionalità di dispositivo per generare il codice del dispositivo. Eseguire quindi il codice del dispositivo per connetterlo all'hub IoT.
 author: miagdp
 ms.author: miag
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 019dbe8b977932c6a806f7efca8c0724597718d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818063"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931902"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Guida introduttiva: Usare un modello funzionalità di dispositivo per creare un dispositivo di anteprima Plug and Play IoT (Windows)
 
@@ -23,7 +23,7 @@ Un _modello di funzionalità di dispositivo_ descrive le funzionalità di un dis
 
 Per completare questa guida di avvio rapido, è necessario installare il software seguente nel computer locale:
 
-* [Visual Studio Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) con **Strumenti di compilazione C++** e carichi di lavoro del **componente Gestione pacchetti NuGet**. Oppure se si dispone già di [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 o 2015 con gli stessi carichi di lavoro installati.
+* [Visual Studio Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) con **Strumenti di compilazione C++** e carichi di lavoro del **componente Gestione pacchetti NuGet**. In alternativa, se si dispone già di [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 o 2015 con gli stessi carichi di lavoro installati.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 * [Visual Studio Code](https://code.visualstudio.com/).
@@ -48,42 +48,34 @@ La _stringa di connessione del repository dei modelli aziendali_ è disponibile 
 
 ## <a name="prepare-an-iot-hub"></a>Preparare un hub IoT
 
-Per completare questa guida di avvio rapido, la sottoscrizione di Azure deve includere anche un hub IoT di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Per completare questa guida di avvio rapido, la sottoscrizione di Azure deve includere anche un hub IoT di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. Se non è disponibile alcun hub IoT, seguire [queste istruzioni per crearne uno](../iot-hub/iot-hub-create-using-cli.md).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Durante la fase di anteprima pubblica, le funzionalità Plug and Play IoT sono disponibili solo negli hub IoT creati nelle aree **Stati Uniti centrali**, **Europa settentrionale** e **Giappone orientale**.
 
-Aggiungere l'estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure:
+Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-Eseguire il comando seguente per creare l'identità del dispositivo nell'hub IoT. Sostituire i segnaposto **YourIoTHubName** e **YourDevice** con i nomi effettivi. Se non è disponibile alcun hub IoT, seguire [queste istruzioni per crearne uno](../iot-hub/iot-hub-create-using-cli.md):
+Eseguire il comando seguente per creare l'identità del dispositivo nell'hub IoT. Sostituire i segnaposto **YourIoTHubName** e **YourDevice** con i nomi effettivi.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
 ```
 
-Eseguire i comandi seguenti per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
+Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
-Eseguire i comandi seguenti per ottenere la _stringa di connessione dell'hub IoT_ per l'hub:
+Eseguire il comando seguente per ottenere la _stringa di connessione dell'hub IoT_ per l'hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
-
-Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:
-
-```json
-HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}
-```
-
-Il valore verrà usato più avanti in questa guida di avvio rapido.
 
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo
 
@@ -116,9 +108,9 @@ In questa guida di avvio rapido verrà preparato un ambiente di sviluppo install
 
 In questa guida di avvio rapido si useranno un modello di funzionalità di dispositivo di esempio esistente e le interfacce associate.
 
-1. Creare una directory `pnp_app` nell'unità locale.
+1. Creare una directory `pnp_app` nell'unità locale. Questa cartella viene usata per i file del modello di dispositivo e lo stub del codice del dispositivo.
 
-1. Scaricare il [modello di funzionalità di dispositivo](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) e l'[esempio di interfaccia](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salvare i file nella cartella `pnp_app`.
+1. Scaricare il [modello di funzionalità di dispositivo e i file di interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) e l'[interfaccia di esempio](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salvare i file nella cartella `pnp_app`.
 
     > [!TIP]
     > Per scaricare un file da GitHub, passare al file, fare clic con il pulsante destro del mouse su **Raw** e quindi scegliere **Save link as** (Salva collegamento con nome).
@@ -133,29 +125,29 @@ In questa guida di avvio rapido si useranno un modello di funzionalità di dispo
 
 A questo punto, si dispone di un modello di funzionalità di dispositivo e delle interfacce associate ed è possibile generare il codice del dispositivo che implementa il modello. Per generare lo stub del codice C in VS Code:
 
-1. Dopo avere aperto la cartella con i file del modello di funzionalità di dispositivo, premere **CTRL+MAIUSC+P** per aprire il riquadro comandi, immettere **Plug and Play IoT** e selezionare **Generate Device Code Stub** (Genera stub codice dispositivo).
+1. Con la cartella `pnp_app` aperta in VS Code, usare **CTRL+MAIUSC+P** per aprire il riquadro comandi, immettere **Plug and Play IoT** e selezionare **Generate Device Code Stub** (Genera stub codice dispositivo).
 
     > [!NOTE]
     > La prima volta che si usa l'interfaccia della riga di comando CodeGen di Plug and Play IoT è necessario attendere alcuni secondi il completamento del download e dell'installazione automatica.
 
-1. Scegliere il file del modello di funzionalità di dispositivo da usare per generare lo stub del codice del dispositivo.
+1. Scegliere il file **SampleDevice.capabilitymodel.json** da usare per generare lo stub del codice del dispositivo.
 
-1. Immettere il nome del progetto **sample_device**, che sarà il nome dell'applicazione del dispositivo.
+1. Immettere il nome di progetto **sample_device**. Si tratta del nome dell'applicazione del dispositivo.
 
 1. Scegliere **ANSI C** come linguaggio.
 
 1. Scegliere **Via IoT Hub device connection string** (Tramite stringa di connessione del dispositivo hub IoT) come metodo di connessione.
 
-1. Scegliere **progetto CMake in Windows** come modello di progetto.
+1. Scegliere **CMake Project on Windows** (Progetto CMake in Windows) come modello di progetto.
 
 1. Scegliere la modalità **Via Vcpkg** (Tramite vcpkg) per includere l'SDK per dispositivi.
 
 1. Nello stesso percorso del file DCM verrà creata una nuova cartella denominata **sample_device**, contenente i file stub del codice del dispositivo generati. VS Code apre una nuova finestra per visualizzarli.
     ![Codice del dispositivo](media/quickstart-create-pnp-device/device-code.png)
 
-## <a name="build-the-code"></a>Compilare il codice
+## <a name="build-and-run-the-code"></a>Compilare ed eseguire il codice
 
-Per compilare lo stub del codice del dispositivo generato, si usa l'SDK per dispositivi. L'applicazione compilata simula un dispositivo che si connette a un hub IoT. L'applicazione invia proprietà e dati di telemetria e riceve comandi.
+Per compilare lo stub del codice del dispositivo generato, si usa il codice sorgente dell'SDK per dispositivi. L'applicazione compilata simula un dispositivo che si connette a un hub IoT. L'applicazione invia proprietà e dati di telemetria e riceve comandi.
 
 1. Creare una sottodirectory `cmake` nella cartella `sample_device` e passare a tale cartella:
 
@@ -167,7 +159,7 @@ Per compilare lo stub del codice del dispositivo generato, si usa l'SDK per disp
 1. Eseguire questi comandi per compilare lo stub del codice generato (sostituendo il segnaposto con la directory del repository Vcpkg):
 
     ```cmd\sh
-    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
     ```
@@ -187,7 +179,7 @@ Per compilare lo stub del codice del dispositivo generato, si usa l'SDK per disp
 1. Al termine della compilazione, eseguire l'applicazione passando come parametro la stringa di connessione del dispositivo dell'hub IoT.
 
     ```cmd\sh
-    .\Debug\sample_device.exe "[IoT Hub device connection string]"
+    .\Debug\sample_device.exe "<device connection string>"
     ```
 
 1. L'applicazione del dispositivo inizia a inviare dati all'hub IoT.
@@ -200,7 +192,7 @@ Per compilare lo stub del codice del dispositivo generato, si usa l'SDK per disp
 
 Per convalidare il codice del dispositivo con **Azure IoT Explorer**, è necessario pubblicare i file nel repository dei modelli.
 
-1. Dopo avere aperto la cartella con i file del modello di funzionalità di dispositivo in VS Code, premere **CTRL+MAIUSC+P** per aprire il riquadro comandi, digitare e selezionare **IoT Plug & Play: Submit files to Model Repository** (Plug & Play IoT: Invia file al repository dei modelli).
+1. Con la cartella `pnp_app` aperta in VS Code, usare **CTRL+MAIUSC+P** per aprire il riquadro comandi, digitare e selezionare **Plug and Play IoT: Submit files to Model Repository** (Plug & Play IoT: Invia file al repository dei modelli).
 
 1. Selezionare i file `SampleDevice.capabilitymodel.json` e `EnvironmentalSensor.interface.json`.
 
@@ -218,7 +210,7 @@ Per convalidare il codice del dispositivo con **Azure IoT Explorer**, è necessa
 
 1. Aprire Azure IoT Explorer. Viene visualizzata la pagina **App configurations** (Configurazioni app).
 
-1. Immettere la stringa di connessione dell'hub IoT e fare clic su **Connetti**.
+1. Immettere la _stringa di connessione dell'hub IoT_ e selezionare **Connect** (Connetti).
 
 1. Dopo la connessione viene visualizzata la pagina della panoramica del dispositivo.
 
@@ -230,25 +222,25 @@ Per convalidare il codice del dispositivo con **Azure IoT Explorer**, è necessa
 
 1. Selezionare la pagina **Telemetria** e scegliere _Start_ per visualizzare i dati di telemetria inviati dal dispositivo.
 
-1. Selezionare la pagina **Properties(non-writable)** (Proprietà - non scrivibili) per visualizzare le proprietà non scrivibili segnalate dal dispositivo.
+1. Selezionare la pagina **Properties (non-writable)** (Proprietà - non scrivibili) per visualizzare le proprietà non scrivibili segnalate dal dispositivo.
 
-1. Selezionare la pagina **Properties(writable)** (Proprietà - scrivibili) per visualizzare le proprietà scrivibili che è possibile aggiornare.
+1. Selezionare la pagina **Properties (writable)** (Proprietà - scrivibili) per visualizzare le proprietà scrivibili che è possibile aggiornare.
 
 1. Espandere la proprietà **name**, aggiornarla con un nuovo nome e selezionare **Update writable property** (Aggiorna proprietà scrivibile).
 
-1. Per visualizzare il nuovo nome nella colonna **Reported Property** (Proprietà segnalata), fare clic sul pulsante **Aggiorna** nella parte superiore della pagina.
+1. Per visualizzare il nuovo nome nella colonna **Reported Property** (Proprietà segnalata), selezionare il pulsante **Refresh** (Aggiorna) nella parte superiore della pagina.
 
-1. Selezionare la pagina **Comando** per visualizzare tutti i comandi supportati dal dispositivo.
+1. Selezionare la pagina **Commands** (Comandi) per visualizzare tutti i comandi supportati dal dispositivo.
 
 1. Espandere il comando **blink** e impostare un nuovo intervallo di tempo per l'intermittenza. Selezionare **Invia comando** per chiamare il comando nel dispositivo.
 
-1. Passare al dispositivo simulato per verificare che il comando venga eseguito come previsto.
+1. Passare al prompt dei comandi del dispositivo simulato e leggere i messaggi di conferma visualizzati per verificare che i comandi siano stati eseguiti come previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida di avvio rapido si è appreso come creare un dispositivo Plug and Play IoT usando un modello di funzionalità di dispositivo.
 
-Per altre informazioni su Plug and Play IoT, continuare con l'esercitazione:
+Per altre informazioni sui modelli di funzionalità di dispositivo e su come creare modelli personalizzati, continuare con l'esercitazione:
 
 > [!div class="nextstepaction"]
-> [Creare e testare un modello di funzionalità di dispositivo con Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Esercitazione: Creare e testare un modello di funzionalità di dispositivo con Visual Studio Code](tutorial-pnp-visual-studio-code.md)

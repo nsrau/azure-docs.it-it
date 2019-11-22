@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 366986f989fdd8d76b1707451c2a7cca2aa554cf
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719968"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890109"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -68,9 +68,7 @@ Ai fini di questa esercitazione, viene usato un set di dati di esempio predefini
 
 3. Passare alla pagina successiva.
 
-   ![Pulsante Pagina successiva per la ricerca cognitiva](media/search-get-started-portal/next-button-add-cog-search.png)
-
-### <a name="step-2---skip-cognitive-skills"></a>Passaggio 2: Ignorare le competenze cognitive
+### <a name="step-2---skip-the-enrich-content-page"></a>Passaggio 2: Ignorare la pagina "Enrich content" (Arricchisci contenuto)
 
 La procedura guidata supporta la creazione di una [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per incorporare nell'indicizzazione gli algoritmi di intelligenza artificiale di Servizi cognitivi. 
 
@@ -104,7 +102,6 @@ Per impostazione predefinita, la procedura guidata analizza l'origine dati alla 
 
 2. Passare alla pagina successiva.
 
-   ![Pagina successiva: creazione indicizzatore](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Passaggio 4: Configurare l'indicizzatore
 
@@ -127,6 +124,8 @@ L'aggiornamento della pagina nel portale può richiedere alcuni minuti, ma l'ind
 ## <a name="view-the-index"></a>Visualizzare l'indice
 
 La pagina principale del servizio include i collegamenti alle risorse create nel servizio Ricerca cognitiva di Azure.  Per visualizzare l'indice appena creato, fare clic su **Indici** nell'elenco di collegamenti. 
+
+Attendere l'aggiornamento della pagina del portale. Dopo alcuni minuti, l'indice viene visualizzato con il numero di documenti e le dimensioni di archiviazione.
 
    ![Elenco di indici nella dashboard del servizio](media/search-get-started-portal/indexes-list.png)
 
@@ -154,7 +153,7 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
    ![Comando di Esplora ricerche](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Nell'elenco a discesa **Indice** selezionare *hotels-sample*. Fare clic sull'elenco a discesa **Versione API** per visualizzare le API REST disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2019-05-06).
+2. Nell'elenco a discesa **Indice** selezionare *hotels-sample-index*. Fare clic sull'elenco a discesa **Versione API** per visualizzare le API REST disponibili. Per le query seguenti, usare la versione disponibile a livello generale (2019-05-06).
 
    ![Comandi dell'indice e dell'API](media/search-get-started-portal/search-explorer-changeindex.png)
 

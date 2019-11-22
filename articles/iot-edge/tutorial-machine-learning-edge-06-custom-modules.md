@@ -1,19 +1,19 @@
 ---
-title: Creare e distribuire moduli personalizzati - Machine Learning in Azure IoT Edge | Microsoft Docs
-description: Creare e distribuire moduli IoT Edge che elaborano i dati di dispositivi foglia tramite un modello di Machine Learning e quindi inviano le informazioni all'hub IoT.
+title: 'Esercitazione: Creare e distribuire moduli personalizzati - Machine Learning in Azure IoT Edge'
+description: "Esercitazione: Creare e distribuire moduli IoT Edge che elaborano i dati di dispositivi foglia tramite un modello di Machine Learning e quindi inviano le informazioni all'hub IoT."
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494008"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106554"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193323"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172763"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -68,7 +68,7 @@ Il certificato richiesto o creato deve soddisfare i requisiti seguenti. Il domin
 * **Utilizzo di chiavi**: il certificato deve essere configurato per le *firme digitali* e la *crittografia a chiave*.
 * **Scopo del certificato** : il certificato deve essere valido per l'autenticazione server SSL.
 
-In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite PowerShell. Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *contoso.com*:
+In questa esercitazione verrà creato un certificato autofirmato per LDAP sicuro tramite il cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Aprire una finestra di PowerShell come **amministratore** e immettere i comandi seguenti. Sostituire la variabile *$dnsName* con il nome DNS usato dal dominio gestito, ad esempio *contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -176,7 +176,7 @@ Il file di certificato *CER* può ora essere distribuito ai computer client che 
 
 Con un certificato digitale creato ed esportato che include la chiave privata e il computer client impostato in modo da considerare attendibile la connessione, è ora possibile abilitare LDAP sicuro nel dominio gestito di Azure AD DS. Per abilitare LDAP sicuro in un dominio gestito di Azure AD DS, seguire questa procedura di configurazione:
 
-1. Nel [portale di Azure](https://portal.azure.com) cercare *servizi di dominio* nella casella **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca.
+1. Nel [portale di Azure](https://portal.azure.com) immettere *servizi di dominio* nella casella **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca.
 
     ![Cercare e selezionare il dominio gestito di Azure AD DS nel portale di Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -207,7 +207,7 @@ Quando si abilita l'accesso LDAP sicuro al dominio gestito di Azure AD DS tramit
 Creare una regola per consentire l'accesso LDAP sicuro in ingresso sulla porta TCP 636 da un set specificato di indirizzi IP. Una regola *DenyAll* predefinita con una priorità più bassa si applica a tutto il traffico in ingresso proveniente da Internet, quindi solo gli indirizzi specificati possono raggiungere il dominio gestito di Azure AD DS tramite il protocollo LDAP sicuro.
 
 1. Nel riquadro di spostamento sinistro del portale di Azure selezionare *Gruppi di risorse*.
-1. Scegliere il gruppo di risorse, ad esempio *myResourceGroup*, quindi selezionare il gruppo di sicurezza di rete, ad esempio *AADDS-contoso.com-NSG*.
+1. Scegliere il gruppo di risorse, ad esempio *myResourceGroup* e quindi selezionare il gruppo di sicurezza di rete, ad esempio *aaads-nsg*.
 1. Viene visualizzato l'elenco delle regole di sicurezza in ingresso e in uscita esistenti. Sul lato sinistro della finestra del gruppo di sicurezza di rete scegliere **Sicurezza > Regole di sicurezza in ingresso**.
 1. Selezionare **Aggiungi**, quindi creare una regola per consentire la porta *TCP* *636*. Per una maggiore sicurezza, scegliere l'origine come *Indirizzi IP* e quindi specificare il proprio indirizzo IP o l'intervallo valido per l'organizzazione.
 
@@ -297,3 +297,4 @@ Questa esercitazione illustra come:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

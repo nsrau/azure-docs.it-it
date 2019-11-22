@@ -1,6 +1,6 @@
 ---
-title: Panoramica Anteprima di Azure Time Series Insights | Microsoft Docs
-description: Panoramica dell'anteprima di Azure Time Series Insights.
+title: Panoramica Informazioni su Azure Time Series Insights (anteprima) - Azure Time Series Insights | Microsoft Docs
+description: Informazioni sui principali miglioramenti di Azure Time Series Insights (anteprima).
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05f4c64adad184e761e2b5a01b8c033c024dbc49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cde846152ff183db857b8a0549fafd24700ffff9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585263"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014737"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Informazioni su Azure Time Series Insights (anteprima)
 
@@ -51,7 +51,7 @@ Il panorama IoT è diverso con i clienti che si occupano di vari segmenti indust
 
 Azure Time Series Insights risponde a questa esigenza del mercato offrendo una soluzione di analisi IoT end-to-end chiavi in mano, con funzionalità di modellazione semantica avanzate per la contestualizzazione dei dati delle serie temporali, informazioni dettagliate basate su asset e un'esperienza utente ottimale per l'individuazione, l'individuazione delle tendenze, il rilevamento delle anomalie e le informazioni operative. 
 
-Piattaforma di analisi operativa avanzata combinata alle funzionalità di esplorazione dei dati interattive, è possibile usare Time Series Insights per ottenere maggior valore dai dati raccolti dagli asset IoT. L'offerta dell'anteprima supporta: 
+Piattaforma di analisi operativa avanzata combinata alle funzionalità di esplorazione dei dati interattive, è possibile usare Time Series Insights per ottenere maggior valore dai dati raccolti dagli asset IoT. L’offerta dell’anteprima supporta: 
 
 * Soluzione di archiviazione a più livelli con supporto di analisi a caldo e a freddo che offre ai clienti la possibilità di instradare i dati tra caldo e freddo per l'analisi interattiva sui dati a caldo e l'intelligenza operativa su decenni di dati cronologici. 
 
@@ -81,7 +81,7 @@ Con l'introduzione di queste funzionalità IoT industriali chiave, Time Series I
 | Archiviazione a più livelli per i dati IoT delle serie temporali | Con una pipeline di elaborazione dei dati condivisi per l'inserimento di dati, è possibile inserire dati in archivi ad accesso sporadico e frequente. Usare l'archivio ad accesso frequente per le query interattive e l'archivio ad accesso sporadico per archiviare volumi elevati di dati. Per altre informazioni su come sfruttare i vantaggi delle query basate su asset con prestazioni elevate, vedere l'argomento relativo alle [query](./time-series-insights-update-tsq.md). |
 | Modello di Time Series per contestualizzare i dati di telemetria non elaborati e ricavare informazioni dettagliate basate sugli asset | È possibile usare il modello Time Series per creare istanze, gerarchie, tipi e variabili per i dati delle serie temporali. Per altre informazioni sul modello Time Series, vedere l'argomento relativo al [modello Time Series](./time-series-insights-update-tsm.md).  |
 | Integrazione facile e continua con altre soluzioni di dati | I dati nell'archivio ad accesso sporadico di Time Series Insights vengono [archiviati](./time-series-insights-update-storage-ingress.md) nei file Apache Parquet open source. Ciò consente l'integrazione dei dati con altre soluzioni dati di proprietà o di terzi, per scenari che includono business intelligence, Machine Learning avanzato e analisi predittiva. |
-| Esplorazione dei dati quasi in tempo reale | L'esperienza utente dell'[anteprima di Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) fornisce una visualizzazione per tutti i dati trasmessi nella pipeline di inserimento. Dopo aver effettuato la connessione a un'origine evento, è possibile visualizzare, esplorare ed eseguire query sui dati dell'evento. In questo modo, è possibile verificare se un dispositivo genera dati come previsto. È anche possibile monitorare l'integrità, la produttività e l'efficienza complessiva di un asset IoT. | 
+| Esplorazione dei dati quasi in tempo reale | L'esperienza utente dell’[anteprima di Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) fornisce una visualizzazione per tutti i dati trasmessi nella pipeline di inserimento. Dopo aver effettuato la connessione a un'origine evento, è possibile visualizzare, esplorare ed eseguire query sui dati dell'evento. In questo modo, è possibile verificare se un dispositivo genera dati come previsto. È anche possibile monitorare l'integrità, la produttività e l'efficienza complessiva di un asset IoT. | 
 | Estendibilità e integrazione | L'integrazione del connettore Power BI di Azure Time Series Insights è disponibile direttamente nell'esperienza utente dello strumento di esplorazione di Time Series tramite l'opzione **Esporta**, consentendo ai clienti di esportare direttamente in Power BI Desktop le query delle serie temporali create nell'esperienza utente e di visualizzare i relativi grafici delle serie temporali insieme ad altre analisi BI. In questo modo, si apre la porta a una nuova classe di scenari per le aziende IoT industriali che hanno investito in Power BI, offrendo un unico pannello per visualizzare le analisi di diverse origini dati, tra cui le serie temporali IoT. | 
 | Applicazioni personalizzate costruite sulla piattaforma Time Series Insights | Time Series Insights supporta [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK fornisce controlli avanzati e accesso semplificato alle query. Usare SDK per creare applicazioni IoT personalizzate all'inizio di Time Series Insights in base alle esigenze aziendali. Inoltre, è possibile usare le [API di query](./time-series-insights-update-tsq.md) di Time Series Insights direttamente per integrare i dati nelle applicazioni IoT personalizzate. |
 
@@ -95,4 +95,4 @@ Iniziare a usare l'anteprima di Azure Time Series Insights:
 Ulteriori informazioni sui casi d'uso:
 
 > [!div class="nextstepaction"]
-> [Casi d'uso sull'anteprima di Azure Time Series Insights](./time-series-insights-update-use-cases.md)
+> [Casi d’uso sull'anteprima di Azure Time Series Insights](./time-series-insights-update-use-cases.md)

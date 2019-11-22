@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107338"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Sign
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Sign, �
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Adobe Sign](#configure-adobe-sign-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Adobe Sign](#create-adobe-sign-test-user)** : per avere una controparte di Britta Simon in Adobe Sign collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Sign, seguire que
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.echosign.com/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.echosign.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.echosign.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -151,13 +152,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Sign, seguire que
 
 1. Nel menu SAML, selezionare **Impostazioni account** > **Impostazioni SAML**.
    
-    ![Schermata della pagina delle impostazioni SAML di Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Account")
+    ![Screenshot della pagina delle impostazioni SAML di Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Account")
 
 1. Nella sezione **SAML Settings** (Impostazioni SAML), seguire questa procedura:
   
-   ![Schermata delle impostazioni SAML](./media/adobe-echosign-tutorial/ic789521.png "Impostazioni SAML")
+   ![Screenshot delle impostazioni SAML](./media/adobe-echosign-tutorial/ic789521.png "Impostazioni SAML")
    
-   ![Schermata delle impostazioni SAML](./media/adobe-echosign-tutorial/ic789522.png "Impostazioni SAML")
+   ![Screenshot delle impostazioni SAML](./media/adobe-echosign-tutorial/ic789522.png "Impostazioni SAML")
 
    a. Per **SAML Mode** (Modalità SAML), selezionare **SAML Mandatory** (SAML obbligatorio).
    
@@ -175,7 +176,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Sign, seguire que
 
    h. Selezionare **Save changes** (Salva modifiche).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -198,7 +199,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -237,11 +238,11 @@ Per consentire agli utenti di Azure AD di accedere a Adobe Sign, è necessario e
 
 2. Nel menu in alto, selezionare **Account**. Quindi, nel riquadro sinistro, selezionare **Utenti e gruppi** > **Crea un nuovo utente**.
    
-    ![Schermata del sito aziendale di Adobe Site, con evidenziate le opzioni relative all'account, agli utenti e ai gruppi, all'azienda e alla creazione di un nuovo utente](./media/adobe-echosign-tutorial/ic789524.png "Account")
+    ![Screenshot del sito aziendale di Adobe Site, con evidenziate le opzioni relative all'account, agli utenti e ai gruppi e alla creazione di un nuovo utente](./media/adobe-echosign-tutorial/ic789524.png "Account")
    
 3. Nella sezione **Create New User** seguire questa procedura:
    
-    ![Schermata Crea nuovo utente](./media/adobe-echosign-tutorial/ic789525.png "Crea utente")
+    ![Screenshot della sezione di creazione di un nuovo utente](./media/adobe-echosign-tutorial/ic789525.png "Crea utente")
    
     a. Digitare l'**indirizzo di posta elettronica**, il **nome** e il **cognome** di un account utente di Azure AD valido di cui si vuole eseguire il provisioning.
    

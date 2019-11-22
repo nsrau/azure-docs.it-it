@@ -1,26 +1,23 @@
 ---
-title: Creare una rete virtuale locale con Terraform in Azure
+title: Esercitazione - Creare una rete virtuale locale in Azure con Terraform
 description: Esercitazione che illustra come implementare in Azure una rete virtuale locale che ospita risorse locali
-services: terraform
-ms.service: azure
-keywords: terraform, hub e spoke, reti, reti ibride, devops, macchina virtuale, azure, peering reti virtuali, locale
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 98c7c2450b4aa828f544ecab4c1e320eb74bab45
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: df96b9340e9961387fd727eba898fe4db6a18821
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169794"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969393"
 ---
-# <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>Esercitazione: Creare una rete virtuale locale con Terraform in Azure
+# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Esercitazione: Creare una rete virtuale locale in Azure con Terraform
 
-In questa esercitazione si implementa una rete locale usando una rete virtuale di Azure. Una rete virtuale di Azure può essere sostituita dalla propria rete virtuale privata. A tale scopo, mappare gli indirizzi IP appropriati nelle subnet.
+In questa esercitazione viene illustrato come implementare una rete locale usando una rete virtuale di Azure. Una rete virtuale di Azure può essere sostituita dalla propria rete virtuale privata. A tale scopo, mappare gli indirizzi IP appropriati nelle subnet.
 
-Questa esercitazione illustra le attività seguenti:
+Vengono illustrate le attività seguenti:
 
 > [!div class="checklist"]
 > * Usare HCL (HashiCorp Language) per implementare la rete virtuale locale nella topologia hub-spoke
@@ -34,7 +31,7 @@ Questa esercitazione illustra le attività seguenti:
 
 ## <a name="create-the-directory-structure"></a>Creare la struttura di directory
 
-Per simulare una rete locale, creare una rete virtuale di Azure. La rete virtuale demo sostituisce una rete privata locale reale. Per eseguire la stessa operazione con la rete locale esistente, mappare gli indirizzi IP appropriati nelle subnet.
+Per simulare una rete locale, creare una rete virtuale di Azure. La rete virtuale demo sostituisce una rete privata locale reale. Per eseguire la stessa operazione con la rete locale esistente, mappare indirizzi IP appropriati nelle subnet.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -74,65 +71,65 @@ Creare il file di configurazione Terraform che dichiara una rete virtuale locale
     }
 
     resource "azurerm_resource_group" "onprem-vnet-rg" {
-      name     = "${local.onprem-resource-group}"
-      location = "${local.onprem-location}"
+      name     = local.onprem-resource-group
+      location = local.onprem-location
     }
 
     resource "azurerm_virtual_network" "onprem-vnet" {
       name                = "onprem-vnet"
-      location            = "${azurerm_resource_group.onprem-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.onprem-vnet-rg.name}"
+      location            = azurerm_resource_group.onprem-vnet-rg.location
+      resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
       address_space       = ["192.168.0.0/16"]
 
       tags {
-        environment = "${local.prefix-onprem}"
+        environment = local.prefix-onprem
       }
     }
 
     resource "azurerm_subnet" "onprem-gateway-subnet" {
       name                 = "GatewaySubnet"
-      resource_group_name  = "${azurerm_resource_group.onprem-vnet-rg.name}"
-      virtual_network_name = "${azurerm_virtual_network.onprem-vnet.name}"
+      resource_group_name  = azurerm_resource_group.onprem-vnet-rg.name
+      virtual_network_name = azurerm_virtual_network.onprem-vnet.name
       address_prefix       = "192.168.255.224/27"
     }
 
     resource "azurerm_subnet" "onprem-mgmt" {
       name                 = "mgmt"
-      resource_group_name  = "${azurerm_resource_group.onprem-vnet-rg.name}"
-      virtual_network_name = "${azurerm_virtual_network.onprem-vnet.name}"
+      resource_group_name  = azurerm_resource_group.onprem-vnet-rg.name
+      virtual_network_name = azurerm_virtual_network.onprem-vnet.name
       address_prefix       = "192.168.1.128/25"
     }
 
     resource "azurerm_public_ip" "onprem-pip" {
         name                         = "${local.prefix-onprem}-pip"
-        location            = "${azurerm_resource_group.onprem-vnet-rg.location}"
-        resource_group_name = "${azurerm_resource_group.onprem-vnet-rg.name}"
+        location            = azurerm_resource_group.onprem-vnet-rg.location
+        resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
         allocation_method   = "Dynamic"
 
         tags {
-            environment = "${local.prefix-onprem}"
+            environment = local.prefix-onprem
         }
     }
 
     resource "azurerm_network_interface" "onprem-nic" {
       name                 = "${local.prefix-onprem}-nic"
-      location             = "${azurerm_resource_group.onprem-vnet-rg.location}"
-      resource_group_name  = "${azurerm_resource_group.onprem-vnet-rg.name}"
+      location             = azurerm_resource_group.onprem-vnet-rg.location
+      resource_group_name  = azurerm_resource_group.onprem-vnet-rg.name
       enable_ip_forwarding = true
 
       ip_configuration {
-        name                          = "${local.prefix-onprem}"
-        subnet_id                     = "${azurerm_subnet.onprem-mgmt.id}"
+        name                          = local.prefix-onprem
+        subnet_id                     = azurerm_subnet.onprem-mgmt.id
         private_ip_address_allocation = "Dynamic"
-        public_ip_address_id          = "${azurerm_public_ip.onprem-pip.id}"
+        public_ip_address_id          = azurerm_public_ip.onprem-pip.id
       }
     }
 
     # Create Network Security Group and rule
     resource "azurerm_network_security_group" "onprem-nsg" {
         name                = "${local.prefix-onprem}-nsg"
-        location            = "${azurerm_resource_group.onprem-vnet-rg.location}"
-        resource_group_name = "${azurerm_resource_group.onprem-vnet-rg.name}"
+        location            = azurerm_resource_group.onprem-vnet-rg.location
+        resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
 
         security_rule {
             name                       = "SSH"
@@ -152,16 +149,16 @@ Creare il file di configurazione Terraform che dichiara una rete virtuale locale
     }
 
     resource "azurerm_subnet_network_security_group_association" "mgmt-nsg-association" {
-      subnet_id                 = "${azurerm_subnet.onprem-mgmt.id}"
-      network_security_group_id = "${azurerm_network_security_group.onprem-nsg.id}"
+      subnet_id                 = azurerm_subnet.onprem-mgmt.id
+      network_security_group_id = azurerm_network_security_group.onprem-nsg.id
     }
 
     resource "azurerm_virtual_machine" "onprem-vm" {
       name                  = "${local.prefix-onprem}-vm"
-      location              = "${azurerm_resource_group.onprem-vnet-rg.location}"
-      resource_group_name   = "${azurerm_resource_group.onprem-vnet-rg.name}"
-      network_interface_ids = ["${azurerm_network_interface.onprem-nic.id}"]
-      vm_size               = "${var.vmsize}"
+      location              = azurerm_resource_group.onprem-vnet-rg.location
+      resource_group_name   = azurerm_resource_group.onprem-vnet-rg.name
+      network_interface_ids = [azurerm_network_interface.onprem-nic.id]
+      vm_size               = var.vmsize
 
       storage_image_reference {
         publisher = "Canonical"
@@ -179,8 +176,8 @@ Creare il file di configurazione Terraform che dichiara una rete virtuale locale
 
       os_profile {
         computer_name  = "${local.prefix-onprem}-vm"
-        admin_username = "${var.username}"
-        admin_password = "${var.password}"
+        admin_username = var.username
+        admin_password = var.password
       }
 
       os_profile_linux_config {
@@ -188,22 +185,22 @@ Creare il file di configurazione Terraform che dichiara una rete virtuale locale
       }
 
       tags {
-        environment = "${local.prefix-onprem}"
+        environment = local.prefix-onprem
       }
     }
 
     resource "azurerm_public_ip" "onprem-vpn-gateway1-pip" {
       name                = "${local.prefix-onprem}-vpn-gateway1-pip"
-      location            = "${azurerm_resource_group.onprem-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.onprem-vnet-rg.name}"
+      location            = azurerm_resource_group.onprem-vnet-rg.location
+      resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
 
       allocation_method = "Dynamic"
     }
 
     resource "azurerm_virtual_network_gateway" "onprem-vpn-gateway" {
       name                = "onprem-vpn-gateway1"
-      location            = "${azurerm_resource_group.onprem-vnet-rg.location}"
-      resource_group_name = "${azurerm_resource_group.onprem-vnet-rg.name}"
+      location            = azurerm_resource_group.onprem-vnet-rg.location
+      resource_group_name = azurerm_resource_group.onprem-vnet-rg.name
 
       type     = "Vpn"
       vpn_type = "RouteBased"
@@ -214,9 +211,9 @@ Creare il file di configurazione Terraform che dichiara una rete virtuale locale
 
       ip_configuration {
         name                          = "vnetGatewayConfig"
-        public_ip_address_id          = "${azurerm_public_ip.onprem-vpn-gateway1-pip.id}"
+        public_ip_address_id          = azurerm_public_ip.onprem-vpn-gateway1-pip.id
         private_ip_address_allocation = "Dynamic"
-        subnet_id                     = "${azurerm_subnet.onprem-gateway-subnet.id}"
+        subnet_id                     = azurerm_subnet.onprem-gateway-subnet.id
       }
       depends_on = ["azurerm_public_ip.onprem-vpn-gateway1-pip"]
 

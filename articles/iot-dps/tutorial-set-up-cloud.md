@@ -1,22 +1,21 @@
 ---
-title: Configurare il cloud per il servizio Device Provisioning in hub IoT di Azure nel portale | Microsoft Docs
-description: Provisioning automatico dei dispositivi nell'hub IoT nel portale di Azure
+title: 'Esercitazione: Configurare il cloud per il servizio Device Provisioning in hub IoT di Azure nel portale'
+description: 'Esercitazione: Configurare le risorse cloud per il provisioning di dispositivi nel [portale di Azure](https://portal.azure.com) con il servizio Device Provisioning in hub IoT'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826185"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112803"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Esercitazione: Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
 
 Questa esercitazione illustra come configurare il cloud per il provisioning automatico dei dispositivi con il servizio Device Provisioning in hub IoT. In questa esercitazione si apprenderà come:
 
@@ -48,7 +47,7 @@ Seguire questa procedura per creare una nuova istanza del servizio Device Provis
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome** | Qualsiasi nome univoco | -- | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
-   | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). |
+   | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |   
 
    ![Immettere le informazioni di base sul servizio Device Provisioning nel portale](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

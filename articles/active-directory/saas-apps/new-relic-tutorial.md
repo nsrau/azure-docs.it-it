@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096261"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Esercitazione: Integrazione di Azure Active Directory con New Relic
 
@@ -78,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con New Relic, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per New Relic](#configure-new-relic-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di New Relic](#create-new-relic-test-user)** : per avere una controparte di Britta Simon in New Relic collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -128,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con New Relic, seguire ques
 
 2. Nel menu in alto fare clic su **Impostazioni account**.
    
-    ![Impostazioni account](./media/new-relic-tutorial/ic797036.png "Impostazioni account")
+    ![Impostazioni dell'account](./media/new-relic-tutorial/ic797036.png "Impostazioni account")
 
 3. Fare clic sulla scheda **Security and authentication** (Sicurezza e autenticazione), quindi fare clic sulla scheda **Single sign on**.
    
@@ -146,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con New Relic, seguire ques
 
     d. Fare clic su **Save my changes**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -169,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -207,15 +208,15 @@ Per consentire agli utenti di Azure Active Directory di accedere a New Relic, è
 
 2. Nel menu in alto fare clic su **Impostazioni account**.
    
-    ![Impostazioni account](./media/new-relic-tutorial/ic797040.png "Impostazioni account")
+    ![Impostazioni dell'account](./media/new-relic-tutorial/ic797040.png "Impostazioni account")
 
 3. Nel riquadro **Account** a sinistra fare clic su **Summary** (Riepilogo), quindi su **Add user** (Aggiungi utente).
    
-    ![Impostazioni account](./media/new-relic-tutorial/ic797041.png "Impostazioni account")
+    ![Impostazioni dell'account](./media/new-relic-tutorial/ic797041.png "Impostazioni account")
 
 4. Nella finestra di dialogo **Active users** eseguire la procedura seguente:
    
-    ![Utenti attivi](./media/new-relic-tutorial/ic797042.png "Utenti attivi")
+    ![Utenti attivi](./media/new-relic-tutorial/ic797042.png "Active users")
    
     a. Nella casella di testo **Posta elettronica** digitare l'indirizzo di posta elettronica di un utente valido di Azure Active Directory di cui si desidera eseguire il provisioning.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Analizzare dati di Apache Spark usando Power BI in Azure HDInsight '
+title: 'Esercitazione: Analizzare dati di Apache Spark per Azure HDInsight con Power BI'
 description: 'Esercitazione: Usare Microsoft Power BI per visualizzare i dati Apache Spark archiviati nei cluster HDInsight'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035697"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241365"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark usando Power BI in HDInsight
 
@@ -78,11 +78,11 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 
 2. Nella scheda **Home** passare a **Recupera dati** > **Altro**.
 
-    ![Ottenere i dati in Power BI Desktop da HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Ottenere i dati in Power BI Desktop da HDInsight Apache Spark")
+    ![Ottenere dati in Power BI Desktop da Apache Spark per HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Ottenere dati in Power BI da Apache Spark BI")
 
 3. Immettere `Spark` nella casella di ricerca, selezionare **Azure HDInsight Spark** e quindi selezionare **Connetti**.
 
-    ![Ottenere i dati in Power BI da Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Ottenere i dati in Power BI da Apache Spark BI")
+    ![Ottenere dati in Power BI da Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Ottenere dati in Power BI da Apache Spark BI")
 
 4. Immettere l'URL del cluster (nel formato `mysparkcluster.azurehdinsight.net`) nella casella di testo **Server**.
 
@@ -108,7 +108,7 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 
         Il diagramma è simile al seguente:
 
-        ![somma grafico ad area](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "somma grafico ad area")
+        ![somma grafico area](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "somma grafico area")
 
         Per impostazione predefinita, la visualizzazione mostra la somma di **ActualTemp** e **TargetTemp**. Selezionare la freccia verso il basso accanto ad **ActualTemp** e a **TragetTemp** nel riquadro Visualizzazioni per osservare che è selezionato **Somma**.
 
@@ -118,7 +118,7 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 
         La visualizzazione dei dati sarà simile a quella nello screenshot. Spostare il cursore sopra la visualizzazione per ottenere suggerimenti con i dati rilevanti.
 
-        ![grafico ad area](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "grafico ad area")
+        ![grafico area](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "grafico area")
 
 9. Passare a **File** > **Salva**, immettere il nome `BuildingTemperature` per il file e quindi selezionare **Salva**.
 
@@ -130,7 +130,7 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
 1. Nella scheda **Home** fare clic su **Pubblica**.
 
-    ![Pubblicazione da Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Pubblicazione da Power BI Desktop")
+    ![Pubblicare in Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Pubblicare in Power BI Desktop")
 
 1. Selezionare un'area di lavoro in cui pubblicare il set di dati e il report e quindi fare clic su **Seleziona**. Nella figura seguente è selezionato il valore predefinito **Area di lavoro personale**.
 
@@ -138,7 +138,7 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
 1. Al termine della pubblicazione, fare clic su **Apri 'BuildingTemperature.pbix' in Power BI**.
 
-    ![Pubblicazione riuscita, fare clic per immettere le credenziali](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Pubblicazione riuscita, fare clic per immettere le credenziali") 
+    ![Pubblicazione completata, fare clic per immettere le credenziali](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Pubblicazione completata, fare clic per immettere le credenziali") 
 
 1. Nel servizio Power BI fare clic su **Immettere le credenziali**.
 
@@ -150,11 +150,11 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
 1. Immettere le informazioni account di accesso HDInsight e quindi fare clic su **Accedi**. Il nome account predefinito è *admin*.
 
-    ![Accesso al cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Accesso al cluster Spark")
+    ![Accedere al cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Accedere al cluster Spark")
 
 1. Nel riquadro a sinistra passare ad **Aree di lavoro** > **Area di lavoro personale** > **REPORT** e quindi fare clic su **BuildingTemperature**.
 
-    ![Report elencato tra i report nel riquadro a sinistra](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report elencato tra i report nel riquadro a sinistra")
+    ![Report elencato nei report nel riquadro sinistro](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Report elencato nei report nel riquadro sinistro")
 
     Il report **BuildingTemperature** è visualizzato anche in **SET DI DATI** nel riquadro a sinistra.
 
@@ -166,7 +166,7 @@ Il servizio Power BI consente di condividere report e dashboard nell'organizzazi
 
 1. Selezionare "Nuovo dashboard", immettere il nome `Building temperature` e quindi fare clic su **Aggiungi**.
 
-    ![Aggiunta al nuovo dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Aggiunta al nuovo dashboard")
+    ![Aggiungere al nuovo dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Aggiungere al nuovo dashboard")
 
 1. All'interno del report fare clic su **Vai al dashboard**.
 

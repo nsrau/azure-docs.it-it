@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091020"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix ShareFile
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Citrix ShareF
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Citrix ShareFile](#configure-citrix-sharefile-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Citrix ShareFile](#create-citrix-sharefile-test-user)** : per avere una controparte di Britta Simon in Citrix ShareFile collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -151,11 +152,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix ShareFile, segui
 
 3. Nel riquadro di spostamento sinistro selezionare **Configure Single Sign-On**.
    
-    ![Account amministratore](./media/sharefile-tutorial/ic773627.png "Account amministratore")
+    ![Amministrazione account](./media/sharefile-tutorial/ic773627.png "Account Administration")
 
 4. In **Basic Settings** della finestra di dialogo **Single Sign-On/ SAML 2.0 Configuration** seguire questa procedura:
    
-    ![Single Sign-On](./media/sharefile-tutorial/ic773628.png "Single Sign-On")
+    ![Single Sign-On](./media/sharefile-tutorial/ic773628.png "Single sign-on")
    
     a. Fare clic su **Enable SAML**.
     
@@ -169,7 +170,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Citrix ShareFile, segui
 
 5. Fare clic su **Save** nel portale di gestione di Citrix ShareFile.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -192,7 +193,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -230,11 +231,11 @@ Per consentire agli utenti di Azure AD di accedere a Citrix ShareFile, è necess
 
 2. Fare clic su **Manage Users \> Manage Users Home \> + Create Employee** (Gestisci utenti > Gestisci home utenti > + Crea dipendente).
    
-    ![Crea dipendente](./media/sharefile-tutorial/IC781050.png "Crea dipendente")
+    ![Creare il dipendente](./media/sharefile-tutorial/IC781050.png "Create Employee")
 
 3. Nella sezione **Informazioni di base** seguire questa procedura:
    
-    ![Informazioni di base](./media/sharefile-tutorial/IC799951.png "Informazioni di base")
+    ![Informazioni di base](./media/sharefile-tutorial/IC799951.png "Basic Information")
    
     a. Digitare l'indirizzo e-mail di Britta Simon nella casella di testo **Indirizzo di posta elettronica** come **brittasimon\@contoso.com**.
    

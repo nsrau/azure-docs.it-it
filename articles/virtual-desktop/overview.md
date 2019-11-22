@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607491"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119974"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -73,12 +73,10 @@ Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 
 * Un'istanza di [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. Ciò può essere abilitato tramite:
-  * Azure AD Connect
-  * Servizi di dominio Azure Active Directory
-     >[!NOTE]
-     >Se si usa Azure AD Domain Services, gli utenti devono essere originati da Azure Active Directory. L'uso di Azure AD Domain Services con utenti originati da AD di Windows Server non è attualmente supportato.
-* Una sottoscrizione di Azure contenente una rete virtuale che contiene o è collegata all'istanza di Windows Server Active Directory
+* Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. È possibile eseguire la configurazione con uno degli elementi seguenti:
+  * Azure AD Connect (per le organizzazioni ibride)
+  * Azure AD Domain Services (per le organizzazioni ibride o cloud)
+* Una sottoscrizione di Azure contenente una rete virtuale che contiene o è connessa all'istanza di Windows Server Active Directory
   
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
@@ -100,7 +98,7 @@ Le macchine virtuali Azure create per Desktop virtuale Windows devono avere l'ac
 >[!NOTE]
 >L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono URL per altri servizi come Azure AD.
 
-Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti (area Stati Uniti orientali 2). Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
+Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti. Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
 
 Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
@@ -117,14 +115,16 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 
 ## <a name="supported-virtual-machine-os-images"></a>Immagini di sistema operativo supportate per le macchine virtuali
 
-Desktop virtuale Windows supporta le immagini di sistema operativo seguenti:
+Desktop virtuale Windows supporta le immagini di sistema operativo x64 seguenti:
 
-* Windows 10 Enterprise multisessione
-* Windows 10 Enterprise
+* Windows 10 Enterprise multisessione 1809 o versioni successive
+* Windows 10 Enterprise 1809 o versioni successive
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Desktop virtuale Windows non supporta le immagini di sistema operativo x86 (32 bit).
 
 Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente: 
 

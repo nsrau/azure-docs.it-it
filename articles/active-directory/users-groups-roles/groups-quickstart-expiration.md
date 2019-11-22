@@ -1,25 +1,25 @@
 ---
-title: Guida introduttiva ai criteri di scadenza per i gruppi di Office 365 - Azure Active Directory | Microsoft Docs
+title: Avvio rapido ai criteri di scadenza dei gruppi - Azure AD | Microsoft Docs
 description: Scadenza per i gruppi di Office 365 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606196"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026890"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Guida introduttiva: Impostare la scadenza dei gruppi di Office 365 in Azure Active Directory
 
@@ -27,9 +27,13 @@ In questa guida introduttiva si impostano i criteri di scadenza per i gruppi di 
 
 I criteri di scadenza sono semplici:
 
-* I proprietari del gruppo ricevono una notifica per rinnovare un gruppo in scadenza
-* Un gruppo che non viene rinnovato viene eliminato
-* Un gruppo di Office 365 eliminato può essere ripristinato entro 30 giorni da un proprietario del gruppo o da un amministratore di Azure AD
+- I gruppi con attività utente vengono rinnovati automaticamente in prossimità della scadenza
+- I proprietari del gruppo ricevono una notifica per rinnovare un gruppo in scadenza
+- Un gruppo che non viene rinnovato viene eliminato
+- Un gruppo di Office 365 eliminato può essere ripristinato entro 30 giorni da un proprietario del gruppo o da un amministratore di Azure AD
+
+> [!NOTE]
+> I gruppi ora usano l'intelligence di Azure AD per il rinnovo automatico in base al fatto che siano stati usati più di recente. Questa decisione di rinnovo si basa sull'attività utente in gruppi nei servizi di Office 365 come Outlook, SharePoint, Teams, Yammer e altri ancora.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

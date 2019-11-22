@@ -1,23 +1,23 @@
 ---
-title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Java e i gruppi di registrazioni | Microsoft Docs
+title: "Esercitazione: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Java e i gruppi di registrazioni"
 description: Esercitazione di Azure - Creare ed effettuare il provisioning di un dispositivo X.509 simulato usando un dispositivo Java, un SDK del servizio e gruppi di registrazioni per il servizio Device Provisioning in hub IoT
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: b3cb506b241adab44df490e2fe7f363d35f0f747
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805054"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112442"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo X.509 simulato usando un dispositivo Java, un SDK del servizio e gruppi di registrazioni per il servizio Device Provisioning in hub IoT
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Esercitazione: Creare ed effettuare il provisioning di un dispositivo X.509 simulato usando un dispositivo Java, un SDK del servizio e gruppi di registrazioni per il servizio Device Provisioning in hub IoT
 
 Questi passaggi illustrano come simulare un dispositivo X.509 in un computer di sviluppo con sistema operativo Windows e usare un esempio di codice per connettere il dispositivo simulato con il servizio Device Provisioning e l'hub IoT tramite i gruppi di registrazioni. 
 
@@ -73,7 +73,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Nel codice sorgente scaricato passare alla cartella dell'esempio **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Aprire il file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** nell'editor preferito e aggiungere i dettagli seguenti:
+1. Nel codice sorgente scaricato passare alla cartella dell'esempio **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** . Aprire il file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** nell'editor preferito e aggiungere i dettagli seguenti:
 
     1. Aggiungere `[Provisioning Connection String]` per il servizio di provisioning dal portale, come indicato di seguito:
 
@@ -127,7 +127,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
 
     1. Salvare il file _ServiceEnrollmentGroupSample.java_.
 
-1. Aprire una finestra di comando e passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
+1. Aprire una finestra di comando e passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** .
 
 1. Compilare il codice di esempio usando questo comando:
 
@@ -177,7 +177,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
 
     Se i certificati del dispositivo sono stati generati con la shell Bash, ./certs/new-device.cert.pem contiene la chiave pubblica. La chiave privata del dispositivo si troverà nel file ./private/new-device.key.pem.
 
-    Aprire il file della chiave pubblica e aggiornare la variabile `leafPublicPem` con questo valore. Copiare il testo da _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_.
+    Aprire il file della chiave pubblica e aggiornare la variabile `leafPublicPem` con questo valore. Copiare il testo da _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_ .
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -189,7 +189,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
         "-----END CERTIFICATE-----\n";
     ```
 
-    Aprire il file della chiave privata e aggiornare la variabile `leafPrivatePem` con questo valore. Copiare il testo da _-----BEGIN RSA PRIVATE KEY-----_ a _-----END RSA PRIVATE KEY-----_.
+    Aprire il file della chiave privata e aggiornare la variabile `leafPrivatePem` con questo valore. Copiare il testo da _-----BEGIN RSA PRIVATE KEY-----_ a _-----END RSA PRIVATE KEY-----_ .
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +

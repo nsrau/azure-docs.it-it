@@ -7,12 +7,12 @@ ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da3fb604bfb65f67e50d56a4520620cabc292b93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329741"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082812"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
@@ -91,7 +91,7 @@ curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow54
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di archiviazione. Per altre informazioni sullo sviluppo di Funzioni di Azure con Python, vedere [Guida per sviluppatori Python per Funzioni di Azure](functions-reference-python.md) e [Trigger e binding di Funzioni di Azure](functions-triggers-bindings.md). Per alcuni esempi di progetti di Funzioni completi in Python, vedere gli [esempi di funzioni Python](/samples/browse/?products=azure-functions&languages=python). 
+La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di archiviazione. Per altre informazioni sullo sviluppo di Funzioni di Azure con Python, vedere [Guida per sviluppatori Python per Funzioni di Azure](functions-reference-python.md) e [Trigger e binding di Funzioni di Azure](functions-triggers-bindings.md). Per alcuni esempi di progetti di Funzioni completi in Python, vedere gli [esempi di funzioni Python](/samples/browse/?products=azure-functions&languages=python). Per altre informazioni sui prezzi, vedere la pagina [Prezzi di Funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/) e l'articolo [Estimating Consumption plan costs](functions-consumption-costs.md) (Stima dei costi del piano a consumo).
 
 Quindi, è consigliabile abilitare il monitoraggio di Application Insights per l'app per le funzioni:
 

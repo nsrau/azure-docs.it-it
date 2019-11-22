@@ -1,22 +1,18 @@
 ---
 title: Distribuire un criterio che è possibile correggere
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
 ms.date: 10/11/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 3bc85d202b9ba230130716aad34ce233037a3346
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 662daeb305856fb36bfb84f98e80bedf48b22756
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301957"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132482"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 
-Azure Lighthouse consente ai provider di servizi di creare e modificare le definizioni dei criteri in una sottoscrizione delegata. Tuttavia, per distribuire i criteri che usano una [attività di correzione](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (ovvero criteri con effetto [deployIfNotExists ](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) o [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), è necessario creare una [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
+[Azure Lighthouse](../overview.md) consente ai provider di servizi di creare e modificare le definizioni dei criteri in una sottoscrizione delegata. Tuttavia, per distribuire i criteri che usano una [attività di correzione](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (ovvero criteri con effetto [deployIfNotExists ](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) o [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), è necessario creare una [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nel tenant del cliente. Questa identità gestita può essere usata da Criteri di Azure per distribuire il modello all'interno del criterio. Per abilitare questo scenario sono necessari alcuni passaggi, sia quando si esegue l'onboarding del cliente per la gestione delle risorse delegate di Azure, sia quando si distribuisce il criterio stesso.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creare un utente che può assegnare ruoli a un'identità gestita nel tenant del cliente
 

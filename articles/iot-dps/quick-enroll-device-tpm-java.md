@@ -1,23 +1,23 @@
 ---
-title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Java | Microsoft Docs
+title: 'Guida introduttiva: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Java'
 description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Java Service SDK. Questa guida introduttiva usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: ae1fbd93b26838b262dc6f07081f20b63e853d5c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ce16a658e760f69cdf17c9bb4de78fceca927a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104744"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903491"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -63,7 +63,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-2. Nel codice sorgente scaricato passare alla cartella dell'esempio **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Aprire il file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** nell'editor preferito e aggiungere i dettagli seguenti:
+2. Nel codice sorgente scaricato passare alla cartella dell'esempio **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** . Aprire il file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** nell'editor preferito e aggiungere i dettagli seguenti:
 
    1. Aggiungere `[Provisioning Connection String]` per il servizio di provisioning dal portale, come indicato di seguito:
        1. Passare al servizio di provisioning nel [portale di Azure](https://portal.azure.com). 
@@ -80,7 +80,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
 
    2. Aggiungere i dettagli del dispositivo TPM:
        1. Ottenere l'*ID registrazione* e la *chiave di verifica dell'autenticità del TPM* per una simulazione del dispositivo TPM, seguendo i passaggi della sezione [Simulare il dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
-       2. Usare l'**_ID registrazione_** e la **_chiave di verifica dell'autenticità_** dell'output del passaggio precedente per sostituire `[RegistrationId]` e `[TPM Endorsement Key]` nel file del codice di esempio **_ServiceEnrollmentSample.java_**:
+       2. Usare l' **_ID registrazione_** e la **_chiave di verifica dell'autenticità_** dell'output del passaggio precedente per sostituire `[RegistrationId]` e `[TPM Endorsement Key]` nel file del codice di esempio **_ServiceEnrollmentSample.java_** :
         
            ```Java
            private static final String REGISTRATION_ID = "[RegistrationId]";
@@ -117,7 +117,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
 
 ## <a name="build-and-run-the-java-sample-code"></a>Compilare ed eseguire il codice di esempio Java
 
-1. Aprire una finestra di comando e passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**.
+1. Aprire una finestra di comando e passare alla cartella **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_** .
 
 2. Compilare il codice di esempio usando questo comando:
 

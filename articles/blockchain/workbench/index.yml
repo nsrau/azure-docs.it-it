@@ -2,7 +2,7 @@
 title: Documentazione di Azure Blockchain Workbench (anteprima)
 summary: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come distribuire Azure Blockchain Workbench e creare e gestire applicazioni blockchain in Azure.
 metadata:
-  title: Documentazione di Azure Blockchain Workbench (anteprima) - Esercitazioni e informazioni di riferimento sulle API
+  title: Documentazione di Azure Blockchain Workbench (anteprima)
   description: Informazioni su come creare applicazioni blockchain. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come distribuire Azure Blockchain Workbench e creare e gestire applicazioni blockchain in Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 09/05/2019
-  ms.openlocfilehash: cc493ae3813cc1c53670b8f6ea46f915d7f9efee
-  ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+  ms.openlocfilehash: 2dda68b1f8fff25759ff250646747f1faf63beb4
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70845015"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74324646"
 landingContent:
 - title: Informazioni su Azure Blockchain Workbench
   linkLists:

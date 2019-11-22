@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597240"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052186"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -223,7 +223,7 @@ Per creare una pipeline con un passaggio per distribuire un modello:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Aprire il gruppo di risorse. Il nome è quello specificato nel file YAML della pipeline.  Si vedrà che è stato creato un account di archiviazione.  Il nome di tale account inizia con **store**.
 1. Selezionare il nome per aprire l'account di archiviazione.
-1. Selezionare **Proprietà**. Notare che come **SKU** è visibile **Standard_LRS**.
+1. Selezionare **Proprietà**. Osservare che l'opzione **Replica** è impostata su **Archiviazione con ridondanza locale**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines portale verifica](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +250,7 @@ Quando si aggiorna il modulo e si esegue il push delle modifiche nel repository 
 
     Con il ramo master del repository remoto aggiornato, la pipeline viene attivata di nuovo.
 
-Per verificare le modifiche, è possibile controllare la SKU dell'account di archiviazione.  Vedere [Verificare la distribuzione](#verify-the-deployment).
+Per verificare le modifiche, è possibile controllare la proprietà Replica dell'account di archiviazione.  Vedere [Verificare la distribuzione](#verify-the-deployment).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

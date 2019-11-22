@@ -1,5 +1,5 @@
 ---
-title: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure e il portale di Azure| Microsoft Docs
+title: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure
 description: Configurare il routing dei messaggi per l'hub IoT di Azure usando l'interfaccia della riga di comando di Azure e il portale di Azure
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535114"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084377"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure e il portale di Azure per configurare il routing dei messaggi per l'hub IoT
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535114"
 
 In questa esercitazione viene usata l'interfaccia della riga di comando di Azure per creare le risorse di base, quindi il [portale di Azure](https://portal.azure.com) per illustrare come configurare il routing dei messaggi e il dispositivo virtuale per i test.
 
-Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplicità, a questi nomi di risorse viene aggiunto un valore alfanumerico casuale denominato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico.
-
 Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script viene eseguito una riga alla volta. Verranno create le risorse di base per questa esercitazione, come l'account di archiviazione, l'hub IoT, lo spazio dei nomi del bus di servizio e la coda del bus di servizio.
 
-Nota sul debug: questo script usa il simbolo di continuazione (barra rovesciata `\`) per migliorare la leggibilità. Se si verifica un problema con l'esecuzione dello script, assicurarsi che non vi siano spazi dopo le barre rovesciate.
+Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplicità, a questi nomi di risorse viene aggiunto un valore alfanumerico casuale denominato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico.
+
+> [!TIP]
+> Suggerimento sul debug: questo script usa il simbolo di continuazione (barra rovesciata `\`) per migliorare la leggibilità. Se si verifica un problema con l'esecuzione dello script, assicurarsi che la sessione Cloud Shell sia in esecuzione `bash` e che non vi siano spazi dopo le barre rovesciate.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 

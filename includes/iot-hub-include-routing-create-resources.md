@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 710bb8cba7fbbe4bc9b9fdc52b0767c96f97fe72
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c97c8231265cf87f52333a56d21d6fb13180c554
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180766"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808880"
 ---
 ## <a name="create-base-resources"></a>Creare le risorse di base
 
-Prima di poter configurare il routing dei messaggi, è necessario creare un hub IoT, un account di archiviazione e una coda del bus di servizio. Queste risorse possono essere create usando uno dei quattro articoli disponibili nella prima parte di questa esercitazione: l'interfaccia della riga di comando di Azure, Azure PowerShell, il portale di Azure o un modello di Azure Resource Manager.
+Prima di poter configurare il routing dei messaggi, è necessario creare un hub IoT, un account di archiviazione e una coda del bus di servizio. Queste risorse possono essere create usando uno dei quattro articoli disponibili nella prima parte di questa esercitazione: il portale di Azure, un modello di Azure Resource Manager, l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
 Usare lo stesso gruppo di risorse e lo stesso percorso per tutte le risorse. Alla fine, poi, è possibile rimuovere tutte le risorse in un unico passaggio tramite l'eliminazione del gruppo di risorse.
 
-Le sezioni seguenti descrivono i passaggi da eseguire.
+Di seguito è riportato un riepilogo dei passaggi da eseguire nelle sezioni seguenti: 
 
 1. Creare un [gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md).
 

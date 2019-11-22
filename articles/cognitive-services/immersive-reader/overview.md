@@ -1,7 +1,7 @@
 ---
 title: Informazioni sull'API dello strumento di lettura immersiva
 titleSuffix: Azure Cognitive Services
-description: Informazioni sull'API dello strumento di lettura immersiva.
+description: L'API dello strumento di lettura immersiva è uno strumento che può essere usato per gestire le persone con differenze di apprendimento o per aiutare nuovi lettori e studenti di lingue.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f84804fbad07357706e786fc449fce9e42a5ec4a
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3e6889cd5d26b88cedd6b110510cb89777252f54
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688341"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904375"
 ---
 # <a name="what-is-immersive-reader"></a>Cos'è lo strumento di lettura immersiva?
 

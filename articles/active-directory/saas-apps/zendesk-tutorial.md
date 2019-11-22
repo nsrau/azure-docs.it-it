@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4d161295f236c711e8efbe23deb3c8ba5cad985
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30a57258dfe112c1b2d03bc43738c92272a156f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086313"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Esercitazione: Integrazione di Azure Active Directory con Zendesk
 
@@ -81,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Zendesk, è n
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Zendesk](#configure-zendesk-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Zendesk](#create-zendesk-test-user)** : per avere una controparte di Britta Simon in Zendesk collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -109,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.zendesk.com`
 
-   b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.zendesk.com`
+   b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<subdomain>.zendesk.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto del client Zendesk](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -134,7 +135,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo appropriato.
 
-    f. Fare clic su **Ok**
+    f. Fare clic su **OK**.
 
     g. Fare clic su **Save**.
 
@@ -175,9 +176,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
 4. Nella pagina **Sicurezza** eseguire la procedura seguente:
 
-    ![Sicurezza](././media/zendesk-tutorial/ic773089.png "Sicurezza")
+    ![Sicurezza](././media/zendesk-tutorial/ic773089.png "Security")
 
-    ![Single Sign-On](././media/zendesk-tutorial/ic773090.png "Single Sign-On")
+    ![Single Sign-On](././media/zendesk-tutorial/ic773090.png "Single sign-on")
 
     a. Fare clic sulla scheda **Amministratore e agenti**.
 
@@ -191,7 +192,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
     f. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -214,7 +215,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -257,7 +258,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. 
 
 3. Selezionare la scheda **User** e fare clic su **Add**.
 
-    ![Aggiungere un utente](././media/zendesk-tutorial/ic773632.png "Aggiungere un utente")
+    ![Aggiungere l'utente](././media/zendesk-tutorial/ic773632.png "Add user")
 4. Digitare il **Nome** e l'**Indirizzo di posta elettronica** di un account Azure AD esistente da sottoporre a provisioning, quindi fare clic su **Salva**.
 
     ![Nuovo utente](././media/zendesk-tutorial/ic773633.png "Nuovo utente")

@@ -1,5 +1,5 @@
 ---
-title: Panoramica della reimpostazione delle password per un account aziendale o dell'istituto di istruzione - Azure Active Directory | Microsoft Docs
+title: Panoramica della reimpostazione della password per un account aziendale o dell'istituto di istruzione - Azure AD
 description: Elenco di collegamenti ad articoli su come registrare e reimpostare la password per un account aziendale o dell'istituto di istruzione senza l'assistenza dell'amministratore.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160614"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028497"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Panoramica della reimpostazione della password per un account aziendale o dell'istituto di istruzione
 
@@ -34,5 +34,5 @@ Per informazioni dettagliate e istruzioni su come registrare l'account per la re
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-| [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md) ] Istruzioni su come verificare i metodi di autenticazione e registrarsi per la reimpostazione della password self-service per poter reimpostare la propria password.|
-| [Reimpostare la password](active-directory-passwords-update-your-own-password.md) ] Istruzioni su come reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione.|
+| [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md) | Istruzioni su come verificare i metodi di autenticazione e registrarsi per la reimpostazione della password self-service per poter reimpostare la password. |
+| [Reimpostare la password](active-directory-passwords-update-your-own-password.md) | Istruzioni su come reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione. |

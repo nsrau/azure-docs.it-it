@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097332"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Esercitazione: Integrazione di Azure Active Directory con Mimecast Admin Console
 
@@ -79,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Mimecast Admi
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Mimecast Admin Console](#create-mimecast-admin-console-test-user)** : per avere una controparte di Britta Simon in Mimecast Admin Console collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -139,7 +140,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
 
 3. Fare clic su **Authentication Profiles**.
 
-    ![Profili di autenticazione](./media/mimecast-admin-console-tutorial/ic794999.png "Profili di autenticazione")
+    ![Profili di autenticazione](./media/mimecast-admin-console-tutorial/ic794999.png "Authentication Profiles")
     
 4. Fare clic su **New Authentication Profile**.
 
@@ -147,7 +148,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
 
 5. Nella sezione **Authentication Profile** , eseguire la procedura seguente:
 
-    ![Profilo di autenticazione](./media/mimecast-admin-console-tutorial/ic795015.png "Profilo di autenticazione")
+    ![Profilo di autenticazione](./media/mimecast-admin-console-tutorial/ic795015.png "Authentication Profile")
     
     a. Nella casella di testo **Description** digitare un nome per la configurazione.
     
@@ -170,7 +171,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
     
     i. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -193,7 +194,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -233,19 +234,19 @@ Per consentire agli utenti di Azure AD di accedere a Mimecast Admin Console, è 
 
 2. Accedere a **Directories \> Internal**.
    
-    ![Directory](./media/mimecast-admin-console-tutorial/ic795003.png "Directory")
+    ![Directories](./media/mimecast-admin-console-tutorial/ic795003.png "Directory")
 
 3. Fare clic su **Register New Domain**.
    
-    ![Registra nuovo dominio](./media/mimecast-admin-console-tutorial/ic795004.png "Registra nuovo dominio")
+    ![Registrare un nuovo dominio](./media/mimecast-admin-console-tutorial/ic795004.png "Register New Domain")
 
 4. Dopo aver creato il nuovo dominio, fare clic su **New Address**.
    
-    ![Nuovo indirizzo](./media/mimecast-admin-console-tutorial/ic795005.png "Nuovo indirizzo")
+    ![Nuovo indirizzo](./media/mimecast-admin-console-tutorial/ic795005.png "New Address")
 
 5. Nella finestra di dialogo del nuovo indirizzo, seguire questa procedura:
    
-    ![Salvare](./media/mimecast-admin-console-tutorial/ic795006.png "Salvare")
+    ![Salva](./media/mimecast-admin-console-tutorial/ic795006.png "Salva")
    
     a. Nelle caselle di testo corrispondenti digitare gli attributi **indirizzo di posta elettronica**, **nome globale**, **password** e **conferma password** di un account Azure AD valido di cui si intende effettuare il provisioning.
 

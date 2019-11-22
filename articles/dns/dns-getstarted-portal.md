@@ -1,20 +1,21 @@
 ---
-title: Avvio rapido - Creare una zona e un record DNS di Azure con il portale di Azure
+title: 'Guida introduttiva: Creare una zona e un record DNS - Portale di Azure'
+titleSuffix: Azure DNS
 description: Usare questa guida di avvio rapido dettagliata per informazioni su come creare una zona e un record DNS di Azure usando il portale di Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: feb46114b3cf1b04e6a181f84bcdc41c17f1c0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: cb81b0ec2b5283ba242dd7c2dd549c330e230f0a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119072"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082914"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Avvio rapido: Creare una zona e un record DNS di Azure con il portale di Azure
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con il portale di Azure
 
 È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico. Ad esempio, se è stato acquistato il nome di dominio *contoso.xyz* da un registrar, è possibile configurare DNS di Azure in modo da ospitare il dominio *contoso.xyz* e risolvere *www.contoso.xyz* nell'indirizzo IP del server Web o dell'app Web.
 
@@ -44,7 +45,7 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
    - **Nome**: digitare *contoso.xyz* per questo esempio della guida introduttiva. Il nome della zona DNS può essere qualsiasi valore che non sia già configurato nei server DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.
    - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *MyResourceGroup* e selezionare **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure. 
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
@@ -88,7 +89,7 @@ Dopo aver creato una zona DNS di test, con un record "A" di test, è possibile t
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Ad esempio: 
+   Ad esempio:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

@@ -1,24 +1,20 @@
 ---
 title: Sincronizzare lo stato del dispositivo dall'hub IoT di Azure | Microsoft Docs
-description: Usare dispositivi gemelli per sincronizzare lo stato tra i dispositivi e l'hub IoT
+description: Informazioni su come usare dispositivi gemelli per configurare i dispositivi dal cloud e ricevere dati sullo stato e sulla conformità dai dispositivi.
 services: iot-hub
-documentationcenter: ''
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 4ad3013f6914abbf4c75676e7423848dff9d5e9a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330366"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890422"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 

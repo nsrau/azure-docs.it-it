@@ -4,14 +4,35 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 1007533df077c58d9e4d57f9e86b035730ea917f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903967"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882327"
 ---
-## <a name="set-up-your-device-in-unity"></a>Configurare un dispositivo in Unity
+## <a name="androidtabandroid"></a>[Android](#tab/Android)
+
+L'esempio Java Android supporta la condivisione tra dispositivi.
+Aprire il file `SharedActivity.java` dalla cartella di esempi in Android Studio. Immettere l'URL ottenuto nel passaggio precedente (dalla distribuzione di Azure per l'app Web ASP.NET) come valore per `SharingAnchorsServiceUrl` nel file `SharedActivity.java`. Sostituire `index.html` nell'URL con `api/anchors`. L'aspetto dovrebbe risultare simile al seguente: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="iostabios"></a>[iOS](#tab/iOS)
+
+L'esempio Objective-C iOS supporta la condivisione tra dispositivi.
+Aprire il file `SharedDemoViewController.m` nella cartella di esempi. Immettere l'URL ottenuto nel passaggio precedente (dalla distribuzione di Azure per l'app Web ASP.NET) come valore per `SharingAnchorsServiceUrl` nel file `SharedActivity.java`. Sostituire `index.html` nell'URL con `api/anchors`. L'aspetto dovrebbe risultare simile al seguente: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+
+Gli esempi Xamarin Android e iOS supportano entrambi la condivisione tra dispositivi.
+Aprire il file `AccountDetails.cs` nella cartella di esempi. Immettere l'URL ottenuto nel passaggio precedente (dalla distribuzione di Azure per l'app Web ASP.NET) come valore per `AnchorSharingServiceUrl` nel file `SharedActivity.java`. Sostituire `index.html` nell'URL con `api/anchors`. L'aspetto dovrebbe risultare simile al seguente: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="unitytabunity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -45,10 +66,7 @@ In **Scenes In Build** (Scene nella compilazione) assicurarsi che tutte le scene
 
 Assicurarsi che l'opzione **Export Project** (Esporta progetto) non sia selezionata. Selezionare **Build And Run** (Compila ed esegui). Verrà richiesto di salvare il file `.apk`. È possibile scegliere qualsiasi nome.
 
-Dopo l'avvio dell'app, nella finestra di dialogo **Choose A Demo** (Scegli demo) usare le frecce sinistra o destra per selezionare l'opzione **LocalShare** e quindi toccare **Go!** (Vai). Seguire le istruzioni nell'app. È possibile selezionare **Create & Share Anchor** (Crea e condividi ancoraggio) oppure **Locate Shared Anchor** (Individua ancoraggio condiviso).
-
-Il primo scenario consente di creare un ancoraggio che successivamente potrà essere individuato nello stesso dispositivo o in un dispositivo diverso.
-Il secondo scenario, se è già stata eseguita l'app, nello stesso dispositivo o in uno diverso, consente di individuare gli ancoraggi condivisi in precedenza. Dopo la scelta dello scenario, l'app guiderà l'utente con ulteriori istruzioni sulle operazioni da eseguire. Ad esempio, verrà chiesto di muovere il dispositivo per raccogliere informazioni sull'ambiente. In un secondo momento si inserirà un ancoraggio, si attenderà il caricamento e così via.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### <a name="deploy-to-an-ios-device"></a>Distribuzione in un dispositivo iOS
 
@@ -58,9 +76,6 @@ In **Scenes In Build** (Scene nella compilazione) assicurarsi che tutte le scene
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Dopo l'avvio dell'app, nella finestra di dialogo **Choose A Demo** (Scegli demo) usare le frecce sinistra o destra per selezionare l'opzione **LocalShare** e quindi toccare **Go!** (Vai). Seguire le istruzioni nell'app. È possibile selezionare **Create & Share Anchor** (Crea e condividi ancoraggio) oppure **Locate Shared Anchor** (Individua ancoraggio condiviso).
-
-Il primo scenario consente di creare un ancoraggio che successivamente potrà essere individuato nello stesso dispositivo o in un dispositivo diverso.
-Il secondo scenario, se è già stata eseguita l'app, nello stesso dispositivo o in uno diverso, consente di individuare gli ancoraggi condivisi in precedenza. Dopo la scelta dello scenario, l'app guiderà l'utente con ulteriori istruzioni sulle operazioni da eseguire. Ad esempio, verrà chiesto di muovere il dispositivo per raccogliere informazioni sull'ambiente. In un secondo momento si inserirà un ancoraggio, si attenderà il caricamento e così via.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 In Xcode arrestare l'app selezionando **Stop** (Arresta).

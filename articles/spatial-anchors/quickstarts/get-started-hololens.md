@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562412"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111821"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Guida introduttiva: Creare un'app HoloLens con Ancoraggi nello spazio di Azure, in C + +/WinRT e DirectX
 
@@ -58,7 +58,7 @@ Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'ident
 
 Impostare **Solution Configuration** (Configurazione soluzione) su **Release** (Versione), impostare **Solution Platform** (Piattaforma soluzione) su **x86** e selezionare **Device** (Dispositivo) nelle opzioni di destinazione di distribuzione.
 
-Se si usa HoloLens 2, usare **ARM** come **piattaforma soluzione**, invece di **x86**.
+Se si usa HoloLens 2, usare **ARM64** come **piattaforma soluzione**, invece di **x86**.
 
 ![Configurazione di Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 

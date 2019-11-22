@@ -62,6 +62,8 @@
       href: customize-rdp-properties.md
     - name: Distribuire lo strumento di diagnostica
       href: deploy-diagnostics.md
+    - name: Configurare la connessione all'app MSIX
+      href: app-attach.md
 - name: Concetti
   items:
     - name: Ambiente di Desktop virtuale Windows

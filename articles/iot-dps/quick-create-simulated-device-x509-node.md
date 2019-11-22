@@ -1,23 +1,23 @@
 ---
-title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Node.js | Microsoft Docs
+title: "Guida introduttiva: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Node.js"
 description: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando Node.js Device SDK per il servizio Device Provisioning in hub IoT di Azure. Questa guida introduttiva usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: e0f7fa544efcdd20e9ed567c6de55a8b1aecfe41
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e28f0c19918cb29ca6850b1957a403af5aafb1a4
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126512"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904787"
 ---
-# <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Node.js per il servizio Device Provisioning in hub IoT
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Node.js per il servizio Device Provisioning in hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Questi passaggi illustrano come creare una voce di registrazione nel servizio Device Provisioning, simulare un dispositivo X.509 nel computer di sviluppo, connettere il dispositivo simulato al servizio Device Provisioning e registrare il dispositivo nell'hub IoT usando [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
@@ -96,7 +96,7 @@ Si userà il codice di esempio da [Azure IoT SDK per Node.js](https://github.com
 
 [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) offre un modo semplice per simulare un dispositivo. Per altre informazioni, vedere [Concetti relativi ai dispositivi](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
-1. Nel portale di Azure selezionare il pannello **Panoramica** per il servizio Device Provisioning e prendere nota dei valori **_Endpoint dispositivo globale_** e **_Ambito ID_**.
+1. Nel portale di Azure selezionare il pannello **Panoramica** per il servizio Device Provisioning e prendere nota dei valori **_Endpoint dispositivo globale_** e **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
@@ -115,9 +115,9 @@ Si userà il codice di esempio da [Azure IoT SDK per Node.js](https://github.com
     ```
 
 4. Modificare il file **register\_x509.js**. Salvare il file dopo aver apportato le modifiche seguenti.
-    - Sostituire `provisioning host` con l'**_endpoint dispositivo globale_** annotato nel **passaggio 1** precedente.
-    - Sostituire `id scope` con l'**_ID ambito_** annotato nel **passaggio 1** precedente. 
-    - Sostituire `registration id` con l'**_ID registrazione_** annotato nella sezione precedente.
+    - Sostituire `provisioning host` con l' **_endpoint dispositivo globale_** annotato nel **passaggio 1** precedente.
+    - Sostituire `id scope` con l' **_ID ambito_** annotato nel **passaggio 1** precedente. 
+    - Sostituire `registration id` con l' **_ID registrazione_** annotato nella sezione precedente.
     - Sostituire `cert filename` e `key filename` con i file copiati nel **passaggio 2** precedente. 
 
 5. Eseguire lo script e verificare che il provisioning del dispositivo sia stato eseguito correttamente.

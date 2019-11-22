@@ -114,6 +114,8 @@
           href: serial-console-grub-single-user-mode.md
         - name: NMI/SysRq con la console seriale
           href: serial-console-nmi-sysrq.md
+        - name: Configurazione proattiva di GRUB e console seriale
+          href: serial-console-grub-proactive-configuration.md
     - name: Console seriale per Windows
       href: serial-console-windows.md
       items:
@@ -125,8 +127,6 @@
       href: serial-console-power-options.md
     - name: Errori comuni della console seriale
       href: serial-console-errors.md
-    - name: Configurazione proattiva di GRUB e console seriale
-      href: serial-console-grub-proactive-configuration.md
 - name: Errori durante l'eliminazione di risorse di archiviazione
   href: storage-resource-deletion-errors.md
 - name: Errori durante l'eliminazione di risorse di archiviazione classiche

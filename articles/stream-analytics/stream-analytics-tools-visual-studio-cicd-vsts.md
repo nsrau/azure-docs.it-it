@@ -1,5 +1,5 @@
 ---
-title: Distribuire un processo di Analisi di flusso di Azure con CI/CD tramite Azure DevOps
+title: Distribuire processi di Analisi di flusso di Azure con CI/CD e Azure DevOps
 description: Questo articolo descrive come distribuire un processo di Analisi di flusso di Azure usando Azure DevOps Services.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727588"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925079"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines
 Questa esercitazione illustra come configurare l'integrazione continua e la distribuzione continua per un processo di Analisi di flusso di Azure usando Azure Pipelines. 
@@ -117,7 +117,7 @@ Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](http
     
     |**Impostazione**  |**Valore consigliato**  |
     |---------|---------|
-    |Sottoscrizione  |  Scegliere la propria sottoscrizione.   |
+    |Subscription  |  Scegliere la propria sottoscrizione.   |
     |Azione  |  Creare o aggiornare un gruppo di risorse   |
     |Gruppo di risorse  |  Immettere il nome di un gruppo di risorse.   |
     |Modello  | [Percorso della soluzione]\bin\Debug\Deploy\\[Nome progetto].JobTemplate.json   |

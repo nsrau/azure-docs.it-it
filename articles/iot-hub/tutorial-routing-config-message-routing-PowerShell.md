@@ -1,6 +1,6 @@
 ---
-title: Configurare il routing dei messaggi per l'hub IoT di Azure usando Azure PowerShell | Microsoft Docs
-description: Configurare il routing dei messaggi per l'hub IoT di Azure usando Azure PowerShell
+title: Configurare il routing dei messaggi per l'hub IoT di Azure con Azure PowerShell
+description: Configurare il routing dei messaggi per l'hub IoT di Azure usando Azure PowerShell. A seconda delle proprietà del messaggio, è possibile configurare il routing a un account di archiviazione o a una coda del bus di servizio.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535141"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084446"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare Azure PowerShell per configurare il routing dei messaggi per l'hub IoT
 
@@ -34,13 +34,13 @@ Per iniziare, creare le risorse con PowerShell.
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>Usare PowerShell per creare le risorse di base
 
+Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script viene eseguito una riga alla volta. La prima sezione dello script creerà le risorse di base per questa esercitazione, come l'account di archiviazione, l'hub IoT, lo spazio dei nomi del bus di servizio e la coda del bus di servizio. Mentre si procede con l'esercitazione, copiare ogni blocco dello script e incollarlo in Cloud Shell per eseguirlo.
+
 Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplicità, a questi nomi di risorse viene aggiunto un valore alfanumerico casuale denominato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico. 
 
 > [!IMPORTANT]
 > Le variabili impostate nello script iniziale vengono usate anche dallo script di routing, quindi eseguire tutto lo script nella stessa sessione di Cloud Shell. Se si apre una nuova sessione per eseguire lo script per la configurazione del routing, i valori di diverse variabili risulteranno mancanti. 
 >
-
-Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script viene eseguito una riga alla volta. La prima sezione dello script creerà le risorse di base per questa esercitazione, come l'account di archiviazione, l'hub IoT, lo spazio dei nomi del bus di servizio e la coda del bus di servizio. Mentre si procede con l'esercitazione, copiare ogni blocco dello script e incollarlo in Cloud Shell per eseguirlo.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -140,7 +140,7 @@ Configurare prima di tutto l'endpoint per l'account di archiviazione, quindi cre
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Vengono impostate queste variabili:
+Queste sono le variabili usate dallo script che devono essere impostate all'interno della sessione di Cloud Shell:
 
 **resourceGroup**: esistono due occorrenze di questo campo, impostarle entrambe sul gruppo di risorse.
 
@@ -232,7 +232,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Configurare ora l'endpoint di routing e la route dei messaggi per la coda del bus di servizio. Vengono impostate queste variabili:
+Configurare ora l'endpoint di routing e la route dei messaggi per la coda del bus di servizio. Queste sono le variabili usate dallo script che devono essere impostate all'interno della sessione di Cloud Shell:
 
 **endpointName**: il nome che identifica l'endpoint. 
 

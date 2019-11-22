@@ -177,15 +177,35 @@
           displayName: DevOps
     - name: Esportare il modello
       href: export-template-portal.md
-    - name: Spostamento
+    - name: Spostamento - aree
       items:
-        - name: Spostare le risorse
+        - name: Spostarsi tra aree
+          href: resource-group-move-region.md
+        - name: Servizi supportati
+          href: region-move-support.md
+        - name: Servizi
+          items:
+            - name: Macchine virtuali di Azure
+              href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Archiviazione di Azure
+              href: ../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: SQL di Azure
+              href: ../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Rete virtuale
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Gruppo di sicurezza di rete
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Indirizzi IP pubblici
+              href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: Spostamento - gruppi di risorse/sottoscrizioni
+      items:
+        - name: Spostamento tra gruppi di risorse/sottoscrizioni
           href: resource-group-move-resources.md
-        - name: Supporto delle risorse
+        - name: Servizi supportati
           href: move-support-resources.md
         - name: Risolvere i problemi relativi allo spostamento
           href: troubleshoot-move.md
-        - name: Indicazioni sullo spostamento per i servizi
+        - name: Servizi
           items:
             - name: Servizio app
               href: ./move-limitations/app-service-move-limitations.md

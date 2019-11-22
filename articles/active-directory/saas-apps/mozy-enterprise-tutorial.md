@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 489b5e62-85c2-45c9-8766-326632d48114
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 25e223fc9e8222441e70fefb3c21f951b0ba06c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096627"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
 
@@ -78,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Mozy Enterpri
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Mozy Enterprise](#configure-mozy-enterprise-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Mozy Enterprise](#create-mozy-enterprise-test-user)** : per avere una controparte di Britta Simon in Mozy Enterprise collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -129,11 +130,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
 
 2. Nella sezione **Configuration** fare clic su **Authentication Policy**.
    
-    ![Criteri di autenticazione](./media/mozy-enterprise-tutorial/ic777314.png "Criteri di autenticazione")
+    ![Criteri di autenticazione](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
 
 3. Nella sezione **Authentication Policy** seguire questa procedura:
    
-    ![Criteri di autenticazione](./media/mozy-enterprise-tutorial/ic777315.png "Criteri di autenticazione")
+    ![Criteri di autenticazione](./media/mozy-enterprise-tutorial/ic777315.png "Authentication Policy")
    
     a. Selezionare **Directory Service** come **Provider**.
    
@@ -151,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
    
     h. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -174,7 +175,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -222,7 +223,7 @@ Per consentire agli utenti di Azure AD di accedere a Mozy Enterprise, è necessa
     
 3. Nella finestra di dialogo Nuovo utente eseguire la procedura seguente:
    
-    ![Aggiungere utenti](./media/mozy-enterprise-tutorial/ic777318.png "Aggiungere utenti")
+    ![Aggiungere utenti](./media/mozy-enterprise-tutorial/ic777318.png "Aggiungi utenti")
    
     a. Dall’elenco **Choose a group** selezionare un gruppo.
    

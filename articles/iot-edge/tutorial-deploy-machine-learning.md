@@ -1,20 +1,20 @@
 ---
-title: Distribuire Azure Machine Learning a un dispositivo - Azure IoT Edge | Microsoft Docs
+title: 'Esercitazione: Distribuire Azure Machine Learning in un dispositivo - Azure IoT Edge'
 description: In questa esercitazione viene creato un modello di Azure Machine Learning che viene poi distribuito come modulo a un dispositivo perimetrale
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/16/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 28e5e09ea64f7ac1272e8ed126d5b4153b952c1d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2d56d434fbdaf8c05c4d4db75bffb65468a5bc42
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494033"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114043"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 

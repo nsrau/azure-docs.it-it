@@ -3,30 +3,25 @@ title: Introduzione alle query di log in Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo include un'esercitazione per iniziare a scrivere query di log in Monitoraggio di Azure.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894294"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933032"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in monitoraggio di Azure
-
-
-> [!NOTE]
-> Prima di completare questa esercitazione, è necessario completare [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md) .
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure
 
 > [!NOTE]
-> È possibile utilizzare questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l' [ambiente demo](https://portal.loganalytics.io/demo), che include moltissimi dati di esempio.
+> È possibile eseguire questo esercizio nel proprio ambiente se si raccolgono dati da almeno una macchina virtuale. In caso contrario, usare l'[ambiente Demo](https://portal.loganalytics.io/demo), che include numerosi dati di esempio.
 
+In questa esercitazione si apprenderà come scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
 
-In questa esercitazione si apprenderà come scrivere query di log in monitoraggio di Azure. Si apprenderà come:
-
-- Informazioni sulla struttura di query
+- Comprendere la struttura delle query
 - Ordinare i risultati di query
 - Filtrare i risultati di query
 - Specificare un intervallo di tempo
@@ -34,8 +29,12 @@ In questa esercitazione si apprenderà come scrivere query di log in monitoraggi
 - Definire e usare campi personalizzati
 - Aggregare e raggruppare i risultati
 
-Per un'esercitazione sull'uso di Log Analytics nella portale di Azure, vedere [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md).<br>
-Per altre informazioni sulle query di log in monitoraggio di Azure, vedere [Panoramica delle query di log in monitoraggio di Azure](log-query-overview.md).
+Per un'esercitazione sull'uso di Log Analytics nel portale di Azure, vedere [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md).<br>
+Per altri dettagli sulle query di log in Monitoraggio di Azure, vedere [Panoramica delle query di log in Monitoraggio di Azure](log-query-overview.md).
+
+Di seguito è disponibile una versione video di questa esercitazione:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>Scrittura di una nuova query
 Le query possono iniziare con un nome di tabella o con il comando *search*. È consigliabile iniziare con un nome di tabella, perché definisce un chiaro ambito per la query e consente di migliorare sia le prestazioni di query che la pertinenza dei risultati.
@@ -70,7 +69,7 @@ search in (SecurityEvent) "Cryptographic"
 Questa query cerca nella tabella *SecurityEvent* i record che contengono il termine "Cryptographic". Di questi record, ne vengono restituiti e visualizzati 10. Se si omette la parte `in (SecurityEvent)` e si esegue solamente il comando `search "Cryptographic"`, la ricerca viene eseguita in *tutte* le tabelle e quindi richiede più tempo ed è meno efficiente.
 
 > [!WARNING]
-> Le query di ricerca sono in genere più lente rispetto alle query basate su tabelle perché devono elaborare più dati. 
+> Le query di ricerca in genere sono più lente delle query basate su tabelle perché devono elaborare più dati. 
 
 ## <a name="sort-and-top"></a>Sort e top
 Sebbene **take** sia utile per ottenere pochi record, i risultati vengono selezionati e visualizzati senza alcun ordine particolare. Per ottenere una visualizzazione ordinata, è possibile usare il comando **sort**, per ordinare i risultati in base alla colonna preferita:
@@ -106,7 +105,7 @@ SecurityEvent
 
 Quando si scrivono le condizioni di filtro, è possibile usare le espressioni seguenti:
 
-| Expression | Description | Esempio |
+| Expression | DESCRIZIONE | Esempio |
 |:---|:---|:---|
 | == | Controllo dell'uguaglianza<br>(fa distinzione tra maiuscole e minuscole) | `Level == 8` |
 | =~ | Controllo dell'uguaglianza<br>(non fa distinzione tra maiuscole e minuscole) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -177,7 +176,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-Il comando **extend** mantiene tutte le colonne originali nel set di risultati e definisce colonne aggiuntive. La query seguente usa **extend** per aggiungere la colonna *eventCode* . Si noti che questa colonna potrebbe non essere visualizzata alla fine dei risultati della tabella, nel qual caso sarebbe necessario espandere i dettagli di un record per visualizzarlo.
+Il comando **extend** mantiene tutte le colonne originali nel set di risultati e definisce colonne aggiuntive. La query seguente usa **extend** per aggiungere la colonna *EventCode*. Si noti che questa colonna potrebbe non essere visualizzata alla fine dei risultati della tabella. In tal caso sarà necessario espandere i dettagli di un record per visualizzarla.
 
 ```Kusto
 SecurityEvent
@@ -222,7 +221,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Riepilogare in base a una colonna temporale
 Il raggruppamento dei risultati può anche essere basato su una colonna temporale o un altro valore continuo. Un semplice riepilogo di tipo `by TimeGenerated`, tuttavia, creerebbe gruppi per ogni singolo millisecondo nell'intervallo di tempo, poiché si tratta di valori univoci. 
 
-Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Consente di calcolare il valore medio di ogni periodo di 1 ora negli ultimi 7 giorni:
+Per creare gruppi basati su valori continui, è consigliabile suddividere l'intervallo in unità gestibili tramite **bin**. La query seguente analizza i record *Perf* che misurano la memoria libera (*Available MBytes*) in un computer specifico. Calcola il valore medio di ogni periodo di 1 ora negli ultimi 7 giorni:
 
 ```Kusto
 Perf 

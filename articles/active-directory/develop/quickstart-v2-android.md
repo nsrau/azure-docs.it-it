@@ -12,127 +12,148 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 10/15/2019
 ms.author: twhitney
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e11e47952f70ce0cd212ca93eff1c38f2b3993a8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 0c9a194dcd2ccb353f11aa939200213f0db1c2ea
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678059"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942929"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
-In questa guida di avvio rapido si usa un esempio di codice per illustrare in che modo un'applicazione Android può accedere ad account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph.
+In questo avvio rapido si usa un esempio di codice per illustrare in che modo un'applicazione Android può accedere ad account personali, aziendali o dell'istituto di istruzione mediante Microsoft Identity Platform, ottenere un token di accesso e chiamare l'API Microsoft Graph.
+
+Le applicazioni devono essere rappresentate da un oggetto app in Azure Active Directory in modo che Microsoft Identity Platform possa condividere i token con l'applicazione.
+
+> [!div renderon="docs"]
+> Per praticità, l'esempio di codice include un oggetto `redirect_uri` predefinito preconfigurato nel file di `AndroidManifest.xml`, in modo da non dover prima registrare il proprio oggetto app. Un oggetto `redirect_uri` è parzialmente basato sulla chiave di firma dell'app. Il progetto di esempio è preconfigurato con una chiave di firma in modo da consentire l'utilizzo corretto dell'oggetto `redirect_uri` fornito. Per altre informazioni sulla registrazione di un oggetto app e sull'integrazione con l'applicazione, vedere l'esercitazione [Accesso utenti e chiamata di Microsoft Graph da un'app Android](tutorial-v2-android.md).
 
 ![Screenshot dell'app di esempio](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Prerequisiti**
 > * Android Studio 
-> * Android 16+ (obbligatorio)
+> * Android 16+
 
-## <a name="step-1-get-the-sample-app"></a>Passaggio 1: Ottenere l'app di esempio
+> [!div class="sxs-lookup" renderon="portal"]
+> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure 
+>  Per il funzionamento dell'esempio di codice di questo argomento di avvio rapido è necessario aggiungere un URI di reindirizzamento compatibile con il broker di autenticazione.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Apporta queste modifiche per me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Già configurata](media/quickstart-v2-android/green-check.png) L'applicazione è configurata con questi attributi
+>
+> ### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto 
+> * [Scaricare il codice di esempio](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+>
+> ### <a name="step-3-configure-your-project"></a>Passaggio 3: Configurare il progetto
+> 1. Estrarre e aprire il progetto in Android Studio.
+> 2. In **app** > **src** > **main** > **res** > **raw**, aprire **auth_config_multiple_account.json** e sostituirlo con il codice seguente:
+> ```javascript 
+> {
+>   "client_id" : "Enter_the_Application_Id_Here",
+>   "authorization_user_agent" : "DEFAULT",
+>   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>   "account_mode" : "MULTIPLE",
+>   "broker_redirect_uri_registered": true,
+>   "authorities" : [
+>     {
+>       "type": "AAD",
+>       "audience": {
+>         "type": "Enter_the_Audience_Info_Here",
+>         "tenant_id": "Enter_the_Tenant_Info_Here"
+>       }
+>     }
+>   ]
+> }
+> ```
 
-[Clonare il codice](https://github.com/Azure-Samples/ms-identity-android-java.git).
+> [!div class="sxs-lookup" renderon="portal"]
+> 3. In **app** > **src** > **main** > **res** > **raw**, aprire **auth_config_single_account.json** e sostituirlo con il codice seguente:
+> ```javascript 
+> {
+>   "client_id" : "Enter_the_Application_Id_Here",
+>   "authorization_user_agent" : "DEFAULT",
+>   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>   "account_mode" : "SINGLE",
+>   "broker_redirect_uri_registered": true,
+>   "authorities" : [
+>     {
+>       "type": "AAD",
+>       "audience": {
+>         "type": "Enter_the_Audience_Info_Here",
+>         "tenant_id": "Enter_the_Tenant_Info_Here"
+>       }
+>     }
+>   ]
+> }
+> ```
 
-## <a name="step-2-register-your-application"></a>Passaggio 2: Registrare l'applicazione
+> [!div class="sxs-lookup" renderon="portal"]
+> 4. In **app** > **src** > **main**, aprire **AndroidManifest.xml**.
+> 5. Nel nodo **manifest\application** sostituire il nodo **activity android:name="com.microsoft.identity.client.BrowserTabActivity"** con:    
+> ```xml
+> <!--Intent filter to catch Microsoft's callback after Sign In-->
+> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+>     <intent-filter>
+>         <action android:name="android.intent.action.VIEW" />
+>         <category android:name="android.intent.category.DEFAULT" />
+>         <category android:name="android.intent.category.BROWSABLE" />
+>         <!--
+>             Add in your scheme/host from registered redirect URI 
+>             note that the leading "/" is required for android:path
+>         -->
+>         <data 
+>             android:host="Enter_the_Package_Name"
+>             android:path="/Enter_the_Signature_Hash"
+>             android:scheme= "msauth" />
+>     </intent-filter>
+> </activity>
+> ```
+> 6. Eseguire l'app.   
+> L'app di esempio viene avviata nella schermata **Single Account Mode** (Modalità per account singolo). Per impostazione predefinita, viene fornito un ambito predefinito, **user.read**, che viene usato durante la lettura dei dati del profilo durante la chiamata all'API Microsoft Graph. L'URL per la chiamata all'API Microsoft Graph viene fornito per impostazione predefinita. Se si desidera, è possibile modificarli entrambi.
+>
+> ![App di esempio MSAL che illustra l'utilizzo di account singoli o multipli](./media/quickstart-v2-android/quickstart-sample-app.png)
+>
+> Usare il menu dell'app per passare dalla modalità per account singolo a quella per account multipli e viceversa.
+>
+> Nella modalità per account singolo accedere con un account aziendale o personale:
+>
+> 1. Selezionare **Get graph data interactively** (Ottieni i dati del grafo in modo interattivo) per richiedere all'utente le credenziali. L'output della chiamata all'API Microsoft Graph verrà visualizzato nella parte inferiore della schermata.
+> 2. Dopo l'accesso selezionare **Get graph data silently** (Ottieni i dati del grafo in modo automatico) per effettuare una chiamata all'API Microsoft Graph senza richiedere di nuovo le credenziali utente. L'output della chiamata all'API Microsoft Graph verrà visualizzato nella parte inferiore della schermata.
+>
+> Nella modalità per account multipli è possibile ripetere gli stessi passaggi.  È anche possibile rimuovere l'account di accesso e di conseguenza rimuovere i token memorizzati nella cache per tale account.
 
-Per registrare un oggetto applicazione e aggiungere manualmente le informazioni di registrazione dell'oggetto applicazione al progetto di esempio, seguire questa procedura:
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Questo argomento di avvio rapido supporta Enter_the_Supported_Account_Info_Here.
 
-1. Accedere al [portale di Azure](https://aka.ms/MobileAppReg).
-1. Aprire il pannello [Registrazioni per l'app](https://portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) e fare clic su **+ Nuova registrazione**.
-1. In **Nome** immettere un nome per la registrazione dell'app e quindi, senza impostare un URI di reindirizzamento, fare clic su **Registra**.
-1. Nella sezione **Gestione** selezionare **Autenticazione** >  **+ Aggiungi una piattaforma**  > **Android**. Per visualizzare questa schermata, potrebbe essere necessario selezionare l'opzione **Prova la nuova esperienza** nella parte superiore del pannello.
-1. Immettere il valore `com.azuresamples.msalandroidapp` in **Nome pacchetto** per il progetto.
-1. Nella sezione **Hash della firma** della pagina **Configura l'app Android** fare clic su **Generazione di un hash della firma per lo sviluppo** e copiare il comando KeyTool da usare per la piattaforma usata per sviluppare l'app Android.
-
-   > [!Note]
-   > KeyTool.exe viene installato come parte di Java Development Kit (JDK). Per eseguire il comando KeyTool, è necessario installare anche lo strumento OpenSSL.  Nel percorso sono necessari KeyTool e la directory OpenSSL\bin.
-
-1. In una finestra del terminale eseguire il comando KeyTool copiato dal portale.
-1. Immettere l'hash della firma generato nel portale in **Hash della firma**.
-1. Fare clic su `Configure` e creare una copia della **configurazione MSAL**, che verrà copiata e incollata in un file di configurazione nel passaggio successivo. Fare clic su **Done**.
-
-## <a name="step-3-add-your-app-registration"></a>Passaggio 3: Aggiungere la registrazione per l'app
-
-1. Aprire il progetto di esempio in Android Studio.
-1. In **app** > **res** > **raw** aprire **auth_config_multiple_account.json**.  Incollare il contenuto della configurazione MSAL. In questo modo verranno aggiunti i valori di ID client, ID tenant e redirect_uri dal portale. Il risultato sarà simile al seguente, ma con i valori inseriti per ID client, ID tenant e redirect_uri:
-
-    ```json
-    {
-      "client_id" : "<your_client_id_here>",
-      "authorization_user_agent" : "DEFAULT",
-      "redirect_uri" : "<your_redirect_uri_here>",
-      "account_mode" : "MULTIPLE",
-      "broker_redirect_uri_registered": true,
-      "authorities" : [
-        {
-          "type": "AAD",
-          "audience": {
-            "type": "AzureADandPersonalMicrosoftAccount",
-            "tenant_id": "common"
-          }
-        }
-      ]
-    }
-    ```
-
-1. Aprire **app** > **res** > **raw**, aprire **auth_config_single_account.json** e incollare il contenuto della configurazione MSAL. Il risultato sarà simile al file **auth_config_multiple_account.json** indicato sopra.
-1. In **app** > **manifests** > **AndroidManifest.xml** individuare l'attività `BrowserTabActivity`. Questa voce consente a Microsoft di eseguire il callback all'applicazione dopo il completamento dell'autenticazione:
-
-    ```xml
-    ...
-    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
-                <intent-filter>
-                    <action android:name="android.intent.action.VIEW" />
-    
-                    <category android:name="android.intent.category.DEFAULT" />
-                    <category android:name="android.intent.category.BROWSABLE" />
-    
-                    <!--
-                        Add in your scheme/host from registered redirect URI
-                        note that the leading "/" is required for android:path
-                        For Example:
-                        <data
-                            android:host="com.azuresamples.msalandroidapp"
-                            android:path="/1wIqXSqBj7w+h11ZifsnqwgyKrY="
-                            android:scheme="msauth" />
-                    -->
-    
-                    <data
-                        android:host="YOUR_PACKAGE_NAME - must be registered at https://aka.ms/MobileAppReg"
-                        android:path="/YOUR_DECODED_SIGNATURE_HASH - must be registered at https://aka.ms/MobileAppReg"
-                        android:scheme="msauth" />
-                </intent-filter>
-            </activity>
-    ```
-    
-1. Sostituire il nome del pacchetto con quello registrato nel portale di Azure per il valore `android:host=`.  In questo caso, sarà `com.azuresamples.msalandroidapp`.
-
-    > [!IMPORTANT]
-    > Il valore **android:path** **deve** includere un carattere "/" iniziale, altrimenti sotto il valore sarà presente una riga rossa e l'app di esempio non funzionerà.
-     
-1. Sostituire il valore `android:path=` con l'hash della chiave ottenuto eseguendo KeyTool in precedenza e che è stato immesso nel portale di Azure. L'hash della firma non deve essere codificato in URL.
-
-## <a name="step-4-run-the-sample-app"></a>Passaggio 4: Eseguire l'app di esempio
-
-Selezionare l'emulatore o il dispositivo dall'elenco a discesa dei **dispositivi disponibili** di Android Studio ed eseguire l'app.
-
-L'app di esempio viene avviata nella schermata **Single Account Mode** (Modalità per account singolo). Per impostazione predefinita, viene fornito un ambito predefinito, **user.read**, che viene usato durante la lettura dei dati del profilo durante la chiamata all'API Microsoft Graph. L'URL per la chiamata all'API Microsoft Graph viene fornito per impostazione predefinita. Se si desidera, è possibile modificarli entrambi.
-
-![App di esempio MSAL che illustra l'utilizzo di account singoli o multipli](./media/quickstart-v2-android/quickstart-sample-app.png)
-
-Usare il menu dell'app per passare dalla modalità per account singolo a quella per account multipli e viceversa.
-
-Nella modalità per account singolo accedere con un account aziendale o personale:
-
-1. Selezionare **Get graph data interactively** (Ottieni i dati del grafo in modo interattivo) per richiedere all'utente le credenziali. L'output della chiamata all'API Microsoft Graph verrà visualizzato nella parte inferiore della schermata.
-2. Dopo l'accesso selezionare **Get graph data silently** (Ottieni i dati del grafo in modo automatico) per effettuare una chiamata all'API Microsoft Graph senza richiedere di nuovo le credenziali utente. L'output della chiamata all'API Microsoft Graph verrà visualizzato nella parte inferiore della schermata.
-
-Nella modalità per account multipli è possibile ripetere gli stessi passaggi.  È anche possibile rimuovere l'account di accesso e di conseguenza rimuovere i token memorizzati nella cache per tale account.
+> [!div renderon="docs"]
+> ## <a name="step-1-get-the-sample-app"></a>Passaggio 1: Ottenere l'app di esempio
+>
+> [Scaricare il codice](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
+>
+> ## <a name="step-2-run-the-sample-app"></a>Passaggio 2: Eseguire l'app di esempio
+>
+> Selezionare l'emulatore o il dispositivo fisico dall'elenco a discesa dei **dispositivi disponibili** di Android Studio ed eseguire l'app.
+>
+> L'app di esempio viene avviata nella schermata **Single Account Mode** (Modalità per account singolo). Per impostazione predefinita, viene fornito un ambito predefinito, **user.read**, che viene usato durante la lettura dei dati del profilo durante la chiamata all'API Microsoft Graph. L'URL per la chiamata all'API Microsoft Graph viene fornito per impostazione predefinita. Se si desidera, è possibile modificarli entrambi.
+>
+> ![App di esempio MSAL che illustra l'utilizzo di account singoli o multipli](./media/quickstart-v2-android/quickstart-sample-app.png)
+>
+> Usare il menu dell'app per passare dalla modalità per account singolo a quella per account multipli e viceversa.
+>
+> Nella modalità per account singolo accedere con un account aziendale o personale:
+>
+> 1. Selezionare **Get graph data interactively** (Ottieni i dati del grafo in modo interattivo) per richiedere all'utente le credenziali. L'output della chiamata all'API Microsoft Graph verrà visualizzato nella parte inferiore della schermata.
+> 2. Dopo l'accesso selezionare **Get graph data silently** (Ottieni i dati del grafo in modo automatico) per effettuare una chiamata all'API Microsoft Graph senza richiedere di nuovo le credenziali utente. L'output della chiamata all'API Microsoft Graph verrà visualizzato nella parte inferiore della schermata.
+>
+> Nella modalità per account multipli è possibile ripetere gli stessi passaggi.  È anche possibile rimuovere l'account di accesso e di conseguenza rimuovere i token memorizzati nella cache per tale account.
 
 ## <a name="how-the-sample-works"></a>Funzionamento dell'esempio
 
@@ -150,7 +171,7 @@ Il codice è organizzato in frammenti in cui viene illustrato come scrivere un'a
 
 I file verranno ora esaminati in modo più dettagliato e verrà richiamato il codice specifico di MSAL in ognuno di essi.
 
-### <a name="add-msal-to-the-app"></a>Aggiungere MSAL all'app
+### <a name="adding-msal-to-the-app"></a>Aggiungere MSAL all'app
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) è la libreria usata per concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform. Gradle 3.0+ installa la libreria quando si aggiunge quanto segue in **Gradle Scripts** > **build.gradle (Module: app)** in **Dependencies**:
 
@@ -163,7 +184,7 @@ implementation 'com.microsoft.identity.client:msal:1.0.0'
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.0.0-RC7'
+    implementation 'com.microsoft.identity.client:msal:1.0.+'
     ...
 }
 ```
@@ -182,7 +203,7 @@ Le app per account singolo vengono usate solo da un unico utente.  Ad esempio, �
 
 #### <a name="single-account-msal-initialization"></a>Inizializzazione di MSAL per account singolo
 
-In `onCreateView()` viene creato un account singolo `PublicClientApplication` usando le informazioni di configurazione archiviate nel file `auth_config_single_account.json`.  Ecco come inizializzare la libreria MSAL per l'uso in un'app MSAL per account singolo:
+In `auth_config_single_account.json`, in `onCreateView()`, viene creato un account singolo `PublicClientApplication` usando le informazioni di configurazione archiviate nel file `auth_config_single_account.json`.  Ecco come inizializzare la libreria MSAL per l'uso in un'app MSAL per account singolo:
 
 ```java
 ...
@@ -193,9 +214,9 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
             @Override
             public void onCreated(ISingleAccountPublicClientApplication application) {
                 /**
-                    * This test app assumes that the app is only going to support one account.
-                    * This requires "account_mode" : "SINGLE" in the config json file.
-                    **/
+                 * This test app assumes that the app is only going to support one account.
+                 * This requires "account_mode" : "SINGLE" in the config json file.
+                 **/
                 mSingleAccountApp = application;
                 loadAccount();
             }
@@ -209,7 +230,7 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
 
 #### <a name="sign-in-a-user"></a>Accesso di un utente
 
-Il codice per l'accesso di un utente è `initializeUI()` nel gestore di clic `signInButton`.
+In `SingleAccountModeFragment.java`, il codice per l'accesso di un utente è in `initializeUI()`, nel gestore di clic `signInButton`.
 
 Chiamare `signIn()` prima di provare ad acquisire i token. `signIn()` si comporta come se venisse chiamato `acquireToken()` e consente di ottenere un prompt interattivo per l'accesso dell'utente.
 
@@ -221,7 +242,7 @@ mSingleAccountApp.signIn(getActivity(), null, getScopes(), getAuthInteractiveCal
 
 #### <a name="sign-out-a-user"></a>Disconnessione di un utente
 
-Il codice per la disconnessione di un utente è `initializeUI()` nel gestore di clic `signOutButton`.  La disconnessione di un utente è un'operazione asincrona. La disconnessione dell'utente implica anche la cancellazione della cache dei token per l'account. Viene creato un callback per aggiornare l'interfaccia utente dopo che l'account utente è stato disconnesso:
+In `SingleAccountModeFragment.java`, il codice per la disconnessione di un utente è in `initializeUI()`, nel gestore di clic `signOutButton`.  La disconnessione di un utente è un'operazione asincrona. La disconnessione dell'utente implica anche la cancellazione della cache dei token per l'account. Viene creato un callback per aggiornare l'interfaccia utente dopo che l'account utente è stato disconnesso:
 
 ```java
 mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
@@ -251,7 +272,7 @@ Ecco alcune situazioni in cui all'utente finale potrebbe essere richiesto di sel
 * Quando l'applicazione richiede l'accesso a una risorsa per la prima volta
 * Quando è necessario eseguire l'autenticazione a più fattori o soddisfare altri criteri di accesso condizionale
 
-Il codice per ottenere un token in modo interattivo, ovvero visualizzando un'interfaccia utente per richiedere l'input dell'utente, si trova in `initializeUI()` nel gestore di clic `callGraphApiInteractiveButton`:
+Il codice per ottenere un token in modo interattivo, ovvero visualizzando un'interfaccia utente per richiedere l'input dell'utente, si trova in `SingleAccountModeFragment.java`, in `initializeUI()`, nel gestore di clic `callGraphApiInteractiveButton`:
 
 ```java
 /**
@@ -262,7 +283,7 @@ Il codice per ottenere un token in modo interattivo, ovvero visualizzando un'int
  *  - password change
  *  - the resource you're acquiring a token for has a stricter set of requirement than your Single Sign-On refresh token.
  *  - you're introducing a new scope which the user has never consented for.
- */
+ **/
 mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
@@ -270,15 +291,15 @@ Se l'utente ha già eseguito l'accesso, `acquireTokenSilentAsync()` consente all
 
 ```java
 /**
-  * Once you've signed the user in,
-  * you can perform acquireTokenSilent to obtain resources without interrupting the user.
-  */
+ * Once you've signed the user in,
+ * you can perform acquireTokenSilent to obtain resources without interrupting the user.
+ **/
   mSingleAccountApp.acquireTokenSilentAsync(getScopes(), AUTHORITY, getAuthSilentCallback());
 ```
 
 #### <a name="load-an-account"></a>Caricare un account
 
-Il codice per caricare un account si trova in `loadAccount()`.  Il caricamento dell'account dell'utente è un'operazione asincrona, di conseguenza i callback da gestire quando l'account viene caricato, cambia o si verifica un errore vengono passati a MSAL.  Il codice seguente gestisce anche `onAccountChanged()`, che si verifica quando un account viene rimosso, l'utente passa a un altro account e così via.
+Il codice per caricare un account si trova in `SingleAccountModeFragment.java`, in `loadAccount()`.  Il caricamento dell'account dell'utente è un'operazione asincrona, di conseguenza i callback da gestire quando l'account viene caricato, cambia o si verifica un errore vengono passati a MSAL.  Il codice seguente gestisce anche `onAccountChanged()`, che si verifica quando un account viene rimosso, l'utente passa a un altro account e così via.
 
 ```java
 private void loadAccount() {
@@ -308,7 +329,7 @@ private void loadAccount() {
 
 #### <a name="call-microsoft-graph"></a>Chiamare Microsoft Graph
 
-Quando un utente ha eseguito l'accesso, la chiamata a Microsoft Graph viene effettuata tramite una richiesta HTTP da `callGraphAPI()`. Questa funzione è un wrapper che semplifica l'esempio eseguendo alcune attività, ad esempio il recupero del token di accesso da `authenticationResult` e la creazione di un pacchetto della chiamata a MSGraphRequestWrapper, nonché visualizzando i risultati della chiamata.
+Quando un utente ha eseguito l'accesso, la chiamata a Microsoft Graph viene effettuata tramite una richiesta HTTP da `callGraphAPI()`, definito in `SingleAccountModeFragment.java`. Questa funzione è un wrapper che semplifica l'esempio eseguendo alcune attività, ad esempio il recupero del token di accesso da `authenticationResult` e la creazione di un pacchetto della chiamata a MSGraphRequestWrapper, nonché visualizzando i risultati della chiamata.
 
 ```java
 private void callGraphAPI(final IAuthenticationResult authenticationResult) {
@@ -340,11 +361,14 @@ Per una spiegazione di questi campi, vedere [Informazioni sul file di configuraz
 
 Si noti la presenza di `"account_mode" : "SINGLE"`, che configura l'app per l'uso di un account singolo.
 
+`"client_id"` è preconfigurato per l'uso di una registrazione dell'oggetto app gestita da Microsoft.
+`"redirect_uri"` è preconfigurato per l'uso della chiave di firma fornita con l'esempio di codice.
+
 ```json
 {
-  "client_id" : "<your_client_id_here>",
+  "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "<your_redirect_uri_here>",
+  "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
   "account_mode" : "SINGLE",
   "broker_redirect_uri_registered": true,
   "authorities" : [
@@ -361,23 +385,23 @@ Si noti la presenza di `"account_mode" : "SINGLE"`, che configura l'app per l'us
 
 ### <a name="multipleaccountmodefragmentjava"></a>MultipleAccountModeFragment.java
 
-Questo file illustra come creare un'app MSAL per account multipli e chiamare un'API Microsoft Graph. 
+Questo file illustra come creare un'app MSAL per account multipli e chiamare un'API Microsoft Graph.
 
 Un esempio di app per account multipli è costituito da un'app di posta elettronica che consente di usare più account utente, ad esempio un account aziendale e un account personale.
 
 #### <a name="multiple-account-msal-initialization"></a>Inizializzazione di MSAL per account multipli
 
-In `onCreateView()` viene creato un oggetto app per account multiplo (`IMultipleAccountPublicClientApplication`) usando le informazioni di configurazione archiviate nel file `auth_config_multiple_account.json file`:
+Nel file `MultipleAccountModeFragment.java`, in `onCreateView()`, viene creato un oggetto app per account multiplo (`IMultipleAccountPublicClientApplication`) usando le informazioni di configurazione archiviate nel file `auth_config_multiple_account.json file`:
 
 ```java
-// Creates a PublicClientApplication object with res/raw/auth_config_single_account.json
+// Creates a PublicClientApplication object with res/raw/auth_config_multiple_account.json
 PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(),
         R.raw.auth_config_multiple_account,
         new IPublicClientApplication.IMultipleAccountApplicationCreatedListener() {
             @Override
             public void onCreated(IMultipleAccountPublicClientApplication application) {
                 mMultipleAccountApp = application;
-                loadAccount();
+                loadAccounts();
             }
 
             @Override
@@ -391,15 +415,17 @@ L'oggetto `MultipleAccountPublicClientApplication` creato viene archiviato in un
 
 #### <a name="load-an-account"></a>Caricare un account
 
-Le app per account multipli chiamano in genere `GetAccounts()` per selezionare l'account da usare per le operazioni MSAL. Il codice per caricare un account si trova in `loadAccount()`.  Il caricamento dell'account dell'utente è un'operazione asincrona. Un callback gestisce quindi le situazioni in cui l'account viene caricato, cambia o si verifica un errore.
+Le app per account multipli chiamano in genere `getAccounts()` per selezionare l'account da usare per le operazioni MSAL. Il codice per caricare un account si trova nel file `MultipleAccountModeFragment.java`, in `loadAccounts()`.  Il caricamento dell'account dell'utente è un'operazione asincrona. Un callback gestisce quindi le situazioni in cui l'account viene caricato, cambia o si verifica un errore.
 
 ```java
 /**
-    * Load the currently signed-in account, if there's any.
-    * In the shared device mode, if the user is signed out from the device, the app can also perform the clean-up work in onAccountChanged().
-    */
-private void loadAccount() {
-    ...
+ * Load currently signed-in accounts, if there's any.
+ **/
+private void loadAccounts() {
+    if (mMultipleAccountApp == null) {
+        return;
+    }
+
     mMultipleAccountApp.getAccounts(new IPublicClientApplication.LoadAccountsCallback() {
         @Override
         public void onTaskCompleted(final List<IAccount> result) {
@@ -427,7 +453,7 @@ Ecco alcune situazioni in cui all'utente finale potrebbe essere richiesto di sel
 * Quando l'applicazione richiede l'accesso a una risorsa per la prima volta
 * Quando è necessario eseguire l'autenticazione a più fattori o soddisfare altri criteri di accesso condizionale
 
-Le app per account multipli devono in genere acquisire token in modo interattivo, ovvero visualizzando un'interfaccia utente per richiedere l'input dell'utente, con una chiamata a `acquireToken()`.  Il codice per ottenere un token in modo interattivo si trova in `initializeUI()`, nel gestore di clic `callGraphApiInteractiveButton`:
+Le app per account multipli devono in genere acquisire token in modo interattivo, ovvero visualizzando un'interfaccia utente per richiedere l'input dell'utente, con una chiamata a `acquireToken()`.  Il codice per ottenere un token in modo interattivo si trova nel file `MultipleAccountModeFragment.java` in `initializeUI()`, nel gestore di clic `callGraphApiInteractiveButton`:
 
 ```java
 /**
@@ -440,11 +466,11 @@ Le app per account multipli devono in genere acquisire token in modo interattivo
  *  - password change
  *  - the resource you're acquiring a token for has a stricter set of requirement than your SSO refresh token.
  *  - you're introducing a new scope which the user has never consented for.
- */
+ **/
 mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Le app non dovrebbero richiedere agli utenti di eseguire l'accesso ogni volta che richiedono un token. Se l'utente ha già eseguito l'accesso, `acquireTokenSilentAsync()` consente alle app di richiedere i token senza richiedere l'input dell'utente, come illustrato in `initializeUI()`, nel gestore di clic `callGraphApiSilentButton`:
+Le app non dovrebbero richiedere agli utenti di eseguire l'accesso ogni volta che richiedono un token. Se l'utente ha già eseguito l'accesso, `acquireTokenSilentAsync()` consente alle app di richiedere i token senza input dell'utente, come illustrato nel file `MultipleAccountModeFragment.java`, in `initializeUI()`, nel gestore di clic `callGraphApiSilentButton`:
 
 ```java
 /**
@@ -454,26 +480,26 @@ Le app non dovrebbero richiedere agli utenti di eseguire l'accesso ogni volta ch
  * (can be obtained via getAccount()).
  */
 mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
-accountList.get(accountListSpinner.getSelectedItemPosition()),
-AUTHORITY,
-getAuthSilentCallback());
+    accountList.get(accountListSpinner.getSelectedItemPosition()),
+    AUTHORITY,
+    getAuthSilentCallback());
 ```
 
 #### <a name="remove-an-account"></a>Rimuovere un account
 
-Il codice per rimuovere un account e tutti i token memorizzati nella cache per l'account si trova in `initializeUI()`, nel gestore del pulsante Rimuovi account. Prima di poter rimuovere un account, è necessario un oggetto account, ottenuto da funzioni MSAL come `getAccounts()` e `acquireToken()`. Dal momento che la rimozione di un account è un'operazione asincrona, viene fornito il callback `onRemoved` per aggiornare l'interfaccia utente.
+Il codice per rimuovere un account e tutti i token memorizzati nella cache per l'account si trova nel file `MultipleAccountModeFragment.java`, in `initializeUI()`, nel gestore del pulsante Rimuovi account. Prima di poter rimuovere un account, è necessario un oggetto account, ottenuto da metodi MSAL come `getAccounts()` e `acquireToken()`. Dal momento che la rimozione di un account è un'operazione asincrona, viene fornito il callback `onRemoved` per aggiornare l'interfaccia utente.
 
 ```java
 /**
-  * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
-  */
+ * Removes the selected account and cached tokens from this app (or device, if the device is in shared mode).
+ **/
 mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelectedItemPosition()),
         new IMultipleAccountPublicClientApplication.RemoveAccountCallback() {
             @Override
             public void onRemoved() {
                 ...
                 /* Reload account asynchronously to get the up-to-date list. */
-                loadAccount();
+                loadAccounts();
             }
 
             @Override
@@ -487,15 +513,18 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 
 Questo è il file di configurazione per un'app MSAL che usa account multipli.
 
-Per una spiegazione di questi campi, vedere [Informazioni sul file di configurazione di Android Microsoft Authentication Library (MSAL)](msal-configuration.md).
+Per una spiegazione dei vari campi, vedere [Informazioni sul file di configurazione di Android Microsoft Authentication Library (MSAL)](msal-configuration.md).
 
 A differenza del file di configurazione [auth_config_single_account.json](#auth_config_single_accountjson), questo file contiene `"account_mode" : "MULTIPLE"` invece di `"account_mode" : "SINGLE"` perché si tratta di un'app per account multipli.
 
+`"client_id"` è preconfigurato per l'uso di una registrazione dell'oggetto app gestita da Microsoft.
+`"redirect_uri"` è preconfigurato per l'uso della chiave di firma fornita con l'esempio di codice.
+
 ```json
 {
-  "client_id" : "<your_client_id_here>",
+  "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "<your_redirect_uri_here>",
+  "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
   "account_mode" : "MULTIPLE",
   "broker_redirect_uri_registered": true,
   "authorities" : [
@@ -514,7 +543,7 @@ A differenza del file di configurazione [auth_config_single_account.json](#auth_
 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Informazioni sulla procedura per creare l'applicazione usata in questa guida introduttiva
 
-Provare l'esercitazione Android per una guida dettagliata completa sulla creazione di applicazioni e di nuove funzionalità, tra cui una spiegazione completa di questa guida introduttiva.
+Provare l'esercitazione [Accesso utenti e chiamata di Microsoft Graph da un'app Android](tutorial-v2-android.md) per una guida dettagliata per la compilazione di un'app Android che ottiene un token di accesso e lo usa per chiamare l'API Microsoft Graph.
 
 > [!div class="nextstepaction"]
 > [Esercitazione Android per le chiamate API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
