@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 5b8d97005d8f404a296ddb45e92b65e4aa811aa3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486768"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280816"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>I punteggi di stima indicano l'accuratezza delle stime per la finalità e le entità
 
@@ -24,7 +24,7 @@ Un punteggio di stima indica il grado di confidenza LUIS per i risultati della s
 
 Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01. 
 
-|Valore punteggio|Attendibilità|
+|Valore del punteggio|Attendibilità|
 |--|--|
 |1|corrispondenza definita|
 |0,99|attendibilità elevata|
@@ -68,7 +68,7 @@ Se il bot di chat richiede un punteggio LUIS specifico per indicare la confidenz
 
 ## <a name="e-exponent-notation"></a>Notazione E (esponenziale)
 
-I punteggi di stima possono usare la notazione esponenziale, dove *appare* sopra l'intervallo 0-1, ad esempio `9.910309E-07`. Questo punteggio è un'indicazione di un numero molto **piccolo**.
+I punteggi di stima possono usare la notazione esponenziale, dove _appare_ sopra l'intervallo 0-1, ad esempio `9.910309E-07`. Questo punteggio è un'indicazione di un numero molto **piccolo**.
 
 |Punteggio notazione esponenziale |Punteggio effettivo|
 |--|--|

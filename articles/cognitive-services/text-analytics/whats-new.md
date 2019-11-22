@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 15beb8d3e326f04f1ae61c26f00e9428d95f6bc4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ef23c03f01cd8e83d4327f358eaf12209659ce8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031366"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286449"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -29,8 +29,8 @@ La versione successiva di Named Entity Recognition (NER) è ora disponibile per 
     * Numero di telefono
     * Indirizzo IP
 
-* Un [nuovo endpoint](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) per il riconoscimento dei tipi di entità di informazioni personali (solo in inglese)
-* Separare gli endpoint per il [riconoscimento delle entità]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e il collegamento delle [entità]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Un [nuovo endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) per il riconoscimento dei tipi di entità di informazioni personali (solo in inglese)
+* Separare gli endpoint per il [riconoscimento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e il collegamento delle [entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
 Il collegamento di entità supporta inglese e spagnolo. Il supporto del linguaggio NER varia in base al tipo di entità. 
 
@@ -39,7 +39,7 @@ Il collegamento di entità supporta inglese e spagnolo. Il supporto del linguagg
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>Anteprima pubblica di Analisi del sentiment V3-2019 ottobre
 
-La [prossima versione di analisi del sentiment](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) è ora disponibile per l'anteprima pubblica e offre miglioramenti significativi nell'accuratezza e nei dettagli della categorizzazione e del punteggio dell'API. Fornisce inoltre:
+La [prossima versione di analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) è ora disponibile per l'anteprima pubblica e offre miglioramenti significativi nell'accuratezza e nei dettagli della categorizzazione e del punteggio dell'API. Fornisce inoltre:
 
 * Assegnazione automatica di etichette per diversi sentimenti nel testo.
 * Analisi dei sentimenti e output a livello di documento e di frase. 

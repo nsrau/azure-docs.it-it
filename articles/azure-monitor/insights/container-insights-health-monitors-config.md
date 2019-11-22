@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b782581318751830ec47b9fecb056fecefb353eb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134957"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279702"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guida alla configurazione di monitoraggio integrità dei contenitori di monitoraggio di Azure
 
-I monitoraggi sono l'elemento principale per misurare lo stato di integrità e rilevare gli errori in monitoraggio di Azure per i contenitori. Questo articolo consente di comprendere i concetti relativi alla misurazione dello stato di integrità e gli elementi che costituiscono il modello di integrità per monitorare e segnalare l'integrità del cluster Kubernetes con la [funzionalità di integrità](container-insights-health.md).
+I monitoraggi sono l'elemento principale per misurare lo stato di integrità e rilevare gli errori in monitoraggio di Azure per i contenitori. Questo articolo illustra i concetti relativi alla misurazione dello stato di integrità e gli elementi che costituiscono il modello di integrità per monitorare e segnalare l'integrità del cluster Kubernetes con la funzionalità di [integrità (anteprima)](container-insights-health.md) .
+
+>[!NOTE]
+>La funzionalità di integrità è attualmente in anteprima pubblica.
+>
 
 ## <a name="monitors"></a>Monitoraggi
 

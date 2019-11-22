@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619775"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286975"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -25,7 +25,7 @@ Questo articolo consente di individuare e correggere gli errori o gli errori ris
 
 Il servizio di calcolo di Azure aggiornerà gli SKU di NCv3 a partire dall'inizio del 2019 novembre per supportare tutte le implementazioni e le versioni MPI e i verbi RDMA per le macchine virtuali con InfiniBand. Questa operazione richiederà un breve tempo di inattività. [per altre informazioni sull'aggiornamento di SR-IOV, vedere](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
 
-In qualità di cliente dell'offerta di calcolo gestita di Azure Machine Learning (AmlCompute), non è necessario apportare alcuna modifica in questo momento. In base alla [pianificazione dell'aggiornamento](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , è necessario pianificare una breve pausa nel training. Il servizio si assume la responsabilità di aggiornare le immagini di macchina virtuale nei nodi del cluster e aumentare automaticamente il cluster. Una volta completato l'aggiornamento, è possibile utilizzare tutti gli altri discibutions MPI, ad esempio OpenMPi con Pytorch, oltre a ottenere una larghezza di banda InfiniBand superiore, latenze più basse e prestazioni delle applicazioni distribuite migliori.
+In qualità di cliente dell'offerta di calcolo gestita di Azure Machine Learning (AmlCompute), non è necessario apportare alcuna modifica in questo momento. In base alla [pianificazione dell'aggiornamento](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , è necessario pianificare una breve pausa nel training. Il servizio si assume la responsabilità di aggiornare le immagini di macchina virtuale nei nodi del cluster e aumentare automaticamente il cluster. Una volta completato l'aggiornamento, è possibile utilizzare tutte le altre distribuzioni MPI (come OpenMPi con Pytorch) oltre a ottenere una larghezza di banda InfiniBand superiore, latenze inferiori e migliori prestazioni dell'applicazione distribuita.
 
 ## <a name="azure-machine-learning-designer-issues"></a>Problemi di Azure Machine Learning Designer
 
@@ -98,7 +98,7 @@ Si è verificato un problema noto in AzureML dataprep SDK versione 1.1.25 che ca
 pip install --upgrade azureml-dataprep
 ```
 
-### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () ha un argomento parola chiave imprevisto ' invocation_id '
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: Mount () ha un argomento ' invocation_id ' della parola chiave imprevisto
 
 Questo errore si verifica se si dispone di una versione incompatibile tra `azureml-core` e `azureml-dataprep`. Se viene visualizzato questo errore, aggiornare `azureml-dataprep` pacchetto a una versione più recente (maggiore o uguale a 1.1.29).
 
@@ -153,13 +153,13 @@ Se questi passaggi non risolvono il problema, provare a riavviare il cluster.
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Se viene visualizzato un errore `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
+Se viene visualizzato un errore di `FailToSendFeather` durante la lettura dei dati in Azure Databricks cluster, fare riferimento alle soluzioni seguenti:
 
-* Aggiornare il pacchetto `azureml-sdk[automl]` alla versione più recente.
+* Aggiornare `azureml-sdk[automl]` pacchetto alla versione più recente.
 * Aggiungere `azureml-dataprep` versione 1.1.8 o successiva.
 * Aggiungere `pyarrow` versione 0,11 o successiva.
 
-## <a name="azure-portal"></a>Portale di Azure
+## <a name="azure-portal"></a>portale di Azure
 
 Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di condivisione da SDK o dal portale, non sarà possibile visualizzare la pagina Panoramica normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, la soluzione alternativa consiste nell'accedere direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
 
@@ -236,14 +236,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster con `kubectl` e recuperando il segreto `azuremlfessl`.
+Se non sono più disponibili il certificato SSL e la chiave privata oppure si usa un certificato generato da Azure Machine Learning, è possibile recuperare i file prima di scollegare il cluster connettendosi al cluster usando `kubectl` e recuperando il segreto `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è 64 necessario decodificare i componenti `cert.pem` e `key.pem` dei segreti. 
+>Kubernetes archivia i segreti nel formato con codifica base 64. Prima di fornire le `attach_config.enable_ssl`, è necessario decodificare in base 64 i componenti di `cert.pem` e `key.pem` dei segreti. 
 
 ## <a name="recommendations-for-error-fix"></a>Suggerimenti per la correzione degli errori
 In base all'osservazione generale, di seguito sono riportate le raccomandazioni di Azure ML per correggere alcuni degli errori comuni in Azure ML.
@@ -264,7 +264,7 @@ Le dipendenze specifiche del Framework sono elencate nella rispettiva documentaz
 Questa eccezione deve provenire dagli script di training. È possibile esaminare i file di log da portale di Azure per ottenere altre informazioni sul nome specifico non definito o sull'errore dell'attributo. Dall'SDK è possibile usare `run.get_details()` per esaminare il messaggio di errore. Vengono inoltre elencati tutti i file di log generati per l'esecuzione. Assicurarsi di esaminare lo script di training, correggere l'errore prima di riprovare. 
 
 ### <a name="horovod-is-shutdown"></a>Horovod è stato arrestato
-Nella maggior parte dei casi, questa eccezione indica che si è verificata un'eccezione sottostante in uno dei processi che hanno causato l'arresto di horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs`. In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per facilitare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
+Nella maggior parte dei casi, questa eccezione indica che si è verificata un'eccezione sottostante in uno dei processi che hanno causato l'arresto di horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs`. In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per facilitare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
 
 ## <a name="labeling-projects-issues"></a>Problemi relativi all'assegnazione di etichette ai progetti
 

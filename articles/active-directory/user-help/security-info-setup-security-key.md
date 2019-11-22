@@ -1,6 +1,6 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) per una chiave di sicurezza-Azure AD
-description: Come configurare le info di sicurezza per verificare la propria identità usando una chiave di sicurezza FIDO2 (Fast Identity online).
+title: 'Configurare una chiave di sicurezza come metodo di verifica: Azure AD'
+description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità per l'uso di una chiave di sicurezza FIDO2 (Fast Identity online) come metodo di verifica.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803779"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278958"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>Configurare le informazioni di sicurezza (anteprima) per una chiave di sicurezza
+# <a name="set-up-a-security-key-as-your-verification-method"></a>Configurare una chiave di sicurezza come metodo di verifica
 
-È possibile usare le chiavi di sicurezza come metodo di accesso senza password all'interno dell'organizzazione. Una chiave di sicurezza è un dispositivo fisico usato con un PIN univoco per accedere all'account aziendale o dell'Istituto di istruzione. Poiché le chiavi di sicurezza richiedono che il dispositivo fisico e un elemento sia solo noto, viene considerato un metodo di autenticazione più sicuro rispetto a un nome utente e una password.
+È possibile usare le chiavi di sicurezza come metodo di accesso senza password all'interno dell'organizzazione. Una chiave di sicurezza è un dispositivo fisico usato con un PIN univoco per accedere all'account aziendale o dell'Istituto di istruzione. Poiché le chiavi di sicurezza richiedono che il dispositivo fisico e un elemento sia solo noto, viene considerato un metodo di verifica più sicuro rispetto a un nome utente e una password.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
@@ -35,7 +35,7 @@ Attualmente sono supportati diversi progetti e provider di chiavi di sicurezza u
 L'amministratore o l'organizzazione fornirà una chiave di sicurezza, se necessaria per l'account aziendale o dell'Istituto di istruzione. Esistono diversi tipi di chiavi di sicurezza che è possibile usare, ad esempio una chiave USB che si collega al dispositivo o una chiave NFC che si tocca su un lettore NFC. È possibile trovare altre informazioni sulla chiave di sicurezza, tra cui il tipo di dati, dalla documentazione del produttore.
 
 > [!Note]
-> Se non si è in grado di usare una chiave di sicurezza FIDO2, è possibile usare altri metodi di autenticazione con password, ad esempio l'app Microsoft Authenticator o Windows Hello. Per altre informazioni sull'app Microsoft Authenticator, vedere [che cos'è l'app Microsoft Authenticator?](user-help-auth-app-overview.md). Per ulteriori informazioni su Windows Hello, vedere [Panoramica di Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Se non si è in grado di usare una chiave di sicurezza FIDO2, è possibile usare altri metodi di verifica con password, ad esempio l'app Microsoft Authenticator o Windows Hello. Per altre informazioni sull'app Microsoft Authenticator, vedere [che cos'è l'app Microsoft Authenticator?](user-help-auth-app-overview.md). Per ulteriori informazioni su Windows Hello, vedere [Panoramica di Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -144,13 +144,13 @@ Per eliminare tutte le informazioni sull'account archiviate nella chiave di sicu
      La chiave di sicurezza viene aggiornata con il nuovo PIN della chiave di sicurezza da usare con l'account aziendale o dell'Istituto di istruzione. Se si decide di modificare di nuovo il PIN, è possibile selezionare il pulsante **Cambia** .
 4. Selezionare **Chiudi** per chiudere la schermata **Gestisci** .
 
-## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
+## <a name="additional-security-info-methods"></a>Altri metodi per le informazioni di sicurezza
 
 Per registrare una chiave di sicurezza, è necessario avere almeno un metodo di verifica di sicurezza aggiuntivo registrato. Per ulteriori informazioni, vedere la [sezione Panoramica](security-info-add-update-methods-overview.md) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sui metodi di autenticazione con password, leggere l' [Azure ad Microsoft avvia l'anteprima pubblica delle chiavi di sicurezza FIDO2, abilitando gli account di accesso](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) con [Articoli introduttivi su Windows Hello](user-help-auth-app-overview.md) [password o leggere l'app Microsoft Authenticator? ](https://www.microsoft.com/windows/windows-hello).
+- Per ulteriori informazioni sui metodi di verifica con password, leggere l' [Azure ad Microsoft avvia l'anteprima pubblica delle chiavi di sicurezza FIDO2, abilitando gli account di accesso con password](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) o leggere gli articoli [che cosa sono l'app Microsoft Authenticator?](user-help-auth-app-overview.md) e [Panoramica di Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 
 - Per informazioni più dettagliate sulle [chiavi di sicurezza conformi a Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

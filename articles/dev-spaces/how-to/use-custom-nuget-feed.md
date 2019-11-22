@@ -1,8 +1,6 @@
 ---
 title: Come usare un feed NuGet personalizzato in Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/17/2019
@@ -10,12 +8,12 @@ ms.topic: conceptual
 description: Usare un feed NuGet personalizzato per accedere ai pacchetti NuGet e usarli in uno spazio Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
 manager: gwallace
-ms.openlocfilehash: 019335cd73e8eaf0ada6897f08c88ef2b8bbf631
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: MT
+ms.openlocfilehash: ee14d999872f6e739321c144831d60a4ae6f9388
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162792"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279958"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Usare un feed NuGet personalizzato in uno spazio Azure Dev Spaces
 
@@ -23,7 +21,7 @@ Un feed NuGet costituisce un modo semplice per includere le origini dei pacchett
 
 ## <a name="set-up-a-nuget-feed"></a>Configurare un feed NuGet
 
-Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) per la dipendenza nel file di `*.csproj` al di sotto del nodo `PackageReference`. ad esempio:
+Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) per la dipendenza nel file di `*.csproj` al di sotto del nodo `PackageReference`. Ad esempio:
 
 ```xml
 <ItemGroup>
@@ -33,7 +31,7 @@ Aggiungere un [riferimento al pacchetto](https://docs.microsoft.com/nuget/consum
 </ItemGroup>
 ```
 
-Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella del progetto e impostare le sezioni `packageSources` e `packageSourceCredentials` per il feed NuGet. La sezione `packageSources` contiene l'URL del feed, che deve essere accessibile dal cluster AKS. Le `packageSourceCredentials` sono le credenziali per l'accesso al feed. ad esempio:
+Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-config-file) nella cartella del progetto e impostare le sezioni `packageSources` e `packageSourceCredentials` per il feed NuGet. La sezione `packageSources` contiene l'URL del feed, che deve essere accessibile dal cluster AKS. Le `packageSourceCredentials` sono le credenziali per l'accesso al feed. Ad esempio:
 
 ```xml
 <packageSources>
@@ -48,7 +46,7 @@ Creare un file [NuGet. config](https://docs.microsoft.com/nuget/reference/nuget-
 </packageSourceCredentials>
 ```
 
-Aggiornare il Dockerfile per copiare il file di `NuGet.Config` nell'immagine. ad esempio:
+Aggiornare il Dockerfile per copiare il file di `NuGet.Config` nell'immagine. Ad esempio:
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]

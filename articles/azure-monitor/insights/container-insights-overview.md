@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 97aad6f3853de07a3c4d2fc694c1dcefbd0e82a4
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195127"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279639"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Panoramica di Monitoraggio di Azure per contenitori
 
@@ -47,6 +47,10 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio comp
 
 * Monitorare i carichi di lavoro dei contenitori [distribuiti nel motore AKS](https://github.com/microsoft/OMS-docker/tree/aks-engine) locale e nel [motore AKS in Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Monitorare i carichi di lavoro dei contenitori [distribuiti in Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
+
+    >[!NOTE]
+    >Il supporto per Red Hat OpenShift è una funzionalità di anteprima pubblica al momento.
+    >
 
 Per informazioni sul monitoraggio del cluster AKS con monitoraggio di Azure per i contenitori, vedere il video seguente che fornisce un approfondimento di livello intermedio.
 

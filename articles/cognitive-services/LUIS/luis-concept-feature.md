@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647408"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280907"
 ---
 # <a name="machine-learned-features"></a>Funzionalità acquisite dal computer 
 
-In Machine Learning, una *funzionalità* è un tratto di distinzione o un attributo di dati che il sistema osserva & apprende. In Language Understanding (LUIS), una funzionalità descrive e spiega cosa è significativo sugli Intent ed entità.
+In Machine Learning, una _funzionalità_ è un tratto di distinzione o un attributo di dati che il sistema osserva & apprende. In Language Understanding (LUIS), una funzionalità descrive e spiega cosa è significativo sugli Intent ed entità.
 
 Nel [portale di anteprima Luis](https://preview.luis.ai)le funzionalità sono _descrittori_ perché vengono usate per _descrivere_ lo scopo o l'entità.  
 
@@ -82,7 +82,7 @@ Ad esempio, se lo scopo è quello di prenotare un volo e l'entità è costituita
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>Entità come funzionalità di un'altra entità
 
-Un'entità (A) deve essere aggiunta come funzionalità a un'altra entità (B) quando il rilevamento di tale entità (A) è significativo per (B).
+Un'entità (A) deve essere aggiunta come caratteristica a un'altra entità (B) quando il rilevamento di tale entità (A) è significativo per la stima dell'entità (B).
 
 Se, ad esempio, viene rilevata l'entità via Address (A), la ricerca dell'indirizzo (a) aggiunge il peso alla stima per l'entità Address Shipping (B). 
 

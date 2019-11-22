@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373884"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284906"
 ---
 # <a name="service-to-service-apps"></a>App da servizio a servizio
 
@@ -40,7 +40,7 @@ Le applicazioni da servizio a servizio possono essere un'applicazione daemon o s
 
 ![Diagramma Da daemon o applicazione server ad API Web](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>Flusso DProtocol
+## <a name="protocol-flow"></a>Flusso del protocollo
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identità applicazione con concessione delle credenziali client OAuth 2.0
 
@@ -59,11 +59,11 @@ Il flusso descritto di seguito presuppone che un utente abbia eseguito l'autenti
 
 ## <a name="code-samples"></a>Esempi di codice
 
-Vedere gli esempi di codice per gli scenari Da applicazione daemon o server ad API Web. Consultare spesso questa pagina perché vengono aggiunti regolarmente nuovi esempi. [Applicazione server o daemon ad API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Vedere gli esempi di codice per l'applicazione daemon o server in scenari di API Web: [applicazione server o daemon ad API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-* Tenant singolo: in entrambi i casi (identità di applicazione e identità utente delegato), l'applicazione daemon o server deve essere registrata nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso del daemon o del server alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione server deve selezionare le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
+* Tenant singolo: in entrambi i casi (identità di applicazione e identità utente delegato), l'applicazione daemon o server deve essere registrata nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso del daemon o del server alle relative risorse. Se viene utilizzato un tipo di identità utente delegato, l'applicazione server deve selezionare le autorizzazioni desiderate. Nella pagina **autorizzazione API** per la registrazione dell'applicazione, dopo aver selezionato **Aggiungi un'autorizzazione** e scelto la famiglia di API, scegliere **autorizzazioni delegate**e quindi selezionare le autorizzazioni. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 * Multi-tenant: per prima cosa, l'applicazione daemon o server viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, entrambe le API Web vengono registrate nella directory.
 
 ## <a name="token-expiration"></a>Scadenza del token
@@ -72,5 +72,5 @@ Quando la prima applicazione usa il proprio codice di autorizzazione per ottener
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su altri [Tipi di applicazione e scenari](app-types.md)
+- Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
 - [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD

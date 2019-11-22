@@ -1,6 +1,6 @@
 ---
-title: Register authentication info to reset your own password - Azure AD
-description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
+title: Registrare le informazioni di autenticazione per reimpostare la password Azure AD
+description: Registrare le informazioni sul metodo di verifica per Azure AD la reimpostazione della password self-service, in modo che sia possibile reimpostare la password senza la guida dell'amministratore.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cae72ac4752d5d1f6135312d578eb1a277ccd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231909"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279061"
 ---
-# <a name="register-your-authentication-method-info-to-reset-your-own-password"></a>Register your authentication method info to reset your own password
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrare le informazioni sul metodo di verifica per reimpostare la password
 
 > [!IMPORTANT]
 > Se si sta visitando questa pagina perché non si riesce a effettuare l'accesso, vedere [Reimpostare la password aziendale o scolastica](active-directory-passwords-update-your-own-password.md).
 
-Gli utenti finali possono reimpostare la password o sbloccare l'account autonomamente tramite la funzionalità di reimpostazione della password self-service (SSPR) di Azure Active Directory (Azure AD). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione in uso o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore.
+Gli utenti finali possono reimpostare la password o sbloccare l'account autonomamente tramite la funzionalità di reimpostazione della password self-service (SSPR) di Azure Active Directory (Azure AD). Prima di poter usare questa funzionalità, è necessario registrare i metodi di verifica o verificare i metodi di verifica predefiniti che l'amministratore ha popolato.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrare o confermare i dati di autenticazione con la reimpostazione password self-service
 
@@ -38,13 +38,13 @@ Gli utenti finali possono reimpostare la password o sbloccare l'account autonoma
     * **Domande di sicurezza**: elenco di domande approvato dall'amministratore a cui l'utente deve rispondere. Non è possibile usare la stessa domanda o rispondere più volte.
 4. Specificare e verificare le informazioni richieste dall'amministratore. Se sono disponibili più opzioni, è consigliabile registrare più metodi, per avere la flessibilità necessaria nel caso in cui uno dei metodi non sia disponibile. Quando si è in viaggio, ad esempio, non è possibile accedere al telefono dell'ufficio.
 
-    ![Registrare i metodi di autenticazione e fare clic su fine][Register]
+    ![Registrare i metodi di verifica e selezionare fine][Register]
 
 5. Selezionare **fine**. È ora possibile usare la funzionalità di reimpostazione della password self-service quando necessario.
 
 I dati immessi in **Telefono per l'autenticazione** o **Indirizzo di posta elettronica per l'autenticazione** non sono visibili nella directory globale. Possono essere visualizzati soltanto dall'utente stesso e dagli amministratori. Le risposte alle domande di sicurezza possono essere visualizzate solo dall'utente.
 
-Gli amministratori possono richiedere all'utente di confermare i metodi di autenticazione dopo un determinato periodo di tempo per verificare che i metodi registrati siano ancora appropriati.
+Gli amministratori potrebbero richiedere di confermare i metodi di verifica dopo un periodo di tempo per assicurarsi di avere ancora i metodi appropriati registrati.
 
 ## <a name="common-problems-and-their-solutions"></a>Problemi frequenti e relative soluzioni
 

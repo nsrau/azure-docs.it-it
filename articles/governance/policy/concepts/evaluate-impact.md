@@ -3,12 +3,12 @@ title: Valutare l'effetto di un nuovo criterio di Azure
 description: Comprendere il processo da seguire quando si introduce un nuovo criterio nell'ambiente Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959836"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279433"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Valutare l'effetto di un nuovo criterio di Azure
 
@@ -71,6 +71,6 @@ L'implementazione e l'assegnazione della definizione dei criteri non è il passa
 - Informazioni sulla [struttura della definizione dei criteri](./definition-structure.md).
 - Informazioni sulla [struttura di assegnazione dei criteri](./assignment-structure.md).
 - Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
-- Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
 - Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

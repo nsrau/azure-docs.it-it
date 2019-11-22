@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487527"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280894"
 ---
 # <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
 
@@ -29,7 +29,7 @@ Finalità dell'app di viaggi   |   Espressioni di esempio   |
  PrenotaVolo     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
  Saluti     |   "Ciao" <br/>"Salve" <br/>"Buongiorno"  |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
- Nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
+ nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
 
 Tutte le applicazioni hanno lo scopo predefinito, ovvero "[None](#none-intent)", ovvero lo scopo del fallback. 
 
@@ -47,13 +47,13 @@ Se si desiderano i punteggi per tutti gli Intent per l'espressione, è possibile
 |V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>Finalità ed entità a confronto
-Lo scopo rappresenta l'azione che il bot deve eseguire per l'utente e si basa sull'intera espressione. Un'espressione può disporre di una sola finalità punteggio più alto, ma può avere molte entità. 
+Lo scopo rappresenta l'azione che l'applicazione deve eseguire per l'utente e si basa sull'intera espressione. Un'espressione può disporre di una sola finalità punteggio più alto, ma può avere molte entità. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
 Creare una finalità quando l' _intenzione_ dell'utente attiverà un'azione nell'applicazione client, ad esempio una chiamata alla funzione checkweather (). Quindi creare entità per rappresentare i parametri necessari per eseguire l'azione. 
 
-|Finalità   | Persona giuridica | Espressione di esempio   | 
+|Finalità   | Entità | Espressione di esempio   | 
 |------------------|------------------------------|------------------------------|
 | Meteo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | Com'è il tempo a `Seattle` `tomorrow`? |
 | Meteo | { "type": "date_range", "entity": "this weekend" } | Mostrami le previsioni per `this weekend` | 
@@ -98,7 +98,7 @@ Se le finalità sono troppo simili, LUIS le distinguerà con maggiore difficolt�
 Ulteriori informazioni sulla combinazione di app LUIS e QnA Maker con il [modello dispatcher](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps). 
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Richiedere la guida per le app con un numero significativo di finalità
-Se ridurre il numero delle finalità o dividere le finalità in più app non comporta alcun miglioramento, contattare l'assistenza. Se la sottoscrizione di Azure include servizi di supporto tecnico, contattare [il supporto tecnico Azure](https://azure.microsoft.com/support/options/). 
+Se ridurre il numero delle finalità o dividere le finalità in più app non comporta alcun miglioramento, contattare l'assistenza. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

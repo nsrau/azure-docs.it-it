@@ -1,6 +1,6 @@
 ---
 title: Schema degli eventi del log attività di Azure
-description: Informazioni sullo schema degli eventi per i dati emessi nel log attività
+description: Descrive lo schema dell'evento per ogni categoria nel log attività di Azure.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9f58f08718cc0bfeb94b83de55531c9bd22720e2
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: d196cf4024513d891182f3b916bd8412a2f81d14
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847342"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305484"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](activity-log-export.md). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
@@ -110,19 +110,19 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | autorizzazione |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
 | caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. |
 | channels |Uno dei valori seguenti: "Admin" o "Operation". |
 | claims |Token JWT usato da Active Directory per l'autenticazione dell'utente o dall'applicazione per eseguire questa operazione in Resource Manager. |
 | correlationId |In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
-| description |Testo statico che descrive un evento. |
+| Descrizione |Testo statico che descrive un evento. |
 | eventDataId |Identificatore univoco di un evento. |
 | eventName | Nome descrittivo dell'evento amministrativo. |
 | category | Sempre "amministrativo" |
 | httpRequest |BLOB che descrive la richiesta HTTP. In genere include "clientRequestId", "clientIpAddress" e "method" (metodo HTTP, ad esempio PUT). |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
+| necessario |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata. |
 | resourceType | Tipo di risorsa interessato da un evento amministrativo. |
@@ -197,7 +197,7 @@ Questa categoria contiene il record degli eventi imprevisti di integrità dei se
 Per la documentazione relativa ai valori nelle proprietà fare riferimento all'articolo sulle [notifiche sull'integrità dei servizi](./../../azure-monitor/platform/service-notifications.md).
 
 ## <a name="resource-health"></a>Integrità delle risorse
-Questa categoria contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Virtual Machine health status changed to unavailable". Gli eventi di integrità delle risorse possono rappresentare uno dei quattro stati di integrità: Disponibile, Non disponibile, Danneggiato e Sconosciuto. Inoltre, gli eventi di integrità delle risorse possono essere classificati come avviati dalla piattaforma o avviati dall'utente.
+Questa categoria contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Stato di integrità della macchina virtuale modificato su non disponibile". Gli eventi di integrità delle risorse possono rappresentare uno dei quattro stati di integrità: Disponibile, Non disponibile, Danneggiato e Sconosciuto. Inoltre, gli eventi di integrità delle risorse possono essere classificati come avviati dalla piattaforma o avviati dall'utente.
 
 ### <a name="sample-event"></a>Evento di esempio
 
@@ -257,20 +257,20 @@ Questa categoria contiene il record degli eventi di integrità delle risorse che
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | channels | Sempre "Admin, Operation" |
 | correlationId | GUID in formato stringa. |
-| description |Testo statico che descrive l'evento dell'avviso. |
+| Descrizione |Testo statico che descrive l'evento dell'avviso. |
 | eventDataId |Identificatore univoco dell'evento dell'avviso. |
 | category | Sempre "ResourceHealth" |
 | eventTimestamp |Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
+| necessario |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose" |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
 | resourceGroupName |Nome del gruppo di risorse che contiene la risorsa. |
-| resourceProviderName |Sempre "Microsoft.Resourcehealth/healthevent/action". |
-| resourceType | Tipo di risorsa che è stata interessata da un evento di integrità delle risorse. |
+| resourceProviderName |Sempre "Microsoft.Resourcehealth/healthevent/action" |
+| resourceType | Il tipo di risorsa che è stata interessata da un evento di integrità risorse. |
 | resourceId | Nome dell'ID risorsa della risorsa interessata. |
 | status |Stringa che descrive lo stato dell'evento di integrità. I valori possono essere: Attivo, Risolto, In corso, Aggiornato. |
 | subStatus | In genere il valore Null per gli avvisi. |
@@ -350,16 +350,16 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | caller | Sempre Microsoft.Insights/alertRules |
 | channels | Sempre "Admin, Operation" |
 | claims | BLOB JSON con il nome dell'entità servizio (SPN) o il tipo di risorsa del motore degli avvisi. |
 | correlationId | GUID in formato stringa. |
-| description |Testo statico che descrive l'evento dell'avviso. |
+| Descrizione |Testo statico che descrive l'evento dell'avviso. |
 | eventDataId |Identificatore univoco dell'evento dell'avviso. |
 | category | Sempre "avviso" |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
+| necessario |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del gruppo di risorse contenente l'avviso stesso. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è il nome del provider di risorse per l'avviso stesso. |
 | resourceId | ID della risorsa interessata, se si tratta di un avviso per la metrica. Per gli altri tipi di avvisi, è l'ID della risorsa dell'avviso stessa. |
@@ -372,11 +372,11 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 | submissionTimestamp |Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query. |
 | subscriptionId |ID sottoscrizione di Azure. |
 
-### <a name="properties-field-per-alert-type"></a>Campo delle proprietà per tipo di avviso
+### <a name="properties-field-per-alert-type"></a>Campo delle proprietà per ogni tipo di avviso
 Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'evento dell'avviso. Due comuni provider di eventi di avviso sono gli avvisi delle metriche e gli avvisi del log attività.
 
 #### <a name="properties-for-activity-log-alerts"></a>Proprietà degli avvisi del log attività
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | properties.subscriptionId | ID della sottoscrizione dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività. |
 | properties.eventDataId | ID dei dati dell'evento dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività. |
@@ -387,7 +387,7 @@ Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'e
 | properties.status | Stato dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività.|
 
 #### <a name="properties-for-metric-alerts"></a>Proprietà degli avvisi delle metriche
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | properties.RuleUri | ID risorsa della regola di avviso per la metrica. |
 | properties.RuleName | Nome della regola di avviso per la metrica. |
@@ -400,7 +400,7 @@ Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'e
 | properties.MetricUnit | Unità della metrica usata nella valutazione della regola di avviso per la metrica. |
 
 ## <a name="autoscale"></a>Autoscale
-Questa categoria contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio del tipo di evento visualizzato in questa categoria è "Autoscale scale up action failed". Con il ridimensionamento automatico è possibile aumentare o ridurre automaticamente il numero di istanze in un tipo di risorsa supportato in base all'ora del giorno e/o ai dati di caricamento (metrica) usando un'impostazione di ridimensionamento automatico. Quando vengono soddisfatte le condizioni per aumentare o ridurre le prestazioni, gli eventi avviati e riusciti o quelli non riusciti verranno registrati in questa categoria.
+Questa categoria contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio del tipo di evento visualizzato in questa categoria è "Autoscale scale up action failed". Con il ridimensionamento automatico è possibile aumentare o ridurre automaticamente il numero di istanze in un tipo di risorsa supportato in base all'ora del giorno e/o ai dati di caricamento (metrica) usando un'impostazione di ridimensionamento automatico. Quando vengono soddisfatte le condizioni per aumentare o ridurre le prestazioni, gli eventi di avvio riusciti o quelli non riusciti verranno registrati in questa categoria.
 
 ### <a name="sample-event"></a>Evento di esempio
 ```json
@@ -460,18 +460,18 @@ Questa categoria contiene il record degli eventi correlati all'operazione del mo
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | caller | Sempre Microsoft.Insights/autoscaleSettings |
 | channels | Sempre "Admin, Operation" |
 | claims | BLOB JSON con il nome dell'entità servizio (SPN) o il tipo di risorsa del motore di ridimensionamento automatico. |
 | correlationId | GUID in formato stringa. |
-| description |Testo statico che descrive l'evento di ridimensionamento automatico. |
+| Descrizione |Testo statico che descrive l'evento di ridimensionamento automatico. |
 | eventDataId |Identificatore univoco dell'evento di ridimensionamento automatico. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
+| necessario |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse dell'impostazione di ridimensionamento automatico. |
 | resourceProviderName |Nome del provider di risorse dell'impostazione di ridimensionamento automatico. |
-| resourceId |ID risorsa dell'impostazione di ridimensionamento automatico. |
+| resourceId |ID risorsa dell'impostazione di scalabilità automatica. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
 | properties |Set di coppie `<Key, Value>`, ovvero un dizionario, che descrive i dettagli dell'evento. |
@@ -486,7 +486,7 @@ Questa categoria contiene il record degli eventi correlati all'operazione del mo
 | submissionTimestamp |Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query. |
 | subscriptionId |ID sottoscrizione di Azure. |
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 Questa categoria contiene il record degli avvisi generati dal Centro sicurezza di Azure. Un esempio del tipo di evento visualizzato in questa categoria è "Suspicious double extension file executed".
 
 ### <a name="sample-event"></a>Evento di esempio
@@ -550,19 +550,19 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | channels | Sempre "Operation" |
 | correlationId | GUID in formato stringa. |
-| description |Testo statico che descrive l'evento di sicurezza. |
+| Descrizione |Testo statico che descrive l'evento di sicurezza. |
 | eventDataId |Identificatore univoco dell'evento di sicurezza. |
 | eventName |Nome descrittivo dell'evento di sicurezza. |
 | category | Sempre "sicurezza" |
 | id |Identificatore di risorsa univoco dell'evento di sicurezza. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
+| necessario |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per il Centro sicurezza di Azure. Sempre "Microsoft.Security". |
-| resourceType |Tipo di risorsa che ha generato l'evento di sicurezza, ad esempio "Microsoft.Security/locations/alerts". |
+| resourceType |Il tipo di risorsa che ha generato l'evento di sicurezza, ad esempio "Microsoft.Security/locations/alerts" |
 | resourceId |ID risorsa dell'avviso di sicurezza. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
@@ -631,15 +631,15 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 
 ```
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | channels | Sempre "Operation" |
 | correlationId | GUID in formato stringa. |
-| description |Testo statico che descrive l'evento di raccomandazione |
+| Descrizione |Testo statico che descrive l'evento di raccomandazione |
 | eventDataId | Identificatore univoco dell'evento di raccomandazione. |
 | category | Sempre "Recommendation" |
 | id |Identificatore univoco di risorsa dell'evento di raccomandazione. |
-| level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
+| necessario |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" o "Informational" |
 | operationName |Nome dell'operazione.  Sempre "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per la risorsa a cui si applica la raccomandazione, ad esempio "MICROSOFT.COMPUTE" |
@@ -654,7 +654,7 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 | properties.recommendationImpact| Impatto della raccomandazione. I valori possibili sono "High", "Medium", "Low" |
 | properties.recommendationRisk| Rischio della raccomandazione. I valori possibili sono "Error", "Warning", "None" |
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Criteri
 
 Questa categoria include i record di tutte le operazioni relative ad azioni effetto eseguite da [Criteri di Azure](../../governance/policy/overview.md). Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi _Audit_ e _Deny_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa.
 
@@ -741,20 +741,20 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 
 ### <a name="policy-event-property-descriptions"></a>Descrizioni delle proprietà degli eventi di Criteri
 
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | autorizzazione | Matrice delle proprietà RBAC dell'evento. Per le nuove risorse, questa è l'azione e l'ambito della richiesta che ha attivato la valutazione. Per le risorse esistenti, l'azione è "Microsoft.Resources/checkPolicyCompliance/read". |
 | caller | Per le nuove risorse, l'identità che ha avviato una distribuzione. Per le risorse esistenti, il GUID di Microsoft Azure Policy Insights RP. |
 | channels | Gli eventi di Criteri usano solo il canale "Operation". |
 | claims | Token JWT usato da Active Directory per l'autenticazione dell'utente o dall'applicazione per eseguire questa operazione in Resource Manager. |
 | correlationId | In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
-| description | Questo campo è vuoto per gli eventi di Criteri. |
+| Descrizione | Questo campo è vuoto per gli eventi di Criteri. |
 | eventDataId | Identificatore univoco di un evento. |
 | eventName | Può essere "BeginRequest" o "EndRequest". "BeginRequest" viene usato per le valutazioni auditIfNotExists e deployIfNotExists ritardate e quando un effetto deployIfNotExists avvia una distribuzione di modello. Tutte le altre operazioni restituiscono "EndRequest". |
 | category | Dichiara l'evento del log attività come appartenente a "Policy". |
 | eventTimestamp | Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento. |
 | id | Identificatore univoco dell'evento sulla risorsa specifica. |
-| level | Livello dell'evento. Audit usa "Warning" e Deny usa "Error". Un errore auditIfNotExists o deployIfNotExists può generare "Warning" o "Error", a seconda della gravità. Tutti gli altri eventi di Criteri usano "Informational". |
+| necessario | Livello dell'evento. Audit usa "Warning" e Deny usa "Error". Un errore auditIfNotExists o deployIfNotExists può generare "Warning" o "Error", a seconda della gravità. Tutti gli altri eventi di Criteri usano "Informational". |
 | operationId | GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName | Nome dell'operazione, direttamente correlato all'effetto di Criteri. |
 | resourceGroupName | Nome del gruppo di risorse della risorsa valutata. |
@@ -775,7 +775,7 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 
 Quando si esegue lo streaming del log attività di Azure a un account di archiviazione o a uno spazio dei nomi di Hub eventi, i dati seguono lo [schema di log di diagnostica di Azure](./diagnostic-logs-schema.md). Di seguito è riportato il mapping delle proprietà dallo schema riportato sopra allo schema di log di diagnostica:
 
-| Proprietà dello schema di log di diagnostica | Proprietà dello schema API REST del log attività | Note |
+| Proprietà dello schema di log di diagnostica | Proprietà dello schema API REST del log attività | note |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName sono tutti dedotti da resourceId. |
@@ -783,21 +783,21 @@ Quando si esegue lo streaming del log attività di Azure a un account di archivi
 | category | Parte del nome dell'operazione | Suddivisione del tipo di operazione - "Write"/"Delete"/"Action" |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | description |  |
+| resultDescription | Descrizione |  |
 | durationMs | N/D | Sempre 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | attestazioni e proprietà di autorizzazione |  |
-| Level | Level |  |
+| Livello | Livello |  |
 | location | N/D | Posizione in cui è stato elaborato l'evento. *Non si tratta della posizione della risorsa, ma piuttosto del punto in cui l'evento è stato elaborato. Questa proprietà verrà rimossa in un aggiornamento futuro.* |
 | Proprietà | properties.eventProperties |  |
-| properties.eventCategory | category | Se properties.eventCategory non è presente, la categoria è "Administrative" |
+| properties.eventCategory | category | Se properties.eventCategory non è presente, la categoria è "amministrativa" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Altre informazioni sul registro attività](activity-logs-overview.md)
+* [Altre informazioni sul log attività](activity-logs-overview.md)
 * [Esportare il log attività in archiviazione di Azure o in hub eventi](activity-log-export.md)
 

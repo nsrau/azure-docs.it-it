@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799938"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284125"
 ---
 ## <a name="general-entity-types"></a>Tipi di entità generali:
 
@@ -22,11 +22,11 @@ Nomi riconosciuti e altre persone nel testo.
 Linguaggi:
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione             |
+| Nome sottotipo | DESCRIZIONE             |
 |--------------|-------------------------|
 | N/D          | Nomi riconosciuti, ad esempio `Bill Gates`, `Marie Curie` |
 
-### <a name="location"></a>Percorso
+### <a name="location"></a>Location
 
 Punti di interesse, strutture e funzionalità geografiche naturali e umane.
 
@@ -35,7 +35,7 @@ Linguaggi:
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione                                                                                      |
+| Nome sottotipo | DESCRIZIONE                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
 | N/D          | località, ad esempio `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty` |
 
@@ -45,22 +45,22 @@ Organizzazioni, aziende, agenzie e altri gruppi di persone riconosciute. Ad esem
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione                                                                                      |
+| Nome sottotipo | DESCRIZIONE                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
 | N/D          | organizzazioni, ad esempio `Microsoft``NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Numero di telefono
 
-Numeri di telefono. 
+Numeri di telefono (solo numeri di telefono degli Stati Uniti). 
 
 Linguaggi:
 
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione                                  |
+| Nome sottotipo | DESCRIZIONE                                  |
 |----------|----------------------------------------------|
-| N/D         | Numeri di telefono, ad esempio `+1 123-123-123`. |
+| N/D         | Numeri di telefono degli Stati Uniti, ad esempio `(312) 555-0176`. |
 
 ### <a name="email"></a>Email
 
@@ -71,7 +71,7 @@ Linguaggi:
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione                                  |
+| Nome sottotipo | DESCRIZIONE                                  |
 |----------|----------------------------------------------|
 | N/D         | Indirizzo di posta elettronica, ad esempio `support@contoso.com` |
 
@@ -84,11 +84,11 @@ Linguaggi:
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione                                           |
+| Nome sottotipo | DESCRIZIONE                                           |
 |----------|-------------------------------------------------------|
 | N/D         | URL per siti Web, ad esempio `https://www.bing.com`. |
 
-###  <a name="number"></a>Number
+###  <a name="number"></a>NUMBER
 
 Numeri e quantità numeriche. 
 
@@ -97,7 +97,7 @@ Linguaggi:
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo    | Esempi                     |
+| Nome sottotipo    | esempi                     |
 |-------------|------------------------------|
 | N/D         | `6`, `six`                   |
 | Percentuale  | `50%`, `fifty percent`       |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0bfd75f54e2b57e57fcadc27df2ca43d8be5cf37
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832863"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285514"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -34,8 +34,8 @@ L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows i
 - Il controllo degli accessi in base al ruolo di Azure consente di concedere l'accesso appropriato alle macchine virtuali in base alla necessità e di rimuoverlo quando non è più necessario.
 - Prima di consentire l'accesso a una macchina virtuale, Azure AD l'accesso condizionale può applicare requisiti aggiuntivi, ad esempio: 
    - Autenticazione a più fattori
-   - Rischio di accesso
-- Automatizzare e ridimensionare Azure AD join per macchine virtuali Windows basate su Azure.
+   - Controllo del rischio di accesso
+- Automatizzare e ridimensionare Azure AD join di macchine virtuali Windows di Azure che fanno parte delle distribuzioni VDI.
 
 ## <a name="requirements"></a>Requisiti
 
@@ -68,7 +68,7 @@ Per usare Azure AD account di accesso in per la macchina virtuale Windows in Azu
 Esistono diversi modi per abilitare l'accesso Azure AD per la VM Windows:
 
 - Uso dell'esperienza portale di Azure durante la creazione di una macchina virtuale Windows
-- Uso dell'esperienza Azure Cloud Shell durante la creazione di una macchina virtuale Windows o di una macchina virtuale Windows esistente
+- Uso dell'esperienza Azure Cloud Shell durante la creazione di una macchina virtuale Windows **o di una macchina virtuale Windows esistente**
 
 ### <a name="using-azure-portal-create-vm-experience-to-enable-azure-ad-login"></a>Uso di portale di Azure creare una macchina virtuale per abilitare l'accesso Azure AD
 
@@ -186,6 +186,13 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 - [Gestire l'accesso alle risorse di Azure usando RBAC e l'interfaccia della riga di comando](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 - [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - [Gestire l'accesso alle risorse di Azure usando RBAC e Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+
+## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
+
+È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso utente prima di autorizzare l'accesso alle macchine virtuali Windows in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "accesso alla macchina virtuale Windows di Azure" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
+
+> [!NOTE]
+> Se si usa "Richiedi autenticazione a più fattori" come controllo di concessione dell'accesso per richiedere l'accesso all'app "accesso alla macchina virtuale Windows di Azure", è necessario fornire un'attestazione di autenticazione a più fattori come parte del client che avvia la sessione RDP alla VM Windows di destinazione in Azure. L'unico modo per ottenere questo risultato in un client Windows 10 consiste nell'usare il PIN di Windows Hello for business o l'autenticazione biometrica durante il protocollo RDP. Il supporto per l'autenticazione biometrica durante il protocollo RDP è stato aggiunto in Windows 10 1809. L'uso dell'autenticazione di Windows Hello for business durante RDP è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non disponibili per il modello di attendibilità della chiave
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
@@ -337,7 +344,12 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 
 ![Il metodo di accesso che si sta tentando di usare non è consentito.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-Se sono stati configurati criteri di accesso condizionale che richiedono l'autenticazione a più fattori per poter accedere alla risorsa RBAC, è necessario assicurarsi che il PC Windows 10 che avvia la connessione Desktop remoto alla VM esegua l'accesso usando un metodo di autenticazione avanzata, ad esempio come Windows Hello. Se non si utilizza un metodo di autenticazione avanzata per la connessione Desktop remoto, verrà visualizzato l'errore seguente.
+Se sono stati configurati criteri di accesso condizionale che richiedono l'autenticazione a più fattori per poter accedere alla risorsa RBAC, è necessario assicurarsi che il PC Windows 10 che avvia la connessione Desktop remoto alla VM esegua l'accesso usando un metodo di autenticazione avanzata, ad esempio come Windows Hello. Se non si utilizza un metodo di autenticazione avanzata per la connessione Desktop remoto, verrà visualizzato l'errore seguente. 
+
+Se Windows Hello for business non è stato distribuito e se questa opzione non è disponibile per il momento, è possibile exlcude il requisito di autenticazione a più fattori configurando i criteri di accesso condizionale che escludono l'app di accesso alle macchine virtuali Windows di Azure dall'elenco di app cloud che richiedono l'autenticazione a più fattori. Per altre informazioni su Windows Hello for business, vedere [Panoramica di Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+
+> [!NOTE]
+> L'autenticazione PIN di Windows Hello for business durante il protocollo RDP è stata supportata in Windows 10 per un certo periodo di tempo. Il supporto per l'autenticazione biometrica durante il protocollo RDP è stato aggiunto in Windows 10 1809. L'uso dell'autenticazione di Windows Hello for business durante RDP è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non disponibili per il modello di attendibilità della chiave
  
 ## <a name="preview-feedback"></a>Feedback sull'anteprima
 

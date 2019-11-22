@@ -1,8 +1,6 @@
 ---
 title: Uso di CI/CD con Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
@@ -10,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: 7058806e58dbc2d9a196062c129688e6a96c5f31
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264450"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280030"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
 
@@ -25,7 +23,7 @@ Questo articolo illustra la configurazione di integrazione continua/distribuzion
 
 Anche se questo articolo usa Azure DevOps, gli stessi concetti si applicano a sistemi CI/CD come Jenkins, TeamCity e così via.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * [Cluster del servizio Azure Kubernetes con Azure Dev Spaces abilitato](../get-started-netcore.md)
 * [Interfaccia della riga di comando di Azure Dev Spaces installata](upgrade-tools.md)
 * [Organizzazione di Azure DevOps con un progetto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -107,7 +105,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)
 1. Abilitare il **trigger di distribuzione continua**.
 1. Passare il puntatore sulla scheda **attività** accanto a **pipeline** e fare clic su _sviluppo_ per modificare le attività della fase di _sviluppo_ .
-1. Verificare che **Azure Resource Manager** sia selezionato in **tipo di connessione.** vengono visualizzati i tre controlli a discesa evidenziati in rosso: impostazione della definizione ![Release @ no__t-1
+1. Verificare che **Azure Resource Manager** sia selezionato in **tipo di connessione.** verranno visualizzati i tre controlli elenco a discesa evidenziati in rosso: ![la definizione di versione](../media/common/release-setup-tasks.png)
 1. Selezionare la sottoscrizione di Azure in uso con Azure Dev Spaces. Potrebbe anche essere necessario fare clic su **autorizza**.
 1. Selezionare il gruppo di risorse e il cluster che si sta usando con Azure Dev Spaces.
 1. Fare clic su **processo agente**.
@@ -117,7 +115,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Fare clic su **processo agente**.
 1. Selezionare **Hosted Ubuntu 1604** nel **pool di agenti**.
 1. Fare clic sulla scheda **variabili** per aggiornare le variabili per la versione.
-1. Aggiornare il valore di **DevSpacesHostSuffix** da **UPDATE_ME** al suffisso host. Il suffisso host viene visualizzato quando è stato eseguito il comando `azds show-context` in precedenza.
+1. Aggiornare il valore di **DevSpacesHostSuffix** da **UPDATE_ME** al suffisso host. Il suffisso host viene visualizzato quando è stato eseguito il comando `azds show-context` precedente.
 1. Fare clic su **Salva** nell'angolo in alto a destra e quindi su **OK**.
 1. Fare clic su **+ Versione** (accanto al pulsante Salva) e quindi su **Crea una versione**.
 1. In **artefatti**verificare che sia selezionata l'ultima compilazione dalla pipeline di compilazione.
@@ -133,7 +131,7 @@ Inizierà ora un processo di rilascio automatizzato, che distribuirà i grafici 
 La versione viene eseguita al termine di tutte le attività.
 
 > [!TIP]
-> Se la versione ha esito negativo con un messaggio di errore simile a *AGGIORNAMENTO NON RIUSCITO: timeout in attesa della condizione*, provare a esaminare i pod nel cluster [usando il dashboard di Kubernetes](../../aks/kubernetes-dashboard.md). Se si osserva che non è possibile avviare i pod con messaggi di errore simili a *Non è stato possibile eseguire il pull dell'immagine "azdsexample.azurecr.io/mywebapi:122": errore RPC: codice = Sconosciuto descrizione = Risposta di errore dal daemon: Ottenere https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: autorizzazione mancante: autenticazione richiesta*, può essere dovuto al fatto che il cluster non è stato autorizzato a eseguire il pull dal Registro Azure Container. Verificare di avere completato il prerequisito [Autorizzare il cluster del servizio Azure Kubernetes a eseguire il pull dal Registro Azure Container](../../aks/cluster-container-registry-integration.md).
+> Se la versione ha esito negativo con un messaggio di errore simile a *AGGIORNAMENTO NON RIUSCITO: timeout in attesa della condizione*, provare a esaminare i pod nel cluster [usando il dashboard di Kubernetes](../../aks/kubernetes-dashboard.md). Se i Pod non vengono avviati con messaggi di errore come il *pull dell'immagine "azdsexample.azurecr.io/mywebapi:122": errore RPC: code = Unknown desc = errore risposta dal daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: Unauthorized: Authentication Required*, potrebbe essere che il cluster non è stato autorizzato a eseguire il pull dalla container Registry di Azure. Verificare di avere completato il prerequisito [Autorizzare il cluster del servizio Azure Kubernetes a eseguire il pull dal Registro Azure Container](../../aks/cluster-container-registry-integration.md).
 
 È ora disponibile una pipeline CI/CD completamente automatizzata per il fork di GitHub delle app di esempio di Dev Spaces. Ogni volta che si eseguono il commit e il push del codice, la pipeline di compilazione compilerà ed eseguirà il push delle immagini *mywebapi* e *webfrontend* nell'istanza del Registro Azure Container personalizzata. La pipeline di versione distribuirà quindi il grafico Helm per ogni app nello spazio _dev_ nel cluster abilitato per Dev Spaces.
 
@@ -155,7 +153,7 @@ Per alzare manualmente il livello una determinata versione a _prod_ usando il si
 1. Fare clic sulla pipeline di versione per l'applicazione di esempio.
 1. Fare clic sul nome della versione più recente.
 1. Passare il mouse sulla casella **Prod** in **fasi** e fare clic su **Distribuisci**.
-    ![Promote in Production @ no__t-1
+    ![alzare di livello alla produzione](../media/common/prod-promote.png)
 1. Passare il puntatore del mouse sulla casella **Prod** in **fasi** e fare clic su **log**.
 
 La versione viene eseguita al termine di tutte le attività.

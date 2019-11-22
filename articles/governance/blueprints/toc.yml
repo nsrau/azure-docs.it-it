@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Panoramica di Azure Blueprint
+    - name: Informazioni su Azure Blueprint
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
 - name: Guide introduttive

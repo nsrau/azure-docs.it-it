@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037057"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279142"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Usare il portale per collegare un disco dati a una macchina virtuale Linux 
 In questo articolo viene illustrato come collegare dischi nuovi o esistenti a una macchina virtuale Linux tramite il portale di Azure. È possibile anche [collegare un disco dati a una macchina virtuale Windows nel portale di Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -183,6 +183,15 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### <a name="alternate-method-using-parted"></a>Metodo alternativo con una parte
+L'utilità Fdisk richiede un input interattivo e pertanto non è ideale per l'uso negli script di automazione. Tuttavia, l'utilità a più parti può essere [inclusa](https://www.gnu.org/software/parted/) nello script e pertanto si presta meglio agli scenari di automazione. L'utilità a parti può essere usata per partizionare e formattare un disco dati. Per la procedura dettagliata riportata di seguito, viene usato un nuovo disco dati/dev/sdc e viene formattato con il file System [XFS](https://xfs.wiki.kernel.org/) .
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+Come illustrato in precedenza, si usa l'utilità [partprobe](https://linux.die.net/man/8/partprobe) per verificare che il kernel sia immediatamente in grado di riconoscere la nuova partizione e il file System. L'impossibilità di usare partprobe può causare la restituzione immediata dell'UUID per il nuovo file System da parte dei comandi blkid o lslbk.
+
 ### <a name="mount-the-disk"></a>Montare il disco
 Creare una directory per montare il file system usando `mkdir`. L'esempio seguente crea una directory in */datadrive*:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 28ef082d6aac5557998f7b67443d4dafd3a0fb15
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012915"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285588"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
@@ -35,10 +35,6 @@ In questa esercitazione si apprenderà come:
 Per ulteriori informazioni, vedere il portale per sviluppatori nel [portale per sviluppatori di gestione API di Azure](api-management-howto-developer-portal.md).
 
 ![Portale per sviluppatori di gestione API-modalità di amministrazione](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> Il portale per sviluppatori è attualmente in fase di implementazione nei servizi gestione API.
-> Se il servizio è stato appena creato o è un servizio di livello Developer, è necessario avere già la versione più recente. In caso contrario, è possibile che si verifichino problemi, ad esempio con la funzionalità di pubblicazione. L'implementazione della funzionalità dovrebbe essere completata entro il venerdì 22 novembre 2019. 
 
 ## <a name="prerequisites"></a>prerequisiti
 

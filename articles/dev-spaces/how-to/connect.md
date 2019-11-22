@@ -1,22 +1,18 @@
 ---
-title: " Connettere il computer di sviluppo a un cluster AKS"
-titleSuffix: Azure Dev Spaces
+title: Connettere il computer di sviluppo a un cluster del servizio Azure Kubernetes
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Informazioni su come connettere il computer di sviluppo a un cluster AKS con Azure Dev Spaces
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
-ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1b65721b67ff63525adfe5d2061f22f359c02bde
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888920"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280126"
 ---
-# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connettere il computer di sviluppo a un cluster AKS (anteprima)
+# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connettere il computer di sviluppo a un cluster del servizio Azure Kubernetes (anteprima)
 
 Azure Dev Spaces consente di eseguire ed eseguire il debug del codice con o senza un contenitore nel computer di sviluppo, mentre si è ancora connessi al cluster Kubernetes con il resto dell'applicazione o dei servizi. La connessione del computer di sviluppo al cluster consente di sviluppare rapidamente l'applicazione ed eseguire test end-to-end senza dover creare una configurazione Docker o Kubernetes. È anche possibile connettersi al cluster AKS senza influire su altri carichi di lavoro o utenti che potrebbero usare lo stesso cluster.
 
@@ -39,7 +35,7 @@ Questa guida usa l' [applicazione di esempio Azure Dev Spaces bike sharing](http
 
 * Il protocollo UDP non è supportato in questo momento.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata][azure-cli].
@@ -100,7 +96,7 @@ Dopo aver selezionato la porta TCP dell'applicazione, Azure Dev Spaces stabilir�
 
 Azure Dev Spaces apre una finestra del terminale denominata *AZDS Connect-Bikes* dopo aver stabilito una connessione al cluster AKS. Questa finestra del terminale contiene tutte le variabili di ambiente e le voci DNS configurate dal cluster AKS. Il codice eseguito in questa finestra del terminale o usando il Visual Studio Code debugger è connesso al cluster AKS.
 
-![Terminal](../media/how-to-connect/connect-terminal.png)
+![Terminale](../media/how-to-connect/connect-terminal.png)
 
 Inoltre, Azure Dev Spaces crea una finestra denominata spazi di sviluppo che si *connettono* con tutti i relativi output.
 

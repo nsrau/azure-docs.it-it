@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953369"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280287"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novità di Language Understanding
 
@@ -33,14 +33,14 @@ Ecco cosa c'è di nuovo nel servizio. Questi elementi includono note sulla versi
     * [Arabo e Hindi](luis-language-support.md) in versione di anteprima pubblica.
 * Modelli predefiniti
     * [Domini predefiniti](luis-reference-prebuilt-domains.md) è ora disponibile a livello generale (GA)
-    * [Entità predefinite](luis-reference-prebuilt-entities.md#japanese-entity-support) giapponesi: età, valuta, numero, percentuale non supportata in V3.
-    * [Entità predefinite](luis-reference-prebuilt-entities.md#italian-entity-support) italiane: validità, valuta, dimensione, numero, risoluzione percentuale modificata dalla versione V2.
-* Miglioramento dell'esperienza utente nel [portale di Preview.Luis.ai](https://preview.luis.ai) : esperienza di assegnazione di etichette rinnovata per consentire la compilazione e il debug di modelli complessi. Provare le esercitazioni del portale di anteprima:
+    * [Entità predefinite](luis-reference-prebuilt-entities.md#japanese-entity-support) giapponesi: età, valuta, numero e percentuale non supportati in V3.
+    * [Entità predefinite](luis-reference-prebuilt-entities.md#italian-entity-support) italiane: la risoluzione di età, valuta, dimensione, numero e percentuale è cambiata da V2.
+* Esperienza utente migliorata nel [portale di Preview.Luis.ai](https://preview.luis.ai) : esperienza di assegnazione di etichette rinnovata per consentire la compilazione e il debug di modelli complessi. Provare le esercitazioni del portale di anteprima:
     * [Solo Intent](tutorial-intents-only.md)
     * [Entità Machine-learnable ricomponibile](tutorial-machine-learned-entity.md) 
 * Avanzate funzionalità di comprensione della lingua: [creazione di modelli di linguaggio sofisticati](luis-concept-entity-types.md) con minor sforzo. 
-* Definizione delle funzionalità di machine learning a livello di modello e abilitazione dei modelli da utilizzare come segnali per altri modelli, ad esempio l'utilizzo di entità come funzionalità per gli Intent e altre entità.
-* Nuovi [limiti](luis-boundaries.md) espansi-massimo per elenchi di frasi e frasi totali, nuovo modello come limite di funzionalità
+* Definire le funzionalità di machine learning a livello di modello e consentire l'uso dei modelli come segnali ad altri modelli, ad esempio l'uso di entità come funzionalità per gli Intent e altre entità.
+* Nuovi [limiti](luis-boundaries.md) espansi-valore massimo superiore per elenchi di frasi e frasi totali, nuovo modello come limite di funzionalità
 * Estrai le informazioni dal testo nel formato della struttura della gerarchia profonda, rendendo più potenti le applicazioni di conversazione.
 
     ![immagine dell'entità Machine-Learned](./media/whats-new/deep-entity-extraction-example.png)

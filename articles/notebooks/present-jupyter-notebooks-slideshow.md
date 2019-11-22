@@ -1,23 +1,14 @@
 ---
 title: Presentare un notebook di Jupyter come una presentazione in Azure
 description: Come configurare le celle per la modalità presentazione in un notebook di Jupyter e quindi eseguire la presentazione usando l'estensione RISE.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973104"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277583"
 ---
 # <a name="run-a-notebook-slideshow"></a>Eseguire la presentazione di un notebook
 
@@ -59,8 +50,8 @@ Se si prende un notebook casuale e lo si usa per una presentazione, si vedrà ch
     | Diapositiva | La cella è una diapositiva primaria, a cui è possibile accedere usando le frecce DESTRA e SINISTRA del controllo di navigazione. |
     | Diapositiva secondaria | La cella si trova "sotto" una diapositiva primaria a cui è possibile accedere usando la freccia GIÙ del controllo di navigazione. La freccia SU consente di tornare alla diapositiva primaria. Le diapositive secondarie vengono usate per il materiale secondario che è possibile ignorare nel percorso principale di una presentazione ma che, se necessario, è immediatamente disponibile. |
     | Frammento | Il contenuto della cella viene visualizzato nel contesto della diapositiva o della diapositiva secondaria precedente quando si usa la freccia di navigazione GIÙ (viene rimosso un frammento quando si usa la freccia SU). È possibile usare un frammento con una cella di codice per far apparire il codice all'interno di una diapositiva oppure è possibile usare più frammenti per far apparire i punti di elenco uno per volta (vedere l'esempio nella sezione successiva). Poiché i frammenti vengono disposti nella diapositiva corrente, quelli in eccesso non saranno visibili oltre la fine della finestra del browser. |
-    | Ignora | La cella non viene visualizzata nella presentazione. |
-    | Note | La cella contiene le note del relatore, che non vengono visualizzate nella presentazione. |
+    | Skip | La cella non viene visualizzata nella presentazione. |
+    | note | La cella contiene le note del relatore, che non vengono visualizzate nella presentazione. |
 
 1. Inizialmente, è consigliabile scegliere l'opzione **Presentazione** per ogni cella. È quindi possibile eseguire la presentazione e apportare le modifiche necessarie.
 
@@ -101,7 +92,7 @@ Poiché i frammenti vengono visualizzati con una spaziatura verticale maggiore r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura: Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
-- [Procedura: Installare pacchetti da un notebook](install-packages-jupyter-notebook.md)
-- [Procedura: Usare i file di dati](work-with-project-data-files.md)
-- [Procedura: Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)
+- [Procedura: configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
+- [Procedura: installare pacchetti dall'interno di un notebook](install-packages-jupyter-notebook.md)
+- [Procedura: utilizzare file di dati](work-with-project-data-files.md)
+- [Procedura: accedere alle risorse di dati](access-data-resources-jupyter-notebooks.md)

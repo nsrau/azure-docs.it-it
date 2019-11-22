@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4cbca96ed95167615f3ff2876e27e546d08d92f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73507715"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280875"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Progettazione con modelli di entità e finalità 
 
@@ -37,7 +37,7 @@ La scomposizione dei modelli include le parti seguenti:
 * [entità apprese dal computer](#machine-learned-entities)
     * [sottocomponenti](#entity-subcomponents-help-extract-data) (anche entità apprese dal computer)
         * [descrittori](#descriptors-are-features) forniti dalle funzionalità 
-        * [vincoli](#constraints-are-text-rules) forniti da entità non apprese dal computer, ad esempio (espressioni regolari ed elenchi)
+        * [vincoli](#constraints-are-text-rules) forniti da entità non apprese dal computer, ad esempio espressioni regolari ed elenchi
 
 ## <a name="v2-authoring-models"></a>V2 modelli di creazione
 
@@ -134,7 +134,7 @@ Uno scopo è il risultato desiderato dell' _intero_ enunciato, mentre le entità
 
 Questo enunciato _deve_ avere un preventivo e _può_ avere entità:
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 Questo enunciato ha una sola intenzione:
 

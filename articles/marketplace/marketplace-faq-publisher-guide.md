@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6a7a0d5bdd07221be823f8b94bd581db6d966fa8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822974"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306411"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Domande frequenti sul Marketplace commerciale Microsoft
 
@@ -165,7 +165,7 @@ I clienti indiretti con contratto Enterprise Agreement devono rivolgersi al loro
 
 **È possibile controllare l'accesso dei dipendenti ad Azure Marketplace e i privilegi di acquisto?**
 
-Sì, per i clienti con contratto Enterprise Agreement l'amministratore delle registrazioni può disattivare i privilegi di acquisto per tutti gli account della registrazione e riattivarli per il tempo necessario per effettuare un acquisto. Inoltre, tutti i clienti possono usare Criteri di Azure per limitare le opzioni di distribuzione per le sottoscrizioni di Azure, inclusa la gestione delle risorse di Azure Marketplace.
+Sì, per i clienti con contratto Enterprise Agreement l'amministratore delle registrazioni può disattivare i privilegi di acquisto per tutti gli account della registrazione e riattivarli per il tempo necessario per effettuare un acquisto.
 
 **Quali metodi di pagamento sono supportati per gli acquisti nel Marketplace commerciale?**
 
@@ -348,7 +348,7 @@ Dopo aver completato l'offerta e aver configurato una destinazione lead, l'elenc
 
 **Da quali paesi/aree geografiche gli editori possono vendere in Azure Marketplace?**
 
-Gli autori basati nei paesi/aree geografiche seguenti possono attualmente vendere in Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua e Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Bielorussia, Belgio, Benin, Bolivia, Bosnia ed Erzegovina, Botswana, Brasile, Bulgaria, Burkina Faso, Burundi, Cambogia, Camerun, Canada, Repubblica Centrafricana, Ciad, Cile, Colombia, Comore, Congo, Congo (DRC), Costa Rica, Cote d'Avorio, Croazia, Cipro, Repubblica Ceca, Danimarca, Dominica, Repubblica Dominicana, Ecuador, Egitto, El Salvador, Eritrea, Estonia, Etiopia, Isole Figi, Finlandia, Francia, Georgia, Germania, Ghana, Grecia, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Ungheria, Islanda, India, Indonesia, Iraq, Irlanda, Israele, Italia, Giamaica, Giappone, Giordania, Kazakistan, Kenya, Corea (Sud), Kuwait, Laos, Lettonia, Libano, Liberia, Liechtenstein, Lituania, Lussemburgo, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Messico, Monaco, Mongolia, Montenegro Marocco, Mozambico, Nepal, Paesi Bassi, Nuova Zelanda, Nicaragua, Niger, Nigeria, Norvegia, Oman, Pakistan, Panama, Paraguay, Perù, Filippine, Polonia, Portogallo, Qatar, Romania, Russia, Rwanda, Arabia Saudita, Senegal, Serbia, Sierra Leone, Singapore Slovacchia, Slovenia, Somalia, Sudafrica, Spagna, Sri Lanka, Svezia, Svizzera, Tagikistan, Tanzania, Tailandia, Timor-Leste, Togo, Tonga, Trinidad e Tobago, Tunisia, Turchia, Turkmenistan, Uganda, Ucraina, Emirati Arabi Uniti, Regno Unito, Italia Stati, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia e Zimbabwe.
+Gli autori basati nei paesi/aree geografiche seguenti possono attualmente vendere in Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua e Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Bielorussia, Belgio, Benin, Bolivia, Bosnia ed Erzegovina, Botswana, Brasile, Bulgaria, Burkina Faso, Burundi, Cambogia, Camerun, Canada, Repubblica Centrafricana, Ciad, Chile, Colombia, Comore, Congo, Repubblica democratica del Congo, Costa Rica, Croazia, Cipro, Repubblica Ceca Danimarca, Dominica, Repubblica Dominicana, Ecuador, Egitto, El Salvador, Eritrea, Estonia, Etiopia, Isole Figi, Finlandia, Francia, Georgia, Germania, Ghana, Grecia, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Ungheria, Islanda, India, Indonesia, Iraq, Irlanda, Israele, Italia, Giamaica, Giappone, Giordania, Kazakistan, Kenya, Corea (Sud), Kuwait, Laos, Lettonia, Libano, Liberia, Liechtenstein, Lituania, Lussemburgo, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Messico, Monaco, Mongolia, Montenegro Marocco, Mozambico, Nepal, Paesi Bassi, Nuova Zelanda, Nicaragua, Niger, Nigeria, Norvegia, Oman, Pakistan, Panama, Paraguay, Perù, Filippine, Polonia, Portogallo, Qatar, Romania, Russia, Rwanda, Arabia Saudita, Senegal, Serbia, Sierra Leone, Singapore, Slovacchia, Slovenia, Somalia, Sudafrica, Spagna, Sri Lanka, Svezia, Svizzera, Tagikistan, Tanzania, Tailandia, Timor-Leste, Togo, Tonga, Trinidad e Tobago, Tunisia, Turchia, Turkmenistan, Uganda, Ucraina, Emirati Arabi Uniti, Regno Unito Stati, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia e Zimbabwe.
 
 **Come si elimina un'inserzione da Azure Marketplace?**
 

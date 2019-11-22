@@ -1,5 +1,5 @@
 ---
-title: Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
+title: Inviare metriche di macchine virtuali Windows classiche al database di metriche di monitoraggio di Azure
 description: Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
 author: anirudhcavale
 services: azure-monitor
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844913"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286155"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Inviare le metriche del sistema operativo guest all'archivio dati di Monitoraggio di Azure per una macchina virtuale Windows (versione classica)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 L'[estensione Diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conosciuta come "WAD" o "Diagnostica") di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Questo articolo descrive il processo di invio delle metriche sulle prestazioni del sistema operativo guest di una macchina virtuale Windows (versione classica) all'archivio delle metriche di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
+Questo articolo descrive il processo per l'invio di metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows (classica) al database delle metriche di monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
 
 L'archiviazione in questo percorso consente di accedere alle stesse azioni eseguite per le metriche della piattaforma. Le azioni includono quasi in tempo reale gli avvisi, i grafici, il routing, l'accesso dall'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure. 
 
 Il processo illustrato in questo articolo funziona solo sulle macchine virtuali classiche con il sistema operativo Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre del ruolo di [amministratore del servizio o coamministratore](../../billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
 
@@ -47,7 +47,7 @@ Il processo illustrato in questo articolo funziona solo sulle macchine virtuali 
 1. Nel portale di Azure passare al pannello della risorsa **Account di archiviazione**. Scegliere **Chiavi** e annotare il nome dell'account di archiviazione e della chiave dell'account di archiviazione. Queste informazioni sono necessarie nei passaggi successivi.
    ![Chiavi di accesso alle risorse di archiviazione](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
-## <a name="create-a-service-principal"></a>Creare un'entità servizio
+## <a name="create-a-service-principal"></a>Creare un’entità servizio
 
 Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [Creare un'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md). Tenere presente quanto segue durante questo processo: 
 - Creare un nuovo segreto client per l'app.

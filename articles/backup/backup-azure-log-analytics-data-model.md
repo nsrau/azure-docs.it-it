@@ -3,18 +3,22 @@ title: Modello di dati dei log di monitoraggio di Azure
 description: Questo articolo illustra i dettagli del modello di dati Log Analytics di monitoraggio di Azure per i dati di backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 055a36fb2aa8e9048089a338f57555242e8eb754
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: eed3f66c1743bb21118a2d90343989d2b6a081de
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173018"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278500"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
 Usare il modello di dati Log Analytics per creare avvisi personalizzati da Log Analytics.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+> [!NOTE]
+>
+> Questo modello di dati si riferisce alla modalità Diagnostica di Azure di invio degli eventi di diagnostica a Log Analytics (LA). Per informazioni sul modello di dati per la nuova modalità specifica della risorsa, è possibile fare riferimento all'articolo [relativo al modello di dati per gli eventi di diagnostica di backup di Azure](https://aka.ms/diagnosticsdatamodel) .
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modello di dati di Backup di Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Gestione del provisioning di utenti per le app aziendali con Azure Active Directory | Microsoft Docs
+title: Gestione del provisioning degli utenti per le app aziendali in Azure AD
 description: Informazioni su come gestire il provisioning degli account utente per le app aziendali usando Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 77cda523582b513669adcafd3a46b6ac02dd99db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315261"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285612"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -53,7 +53,7 @@ Il riquadro **provisioning** inizia con un menu **modalità** , che mostra le mo
 
 Selezionare l'opzione **automatica** per specificare le impostazioni per le credenziali di amministratore, i mapping, l'avvio e l'arresto e la sincronizzazione.
 
-### <a name="admin-credentials"></a>Credenziali amministratore
+### <a name="admin-credentials"></a>Credenziali di amministratore
 
 Espandere **credenziali amministratore** per immettere le credenziali necessarie per Azure ad connettersi all'API di gestione degli utenti dell'applicazione. L'input necessario dipende dall'applicazione. Per informazioni sui tipi di credenziali e sui requisiti per applicazioni specifiche, vedere l' [esercitazione sulla configurazione per l'applicazione specifica](user-provisioning.md).
 
@@ -77,7 +77,7 @@ Le personalizzazioni supportate includono:
 
 * Aggiunta di un nuovo mapping di attributo. Selezionare **Aggiungi nuovo mapping** nella parte inferiore del riquadro **mapping attributi** . Compilare il modulo **modifica attributo** e selezionare **OK** per aggiungere il nuovo mapping all'elenco.
 
-### <a name="settings"></a>Impostazioni
+### <a name="settings"></a>Settings
 
 È possibile avviare e arrestare il servizio di provisioning Azure AD per l'applicazione selezionata nell'area **Impostazioni** della schermata di **provisioning** . È anche possibile scegliere di cancellare la cache di provisioning e riavviare il servizio.
 
@@ -85,9 +85,4 @@ Se il provisioning viene abilitato per la prima volta per un'applicazione, attiv
 
 Impostare **stato del provisioning** su **disattivato** per sospendere il servizio di provisioning. In questo stato, Azure non crea, aggiorna o rimuove gli oggetti utente o gruppo nell'app. Ripristinare lo stato **su on** e il servizio preleva il punto da cui è stato interrotto.
 
-Selezionare la casella di controllo **Cancella lo stato corrente e riavvia la sincronizzazione** e selezionare **Salva** in:
-
-* Arrestare il servizio di provisioning
-* Riavviare i servizi ed eseguire di nuovo il ciclo iniziale
-
-Questa opzione consente agli amministratori di avviare di nuovo il processo di distribuzione del provisioning.
+**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e ne determinerà l'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Questa operazione non deve essere utilizzata per attivare una richiesta DELETE o Disable perché questi eventi possono essere eliminati quando si attiva uno stato di cancellazione e si riavvia. Il ciclo iniziale richiede inoltre più tempo del ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Per ulteriori informazioni sulle prestazioni dei cicli iniziali e incrementali, vedere [qui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 
