@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurazione di Pingboard per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: provisioning utenti per Pingboard-Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7e2fabc86374f7fe055303d056ae8e00f33389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964380"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278247"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Pingboard per il provisioning utenti automatico
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurare Pingboard per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire per abilitare il provisioning e il deprovisioning automatici degli account utente da Azure Active Directory (Azure AD) a Pingboard.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -74,7 +74,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
     b. Accedere a [Pingboard](https://pingboard.com/) usando l'account amministratore.
 
-    c. Selezionare **Add-Ons** > **Integrations** > **Azure Active Directory** (Componenti aggiuntivi > Integrazioni > Azure Active Directory).
+    C. Selezionare **Add-Ons** > **Integrations** > **Azure Active Directory** (Componenti aggiuntivi > Integrazioni > Azure Active Directory).
 
     d. Passare alla scheda **Configure** (Configura) e selezionare **Enable user provisioning from Azure** (Abilita provisioning utenti da Azure).
 

@@ -1,6 +1,6 @@
 ---
-title: Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure
-description: Inviare le metriche del sistema operativo guest ai Servizi cloud dell'archivio delle metriche di Monitoraggio di Azure
+title: Inviare metriche dei servizi cloud classici al database di metriche di monitoraggio di Azure
+description: Descrive il processo per l'invio di metriche delle prestazioni del sistema operativo guest per i servizi cloud di Azure classico all'archivio delle metriche di monitoraggio di Azure.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 56138277866d3b2bf02733a2c595a5a232faed8c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844943"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304768"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-L'[estensione Diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare i dati di telemetria a [molti percorsi diversi](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
+L'[estensione Diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-Questo articolo descrive il processo di invio delle metriche sulle prestazioni del sistema operativo guest per i Servizi cloud classici di Azure all'archivio delle metriche di Monitoraggio di Azure. A partire dalla versione 1.11 della diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
+Questo articolo descrive il processo di invio delle metriche sulle prestazioni del sistema operativo guest per i Servizi cloud classici di Azure all'archivio delle metriche di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
 
-L'archiviazione in questo percorso consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono quasi in tempo reale gli avvisi, i grafici, il routing, l'accesso dall'API REST e altro ancora.  Le versioni precedenti dell'estensione di diagnostica scrivono in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.  
+L'archiviazione in questo percorso consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono quasi in tempo reale gli avvisi, i grafici, il routing, l'accesso dall'API REST e altro ancora.  Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.  
 
 Il processo illustrato in questo articolo funziona solo per i contatori delle prestazioni nei Servizi cloud di Azure, mentre non funziona per altre metriche personalizzate. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre del ruolo di [amministratore del servizio o coamministratore](~/articles/billing/billing-add-change-azure-subscription-administrator.md) nella sottoscrizione di Azure. 
 
@@ -45,7 +45,7 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
    ![Chiavi dell'account di archiviazione](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
-## <a name="create-a-service-principal"></a>Creare un'entità servizio 
+## <a name="create-a-service-principal"></a>Creare un’entità servizio 
 
 Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni riportate in [Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tenere presente quanto segue durante questo processo: 
 

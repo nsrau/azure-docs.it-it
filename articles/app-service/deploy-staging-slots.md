@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 02d8c511b799a4caee185f7ecb847e6cc15f3c87
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669107"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304737"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -249,6 +250,10 @@ Dopo che l'impostazione è stata salvata, la percentuale di client specificata v
 
 Dopo che un client viene indirizzato automaticamente a uno slot specifico, viene aggiunto a tale slot per la durata della sessione client. Nel browser client è possibile visualizzare lo slot a cui è associata la sessione esaminando il cookie `x-ms-routing-name` nelle intestazioni HTTP. Per una richiesta indirizzata allo slot di "staging" il cookie è `x-ms-routing-name=staging`. Per una richiesta indirizzata allo slot di produzione il cookie è `x-ms-routing-name=self`.
 
+   > [!NOTE]
+   > Accanto al portale di Azure è anche possibile usare il comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing.md#az-webapp-traffic-routing-set) nell'interfaccia della riga di comando di Azure per impostare le percentuali di routing da strumenti ci/CD come le pipeline DevOps o altri sistemi di automazione.
+   > 
+
 ### <a name="route-production-traffic-manually"></a>Indirizzare manualmente il traffico di produzione
 
 Oltre al routing automatico del traffico, il Servizio app può indirizzare le richieste a uno slot specifico. Questa operazione è utile quando si vuole che gli utenti siano in grado di acconsentire esplicitamente o rifiutare esplicitamente l'app beta. Per indirizzare manualmente il traffico di produzione, si usa il parametro di query `x-ms-routing-name`.
@@ -261,7 +266,7 @@ Per consentire agli utenti di rifiutare esplicitamente l'app beta, ad esempio, �
 
 La stringa `x-ms-routing-name=self` specifica lo slot di produzione. Quando il browser client accede al collegamento, viene reindirizzato allo slot di produzione. Ogni richiesta successiva ha il cookie `x-ms-routing-name=self` che blocca la sessione allo slot di produzione.
 
-Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ad esempio:
+Per consentire agli utenti di acconsentire esplicitamente all'app beta, impostare lo stesso parametro di query sul nome dello slot non di produzione. Ecco un esempio:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging

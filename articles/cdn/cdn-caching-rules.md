@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
-ms.openlocfilehash: d4ab3ca32f229e92ae6bae5906c6c70593e9f9d3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ddd7dc7e1245c2a77e866a454bf6bfa3c1f16f88
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594046"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278127"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache
 
 > [!NOTE] 
-> Le regole di memorizzazione nella cache sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è necessario usare il [motore regole della rete CDN di Azure](cdn-rules-engine.md) accessibile dal portale tramite il pulsante **Gestisci** per funzionalità analoghe.
+> Le regole di memorizzazione nella cache sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili della rete **CDN di Azure di Microsoft** , è necessario usare il [motore regole standard](cdn-standard-rules-engine-reference.md) per i profili di rete **CDN Premium di Azure da Verizon** . per una funzionalità simile, è necessario usare il [motore delle regole Premium di Verizon](cdn-rules-engine.md) nel portale di **gestione** .
  
 La rete per la distribuzione di contenuti (CDN) di Azure offre due modi per controllare la modalità di memorizzazione nella cache dei file: 
 
-- Regole di memorizzazione nella cache: Questo articolo descrive come è possibile usare una rete di distribuzione di contenuti (CDN) le regole di memorizzazione nella cache per impostare o modificare il comportamento predefinito di scadenza della cache sia a livello globale e con condizioni personalizzate, ad esempio un'estensione di file e percorso URL. La rete CDN di Azure offre due tipi di regole di memorizzazione nella cache:
+- Regole di memorizzazione nella cache: questo articolo descrive come è possibile usare le regole di memorizzazione nella cache della rete CDN o modificare il comportamento predefinito di scadenza della cache a livello globale e con condizioni personalizzate, ad esempio un percorso URL e le estensioni dei file. La rete CDN di Azure offre due tipi di regole di memorizzazione nella cache:
 
-   - Regole di memorizzazione nella cache globali: È possibile impostare una regola di memorizzazione nella cache globale per ogni endpoint nel profilo, che influisce su tutte le richieste all'endpoint. La regola di memorizzazione nella cache globale esegue l'override di eventuali intestazioni di direttive della cache HTTP, se impostate.
+   - Regole di memorizzazione nella cache globali: è possibile impostare una regola di memorizzazione nella cache globale per ogni endpoint nel profilo, che influisce su tutte le richieste all'endpoint. La regola di memorizzazione nella cache globale esegue l'override di eventuali intestazioni di direttive della cache HTTP, se impostate.
 
-   - Memorizzazione nella cache regole personalizzate: È possibile impostare uno o più regole memorizzazione nella cache personalizzate per ogni endpoint nel profilo. Le regole di memorizzazione nella cache personalizzate corrispondono a percorsi ed estensioni dei file specifici, vengono elaborate in ordine e sostituiscono la regola di memorizzazione nella cache globale, se impostata. 
+   - Regole di memorizzazione nella cache personalizzate: è possibile impostare una o più regole di memorizzazione nella cache personalizzate per ogni endpoint nel profilo. Le regole di memorizzazione nella cache personalizzate corrispondono a percorsi ed estensioni dei file specifici, vengono elaborate in ordine e sostituiscono la regola di memorizzazione nella cache globale, se impostata. 
 
-- Memorizzazione nella cache di stringa di query: È possibile modificare il modo in cui la rete CDN di Azure considera la memorizzazione nella cache per le richieste con stringhe di query. Per altre informazioni, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query](cdn-query-string.md). Se il file non è memorizzabile nella cache, l'impostazione di memorizzazione nella cache delle stringhe di query non ha alcun effetto, in base alle regole di memorizzazione e ai comportamenti predefiniti della rete CDN.
+- Memorizzazione nella cache di stringhe di query: è possibile modificare il modo in cui la rete CDN di Azure gestisce la memorizzazione nella cache per le richieste con stringhe di query. Per altre informazioni, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query](cdn-query-string.md). Se il file non è memorizzabile nella cache, l'impostazione di memorizzazione nella cache delle stringhe di query non ha alcun effetto, in base alle regole di memorizzazione e ai comportamenti predefiniti della rete CDN.
 
 Per informazioni sul comportamento predefinito e sulle intestazioni delle direttive di memorizzazione nella cache, vedere [Funzionamento della memorizzazione nella cache](cdn-how-caching-works.md). 
 
@@ -54,11 +54,11 @@ Per informazioni sul comportamento predefinito e sulle intestazioni delle dirett
 ## <a name="caching-behavior-settings"></a>Impostazioni del comportamento di memorizzazione nella cache
 Per le regole di memorizzazione nella cache globali e personalizzate, è possibile specificare le impostazioni di **Comportamento di memorizzazione nella cache** seguenti:
 
-- **Ignora cache**: Non memorizzare nella cache e le intestazioni delle direttive della cache fornite in origine e ignorate.
+- **Ignora cache**: non viene eseguita la memorizzazione nella cache e le intestazioni delle direttive della cache di origine vengono ignorate.
 
-- **Eseguire l'override**: Ignora durata della cache fornite in origine e; Usare invece la durata della cache fornita. Non sostituirà cache-control: no-cache.
+- **Override**: ignora la durata della cache fornita dall'origine; usare invece la durata della cache specificata. Non verrà eseguito l'override della cache-Control: No-cache.
 
-- **Imposta se mancante**: Rispetta le intestazioni di direttive della cache fornite in origine e, se presenti; in caso contrario, usare la durata della cache fornita.
+- **Imposta se mancante**: vengono rispettate le intestazioni delle direttive della cache di origine, se presenti; in caso contrario, viene usata la durata della cache fornita.
 
 ![Regole di memorizzazione nella cache globali](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ Per le regole di memorizzazione nella cache globali e personalizzate è possibil
 
 Per le regole della cache personalizzate sono disponibili due condizioni di corrispondenza:
  
-- **Percorso**: Questa condizione corrispondente al percorso dell'URL, escluso il nome di dominio e supporta il carattere jolly (\*). Ad esempio, _/myfile.html_, _/my/folder/*_ e _/my/images/*.jpg_. La lunghezza massima consentita è di 260 caratteri.
+- **Percorso**: questa condizione esegue la corrispondenza del percorso dell'URL, escluso il nome di dominio, e supporta il carattere jolly (\*). Ad esempio, _/myfile.html_, _/my/folder/*_ e _/my/images/*.jpg_. La lunghezza massima consentita è di 260 caratteri.
 
-- **Estensione**: Questa condizione corrispondente all'estensione di file del file richiesto. È possibile specificare un elenco di estensioni di file delimitati da virgole per la corrispondenza. Ad esempio, _.jpg_, _.mp3_ o _.png_. Il numero massimo di estensioni è 50 e il numero massimo di caratteri per estensione è 16. 
+- **Estensione**: questa condizione esegue la corrispondenza dell'estensione del file richiesto. È possibile specificare un elenco di estensioni di file delimitati da virgole per la corrispondenza. Ad esempio, _.jpg_, _.mp3_ o _.png_. Il numero massimo di estensioni è 50 e il numero massimo di caratteri per estensione è 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Ordine di elaborazione delle regole globali e personalizzate
 Le regole di memorizzazione nella cache globali e personalizzate vengono elaborate nell'ordine seguente:
@@ -103,7 +103,7 @@ Le regole di memorizzazione nella cache globali e personalizzate vengono elabora
    - Comportamento di memorizzazione nella cache: **Imposta se mancante**
    - Durata scadenza cache: 3 giorni
 
-Quando queste regole sono impostate, una richiesta per  _&lt;nome host dell'endpoint&gt;_ trigger.azureedge.net/home/index.html memorizzazione nella cache personalizzate regola #2, che è impostata su: **Imposta se mancante** e 3 giorni. Di conseguenza, se il file *index.html* include intestazioni HTTP `Cache-Control` o `Expires`, queste vengono rispettate. In caso contrario, se le intestazioni non sono impostate, il file viene memorizzato nella cache per 3 giorni.
+Se sono impostate queste regole, una richiesta per _&lt;nome host endpoint&gt;_ .azureedge.net/home/index.html attiva la regola di memorizzazione nella cache personalizzata n. 2, che è impostata su **Imposta se mancante** e 3 giorni. Di conseguenza, se il file *index.html* include intestazioni HTTP `Cache-Control` o `Expires`, queste vengono rispettate. In caso contrario, se le intestazioni non sono impostate, il file viene memorizzato nella cache per 3 giorni.
 
 > [!NOTE] 
 > I file memorizzati nella cache prima della modifica di una regola mantengono l'impostazione di durata della cache di origine. Per reimpostare le durate della cache, è necessario [ripulire il file](cdn-purge-endpoint.md). 

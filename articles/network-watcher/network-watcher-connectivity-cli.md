@@ -1,5 +1,6 @@
 ---
-title: Risolvere i problemi relativi alle connessioni con Azure Network Watcher - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: Risolvere i problemi relativi alle connessioni-CLI di Azure
+titleSuffix: Azure Network Watcher
 description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'interfaccia della riga di comando di Azure.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 568d3fe774bd2ec810bd3aa386fb151518e6a581
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07358d5d77e91f0b4eebffa068ff72fc83c74893
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720838"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276034"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher tramite l'interfaccia della riga di comando di Azure
 
@@ -49,7 +50,7 @@ Questo esempio controlla la connettività a una macchina virtuale di destinazion
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>response
 
 La risposta seguente è relativa all'esempio precedente.  In questa risposta `ConnectionStatus` è **Unreachable**. Si noti che tutti i probe inviati presentano un errore. Si è verificato un problema di connettività nell'appliance virtuale a causa di un valore `NetworkSecurityRule` configurato dall'utente per bloccare il traffico in ingresso sulla porta 80, denominato **UserRule_Port80**. Queste informazioni possono essere usate per analizzare i problemi di connessione.
 
@@ -130,7 +131,7 @@ L'esempio verifica la connettività tra una macchina virtuale e un endpoint remo
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>response
 
 Nell'esempio seguente `connectionStatus` è **Unreachable**. I dettagli relativi a `hops` sotto `issues` indicano che il traffico è stato bloccato a causa di un valore `UserDefinedRoute`.
 
@@ -188,7 +189,7 @@ L'esempio seguente controlla la connettività a un sito Web.
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>response
 
 Nella risposta seguente il valore indicato per `connectionStatus` è **Reachable**. In caso di esito positivo della connessione vengono forniti i valori della latenza.
 
@@ -234,7 +235,7 @@ L'esempio seguente controlla la connettività da una macchina virtuale a un acco
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
-### <a name="response"></a>Risposta
+### <a name="response"></a>response
 
 Il codice JSON seguente è la risposta di esempio generata dall'esecuzione del cmdlet precedente. Poiché il controllo ha esito positivo, il valore indicato per la proprietà `connectionStatus` è **Reachable**.  Vengono forniti i dettagli sul numero di hop necessari per raggiungere il BLOB di archiviazione e la latenza.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803923"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307312"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -41,7 +41,7 @@ Le sezioni seguenti elencano i sistemi operativi server supportati in cui è pos
 
 ### Sistemi operativi Windows Server<a name="os-windows"></a>
 
-|Sistema operativo|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
+|SO|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -89,7 +89,7 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * SQL
 * PostGreSQL
 * MySQL
-* CosmosDB
+* Cosmos DB
 * Account di archiviazione
 * Servizio app
 * Funzione
@@ -102,17 +102,19 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * Account di Service Fabric
 * Account di Automazione
 * Load Balancer
-* Ricerca
+* Cerca
 * Spazio dei nomi del bus di servizio
 * Analisi dei flussi
 * Spazio dei nomi dell'hub eventi
 * App per la logica
 * Redis
 * Analisi Data Lake
-* Archivio Data Lake
-* Key Vault
+* Data Lake Store
+* Insieme di credenziali delle chiavi
 
 Per altre informazioni sulle funzionalità supportate per l'elenco precedente di risorse PaaS, vedere [funzionalità supportate di PaaS Services](security-center-services.md#paas-services).
+
+È supportata anche la protezione per le macchine virtuali che risiedono in Azure Stack. Per ulteriori informazioni sull'integrazione del Centro sicurezza con Azure Stack, vedere [onboarding the Azure stack Virtual Machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

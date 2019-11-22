@@ -1,5 +1,5 @@
 ---
-title: Creare e usare destinazioni di calcolo per il training del modello
+title: Usare le destinazioni di calcolo per il training del modello
 titleSuffix: Azure Machine Learning
 description: Configurare gli ambienti di training (destinazioni di calcolo) per il training del modello di Machine Learning. Passare da un ambiente di training a un altro è facile. Iniziare a eseguire il training in locale. Se è necessario aumentare le risorse, passare a una destinazione di calcolo basata sul cloud.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489583"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305321"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurare e usare le destinazioni di calcolo per il training del modello 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Questo articolo illustra come usare diverse destinazioni di calcolo per il train
 
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.39.
+> Il codice in questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.74.
 
 ## <a name="compute-targets-for-training"></a>Destinazioni di calcolo per il training
 
@@ -106,9 +106,6 @@ Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limi
 
 È possibile creare l'ambiente di calcolo di Machine Learning come destinazione di calcolo in fase di esecuzione. Il calcolo viene creato automaticamente per l'esecuzione. Il calcolo viene eliminato automaticamente dopo il completamento dell'esecuzione. 
 
-> [!NOTE]
-> Per specificare il numero massimo di nodi da usare, in genere si imposta `node_count` sul numero di nodi. Attualmente (04/04/2019) è presente un bug che impedisce il funzionamento di questo. Come soluzione alternativa, usare la proprietà `amlcompute._cluster_max_node_count` della configurazione di esecuzione. Ad esempio `run_config.amlcompute._cluster_max_node_count = 5`.
-
 > [!IMPORTANT]
 > La creazione basata su esecuzione dell'ambiente di calcolo di Azure Machine Learning è attualmente disponibile in anteprima. Non usare la creazione basata su esecuzione se si usa l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning. Per usare l'ottimizzazione degli iperparametri o le funzionalità automatizzate di Machine Learning, creare una destinazione di [calcolo permanente](#persistent).
 
@@ -125,7 +122,7 @@ Un ambiente di calcolo di Machine Learning permanente può essere usato nuovamen
 
 1. **Creare e aggiungere**: per creare una risorsa di calcolo Azure Machine Learning persistente in Python, specificare le proprietà **vm_size** e **max_nodes** . Azure Machine Learning quindi usa valori predefiniti intelligenti per le altre proprietà. Il calcolo viene ridimensionato automaticamente fino a zero nodi quando non viene usato.   Le macchine virtuali dedicate vengono create per eseguire i processi in base alle esigenze.
     
-    * **vm_size**: la famiglia di VM dei nodi creati da Azure Machine Learning COMPUTE.
+    * **vm_size**: la famiglia di macchine virtuali dei nodi creati da Azure Machine Learning calcolo.
     * **max_nodes**: numero massimo di nodi per la scalabilità automatica fino a quando si esegue un processo in Azure Machine Learning calcolo.
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
@@ -315,7 +312,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Compilare il modulo. Specificare i valori per le proprietà necessarie, in particolare la **famiglia di macchine virtuali**e il **numero massimo di nodi** da usare per creare rapidamente l'ambiente di calcolo.  
 
-1. Selezionare __Create__ (Crea).
+1. Selezionare __Create__.
 
 
 1. Visualizzare lo stato dell'operazione di creazione selezionando la destinazione di calcolo dall'elenco:

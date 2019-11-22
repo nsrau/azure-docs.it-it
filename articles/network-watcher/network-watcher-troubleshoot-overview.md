@@ -1,5 +1,6 @@
 ---
-title: Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher | Microsoft Docs
+title: Introduzione alla risoluzione dei problemi delle risorse
+titleSuffix: Azure Network Watcher
 description: Questa pagina fornisce una panoramica delle funzionalità di risoluzione dei problemi delle risorse di Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684253"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277783"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -49,9 +50,9 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo di errore | `Reason` | Log|
+| Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Nessun errore rilevato |Yes|
+| NoFault | Nessun errore rilevato |Sì|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
 | PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione  |No|
 | UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento. | No |
@@ -59,26 +60,26 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No|
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No|
 | NoConnectionsFoundForGateway | Nessuna connessione sul gateway. Questo errore è solo un avviso.| No|
-| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Yes|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Yes |
+| ConnectionsNotConnected | Le connessioni non sono connesse. Questo errore è solo un avviso.| Sì|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
 ### <a name="connection"></a>Connessione
 
-| Tipo di errore | `Reason` | Log|
+| Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Nessun errore rilevato |Yes|
+| NoFault | Nessun errore rilevato |Sì|
 | GatewayNotFound | Impossibile trovare il gateway o il gateway non è stato sottoposto a provisioning |No|
 | PlannedMaintenance | L'istanza del gateway è in fase di manutenzione  |No|
 | UserDrivenUpdate | Questo errore si verifica quando è in corso l'aggiornamento utente. L’aggiornamento potrebbe essere di un'operazione di ridimensionamento.  | No |
 | VipUnResponsive | Questo errore si verifica quando l'istanza primaria del gateway non può essere raggiunta a causa di un errore di integrità probe. | No |
 | ConnectionEntityNotFound | Configurazione della connessione non presente | No |
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected" |No|
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Yes |
-| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Yes|
-| Authentication | Mancata corrispondenza della chiave precondivisa | Yes|
-| PeerReachability | Il gateway peer non è raggiungibile. | Yes|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Yes|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Yes|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
+| Autenticazione | Mancata corrispondenza della chiave precondivisa | Sì|
+| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
 
 ## <a name="supported-gateway-types"></a>Tipi di gateway supportati
 
@@ -107,7 +108,7 @@ I file di log della risoluzione dei problemi delle risorse vengono archiviati in
 > [!NOTE]
 > In alcuni casi, solo un sottoinsieme di file di log viene scritto nella risorsa di archiviazione.
 
-Per istruzioni sul download di file dall'account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/)
+Per istruzioni sul download di file dall'account di archiviazione di Azure, consultare [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/).
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

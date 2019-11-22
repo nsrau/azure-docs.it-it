@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185713"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287005"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -291,3 +291,19 @@ I mapping dei campi di output che fanno riferimento a dati inesistenti/null prod
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Avviso: i criteri di rilevamento delle modifiche dei dati sono configurati per l'utilizzo della colonna chiave ' X '
 I [criteri di rilevamento delle modifiche dei dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) presentano requisiti specifici per le colonne utilizzate per rilevare le modifiche. Uno di questi requisiti è che questa colonna viene aggiornata ogni volta che viene modificato l'elemento di origine. Un altro requisito è che il nuovo valore per la colonna sia maggiore del valore precedente. Le colonne chiave non soddisfano questo requisito perché non cambiano a ogni aggiornamento. Per risolvere questo problema, selezionare una colonna diversa per i criteri di rilevamento delle modifiche.
+
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+
+## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Avviso: il testo del documento sembra essere codificato con UTF-16, ma manca un byte order mark
+
+Le [modalità di analisi dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) devono comprendere il modo in cui il testo viene codificato prima di analizzarlo. I due modi più comuni per codificare il testo sono UTF-16 e UTF-8. UTF-8 è una codifica a lunghezza variabile in cui ogni carattere è compreso tra 1 byte e 4 byte. UTF-16 è una codifica a lunghezza fissa in cui ogni carattere ha una lunghezza di 2 byte. UTF-16 presenta due varianti diverse, "big endian" e "little endian". La codifica del testo è determinata da una "byte order mark", una serie di byte prima del testo.
+
+| Codifica | Byte order mark |
+| --- | --- |
+| UTF-16 big endian | 0xFE 0xFF |
+| UTF-16 Little Endian | 0xFE 0xFF |
+| UTF-8 | 0xEF 0xBB 0xBF |
+
+Se non è presente alcuna byte order mark, si presuppone che il testo sia codificato come UTF-8.
+
+Per ovviare a questo avviso, determinare la codifica del testo per questo BLOB e aggiungere il byte order mark appropriato.

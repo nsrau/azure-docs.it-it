@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679897"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280654"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ottenere l'attività dei metadati in Azure Data Factory
 
@@ -57,6 +57,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 - Per Amazon S3 e Google Cloud Storage, `lastModified` si applica al bucket e alla chiave ma non alla cartella virtuale e `exists` si applica al bucket e alla chiave, ma non al prefisso o alla cartella virtuale.
 - Per l'archiviazione BLOB di Azure, `lastModified` si applica al contenitore e al BLOB, ma non alla cartella virtuale.
+- Il filtro con caratteri jolly per le cartelle o i file non è supportato per l'attività Ottieni metadati.
 
 **Database relazionale**
 
@@ -71,7 +72,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 È possibile specificare i tipi di metadati seguenti nell'elenco dei campi attività Recupera metadati per recuperare le informazioni corrispondenti:
 
-| Tipo di metadati | Descrizione |
+| Tipo di metadati | DESCRIZIONE |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
 | itemType | Tipo di file o di cartella. Il valore restituito è `File` o `Folder`. |
@@ -134,10 +135,10 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 Attualmente, l'attività Ottieni metadati può restituire i seguenti tipi di informazioni sui metadati:
 
-Proprietà | Descrizione | Obbligatorio
+Proprietà | DESCRIZIONE | obbligatori
 -------- | ----------- | --------
 fieldList | Tipi di informazioni sui metadati necessari. Per informazioni dettagliate sui metadati supportati, vedere la sezione opzioni per i [metadati](#metadata-options) di questo articolo. | Sì 
-dataset | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | Sì
+attività | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | Sì
 formatSettings | Applicare quando si usa il tipo di formato DataSet. | No
 storeSettings | Applicare quando si usa il tipo di formato DataSet. | No
 

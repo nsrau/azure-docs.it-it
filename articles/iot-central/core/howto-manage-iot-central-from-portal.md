@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 59fc01920a94e8ab3e7037e4bb226ea18a4314bf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c9a8ed6d55fbbfcf59c98a86ac98cb4264d31ee4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806516"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278809"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gestire IoT Central dal portale di Azure
 
@@ -41,10 +41,10 @@ Selezionare quindi **Crea**.
 
 Compilare tutti i campi del modulo. Questo modulo è simile al modulo compilato per creare applicazioni nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) . Per altre informazioni, consultare la guida introduttiva [Creare un'applicazione Azure IoT Central](quick-deploy-iot-central.md).
 
-Il **percorso** è la posizione fisica o [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. In genere, è consigliabile scegliere il percorso fisicamente più vicino ai dispositivi per ottenere prestazioni ottimali. È possibile vedere le aree in cui Azure IoT Central è disponibile nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central). Una volta scelto un percorso, non è possibile spostare l'applicazione in un percorso diverso in un secondo momento.
+**Location** è la posizione [geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. In genere, è consigliabile scegliere il percorso fisicamente più vicino ai dispositivi per ottenere prestazioni ottimali. Azure IoT Central è attualmente disponibile in **Stati Uniti**, **Australia**, **Asia Pacifico**o in **Europa**.  Una volta scelto un percorso, non è possibile spostare l'applicazione in un percorso diverso in un secondo momento.
 
 > [!NOTE]
-> Il modello di **applicazione di anteprima** è attualmente disponibile solo nelle aree **Europa settentrionale** e **Stati Uniti centrali** .
+> Il modello di **applicazione di anteprima** è attualmente disponibile solo nelle località **Europa** e **Stati Uniti** .
 
 ![Portale di gestione: creare la risorsa IoT Central](media/howto-manage-iot-central-from-portal/image1a.png)  
 

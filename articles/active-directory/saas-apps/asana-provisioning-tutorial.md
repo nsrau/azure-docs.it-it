@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare Asana per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: provisioning utenti per asana-Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Asana.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d5ceedfd1f0fad0c6f03feba2150968aecf02b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60a237e4295f17ce37f622022d318e9f2aff24d7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964217"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276594"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Esercitazione: Configurare Asana per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in Asana e Azure Active Directory (Azure AD) per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD ad Asana.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -40,7 +40,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assign-users-to-asana"></a>Assegnare utenti ad Asana
 
-Azure AD Usa il concetto *assegnazioni* per determinare gli utenti che dovranno ricevere l'accesso alle App selezionate. Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti assegnati a un'applicazione in Azure AD.
+Azure AD usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti in Azure AD devono accedere all'app Asana. È quindi possibile assegnare tali utenti all'app Asana seguendo le istruzioni riportate nell'articolo seguente:
 
@@ -75,7 +75,7 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
     b. Selezionare la foto del profilo nella barra superiore e selezionare le impostazioni per l'organizzazione corrente.
 
-    c. Passare alla scheda **Service Accounts** (Account di servizio).
+    C. Passare alla scheda **Service Accounts** (Account di servizio).
 
     d. Selezionare **Add Service Account** (Aggiungi account di servizio).
 

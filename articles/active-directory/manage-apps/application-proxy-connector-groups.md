@@ -1,5 +1,5 @@
 ---
-title: Pubblicare app in reti separate con App Azure AD gruppi di connettori del proxy | Microsoft Docs
+title: Pubblicare app in reti separate tramite i gruppi di connettori-Azure AD
 description: Illustra come creare e gestire i gruppi di connettori nel proxy di applicazione di Azure AD.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381493"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275573"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori
 
@@ -32,7 +32,7 @@ Tutte le applicazioni sono assegnate a un gruppo di connettori. Se non si creano
 > [!TIP]
 > Nel caso di una distribuzione di proxy di applicazione di grandi dimensioni, non assegnare alcuna applicazione al gruppo di connettori predefinito. In questo caso, i nuovi connettori non riceveranno traffico live finché non vengono assegnati a un gruppo di connettori attivi. Questa configurazione permette anche di applicare ai connettori una modalità inattiva spostandoli di nuovo nel gruppo predefinito, in modo da eseguire operazioni di manutenzione senza alcun impatto sugli utenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per raggruppare i connettori è necessario assicurarsi di avere [installato più connettori](application-proxy-add-on-premises-application.md). Quando si installa un nuovo connettore, questo si aggiunge automaticamente al gruppo di connettori **predefinito** .
 
@@ -128,5 +128,5 @@ Nell'esempio seguente l'azienda ha due data center, A e B, con due connettori ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
+* [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md)
 * [Abilitare l'accesso Single Sign-On](what-is-single-sign-on.md)

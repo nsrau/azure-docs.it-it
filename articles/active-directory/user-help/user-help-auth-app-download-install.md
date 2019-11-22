@@ -1,6 +1,6 @@
 ---
 title: Scaricare e installare l'app Microsoft Authenticator-Azure AD
-description: Come scaricare, installare e usare l'app Microsoft Authenticator per la verifica a due fattori.
+description: Scaricare e installare l'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86bbe9560a4c3520bce5aa006c18f794c8298a54
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820233"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266937"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Scaricare e installare l'app Microsoft Authenticator
 

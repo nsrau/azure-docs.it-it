@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166251"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279223"
 ---
 # <a name="sql-database-release-notes"></a>Note sulla versione del database SQL
 
@@ -80,6 +80,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione dell'istan
 
 - **Aug 2019** : i database indipendenti sono completamente supportati nell'istanza gestita.
 - **Ottobre 2019** : il ripristino temporizzato del database predefinito dal livello business critical al livello per utilizzo generico non riuscirà se il database di origine contiene oggetti OLTP in memoria.
+- **Ottobre 2019** : è possibile usare **posta elettronica database** funzionalità con server di posta elettronica esterni (non Azure) usando una connessione protetta.
 - **2019 novembre** -la coerenza del database viene verificata usando `DBCC CHECKDB` dopo il ripristino del database dall'archiviazione BLOB di Azure.
 
 ## <a name="updates"></a>aggiornamenti

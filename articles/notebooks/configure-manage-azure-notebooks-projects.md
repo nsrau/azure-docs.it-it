@@ -1,23 +1,14 @@
 ---
 title: Configurare e gestire progetti di Azure Notebooks
 description: Come gestire i metadati, i file e l'ambiente del progetto e la procedura di installazione tramite l'interfaccia utente di Azure Notebooks e l'accesso diretto al terminale.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: kraigb
-ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973124"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277650"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
 
@@ -42,7 +33,7 @@ Per impostazione predefinita, i progetti vengono eseguiti nel livello di **calco
 
 Nel dashboard del progetto selezionare **Project Settings** (Impostazioni progetto) e quindi selezionare la scheda **Information** (Informazioni), che contiene i metadati del progetto come descritto nella tabella seguente. È possibile modificare i metadati del progetto in qualsiasi momento.
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio: "Hello World in Python". |
 | ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto. Questo ID può utilizzare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un [ID di progetto riservato](create-clone-jupyter-notebooks.md#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
@@ -61,16 +52,16 @@ Il dashboard del progetto illustra i contenuti del sistema di cartelle del proge
 
 Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuovi file o cartelle. Quando si usa questo comando, selezionare prima il tipo di elemento da creare:
 
-| Tipo di elemento | Descrizione | Comportamento del comando |
+| Tipo di elemento | DESCRIZIONE | Comportamento del comando |
 | --- | --- | --- |
 | **Notebook** | Un notebook di Jupyter | Visualizza una finestra popup in cui devono essere specificati il nome file e la lingua del notebook. |
 | **Cartella** | Una sottocartella | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome della cartella. |
 | **File vuoto** | Un file in cui è possibile archiviare qualsiasi contenuto, tra cui testo, dati e così via. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 | **Markdown** | Un file markdown. | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome del file. |
 
-### <a name="upload-files"></a>Carica file
+### <a name="upload-files"></a>Caricare file
 
-Il comando **Upload** (Carica) offre due opzioni di importazione dei dati da altre posizioni: **From URL** (Da URL) e **From Computer** (Da computer). Per altre informazioni, vedere [Usare file di dati in progetti di Azure Notebooks](work-with-project-data-files.md).
+Il comando **upload** fornisce due opzioni per l'importazione di dati da altri percorsi: **da URL** e **dal computer**. Per altre informazioni, vedere [Usare file di dati in progetti di Azure Notebooks](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selezionare i comandi specifici del file
 
@@ -85,10 +76,10 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Run in Jupyter Lab (Esegui in JupyterLab) | j | Esegue un notebook in JupyterLab, un'interfaccia più orientata agli sviluppatori rispetto a quella normalmente associata a Jupyter. |
 | Anteprima | p | Apre un'anteprima HTML del file; per i notebook, l'anteprima è un rendering di sola lettura del notebook. Per altre informazioni, vedere la sezione [Anteprima](#preview). |
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
-| Scarica | giorni | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
-| Rinomina | a | Richiede un nuovo nome per il file o la cartella. |
-| Eliminazione | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
-| Sposta | m | Sposta un file in una cartella diversa dello stesso progetto. |
+| Scaricare | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
+| Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
+| Elimina | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
+| Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
 
@@ -99,9 +90,9 @@ La pagina di anteprima supporta vari comandi della barra degli strumenti con tas
 | Comando | Tasto di scelta rapida | Azione |
 | --- | --- | --- |
 | Condividi | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
-| Clona | c  | Consente di clonare il notebook nel proprio account. |
+| Clone | c  | Consente di clonare il notebook nel proprio account. |
 | Esegui | r | Consente di eseguire il notebook, se si è autorizzati a eseguire questa operazione. |
-| Scarica | giorni | Scarica una copia del notebook. |
+| Scaricare | d | Scarica una copia del notebook. |
 
 ## <a name="configure-the-project-environment"></a>Configurare l'ambiente del progetto
 
@@ -115,7 +106,7 @@ Tutte le forme di configurazione del progetto vengono applicate ogni volta che v
 
 ### <a name="one-time-initialization-script"></a>Script di inizializzazione unica
 
-La prima volta che Azure Notebooks crea un server per il progetto, cerca un file nel progetto denominato *aznbsetup.sh*. Se il file è presente, Azure Notebooks lo esegue. L'output dello script viene archiviato nella cartella del progetto come *.aznbsetup.log*.
+La prima volta che Azure Notebooks crea un server per il progetto, Cerca un file nel progetto denominato *aznbsetup.sh*. Se il file è presente, Azure Notebooks lo esegue. L'output dello script viene archiviato nella cartella del progetto come *.aznbsetup.log*.
 
 ### <a name="environment-setup-steps"></a>Passaggi di configurazione dell'ambiente
 
@@ -131,11 +122,11 @@ Per aggiungere un passaggio, selezionare prima **+ Add** (+ Aggiungi) e quindi s
 
 Le informazioni che verranno visualizzate dipendono dal tipo di operazione scelto:
 
-- **Requirements.txt**: nel secondo elenco a discesa selezionare un file *requirements.txt* già presente nel progetto. Selezionare quindi una versione di Python dal terzo elenco a discesa visualizzato. Usando un file *requirements.txt*, Azure Notebooks esegue `pip install -r` con il file *requirements.txt* quando viene avviato un server notebook. Non è necessario installare esplicitamente i pacchetti dal notebook.
+- **Requirements. txt**: nel secondo elenco a discesa selezionare un file *requirements. txt* già presente nel progetto. Selezionare quindi una versione di Python dal terzo elenco a discesa visualizzato. Usando un file *requirements.txt*, Azure Notebooks esegue `pip install -r` con il file *requirements.txt* quando viene avviato un server notebook. Non è necessario installare esplicitamente i pacchetti dal notebook.
 
-- **Script della shell**: nel secondo elenco a discesa selezionare uno script della shell bash del progetto (in genere un file con estensione *.sh*) contenente tutti i comandi da eseguire per inizializzare l'ambiente.
+- **Script della shell**: nel secondo elenco a discesa selezionare uno script della shell bash nel progetto (in genere un file con estensione *sh* ) che contiene i comandi che si desidera eseguire per inizializzare l'ambiente.
 
-- **Environment.yml**: nel secondo elenco a discesa selezionare un file *environments.yml* per i progetti Python usando un ambiente conda.
+- **Environment. yml**: nel secondo elenco a discesa selezionare un file *environments. yml* per i progetti python usando un ambiente conda.
 
 Dopo aver aggiunto tutti i passaggi necessari, selezionare **Save** (Salva).
 
@@ -190,5 +181,5 @@ cat .nb.log
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura: Lavorare con i file di dati di progetto](work-with-project-data-files.md)
+- [Procedura: utilizzare file di dati del progetto](work-with-project-data-files.md)
 - [Accedere ai dati cloud in un notebook](access-data-resources-jupyter-notebooks.md)

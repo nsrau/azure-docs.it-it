@@ -1,6 +1,6 @@
 ---
 title: Dimensioni delle macchine virtuali Windows di Azure-ottimizzate per il calcolo
-description: Elenca le diverse dimensioni ottimizzate per il calcolo per le macchine virtuali Windows disponibili in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
+description: Elenca le diverse dimensioni ottimizzate per il calcolo per le macchine virtuali Windows disponibili in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e schede di rete. Elenca la velocità effettiva di archiviazione e la larghezza di banda di rete per le dimensioni della serie.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -12,23 +12,25 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 11/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: ae42988aa2c792be5e9cba267c8ebe8c45665147
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 89eecbfe1cff55bbe93b65308ab95de642165842
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077164"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279168"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per il calcolo
+
+Questo articolo elenca le diverse dimensioni ottimizzate per il calcolo disponibili per le macchine virtuali (VM) Windows in Azure.
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-
 ## <a name="other-sizes"></a>Altre dimensioni
+
 - [Utilizzo generico](sizes-general.md)
 - [Ottimizzate per la memoria](../virtual-machines-windows-sizes-memory.md)
 - [Ottimizzate per l'archiviazione](../virtual-machines-windows-sizes-storage.md)
@@ -37,4 +39,5 @@ ms.locfileid: "74077164"
 - [Generazioni precedenti](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.

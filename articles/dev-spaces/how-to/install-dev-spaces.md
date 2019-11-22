@@ -1,20 +1,16 @@
 ---
 title: Installare Azure Dev Spaces su AKS e gli strumenti lato client
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Informazioni su come installare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 642d4406840f1748c3b6cbb4441227fff0c6d721
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
-ms.translationtype: MT
+ms.openlocfilehash: c62fe38a12b5ec279bc51fe8bc0d340e2f439200
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494842"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280064"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Installare Azure Dev Spaces su AKS e gli strumenti lato client
 
@@ -53,7 +49,7 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-Il `use-dev-spaces` comando installa anche l'interfaccia della riga di comando Azure Dev Spaces.
+Il comando `use-dev-spaces` installa anche l'interfaccia della riga di comando di Azure Dev Spaces.
 
 ## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Installare Azure Dev Spaces usando il portale di Azure
 

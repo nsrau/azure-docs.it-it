@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082990"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284820"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
@@ -38,14 +38,11 @@ Quando si usano le impostazioni di base e si seleziona una sola sottoscrizione, 
 
 La condivisione viene montata come `clouddrive` nella directory `$Home`. Questa azione viene eseguita una sola volta e la condivisione file viene ripetuta automaticamente nelle sessioni successive. 
 
-> [!NOTE]
-> Per la sicurezza, ogni utente deve effettuare il provisioning del proprio account di archiviazione.  Per il controllo degli accessi in base al ruolo, gli utenti devono disporre dell'accesso come collaboratore o superiore a livello dell'account di archiviazione.
-
 La condivisione file contiene anche un'immagine da 5 GB creata per l'utente che rende automaticamente persistenti i dati nella directory `$Home`. Questo vale sia per Bash che per PowerShell.
 
 ## <a name="use-existing-resources"></a>Usare le risorse esistenti
 
-Con l'opzione Avanzate è possibile associare risorse esistenti. Quando si seleziona un'area Cloud Shell è necessario selezionare un account di archiviazione di backup collocato nella stessa area. Se, ad esempio, l'area assegnata è Stati Uniti occidentali, è necessario associare una condivisione di file anch'essa posizionata nell'area Stati Uniti occidentali.
+Con l'opzione Avanzate è possibile associare risorse esistenti. Quando si seleziona un'area Cloud Shell è necessario selezionare un account di archiviazione di backup collocato nella stessa area. Ad esempio, se l'area assegnata è Stati Uniti occidentali, è necessario associare una condivisione file che risiede anche negli Stati Uniti occidentali.
 
 Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. Il filtro di opzioni di archiviazione popolato per gli account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione con ridondanza geografica. 
 
@@ -54,7 +51,14 @@ Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni 
 
 ![Impostazione del gruppo di risorse](media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="supported-storage-regions"></a>Aree di archiviazione supportate
+## <a name="securing-storage-access"></a>Sicurezza dell'accesso allo spazio di archiviazione
+Per la sicurezza, ogni utente deve effettuare il provisioning del proprio account di archiviazione.  Per il controllo degli accessi in base al ruolo, gli utenti devono disporre dell'accesso come collaboratore o superiore a livello dell'account di archiviazione.
+
+Cloud Shell usa una condivisione file di Azure in un account di archiviazione, all'interno di una sottoscrizione specificata. A causa delle autorizzazioni ereditate, gli utenti con diritti di accesso sufficienti per la sottoscrizione saranno in grado di accedere a tutti gli account di archiviazione e alle condivisioni file contenute nella sottoscrizione.
+
+Gli utenti devono bloccare l'accesso ai file impostando le autorizzazioni a livello di account di archiviazione o di sottoscrizione.
+
+## <a name="supported-storage-regions"></a>Aree di archiviazione supportate
 Gli account di archiviazione di Azure associati devono risiedere nella stessa area del computer Cloud Shell in cui vengono montati. Per trovare l'area corrente, è possibile eseguire `env` in Bash e individuare la variabile `ACC_LOCATION`. Le condivisioni file ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.
 
 I computer Cloud Shell esistono nelle aree seguenti:
@@ -67,8 +71,6 @@ I computer Cloud Shell esistono nelle aree seguenti:
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Limitare la creazione di risorse con i criteri delle risorse di Azure
 Gli account di archiviazione che si creano in Cloud Shell sono contrassegnati con `ms-resource-usage:azure-cloud-shell`. Se si desidera impedire agli utenti di creare account di archiviazione con Cloud Shell, creare [criteri di risorse di Azure per tag](../azure-policy/json-samples.md) che vengono attivati dal tag specificato.
-
-
 
 ## <a name="how-cloud-shell-storage-works"></a>Come funziona l’archiviazione Cloud Shell 
 Cloud Shell rende persistenti i file tramite entrambe le modalità seguenti: 

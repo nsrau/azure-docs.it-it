@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932266"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270216"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Livelli di prestazioni per l'archiviazione BLOB in blocchi
 
@@ -54,6 +54,12 @@ L'archiviazione delle prestazioni Premium è ideale per i carichi di lavoro che 
 ## <a name="standard-performance"></a>Prestazioni standard
 
 Prestazioni standard supporta diversi [livelli di accesso](storage-blob-storage-tiers.md) per archiviare i dati in modo più conveniente. È ottimizzato per la capacità elevata e la velocità effettiva elevata su set di dati di grandi dimensioni.
+
+- **Set di impostazioni di backup e ripristino di emergenza**. Archiviazione prestazioni standard offre livelli convenienti, che lo rendono un caso d'uso perfetto per set di dati di ripristino di emergenza a breve e a lungo termine, backup secondari e archiviazione dei dati di conformità.
+
+- **Contenuto multimediale**. Spesso è possibile accedere a immagini e video quando vengono creati e archiviati per la prima volta, ma questo tipo di contenuto viene usato meno spesso quando si invecchia. Archiviazione prestazioni standard offre livelli appropriati per le esigenze di contenuti multimediali. 
+
+- **Elaborazione di dati in blocco**. Questi tipi di carichi di lavoro sono adatti per l'archiviazione standard, perché richiedono un archivio con velocità effettiva elevata e conveniente anziché una bassa latenza coerente. I set di dati di grandi dimensioni e non elaborati vengono gestiti in modo temporaneo per l'elaborazione ed eventualmente migrati a livelli più interessanti.
 
 ## <a name="migrate-from-standard-to-premium"></a>Eseguire la migrazione da standard a Premium
 

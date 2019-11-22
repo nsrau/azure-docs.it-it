@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/30/2019
+ms.date: 11/20/2019
 ms.custom: include file
-ms.openlocfilehash: e1512db9bea2aa3eb1a56045a97b3402ac62d84e
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53733a3fb33aeb99321d4c94a64225ffa84eb424
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949057"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307203"
 ---
 La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 
@@ -25,7 +25,7 @@ La tabella seguente descrive i ruoli disponibili in Gemelli digitali di Azure:
 | Amministratore del dispositivo | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per i dispositivi e gli oggetti correlati ai dispositivi. Autorizzazione di *LETTURA* per gli spazi. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
 | Amministratore delle chiavi | Autorizzazioni di *CREAZIONE*, *LETTURA*, *AGGIORNAMENTO* ed *ELIMINAZIONE* per le chiavi di accesso. Autorizzazione di *LETTURA* per gli spazi. | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
 | Amministratore dei token |  Autorizzazioni di *LETTURA* e *AGGIORNAMENTO* per le chiavi di accesso. Autorizzazione di *LETTURA* per gli spazi. | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
-| Utente |  Autorizzazione di *LETTURA* per gli spazi, i sensori e gli utenti, inclusi gli oggetti correlati corrispondenti. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
+| User |  Autorizzazione di *LETTURA* per gli spazi, i sensori e gli utenti, inclusi gli oggetti correlati corrispondenti. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Specialista del supporto tecnico |  Autorizzazione di *LETTURA* per tutti gli elementi ad eccezione delle chiavi di accesso. | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Programma di installazione dei dispositivi | Autorizzazioni di *LETTURA* e *AGGIORNAMENTO* per i dispositivi e i sensori, inclusi gli oggetti correlati corrispondenti. Autorizzazione di *LETTURA* per gli spazi. | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
 | Dispositivo gateway | Autorizzazione di *CREAZIONE* per i sensori. Autorizzazione di *LETTURA* per i dispositivi e i sensori, inclusi gli oggetti correlati corrispondenti. | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |

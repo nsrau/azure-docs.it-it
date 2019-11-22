@@ -4,14 +4,14 @@ description: Risposte alle domande più comuni sul servizio Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: dc7dff0119ec849b447754ae54a45911038f6c48
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185773"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284461"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: domande comuni
 
@@ -118,16 +118,10 @@ Server Assessment offre una valutazione che aiuta la preparazione alla migrazion
 
 ### <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Qual è la differenza tra la valutazione del server e la Site Recovery Deployment Planner?
 
-Server assessment è uno strumento di pianificazione della migrazione. Il Site Recovery Deployment Planner è uno strumento di pianificazione del ripristino di emergenza. 
+Server assessment è uno strumento di pianificazione della migrazione. Il Site Recovery Deployment Planner è uno strumento di pianificazione del ripristino di emergenza.
 
 - **Pianificare la migrazione locale ad Azure**: se si prevede di eseguire la migrazione dei server locali in Azure, usare la valutazione del server per la pianificazione della migrazione. Valuta i carichi di lavoro locali e fornisce indicazioni e strumenti per semplificare la migrazione. Dopo aver installato il piano di migrazione, è possibile usare gli strumenti, tra cui Azure Migrate migrazione del server, per eseguire la migrazione dei computer in Azure.
 - **Pianificare il ripristino di emergenza in Azure**: se si prevede di configurare il ripristino di emergenza da locale ad azure con Site Recovery, usare il Deployment Planner Site Recovery. Il Deployment Planner fornisce una valutazione approfondita Site Recovery specifica dell'ambiente locale allo scopo del ripristino di emergenza. Fornisce consigli sul ripristino di emergenza, ad esempio la replica e il failover.
-
-### <a name="does-azure-migrate-estimate-costs-for-the-enterprise-agreement-ea-program"></a>Azure Migrate stimare i costi per il programma di Enterprise Agreement (EA)?
-
-Azure Migrate server Assessment attualmente non supporta le stime dei costi per il [programma di Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). Come soluzione alternativa, quando si crea una valutazione, è possibile specificare l' **offerta**con **pagamento in base** al consumo e aggiungere manualmente la percentuale di sconto (applicabile alla sottoscrizione) come **sconto** nelle proprietà di valutazione:
-
-  ![Proprietà valutazione](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-and-performance-based-sizing"></a>Qual è la differenza tra il dimensionamento locale e quello basato sulle prestazioni?
 

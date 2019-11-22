@@ -1,23 +1,14 @@
 ---
 title: Profilo utente e ID da usare con Azure Notebooks
 description: Come creare e gestire il profilo utente e l'ID utente con Azure Notebooks, che diventa parte dell'URL dei notebook condivisi.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: kraigb
-ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598201"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277600"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profilo e ID utente per i Azure Notebooks
 
@@ -56,7 +47,7 @@ Il profilo è composto da informazioni visualizzabili pubblicamente nella URL, `
 
 Per modificare il profilo, usare il comando **Modifica le informazioni del profilo** nella pagina del profilo. Le sezioni del profilo sono le seguenti:
 
-| Sezione | Contenuti |
+| Sezione | Sommario |
 | --- | --- |
 | Foto profilo | Un'immagine che viene visualizzata nella pagina del profilo. |
 | Informazioni account | Il nome visualizzato, l'ID utente e l'account di posta elettronica pubblico. In questo caso l'account di posta elettronica fornisce agli altri utenti un mezzo di contatto e può essere diverso dall'[account](azure-notebooks-user-account.md) usato per accedere ad Azure Notebooks stesso. |

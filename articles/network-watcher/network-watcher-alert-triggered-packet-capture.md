@@ -1,5 +1,6 @@
 ---
-title: Usare l'acquisizione di pacchetti per eseguire il monitoraggio proattivo della rete con avvisi e Funzioni di Azure | Microsoft Docs
+title: Usare l'acquisizione di pacchetti per eseguire il monitoraggio proattivo della rete con avvisi-funzioni di Azure
+titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come creare un'acquisizione di pacchetti attivata da un avviso con Azure Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165148"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276126"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -36,7 +37,7 @@ Usando Network Watcher, gli avvisi e le funzioni dall'ecosistema di Azure, è po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * La versione più recente di [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Un'istanza esistente di Network Watcher. Se non è già presente, creare un'[istanza di Network Watcher](network-watcher-create.md).
@@ -78,10 +79,10 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Impostazione** | **Valore** | **Dettagli** |
     |---|---|---|
     |**Nome app**|PacketCaptureExample|Nome dell'app per le funzioni.|
-    |**Sottoscrizione**|[Sottoscrizione] sottoscrizione in cui creare l'app per le funzioni.||
+    |**Sottoscrizione**|[Sottoscrizione]: sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
-    |**Piano di hosting**|Piano A consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Location**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
+    |**Località**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
     |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
 3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** > **+** .
@@ -141,7 +142,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
 6. Passare ai moduli di Azure. Nella cartella **AZ. Network** locale selezionare tutti i file nella cartella. Selezionare **OK**. 
 
-7. Ripetere questi passaggi per **AZ. Accounts** e **AZ.** resources.
+7. Ripetere questi passaggi per **AZ. Accounts** e **AZ. resources**.
 
     ![Caricare file][functions6]
 
@@ -149,7 +150,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
     ![File di PowerShell][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 
 Per usare i cmdlet PowerShell, è necessario eseguire l'autenticazione, L'autenticazione viene configurata nell'app per le funzioni. Per configurare l'autenticazione è necessario definire le variabili di ambiente e caricare un file di chiave crittografata nell'app per le funzioni.
 

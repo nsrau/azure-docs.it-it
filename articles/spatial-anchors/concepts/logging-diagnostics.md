@@ -1,29 +1,29 @@
 ---
-title: Registrazione e diagnostica di Azure gli ancoraggi spaziali | Microsoft Docs
-description: Spiegazione approfondita di come generare e recuperare la registrazione e diagnostica in Azure gli ancoraggi spaziale.
+title: Registrazione e diagnostica
+description: Spiegazione approfondita di come generare e recuperare la registrazione e la diagnostica negli ancoraggi spaziali di Azure.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964752"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270123"
 ---
-# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registrazione e diagnostica di Azure gli ancoraggi spaziali
+# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registrazione e diagnostica negli ancoraggi spaziali di Azure
 
-Gli ancoraggi spaziali Azure fornisce un meccanismo di registrazione standard che è utile per lo sviluppo di app. La modalità di registrazione diagnostica Anchor spaziale è utile quando sono necessarie altre informazioni per il debug. La registrazione diagnostica archivia le immagini dell'ambiente.
+Gli ancoraggi spaziali di Azure offrono un meccanismo di registrazione standard utile per lo sviluppo di app. La modalità di registrazione diagnostica degli ancoraggi spaziali è utile quando sono necessarie altre informazioni per il debug. La registrazione diagnostica archivia le immagini dell'ambiente.
 
 ## <a name="standard-logging"></a>Registrazione standard
-Nell'API di ancoraggi spaziale, è possibile sottoscrivere il meccanismo di registrazione per ottenere log utili per lo sviluppo di applicazioni e il debug. Le API di registrazione standard non archiviare le immagini dell'ambiente del disco di dispositivo. il SDK fornisce questi log come callback degli eventi. Spetta all'utente per integrare i log nel meccanismo di registrazione dell'applicazione.
+Nell'API ancoraggi spaziali è possibile sottoscrivere il meccanismo di registrazione per ottenere log utili per lo sviluppo e il debug di applicazioni. Le API di registrazione standard non archiviano le immagini dell'ambiente nel disco del dispositivo. L'SDK fornisce questi log come callback di evento. È necessario integrare questi log nel meccanismo di registrazione dell'applicazione.
 
 ### <a name="configuration-of-log-messages"></a>Configurazione dei messaggi di log
-Esistono due callback di interesse per l'utente. L'esempio seguente viene illustrato come configurare la sessione.
+Sono disponibili due callback di interesse per l'utente. Nell'esempio seguente viene illustrato come configurare la sessione.
 
 ```csharp
     cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -38,27 +38,27 @@ Esistono due callback di interesse per l'utente. L'esempio seguente viene illust
     cloudSpatialAnchorSession.Error += CloudSpatialAnchorSession_Error;
 ```
 
-### <a name="events-and-properties"></a>Proprietà ed eventi
+### <a name="events-and-properties"></a>Eventi e proprietà
 
-Questi callback degli eventi vengono forniti per elaborare i log ed errori dalla sessione:
+Questi callback di eventi vengono forniti per elaborare log ed errori dalla sessione:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Specifica il livello di dettaglio per gli eventi da ricevere dal runtime.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Fornisce gli eventi di log di debug standard.
-- [Errore](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Fornisce gli eventi del log che il runtime considera come errori.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): specifica il livello di dettaglio per gli eventi da ricevere dal runtime.
+- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): fornisce eventi di log di debug standard.
+- [Errore](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): fornisce gli eventi di log considerati come errori dal runtime.
 
 ## <a name="diagnostics-logging"></a>Registrazione diagnostica
 
-Oltre alla modalità standard di operazione per la registrazione, Anchor spaziali include anche una modalità di diagnostica. Modalità di diagnostica consente di acquisire le immagini dell'ambiente e li registra nel disco. È possibile utilizzare questa modalità per eseguire il debug di determinati tipi di problemi, ad esempio l'impossibilità di individuare in modo prevedibile un ancoraggio. Abilitare la registrazione diagnostica solo per riprodurre un problema specifico. Quindi disabilitarlo. Non abilitare la diagnostica quando si esegue normalmente l'app.
+Oltre alla modalità di funzionamento standard per la registrazione, gli ancoraggi spaziali hanno anche una modalità di diagnostica. La modalità di diagnostica acquisisce immagini dell'ambiente e le registra sul disco. È possibile utilizzare questa modalità per eseguire il debug di determinati tipi di problemi, ad esempio un errore di individuazione prevedibile di un ancoraggio. Abilitare la registrazione diagnostica solo per riprodurre un problema specifico. Quindi disabilitarlo. Non abilitare la diagnostica quando le app vengono eseguite normalmente.
 
-Durante un'interazione di supporto con Microsoft, un rappresentante Microsoft potrebbe chiedere se si è disposti a presentare un bundle di diagnostica per un'analisi più approfondita. In questo caso, è possibile decidere di abilitare la diagnostica e riprodurre il problema ed è possibile inviare il pacchetto di diagnostica. 
+Durante un'interazione del supporto con Microsoft, un rappresentante Microsoft potrebbe chiedere se si è disposti a inviare un bundle di diagnostica per un'ulteriore analisi. In questo caso, si potrebbe decidere di abilitare la diagnostica e riprodurre il problema in modo che sia possibile inviare il bundle di diagnostica.
 
-Se si invia un log di diagnostica a Microsoft senza precedenti acknowledgement da un rappresentante Microsoft, l'invio passerà senza risposta.
+Se si invia un log di diagnostica a Microsoft senza riconoscimenti precedenti da parte di un rappresentante Microsoft, l'invio non risponderà.
 
 Le sezioni seguenti illustrano come abilitare la modalità di diagnostica e anche come inviare i log di diagnostica a Microsoft.
 
 ### <a name="enable-diagnostics-logging"></a>Abilitare la registrazione diagnostica
 
-Quando si attiva una sessione per la registrazione diagnostica, tutte le operazioni nella sessione hanno corrispondente la registrazione diagnostica nel file system locale. Durante la registrazione, le immagini dell'ambiente vengono salvate su disco.
+Quando si abilita una sessione per la registrazione diagnostica, tutte le operazioni nella sessione hanno la registrazione diagnostica corrispondente nella file system locale. Durante la registrazione, le immagini dell'ambiente vengono salvate sul disco.
 
 ```csharp
 private void ConfigureSession()
@@ -86,9 +86,9 @@ private void ConfigureSession()
 }
 ```
 
-### <a name="submit-the-diagnostics-bundle"></a>Inviare il pacchetto di diagnostica
+### <a name="submit-the-diagnostics-bundle"></a>Inviare il bundle di diagnostica
 
-Il frammento di codice seguente illustra come inviare un bundle di diagnostica a Microsoft. Questo bundle include le immagini dell'ambiente di acquisiti dalla sessione dopo aver abilitato la diagnostica. 
+Il frammento di codice seguente illustra come inviare un bundle di diagnostica a Microsoft. Questo bundle includerà le immagini dell'ambiente acquisito dalla sessione dopo l'abilitazione della diagnostica.
 
 ```csharp
 // method to handle the diagnostics bundle submission
@@ -105,8 +105,8 @@ private async Task CreateAndSubmitBundle()
 ```
 
 ### <a name="parts-of-a-diagnostics-bundle"></a>Parti di un bundle di diagnostica
-Il pacchetto di diagnostica potrebbe contenere le informazioni seguenti:
+Il bundle di diagnostica potrebbe contenere le informazioni seguenti:
 
-- **Le immagini di fotogramma chiave**: Immagini dell'ambiente di acquisiti durante la sessione mentre diagnostica sono stata abilitata.
-- **Log**: Registrare gli eventi registrati dal runtime.
-- **Metadati della sessione**: Metadati che identifica la sessione.
+- **Immagini del fotogramma chiave**: immagini dell'ambiente acquisite durante la sessione durante l'abilitazione della diagnostica.
+- **Logs**: registra gli eventi registrati dal runtime.
+- **Metadati della sessione**: metadati che identificano la sessione.

@@ -1,5 +1,5 @@
 ---
-title: Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD | Microsoft Docs
+title: Abilitare l'accesso remoto a SharePoint-Azure AD proxy di applicazione
 description: Offre le informazioni di base necessarie per integrare un server SharePoint locale con il proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f1351a2ebe6a23dc4d1e31f30f1c69ac862b21
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8d8f1bbd79e6dcbbd75e1ea1b98bd211d77ed1a9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595442"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275454"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
 
 Questa guida dettagliata illustra come integrare una farm di SharePoint locale con il proxy di applicazione Azure Active Directory (Azure AD).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire la configurazione, sono necessarie le risorse seguenti:
 - Una farm di SharePoint 2013 o successiva.
@@ -198,7 +198,7 @@ A questo punto si è pronti per accedere a SharePoint usando l'URL esterno e per
 
 ## <a name="troubleshoot-sign-in-errors"></a>Risolvere gli errori di accesso
 
-Se l'accesso al sito non funziona, è possibile ottenere altre informazioni sul problema nei log del connettore: dal computer che esegue il connettore, aprire il Visualizzatore eventi, passare a **registri applicazioni e servizi**  > **Microsoft**  >  **AadApplicationProxy**  > **Connector**ed esaminare il registro **amministratore** .
+Se l'accesso al sito non funziona, è possibile ottenere altre informazioni sul problema nei log del connettore: dal computer che esegue il connettore, aprire il Visualizzatore eventi, passare a **registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector**ed esaminare il registro **amministratore** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

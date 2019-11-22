@@ -1,20 +1,16 @@
 ---
 title: Risoluzione dei problemi
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: 5eec9771e964cf6b47492fdad34bcba14d897d41
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072199"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279709"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -380,7 +376,7 @@ Per aggiornare il ruolo RBAC dell'utente per il controller:
     * Per *ruolo*selezionare *collaboratore* o *proprietario*.
     * In *Assegna accesso a* selezionare *Utente, gruppo o entità servizio di Azure AD*.
     * Per *Select*, cercare l'utente a cui si vogliono concedere le autorizzazioni.
-1. Fare clic su *Save*.
+1. Fare clic su *Salva*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Risoluzione dei nomi DNS non completa l'operazione per un URL pubblico associato al servizio Dev Spaces
 
@@ -453,3 +449,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 Dopo aver riavviato i pod, è possibile iniziare a usare lo spazio dei nomi esistente con Azure Dev Spaces.
+
+### <a name="enable-azure-dev-spaces-on-aks-cluster-with-restricted-egress-traffic-for-cluster-nodes"></a>Abilitare Azure Dev Spaces nel cluster AKS con traffico in uscita limitato per i nodi del cluster
+
+Per abilitare Azure Dev Spaces in un cluster AKS per il quale il traffico in uscita dai nodi del cluster è limitato, è necessario consentire i nomi di dominio completi seguenti:
+
+| FQDN                                    | Port      | Uso      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Per eseguire il pull di immagini Linux alpine e di altro Azure Dev Spaces |
+| gcr.io | HTTP: 443 | Per estrarre le immagini Helm/Tiller|
+| storage.googleapis.com | HTTP: 443 | Per estrarre le immagini Helm/Tiller|

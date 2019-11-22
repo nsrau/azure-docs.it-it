@@ -1,5 +1,5 @@
 ---
-title: Abilitare l'accesso remoto a Power BI con Azure AD proxy di applicazione | Microsoft Docs
+title: Abilitare l'accesso remoto a Power BI con Azure AD proxy di applicazione
 description: Vengono illustrate le nozioni di base sull'integrazione di un Power BI locale con Azure AD proxy di applicazione.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795635"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275518"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a Power BI mobile con Azure AD proxy di applicazione
 
 Questo articolo illustra come usare Azure AD proxy di applicazione per abilitare l'app per dispositivi mobili Power BI a connettersi Server di report di Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e versioni successive. Grazie a questa integrazione, gli utenti che si trovano fuori dalla rete aziendale possono accedere ai report Power BI dall'app Power BI per dispositivi mobili ed essere protetti da Azure AD l'autenticazione. Questa protezione include [vantaggi](application-proxy-security.md#security-benefits) per la sicurezza, ad esempio l'accesso condizionale e l'autenticazione a più fattori.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone che siano già stati distribuiti i servizi di report e il [proxy di applicazione abilitato](application-proxy-add-on-premises-application.md).
 
@@ -95,7 +95,7 @@ A questo punto si è pronti per configurare Azure AD proxy di applicazione.
 
    b. Per **modalità Single Sign-on**, selezionare **autenticazione integrata di Windows**.
 
-   c. Impostare **Nome dell'entità servizio dell'applicazione interna** sul valore impostato in precedenza,  
+   C. Impostare **Nome dell'entità servizio dell'applicazione interna** sul valore impostato in precedenza,  
 
    d. Scegliere l'**identità di accesso delegato** che il connettore userà per conto degli utenti. Per altre informazioni, vedere [uso di diverse identità locali e cloud](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 

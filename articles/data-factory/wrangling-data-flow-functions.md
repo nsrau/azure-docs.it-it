@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682296"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287035"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funzioni di trasformazione nell'attività del flusso di dati
 
@@ -73,7 +73,7 @@ Utilizzare [Table. Group](https://docs.microsoft.com/powerquery-m/table-group) p
 * Deve essere usato con una funzione di aggregazione
 * Funzioni di aggregazione supportate: [Table. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [List. Sum](https://docs.microsoft.com/powerquery-m/list-sum), [List. Count](https://docs.microsoft.com/powerquery-m/list-count), [List. Average](https://docs.microsoft.com/powerquery-m/list-average), [List. min](https://docs.microsoft.com/powerquery-m/list-min), [List. max](https://docs.microsoft.com/powerquery-m/list-max), [List. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [List. First](https://docs.microsoft.com/powerquery-m/list-first), List. [Last](https://docs.microsoft.com/powerquery-m/list-last)
 
-## <a name="sorting"></a>ordinamento
+## <a name="sorting"></a>Ordinamento
 
 Utilizzare [Table. Sort](https://docs.microsoft.com/powerquery-m/table-sort) per ordinare i valori.
 
@@ -81,12 +81,21 @@ Utilizzare [Table. Sort](https://docs.microsoft.com/powerquery-m/table-sort) per
 
 Mantieni e Rimuovi top, Mantieni intervallo (funzioni M corrispondenti, solo conteggi di supporto, non condizioni [: Table. firstn](https://docs.microsoft.com/powerquery-m/table-firstn), [Table. Skip](https://docs.microsoft.com/powerquery-m/table-skip), [Table. RemoveFirstN](https://docs.microsoft.com/powerquery-m/table-removefirstn), [Table. Range](https://docs.microsoft.com/powerquery-m/table-range), [Table. Minnesota](https://docs.microsoft.com/powerquery-m/table-minn), [Table. MaxN](https://docs.microsoft.com/powerquery-m/table-maxn))
 
-## <a name="known-unsupported-functionality"></a>Funzionalità note non supportate
+## <a name="known-unsupported-functions"></a>Funzioni non supportate note
 
-Di seguito sono riportate le funzioni non supportate. Questo elenco non è esaustivo ed è soggetto a modifiche.
-* Unire le colonne (si può ottenere con AddColumn)
-* Dividi colonna
-* Accoda query
-* ' Utilizza la prima riga come intestazioni ' è utilizza intestazioni come prima riga '
+| Funzione | Stato |
+| -- | -- |
+| Table. PromoteHeaders | Non supportati. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
+| Table. CombineColumns | Si tratta di uno scenario comune che non è supportato direttamente, ma è possibile ottenerlo aggiungendo una nuova colonna che concatena due colonne specificate.  Ad esempio, Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
+| Table. TransformColumnTypes | Questa operazione è supportata nella maggior parte dei casi. Gli scenari seguenti non sono supportati: trasformazione di una stringa in un tipo di valuta, trasformazione di una stringa in un tipo time, trasformazione di una stringa in un tipo di percentuale. |
+| Table. NestedJoin | La semplice operazione di join comporterà un errore di convalida. Per il corretto funzionamento, le colonne devono essere espanse. |
+| Table. Distinct | La rimozione di righe duplicate non è supportata. |
+| Table. RemoveLastN | La rimozione delle righe in basso non è supportata. |
+| Table. RowCount | Non supportato, ma si può ottenere con una colonna Add con tutte le celle vuote (è possibile usare la colonna Condition) e quindi usare Group by su tale colonna. Table. Group è supportato. | 
+| Gestione degli errori a livello di riga | La gestione degli errori a livello di riga non è attualmente supportata. Per filtrare, ad esempio, i valori non numerici di una colonna, un approccio consiste nel trasformare la colonna di testo in un numero. Ogni cella che non riesce a trasformare sarà in uno stato di errore e dovrà essere filtrata. Questo scenario non è possibile nel flusso di dati. |
+| Table. Transpose | Non supportato |
+| Table. pivot | Non supportato |
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Informazioni su come [creare un flusso di dati](wrangling-data-flow-tutorial.md)in confronto.

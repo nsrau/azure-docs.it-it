@@ -3,12 +3,12 @@ title: Funzionalità di sicurezza per proteggere i carichi di lavoro cloud
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172709"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278219"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Funzionalità di sicurezza che consentono di proteggere i carichi di lavoro cloud che usano backup di Azure
 
@@ -41,7 +41,7 @@ L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occ
    > [!NOTE]
    > Se nell'insieme di credenziali sono presenti elementi di backup eliminati temporaneamente, non è possibile eliminare l'insieme di credenziali in quel momento. Provare l'eliminazione dell'insieme di credenziali dopo che gli elementi di backup sono stati eliminati definitivamente e non è presente alcun elemento nello stato di eliminazione temporanea lasciato nell'insieme di credenziali.
 
-4. Per ripristinare la macchina virtuale eliminata temporaneamente, è prima necessario annullarne l'eliminazione. Per annullare l'eliminazione, scegliere la macchina virtuale eliminata temporaneamente, quindi fare clic sull'opzione **Annulla eliminazione**.
+4. Per ripristinare la macchina virtuale eliminata temporaneamente, è prima necessario annullarne l'eliminazione. Per annullare l'eliminazione, scegliere la macchina virtuale eliminata temporaneamente, quindi selezionare l'opzione **Annulla eliminazione**.
 
    ![Screenshot della portale di Azure, annullamento dell'eliminazione della macchina virtuale](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -60,7 +60,7 @@ L'eliminazione temporanea è attualmente supportata negli Stati Uniti centro-occ
 
    ![Screenshot del portale di Azure, Riprendi l'opzione backup](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-Questo diagramma di flusso Mostra i diversi passaggi e Stati di un elemento di backup:
+Questo diagramma di flusso Mostra i diversi passaggi e Stati di un elemento di backup quando l'eliminazione temporanea è abilitata:
 
 ![Ciclo di vita dell'elemento di backup eliminato temporaneamente](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -68,26 +68,47 @@ Per ulteriori informazioni, vedere la sezione [domande frequenti](backup-azure-s
 
 ## <a name="disabling-soft-delete"></a>Disabilitazione dell'eliminazione temporanea
 
-L'eliminazione temporanea è abilitata per impostazione predefinita negli insiemi di credenziali appena creati. Se la funzionalità di sicurezza eliminazione temporanea è disabilitata, i dati di backup non saranno protetti da eliminazioni accidentali o dannose. Senza la funzionalità di eliminazione temporanea, tutte le eliminazioni di elementi protetti comporteranno la rimozione immediata, senza la possibilità di eseguire il ripristino. Poiché i dati di backup nello stato "eliminazione temporanea" non comportano alcun costo per il cliente, la disabilitazione di questa funzionalità non è consigliata. L'unica circostanza in cui è consigliabile disabilitare l'eliminazione temporanea è se si prevede di trasferire gli elementi protetti in un nuovo insieme di credenziali e non è possibile attendere i 14 giorni necessari prima dell'eliminazione e della riprotezione (ad esempio in un ambiente di test).
+L'eliminazione temporanea è abilitata per impostazione predefinita negli insiemi di credenziali appena creati per proteggere i dati di backup da eliminazioni accidentali o dannose.  La disabilitazione di questa funzionalità non è consigliata. L'unica circostanza in cui è consigliabile disabilitare l'eliminazione temporanea è se si prevede di trasferire gli elementi protetti in un nuovo insieme di credenziali e non è possibile attendere i 14 giorni necessari prima dell'eliminazione e della riprotezione (ad esempio in un ambiente di test). Questa funzionalità può essere disabilitata solo da un amministratore di backup. Se questa funzionalità viene disabilitata, tutte le eliminazioni di elementi protetti comporteranno la rimozione immediata, senza la possibilità di eseguire il ripristino. I dati di backup in stato di eliminazione temporanea prima della disabilitazione di questa funzionalità rimarranno in stato di eliminazione temporanea. Per eliminare definitivamente questi elementi immediatamente, è necessario annullarne l'eliminazione ed eliminarli di nuovo per eliminarli definitivamente.
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>Prerequisiti per la disabilitazione dell'eliminazione temporanea
-
-- L'abilitazione o la disabilitazione dell'eliminazione temporanea per gli insiemi di credenziali (senza elementi protetti) può essere eseguita solo portale di Azure. Si applica a:
-  - Insiemi di credenziali appena creati che non contengono elementi protetti
-  - Insiemi di credenziali esistenti i cui elementi protetti sono stati eliminati e scaduti (oltre il periodo di conservazione fisso di 14 giorni)
-- Se la funzionalità di eliminazione temporanea è disabilitata per l'insieme di credenziali, è possibile riabilitarla, ma non è possibile annullare tale scelta e disabilitarla di nuovo se l'insieme di credenziali contiene elementi protetti.
-- Non è possibile disabilitare l'eliminazione temporanea per gli insiemi di credenziali che contengono elementi o elementi protetti in uno stato di eliminazione temporanea. Se necessario, seguire questa procedura:
-  - Arrestare la protezione dei dati eliminati per tutti gli elementi protetti.
-  - Attendere la scadenza dei 14 giorni di conservazione della sicurezza.
-  - Disabilitare l'eliminazione temporanea.
-
-Per disabilitare l'eliminazione temporanea, verificare che i prerequisiti siano soddisfatti, quindi seguire questa procedura:
+Per disabilitare l'eliminazione temporanea, attenersi alla procedura seguente:
 
 1. Nel portale di Azure passare all'insieme di credenziali, quindi passare a **impostazioni** -> **Proprietà**.
-2. Nel riquadro Proprietà selezionare impostazioni di **sicurezza** -> **Aggiorna**.
-3. Nel riquadro impostazioni di sicurezza, in eliminazione temporanea, selezionare **Disabilita**.
+2. Nel riquadro Proprietà selezionare impostazioni di **sicurezza** -> **Aggiorna**.  
+3. Nel riquadro impostazioni di sicurezza, in **eliminazione**temporanea, selezionare **Disabilita**.
+
 
 ![Disabilitare l'eliminazione temporanea](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminazione definitiva degli elementi di backup eliminati temporaneamente
+
+I dati di backup in stato di eliminazione temporanea prima della disabilitazione di questa funzionalità rimarranno in stato di eliminazione temporanea. Per eliminare definitivamente questi elementi immediatamente, annullarne l'eliminazione ed eliminarli di nuovo per eliminarli definitivamente. 
+
+Seguire questa procedura:
+
+1. Seguire i passaggi per [disabilitare l'eliminazione](#disabling-soft-delete)temporanea. 
+2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup** e scegliere la macchina virtuale eliminata temporaneamente 
+
+![Scegliere una macchina virtuale temporaneamente eliminata](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. Selezionare l'opzione **Annulla eliminazione**.
+
+![Scegli Annulla eliminazione](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. Verrà visualizzata una finestra. Selezionare **Annulla eliminazione**.
+
+![Selezionare Annulla eliminazione](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. Scegliere **Elimina dati di backup** per eliminare definitivamente i dati di backup.
+
+![Scegliere Elimina dati di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
+
+![Digitare il nome dell'elemento di backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
+
 
 ## <a name="other-security-features"></a>Altre funzionalità di sicurezza
 
@@ -139,7 +160,7 @@ L'annullamento dell'eliminazione seguito dall'operazione di ripresa proteggerà 
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>È possibile eliminare l'insieme di credenziali se sono presenti elementi eliminati temporaneamente nell'insieme di credenziali?
 
-Non è possibile eliminare l'insieme di credenziali di servizi di ripristino se sono presenti elementi di backup nello stato di eliminazione temporanea nell'insieme di credenziali. Gli elementi eliminati temporaneamente vengono eliminati definitivamente dopo 14 giorni dall'operazione di eliminazione. È possibile eliminare l'insieme di credenziali solo dopo che tutti gli elementi eliminati temporaneamente sono stati eliminati.  
+Non è possibile eliminare l'insieme di credenziali di servizi di ripristino se sono presenti elementi di backup nello stato di eliminazione temporanea nell'insieme di credenziali. Gli elementi eliminati temporaneamente vengono eliminati definitivamente 14 giorni dopo l'operazione di eliminazione. Se non è possibile attendere 14 giorni, [disabilitare l'eliminazione](#disabling-soft-delete)temporanea, annullare l'eliminazione degli elementi eliminati temporaneamente ed eliminarli di nuovo per eliminarli definitivamente. Dopo aver verificato che non siano presenti elementi protetti e che non siano presenti elementi eliminati temporaneamente, è possibile eliminare l'insieme di credenziali.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>È possibile eliminare i dati prima del periodo di eliminazione temporanea di 14 giorni dopo l'eliminazione?
 

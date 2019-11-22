@@ -1,6 +1,6 @@
 ---
 title: Ricerche salvate nelle soluzioni di gestione | Microsoft Docs
-description: Le soluzioni di gestione includono in genere ricerche salvate in Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire avvisi per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire Log Analytics le ricerche salvate in un modello di Gestione risorse in modo che possano essere incluse nelle soluzioni di gestione.
+description: Le soluzioni di gestione includono in genere query log salvate per analizzare i dati raccolti dalla soluzione. Questo articolo descrive come definire Log Analytics le ricerche salvate in un modello di Gestione risorse.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,27 +8,27 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553916"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304929"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
 > [!IMPORTANT]
-> Come [annunciato in precedenza](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le aree di lavoro di log Analytics create dopo *il 1 ° giugno 2019* . saranno in grado di gestire le regole di avviso usando **solo** l' [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)di Azure scheduledQueryRules, il [modello di Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). I clienti possono [passare facilmente alla gestione delle regole di avviso preferita per le](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) aree di lavoro precedenti per sfruttare le ScheduledQueryRules di monitoraggio di Azure come predefinite e ottenere molti [nuovi vantaggi](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , ad esempio la possibilità di usare i cmdlet nativi di PowerShell, aumentando periodo di tempo lookback nelle regole, creazione di regole in un gruppo di risorse separato o in una sottoscrizione e molto altro ancora.
+> Come [annunciato in precedenza](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le aree di lavoro di log Analytics create dopo *il 1 ° giugno 2019* . saranno in grado di gestire le regole di avviso usando **solo** l' [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)di Azure scheduledQueryRules, il [modello di Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e il [cmdlet di PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). I clienti possono [passare facilmente alla gestione delle regole di avviso](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) per le aree di lavoro precedenti per sfruttare le ScheduledQueryRules di monitoraggio di Azure come predefinite e ottenere molti [nuovi vantaggi](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) , ad esempio la possibilità di usare i cmdlet nativi di PowerShell, il periodo di tempo lookback maggiore nelle regole, la creazione di regole in un gruppo di risorse separato o una sottoscrizione e molto altro ancora.
 
 > [!NOTE]
-> Questo è un documento preliminare che illustra come creare soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.
+> Questa è una documentazione preliminare per la creazione di soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.
 
 Le [soluzioni di gestione](solutions.md) includeranno in genere [ricerche salvate](../../azure-monitor/log-query/log-query-overview.md) di Log Analytics per l'analisi dei dati raccolti dalla soluzione. Potranno anche definire [avvisi](../../azure-monitor/platform/alerts-overview.md) per la notifica all'utente o per eseguire automaticamente un'azione in risposta a un problema critico. Questo articolo descrive come definire le ricerche salvate e gli avvisi di Log Analytics in un [modello di Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) in modo da consentirne l'inclusione nelle [soluzioni di gestione](solutions-creating.md).
 
 > [!NOTE]
 > Gli esempi in questo articolo usano parametri e variabili che sono obbligatori o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure](solutions-creating.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che si abbia già familiarità con la [creazione di una soluzione di gestione](solutions-creating.md) e la struttura di un [modello di Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) e un file di soluzione.
 
 
@@ -71,7 +71,7 @@ Le risorse [ricerca salvata di Log Analytics](../../azure-monitor/log-query/log-
 
 Le singole proprietà di una ricerca salvata sono descritte nella tabella seguente.
 
-| Proprietà | Description |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | category | Categoria della ricerca salvata.  Tutte le ricerche salvate nella stessa soluzione condivideranno in genere una singola categoria in modo da essere raggruppate nella console. |
 | displayname | Nome da visualizzare per la ricerca salvata nel portale. |
@@ -80,7 +80,7 @@ Le singole proprietà di una ricerca salvata sono descritte nella tabella seguen
 > [!NOTE]
 > Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON. La query **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** .
 
-## <a name="alerts"></a>Avvisi
+## <a name="alerts"></a>Alerts
 Gli [avvisi del log di Azure](../../azure-monitor/platform/alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari. Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../../azure-monitor/platform/action-groups.md).
 
 Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
@@ -112,17 +112,17 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
     }
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | obbligatori | DESCRIZIONE |
 |:--|:--|:--|
-| enabled       | SÌ | Specifica se l'avviso viene abilitato al momento della creazione. |
-| interval      | SÌ | Frequenza, in minuti, con cui viene eseguita la query. |
-| queryTimeSpan | SÌ | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
+| enabled       | Sì | Specifica se l'avviso viene abilitato al momento della creazione. |
+| interval      | Sì | Frequenza, in minuti, con cui viene eseguita la query. |
+| queryTimeSpan | Sì | Periodo di tempo, in minuti, per cui verranno valutati i risultati. |
 
 La risorsa pianificazione dipenderà dalla ricerca salvata, che verrà quindi creata prima della pianificazione.
 > [!NOTE]
 > Il nome della pianificazione deve essere univoco per ogni area di lavoro specifica; due pianificazioni non possono avere lo stesso ID anche se sono associate a ricerche diverse. Il nome per tutte le ricerche salvate, per le pianificazioni e per le azioni create con l'API Log Analytics deve essere in minuscolo.
 
-### <a name="actions"></a>Azioni
+### <a name="actions"></a>Actions
 Una pianificazione può avere più azioni. Un'azione può definire uno o più processi da eseguire, ad esempio l'invio di un messaggio di posta o l'avvio di un runbook o ancora può definire una soglia che determina quando i risultati di una ricerca corrispondono a certi criteri. Alcune azioni definiranno entrambi, in modo che i processi vengano eseguiti quando viene raggiunta la soglia.
 Le azioni possono essere definite usando la risorsa [gruppo di azioni] o la risorsa azione.
 
@@ -164,35 +164,35 @@ Le azioni di avviso hanno la struttura seguente. Nella struttura sono inclusi pa
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | obbligatori | DESCRIZIONE |
 |:--|:--|:--|
-| `type` | SÌ | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
-| `name` | SÌ | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
+| `type` | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
+| `name` | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
 | `description` | No | Descrizione facoltativa dell'avviso. |
-| `severity` | SÌ | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
+| `severity` | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **critical**<br>**warning**<br>**informational**
 
 #### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | obbligatori | DESCRIZIONE |
 |:--|:--|:--|
-| `Operator` | SÌ | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| `Value` | SÌ | Valore per il confronto dei risultati. |
+| `Operator` | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| `Value` | Sì | Valore per il confronto dei risultati. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Questa sezione è facoltativa. Includere la sezione per un avviso di misurazione delle metriche.
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | obbligatori | DESCRIZIONE |
 |:--|:--|:--|
-| `TriggerCondition` | SÌ | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
-| `Operator` | SÌ | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
-| `Value` | SÌ | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
+| `TriggerCondition` | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
+| `Operator` | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
+| `Value` | Sì | Numero di volte in cui i criteri devono essere soddisfatti per attivare l'avviso. |
 
 
 #### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa. Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | obbligatori | DESCRIZIONE |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
 
@@ -201,9 +201,9 @@ Tutti gli avvisi in Azure usano un gruppo di azioni come meccanismo predefinito 
 
 Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devono ora essere passati i dettagli del gruppo di azioni insieme alla soglia per poter creare un avviso. I dettagli di posta elettronica, gli URL di webhook, i dettagli relativi all'automazione runbook e altre azioni devono essere definiti all'interno di un gruppo di azioni prima di creare un avviso. È possibile creare un [gruppo di azioni da Monitoraggio di Azure](../../azure-monitor/platform/action-groups.md) nel portale o usare il [modello Gruppo di azioni - Risorsa](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | obbligatori | DESCRIZIONE |
 |:--|:--|:--|
-| AzNsNotification | SÌ | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
+| AzNsNotification | Sì | ID risorsa del gruppo di azioni di Azure da associare a un avviso per l'esecuzione di azioni necessarie quando viene soddisfatto il criterio di avviso. |
 | CustomEmailSubject | No | Riga dell'oggetto personalizzata del messaggio inviato a tutti gli indirizzi specificati nel gruppo di azioni associato. |
 | CustomWebhookPayload | No | Payload personalizzato da inviare a tutti gli endpoint webhook definiti nel gruppo di azioni associato. Il formato dipende da ciò che è previsto dal webhook e deve essere un oggetto JSON serializzato valido. |
 

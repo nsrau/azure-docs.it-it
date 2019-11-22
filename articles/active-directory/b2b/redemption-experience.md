@@ -1,5 +1,5 @@
 ---
-title: Riscatto di invito in Collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Riscatto dell'invito nella collaborazione B2B-Azure AD
 description: Descrive l'esperienza di riscatto di invito di Collaborazione B2B di Azure AD per gli utenti finali, inclusa l'accettazione delle condizioni di privacy.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d32818f9e96e931f9e8c3c13554752327c5c456
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622620"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272127"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -39,15 +39,15 @@ In alternativa al messaggio di posta elettronica di invito, è possibile assegna
 
 > [!IMPORTANT]
 > Il collegamento diretto deve essere specifico del tenant. In altre parole, deve includere un ID tenant o un dominio verificato, in modo che il Guest possa essere autenticato nel tenant, in cui si trova l'app condivisa. Un URL comune come https://myapps.microsoft.com non funzionerà per un guest perché verrà reindirizzato al tenant principale per l'autenticazione. Di seguito sono riportati alcuni esempi di collegamenti diretti con il contesto del tenant:
- > - Pannello di accesso per https://myapps.microsoft.com/?tenantid=&lt le app:; ID tenant&gt; 
- > - Pannello di accesso alle app per un dominio https://myapps.microsoft.com/&lt verificato:; dominio verificato&gt;
- > - Portale di Azure: https://portal.azure.com/&lt ; ID tenant&gt;
+ > - Pannello di accesso per le app: https://myapps.microsoft.com/?tenantid=&lt; ID tenant&gt; 
+ > - Pannello di accesso alle app per un dominio verificato: https://myapps.microsoft.com/&lt; dominio verificato&gt;
+ > - Portale di Azure: https://portal.azure.com/&lt; ID tenant&gt;
  > - App singola: vedere come usare un [collegamento di accesso diretto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 In alcuni casi, il messaggio di posta elettronica di invito è consigliato tramite un collegamento diretto. Se questi casi speciali sono importanti per la propria organizzazione, si consiglia di invitare gli utenti usando metodi che ancora inviano il messaggio di posta elettronica di invito:
  - L'utente non dispone di un account Azure AD, un MSA o un account di posta elettronica in un'organizzazione federata. A meno che non si stia usando la funzionalità di accesso monouso, il guest deve riscattare il messaggio di posta elettronica di invito per seguire la procedura per la creazione di un MSA.
  - È a volte possibile che l'oggetto utente invitato non abbia un indirizzo di posta elettronica a causa di un conflitto con un oggetto contatto (ad esempio, un oggetto contatto di Outlook). In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
- - L'utente può accedere con un alias dell'indirizzo di posta elettronica invitato. Un alias è un indirizzo di posta elettronica aggiuntivo associato a un account di posta elettronica. In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di invito.
+ - L'utente può accedere con un alias dell'indirizzo di posta elettronica invitato. Un alias è un indirizzo di posta elettronica aggiuntivo associato a un account di posta elettronica. In questo caso, l'utente deve fare clic sull'URL di riscatto nel messaggio di posta elettronica di invito.
 
 ## <a name="consent-experience-for-the-guest"></a>Esperienza di consenso per il Guest
 
@@ -58,14 +58,14 @@ Quando un Guest accede per la prima volta a risorse in un'organizzazione partner
    ![Screenshot che mostra la pagina Verifica le autorizzazioni](media/redemption-experience/review-permissions.png) 
 
    > [!NOTE]
-   > Per informazioni sul modo in cui un amministratore del tenant può collegarsi all'informativa sulla privacy dell'organizzazione, vedere [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure Active Directory](https://aka.ms/adprivacystatement).
+   > Per informazioni su come l'amministratore di un tenant può creare un collegamento all'informativa sulla privacy dell'organizzazione, vedere [Procedura: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure AD](https://aka.ms/adprivacystatement).
 
 2. Se le condizioni per l'utilizzo sono configurate, il Guest si apre e esamina le condizioni per l'utilizzo e quindi seleziona **Accept**. 
 
    ![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/terms-of-use-accept.png) 
 
    > [!NOTE]
-   > È possibile configurare vedere [le condizioni](../governance/active-directory-tou.md) per l' > utilizzo in Gestisci**relazioni** > organizzative**condizioni per l'utilizzo**.
+   > È possibile configurare le [condizioni](../governance/active-directory-tou.md) per l'utilizzo in **Gestisci** > **relazioni organizzative** > **condizioni per l'utilizzo**.
 
 3. Se non diversamente specificato, il Guest viene reindirizzato al pannello di accesso Apps, che elenca le applicazioni a cui il Guest può accedere.
 

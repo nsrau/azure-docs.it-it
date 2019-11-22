@@ -1,21 +1,21 @@
 ---
-title: Azure blockchain Service Ledger Versions, patching and upgrade
+title: Azure blockchain Service Ledger Versions, patching, & upgrade
 description: Panoramica delle versioni dei Ledger supportati nel servizio Azure blockchain, inclusi i criteri riguardanti l'applicazione di patch ai sistemi e gli aggiornamenti gestiti dall'utente e gestiti dal sistema.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 03eaf86ece191cce7eef6647a582a66495692db2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579810"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284915"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versioni di Ledger del servizio blockchain di Azure supportate
 

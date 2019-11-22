@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837338"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286630"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -55,7 +55,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Ceco| `cs`    |Sistema neurale disponibile|  Neurale|
 |Danese|    `da`    |Sistema neurale disponibile   |Neurale|
 |Olandese| `nl`    |Sistema neurale disponibile|  Neurale|
-|Inglese|   `en`    |Sistema neurale disponibile|  Neurale|
+|English|   `en`    |Sistema neurale disponibile|  Neurale|
 |Estone|  `et`    |Sistema neurale disponibile|  Neurale|
 |Figiano|    `fj`    |Solo sistema statistico|  Statistica|
 |Filippino|  `fil`   |Solo sistema statistico|  Statistica|
@@ -72,7 +72,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Indonesiano|    `id`    |Solo sistema statistico|  Statistica|
 |Italiano|   `it`    |Sistema neurale disponibile|  Neurale|
 |Giapponese|  `ja`    |Sistema neurale disponibile|  Neurale|
-|Kiswahili| `sw`    |Solo sistema statistico|  Statistica|
+|Swahili| `sw`    |Solo sistema statistico|  Statistica|
 |Klingon|   `tlh`   |Solo sistema statistico|  Statistica|
 |Klingon (plqaD)|   `tlh-Qaak`  |Solo sistema statistico|  Statistica|
 |Coreano |`ko`   |Sistema neurale disponibile|  Neurale|
@@ -81,6 +81,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Malgascio|  `mg`    |Solo sistema statistico|  Statistica|
 |Malese| `ms`    |Solo sistema statistico   |Statistica|
 |Maltese|   `mt`    |Solo sistema statistico|  Statistica|
+|Maori| `mi`  |Solo sistema neurale| Neurale|
 |Norvegese| `nb`    |Sistema neurale disponibile|  Neurale|
 |Persiano|   `fa`    |Sistema neurale disponibile|  Neurale|
 |Polacco|    `pl`    |Sistema neurale disponibile|  Neurale|
@@ -165,7 +166,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Indonesiano      | `id`          |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
-| Kiswahili      | `sw`          |
+| Swahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
@@ -191,7 +192,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Vietnamita      | `vi`          |
 | Gallese      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>Rilevamento
 
 API Traduzione testuale rileva tutte le lingue disponibili per la conversione e la traslitterazione.
 
@@ -218,7 +219,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Ceco      | `cs`          |
 | Danese      | `da`          |
 | Olandese      | `nl`          |
-| Inglese    | `en`     |
+| English    | `en`     |
 | Estone      | `et`          |
 | Finlandese      | `fi`          |
 | Francese      | `fr`          |
@@ -232,11 +233,12 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Irlandese | `ga`  |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
-|Kiswahili| `sw`    |
+|Swahili| `sw`    |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
 |Malgascio|  `mg`    |
+|Maori| `mi`  |
 | Norvegese      | `nb`          |
 | Persiano      | `fa`          |
 | Polacco      | `pl`          |
@@ -255,8 +257,8 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Vietnamita      | `vi`          |
 | Gallese | `cy` |
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web Microsoft Translator
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web di Microsoft Translator
 
-Per una rapida panoramica delle lingue, il sito Web Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
+Per una rapida panoramica delle lingue, il sito Web di Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
 [Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

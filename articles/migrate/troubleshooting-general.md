@@ -5,14 +5,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 12f8f64c051d33ac2518edbe8b937521318a9e71
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970644"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284493"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -89,7 +89,7 @@ Per eliminare un progetto nella versione precedente di Azure Migrate:
 
 Passare all'area di lavoro Log Analytics collegata al progetto.
 * Se il progetto Azure Migrate non è stato eliminato, è possibile trovare il collegamento all'area di lavoro in **Essentials** > **Server Assessment**.
-       Area di lavoro ![LA @ no__t-1
+       ![area di lavoro](./media/troubleshooting-general/loganalytics-workspace.png)
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
@@ -106,13 +106,13 @@ Quando si crea un progetto, questo errore potrebbe indicare che non si ha access
 
 ## <a name="error-invalid-ovf-manifest-entry"></a>Errore "voce del manifesto OVF non valida"
 
-Se viene visualizzato l'errore "il file manifesto specificato non è valido: Voce del manifesto OVF non valida ", eseguire le operazioni seguenti:
+Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
-   - Nell'**inventario** **Home** >  selezionare **file** > **deploy OVF template**. Passare a OVA e completare la distribuzione.
+   - In **Home** > **Inventory**selezionare **file** > **deploy OVF template**. Passare a OVA e completare la distribuzione.
 4. Se l'errore di distribuzione persiste, contattare il supporto di Azure Migrate.
 
 ## <a name="appliance-cant-connect-to-the-internet"></a>Appliance non è in grado di connettersi a Internet
@@ -152,7 +152,7 @@ Se viene ricevuto questo errore di connessione, potrebbe non essere possibile co
     4. Verificare che server vCenter sia attivo e in esecuzione.
 
 
-## <a name="error-appliance-might-not-be-registered"></a>Errore: Il dispositivo potrebbe non essere registrato
+## <a name="error-appliance-might-not-be-registered"></a>Errore: l'appliance potrebbe non essere registrata
 
 - Errore 60052, "l'appliance potrebbe non essere stata registrata correttamente nel progetto Azure Migrate" si verifica se l'account Azure usato per registrare l'appliance non dispone di autorizzazioni sufficienti.
     - Assicurarsi che l'account utente di Azure usato per registrare il dispositivo disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione.
@@ -161,7 +161,7 @@ Se viene ricevuto questo errore di connessione, potrebbe non essere possibile co
     - Nel portale di Azure e verificare se il progetto esiste nel gruppo di risorse.
     - Se il progetto non esiste, creare un nuovo progetto di Azure Migrate nel gruppo di risorse e registrare di nuovo l'appliance. [Informazioni su come](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) creare un nuovo progetto.
 
-## <a name="error-key-vault-management-operation-failed"></a>Errore: Operazione di gestione Key Vault non riuscita
+## <a name="error-key-vault-management-operation-failed"></a>Errore: operazione di gestione Key Vault non riuscita
 
 Se viene visualizzato l'errore 60030 o 60031, "un'operazione di gestione Azure Key Vault non riuscita", eseguire le operazioni seguenti:
 - Assicurarsi che l'account utente di Azure usato per registrare il dispositivo disponga almeno delle autorizzazioni di collaboratore per la sottoscrizione.
@@ -169,16 +169,16 @@ Se viene visualizzato l'errore 60030 o 60031, "un'operazione di gestione Azure K
 - Se il problema persiste, contattare il supporto tecnico Microsoft.
 - [Altre](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) informazioni sui ruoli e sulle autorizzazioni di Azure richiesti.
 
-## <a name="fix-discovery-couldnt-be-initiated"></a>Correzione: Non è stato possibile avviare l'individuazione
+## <a name="fix-discovery-couldnt-be-initiated"></a>Correzione: non è stato possibile avviare l'individuazione
 
 Errore 60028: "Impossibile avviare l'individuazione a causa di un errore. L'operazione non è riuscita per l'elenco specificato di host o cluster "indica che non è stato possibile avviare l'individuazione negli host elencati nell'errore a causa di un problema durante l'accesso o il recupero delle informazioni sulla macchina virtuale. Il resto degli host è stato aggiunto correttamente.
 
 - Aggiungere di nuovo gli host elencati nell'errore utilizzando l'opzione **Aggiungi host** .
 - Se si verifica un errore di convalida, rivedere le indicazioni per la correzione per correggere gli errori, quindi provare a eseguire di nuovo l'opzione **Salva e avvia individuazione** .
 
-## <a name="fix-azure-ad-operation-failed-60025"></a>Correzione: Operazione Azure AD non riuscita (60025)
+## <a name="fix-azure-ad-operation-failed-60025"></a>Correzione: operazione Azure AD non riuscita (60025)
 
-Errore 60025: "Un'operazione Azure AD non è riuscita. L'errore si è verificato durante la creazione o l'aggiornamento dell'applicazione Azure AD "si verifica quando l'account utente di Azure usato per avviare l'individuazione è diverso dall'account usato per registrare l'appliance. Eseguire una di queste operazioni:
+Errore 60025: "un'operazione Azure AD non è riuscita. L'errore si è verificato durante la creazione o l'aggiornamento dell'applicazione Azure AD "si verifica quando l'account utente di Azure usato per avviare l'individuazione è diverso dall'account usato per registrare l'appliance. Eseguire una delle operazioni seguenti:
 
 - Assicurarsi che l'account utente che avvia l'individuazione sia uguale a quello usato per registrare l'appliance.
 - Fornire Azure Active Directory le autorizzazioni di accesso alle applicazioni per l'account utente per il quale l'operazione di individuazione ha esito negativo.
@@ -201,7 +201,7 @@ Se è stata distribuita un'appliance che individua continuamente l'ambiente loca
 - Sono necessari fino a 30 minuti affinché i dati di individuazione raccolti dal dispositivo vengano riflessi nel portale.
 - Se dopo 30 minuti non vengono visualizzate informazioni aggiornate, aggiornare i dati attenendosi alla procedura seguente:
 
-    1. In **server** > **Azure migrate valutazione server**Selezionare **Panoramica**.
+    1. In **server** > **Azure migrate server Assessment**Selezionare **Panoramica**.
     2. In **Gestisci**selezionare **integrità agente**
     3. Selezionare **Aggiorna agente**.
     1. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
@@ -211,15 +211,15 @@ Se è stata distribuita un'appliance che individua continuamente l'ambiente loca
 - Sono necessari fino a 30 minuti affinché i dati di individuazione raccolti dal dispositivo vengano riflessi nel portale.
 - Se dopo 30 minuti non vengono visualizzate informazioni aggiornate, aggiornare i dati attenendosi alla procedura seguente:
 
-    1. In **server** > **Azure migrate valutazione server**Selezionare **Panoramica**.
+    1. In **server** > **Azure migrate server Assessment**Selezionare **Panoramica**.
     2. In **Gestisci**selezionare **integrità agente**
     3. Selezionare **Aggiorna agente**.
     1. Attendere il completamento dell'operazione di aggiornamento. Verranno ora visualizzate informazioni aggiornate.
 
 
-## <a name="fix-cant-connect-to-host-or-cluster"></a>Correzione: Non è possibile connettersi all'host o al cluster
+## <a name="fix-cant-connect-to-host-or-cluster"></a>Correzione: non è possibile connettersi all'host o al cluster
 
-Errore 50004: "Impossibile connettersi a un host o a un cluster perché il nome del server non può essere risolto. Codice errore WinRM: 0x803381B9 "può verificarsi se il servizio DNS di Azure per l'appliance non riesce a risolvere il cluster o il nome host specificato.
+Errore 50004: "Impossibile connettersi a un host o a un cluster perché il nome del server non può essere risolto. Codice errore WinRM: 0x803381B9 "potrebbe verificarsi se il servizio DNS di Azure per l'appliance non riesce a risolvere il cluster o il nome host specificato.
 
 - Se viene visualizzato questo errore nel cluster, FQDN del cluster.
 - Questo errore può essere visualizzato anche per gli host in un cluster. Ciò indica che l'appliance è in grado di connettersi al cluster, ma il cluster restituisce nomi host che non sono FQDN. Per correggere l'errore, aggiornare il file hosts nell'appliance aggiungendo un mapping dell'indirizzo IP e dei nomi host:
@@ -229,6 +229,31 @@ Errore 50004: "Impossibile connettersi a un host o a un cluster perché il nome 
     4. Salvare e chiudere il file degli host.
     5. Controllare se l'appliance è in grado di connettersi agli host usando l'app di gestione Appliance. Dopo 30 minuti, nel portale di Azure verranno visualizzate le informazioni più recenti per questi host.
 
+## <a name="application-discovery-issues"></a>Problemi di individuazione delle applicazioni
+
+L'individuazione delle applicazioni è attualmente supportata solo per le macchine virtuali VMware. Il supporto per le VM Hyper-V e i server fisici verrà abilitato in futuro. Per l'individuazione delle applicazioni è necessario fornire le credenziali della VM nell'appliance. Altre informazioni sui privilegi di accesso necessari per server vCenter e per le macchine virtuali VMware. L'individuazione può avere esito negativo a causa di uno dei problemi seguenti. per risolvere il problema, vedere l'azione consigliata come indicato di seguito:
+
+**Codice errore** | **Messaggio** | **Causa possibile** | **Azione consigliata**
+--- | --- | --- | ---
+10000 | Impossibile individuare le applicazioni installate nel server. | Questo problema può verificarsi se il sistema operativo in esecuzione nel server non è né Windows né Linux. | L'individuazione delle applicazioni installate è supportata solo per i server Windows e Linux.
+10001 | Impossibile recuperare le applicazioni installate nel server. | Questo problema si verifica a causa di un errore interno perché nel dispositivo sono presenti alcuni file mancanti. | Contattare supporto tecnico Microsoft.
+10002 | Impossibile recuperare le applicazioni installate nel server. | Questo problema può verificarsi se l'agente di individuazione nell'appliance Azure Migrate non funziona correttamente. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+10003 | Impossibile recuperare le applicazioni installate nel server. | Questo problema può verificarsi se l'agente di individuazione non funziona correttamente. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+10004 | Non è possibile individuare le applicazioni installate per < computer con > Windows/Linux. |  Le credenziali per l'accesso < macchine > Windows/Linux non sono state fornite nell'appliance Azure Migrate | Aggiungere una credenziale nell'appliance Azure Migrate che abbia accesso ai computer > < Windows/Linux.
+10005 | Non è possibile accedere al server locale. | Questo problema può verificarsi se le credenziali specificate per il computer per accedere al server non sono corrette. | Aggiornare le credenziali fornite nell'appliance e verificare che il server sia accessibile tramite le credenziali.
+10006 | Non è possibile accedere al server locale. | Questo problema può verificarsi se il sistema operativo in esecuzione nel server non è né Windows né Linux. | L'individuazione delle applicazioni installate è supportata solo per i server Windows e Linux.
+9000 | Non è possibile individuare le applicazioni installate nella macchina virtuale. | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Installare o reinstallare gli strumenti VMware nella macchina virtuale e verificare se è in esecuzione.
+9001 | Non è possibile individuare le applicazioni installate nella macchina virtuale. | È possibile che gli strumenti VMware non siano installati o siano danneggiati. | Installare o reinstallare gli strumenti VMware nella macchina virtuale e verificare se è in esecuzione.
+9002 | Non è possibile individuare le applicazioni installate nella macchina virtuale. | È possibile che gli strumenti VMware non siano in esecuzione. | Installare o reinstallare gli strumenti VMware nella macchina virtuale e verificare se è in esecuzione.
+9003 | Impossibile individuare le applicazioni installate nel server. | Questo problema può verificarsi se il sistema operativo in esecuzione nel server non è né Windows né Linux. | L'individuazione delle applicazioni installate è supportata solo per i server Windows e Linux.
+9004 | Impossibile individuare le applicazioni installate nel server. | Questo problema può verificarsi se la macchina virtuale è spenta. | Per individuare le applicazioni installate nel server, verificare che la macchina virtuale sia accesa.
+9005 | Non è possibile individuare le applicazioni installate nella macchina virtuale. | Questo problema può verificarsi se il sistema operativo in esecuzione nella macchina virtuale non è né Windows né Linux. | L'individuazione delle applicazioni installate è supportata solo per i server Windows e Linux.
+9006 | Impossibile recuperare le applicazioni installate nel server. | Questo problema può verificarsi se l'agente di individuazione non funziona correttamente. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+9007 | Impossibile recuperare le applicazioni installate nel server. | Questo problema può verificarsi se l'agente di individuazione non funziona correttamente. | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+9008 | Impossibile recuperare le applicazioni installate nel server. | Il problema può verificarsi a causa di un errore interno.  | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+9009 | Impossibile recuperare le applicazioni installate nel server. | Il problema può verificarsi se le impostazioni di controllo dell'account utente di Windows nel server sono restrittive e impediscono l'individuazione delle applicazioni installate. | Cercare le impostazioni di controllo dell'account utente nel server e configurare l'impostazione UAC sul server in modo che si trovi in uno dei due livelli inferiori.
+9010 | Impossibile recuperare le applicazioni installate nel server. | Il problema può verificarsi a causa di un errore interno.  | Il problema dovrebbe essere risolto automaticamente in 24 ore. Se il problema persiste, contattare supporto tecnico Microsoft.
+8084 | Non è possibile individuare le applicazioni a causa di un errore di VMware: <Exception from VMware> | Il Azure Migrate Appliance usa le API VMware per individuare le applicazioni. Questo problema può verificarsi a causa di un'eccezione generata da server vCenter durante il tentativo di individuazione delle applicazioni. Il messaggio di errore di VMware viene visualizzato nel messaggio di errore visualizzato nel portale. | Esaminare la [documentazione di VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), cercare il messaggio di errore e seguire i passaggi per la risoluzione dei problemi dell'articolo VMware per risolvere il problema. Se non si riesce ancora a risolvere il problema, contattare supporto tecnico Microsoft.
 
 
 ## <a name="fix-assessment-readiness"></a>Correzione della conformità della valutazione
@@ -248,10 +273,10 @@ Richiede una sottoscrizione di Microsoft Visual Studio | Il computer esegue un s
 Macchina virtuale non trovata per le prestazioni di archiviazione richieste | Le prestazioni di archiviazione (operazioni di input/output al secondo [IOPS] e velocità effettiva) richieste per il computer superano il supporto delle macchine virtuali di Azure. Prima di eseguire la migrazione, ridurre i requisiti di archiviazione per la macchina.
 Macchina virtuale non trovata per le prestazioni di rete richieste | Le prestazioni di rete (ingresso/uscita) richieste per la macchina superano le prestazioni supportate dalla macchina virtuale di Azure. Ridurre i requisiti di rete per la macchina.
 La macchina virtuale non è stata trovata nel percorso specificato | Usare una località di destinazione diversa prima di eseguire migrazione.
-Uno o più dischi non idonei | Uno o più dischi collegati alla macchina virtuale non soddisfano i requisiti di Azure. Un<br/><br/> Azure Migrate: Server Assessment attualmente non supporta i dischi Ultra SSD e valuta i dischi in base ai limiti del disco per Managed disks Premium (32 TB).<br/><br/> Per ogni disco collegato alla macchina virtuale, verificare che le dimensioni del disco siano < 64 TB (supportato da dischi Ultra SSD).<br/><br/> In caso contrario, ridurre le dimensioni del disco prima di eseguire la migrazione ad Azure o usare più dischi in Azure e [rimuoverli insieme](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) per ottenere limiti di archiviazione più elevati. Assicurarsi che le prestazioni (IOPS e velocità effettiva) richieste da ogni disco siano supportate dai [dischi delle macchine virtuali gestite](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)da Azure.
+Uno o più dischi non appropriati | Uno o più dischi collegati alla macchina virtuale non soddisfano i requisiti di Azure. Un<br/><br/> Azure Migrate: la valutazione del server non supporta attualmente i dischi Ultra SSD e valuta i dischi in base ai limiti del disco per i dischi gestiti Premium (32 TB).<br/><br/> Per ogni disco collegato alla macchina virtuale, verificare che le dimensioni del disco siano < 64 TB (supportato da dischi Ultra SSD).<br/><br/> In caso contrario, ridurre le dimensioni del disco prima di eseguire la migrazione ad Azure o usare più dischi in Azure e [rimuoverli insieme](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) per ottenere limiti di archiviazione più elevati. Assicurarsi che le prestazioni (IOPS e velocità effettiva) richieste da ogni disco siano supportate dai [dischi delle macchine virtuali gestite](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)da Azure.
 Una o più schede di rete non idonee. | Prima di eseguire la migrazione, rimuovere le schede di rete non usate dalla macchina.
 Il numero di dischi supera il limite | Rimuovere i dischi non usati dalla macchina prima di eseguire la migrazione.
-Le dimensioni del disco hanno superato il limite | Azure Migrate: Server Assessment attualmente non supporta i dischi Ultra SSD e valuta i dischi in base ai limiti del disco Premium (32 TB).<br/><br/> Tuttavia, Azure supporta dischi con dimensioni fino a 64 TB (supportate da dischi Ultra SSD). Compattare i dischi fino a 64 TB prima della migrazione oppure usare più dischi in Azure e [rimuoverli insieme](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) per ottenere limiti di archiviazione più elevati.
+Le dimensioni del disco hanno superato il limite | Azure Migrate: la valutazione del server non supporta attualmente i dischi Ultra SSD e valuta i dischi in base ai limiti del disco Premium (32 TB).<br/><br/> Tuttavia, Azure supporta dischi con dimensioni fino a 64 TB (supportate da dischi Ultra SSD). Compattare i dischi fino a 64 TB prima della migrazione oppure usare più dischi in Azure e [rimuoverli insieme](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) per ottenere limiti di archiviazione più elevati.
 Il disco non è disponibile nella località specificata | Assicurarsi che il disco si trovi nella località di destinazione prima di eseguire la migrazione.
 Il disco non è disponibile per la ridondanza specificata | Il disco deve usare il tipo di archiviazione di ridondanza definito nelle impostazioni di valutazione (per impostazione predefinita, LRS).
 Non è stato possibile determinare l'idoneità del disco a causa di un errore interno | Provare a creare una nuova valutazione per il gruppo.
@@ -276,7 +301,7 @@ Azure Migrate server Assessment potrebbe consigliare gli SKU di VM di Azure con 
 
 
 - La raccomandazione SKU della macchina virtuale dipende dalle proprietà di valutazione.
-- Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *Basato sulle prestazioni*o *come in locale*.
+- Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *basato sulle prestazioni*o in *locale*.
 - Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Viene inoltre aggiunto un fattore di comfort quando si determina un utilizzo efficace.
 - Per il dimensionamento locale, i dati sulle prestazioni non vengono considerati e lo SKU di destinazione è consigliato in base all'allocazione locale.
 
@@ -297,7 +322,7 @@ Azure Migrate server Assessment potrebbe consigliare un disco di dimensioni magg
 
 Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglia un disco Premium (a causa dei requisiti di IOPS più elevati), quindi consiglia uno SKU del disco in grado di supportare r ecessario IOPS e dimensioni. In questo esempio la corrispondenza più vicina sarebbe P15 (256 GB, 1.100 operazioni di I/O al secondo). Anche se le dimensioni richieste dal disco locale sono 32 GB, server Assessment consiglia un disco più grande a causa del requisito di IOPS elevato del disco locale.
 
-## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>Correzione: Percentuale di memoria o Core utilizzata mancante
+## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>Correzione: manca la percentuale di memoria o Core utilizzata
 
 Server Assessment segnala "PercentageOfCoresUtilizedMissing" o "PercentageOfMemoryUtilizedMissing" quando l'appliance Azure Migrate non è in grado di raccogliere i dati sulle prestazioni per le VM locali pertinenti.
 
@@ -321,19 +346,17 @@ Server Assessment raccoglie continuamente i dati delle prestazioni dei computer 
 - Se si vuole selezionare il picco di utilizzo per il periodo e non si vogliono perdere gli outlier, è necessario selezionare il 99 ° percentile per l'utilizzo percentile.
 
 
-
 ## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>Non è possibile trovare la visualizzazione delle dipendenze per Azure per enti pubblici
 
 Azure Migrate dipende da Mapping dei servizi per la funzionalità di visualizzazione delle dipendenze. Poiché Mapping dei servizi non è attualmente disponibile in Azure per enti pubblici, questa funzionalità non è disponibile in Azure per enti pubblici.
 
 ## <a name="dependencies-dont-show-after-installing-agents"></a>Le dipendenze non vengono visualizzate dopo l'installazione degli agenti
 
-
 Dopo aver installato gli agenti di visualizzazione delle dipendenze nelle VM locali, Azure Migrate in genere impiega 15-30 minuti per visualizzare le dipendenze nel portale. Se sono state attese più di 30 minuti, verificare che il Microsoft Monitoring Agent (MMA) sia in grado di connettersi all'area di lavoro Log Analytics.
 
 Per VM di Windows:
 1. Nel pannello di controllo avviare MMA.
-2. Nelle **proprietà Microsoft Monitoring Agent** > **Azure log Analytics (OMS)** , verificare che lo **stato** dell'area di lavoro sia verde.
+2. Nel **Microsoft Monitoring Agent proprietà** > **Azure log Analytics (OMS)** , verificare che lo **stato** dell'area di lavoro sia verde.
 3. Se lo stato non è verde, provare a rimuovere l'area di lavoro e aggiungerlo di nuovo a MMA.
 
       ![Finestra di dialogo Proprietà MMA](./media/troubleshooting-general/mma-status.png)

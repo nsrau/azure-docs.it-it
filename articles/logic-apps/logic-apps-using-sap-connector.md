@@ -10,17 +10,17 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 6067a60ed2883ea358dbdfff523b9224175bc5c2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 90348ad05879aff75dadab85af4e905d92228a2d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113392"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287116"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
 > [!IMPORTANT]
-> Il server applicazioni SAP e i connettori server dei messaggi SAP precedenti sono stati pianificati per la deprecazione il 30 novembre 2019. Il connettore SAP corrente consolida questi connettori SAP precedenti, in modo che non sia necessario modificare il tipo di connessione, sia completamente compatibile con i connettori precedenti, fornisca molte funzionalità aggiuntive e continui a usare la libreria del connettore SAP .NET ( NCo SAP).
+> Il server applicazioni SAP e i connettori server dei messaggi SAP precedenti sono stati pianificati per la deprecazione il 29 febbraio 2020. Il connettore SAP corrente consolida questi connettori SAP precedenti, in modo che non sia necessario modificare il tipo di connessione, sia completamente compatibile con i connettori precedenti, fornisca molte funzionalità aggiuntive e continui a usare la libreria del connettore SAP .NET ( NCo SAP).
 >
 > Per le app per la logica che usano i connettori precedenti, [eseguire la migrazione al connettore più recente](#migrate) prima della data di deprecazione. In caso contrario, queste app per la logica si verificheranno errori di esecuzione e non saranno in grado di inviare messaggi al sistema SAP.
 

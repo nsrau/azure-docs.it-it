@@ -1,6 +1,6 @@
 ---
 title: Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure
-description: I Log di diagnostica di Azure verranno spostati per usare i blob di accodamento il 1° novembre 2018.
+description: Descrive l'effetto e come aggiornare gli strumenti per gestire i nuovi log di diagnostica di Azure modificati per l'uso dei BLOB di Accodamento il 1 ° novembre 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258394"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307062"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure memorizzati in un account di archiviazione
 

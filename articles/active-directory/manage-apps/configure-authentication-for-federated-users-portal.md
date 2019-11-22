@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accelerazione automatica dell'accesso usando i criteri di individuazione dell'area di autenticazione principale | Microsoft Docs
+title: Configurare l'accelerazione automatica dell'accesso usando l'individuazione dell'area di autenticazione principale
 description: Informazioni su come configurare i criteri di individuazione dell'area di autenticazione principale per l'autenticazione Azure Active Directory per gli utenti federati, inclusi l'accelerazione automatica e gli hint di dominio.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477212"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274635"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -65,7 +65,7 @@ La sintassi dell'hint di dominio varia in base al protocollo usato ed è general
 
 **WS-Federation**: whr=contoso.com nella stringa della query.
 
-**SAML**:  una richiesta di autenticazione SAML che contiene un hint di dominio oppure una stringa di query whr=contoso.com.
+**SAML**: una richiesta di autenticazione SAML che contiene un hint di dominio oppure una stringa di query whr=contoso.com.
 
 **OpenID Connect**: una stringa di query domain_hint=contoso.com. 
 
@@ -152,7 +152,7 @@ Verrà usato un cmdlet Azure AD PowerShell per esaminare in modo dettagliato alc
 - Elenco delle applicazioni per cui sono configurati i criteri.
 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Negli esempi seguenti è possibile creare, aggiornare, collegare ed eliminare criteri su entità servizio di un'applicazione in Azure AD.
 
 1.  Per iniziare, scaricare la versione di anteprima dei cmdlet Azure AD PowerShell più recente. 
@@ -234,7 +234,7 @@ Per verificare quali applicazioni hanno criteri HRD configurati, usare il cmdlet
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Passaggio 5: L'operazione è completata.
+#### <a name="step-5-youre-done"></a>Passaggio 5: operazione completata
 Provare l'applicazione per verificare che il nuovo criterio funzioni.
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Esempio: elencare le applicazioni per cui sono configurati criteri HRD
@@ -270,5 +270,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
-- Per ulteriori informazioni su Single Sign-on utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
+- Per ulteriori informazioni sull'Single Sign-On utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
 - Per una panoramica di tutti i contenuti correlati allo sviluppo, vedere la [Guida per gli sviluppatori di Active Directory](../develop/v1-overview.md).
