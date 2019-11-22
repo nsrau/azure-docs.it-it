@@ -1,22 +1,22 @@
 ---
-title: 'Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager'
-description: Descrive i passaggi per creare il primo modello di Azure Resource Manager. Viene illustrata la sintassi dei file modello e viene spiegato su come distribuire un account di archiviazione.
+title: 'Esercitazione: Creare e distribuire un modello di Azure Resource Manager'
+description: Creare il primo modello di Azure Resource Manager. L'esercitazione illustra la sintassi del file del modello e spiega come distribuire un account di archiviazione.
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029544"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074363"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager
 
-Questa esercitazione introduce i modelli di Resource Manager e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
+Questa esercitazione presenta i modelli di Azure Resource Manager e illustra come creare un modello di base e distribuirlo in Azure. Verrà descritta la struttura del modello e verranno fornite informazioni sugli strumenti necessari per l'utilizzo dei modelli. Per completare l'esercitazione sono necessari circa **12 minuti**, ma il tempo effettivo può variare in base al numero di strumenti da installare.
 
 Questa è la prima esercitazione di una serie. Nelle esercitazioni successive della serie si modificherà il modello di base passo dopo passo fino a quando non sono state esaminate tutti gli elementi fondamentali di un modello di Resource Manager. Questi elementi costituiscono i blocchi predefiniti di modelli molto più complessi. Entro la fine della serie si dovrebbe essere in grado di creare modelli personalizzati, già pronti per automatizzare le distribuzioni con i modelli.
 

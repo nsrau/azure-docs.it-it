@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6e85bd6ec51cff27fed6d0b2d9e73f94325e4d4f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500237"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839272"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Creare un ambiente di test di Firewall di Azure
 
@@ -21,7 +21,7 @@ Questo esempio di script crea un firewall e un ambiente di rete di test. La rete
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Il firewall si trova in AzureFirewallSubnet ed è configurato con una raccolta di regole di applicazione con una singola regola che consente l'accesso a www.microsoft.com.
+Il firewall si trova in AzureFirewallSubnet ed è configurato con una raccolta di regole di applicazione con una singola regola che consente l'accesso a `www.microsoft.com`.
 
 Viene creata una route definita dall'utente che punta al traffico di rete da ServersSubnet attraverso il firewall, in cui vengono applicate le regole del firewall.
 

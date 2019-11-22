@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali per Linux in Azure | Microsoft Docs'
+title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali per Linux in Azure'
 description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per creare e distribuire un'applicazione a disponibilità elevata nelle macchine virtuali Linux usando un set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3887e32aba625e6aaca01f1a8f743e50ff580d9e
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b9368da24af3b0fe08045ed869c752eefe3912fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300834"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034525"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Linux con l'interfaccia della riga di comando di Azure
 

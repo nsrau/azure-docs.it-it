@@ -1,21 +1,18 @@
 ---
 title: Esempio - Insiemi di credenziali delle chiavi senza endpoint di rete virtuale
 description: Questa definizione di criteri di esempio controlla gli insiemi di credenziali Key Vault per rilevare le istanze che non hanno endpoint servizio di rete virtuale.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255734"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076212"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Esempio - Insiemi di credenziali Key Vault senza endpoint di rete virtuale
 
-Questo criterio controlla gli insiemi di credenziali delle chiavi Key Vault senza endpoint di rete virtuali. Usare per imporre requisiti di sicurezza. Per altre informazioni, vedere [Endpoint servizio di rete virtuale in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Questo esempio illustra come [integrare Key Vault con i controlli di Criteri di Azure](../../../key-vault/azure-policy.md) per gli insiemi di credenziali delle chiavi senza endpoint di rete virtuale. Usare per imporre requisiti di sicurezza. Per altre informazioni, vedere [Endpoint servizio di rete virtuale in Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 È possibile distribuire questo criterio di esempio tramite:
 
@@ -187,4 +184,5 @@ Sono disponibili diversi strumenti che possono essere usati per interagire con l
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere altri [esempi di Criteri di Azure](index.md)
+- Informazioni su come [integrare Azure Key Vault con Criteri di Azure](../../../key-vault/azure-policy.md).
 - Vedere [Struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md)

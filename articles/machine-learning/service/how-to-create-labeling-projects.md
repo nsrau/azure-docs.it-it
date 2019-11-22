@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612761"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837490"
 ---
 # <a name="get-labels-for-data"></a>Ottenere etichette per i dati
 
 L'etichettatura di grandi quantità di dati nei progetti di Machine Learning è spesso stata considerata un'attività molto complessa. I progetti di Machine Learning con un componente visione artificiale, ad esempio la classificazione di immagini o il rilevamento di oggetti, richiedono in genere migliaia di immagini ed etichette corrispondenti. 
  
-Lo studio di Azure Machine Learning offre una posizione centralizzata per creare, gestire e monitorare i progetti di etichettatura. I progetti di etichettatura consentono di coordinare i dati, le etichette e i membri del team, per una gestione più efficiente delle attività di etichettatura. Le attività attualmente supportate sono la classificazione delle immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
+Azure Machine Learning offre una posizione centrale per creare, gestire e monitorare i progetti di etichettatura. I progetti di etichettatura consentono di coordinare i dati, le etichette e i membri del team, per una gestione più efficiente delle attività di etichettatura. Le attività attualmente supportate sono la classificazione delle immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
 
 Azure tiene traccia dello stato di avanzamento e mantiene la coda delle attività di etichettatura incomplete. Agli etichettatori non è richiesto un account Azure per partecipare. Una volta eseguita l'autenticazione con il proprio account Microsoft (account del servizio gestito) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), è possibile eseguire il numero di attività di etichettatura desiderato, a seconda del tempo a disposizione. Gli etichettatori possono assegnare e modificare le etichette tramite le scelte rapide da tastiera, 
 
@@ -43,7 +43,7 @@ L'articolo spiega come:
 
 ## <a name="create-a-labeling-project"></a>Creare un progetto di etichettatura
 
-I progetti di etichettatura sono gestiti dallo [studio di Azure Machine Learning](https://ml.azure.com/). La pagina **Progetti di etichettatura** consente di gestire i progetti, i team e gli utenti. A un progetto sono assegnati uno o più team e a un team sono assegnati uno o più utenti. 
+I progetti di etichettatura vengono amministrati da [Azure Machine Learning](https://ml.azure.com/). La pagina **Progetti di etichettatura** consente di gestire i progetti, i team e gli utenti. A un progetto sono assegnati uno o più team e a un team sono assegnati uno o più utenti. 
 
 Se i dati sono già archiviati nell'archivio BLOB di Azure, è necessario renderli disponibili come archivio dati prima di creare il progetto di etichettatura. Per altre informazioni, vedere [Creare e registrare gli archivi dati](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
 
@@ -149,7 +149,7 @@ Per portare il progetto offline o online, scegliere il pulsante **Sospendi**/**A
 
 In qualsiasi momento, è possibile esportare i dati delle etichette per la sperimentazione di Machine Learning. È possibile esportare le etichette delle immagini nel [formato COCO](http://cocodataset.org/#format-data) o come set di dati di Azure ML. Il pulsante **Esporta** è disponibile nella pagina **Dettagli del progetto** del progetto di etichettatura.
 
-Il file COCO viene creato nell'archivio BLOB predefinito dell'area di lavoro di Azure ML in una cartella all'interno di **export/coco**. È possibile accedere al set di dati di Azure ML esportato nella sezione **Set di dati** dello studio. La pagina Dettagli del set di dati fornisce anche il codice di esempio per accedere alle etichette da Python.
+Il file COCO viene creato nell'archivio BLOB predefinito dell'area di lavoro di Azure ML in una cartella all'interno di **export/coco**. È possibile accedere al set di dati di Azure ML esportato nella sezione **Set di dati** di Azure Machine Learning. La pagina Dettagli del set di dati fornisce anche il codice di esempio per accedere alle etichette da Python.
 
 ![Set di dati esportato](media/how-to-create-labeling-projects/exported-dataset.png)
 

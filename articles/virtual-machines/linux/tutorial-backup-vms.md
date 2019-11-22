@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Backup di macchine virtuali Linux nel portale di Azure | Microsoft Docs
+title: 'Esercitazione: Eseguire il backup di macchine virtuali Linux nel portale di Azure'
 description: In questa esercitazione viene illustrato come usare il portale di Azure per proteggere macchine virtuali Linux con Backup di Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103530"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034590"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Linux in Azure
 

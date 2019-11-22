@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Monitorare le macchine virtuali Windows in Azure | Microsoft Docs
+title: 'Esercitazione: Monitorare le macchine virtuali Windows in Azure'
 description: Questa esercitazione illustra come monitorare le prestazioni e i componenti delle applicazioni individuati in esecuzione nelle macchine virtuali Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679338"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112494"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale in Azure
 
@@ -91,7 +91,7 @@ Per abilitare il monitoraggio della macchina virtuale di Azure con Monitoraggio 
 
 3. Nella pagina **Insights (anteprima)** selezionare **Prova adesso**.
 
-    ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. Se nella pagina **Azure Monitor Insights Onboarding** (Onboarding di Insights per Monitoraggio di Azure) è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Monitorare uno spazio con Gemelli digitali di Azure | Microsoft Docs'
+title: 'Esercitazione: Monitorare uno spazio con Gemelli digitali di Azure'
 description: Informazioni su come effettuare il provisioning delle risorse spaziali e monitorare le condizioni di lavoro con Gemelli digitali di Azure usando i passaggi descritti in questa esercitazione.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/13/2019
+ms.openlocfilehash: 6c9403f8355d2f842226c9c7257803edd3215829
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949076"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107491"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Anteprima di Gemelli digitali di Azure
 

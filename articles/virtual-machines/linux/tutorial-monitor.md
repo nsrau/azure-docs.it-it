@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Monitorare le macchine virtuali Linux in Azure | Microsoft Docs
+title: 'Esercitazione: Monitorare le macchine virtuali Linux in Azure'
 description: Questa esercitazione illustra come monitorare le prestazioni e i componenti delle applicazioni individuati in esecuzione nelle macchine virtuali Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71679405"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112000"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare una macchina virtuale Linux in Azure
 
@@ -133,7 +133,7 @@ Per abilitare il monitoraggio della macchina virtuale di Azure con Monitoraggio 
 
 3. Nella pagina **Insights (anteprima)** selezionare **Prova adesso**.
 
-    ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. Se nella pagina **Azure Monitor Insights Onboarding** (Onboarding di Insights per Monitoraggio di Azure) è già presente un'area di lavoro Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  
 

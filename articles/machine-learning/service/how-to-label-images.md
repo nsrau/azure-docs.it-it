@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: af12361ed11d0a16e5a5d0cfe5989bb3918ce154
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cbebb905ba39dabaf905be2fa741702bd1a0088
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585587"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838949"
 ---
 # <a name="how-to-tag-images-in-a-labeling-project"></a>Come aggiungere i tag alle immagini in un progetto di etichettatura
 
-Dopo che l'amministratore del progetto ha creato un progetto di etichettatura nello studio di Azure Machine Learning, è possibile usare lo strumento di etichettatura per preparare rapidamente i dati per un progetto di Machine Learning. 
+Dopo che l'amministratore del progetto ha creato un progetto di etichettatura in Azure Machine Learning, è possibile usare lo strumento di etichettatura per preparare rapidamente i dati per un progetto di Machine Learning. 
 
 > [!div class="checklist"]
 > * Come accedere ai progetti di etichettatura

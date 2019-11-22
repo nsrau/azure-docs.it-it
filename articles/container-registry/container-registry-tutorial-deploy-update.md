@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Eseguire il push dell'immagine del contenitore aggiornata nelle distribuzioni di app Azure a livello di area
-description: Eseguire il push di un'immagine Docker modificata nel Registro Azure Container con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
+title: 'Esercitazione: Eseguire il push di un aggiornamento in Registro Azure Container con replica geografica'
+description: Eseguire il push di un'immagine Docker aggiornata in Registro Azure Container con replica geografica e quindi vedere le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e01fdc41d0cc2e65951bd92378eb59f0fd35816a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: adf6348e3b4c5fa728a0289ccd5bd3f289872108
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310421"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931385"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Esercitazione: Eseguire il push di un'immagine del contenitore aggiornata in un registro contenitori con replica geografica per distribuzioni di app Web regionali
 

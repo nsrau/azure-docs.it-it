@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Backup di macchine virtuali Windows nel portale di Azure | Microsoft Docs
+title: 'Esercitazione: Eseguire il backup di macchine virtuali Windows nel portale di Azure'
 description: In questa esercitazione viene illustrato come usare il portale di Azure per proteggere macchine virtuali Windows con Backup di Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8eaa96dd92ab0f18b590b284d59dd7b775738602
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 603bffe3d28214dbdcd51888925c3c653d0759e7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101744"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068190"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Esercitazione: Eseguire il backup e il ripristino di file per macchine virtuali Windows in Azure
 

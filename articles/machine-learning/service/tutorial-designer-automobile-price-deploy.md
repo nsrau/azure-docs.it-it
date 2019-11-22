@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: b5fa1557999ae851bccafbf8ee7c41f0b3614614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715927"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932036"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -22,10 +22,10 @@ ms.locfileid: "73715927"
 È possibile distribuire il modello predittivo sviluppato nella [prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per offrire ad altri la possibilità di usarlo. Nella prima parte è stato eseguito il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una pipeline di inferenza in tempo reale
-> * Creare un cluster di inferenza
-> * Distribuire un endpoint in tempo reale
-> * Testare un endpoint in tempo reale
+> * Creare una pipeline di inferenza in tempo reale.
+> * Creare un cluster di inferenza.
+> * Distribuire l'endpoint in tempo reale.
+> * Testare l'endpoint in tempo reale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,9 +37,9 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Creare una pipeline di inferenza in tempo reale
 
-1. Sopra il canvas della pipeline selezionare **Create inference pipeline** > **Real-time inference pipeline** (Crea pipeline di inferenza > Pipeline di inferenza in tempo reale)
+1. Sopra il canvas della pipeline selezionare **Create inference pipeline** > **Real-time inference pipeline** (Crea pipeline di inferenza > Pipeline di inferenza in tempo reale).
 
-    La pipeline dovrebbe ora avere un aspetto simile al seguente:  
+    La pipeline dovrebbe ora avere un aspetto simile al seguente: 
 
    ![Screenshot della configurazione prevista della pipeline dopo la preparazione per la distribuzione](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
 
@@ -48,10 +48,10 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
     * Il modello sottoposto a training viene archiviato come modulo **Dataset** (Set di dati) nel riquadro dei moduli. È possibile trovarlo in **My Datasets** (Set di dati personali).
     * I moduli di training, come **Train Model** (Training modello) e **Split Data** (Divisione dati), vengono rimossi.
     * Il modello con training salvato viene aggiunto nuovamente alla pipeline.
-    * Vengono aggiunti i moduli **Web Service Input** (Input servizio Web) e **Web Service Output** (Output servizio Web). Questi moduli mostrano il punto in cui i dati dell'utente verranno immessi nel modello e il punto in cui verranno restituiti.
+    * Vengono aggiunti i moduli **Web Service Input** (Input servizio Web) e **Web Service Output** (Output servizio Web). Questi moduli mostrano il punto in cui i dati dell'utente vengono immessi nel modello e il punto in cui vengono restituiti.
 
-    > [!Note]
-    > La **pipeline di training** viene salvata nella nuova scheda nella parte superiore del canvas della pipeline. È possibile trovarla anche come pipeline pubblicata nella finestra di progettazione.
+    > [!NOTE]
+    > La *pipeline di training* viene salvata nella nuova scheda nella parte superiore del canvas della pipeline. È possibile trovarla anche come pipeline pubblicata nella finestra di progettazione.
     >
 
 1. Selezionare **Run** (Esegui) e usare la stessa destinazione di calcolo e lo stesso esperimento usati nella prima parte.
@@ -68,19 +68,19 @@ Nella finestra di dialogo visualizzata è possibile selezionare uno dei cluster 
 
 1. Selezionare **Compute** (Calcolo) nella finestra di dialogo visualizzata per passare alla pagina **Compute**.
 
-1. Nella barra multifunzione di spostamento selezionare **Inference Clusters** >  **+ New** (Cluster di inferenza > Nuovo).
+1. Sulla barra multifunzione di spostamento selezionare **Inference Clusters** >  **+ New** (Cluster di inferenza > Nuovo).
 
     ![Screenshot che mostra come passare al riquadro del nuovo cluster di inferenza](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
 1. Nel riquadro del cluster di inferenza configurare un nuovo servizio Kubernetes.
 
-1. Immettere "aks-compute" in **Compute name** (Nome del calcolo).
+1. Immettere *aks-compute* in **Compute name** (Nome del calcolo).
     
-1. In **Region** (Area) selezionare un'area disponibile nelle vicinanze.
+1. Selezionare un'area vicina disponibile per **Region** (Area).
 
 1. Selezionare **Create** (Crea).
 
-    > [!Note]
+    > [!NOTE]
     > La creazione di un nuovo servizio Azure Kubernetes richiede circa 15 minuti. È possibile controllare lo stato del provisioning nella pagina **Inference Clusters** (Cluster di inferenza)
     >
 
@@ -98,7 +98,7 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 
     ![Screenshot che mostra come configurare un nuovo endpoint in tempo reale](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
-    Al termine della distribuzione, che può impiegare alcuni minuti, verrà visualizzata una notifica di operazione riuscita sopra il canvas.
+    Al termine della distribuzione verrà visualizzata una notifica di esito positivo sopra il canvas. L'operazione potrebbe richiedere qualche minuto.
 
 ## <a name="test-the-real-time-endpoint"></a>Testare l'endpoint in tempo reale
 
@@ -112,7 +112,7 @@ Una volta completata la distribuzione, è possibile testare l'endpoint in tempo 
 
 1. È possibile immettere manualmente i dati di test oppure usare i dati di esempio compilati automaticamente e selezionare **Test**.
 
-    Il portale invia una richiesta di test all'endpoint e mostra i risultati. Anche se generato, il valore di prezzo per i dati di input non viene usato per generare il valore della stima.
+    Il portale invia una richiesta di test all'endpoint e mostra i risultati. Anche se generato, il valore del prezzo per i dati di input non viene usato per generare il valore della stima.
 
     ![Screenshot che mostra come testare l'endpoint in tempo reale con l'etichetta con punteggio del prezzo evidenziata](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 

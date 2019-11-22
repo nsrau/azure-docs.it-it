@@ -1,6 +1,6 @@
 ---
-title: Uso di eventi dell'hub IoT per attivare App per la logica di Azure | Microsoft Docs
-description: Tramite il servizio di routing di eventi di Griglia di eventi di Azure, creare processi automatizzati per eseguire azioni di App per la logica di Azure in base ad eventi dell'hub IoT.
+title: "Esercitazione: Usare eventi dell'hub IoT per attivare App per la logica di Azure"
+description: "Esercitazione: Tramite il servizio di routing di eventi di Griglia di eventi di Azure, creare processi automatizzati per eseguire azioni di App per la logica di Azure in base ad eventi dell'hub IoT."
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -10,14 +10,14 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e003cb650b0589ab43c984850838c56cbbf1ff2f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079998"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106770"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica
 
@@ -42,7 +42,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
    ![Creare l'app per la logica](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. Assegnare all'app per la logica un nome che sia univoco nella sottoscrizione e quindi selezionare la stessa sottoscrizione, lo stesso gruppo di risorse e la stessa posizione dell'hub IoT. 
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 
 4. Dopo aver creato la risorsa, passare all'app per la logica. 
 

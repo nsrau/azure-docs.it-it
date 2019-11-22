@@ -1,19 +1,19 @@
 ---
-title: Eseguire il failback di VM di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery.
-description: Informazioni su come eseguire il failback di VM di Azure con il servizio Azure Site Recovery.
+title: Eseguire il failback delle VM di Azure in un'area primaria con il servizio Azure Site Recovery.
+description: Questo articolo descrive come seguire il failback delle VM di Azure in un'area primaria con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814525"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091352"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Eseguire il failback di una VM di Azure tra aree di Azure
 
@@ -56,6 +56,9 @@ Dopo la riprotezione delle VM, è possibile eseguire il failback nell'area prima
 8. La VM risulterà sottoposta a failover e a failback.
 
     ![VM nell'area primaria e in quella secondaria](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> Per i computer che eseguono la versione dell'estensione Site Recovery 9.28.x.x o successiva, [aggiornamento cumulativo 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery pulisce i computer nell'area di ripristino di emergenza secondaria, al termine del failback e quando le VM vengono nuovamente protette. Non è necessario eliminare manualmente le macchine virtuali e le schede di interfaccia di rete nell'area secondaria. Se si disabilita completamente la replica dopo il failback, Site Recovery pulisce anche i dischi nell'area secondaria, oltre alle VM e alle schede di interfaccia di rete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

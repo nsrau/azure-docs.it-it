@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3df1a0430983b52d8a791acabbd03efe19055697
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721765"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929631"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -26,18 +26,18 @@ Nella prima parte verrà configurato l'ambiente, quindi i moduli verranno trasci
 Nella prima parte dell'esercitazione si è apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una nuova pipeline
-> * Importa dati
-> * Preparazione dei dati
-> * Eseguire il training di un modello di Machine Learning
-> * Valutare un modello di Machine Learning
+> * Creare una nuova pipeline.
+> * Importare i dati.
+> * Preparare i dati.
+> * Eseguire il training di un modello di Machine Learning.
+> * Valutare un modello di Machine Learning.
 
 Nella [seconda parte](tutorial-designer-automobile-price-deploy.md) dell'esercitazione si apprenderà come distribuire il modello predittivo come endpoint di inferenza in tempo reale per stimare il prezzo di qualsiasi automobile in base alle specifiche tecniche inviate. 
 
-> [!Note]
+> [!NOTE]
 >Una versione completa dell'esercitazione è disponibile come pipeline di esempio.
 >
->Per trovarla, passare alla **finestra di progettazione nell'area di lavoro**. Nella sezione **New pipeline** (Nuova pipeline) selezionare **Sample 1 - Regression: Automobile Price Prediction(Basic)** .
+>Per trovarla, passare alla finestra di progettazione nell'area di lavoro. Nella sezione **New pipeline** (Nuova pipeline) selezionare **Sample 1 - Regression: Automobile Price Prediction(Basic)** .
 
 ## <a name="create-a-new-pipeline"></a>Creare una nuova pipeline
 
@@ -45,7 +45,7 @@ Le pipeline di Azure Machine Learning organizzano più passaggi dipendenti di ap
 
 ### <a name="create-a-new-workspace"></a>Creazione di una nuova area di lavoro
 
-Se è già disponibile un'area di lavoro di Azure Machine Learning con un'**edizione Enterprise**, [passare alla sezione successiva](#create-the-pipeline).
+Se è già disponibile un'area di lavoro di Azure Machine Learning con un'edizione Enterprise, [passare alla sezione successiva](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -59,15 +59,15 @@ Se è già disponibile un'area di lavoro di Azure Machine Learning con un'**ediz
 
 1. Selezionare **Easy-to-use prebuilt modules** (Moduli predefiniti facili da usare).
 
-1. Selezionare il nome predefinito della pipeline, **"Pipeline Created on**" (Pipeline creata in data) nella parte superiore del canvas, e cambiarlo con un nome significativo, ad esempio **"Automobile price prediction"** . Il nome non deve essere univoco.
+1. Selezionare il nome predefinito della pipeline, **Pipeline-Created-on** nella parte superiore del canvas, e sostituirlo con un nome significativo, ad esempio *Automobile price prediction*. Il nome non deve essere univoco.
 
 ## <a name="import-data"></a>Importa dati
 
 Nella finestra di progettazione sono disponibili diversi set di dati di esempio con cui sperimentare. Per questa esercitazione, usare **Automobile price data (Raw)** . 
 
-1. A sinistra del canvas della pipeline è presente un pannello di set di dati e moduli. Selezionare **Datasets** (Set di dati) e quindi nella sezione **Samples** (Esempi) visualizzare i set di dati di esempio disponibili.
+1. A sinistra del canvas della pipeline è presente un pannello di set di dati e moduli. Selezionare **Datasets** (Set di dati), quindi nella sezione **Samples** (Esempi) visualizzare i set di dati di esempio disponibili.
 
-1. Selezionare il set di dati **Automobile price data (raw)** e trascinarlo nel canvas.
+1. Selezionare il set di dati **Automobile price data (Raw)** e trascinarlo nel canvas.
 
    ![Trascinare i dati nell'area di disegno](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
@@ -77,7 +77,7 @@ Nella finestra di progettazione sono disponibili diversi set di dati di esempio 
 
 1. Selezionare il modulo **Automobile price data (Raw)** .
 
-1. Nel riquadro **Properties** (Proprietà) a destra del canvas selezionare **Outputs** (Output).
+1. Nel riquadro delle proprietà a destra del canvas selezionare **Outputs**.
 
 1. Selezionare l'icona del grafico per visualizzare i dati.
 
@@ -97,9 +97,9 @@ Quando si esegue il training di un modello, occorre fare qualcosa in merito ai d
 
 1. Immettere **Select** nella casella di ricerca nella parte superiore del pannello per trovare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
 
-1. Fare clic e trascinare il modulo **Select Columns in Dataset** nell'area di disegno. Rilasciare il modulo sotto il modulo del set di dati.
+1. Trascinare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati) nel canvas. Rilasciare il modulo sotto il modulo del set di dati.
 
-1. Connettere il set di dati **Automobile price data (Raw)** a **Select Columns in Dataset** (Seleziona colonne nel set di dati). Trascinare il mouse dalla porta di output del set di dati, ovvero il piccolo cerchio nella parte inferiore del set di dati nel canvas, fino alla porta di input di **Select Columns in Dataset** (Seleziona colonne nel set di dati), ovvero il piccolo cerchio nella parte superiore del modulo.
+1. Connettere il set di dati **Automobile price data (Raw)** al modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati). Trascinare il mouse dalla porta di output del set di dati, ovvero il piccolo cerchio nella parte inferiore del set di dati nel canvas, fino alla porta di input di **Select Columns in Dataset** (Seleziona colonne nel set di dati), ovvero il piccolo cerchio nella parte superiore del modulo.
 
     > [!TIP]
     > Viene creato un flusso di dati attraverso la pipeline quando si connette la porta di output di un modulo alla porta di input di un altro.
@@ -109,13 +109,13 @@ Quando si esegue il training di un modello, occorre fare qualcosa in merito ai d
 
 1. Selezionare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
 
-1. Nel riquadro **Properties** (Proprietà) a destra del canvas selezionare **Parameters** > **Edit column** (Parametri > Modifica colonne).
+1. Nel riquadro delle proprietà a destra del canvas selezionare **Parameters** > **Edit column** (Parametri > Modifica colonne).
 
 1. Selezionare il segno **+** per aggiungere una nuova regola.
 
 1. Nel menu a discesa selezionare **Exclude** (Escludi) e **Column names** (Nomi di colonna).
     
-1. Immettere **normalized-losses** nella casella di testo.
+1. Immettere *normalized-losses* nella casella di testo.
 
 1. Nell'angolo in basso a destra selezionare **Save** (Salva) per chiudere il selettore di colonne.
 
@@ -125,26 +125,26 @@ Quando si esegue il training di un modello, occorre fare qualcosa in merito ai d
 
 1. Selezionare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati). 
 
-1. Nel riquadro **Properties** (Proprietà) selezionare **Parameters** > **Comment** (Parametri > Commento) e immettere "Exclude normalized losses" (Escludi perdite normalizzate).
+1. Nel riquadro delle proprietà selezionare **Parameters** > **Comment** (Parametri > Commento) e immettere *Exclude normalized losses* (Escludi perdite normalizzate).
 
 ### <a name="clean-missing-data"></a>Pulire i dati mancanti
 
-Dopo la rimozione della colonna **normalized-losses**, il set di dati contiene ancora colonne con valori mancanti. È possibile rimuovere le colonne con dati mancanti rimanenti usando il modulo **Clean Missing Data** (Pulisci dati mancanti).
+Dopo la rimozione della colonna **normalized-losses**, il set di dati contiene ancora colonne con valori mancanti. È possibile rimuovere i rimanenti dati mancanti usando il modulo **Clean Missing Data** (Pulisci dati mancanti).
 
 > [!TIP]
 > La pulizia dei valori mancanti dai dati di input è un prerequisito per l'uso della maggior parte dei moduli nella finestra di progettazione.
 
 1. Immettere **Clean** nella casella di ricerca per trovare il modulo **Clean Missing Data** (Pulisci dati mancanti).
 
-1. Trascinare il modulo **Clean Missing Data** (Pulisci dati mancanti) nel canvas della pipeline e connetterlo al modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati). 
+1. Trascinare il modulo **Clean Missing Data** (Pulisci dati mancanti) nel canvas della pipeline. Connetterlo al modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati). 
 
 1. Nel riquadro delle proprietà selezionare **Remove entire row** (Rimuovi riga intera) in **Cleaning mode** (Modalità pulizia).
 
-1. Nella casella **Comment** (Commento) del riquadro delle proprietà immettere "Remove missing value rows" (Rimuovi righe con valori mancanti).  
+1. Nella casella **Comment** (Commento) del riquadro delle proprietà immettere *Remove missing value rows* (Rimuovi righe con valori mancanti). 
 
     La pipeline avrà ora un aspetto analogo al seguente:
     
-    ![select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
 
 ## <a name="train-a-machine-learning-model"></a>Eseguire il training di un modello di Machine Learning
 
@@ -152,7 +152,7 @@ Una volta elaborati i dati, è possibile eseguire il training di un modello pred
 
 ### <a name="select-an-algorithm"></a>Selezionare un algoritmo
 
-**Classificazione** e **regressione** sono due tipi di algoritmi di Machine Learning sottoposti a supervisione. La **classificazione** stima una risposta da un set di categorie definito, ad esempio un colore (rosso, blu o verde). La **regressione** viene usata per stimare un numero.
+*Classificazione* e *regressione* sono due tipi di algoritmi di Machine Learning sottoposti a supervisione. La classificazione stima una risposta da un set di categorie definito, ad esempio un colore come rosso, blu o verde. La regressione viene usata per stimare un numero.
 
 Poiché si vuole stimare il prezzo, ovvero un numero, è possibile usare un algoritmo di regressione. Per questo esempio si userà un modello di regressione lineare.
 
@@ -160,15 +160,15 @@ Poiché si vuole stimare il prezzo, ovvero un numero, è possibile usare un algo
 
 Dividere i dati in due set di dati distinti per il training e i test del modello.
 
-1. Immettere **split data** nella casella di ricerca per trovare il modulo **Split Data** (Divisione dei dati) a sinistra del modulo **Clean Missing Data** (Pulisci dati mancanti).
+1. Immettere **split data** nella casella di ricerca per trovare il modulo **Split data** (Dividi i dati). Connetterlo alla porta sinistra del modulo **Clean Missing Data** (Pulisci dati mancanti).
 
 1. Selezionare il modulo **Split Data**.
 
-1. Nel riquadro delle proprietà impostare **Fraction of rows in the first ouptut dataset** (Frazione di righe nel primo set di dati di output) su 0,7.
+1. Nel riquadro delle proprietà impostare **Fraction of rows in the first output dataset** (Frazione di righe nel primo set di dati di output) su 0,7.
 
-    In questo modo per il training del modello verrà usato il 70% dei dati, mentre il restante 30% verrà usato per i test.
+    Con questa opzione, per il training del modello verrà usato il 70% dei dati, mentre il restante 30% verrà usato per i test.
 
-1. Nella casella **Comment** (Commento) del riquadro delle proprietà immettere "Split the dataset into training set(0.7) and test set(0.3)" (Suddividi il set di dati in set per il training (0,7) e set per i test (0,3)).
+1. Nella casella **Comment** (Commento) del riquadro delle proprietà immettere *Split the dataset into training set(0.7) and test set(0.3)* (Suddividi il set di dati in set per il training (0,7) e set per i test (0,3)).
 
 ### <a name="train-the-model"></a>Eseguire il training del modello
 
@@ -178,7 +178,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
 1. Espandere **Machine Learning Algorithms** (Algoritmi di Machine Learning).
     
-    Verranno visualizzate diverse categorie di moduli che è possibile usare per inizializzare gli algoritmi di Machine Learning.
+    Questa opzione visualizza diverse categorie di moduli che è possibile usare per inizializzare gli algoritmi di Machine Learning.
 
 1. Selezionare il modulo **Regression** > **Linear Regression** (Regressione > Regressione lineare) e trascinarlo nel canvas della pipeline.
 
@@ -196,7 +196,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
 1. Nella finestra di dialogo **Label column** (Colonna etichetta) espandere il menu a discesa e selezionare **Column names** (Nomi di colonna). 
 
-1. Nella casella di testo immettere **price** (prezzo). Il prezzo è il valore che si intende stimare con il modello.
+1. Nella casella di testo immettere *price* (prezzo). Il prezzo è il valore che si intende stimare con il modello.
 
     La pipeline dovrebbe avere un aspetto simile al seguente:
 
@@ -206,11 +206,11 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
 Dopo aver eseguito il training del modello usando il 70% dei dati, è possibile usarlo per assegnare punteggi al restante 30% e verificarne il funzionamento.
 
-1. Immettere **score model** nella casella di ricerca per trovare il modulo **Score Model** (Punteggio modello) e trascinarlo nel canvas della pipeline. 
+1. Immettere *score model* nella casella di ricerca per trovare il modulo **Score Model** (Punteggio modello) e trascinarlo nel canvas della pipeline. 
 
 1. Connettere l'output del modulo **Train Model** alla porta di input sinistra del modulo **Score Model**. Connettere l'output dei dati di test (porta destra) del modulo **Split Data** alla porta di input destra di **Score Model**.
 
-1. Immettere **evaluate** nella casella di ricerca per trovare il modulo **Evaluate Model** (Valutazione modello) e trascinarlo nel canvas della pipeline. 
+1. Immettere *evaluate* nella casella di ricerca per trovare il modulo **Evaluate Model** (Valutazione modello) e trascinarlo nel canvas della pipeline. 
 
 1. Connettere l'output del modulo **Score Model** all'input sinistro di **Evaluate Model**. 
 
@@ -228,23 +228,23 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
 1. Selezionare il modulo **Score Model** (Punteggio modello) per visualizzare il relativo output.
 
-1. Nel riquadro **Properties** (Proprietà) selezionare **Outputs** > **Visualize** (Output > Visualizza).
+1. Nel riquadro delle proprietà selezionare **Outputs** > **Visualize** (Output > Visualizza).
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
-    ![Screenshot della visualizzazione di output con la colonna "Scored Label" evidenziata](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Screenshot della visualizzazione di output con la colonna Scored Label evidenziata](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. Selezionare il modulo **Evaluate Model** (Valutazione modello) per visualizzare il relativo output.
 
-1. Nel riquadro **Properties** (Proprietà) selezionare **Output** > **Visualize** (Output > Visualizza).
+1. Nel riquadro delle proprietà selezionare **Output** > **Visualize** (Output > Visualizza).
 
 Per il modello vengono visualizzate le seguenti statistiche:
 
-* **Errore assoluto medio** (MAE): la media degli errori assoluti (un errore è la differenza tra il valore stimato e quello effettivo).
+* **Errore assoluto medio** (MAE): la media degli errori assoluti. Un errore è la differenza tra il valore stimato e quello effettivo.
 * **Radice dell'errore quadratico medio** (RMSE): Radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
 * **Errore assoluto relativo**: Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
 * **Errore quadratico relativo**: Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-* **Coefficiente di determinazione**: Noto anche come valore quadratico R, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+* **Coefficiente di determinazione**: noto anche come valore quadratico R, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
 Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per il coefficiente di determinazione, più il valore si avvicina a uno (1,0) più le stime sono precise.
 

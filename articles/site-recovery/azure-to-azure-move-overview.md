@@ -1,34 +1,23 @@
 ---
-title: Spostare macchine virtuali IaaS di Azure in un'altra area di Azure usando il servizio Azure Site Recovery | Microsoft Docs
-description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
-services: site-recovery
+title: Spostamento delle VM di Azure in un'altra area con Azure Site Recovery
+description: Uso di Azure Site Recovery per spostare le VM di Azure da un'area di Azure a un'altra.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078007"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091951"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
+# <a name="moving-azure-vms-to-another-azure-region"></a>Spostamento delle VM di Azure in un'altra area di Azure
 
-Azure cresce di pari passo con la base dei clienti e, per soddisfare la crescente domanda, ha aggiunto il supporto per nuove aree geografiche. Ogni mese vengono aggiunte nuove funzionalità ai diversi servizi. Si può scegliere di spostare le macchine virtuali in un'area geografica diversa o in zone di disponibilità per aumentare la disponibilità.
+Questo articolo fornisce una panoramica dei motivi e dei passaggi necessari per lo spostamento di VM di Azure in un'altra area di Azure tramite [Azure Site Recovery](site-recovery-overview.md). 
 
-In questa esercitazione vengono descritti diversi scenari nei quali è consigliabile spostare le macchine virtuali. Viene inoltre descritto come configurare l'architettura nell'area di destinazione per ottenere una disponibilità più elevata. 
-
-In questa esercitazione si approfondiranno i seguenti argomenti:
-
-> [!div class="checklist"]
-> 
-> * Motivi per spostare le macchine virtuali
-> * Architetture tipiche
-> * Spostare le macchine virtuali così come sono in un'area di destinazione
-> * Spostare le macchine virtuali per aumentare la disponibilità
 
 ## <a name="reasons-to-move-azure-vms"></a>Motivi per spostare le macchine virtuali di Azure
 

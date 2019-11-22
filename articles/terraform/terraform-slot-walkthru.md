@@ -1,26 +1,23 @@
 ---
-title: Terraform con gli slot di distribuzione del provider di Azure
+title: "Esercitazione: Effettuare il provisioning dell'infrastruttura con slot di distribuzione di Azure tramite Terraform"
 description: Esercitazione sull'uso di Terraform con gli slot di distribuzione del provider di Azure
-services: terraform
-ms.service: azure
-keywords: Terraform, DevOps, macchina virtuale, Azure, slot di distribuzione
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 0bfd10325f1a62e74f0d3573f052d114069491a3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169817"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838069"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usare Terraform per effettuare il provisioning dell'infrastruttura con slot di distribuzione di Azure
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Esercitazione: Effettuare il provisioning dell'infrastruttura con slot di distribuzione di Azure tramite Terraform
 
 È possibile usare [slot di distribuzione di Azure](/azure/app-service/deploy-staging-slots) per alternare versioni diverse di un'app. Queste funzionalità consentono di ridurre al minimo l'impatto delle distribuzioni non funzionanti. 
 
-Questo articolo presenta un esempio di uso degli slot di distribuzione descrivendo in modo dettagliato la distribuzione di due app tramite GitHub e Azure. Un'app è ospitata in uno slot di produzione. La seconda app è ospitata in uno slot di staging. I nomi "produzione" e "gestione temporanea" sono arbitrari ed è possibile usare i nomi desiderati in base al proprio scenario. Dopo aver configurato gli slot di distribuzione, è possibile usare Terraform per alternare i due slot in base alle esigenze.
+Questo articolo presenta un esempio di uso degli slot di distribuzione descrivendo in modo dettagliato la distribuzione di due app tramite GitHub e Azure. Un'app è ospitata in uno slot di produzione. La seconda app è ospitata in uno slot di staging. I nomi "produzione" e "staging" sono arbitrari. Possono fare riferimento a qualsiasi cosa appropriata per uno specifico scenario. Dopo aver configurato gli slot di distribuzione, usare Terraform per alternare i due slot in base alle esigenze.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,13 +61,11 @@ Questo articolo presenta un esempio di uso degli slot di distribuzione descriven
     cd deploy
     ```
 
-1. Usare l'[editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html) per creare un file denominato `deploy.tf`. Questo file conterrà la [configurazione di Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. In Cloud Shell creare un file denominato `deploy.tf`.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. Attivare la modalità di inserimento con il tasto I.
 
 1. Incollare il codice seguente nell'editor:
 
@@ -85,8 +80,8 @@ Questo articolo presenta un esempio di uso degli slot di distribuzione descriven
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -95,27 +90,21 @@ Questo articolo presenta un esempio di uso degli slot di distribuzione descriven
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
-1. Premere ESC per uscire dalla modalità di inserimento.
-
-1. Salvare il file e chiudere l'editor vi immettendo il comando seguente:
-
-    ```bash
-    :wq
-    ```
+1. Salvare il file ( **&lt;CTRL+S**) e uscire dall'editor ( **&lt;CTRL+Q**).
 
 1. Dopo aver creato il file, verificarne il contenuto.
 
@@ -207,7 +196,7 @@ Dopo aver creato una copia tramite fork del repository del progetto di test, con
 
 1. Nella scheda **Opzione di distribuzione** selezionare **OK**.
 
-A questo punto, è stato distribuito lo slot di produzione. Per distribuire lo slot di staging, completare tutti i passaggi precedenti in questa sezione, ma con poche modifiche:
+A questo punto, è stato distribuito lo slot di produzione. Per distribuire lo slot di staging, eseguire i passaggi precedenti con le modifiche seguenti:
 
 - Nel passaggio 3 selezionare la risorsa **slotAppServiceSlotOne**.
 
@@ -219,8 +208,6 @@ A questo punto, è stato distribuito lo slot di produzione. Per distribuire lo s
 
 Nelle sezioni precedenti sono stati configurati due slot, **slotAppService** e **slotAppServiceSlotOne**, per la distribuzione da rami diversi in GitHub. Visualizzare ora le app Web in anteprima per verificare che siano state distribuite correttamente.
 
-Eseguire due volte i passaggi seguenti. Nel passaggio 3 selezionare **slotAppService** la prima volta e quindi selezionare **slotAppServiceSlotOne** la seconda volta.
-
 1. Nel menu principale del portale di Azure selezionare **Gruppi di risorse**.
 
 1. Selezionare **slotDemoResourceGroup**.
@@ -231,14 +218,11 @@ Eseguire due volte i passaggi seguenti. Nel passaggio 3 selezionare **slotAppSer
 
     ![Selezionare URL nella scheda di panoramica per eseguire il rendering dell'app](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Possono essere necessari diversi minuti prima che Azure compili e distribuisca il sito da GitHub.
->
->
+1. A seconda dell'app selezionata, vengono visualizzati i risultati seguenti:
+    - App Web **slotAppService**: pagina blu con il titolo **Slot Demo App 1**. 
+    - App Web **slotAppServiceSlotOne**: pagina verde con il titolo **Slot Demo App 2**.
 
-Per l'app Web **slotAppService** verrà visualizzata una pagina blu con il titolo **Slot Demo App 1**. Per l'app Web **slotAppServiceSlotOne** verrà visualizzata una pagina verde con il titolo **Slot Demo App 2**.
-
-![Visualizzare le app in anteprima per verificare che siano state distribuite correttamente](./media/terraform-slot-walkthru/app-preview.png)
+    ![Visualizzare le app in anteprima per verificare che siano state distribuite correttamente](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Scambiare i due slot di distribuzione
 
@@ -256,13 +240,11 @@ Per testare lo scambio dei due slot di distribuzione, completare i passaggi segu
     cd clouddrive/swap
     ```
 
-1. Usare l'editor vi per creare un file denominato `swap.tf`.
+1. In Cloud Shell creare un file denominato `swap.tf`.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. Attivare la modalità di inserimento con il tasto I.
 
 1. Incollare il codice seguente nell'editor:
 
@@ -278,13 +260,7 @@ Per testare lo scambio dei due slot di distribuzione, completare i passaggi segu
     }
     ```
 
-1. Premere ESC per uscire dalla modalità di inserimento.
-
-1. Salvare il file e chiudere l'editor vi immettendo il comando seguente:
-
-    ```bash
-    :wq
-    ```
+1. Salvare il file ( **&lt;CTRL+S**) e uscire dall'editor ( **&lt;CTRL+Q**).
 
 1. Inizializzare Terraform.
 
@@ -304,7 +280,7 @@ Per testare lo scambio dei due slot di distribuzione, completare i passaggi segu
     terraform apply
     ```
 
-1. Quando Terraform ha completato lo scambio degli slot, tornare nel browser che esegue il rendering dell'app Web **slotAppService** e aggiornare la pagina. 
+1. Dopo che Terraform ha scambiato gli slot, tornare nel browser. Aggiornare la pagina. 
 
 L'app Web nello slot di staging **slotAppServiceSlotOne** è stata scambiata con lo slot di produzione ed è ora visualizzata in verde. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 Al termine dello scambio, verrà visualizzata la configurazione originale.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"] 
+> [Vedere altre informazioni sull'uso di Terraform in Azure](/azure/terraform)

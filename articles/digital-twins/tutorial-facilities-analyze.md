@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Analizzare gli eventi dell'installazione di Gemelli digitali di Azure | Microsoft Docs"
+title: "Esercitazione: Analizzare gli eventi dell'installazione di Gemelli digitali di Azure"
 description: Informazioni su come visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure con Azure Time Series Insights seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949813"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107673"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure usando Time Series Insights
+# <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dei Gemelli digitali di Azure usando Time Series Insights
 
 Dopo aver distribuito l'istanza di Gemelli digitali di Azure, avere effettuato il provisioning degli spazi e avere implementato una funzione personalizzata per il monitoraggio di condizioni specifiche, è possibile visualizzare gli eventi e i dati provenienti dagli spazi per identificare tendenze e anomalie.
 

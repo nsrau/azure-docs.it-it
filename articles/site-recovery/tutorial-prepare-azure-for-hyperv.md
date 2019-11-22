@@ -1,21 +1,21 @@
 ---
-title: Preparare le risorse di Azure per il ripristino di emergenza di computer locali
+title: Preparare Azure per il ripristino di emergenza di Hyper-V con Azure Site Recovery
 description: Informazioni su come preparare Azure per il ripristino di emergenza di VM Hyper-V locali con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814336"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084181"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
+# <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparare le risorse di Azure per il ripristino di emergenza di Hyper-V
 
  [Azure Site Recovery](site-recovery-overview.md) contribuisce alla continuità aziendale e al ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 

@@ -1,19 +1,18 @@
 ---
-title: Spostare macchine virtuali IaaS di Azure tra aree per enti pubblici e aree pubbliche con il servizio Azure Site Recovery | Microsoft Docs
-description: Usare Azure Site Recovery per lo spostamento di macchine virtuali IaaS di Azure tra aree per enti pubblici e aree pubbliche.
-services: site-recovery
+title: Spostare le macchine virtuali di Azure tra aree per enti pubblici e aree pubbliche con Azure Site Recovery
+description: Usare Azure Site Recovery per spostare le VM di Azure tra aree per enti pubblici e aree pubbliche di Azure.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376132"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961420"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche 
 

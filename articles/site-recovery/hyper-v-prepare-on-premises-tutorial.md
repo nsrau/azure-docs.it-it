@@ -1,18 +1,18 @@
 ---
-title: Predisporre i server Hyper-V locali per il ripristino di emergenza di macchine virtuali Hyper-V in Azure
-description: Informazioni su come predisporre le macchine virtuali Hyper-V locali per il ripristino di emergenza in Azure con il servizio Azure Site Recovery.
+title: Preparare il ripristino di emergenza delle VM Hyper-V in Azure con Azure Site Recovery
+description: Informazioni su come preparare le VM Hyper-V locali per il ripristino di emergenza in Azure con Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813722"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953997"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Predisporre i server Hyper-V locali per il ripristino di emergenza in Azure
 

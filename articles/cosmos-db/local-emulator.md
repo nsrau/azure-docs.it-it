@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997877"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075668"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -416,6 +416,24 @@ Se si chiude la shell interattiva una volta avviato l'emulatore, il contenitore 
 Per aprire Esplora dati, passare all'URL seguente nel browser. L'endpoint dell'emulatore è specificato nel messaggio di risposta illustrato in precedenza.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+Nel caso di un'applicazione client .NET in esecuzione in un contenitore Docker Linux e di un emulatore di Azure Cosmos in esecuzione in un computer host, non è possibile connettersi all'account Azure Cosmos dall'emulatore. Poiché l'app non è in esecuzione nel computer host, non è possibile aggiungere il certificato registrato nel contenitore Linux corrispondente all'endpoint dell'emulatore. 
+
+Come soluzione alternativa, è possibile disabilitare la convalida del certificato SSL del server dall'applicazione client passando un'istanza di `HttpClientHandler`, come illustrato nell'esempio di codice .NET seguente. Questa soluzione alternativa è applicabile solo se si usa il pacchetto NuGet `Microsoft.Azure.DocumentDB`, mentre non è supportata con il pacchetto NuGet `Microsoft.Azure.Cosmos`:
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+Oltre a disabilitare la convalida del certificato SSL, è importante avviare l'emulatore con l'opzione `/allownetworkaccess` e che l'endpoint dell'emulatore sia accessibile dall'indirizzo IP dell'host anziché dal DNS `host.docker.internal`.
 
 ## Esecuzione su Mac o Linux<a id="mac"></a>
 

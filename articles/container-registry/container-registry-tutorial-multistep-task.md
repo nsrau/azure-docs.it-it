@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Attività del contenitore in più passaggi - Attività del Registro Azure Container
+title: 'Esercitazione: Flusso di lavoro in più passaggi - Attività del Registro Azure Container'
 description: Questa esercitazione illustra come configurare un'attività del Registro Azure Container per attivare automaticamente un flusso di lavoro in più passaggi per la compilazione, l'esecuzione e il push delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 913f535cb7fa07832a272c1cb9d02ab3e885f52c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: dd7dd6f78087a40de93a5ab47936806076fc562a
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743575"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931438"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Eseguire un flusso di lavoro dei contenitori in più passaggi nel cloud quando si esegue il commit di codice sorgente
 

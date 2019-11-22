@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325622"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846588"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: Distribuire un'applicazione contenitore in Istanze di Azure Container
 
@@ -37,7 +37,9 @@ In questa sezione si userà l'interfaccia della riga di comando di Azure per dis
 
 ### <a name="get-registry-credentials"></a>Ottenere le credenziali del registro
 
-Quando si distribuisce un'immagine ospitata in un registro contenitori privato come quello creato nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md), è necessario specificare le credenziali per accedere al registro. Come mostrato in [Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container](../container-registry/container-registry-auth-aci.md), una procedura consigliata per molti scenari consiste nel creare e configurare un'entità servizio di Azure Active Directory con autorizzazioni *pull* per il registro. Vedere questo articolo per script di esempio per creare un'entità servizio con le autorizzazioni necessarie. Prendere nota dell'ID e della password dell'entità servizio. Usare queste credenziali quando si distribuisce il contenitore.
+Quando si distribuisce un'immagine ospitata in un registro contenitori privato di Azure come quello creato nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md), è necessario specificare le credenziali per accedere al registro. 
+
+Una procedura consigliata per molti scenari consiste nel creare e configurare un'entità servizio di Azure Active Directory con autorizzazioni *pull* per il registro. Per alcuni script di esempio su come creare un'entità servizio con le necessarie autorizzazioni, vedere [Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container](../container-registry/container-registry-auth-aci.md). Prendere nota dell'*ID* e della *password dell'entità servizio*. Usare queste credenziali per accedere al registro quando si distribuisce il contenitore.
 
 È anche necessario ottenere il nome completo del server di accesso del registro contenitori (sostituire `<acrName>` con il nome del registro):
 

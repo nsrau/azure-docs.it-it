@@ -1,5 +1,5 @@
 ---
-title: Spostare macchine virtuali IaaS di Azure in un'altra area di Azure usando il servizio Azure Site Recovery | Microsoft Docs
+title: Spostare le VM di Azure in un'altra area con Azure Site Recovery
 description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375727"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092174"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
+# <a name="move-azure-vms-to-another-azure-region"></a>Spostare le VM di Azure in un'altra area di Azure
 
 Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure come servizio (IaaS) da un'area a un'altra per ottenere migliori livelli di affidabilità, disponibilità, gestione o governance. Questa esercitazione illustra come spostare macchine virtuali in un'altra area usando Azure Site Recovery. Si apprenderà come:
 

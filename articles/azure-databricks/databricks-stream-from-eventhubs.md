@@ -10,17 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 0ea85e60a84b540af2c772f81326dd8c45f61d4d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784013"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121270"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Esercitazione: Trasmettere dati in Azure Databricks tramite Hub eventi
-
-> [!IMPORTANT]
-> Questa esercitazione funziona con la versione di Azure Databricks Runtime 5.2.
 
 In questa esercitazione si connette un sistema di inserimento dati ad Azure Databricks per trasmettere dati a un cluster Apache Spark quasi in tempo reale. Il sistema di inserimento dati viene configurato con Hub eventi di Azure e quindi connesso ad Azure Databricks per l'elaborazione dei messaggi in arrivo. Per accedere a un flusso di dati si usano API Twitter per inserire i tweet in Hub eventi. Quando i dati sono disponibili in Azure Databricks, è possibile eseguire processi di analisi per esaminarli.
 
@@ -104,10 +101,10 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
    * Immettere un nome per il cluster.
-   * Per questo articolo creare un cluster con il runtime **5.2**.
+   * Per questo articolo, creare un cluster con il runtime *6.0*.
    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
 
-   Selezionare le dimensioni del nodo di lavoro e di driver del cluster appropriate per i criteri tecnici e il [budget](https://azure.microsoft.com/en-us/pricing/details/databricks/) disponibile.
+   Selezionare le dimensioni del nodo di lavoro e di driver del cluster appropriate per i criteri tecnici e il [budget](https://azure.microsoft.com/pricing/details/databricks/) disponibile.
 
      Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 

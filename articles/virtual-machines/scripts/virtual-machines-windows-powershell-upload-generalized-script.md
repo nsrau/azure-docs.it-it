@@ -1,5 +1,5 @@
 ---
-title: Caricare un disco rigido virtuale generalizzato in uno script PowerShell di esempio di Azure | Microsoft Docs
+title: Caricare un disco rigido virtuale generalizzato in un esempio di script di Azure PowerShell
 description: Script PowerShell di esempio per caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale usando il modello di distribuzione di Resource Manager e i dischi gestiti.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd1be056576275194a013671cf0aae1f7855df69
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f2c739d90917bd00bbde5d680a20a18271a581cc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749711"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038891"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale
 

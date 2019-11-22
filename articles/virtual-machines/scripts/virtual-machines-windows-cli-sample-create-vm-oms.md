@@ -1,5 +1,5 @@
 ---
-title: Esempio dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale di Azure che esegue Monitoraggio di Azure | Microsoft Docs
+title: Esempio dell'interfaccia della riga di comando di Azure - Creare una VM di Azure che esegue Monitoraggio di Azure
 description: Esempio dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale di Azure che esegue una macchina virtuale di Windows Server 2016 e Monitoraggio di Azure.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: e5bee7a2b9d203909ccd11c4485ecc850688f4ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77c5996a11b5223778bf0efbe33250f0db9f74f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708224"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039901"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorare una macchina virtuale con i log di Monitoraggio di Azure
 

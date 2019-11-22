@@ -14,24 +14,55 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 89094dc959f3a258370afc3cfb720aa3b101d1b7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 04cd13efd198f0a4875c0ede525d10cf45220989
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036133"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901509"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Aggiungere la certificazione dell'applicazione a un cluster di Service Fabric.
 
-Questo script di esempio crea un certificato autofirmato nell'insieme di credenziali delle chiavi di Azure e lo installa in tutti i nodi del cluster di Service Fabric. Il certificato viene scaricato anche in una cartella locale. Il nome del certificato scaricato è identico al nome del certificato nell'insieme di credenziali delle chiavi. Personalizzare i parametri in base alle esigenze.
+Questo script di esempio illustra come creare un certificato in Key Vault e distribuirlo in uno dei set di scalabilità di macchine virtuali in cui viene eseguito il cluster. Questo scenario non usa direttamente Service Fabric, ma dipende invece da Key Vault e dai set di scalabilità di macchine virtuali.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure. 
 
-## <a name="sample-script"></a>Script di esempio
+## <a name="create-a-certificate-in-key-vault"></a>Creare un certificato in Key Vault
 
-[!code-powershell[main](../../../powershell_scripts/service-fabric/add-application-certificate/add-new-application-certificate.ps1 "Add an application certificate to a cluster")]
+```powershell
+$VaultName = ""
+$CertName = ""
+$SubjectName = "CN="
+
+$policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName Self -ValidityInMonths 12
+Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
+```
+
+## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Aggiornare il profilo dei set di scalabilità di macchine virtuali con il certificato
+
+```powershell
+$ResourceGroupName = ""
+$VMSSName = ""
+$CertStore = "My" # Update this with the store you want your certificate placed in, this is LocalMachine\My
+
+$CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName).SecretId -CertificateStore $CertStore
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
+
+# If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
+$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
+
+# Otherwise use
+$VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
+```
+
+## <a name="update-the-virtual-machine-scale-set"></a>Aggiornare il set di scalabilità di macchine virtuali
+```powershell
+Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
+```
+
+> Se si vuole che il certificato venga inserito in più tipi di nodo nel cluster, la seconda e la terza parte di questo script devono essere ripetute per ogni tipo di nodo che dovrà avere il certificato.
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
@@ -39,7 +70,12 @@ Questo script usa i comandi seguenti: Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | Aggiungere un nuovo certificato di applicazione al set di scalabilità di macchine virtuali che costituisce il cluster.  |
+| [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Crea un criterio in memoria che rappresenta il certificato |
+| [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Distribuisce il criterio in Key Vault |
+| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Crea una configurazione in memoria che rappresenta il certificato in una macchina virtuale |
+| [Get-AzVmss](/powershell/module/az.compute/Get-AzVmss) |  |
+| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Aggiunge il certificato alla definizione in memoria del set di scalabilità di macchine virtuali |
+| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Distribuisce la nuova definizione del set di scalabilità di macchine virtuali |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

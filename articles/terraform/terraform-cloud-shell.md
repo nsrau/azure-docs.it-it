@@ -1,37 +1,35 @@
 ---
-title: Configurare Azure Cloud Shell per Terraform
+title: 'Esercitazione: Configurare Azure Cloud Shell per Terraform'
 description: Usare Terraform con Azure Cloud Shell per semplificare l'autenticazione e la configurazione del modello.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, set di scalabilità, macchina virtuale, rete, archiviazione, moduli
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 1259d5004bd547e33f65571333b6d0721d1253c0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173550"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078742"
 ---
-# <a name="terraform-cloud-shell-development"></a>Sviluppo Terraform in Cloud Shell 
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Esercitazione: Configurare Azure Cloud Shell per Terraform
 
-Terraform funziona perfettamente da una riga di comando Bash, ad esempio il Terminale macOS o l'esperienza Bash in Windows o Linux. L'esecuzione delle configurazioni Terraform nell'esperienza Bash di [Azure Cloud Shell](/azure/cloud-shell/overview) offre alcuni vantaggi esclusivi che consentono di velocizzare il ciclo di sviluppo.
-
-Questo articolo concettuale illustra le funzionalità di Cloud Shell che consentono di scrivere script Terraform da distribuire in Azure.
+Terraform funziona bene da una riga di comando Bash in macOS, Windows o Linux. L'esecuzione delle configurazioni di Terraform nell'esperienza Bash di [Azure Cloud Shell](/azure/cloud-shell/overview) offre alcuni vantaggi esclusivi. Questa esercitazione illustra come scrivere script di Terraform distribuiti in Azure con Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Configurazione automatica delle credenziali
 
-Terraform è installato e immediatamente disponibile in Cloud Shell. Quando si è connessi a Cloud Shell per gestire l'infrastruttura, gli script Terraform vengono autenticati in Azure senza la necessità di configurazioni aggiuntive. Grazie all'autenticazione automatica, non è necessario creare manualmente un'entità servizio di Active Directory e configurare le variabili del provider Terraform per Azure.
+Terraform è installato e immediatamente disponibile in Cloud Shell. Gli script di Terraform vengono autenticati in Azure quando si accede a Cloud Shell per gestire l'infrastruttura senza alcuna configurazione aggiuntiva. L'autenticazione automatica sostituisce due processi manuali:
+- Creazione di un'entità servizio di Active Directory
+- Configurazione delle variabili del provider di Azure Terraform
 
 
-## <a name="using-modules-and-providers"></a>Uso di moduli e provider
+## <a name="use-modules-and-providers"></a>Usare moduli e provider
 
-I moduli Terraform per Azure richiedono le credenziali per accedere e apportare modifiche alle risorse nella sottoscrizione di Azure. Quando si lavora in Cloud Shell, aggiungere agli script il codice seguente per usare i moduli Terraform per Azure in Cloud Shell:
+I moduli Azure Terraform richiedono credenziali per l'accesso e la modifica delle risorse di Azure. Per usare i moduli Terraform in Cloud Shell, aggiungere il codice seguente:
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -39,7 +37,7 @@ provider "azurerm" {
 }
 ```
 
-Quando si usa qualsiasi comando dell'interfaccia della riga di comando `terraform`, Cloud Shell passa i valori necessari per il provider `azurerm` attraverso variabili di ambiente.
+Cloud Shell passa i valori necessari per il provider `azurerm` tramite variabili di ambiente quando si usa uno dei comandi dell'interfaccia della riga di comando `terraform`.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Altri strumenti di sviluppo Cloud Shell
 
@@ -50,5 +48,5 @@ In Cloud Shell è disponibile l'interfaccia della riga di comando di Azure, che 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un cluster di macchine virtuali con il registro del modulo](terraform-create-vm-cluster-module.md)
-[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md) (Creare un piccolo cluster di macchine virtuali con un HCL personalizzato)
+> [!div class="nextstepaction"]
+> [Creare un piccolo cluster di VM con il registro modulo](terraform-create-vm-cluster-module.md)

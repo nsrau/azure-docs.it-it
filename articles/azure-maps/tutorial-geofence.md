@@ -1,22 +1,22 @@
 ---
-title: Creare un recinto virtuale con Mappe di Azure | Microsoft Docs
-description: Configurare un recinto virtuale con Mappe di Azure.
+title: 'Esercitazione: Creare un recinto virtuale con Mappe di Azure'
+description: 'Esercitazione: Configurare un recinto virtuale con Mappe di Azure.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694917"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107108"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurare un recinto virtuale con Mappe di Azure
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
 Questa esercitazione illustra i passaggi di base per la configurazione di un recinto virtuale con Mappe di Azure. Lo scenario esaminato in questa esercitazione consente ai direttori di cantiere di monitorare l'uscita di macchinari potenzialmente pericolosi all'esterno delle aree di cantiere designate. Un cantiere comporta macchinari costosi e il rispetto di normative specifiche. Richiede in genere che i macchinari rimangano all'interno del cantiere e non escano senza autorizzazione.
 
