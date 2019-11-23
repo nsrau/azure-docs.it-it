@@ -1,21 +1,15 @@
 ---
-title: Gestire gli utenti in Azure Blockchain Workbench
+title: Manage users in Azure Blockchain Workbench
 description: Come gestire gli utenti in Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: brendal
+ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65509912"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324702"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gestire gli utenti in Azure Blockchain Workbench
 
@@ -38,7 +32,7 @@ Gli utenti di Blockchain Workbench devono essere inclusi nel tenant di Azure AD 
 
     ![Nuovo utente](./media/manage-users/add-ad-user.png)
 
-5.  Completare i campi obbligatori per il nuovo utente. Selezionare **Create**.
+5.  Completare i campi obbligatori per il nuovo utente. Selezionare **Create** (Crea).
 
 Per altre informazioni su come gestire gli utenti in Azure AD, visitare il sito della documentazione di [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -89,7 +83,7 @@ Usare l'applicazione Blockchain Workbench per gestire utenti e organizzazioni ch
 
     ![Aggiungere membri](./media/manage-users/application-add-members.png)
 
-3. Cercare il nome dell'utente.  Vengono elencati solo gli utenti di Azure AD presenti nel tenant di Blockchain Workbench. Se non è possibile trovare l'utente, è necessario [aggiungere utenti di Azure AD](#add-azure-ad-users).
+3. Cercare il nome dell'utente.  Sono elencati solo gli utenti di Azure AD che esistono nel tenant di Blockchain Workbench. Se non è possibile trovare l'utente, è necessario [aggiungere utenti di Azure AD](#add-azure-ad-users).
 
     ![Aggiungere membri](./media/manage-users/find-user.png)
 

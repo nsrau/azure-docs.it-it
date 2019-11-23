@@ -1,63 +1,63 @@
 ---
-title: Come installare ed eseguire il contenitore per il riconoscimento del modulo
+title: How to install and run container for Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come usare il contenitore di riconoscimento form dei servizi cognitivi di Azure per analizzare i dati del modulo e della tabella.
+description: This article will explain how to use the Azure Cognitive Services Form Recognizer container to parse form and table data.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: f26fe9768930c9d8b99a06e3ea8b51ed1657bcb2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 21582a5a17a3c6f67182173bfe08d80c48765f7d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904496"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325847"
 ---
-# <a name="install-and-run-form-recognizer-containers"></a>Installare ed eseguire i contenitori Riconoscimento modulo
+# <a name="install-and-run-form-recognizer-containers-preview"></a>Install and run Form Recognizer containers (Preview)
 
 Riconoscimento modulo di Azure applica la tecnologia di Machine Learning per identificare ed estrarre coppie chiave-valore e tabelle dai moduli, associando i valori e le voci della tabella alle coppie chiave-valore e quindi restituendo dati strutturati che includono le relazioni nel file originale. 
 
-Per ridurre la complessità e integrare facilmente un modello di Riconoscimento modulo personalizzato nel processo di automazione dl flusso di lavoro o in un'altra applicazione, è possibile chiamare il modello usando una semplice API REST. Sono necessari solo cinque documenti modulo (o un modulo vuoto e due moduli compilati), in modo che sia possibile ottenere risultati rapidamente, accuratamente e personalizzati in base al contenuto specifico. senza alcun intervento manuale impegnativo né competenze approfondite di data science. E non è neanche necessario assegnare etichette o annotare dati.
+Per ridurre la complessità e integrare facilmente un modello di Riconoscimento modulo personalizzato nel processo di automazione dl flusso di lavoro o in un'altra applicazione, è possibile chiamare il modello usando una semplice API REST. Only five form documents (or one empty form and two filled-in forms) are needed, so you can get results quickly, accurately, and tailored to your specific content. senza alcun intervento manuale impegnativo né competenze approfondite di data science. E non è neanche necessario assegnare etichette o annotare dati.
 
-|Funzione|Funzionalità|
+|Funzione|database elastico|
 |-|-|
-|Riconoscimento modulo| <li>Elabora file PDF, PNG e JPG<li>Addestra i modelli personalizzati con un minimo di cinque forme dello stesso layout <li>Estrae coppie chiave-valore e informazioni della tabella <li>Usa la funzionalità di riconoscimento del testo dell'API Visione artificiale di Servizi cognitivi per rilevare ed estrarre testo stampato dalle immagini all'interno dei moduli<li>Non richiede annotazioni o assegnazioni di etichette|
+|Riconoscimento modulo| <li>Elabora file PDF, PNG e JPG<li>Trains custom models with a minimum of five forms of the same layout <li>Estrae coppie chiave-valore e informazioni della tabella <li>Usa la funzionalità di riconoscimento del testo dell'API Visione artificiale di Servizi cognitivi per rilevare ed estrarre testo stampato dalle immagini all'interno dei moduli<li>Non richiede annotazioni o assegnazioni di etichette|
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare i prerequisiti seguenti:
 
-|obbligatori|Scopo|
+|Obbligatoria|Finalità|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
 |Interfaccia della riga di comando di Azure| Installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) nell'host.|
-|Risorsa API Visione artificiale| Per elaborare documenti e immagini digitalizzati, è necessaria una risorsa di Visione artificiale. È possibile accedere alla funzionalità di riconoscimento del testo come risorsa di Azure (API REST o SDK) o come *contenitore* [cognitive-services-recognize-text](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Si applicano le normali tariffe di fatturazione. <br><br>Passare sia la chiave API sia gli endpoint per la risorsa Visione artificiale (cloud di Azure o contenitore di servizi cognitivi). Usare questa chiave API e l'endpoint come **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se si usa il contenitore *cognitive-services-recognize-text*, soddisfare questi requisiti:<br><br>La chiave di Visione artificiale per il contenitore Riconoscimento modulo deve essere quella specificata nel comando `docker run` di Visione artificiale per il contenitore *cognitive-services-recognize-text*.<br>L'endpoint di fatturazione deve essere quello del contenitore, ad esempio `http://localhost:5000`. Se si usano insieme i contenitori di Visione artificiale e Riconoscimento modulo nello stesso host, non sarà possibile avviarli entrambi con la porta *5000* predefinita. |
-|Risorsa Riconoscimento modulo |Per usare questi contenitori, è necessario avere:<br><br>Una risorsa di riconoscimento di Azure **form** per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nella panoramica del **riconoscimento del modulo** portale di Azure e nelle pagine delle chiavi ed entrambi i valori sono necessari per avviare il contenitore.<br><br>**{FORM_RECOGNIZER_API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina chiavi<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : endpoint fornito nella pagina Panoramica|
+|Risorsa API Visione artificiale| Per elaborare documenti e immagini digitalizzati, è necessaria una risorsa di Visione artificiale. È possibile accedere alla funzionalità di riconoscimento del testo come risorsa di Azure (API REST o SDK) o come [contenitore](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitive-services-recognize-text*. Si applicano le normali tariffe di fatturazione. <br><br>Pass in both the API key and endpoints for your Computer Vision resource (Azure cloud or Cognitive Services container). Use this API key and the endpoint as **{COMPUTER_VISION_API_KEY}** and **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se si usa il contenitore *cognitive-services-recognize-text*, soddisfare questi requisiti:<br><br>La chiave di Visione artificiale per il contenitore Riconoscimento modulo deve essere quella specificata nel comando `docker run` di Visione artificiale per il contenitore *cognitive-services-recognize-text*.<br>L'endpoint di fatturazione deve essere quello del contenitore, ad esempio `http://localhost:5000`. Se si usano insieme i contenitori di Visione artificiale e Riconoscimento modulo nello stesso host, non sarà possibile avviarli entrambi con la porta *5000* predefinita. |
+|Risorsa Riconoscimento modulo |Per usare questi contenitori, è necessario avere:<br><br>An Azure **Form Recognizer** resource to get the associated API key and endpoint URI. Both values are available on the Azure portal **Form Recognizer** Overview and Keys pages, and both values are required to start the container.<br><br>**{FORM_RECOGNIZER_API_KEY}** : One of the two available resource keys on the Keys page<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : The endpoint as provided on the Overview page|
 
-## <a name="gathering-required-parameters"></a>Raccolta dei parametri obbligatori
+## <a name="gathering-required-parameters"></a>Gathering required parameters
 
-Sono disponibili tre parametri primari per tutti i contenitori di servizi cognitivi richiesti. Il contratto di licenza con l'utente finale deve essere presente con il valore `accept`. Sono inoltre necessari un URL dell'endpoint e una chiave API.
+There are three primary parameters for all Cognitive Services' containers that are required. The end-user license agreement (EULA) must be present with a value of `accept`. Additionally, both an Endpoint URL and API Key are needed.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>URI dell'endpoint `{COMPUTER_VISION_ENDPOINT_URI}` e `{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Endpoint URI `{COMPUTER_VISION_ENDPOINT_URI}` and `{FORM_RECOGNIZER_ENDPOINT_URI}`
 
-Il valore dell'URI dell' **endpoint** è disponibile nella pagina *Panoramica* portale di Azure della risorsa del servizio cognitiva corrispondente. Passare alla pagina *Panoramica* , posizionare il puntatore del mouse sull'endpoint e verrà <span class="docon docon-edit-copy x-hidden-focus"></span> visualizzata un'icona `Copy to clipboard`. Copiare e usare se necessario.
+The **Endpoint** URI value is available on the Azure portal *Overview* page of the corresponding Cognitive Service resource. Navigate to the *Overview* page, hover over the Endpoint, and a `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon will appear. Copy and use where needed.
 
-![Raccogliere l'URI dell'endpoint per un uso successivo](../containers/media/overview-endpoint-uri.png)
+![Gather the endpoint uri for later use](../containers/media/overview-endpoint-uri.png)
 
-### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chiavi `{COMPUTER_VISION_API_KEY}` e `{FORM_RECOGNIZER_API_KEY}`
+### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Keys `{COMPUTER_VISION_API_KEY}` and `{FORM_RECOGNIZER_API_KEY}`
 
-Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina chiavi del portale di Azure della risorsa del servizio cognitiva corrispondente. Passare alla pagina *chiavi* e fare clic sull'icona `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> .
+This key is used to start the container, and is available on the Azure portal's Keys page of the corresponding Cognitive Service resource. Navigate to the *Keys* page, and click on the `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> icon.
 
-![Ottenere una delle due chiavi per un uso successivo](../containers/media/keys-copy-api-key.png)
+![Get one of the two keys for later use](../containers/media/keys-copy-api-key.png)
 
 > [!IMPORTANT]
-> Queste chiavi di sottoscrizione vengono usate per accedere all'API di servizi cognitivi. Non condividere le chiavi. Archiviarli in modo sicuro, ad esempio usando Azure Key Vault. Si consiglia inoltre di rigenerare regolarmente queste chiavi. È necessaria una sola chiave per effettuare una chiamata API. Quando si rigenera la prima chiave, è possibile usare la seconda chiave per l'accesso continuo al servizio.
+> These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
@@ -75,10 +75,10 @@ Questa chiave viene usata per avviare il contenitore ed è disponibile nella pag
 
 La tabella seguente indica i core di CPU minimi e consigliati e la memoria da allocare per ogni contenitore di Riconoscimento modulo:
 
-| Contenitore: | Minima | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
-| Riconoscimento modulo | 2 Core, 4 GB di memoria | 4 core, 8 GB di memoria |
-| Riconoscimento del testo | 1 core, 8 GB di memoria | 2 Core, 8 GB di memoria |
+| Riconoscimento modulo | 2 core, 4-GB memory | 4 core, 8-GB memory |
+| Riconoscimento del testo | 1 core, 8-GB memory | 2 cores, 8-GB memory |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 * Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
@@ -86,16 +86,16 @@ La tabella seguente indica i core di CPU minimi e consigliati e la memoria da al
 > [!Note]
 > I valori minimi e consigliati sono basati sui limiti di Docker e *non* sulle risorse del computer host.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>Ottenere le immagini del contenitore con il comando docker pull
+## <a name="get-the-container-images-with-the-docker-pull-command"></a>Get the container images with the docker pull command
 
-Le immagini del contenitore per il **riconoscimento dei moduli** e le offerte di **riconoscimento del testo** sono disponibili nel registro contenitori seguente:
+Container images for both the **Form Recognizer** and **Recognize Text** offerings are available in the following container registry:
 
-| Contenitore: | Nome completo dell'immagine |
+| Contenitore | Fully qualified image name |
 |-----------|------------|
 | Riconoscimento modulo | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
 | Riconoscimento del testo | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Sono necessari entrambi i contenitori. si noti che il contenitore di **testo del riconoscimento** è [dettagliato al di fuori di questo articolo.](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)
+You will need both containers, please note that the **Recognizer Text** container is [detailed outside of this article.](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -112,7 +112,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recogn
 
 #### <a name="recognize-text"></a>Riconoscimento del testo
 
-Per ottenere il contenitore di riconoscimento del testo, usare il comando seguente:
+To get the Recognize Text container, use the following command:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
@@ -127,9 +127,9 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Eseguire il contenitore con il comando docker run
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori di `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` e `{FORM_RECOGNIZER_API_KEY}`, vedere [raccolta di parametri obbligatori](#gathering-required-parameters) .
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` and `{FORM_RECOGNIZER_API_KEY}` values.
 
-Sono disponibili [esempi](form-recognizer-container-configuration.md#example-docker-run-commands) di comando `docker run`.
+[Examples](form-recognizer-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
 ### <a name="form-recognizer"></a>Riconoscimento modulo
 
@@ -241,7 +241,7 @@ services:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
 
-|Contenitore:|Endpoint|
+|Contenitore|Endpoint|
 |--|--|
 |form-recognizer|http://localhost:5000
 
@@ -301,7 +301,7 @@ Il contenitore fornisce le API endpoint REST, disponibili nella pagina dell'[API
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](form-recognizer-container-configuration.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore.
 
@@ -319,7 +319,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](for
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Riconoscimento modulo. In sintesi:
 

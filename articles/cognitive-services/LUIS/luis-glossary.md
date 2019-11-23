@@ -1,5 +1,5 @@
 ---
-title: Glossario-LUIS
+title: Glossary - LUIS
 titleSuffix: Azure Cognitive Services
 description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 services: cognitive-services
@@ -10,49 +10,48 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499562"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325954"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il glossario Language Understanding (LUIS) contiene termini che è probabile trovare durante l'uso del servizio API LUIS.
 
 ## <a name="active-version"></a>Versione attiva
 
-La versione di LUIS attiva è quella che riceve le modifiche apportate al modello. Nel portale [Luis](luis-reference-regions.md) , se si desidera apportare modifiche a una versione che non è la versione attiva, è necessario prima impostare tale versione come attiva.
+La versione di LUIS attiva è quella che riceve le modifiche apportate al modello. In the [LUIS](luis-reference-regions.md) portal, if you want to make changes to a version that is not the active version, you need to first set that version as active.
 
 ## <a name="authoring"></a>Creazione
 
-La creazione è la possibilità di creare, gestire e distribuire un' [app Luis](#luis-app), usando il portale [Luis](luis-reference-regions.md) o le [API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087).
+Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), either using the [LUIS](luis-reference-regions.md) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Chiave di creazione
 
-In precedenza denominata chiave "programmatica". Utilizzata per creare l'app. Non utilizzata per le query di endpoint a livello di produzione. Per ulteriori informazioni, vedere [Limiti della chiave](luis-boundaries.md#key-limits).   
+In precedenza denominata chiave "programmatica". Utilizzata per creare l'app. Non utilizzata per le query di endpoint a livello di produzione. Per ulteriori informazioni, vedere [Limiti della chiave](luis-boundaries.md#key-limits).
 
-## <a name="batch-test-json-file"></a>File JSON di testo batch
+## <a name="batch-test-json-file"></a>Batch test JSON file
 
-Il test batch è la possibilità di convalidare un modello di app LUIS corrente con un set di test coerente e noto di espressioni utente. Il test batch viene definito in un [file in formato JSON](luis-concept-batch-test.md#batch-file-format).
+Batch testing is the ability to validate a current LUIS app's model with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
 
-Vedere anche la pagina relativa alla 
+Vedere anche la pagina relativa alla
 * [Concetti](luis-concept-batch-test.md)
-* [Procedure](luis-how-to-batch-test.md)
+* [How-to](luis-how-to-batch-test.md)
 * [Esercitazione](luis-tutorial-batch-testing.md)
-
 
 ## <a name="collaborator"></a>Collaboratore
 
-Un collaboratore/collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni.
+A collaborator/contributor, is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances.
 
-## <a name="contributor"></a>Collaboratore
+## <a name="contributor"></a>Contributor
 
-Un collaboratore è uguale a quello di un [collaboratore](#collaborator).
+A contributor is the same thing as a [collaborator](#collaborator).
 
-## <a name="descriptor"></a>Descrittore
+## <a name="descriptor"></a>Descriptor
 
-Un descrittore è una [funzionalità](#features) applicata a un modello in fase di training, inclusi [elenchi di frasi](#phrase-list) ed [entità](#entity). 
+A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](#phrase-list) and [entities](#entity). 
 
 ## <a name="domain"></a>Dominio
 
@@ -70,11 +69,11 @@ Le [entità](luis-concept-entity-types.md) sono parole importanti nelle [espress
 
 Nei [test batch](luis-interactive-test.md#batch-testing) è una misura dell'accuratezza del test.
 
-## <a name="false-negative"></a>Falso negativo (FN)
+## <a name="false-negative"></a>False negative (FN)
 
 Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato l'assenza della finalità/entità di destinazione.
 
-## <a name="false-positive"></a>Falso positivo (FP)
+## <a name="false-positive"></a>False positive (FP)
 
 Nei [test in batch](luis-interactive-test.md#batch-testing) i punti dati rappresentano espressioni in cui l'app ha erroneamente stimato la presenza della finalità/entità di destinazione.
 
@@ -88,11 +87,11 @@ Una [finalità](luis-concept-intent.md) rappresenta un'attività o un'azione che
 
 ## <a name="labeling"></a>Assegnazione di etichette
 
-L'assegnazione di etichette o il contrassegno è il processo di associazione di una parola o di una frase in un' [espressione](#utterance) di finalità con un' [entità](#entity) (DataType).
+Labeling, or marking, is the process of associating a word or phrase in an intent's [utterance](#utterance) with an [entity](#entity) (datatype).
 
 ## <a name="luis-app"></a>App LUIS
 
-Un'app LUIS è una raccolta di modelli di linguaggio per l'elaborazione del linguaggio naturale, inclusi [Intent](#intent), [entità](#entity)e [espressioni](#utterance)con etichetta.
+A LUIS app is a collection of language models for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
 
 ## <a name="owner"></a>Proprietario
 
@@ -122,7 +121,7 @@ Rinominata [chiave di creazione](#authoring-key).
 
 ## <a name="publish"></a>Pubblicare
 
-Per pubblicazione si intende rendere disponibile una versione di LUIS Active nell' [endpoint](#endpoint)di gestione temporanea o di produzione.  
+Publishing means making a LUIS active version available on either the staging or production [endpoint](#endpoint).  
 
 ## <a name="quota"></a>Quota
 
@@ -147,15 +146,15 @@ Attivare Bing spell checker (Controllo ortografico Bing) per correggere gli erro
 
 ## <a name="starter-key"></a>Chiave di avvio
 
-Chiave gratuita da usare per il primo avvio con LUIS.
+A free key to use when first starting out using LUIS.
 
-## <a name="structure"></a>Struttura
+## <a name="structure"></a>Structure
 
-Aggiungere la struttura a un'entità appresa dal computer per fornire sottocomponenti con descrittori (funzionalità) e vincoli (espressione regolare o entità elenco).
+Add structure to a machine-learned entity to provide subcomponents with descriptors (features) and constraints (regular expression or list entities).
 
 ## <a name="subscription-key"></a>Chiave di sottoscrizione
 
-La chiave di sottoscrizione è la chiave dell' **endpoint di stima** associata al servizio Luis [creato in Azure](luis-how-to-azure-subscription.md). Questa chiave non è la [chiave di crezione](#programmatic-key). Se si dispone di una chiave endpoint, essa deve essere usata per qualsiasi richiesta di endpoint invece della chiave di creazione. È possibile visualizzare la chiave endpoint corrente all'interno dell'URL dell'endpoint in fondo alla pagina [**Keys and endpoints** (Chiavi ed endpoint)](luis-how-to-azure-subscription.md) nel sito Web [LUIS](luis-reference-regions.md). È il valore della coppia nome/valore **subscription-key**.
+The subscription key is the **prediction endpoint** key associated with the LUIS service [you created in Azure](luis-how-to-azure-subscription.md). Questa chiave non è la [chiave di crezione](#programmatic-key). Se si dispone di una chiave endpoint, essa deve essere usata per qualsiasi richiesta di endpoint invece della chiave di creazione. È possibile visualizzare la chiave endpoint corrente all'interno dell'URL dell'endpoint in fondo alla pagina [**Keys and endpoints** (Chiavi ed endpoint)](luis-how-to-azure-subscription.md) nel sito Web [LUIS](luis-reference-regions.md). È il valore della coppia nome/valore **subscription-key**.
 
 ## <a name="test"></a>Test
 
@@ -172,7 +171,7 @@ Un token è l'unità più piccola che può essere etichettata in un'entità. La 
 
 ## <a name="train"></a>Eseguire il training
 
-Il training è il processo che consente di insegnare a LUIS le modifiche apportate alla versione attiva dopo l'ultimo training.
+Training is the process of teaching LUIS about any changes to the active version since the last training.
 
 ## <a name="true-negative"></a>Falso negativo (TN)
 

@@ -1,22 +1,22 @@
 ---
-title: Introduzione all'autenticazione basata su certificato - Azure Active Directory
+title: Certificate-based authentication - Azure Active Directory
 description: Informazioni su come configurare l'autenticazione basata su certificati nel proprio ambiente
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359076"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382019"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -96,7 +96,7 @@ Per la configurazione, è possibile usare [Azure Active Directory PowerShell ver
 
 Il primo passaggio di configurazione consiste nello stabilire una connessione con il tenant. Non appena viene stabilita la connessione al tenant è possibile rivedere, aggiungere, eliminare e modificare le autorità di certificazione attendibili definite nella directory.
 
-### <a name="connect"></a>Connettere
+### <a name="connect"></a>Connessione
 
 Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
@@ -108,7 +108,7 @@ Per recuperare le autorità di certificazione attendibili definite nella directo
 
     Get-AzureADTrustedCertificateAuthority
 
-### <a name="add"></a>Add
+### <a name="add"></a>Aggiungi
 
 Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
 
@@ -119,7 +119,7 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-### <a name="remove"></a>Rimuovere
+### <a name="remove"></a>Rimuovi
 
 Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
 

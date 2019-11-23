@@ -1,5 +1,5 @@
 ---
-title: Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
+title: Continuità aziendale e ripristino di emergenza
 services: azure-dev-spaces
 author: lisaguthrie
 ms.author: lcozzens
@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: f2c2767d23a99644ee4ecb4e1040162c58a72b1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c7594059a5627c3967aba52144ed3dc99cb510e3
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280097"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327285"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuità aziendale e ripristino di emergenza per Azure Dev Spaces
 

@@ -1,39 +1,39 @@
 ---
 title: Usare il riconoscimento di entità con l'API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come identificare e risolvere l'ambiguità dell'identità di un'entità trovata nel testo con l'API REST di Analisi del testo.
+description: Learn how to identify and disambiguate the identity of an entity found in text with the Text Analytics REST API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: d3869438f299383a0b3096babbd4874c24f08b3a
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: ae5222dcd05740ecb9747037b315c4e920b3eabd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286597"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326633"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>How to use Named Entity Recognition in Text Analytics
 
-L' [API di riconoscimento entità denominata](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) accetta un testo non strutturato e per ogni documento JSON restituisce un elenco di entità ambiguità con collegamenti ad altre informazioni sul Web (Wikipedia e Bing).
+The [Named Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) takes unstructured text, and for each JSON document, returns a list of disambiguated entities with links to more information on the web (Wikipedia and Bing).
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Collegamento di entità e riconoscimento di entità denominate
 
-L'endpoint di `entities` del Analisi del testo supporta sia il riconoscimento delle entità denominate (NER) che il collegamento di entità.
+The Text Analytics' `entities` endpoint supports both named entity recognition (NER) and entity linking.
 
-### <a name="entity-linking"></a>Collegamento di entità
+### <a name="entity-linking"></a>Collegamento delle entità
 Per collegamento delle entità si intende la capacità di identificare senza ambiguità l'identità di un'entità trovata nel testo, ad esempio per determinare se "Marte" viene usato per indicare il pianeta o il dio romano della guerra. Questo processo richiede la presenza di una knowledge base a cui sono collegate le entità riconosciute. Wikipedia è usata come knowledge base per l'endpoint `entities` di Analisi del testo.
 
 ### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
-Il riconoscimento delle entità denominate (NER) è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti. 
+Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes, or types. 
 
-## <a name="named-entity-recognition-v3-public-preview"></a>Anteprima pubblica di riconoscimento entità denominata V3
+## <a name="named-entity-recognition-v3-public-preview"></a>Named Entity Recognition v3 public preview
 
-La [versione successiva di riconoscimento entità denominata](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) è ora disponibile per l'anteprima pubblica. Fornisce aggiornamenti per il collegamento di entità e il riconoscimento di entità denominate.
+The next version of Named Entity Recognition is now available for public preview. It provides updates to both entity linking and Named Entity Recognition. Try it using the [API test console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral).
 
 :::row:::
     :::column span="":::
@@ -46,90 +46,92 @@ La [versione successiva di riconoscimento entità denominata](https://westus.dev
 <!-- expanded types and subtypes row-->
 :::row:::
     :::column span="":::
-        Tipi di entità e sottotipi espansi
+        Expanded entity types and subtypes
     :::column-end:::
     :::column span="":::
-     Classificazione e rilevamento espanse per diversi tipi di entità denominate.
+     Expanded classification and detection for several named entity types.
     :::column-end:::
 :::row-end:::
 <!-- separate endpoints row-->
 :::row:::
     :::column span="":::
-        Endpoint di richiesta separati 
+        Separate request endpoints 
     :::column-end:::
     :::column span="":::
-        Separare gli endpoint per l'invio di entità di collegamento e richieste NER.
+        Separate endpoints for sending entity linking and NER requests.
     :::column-end:::
 :::row-end:::
 <!-- model-version row -->
 :::row:::
     :::column span="":::
-        parametro `model-version`
+        `model-version` parameter
     :::column-end:::
     :::column span="":::
-        Parametro facoltativo per la scelta di una versione del modello Analisi del testo. Attualmente solo il modello predefinito è disponibile per l'utilizzo.
+        An optional parameter for choosing a version of the Text Analytics model. Currently only the default model is available for use.
     :::column-end:::
 :::row-end:::
 
 ### <a name="entity-types"></a>Tipi di entità
 
-Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER V3 è in grado di riconoscere le categorie di entità seguenti. Per un elenco dettagliato delle entità e dei linguaggi supportati, vedere l'articolo [tipi di entità denominati](../named-entity-types.md) .
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities. For a detailed list of supported entities and languages, see the [Named entity types](../named-entity-types.md) article.
 
-* General
-* Informazioni personali 
+* Informazioni di carattere generale
+* Personal Information 
 
-### <a name="request-endpoints"></a>Endpoint di richiesta
+### <a name="request-endpoints"></a>Request endpoints
 
-Il riconoscimento delle entità denominate V3 Usa endpoint distinti per le richieste NER e per il collegamento di entità. Usare un formato URL seguente in base alla richiesta:
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
 
 NER
-* Entità generali-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
 
-* Entità di informazioni personali-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+* Personal information entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
 
-Collegamento di entità
+Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
 ### <a name="model-versioning"></a>Gestione della versione dei modelli
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
-## <a name="supported-types-for-named-entity-recognition-v2"></a>Tipi supportati per il riconoscimento di entità denominato V2
+## <a name="supported-types-for-named-entity-recognition-v2"></a>Supported Types for Named Entity Recognition v2
 
 > [!NOTE]
-> Le entità seguenti sono supportate da NER (Named Entity Recognition) versione 2. [Ner V3](#named-entity-recognition-v3-public-preview) è in versione di anteprima pubblica e espande in modo sostanziale il numero e la profondità delle entità riconosciute nel testo.   
+> The following entities are supported by Named Entity Recognition(NER) version 2. [NER v3](#named-entity-recognition-v3-public-preview) is in public preview, and greatly expands the number and depth of the entities recognized in text.   
 
-| digitare  | SubType | Esempio |
+| Type  | SubType | Esempio |
 |:-----------   |:------------- |:---------|
-| Person        | N/D\*         | "Jeff", "Bill Gates"     |
-| Location      | N/D\*         | "Redmond, Washington", "Parigi"  |
+| Persona        | N/D\*         | "Jeff", "Bill Gates"     |
+| Località      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organizzazione  | N/D\*         | "Microsoft"   |
-| Quantità      | NUMBER        | "6", "sei"     |
+| Quantità      | Numero        | "6", "sei"     |
 | Quantità      | Percentuale    | "50%", "cinquanta percento"|
 | Quantità      | Ordinale       | "2°", "secondo"     |
-| Quantità      | Age           | "90 giorni", "30 anni"    |
+| Quantità      | Età           | "90 giorni", "30 anni"    |
 | Quantità      | Valuta      | "$ 10,99"     |
 | Quantità      | Dimensione     | "10 miglia", "40 cm"     |
 | Quantità      | Temperatura   | "32 gradi"    |
-| DateTime      | N/D\*         | "4 febbraio 2012 18:30"      |
-| DateTime      | Date          | "2 maggio 2017", "02/05/2017"   |
-| DateTime      | Time          | "8", "8:00"  |
-| DateTime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
-| DateTime      | TimeRange     | "dalle 18 alle 19"     |
-| DateTime      | Durata      | "1 minuto e 45 secondi"   |
-| DateTime      | Configurazione           | "ogni martedì"     |
+| Data e ora      | N/D\*         | "4 febbraio 2012 18:30"      |
+| Data e ora      | Data          | "2 maggio 2017", "02/05/2017"   |
+| Data e ora      | Durata          | "8", "8:00"  |
+| Data e ora      | Intervallo di date     | "dal 2 maggio al 5 maggio"    |
+| Data e ora      | Intervallo orario     | "dalle 18 alle 19"     |
+| Data e ora      | Duration      | "1 minuto e 45 secondi"   |
+| Data e ora      | Configurazione           | "ogni martedì"     |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
-| Email         | N/D\*         | "support@contoso.com" |
+| Indirizzo di posta elettronica         | N/D\*         | "support@contoso.com" |
+| US Phone Number  | N/D\*         | (US phone numbers only) "(312) 555-0176" |
+| Indirizzo IP    | N/D\*         | "10.0.0.100" |
 
-\*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  Tutti i tipi di entità supportati elencati sono disponibili solo per le lingue inglese, cinese semplificato, francese, tedesco e spagnolo.
+\*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages.
 
-### <a name="language-support"></a>Supporto per le lingue
+### <a name="language-support"></a>Supporto delle lingue
 
-L'uso del collegamento delle entità in varie lingue richiede l'uso di una corrispondente knowledge base in ciascuna lingua. Il collegamento delle entità in Analisi del testo significa che ogni lingua supportata dall'endpoint `entities` si collegherà al corpus Wikipedia corrispondente in tale lingua. Poiché le dimensioni del corpora variano tra le lingue, è prevista anche una variazione dell'entità collegata al richiamo della funzionalità. Per ulteriori informazioni, vedere l'articolo [supporto della lingua](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
+L'uso del collegamento delle entità in varie lingue richiede l'uso di una corrispondente knowledge base in ciascuna lingua. Il collegamento delle entità in Analisi del testo significa che ogni lingua supportata dall'endpoint `entities` si collegherà al corpus Wikipedia corrispondente in tale lingua. Poiché le dimensioni del corpora variano tra le lingue, è prevista anche una variazione dell'entità collegata al richiamo della funzionalità. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information.
 
 ## <a name="preparation"></a>Operazioni preliminari
 
-È necessario disporre di documenti JSON nel formato seguente: ID, testo, lingua
+You must have JSON documents in this format: ID, text, language
 
 Per le lingue attualmente supportate, vedere [questo elenco](../text-analytics-supported-languages.md).
 
@@ -156,11 +158,11 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
-+ Creare una richiesta **POST**. Esaminare la documentazione dell'API per la richiesta: [entità API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Creare una richiesta **POST**. Review the API documentation for this request: [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un'istanza di un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). È necessario includere `/text/analytics/v2.1/entities`. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
++ Impostare l'endpoint HTTP per l'estrazione delle frasi chiave usando una risorsa di Analisi del testo in Azure oppure un'istanza di un [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v2.1/entities`. Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
 
-+ Impostare un'intestazione della richiesta per includere [la chiave di accesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) per analisi del testo operazioni.
++ Set a request header to include [the access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
 + Nel corpo della richiesta specificare la raccolta di documenti JSON preparata per l'analisi.
 
@@ -337,7 +339,7 @@ Un esempio dell'output del collegamento delle entità è il seguente:
     }
 ```
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 

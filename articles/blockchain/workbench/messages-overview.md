@@ -1,21 +1,15 @@
 ---
-title: Panoramica dell'integrazione dei messaggi di Azure Blockchain Workbench
-description: Panoramica dell'uso dei messaggi nell'anteprima di Azure blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Use messages to integrate with Azure Blockchain Workbench
+description: Overview of using messages to integrate Azure Blockchain Workbench Preview with other systems.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 99159b15ea663d43d125748d6db1f334b72931ae
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161790"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324500"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
 
@@ -65,7 +59,7 @@ Blockchain Workbench restituisce una risposta con i campi seguenti:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID fornito dal client |
 | userId                | ID dell'utente che è stato creato |
-| userChainIdentifier   | Indirizzo dell'utente che è stato creato nella rete blockchain. In Ethereum, l'indirizzo è l'indirizzo **a catena** dell'utente. |
+| userChainIdentifier   | Indirizzo dell'utente che è stato creato nella rete blockchain. In Ethereum, the address is the user's **on-chain** address. |
 | connectionId          | Identificatore univoco della connessione blockchain|
 | messageSchemaVersion  | Versione dello schema di messaggistica |
 | messageName           | **CreateUserUpdate** |
@@ -375,7 +369,7 @@ Gli argomenti del bus di servizio possono essere usati per notificare agli utent
 
 ## <a name="notification-message-reference"></a>Informazioni di riferimento sui messaggi di notifica
 
-A seconda del **messaggioname**, i messaggi di notifica hanno uno dei tipi di messaggio seguenti.
+Depending on the **messageName**, the notification messages have one of the following message types.
 
 ### <a name="block-message"></a>Messaggio di blocco
 
@@ -556,7 +550,7 @@ Esempio di *ContractMessage* da Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>Messaggio di evento: chiamata di funzione del contratto
+### <a name="event-message-contract-function-invocation"></a>Event message: Contract function invocation
 
 Contiene informazioni quando viene richiamata una funzione del contratto, ad esempio il nome della funzione, l'input di parametri e il chiamante della funzione.
 
@@ -636,7 +630,7 @@ Esempio di *EventMessage ContractFunctionInvocation* da Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>Messaggio di evento: inserimento dell'applicazione
+### <a name="event-message-application-ingestion"></a>Event message: Application ingestion
 
 Contiene informazioni quando un'applicazione viene caricata in Workbench, ad esempio il nome e la versione dell'applicazione caricata.
 
@@ -678,7 +672,7 @@ Contiene informazioni quando un'applicazione viene caricata in Workbench, ad ese
 | id | Identificatore univoco del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
 | name | Nome del flusso di lavoro dell'applicazione |
 | displayName | Nome visualizzato del flusso di lavoro dell'applicazione |
-| functions | Raccolta di [funzioni per il flusso di lavoro dell'applicazione](#workflow-function-information)|
+| functions | Collection of [functions for the application workflow](#workflow-function-information)|
 | stati | Raccolta di [stati per il flusso di lavoro dell'applicazione](#workflow-state-information) |
 | properties | [Informazioni sulle proprietà del flusso di lavoro](#workflow-property-information) dell'applicazione |
 
@@ -830,7 +824,7 @@ Esempio di *EventMessage ApplicationIngestion* da Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-role-assignment"></a>Messaggio di evento: assegnazione di ruolo
+### <a name="event-message-role-assignment"></a>Event message: Role assignment
 
 Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, ad esempio chi ha eseguito l'assegnazione di ruolo e il nome del ruolo e dell'applicazione corrispondente.
 
