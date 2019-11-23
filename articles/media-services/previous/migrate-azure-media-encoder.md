@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione da Azure Media Encoder a Media Encoder Standard | Microsoft Docs
-description: In questo argomento viene illustrato come eseguire la migrazione da Azure Media Encoder a Media Encoder Standard processore di contenuti multimediali.
+title: Migrate from Azure Media Encoder to Media Encoder Standard | Microsoft Docs
+description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: d2ed1d5e0cf0e42c3f916ab33f860039b5d5f781
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: e9c83a25147696b5e492241a191b3104df001c7c
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196467"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424030"
 ---
-# <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Eseguire la migrazione da Azure Media Encoder a Media Encoder Standard
+# <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrate from Azure Media Encoder to Media Encoder Standard
 
-Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali legacy Azure Media Encoder (AME), che è in fase di ritiro il 30 novembre 2019 al processore di contenuti multimediali Media Encoder Standard.  
+This article discusses the steps for migrating from the legacy Azure Media Encoder (AME) media processor, which is being retired on March 1, 2020, to the Media Encoder Standard media processor.  
 
-Quando si codificano i file con AME, i clienti utilizzano in genere una stringa del set di impostazioni denominata, ad esempio `H264 Adaptive Bitrate MP4 Set 1080p`. Per eseguire la migrazione, è necessario aggiornare il codice per usare il processore di contenuti multimediali **Media Encoder standard** anziché AME e uno dei [set di impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti, ad esempio `H264 Multiple Bitrate 1080p`. 
+When encoding files with AME, customers typically used a named preset string such as `H264 Adaptive Bitrate MP4 Set 1080p`. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of AME, and one of the equivalent [system presets](media-services-mes-presets-overview.md) like `H264 Multiple Bitrate 1080p`. 
 
-## <a name="migrating-to-media-encoder-standard"></a>Migrazione a Media Encoder Standard
+## <a name="migrating-to-media-encoder-standard"></a>Migrating to Media Encoder Standard
 
-Ecco un esempio di C# codice tipico che usa il processore di contenuti multimediali legacy. 
+Here is a typical C# code sample that uses the legacy media processor. 
 
 ```csharp
 // Declare a new job. 
@@ -45,7 +45,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
     TaskOptions.None); 
 ```
 
-Di seguito è illustrata la versione aggiornata che usa Media Encoder Standard.
+Here is the updated version that uses Media Encoder Standard.
 
 ```csharp
 // Declare a new job. 
@@ -64,15 +64,15 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Scenari avanzati 
 
-Se è stato creato un set di impostazioni di codifica personalizzato per AME usando il relativo schema, esiste uno [schema equivalente per Media Encoder standard](media-services-mes-schema.md). Per domande su come eseguire il mapping delle impostazioni precedenti al nuovo codificatore, contattare Microsoft tramite mailto:amshelp@microsoft.com  
-## <a name="known-differences"></a>Differenze note 
+If you had created your own encoding preset for AME using its schema, there is an [equivalent schema for Media Encoder Standard](media-services-mes-schema.md). If you have questions on how to map the older settings to the new encoder, please reach out to us via mailto:amshelp@microsoft.com  
+## <a name="known-differences"></a>Known differences 
 
-Media Encoder Standard è più affidabile, affidabile, offre prestazioni migliori e produce un output di qualità migliore rispetto al codificatore AME legacy. Eseguire anche queste operazioni: 
+Media Encoder Standard is more robust, reliable, has better performance, and produces better quality output than the legacy AME encoder. Inoltre: 
 
-* Media Encoder Standard produce file di output con una convenzione di denominazione diversa da AME.
-* Media Encoder Standard produce elementi quali file contenenti i metadati del [file di input](media-services-input-metadata-schema.md) e i [metadati dei file di output](media-services-output-metadata-schema.md).
+* Media Encoder Standard produces output files with a different naming convention than AME.
+* Media Encoder Standard produces artifacts such as files containing the [input file metadata](media-services-input-metadata-schema.md) and the [output file(s) metadata](media-services-output-metadata-schema.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Componenti legacy](legacy-components.md)
-* [Pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+* [Legacy components](legacy-components.md)
+* [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)

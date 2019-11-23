@@ -1,6 +1,6 @@
 ---
-title: Aggiornare e gestire una regola di gruppo dinamica e risolvere i problemi di appartenenza-Azure Active Directory | Microsoft Docs
-description: Come creare una regola di appartenenza a un gruppo nella portale di Azure, controllare lo stato.
+title: Update and manage a dynamic group rule and troubleshoot membership - Azure Active Directory | Microsoft Docs
+description: How to create a group membership rule in the Azure portal, check status.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,79 +14,79 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84290ee3c242b5ccb91bdca8a6b82fc0bf963751
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c387e2d78adcaebc430073a2a45818c4a0928b9f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194579"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422363"
 ---
-# <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Aggiornare un gruppo dinamico per gestire l'appartenenza a Azure Active Directory
+# <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Update a dynamic group to manage membership in Azure Active Directory
 
-In Azure Active Directory (Azure AD), è possibile usare le regole per determinare l'appartenenza al gruppo in base alle proprietà dell'utente o del dispositivo. Questo articolo illustra come configurare una regola per un gruppo dinamico nella portale di Azure.
-L'appartenenza dinamica è supportata per i gruppi di sicurezza o per i gruppi di Office 365. Quando viene applicata una regola di appartenenza a un gruppo, gli attributi utente e dispositivo vengono valutati per le corrispondenze con la regola di appartenenza. Quando un attributo viene modificato per un utente o un dispositivo, vengono elaborate tutte le regole dinamiche del gruppo nell'organizzazione per le modifiche dell'appartenenza. Utenti e dispositivi vengono aggiunti o rimossi se soddisfano le condizioni per un gruppo.
+In Azure Active Directory (Azure AD), you can use rules to determine group membership based on user or device properties. This article tells how to set up a rule for a dynamic group in the Azure portal.
+Dynamic membership is supported for security groups or Office 365 groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group.
 
-## <a name="rule-builder-in-the-azure-portal"></a>Generatore regole nella portale di Azure
+## <a name="rule-builder-in-the-azure-portal"></a>Rule builder in the Azure portal
 
-Azure AD fornisce un generatore di regole per creare e aggiornare le regole importanti più rapidamente. Il generatore regole supporta la costruzione di un massimo di cinque espressioni. Il generatore regole rende più semplice formare una regola con alcune semplici espressioni, ma non può essere usata per riprodurre ogni regola. Se il generatore regole non supporta la regola che si desidera creare, è possibile utilizzare la casella di testo.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
-Di seguito sono riportati alcuni esempi di regole avanzate o sintassi per cui è consigliabile costruire utilizzando la casella di testo:
+Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
-- Regola con più di cinque espressioni
-- Regola dei report diretti
-- Impostazione della [precedenza degli operatori](groups-dynamic-membership.md#operator-precedence)
-- [Regole con espressioni complesse](groups-dynamic-membership.md#rules-with-complex-expressions); Per esempio`(user.proxyAddresses -any (_ -contains "contoso"))`
+- Rule with more than five expressions
+- The Direct reports rule
+- Setting [operator precedence](groups-dynamic-membership.md#operator-precedence)
+- [Rules with complex expressions](groups-dynamic-membership.md#rules-with-complex-expressions); for example `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> Il generatore regole potrebbe non essere in grado di visualizzare alcune regole costruite nella casella di testo. Potrebbe essere visualizzato un messaggio quando il generatore regole non è in grado di visualizzare la regola. Il generatore regole non modifica in alcun modo la sintassi, la convalida o l'elaborazione delle regole di gruppo dinamiche supportate.
+> The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
-![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-Per esempi di sintassi, proprietà, operatori e valori supportati per una regola di appartenenza, vedere [regole di appartenenza dinamiche per i gruppi in Azure Active Directory](groups-dynamic-membership.md).
+For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
 
-## <a name="to-update-a-group-membership-rule"></a>Per aggiornare una regola di appartenenza a un gruppo
+## <a name="to-update-a-group-membership-rule"></a>To update a group membership rule
 
-1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account che si trova nel ruolo amministratore globale, amministratore di Intune o amministratore utente nel tenant.
-1. Selezionare **gruppi** > **tutti i gruppi**.
-1. Selezionare un gruppo per aprirne il profilo.
-1. Nella pagina profilo per il gruppo selezionare regole di **appartenenza dinamica**. Il generatore regole supporta fino a cinque espressioni. Per aggiungere più di cinque espressioni, è necessario utilizzare la casella di testo.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Group administrator, Intune administrator, or User administrator role in the tenant.
+1. Select **Groups** > **All groups**.
+1. Select a group to open its profile.
+1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
-   ![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-update-rule/update-dynamic-group-rule.png)
+   ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-1. Per visualizzare le proprietà dell'estensione personalizzata disponibili per la regola di appartenenza:
-   1. Selezionare **Ottieni proprietà estensione personalizzata**
-   1. Immettere l'ID applicazione, quindi selezionare **Aggiorna proprietà**.
-1. Dopo aver aggiornato la regola, selezionare **Salva**.
+1. To see the custom extension properties available for your membership rule:
+   1. Select **Get custom extension properties**
+   1. Enter the application ID, and then select **Refresh properties**.
+1. After updating the rule, select **Save**.
 
-Se la regola immessa non è valida, una spiegazione del motivo per cui non è stato possibile elaborare la regola viene visualizzata in una notifica di Azure nel portale. Leggerlo attentamente per comprendere come correggere la regola.
+If the rule you entered isn't valid, an explanation of why the rule couldn't be processed is displayed in an Azure notification in the portal. Read it carefully to understand how to fix the rule.
 
-## <a name="check-processing-status-for-a-rule"></a>Controllare lo stato di elaborazione di una regola
+## <a name="check-processing-status-for-a-rule"></a>Check processing status for a rule
 
 È possibile visualizzare lo stato di elaborazione dell'appartenenza e la data dell'ultimo aggiornamento nella pagina **Panoramica** per il gruppo.
   
-  ![visualizzazione dello stato dinamico dei gruppi](./media/groups-create-rule/group-status.png)
+  ![display of dynamic group status](./media/groups-create-rule/group-status.png)
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elaborazione appartenenza**:
 
-- **Valutazione**:  la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
+- **Valutazione**: la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
 - **Elaborazione**: gli aggiornamenti sono in fase di elaborazione.
-- **Aggiornamento completato**: l'elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
-- **Errore di elaborazione**:  Non è stato possibile completare l'elaborazione a causa di un errore durante la valutazione della regola di appartenenza.
-- **Aggiornamento sospeso**: gli aggiornamenti della regola di appartenenza dinamica sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
+- **Aggiornamento completato**: l’elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
+- **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
+- **Aggiornamento sospeso**: regola di appartenenza dinamica, gli aggiornamenti sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ultimo aggiornamento dell'appartenenza**:
 
-- **Data e ora**: ora dell'ultimo aggiornamento dell'appartenenza.
+- **Date and time**: The last time the membership was updated.
 - **In corso**: aggiornamenti in corso.
-- **Sconosciuto**: Non è possibile recuperare l'ora dell'ultimo aggiornamento. Il gruppo potrebbe essere nuovo.
+- **Unknown**: The last update time can't be retrieved. The group might be new.
 
 Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti in sospeso per l'appartenenza dinamica per tutti i gruppi all'interno del tenant per oltre 24 ore, viene visualizzato un avviso nella parte superiore di **Tutti i gruppi** .
 
-![elaborazione degli avvisi dei messaggi di errore](./media/groups-create-rule/processing-error.png)
+![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questi articoli forniscono informazioni aggiuntive sull'uso dei gruppi dinamici in Azure AD.
+These articles provide additional information on working with dynamic groups in Azure AD.
 
-- Per un riferimento completo alla struttura della regola dinamica, vedere [sintassi della regola di appartenenza dinamica](groups-dynamic-membership.md).
-- [Creare un gruppo di appartenenze statico e aggiungere membri](../fundamentals/active-directory-groups-create-azure-portal.md).
+- For a complete reference to dynamic rule structure, see [Dynamic membership rule syntax](groups-dynamic-membership.md).
+- [Create a static membership group and add members](../fundamentals/active-directory-groups-create-azure-portal.md).

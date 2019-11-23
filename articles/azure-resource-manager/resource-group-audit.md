@@ -1,16 +1,16 @@
 ---
-title: Visualizzare i log attività di Azure per monitorare le risorse
-description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Mostra portale di Azure PowerShell, l'interfaccia della riga di comando di Azure e REST.
+title: View Azure activity logs to monitor resources
+description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Shows Azure portal PowerShell, Azure CLI, and REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 3ac407fa4cfef1530cb6bbfde2ec666b5a07e324
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 7b70d2a8c158b6f8b3dc87c22e5ca90f2861aebb
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150872"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422296"
 ---
-# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>View activity logs to monitor actions on resources
 
 Con i log attività è possibile determinare:
 
@@ -20,35 +20,37 @@ Con i log attività è possibile determinare:
 * lo stato dell'operazione;
 * i valori delle altre proprietà che potrebbero essere utili per esaminare l'operazione.
 
-Il log attività contiene tutte le operazioni di scrittura (PUT, POST, DELETE) per le risorse. Non include le operazioni di lettura (GET). Per un elenco azioni risorsa, vedere [Operazioni di provider di risorse con Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). È possibile usare i log attività per trovare un errore durante la risoluzione dei problemi o monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
+The activity log contains all write operations (PUT, POST, DELETE) for your resources. Non include le operazioni di lettura (GET). Per un elenco azioni risorsa, vedere [Operazioni di provider di risorse con Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). È possibile usare i log attività per trovare un errore durante la risoluzione dei problemi o monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
 
 I log attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima.
 
 È possibile recuperare le informazioni dai log attività tramite il portale, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Insights o la [libreria .NET di Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="azure-portal"></a>portale di Azure
+## <a name="azure-portal"></a>Portale di Azure
 
-1. Per visualizzare i log attività dal portale, selezionare **Monitoraggio**.
+To view the activity logs through the portal, follow these steps:
 
-    ![Selezionare monitoraggio](./media/resource-group-audit/select-monitor.png)
+1. On the Azure portal menu, select **Monitor**, or search for and select **Monitor** from any page.
+
+    ![Selezionare monitoraggio](./media/resource-group-audit/select-monitor-from-menu.png)
 
 1. Selezionare **Log attività**.
 
     ![Selezionare il log attività](./media/resource-group-audit/select-activity-log.png)
 
-1. Viene visualizzato un riepilogo delle operazioni recenti. Un set predefinito di filtri viene applicato alle operazioni. Si noti che le informazioni sul riepilogo includono l'utente che ha avviato l'azione e il momento in cui si è verificato.
+1. Viene visualizzato un riepilogo delle operazioni recenti. Un set predefinito di filtri viene applicato alle operazioni. Notice the information on the summary includes who started the action and when it happened.
 
     ![Visualizzare riepilogo delle operazioni recenti](./media/resource-group-audit/audit-summary.png)
 
-1. Per eseguire rapidamente un set predefinito di filtri, selezionare **Quick Insights**.
+1. To quickly run a pre-defined set of filters, select **Quick Insights**.
 
-    ![Selezionare Quick Insights](./media/resource-group-audit/select-quick-insights.png)
+    ![Select quick insights](./media/resource-group-audit/select-quick-insights.png)
 
-1. Selezionare una delle opzioni disponibili. Selezionare, ad esempio, **distribuzioni non riuscite** per visualizzare gli errori delle distribuzioni.
+1. Selezionare una delle opzioni disponibili. For example, select **Failed deployments** to see errors from deployments.
 
-    ![Selezionare le distribuzioni non riuscite](./media/resource-group-audit/select-failed-deployments.png)
+    ![Select failed deployments](./media/resource-group-audit/select-failed-deployments.png)
 
-1. Si noti che i filtri sono stati modificati per concentrarsi sugli errori di distribuzione nelle ultime 24 ore. Vengono visualizzate solo le operazioni che corrispondono ai filtri.
+1. Notice the filters have been changed to focus on deployment errors in the last 24 hours. Only operations that match the filters are displayed.
 
     ![Filtri di visualizzazione](./media/resource-group-audit/view-filters.png)
 
@@ -64,23 +66,23 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
 
     ![Assegnare un nome ai filtri](./media/resource-group-audit/name-filters.png)
 
-1. Il filtro è disponibile nel dashboard.
+1. Il filtro è disponibile nel dashboard. On the Azure portal menu, select **Dashboard**.
 
-    ![Mostrare il filtro nel dashboard](./media/resource-group-audit/show-dashboard.png)
+    ![Mostrare il filtro nel dashboard](./media/resource-group-audit/activity-log-on-dashboard.png)
 
-1. Dal portale è possibile visualizzare le modifiche apportate a una risorsa. Tornare alla visualizzazione predefinita in monitoraggio e selezionare un'operazione che comporta la modifica di una risorsa.
+1. From the portal, you can view changes to a resource. Go back to the default view in Monitor, and select an operation that involved changing a resource.
 
-    ![Seleziona operazione](./media/resource-group-audit/select-operation.png)
+    ![Select operation](./media/resource-group-audit/select-operation.png)
 
-1. Selezionare **cronologia modifiche (anteprima)** e scegliere una delle operazioni disponibili.
+1. Select **Change history (Preview)** and pick one of the available operations.
 
-    ![Seleziona cronologia modifiche](./media/resource-group-audit/select-change-history.png)
+    ![Select change history](./media/resource-group-audit/select-change-history.png)
 
-1. Verranno visualizzate le modifiche apportate alla risorsa.
+1. The changes in the resource are displayed.
 
-    ![Mostra modifiche](./media/resource-group-audit/show-changes.png)
+    ![Show changes](./media/resource-group-audit/show-changes.png)
 
-Per altre informazioni sulla cronologia delle modifiche, vedere [ottenere le modifiche alle risorse](../governance/resource-graph/how-to/get-resource-changes.md).
+To learn more about change history, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +106,7 @@ In alternativa, è possibile usare funzioni data per specificare l'intervallo di
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 ```
 
-È possibile cercare le azioni eseguite da un determinato utente.
+You can look up the actions taken by a particular user.
 
 ```azurepowershell-interactive
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
@@ -134,7 +136,7 @@ A seconda dell'ora di inizio specificata, il comando precedente può restituire 
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-È possibile usare il grafico risorse per visualizzare la cronologia delle modifiche per una risorsa. Per altre informazioni, vedere [ottenere le modifiche alle risorse](../governance/resource-graph/how-to/get-resource-changes.md).
+You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -180,7 +182,7 @@ A seconda dell'ora di inizio specificata, il comando precedente può restituire 
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-È possibile usare il grafico risorse per visualizzare la cronologia delle modifiche per una risorsa. Per altre informazioni, vedere [ottenere le modifiche alle risorse](../governance/resource-graph/how-to/get-resource-changes.md).
+You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="rest-api"></a>API REST
 
@@ -190,7 +192,7 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 
 * I log attività di Azure possono essere usati con Power BI per ottenere altre informazioni sulle azioni nella sottoscrizione. Vedere [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Visualizzare e analizzare i log attività di Azure in Power BI e altri strumenti).
 * Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo in Azure](../role-based-access-control/role-assignments-portal.md).
-* Per visualizzare altri dettagli sulle modifiche apportate alle applicazioni dal livello dell'infrastruttura fino alla distribuzione delle applicazioni, vedere [usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure](../azure-monitor/app/change-analysis.md).
+* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis.md).
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](resource-group-lock-resources.md).
 * Per visualizzare l'elenco delle operazioni disponibili per ogni provider Microsoft Azure Resource Manager, vedere [Operazioni di provider di risorse con Azure Resource Manager](../role-based-access-control/resource-provider-operations.md)

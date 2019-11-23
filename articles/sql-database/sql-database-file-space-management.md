@@ -1,5 +1,5 @@
 ---
-title: Gestione spazio file per database singoli o in pool
+title: Single/pooled databases file space management
 description: Questa pagina descrive come gestire lo spazio file con database singoli e in pool nel database SQL di Azure e fornisce esempi di codice per determinare se sia necessario compattare un database singolo o in pool e come eseguire un'operazione di compattazione del database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803063"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420976"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
 
@@ -26,10 +26,6 @@ Questo articolo descrive i diversi tipi di spazio di archiviazione per database 
 > Le informazioni di questo articolo non sono valide per l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure.
 
 ## <a name="overview"></a>Panoramica
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Con i database singoli e in pool nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
 
@@ -56,7 +52,7 @@ Le API seguenti misurano invece anche le dimensioni dello spazio allocato per i 
 Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space).
 
 > [!NOTE]
-> A differenza dei file di dati, il servizio di database SQL compatta automaticamente i file di log, in quanto tale operazione non influisce sulle prestazioni del database. 
+> A differenza dei file di dati, il servizio di database SQL compatta automaticamente i file di log, in quanto tale operazione non influisce sulle prestazioni del database.
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Informazioni sui tipi di spazio di archiviazione per un database
 
@@ -68,7 +64,6 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 |**Spazio dati allocato**|Quantità di spazio file formattato messo a disposizione per l'archiviazione dei dati del database.|La quantità di spazio allocato aumenta automaticamente, ma non diminuisce mai dopo le eliminazioni. Questo comportamento assicura che gli inserimenti futuri avvengano più velocemente, perché non è necessario riformattare lo spazio.|
 |**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato.|Questa quantità rappresenta la quantità massima di spazio libero che può essere recuperata compattando i file di dati del database.|
 |**Dimensioni massime dei dati**|Quantità massima di spazio che può essere usata per l'archiviazione dei dati del database.|La quantità di spazio dati allocato non può superare le dimensioni massime dei dati.|
-||||
 
 Il diagramma seguente illustra la relazione tra i diversi tipi di spazio di archiviazione per un database.
 
@@ -98,13 +93,13 @@ Usare la query seguente per restituire la quantità di spazio dati di database a
 ```sql
 -- Connect to database
 -- Database data space allocated in MB and database data space allocated unused in MB
-SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, 
-SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB 
+SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
+SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
- 
+
 ### <a name="database-data-max-size"></a>Dimensioni massime dei dati del database
 
 Modificare la query seguente per restituire le dimensioni massime dei dati del database.  L'unità di misura dei risultati di query è costituita da byte.
@@ -125,7 +120,6 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 |**Spazio dati allocato**|Somma dello spazio dati allocato da tutti i database nel pool elastico.||
 |**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato da tutti i database nel pool elastico.|Questa quantità rappresenta la quantità massima di spazio allocato per il pool elastico che può essere recuperata compattando i file di dati del database.|
 |**Dimensioni massime dei dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica questa condizione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
-||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Eseguire una query su un pool elastico per ottenere informazioni sullo spazio di archiviazione
 
@@ -146,36 +140,29 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del pool elastico allocato e spazio allocato non usato
 
-Modificare lo script di PowerShell seguente per restituire una tabella che elenca lo spazio allocato e lo spazio allocato non usato per ogni database in un pool elastico. La tabella dispone i database in ordine decrescente in base alla quantità di spazio allocato non usato.  L'unità di misura dei risultati di query è costituita da MB.  
+Modify the following examples to return a table listing the space allocated and unused allocated space for each database in an elastic pool. La tabella dispone i database in ordine decrescente in base alla quantità di spazio allocato non usato.  L'unità di misura dei risultati di query è costituita da MB.  
 
 I risultati delle query per determinare lo spazio allocato per ogni database nel pool possono essere sommati per determinare lo spazio totale allocato per il pool elastico. Lo spazio allocato del pool elastico non deve superare le dimensioni massime del pool elastico.  
+
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 Lo script di PowerShell richiede il modulo SQL Server PowerShell. Vedere [Scaricare il modulo PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) per l'installazione.
 
 ```powershell
-# Resource group name
-$resourceGroupName = "rg1" 
-# Server name
-$serverName = "ls2" 
-# Elastic pool name
-$poolName = "ep1"
-# User name for server
-$userName = "name"
-# Password for server
-$password = "password"
+$resourceGroupName = "<resourceGroupName>"
+$serverName = "<serverName>"
+$poolName = "<poolName>"
+$userName = "<userName>"
+$password = "<password>"
 
-# Get list of databases in elastic pool
-$databasesInPool = Get-AzSqlElasticPoolDatabase `
-    -ResourceGroupName $resourceGroupName `
-    -ServerName $serverName `
-    -ElasticPoolName $poolName
+# get list of databases in elastic pool
+$databasesInPool = Get-AzSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName -ElasticPoolName $poolName
 $databaseStorageMetrics = @()
 
-# For each database in the elastic pool,
-# get its space allocated in MB and space allocated unused in MB.
-  
-foreach ($database in $databasesInPool)
-{
+# for each database in the elastic pool, get space allocated in MB and space allocated unused in MB
+foreach ($database in $databasesInPool) {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `
     SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB, `
     SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB `
@@ -184,17 +171,13 @@ foreach ($database in $databasesInPool)
     HAVING type_desc = 'ROWS'"
     $serverFqdn = "tcp:" + $serverName + ".database.windows.net,1433"
     $databaseStorageMetrics = $databaseStorageMetrics + 
-        (Invoke-Sqlcmd -ServerInstance $serverFqdn `
-        -Database $database.DatabaseName `
-        -Username $userName `
-        -Password $password `
-        -Query $sqlCommand)
+        (Invoke-Sqlcmd -ServerInstance $serverFqdn -Database $database.DatabaseName `
+            -Username $userName -Password $password -Query $sqlCommand)
 }
-# Display databases in descending order of space allocated unused
+
+# display databases in descending order of space allocated unused
 Write-Output "`n" "ElasticPoolName: $poolName"
-Write-Output $databaseStorageMetrics | Sort `
-    -Property DatabaseDataSpaceAllocatedUnusedInMB `
-    -Descending | Format-Table
+Write-Output $databaseStorageMetrics | Sort -Property DatabaseDataSpaceAllocatedUnusedInMB -Descending | Format-Table
 ```
 
 Lo screenshot seguente mostra un esempio di output dello script:
@@ -230,20 +213,19 @@ DBCC SHRINKDATABASE (N'db1')
 
 Questo comando può influire sulle prestazioni del database mentre è in esecuzione e quindi, se possibile, dovrebbe essere eseguito in periodi di utilizzo ridotto.  
 
-Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Compattazione automatica
 
 In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a `SHRINKDATABASE` o `SHRINKFILE`.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  Può essere però meno efficace nel recupero dello spazio file rispetto a `SHRINKDATABASE` e `SHRINKFILE`.
 Per abilitare la compattazione automatica, modificare il nome del database nel comando seguente.
 
-
 ```sql
 -- Enable auto-shrink for the database.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current). 
+Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ### <a name="rebuild-indexes"></a>Ricompilazione degli indici
 
@@ -256,5 +238,5 @@ Dopo la compattazione dei file di dati del database, gli indici possono diventar
   - [Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
   - [Limiti del modello di acquisto basato su vCore per il database SQL di Azure per i pool elastici](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
-- Per altre informazioni sul comando `SHRINKDATABASE`, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
+- Per altre informazioni sul comando `SHRINKDATABASE`, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 - Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

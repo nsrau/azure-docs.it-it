@@ -13,23 +13,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: f76a2eb098e2d96f617d19de089e56c7e8a497fd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162759"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423893"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum MSDN su Servizi multimediali di Microsoft Azure]. 
 
-## <a name="a-idissuesknown-issues"></a>problemi noti di <a id="issues"/>
+## <a name="a-idissuesknown-issues"></a><a id="issues"/>Known issues
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di Servizi multimediali
 
 | Problema | Description |
@@ -41,34 +41,34 @@ Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolve
 | Quando si esegue una query di entità, è previsto un limite di 1.000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1.000 risultati. |Usare Skip e Take (.NET)/top (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. |Per altre informazioni, vedere [questa sezione](media-services-deliver-content-overview.md#known-issues). |
 | Gli oggetti Media Services .NET SDK non possono essere serializzati e di conseguenza non funzionano con la Cache di Azure per Redis. |Se si prova a serializzare l'oggetto AssetCollection dell'SDK per aggiungerlo a Cache di Azure per Redis, viene generata un'eccezione. |
-|L'API REST risponde con un messaggio di errore che indica che non è possibile accedere al filtro da questa versione dell'API REST quando si tenta di ottenere un filtro a livello di asset o di account.|Il filtro è stato creato o modificato con una versione API più recente di quella usata per provare a ottenere il filtro. Questo problema può verificarsi se due versioni dell'API vengono usate dal codice o dagli strumenti usati dal cliente.  La soluzione migliore consiste nell'aggiornare il codice o gli strumenti per usare le versioni più recenti o le due API.|
+|The REST API responds with an error message saying “The filter cannot be accessed by this version of REST Api” when attempting to get an Asset or Account level filter.|The filter was created or modified with a newer API version than is being used to try to get the filter. This can happen if two API versions are being used by code or tools being used by the customer.  The best solution here is to upgrade the code or tools to use the newer or the two API versions.|
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
 ## <a name="september-2019"></a>Settembre 2019
 
-### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
+### <a name="deprecation-of-media-processors"></a>Deprecation of media processors
 
-È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Il processore di contenuti multimediali [Azure Media Indexer](media-services-index-content.md) verrà ritirato il 1 ° ottobre del 2020. I processori di contenuti multimediali [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) verranno ritirati il 1 ° gennaio 2020. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
-Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto 2019
 
-### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
+### <a name="deprecation-of-media-processors"></a>Deprecation of media processors
 
-Microsoft sta annunciando la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (biaigi) e *Azure Media Encoder* (AME), che verranno ritirati il 30 novembre 2019.
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on March 31, 2020.
 
-Per informazioni dettagliate, vedere [eseguire la migrazione di biaigi a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101334) ed [eseguire la migrazione di Ame a Media Encoder standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
 ## <a name="march-2019"></a>Marzo 2019
 
-La funzionalità di anteprima degli iperlassi multimediali di servizi multimediali di Azure è stata deprecata.
+The Media Hyperlapse Preview feature of Azure Media Services was deprecated.
 
 ## <a name="december-2018"></a>Dicembre 2018
 
-La funzionalità di anteprima degli iperlassi multimediali di servizi multimediali di Azure verrà ritirata a breve. A partire dal 19 dicembre 2018 non verranno più apportati miglioramenti o modifiche alla funzionalità Media Hyperlapse di Servizi multimediali. Il 29 marzo 2019 questa funzionalità verrà ritirata e non sarà più disponibile.
+The Media Hyperlapse Preview feature of Azure Media Services will soon be retired. A partire dal 19 dicembre 2018 non verranno più apportati miglioramenti o modifiche alla funzionalità Media Hyperlapse di Servizi multimediali. Il 29 marzo 2019 questa funzionalità verrà ritirata e non sarà più disponibile.
 
 ## <a name="october-2018"></a>Ottobre 2018
 

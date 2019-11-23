@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 11/14/2019
-ms.openlocfilehash: 0b8bfff03414dd02360cab1957ea2205e392235d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b3bc99d0fbdb551af0fb3711d74db537d3f9b1a5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082474"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421336"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
-Il database SQL di Azure offre diversi metodi per la creazione di una copia coerente a livello di transazioni di un database SQL di Azure esistente ([database singolo](sql-database-single-database.md)) nello stesso server o in un server diverso. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL. 
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. È possibile selezionare lo stesso server o un server diverso. È anche possibile scegliere di mantengono il livello di servizio e le dimensioni di calcolo oppure utilizzare una dimensione di calcolo diversa nello stesso livello di servizio (edizione). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente. La copia viene creata usando la tecnologia di replica geografica e, una volta completato il seeding, il collegamento di replica geografica viene terminato automaticamente. Tutti i requisiti per l'uso della replica geografica si applicano all'operazione di copia del database. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](sql-database-active-geo-replication.md) .
+Una copia del database è uno snapshot del database di origine al momento della richiesta di copia. You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. A questo punto, è possibile aggiornare o effettuare il downgrade della copia a qualsiasi edizione. Gli account di accesso, gli utenti e le autorizzazioni possono essere gestiti in modo indipendente. The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](sql-database-active-geo-replication.md) for details.
 
 > [!NOTE]
 > [I backup di database automatizzati](sql-database-automated-backups.md) vengono usati quando si crea una copia del database.
@@ -33,71 +33,74 @@ Una copia del database è uno snapshot del database di origine al momento della 
 
 Quando si copia un database nello stesso server di database SQL, è possibile usare gli stessi account di accesso per entrambi i database. L'entità di sicurezza usata per copiare il database diventa il proprietario del database nel nuovo database. Tutti gli utenti del database, le relative autorizzazioni e i relativi identificatori di sicurezza (SID) vengono copiati nella copia del database.  
 
-Quando la copia del database viene eseguita su un server di database SQL diverso, l'entità di sicurezza sul nuovo server diventa il proprietario del database nel nuovo database. L'uso di [utenti di database indipendente](sql-database-manage-logins.md) per l'accesso ai dati garantisce che per i database primari e secondari ci siano sempre le stesse credenziali utente, in modo che dopo il completamento della copia sia possibile accedervi immediatamente con le stesse credenziali. 
+Quando la copia del database viene eseguita su un server di database SQL diverso, l'entità di sicurezza sul nuovo server diventa il proprietario del database nel nuovo database. L'uso di [utenti di database indipendente](sql-database-manage-logins.md) per l'accesso ai dati garantisce che per i database primari e secondari ci siano sempre le stesse credenziali utente, in modo che dopo il completamento della copia sia possibile accedervi immediatamente con le stesse credenziali.
 
-Se si usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), è possibile eliminare completamente l'esigenza di gestione delle credenziali nella copia. Tuttavia, quando si copia il database in un nuovo server, è possibile che l'accesso basato sulle credenziali non funzioni perché le credenziali di accesso non esistono nel nuovo server. Per informazioni sulla gestione degli accessi con credenziali durante la copia di un database in un server di database SQL diverso, vedere [Come gestire la sicurezza dei database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md). 
+Se si usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), è possibile eliminare completamente l'esigenza di gestione delle credenziali nella copia. Tuttavia, quando si copia il database in un nuovo server, è possibile che l'accesso basato sulle credenziali non funzioni perché le credenziali di accesso non esistono nel nuovo server. Per informazioni sulla gestione degli accessi con credenziali durante la copia di un database in un server di database SQL diverso, vedere [Come gestire la sicurezza dei database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
 Dopo il completamento della copia e prima che venga modificato il mapping di altri utenti, solo l'account di accesso che ha avviato la copia, il proprietario del database, può accedere al nuovo database. Per risolvere gli account di accesso al termine dell'operazione di copia, vedere [Risolvere gli account di accesso](#resolve-logins).
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>Copiare un database tramite il portale di Azure
 
-Per copiare un database tramite il portale di Azure, aprire la pagina per il database e quindi fare clic su **Copia**. 
+Per copiare un database tramite il portale di Azure, aprire la pagina per il database e quindi fare clic su **Copia**.
 
    ![Copia del database](./media/sql-database-copy/database-copy.png)
 
 ## <a name="copy-a-database-by-using-powershell"></a>Copiare un database tramite PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+To copy a database, use the following examples.
 
-Per copiare un database tramite PowerShell, usare il cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) . 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+For PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet.
+
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 ```powershell
-New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
-    -ServerName $sourceserver `
-    -DatabaseName "MySampleDatabase" `
-    -CopyResourceGroupName "myResourceGroup" `
-    -CopyServerName $targetserver `
-    -CopyDatabaseName "CopyOfMySampleDatabase"
+New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
+    -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
+
+The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azure-cli
+az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver `
+    --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
+```
+
+The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
+
+* * *
 
 Per uno script di esempio completo, vedere [Copiare un database in un nuovo server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-La copia del database è un'operazione asincrona, ma il database di destinazione viene creato immediatamente dopo l'accettazione della richiesta. Se è necessario annullare l'operazione di copia mentre è ancora in corso, eliminare il database di destinazione usando il cmdlet [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) .  
+## <a name="rbac-roles-to-manage-database-copy"></a>RBAC roles to manage database copy
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Ruoli RBAC per gestire la copia del database
-
-Per creare una copia del database, è necessario disporre dei seguenti ruoli
+To create a database copy, you will need to be in the following roles
 
 - Proprietario della sottoscrizione
-- SQL Server ruolo Collaboratore o
-- Ruolo personalizzato nei database di origine e di destinazione con l'autorizzazione seguente:
+- SQL Server Contributor role or
+- Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
 
-Per annullare una copia del database, è necessario avere i seguenti ruoli
+To cancel a database copy, you will need to be in the following roles
 
 - Proprietario della sottoscrizione
-- SQL Server ruolo Collaboratore o
-- Ruolo personalizzato nei database di origine e di destinazione con l'autorizzazione seguente:
+- SQL Server Contributor role or
+- Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
-   
-Per gestire la copia del database con portale di Azure, sono necessarie anche le autorizzazioni seguenti:
+   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
 
-&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/resources/Read   
-&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/resources/Write   
-&nbsp; &nbsp; &nbsp; Microsoft. resources/Deployments/Read   
-&nbsp; &nbsp; &nbsp; Microsoft. resources/Deployments/Write   
-&nbsp; &nbsp; &nbsp; Microsoft. resources/Distributions/operationstatuses/Read    
+To manage database copy using Azure portal, you will also need the following permissions:
 
-Se si desidera visualizzare le operazioni in distribuzioni nel gruppo di risorse nel portale, le operazioni tra più provider di risorse, incluse le operazioni SQL, sono necessari i ruoli RBAC aggiuntivi: 
+   Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/ResourceGroups/Deployments/Operations/Read   
-&nbsp; &nbsp; &nbsp; Microsoft. resources/subscriptions/ResourceGroups/Distributions/operationstatuses/Read
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
 
-
+   Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Copiare un database tramite Transact-SQL
 
@@ -111,9 +114,10 @@ Accedere al database master con l'account di accesso dell'entità di livello ser
 
 Questo comando copia Database1 in un nuovo database denominato Database2 sullo stesso server. A seconda delle dimensioni del database, l'operazione di copia potrebbe richiedere alcuni minuti.
 
-    -- Execute on the master database.
-    -- Start copying.
-    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Copiare un database SQL in un server diverso
 
@@ -121,19 +125,20 @@ Accedere al database master del server di destinazione, il server di database SQ
 
 Questo comando copia Database1 sul server1 in un nuovo database denominato Database2 sul server2. A seconda delle dimensioni del database, l'operazione di copia potrebbe richiedere alcuni minuti.
 
-    -- Execute on the master database of the target server (server2)
-    -- Start copying from Server1 to Server2
-    CREATE DATABASE Database2 AS COPY OF server1.Database1;
-    
+```sql
+-- Execute on the master database of the target server (server2) to start copying from Server1 to Server2
+CREATE DATABASE Database2 AS COPY OF server1.Database1;
+```
+
 > [!IMPORTANT]
-> È necessario configurare i firewall di entrambi i server per consentire la connessione in ingresso dall'IP del client che emette il comando di copia T-SQL.
+> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL COPY command.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiare un database SQL in una sottoscrizione diversa
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copy a SQL database to a different subscription
 
-È possibile utilizzare la procedura descritta nella sezione precedente per copiare il database in un server di database SQL in una sottoscrizione diversa. Assicurarsi di utilizzare un account di accesso con lo stesso nome e la stessa password del proprietario del database di origine ed è un membro del ruolo dbmanager o l'account di accesso dell'entità di livello server. 
+You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
 
 > [!NOTE]
-> Il [portale di Azure](https://portal.azure.com) non supporta la copia in una sottoscrizione diversa perché il portale chiama l'API ARM e usa i certificati di sottoscrizione per accedere a entrambi i server che coinvolgono la replica geografica.  
+> The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
@@ -146,8 +151,7 @@ Monitorare il processo di copia eseguendo una query sulle visualizzazioni sys.da
 > Se si decide di annullare il processo di copia mentre è in corso, eseguire l'istruzione [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) nel nuovo database. In alternativa, anche l'esecuzione dell'istruzione DROP DATABASE sul database di origine annulla il processo di copia.
 
 > [!IMPORTANT]
-> Se è necessario creare una copia con un SLO notevolmente più piccolo rispetto all'origine, è possibile che il database di destinazione non disponga di risorse sufficienti per completare il processo di seeding, causando l'esito negativo dell'operazione di copia. In questo scenario usare una richiesta di ripristino geografico per creare una copia in un server diverso e/o in un'area diversa. Per ulteriori informazioni, vedere [ripristinare un database SQL di Azure tramite backup del database](sql-database-recovery-using-backups.md#geo-restore) .
-
+> If you need to create a copy with a substantially smaller SLO than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more informaion.
 
 ## <a name="resolve-logins"></a>Risolvere gli account di accesso
 
@@ -161,7 +165,7 @@ Per informazioni sulla gestione di utenti e account di accesso durante la copia 
 
 Durante la copia di un database nel database SQL di Azure, possono essere rilevati gli errori seguenti. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
-| Codice di errore | Gravità | DESCRIZIONE |
+| Codice di errore | Severity | Description |
 | ---:| ---:|:--- |
 | 40635 |16 |Il client con indirizzo IP '%.&#x2a;ls' è temporaneamente disabilitato. |
 | 40637 |16 |La creazione della copia del database è attualmente disabilitata. |
@@ -179,5 +183,5 @@ Durante la copia di un database nel database SQL di Azure, possono essere rileva
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sugli account di accesso, vedere [Controllo e concessione dell'accesso al database](sql-database-manage-logins.md) e [Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover](sql-database-geo-replication-security-config.md).
-* Per esportare un database, vedere [Esportare un database SQL di Azure in un file BACPAC](sql-database-export.md).
+- Per informazioni sugli account di accesso, vedere [Controllo e concessione dell'accesso al database](sql-database-manage-logins.md) e [Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover](sql-database-geo-replication-security-config.md).
+- Per esportare un database, vedere [Esportare un database SQL di Azure in un file BACPAC](sql-database-export.md).

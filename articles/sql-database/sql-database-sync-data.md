@@ -11,29 +11,29 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: d69378b2e791732fb478a66f226c6269e2c515f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820828"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422535"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
 La sincronizzazione dati SQL è un servizio basato sul database SQL di Azure che consente di sincronizzare i dati selezionati bidirezionalmente tra più database SQL e istanze di SQL Server.
 
 > [!IMPORTANT]
-> Al momento, la sincronizzazione dati SQL di Azure **non** supporta Istanza gestita di database SQL di Azure.
+> Azure SQL Data Sync does not support Azure SQL Database Managed Instance at this time.
 
 ## <a name="when-to-use-data-sync"></a>Quando usare la sincronizzazione dati
 
-La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
+Data Sync is useful in cases where data needs to be kept updated across several Azure SQL databases or SQL Server databases. Questi sono i principali casi d'uso per la sincronizzazione dati:
 
 - **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere sincronizzati i dati tra i database locali e i database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 - **Applicazioni distribuite:** in molti casi è vantaggioso separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
-- **Applicazioni distribuite a livello globale:** Molte aziende si estendono in diverse aree geografiche e anche in diversi paesi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
+- **Globally Distributed Applications:** Many businesses span several regions and even several countries/regions. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
 
-La sincronizzazione dei dati non è la soluzione preferita per gli scenari seguenti:
+Data Sync isn't the preferred solution for the following scenarios:
 
 | Scenario | Alcune soluzioni raccomandate |
 |----------|----------------------------|
@@ -51,7 +51,7 @@ La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. U
 
 - Il **database hub** deve essere un database SQL di Azure.
 - I **database membri** possono essere database SQL, database di SQL Server locali o istanze di SQL Server in macchine virtuali di Azure.
-- Nel **database di sincronizzazione** sono contenuti i metadati e il log per la sincronizzazione dei dati. Il database di sincronizzazione deve essere un database SQL di Azure che si trova nella stessa area del database hub. Il database di sincronizzazione viene creato dal cliente ed è di sua proprietà.
+- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. Il database di sincronizzazione viene creato dal cliente ed è di sua proprietà.
 
 > [!NOTE]
 > Se si usa un database locale come database membro, è necessario [installare e configurare un agente di sincronizzazione locale](sql-database-get-started-sql-data-sync.md#add-on-prem).
@@ -67,7 +67,7 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 ## <a name="how-does-data-sync-work"></a>Come funziona la sincronizzazione dei dati
 
-- **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
+- **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
 - **Sincronizzazione dei dati:** il servizio di sincronizzazione dati è progettato in base a un modello hub-spoke. L'hub sincronizza singolarmente ogni membro. Le modifiche dall'hub vengono scaricate nel membro e quindi le modifiche dal membro vengono caricate nell'hub.
 - **Risoluzione dei conflitti:** sincronizzazione dati offre due opzioni per la risoluzione dei conflitti, ovvero *Priorità hub* o *Priorità client*.
   - Se si seleziona *Priorità hub*, le modifiche nell'hub sovrascrivono sempre le modifiche nel membro.
@@ -79,13 +79,12 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 |---|---|---|
 | Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
 | Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database singolo o in pool di Database SQL di Azure<br/>- Alti costi di manutenzione |
-| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introduzione alla sincronizzazione dati SQL
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurare la sincronizzazione dati nel portale di Azure
 
-- [Impostare la sincronizzazione dati SQL di Azure](sql-database-get-started-sql-data-sync.md)
+- [Configurare la sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)
 - Agente di sincronizzazione dei dati: [Agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>Configurare la sincronizzazione dati con PowerShell
@@ -103,38 +102,38 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 ## <a name="consistency-and-performance"></a>Coerenza e prestazioni
 
-#### <a name="eventual-consistency"></a>Coerenza finale
+### <a name="eventual-consistency"></a>Coerenza finale
 
-Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transazioni non è garantita. Microsoft garantisce che tutte le modifiche vengono apportate alla fine e che la sincronizzazione dati non causi perdite di dati.
+Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync doesn't cause data loss.
 
-#### <a name="performance-impact"></a>Impatto sulle prestazioni
+### <a name="performance-impact"></a>Impatto sulle prestazioni
 
 La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente per il rilevamento delle modifiche. Queste attività di rilevamento delle modifiche hanno un impatto sul carico di lavoro del database. Valutare il livello di servizio e aggiornare se necessario.
 
-Sulle prestazioni del database possono incidere anche il provisioning e il deprovisioning eseguiti durante la creazione, l'aggiornamento e l'eliminazione dei gruppi di sincronizzazione. 
+Sulle prestazioni del database possono incidere anche il provisioning e il deprovisioning eseguiti durante la creazione, l'aggiornamento e l'eliminazione dei gruppi di sincronizzazione.
 
 ## <a name="sync-req-lim"></a> Requisiti e limitazioni
 
 ### <a name="general-requirements"></a>Requisiti generali
 
-- Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se è necessario modificare un valore della chiave primaria, eliminare la riga e ricrearla con il nuovo valore della chiave primaria. 
+- Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se è necessario modificare un valore della chiave primaria, eliminare la riga e ricrearla con il nuovo valore della chiave primaria.
 
 > [!IMPORTANT]
-> La modifica del valore di una chiave primaria esistente provocherà il comportamento difettoso seguente:   
->   - I dati tra l'hub e il membro possono essere persi anche se la sincronizzazione non segnala alcun problema.
-> - La sincronizzazione può avere esito negativo perché la tabella di rilevamento include una riga non esistente dall'origine a causa della modifica della chiave primaria.
+> Changing the value of an existing primary key will result in the following faulty behavior:
+> - Data between hub and member can be lost even though sync does not report any issue.
+> - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
 
 - L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitazioni generali
 
-- Una tabella non può includere colonne Identity che non sono la chiave primaria.
-- Una chiave primaria non può avere i tipi di dati seguenti: sql_variant, binary, varbinary, image, xml. 
+- A table can't have an identity column that isn't the primary key.
+- A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
 - Usare i tipi di dati che seguono come chiave primaria con la massima cautela, perché supportano solo la precisione al secondo: time, datetime, datetime2, datetimeoffset.
-- I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
-- L'autenticazione di Azure Active Directory non è supportata.
-- Le tabelle con lo stesso nome ma con schema diverso (ad esempio, dbo.customers e sales.customers) non sono supportate.
-- Le colonne con tipi di dati definiti dall'utente non sono supportate
+- The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
+- Azure Active Directory authentication isn't supported.
+- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
+- Columns with User Defined Data Types aren't supported
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 
@@ -145,14 +144,14 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 #### <a name="unsupported-column-types"></a>Tipi di colonna non supportati
 
-La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. Ad esempio:
+La sincronizzazione dati non sincronizza le colonne di sola lettura o generate dal sistema. ad esempio:
 
 - Colonne calcolate.
 - Colonne generate dal sistema per le tabelle temporali.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitazioni alle dimensioni del servizio e del database
 
-| **Dimensioni**                                                      | **Limite**              | **Soluzione alternativa**              |
+| **Dimensioni**                                                  | **Limite**              | **Soluzione alternativa**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Numero massimo di gruppi di sincronizzazione a cui può appartenere qualsiasi database.       | 5                      |                             |
 | Numero massimo di endpoint in un singolo gruppo di sincronizzazione              | 30                     |                             |
@@ -162,7 +161,7 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 | Colonne in una tabella in un gruppo di sincronizzazione                              | 1000                   |                             |
 | Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
 | Intervallo minimo di sincronizzazione                                           | 5 minuti              |                             |
-|||
+
 > [!NOTE]
 > Se è presente un unico gruppo di sincronizzazione, questo può contenere fino a 30 endpoint. Se esistono più gruppi di sincronizzazione, il numero totale di endpoint in tutti i gruppi di sincronizzazione non può essere maggiore di 30. Se un database appartiene a più gruppi di sincronizzazione, vale come più endpoint.
 
@@ -170,7 +169,7 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Quanto costa il servizio di sincronizzazione dati SQL?
 
-Non viene applicato alcun addebito per il servizio di sincronizzazione dati SQL di per sé.  Tuttavia, si accumuleranno ancora gli addebiti per il trasferimento dei dati dovuti allo spostamento dei dati da e verso l'istanza di database SQL. Per altre informazioni, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. Per altre informazioni, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Quali aree supportano la sincronizzazione dei dati?
 
@@ -191,7 +190,7 @@ Sì. È possibile eseguire la sincronizzazione tra database SQL che appartengono
 - Se le sottoscrizioni appartengono allo stesso tenant e sono disponibili le autorizzazioni per tutte le sottoscrizioni, è possibile configurare il gruppo di sincronizzazione nel portale di Azure.
 - In caso contrario, è necessario usare PowerShell per aggiungere i membri di sincronizzazione che appartengono a sottoscrizioni diverse.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>È possibile usare la sincronizzazione dei dati tra database SQL appartenenti a cloud diversi, ad esempio al cloud pubblico di Azure e ad Azure Cina?
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
 Sì. È possibile eseguire la sincronizzazione tra database SQL appartenenti a cloud diversi. Per aggiungere i membri di sincronizzazione appartenenti a sottoscrizioni diverse, è necessario usare PowerShell.
 
@@ -201,7 +200,7 @@ Sì. Creare manualmente lo schema nel nuovo database effettuando lo scripting da
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>È opportuno usare la sincronizzazione dei dati SQL per effettuare il backup e ripristino dei database?
 
-Non è consigliabile usare la sincronizzazione dati SQL per creare un backup dei dati. Non è possibile eseguire il backup e il ripristino in un punto specifico nel tempo, perché le sincronizzazioni della sincronizzazione dati SQL sono senza versione. Inoltre, la sincronizzazione dati SQL non esegue il backup di altri oggetti SQL, ad esempio le stored procedure, e non esegue rapidamente l'equivalente di un'operazione di ripristino.
+It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
 
 Per una tecnica di backup consigliata, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
@@ -214,30 +213,30 @@ Per una tecnica di backup consigliata, vedere [Copiare un database SQL di Azure]
 
 Sì. La sincronizzazione dati SQL supporta le regole di confronto negli scenari seguenti:
 
-- Se le tabelle dello schema di sincronizzazione selezionate non sono già nel database hub o membro, quando si distribuisce il gruppo di sincronizzazione, il servizio crea automaticamente le tabelle e le colonne corrispondenti con le impostazioni delle regole di confronto selezionate nei database di destinazione vuoti.
+- If the selected sync schema tables aren't already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the collation settings selected in the empty destination databases.
 - Se le tabelle da sincronizzare sono già presenti sia nel database hub che nel database membro, la sincronizzazione dati SQL richiede che le colonne chiavi primarie abbiano le stesse regole di confronto in entrambi i database hub e membro per una distribuzione corretta del gruppo di sincronizzazione. Per le colonne diverse dalle colonne chiavi primarie non sono previste restrizioni relative alle regole di confronto.
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>La federazione è supportata nella sincronizzazione dei dati SQL?
 
-Il database radice di federazione può essere usato nel servizio di sincronizzazione dati SQL senza alcuna limitazione. Non è possibile aggiungere l'endpoint del database federato alla versione corrente della sincronizzazione dati SQL.
+Il database radice di federazione può essere usato nel servizio di sincronizzazione dati SQL senza alcuna limitazione. You can't add the Federated Database endpoint to the current version of SQL Data Sync.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 ### <a name="update-the-schema-of-a-synced-database"></a>Aggiornare lo schema di un database sincronizzato
 
-È necessario aggiornare lo schema di un database in un gruppo di sincronizzazione? Le modifiche allo schema non vengono replicate automaticamente. Per alcune soluzioni, vedere gli articoli seguenti:
+È necessario aggiornare lo schema di un database in un gruppo di sincronizzazione? Schema changes aren't automatically replicated. Per alcune soluzioni, vedere gli articoli seguenti:
 
 - [Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure](sql-database-update-sync-schema.md)
 - [Usare PowerShell per aggiornare lo schema di sincronizzazione in un gruppo di sincronizzazione esistente](scripts/sql-database-sync-update-schema.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Monitorare e risolvere i problemi
 
-La sincronizzazione dati SQL ha le prestazioni previste? Per monitorare l'attività e risolvere i problemi, vedere gli articoli seguenti:
+Is SQL Data Sync doing as expected? Per monitorare l'attività e risolvere i problemi, vedere gli articoli seguenti:
 
-- [Monitorare sincronizzazione dati SQL di Azure con i log di monitoraggio di Azure](sql-database-sync-monitor-oms.md)
+- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)
 
-### <a name="learn-more-about-azure-sql-database"></a>Ulteriori informazioni sul database SQL di Azure
+### <a name="learn-more-about-azure-sql-database"></a>Scopri di più sul database SQL
 
 Per altre informazioni sul database SQL, vedere gli articoli seguenti:
 

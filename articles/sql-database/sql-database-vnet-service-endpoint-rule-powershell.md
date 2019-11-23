@@ -1,5 +1,5 @@
 ---
-title: PowerShell per gli endpoint e le regole VNet per database singoli e in pool
+title: PowerShell for VNet endpoints and rules for single and pooled databases
 description: Vengono forniti script di PowerShell per la creazione e la gestione di endpoint del servizio virtuale per i database SQL di Azure e di SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c8f46c9066ad4ef0caac0fb19645b6e4b1cf846
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 76c4ea6c3fc5f415316e2b5cfcdf80c0681cc3f6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822395"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422502"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
 
@@ -30,31 +30,32 @@ Questo articolo fornisce e descrive uno script di PowerShell che esegue le azion
 1. Creare un *endpoint del servizio virtuale* di Microsoft Azure nella subnet.
 2. Aggiungere l'endpoint al firewall del server di database SQL di Azure per creare una *regola di rete virtuale*.
 
-Le motivazioni per la creazione di una regola sono illustrate in: [endpoint del servizio virtuale per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-overview-735r].
+Your motivations for creating a rule are explained in: [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Se si necessita semplicemente di valutare o aggiungere l'endpoint del servizio virtuale *nome del tipo* per il database SQL alla subnet, è possibile passare direttamente a uno [script di PowerShell più diretto](#a-verify-subnet-is-endpoint-ps-100).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ## <a name="major-cmdlets"></a>Cmdlet principali
 
-In questo articolo viene enfatizzato il cmdlet **New-AzSqlServerVirtualNetworkRule** che aggiunge l'endpoint della subnet all'elenco di controllo di accesso (ACL) del server di database SQL di Azure, creando così una regola.
+This article emphasizes the **New-AzSqlServerVirtualNetworkRule** cmdlet that adds the subnet endpoint to the access control list (ACL) of your Azure SQL Database server, thereby creating a rule.
 
-Nell'elenco seguente viene illustrata la sequenza di altri cmdlet *principali* che è necessario eseguire per preparare la chiamata a **New-AzSqlServerVirtualNetworkRule**. In questo articolo queste chiamate si verificano nello [Script 3 "Regola di rete virtuale"](#a-script-30):
+The following list shows the sequence of other *major* cmdlets that you must run to prepare for your call to **New-AzSqlServerVirtualNetworkRule**. In questo articolo queste chiamate si verificano nello [Script 3 "Regola di rete virtuale"](#a-script-30):
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): crea un oggetto subnet.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): crea la rete virtuale, assegnando la subnet.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): assegna un endpoint del servizio virtuale alla subnet.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Salva in modo permanente gli aggiornamenti apportati alla rete virtuale.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): dopo che la subnet è un endpoint, aggiunge la subnet come regola della rete virtuale nell'ACL del server di database SQL di Azure.
+1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): Creates a subnet object.
+2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): Creates your virtual network, giving it the subnet.
+3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Assigns a Virtual Service endpoint to your subnet.
+4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Persists updates made to your virtual network.
+5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
    - Questo cmdlet offre il parametro **-IgnoreMissingVNetServiceEndpoint**, a partire dal modulo PowerShell di Azure RM versione 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Prerequisiti per l'esecuzione di PowerShell
 
-- È già possibile accedere ad Azure, ad esempio tramite la [portale di Azure][http-azure-portal-link-ref-477t].
+- You can already log in to Azure, such as through the [Azure portal][http-azure-portal-link-ref-477t].
 - È già possibile eseguire script di PowerShell.
 
 > [!NOTE]
@@ -91,7 +92,6 @@ if ('yes' -eq $yesno) { Connect-AzAccount; }
 ###########################################################
 
 # You can edit these values, if necessary.
-
 $SubscriptionName = 'yourSubscriptionName';
 Select-AzSubscription -SubscriptionName $SubscriptionName;
 
@@ -164,10 +164,8 @@ $sqlDbServer = Get-AzSqlServer `
   -ServerName        $SqlDbServerName `
   -ErrorAction       SilentlyContinue;
 
-if ($null -eq $sqlDbServer)
-{
+if ($null -eq $sqlDbServer) {
     Write-Host "Creating the missing Azure SQL Database server - $SqlDbServerName.";
-
     Write-Host "Gather the credentials necessary to next create an Azure SQL Database server.";
 
     $sqlAdministratorCredentials = New-Object `
@@ -180,8 +178,7 @@ if ($null -eq $sqlDbServer)
             -Force `
          );
 
-    if ($null -eq $sqlAdministratorCredentials)
-    {
+    if ($null -eq $sqlAdministratorCredentials) {
         Write-Host "ERROR, unable to create SQL administrator credentials.  Now ending.";
         return;
     }
@@ -196,7 +193,9 @@ if ($null -eq $sqlDbServer)
 
     $sqlDbServer;
 }
-else { Write-Host "Good, your Azure SQL Database server already exists - $SqlDbServerName."; }
+else {
+    Write-Host "Good, your Azure SQL Database server already exists - $SqlDbServerName."; 
+}
 
 $sqlAdministratorCredentials = $null;
 $sqlDbServer                 = $null;
@@ -348,8 +347,7 @@ Remove-AzVirtualNetwork `
 ###########################################################
 
 $yesno = Read-Host 'CAUTION !: Do you want to DELETE your Azure SQL Database server AND your Resource Group?  [yes/no]';
-if ('yes' -eq $yesno)
-{
+if ('yes' -eq $yesno) {
     Write-Host "Remove the Azure SQL DB server.";
 
     Remove-AzSqlServer `
@@ -363,8 +361,7 @@ if ('yes' -eq $yesno)
       -Name        $ResourceGroupName `
       -ErrorAction SilentlyContinue;
 }
-else
-{
+else {
     Write-Host "Skipped over the DELETE of SQL Database and resource group.";
 }
 
@@ -373,103 +370,11 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 <a name="a-actual-output" />
 
-## <a name="actual-output-from-scripts-1-through-4"></a>Output effettivo degli script 1-4
-
-Di seguito è visualizzato l'output dell'esecuzione del test in formato abbreviato. Potrebbe essere utile nel caso in cui non si voglia eseguire effettivamente gli script di PowerShell in questo momento.
-
-```cmd
-[C:\WINDOWS\system32\]
-0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s1-variables.ps1
-Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]: yes
-
-
-Environment           : AzureCloud
-Account               : xx@microsoft.com
-TenantId              : 11111111-1111-1111-1111-111111111111
-SubscriptionId        : 22222222-2222-2222-2222-222222222222
-SubscriptionName      : MySubscriptionName
-CurrentStorageAccount :
-
-
-
-[C:\WINDOWS\system32\]
-0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s2-prerequisites.ps1
-Check whether your Resource Group already exists.
-Creating your missing Resource Group - RG-YourNameHere.
-
-
-ResourceGroupName : RG-YourNameHere
-Location          : westcentralus
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/22222222-2222-2222-2222-222222222222/resourceGroups/RG-YourNameHere
-
-Check whether your Azure SQL Database server already exists.
-Creating the missing Azure SQL Database server - mysqldbserver-forvnet.
-Gather the credentials necessary to next create an Azure SQL Database server.
-Create your Azure SQL Database server.
-
-ResourceGroupName        : RG-YourNameHere
-ServerName               : mysqldbserver-forvnet
-Location                 : westcentralus
-SqlAdministratorLogin    : ServerAdmin
-SqlAdministratorPassword :
-ServerVersion            : 12.0
-Tags                     :
-Identity                 :
-
-Completed script 2, the "Prerequisites".
-
-[C:\WINDOWS\system32\]
-0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s3-vnet-rule.ps1
-Define a subnet 'mySubnet', to be given soon to a virtual network.
-Create a virtual network 'myVNet'.   Give the subnet to the virtual network that we created.
-WARNING: The output object type of this cmdlet will be modified in a future release.
-Assign a Virtual Service endpoint 'Microsoft.Sql' to the subnet.
-Persist the updates made to the virtual network > subnet.
-
-Get the subnet object.
-Add the subnet .Id as a rule, into the ACLs for your Azure SQL Database server.
-ProvisioningState Service       Locations
------------------ -------       ---------
-Succeeded         Microsoft.Sql {westcentralus}
-
-Verify that the rule is in the SQL DB ACL.
-
-Completed script 3, the "Virtual-Network-Rule".
-
-[C:\WINDOWS\system32\]
-0 >> C:\Demo\PowerShell\sql-database-vnet-service-endpoint-powershell-s4-clean-up.ps1
-Delete the rule from the SQL DB ACL.
-
-Delete the endpoint from the subnet.
-
-
-Delete the virtual network (thus also deletes the subnet).
-CAUTION !: Do you want to DELETE your Azure SQL Database server AND your Resource Group?  [yes/no]: yes
-Remove the Azure SQL DB server.
-
-ResourceGroupName        : RG-YourNameHere
-ServerName               : mysqldbserver-forvnet
-Location                 : westcentralus
-SqlAdministratorLogin    : ServerAdmin
-SqlAdministratorPassword :
-ServerVersion            : 12.0
-Tags                     :
-Identity                 :
-
-Remove the Azure Resource Group.
-True
-Completed script 4, the "Clean-Up".
-```
-
-Lo script principale di PowerShell è concluso.
-
 <a name="a-verify-subnet-is-endpoint-ps-100" />
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Verificare che la subnet sia un endpoint
 
-Alla subnet potrebbe essere già stato assegnato il nome del tipo **Microsoft.Sql**; ciò significa che si tratta già di un endpoint del servizio virtuale. È possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una regola della rete virtuale dall'endpoint.
+Alla subnet potrebbe essere già stato assegnato il nome del tipo **Microsoft.Sql**; ciò significa che si tratta già di un endpoint del servizio virtuale. You could use the [Azure portal][http-azure-portal-link-ref-477t] to create a virtual network rule from the endpoint.
 
 Nel caso in cui non si sia certi che la subnet abbia il nome del tipo **Microsoft.Sql**, è possibile eseguire lo script di PowerShell seguente per completare queste azioni:
 
@@ -495,7 +400,6 @@ Questo script di PowerShell non esegue l'aggiornamento, a meno che non si rispon
 
 ```powershell
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
-
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
 if ('yes' -eq $yesno) { Connect-AzAccount; }
 
@@ -513,55 +417,46 @@ $SubnetAddressPrefix = 'Obtain this value from the Azure portal.'; # Looks rough
 $ServiceEndpointTypeName_SqlDb = 'Microsoft.Sql';  # Do NOT edit. Is official value.
 
 ### 2. Search for your virtual network, and then for your subnet.
-
 # Search for the virtual network.
 $vnet = $null;
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Name              $VNetName;
 
-if ($vnet -eq $null)
-{
+if ($vnet -eq $null) {
     Write-Host "Caution: No virtual network found by the name '$VNetName'.";
     Return;
 }
 
 $subnet = $null;
-for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++)
-{
+for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++) {
     $subnet = $vnet.Subnets[$nn];
     if ($subnet.Name -eq $SubnetName)
     { break; }
     $subnet = $null;
 }
 
-if ($subnet -eq $null)
-{
+if ($subnet -eq $null) {
     Write-Host "Caution: No subnet found by the name '$SubnetName'";
     Return;
 }
 
 ### 3. Is your subnet tagged as 'Microsoft.Sql' endpoint server type?
-
 $endpointMsSql = $null;
-for ($nn=0; $nn -lt $subnet.ServiceEndpoints.Count; $nn++)
-{
+for ($nn=0; $nn -lt $subnet.ServiceEndpoints.Count; $nn++) {
     $endpointMsSql = $subnet.ServiceEndpoints[$nn];
-    if ($endpointMsSql.Service -eq $ServiceEndpointTypeName_SqlDb)
-    {
+    if ($endpointMsSql.Service -eq $ServiceEndpointTypeName_SqlDb) {
         $endpointMsSql;
         break;
     }
     $endpointMsSql = $null;
 }
 
-if ($endpointMsSql -ne $null)
-{
+if ($endpointMsSql -ne $null) {
     Write-Host "Good: Subnet found, and is already tagged as an endpoint of type '$ServiceEndpointTypeName_SqlDb'.";
     Return;
 }
-else
-{
+else {
     Write-Host "Caution: Subnet found, but not yet tagged as an endpoint of type '$ServiceEndpointTypeName_SqlDb'.";
 
     # Ask the user for confirmation.
@@ -570,7 +465,6 @@ else
 }
 
 ### 4. Add a Virtual Service endpoint of type name 'Microsoft.Sql', on your subnet.
-
 $vnet = Set-AzVirtualNetworkSubnetConfig `
   -Name            $SubnetName `
   -AddressPrefix   $SubnetAddressPrefix `
@@ -581,38 +475,10 @@ $vnet = Set-AzVirtualNetworkSubnetConfig `
 $vnet = Set-AzVirtualNetwork `
   -VirtualNetwork $vnet;
 
-for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++)
-{ $vnet.Subnets[0].ServiceEndpoints; }  # Display.
-```
-
-### <a name="actual-output"></a>Output effettivo
-
-Il blocco seguente visualizza i suggerimenti effettivi (con modifiche di natura estetica).
-
-```powershell
-<# Our output example (with cosmetic edits), when the subnet was already tagged:
-
-Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]: no
-
-
-Environment           : AzureCloud
-Account               : xx@microsoft.com
-TenantId              : 11111111-1111-1111-1111-111111111111
-SubscriptionId        : 22222222-2222-2222-2222-222222222222
-SubscriptionName      : MySubscriptionName
-CurrentStorageAccount :
-
-
-ProvisioningState : Succeeded
-Service           : Microsoft.Sql
-Locations         : {westcentralus}
-
-Good: Subnet found, and is already tagged as an endpoint of type 'Microsoft.Sql'.
-#>
+for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++) {
+    $vnet.Subnets[0].ServiceEndpoints; }  # Display.
 ```
 
 <!-- Link references: -->
-
 [sql-db-vnet-service-endpoint-rule-overview-735r]: sql-database-vnet-service-endpoint-rule-overview.md
-
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
