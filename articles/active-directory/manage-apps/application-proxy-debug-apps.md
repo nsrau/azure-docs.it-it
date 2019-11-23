@@ -1,6 +1,6 @@
 ---
-title: Eseguire il debug di applicazioni proxy di applicazione-Azure Active Directory | Microsoft Docs
-description: Problemi di debug con applicazioni proxy di applicazione Azure Active Directory (Azure AD).
+title: Debug Application Proxy applications - Azure Active Directory | Microsoft Docs
+description: Debug issues with Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -11,44 +11,44 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 06b8edcb0f912bfd35137e197253b20b9459448f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057754"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382065"
 ---
-# <a name="debug-application-proxy-application-issues"></a>Problemi di debug dell'applicazione proxy di applicazione 
+# <a name="debug-application-proxy-application-issues"></a>Debug Application Proxy application issues 
 
-Questo articolo consente di risolvere i problemi relativi alle applicazioni proxy di applicazione Azure Active Directory (Azure AD). Se si usa il servizio proxy di applicazione per l'accesso remoto a un'applicazione Web locale, ma si verificano problemi di connessione all'applicazione, usare questo diagramma di flusso per eseguire il debug dei problemi dell'applicazione. 
+This article helps you troubleshoot issues with Azure Active Directory (Azure AD) Application Proxy applications. If you're using the Application Proxy service for remote access to an on-premises web application, but you're having trouble connecting to the application, use this flowchart to debug application issues. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Quando si risolvono i problemi del proxy di applicazione, è consigliabile iniziare con i connettori. Per prima cosa, seguire il flusso di risoluzione dei [problemi del connettore del proxy di applicazione](application-proxy-debug-connectors.md) per verificare che i connettori proxy dell'applicazione siano configurati correttamente. Se si verificano ancora problemi, tornare a questo articolo per risolvere i problemi relativi all'applicazione.  
+When troubleshooting Application Proxy issues, we recommend you start with the connectors. First, follow the troubleshooting flow in [Debug Application Proxy Connector issues](application-proxy-debug-connectors.md) to make sure Application Proxy connectors are configured correctly. If you're still having issues, return to this article to troubleshoot the application.  
 
-Per ulteriori informazioni sul proxy di applicazione, vedere:
+For more information about Application Proxy, see:
 
-- [Accesso remoto alle applicazioni locali tramite il proxy di applicazione](application-proxy.md)
-- [Connettori del proxy di applicazione](application-proxy-connectors.md)
-- [Installare e registrare un connettore](application-proxy-add-on-premises-application.md)
+- [Remote access to on-premises applications through Application Proxy](application-proxy.md)
+- [Application Proxy connectors](application-proxy-connectors.md)
+- [Install and register a connector](application-proxy-add-on-premises-application.md)
 - [Risolvere i problemi e i messaggi di errore del proxy dell'applicazione](application-proxy-troubleshoot.md)
 
-## <a name="flowchart-for-application-issues"></a>Diagramma di flusso per problemi relativi alle applicazioni
+## <a name="flowchart-for-application-issues"></a>Flowchart for application issues
 
-Questo diagramma di flusso illustra i passaggi per eseguire il debug di alcuni dei problemi più comuni relativi alla connessione all'applicazione. Per informazioni dettagliate su ogni passaggio, vedere la tabella che segue il diagramma di flusso.
+This flowchart walks you through the steps for debugging some of the more common issues with connecting to the application. For details about each step, see the table following the flowchart.
 
-![Diagramma di flusso con i passaggi per il debug di un'applicazione](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
+![Flowchart showing steps for debugging an application](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Azione | DESCRIZIONE | 
+|  | Azione | Description | 
 |---------|---------|---------|
-|1 | Aprire un browser, accedere all'app e immettere le credenziali | Provare a usare le credenziali per accedere all'app e verificare la presenza di eventuali errori correlati all'utente, ad esempio [non è possibile accedere a questa app aziendale](application-proxy-sign-in-bad-gateway-timeout-error.md). |
-|2 | Verificare l'assegnazione utente all'app | Assicurarsi che l'account utente disponga dell'autorizzazione per accedere all'app dall'interno della rete aziendale e quindi testare l'accesso all'app seguendo la procedura descritta in [testare l'applicazione](application-proxy-add-on-premises-application.md#test-the-application). Se i problemi di accesso permangono, vedere [come risolvere gli errori di accesso](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
-|3 | Aprire un browser e provare ad accedere all'app | Se viene visualizzato un errore immediatamente, verificare che il proxy di applicazione sia configurato correttamente. Per informazioni dettagliate su messaggi di errore specifici, vedere [risolvere i problemi del proxy dell'applicazione e i messaggi di errore](application-proxy-troubleshoot.md).  |
-|4 | Controllare la configurazione del dominio personalizzato o risolvere l'errore | Se la pagina non viene visualizzata, verificare che il dominio personalizzato sia configurato correttamente esaminando l'uso di [domini personalizzati](application-proxy-configure-custom-domain.md).<br></br>Se la pagina non viene caricata e viene visualizzato un messaggio di errore, risolvere l'errore riferendosi per [risolvere i problemi del proxy di applicazione e i messaggi di errore](application-proxy-troubleshoot.md). <br></br>Se sono necessari più di 20 secondi per visualizzare un messaggio di errore, potrebbe verificarsi un problema di connettività. Vedere l'articolo sulla risoluzione dei problemi relativi ai [connettori proxy dell'applicazione di debug](application-proxy-debug-connectors.md) .  |
-|5 | Se i problemi permangono, vai al debug del connettore | Potrebbe essersi verificato un problema di connettività tra il proxy e il connettore o tra il connettore e il back-end. Vedere l'articolo sulla risoluzione dei problemi relativi ai [connettori proxy dell'applicazione di debug](application-proxy-debug-connectors.md) . |
-|6 | Pubblicare tutte le risorse, controllare gli strumenti di sviluppo del browser e correggere i collegamenti | Verificare che il percorso di pubblicazione includa tutte le immagini, gli script e i fogli di stile necessari per l'applicazione. Per informazioni dettagliate, vedere [aggiungere un'app locale a Azure ad](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Usare gli strumenti di sviluppo del browser (strumenti F12 in Internet Explorer o Microsoft Edge) e verificare la presenza di problemi di pubblicazione come descritto nella [pagina dell'applicazione non viene visualizzata correttamente](application-proxy-page-appearance-broken-problem.md). <br></br>Esaminare le opzioni per la risoluzione dei collegamenti interrotti nei [collegamenti della pagina non funzionano](application-proxy-page-links-broken-problem.md). |
-|7 | Verificare la latenza di rete | Se la pagina viene caricata lentamente, informazioni sui modi per ridurre al minimo la latenza di rete in [considerazioni sulla riduzione della latenza](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
-|8 | Vedere la guida alla risoluzione dei problemi aggiuntiva | Se i problemi permangono, trovare altri articoli sulla risoluzione dei problemi nella [documentazione relativa alla risoluzione dei](application-proxy-page-appearance-broken-problem.md)problemi del proxy di applicazione. |
+|1 | Open a browser, access the app, and enter your credentials | Try using your credentials to sign in to the app, and check for any user-related errors, like [This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md). |
+|2 | Verify user assignment to the app | Make sure your user account has permission to access the app from inside the corporate network, and then test signing in to the app by following the steps in [Test the application](application-proxy-add-on-premises-application.md#test-the-application). If sign-in issues persist, see [How to troubleshoot sign-in errors](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
+|3 | Open a browser and try to access the app | If an error appears immediately, check to see that Application Proxy is configured correctly. For details about specific error messages, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).  |
+|4 | Check your custom domain setup or troubleshoot the error | If the page doesn't display at all, make sure your custom domain is configured correctly by reviewing [Working with custom domains](application-proxy-configure-custom-domain.md).<br></br>If the page doesn't load and an error message appears, troubleshoot the error by referring to  [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md). <br></br>If it takes longer than 20 seconds for an error message to appear, there could be connectivity issue. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article.  |
+|5 | If issues persist, go to connector debugging | There could be a connectivity issue between the proxy and the connector or between the connector and the back end. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article. |
+|6 | Publish all resources, check browser developer tools, and fix links | Make sure the publishing path includes all the necessary images, scripts, and style sheets for your application. For details, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Use the browser's developer tools (F12 tools in Internet Explorer or Microsoft Edge) and check for publishing issues as described in [Application page does not display correctly](application-proxy-page-appearance-broken-problem.md). <br></br>Review options for resolving broken links in [Links on the page don't work](application-proxy-page-links-broken-problem.md). |
+|7 | Check for network latency | If the page loads slowly, learn about ways to minimize network latency in [Considerations for reducing latency](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
+|8 | See additional troubleshooting help | If issues persist, find additional troubleshooting articles in the [Application Proxy troubleshooting documentation](application-proxy-troubleshoot.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

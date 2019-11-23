@@ -1,93 +1,93 @@
 ---
-title: Come correggere i rischi e sbloccare gli utenti in Azure AD Identity Protection
-description: Informazioni sulle opzioni di rilevamento dei rischi attivi di chiusura.
+title: Remediate risks and unblock users in Azure AD Identity Protection
+description: Learn about the options you have close active risk detections.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61fe0e14fbb6c6251b3bf19843b9c065df60dd86
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 350e7b37d36be70cea345db52cdfb639b2f1c1a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887520"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382109"
 ---
-# <a name="remediate-risks-and-unblock-users"></a>Correggere i rischi e sbloccare gli utenti
+# <a name="remediate-risks-and-unblock-users"></a>Remediate risks and unblock users
 
-Dopo aver completato l' [analisi](howto-identity-protection-investigate-risk.md), è opportuno intervenire per correggere il rischio o sbloccare gli utenti. Le organizzazioni hanno anche la possibilità di abilitare la correzione automatica usando i [criteri di rischio](howto-identity-protection-configure-risk-policies.md). Le organizzazioni devono provare a chiudere tutti i rilevamenti dei rischi presentati con in un periodo di tempo in cui l'organizzazione ha dimestichezza. Microsoft consiglia di chiudere gli eventi il prima possibile, perché il tempo è importante quando si lavora con i rischi.
+After completing your [investigation](howto-identity-protection-investigate-risk.md), you will want to take action to remediate the risk or unblock users. Organizations also have the option to enable automated remediation using their [risk policies](howto-identity-protection-configure-risk-policies.md). Organizations should try to close all risk detections that they are presented with in a time period your organization is comfortable with. Microsoft recommends closing events as soon as possible because time matters when working with risk.
 
 ## <a name="remediation"></a>Correzione
 
-Tutti i rilevamenti dei rischi attivi contribuiscono al calcolo di un valore denominato livello di rischio utente. Il livello di rischio utente è un indicatore (basso, medio, elevato) della probabilità che un account sia stato compromesso. In qualità di amministratore, si desidera che tutti i rilevamenti dei rischi siano chiusi, in modo che gli utenti interessati non siano più a rischio.
+All active risk detections contribute to the calculation of a value called user risk level. Il livello di rischio utente è un indicatore (basso, medio, elevato) della probabilità che un account sia stato compromesso. As an administrator, you want to get all risk detections closed, so that the affected users are no longer at risk.
 
-Alcuni rischi rilevati possono essere contrassegnati da Identity Protection come "closed (sistema)" perché gli eventi non sono più considerati rischiosi.
+Some risks detections may be marked by Identity Protection as "Closed (system)" because the events were no longer determined to be risky.
 
-Gli amministratori hanno le opzioni seguenti per correggere:
+Administrators have the following options to remediate:
 
-- Correzione automatica con criteri di rischio
+- Self-remediation with risk policy
 - Reimpostazione manuale della password
 - Ignora rischio utente
-- Chiudi manualmente i singoli rilevamenti di rischi
+- Close individual risk detections manually
 
-### <a name="self-remediation-with-risk-policy"></a>Correzione automatica con criteri di rischio
+### <a name="self-remediation-with-risk-policy"></a>Self-remediation with risk policy
 
-Se si consente agli utenti di eseguire autonomamente la correzione, con Azure Multi-Factor Authentication (autenticazione a più fattori) e la reimpostazione della password self-service (SSPR) nei criteri di rischio, possono sbloccarsi quando viene rilevato il rischio. Questi rilevamenti vengono quindi considerati chiusi. Gli utenti devono essere registrati in precedenza per l'autenticazione a più fattori di Azure e SSPR per poter usare quando viene rilevato il rischio.
+If you allow users to self-remediate, with Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) in your risk policies, they can unblock themselves when risk is detected. These detections are then considered closed. Users must have previously registered for Azure MFA and SSPR in order to use when risk is detected.
 
-Alcuni rilevamenti potrebbero non generare rischi per il livello in cui è necessaria una correzione automatica degli utenti, ma gli amministratori dovrebbero comunque valutare questi rilevamenti. Gli amministratori possono determinare che sono necessarie misure aggiuntive, ad esempio il [blocco dell'accesso dalle posizioni](../conditional-access/howto-conditional-access-policy-location.md) o la riduzione del rischio accettabile nei criteri.
+Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that additional measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
 ### <a name="manual-password-reset"></a>Reimpostazione manuale della password
 
-Se la richiesta di reimpostazione della password tramite criteri di rischio utente non è un'opzione, gli amministratori possono chiudere tutti i rilevamenti dei rischi per un utente con una reimpostazione manuale della password.
+If requiring a password reset using a user risk policy is not an option, administrators can close all risk detections for a user with a manual password reset.
 
-Agli amministratori vengono concesse due opzioni per la reimpostazione di una password per gli utenti:
+Administrators are given two options when resetting a password for their users:
 
-- **Generare una password provvisoria**: generando una password provvisoria, è possibile ripristinare immediatamente un'identità a uno stato sicuro. Questo metodo richiede il contatto con gli utenti interessati perché è necessario conoscere la password temporanea. Poiché la password è temporanea, all'utente viene richiesto di modificare la password in un nuovo elemento durante il successivo accesso.
+- **Generare una password provvisoria**: generando una password provvisoria, è possibile ripristinare immediatamente un'identità a uno stato sicuro. This method requires contacting the affected users because they need to know what the temporary password is. Because the password is temporary, the user is prompted to change the password to something new during the next sign-in.
 
-- **Richiedere all'utente di reimpostare la password**: richiedendo agli utenti di reimpostare le password, è possibile eseguire il ripristino in modo autonomo, senza contattare l'help desk o l'amministratore. Questo metodo si applica solo agli utenti registrati per l'autenticazione a più fattori di Azure e SSPR. Questa opzione non è disponibile per gli utenti che non sono stati registrati.
+- **Richiedere all'utente di reimpostare la password**: richiedendo agli utenti di reimpostare le password, è possibile eseguire il ripristino in modo autonomo, senza contattare l'help desk o l'amministratore. This method only applies to users that are registered for Azure MFA and SSPR. For users that have not been registered, this option isn't available.
 
 ### <a name="dismiss-user-risk"></a>Ignora rischio utente
 
-Se la reimpostazione della password non è un'opzione, perché ad esempio l'utente è stato eliminato, è possibile scegliere di ignorare i rilevamenti dei rischi utente.
+If a password reset is not an option for you, because for example the user has been deleted, you can choose to dismiss user risk detections.
 
-Quando si fa clic su **Ignora il rischio utente**, tutti gli eventi vengono chiusi e l'utente interessato non è più a rischio. Questo metodo, tuttavia, non ha alcun impatto sulla password esistente e, pertanto, non ripristina l'identità correlata a uno stato sicuro. 
+When you click **Dismiss user risk**, all events are closed and the affected user is no longer at risk. Questo metodo, tuttavia, non ha alcun impatto sulla password esistente e, pertanto, non ripristina l'identità correlata a uno stato sicuro. 
 
-### <a name="close-individual-risk-detections-manually"></a>Chiudi manualmente i singoli rilevamenti di rischi
+### <a name="close-individual-risk-detections-manually"></a>Close individual risk detections manually
 
-È possibile chiudere manualmente i singoli rilevamenti di rischi. Chiudendo manualmente i rilevamenti dei rischi, è possibile ridurre il livello di rischio utente. In genere, i rilevamenti di rischio vengono chiusi manualmente in risposta a un'analisi correlata. Ad esempio, quando si comunica con un utente, viene rivelato che non è più necessario un rilevamento attivo dei rischi. 
+You can close individual risk detections manually. By closing risk detections manually, you can lower the user risk level. Typically, risk detections are closed manually in response to a related investigation. For example, when talking to a user reveals that an active risk detection is not required anymore. 
  
-Quando si chiudono manualmente i rilevamenti dei rischi, è possibile scegliere di eseguire una delle azioni seguenti per modificare lo stato di un rilevamento del rischio:
+When closing risk detections manually, you can choose to take any of the following actions to change the status of a risk detection:
 
-- Conferma compromissione utente
+- Confirm user compromised
 - Ignora rischio utente
-- Conferma l'accesso sicuro
-- Conferma dell'accesso compromesso
+- Confirm sign-in safe
+- Confirm sign-in compromised
 
-## <a name="unblocking-users"></a>Sblocco degli utenti
+## <a name="unblocking-users"></a>Unblocking users
 
-Un amministratore può scegliere di bloccare l'accesso in base ai criteri di rischio o alle indagini. Un blocco può verificarsi in base al rischio di accesso o all'utente.
+An administrator may choose to block a sign-in based on their risk policy or investigations. A block may occur based on either sign-in or user risk.
 
-### <a name="unblocking-based-on-user-risk"></a>Sblocco in base al rischio dell'utente
+### <a name="unblocking-based-on-user-risk"></a>Unblocking based on user risk
 
-Per sbloccare un account bloccato a causa del rischio utente, gli amministratori hanno le opzioni seguenti:
+To unblock an account blocked due to user risk, administrators have the following options:
 
 1. **Reimpostazione della password** : è possibile reimpostare la password dell'utente.
-1. **Ignorare i rischi** per gli utenti: il criterio di rischio utente blocca un utente se è stato raggiunto il livello di rischio utente configurato per bloccare l'accesso. È possibile ridurre il livello di rischio di un utente evitando il rischio utente o chiudendo manualmente i rilevamenti dei rischi segnalati.
-1. **Escludere l'utente dal criterio** : se si ritiene che la configurazione corrente dei criteri di accesso causi problemi per utenti specifici, è possibile escludere gli utenti dal criterio. Per ulteriori informazioni, vedere la sezione esclusioni nell'articolo [procedura: configurare e abilitare i criteri di rischio](howto-identity-protection-configure-risk-policies.md#exclusions).
-1. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. Per altre informazioni, vedere l'articolo [procedura: configurare e abilitare i criteri di rischio](howto-identity-protection-configure-risk-policies.md).
+1. **Dismiss user risk** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by dismissing user risk or manually closing reported risk detections.
+1. **Exclude the user from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see the section Exclusions in the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md#exclusions).
+1. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. For more information, see the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md).
 
-### <a name="unblocking-based-on-sign-in-risk"></a>Sblocco in base al rischio di accesso
+### <a name="unblocking-based-on-sign-in-risk"></a>Unblocking based on sign-in risk
 
-Per sbloccare un account in base al rischio di accesso, gli amministratori hanno a disposizione le opzioni seguenti:
+To unblock an account based on sign-in risk, administrators have the following options:
 
-1. **Accesso da una località o un dispositivo familiare**: un motivo comune del blocco di accessi sospetti è costituito da tentativi di accesso da località o dispositivi non familiari. Gli utenti possono determinare rapidamente se questo motivo è il motivo del blocco tentando di accedere da una posizione o un dispositivo familiare.
-1. **Escludere l'utente dal criterio** : se si ritiene che la configurazione corrente dei criteri di accesso causi problemi per utenti specifici, è possibile escludere gli utenti dal criterio. Per ulteriori informazioni, vedere la sezione esclusioni nell'articolo [procedura: configurare e abilitare i criteri di rischio](howto-identity-protection-configure-risk-policies.md#exclusions).
-1. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. Per altre informazioni, vedere l'articolo [procedura: configurare e abilitare i criteri di rischio](howto-identity-protection-configure-risk-policies.md).
+1. **Accesso da una località o un dispositivo familiare**: un motivo comune del blocco di accessi sospetti è costituito da tentativi di accesso da località o dispositivi non familiari. Your users can quickly determine whether this reason is the blocking reason by trying to sign-in from a familiar location or device.
+1. **Exclude the user from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. For more information, see the section Exclusions in the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md#exclusions).
+1. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. For more information, see the article [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

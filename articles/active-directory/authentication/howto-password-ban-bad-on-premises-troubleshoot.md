@@ -1,102 +1,102 @@
 ---
-title: Risoluzione dei problemi in Azure AD password protection-Azure Active Directory
-description: Informazioni sulla risoluzione dei problemi comuni di Azure AD Protection password
+title: Troubleshooting password protection - Azure Active Directory
+description: Understand Azure AD password protection common troubleshooting
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62395b0b6f1ed152292106a774c1e2f7c6d4f11f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 06169056c9b17abfda2af67ec0784dfbf2ed04d5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893278"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381644"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
 Dopo la distribuzione di Password di protezione di Azure AD, può essere necessario risolvere alcuni problemi. Questo articolo presenta informazioni dettagliate su alcuni passaggi comuni per la risoluzione dei problemi.
 
-## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>L'agente del controller di dominio non è in grado di individuare un proxy nella directory
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>The DC agent cannot locate a proxy in the directory
 
-Il sintomo principale di questo problema è 30017 eventi nel registro eventi di amministrazione dell'agente del controller di dominio.
+The main symptom of this problem is 30017 events in the DC agent Admin event log.
 
-La causa usuale di questo problema è che un proxy non è ancora stato registrato. Se è stato registrato un proxy, è possibile che si verifichi un ritardo dovuto alla latenza di replica di Active Directory fino a quando un particolare agente del controller di dominio non è in grado di visualizzare il proxy
+The usual cause of this issue is that a proxy has not yet been registered. If a proxy has been registered, there may be some delay due to AD replication latency until a particular DC agent is able to see that proxy.
 
-## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>L'agente del controller di dominio non è in grado di comunicare con un proxy
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>The DC agent is not able to communicate with a proxy
 
-Il sintomo principale di questo problema è 30018 eventi nel registro eventi di amministrazione dell'agente del controller di dominio. Questo problema può avere diverse cause possibili:
+The main symptom of this problem is 30018 events in the DC agent Admin event log. This problem may have several possible causes:
 
-1. L'agente del controller di dominio si trova in una parte isolata della rete che non consente la connettività di rete ai proxy registrati. Questo problema può essere benigno purché altri agenti del controller di dominio possano comunicare con i proxy per scaricare i criteri password da Azure. Una volta scaricati, i criteri verranno ottenuti dal controller di dominio isolato tramite la replica dei file di criteri nella condivisione SYSVOL.
+1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may be benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure. Once downloaded, those policies will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
-1. Il computer host proxy blocca l'accesso all'endpoint di mapping degli endpoint RPC (porta 135)
+1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 
-   Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso alla porta 135. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurare il firewall per consentire l'accesso alla porta 135.
+   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to port 135. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to port 135.
 
-1. Il computer host proxy blocca l'accesso all'endpoint RPC (dinamico o statico) in ascolto da parte del servizio proxy
+1. The proxy host machine is blocking access to the RPC endpoint (dynamic or static) listened on by the Proxy service
 
-   Il programma di installazione del proxy di protezione Azure AD password crea automaticamente una regola in ingresso Windows Firewall che consente l'accesso a tutte le porte in ingresso ascoltate dal servizio proxy Azure AD password protection. Se questa regola viene successivamente eliminata o disattivata, gli agenti del controller di dominio non saranno in grado di comunicare con il servizio proxy. Se il Windows Firewall incorporato è stato disabilitato al posto di un altro prodotto firewall, è necessario configurarlo per consentire l'accesso a tutte le porte in ingresso ascoltate dal servizio Azure AD proxy di protezione delle password. Questa configurazione può essere resa più specifica se il servizio proxy è stato configurato per l'ascolto su una porta RPC statica specifica (tramite il cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`).
+   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to any inbound ports listened to by the Azure AD Password Protection Proxy service. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to any inbound ports listened to by the Azure AD Password Protection Proxy service. This configuration may be made more specific if the Proxy service has been configured to listen on a specific static RPC port (using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
 
-1. Il computer host proxy non è configurato per consentire ai controller di dominio di accedere al computer. Questo comportamento viene controllato tramite l'assegnazione dei privilegi utente "accedi al computer dalla rete". È necessario concedere questo privilegio a tutti i controller di dominio in tutti i domini della foresta. Questa impostazione è spesso vincolata come parte di una maggiore attività di protezione avanzata della rete.
+1. The proxy host machine is not configured to allow domain controllers the ability to log on to the machine. This behavior is controlled via the "Access this computer from the network" user privilege assignment. All domain controllers in all domains in the forest must be granted this privilege. This setting is often constrained as part of a larger network hardening effort.
 
-## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Il servizio proxy non è in grado di comunicare con Azure
+## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Proxy service is unable to communicate with Azure
 
-1. Verificare che il computer proxy disponga di connettività agli endpoint elencati nei [requisiti di distribuzione](howto-password-ban-bad-on-premises-deploy.md).
+1. Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
 
-1. Verificare che la foresta e tutti i server proxy siano registrati nello stesso tenant di Azure.
+1. Ensure that the forest and all proxy servers are registered against the same Azure tenant.
 
-   È possibile verificare questo requisito eseguendo i cmdlet di `Get-AzureADPasswordProtectionProxy` e `Get-AzureADPasswordProtectionDCAgent` PowerShell, quindi confrontare la proprietà `AzureTenant` di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
+   You can check this requirement by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation, the reported tenant name must be the same across all DC agents and proxy servers.
 
-   Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere risolto eseguendo il `Register-AzureADPasswordProtectionProxy` e/o `Register-AzureADPasswordProtectionForest` cmdlet di PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
+   If an Azure tenant registration mismatch condition does exist, this problem can be fixed by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
-## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>Impossibile crittografare o decrittografare i file di criteri password
+## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC agent is unable to encrypt or decrypt password policy files
 
-Azure AD la protezione con password ha una dipendenza critica dalla funzionalità di crittografia e decrittografia fornita dal servizio di distribuzione delle chiavi Microsoft. Gli errori di crittografia o decrittografia possono manifestarsi con diversi sintomi e hanno diverse cause potenziali.
+Azure AD Password Protection has a critical dependency on the encryption and decryption functionality supplied by the Microsoft Key Distribution Service. Encryption or decryption failures can manifest with a variety of symptoms and have several potential causes.
 
-1. Verificare che il servizio KDS sia abilitato e funzionante in tutti i controller di dominio Windows Server 2012 e versioni successive in un dominio.
+1. Ensure that the KDS service is enabled and functional on all Windows Server 2012 and later domain controllers in a domain.
 
-   Per impostazione predefinita, la modalità di avvio del servizio KDS è configurata come manuale (avvio del trigger). Questa configurazione significa che la prima volta che un client tenta di usare il servizio, viene avviato su richiesta. Questa modalità di avvio del servizio predefinita è accettabile per il funzionamento Azure AD la protezione delle password.
+   By default the KDS service's service start mode is configured as Manual (Trigger Start). This configuration means that the first time a client tries to use the service, it is started on-demand. This default service start mode is acceptable for Azure AD Password Protection to work.
 
-   Se la modalità di avvio del servizio KDS è stata configurata come disabilitata, è necessario correggere questa configurazione prima di Azure AD la protezione delle password funzionerà correttamente.
+   If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
-   Un semplice test di questo problema consiste nell'avviare manualmente il servizio KDS tramite la console MMC di gestione dei servizi o con altri strumenti di gestione (ad esempio, eseguire "net start kdssvc" da una console del prompt dei comandi). Il servizio KDS dovrebbe avviarsi correttamente e rimanere in esecuzione.
+   A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
-   La causa principale più comune per l'avvio del servizio KDS è che l'oggetto controller di dominio Active Directory si trova al di fuori dell'unità organizzativa dei controller di dominio predefiniti. Questa configurazione non è supportata dal servizio KDS e non è un limite imposto da Azure AD la protezione delle password. La correzione per questa condizione consiste nello spostare l'oggetto controller di dominio in un percorso all'interno dell'unità organizzativa dei controller di dominio predefiniti.
+   The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
-1. Modifica del formato del buffer crittografato KDS incompatibile da Windows Server 2012 R2 a Windows Server 2016
+1. Incompatible KDS encrypted buffer format change from Windows Server 2012 R2 to Windows Server 2016
 
-   Una correzione di sicurezza KDS è stata introdotta in Windows Server 2016 che modifica il formato dei buffer crittografati KDS; questi buffer talvolta non riescono a decrittografare in Windows Server 2012 e Windows Server 2012 R2. La direzione inversa è OK: i buffer con KDS crittografati in Windows Server 2012 e Windows Server 2012 R2 verranno sempre decrittografati in Windows Server 2016 e versioni successive. Se i controller di dominio nei domini Active Directory eseguono una combinazione di questi sistemi operativi, è possibile che vengano segnalati errori occasionali di decrittografia della protezione Azure AD password. Non è possibile prevedere accuratamente l'intervallo o i sintomi di questi errori in base alla natura della correzione della sicurezza e, dato che non è deterministica, che Azure AD agente di controller di dominio per la protezione delle password in cui il controller di dominio eseguirà la crittografia dei dati in un determinato momento.
+   A KDS security fix was introduced in Windows Server 2016 that modifies the format of KDS encrypted buffers; these buffers will sometimes fail to decrypt on Windows Server 2012 and Windows Server 2012 R2. The reverse direction is okay - buffers that are KDS-encrypted on Windows Server 2012 and Windows Server 2012 R2 will always successfully decrypt on Windows Server 2016 and later. If the domain controllers in your Active Directory domains are running a mix of these operating systems, occasional Azure AD Password Protection decryption failures may be reported. It is not possible to accurately predict the timing or symptoms of these failures given the nature of the security fix, and given that it is non-deterministic which Azure AD Password Protection DC Agent on which domain controller will encrypt data at a given time.
 
-   Microsoft sta esaminando una correzione per questo problema, ma non è ancora disponibile l'ETA. Nel frattempo, non esiste alcuna soluzione per questo problema, ad eccezione di non eseguire una combinazione di questi sistemi operativi incompatibili nei domini Active Directory. In altre parole, è consigliabile eseguire solo i controller di dominio Windows Server 2012 e Windows Server 2012 R2 oppure eseguire solo i controller di dominio Windows Server 2016 e versioni successive.
+   Microsoft is investigating a fix for this issue but no ETA is available yet. In the meantime, there is no workaround for this issue other than to not run a mix of these incompatible operating systems in your Active Directory domain(s). In other words, you should run only Windows Server 2012 and Windows Server 2012 R2 domain controllers, OR you should only run Windows Server 2016 and above domain controllers.
 
-## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Le password vulnerabili vengono accettate, ma non devono essere
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Weak passwords are being accepted but should not be
 
-Questo problema può avere diverse cause.
+This problem may have several causes.
 
-1. Gli agenti del controller di dominio eseguono una versione di anteprima pubblica del software scaduta. Vedere [l'anteprima pubblica. il software dell'agente DC è scaduto](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
+1. Your DC agent(s) are running a public preview software version that has expired. See [Public preview DC agent software has expired](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
 
-1. Gli agenti del controller di dominio non possono scaricare un criterio oppure non è in grado di decrittografare i criteri esistenti. Verificare la presenza di possibili cause negli argomenti precedenti.
+1. Your DC agent(s) cannot download a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
-1. La modalità di imposizione dei criteri password è ancora impostata su Controllo. Se questa configurazione è attiva, riconfigurarla per applicare usando il portale di Azure AD password protection. Vedere [Enable Password Protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. La modalità di imposizione dei criteri password è ancora impostata su Controllo. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. I criteri password sono stati disabilitati. Se questa configurazione è attiva, riconfigurarla per abilitarla tramite il portale di Azure AD password protection. Vedere [Enable Password Protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. I criteri password sono stati disabilitati. If this configuration is in effect, reconfigure it to enabled using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. Il software dell'agente DC non è stato installato in tutti i controller di dominio del dominio. In questa situazione è difficile garantire che i client Windows remoti rivoltino a un particolare controller di dominio durante un'operazione di modifica della password. Se si ritiene di avere come destinazione un particolare controller di dominio in cui è installato il software dell'agente di controller di dominio, è possibile verificare eseguendo il doppio controllo del registro eventi di amministrazione dell'agente del controller di dominio: indipendentemente dal risultato, sarà presente almeno un evento per documentare il risultato della password convalida. Se non è presente alcun evento per l'utente la cui password è stata modificata, la modifica della password è stata probabilmente elaborata da un controller di dominio diverso.
+1. You have not installed the DC agent software on all domain controllers in the domain. In this situation, it is difficult to ensure that remote Windows clients target a particular domain controller during a password change operation. If you think you have successfully targeted a particular DC where the DC agent software is installed, you can verify by double-checking the DC agent admin event log: regardless of outcome, there will be at least one event to document the outcome of the password validation. If there is no event present for the user whose password is changed, then the password change was likely processed by a different domain controller.
 
-   In alternativa, provare a usare le password setting\changing mentre si è connessi direttamente a un controller di dominio in cui è installato il software dell'agente DC. Questa tecnica non è consigliata per i domini di produzione Active Directory.
+   As an alternative test, try setting\changing passwords while logged in directly to a DC where the DC agent software is installed. This technique is not recommended for production Active Directory domains.
 
-   Sebbene la distribuzione incrementale del software dell'agente di controller di dominio sia supportata in conformità a queste limitazioni, Microsoft consiglia vivamente di installare il software dell'agente DC su tutti i controller di dominio di un dominio non appena possibile.
+   While incremental deployment of the DC agent software is supported subject to these limitations, Microsoft strongly recommends that the DC agent software is installed on all domain controllers in a domain as soon as possible.
 
-1. È possibile che l'algoritmo di convalida della password funzioni come previsto. Vedere [come vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated).
+1. The password validation algorithm may actually be working as expected. See [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil. exe non è in grado di impostare una password di ripristino servizi directory debole
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe fails to set a weak DSRM password
 
-Active Directory convaliderà sempre una nuova password della modalità di ripristino dei servizi directory per verificare che soddisfi i requisiti di complessità delle password del dominio; Questa convalida chiama anche le dll del filtro password come Azure AD la protezione delle password. Se la nuova password della modalità ripristino servizi directory viene rifiutata, viene restituito il messaggio di errore seguente:
+Active Directory will always validate a new Directory Services Repair Mode password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, the following error message results:
 
 ```text
 C:\>ntdsutil.exe
@@ -109,39 +109,39 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Quando Azure AD Password Protection registra gli eventi del registro eventi di convalida della password per una password Active Directory ripristino servizi directory, si prevede che i messaggi del registro eventi non includano un nome utente. Questo comportamento si verifica perché l'account della modalità ripristino servizi directory è un account locale che non fa parte del dominio Active Directory effettivo.  
+When Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This behavior occurs because the DSRM account is a local account that is not part of the actual Active Directory domain.  
 
-## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>La promozione della replica del controller di dominio non riesce a causa di una password ripristino servizi directory
+## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>Domain controller replica promotion fails because of a weak DSRM password
 
-Durante il processo di promozione del controller di dominio, la nuova password della modalità di ripristino dei servizi directory verrà inviata a un controller di dominio esistente nel dominio per la convalida. Se la nuova password della modalità ripristino servizi directory viene rifiutata, viene restituito il messaggio di errore seguente:
+During the DC promotion process, the new Directory Services Repair Mode password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, the following error message results:
 
 ```powershell
 Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
 ```
 
-Analogamente al problema precedente, qualsiasi evento del risultato di convalida della password di Azure AD password protection avrà nomi utente vuoti per questo scenario.
+Just like in the above issue, any Azure AD Password Protection password validation outcome event will have empty user names for this scenario.
 
-## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>L'abbassamento di livello del controller di dominio non riesce a causa di una password amministratore locale
+## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>Domain controller demotion fails due to a weak local Administrator password
 
-È possibile abbassare di livello un controller di dominio che è ancora in esecuzione nel software dell'agente del controller di dominio. Gli amministratori devono tenere tuttavia presente il fatto che durante la procedura di abbassamento di livello il software dell'agente del controller di dominio continua a imporre i criteri password correnti. La nuova password dell'account amministratore locale (specificata come parte dell'operazione di abbassamento di livello) viene convalidata come qualsiasi altra password. Microsoft consiglia di scegliere password sicure per gli account amministratore locale come parte di una procedura di abbassamento di livello del controller di dominio.
+È possibile abbassare di livello un controller di dominio che è ancora in esecuzione nel software dell'agente del controller di dominio. Gli amministratori devono tenere tuttavia presente il fatto che durante la procedura di abbassamento di livello il software dell'agente del controller di dominio continua a imporre i criteri password correnti. La nuova password dell'account amministratore locale (specificata come parte dell'operazione di abbassamento di livello) viene convalidata come qualsiasi altra password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure.
 
 Al termine dell'abbassamento di livello e quando il controller di dominio è stato riavviato ed è di nuovo in esecuzione come normale server membro, il software dell'agente del controller di dominio torna a operare in modalità passiva. Può quindi essere disinstallato in qualsiasi momento.
 
-## <a name="booting-into-directory-services-repair-mode"></a>Avvio in modalità di ripristino dei servizi directory
+## <a name="booting-into-directory-services-repair-mode"></a>Booting into Directory Services Repair Mode
 
-Se il controller di dominio viene avviato in modalità ripristino servizi directory, la dll del filtro password agente controller di dominio rileva questa condizione e causerà la disabilitazione di tutte le attività di convalida o di applicazione della password, indipendentemente dal criterio attualmente attivo configurazione. La dll del filtro della password dell'agente controller di dominio registrerà un evento di avviso 10023 nel registro eventi di amministrazione, ad esempio:
+If the domain controller is booted into Directory Services Repair Mode, the DC agent password filter dll detects this condition and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration. The DC agent password filter dll will log a 10023 warning event to the Admin event log, for example:
 
 ```text
 The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
 ```
-## <a name="public-preview-dc-agent-software-has-expired"></a>Il software dell'agente DC di anteprima pubblica è scaduto
+## <a name="public-preview-dc-agent-software-has-expired"></a>Public preview DC agent software has expired
 
-Durante il periodo di anteprima pubblica di Azure AD Password Protection, il software dell'agente DC è stato hardcoded per arrestare l'elaborazione delle richieste di convalida delle password nelle date seguenti:
+During the Azure AD Password Protection public preview period, the DC agent software was hard-coded to stop processing password validation requests on the following dates:
 
-* La versione 1.2.65.0 smetterà di elaborare le richieste di convalida delle password il 1 2019 settembre.
-* Versione 1.2.25.0 e precedente arrestata elaborazione delle richieste di convalida delle password il 1 2019 luglio.
+* Version 1.2.65.0 will stop processing password validation requests on September 1 2019.
+* Version 1.2.25.0 and prior stopped processing password validation requests on July 1 2019.
 
-Come si avvicina la scadenza, tutte le versioni dell'agente del controller di dominio con limitazioni temporali generano un evento 10021 nel registro eventi di amministrazione dell'agente del controller di dominio al momento dell'avvio, simile al seguente:
+As the deadline approaches, all time-limited DC agent versions will emit a 10021 event in the DC agent Admin event log at boot time that looks like this:
 
 ```text
 The password filter dll has successfully loaded and initialized.
@@ -153,7 +153,7 @@ Expiration date:  9/01/2019 0:00:00 AM
 This message will not be repeated until the next reboot.
 ```
 
-Una volta superata la scadenza, tutte le versioni dell'agente del controller di dominio con limitazioni temporali generano un evento 10022 nel registro eventi di amministrazione dell'agente del controller di dominio al momento dell'avvio, simile al seguente:
+Once the deadline has passed, all time-limited DC agent versions will emit a 10022 event in the DC agent Admin event log at boot time that looks like this:
 
 ```text
 The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
@@ -161,12 +161,12 @@ The password filter dll is loaded but the allowable trial period has expired. Al
 No further messages will be logged until after the next reboot.
 ```
 
-Poiché la scadenza viene controllata solo all'avvio iniziale, è possibile che questi eventi non vengano visualizzati fino a quando la scadenza del calendario non è stata superata. Una volta riconosciuta la scadenza, nessun effetto negativo sul controller di dominio o sull'ambiente più grande si verificherà solo se tutte le password verranno approvate automaticamente.
+Since the deadline is only checked on initial boot, you may not see these events until long after the calendar deadline has passed. Once the deadline has been recognized, no negative effects on either the domain controller or the larger environment will occur other than all passwords will be automatically approved.
 
 > [!IMPORTANT]
-> Microsoft consiglia di aggiornare immediatamente gli agenti del controller di dominio di anteprima pubblica scaduti alla versione più recente.
+> Microsoft recommends that expired public preview DC agents be immediately upgraded to the latest version.
 
-Un modo semplice per individuare gli agenti DC nell'ambiente che devono essere aggiornati è eseguire il cmdlet `Get-AzureADPasswordProtectionDCAgent`, ad esempio:
+An easy way to discover DC agents in your environment that need to be upgrade is by running the `Get-AzureADPasswordProtectionDCAgent` cmdlet, for example:
 
 ```powershell
 PS C:\> Get-AzureADPasswordProtectionDCAgent
@@ -180,16 +180,16 @@ HeartbeatUTC          : 8/1/2019 10:00:00 PM
 AzureTenant           : bpltest.onmicrosoft.com
 ```
 
-Per questo argomento, il campo SoftwareVersion è ovviamente la proprietà chiave da esaminare. È anche possibile usare il filtro di PowerShell per filtrare gli agenti del controller di dominio che sono già alla versione Baseline obbligatoria, ad esempio:
+For this topic, the SoftwareVersion field is obviously the key property to look at. You can also use PowerShell filtering to filter out DC agents that are already at or above the required baseline version, for example:
 
 ```powershell
 PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-Il software proxy per la protezione Azure AD password non è limitato da tempo in alcuna versione. Microsoft consiglia comunque di aggiornare gli agenti controller di dominio e proxy alle versioni più recenti non appena vengono rilasciati. È possibile utilizzare il cmdlet `Get-AzureADPasswordProtectionProxy` per trovare agenti proxy che richiedono aggiornamenti, in modo analogo all'esempio precedente per gli agenti DC.
+The Azure AD Password Protection Proxy software is not time-limited in any version. Microsoft still recommends that both DC and proxy agents be upgraded to the latest versions as they are released. The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to find Proxy agents that require upgrades, similar to the example above for DC agents.
 
-Per ulteriori informazioni sulle procedure di aggiornamento specifiche, vedere [aggiornamento dell'agente del controller](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) di dominio e [aggiornamento dell'agente proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) .
+Refer to [Upgrading the DC agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) and [Upgrading the Proxy agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) for more details on specific upgrade procedures.
 
 ## <a name="emergency-remediation"></a>Correzione di emergenza
 
@@ -199,7 +199,7 @@ Un'altra misura correttiva può essere quella di impostare la modalità di abili
 
 ## <a name="removal"></a>Rimozione
 
-Se si decide di disinstallare il software di protezione Azure AD password e di pulire tutti gli stati correlati dal dominio o dalla foresta, questa attività può essere eseguita attenendosi alla procedura seguente:
+If it is decided to uninstall the Azure AD password protection software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
 
 > [!IMPORTANT]
 > È importante eseguire i passaggi nell'ordine specificato. Se un'istanza del servizio proxy viene lasciata in esecuzione, ne viene periodicamente ricreare il relativo oggetto serviceConnectionPoint. Se un'istanza del servizio agente del controller di dominio viene lasciata in esecuzione, ne vengono ricreati periodicamente l'oggetto serviceConnectionPoint e lo stato sysvol.
@@ -218,7 +218,7 @@ Se si decide di disinstallare il software di protezione Azure AD password e di p
 
    L'oggetto risultante individuabile tramite il comando `Get-ADObject` può quindi essere inoltrato tramite pipe a `Remove-ADObject` oppure può essere eliminato manualmente.
 
-4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. Potrebbero essere presenti uno di questi oggetti per controller di dominio nell'insieme di strutture, a seconda della frequenza con cui è stato distribuito il software. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
+4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. There may be one these objects per domain controller in the forest, depending on how widely the software was deployed. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
 
    ```powershell
    $scp = "serviceConnectionPoint"

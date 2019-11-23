@@ -1,5 +1,5 @@
 ---
-title: Configurare le impostazioni di gruppo tramite PowerShell-Azure AD | Microsoft Docs
+title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
 description: Come gestire le impostazioni dei gruppi con i cmdlet di Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1b900d4a67390ae867d770c3b984c43fd501b5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ef0bfcb8c82d3f3caf90500e8852ca9e02c725aa
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74026745"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382981"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -88,51 +88,52 @@ I passaggi seguenti permettono di creare le impostazioni a livello di directory,
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
    ```  
-5. Applicare quindi l'impostazione:
+5. Then apply the setting:
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. È possibile leggere i valori usando:
+6. You can read the values using:
 
    ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>Aggiornare le impostazioni a livello di directory
-Per aggiornare il valore di UsageGuideLinesUrl nel modello di impostazione, è sufficiente modificare l'URL con il passaggio 4 precedente, quindi eseguire il passaggio 5 per impostare il nuovo valore.
+To update the value for UsageGuideLinesUrl in the setting template, simply edit the URL with Step 4 above, then perform Step 5 to set the new value.
 
-Per rimuovere il valore di UsageGuideLinesUrl, modificare l'URL in modo che sia una stringa vuota usando il passaggio 4 precedente:
+To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string using Step 4 above:
 
    ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
-Eseguire quindi il passaggio 5 per impostare il nuovo valore.
+Then perform Step 5 to set the new value.
 
 ## <a name="template-settings"></a>Impostazioni modello
 Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.Unified. Se non diversamente indicato, queste funzionalità richiedono una licenza per Azure Active Directory Premium P1. 
 
 | **Impostazione** | **Descrizione** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tipo: booleano<li>Predefinito: True |Flag che indica se utenti non amministratori sono autorizzati a creare gruppi di Office 365 nella directory. Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
+|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Valore predefinito: True |Flag che indica se utenti non amministratori sono autorizzati a creare gruppi di Office 365 nella directory. Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Predefinito: "" |GUID del gruppo di sicurezza i cui membri sono autorizzati a creare gruppi di Office 365 anche quando EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Predefinito: "" |Collegamento alle linee guida sull'utilizzo dei gruppi. |
-|  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Predefinito: "" | Elenco delimitato da virgole di descrizioni di classificazione. Il valore di ClassificationDescriptions è valido solo nel formato seguente:<br>$setting ["ClassificationDescriptions"] = "classificazione: descrizione, classificazione: Descrizione"<br>dove la classificazione corrisponde alle stringhe nell'oggetto Classification.|
-|  <ul><li>DefaultClassification<li>Tipo: String<li>Predefinito: "" | Classificazione da usare come classificazione predefinita per un gruppo, se non specificata.|
+|  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Predefinito: "" | Elenco delimitato da virgole di descrizioni di classificazione. Il valore di ClassificationDescriptions è valido solo nel formato seguente:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>where Classification matches the strings in the ClassificationList.<br>This setting does not apply when EnableMIPLabels == True.|
+|  <ul><li>DefaultClassification<li>Tipo: String<li>Predefinito: "" | Classificazione da usare come classificazione predefinita per un gruppo, se non specificata.<br>This setting does not apply when EnableMIPLabels == True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Predefinito: "" | Stringa di lunghezza massima pari a 64 caratteri che definisce la convenzione di denominazione configurata per i gruppi di Office 365. Per altre informazioni, vedere [Enforce a naming policy for Office 365 groups](groups-naming-policy.md) (Applicare criteri di denominazione per i gruppi di Office 365). |
 | <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Predefinito: "" | Stringa di frasi delimitate da virgole che gli utenti non potranno usare in nomi o alias di gruppo. Per altre informazioni, vedere [Enforce a naming policy for Office 365 groups](groups-naming-policy.md) (Applicare criteri di denominazione per i gruppi di Office 365). |
-| <ul><li>EnableMSStandardBlockedWords<li>Tipo: booleano<li>Valore predefinito: "False". | Non usare
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booleano<li>Valore predefinito: False | Valore booleano che indica se un utente guest può essere o meno un proprietario di gruppi. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booleano<li>Predefinito: True | Valore booleano che indica se un utente guest ha o meno accesso al contenuto dei gruppi di Office 365.  Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
+| <ul><li>EnableMSStandardBlockedWords<li>Tipo: Boolean<li>Valore predefinito: "False". | Non usare
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: Boolean<li>Valore predefinito: False | Valore booleano che indica se un utente guest può essere o meno un proprietario di gruppi. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li>Valore predefinito: True | Valore booleano che indica se un utente guest ha o meno accesso al contenuto dei gruppi di Office 365.  Questa impostazione non richiede una licenza per Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Predefinito: "" | URL di un collegamento alle linee guida per l'utilizzo dei gruppi. |
-|  <ul><li>AllowAddGuests<li>Tipo: booleano<li>Predefinito: True | Valore booleano che indica se è consentito o meno aggiungere utenti guest a questa directory.|
-|  <ul><li>ClassificationList<li>Tipo: String<li>Predefinito: "" |Elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi di Office 365. |
+|  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li>Valore predefinito: True | Valore booleano che indica se è consentito o meno aggiungere utenti guest a questa directory. <br>This setting may be overridden and become read-only if *EnableMIPLabels* is set to *True* and a guest policy is associated with the sensitivity label assigned to the group. |
+|  <ul><li>ClassificationList<li>Tipo: String<li>Predefinito: "" |Elenco delimitato da virgole dei valori di classificazione validi che è possibile applicare ai gruppi di Office 365. <br>This setting does not apply when EnableMIPLabels == True.|
+|  <ul><li>EnableMIPLabels<li>Tipo: Boolean<li>Valore predefinito: "False". |The flag indicating whether sensitivity labels published in Microsoft 365 Compliance Center can be applied to Office 365 Groups. For more information, see [Assign Sensitivity Labels for Office 365 groups](groups-assign-sensitivity-labels.md). |
 
-## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Esempio: configurare i criteri Guest per i gruppi a livello di directory
-1. Ottenere tutti i modelli di impostazione:
+## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Example: Configure Guest policy for groups at the directory level
+1. Get all the setting templates:
    ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
-2. Per impostare i criteri Guest per i gruppi a livello di directory, è necessario il modello Group. Unified
+2. To set guest policy for groups at the directory level, you need Group.Unified template
    ```powershell
    $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
    ```
@@ -141,16 +142,16 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Aggiornare l'impostazione di AllowAddGuests
+4. Then update AllowAddGuests setting
    ```powershell
    $Setting["AllowAddGuests"] = $False
    ```  
-5. Applicare quindi l'impostazione:
+5. Then apply the setting:
   
    ```powershell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-6. È possibile leggere i valori usando:
+6. You can read the values using:
 
    ```powershell
    $Setting.Values
@@ -181,7 +182,7 @@ Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livel
    Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
    ```
 
-3. Leggere tutti i valori delle impostazioni di directory di un oggetto impostazioni directory specifico, usando il GUID ID impostazioni:
+3. Read all directory settings values of a specific directory settings object, using Settings ID GUID:
    ```powershell
    (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
    ```
@@ -209,7 +210,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
    ```
 
-## <a name="create-settings-for-a-specific-group"></a>Creare le impostazioni per un gruppo specifico
+## <a name="create-settings-for-a-specific-group"></a>Create settings for a specific group
 
 1. Cercare il modello di impostazioni denominato "Groups.Unified.Guest"
    ```powershell
@@ -236,7 +237,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    ```powershell
    $SettingCopy["AllowAddGuests"]=$False
    ```
-5. Ottenere l'ID del gruppo a cui si vuole applicare questa impostazione:
+5. Get the ID of the group you want to apply this setting to:
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
@@ -244,39 +245,39 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    ```powershell
    New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
    ```
-7. Per verificare le impostazioni, eseguire questo comando:
+7. To verify the settings, run this command:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="update-settings-for-a-specific-group"></a>Aggiornare le impostazioni per un gruppo specifico
-1. Ottenere l'ID del gruppo di cui si desidera aggiornare l'impostazione:
+1. Get the ID of the group whose setting you want to update:
    ```powershell
    $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-2. Recuperare l'impostazione del gruppo:
+2. Retrieve the setting of the group:
    ```powershell
    $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-3. Aggiornare l'impostazione del gruppo in modo che sia necessario, ad esempio
+3. Update the setting of the group as you need, e.g.
    ```powershell
    $Setting["AllowAddGuests"] = $True
    ```
-4. Ottenere quindi l'ID dell'impostazione per il gruppo specifico:
+4. Then get the ID of the setting for this specific group:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
    ```
-   Si otterrà una risposta simile alla seguente:
+   You will get a response similar to this:
    ```powershell
    Id                                   DisplayName            TemplateId                             Values
    --                                   -----------            -----------                            ----------
    2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
    ```
-5. È quindi possibile impostare il nuovo valore per questa impostazione:
+5. Then you can set the new value for this setting:
    ```powershell
    Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
    ```
-6. È possibile leggere il valore dell'impostazione per assicurarsi che sia stato aggiornato correttamente:
+6. You can read the value of the setting to make sure it has been updated correctly:
    ```powershell
    Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```

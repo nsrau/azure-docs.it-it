@@ -1,22 +1,22 @@
 ---
-title: Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs
+title: Troubleshoot legacy hybrid Azure Active Directory joined devices
 description: Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7f02937555f7637a6d2f81be717aaad83bab74f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481451"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379110"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -32,7 +32,7 @@ Per Windows 10 o Windows Server 2016, vedere [Risoluzione dei problemi relativi 
 
 Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md) per supportare gli scenari seguenti:
 
-- Accesso condizionale basato su dispositivo
+- Device-based Conditional Access
 
 Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.  
 
@@ -69,11 +69,11 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
     ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere causato dai servizi AD FS mancanti o non configurati correttamente (per i domini federati) o dall'accesso Single Sign-On facile di Azure AD mancante o non configurato correttamente (per i domini gestiti) o da problemi di rete. 
-   - È possibile che l'autenticazione a più fattori (MFA) è stata abilitata/configurata per l'utente e WIAORMULTIAUTHN non è configurato nel server AD FS. 
+   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
    - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
    - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
    - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
-   - **Autoworkplace.exe** richiede il client disponga della linea di visuale diretta dal client dell'organizzazione in locale controller di dominio Active Directory, il che significa che uniscono in join ibrida di Azure AD ha esito positivo solo quando il client è connesso alla rete intranet dell'organizzazione.
+   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 - Non si è connessi come utente di dominio
 
@@ -91,7 +91,7 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
 
     ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-È possibile trovare le informazioni sullo stato nel registro eventi anche in: **Registri applicazioni e servizi\Microsoft-Workplace Join**
+È inoltre possibile trovare le informazioni sullo stato nel registro eventi in **Registri applicazioni e servizi\Microsoft-Workplace Join**
   
 **Le cause più comuni di un'aggiunta all'identità ibrida di Azure AD non riuscita sono:** 
 

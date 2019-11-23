@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/19/2019
-ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe0155d6102dac12d5d4c01b78b1ddd45f9bee02
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554108"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382238"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori
 
@@ -21,7 +21,7 @@ Dopo aver abilitato il monitoraggio di un cluster del servizio Azure Kubernetes,
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Usare il comando [az servizio Azure Kubernetes disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) per disabilitare Monitoraggio di Azure per contenitori. Il comando rimuove l'agente dai nodi del cluster, non rimuove la soluzione o i dati già raccolti e archiviati nella risorsa di monitoraggio di Azure.  
+Usare il comando [az servizio Azure Kubernetes disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) per disabilitare Monitoraggio di Azure per contenitori. The command removes the agent from the cluster nodes, it does not remove the solution or the data already collected and stored in your Azure Monitor resource.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -38,7 +38,7 @@ Se non si ha familiarità con il concetto di distribuzione delle risorse tramite
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->Il modello deve essere distribuito nello stesso gruppo di risorse del cluster. Se si omettono altre proprietà o altri componenti aggiuntivi quando si usa questo modello, è possibile che vengano rimossi dal cluster. Ad esempio, *enableRBAC* per i criteri RBAC implementati nel cluster oppure *aksResourceTagValues* se vengono specificati tag per il cluster AKS.  
+>The template needs to be deployed in the same resource group of the cluster. Se si omettono altre proprietà o altri componenti aggiuntivi quando si usa questo modello, è possibile che vengano rimossi dal cluster. For example, *enableRBAC* for RBAC policies implemented in your cluster, or *aksResourceTagValues* if tags are specified for the AKS cluster.  
 >
 
 Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
@@ -125,7 +125,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
     Nella pagina **Proprietà** copiare anche l'**ID risorsa dell'area di lavoro**. Questo valore è necessario se si decide di eliminare l'area di lavoro Log Analytics in un secondo momento. Questa operazione che non viene eseguita nell'ambito di questo processo. 
 
-    Modificare i valori di **aksResourceTagValues** in modo che corrispondano ai valori di tag esistenti specificati per il cluster AKS.
+    Edit the values for **aksResourceTagValues** to match the existing tag values specified for the AKS cluster.
 
 5. Salvare il file con il nome **OptOutParam.json** in una cartella locale.
 
@@ -165,5 +165,8 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 ProvisioningState       : Succeeded
 ```
 
-Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con le procedure per l'eliminazione di un'area di lavoro, vedere [Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Non dimenticare il valore di **ID risorsa dell'area di lavoro** che è stato copiato in precedenza nel passaggio 4, perché sarà necessario in seguito. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con le procedure per l'eliminazione di un'area di lavoro, vedere [Eliminare un'area di lavoro Azure Log Analytics con il portale di Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** copied earlier in step 4, you're going to need that. 
 

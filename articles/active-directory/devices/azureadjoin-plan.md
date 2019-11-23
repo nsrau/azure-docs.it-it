@@ -1,22 +1,22 @@
 ---
-title: Come pianificare l'implementazione dell'aggiunta ad Azure Active Directory (Azure AD) | Microsoft Docs
+title: How to plan your Azure Active Directory join implementation
 description: Descrive i passaggi necessari per implementare dispositivi aggiunti ad Azure AD nell'ambiente in uso.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882914"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379604"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -30,7 +30,7 @@ Questo articolo presuppone che l'utente abbia familiarità con quanto descritto 
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
-Per pianificare l'implementazione di Azure AD join, è necessario acquisire familiarità con:
+To plan your Azure AD join implementation, you should familiarize yourself with:
 
 |   |   |
 |---|---|
@@ -40,7 +40,7 @@ Per pianificare l'implementazione di Azure AD join, è necessario acquisire fami
 |![Controllo][1]|Analisi delle considerazioni relative a risorse e applicazioni|
 |![Controllo][1]|Identificazione delle opzioni di provisioning|
 |![Controllo][1]|Configurazione di Enterprise State Roaming|
-|![Controllo][1]|Configurare l'accesso condizionale|
+|![Controllo][1]|Configure Conditional Access|
 
 ## <a name="review-your-scenarios"></a>Esame degli scenari 
 
@@ -75,10 +75,10 @@ Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/a
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Attualmente, l'accesso Web è una funzionalità di anteprima e non è consigliato per le distribuzioni di produzione.
+Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. A partire da Windows 10 1809, gli utenti possono accedere a un dispositivo aggiunto ad Azure AD con un provider di identità basato su SAML attraverso l'[accesso Web in Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Currently, web sign-in is a preview feature and is not recommended for production deployments.
 
 >[!NOTE]
-> Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
+> Currently, Azure AD join does not work with [AD FS 2019 configured with external authentication providers as the primary authentication method](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart card e autenticazione basata su certificato
@@ -110,10 +110,10 @@ L'aggiunta ad Azure AD:
 
 ### <a name="management-platform"></a>Piattaforma di gestione
 
-La gestione dei dispositivi per Azure AD dispositivi aggiunti si basa su una piattaforma MDM, ad esempio Intune, e DSN MDM. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
+Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
 
 > [!NOTE]
-> I criteri di gruppo non sono supportati nei dispositivi Azure AD aggiunti perché non sono connessi a Active Directory locali. La gestione dei dispositivi Azure AD aggiunti è possibile solo tramite MDM
+> Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
 
 Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 
@@ -197,11 +197,11 @@ Ecco un confronto di questi tre approcci
  
 |   | Configurazione self-service | Windows Autopilot | Registrazione in blocco |
 | --- | --- | --- | --- |
-| Richiesta dell'interazione dell'utente per la configurazione | Sì | Sì | No |
-| Richiesta di attività IT | No | Sì | Sì |
+| Richiesta dell'interazione dell'utente per la configurazione | SÌ | SÌ | No |
+| Richiesta di attività IT | No | SÌ | SÌ |
 | Flussi applicabili | Configurazione guidata e impostazioni | Solo Configurazione guidata | Solo Configurazione guidata |
 | Diritti di amministratore locale a un utente primario | Sì, per impostazione predefinita | Configurabile | No |
-| Richiesta del supporto dell'OEM del dispositivo | No | Sì | No |
+| Richiesta del supporto dell'OEM del dispositivo | No | SÌ | No |
 | Versioni supportate | 1511+ | 1709+ | 1703+ |
  
 Scegliere l'approccio o gli approcci di distribuzione consultando la tabella precedente e le considerazioni seguenti per l'adozione di uno degli approcci:  
@@ -284,13 +284,13 @@ Se si vuole abilitare Enterprise State Roaming in Azure AD in modo che gli utent
 
 **Consiglio**: abilitare questa impostazione anche per i dispositivi aggiunti ad Azure AD ibrido.
 
-## <a name="configure-conditional-access"></a>Configurare l'accesso condizionale
+## <a name="configure-conditional-access"></a>Configure Conditional Access
 
 Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, il provider contrassegna il dispositivo come conforme non appena questo è in fase di gestione. 
 
 ![Dispositivo conforme](./media/azureadjoin-plan/46.png)
 
-È possibile usare questa implementazione per [richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale](../conditional-access/require-managed-devices.md).
+You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

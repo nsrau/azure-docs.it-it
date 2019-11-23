@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086969"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384236"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
 
@@ -67,7 +67,7 @@ Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disp
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Azioni di arresto o riavvio avviate dall'utente
 
-Se si esegue un riavvio dal portale di Azure, da Azure PowerShell, dall'interfaccia della riga di comando o dall'API RESET, è possibile trovare l'evento nel [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md).
+If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
 
 Se si esegue l'azione dal sistema operativo della VM, è possibile trovare l'evento nei log di sistema.
 
@@ -101,7 +101,7 @@ Tutte le macchine virtuali presenti nell'host vengono automaticamente riassegnat
 
 In rare occasioni, è possibile che il team operativo di Azure debba eseguire alcune attività di manutenzione per garantire l'integrità complessiva della piattaforma Azure. Questo comportamento può influire sulla disponibilità della macchina virtuale e in genere determina la stessa azione di recupero automatico descritta in precedenza.  
 
-La manutenzione non pianificata include quanto segue:
+Unplanned maintenance include the following:
 
 - Deframmentazione urgente di un nodo
 - Aggiornamenti urgenti di switch di rete
@@ -118,7 +118,7 @@ La durata dell'arresto può essere di cinque minuti o molto più lunga. Di segui
 
 **Superamento dei limiti di I/O**
 
-È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. L'archiviazione su disco standard è limitata a 500 operazioni di I/O al secondo. Per attenuare questo problema, usare lo striping del disco o configurare lo spazio di archiviazione all'interno della macchina virtuale guest, a seconda del carico di lavoro. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Altri eventi imprevisti
 

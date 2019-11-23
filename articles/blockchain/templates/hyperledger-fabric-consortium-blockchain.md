@@ -1,21 +1,15 @@
 ---
-title: Rete per consorzi Hyperledger Fabric in Azure
-description: Modello di soluzione per distribuire e configurare una rete per consorzi Hyperledger Fabric
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Deploy Hyperledger Fabric Consortium solution template on Azure
+description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
-ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510759"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325141"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rete per consorzi Hyperledger Fabric
 
@@ -39,10 +33,10 @@ Azure supporta due tipi di distribuzione principali per abilitare Hyperledger Fa
 
 Gli elementi fondamentali alla base di Hyperledger Fabric sono gli stessi in entrambi i tipi di distribuzione.  Le differenze tra le due distribuzioni consistono nel modo in cui questi componenti vengono ampliati.
 
-- **Nodi CA**: nodo che esegue l'Autorità di certificazione usata per generare i certificati usati a loro volta per le identità nella rete.
-- **Nodi di ordinamento**: nodo che esegue il servizio di comunicazione che implementa una garanzia di recapito, ad esempio la trasmissione del totale degli ordini o le transazioni atomiche.
-- **Nodi peer**: nodo che esegue il commit delle transazioni e mantiene lo stato e una copia del libro mastro distribuito.
-- **Nodi CouchDB**: nodo che può eseguire il servizio CouchDB che può contenere il database di stato e fornire funzionalità avanzate di query sui dati chaincode, estendendo la portata dalla semplice coppia chiave/valore all'archiviazione di tipo JSON.
+- **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
+- **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
+- **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
+- **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
 
 ### <a name="single-virtual-machine-architecture"></a>Architettura con singola macchina virtuale
 
@@ -56,7 +50,7 @@ L'architettura con scalabilità orizzontale con più macchine virtuali è basata
 
 ![Architettura con più macchine virtuali](./media/hyperledger-fabric-consortium-blockchain/hlf-multi-arch.png)
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Per iniziare, è necessaria una sottoscrizione di Azure in grado di supportare la distribuzione di più macchine virtuali e account di archiviazione standard. Se non si ha una sottoscrizione di Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -68,7 +62,7 @@ Dopo aver creato una sottoscrizione, passare al [portale di Azure](https://porta
 
 Nel modello **Hyperledger Fabric Consortium** selezionare **Crea**.
 
-La distribuzione del modello consente di configurare in modo guidato la rete multinodo [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/). Il flusso di distribuzione è suddiviso in quattro fasi: informazioni di base, impostazioni della rete per consorzi, configurazione dell'infrastruttura e componenti facoltativi.
+La distribuzione del modello consente di configurare in modo guidato la rete multinodo [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/). The deployment flow is divided into four steps: Basics, Consortium Network Settings, Fabric configuration, and Optional components.
 
 ### <a name="basics"></a>Nozioni di base
 
@@ -76,16 +70,16 @@ In **Basics** (Informazioni di base) specificare i valori dei parametri standard
 
 ![Nozioni di base](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
-| Nome parametro | Descrizione | Valori consentiti |
+| Nome parametro | Description | Valori consentiti |
 |---|---|---|
 **Resource prefix** (Prefisso della risorsa) | Prefisso delle risorse di cui è stato effettuato il provisioning nell'ambito della distribuzione |6 caratteri o meno |
 **Nome utente** | Nome utente dell'amministratore di ognuna delle macchine virtuali distribuite per questo membro |1-64 caratteri |
-**Tipo di autenticazione** | Metodo di autenticazione della macchina virtuale |Password o chiave pubblica SSH|
-**Password (tipo di autenticazione = password)** |Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. La password deve contenere tre dei tipi di caratteri seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale<br /><br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile cambiarla dopo il provisioning|12-72 caratteri|
+**Tipo di autenticazione** | Metodo di autenticazione della macchina virtuale |Password o chiave SSH pubblica|
+**Password (tipo di autenticazione = password)** |La password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile cambiarla dopo il provisioning|12-72 caratteri|
 **Chiave SSH (tipo di autenticazione = chiave pubblica SSH)** |Chiave Secure Shell usata per l'accesso remoto ||
 **Sottoscrizione** |Sottoscrizione in cui eseguire la distribuzione ||
 **Gruppo di risorse** |Gruppo di risorse nel quale eseguire la distribuzione della rete per consorzi ||
-**Location** |Area di Azure in cui distribuire il primo membro ||
+**Località** |Area di Azure in cui distribuire il primo membro ||
 
 Selezionare **OK**.
 
@@ -95,12 +89,12 @@ In **Impostazioni di rete** specificare i valori di input per la creazione di un
 
 ![Impostazioni della rete per consorzi](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
-| Nome parametro | Descrizione | Valori consentiti |
+| Nome parametro | Description | Valori consentiti |
 |---|---|---|
 **Network configuration** |È possibile scegliere di creare una nuova rete o aggiungersi a una rete esistente. Se si sceglie *Join existing* (Aggiungi esistente), è necessario fornire valori aggiuntivi. |New network (Nuova rete) <br/> Join existing (Aggiungi esistente) |
-**HLF CA password** (Password CA HLF) |Password usata per i certificati generati dalle autorità di certificazione create nell'ambito della distribuzione. La password deve contenere tre dei tipi di caratteri seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale.<br /><br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile cambiarla dopo il provisioning.|1-25 caratteri |
-**Organization setup** (Configurazione organizzazione) |È possibile personalizzare il nome e il certificato dell'organizzazione oppure usare i valori predefiniti.|Predefinito <br/> Avanzate |
-**VPN network settings** (Impostazioni rete VPN) | Provisioning di un gateway con tunnel VPN per l'accesso alle macchine virtuali | Yes <br/> No |
+**HLF CA password** (Password CA HLF) |Password usata per i certificati generati dalle autorità di certificazione create nell'ambito della distribuzione. La password deve contenere tre dei tipi di carattere seguenti: una lettera maiuscola, una minuscola, un numero e un carattere speciale.<br /><br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile cambiarla dopo il provisioning.|1-25 caratteri |
+**Organization setup** (Configurazione organizzazione) |È possibile personalizzare il nome e il certificato dell'organizzazione oppure usare i valori predefiniti.|Predefinito <br/> Funzionalità avanzate |
+**VPN network settings** (Impostazioni rete VPN) | Provisioning di un gateway con tunnel VPN per l'accesso alle macchine virtuali | SÌ <br/> No |
 
 Selezionare **OK**.
 
@@ -110,16 +104,16 @@ In **Fabric configuration** ( Configurazione dell'infrastruttura) è possibile c
 
 ![Impostazioni dell'infrastruttura](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
-| Nome parametro | Descrizione | Valori consentiti |
+| Nome parametro | Description | Valori consentiti |
 |---|---|---|
 **Tipo di scala** |Tipo di distribuzione di una singola macchina virtuale con più contenitori o di più macchine virtuali in un modello di aumento del numero di istanze.|Single VM (Singola VM) o Multi VM (Più VM) |
-**Tipo di disco della macchina virtuale** |Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. <br/> Per altre informazioni sui tipi di dischi disponibili, vedere [Selezionare un tipo di disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
+**Tipo di disco della macchina virtuale** |Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. <br/> Per altre informazioni sui tipi di dischi disponibili, vedere [Selezionare un tipo di disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Distribuzione su più macchine virtuali (impostazioni aggiuntive)
 
 ![Impostazioni dell'infrastruttura per distribuzioni su più macchine virtuali](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-| Nome parametro | Descrizione | Valori consentiti |
+| Nome parametro | Description | Valori consentiti |
 |---|---|---|
 **Number of orderer nodes** (Numero di nodi di ordinamento) |Numero di nodi che ordinano (organizzano) le transazioni in un blocco. <br />Per altri dettagli sul servizio di ordinamento, vedere la [documentazione](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) di Hyperledger |1-4 |
 **Orderer node virtual machine size** (Dimensioni della macchina virtuale dei nodi di ordinamento) |Dimensioni della macchina virtuale usata per i nodi di ordinamento nella rete|Standard Bs,<br />Standard Ds,<br />Standard FS |
@@ -139,7 +133,7 @@ Selezionare **OK**.
 
 In **Riepilogo** controllare l'input specificato ed eseguire la convalida pre-distribuzione di base.
 
-![Riepilogo](./media/hyperledger-fabric-consortium-blockchain/summary.png)
+![Summary](./media/hyperledger-fabric-consortium-blockchain/summary.png)
 
 Rivedere le condizioni legali e sulla privacy e selezionare **Acquista** per avviare la distribuzione. A seconda del numero di macchine virtuali di cui viene eseguito il provisioning, il tempo di distribuzione può variare da pochi minuti a decine di minuti.
 

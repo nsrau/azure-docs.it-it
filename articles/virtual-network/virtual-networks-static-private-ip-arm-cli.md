@@ -1,5 +1,5 @@
 ---
-title: Configurare indirizzi IP privati per le VM-interfaccia della riga di comando di Azure
+title: Configure private IP addresses for VMs - Azure CLI
 description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
-ms.openlocfilehash: 5734b96466801efaa991a971bd87f60aafc9df32
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: dfc56d86d2e516a7c7bb82ef7a5e84105e049188
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196619"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404469"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurare indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -251,7 +251,7 @@ Per cambiare la scheda di interfaccia di rete per la VM usata nei comandi preced
 2. Eseguire il comando **azure vm set** per cambiare il gruppo NIC usato dalla VM.
    
     ```azurecli
-    azure vm set -g TestRG -n DNS01 -N TestNIC2
+   az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
     ```
 
     Output previsto:

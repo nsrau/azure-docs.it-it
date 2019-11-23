@@ -1,61 +1,61 @@
 ---
-title: Come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale in Azure Active Directory | Microsoft Docs
-description: Informazioni su come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale in Azure Active Directory.
+title: Approved client apps with Conditional Access - Azure Active Directory
+description: Learn how to require approved client apps for cloud app access with Conditional Access in Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45eeef7d96f194e224e5b44421e73eb5ee5d9c0d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515141"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381113"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedi app client approvate per l'accesso alle app cloud con accesso condizionale 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>How To: Require approved client apps for cloud app access with Conditional Access 
 
-I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale Azure Active Directory (Azure AD), è possibile limitare l'accesso alle app cloud alle app client approvate che possono proteggere i dati aziendali.  
+I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. With Azure Active Directory (Azure AD) Conditional Access, you can restrict access to your cloud apps to approved client apps that can protect your corporate data.  
 
 Questo argomento illustra come configurare criteri di accesso che richiedono app client approvate.
 
 ## <a name="overview"></a>Panoramica
 
-Con [l'accesso condizionale Azure ad](overview.md), è possibile ottimizzare il modo in cui gli utenti autorizzati possono accedere alle risorse. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
+With [Azure AD Conditional Access](overview.md), you can fine-tune how authorized users can access your resources. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
 
 È possibile usare i [criteri di protezione app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali. I criteri di protezione app di Intune non richiedono una soluzione di gestione dei dispositivi mobili (MDM), che consente di proteggere i dati aziendali con o senza la registrazione dei dispositivi in una soluzione di gestione di dispositivi.
 
-Azure Active Directory l'accesso condizionale consente di limitare l'accesso alle app cloud alle app client che supportano i criteri di protezione delle app di Intune. È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook.
+Azure Active Directory Conditional Access enables you to limit access to your cloud apps to client apps that support Intune app protection policies. È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook.
 
-Nella terminologia relativa all'accesso condizionale queste app client sono note come **app client**approvate.  
+In the Conditional Access terminology, these client apps are known as **approved client apps**.  
 
 ![Accesso condizionale](./media/app-based-conditional-access/05.png)
 
 Per un elenco di app client approvate, vedere [Requisito per le app client approvate](technical-reference.md#approved-client-app-requirement).
 
-È possibile combinare i criteri di accesso condizionale basato su app con altri criteri, ad esempio [criteri di accesso condizionale basato su dispositivo](require-managed-devices.md) , per fornire flessibilità nella protezione dei dati per i dispositivi personali e aziendali.
+You can combine app-based Conditional Access policies with other policies such as [device-based Conditional Access policies](require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo argomento presuppone che l'utente abbia familiarità con:
 
 - La guida tecnica per il [requisito delle app client approvate](technical-reference.md#approved-client-app-requirement).
-- I concetti di base dell' [accesso condizionale in Azure Active Directory](overview.md).
-- Come [configurare un criterio di accesso condizionale](app-based-mfa.md).
-- [Migrazione dei criteri di accesso condizionale](best-practices.md#policy-migration).
+- The basic concepts of [Conditional Access in Azure Active Directory](overview.md).
+- How to [configure a Conditional Access policy](app-based-mfa.md).
+- The [migration of Conditional Access policies](best-practices.md#policy-migration).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare un criterio di accesso condizionale basato su app, è necessario avere un Enterprise Mobility + Security o una sottoscrizione Azure Active Directory Premium e gli utenti devono avere una licenza per EMS o Azure AD. 
+To create an app-based Conditional Access policy, you must have an Enterprise Mobility + Security or an Azure Active Directory premium subscription, and the users must be licensed for EMS or Azure AD. 
 
 ## <a name="exchange-online-policy"></a>Criteri per Exchange Online 
 
-Questo scenario è costituito da criteri di accesso condizionale basato su app per l'accesso a Exchange Online.
+This scenario consists of an app-based Conditional Access policy for access to Exchange Online.
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
@@ -70,16 +70,16 @@ Questo scenario presuppone che un utente:
 - Riceva un messaggio in cui viene chiesto di registrare un dispositivo
 - Sia in grado di accedere alla posta elettronica
 
-Tutti i criteri di protezione delle app di Intune vengono attivati al momento dell'accesso ai dati aziendali e possono richiedere all'utente di riavviare l'applicazione, usare un PIN aggiuntivo e così via (se configurato per l'applicazione e la piattaforma).
+Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform).
 
 ### <a name="configuration"></a>Configurazione 
 
-**Passaggio 1: configurare un Azure AD criteri di accesso condizionale per Exchange Online**
+**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online**.
 1. **Condizioni**: come **Condizioni** è necessario configurare **Piattaforme del dispositivo** e **App client**:
    1. Come **Piattaforme del dispositivo** selezionare **Android** e **iOS**.
@@ -88,12 +88,12 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
    ![Accesso condizionale](./media/app-based-conditional-access/05.png)
 
-**Passaggio 2: configurare un Azure AD criteri di accesso condizionale per Exchange Online con Active Sync (EAS)**
+**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online**.
 1. **Condizioni**: come **Condizioni** è necessario configurare **App client (anteprima)** . 
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
@@ -107,25 +107,25 @@ Per altre informazioni, vedere [Proteggere app e dati con Microsoft Intune](http
 
 ## <a name="exchange-online-and-sharepoint-online-policy"></a>Criteri per Exchange Online e SharePoint Online
 
-Questo scenario è costituito da un accesso condizionale con criteri di gestione delle app mobili per l'accesso a Exchange Online e SharePoint Online con app approvate.
+This scenario consists of a Conditional Access with mobile app management policy for access to Exchange Online and SharePoint Online with approved apps.
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
 Questo scenario presuppone che un utente:
 
 - Provi a usare l'app SharePoint per connettersi a siti aziendali e visualizzarli
-- Tenta di accedere con le stesse credenziali delle credenziali dell'app Outlook
+- Attempts to sign in with the same credentials as the Outlook app credentials
 - Non debba ripetere la registrazione e riesca a ottenere l'accesso alle risorse
 
 ### <a name="configuration"></a>Configurazione
 
-**Passaggio 1: configurare un Azure AD criteri di accesso condizionale per Exchange Online e SharePoint Online**
+**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
-1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
+1. **App cloud:** come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 1. **Condizioni**: come **Condizioni** è necessario configurare **Piattaforme del dispositivo** e **App client**:
    1. Come **Piattaforme del dispositivo** selezionare **Android** e **iOS**.
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
@@ -133,12 +133,12 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
    ![Accesso condizionale](./media/app-based-conditional-access/05.png)
 
-**Passaggio 2: configurare un Azure AD criteri di accesso condizionale per Exchange Online con Active Sync (EAS)**
+**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online**. Online 
 1. **Condizioni**: come **Condizioni** è necessario configurare **App client**:
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
@@ -154,25 +154,25 @@ Per altre informazioni, vedere [Proteggere app e dati con Microsoft Intune](http
 
 ## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Criteri di accesso basato su dispositivi conformi o basato su app per Exchange Online e SharePoint Online
 
-Questo scenario è costituito da criteri di accesso condizionale basato su app o conformi per l'accesso a Exchange Online.
+This scenario consists of an app-based or compliant device Conditional Access policy for access to Exchange Online.
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
 Questo scenario presuppone che:
  
-- Alcuni utenti sono già registrati (con o senza dispositivi aziendali)
+- Some users are already enrolled (with or without corporate devices)
 - Gli utenti che non hanno registrato il dispositivo e non hanno eseguito la registrazione ad Azure AD usando un'applicazione protetta tramite app debbano registrare un dispositivo per accedere alle risorse
 - Gli utenti che hanno eseguito la registrazione usando l'applicazione protetta tramite app non debbano registrare nuovamente il dispositivo
 
 ### <a name="configuration"></a>Configurazione
 
-**Passaggio 1: configurare un Azure AD criteri di accesso condizionale per Exchange Online e SharePoint Online**
+**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
-1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
+1. **App cloud:** come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 1. **Condizioni**: come **Condizioni** è necessario configurare **Piattaforme del dispositivo** e **App client**. 
    1. Come **Piattaforme del dispositivo** selezionare **Android** e **iOS**.
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
@@ -183,12 +183,12 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
  
       ![Accesso condizionale](./media/app-based-conditional-access/11.png)
 
-**Passaggio 2: configurare un Azure AD criteri di accesso condizionale per Exchange Online con Active Sync (EAS)**
+**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online**. 
 1. **Condizioni**: come **Condizioni** è necessario configurare **App client**. 
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
@@ -204,7 +204,7 @@ Per altre informazioni, vedere [Proteggere app e dati con Microsoft Intune](http
 
 ## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Criteri di accesso basato su dispositivi conformi e basato su app per Exchange Online e SharePoint Online
 
-Questo scenario è costituito da un criterio di accesso condizionale basato su app e conforme per l'accesso a Exchange Online.
+This scenario consists of an app-based and compliant device Conditional Access policy for access to Exchange Online.
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
@@ -222,13 +222,13 @@ I criteri di protezione delle app di Intune vengono attivati al momento dell'acc
 
 ### <a name="configuration"></a>Configurazione
 
-**Passaggio 1: configurare un Azure AD criteri di accesso condizionale per Exchange Online e SharePoint Online**
+**Step 1 - Configure an Azure AD Conditional Access policy for Exchange Online and SharePoint Online**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
-1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
+1. **App cloud:** come app cloud è necessario selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 1. **Condizioni**: come **Condizioni** è necessario configurare **Piattaforme del dispositivo** e **App client**. 
    1. Come **Piattaforme del dispositivo** selezionare **Android** e **iOS**.
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
@@ -239,12 +239,12 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
  
       ![Accesso condizionale](./media/app-based-conditional-access/13.png)
 
-**Passaggio 2: configurare un Azure AD criteri di accesso condizionale per Exchange Online con Active Sync (EAS)**
+**Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
 
-Per i criteri di accesso condizionale in questo passaggio, è necessario configurare i componenti seguenti:
+For the Conditional Access policy in this step, you need to configure the following components:
 
-1. **Nome** dei criteri di accesso condizionale.
-1. **Utenti e gruppi**: Ogni criterio di accesso condizionale deve avere selezionato almeno un utente o un gruppo.
+1. The **Name** of your Conditional Access policy.
+1. **Users and groups**: Each Conditional Access policy must have at least one user or group selected.
 1. **App cloud**: come app cloud è necessario selezionare **Office 365 Exchange Online**. 
 1. **Condizioni**: come **Condizioni** è necessario configurare **App client (anteprima)** . 
    1. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.

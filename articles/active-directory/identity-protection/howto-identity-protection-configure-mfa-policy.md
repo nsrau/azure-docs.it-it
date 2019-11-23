@@ -1,5 +1,5 @@
 ---
-title: Come configurare i criteri di registrazione di autenticazione a più fattori in Azure Active Directory Identity Protection
+title: Configure the MFA registration policy - Azure Active Directory Identity Protection
 description: Informazioni su come configurare i criteri di registrazione per l'autenticazione a più fattori di Azure Active Directory Identity Protection.
 services: active-directory
 ms.service: active-directory
@@ -11,43 +11,43 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc98f645c6b24069e090560a049ccb4fcd03dfec
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887572"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382137"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procedura: configurare i criteri di registrazione del Multi-Factor Authentication di Azure
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>How To: Configure the Azure Multi-Factor Authentication registration policy
 
-Azure AD Identity Protection consente di gestire l'implementazione della registrazione di Azure Multi-Factor Authentication (multi-factor authentication) configurando criteri di accesso condizionale per richiedere la registrazione a più fattori, a prescindere dall'app di autenticazione moderna a cui si accede.
+Azure AD Identity Protection helps you manage the roll-out of Azure Multi-Factor Authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you are signing in to.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Informazioni sui criteri di registrazione di Azure Multi-Factor Authentication
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>What is the Azure Multi-Factor Authentication registration policy?
 
-Azure Multi-Factor Authentication fornisce un mezzo per verificare chi sta usando più di un nome utente e una password. Fornisce un secondo livello di sicurezza agli accessi degli utenti. Affinché gli utenti siano in grado di rispondere alle richieste di autenticazione a più fattori, devono prima registrarsi per Multi-Factor Authentication di Azure.
+Azure Multi-Factor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure Multi-Factor Authentication.
 
-Per gli accessi utente è consigliabile richiedere Azure Multi-Factor Authentication perché:
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
-- Offre autenticazione avanzata tramite una gamma di opzioni di verifica.
-- Svolge un ruolo fondamentale nella preparazione dell'organizzazione per la correzione automatica dai rilevamenti dei rischi in Identity Protection.
+- Delivers strong authentication through a range of verification options.
+- Plays a key role in preparing your organization to self-remediate from risk detections in Identity Protection.
 
-Per altre informazioni su Azure Multi-Factor Authentication, vedere [che cos'è azure multi-factor authentication?](../authentication/howto-mfa-getstarted.md)
+For more information on Azure Multi-Factor Authentication, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>Configurazione dei criteri
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory** > **sicurezza** > **Identity Protection** > **criteri di registrazione**dell'autenticazione a più fattori.
-   1. In **assegnazioni**
-      1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
-         1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
-   1. Sotto **controlli**
-      1. Verificare che la casella di controllo **Richiedi registrazione** autenticazione a più fattori di Azure sia selezionata e scegliere **Seleziona**.
-   1. **Imponi - criteri** **in**
+1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **MFA registration policy**.
+   1. Under **Assignments**
+      1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
+         1. Optionally you can choose to exclude users from the policy.
+   1. Under **Controls**
+      1. Ensure the checkbox **Require Azure MFA registration** is checked and choose **Select**.
+   1. **Enforce Policy** - **On**
    1. **Salva**
 
 ## <a name="user-experience"></a>Esperienza utente
 
-Azure Active Directory Identity Protection chiederà agli utenti di effettuare la registrazione al successivo accesso interattivo e avranno 14 giorni per completare la registrazione. Durante questo periodo di 14 giorni, è possibile ignorare la registrazione, ma al termine del periodo sarà necessario effettuare la registrazione prima di poter completare il processo di accesso.
+Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14-day period, they can bypass registration but at the end of the period they will be required to register before they can complete the sign-in process.
 
 Per una panoramica dell'esperienza utente correlata, vedere:
 
@@ -55,8 +55,8 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare l'accesso e i criteri di rischio utente](howto-identity-protection-configure-risk-policies.md)
+- [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)
 
-- [Abilitare la reimpostazione della password self-service Azure AD](../authentication/howto-sspr-deployment.md)
+- [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
 
-- [Abilita Multi-Factor Authentication di Azure](../authentication/howto-mfa-getstarted.md)
+- [Enable Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

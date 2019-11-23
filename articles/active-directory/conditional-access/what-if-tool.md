@@ -1,38 +1,38 @@
 ---
-title: Che cos'è la cosa se strumento in Active Directory accesso condizionale di Azure?
-description: Informazioni su come è possibile comprendere l'impatto dei criteri di accesso condizionale nell'ambiente.
+title: The Conditional Access What If tool - Azure Active Directory
+description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d2ec4099045e17b8482fcde313d31720083583
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506747"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379988"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Che cos'è la cosa se strumento in Active Directory accesso condizionale di Azure?
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
 
-[Accesso condizionale](../active-directory-conditional-access-azure-portal.md) è una funzionalità di Azure Active Directory (Azure AD) che consente al controllo del modo in cui gli utenti autorizzati accedono alle App cloud. Come si sapere cosa accade tra i criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare la **condizionale simulazione accesso strumento**.
+[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
 
-Questo articolo illustra come è possibile usare questo strumento per testare i criteri di accesso condizionale.
+This article explains how you can use this tool to test your Conditional Access policies.
 
 ## <a name="what-it-is"></a>Che cos'è
 
-Il **strumento per i criteri condizionali simulazione accesso** consente di comprendere l'impatto dei criteri di accesso condizionale nell'ambiente. Anziché testare i criteri eseguendo più accessi in modo manuale, questo strumento consente di valutare un accesso simulato di un utente. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione. Il report non sono elencati solo i criteri di accesso condizionale applicati, ma anche [i criteri classici](policy-migration.md#classic-policies) se presenti.    
+The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Anziché testare i criteri eseguendo più accessi in modo manuale, questo strumento ti permette di valutare un accesso simulato di un utente. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
 
-Il **cosa accade se** strumento consente di individuare rapidamente i criteri applicati a un utente specifico. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
+The **What If** tool provides a way to quickly determine the policies that apply to a specific user. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
-Nel **condizionale simulazione accesso strumento**, è innanzitutto necessario configurare le impostazioni dello scenario si desidera simulare l'accesso. Queste impostazioni includono:
+In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. Tali impostazioni includono:
 
 - L'utente da testare 
 - Le app cloud a cui l'utente proverà ad accedere
@@ -44,9 +44,9 @@ Al termine della valutazione, lo strumento genera un report dei criteri interess
 
 ## <a name="running-the-tool"></a>Esecuzione dello strumento
 
-È possibile trovare il **cosa accade se** dello strumento sul **[accesso condizionale - criteri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** pagina nel portale di Azure.
+You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
 
-Per avviare lo strumento, sulla barra degli strumenti sopra l'elenco dei criteri, fare clic su **cosa accade se**.
+To start the tool, in the toolbar on top of the list of policies, click **What If**.
 
 ![What If](./media/what-if-tool/01.png)
 
@@ -88,7 +88,7 @@ Questa impostazione simula la [condizione di rischio di accesso](conditions.md#s
 
 ## <a name="evaluation"></a>Versione di valutazione 
 
-Avviare una valutazione facendo **cosa accade se**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
+You start an evaluation by clicking **What If**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
 
 ![What If](./media/what-if-tool/03.png)
 
@@ -104,6 +104,6 @@ Nell'elenco dei criteri che non si applicano all'utente è possibile trovare anc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si desidera sapere come configurare un criterio di accesso condizionale, vedere [Richiedi autenticazione a più fattori per App specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente, vedere la [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md). 
+- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](app-based-mfa.md).
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere le [procedure consigliate per l'accesso condizionale](best-practices.md) in Azure Active Directory. 
 - Per informazioni sulla migrazione dei criteri classici, vedere [Eseguire la migrazione dei criteri classici nel portale di Azure](policy-migration.md).  
