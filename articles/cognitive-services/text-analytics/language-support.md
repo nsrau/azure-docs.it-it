@@ -32,7 +32,7 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, Estrazione frasi chiave e il riconoscimento di entità denominate
 
 Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive. In il riconoscimento delle entità denominate V2, il supporto per il set completo di [tipi di entità](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) è attualmente limitato alle lingue seguenti: 
-* Italiano
+* English
 * Cinese semplificato
 * Francese
 * Tedesco
@@ -47,7 +47,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 > [!NOTE]
 > Per informazioni dettagliate sul supporto del linguaggio per l'anteprima pubblica di NER (Named Entity Recognition) v3, vedere [tipi di entità denominate](named-entity-types.md).
 
-| Linguaggio              | Codice lingua | Sentiment | Frase chiave | Riconoscimento di entità denominate | Collegamento di entità |       Note        |
+| Lingua              | Codice lingua | Valutazione | Frasi chiave | Riconoscimento di entità denominate | Collegamento di entità |       Note        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabo                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Ceco                 |     `cs`      |           |             |           ✔ \*           |                |                    |
@@ -55,7 +55,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 | Cinese tradizionale   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danese                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Olandese                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Italiano               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| English               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
 | Finlandese               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Francese                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
 | Tedesco                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
@@ -77,7 +77,7 @@ il supporto della lingua \* è in anteprima
 
 \** disponibile anche nelle anteprime pubbliche di [analisi del sentiment V3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) e/o di [riconoscimento delle entità denominate V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) .
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/)   
 [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)

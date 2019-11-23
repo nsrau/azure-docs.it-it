@@ -33,7 +33,7 @@ Queste funzionalità devono essere prese in considerazione prima di passare all'
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 -   Si dispone di un tenant Azure AD con domini federati.
 

@@ -36,7 +36,7 @@ I passaggi illustrati in questo articolo presuppongono che venga eseguita l'inst
 L'installazione del runtime di Service Fabric e dell'SDK nel sottosistema di Windows per Linux non è supportata. È possibile gestire le entità di Service Fabric ospitate in altre posizioni nel cloud o in locale con l'interfaccia della riga di comando di Azure Service Fabric supportata. Per informazioni su come installare l'interfaccia della riga di comando, vedere [Configurare l'interfaccia della riga di comando di Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Queste versioni dei sistemi operativi sono supportate per lo sviluppo.
 
@@ -231,7 +231,7 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
     sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
-Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfcontainer` o `yo azuresfguest`.
+Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfguest` o `yo azuresfcontainer`.
 
 ## <a name="set-up-net-core-20-development"></a>Configurare lo sviluppo .NET Core 2.0
 
@@ -272,7 +272,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 > 
 > In Ubuntu si consiglia di eseguire l'installazione direttamente dal sito di Eclipse invece di usare un programma di installazione di pacchetti (`apt` o `apt-get`). In questo modo si è certi di ottenere la versione più aggiornata di Eclipse. È possibile installare l'IDE di Eclipse per sviluppatori Java o per sviluppatori Java EE.
 
-1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). È possibile aggiornare Buildship seguendo le istruzioni riportate in [Eclipse Buildship: Plug-in di Eclipse per Gradle @ no__t-0.
+1. In Eclipse verificare che siano installati Eclipse Neon o versione successiva e Buildship versione 2.2.1 o successiva. Controllare le versioni dei componenti installati selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). Per aggiornare la compilazione, è possibile usare le istruzioni riportate in [Eclipse Building: plug-in Eclipse per Gradle][buildship-update].
 
 2. Per installare il plug-in Service Fabric, selezionare **Help** > **Install New Software** (? > Installa nuovo software).
 
@@ -286,7 +286,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 6. Eseguire la procedura d'installazione. Accettare quindi il contratto di licenza con l'utente finale.
 
-Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. Controllare selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). Cercare quindi Service Fabric nell'elenco dei plug-in installati. Selezionare **Update** (Aggiorna) se è disponibile una versione più recente.
+Se il plug-in Eclipse per Service Fabric è già installato, verificare che la versione sia la più recente. Controllare selezionando **Help** > **About Eclipse** > **Installation Details** (?, Informazioni su Eclipse, Dettagli installazione). Quindi cercare Service Fabric nell'elenco dei plug-in installati. Selezionare **Aggiorna** se è disponibile una versione più recente.
 
 Per altre informazioni, vedere [Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse](service-fabric-get-started-eclipse.md).
 

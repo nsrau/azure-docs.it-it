@@ -42,7 +42,7 @@ I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](htt
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|Description|  
+    |Autorizzazione|Descrizione|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -71,7 +71,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 
 3. Selezionare un'autorizzazione.
 
-   |Autorizzazione|Description|  
+   |Autorizzazione|Descrizione|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -79,7 +79,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
 
-     ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Add User](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Se il ruolo che si sta creando dispone dell'autorizzazione Lettura, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic su **Filtri di riga**, selezionare una tabella e quindi digitare una formula DAX nel campo **Filtro DAX**. 
 
@@ -121,7 +121,7 @@ In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo a
 
 Il modulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti vengono usati per la gestione di utenti e ruoli del database.
   
-|Cmdlet|Description|
+|Cmdlet|Descrizione|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Aggiunge un membro a un ruolo del database.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Rimuove un membro da un ruolo del database.|   
@@ -139,7 +139,7 @@ I filtri di riga si applicano alle righe specificate e alle righe correlate. Qua
   
 |Table|Espressione DAX|  
 |-----------|--------------------|  
-|Area geografica|=Region[Country]="USA"|  
+|Region|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |Transazioni|=Transactions[Year]=2016|  
   

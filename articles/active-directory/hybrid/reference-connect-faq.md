@@ -119,7 +119,7 @@ Di seguito è riportato un documento informativo in cui vengono illustrate alcun
 **D: è possibile consentire Azure AD Connect di creare l'account del connettore Azure AD sul computer del gruppo di lavoro?**
 No.  Per consentire Azure AD Connect di creare automaticamente l'account del connettore Azure AD, il computer deve essere aggiunto a un dominio.  
 
-## <a name="network"></a>Rete
+## <a name="network"></a>Network
 **D: ho un firewall, un dispositivo di rete o un altro elemento che limita il tempo per cui le connessioni possono restare aperte sulla mia rete. Quale dovrebbe essere la soglia di timeout lato client quando si usa Azure AD Connect?**  
 Tutto il software di rete e tutti i dispositivi fisici o i meccanismi di altro tipo che limitano la durata delle connessioni devono applicare una soglia di almeno cinque minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect ed Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione delle identità di Microsoft rilasciati in precedenza.
 
@@ -145,7 +145,7 @@ Per materiale sussidiario sul rinnovo del certificato, vedere [Rinnovare i certi
 **D: è stato impostato "Aggiorna automaticamente relying party" per l'relying party di Office 365. È necessario eseguire qualsiasi azione quando il certificato per la firma di token esegue automaticamente il rollover?**  
 Seguire il materiale sussidiario illustrato nell'articolo [Rinnovare i certificati](how-to-connect-fed-o365-certs.md).
 
-## <a name="environment"></a>Ambiente
+## <a name="environment"></a>Environment
 **D: Il fatto di rinominare il server dopo l'installazione di Azure AD Connect è supportato?**  
 No. La modifica del nome del server impedisce al motore di sincronizzazione di connettersi all'istanza del database SQL e il servizio non può essere avviato.
 
@@ -258,7 +258,7 @@ In rari casi, il servizio Azure AD Connect non si avvia dopo l'aggiornamento. In
 **D: non si è certi di quali siano i rischi quando si esegue l'aggiornamento a una versione più recente di Azure AD Connect. È possibile chiamarmi per facilitare l'aggiornamento?**  
 Se è necessaria assistenza per l'aggiornamento a una versione di Azure AD Connect più recente, aprire un ticket di supporto nella pagina [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) (Creare una richiesta di servizio per contattare il supporto di Office 365).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**
 
 [Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)

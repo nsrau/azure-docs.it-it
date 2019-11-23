@@ -112,7 +112,7 @@ Dopo aver stabilito la connessione di rete, seguire la procedura descritta in [a
 
 3. Selezionare **Home > amministrazione**.
 
-    ![Amministrazione](media/OnPremAD01.png)
+    ![amministrazione](media/OnPremAD01.png)
 
 4. Selezionare **Single Sign-On > Configuration**.
 

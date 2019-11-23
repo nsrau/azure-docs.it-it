@@ -29,7 +29,7 @@ ms.locfileid: "72029779"
 È possibile trasmettere i log da Microsoft web application firewall (WAF) del gateway applicazione Azure. Questo WAF protegge le applicazioni da vulnerabilità Web comuni come SQL injection e cross-site scripting e consente di personalizzare le regole per ridurre i falsi positivi. Seguire queste istruzioni per eseguire lo streaming dei log di Microsoft Web Application Firewall in Sentinel di Azure.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Una risorsa del gateway applicazione esistente
 
@@ -40,12 +40,12 @@ Dopo aver distribuito il web application firewall Microsoft e aver ottenuto i da
     
 1. Nel portale di Azure Sentinel selezionare **connettori dati**.
 1. Nella pagina connettori dati selezionare il riquadro **WAF** .
-1. Passare alla [risorsa del gateway applicazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)  e scegliere il WAF.
+1. Passare a [risorse del gateway applicazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) e scegliere la WAF.
     1. Selezionare **Impostazioni di diagnostica**.
     1. Selezionare **+ Aggiungi impostazione diagnostica** nella tabella.
     1. Nella pagina **impostazioni di diagnostica** Digitare un **nome** e selezionare **Invia a log Analytics**.
     1. In **log Analytics area di lavoro** selezionare l'area di lavoro di Azure Sentinel.
-    1. Selezionare i tipi di log che si desidera analizzare. È consigliabile: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
+    1. Selezionare i tipi di log che si desidera analizzare. Si consiglia: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
 1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di Microsoft web application firewall, cercare **AzureDiagnostics**.
 
 ## <a name="next-steps"></a>Passaggi successivi

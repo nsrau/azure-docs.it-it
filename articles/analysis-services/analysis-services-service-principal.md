@@ -48,7 +48,7 @@ L'ID app e la password o il certificato dell'entità servizio possono essere usa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>modulo <a name="azmodule" />Using AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />uso del modulo AZ. AnalysisServices
 
 Quando si usa un'entità servizio per le operazioni di gestione delle risorse con il modulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , usare `Connect-AzAccount` cmdlet. 
 

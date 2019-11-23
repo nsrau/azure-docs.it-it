@@ -310,7 +310,7 @@ ms.locfileid: "70099997"
 
 
 Con Microsoft Azure, è possibile eseguire la migrazione di un'applicazione SAP esistente in esecuzione in IBM DB2 per Linux, UNIX e Windows (LUW) in macchine virtuali di Azure. Con SAP in IBM DB2 per LUW, gli amministratori e gli sviluppatori possono ancora usare gli stessi strumenti di sviluppo e amministrazione disponibili in locale.
-Informazioni generali sull'esecuzione di SAP Business Suite in IBM DB2 per LUW sono disponibili in SAP Community Network (SCN) all'indirizzo <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
+Le informazioni generali sull'esecuzione di SAP Business Suite in IBM DB2 per LUW sono disponibili in SAP Community Network (SCN) all'<https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 Per ulteriori informazioni e aggiornamenti su SAP in DB2 per LUW in Azure, vedere la nota SAP [2233094]. 
 
@@ -320,17 +320,17 @@ Le note SAP seguenti sono correlate a SAP in Azure relativamente all'area copert
 
 | Numero della nota | Titolo |
 | --- | --- |
-| [1928533] |Applicazioni SAP in Azure: prodotti e tipi di macchine virtuali di Azure supportati. |
+| [1928533] |Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
 | [1999351] |Risoluzione dei problemi del monitoraggio avanzato di Azure per SAP |
 | [2178632] |Metriche chiave del monitoraggio per SAP in Microsoft Azure |
-| [1409604] |Virtualizzazione in Windows: Enhanced Monitoring |
+| [1409604] |Virtualizzazione in Windows: monitoraggio avanzato |
 | [2191498] |SAP in Linux con Azure: monitoraggio avanzato |
-| [2233094] |DB6: informazioni aggiuntive sulle applicazioni SAP in Azure che usano IBM DB2 per Linux, UNIX e Windows |
+| [2233094] |DB6: Informazioni aggiuntive sulle applicazioni SAP in Azure che usano IBM DB2 per Linux, UNIX e Windows |
 | [2243692] |Linux in una macchina virtuale di Microsoft Azure (IaaS): problemi delle licenze SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12: Note sull'installazione |
-| [2002167] |Red Hat Enterprise Linux 7.x: installazione e aggiornamento |
-| [1597355] |Raccomandazione sullo spazio di scambio per Linux |
+| [1984787] |SUSE LINUX Enterprise Server 12: note di installazione |
+| [2002167] |Red Hat Enterprise Linux 7. x: installazione e aggiornamento |
+| [1597355] |Raccomandazione sullo spazio di swapping per Linux |
 
 Prima di questo documento è consigliabile avere letto il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP), nonché le altre guide disponibili nella [documentazione relativa a un carico di lavoro SAP in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -402,5 +402,5 @@ Per i dischi contenenti i percorsi di archiviazione DB2 per le directory sapdata
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altre
 Tutti gli altri argomenti generali, ad esempio i set di disponibilità di Azure o il monitoraggio SAP, si applicano come descritto nel documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di Macchine virtuali di Azure per un carico di lavoro SAP) anche per le distribuzioni di VM con IBM Database.

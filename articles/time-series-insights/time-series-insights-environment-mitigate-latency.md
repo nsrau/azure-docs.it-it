@@ -56,7 +56,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
    Da qui è possibile configurare gli avvisi usando alcune delle condizioni seguenti:
 
-   |Metrica  |DESCRIZIONE  |
+   |Metrica  |Descrizione  |
    |---------|---------|
    |**Ingress Received Bytes** (Byte ricevuti in ingresso)     | Numero di byte non elaborati letti dalle origini eventi. Include in genere il nome e il valore delle proprietà.  |  
    |**Ingress Received Invalid Messages** (Messaggi non validi ricevuti in ingresso)     | Numero dei messaggi non validi letti da tutte le origini eventi di Hub eventi di Azure o Hub IoT di Azure.      |

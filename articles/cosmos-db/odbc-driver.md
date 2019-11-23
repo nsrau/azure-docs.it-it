@@ -48,7 +48,7 @@ Attività iniziali con il driver ODBC.
 
     ![Amministrazione origine dati ODBC di Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Passaggio 2: Connettersi al database di Azure Cosmos
+## <a id="connect"></a>Passaggio 2: connettersi al database di Azure Cosmos
 
 1. Dopo aver [installato il driver ODBC di Azure Cosmos DB](#install), nella finestra **Amministrazione origine dati ODBC** fare clic su **Aggiungi**. È possibile creare un DSN utente o di sistema. In questo esempio viene creato un DSN utente.
 
@@ -60,25 +60,25 @@ Attività iniziali con il driver ODBC.
     - **Nome origine dati**: nome descrittivo per il DSN di ODBC. Questo nome è univoco per l'account Azure Cosmos DB. Si consiglia quindi di assegnarne uno appropriato se si hanno più account.
     - **Descrizione**: breve descrizione dell'origine dati.
     - **Host**: URI dell'account Azure Cosmos DB. È possibile recuperarlo dalla pagina Chiavi di Azure Cosmos DB del portale di Azure, come illustrato nello screenshot seguente. 
-    - **Chiave di accesso**: chiave di lettura/scrittura o di sola lettura primaria o secondaria indicata nella pagina Chiavi di Azure Cosmos DB del portale di Azure, come illustrato nello screenshot seguente. È consigliabile usare la chiave di sola lettura se il DSN viene usato per l'elaborazione e la creazione di report su dati di sola lettura.
+    - **Chiave di accesso**: la chiave di lettura/scrittura o di sola lettura primaria e secondaria indicata nella pagina Chiavi di Azure Cosmos DB del portale di Azure, come illustrato nello screenshot seguente. È consigliabile usare la chiave di sola lettura se il DSN viene usato per l'elaborazione e la creazione di report su dati di sola lettura.
     ![Pagina Chiavi di Azure Cosmos DB](./media/odbc-driver/odbc-cosmos-account-keys.png)
     - **Encrypt Access Key for** (Crittografa chiave di accesso per): selezionare la scelta migliore in base agli utenti del computer. 
     
 1. Fare clic sul pulsante **Test** per assicurarsi che sia possibile connettersi all'account di Azure Cosmos DB. 
 
 1.  Fare clic su **Opzioni avanzate** e impostare i valori seguenti:
-    *  **Versione dell'API REST**: Selezionare la [versione dell'API REST](https://docs.microsoft.com/rest/api/cosmos-db/) per le operazioni. Il valore predefinito 2015-12-16. Se si dispone di contenitori con [chiavi di partizione di grandi dimensioni](large-partition-keys.md) e si richiede l'API REST versione 2018-12-31:
+    *  **Versione dell'API REST**: selezionare la [versione dell'API REST](https://docs.microsoft.com/rest/api/cosmos-db/) per le operazioni. Il valore predefinito 2015-12-16. Se si dispone di contenitori con [chiavi di partizione di grandi dimensioni](large-partition-keys.md) e si richiede l'API REST versione 2018-12-31:
         - Digitare **2018-12-31** per la versione dell'API REST
         - Nel menu **Start** Digitare "regedit" per trovare e aprire l'applicazione dell' **Editor del registro di sistema** .
-        - Nell'editor del registro di sistema passare al percorso: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC. INI**
-        - Creare una nuova sottochiave con lo stesso nome del DSN, ad esempio "DSN ODBC account contoso".
+        - Nell'editor del registro di sistema passare al percorso: **computer \ HKEY_LOCAL_MACHINE \software\odbc\odbc. INI**
+        - Creare una nuova sottochiave con lo stesso nome del DSN, ad esempio "DSN ODBC dell'account contoso".
         - Passare alla sottochiave "contoso account ODBC DSN".
         - Fare clic con il pulsante destro del mouse per aggiungere un nuovo valore **stringa** :
             - Nome valore: **IgnoreSessionToken**
             - Dati valore: **1**
-             @ no__t-impostazioni Editor 2Registry @ no__t-3
-    - **Query Consistency** (Coerenza query): Selezionare il [livello di coerenza](consistency-levels.md) per le operazioni. Il valore predefinito è Session.
-    - **Number of Retries** (Numero di tentativi): immettere il numero di tentativi di un'operazione se la richiesta iniziale non viene completata a causa della limitazione di velocità del servizio.
+            ![impostazioni dell'editor del registro di sistema](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+    - **Coerenza delle query**: selezionare il [livello di coerenza](consistency-levels.md) per le operazioni. Il valore predefinito è Session.
+    - **Numero di tentativi**: immettere il numero di tentativi di un'operazione se la richiesta iniziale non viene completata a causa della limitazione di velocità.
     - **File di schema**: si dispone di una serie di opzioni.
         - Per impostazione predefinita, se si lascia vuota questa voce, il driver esegue l'analisi della prima pagina di dati per tutti i contenitori per determinare lo schema di ogni contenitore. Questa operazione è nota come mapping dei contenitori. Senza un file di schema definito, il driver deve eseguire l'analisi per ogni sessione di driver. Possono quindi verificarsi tempi di avvio più elevati per un'applicazione che usa DSN. È consigliabile associare sempre un file di schema per un DSN.
         - Se si dispone già di un file di schema, probabilmente creato con l'Editor schema, è possibile fare clic su **Sfoglia**, selezionare il file, fare clic su **Salva** e quindi su **OK**.
@@ -88,7 +88,7 @@ Attività iniziali con il driver ODBC.
 
     ![Nuovo DSN ODBC di Azure Cosmos DB nella scheda User DSN (DSN utente)](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#container-mapping"></a>Passaggio 3: Creare una definizione dello schema usando il metodo di mapping del contenitore
+## <a id="#container-mapping"></a>Passaggio 3: creare una definizione dello schema usando il metodo di mapping del contenitore
 
 Esistono due tipi di metodi di campionamento che è possibile usare: **mapping del contenitore** o **delimitatori di tabella**. Una sessione di campionamento può utilizzare entrambi i metodi di campionamento, ma ogni contenitore può utilizzare solo un metodo di campionamento specifico. La procedura seguente crea uno schema per i dati in uno o più contenitori usando il metodo di mapping del contenitore. Questo metodo di campionamento recupera i dati nella pagina di un contenitore per determinare la struttura dei dati. Consente di trasporre un contenitore a una tabella sul lato ODBC. Questo metodo di campionamento è efficace e veloce quando i dati in un contenitore sono omogenei. Se un contenitore contiene il tipo di dati eterogeneo, è consigliabile usare il [metodo di mapping delimitatori di tabella](#table-mapping) in quanto fornisce un metodo di campionamento più affidabile per determinare le strutture dei dati nel contenitore. 
 
@@ -109,7 +109,7 @@ Esistono due tipi di metodi di campionamento che è possibile usare: **mapping d
 
 1. Per utilizzare questo schema con un DSN, aprire la **finestra di Azure Cosmos DB impostazione DSN driver ODBC** (tramite Amministrazione origine dati ODBC), fare clic su **Opzioni avanzate**, quindi nella casella **file di schema** passare allo schema salvato. Salvare un file di schema in un DSN esistente modifica l'ambito della connessione DSN includendo i dati e le strutture definiti dallo schema.
 
-## <a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di mapping con delimitatori di tabella
+## <a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di delimitatori di tabella
 
 Esistono due tipi di metodi di campionamento che è possibile usare: **mapping del contenitore** o **delimitatori di tabella**. Una sessione di campionamento può utilizzare entrambi i metodi di campionamento, ma ogni contenitore può utilizzare solo un metodo di campionamento specifico. 
 
@@ -209,7 +209,7 @@ Quindi eseguire le operazioni seguenti nella finestra **Definizioni visualizzazi
 
 È possibile creare un numero illimitato di visualizzazioni. Dopo aver definito le visualizzazioni, è possibile campionare i dati. 
 
-## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>Passaggio 5: Visualizzare i dati in strumenti di BI come Power BI Desktop
+## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>Passaggio 5: Visualizzare i dati in strumenti di BI quali Power BI Desktop
 
 È possibile usare il nuovo DSN per la connessione ad Azure Cosmos DB con qualsiasi strumento conforme a ODBC. Questo passaggio illustra semplicemente come connettersi a Power BI Desktop e creare una vista di Power BI.
 

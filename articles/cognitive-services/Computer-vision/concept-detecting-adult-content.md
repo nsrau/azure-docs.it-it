@@ -35,7 +35,7 @@ All'interno della classificazione "Adult" sono disponibili diverse categorie:
 
 ## <a name="use-the-api"></a>Usare l'API
 
-È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce tre proprietà booleane @ no__t-2 @ no__t-3, `isRacyContent` e `isGoryContent` @ no__t-6in la relativa risposta JSON. Il metodo restituisce anche le proprietà corrispondenti @ no__t-0 @ no__t-1, `racyScore` e `goreScore` @ no__t-4which rappresentano i punteggi di confidenza tra zero e uno per ogni rispettiva categoria.
+È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce tre proprietà booleane&mdash;`isAdultContent`, `isRacyContent`e `isGoryContent`&mdash;nella risposta JSON. Il metodo restituisce anche proprietà corrispondenti&mdash;`adultScore`, `racyScore`e `goreScore`&mdash;che rappresentano i punteggi di confidenza tra zero e uno per ogni categoria corrispondente.
 
-- [Avvio rapido: Analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
-- [Avvio rapido: Analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)
+- [Guida introduttiva: analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

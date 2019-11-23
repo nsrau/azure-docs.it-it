@@ -18,12 +18,12 @@ ms.locfileid: "73516864"
 
 Questo articolo illustra come configurare una regola di protezione bot in Web Application Firewall (WAF) di Azure per il gateway applicazione usando il portale di Azure. 
 
-È possibile abilitare un set di regole di protezione bot gestito per il WAF in modo da bloccare o registrare le richieste provenienti da indirizzi IP dannosi noti. Gli indirizzi IP vengono originati dal feed di intelligence per le minacce di Microsoft. L'intelligence sulle minacce Microsoft è basata su tecnologia Intelligent Security Graph, che viene usata da diversi servizi, tra cui Centro sicurezza di Azure.
+È possibile abilitare un set di regole di protezione bot gestito per il WAF in modo da bloccare o registrare le richieste provenienti da indirizzi IP dannosi noti. Gli indirizzi IP hanno origine dal feed di Microsoft Threat Intelligence. La soluzione Microsoft Threat Intelligence, basata su Intelligent Security Graph, viene usata da più servizi, tra cui Centro sicurezza di Azure.
 
 > [!NOTE]
 > Il set di regole di bot Protection è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio in anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per informazioni dettagliate, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Creare criteri di WAF di base per il gateway applicazione seguendo le istruzioni descritte in [creare criteri di Web Application Firewall per il gateway applicazione](create-waf-policy-ag.md).
 

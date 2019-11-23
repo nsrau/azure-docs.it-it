@@ -28,7 +28,7 @@ Questo articolo descrive come iniziare a usare l'archiviazione BLOB di Azure in 
 
 L'archiviazione BLOB di Azure è un servizio per l'archiviazione di quantità elevate di dati non strutturati a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Un singolo BLOB può avere qualsiasi dimensione. I BLOB possono essere costituiti da immagini, file audio e video, dati non elaborati e file di documento. Questo articolo descrive come iniziare a usare l'archiviazione BLOB dopo aver creato un account di archiviazione di Azure usando **Servizi connessi** di Visual Studio in un progetto ASP.NET Core.
 
-I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato un BLOB, è possibile creare uno o più contenitori nel BLOB. Ad esempio, in un BLOB denominato "Raccoglitore" è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo aver creato i contenitori, è possibile caricarvi singoli file. Vedere [Avvio rapido: Caricare, scaricare ed elencare BLOB usando. NET @ no__t-0 per ulteriori informazioni sulla modifica dei BLOB a livello di codice.
+I BLOB di archiviazione si trovano nei contenitori esattamente come i file si trovano nelle cartelle. Dopo aver creato un BLOB, è possibile creare uno o più contenitori nel BLOB. Ad esempio, in un BLOB denominato "Raccoglitore" è possibile creare contenitori denominati "immagini" per archiviare immagini e un altro contenitore denominato "audio" per archiviare file audio. Dopo aver creato i contenitori, è possibile caricarvi singoli file. Per altre informazioni sulla modifica dei BLOB a livello di codice, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 Alcune API di Archiviazione di Azure sono asincrone e il codice riportato in questo articolo presuppone che vengano usati metodi asincroni. Per altre informazioni, vedere [Programmazione asincrona](https://docs.microsoft.com/dotnet/csharp/async).
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Vedere [Avvio rapido: Caricare, scaricare ed elencare BLOB usando. NET @ no__t-0 per altri modi per elencare il contenuto di un contenitore BLOB.
+Per informazioni su altri modi per elencare il contenuto di un contenitore BLOB, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 ## <a name="download-a-blob"></a>Scaricare un BLOB
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Vedere [Avvio rapido: Caricare, scaricare ed elencare BLOB usando. NET @ no__t-0 per altri modi di salvare i BLOB come file.
+Per informazioni su altri modi per salvare i BLOB come file, vedere [Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 
 ## <a name="delete-a-blob"></a>Eliminare un BLOB
 

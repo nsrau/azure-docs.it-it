@@ -29,7 +29,7 @@ La creazione di un account di NetApp consente di configurare un pool di capacit√
 
 √à anche necessario aver registrato la sottoscrizione per l'uso del provider di risorse NetApp. Vedere [registrare il provider di risorse NetApp](azure-netapp-files-register.md#resource-provider).
 
-## <a name="steps"></a>Passaggi 
+## <a name="steps"></a>Passi 
 
 1. Accedere al portale di Azure. 
 2. Accedere al pannello di Azure NetApp Files tramite uno dei metodi seguenti:  
@@ -48,7 +48,7 @@ La creazione di un account di NetApp consente di configurare un pool di capacit√
      Selezionare una sottoscrizione tra le sottoscrizioni esistenti.
    * **Gruppo di risorse**   
      Usare un gruppo di risorse esistente oppure crearne uno nuovo.
-   * **Location**  
+   * **Localit√†**  
      Selezionare l'area in cui si vogliono posizionare l'account e le relative risorse figlio.  
 
      ![Nuovo account di NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)

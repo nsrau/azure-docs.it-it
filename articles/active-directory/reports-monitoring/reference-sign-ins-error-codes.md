@@ -53,7 +53,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 ## <a name="error-codes"></a>Codici di errore
 
 
-|Tipi di errore|DESCRIZIONE|
+|Tipi di errore|Descrizione|
 |---|---|
 |16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -107,7 +107,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50128|Nome di dominio non valido. Non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite.|
 |50129|Il dispositivo non è aggiunto all'area di lavoro: per registrare il dispositivo è necessaria l'**aggiunta alla rete aziendale**.|
 |50130|Il valore attestazione non può essere interpretato come metodo di autenticazione noto.|
-|50131|Utilizzato in diversi errori di accesso condizionale. Ad esempio, Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
+|50131|Utilizzato in diversi errori di accesso condizionale. ad esempio Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
 |50132|Le credenziali sono state revocate per i motivi seguenti:<ul><li>L'elemento SSO non è valido o è scaduto</li><li>La sessione non è sufficientemente aggiornata per l'applicazione</li><li>È stata inviata una richiesta di accesso automatico, ma la sessione dell'utente con Azure AD non è valida o è scaduta.</li></ul>|
 |50133|La sessione non è valida perché è scaduta o la password è stata modificata di recente.|
 |50135|È richiesta la modifica della password a causa di rischi per l'account.|

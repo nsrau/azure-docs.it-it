@@ -24,7 +24,7 @@ ms.locfileid: "71212539"
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
 
 **Dichiarazione di non responsabilità:** *questa guida è derivata dal test della configurazione nell'ambiente Microsoft Hana large instances, che funziona correttamente. Poiché il team di gestione dei servizi Microsoft per le istanze large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per eventuali ulteriori operazioni di risoluzione dei problemi o chiarimenti sul livello del sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e supporta completamente e può essere richiesto per la risoluzione dei problemi relativi ai dispositivi STONITH.*
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Per configurare la disponibilità elevata usando il clustering SUSE, è necessario soddisfare i prerequisiti seguenti.
 ### <a name="pre-requisites"></a>Prerequisiti
 - Provisioning delle istanze Large di HANA effettuato
@@ -154,7 +154,7 @@ Fare clic su "Generate Pre-Shared-Keys" (Genera chiavi precondivise) che apre il
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Fare clic su **OK**.
+Fare clic su **OK**
 
 L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise in Csync2. Il file della chiave viene generato con csync2 -k /etc/csync2/key_hagroup. Il file key_hagroup, dopo essere stato creato, deve essere copiato manualmente in tutti i membri del cluster. **Assicurarsi di copiare il file da node1 a node2**.
 
@@ -257,7 +257,7 @@ Eseguire il comando *crm_mon* per assicurarsi che **entrambi** i nodi siano onli
 ```
 crm_mon
 ```
-![crm-Mon. png ](media/HowToHLI/HASetupWithStonith/crm-mon.png) è inoltre possibile accedere a Hawk per verificare lo stato del cluster *https://\<node > IP: 7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
+![CRM-Mon. png](media/HowToHLI/HASetupWithStonith/crm-mon.png) è inoltre possibile accedere a Hawk per verificare lo stato del cluster *https://\<nodo IP >: 7630*. L'utente predefinito è hacluster e la password è linux. Se necessario, è possibile modificare la password usando il comando *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. configurare le proprietà e le risorse del cluster 
 Questa sezione descrive i passaggi per configurare le risorse del cluster.
@@ -322,7 +322,7 @@ crm configure load update crm-vip.txt
 Quando si esegue il comando *crm_mon*, è possibile visualizzare le due risorse.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-È anche possibile visualizzare lo stato in *https://\<node indirizzo IP >: 7630/CIB/Live/state*
+È anche possibile visualizzare lo stato in *https://\<indirizzo IP del nodo >: 7630/CIB/Live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,11 +334,11 @@ Service pacemaker stop
 Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failover delle risorse in **node1**
 
 **Prima del failover**  
-![Before-failover. png ](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![before-failover. png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **Dopo il failover**  
-![after-failover. png ](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![crm-Mon-after-failover. png ](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+![after-failover. png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![CRM-Mon-after-failover. png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. risoluzione dei problemi
@@ -371,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
 In questo documento viene usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
-**Error (Errore) (Error (Errore)e)**
+**Errore**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
@@ -422,7 +422,7 @@ Usando Yast2>Software>Software management (Gestione software)>selezionare i mode
 
 - SAP HANA server base (Base server SAP HANA)
 - C/C++ Compiler and tools (Strumenti e compilatore C/C++)
-- Disponibilità elevata
+- disponibilità elevata
 - SAP Application server base (Base server applicazioni SAP)
 
 La schermata seguente illustra i passaggi per installare i modelli.
