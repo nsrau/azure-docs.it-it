@@ -1,5 +1,5 @@
 ---
-title: Come creare funzioni definite dall'utente-in dispositivi gemelli digitali di Azure | Microsoft Docs
+title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
 description: Linee guida su come creare funzioni definite dall'utente, matcher e assegnazioni di ruolo con Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009558"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383305"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Come creare funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -46,7 +46,7 @@ I matcher sono oggetti del grafico che determinano quali funzioni definite dall'
 
 Il matcher di esempio seguente restituisce true per ogni evento di telemetria dei sensori con tipo di dati `"Temperature"`. È possibile creare più matcher in una funzione definita dall'utente eseguendo una richiesta HTTP POST autenticata per:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -69,7 +69,7 @@ Con corpo JSON:
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Area del server in cui è ospitata l'istanza |
 
@@ -81,7 +81,7 @@ La creazione di una funzione definita dall'utente comporta l'implementazione di 
 
 Dopo aver creato i matcher, caricare il frammento della funzione con la seguente richiesta HTTP POST autenticata:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -109,9 +109,9 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Un nome di limite del contenuto costituito da più parti |
+| USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
 | YOUR_MATCHER_IDENTIFIER | ID del matcher da usare |
 
@@ -201,7 +201,7 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
 
 1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) per fare in modo che tutti i ruoli ricevano l'ID da assegnare alle funzioni definite dall'utente. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Mantenere l'ID del ruolo desiderato. Verrà trasmesso come attributo del corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) di seguito.
@@ -210,17 +210,17 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
 1. Trovare il valore di **path** (`YOUR_ACCESS_CONTROL_PATH`) effettuando una query degli spazi con `fullpath`.
 1. Copiare il valore `spacePaths` restituito. Usare quello indicato di seguito. Effettuare una richiesta HTTP GET autenticata a:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_SPACE_NAME | Nome dello spazio da usare |
 
 1. Incollare il valore `spacePaths` restituito in **path** per creare un'assegnazione di ruolo della funzione definita dall'utente, effettuando una richiesta HTTP POST autenticata a:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     Con corpo JSON:
@@ -234,11 +234,11 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     }
     ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificatore del ruolo desiderato |
     | YOUR_USER_DEFINED_FUNCTION_ID | L'ID per la funzione definita dall'utente da usare |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | L'ID che specifica il tipo di funzione definita dall'utente |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | Percorso di controllo di accesso |
 
 >[!TIP]

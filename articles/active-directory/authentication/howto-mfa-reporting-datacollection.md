@@ -1,22 +1,22 @@
 ---
-title: Azure Multi-Factor Authentication user data collection - Azure Active Directory
+title: Azure MFA user data collection - Azure Active Directory
 description: Quali informazioni vengono usate per autenticare gli utenti da Azure Multi-Factor Authentication?
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe7583ff639fe46671589122efa27b7b00ef9552
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 09aa95e55b3d253ef41724298247694b9883e31f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208534"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381773"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Raccolta dati utente in Microsoft Azure Multi-Factor Authentication
 

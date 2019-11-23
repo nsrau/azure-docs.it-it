@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul ciclo di vita di un progetto
-description: Informazioni sulle fasi del ciclo di vita di un progetto e sui dettagli di ognuna.
+description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960500"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404582"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
@@ -29,14 +29,13 @@ Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di v
 
 Quando si crea un progetto, aggiungere artefatti, salvarli in un gruppo di gestione o in una sottoscrizione e fornire un nome univoco e una versione univoca. Il progetto è ora in modalità **Bozza** e non può ancora essere assegnato. Nella modalità **Bozza** può continuare a essere aggiornato e modificato.
 
-Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. La **versione più recente** viene visualizzata come **bozza** per questi progetti mai pubblicati.
+Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. The **Latest Version** is displayed as **Draft** for these never published blueprints.
 
 Creare e modificare un progetto tramite il [portale di Azure](../create-blueprint-portal.md#create-a-blueprint) o [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
 ## <a name="publishing-a-blueprint"></a>Pubblicazione di un progetto
 
-Una volta apportate le modifiche pianificate a un progetto in modalità **Bozza**, può essere **Pubblicato** e reso disponibile per l'assegnazione. Il progetto **Pubblicato** non può essere modificato.
-Una volta **Pubblicato**, il progetto è visualizzato con un'icona diversa rispetto ai progetti in **Bozza**. Inoltre, comparirà il numero della versione, specificato nella colonna **Versione più recente**.
+Una volta apportate le modifiche pianificate a un progetto in modalità **Bozza**, può essere **Pubblicato** e reso disponibile per l'assegnazione. Il progetto **Pubblicato** non può essere modificato. Una volta **Pubblicato**, il progetto è visualizzato con un'icona diversa rispetto ai progetti in **Bozza**. Inoltre, comparirà il numero della versione, specificato nella colonna **Versione più recente**.
 
 Pubblicare un progetto tramite il [portale di Azure](../create-blueprint-portal.md#publish-a-blueprint) o [API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
@@ -64,11 +63,11 @@ Ogni versione di un progetto è un oggetto univoco e può essere **Pubblicato** 
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Selezionare **definizioni progetto** nella pagina a sinistra e usare le opzioni di filtro per individuare il progetto di cui si vuole eliminare una versione. Fare clic su di esso per aprire la pagina di modifica.
+1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
 
-1. Scegliere la scheda **Versioni pubblicate** e individuare la versione da eliminare.
+1. Select the **Published versions** tab and locate the version you wish to delete.
 
-1. Fare clic con il pulsante destro del mouse sulla versione da eliminare e selezionare **Elimina la versione**.
+1. Right-click on the version to delete and select **Delete this version**.
 
 ## <a name="deleting-the-blueprint"></a>Eliminazione del progetto
 
@@ -91,20 +90,20 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 - Aggiungere o rimuovere il [blocco delle risorse](resource-locking.md)
 - Modificare il valore dei [parametri dinamici](parameters.md#dynamic-parameters)
-- Aggiornare l'assegnazione a una versione **pubblicata** più recente del progetto
+- Aggiornare l'assegnazione a una versione più recente **Pubblicata** del progetto
 
 Per informazioni, vedere [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Annullare l'assegnazione di assegnazioni
+### <a name="unassigning-assignments"></a>Unassigning assignments
 
-Se il progetto non è più necessario, è possibile che non sia assegnato dal gruppo di gestione o dalla sottoscrizione. Durante l'unassegnazione del progetto, si verifica quanto segue:
+If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
 
-- Rimozione del [blocco delle risorse del progetto](resource-locking.md)
-- Eliminazione dell'oggetto di assegnazione progetto
-- Condizionale Se è stata usata un' **identità gestita assegnata dal sistema** , viene eliminata anche
+- Removal of [blueprint resource locking](resource-locking.md)
+- Deletion of the blueprint assignment object
+- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
 
 > [!NOTE]
-> Tutte le risorse distribuite dall'assegnazione progetto rimangono invariate, ma non sono più protette dai progetti di Azure.
+> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

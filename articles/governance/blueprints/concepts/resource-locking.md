@@ -1,30 +1,30 @@
 ---
 title: Informazioni sul blocco delle risorse
-description: Informazioni sulle opzioni di blocco per proteggere le risorse durante l'assegnazione di un progetto.
+description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960473"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406398"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
-La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per un esempio di blocco delle risorse e dell'applicazione delle _assegnazioni di rifiuto_, vedere l'esercitazione [protezione di nuove risorse](../tutorials/protect-new-resources.md) .
+La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. To see an example of resource locking and application of _deny assignments_, see the [protecting new resources](../tutorials/protect-new-resources.md) tutorial.
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
-La modalità di blocco si applica all'assegnazione del progetto ed è costituita da tre opzioni: **non bloccare**, **sola lettura**o non **eliminare**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
+Locking Mode applies to the blueprint assignment and it has three options: **Don't Lock**, **Read Only**, or **Do Not Delete**. La modalità di blocco viene configurata durante la distribuzione degli artefatti nel corso dell'assegnazione di un progetto. È possibile impostare una modalità di blocco diversa aggiornando l'assegnazione del progetto.
 Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blueprints.
 
-Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare**o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
+Resources created by artifacts in a blueprint assignment have four states: **Not Locked**, **Read Only**, **Cannot Edit / Delete**, or **Cannot Delete**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Mode|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
+|Mode|Tipo di risorsa artefatto|Statale|Description|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
-|Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
+|Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 |Sola lettura|Diverso da gruppo di risorse|Sola lettura|Non è possibile modificare la risorsa in alcun modo: non sono consentite modifiche e la risorsa non può essere eliminata.|
 |Non eliminare|*|Impossibile eliminare|Le risorse possono essere modificate, ma non possono essere eliminate. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 
@@ -47,22 +47,21 @@ Quando viene rimossa l'assegnazione, vengono rimossi i blocchi creati da Bluepri
 
 In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto viene applicata un'azione di [negazione assegnazioni](../../../role-based-access-control/deny-assignments.md) durante l'assegnazione di un progetto se per l'assegnazione è stata selezionata l'opzione **Sola lettura** o **Non eliminare**. L'azione di negazione viene aggiunta dall'identità gestita dell'assegnazione del progetto e può essere rimossa dalle risorse artefatto solo dalla stessa identità gestita. Questa misura di sicurezza consente di applicare il meccanismo di blocco e impedisce di eliminare il blocco di progetto al di fuori di Blueprint.
 
-![Assegnazione di negazione progetto per il gruppo di risorse](../media/resource-locking/blueprint-deny-assignment.png)
+![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
 
-Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
+The [deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) of each mode are as follows:
 
-|Mode |Autorizzazioni. azioni |Permissions. notacts |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
-|Non eliminare |**\*/Delete** | |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
+|Sola lettura |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Non eliminare |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager memorizza nella cache i dettagli di assegnazione di ruolo per un massimo di 30 minuti. Di conseguenza, le azioni di negazione assegnazioni per le risorse del progetto potrebbero non essere completamente attive con effetto immediato. Durante questo periodo di tempo, potrebbe essere possibile eliminare una risorsa che deve essere protetta da blocchi di progetto.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Escludere un'entità da un'assegnazione di negazione
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclude a principal from a deny assignment
 
-In alcuni scenari di progettazione o di sicurezza, potrebbe essere necessario escludere un'entità dall' [assegnazione di negazione](../../../role-based-access-control/deny-assignments.md) creata dall'assegnazione del progetto. Questa operazione viene eseguita nell'API REST aggiungendo fino a cinque valori alla matrice **excludedPrincipals** nella proprietà **Locks** durante la [creazione dell'assegnazione](/rest/api/blueprints/assignments/createorupdate).
-Questo è un esempio di corpo della richiesta che include **excludedPrincipals**:
+In some design or security scenarios, it may be necessary to exclude a principal from the [deny assignment](../../../role-based-access-control/deny-assignments.md) the blueprint assignment creates. This is done in REST API by adding up to five values to the **excludedPrincipals** array in the **locks** property when [creating the assignment](/rest/api/blueprints/assignments/createorupdate). This is an example of a request body that includes **excludedPrincipals**:
 
 ```json
 {
@@ -106,7 +105,7 @@ Questo è un esempio di corpo della richiesta che include **excludedPrincipals**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Segui l'esercitazione [Proteggi nuove risorse](../tutorials/protect-new-resources.md) .
+- Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
 - Informazioni sul [ciclo di vita del progetto](lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](parameters.md).
 - Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).

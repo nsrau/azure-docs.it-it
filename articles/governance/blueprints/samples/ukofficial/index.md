@@ -2,13 +2,13 @@
 title: Esempi di progetto UK OFFICIAL e UK NHS - Panoramica
 description: Panoramica e architettura degli esempi di progetto UK OFFICIAL e UK NHS. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 36c8909141436105eb670f775bab695730750b1d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: c058a4a9647ce6abc373a6fe2ee8d110f2541ea3
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037729"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406619"
 ---
 # <a name="overview-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Panoramica degli esempi di progetto UK OFFICIAL e UK NHS
 

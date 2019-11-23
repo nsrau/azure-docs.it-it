@@ -1,5 +1,5 @@
 ---
-title: Abilitare le applicazioni multi-tenant-gemelli digitali di Azure | Microsoft Docs
+title: Enable multitenant applications - Azure Digital Twins | Microsoft Docs
 description: Come configurare applicazioni multi-tenant di Azure Active Directory per Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: 65e1fa3fe371766566eeeaaa2d33479ea0243d61
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005925"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383348"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Abilitare le applicazioni multi-tenant con Gemelli digitali di Azure
 
@@ -54,16 +54,16 @@ Per risolvere il problema dello scenario precedente, è necessario eseguire le a
 
 - Nel [portale di Azure](https://portal.azure.com) l'amministratore del tenant di Azure Active Directory del **CLIENTE** deve quindi seguire questa procedura:
 
-  1. Aprire **Sottoscrizioni**.
+  1. Search for **Subscriptions** in the top Azure search field. Selezionare **Sottoscrizioni**.
   1. Selezionare la sottoscrizione con il tenant di Azure Active Directory da usare nell'applicazione dello **SVILUPPATORE**.
 
-     [sottoscrizioni ![Azure Active Directory](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
+     [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Selezionare **Provider di risorse**.
   1. Cercare **Microsoft.IoTSpaces**.
   1. Selezionare **Registra**.
 
-     [provider di risorse ![Azure Active Directory](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [![Azure Active Directory resource providers](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Passaggi successivi
 

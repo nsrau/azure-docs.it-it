@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/21/2019
+ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494898"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406256"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usare il client Apache Beeline con Apache Hive
 
@@ -20,11 +20,11 @@ Informazioni su come usare [Apache Beeline](https://cwiki.apache.org/confluence/
 
 Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline usa JDBC per connettersi a HiveServer2, un servizio ospitato nel cluster HDInsight. È anche possibile usare Beeline per accedere in remoto a Hive in HDInsight tramite Internet. Di seguito sono riportate le più comuni stringhe di connessione utilizzate per connettersi a HDInsight da Beeline:
 
-## <a name="types-of-connections"></a>Tipi di connessioni
+## <a name="types-of-connections"></a>Types of connections
 
-### <a name="from-an-ssh-session"></a>Da una sessione SSH
+### <a name="from-an-ssh-session"></a>From an SSH session
 
-Quando ci si connette da una sessione SSH a un cluster nodo Head, è possibile connettersi all'indirizzo `headnodehost` sulla porta `10001`:
+When connecting from an SSH session to a cluster headnode, you can then connect to the `headnodehost` address on port `10001`:
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -32,48 +32,48 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 
 ---
 
-### <a name="over-an-azure-virtual-network"></a>Su una rete virtuale di Azure
+### <a name="over-an-azure-virtual-network"></a>Over an Azure Virtual Network
 
-Quando ci si connette da un client a HDInsight tramite una rete virtuale di Azure, è necessario fornire il nome di dominio completo (FQDN) di un nodo head del cluster. Poiché questa connessione viene eseguita direttamente ai nodi del cluster, la connessione usa la porta `10001`:
+When connecting from a client to HDInsight over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. Poiché questa connessione viene eseguita direttamente ai nodi del cluster, la connessione usa la porta `10001`:
 
 ```bash
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Sostituire `<headnode-FQDN>` con il nome di dominio completo di un cluster nodo head. Per trovare il nome di dominio completo di un nodo head, usare le informazioni contenute nel documento [Gestire i cluster HDInsight mediante l'API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. Per trovare il nome di dominio completo di un nodo head, usare le informazioni contenute nel documento [Gestire i cluster HDInsight mediante l'API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Per HDInsight Enterprise Security Package cluster (ESP) con Kerberos
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>To HDInsight Enterprise Security Package (ESP) cluster using Kerberos
 
-Quando ci si connette da un client a un cluster Enterprise Security Package (ESP) aggiunto ad Azure Active Directory (AAD)-DS in un computer nella stessa area di autenticazione del cluster, è necessario specificare anche il nome di dominio `<AAD-Domain>` e il nome di un account utente di dominio con le autorizzazioni per accedere al `<username>`del cluster:
+When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD)-DS on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-Sostituire `<username>` con il nome di un account nel dominio che disponga delle autorizzazioni per accedere al cluster. Sostituire `<AAD-DOMAIN>` con il nome del Azure Active Directory (AAD) a cui viene aggiunto il cluster. Usare una stringa maiuscola per il valore `<AAD-DOMAIN>`; in caso contrario, le credenziali non verranno trovate. Se necessario, controllare `/etc/krb5.conf` per i nomi dell'area di autenticazione.
+Sostituire `<username>` con il nome di un account nel dominio che disponga delle autorizzazioni per accedere al cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
 
 ---
 
-### <a name="over-public-or-private-endpoints"></a>Su endpoint pubblici o privati
+### <a name="over-public-or-private-endpoints"></a>Over public or private endpoints
 
-Quando ci si connette a un cluster usando gli endpoint pubblici o privati, è necessario specificare il nome dell'account di accesso del cluster (impostazione predefinita `admin`) e la password. Ad esempio, l'uso di Beeline da un sistema client per connettersi all'indirizzo `<clustername>.azurehdinsight.net`. Questa connessione viene eseguita tramite la porta `443` e viene crittografata mediante SSL:
+When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. Ad esempio, l'uso di Beeline da un sistema client per connettersi all'indirizzo `<clustername>.azurehdinsight.net`. Questa connessione viene eseguita tramite la porta `443` e viene crittografata mediante SSL:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-o per l'endpoint privato:
+or for private endpoint:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-Sostituire `clustername` con il nome del cluster HDInsight. Sostituire `<username>` con l'account di accesso del cluster. Nota per i cluster ESP usare l'UPN completo, ad esempio user@domain.com. Sostituire `password` con la password dell'account di accesso del cluster.
+Sostituire `clustername` con il nome del cluster HDInsight. Sostituire `<username>` con l'account di accesso del cluster. For ESP clusters, use the full UPN (e.g. user@domain.com). Sostituire `password` con la password dell'account di accesso del cluster.
 
-Gli endpoint privati puntano a un servizio di bilanciamento del carico di base a cui è possibile accedere solo dal reti virtuali con peering nella stessa area. Per altre informazioni, vedere [vincoli sul peering VNet globale e sui bilanciamenti del carico](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . È possibile usare il comando `curl` con `-v` opzione per risolvere eventuali problemi di connettività con gli endpoint pubblici o privati prima di usare l'oggetto.
+Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
@@ -81,23 +81,23 @@ Gli endpoint privati puntano a un servizio di bilanciamento del carico di base a
 
 Apache Spark fornisce la propria implementazione di HiveServer2, spesso definita come server Spark Thrift. Questo servizio usa Spark SQL invece di Hive per risolvere le query e può offrire prestazioni migliori a seconda della query.
 
-#### <a name="through-public-or-private-endpoints"></a>Tramite endpoint pubblici o privati
+#### <a name="through-public-or-private-endpoints"></a>Through public or private endpoints
 
-La stringa di connessione utilizzata è leggermente diversa. Anziché contenere `httpPath=/hive2` `httpPath/sparkhive2`:
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it's `httpPath/sparkhive2`:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-o per l'endpoint privato:
+or for private endpoint:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-Sostituire `clustername` con il nome del cluster HDInsight. Sostituire `<username>` con l'account di accesso del cluster. Nota per i cluster ESP usare l'UPN completo, ad esempio user@domain.com. Sostituire `password` con la password dell'account di accesso del cluster.
+Sostituire `clustername` con il nome del cluster HDInsight. Sostituire `<username>` con l'account di accesso del cluster. For ESP clusters, use the full UPN (e.g. user@domain.com). Sostituire `password` con la password dell'account di accesso del cluster.
 
-Gli endpoint privati puntano a un servizio di bilanciamento del carico di base a cui è possibile accedere solo dal reti virtuali con peering nella stessa area. Per altre informazioni, vedere [vincoli sul peering VNet globale e sui bilanciamenti del carico](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . È possibile usare il comando `curl` con `-v` opzione per risolvere eventuali problemi di connettività con gli endpoint pubblici o privati prima di usare l'oggetto.
+Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
@@ -193,7 +193,7 @@ This example is based on using the Beeline client from an SSH connection.
         GROUP BY t4;
     ```
 
-    Le istruzioni eseguono queste azioni:
+    These statements do the following actions:
 
     * `DROP TABLE` - If the table exists, it's deleted.
 
@@ -255,7 +255,7 @@ This is a continuation from the prior example. Usare la procedura seguente per c
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    Le istruzioni eseguono queste azioni:
+    These statements do the following actions:
 
    * **CREATE TABLE IF NOT EXISTS** - If the table doesn't already exist, it's created. Since the **EXTERNAL** keyword isn't used, this statement creates an internal table. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono totalmente gestite da Hive.
    * **STORED AS ORC** : archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
@@ -264,7 +264,7 @@ This is a continuation from the prior example. Usare la procedura seguente per c
     > [!NOTE]  
     > A differenza delle tabelle esterne, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-3. Per salvare il file usare **Ctrl**+ **_X**, quindi immettere **Y** e infine premere **INVIO**.
+3. To save the file, use **Ctrl**+**X**, then enter **Y**, and finally **Enter**.
 
 4. Usare il codice seguente per eseguire il file tramite Beeline:
 
@@ -290,15 +290,10 @@ This is a continuation from the prior example. Usare la procedura seguente per c
         | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
         | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (1.538 seconds)
+        3 rows selected (0.813 seconds)
 
 ## <a id="summary"></a><a id="nextsteps"></a>Passaggi successivi
 
-Per informazioni più generali sull'uso di Hive con HDInsight, vedere il documento seguente:
+* For more general information on Hive in HDInsight, see [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Usare Apache Hive con Apache Hadoop su HDInsight](hdinsight-use-hive.md)
-
-Per altre informazioni su come usare Hadoop con HDInsight, vedere i documenti seguenti:
-
-* [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
-* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md)
+* For more information on other ways you can work with Hadoop on HDInsight, see [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

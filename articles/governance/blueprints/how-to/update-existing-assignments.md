@@ -1,14 +1,14 @@
 ---
-title: Aggiornare un'assegnazione esistente dal portale
-description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione esistente dal portale nei progetti di Azure.
-ms.date: 10/25/2018
+title: Update an existing assignment from the portal
+description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960364"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406387"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -16,7 +16,7 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 - Aggiungere o rimuovere il [blocco delle risorse](../concepts/resource-locking.md)
 - Modificare il valore dei [parametri dinamici](../concepts/parameters.md#dynamic-parameters)
-- Aggiornare l'assegnazione a una versione **pubblicata** più recente del progetto
+- Aggiornare l'assegnazione a una versione più recente **Pubblicata** del progetto
 
 ## <a name="updating-assignments"></a>Aggiornamento delle assegnazioni
 
@@ -24,19 +24,20 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
-1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Fare quindi clic sul pulsante **Aggiorna assegnazione** oppure fare clic con il pulsante destro del mouse sull'assegnazione del progetto e selezionare **Aggiorna assegnazione**.
+1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Then click the **Update assignment** button OR right-click the blueprint assignment and select **Update assignment**.
 
-   ![Aggiornare un'assegnazione di progetto esistente](../media/update-existing-assignments/update-assignment.png)
+   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
 
-1. La pagina **assegna progetto** caricherà precompilata con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
+1. The **Assign blueprint** page will load pre-filled with all values from the original assignment.
+   È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
-   ![È stata aggiornata una modalità di blocco assegnazione progetto esistente modificata](../media/update-existing-assignments/updated-assignment.png)
+   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
 
-1. Esplorare i dettagli relativi ad altre **operazioni di assegnazione** usando l'elenco a discesa. La tabella di **risorse gestite** viene aggiornata dall'operazione di assegnazione selezionata.
+1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
 
-   ![Operazioni di assegnazione di un'assegnazione di progetto](../media/update-existing-assignments/assignment-operations.png)
+   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 
@@ -46,9 +47,10 @@ La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Q
   - Se cambia il ruolo o l'assegnatario del ruolo (utente, gruppo o app), viene creata una nuova assegnazione di ruolo. Le assegnazioni di ruolo distribuite in precedenza vengono mantenute.
 - Assegnazioni di criteri
   - Se vengono modificati i parametri dell'assegnazione dei criteri, l'assegnazione esistente viene aggiornata.
-  - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri. Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
+  - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri.
+    Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
   - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.
-- Modelli di Gestione risorse di Azure
+- Modelli di Azure Resource Manager
   - Il modello viene elaborato tramite Resource Manager come **PUT**. Dato che ogni tipo di risorsa gestisce questo tipo di azione in modo diverso, vedere la documentazione per ogni risorsa inclusa per determinare l'impatto di questa azione quando viene eseguita dai progetti.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possibili errori per l'aggiornamento delle assegnazioni

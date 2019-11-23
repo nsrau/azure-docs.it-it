@@ -1,6 +1,6 @@
 ---
-title: Come eseguire il debug di UDF-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni sugli approcci consigliati per eseguire il debug di funzioni definite dall'utente nei dispositivi gemelli digitali di Azure.
+title: How to debug UDFs - Azure Digital Twins | Microsoft Docs
+description: Learn about recommended approaches to debug user-defined functions in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,43 +9,43 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a5f5729836e031b895fdb584efd971f2b8653353
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005928"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383387"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure
 
-Questo articolo riepiloga come diagnosticare ed eseguire il debug di funzioni definite dall'utente nei dispositivi gemelli digitali di Azure. Quindi identifica alcuni degli scenari più comuni riscontrati quando si esegue il debug di tali funzioni.
+This article summarizes how to diagnose and debug user-defined functions in Azure Digital Twins. Quindi identifica alcuni degli scenari più comuni riscontrati quando si esegue il debug di tali funzioni.
 
 >[!TIP]
 > Vedere [Come configurare il monitoraggio in Gemelli digitali di Azure](./how-to-configure-monitoring.md) per altre informazioni su come configurare gli strumenti di debug in Gemelli digitali di Azure mediante log attività, log di diagnostica e Monitoraggio di Azure.
 
 ## <a name="debug-issues"></a>Eseguire il debug dei problemi
 
-Sapere come diagnosticare i problemi nei dispositivi gemelli digitali di Azure consente di analizzare in modo efficace i problemi, identificare le cause dei problemi e fornire le soluzioni appropriate.
+Knowing how to diagnose issues within Azure Digital Twins allows you to effectively analyze issues, identify the causes of problems, and provide appropriate solutions for them.
 
-A tale scopo, sono disponibili diversi strumenti di registrazione, analisi e diagnostica.
+A variety of logging, analytics, and diagnostic tools are provided to that end.
 
-### <a name="enable-logging-for-your-instance"></a>Abilitare la registrazione per l'istanza
+### <a name="enable-logging-for-your-instance"></a>Enable logging for your instance
 
-Gemelli digitali di Azure supporta potenti funzionalità di registrazione, monitoraggio e analisi. Gli sviluppatori di soluzioni possono usare i log di monitoraggio di Azure, i log di diagnostica, i log attività e altri servizi per supportare le complesse esigenze di monitoraggio di un'app. Le opzioni di registrazione possono essere combinate per eseguire query o visualizzare i record in diversi servizi e per fornire una copertura di registrazione granulare per numerosi servizi.
+Gemelli digitali di Azure supporta potenti funzionalità di registrazione, monitoraggio e analisi. Solutions developers can use Azure Monitor logs, diagnostic logs, activity logs, and other services to support the complex monitoring needs of an IoT app. Le opzioni di registrazione possono essere combinate per eseguire query o visualizzare i record in diversi servizi e per fornire una copertura di registrazione granulare per numerosi servizi.
 
-* Per la configurazione della registrazione specifica dei dispositivi gemelli digitali di Azure, vedere [come configurare il monitoraggio e la registrazione](./how-to-configure-monitoring.md).
-* Vedere Panoramica di [monitoraggio di Azure](../azure-monitor/overview.md) per informazioni sulle impostazioni di log potenti abilitate tramite monitoraggio di Azure.
-* Vedere l'articolo [raccogliere e usare i dati di log dalle risorse di Azure](../azure-monitor/platform/resource-logs-overview.md) per configurare le impostazioni del log di diagnostica nei dispositivi gemelli digitali di Azure tramite il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
+* For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
+* Consult the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure portal, Azure CLI, or PowerShell.
 
-Una volta configurata, sarà possibile selezionare tutte le categorie di log e le metriche e usare potenti aree di lavoro di log Analytics di monitoraggio di Azure per supportare le attività di debug.
+Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 
 ### <a name="trace-sensor-telemetry"></a>Tracciare i dati di telemetria del sensore
 
-Per tracciare i dati di telemetria del sensore, verificare che siano abilitate le impostazioni di diagnostica per l'istanza di Gemelli digitali di Azure. Quindi assicurarsi che tutte le categorie di log desiderate siano selezionate. Infine, verificare che i log desiderati vengano inviati ai log di monitoraggio di Azure.
+Per tracciare i dati di telemetria del sensore, verificare che siano abilitate le impostazioni di diagnostica per l'istanza di Gemelli digitali di Azure. Quindi assicurarsi che tutte le categorie di log desiderate siano selezionate. Lastly, confirm that the desired logs are being sent to Azure Monitor logs.
 
 Per associare un messaggio di telemetria del sensore ai rispettivi log, è possibile specificare un ID di correlazione per i dati dell'evento inviati. A tale scopo, impostare la proprietà `x-ms-client-request-id` su un GUID.
 
-Dopo l'invio dei dati di telemetria, aprire Monitoraggio log Analytics di Azure per eseguire una query per i log usando l'ID correlazione set:
+After sending telemetry, open Azure Monitor log analytics to query for logs using the set Correlation ID:
 
 ```Kusto
 AzureDiagnostics
@@ -56,14 +56,14 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID di correlazione specificato per i dati dell'evento |
 
-Per visualizzare tutti i log di telemetria recenti query:
+To see all recent telemetry logs query:
 
 ```Kusto
 AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-Se si Abilita la registrazione per la funzione definita dall'utente, i log vengono visualizzati nell'istanza di log Analytics con la categoria `UserDefinedFunction`. Per recuperarle, immettere la condizione di query seguente in log Analytics:
+If you enable logging for your user-defined function, those logs appear in your log analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in log analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -84,7 +84,7 @@ Se non è stata creata un'assegnazione di ruolo all'interno dell'API Gestione, l
 
 Controllare se esiste un'assegnazione di ruolo per la funzione definita dall'utente tramite l'API Gestione:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
@@ -98,11 +98,11 @@ Se non esiste alcuna assegnazione di ruolo, vedere [Come creare funzioni definit
 
 Con la chiamata seguente all'API Gestione delle istanze di Gemelli digitali di Azure, è possibile determinare se un dato matcher è valido per il sensore specificato.
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| . | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
 | *YOUR_MATCHER_IDENTIFIER* | ID del matcher da valutare |
 | *YOUR_SENSOR_IDENTIFIER* | ID del sensore da valutare |
@@ -122,11 +122,11 @@ Risposta:
 
 Con la chiamata seguente alle API Gestione di Gemelli digitali di Azure, è possibile individuare gli identificatori delle funzioni definite dall'utente attivate dai dati di telemetria in ingresso del sensore specificato:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| . | Sostituire con |
+| Parametro | Sostituire con |
 | --- | --- |
 | *YOUR_SENSOR_IDENTIFIER* | L'ID del sensore a cui inviare i dati di telemetria |
 
@@ -216,4 +216,4 @@ Se si abilitano le impostazioni di diagnostica, è possibile riscontrare queste 
 
 - Informazioni su come abilitare il [monitoraggio e i log](./how-to-configure-monitoring.md) in Gemelli digitali di Azure
 
-- Per altre opzioni di registrazione di Azure, vedere l'articolo [Panoramica del log attività di Azure](../azure-monitor/platform/activity-logs-overview.md) .
+- Read the [Overview of Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) article for more Azure logging options.

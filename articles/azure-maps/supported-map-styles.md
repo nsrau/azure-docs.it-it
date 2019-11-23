@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd16ee87b213c2bfa4c541c4d3c453a4499855d0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887722"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325406"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -26,18 +26,18 @@ Una mappa **stradale** è una mappa standard che indica le strade, caratteristic
 **API idonee:**
 * [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Controllo mappa Web SDK
-* Controllo mappa Android
+* Web SDK map control
+* Android map control
 
-## <a name="blank-and-blank_accessible"></a>Blank e blank_accessible
+## <a name="blank-and-blank_accessible"></a>blank and blank_accessible
 
-Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuota su cui visualizzare i dati. Lo stile **blank_accessible** continuerà a fornire aggiornamenti per la lettura dello schermo con i dettagli della posizione in cui si trova la mappa, anche se la mappa di base non viene visualizzata.
+The **blank** and **blank_accessible** map styles provide a blank canvas on which to visualize data on. The **blank_accessible** style will continue to provide screen reader updates with location details of where the map is located, even though the base map is not displayed.
 
 > [!Note]
-> In Web SDK è possibile modificare il colore di sfondo della mappa impostando lo stile CSS `background-color` dell'elemento map DIV.
+> In the web SDK you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
 
 **API idonee:**
-* Controllo mappa Web SDK
+* Web SDK map control
 
 ## <a name="satellite"></a>satellite 
 Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
@@ -46,8 +46,8 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 
 **API idonee:**
 * [Riquadro del satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* Controllo mappa Web SDK
-* Controllo mappa Android
+* Web SDK map control
+* Android map control
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte alle immagini del satellite e aeree.
@@ -55,8 +55,8 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
 **API idonee:**
-* Controllo mappa Web SDK
-* Controllo mappa Android
+* Web SDK map control
+* Android map control
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
@@ -64,18 +64,20 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API idonee:**
-* Controllo mappa Web SDK 
-* Controllo mappa Android
+* [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Web SDK map control 
+* Android map control
 
 
 ## <a name="grayscale_light"></a>grayscale_light
-la **luce in grigio** è una versione leggera dello stile della mappa stradale.
+**grayscale light** is a light version of the road map style.
 
-![grigio chiaro](./media/supported-map-styles/grayscale_light.png)
+![grayscale light](./media/supported-map-styles/grayscale_light.png)
 
 **API idonee:**
-* Controllo mappa Web SDK
-* Controllo mappa Android
+* Web SDK map control
+* Android map control
 
 
 ## <a name="night"></a>notte
@@ -84,8 +86,8 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 ![notte](./media/supported-map-styles/night.png)
 
 **API idonee:**
-* Controllo mappa Web SDK
-* Controllo mappa Android
+* Web SDK map control
+* Android map control
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **road shaded relief** è uno dei principali stili di Mappe di Azure, completato con contorni della Terra.
@@ -94,13 +96,13 @@ la **luce in grigio** è una versione leggera dello stile della mappa stradale.
 
 **API idonee:**
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Controllo mappa Web SDK
-* Controllo mappa Android
+* Web SDK map control
+* Android map control
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come impostare uno stile di mappa in mappe di Azure:
+Learn about how to set a map style in Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Scegliere uno stile mappa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

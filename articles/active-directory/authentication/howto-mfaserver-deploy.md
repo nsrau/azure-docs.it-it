@@ -1,44 +1,44 @@
 ---
-title: Introduzione ad Azure server Multi-Factor Authentication-Azure Active Directory
+title: Getting started Azure MFA Server - Azure Active Directory
 description: Guida introduttiva dettagliata al server Azure MFA locale
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4682425dfd3f32e139390ef65e267a80d95f6ccd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3e751c7aefe888d16e6d86a0184a1a59437d665f
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268999"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404241"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
 <center>
 
-![Introduzione a server multi-factor authentication](./media/howto-mfaserver-deploy/server2.png)</center> locale
+![Getting started with MFA Server on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Questa pagina include una nuova installazione del server che include l'impostazione di Active Directory locale. Se il server MFA è già installato e lo si vuole aggiornare, vedere [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Eseguire l'aggiornamento al server Azure Multi-Factor Authentication più recente). Per informazioni sull'installazione solo del servizio Web, vedere [Distribuzione del servizio Web App Mobile di Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## <a name="plan-your-deployment"></a>Pianificare la distribuzione
 
 > [!WARNING]
-> A partire da marzo 2019, i download dei server a più fattori saranno disponibili solo per i tenant a pagamento. I tenant gratuiti/di valutazione non saranno più in grado di scaricare o generare e utilizzare le credenziali di attivazione.
+> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
 
 Prima di scaricare il server Azure Multi-Factor Authentication, valutare i propri requisiti in termini di carico e disponibilità elevata. Usare queste informazioni per decidere come e dove eseguire la distribuzione.
 
 Un'indicazione valida per la quantità di memoria necessaria è data dal numero di utenti che in base alle previsioni eseguirà regolarmente l'autenticazione.
 
-| Users | RAM |
+| Utenti | RAM |
 | ----- | --- |
 | 1-10.000 | 4 GB |
 | 10.001-50.000 | 8 GB |
@@ -54,10 +54,10 @@ Quando un server Azure MFA master passa in modalità offline, le richieste di ve
 
 Verificare che il server usato per Azure Multi-Factor Authentication soddisfi i requisiti seguenti:
 
-| Requisiti del server Azure Multi-Factor Authentication | DESCRIZIONE |
+| Requisiti del server Azure Multi-Factor Authentication | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB di spazio su disco rigido</li><li>processore idoneo per x32 o x64</li><li>1 GB o più di RAM</li> |
-| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, tutte le edizioni</li><li>Windows 8, tutte le edizioni</li><li>Windows 7, tutte le edizioni</li><li>Windows Vista, tutte le edizioni, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o versione successiva se si installa il portale utenti o l'SDK servizi Web</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, tutte le edizioni</li><li>Windows 8, tutte le edizioni</li><li>Windows 7, tutte le edizioni</li><li>Windows Vista, tutte le edizioni, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o versione successiva se si installa il portale utenti o l'SDK servizi Web</li> |
 | autorizzazioni | Account di amministratore del dominio o dell'organizzazione per la registrazione con Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Componenti del server Azure MFA
@@ -97,16 +97,16 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 ## <a name="download-the-mfa-server"></a>Scaricare il server MFA
 
 > [!WARNING]
-> A partire da marzo 2019, i download dei server a più fattori saranno disponibili solo per i tenant a pagamento. I tenant gratuiti/di valutazione non saranno più in grado di scaricare o generare e utilizzare le credenziali di attivazione.
+> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
 
 Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Cercare e selezionare *Azure Active Directory*. Selezionare **Server**di autenticazione a più fattori.
+2. Cercare e selezionare *Azure Active Directory*. Select **MFA Server**.
 3. Selezionare **Impostazioni server**.
 4. Selezionare **Scarica** e seguire le istruzioni nella pagina di download per salvare il programma di installazione. 
 
-   ![Scaricare il server di autenticazione a più fattori dal portale di Azure](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Download MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Tenere aperta questa pagina, perché sarà necessaria dopo l'esecuzione del programma di installazione.
 
@@ -119,7 +119,7 @@ Dopo averlo scaricato, è possibile installare e configurare il server. Assicura
 3. Al termine dell'installazione, fare clic su **Fine**. Viene avviata la configurazione guidata.
 4. Nella schermata iniziale della configurazione guidata selezionare **Non utilizzare la Configurazione guidata autenticazione** e fare clic su **Avanti**. La procedura guidata viene chiusa e viene avviato il server.
 
-   ![Ignora utilizzo della configurazione guidata autenticazione](./media/howto-mfaserver-deploy/skip2.png)
+   ![Skip using the Authentication Configuration Wizard](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Tornare alla pagina da cui è stato scaricato il server e fare clic sul pulsante **Genera credenziali di attivazione**. Copiare queste informazioni nel server Azure MFA nelle apposite caselle e fare clic su **Attiva**.
 
@@ -139,7 +139,7 @@ Fare clic sull'icona del messaggio di posta elettronica a sinistra per configura
 
 Nella scheda Contenuto messaggio è possibile visualizzare i modelli di messaggio di posta elettronica disponibili per la selezione. A seconda della modalità di configurazione scelta per l'esecuzione della verifica in due passaggi, è possibile scegliere il modello che meglio si adatta alle proprie esigenze.
 
-![Modelli di posta elettronica del server multi-factor authentication nella console](./media/howto-mfaserver-deploy/email2.png)
+![MFA Server Email templates in the console](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Importare gli utenti da Active Directory
 
@@ -152,7 +152,7 @@ Ora che il server è installato, è possibile aggiungere gli utenti. È possibil
 3. A questo punto è possibile eseguire la ricerca di singoli utenti o effettuare una ricerca delle unità organizzative con utenti all'interno di Active Directory. In questo caso, viene specificata l'unità organizzativa utenti.
 4. Selezionare tutti gli utenti a destra e fare clic su **Importa**. Verrà visualizzata una finestra popup che informa che tutte le operazioni sono state eseguite correttamente. Chiudere la finestra di importazione.
 
-   ![Importazione utente server multi-factor authentication da Active Directory](./media/howto-mfaserver-deploy/import2.png)
+   ![MFA Server user import from Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### <a name="automated-synchronization-with-active-directory"></a>Sincronizzazione automatica con Active Directory
 
@@ -180,7 +180,7 @@ Quando si usa il server Multi-Factor Authentication (MFA) locale, i dati di un u
 Oltre a questi campi, il risultato della verifica (esito positivo/rifiuto) e il motivo di eventuali rifiuti vengono archiviati insieme ai dati di autenticazione e sono disponibili nei report di autenticazione/utilizzo.
 
 > [!IMPORTANT]
-> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti del server multi-factor authentication in tenant Azure AD gratuiti/di valutazione. Questa modifica non ha alcun effetto sui messaggi SMS. La telefonata continuerà a essere disponibile per gli utenti in tenant Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di valutazione.
+> Starting in March of 2019 the phone call options will not be available to MFA Server users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Eseguire il backup e il ripristino del server Azure MFA
 

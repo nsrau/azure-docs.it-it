@@ -3,16 +3,16 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: 03abacf6bb18a4d3b6e9b01328806d2dcb6971e1
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
-ms.translationtype: HT
+ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304799"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323070"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x  
 
-> [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versione 1](functions-host-json-v1.md)
 > * [Versione 2](functions-host-json.md)
 
@@ -111,13 +111,13 @@ Controlla le [funzionalità di campionamento in Application Insights](./function
 > [!NOTE]
 > Il campionamento di log potrebbe non consentire di visualizzare alcune esecuzioni nel pannello monitoraggio di Application Insights.
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |isEnabled|true|Abilita o disabilita il campionamento.| 
 |maxTelemetryItemsPerSecond|20|La soglia oltre la quale viene avviato il campionamento.| 
-|EnableLiveMetrics |true|Abilita la raccolta di metriche attive.|
-|EnableDependencyTracking|true|Abilita il rilevamento delle dipendenze.|
-|EnablePerformanceCountersCollection|true|Abilita la raccolta dei contatori delle prestazioni Kudu.|
+|EnableLiveMetrics |true|Enables live metrics collection.|
+|EnableDependencyTracking|true|Enables dependency tracking.|
+|EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -137,7 +137,7 @@ Proprietà che restituisce un oggetto che contiene tutte le impostazioni di asso
 
 ## <a name="extensionbundle"></a>extensionBundle 
 
-I bundle di estensione consentono di aggiungere un set compatibile di estensioni di associazione di funzioni all'app per le funzioni. Per altre informazioni, vedere [bundle di estensione per lo sviluppo locale](functions-bindings-register.md#extension-bundles).
+Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -153,8 +153,11 @@ Un elenco di funzioni eseguite dall'host di processo. Una matrice vuota indica l
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la durata del timeout per tutte le funzioni. Segue il formato stringa TimeSpan. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
-In un piano dedicato (servizio app) non esiste alcun limite globale e il valore predefinito è 30 minuti. Il valore `-1` indica un'esecuzione non vincolata, ma è consigliabile mantenere un limite superiore fisso.
+Indica la durata del timeout per tutte le funzioni. It follows the timespan string format. In un piano di consumo serverless l'intervallo valido va da 1 secondo a 10 minuti e il valore predefinito è 5 minuti.  
+
+In the Premium plan the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+
+In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
@@ -178,7 +181,7 @@ Impostazioni di configurazione per il [monitoraggio integrità host](https://git
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |enabled|true|Indica se la funzionalità è abilitata. | 
 |healthCheckInterval|10 secondi|Intervallo di tempo tra i controlli dell'integrità periodici in background. | 
@@ -210,7 +213,7 @@ Controlla i comportamenti di registrazione dell'app per le funzioni, tra cui App
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definisce il livello di registrazione dei file abilitato.  Le opzioni sono `never`, `always`, `debugOnly`. |
 |logLevel|N/D|Oggetto che definisce il filtro delle categorie di log per le funzioni nell'app. La versione 2.x segue il layout di ASP.NET Core per il filtro delle categorie di log. Ciò consente di filtrare la registrazione per funzioni specifiche. Per altre informazioni, vedere [Filtro dei log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) nella documentazione di ASP.NET Core. |
@@ -233,13 +236,13 @@ Questa impostazione è un elemento figlio di [logging](#logging). Controlla la r
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |isEnabled|false|Abilita o disabilita la registrazione nella console.| 
 
 ## <a name="manageddependency"></a>managedDependency
 
-La dipendenza gestita è una funzionalità attualmente supportata solo con le funzioni basate su PowerShell. Consente la gestione automatica delle dipendenze da parte del servizio. Quando la proprietà `enabled` è impostata su `true`, il file di `requirements.psd1` viene elaborato. Le dipendenze vengono aggiornate quando vengono rilasciate versioni secondarie. Per altre informazioni, vedere [dipendenza gestita](functions-reference-powershell.md#dependency-management) nell'articolo di PowerShell.
+Managed dependency is a feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the `enabled` property is set to `true`, the `requirements.psd1` file is processed. Dependencies are updated when any minor versions are released. For more information, see [Managed dependency](functions-reference-powershell.md#dependency-management) in the PowerShell article.
 
 ```json
 {
@@ -277,7 +280,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 }
 ```
 
-|Proprietà  |Default | DESCRIZIONE |
+|Proprietà  |Predefinito | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Il periodo per cui vengono eseguiti blocchi a livello di funzione. I blocchi si rinnovano automaticamente.| 
 |listenerLockPeriod|00:01:00|Il periodo per cui vengono acquisiti blocchi di listener.| 

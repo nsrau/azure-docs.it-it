@@ -1,35 +1,35 @@
 ---
-title: Configurare il Server Azure MFA per la disponibilità elevata - Azure Active Directory
+title: High availability for Azure MFA Server - Azure Active Directory
 description: Distribuire più istanze del server Microsoft Azure Multi-Factor Authentication in configurazioni che offrono disponibilità elevata.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43154e428c3208f5d990688554407777d09f2f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18f56665041fed301faf3b4b5f99c78c1d468f8e
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056036"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404298"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurare il server Azure MFA per la disponibilità elevata
 
 Per ottenere disponibilità elevata con la distribuzione del server Azure MFA, è necessario distribuire più server MFA. Questa sezione contiene informazioni su una progettazione con bilanciamento del carico per ottenere destinazioni a disponibilità elevata nella distribuzione di server Azure MFS.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà non è più Server MFA per le nuove distribuzioni. Nuovi clienti che si vuole richiedere l'autenticazione mfa agli utenti devono usare Azure multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il Server MFA prima del 1 ° luglio sarà in grado di scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## <a name="mfa-server-overview"></a>Panoramica del server MFA
 
 L'architettura di servizio del server Azure MFA include diversi componenti, come illustrato nel diagramma seguente:
 
- ![Componenti dell'architettura di Server MFA](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA Server Architecture components](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 Un server MFA è un'istanza di Windows Server in cui è installato il software Azure Multi-Factor Authentication. Per funzionare, l'istanza del server MFA deve essere attivata dal servizio MFA in Azure. È possibile installare più di un server MFA locale.
 
@@ -39,7 +39,7 @@ Sia il master MFA che i server MFA subordinati comunicano con il servizio MFA qu
 
 In seguito all'autenticazione con AD, il server MFA comunicherà con il servizio MFA. Il server MFA attende la notifica dal servizio MFA per consentire o negare l'accesso dell'utente all'applicazione.
 
-Se l'istanza master del server MFA è offline, è comunque possibile elaborare le autenticazioni, ma non le operazioni che richiedono modifiche al database MFA. (Alcuni esempi: l'aggiunta di utenti, self-service PIN le modifiche, la modifica delle informazioni utente o l'accesso al portale utenti)
+Se l'istanza master del server MFA è offline, è comunque possibile elaborare le autenticazioni, ma non le operazioni che richiedono modifiche al database MFA. (Examples include: the addition of users, self-service PIN changes, changing user information, or access to the user portal)
 
 ## <a name="deployment"></a>Distribuzione
 

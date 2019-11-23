@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7ea4762684a41e06687adcca91b13872a0c9f740
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 06b54c3038e8b4f5879a93b696920534c2199008
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897517"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414608"
 ---
-Questo articolo fornisce una panoramica delle funzionalità di disponibilità delle macchine virtuali (VM) di Azure.
+This article provides you with an overview of the availability features of Azure virtual machines (VMs).
 
-## <a name="high-availability"></a>disponibilità elevata
+## <a name="high-availability"></a>Disponibilità elevata
 
-I carichi di lavoro vengono in genere distribuiti tra macchine virtuali diverse per ottenere velocità effettiva elevata, prestazioni e creazione di ridondanza in caso di conseguenze di una macchina virtuale a causa di un aggiornamento o di un altro evento. 
+Workloads are typically spread across different virtual machines to gain high throughput, performance, and to create redundancy in case a VM is impacted due to an update or other event. 
 
-Sono disponibili alcune opzioni offerte da Azure per ottenere la disponibilità elevata. Si esamineranno prima di tutto i costrutti di base. 
+There are few options that Azure provides to achieve High Availability. First let’s talk about basic constructs. 
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 
-Le [zone di disponibilità](../articles/availability-zones/az-overview.md) ampliano il livello di controllo necessario per mantenere la disponibilità delle applicazioni e dei dati nelle macchine virtuali. Una zona di disponibilità è una zona fisicamente separata all'interno di un'area di Azure. Esistono tre zone di disponibilità per ogni area di Azure supportata. 
+[Availability zones](../articles/availability-zones/az-overview.md) expand the level of control you have to maintain the availability of the applications and data on your VMs. An Availability Zone is a physically separate zone, within an Azure region. Esistono tre zone di disponibilità per ogni area di Azure supportata. 
 
 Ogni zona di disponibilità può contare su risorse di alimentazione, rete e raffreddamento a sé. Progettando le soluzioni in modo che usino VM replicate nelle zone, è possibile proteggere app e dati dalla perdita di un data center. Se una zona è compromessa, le app e i dati replicati diventano immediatamente disponibili in un'altra zona. 
 
@@ -42,33 +42,33 @@ Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante
 
 Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può essere sottoposto a manutenzione oppure riavviato nello stesso momento. 
 
-Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in esecuzione durante gli interventi di manutenzione periodica della piattaforma Azure. L'ordine dei domini di aggiornamento da riavviare potrebbe non proseguire in sequenza durante la manutenzione, ma viene riavviato un solo dominio di aggiornamento alla volta.
+Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in esecuzione durante gli interventi di manutenzione periodica della piattaforma Azure. The order of update domains being rebooted may not proceed sequentially during maintenance, but only one update domain is rebooted at a time.
 
 
 ## <a name="virtual-machines-scale-sets"></a>Set di scalabilità di macchine virtuali 
 
-I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM con carico bilanciato. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono una disponibilità elevata per le applicazioni e consentono di gestire, configurare e aggiornare in modo centralizzato molte macchine virtuali. È consigliabile creare due o più macchine virtuali all'interno di un set di scalabilità per fornire un'applicazione a disponibilità elevata e per soddisfare il [99,95% del contratto](https://azure.microsoft.com/support/legal/sla/virtual-machines/)di base di Azure. Non sono previsti costi per il set di scalabilità, ma si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Le macchine virtuali in un set di scalabilità possono essere distribuite in più aree e domini di errore per massimizzare la disponibilità e la resilienza alle interruzioni a causa di data center interruzioni e di eventi di manutenzione pianificata o non pianificata. Le macchine virtuali in un set di scalabilità possono anche essere distribuite in una singola zona di disponibilità o in un'area geografica. Le opzioni di distribuzione della zona di disponibilità possono variare in base alla modalità di orchestrazione.
+Azure virtual machine scale sets let you create and manage a group of load balanced VMs. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. We recommended that two or more VMs are created within a scale set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). There is no cost for the scale set itself, you only pay for each VM instance that you create. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. Virtual machines in a scale set can be deployed across multiple update domains and fault domains to maximize availability and resilience to outages due to data center outages, and planned or unplanned maintenance events. Virtual machines in a scale set can also be deployed into a single Availability zone, or regionally. Availability zone deployment options may differ based on the orchestration mode.
 
-### <a name="preview-orchestration-mode-preview"></a>Anteprima: anteprima modalità di orchestrazione
-I set di scalabilità di macchine virtuali consentono di specificare la modalità di orchestrazione.  Con la modalità di orchestrazione del set di scalabilità di macchine virtuali (anteprima) è ora possibile scegliere se il set di scalabilità deve orchestrare le macchine virtuali create in modo esplicito all'esterno di un modello di configurazione del set di scalabilità o istanze di macchine virtuali create in modo implicito in base al modello di configurazione. Scegliere la modalità di orchestrazione che il modello di orchestrazione VM consente di raggruppare in modo esplicito le macchine virtuali in un'area o in una zona di disponibilità. Le macchine virtuali distribuite in una zona di disponibilità forniscono isolamento di zona alle macchine virtuali sono associate al limite della zona di disponibilità e non sono soggette a errori che potrebbero verificarsi in un'altra zona di disponibilità nell'area. 
+### <a name="preview-orchestration-mode-preview"></a>Preview: Orchestration mode Preview
+Virtual machines scale sets allow you to specify orchestration mode.  With the virtual machine scale set orchestration mode (preview), you can now choose whether the scale set should orchestrate virtual machines which are created explicitly outside of a scale set configuration model, or virtual machine instances created implicitly based on the configuration model. Choose the orchestration mode that VM orchestration model allows you group explicitly defined Virtual Machines together in a region or in an availability zone. Virtual machines deployed in an Availability Zone provides zonal isolation to VMs are they are bound to the availability zone boundary and are not subjected to any failures that may occur in other availability zone in the region. 
 
-|   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+|   | “orchestrationMode”: “VM” (VirtualMachine)| “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |----|----|----|
-| Modello di configurazione della macchina virtuale| Nessuno. VirtualMachineProfile non è definito nel modello del set di scalabilità. | Obbligatorio. VirtualMachineProfile viene popolato nel modello del set di scalabilità. |
-| Aggiunta di una nuova macchina virtuale al set di scalabilità| Al momento della creazione della macchina virtuale, le macchine virtuali vengono aggiunte esplicitamente al set di scalabilità. | Le VM vengono create in modo implicito e aggiunte al set di scalabilità in base al modello di configurazione della macchina virtuale, al numero di istanze e alle regole di scalabilità automatica. |
-| Zone di disponibilità| Supporta la distribuzione a livello di area o le macchine virtuali in una zona di disponibilità| Supporta la distribuzione a livello di area o più zone di disponibilità; Consente di definire la strategia di bilanciamento della zona |
-| Domini di errore| Consente di definire il numero di domini di errore. 2 o 3 Basato sul supporto regionale e 5 per la zona di disponibilità. Il dominio di errore della VM assegnato viene mantenuto con il ciclo di vita della macchina virtuale, inclusi deallocazione e riavvio. | Consente di definire 1, 2 o 3 domini di errore per le distribuzioni non di zona e 5 per le distribuzioni di zone di disponibilità. Il dominio di errore della VM assegnato non è persistente con il ciclo di vita della macchina virtuale. alle macchine virtuali viene assegnato un dominio di errore al momento dell'allocazione. |
-| Domini di aggiornamento| N/D. I domini di aggiornamento vengono mappati automaticamente ai domini di errore| N/D. I domini di aggiornamento vengono mappati automaticamente ai domini di errore |
+| VM configuration model| None. VirtualMachineProfile is undefined in the scale set model. | Richiesto. VirtualMachineProfile is populated in the scale set model. |
+| Adding new VM to Scale Set| VMs are explicitly added to the scale set when the VM is created. | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules. |
+| Zone di disponibilità| Supports regional deployment or VMs in one Availability Zone| Supports regional deployment or multiple Availability Zones; Can define the zone balancing strategy |
+| Domini di errore| Can define fault domains count. 2 or 3 based on regional support and 5 for Availability zone. The assigned VM fault domain will persist with VM lifecycle, including deallocate and restart. | Can define 1, 2, or 3 fault domains for non-zonal deployments, and 5 for Availability zone deployments. The assigned VM fault domain does not persist with VM lifecycle, virtual machines are assigned a fault domain at time of allocation. |
+| Domini di aggiornamento| N/D. Update domains are automatically mapped to fault domains| N/D. Update domains are automatically mapped to fault domains |
 
-**Domini di errore e domini di aggiornamento**
+**Fault domains and update domains**
 
-I set di scalabilità di macchine virtuali semplificano la progettazione per la disponibilità elevata allineando domini di errore e domini di aggiornamento. È necessario definire solo il numero di domini di errore per il set di scalabilità. Il numero di domini di errore disponibili per i set di scalabilità può variare in base all'area. Vedere [numero di domini di errore per area](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
+Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Number of Fault Domains per region](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
 
 
 ## <a name="availability-sets"></a>Set di disponibilità
 Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
 
-In un set di disponibilità, le macchine virtuali vengono distribuite automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
+In an availability set, VMs are automatically distributed across these fault domains. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
 
 Le VM che usano [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. 
 
@@ -77,7 +77,7 @@ In un set di disponibilità gestito possono essere create solo VM con dischi ges
 ![Set di disponibilità gestito](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 
-Anche le VM all'interno di un set di disponibilità vengono distribuite automaticamente tra i domini di aggiornamento. 
+VMs within an availability set are also automatically distributed across update domains. 
 
 ![Set di disponibilità](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 

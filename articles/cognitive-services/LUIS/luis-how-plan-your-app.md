@@ -1,5 +1,5 @@
 ---
-title: Pianificare l'app-LUIS
+title: Plan your app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Definire le finalità e le entità dell'app e quindi creare i relativi piani in Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
@@ -9,52 +9,56 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b5e5df111b81cb60b6d194be190421bdb5ce2683
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467707"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326784"
 ---
-# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Pianificare lo schema dell'app LUIS con dominio soggetto ed estrazione dei dati
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Plan your LUIS app schema with subject domain and data extraction
 
-Uno schema di app LUIS contiene Intent ed entità rilevanti per il dominio dell'oggetto. Gli Intent classificano le espressioni utente e le entità estraggono i dati dalle espressioni utente. 
+A LUIS app schema contains [intents](luis-glossary.md#intent) and [entities](luis-glossary.md#entity) relevant to your subject [domain](luis-glossary.md#domain). The intents classify user [utterances](luis-glossary.md#utterance), and the entities extract data from the user utterances.
 
 ## <a name="identify-your-domain"></a>Identificare il dominio
 
-Un'app LUIS è incentrata su un argomento specifico del dominio.  Ad esempio, si potrebbe avere un'app di viaggi su cui si eseguono prenotazioni di biglietti, voli, hotel e auto a noleggio. Un'altra app potrebbe fornire contenuti relativi ad allenamento fisico, monitoraggio degli sforzi e impostazione degli obiettivi. Identificare il dominio consente di trovare parole o frasi importanti per il dominio.
+A LUIS app is centered around a subject domain. For example, you may have a travel app that handles booking of tickets, flights, hotels, and rental cars. Un'altra app potrebbe fornire contenuti relativi ad allenamento fisico, monitoraggio degli sforzi e impostazione degli obiettivi. Identifying the domain helps you find words or phrases that are relevant to your domain.
 
 > [!TIP]
-> LUIS offre [domini predefiniti](luis-how-to-use-prebuilt-domains.md) per molti scenari comuni.
-> Verificare se è possibile utilizzare un dominio predefinito come punto di partenza per l'app.
+> LUIS offre [domini predefiniti](luis-how-to-use-prebuilt-domains.md) per molti scenari comuni. Verificare se è possibile utilizzare un dominio predefinito come punto di partenza per l'app.
 
 ## <a name="identify-your-intents"></a>Identificare le finalità
 
-Pensare alle [finalità](luis-concept-intent.md) che sono importanti per l'attività dell'applicazione. 
+Think about the [intents](luis-concept-intent.md) that are important to your application's task.
 
-Si consideri l'esempio di un'app di viaggi con funzioni per la prenotazione di un volo e il controllo delle previsioni meteo relative alla destinazione dell'utente. È possibile definire il `BookFlight` e `GetWeather` Intent per queste azioni. 
+Si consideri l'esempio di un'app di viaggi con funzioni per la prenotazione di un volo e il controllo delle previsioni meteo relative alla destinazione dell'utente. You can define the `BookFlight` and `GetWeather` intents for these actions.
 
-In un'app più complessa con più funzioni, sono presenti più Intent ed è necessario definirli con cautela, in modo che gli Intent non siano troppo specifici. È ad esempio possibile che `BookFlight` e `BookHotel` debbano essere ritenute separate, ma `BookInternationalFlight` e `BookDomesticFlight` potrebbero essere troppo simili.
+In a more complex app with more functions, you have more intents, and you should define them carefully so the intents aren't too specific. For example, `BookFlight` and `BookHotel` may need to be separate intents, but `BookInternationalFlight` and `BookDomesticFlight` may be too similar.
 
 > [!NOTE]
-> È consigliabile limitare il numero delle finalità solo a quelle necessarie per eseguire le funzioni dell'app. Se si definiscono troppe finalità, per LUIS sarà più difficile classificare correttamente le espressioni. Se si definisce un numero troppo basso di elementi, potrebbe essere così generale che si sovrappongono.
+> È consigliabile limitare il numero delle finalità solo a quelle necessarie per eseguire le funzioni dell'app. Se si definiscono troppe finalità, per LUIS sarà più difficile classificare correttamente le espressioni. If you define too few, they may be so general that they overlap.
 
-Se non è necessario identificare l'intenzione complessiva dell'utente, aggiungere tutte le espressioni utente di esempio alla finalità None. Se l'app aumenta in modo da richiedere più Intent, è possibile crearli in un secondo momento. 
+If you don't need to identify overall user intention, add all the example user utterances to the `None` intent. If your app grows into needing more intents, you can create them later.
 
 ## <a name="create-example-utterances-for-each-intent"></a>Creare espressioni di esempio per ogni finalità
 
-Una volta determinati gli Intent, creare da 15 a 30 espressioni di esempio per ogni finalità. Per iniziare, non avere meno di questo numero o creare troppe espressioni per ogni finalità. Ogni espressione deve essere diversa dall'espressione precedente. Una buona varietà di espressioni comprende il conteggio complessivo delle parole, la scelta delle parole, i tempi verbali e la punteggiatura. 
+To begin with, avoid creating too many utterances for each intent. Once you have determined the intents, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. A good variety in utterances include overall word count, word choice, verb tense, and punctuation.
 
-Per ulteriori informazioni, esaminare le [espressioni](luis-concept-utterance.md) .
+For more information, see [understanding good utterances for LUIS apps](luis-concept-utterance.md).
 
 ## <a name="identify-your-entities"></a>Identificare le entità
 
-Nelle espressioni di esempio individuare le entità che si intende estrarre. Per prenotare un volo, sono necessarie informazioni come la destinazione, la data, la compagnia aerea, la categoria di ticket e la classe di viaggio. Creare entità per questi tipi di dati e quindi contrassegnare le [entità](luis-concept-entity-types.md) negli enunciati di esempio perché sono importanti per l'esecuzione di una finalità. 
+Nelle espressioni di esempio individuare le entità che si intende estrarre. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](luis-concept-entity-types.md) in the example utterances. Entities are important for accomplishing an intent.
 
-Quando si determinano le entità da usare nell'app, tenere presente che esistono diversi tipi di entità per l'acquisizione di relazioni tra i tipi di oggetti. L'articolo [Entità in LUIS](luis-concept-entity-types.md) fornisce maggiori dettagli su questi diversi tipi.
+When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. L'articolo [Entità in LUIS](luis-concept-entity-types.md) fornisce maggiori dettagli su questi diversi tipi.
+
+> [!TIP]
+> LUIS offers [prebuilt entities](luis-prebuilt-entities.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sul ciclo di [sviluppo](luis-concept-app-iteration.md)tipico.  
+> [!div class="nextstepaction"]
+> [Learning the LUIS development lifecylce](luis-concept-app-iteration.md)
+

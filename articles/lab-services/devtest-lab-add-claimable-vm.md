@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs | Microsoft Docs
+title: Create and manage claimable VMs in Azure DevTest Labs | Microsoft Docs
 description: Informazioni su come aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a3b8085a4dd2ece384ece72578ffafbd0e2e0b9d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184298"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383963"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs
 Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è necessario seguire una procedura simile all'[aggiunta di una macchina virtuale standard](devtest-lab-add-vm.md), partendo da una *base* che può essere un'[immagine personalizzata](devtest-lab-create-template.md), una [formula](devtest-lab-manage-formulas.md) o un'[immagine del Marketplace](devtest-lab-configure-marketplace-images.md). In questa esercitazione viene descritto come usare il portale di Azure per aggiungere una macchina virtuale richiedibile a un lab in DevTest Labs e viene illustrato il processo che un utente deve seguire per richiedere e annullare la richiesta della macchina virtuale.
@@ -72,7 +72,7 @@ Un utente può richiedere qualsiasi macchina virtuale dall'elenco "Claimable vir
   ![Richiedere una macchina virtuale a disposizione degli utenti.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-Quando un utente dichiara una macchina virtuale, DevTest Labs avvierà il computer e lo sposterà nell'elenco di "macchine virtuali" dell'utente del Lab. Ciò significa che l'utente del Lab avrà ora il proprietario privilegdes in questo mahcine. Il tempo necessario per questo passaggio può variare a seconda dei tempi di avvio e di qualsiasi altra azione personalizzata eseguita durante l'evento di attestazione. Una volta richiesto, il computer non è più disponibile nel pool di attestazioni.  
+After a user claims a VM, DevTest Labs will start the machine and move it up into lab user's list of "My virtual machines". This means the lab user will now have owner privileges on this machine. The time required for this step may vary depending on start up times as well as any other custom actions being performed during the claim event. Once claimed, the machine is no longer available in the claimable pool.  
 
 ## <a name="unclaim-a-vm"></a>Annullare la richiesta di una macchina virtuale
 
@@ -86,7 +86,7 @@ Quando un utente non ha più bisogno di una macchina virtuale richiesta e deside
 
   ![Annullare la richiesta di una macchina virtuale nel riquadro di gestione della macchina virtuale.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-Quando un utente annulla la richiesta di una macchina virtuale, non dispone più delle autorizzazioni di proprietario per la VM Lab specifica ed è disponibile per la richiesta da parte di qualsiasi altro utente del Lab nello stato in cui è stata ripristinata nel pool. 
+When a user unclaims a VM, they no longer have owner permissions for that specific lab VM and it is available to be claimed by any other lab user in the state that it was retured to the pool. 
 
 ### <a name="transferring-the-data-disk"></a>Trasferimento del disco dati
 Se una macchina virtuale richiedibile dispone di un disco dati collegato a questa e un utente ne annulla la richiesta, il disco dati rimane associato alla macchina virtuale. Quando un altro utente richiede quella macchina virtuale, richiede sia il disco dati che la macchina virtuale.

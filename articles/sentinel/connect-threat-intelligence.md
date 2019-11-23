@@ -1,8 +1,8 @@
 ---
-title: Connettere i dati di intelligence per le minacce ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere i dati di intelligence per le minacce ad Azure Sentinel.
+title: Connect threat intelligence data to Azure Sentinel| Microsoft Docs
+description: Learn about how to connect threat intelligence data to Azure Sentinel.
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
 editor: ''
 ms.service: security-center
@@ -10,77 +10,103 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: 44b3830465bf2b5aa06612aa868b086b120f1ece
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.date: 11/22/2019
+ms.author: cabailey
+ms.openlocfilehash: 33edeb04e88a01efafaf69b850ed87120671ed11
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372268"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384127"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
+# <a name="connect-data-from-threat-intelligence-providers"></a>Connect data from threat intelligence providers
 
 > [!IMPORTANT]
-> Il connettore dati delle piattaforme Intelligence per le minacce in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
-> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Threat Intelligence data connectors in Azure Sentinel are currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'organizzazione, che possono migliorare la capacità degli analisti della sicurezza di rilevare e assegnare priorità alle minacce note. Diverse funzionalità di Azure Sentinel diventano disponibili o migliorate:
+Azure Sentinel lets you import the threat indicators your organization is using, which can enhance your security analysts' ability to detect and prioritize known threats. Several features from Azure Sentinel then become available or are enhanced:
 
-- **Analytics** include un set di modelli di regole pianificate che è possibile abilitare per generare avvisi ed eventi imprevisti basati sulle corrispondenze degli eventi di log dagli indicatori di minaccia.
+- **Analytics** includes a set of scheduled rule templates you can enable to generate alerts and incidents based on matches of log events from your threat indicators.
 
-- Le **cartelle di lavoro** forniscono informazioni riepilogative sugli indicatori di minaccia importati in Sentinel di Azure e tutti gli avvisi generati dalle regole di analisi corrispondenti agli indicatori di minaccia.
+- **Workbooks** provide summarized information about the threat indicators imported into Azure Sentinel and any alerts generated from analytics rules that match your threat indicators.
 
-- Le query di **caccia** consentono agli investigatori della sicurezza di usare gli indicatori di minaccia nel contesto di scenari di caccia comuni.
+- **Hunting** queries allow security investigators to use threat indicators within the context of common hunting scenarios.
 
-- I **notebook** possono usare gli indicatori di minaccia quando si esaminano le anomalie e si cercano comportamenti dannosi.
+- **Notebooks** can use threat indicators when you investigate anomalies and hunt for malicious behaviors.
 
-È possibile trasmettere gli indicatori di minaccia ad Azure Sentinel usando uno dei prodotti integrati della piattaforma di intelligence per le minacce (TIP) elencati nella sezione successiva o usando l'integrazione diretta con l' [API tiIndicators di sicurezza di Microsoft Graph](https://aka.ms/graphsecuritytiindicators).
+You can stream threat indicators to Azure Sentinel by using one of the integrated threat intelligence platform (TIP) products listed in the next section, connecting to TAXII servers, or by using direct integration with the [Microsoft Graph Security tiIndicators API](https://aka.ms/graphsecuritytiindicators).
 
-## <a name="integrated-threat-intelligence-platform-products"></a>Prodotti integrati della piattaforma di intelligence per le minacce
+## <a name="integrated-threat-intelligence-platform-products"></a>Integrated threat intelligence platform products
 
-- [Piattaforma di intelligence per le minacce Open Source MISP](https://www.misp-project.org/)
+- [MISP Open Source Threat Intelligence Platform](https://www.misp-project.org/)
     
-    Per uno script di esempio che fornisce ai client con istanze MISP per eseguire la migrazione degli indicatori di minaccia all'API di sicurezza Microsoft Graph, vedere lo [script MISP to Microsoft Graph Security](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
+    For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
 
 - [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     
-    Per istruzioni guidate, vedere [invio di IOC all'API di sicurezza Microsoft Graph usando MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540).
+    For guided instructions, see [Sending IOCs to the Microsoft Graph Security API using MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540).
 
-- [Piattaforma ThreatConnect](https://threatconnect.com/solution/)
+- [ThreatConnect Platform](https://threatconnect.com/solution/)
 
+    For information, see [ThreatConnect Integrations](https://threatconnect.com/integrations/) and look for Microsoft Graph Security API on the page.
+
+
+## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Connect Azure Sentinel to your threat intelligence platform
 
 ## <a name="prerequisites"></a>Prerequisiti  
 
-- Azure AD ruolo di amministratore globale o amministratore della sicurezza per concedere le autorizzazioni al prodotto TIP o all'applicazione personalizzata che usa l'integrazione diretta con l'API di sicurezza di Microsoft Graph tiIndicators.
+- Azure AD role of either Global administrator or Security administrator to grant permissions to your TIP product or custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
 
-- Autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel per archiviare gli indicatori di minaccia.
+- Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
 
-## <a name="connect-azure-sentinel-to-your-threat-intelligence-provider"></a>Connettere Sentinel di Azure al provider di intelligence per le minacce
+## <a name="instructions"></a>Istruzioni
 
-1. [Registrare un'applicazione](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory per ottenere un ID applicazione, un segreto dell'applicazione e un ID tenant di Azure Active Directory. Questi valori sono necessari quando si configura il prodotto TIP integrato o l'app che usa l'integrazione diretta con Microsoft Graph Security tiIndicators API.
+1. [Register an application](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory to get an application ID, application secret, and Azure Active Directory tenant ID. You need these values for when you configure your integrated TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API.
 
-2. [Configurare le autorizzazioni dell'API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) per l'applicazione registrata: aggiungere l'autorizzazione dell'applicazione Microsoft Graph **ThreatIndicators. ReadWrite. OwnedBy** all'applicazione registrata.
+2. [Configure API permissions](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) for the registered application: Add the Microsoft Graph Application permission **ThreatIndicators.ReadWrite.OwnedBy** to your registered application.
 
-3. Chiedere al Azure Active Directory amministratore tenant di concedere il consenso dell'amministratore all'applicazione registrata per l'organizzazione. Dal portale di Azure: **Azure Active Directory** > **registrazioni app** >  **\< nome dell'_app_>**  > **visualizzare le autorizzazioni dell'API**0 concedere il**consenso dell'amministratore per il nome del tenant 24**.
+3. Ask your Azure Active Directory tenant administrator to grant admin consent to the registered application for your organization. From the Azure portal: **Azure Active Directory** > **App registrations** >  **\<_app name_>**  > **View API Permissions** > **Grant admin consent for \<_tenant name_>** .
 
-4. Configurare il prodotto TIP o l'app che usa l'integrazione diretta con Microsoft Graph Security tiIndicators API per inviare indicatori ad Azure Sentinel specificando quanto segue:
+4. Configure your TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API to send indicators to Azure Sentinel by specifying the following:
     
-    a. Valori per l'ID, il segreto e l'ID tenant dell'applicazione registrata.
+    a. The values for the registered application's ID, secret, and tenant ID.
     
-    b. Per il prodotto di destinazione, specificare Azure Sentinel.
+    b. For the target product, specify Azure Sentinel.
     
-    c. Per l'azione, specificare Alert.
+    c. For the action, specify alert.
 
-5. Nel portale di Azure passare a **Azure Sentinel** > **Data** Connector e quindi selezionare il connettore di **Intelligence per le minacce (anteprima)** .
+5. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence Platforms (Preview)** connector.
 
-6. Selezionare **Apri connettore pagina**, quindi **Connetti**.
+6. Select **Open connector page**, and then **Connect**.
 
-7. Per visualizzare gli indicatori di minaccia importati in Sentinel di Azure, passare ad **Azure Sentinel-Logs** > **SecurityInsights**, quindi espandere **ThreatIntelligenceIndicator**.
+7. To view the threat indicators imported into Azure Sentinel, navigate to **Azure Sentinel - Logs** > **SecurityInsights**, and then expand **ThreatIntelligenceIndicator**.
+
+## <a name="connect-azure-sentinel-to-taxii-servers"></a>Connect Azure Sentinel to TAXII servers
+
+## <a name="prerequisites"></a>Prerequisiti  
+
+- Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
+
+- TAXII 2.0 server URI and Collection ID.
+
+## <a name="instructions"></a>Istruzioni
+
+1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence - TAXII (Preview)** connector.
+
+2. Select **Open connector page**.
+
+3. Specify the required and optional information in the text boxes.
+
+4. Select **Add** to enable the connection to the TAXII 2.0 server.
+
+5. If you have additional TAXII 2.0 servers: Repeat steps 3 and 4.
+
+6. To view the threat indicators imported into Azure Sentinel, navigate to **Azure Sentinel - Logs** > **SecurityInsights**, and then expand **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo documento si è appreso come connettere il provider di intelligence per le minacce ad Azure Sentinel. Per altre informazioni su Sentinel di Azure, vedere gli articoli seguenti.
+In this document, you learned how to connect your threat intelligence provider to Azure Sentinel. To learn more about Azure Sentinel, see the following articles.
 
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).

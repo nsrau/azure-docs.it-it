@@ -1,5 +1,5 @@
 ---
-title: Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
+title: Sending and using API queries and responses - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per informazioni su come inviare e usare query di ricerca con l'API di ricerca di attività locali Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 31f81d76ff433d5f2e634b9a8f5fac50f8425f49
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906367"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326730"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
 
@@ -23,7 +23,7 @@ ms.locfileid: "69906367"
 
 ## <a name="creating-a-request"></a>Creazione di una richiesta
 
-Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. Esempio:
+Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. ad esempio:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -148,6 +148,6 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Local Business Search quickstart](quickstarts/local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Java)
+- [Guida introduttiva a Local Business Search in Java](quickstarts/local-search-java-quickstart.md)
 - [Guida introduttiva a Local Business Search in Node](quickstarts/local-search-node-quickstart.md)
 - [Guida introduttiva a Local Business Search in Python](quickstarts/local-search-python-quickstart.md)
