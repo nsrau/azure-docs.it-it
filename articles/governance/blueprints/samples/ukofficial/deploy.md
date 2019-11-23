@@ -5,7 +5,7 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1905e5fee894575d5ee85ce1bffb536813d34287
 ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2019
 ms.locfileid: "74037741"
@@ -91,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |Progetto Initiative per il Regno Unito ufficiale o il NHS UK|Assegnazione di criteri |Tipi di risorse per controllare i log di diagnostica (criteri: progetto Initiative per il Regno Unito ufficiale o UK NHS) |Elenco di tipi di risorse da controllare se l'impostazione del log di diagnostica è nota abilitata.  Per i valori accettabili, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco di immagini di macchina virtuale con sistema operativo Linux supportato da aggiungere all'ambito (criteri: \[anteprima\]: Distribuisci agente di Log Analytics per VM Linux) |Opzionale Il valore predefinito è _None_. Per ulteriori informazioni, vedere [creare un'area di lavoro log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |

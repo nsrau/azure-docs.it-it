@@ -60,7 +60,7 @@ Per ridurre al minimo l'utilizzo di spazio, le statistiche di esecuzione di runt
 
 ## <a name="access-query-store-information"></a>Informazioni sull'accesso Query Store
 
-I dati Query Store vengono archiviati nel database azure_sys nel server postgres. 
+I dati Query Store vengono archiviati nel database di azure_sys nel server postgres. 
 
 La query seguente restituisce informazioni sulle query in Query Store:
 ```sql
@@ -93,7 +93,7 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | None | none, top, all |
+| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | nessuno | none, top, all |
 | pg_qs.max_query_text_length | Imposta la lunghezza massima di query che è possibile salvare. Le query più lunghe verranno troncate. | 6000 | 100-10000 |
 | pg_qs.retention_period_in_days | Imposta il periodo di conservazione. | 7 | 1-30 |
 | pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | in | on, off |
@@ -102,7 +102,7 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | None | none, all|
+| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | nessuno | none, all|
 | Pgms_wait_sampling.history_period | Imposta la frequenza di campionamento degli eventi di attesa, in millisecondi. | 100 | 1-600000 |
 
 > [!NOTE] 

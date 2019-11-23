@@ -29,7 +29,7 @@ La creazione e la configurazione di un insieme di credenziali delle chiavi per l
 
 Questi passaggi sono illustrati nelle guide introduttive seguenti:
 
-- [Creare e crittografare una VM Windows con l'interfaccia della riga di comando di Azure](disk-encryption-cli-quickstart.md)
+- [Creare e crittografare una macchina virtuale Windows con l'interfaccia della riga di comando di Azure](disk-encryption-cli-quickstart.md)
 - [Creare e crittografare una macchina virtuale Windows con Azure PowerShell](disk-encryption-cli-quickstart.md)
 
 È anche possibile generare o importare una chiave di crittografia della chiave (KEK).
@@ -41,7 +41,7 @@ Questi passaggi sono illustrati nelle guide introduttive seguenti:
 
 I passaggi descritti in questo articolo possono essere completati con l'interfaccia della riga di comando di [Azure](/cli/azure/), il [Azure PowerShell AZ module](/powershell/azure/overview)o l' [portale di Azure](https://portal.azure.com).
 
-Mentre il portale è accessibile tramite il browser, l'interfaccia della riga di comando di Azure e Azure PowerShell richiedono l'installazione locale; vedere [Azure Disk Encryption per Windows: Per informazioni dettagliate, installare gli strumenti @ no__t-0.
+Mentre il portale è accessibile tramite il browser, l'interfaccia della riga di comando di Azure e Azure PowerShell richiedono l'installazione locale; per informazioni dettagliate, vedere [crittografia dischi di Azure per Windows: installare gli strumenti](disk-encryption-windows.md#install-tools-and-connect-to-azure) .
 
 ### <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 

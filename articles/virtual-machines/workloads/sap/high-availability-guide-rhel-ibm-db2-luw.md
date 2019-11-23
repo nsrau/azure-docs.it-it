@@ -68,23 +68,23 @@ Le versioni supportate di IBM DB2 sono 10,5 e versioni successive, come descritt
 
 Prima di iniziare un'installazione, vedere le note e la documentazione SAP seguenti:
 
-| Nota SAP | DESCRIZIONE |
+| Nota SAP | Descrizione |
 | --- | --- |
-| [1928533] | Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
-| [2015553] | SAP in Azure: Prerequisiti di supporto |
+| [1928533] | Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
+| [2015553] | SAP in Azure: prerequisiti per il supporto |
 | [2178632] | Metriche di monitoraggio principali per SAP in Azure |
-| [2191498] | SAP in Linux con Azure: Monitoraggio avanzato |
-| [2243692] | VM Linux in Azure (IaaS): problemi delle licenze SAP |
-| [2002167] | Red Hat Enterprise Linux 7.x: installazione e aggiornamento |
+| [2191498] | SAP in Linux con Azure: monitoraggio avanzato |
+| [2243692] | VM Linux in Azure (IaaS): problemi di licenza SAP |
+| [2002167] | Red Hat Enterprise Linux 7. x: installazione e aggiornamento |
 | [2694118] | Componente aggiuntivo Red Hat Enterprise Linux disponibilità elevata in Azure |
 | [1999351] | Risoluzione dei problemi del monitoraggio avanzato di Azure per SAP |
-| [2233094] | DB6: Applicazioni SAP in Azure che usano IBM DB2 per Linux, UNIX e Windows-informazioni aggiuntive |
-| [1612105] | DB6: Domande frequenti su DB2 con HADR |
+| [2233094] | DB6: applicazioni SAP in Azure che usano IBM DB2 per Linux, UNIX e Windows-informazioni aggiuntive |
+| [1612105] | DB6: domande frequenti su DB2 con HADR |
 
 
 | Documentazione | 
 | --- |
-| [Wiki della community SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Include tutte le note SAP necessarie per Linux |
+| [Wiki della community SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): contiene tutte le note SAP necessarie per Linux |
 | Guida alla [pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide] |
 | [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide] (questo articolo) |
 | Guida alla [distribuzione del sistema di gestione di database (DBMS) di macchine virtuali di Azure per SAP in Linux][dbms-guide] |
@@ -101,7 +101,7 @@ Prima di iniziare un'installazione, vedere le note e la documentazione SAP segue
 
 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Per ottenere la disponibilità elevata, IBM DB2 LUW con HADR è installato in almeno due macchine virtuali di Azure, che vengono distribuite in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) o tra [zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
 La grafica seguente mostra una configurazione di due macchine virtuali di Azure del server di database. Entrambe le macchine virtuali di Azure del server di database hanno una propria archiviazione collegata e sono in esecuzione. In HADR, un'istanza di database in una delle macchine virtuali di Azure ha il ruolo di istanza primaria. Tutti i client sono connessi all'istanza primaria. Tutte le modifiche apportate alle transazioni del database vengono rese disponibili localmente nel log delle transazioni DB2. Poiché i record del log delle transazioni vengono salvati in modo permanente in locale, i record vengono trasferiti tramite TCP/IP all'istanza del database nel secondo server di database, nel server di standby o nell'istanza di standby. L'istanza standby aggiorna il database locale eseguendo il rollforward dei record del log delle transazioni trasferiti. In questo modo, il server di standby viene mantenuto sincronizzato con il server primario.
@@ -148,7 +148,7 @@ Completare il processo di pianificazione prima di eseguire la distribuzione. La 
 | Macchine virtuali che ospitano IBM DB2 LUW | Dimensioni della macchina virtuale, archiviazione, rete e indirizzo IP. |
 | Nome host virtuale e IP virtuale per il database IBM DB2| Indirizzo IP virtuale o nome host usato per la connessione dei server applicazioni SAP. **DB-virt-hostname**, **DB-virt-IP**. |
 | Schermatura di Azure | Viene impedito il metodo per evitare la suddivisione di situazioni cerebrali. |
-| Azure Load Balancer | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
+| Servizio di bilanciamento del carico di Azure | Utilizzo di Basic o standard (scelta consigliata), porta Probe per database DB2 (raccomandazione 62500) **Probe-Port**. |
 | Risoluzione dei nomi| Funzionamento della risoluzione dei nomi nell'ambiente. Il servizio DNS è altamente consigliato. È possibile usare il file hosts locale. |
     
 Per altre informazioni su pacemaker per Linux in Azure, vedere la pagina relativa alla [configurazione di pacemaker in Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
@@ -157,7 +157,7 @@ Per altre informazioni su pacemaker per Linux in Azure, vedere la pagina relativ
 
 L'agente di risorse per IBM DB2 LUW è incluso in Red Hat Enterprise Linux addon a disponibilità elevata del server. Per la configurazione descritta in questo documento, è necessario usare Red Hat Enterprise Linux per SAP. Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux 7,4 per SAP o versione successiva che è possibile usare per distribuire nuove macchine virtuali di Azure. Quando si sceglie un'immagine di macchina virtuale nel Marketplace di macchine virtuali di Azure, tenere presente i vari modelli di supporto o di servizio offerti da Red Hat tramite Azure Marketplace.
 
-### <a name="hosts-dns-updates"></a>Ospita Aggiornamenti del DNS
+### <a name="hosts-dns-updates"></a>Host: aggiornamenti DNS
 Creare un elenco di tutti i nomi host, inclusi i nomi host virtuali, e aggiornare i server DNS per abilitare l'indirizzo IP appropriato per la risoluzione dei nomi host. Se un server DNS non esiste o non è possibile aggiornare e creare voci DNS, è necessario usare i file host locali delle singole VM che partecipano a questo scenario. Se si usano voci di file host, assicurarsi che le voci vengano applicate a tutte le macchine virtuali nell'ambiente di sistema SAP. Tuttavia, si consiglia di usare il DNS che, idealmente, si estende in Azure
 
 
@@ -195,7 +195,7 @@ Consultare i manuali di installazione di SAP sull'installazione di applicazioni 
 È possibile trovare le guide nel portale della Guida di SAP usando il [Finder della Guida all'installazione di SAP][sap-instfind].
 
 È possibile ridurre il numero di guide visualizzate nel portale impostando i filtri seguenti:
-- Vorrei: "Installare un nuovo sistema"
+- Desidero: "installare un nuovo sistema"
 - Database: "IBM DB2 per Linux, UNIX e Windows"
 - Filtri aggiuntivi per le versioni di SAP NetWeaver, la configurazione dello stack o il sistema operativo
 
@@ -215,7 +215,7 @@ Per configurare l'istanza primaria del database IBM DB2 LUW:
 
 > [!IMPORTANT] 
 > Prendere nota della "porta di comunicazione del database" impostata durante l'installazione. Deve corrispondere allo stesso numero di porta per entrambe le istanze di database.
->![Definizione porta SWPM SAP](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
+>![definizione della porta SAP SWPM](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
 
 ### <a name="ibm-db2-hadr-settings-for-azure"></a>Impostazioni di IBM DB2 HADR per Azure
 
@@ -227,11 +227,11 @@ Per configurare l'istanza primaria del database IBM DB2 LUW:
 Si consiglia di usare i parametri precedenti in base al failover iniziale/test di acquisizione. È obbligatorio verificare la correttezza delle funzionalità di failover e acquisizione con queste impostazioni dei parametri. Poiché le singole configurazioni possono variare, i parametri potrebbero richiedere la regolazione. 
 
 > [!NOTE]
-> Specifico per IBM DB2 con configurazione HADR con avvio normale: Prima di poter avviare l'istanza del database primario, è necessario che l'istanza del database secondario o standby sia attiva e in esecuzione.
+> Specifico per IBM DB2 con configurazione HADR con avvio normale: è necessario che l'istanza del database secondario o standby sia attiva e in esecuzione prima di poter avviare l'istanza del database primario.
 
    
 > [!NOTE]
-> Per l'installazione e la configurazione specifiche di Azure e pacemaker: Durante la procedura di installazione tramite SAP software Provisioning Manager, esiste una domanda esplicita sulla disponibilità elevata per IBM DB2 LUW:
+> Per l'installazione e la configurazione specifiche di Azure e pacemaker: durante la procedura di installazione tramite SAP software Provisioning Manager, esiste una domanda esplicita sulla disponibilità elevata per IBM DB2 LUW:
 >+ Non selezionare **IBM DB2 pureScale**.
 >+ Non selezionare **Installa IBM Tivoli System Automation per piattaforme multipiattaforma**.
 >+ Non selezionare **genera file di configurazione del cluster**.
@@ -240,7 +240,7 @@ Si consiglia di usare i parametri precedenti in base al failover iniziale/test d
 
 Per configurare il server di database di standby usando la procedura di copia di sistema omogenea di SAP, eseguire questi passaggi:
 
-1. Selezionare l'opzione **copia di sistema** >**istanza database** **distribuito** > di **sistemi** > di destinazione.
+1. Selezionare l'opzione **copia di sistema** > i sistemi di **destinazione** > istanza **distribuita** > **database**.
 1. Come metodo di copia, selezionare **sistema omogeneo** in modo da poter utilizzare il backup per ripristinare un backup nell'istanza del server di standby.
 1. Quando si raggiunge il passaggio di uscita per ripristinare il database per la copia di sistema omogenea, uscire dal programma di installazione. Ripristinare il database da un backup dell'host primario. Tutte le fasi di installazione successive sono già state eseguite sul server di database primario.
 
@@ -366,13 +366,13 @@ Quando si usa pacemaker per il failover automatico in caso di errore di un nodo,
 
 Gli elementi seguenti sono preceduti da uno dei seguenti elementi:
 
-- **[A]** : Applicabile a tutti i nodi
-- **[1]** : Applicabile solo al nodo 1 
-- **[2]** : Applicabile solo al nodo 2
+- **[A]** : applicabile a tutti i nodi
+- **[1]** : applicabile solo al nodo 1 
+- **[2]** : applicabile solo al nodo 2
 
 **[A]** prerequisiti per la configurazione di pacemaker:
-1. Arrestare entrambi i server di database con l'\<utente DB2 SID > con db2stop.
-1. Modificare l'ambiente della Shell per\<DB2 SID > utente in */bin/ksh*:
+1. Arrestare entrambi i server di database con l'utente DB2\<SID > con db2stop.
+1. Modificare l'ambiente della Shell per DB2\<SID > utente in */bin/ksh*:
 <pre><code># Install korn shell:
 sudo yum install ksh
 # Change users shell:
@@ -423,7 +423,7 @@ Online: [AZ-idb01 AZ-idb02]
 
 Elenco completo delle risorse:
 
- rsc_st_azure   (stonith:fence_azure_arm):      Avvio AZ-idb01 master/slave set: Db2_HADR_ID2-Master [Db2_HADR_ID2] Masters: [AZ-idb01] Slaves: [AZ-idb02] Resource Group: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: heartbeat: IPaddr2):       Avvio AZ-idb01 nc_db2id2_ID2 (OCF:: heartbeat: Azure-lb):      Avvio AZ-idb01
+ rsc_st_azure (STONITH: fence_azure_arm): avvio AZ-idb01 master/slave set: Db2_HADR_ID2-Master [Db2_HADR_ID2] Masters: [AZ-idb01] Slaves: [AZ-idb02] Resource Group: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (OCF:: heartbeat: IPaddr2): Started AZ-idb01 nc_db2id2_ID2 (OCF:: heartbeat: Azure-lb): Started AZ-idb01
 
 Stato del daemon: Corosync: attivo/disabilitato pacemaker: attivo/disabilitato PCSD: attivo/abilitato
 </pre>
@@ -463,11 +463,11 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
 1. Creare un probe di integrità:
 
-   a. Nella portale di Azure aprire il Azure Load Balancer, selezionare Probe **integrità**e selezionare **Aggiungi**.
+   a. Nella portale di Azure aprire il Azure Load Balancer, selezionare **Probe integrità**e selezionare **Aggiungi**.
 
    b. Immettere il nome del nuovo probe di integrità, ad esempio **DB2-HP**.
 
-   c. Selezionare **TCP** come protocollo e la porta **62500**. Per impostare il valore di **intervallo** su **5**, impostare valore **soglia** non integro su **2**.
+   c. Selezionare **TCP** come protocollo e la porta **62500**. Per impostare il valore di **intervallo** su **5**, impostare valore **soglia non integro** su **2**.
 
    d. Selezionare **OK**.
 
@@ -494,7 +494,7 @@ sudo firewall-cmd --reload</code></pre>
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Apportare modifiche ai profili SAP per l'uso dell'indirizzo IP virtuale per la connessione
 Per connettersi all'istanza primaria della configurazione HADR, il livello dell'applicazione SAP deve usare l'indirizzo IP virtuale definito e configurato per la Azure Load Balancer. Sono necessarie le seguenti modifiche:
 
-SID\</sapmnt/>/profile/default. PFL
+/sapmnt/\<SID >/profile/DEFAULT. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
@@ -587,7 +587,7 @@ Lo stato originale in un sistema SAP è documentato in Transaction DBACOCKPIT > 
 > Prima di iniziare il test, assicurarsi che:
 > * Pacemaker non ha azioni non riuscite (stato dei PC).
 > * Nessun vincolo di posizione (avanzi del test di migrazione)
-> * La sincronizzazione IBM DB2 HADR funziona. Verificare con l'utente\<DB2 SID > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * La sincronizzazione IBM DB2 HADR funziona. Verificare con l'utente DB2\<SID > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Eseguire la migrazione del nodo che esegue il database DB2 primario eseguendo il comando seguente:
@@ -643,9 +643,9 @@ Eseguire di nuovo la migrazione della risorsa a *AZ-idb01* e cancellare i vincol
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
-- **risorse PC spostare \<RES_NAME > <host>:** Crea vincoli di posizione e può causare problemi con l'acquisizione
-- **> RES_NAME cancellazione \<risorse PC**: Cancella i vincoli di posizione
-- **pulizia\<risorse PC RES_NAME >** : Cancella tutti gli errori della risorsa
+- **risorse PC spostare \<res_name > <host>:** Crea vincoli di posizione e può causare problemi con l'acquisizione
+- **risorse PC clear \<res_name >** : Cancella i vincoli di posizione
+- **pulitura risorse pc \<res_name >** : Cancella tutti gli errori della risorsa
 
 ### <a name="test-a-manual-takeover"></a>Testare un'acquisizione manuale
 

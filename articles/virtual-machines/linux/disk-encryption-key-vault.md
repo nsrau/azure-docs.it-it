@@ -29,8 +29,8 @@ La creazione e la configurazione di un insieme di credenziali delle chiavi per l
 
 Questi passaggi sono illustrati nelle guide introduttive seguenti:
 
-- [Creare e crittografare una VM Linux con l'interfaccia della riga di comando di Azure](disk-encryption-cli-quickstart.md)
-- [Creare e crittografare una VM Linux con Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](disk-encryption-cli-quickstart.md)
+- [Creare e crittografare una macchina virtuale Linux con Azure PowerShell](disk-encryption-cli-quickstart.md)
 
 È anche possibile generare o importare una chiave di crittografia della chiave (KEK).
 
@@ -41,7 +41,7 @@ Questi passaggi sono illustrati nelle guide introduttive seguenti:
 
 I passaggi descritti in questo articolo possono essere completati con l'interfaccia della riga di comando di [Azure](/cli/azure/), il [Azure PowerShell AZ module](/powershell/azure/overview)o l' [portale di Azure](https://portal.azure.com). 
 
-Mentre il portale è accessibile tramite il browser, l'interfaccia della riga di comando di Azure e Azure PowerShell richiedono l'installazione locale; vedere la pagina relativa alla crittografia del disco @no__t 0Azure per Linux: Per informazioni dettagliate, installare gli strumenti @ no__t-0.
+Mentre il portale è accessibile tramite il browser, l'interfaccia della riga di comando di Azure e Azure PowerShell richiedono l'installazione locale; per informazioni dettagliate, vedere [crittografia dischi di Azure per Linux: installare gli strumenti](disk-encryption-linux.md#install-tools-and-connect-to-azure) .
 
 ### <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 
@@ -103,7 +103,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 È anche possibile creare un insieme di credenziali delle chiavi usando il [modello di gestione risorse](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure**.
+1. Nel modello di avvio rapido di Azure fare clic su **Distribuisci in Azure**.
 2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione del gruppo di risorse, il nome Key Vault, l'ID oggetto, le note legali e il contratto, quindi fare clic su **Acquista**. 
 
 
@@ -117,19 +117,19 @@ Se l'insieme di credenziali delle chiavi non è stato abilitato per la crittogra
 
 Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi. 
 
- - **Abilitare Key Vault per la crittografia dischi:** È richiesto Enabled-for-disk-encryption. 
+ - **Abilitare l'insieme di credenziali delle chiavi per la crittografia del disco:** Enabled-for-disk-encryption è obbligatorio. 
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **Abilitare Key Vault per la distribuzione, se necessario:** in questo modo si consente al provider di risorse Microsoft.Compute di recuperare segreti da questo insieme di credenziali delle chiavi quando vi viene fatto riferimento durante la creazione di risorse, ad esempio quando si crea una macchina virtuale.
+ - **Abilitare l'insieme di credenziali delle chiavi per la distribuzione, se necessario:** in questo modo si consente al provider di risorse Microsoft.Compute di recuperare segreti da questo insieme di credenziali delle chiavi quando vi viene fatto riferimento durante la creazione di risorse, ad esempio quando si crea una macchina virtuale.
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Abilitare Key Vault per la distribuzione di modelli, se necessario:** consente a Resource Manager di recuperare i segreti dall'insieme di credenziali.
+ - **Abilitare l'insieme di credenziali delle chiavi per la distribuzione dei modelli:** consente a Resource Manager di recuperare i segreti dall'insieme di credenziali.
      ```azurecli-interactive  
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -137,25 +137,25 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 ###  <a name="azure-powershell"></a>Azure PowerShell
  Usare il cmdlet PowerShell di Key Vault [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi.
 
-  - **Abilitare Key Vault per la crittografia dischi:** EnabledForDiskEncryption è obbligatorio per Crittografia dischi di Azure.
+  - **Abilitare l'insieme di credenziali delle chiavi per la crittografia del disco:** EnabledForDiskEncryption è obbligatorio per Crittografia dischi di Azure.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDiskEncryption
      ```
 
-  - **Abilitare Key Vault per la distribuzione, se necessario:** in questo modo si consente al provider di risorse Microsoft.Compute di recuperare segreti da questo insieme di credenziali delle chiavi quando vi viene fatto riferimento durante la creazione di risorse, ad esempio quando si crea una macchina virtuale.
+  - **Abilitare l'insieme di credenziali delle chiavi per la distribuzione, se necessario:** in questo modo si consente al provider di risorse Microsoft.Compute di recuperare segreti da questo insieme di credenziali delle chiavi quando vi viene fatto riferimento durante la creazione di risorse, ad esempio quando si crea una macchina virtuale.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDeployment
      ```
 
-  - **Abilitare Key Vault per la distribuzione di modelli, se necessario:** in questo modo si consente a Azure Resource Manager di recuperare segreti da questo insieme di credenziali delle chiavi quando vi viene fatto riferimento durante la distribuzione di un modello.
+  - **Abilitare l'insieme di credenziali delle chiavi per la distribuzione di modelli, se necessario:** in questo modo si consente a Azure Resource Manager di recuperare segreti da questo insieme di credenziali delle chiavi quando vi viene fatto riferimento durante la distribuzione di un modello.
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
      ```
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 1. Selezionare l'insieme di credenziali delle chiavi, passare a **criteri di accesso**e **fare clic su per visualizzare i criteri di accesso avanzati**.
 2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.

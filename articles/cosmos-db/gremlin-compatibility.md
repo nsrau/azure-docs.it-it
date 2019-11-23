@@ -25,15 +25,15 @@ Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedu
 
 * ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Usare ```GremlinClient.SubmitAsync()``` e passare l'attraversamento come stringa di testo.
 
-* la cardinalità set ***```property(set, 'xyz', 1)```*** non è attualmente supportata. Usare invece ```property(list, 'xyz', 1)```.
+* la cardinalità del set di ***```property(set, 'xyz', 1)```*** non è attualmente supportata. Usare invece ```property(list, 'xyz', 1)```.
 
-* ***```match()``` consente di*** eseguire query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
+* ***```match()```*** consente l'esecuzione di query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
 
 * ***Gli oggetti come proprietà*** su vertici o bordi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-* L' ***ordinamento in base alle proprietà di matrice*** ```.order().by(<array property>)``` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+* L' ***ordinamento in base alle proprietà della matrice*** ```.order().by(<array property>)``` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-* I ***tipi JSON non primitivi*** non sono supportati. Usare i tipi ```string```, ```number``` o ```true``` @ no__t-3 @ no__t-4. i valori @no__t 0 non sono supportati. 
+* I ***tipi JSON non primitivi*** non sono supportati. Utilizzare ```string```, ```number```o ```true```i tipi di ```false``` /. i valori ```null``` non sono supportati. 
 
 * Il serializzatore ***GraphSONv3*** non è attualmente disponibile.
 

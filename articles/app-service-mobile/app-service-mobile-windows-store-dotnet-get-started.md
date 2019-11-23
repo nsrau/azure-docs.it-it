@@ -30,7 +30,7 @@ ms.locfileid: "72388557"
 >
 > Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Questa esercitazione illustra come aggiungere un servizio back-end basato sul cloud a un'app UWP (Universal Windows Platform). Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili](app-service-mobile-value-prop.md). Di seguito sono riportate alcune schermate dell'app completata:
 
@@ -38,11 +38,11 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 Il completamento di questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni delle app per dispositivi mobili relative ad app UWP.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non è disponibile un account, è possibile iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
 * Visual Studio Community 2017.
 * Familiarità con lo sviluppo di app UWP. Vedere la [documentazione di UWP](https://docs.microsoft.com/windows/uwp/) per informazioni su come [avviare la configurazione](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) per creare app UWP.
@@ -60,11 +60,11 @@ Per creare un nuovo back-end dell'app per dispositivi mobili, attenersi alla pro
 
 1. Aprire il progetto UWP.
 
-2. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" sarà https://test123.azurewebsites.net.
+2. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" verrà https://test123.azurewebsites.net.
 
 3. Aprire il file `App.xaml.cs` in questa cartella-Windows-UWP-CS/ZUMOAPPNAME/. Il nome dell'applicazione è `ZUMOAPPNAME`.
 
-4. Nella classe `App` sostituire @no__t parametro-1 con l'endpoint pubblico riportato sopra.
+4. Nella classe `App` sostituire `ZUMOAPPURL` parametro con l'endpoint pubblico precedente.
 
     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 

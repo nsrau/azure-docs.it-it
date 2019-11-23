@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-[Elencare i contenitori](/rest/api/storageservices/list-containers2) 
+[Elencare i contenitori](/rest/api/storageservices/list-containers2)
 [enumerare le risorse BLOB](/rest/api/storageservices/enumerating-blob-resources)

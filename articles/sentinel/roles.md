@@ -24,21 +24,21 @@ ms.locfileid: "71316791"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Sentinel di Azure
 
-Azure Sentinel usa il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/role-assignments-portal.md)per fornire [ruoli](../role-based-access-control/built-in-roles.md) predefiniti che possono essere assegnati a utenti, gruppi e servizi in Azure.
+Azure Sentinel usa il [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/role-assignments-portal.md)per fornire [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
 Con il controllo degli accessi in base al ruolo, è possibile usare e creare ruoli all'interno del team operativo di sicurezza per concedere l'accesso appropriato ad Azure Sentinel In base ai ruoli, si ha un controllo accurato sugli elementi che possono essere visualizzati dagli utenti con accesso a Sentinel di Azure. È possibile assegnare i ruoli RBAC direttamente nell'area di lavoro di Azure Sentinel oppure a una sottoscrizione o a un gruppo di risorse a cui appartiene l'area di lavoro.
 
 Sono disponibili tre ruoli di Azure Sentinel predefiniti specifici.  
 **Tutti i ruoli predefiniti di Sentinel di Azure concedono l'accesso in lettura ai dati nell'area di lavoro di Azure Sentinel.**
-- **Lettore sentinella di Azure**: Un utente assegnato a questo ruolo dispone dei diritti di visualizzazione per Azure Sentinel. L'utente può visualizzare gli eventi imprevisti e i dati, ma non apportare modifiche.
-- **Risponditore sentinella di Azure**: Un utente assegnato a questo ruolo può leggere ed eseguire azioni su eventi imprevisti, ad esempio modifiche di assegnazione e gravità.
-- **Collaboratore sentinella di Azure**: Un utente assegnato a questo ruolo può leggere ed eseguire azioni su eventi imprevisti e creare ed eliminare le regole analitiche.
+- **Azure Sentinel Reader**: un utente assegnato a questo ruolo dispone dei diritti di visualizzazione per Azure Sentinel. L'utente può visualizzare gli eventi imprevisti e i dati, ma non apportare modifiche.
+- **Risponditore sentinella di Azure**: un utente assegnato a questo ruolo può leggere ed eseguire azioni su eventi imprevisti, ad esempio modifiche di assegnazione e gravità.
+- **Collaboratore sentinella di Azure**: un utente assegnato a questo ruolo può leggere ed eseguire azioni su eventi imprevisti e creare ed eliminare le regole analitiche.
 
 Oltre ai ruoli di controllo degli accessi in base al ruolo dedicati di Azure Sentinel, sono disponibili ruoli RBAC di Azure e Log Analytics che possono concedere un set più ampio di autorizzazioni che includono l'accesso all'area di lavoro di Azure Sentinel e ad altre risorse:
 
-- **Ruoli di Azure:** [Proprietario](../role-based-access-control/built-in-roles.md#owner), [collaboratore](../role-based-access-control/built-in-roles.md#contributor)e [lettore](../role-based-access-control/built-in-roles.md#reader). I ruoli di Azure concedono l'accesso a tutte le risorse di Azure, tra cui Log Analytics aree di lavoro e risorse di Azure Sentinel.
+- **Ruoli di Azure:** [proprietario](../role-based-access-control/built-in-roles.md#owner), [collaboratore](../role-based-access-control/built-in-roles.md#contributor)e [lettore](../role-based-access-control/built-in-roles.md#reader). I ruoli di Azure concedono l'accesso a tutte le risorse di Azure, tra cui Log Analytics aree di lavoro e risorse di Azure Sentinel.
 
--   **Ruoli di Log Analytics:** [Log Analytics collaboratore](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics ruoli concedono l'accesso a tutte le aree di lavoro di Log Analytics. 
+-   **Ruoli di log Analytics:** [log Analytics collaboratore](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics ruoli concedono l'accesso a tutte le aree di lavoro di Log Analytics. 
 
 > [!NOTE]
 > I ruoli Log Analytics concedere anche l'accesso in lettura a tutte le risorse di Azure, ma solo le autorizzazioni di scrittura per Log Analytics risorse.
@@ -56,12 +56,12 @@ Ad esempio, un utente assegnato con i ruoli **Reader di Azure sentinella** e **c
 
 La tabella seguente mostra i ruoli e le azioni consentite in Sentinel di Azure. Un simbolo X indica che l'azione è consentita per il ruolo.
 
-| Role | Creare ed eseguire PlayBook| Creare e modificare dashboard, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizza dati, eventi imprevisti, dashboard e altre risorse di Azure Sentinel |
+| Ruolo | Creare ed eseguire PlayBook| Creare e modificare dashboard, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizza dati, eventi imprevisti, dashboard e altre risorse di Azure Sentinel |
 |--- |---|---|---|---|
-| Lettore sentinella di Azure | -- | -- | -- | x |
-| Risponditore sentinella di Azure|--|--| x | x |
-| Collaboratore sentinella di Azure | -- | x | X | x |
-| Collaboratore Sentinel di Azure + collaboratore app per la logica | x | X | X | x |
+| Lettore sentinella di Azure | -- | -- | -- | X |
+| Risponditore sentinella di Azure|--|--| X | X |
+| Collaboratore sentinella di Azure | -- | X | X | X |
+| Collaboratore Sentinel di Azure + collaboratore app per la logica | X | X | X | X |
 
 
 > [!NOTE]

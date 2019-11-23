@@ -467,7 +467,7 @@ Se si configura SAP Content Server per archiviare i file del database SAP MaxDB,
 
 Se si configura SAP Content Server per archiviare i file nel file system, una possibilità consiste nell'eseguire il backup/ripristino manuale dell'intera struttura di file in cui si trovano i documenti. Come per il backup/ripristino di SAP MaxDB, è consigliabile avere un volume del disco dedicato per il backup. 
 
-#### <a name="other"></a>Altro
+#### <a name="other"></a>Altre
 Le altre impostazioni specifiche di SAP Content Server sono trasparenti per le VM di Azure e sono descritte in diversi documenti e note SAP:
 
 * <https://service.sap.com/contentserver> 

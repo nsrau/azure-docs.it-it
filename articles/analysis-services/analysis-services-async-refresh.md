@@ -97,12 +97,12 @@ Il corpo dovrebbe essere simile al seguente:
 
 Non è necessario specificare parametri. Viene applicato il valore predefinito.
 
-| Name             | Tipo  | Descrizione  |Default  |
+| Nome             | Type  | Descrizione  |Default  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Il tipo di elaborazione da eseguire. I tipi sono allineati con i tipi del [comando refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) di TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Il tipo add non è supportato.      |   automatic      |
 | `CommitMode`     | Enum  | Determina se verrà eseguito il commit degli oggetti in batch o solo al termine. Le modalità comprendono: default, transactional, partialBatch.  |  transactional       |
-| `MaxParallelism` | Int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
-| `RetryCount`     | Int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
+| `MaxParallelism` | int   | Questo valore determina il numero massimo di thread su cui eseguire i comandi di elaborazione in parallelo. Questo valore è allineato alla proprietà MaxParallelism che può essere impostata nel [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) di TMSL o usando altri metodi.       | 10        |
+| `RetryCount`     | int   | Indica il numero massimo di tentativi dell'operazione prima che venga considerata non riuscita.      |     0    |
 | `Objects`        | Array | Una matrice di oggetti da elaborare. Ogni oggetto include: "table" quando viene elaborata un'intera tabella oppure "table" e "partition" quando viene elaborata una partizione. Se non viene specificato alcun oggetto, viene aggiornato l'intero modello. |   Elaborare l'intero modello      |
 
 CommitMode equivale a partialBatch. Viene usato quando si esegue un caricamento iniziale di set di dati di grandi dimensioni che potrebbe richiedere ore. Se l'operazione di aggiornamento non riesce dopo l'avvenuto commit di uno o più batch, i batch il cui commit è riuscito rimarranno nello stato di commit (non sarà eseguito il rollback dei batch il cui commit è riuscito).

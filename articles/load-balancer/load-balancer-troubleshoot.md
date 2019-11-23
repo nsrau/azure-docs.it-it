@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di Azure Load Balancer
-description: Learn how to troubleshoot known issues with Azure Load Balancer.
+description: Informazioni su come risolvere i problemi noti con Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -28,7 +28,7 @@ Questa pagina fornisce informazioni sulla risoluzione dei problemi comuni di Azu
 - Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità 
 - Le macchine virtuali dietro Load Balancer non rispondono al traffico nella porta configurata
 
-When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
+Quando i client esterni alle VM back-end passano attraverso il servizio di bilanciamento del carico, l'indirizzo IP dei client verrà usato per la comunicazione. Assicurarsi che l'indirizzo IP dei client venga aggiunto all'elenco di consentiti NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomo: le macchine virtuali dietro Load Balancer non rispondono ai probe di integrità
 Per partecipare al set di bilanciamento del carico, i server back-end devono superare il controllo del probe. Per altre informazioni sui probe di integrità, vedere [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md). 
@@ -78,7 +78,7 @@ Se tutte le cause precedenti sembrano essere state verificate e risolte corretta
     - Eseguire una traccia Netsh simultanea nella macchina virtuale del pool back-end e un'altra macchina virtuale di test dalla stessa rete virtuale. Eseguire ora un test PsPing per un certo periodo, raccogliere alcune tracce di rete e quindi interrompere il test. 
     - Analizzare l'acquisizione di rete e verificare se sono disponibili pacchetti in ingresso e in uscita correlati alla query di ping. 
         - Se non si osservano pacchetti in ingresso nella macchina virtuale del pool back-end, è possibile che un gruppo di sicurezza di rete o una route definita dall'utente configurata in modo errato blocchi il traffico. 
-        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for example, Application blocking the probe port). 
+        - Se nella macchina virtuale del pool back-end non vengono osservati pacchetti in uscita, è necessario verificare la presenza di eventuali problemi non correlati, ad esempio l'applicazione che blocca la porta Probe. 
     - Verificare se i pacchetti probe vengono forzati verso un'altra destinazione, magari tramite impostazioni delle route definite dall'utente, prima di raggiungere il servizio di bilanciamento del carico. Ciò può impedire costantemente al traffico di raggiungere la macchina virtuale back-end. 
 * Modificare il tipo di probe, ad esempio da HTTP a TCP, e configurare la porta corrispondente negli ACL dei gruppi di sicurezza di rete e nel firewall per verificare se il problema è la configurazione della risposta probe. Per altre informazioni sulla configurazione del probe di integrità, vedere la [configurazione del probe di integrità di bilanciamento del carico con endpoint](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
@@ -104,9 +104,9 @@ Se una macchina virtuale non risponde al traffico dati, è possibile che la port
 
 Se uno o più gruppi di sicurezza di rete configurati nella subnet o nella macchina virtuale bloccano l'indirizzo IP o la porta di origine, la macchina virtuale non potrà rispondere.
 
-For the public load balancer, the IP address of the Internet clients will be used for communication between the clients and the load balancer backend VMs. Make sure the IP address of the clients are allowed in the backend VM's network security group.
+Per il servizio di bilanciamento del carico pubblico, l'indirizzo IP dei client Internet verrà usato per la comunicazione tra i client e le VM back-end del servizio di bilanciamento del carico. Verificare che l'indirizzo IP dei client sia consentito nel gruppo di sicurezza di rete della macchina virtuale back-end.
 
-1. Elencare i gruppi di sicurezza di rete configurati nella macchina virtuale back-end. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
+1. Elencare i gruppi di sicurezza di rete configurati nella macchina virtuale back-end. Per altre informazioni, vedere [gestire i gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md)
 1. Dall'elenco dei gruppi di sicurezza di rete verificare se:
     - il traffico in ingresso o in uscita nella porta dati ha interferenze. 
     - nella scheda di interfaccia di rete della macchina virtuale o nella subnet è presente una regola di tipo **Nega tutto** di un gruppo di sicurezza di rete avente una priorità superiore rispetto alla regola predefinita che consente il traffico e i probe di Load Balancer. I gruppi di sicurezza di rete devono consentire l'IP 168.63.129.16 di Load Balancer, ovvero la porta probe

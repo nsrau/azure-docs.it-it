@@ -30,7 +30,7 @@ Usare il portale di Azure per aprire un ticket di supporto con il servizio suppo
     1. Selezionare la propria sottoscrizione. 
     1. In **servizio**selezionare **Azure FXT Edge Filer**. Potrebbe essere necessario fare clic sul controllo filtro **tutti i servizi** per trovarlo. 
     1. Immettere un **Riepilogo** e scegliere il **tipo di problema**. 
-    ![Screenshot del modulo di richiesta di supporto vuoto @ no__t-1 
+    ![screenshot del modulo di richiesta di supporto vuoto](media/fxt-support-populated.png) 
     1. Fare clic su **Avanti** per continuare. 
 1. Nella scheda **Dettagli** aggiungere altre informazioni sul problema e su come contattare l'utente. È possibile caricare un file correlato al problema. 
 1. In verifica e **Crea**verificare le informazioni e fare clic sul pulsante **Crea** per inviare la richiesta.

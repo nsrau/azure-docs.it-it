@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function with Java and IntelliJ
+title: Creare una funzione di Azure con Java e IntelliJ
 description: Informazioni su come creare e pubblicare in Azure un'app semplice senza server attivata tramite HTTP con Java e IntelliJ.
 author: jeffhollan
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230720"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Create your first Azure function with Java and IntelliJ
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJ
 
 Questo articolo illustra:
 - Come creare un progetto di funzione [senza server](https://azure.microsoft.com/overview/serverless-computing/) con IntelliJ IDEA e Apache Maven
@@ -24,14 +24,14 @@ Questo articolo illustra:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurare l'ambiente di sviluppo
+## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 
 Per sviluppare una funzione con Java e IntelliJ, installare il software seguente:
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), versione 8
 - [Apache Maven](https://maven.apache.org), versione 3.0 o successiva
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versione Community o Ultimate con Maven
-- [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > Per completare la procedura descritta in questo articolo, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
@@ -46,8 +46,8 @@ Per sviluppare una funzione con Java e IntelliJ, installare il software seguente
 1. Nella finestra **Add Archetype** (Aggiungi archetipo) completare i campi come indicato di seguito:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Version_: Use the latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Versione_: usare la versione più recente **1,22** dal [repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![creare un progetto Maven da archetipo in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selezionare **OK**, quindi **Avanti**.
 1. Immettere i dettagli relativi al progetto corrente e selezionare **Finish** (Fine).
 
@@ -87,7 +87,7 @@ Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo ste
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuire la funzione in Azure
 
-1. Before you can deploy your function to Azure, you must [sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Prima di poter distribuire la funzione in Azure, è necessario [accedere usando l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
    ``` azurecli
    az login

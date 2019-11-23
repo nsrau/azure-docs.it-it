@@ -28,7 +28,7 @@ Il gateway Cascade 500 Internet è un'offerta hardware di RIGADO inclusa nell'am
 
 Cascade 500 è pre-Certified for Azure Plug and Play (PnP), che consente ai generatori di soluzioni di caricare facilmente il dispositivo nelle soluzioni end-to-end. Il gateway Cascade consente di connettersi in modalità wireless a diversi sensori di monitoraggio delle condizioni che si trovano in prossimità del dispositivo gateway. Questi sensori possono essere caricati in IoT Central tramite il dispositivo gateway.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire questa guida dettagliata, sono necessarie le risorse seguenti:
 
 * Un dispositivo RIGADO Cascade 500. Per ulteriori informazioni, visitare [RIGADO](https://www.rigado.com/).

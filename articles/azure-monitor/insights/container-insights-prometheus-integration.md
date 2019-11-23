@@ -30,7 +30,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 * URL HTTP a livello di cluster e individuare destinazioni dagli endpoint elencati di un servizio. Ad esempio, i servizi K8S come Kube-DNS e Kube-state-Metrics e le annotazioni Pod specifiche di un'applicazione. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus data_collection_settings. cluster]* .
 * URL HTTP a livello di nodo e individua destinazioni dagli endpoint elencati di un servizio. Le metriche raccolte in questo contesto verranno definite nella sezione ConfigMap *[Prometheus_data_collection_settings. Node]* .
 
-| Endpoint | Scope | Esempio |
+| Endpoint | Ambito | Esempio |
 |----------|-------|---------|
 | Annotazione Pod | A livello di cluster | annotazioni <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Servizio Kubernetes | A livello di cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -38,12 +38,12 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
 
-|Scope | Chiave | Tipo di dati | Valore | Descrizione |
+|Ambito | Chiave | Tipo di dati | Valore | Descrizione |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
 | | `urls` | String | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
-| | `kubernetes_services` | String | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Booleano | true o false | Se è impostato su `true` nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometheus seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `kubernetes_services` | String | Matrice con valori delimitati da virgole | Una matrice di servizi Kubernetes per rimuovere le metriche da Kube-state-Metrics. Ad esempio,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Booleano | true o false | Se è impostato su `true` nelle impostazioni a livello di cluster, monitoraggio di Azure per l'agente dei contenitori eliminerà i pod Kubernetes nell'intero cluster per le annotazioni Prometeo seguenti:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Booleano | true o false | Consente di rimuovere il pod. `monitor_kubernetes_pods` deve essere impostato su `true`. |
 | | `prometheus.io/scheme` | String | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https`. | 
 | | `prometheus.io/path` | String | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics`, definirlo con questa annotazione. |

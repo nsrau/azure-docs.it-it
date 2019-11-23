@@ -23,7 +23,7 @@ Questo articolo presuppone che sia già stata creata una macchina virtuale (VM).
 Questo articolo presuppone anche che sia stato eseguito l'accesso con privilegi elevati alla macchina virtuale, indipendentemente dal fatto che venga effettuato il provisioning in Azure o nella console di gestione di Hyper In caso contrario, vedere [elevare l'accesso per gestire tutti i gruppi di gestione e la sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Queste istruzioni sono relative a una configurazione specifica di un desktop virtuale di Windows che può essere usata con i processi esistenti dell'organizzazione.
+>Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installare Office in modalità di attivazione computer condiviso
 
@@ -53,7 +53,7 @@ Ecco il codice XML di configurazione di esempio:
 - Installare OneDrive in modalità per utente. Per altre informazioni, vedere [installare OneDrive in modalità per computer](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->L'attivazione di computer condivisi può essere configurata tramite oggetti Criteri di gruppo (GPO) o impostazioni del registro di sistema. L'oggetto Criteri di gruppo si trova in **computer Configuration @ no__t-1Policies @ no__t-2Administrative templates @ no__t-3Microsoft Office 2016 (Machine) \\Licensing Settings**
+>L'attivazione di computer condivisi può essere configurata tramite oggetti Criteri di gruppo (GPO) o impostazioni del registro di sistema. L'oggetto Criteri di gruppo si trova in **Configurazione Computer\\criteri\\Modelli amministrativi\\Microsoft Office 2016 (computer)\\le impostazioni di licenza**
 
 Lo strumento di distribuzione di Office contiene Setup. exe. Per installare Office, eseguire il comando seguente in una riga di comando:
 
@@ -130,11 +130,11 @@ OneDrive viene in genere installato per utente. In questo ambiente deve essere i
 
 Di seguito viene illustrato come installare OneDrive in modalità per computer:
 
-1. Per prima cosa, creare un percorso per organizzare il programma di installazione di OneDrive. Una cartella del disco locale o un percorso [\\ @ no__t-1unc] (file://unc) è corretto.
+1. Per prima cosa, creare un percorso per organizzare il programma di installazione di OneDrive. Una cartella del disco locale o un percorso [\\\\UNC] (file://unc) è corretto.
 
 2. Scaricare OneDriveSetup. exe nel percorso di gestione temporanea con il collegamento seguente: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Se Office è stato installato con OneDrive omettendo **\<EXCLUDEAPP ID = "OneDrive"/\>** , disinstallare le installazioni esistenti di OneDrive per utente da un prompt dei comandi con privilegi elevati eseguendo il comando seguente:
+3. Se Office è stato installato con OneDrive omettendo **\<EXCLUDEAPP ID = "OneDrive"/\>** , disinstallare le installazioni di OneDrive per utente esistenti da un prompt dei comandi con privilegi elevati eseguendo il comando seguente:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

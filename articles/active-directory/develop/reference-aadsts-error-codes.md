@@ -24,7 +24,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 08/30/2019
 ms.locfileid: "70193177"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione
+# <a name="authentication-and-authorization-error-codes"></a>Codici di errore per autenticazione e autorizzazione
 
 Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servizio token di sicurezza di Azure Active Directory (Azure AD), consultare questo documento per trovare le descrizioni degli errori AADSTS, le correzioni e alcune soluzioni alternative consigliate.
 
@@ -34,13 +34,13 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 > Questa documentazione è fornita per istruzioni per sviluppatori e amministratori, ma non deve mai essere usata dal client stesso. I codici di errore sono soggetti a modifiche in qualsiasi momento per fornire messaggi di errore più granulari destinati a aiutare lo sviluppatore durante la compilazione dell'applicazione. Le app che accettano una dipendenza da numeri di codice di errore o di testo verranno interrotte nel tempo.
 
 ## <a name="lookup-current-error-code-information"></a>Ricerca informazioni sul codice di errore corrente
-I codici di errore e i messaggi sono soggetti a modifiche.  Per informazioni aggiornate, vedere la pagina per trovare le descrizioni [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) degli errori AADSTS, le correzioni e alcune soluzioni alternative suggerite.  
+I codici di errore e i messaggi sono soggetti a modifiche.  Per informazioni aggiornate, vedere la pagina [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) per trovare le descrizioni degli errori AADSTS, le correzioni e alcune soluzioni alternative consigliate.  
 
-Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, ad esempio, è stato ricevuto il codice di errore "AADSTS16000", eseguire [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) una ricerca per "16000".  È anche possibile collegarsi direttamente a un errore specifico aggiungendo il numero di codice di errore all'URL [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000):.
+Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, ad esempio, è stato ricevuto il codice di errore "AADSTS16000", eseguire una ricerca in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) per "16000".  È anche possibile collegarsi direttamente a un errore specifico aggiungendo il numero del codice di errore all'URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 
-| Errore | Descrizione |
+| Tipi di errore | Descrizione |
 |---|---|
 | AADSTS16000 | SelectUserAccount: interrupt generato da Azure AD, con conseguente attivazione dell'interfaccia utente che permette all'utente di selezionare tra più sessioni SSO valide. Questo errore è piuttosto comune e può essere restituito all'applicazione se è specificato `prompt=none`. |
 | AADSTS16001 | UserAccountSelectionInvalid: questo errore viene visualizzato se l'utente fa clic su un riquadro che è stato rifiutato dalla logica di selezione della sessione. Se attivato, questo errore permette all'utente di rimediare effettuando la selezione in un elenco aggiornato di riquadri/sessioni o scegliendo un altro account. Questo errore può essere dovuto a un problema del codice o a una race condition. |
@@ -169,7 +169,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims: il metodo di autenticazione usato dall'utente per il servizio non corrisponde al metodo di autenticazione richiesto. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy: la richiesta di autenticazione SAML2 contiene un elemento NameIdPolicy non valido. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable: l'agente di autenticazione non è in grado di connettersi ad Active Directory. Verificare che i server degli agenti siano membri della stessa foresta AD degli utenti le cui password devono essere convalidate e che siano in grado di connettersi ad Active Directory. |
-| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout: si è verificato il timeout della richiesta di convalida della password. Verificare che Active Directory sia disponibile e risponda alle richieste degli agenti. |
+| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout-timeout della richiesta di convalida della password. Assicurarsi che Active Directory sia disponibile e risponda alle richieste dagli agenti. |
 | AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException: si è verificato un errore sconosciuto durante l'elaborazione della risposta dall'agente di autenticazione. ripetere la richiesta. Se il problema persiste, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) per ottenere altri dettagli sull'errore. |
 | AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem: l'agente di autenticazione non riesce a convalidare la password dell'utente. Controllare i log dell'agente per altre informazioni e verificare che Active Directory funzioni come previsto. |
 | AADSTS80010 | OnPremisePasswordValidationEncryptionException: l'agente di autenticazione non riesce a decrittografare la password. |
@@ -221,7 +221,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS90093 | GraphUserUnauthorized: Graph ha restituito un codice di errore di richiesta non consentita. |
 | AADSTS90094 | AdminConsentRequired: è necessario il consenso dell'amministratore. |
 | AADSTS90100 | InvalidRequestParameter: il parametro è vuoto o non valido. |
-| AADSTS901002 | AADSTS901002: Il parametro della richiesta ' Resource ' non è supportato. |
+| AADSTS901002 | AADSTS901002: il parametro della richiesta ' Resource ' non è supportato. |
 | AADSTS90101 | InvalidEmailAddress: i dati forniti non sono un indirizzo di posta elettronica valido. L'indirizzo di posta elettronica deve avere questo formato: `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter: il valore deve essere un URI assoluto valido. |
 | AADSTS90107 | InvalidXml: la richiesta non è valida. Assicurarsi che i dati non contengano caratteri non validi.|

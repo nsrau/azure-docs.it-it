@@ -141,7 +141,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-body
+Body
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-body
+Body
 
 ``` HTTP
 {

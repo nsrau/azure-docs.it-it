@@ -25,9 +25,9 @@ U-SQL è un linguaggio che combina SQL dichiarativo con C# imperativo per consen
 * Per informazioni dettagliate sulla **sintassi del linguaggio U-SQL**, vedere le [Informazioni di riferimento sul linguaggio U-SQL](https://docs.microsoft.com/u-sql/).
 * Per informazioni sulla **filosofia di progettazione alla base di U-SQL**, vedere il post sul blog di Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introduzione a U-SQL: un linguaggio che facilita l'elaborazione dei Big Data).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Prima di esaminare gli esempi di U-SQL in questo documento, leggere e completare [Tutorial: Sviluppare script U-SQL usando Data Lake Tools per Visual Studio @ no__t-0. Questa esercitazione illustra la meccanica dell'uso di U-SQL con Strumenti Azure Data Lake per Visual Studio.
+Prima di analizzare gli esempi in U-SQL di questo documento, leggere e completare l'[Esercitazione: Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Questa esercitazione illustra la meccanica dell'uso di U-SQL con Strumenti Azure Data Lake per Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Il primo script U-SQL
 
@@ -55,7 +55,7 @@ Lo script non è stato sottoposto a molte procedure di trasformazione. Legge i d
 Osservare il punto interrogativo accanto al tipo di dati del campo `Duration`. Significa che il campo `Duration` può avere anche un valore null.
 
 ### <a name="key-concepts"></a>Concetti chiave
-* **Variabili del set di righe**: Ogni espressione di query che produce un set di righe può essere assegnata a una variabile. U-SQL segue il modello di denominazione delle variabili T-SQ, ad esempio `@searchlog`, nello script.
+* **Variabili del set di righe**: ad ogni espressione di query che produce un set di righe può essere assegnata una variabile. U-SQL segue il modello di denominazione delle variabili T-SQ, ad esempio `@searchlog`, nello script.
 * La parola chiave **EXTRACT** legge i dati di un file e definisce lo schema sulla lettura. `Extractors.Tsv` è un estrattore di U-SQL integrato per i valori separati da tabulazioni. È possibile sviluppare estrattori personalizzati.
 * **OUTPUT** scrive i dati da un set di righe a un file. `Outputters.Csv()` è un outputter di U-SQL integrato per creare un file con valori separati da virgole. È possibile sviluppare anche outputter personalizzati.
 
@@ -225,5 +225,5 @@ La clausola U-SQL ORDER BY richiede l'uso della clausola FETCH in un'espressione
 Per gli scenari avanzati di aggregazione, vedere la documentazione di riferimento U-SQL per le [funzioni di aggregazione, analisi e riferimento](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

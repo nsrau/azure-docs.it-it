@@ -25,18 +25,18 @@ Un responsabile di progetto gestisce le attività quotidiane dei singoli data sc
 
 ![Flusso di lavoro attività lead progetto](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-Questa esercitazione illustra il passaggio 1: Creare il repository del progetto e il passaggio 2: Il repository del progetto Seed dal repository ProjectTemplate del team. 
+Questa esercitazione illustra il passaggio 1: creare un repository di progetto e il passaggio 2: inizializzare il repository del progetto dal repository ProjectTemplate del team. 
 
-Per il passaggio 3: Creare un elemento di lavoro della funzionalità per il progetto e il passaggio 4: Aggiungere storie per le fasi del progetto, vedere [sviluppo agile di progetti Data Science](agile-development.md).
+Per il passaggio 3: creare un elemento di lavoro della funzionalità per il progetto e passaggio 4: aggiungere storie per le fasi del progetto, vedere [sviluppo agile di progetti Data Science](agile-development.md).
 
-Per il passaggio 5: Creare e personalizzare le risorse di archiviazione e analisi e condividere le risorse, se necessario, vedere [creare risorse di](team-lead-tasks.md#create-team-data-and-analytics-resources)analisi e dati del team.
+Per il passaggio 5: creare e personalizzare asset e condivisioni di archiviazione/analisi, se necessario, vedere [creare risorse di](team-lead-tasks.md#create-team-data-and-analytics-resources)analisi e dati del team.
 
-Per il passaggio 6: Configurare il controllo di sicurezza del repository del progetto, vedere [aggiungere i membri del team e configurare le autorizzazioni](team-lead-tasks.md#add-team-members-and-configure-permissions).
+Per il passaggio 6: configurare il controllo di sicurezza del repository del progetto, vedere [aggiungere i membri del team e configurare le autorizzazioni](team-lead-tasks.md#add-team-members-and-configure-permissions).
 
 > [!NOTE] 
 > Questo articolo usa Azure Repos per configurare un progetto TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team usa un'altra piattaforma di hosting del codice, le attività del responsabile del progetto sono le stesse, ma il modo per completarle può essere diverso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione si presuppone che il [responsabile del gruppo](group-manager-tasks.md) e il responsabile del [Team](team-lead-tasks.md) abbiano configurato le risorse e le autorizzazioni seguenti:
 
@@ -57,7 +57,7 @@ Per clonare i repository e modificare il contenuto nel computer locale o Data Sc
 
 Per creare un **repository di progetto nel progetto team** del team:
 
-1. Passare alla pagina di **Riepilogo** del progetto del team all'indirizzo *https: \/ @ no__t-3 @ no__t-4Server nome >/\<organization >/\<team nome >* , ad esempio, **https: \//dev. Azure. com/DataScienceUnit/team**e Selezionare **repository** nel percorso di spostamento a sinistra. 
+1. Passare alla pagina di **Riepilogo** del progetto del team all'indirizzo *https:\//nome del server \<>/\<nome dell'organizzazione >/\<nome del team*>, ad esempio **https:\//dev.Azure.com/DataScienceUnit/myTeam**, e selezionare **repository** dal dispositivo di spostamento a sinistra. 
    
 1. Selezionare il nome del repository nella parte superiore della pagina e quindi selezionare **nuovo repository** nell'elenco a discesa.
    
@@ -83,7 +83,7 @@ Per popolare il repository del progetto con il contenuto del repository del mode
    
    ![Selezionare Importa](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL del repository **teamTemplate** in **Clone URL**. L'URL è *https: \/ @ no__t-2 @ no__t-3Server nome >/\<organization nome >/\<team nome >/_git/\<team nome del repository di modelli >* . Ad esempio: **https: \//dev. Azure. com/DataScienceUnit/team/_git/teamTemplate**. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL del repository **teamTemplate** in **Clone URL**. L'URL è *https:\//nome del server \<>/\<nome dell'organizzazione >/\<nome del team >/_git/\<nome del repository del modello Team*>. Ad esempio: **https:\//dev.Azure.com/DataScienceUnit/myTeam/_git/teamTemplate**. 
    
 1. Selezionare **Importa**. Il contenuto del repository del modello team viene importato nel repository del progetto. 
    

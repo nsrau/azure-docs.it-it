@@ -58,8 +58,8 @@ A seconda di ciò che si vuole rivedere, si creerà la verifica di accesso in Az
 | --- | --- | --- | --- |
 | Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisione automatica | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Pannello di accesso |
 | Assegnati a un'app connessa | Revisori specificati</br>Revisione automatica | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Pannello di accesso |
-| Ruolo Azure AD | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
-| Ruolo delle risorse di Azure | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
+| Ruolo Azure AD | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | portale di Azure |
+| Ruolo delle risorse di Azure | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | portale di Azure |
 
 
 ## <a name="onboard-access-reviews"></a>Onboarding delle verifiche di accesso
@@ -97,7 +97,7 @@ Se si è pronti per distribuire le verifiche di accesso nell'organizzazione, seg
 
 ### <a name="which-users-must-have-licenses"></a>Quali utenti devono avere le licenze?
 
-Ogni utente che interagisce con le verifiche di accesso deve disporre di una licenza a pagamento Azure AD Premium P2. Ad esempio:
+Ogni utente che interagisce con le verifiche di accesso deve disporre di una licenza a pagamento Azure AD Premium P2. Ecco alcuni esempi:
 
 - Amministratori che creano una verifica di accesso
 - Proprietari del gruppo che eseguono una verifica di accesso
@@ -113,7 +113,7 @@ Di seguito sono riportati alcuni scenari di esempio che consentono di determinar
 | Un amministratore crea una verifica di accesso del gruppo A con 500 utenti. Assegna 3 proprietari del gruppo come revisori. | 1 licenza per l'amministratore + 3 licenze per ogni proprietario del gruppo come revisori. | 4 |
 | Un amministratore crea una verifica di accesso del gruppo A con 500 utenti. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 500 licenze per ogni utente come revisori. | 501 |
 | Un amministratore crea una verifica di accesso del gruppo B con 5 utenti e 25 utenti guest. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 5 licenze per ogni utente come revisori.<br/>(gli utenti Guest sono coperti dal rapporto 1:5 richiesto) | 6 |
-| Un amministratore crea una verifica di accesso del gruppo C con 5 utenti e 108 utenti guest. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 5 licenze per ogni utente come revisori autonomi + 16 licenze aggiuntive per coprire tutti gli utenti guest di 108 nel rapporto 1:5 richiesto.<br/>1 + 5 = 6 licenze, che coprono 5 @ no__t-06 = 30 utenti guest. Per gli altri (108-5 @ no__t-06) = 78 utenti guest, 78/5 = 16 licenze aggiuntive sono obbligatorie. Quindi, in totale, sono necessarie 6 + 16 = 22 licenze. | 22 |
+| Un amministratore crea una verifica di accesso del gruppo C con 5 utenti e 108 utenti guest. Consente di riesaminare autonomamente. | 1 licenza per l'amministratore + 5 licenze per ogni utente come revisori autonomi + 16 licenze aggiuntive per coprire tutti gli utenti guest di 108 nel rapporto 1:5 richiesto.<br/>1 + 5 = 6 licenze, che coprono 5\*6 = 30 utenti guest. Per gli altri (108-5\*6) = 78 utenti guest, 78/5 = 16 licenze aggiuntive sono obbligatorie. Quindi, in totale, sono necessarie 6 + 16 = 22 licenze. | 22 |
 
 Per informazioni su come assegnare licenze agli utenti, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 

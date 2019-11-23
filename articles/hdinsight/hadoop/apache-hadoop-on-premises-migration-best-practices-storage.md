@@ -161,7 +161,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
     |storage_account_name|nome dell'account di archiviazione.|
     |storage_account_key|Chiave per l'account di archiviazione.|
     |storage_container_name|contenitore nell'account di archiviazione a cui si vuole limitare l'accesso.|
-    |example_file_path|Percorso di un file caricato nel contenitore.|
+    |example_file_path|percorso di un file caricato nel contenitore.|
 
 2. Al file SASToken.py sono associate le autorizzazioni `ContainerPermissions.READ + ContainerPermissions.LIST` e possono essere modificate in base al caso d'uso.
 

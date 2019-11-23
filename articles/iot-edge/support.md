@@ -35,7 +35,8 @@ Azure IoT Edge moduli sono implementati come contenitori, quindi IoT Edge necess
 <br>
 <center>
 
-![Moby come runtime del contenitore @ no__t-1 @ no__t-2
+![Moby come](./media/support/only-moby-for-production.png)
+di runtime del contenitore </center>
 
 ## <a name="operating-systems"></a>Sistemi operativi
 Azure IoT Edge viene eseguito nella maggior parte dei sistemi operativi che possono eseguire contenitori; Tutti questi sistemi, tuttavia, non sono ugualmente supportati. I sistemi operativi sono raggruppati in livelli che rappresentano il grado di supporto previsto per gli utenti.
@@ -51,7 +52,8 @@ La famiglia del sistema operativo host deve sempre corrispondere alla famiglia d
 <br>
 <center>
 
-il sistema operativo ![Host corrisponde al sistema operativo guest @ no__t-1 @ no__t-2
+![sistema operativo host corrisponde a](./media/support/edge-on-device.png)
+del sistema operativo guest </center>
 
 ### <a name="tier-1"></a>Livello 1
 
@@ -101,7 +103,8 @@ Azure IoT Edge può essere eseguito nelle macchine virtuali. L'uso di una macchi
 <br>
 <center>
 
-![Azure IoT Edge in una VM @ no__t-1 @ no__t-2
+![Azure IoT Edge in una VM](./media/support/edge-on-vm.png)
+</center>
 
 ## <a name="minimum-system-requirements"></a>Requisiti minimi di sistema
 Azure IoT Edge funziona correttamente nei dispositivi con le dimensioni di un dispositivo Raspberry Pi3 per hardware a livello server. La scelta dell'hardware appropriato per lo scenario dipende dai carichi di lavoro che si desidera eseguire. Prendere la decisione per il dispositivo finale può essere complicato; tuttavia, è possibile avviare facilmente una soluzione di creazione di prototipi su desktop o portatili tradizionali.

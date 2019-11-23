@@ -126,13 +126,13 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 #### <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | DESCRIZIONE | Obbligatorio? |
+| Proprietà | Descrizione | Obbligatorio? |
 |:--- |:--- |:--- |
 | type | Per un'attività di copia, impostare su `Copy` | Sì |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
 | typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
-| source | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| origine | Specificare il tipo di origine della copia e le proprietà corrispondenti per il recupero dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | sink | Specificare il tipo di sink di copia e le proprietà corrispondenti per la scrittura dei dati.<br/><br/>Per ulteriori informazioni, vedere la sezione "proprietà dell'attività di copia" nell'articolo del connettore elencato in [archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | translator | Specificare il mapping esplicito di colonne da origine a sink. Questa proprietà si applica quando il comportamento di copia predefinito non soddisfa le proprie esigenze.<br/><br/>Per ulteriori informazioni, vedere [mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md). | No |
 | dataIntegrationUnits | Specificare una misura che rappresenta la quantità di energia utilizzata dal [runtime di integrazione di Azure](concepts-integration-runtime.md) per la copia dei dati. Queste unità erano precedentemente note come unità di spostamento dati cloud (spostamento dati). <br/><br/>Per ulteriori informazioni, vedere [Data Integration Unit](copy-activity-performance.md#data-integration-units). | No |
@@ -169,7 +169,7 @@ i dettagli dell'esecuzione dell'attività ![monitor](./media/copy-activity-overv
 
 I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle prestazioni vengono restituiti anche nella sezione **Risultati esecuzione attività di copia** > **output** . Di seguito è riportato un elenco completo delle proprietà che possono essere restituite. Verranno visualizzate solo le proprietà applicabili allo scenario di copia. Per informazioni su come monitorare le esecuzioni delle attività, vedere [monitorare un'esecuzione della pipeline](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
-| Nome proprietà  | DESCRIZIONE | Unità |
+| Nome proprietà  | Descrizione | Unità |
 |:--- |:--- |:--- |
 | dataRead | Quantità di dati letti dall'origine. | Valore Int64, in byte |
 | dataWritten | Quantità di dati scritti nel sink. | Valore Int64, in byte |

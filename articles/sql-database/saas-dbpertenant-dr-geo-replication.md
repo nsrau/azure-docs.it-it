@@ -25,7 +25,7 @@ In questa esercitazione si esamina uno scenario completo di ripristino di emerge
 Questa esercitazione illustra il flusso di lavoro sia di failover che di failback. Si apprenderà come:
 > [!div class="checklist"]
 > 
-> * Sincronizzare le informazioni di configurazione di database e pool elastici nel catalogo dei tenant
+> * Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
 > * Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
 > * Usare la _replica geografica_ per replicare i database di catalogo e tenant nell'area di ripristino
 > * Effettuare il failover dell'applicazione e dei database di catalogo e tenant nell'area di ripristino 
@@ -63,7 +63,7 @@ Tutte le parti devono essere considerate attentamente, in particolare se si oper
 * Ricollocamento 
     * Effettuare il failover dei database dall'area di ripristino alle repliche nell'area originale con un impatto minimo per i tenant: nessuna perdita di dati e un intervallo offline minimo per ogni tenant.   
 
-In questa esercitazione gli obiettivi appena elencati vengono soddisfatti usando le funzionalità del database SQL di Azure e della piattaforma Azure:
+In questa esercitazione questi obiettivi vengono soddisfatti usando le funzionalità del database SQL di Azure e della piattaforma Azure:
 
 * [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server di produzione e dei pool elastici nell'area di ripristino.
 * [Replica geografica](sql-database-geo-replication-overview.md), per creare repliche secondarie asincrone di sola lettura per tutti i database. Durante un'interruzione, effettuare il failover nelle repliche nell'area di ripristino.  Dopo aver risolto l'interruzione, effettuare il failback nei database nell'area originale senza perdita di dati.
@@ -84,7 +84,7 @@ In questa esercitazione si usa innanzitutto la replica geografica per creare rep
 Successivamente, in un passaggio di ricollocamento distinto, si effettua il failover dei database di catalogo e tenant dall'area di ripristino all'area originale. L'applicazione e i database rimangono disponibili durante tutto il processo di ricollocamento. Al termine, l'applicazione è perfettamente funzionante nell'area originale.
 
 > [!Note]
-> L'applicazione viene ripristinata nell'_area abbinata_ all'area in cui è distribuita l'applicazione. Per altre informazioni, vedere [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> L'applicazione viene ripristinata nell'_area abbinata_ dell'area in cui l'applicazione è distribuita. Per altre informazioni, vedere [Aree abbinate di Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 
@@ -100,12 +100,12 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 3. Nel [portale di Azure](https://portal.azure.com) aprire il gruppo di risorse in cui è distribuita l'app
     * Osservare l'area di distribuzione dei server. 
 
-## <a name="sync-tenant-configuration-into-catalog"></a>Sincronizzare la configurazione dei tenant nel catalogo
+## <a name="sync-tenant-configuration-into-catalog"></a>Sincronizzare la configurazione del tenant nel catalogo
 
 In questa attività si avvia un processo che sincronizza la configurazione di server, pool elastici e database nel catalogo del tenant. Questo processo mantiene le informazioni aggiornate nel catalogo.  Il processo funziona con il catalogo attivo, nell'area originale o nell'area di ripristino. Le informazioni di configurazione vengono usate nel processo di ripristino per garantire che l'ambiente di ripristino sia coerente con l'ambiente originale e quindi in un secondo momento durante il ricollocamento per garantire che l'area originale sia stata resa coerente con eventuali modifiche apportate nell'ambiente di ripristino. Il catalogo viene anche usato per tenere traccia dello stato di ripristino delle risorse del tenant
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni eseguite con l'account di accesso dell'utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione, i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Per semplicità, il processo di sincronizzazione e altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni eseguite con l'account di accesso dell'utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In _PowerShell ISE_ aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app.  Salvare il file.
 
@@ -118,7 +118,7 @@ In questa attività si avvia un processo che sincronizza la configurazione di se
 Lasciare la finestra di PowerShell in esecuzione in background e continuare con il resto dell'esercitazione. 
 
 > [!Note]
-> Il processo di sincronizzazione si connette al catalogo tramite un alias DNS. Questo alias viene modificato durante il ripristino e il ricollocamento in modo da puntare al catalogo attivo. Il processo di sincronizzazione mantiene aggiornato il catalogo con le modifiche apportate alla configurazione dei database o dei pool nell'area di ripristino.  Durante il ricollocamento, queste modifiche vengono applicate alle risorse equivalenti nell'area di origine.
+> Il processo di sincronizzazione si connette al catalogo attraverso un alias DNS. Questo alias viene modificato durante il ripristino e il ricollocamento in modo da puntare al catalogo attivo. Il processo di sincronizzazione mantiene il catalogo aggiornato con qualsiasi modifica alla configurazione dei database o dei pool apportata nell'area di ripristino.  Durante il ricollocamento, queste modifiche vengono applicate alle risorse equivalenti nell'area originale.
 
 ## <a name="create-secondary-database-replicas-in-the-recovery-region"></a>Creare repliche di database secondarie nell'area di ripristino
 
@@ -153,7 +153,7 @@ Nella mappa delle aree di Azure osservare il collegamento per la replica geograf
 
 Lo script di ripristino esegue le attività seguenti:
 
-1. Disabilita l'endpoint di Gestione traffico per l'app Web nell'area di origine. La disabilitazione dell'endpoint impedisce agli utenti di connettersi all'app in uno stato non valido nel caso in cui l'area originale torni online durante il ripristino.
+1. Disabilita l'endpoint Gestione traffico per l'app Web nell'area originale. La disabilitazione dell'endpoint impedisce agli utenti di connettersi all'app in uno stato non valido nel caso in cui l'area originale torni online durante il ripristino.
 
 1. Usa un failover forzato del database di catalogo nell'area di ripristino per impostarlo come database primario e aggiorna l'alias _activecatalog_ in modo che punti al server di catalogo di ripristino.
 
@@ -178,7 +178,7 @@ Lo script di ripristino esegue le attività seguenti:
 
 ### <a name="run-the-script-to-fail-over-to-the-recovery-region"></a>Eseguire lo script per effettuare il failover nell'area di ripristino
 
-Si supponga ora che si verifichi un'interruzione nell'area in cui l'applicazione è distribuita e che quindi si esegua lo script di ripristino:
+Si supponga ora che si verifichi un'interruzione nell'area in cui l'applicazione è distribuita e quindi si esegue lo script di ripristino:
 
 1. In *PowerShell ISE* aprire lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e impostare i valori seguenti:
     * **$DemoScenario = 3**, per ripristinare l'app in un'area di ripristino eseguendo il failover nelle repliche
@@ -195,7 +195,7 @@ Si supponga ora che si verifichi un'interruzione nell'area in cui l'applicazione
 
 ### <a name="review-the-application-state-during-recovery"></a>Esaminare lo stato dell'applicazione durante il ripristino
 
-Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Dopo il failover del catalogo nell'area del ripristino e dopo che tutti i tenant sono stati contrassegnati come offline, l'applicazione viene riportata online. Anche se l'applicazione è disponibile, ogni tenant appare offline nell'hub eventi fino a quando non viene effettuato il failover del relativo database. È importante progettare l'applicazione per gestire i database tenant offline.
+Mentre l'endpoint applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Dopo il failover del catalogo nell'area del ripristino e dopo che tutti i tenant sono stati contrassegnati come offline, l'applicazione viene riportata online. Anche se l'applicazione è disponibile, ogni tenant appare offline nell'hub eventi fino a quando non viene effettuato il failover del relativo database. È importante progettare l'applicazione per gestire i database tenant offline.
 
 1. Immediatamente dopo il ripristino del database di catalogo, aggiornare l'hub eventi di Wingtip Tickets nel Web browser.
    * Nella parte inferiore della pagina osservare che il nome del server di catalogo include ora un suffisso _-recovery_ e si trova nell'area di ripristino.
@@ -219,7 +219,7 @@ Ancora prima del completamento del failover di tutti i database tenant esistenti
 3. La pagina degli eventi di Hawthorn Hall viene aperta nel browser dopo il completamento. Osservare, nella parte inferiore della pagina, che è stato effettuato il ripristino del database Hawthorn Hall nell'area di ripristino.
     ![Pagina degli eventi di Hawthorn Hall](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
 
-4. Nel browser aggiornare la pagina dell'hub eventi di Wingtip Tickets in modo da visualizzare anche Hawthorn Hall. 
+4. Nel browser aggiornare la pagina dell'hub eventi di Wingtip Tickets in modo da includere anche Hawthorn Hall. 
     * Se è stato effettuato il provisioning di Hawthorn Hall senza attendere il ripristino degli altri tenant, è possibile che questi siano ancora offline.
 
 
@@ -275,7 +275,7 @@ Il failover sposta in modo efficace il database nell'area originale. Dopo il fai
 
 
 ### <a name="run-the-repatriation-script"></a>Eseguire lo script di ricollocamento
-Si supponga ora che il problema di interruzione sia stato risolto e che quindi si esegua lo script di ricollocamento.
+Si supponga ora che l'interruzione sia stata risolta e si esegue quindi lo script di ricollocamento.
 
 1. In *PowerShell ISE* usare lo script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
 
@@ -283,7 +283,7 @@ Si supponga ora che il problema di interruzione sia stato risolto e che quindi s
     * **$DemoScenario = 1**, per avviare la sincronizzazione delle informazioni di configurazione di server tenant, pool e database nel catalogo
     * Premere **F5** per eseguire lo script.
 
-3.  Avviare quindi il processo di ricollocamento impostando quanto segue:
+3.  Avviare quindi il processo di ricollocamento, impostando:
     * **$DemoScenario = 6**, per ricollocare l'app nell'area originale
     * Premere **F5** per eseguire lo script di ripristino in una nuova finestra di PowerShell.  Il processo di ricollocamento richiede alcuni minuti e può essere monitorato nella finestra di PowerShell.
     ![Processo di ricollocamento](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
@@ -295,17 +295,17 @@ Si supponga ora che il problema di interruzione sia stato risolto e che quindi s
     ![Ricollocamento dell'hub eventi](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
 
 
-## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Progettazione dell'applicazione in modo da mantenere l'app e il database nella stessa area 
+## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Progettazione dell'applicazione in modo che l'app e il database si trovino nella stessa posizione 
 L'applicazione è progettata in modo da connettersi sempre da un'istanza nella stessa area del database tenant. Ciò consente di ridurre la latenza tra l'applicazione e il database. Questa ottimizzazione presuppone che l'interazione tra l'app e il database sia più frequente rispetto a quella tra l'utente e l'app.  
 
-Per un certo intervallo di tempo durante il ricollocamento, i database tenant possono essere distribuiti tra aree di origine e di ripristino. Per ogni database, l'app esegue una ricerca DNS nell'area in cui si trova il database in base al nome del server tenant. Nel database SQL il nome del server è un alias. in cui è incluso il nome dell'area. Se l'applicazione non si trova nella stessa area del database, viene eseguito il reindirizzamento all'istanza presente nella stessa area del server di database.  In questo modo si riduce al minimo la latenza tra l'app e il database. 
+Per un certo intervallo di tempo durante il ricollocamento, i database tenant possono essere distribuiti tra aree di origine e di ripristino. Per ogni database, l'app esegue una ricerca DNS nell'area in cui si trova il database in base al nome del server tenant. Nel database SQL il nome del server è un alias. in cui è incluso il nome dell'area. Se l'applicazione non si trova nella stessa area del database, viene eseguito il reindirizzamento all'istanza presente nella stessa area del server di database.  Il reindirizzamento all'istanza nella stessa area del database riduce al minimo la latenza tra l'app e il database. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione si è appreso come:
 > [!div class="checklist"]
 > 
-> * Sincronizzare le informazioni di configurazione di database e pool elastici nel catalogo dei tenant
+> * Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
 > * Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
 > * Usare la _replica geografica_ per replicare i database di catalogo e tenant nell'area di ripristino
 > * Effettuare il failover dell'applicazione e dei database di catalogo e tenant nell'area di ripristino 

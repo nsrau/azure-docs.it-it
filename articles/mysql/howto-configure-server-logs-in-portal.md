@@ -17,7 +17,7 @@ ms.locfileid: "71841543"
 
 È possibile configurare, elencare e scaricare i [log di query lente di database di Azure per MySQL](concepts-server-logs.md) dalla portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per la procedura descritta in questo articolo è necessario disporre del [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>Configurare la registrazione
@@ -28,7 +28,7 @@ Configurare l'accesso al log di query lente MySQL.
 2. Selezionare il server del Database di Azure per MySQL.
 
 3. Nella sezione **monitoraggio** della barra laterale selezionare log del **Server**. 
-   ![Screenshot delle opzioni dei log del server @ no__t-1
+   ![screenshot delle opzioni dei log del server](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
 4. Per visualizzare i parametri del server, selezionare **fare clic qui per abilitare i log e configurare i parametri del log**.
 
@@ -71,10 +71,10 @@ Una volta iniziata la registrazione, è possibile visualizzare un elenco di log 
 1. Specificare i sink di dati per l'invio dei log delle query lente (account di archiviazione, Hub eventi o area di lavoro Log Analytics).
 
 1. Selezionare **MySqlSlowLogs** come tipo di log.
-![Screenshot delle impostazioni di diagnostica opzioni di configurazione @ no__t-1
+![screenshot delle opzioni di configurazione delle impostazioni di diagnostica](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
 
 1. Dopo aver configurato i sink di dati per inviare tramite pipe i log delle query lente a, selezionare **Salva**.
-@no__t 0Screenshot delle opzioni di configurazione delle impostazioni di diagnostica con Save evidenziato @ no__t-1
+![screenshot delle opzioni di configurazione delle impostazioni di diagnostica con Save evidenziato](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
 
 1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Possono essere necessari fino a 10 minuti per la visualizzazione dei log.
 

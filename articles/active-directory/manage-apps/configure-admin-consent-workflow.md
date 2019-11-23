@@ -123,11 +123,11 @@ La tabella seguente descrive gli scenari e i valori di controllo disponibili per
 |Amministratore che Abilita il flusso di lavoro della richiesta di consenso        |Verifiche di accesso           |UserManagement           |Crea modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente            |
 |Amministratore che disabilita il flusso di lavoro della richiesta di consenso       |Verifiche di accesso           |UserManagement           |Elimina modello criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Amministratore che aggiorna le configurazioni del flusso di lavoro di consenso        |Verifiche di accesso           |UserManagement           |Aggiornare il modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Policy         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Criteri         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Revisori che approvano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente o l'ID app a cui è stato concesso il consenso dell'amministratore.           |
 |Revisori che negano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            | Attualmente non è possibile trovare il contesto utente dell'attore che ha negato una richiesta di consenso dell'amministratore          |
 
-## <a name="faq"></a>FAQ 
+## <a name="faq"></a>Domande frequenti 
 
 **Ho attivato il flusso di lavoro, ma durante il test della funzionalità, perché non è possibile visualizzare il nuovo prompt "approvazione richiesta", che mi consente di richiedere l'accesso?**
 

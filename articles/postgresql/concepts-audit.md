@@ -37,7 +37,7 @@ Per informazioni su come configurare la registrazione in archiviazione di Azure,
 
 ## <a name="installing-pgaudit"></a>Installazione di pgAudit
 
-Per installare pgAudit, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettiva una modifica al parametro `shared_preload_libraries` di Postgres è necessario riavviare il server. È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md), l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md)o l' [API REST](/rest/api/postgresql/configurations/createorupdate).
+Per installare pgAudit, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettive le modifiche apportate al parametro `shared_preload_libraries` di Postgres, è necessario riavviare il server. È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md), l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md)o l' [API REST](/rest/api/postgresql/configurations/createorupdate).
 
 Utilizzando la [portale di Azure](https://portal.azure.com):
 
@@ -53,7 +53,7 @@ Utilizzando la [portale di Azure](https://portal.azure.com):
       ```
 
 > [!TIP]
-> Se viene visualizzato un errore, confermare che il server è stato riavviato dopo il salvataggio `shared_preload_libraries`.
+> Se viene visualizzato un errore, confermare di aver riavviato il server dopo avere salvato `shared_preload_libraries`.
 
 ## <a name="pgaudit-settings"></a>impostazioni pgAudit
 
@@ -68,15 +68,15 @@ Dopo aver [installato pgAudit](#installing-pgaudit), è possibile configurarne i
 > Se si imposta `pgaudit.log_client` su ON, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata.
 
 > [!NOTE]
-> `pgaudit.log_level` è abilitato solo quando `pgaudit.log_client` è on. Inoltre, nel portale di Azure esiste attualmente un bug con `pgaudit.log_level`: viene visualizzata una casella combinata, che implica la possibilità di selezionare più livelli. Tuttavia, deve essere selezionato un solo livello. 
+> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è on. Inoltre, nel portale di Azure, esiste attualmente un bug con `pgaudit.log_level`: viene visualizzata una casella combinata, che implica la possibilità di selezionare più livelli. Tuttavia, deve essere selezionato un solo livello. 
 
 > [!NOTE]
-> In database di Azure per PostgreSQL non è possibile impostare `pgaudit.log` usando un collegamento di segno `-` (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (READ, WRITE e così via) devono essere specificate singolarmente.
+> In database di Azure per PostgreSQL non è possibile impostare `pgaudit.log` usando un collegamento di segno di `-` (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (READ, WRITE e così via) devono essere specificate singolarmente.
 
 ### <a name="audit-log-format"></a>Formato del log di controllo
-Ogni voce di controllo è indicata da `AUDIT:` in prossimità dell'inizio della riga del log. Il formato del resto della voce è descritto in dettaglio nella [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
+Ogni voce di controllo è indicata da `AUDIT:` vicino all'inizio della riga del log. Il formato del resto della voce è descritto in dettaglio nella [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Se sono necessari altri campi per soddisfare i requisiti di controllo, usare il parametro Postgres `log_line_prefix`. `log_line_prefix` è una stringa che viene restituita all'inizio di ogni riga del log di postgres. L'impostazione @no__t 0 seguente, ad esempio, fornisce il timestamp, il nome utente, il nome del database e l'ID del processo:
+Se sono necessari altri campi per soddisfare i requisiti di controllo, usare il parametro Postgres `log_line_prefix`. `log_line_prefix` è una stringa che viene restituita all'inizio di ogni riga del log di postgres. Ad esempio, l'impostazione di `log_line_prefix` seguente fornisce il timestamp, il nome utente, il nome del database e l'ID del processo:
 
 ```
 t=%m u=%u db=%d pid=[%p]:
@@ -84,8 +84,8 @@ t=%m u=%u db=%d pid=[%p]:
 
 Per altre informazioni su `log_line_prefix`, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
-### <a name="getting-started"></a>Inizia ora
-Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE` e aprire i log per esaminare l'output. 
+### <a name="getting-started"></a>Per iniziare
+Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE`e aprire i log per esaminare l'output. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

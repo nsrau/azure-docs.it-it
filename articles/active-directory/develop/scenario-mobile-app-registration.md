@@ -66,7 +66,7 @@ Si noti che nel portale di registrazione delle app è disponibile un'esperienza 
    ![image](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. L'URI di reindirizzamento viene calcolato per l'utente.
-   ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![immagine](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Il formato consigliato è il seguente:
 
@@ -76,7 +76,7 @@ Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile
 
 ### <a name="username-password"></a>Password nome utente
 
-Se l'app usa solo nome utente/password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue effettivamente una round trip all'endpoint Microsoft Identity Platform 2.0 e l'applicazione non verrà richiamata su un URI specifico. Tuttavia, è necessario esprimere che l'applicazione è un'applicazione client pubblica. Questa configurazione viene eseguita selezionando la sezione **Authentication (autenticazione** ) per l'applicazione e nella **sottosezione impostazioni avanzate** , scegliere **Sì**, per l'applicazione question **treat come client pubblico** (nell' **impostazione predefinita paragrafo tipo client** )
+Se l'app usa solo nome utente/password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue effettivamente una round trip all'endpoint Microsoft Identity Platform 2.0 e l'applicazione non verrà richiamata su un URI specifico. Tuttavia, è necessario esprimere che l'applicazione è un'applicazione client pubblica. Per ottenere questa configurazione, passare alla sezione **autenticazione** per l'applicazione e nella sottosezione **Impostazioni avanzate** , scegliere **Sì**, per l' **applicazione question treat come client pubblico** (nel paragrafo del **tipo di client predefinito** )
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 

@@ -20,7 +20,7 @@ ms.locfileid: "73680036"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 L'integrazione continua è la procedura che permette di testare ogni modifica apportata alla base di codici automaticamente e quanto prima possibile. Il recapito continuo segue i test che si verificano durante l'integrazione continua e inserisce le modifiche in un sistema di gestione temporanea o di produzione.
 
@@ -341,8 +341,8 @@ Di seguito sono riportate alcune linee guida da usare quando si crea il file di 
       * `=` significa che il valore corrente viene mantenuto come valore predefinito per il parametro.
       * `-` significa che non si mantiene il valore predefinito per il parametro.
       * `|` è un caso speciale per i segreti da Azure Key Vault per le stringhe di connessione o le chiavi.
-   * `<name>` è il nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` è il tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object` e `securestring`.
+   * `<name>` è il nome del parametro. Se è vuota, prende il nome della proprietà. Se il valore inizia con un carattere di `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` verrebbe abbreviato in `AzureStorage1_connectionString`.
+   * `<stype>` è il tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object`e `securestring`.
 * Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione di tutti gli oggetti nella matrice utilizzando la definizione specificata nell'oggetto Integration Runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
 * Non è possibile avere una definizione specifica per un'istanza di risorsa. Qualsiasi definizione viene applicata a tutte le risorse di quel tipo.
 * Per impostazione predefinita, vengono parametrizzate tutte le stringhe protette, ad esempio Key Vault segreti e stringhe protette, ad esempio stringhe di connessione, chiavi e token.
@@ -414,25 +414,25 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 
 #### <a name="pipelines"></a>Pipeline
     
-* Qualsiasi proprietà nel percorso Activities/typeProperties/waitTimeInSeconds è parametrizzata. Qualsiasi attività in una pipeline con una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l'attività `Wait`) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
+* Qualsiasi proprietà nel percorso Activities/typeProperties/waitTimeInSeconds è parametrizzata. Qualsiasi attività in una pipeline che dispone di una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l'attività `Wait`) viene parametrizzata come numero, con un nome predefinito. Ma non avrà un valore predefinito nel modello di Gestione risorse. Sarà un input obbligatorio durante la distribuzione del Gestione risorse.
 * Analogamente, una proprietà denominata `headers` (ad esempio, in un'attività `Web`) viene parametrizzata con il tipo `object` (JObject). Ha un valore predefinito, che corrisponde al valore della factory di origine.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Tutte le proprietà sotto il percorso `typeProperties` sono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà nelle proprietà del tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
+* Tutte le proprietà sotto il percorso `typeProperties` vengono parametrizzate con i rispettivi valori predefiniti. Sono ad esempio disponibili due proprietà nelle proprietà del tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori e tipi predefiniti (oggetto).
 
 #### <a name="triggers"></a>Trigger
 
 * In `typeProperties`, due proprietà sono parametrizzate. Il primo è `maxConcurrency`, che è specificato per avere un valore predefinito ed è di tipo`string`. Il nome del parametro predefinito è `<entityName>_properties_typeProperties_maxConcurrency`.
-* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio, `<entityName>_freq`.
+* Anche la proprietà `recurrence` è parametrizzata. Al suo interno, tutte le proprietà a tale livello vengono specificate per essere parametrizzate come stringhe, con i valori predefiniti e i nomi di parametro. Un'eccezione è rappresentata dalla proprietà `interval`, che è parametrizzata come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, la proprietà `freq` è una stringa e viene parametrizzata come stringa. Tuttavia, la proprietà `freq` è parametrizzata senza un valore predefinito. Il nome viene abbreviato e viene suffissato. Ad esempio `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
 * I servizi collegati sono univoci. Poiché i servizi collegati e i set di impostazioni hanno un'ampia gamma di tipi, è possibile specificare una personalizzazione specifica del tipo. In questo esempio, tutti i servizi collegati di tipo `AzureDataLakeStore`, verrà applicato un modello specifico e per tutti gli altri (tramite \*) verrà applicato un modello diverso.
 * La proprietà `connectionString` verrà parametrizzata come valore `securestring`, non avrà un valore predefinito e avrà un nome di parametro abbreviato con il suffisso `connectionString`.
-* La proprietà `secretAccessKey` è un `AzureKeyVaultSecret` (ad esempio, in un servizio collegato `AmazonS3`). Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
+* La proprietà `secretAccessKey` è un `AzureKeyVaultSecret`, ad esempio in un servizio collegato di `AmazonS3`. Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
 
-#### <a name="datasets"></a>Set di dati
+#### <a name="datasets"></a>DATASETS
 
 * Sebbene la personalizzazione specifica del tipo sia disponibile per i set di data, è possibile specificare la configurazione senza una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 
@@ -545,7 +545,7 @@ Di seguito è riportato il modello di parametrizzazione predefinito corrente. Se
 }
 ```
 
-Di seguito è riportato un esempio di come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che il file seguente è identico a quello del file precedente, ad eccezione di `existingClusterId` incluso nel campo proprietà di `Microsoft.DataFactory/factories/linkedServices`.
+Di seguito è riportato un esempio di come aggiungere un singolo valore al modello di parametrizzazione predefinito. Si vuole solo aggiungere un ID cluster interattivo databricks esistente per un servizio collegato databricks al file dei parametri. Si noti che il file seguente corrisponde al file precedente, ad eccezione di `existingClusterId` incluso nel campo proprietà di `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {
@@ -657,11 +657,11 @@ Di seguito è riportato un esempio di come aggiungere un singolo valore al model
 
 Se sono state configurate l'integrazione e la distribuzione continue (CI/CD) per le Data Factory, è possibile che si verifichino i limiti del modello di Azure Resource Manager Man mano che le dimensioni della Factory aumentano. Un esempio di limite è il numero massimo di risorse in un modello di Gestione risorse. Per gestire le fabbriche di grandi dimensioni, insieme alla generazione del modello di Gestione risorse completo per una factory, Data Factory ora genera modelli di Gestione risorse collegati. Con questa funzionalità, l'intero payload della factory viene suddiviso in diversi file, in modo che non si incorrano nei limiti.
 
-Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di Gestione risorse completi nel ramo `adf_publish` in una nuova cartella denominata `linkedTemplates`.
+Se è stato configurato git, i modelli collegati vengono generati e salvati insieme ai modelli di Gestione risorse completi nel ramo di `adf_publish` in una nuova cartella denominata `linkedTemplates`.
 
 ![Cartella dei modelli di Resource Manager collegati](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-I modelli di Resource Manager collegati hanno in genere un modello master e un set di modelli figlio collegati al master. Il modello padre è denominato `ArmTemplate_master.json` e i modelli di figlio vengono denominati in base allo schema `ArmTemplate_0.json`, `ArmTemplate_1.json` e così via. Per usare i modelli collegati anziché il modello di Gestione risorse completo, aggiornare l'attività CI/CD in modo che punti a `ArmTemplate_master.json` invece di `ArmTemplateForFactory.json` (modello di Gestione risorse completo). Resource Manager richiede anche di caricare i modelli collegati in un account di archiviazione, in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Distribuzione di modelli ARM collegati con VSTS).
+I modelli di Resource Manager collegati hanno in genere un modello master e un set di modelli figlio collegati al master. Il modello padre è denominato `ArmTemplate_master.json` e i modelli di figlio vengono denominati in base allo schema `ArmTemplate_0.json`, `ArmTemplate_1.json` e così via. Per usare i modelli collegati anziché il modello di Gestione risorse completo, aggiornare l'attività CI/CD in modo che punti a `ArmTemplate_master.json` anziché `ArmTemplateForFactory.json` (il modello di Gestione risorse completo). Resource Manager richiede anche di caricare i modelli collegati in un account di archiviazione, in modo che Azure possa accedervi durante la distribuzione. Per altre informazioni, vedere [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/) (Distribuzione di modelli ARM collegati con VSTS).
 
 Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
 
@@ -685,7 +685,7 @@ Se si distribuisce una factory in produzione e si comprende un bug che deve esse
 
 7.  Archiviare manualmente questa compilazione nel ramo adf_publish.
 
-8.  Se la pipeline di rilascio è stata configurata per l'attivazione automatica in base alle archiviazioni di adf_publish, verrà avviata automaticamente una nuova versione. In caso contrario, accodare manualmente una versione.
+8.  Se la pipeline di rilascio è stata configurata in modo che venga attivata automaticamente in base alle archiviazioni di adf_publish, viene avviata automaticamente una nuova versione. In caso contrario, accodare manualmente una versione.
 
 9.  Distribuire la versione con correzione a caldo nelle factory di test e di produzione. Questa versione contiene il payload di produzione precedente e la correzione apportata nel passaggio 5.
 

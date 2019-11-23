@@ -31,7 +31,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
 
 ![Connessione di rete tra cloud](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Per stabilire la connettività tra Azure e OCI, è necessario avere una sottoscrizione di Azure attiva e un tenant attivo OCI.
 
@@ -45,7 +45,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
     * Durante la creazione del ExpressRoute, scegliere **Oracle Cloud FastConnect** come provider di servizi. Per creare un circuito ExpressRoute, vedere la [Guida dettagliata](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     * Un circuito ExpressRoute di Azure offre opzioni di larghezza di banda granulari, mentre FastConnect supporta 1, 2, 5 o 10 Gbps. È quindi consigliabile scegliere una di queste opzioni di larghezza di banda corrispondente in ExpressRoute.
 
-    ![Crea un circuito ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
+    ![Crea circuito ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
 1. Prendere nota della **chiave del servizio**ExpressRoute. È necessario specificare la chiave durante la configurazione del circuito FastConnect.
 
     ![Chiave del servizio ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
@@ -57,7 +57,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
 1. Creare un gateway di routing dinamico (DRG). Questa operazione sarà necessaria per la creazione del circuito FastConnect. Per ulteriori informazioni, vedere la documentazione del [gateway di routing dinamico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Creare un circuito FastConnect nel tenant Oracle. Per ulteriori informazioni, vedere la [documentazione di Oracle](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * In configurazione di FastConnect selezionare **Microsoft Azure: ExpressRoute @ no__t-0 come provider.
+    * In configurazione di FastConnect selezionare **Microsoft Azure: ExpressRoute** come provider.
     * Selezionare il gateway di routing dinamico di cui è stato effettuato il provisioning nel passaggio precedente.
     * Selezionare la larghezza di banda di cui effettuare il provisioning. Per ottenere prestazioni ottimali, la larghezza di banda deve corrispondere alla larghezza di banda selezionata durante la creazione del circuito ExpressRoute.
     * Nella **chiave del servizio del provider**incollare la chiave del servizio ExpressRoute.

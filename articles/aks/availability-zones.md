@@ -32,7 +32,7 @@ I cluster AKS possono essere attualmente creati usando le zone di disponibilità
 
 * Stati Uniti centrali
 * Stati Uniti orientali 2
-* Stati Uniti orientali
+* Stati Uniti Orientali
 * Francia centrale
 * Giappone orientale
 * Europa settentrionale

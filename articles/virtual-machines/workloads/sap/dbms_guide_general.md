@@ -57,14 +57,14 @@ Questo documento introduce considerazioni sull'esecuzione di sistemi DBMS correl
 ## <a name="definitions"></a>Definizioni
 Nel documento vengono usati i termini seguenti:
 
-* **IaaS**: Infrastruttura distribuita come servizio.
-* **PaaS**: Piattaforma distribuita come servizio.
-* **SaaS**: Software come servizio.
-* **Componente SAP**: Una singola applicazione SAP, ad esempio ERP Central Component (ECC), Business Warehouse (BW), Solution Manager o Enterprise Portal (EP). I componenti SAP possono essere basati su tecnologie ABAP o Java tradizionali o su un'applicazione non basata su NetWeaver, ad esempio gli oggetti business.
-* **Ambiente SAP**: Uno o più componenti SAP raggruppati in modo logico per eseguire una funzione aziendale, ad esempio sviluppo, controllo di qualità, formazione, ripristino di emergenza o produzione.
-* **Panorama**applicativo SAP: questo termine si riferisce a tutte le risorse SAP presenti nell'ambiente IT di un cliente. Il panorama applicativo SAP include tutti gli ambienti di produzione e non di produzione.
-* **Sistema SAP**: Combinazione di un livello DBMS e un livello di applicazione, ad esempio, un sistema di sviluppo SAP ERP, un sistema di test di SAP Business Warehouse o un sistema di produzione SAP CRM. Nelle distribuzioni di Azure, la divisione di questi due livelli tra l'ambiente locale e Azure non è supportata. Di conseguenza, un sistema SAP viene distribuito in locale o distribuito in Azure. È possibile distribuire i diversi sistemi di un panorama applicativo SAP in Azure o in locale. Ad esempio, è possibile distribuire i sistemi di sviluppo e test SAP CRM in Azure, ma distribuire il sistema di produzione SAP CRM in locale.
-* **Cross-premise**: Descrive uno scenario in cui le VM vengono distribuite in una sottoscrizione di Azure con connettività da sito a sito, multisito o Azure ExpressRoute tra i data center locali e Azure. Nella documentazione comune su Azure, questi tipi di distribuzioni vengono definiti anche scenari cross-premise. 
+* **IaaS**: (Infrastructure as a Service) infrastruttura distribuita come servizio.
+* **PaaS**: (Platform as a Service) piattaforma distribuita come servizio.
+* **SaaS**: (Software as a Service) software come servizio.
+* **Componente SAP**: singola applicazione SAP, ad esempio ERP Central Component (ecc), Business Warehouse (BW), Solution Manager o Enterprise Portal (EP). I componenti SAP possono essere basati su tecnologie ABAP o Java tradizionali o su un'applicazione non basata su NetWeaver, ad esempio gli oggetti business.
+* **Ambiente SAP**: uno o più componenti SAP raggruppati in modo logico per eseguire una funzione aziendale, ad esempio sviluppo, controllo di qualità, formazione, ripristino di emergenza o produzione.
+* **Panorama**applicativo SAP: questo termine si riferisce all'intero asset SAP nel panorama IT di un cliente. Il panorama applicativo SAP include tutti gli ambienti di produzione e non di produzione.
+* **Sistema SAP**: combinazione del livello DBMS e del livello dell'applicazione, ad esempio, un sistema di sviluppo SAP ERP, un sistema di test di SAP Business Warehouse o un sistema di produzione SAP CRM. Nelle distribuzioni di Azure, la divisione di questi due livelli tra l'ambiente locale e Azure non è supportata. Di conseguenza, un sistema SAP viene distribuito in locale o distribuito in Azure. È possibile distribuire i diversi sistemi di un panorama applicativo SAP in Azure o in locale. Ad esempio, è possibile distribuire i sistemi di sviluppo e test SAP CRM in Azure, ma distribuire il sistema di produzione SAP CRM in locale.
+* **Cross-premise**: descrive uno scenario in cui le VM vengono distribuite in una sottoscrizione di Azure con connettività da sito a sito, multisito o Azure ExpressRoute tra i data center locali e Azure. Nella documentazione comune su Azure, questi tipi di distribuzioni vengono definiti anche scenari cross-premise. 
 
     La connessione consente di estendere i domini locali, l'istanza locale di Active Directory e il DNS locale in Azure. Il panorama applicativo locale viene esteso alle risorse di Azure della sottoscrizione. Con questa estensione, le VM possono far parte del dominio locale. Gli utenti di dominio del dominio locale possono accedere ai server ed eseguire servizi in tali macchine virtuali, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra VM distribuite in locale e VM distribuite in Azure sono consentite. Questo scenario è lo scenario più comune usato per distribuire asset SAP in Azure. Per altre informazioni, vedere [Pianificazione e progettazione per il gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
@@ -78,27 +78,27 @@ Nel documento vengono usati i termini seguenti:
 Alcuni documenti Microsoft descrivono scenari cross-premise in modo leggermente diverso, in particolare per configurazioni DBMS a disponibilità elevata. Nel caso dei documenti correlati a SAP, lo scenario cross-premise si riduce alla connettività [ExpressRoute](https://azure.microsoft.com/services/expressroute/) da sito a sito o privata e da un landscape SAP distribuito tra l'istanza locale e Azure.
 
 ## <a name="resources"></a>Risorse
-Sono disponibili altri articoli sul carico di lavoro SAP in Azure. Inizia con [il carico di lavoro SAP in Azure: Per iniziare](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) , scegliere l'area di interesse.
+Sono disponibili altri articoli sul carico di lavoro SAP in Azure. Iniziare a [usare il carico di lavoro SAP in Azure: per](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) iniziare, scegliere l'area di interesse.
 
 Le note SAP seguenti sono correlate a SAP in Azure in relazione all'area illustrata in questo documento.
 
 | Numero della nota | Titolo |
 | --- | --- |
-| [1928533] |Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
-| [2015553] |SAP in Microsoft Azure: Prerequisiti di supporto |
+| [1928533] |Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
+| [2015553] |SAP on Microsoft Azure: prerequisiti per il supporto |
 | [1999351] |Risoluzione dei problemi del monitoraggio avanzato di Azure per SAP |
 | [2178632] |Metriche chiave del monitoraggio per SAP in Microsoft Azure |
-| [1409604] |Virtualizzazione in Windows: Monitoraggio avanzato |
-| [2191498] |SAP in Linux con Azure: Monitoraggio avanzato |
-| [2039619] |Applicazioni SAP in Microsoft Azure che usano Oracle Database: prodotti e versioni supportate |
-| [2233094] |DB6: Applicazioni SAP in Azure con IBM DB2 per Linux, UNIX e Windows: Informazioni aggiuntive |
+| [1409604] |Virtualizzazione in Windows: monitoraggio avanzato |
+| [2191498] |SAP in Linux con Azure: monitoraggio avanzato |
+| [2039619] |Applicazioni SAP su Microsoft Azure con il database Oracle: versioni e prodotti supportati |
+| [2233094] |DB6: applicazioni SAP in Azure con IBM DB2 per Linux, UNIX e Windows: informazioni aggiuntive |
 | [2243692] |Linux in una macchina virtuale di Microsoft Azure (IaaS): problemi delle licenze SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12: Note sull'installazione |
-| [2002167] |Red Hat Enterprise Linux 7.x: Installazione e aggiornamento |
+| [1984787] |SUSE LINUX Enterprise Server 12: note di installazione |
+| [2002167] |Red Hat Enterprise Linux 7. x: installazione e aggiornamento |
 | [2069760] |Installazione e aggiornamento di Oracle Linux 7.x SAP |
 | [1597355] |Raccomandazione sullo spazio di swapping per Linux |
-| [2171857] |Oracle Database 12c: Supporto del file System in Linux |
-| [1114181] |Oracle Database 11g: Supporto del file System in Linux |
+| [2171857] |Oracle Database 12c: supporto del file System in Linux |
+| [1114181] |Oracle Database 11g: supporto del file System in Linux |
 
 
 Per informazioni su tutte le note SAP per Linux, vedere il [wiki della community SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
@@ -205,16 +205,16 @@ Le indicazioni seguenti presuppongono queste caratteristiche di I/O per il siste
 
 Per l'archiviazione standard, i tipi di cache possibili sono:
 
-* Nessuna
-* Lettura
+* nessuno
+* Read
 * Lettura/Scrittura
 
 Per ottenere prestazioni coerenti e deterministiche, impostare la memorizzazione nella cache sull'archiviazione standard per tutti i dischi che contengono file di dati correlati a DBMS, file di log e ripristino e spazio tabella su **nessuno**. La memorizzazione nella cache del disco rigido virtuale di base può rimanere con l'impostazione predefinita.
 
 Per archiviazione Premium sono disponibili le seguenti opzioni di memorizzazione nella cache:
 
-* Nessuna
-* Lettura
+* nessuno
+* Read
 * Lettura/Scrittura
 * None + acceleratore di scrittura, che è solo per le VM serie M di Azure
 * Read + acceleratore di scrittura, che è solo per le VM serie M di Azure

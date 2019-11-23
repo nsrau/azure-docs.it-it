@@ -81,7 +81,7 @@ Da studio è possibile eseguire il training, il test, la distribuzione e la gest
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
-| Strumento basato sul Web | DESCRIZIONE | Edizione |
+| Strumento basato sul Web | Descrizione | Edizione |
 |-|-|-|
 | VM notebook (anteprima) | Workstation basata su cloud completamente gestita | Basic & Enterprise |
 | [Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) (anteprima) | Nessuna esperienza di codice per l'automazione dello sviluppo di modelli di Machine Learning | Enterprise |

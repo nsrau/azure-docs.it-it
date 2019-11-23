@@ -85,7 +85,7 @@ Fare clic su **Diagnostica e risoluzione dei problemi** per conoscere i problemi
 
 
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Impostazioni
 La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per la cache e di configurarle.
 
 * [Chiavi di accesso](#access-keys)
@@ -169,15 +169,15 @@ Per altre informazioni, vedere [Notifiche di Keyspace Redis](https://redis.io/to
 ## <a name="azure-cache-for-redis-advisor"></a>Redis Cache Advisor
 Il pannello **Redis Cache Advisor** visualizza le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione. 
 
-![Recommendations](./media/cache-configure/redis-cache-no-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Se durante l'uso della cache si verifica una determinata condizione, ad esempio uso della memoria, larghezza di banda di rete o carico del server elevato, nel pannello **Cache Redis** viene visualizzato un avviso.
 
-![Recommendations](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Per altre informazioni, vedere il pannello **Raccomandazioni** .
 
-![Recommendations](./media/cache-configure/redis-cache-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations.png)
 
 È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
 
@@ -390,7 +390,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefini
 > 
 > 
 
-| Impostazione | Default value | DESCRIZIONE |
+| Impostazione | Default value | Descrizione |
 | --- | --- | --- |
 | `databases` |16 |Il numero predefinito di database è 16, ma è possibile configurare un numero diverso in base al piano tariffario.<sup>1</sup> Il database predefinito è DB 0, ma è possibile selezionarne uno diverso in base alla connessione usando `connection.GetDatabase(dbid)` dove `dbid` è un numero compreso tra `0` e `databases - 1`. |
 | `maxclients` |Dipende dal piano tariffario<sup>2</sup> |Questo valore è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiude tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto". |

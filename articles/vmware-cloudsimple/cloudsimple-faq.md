@@ -33,7 +33,7 @@ CloudSimple è disponibile nelle aree Stati Uniti orientali, Stati Uniti occiden
 
 **Ricerca per categorie abilitare la sottoscrizione per CloudSimple?**
 
-Per abilitare la sottoscrizione per il servizio CloudSimple, è possibile contattare il rappresentante del account Microsoft al [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) . Fornire l'ID sottoscrizione nel messaggio di posta elettronica per cui si vuole abilitare il servizio CloudSimple.  
+È possibile contattare il rappresentante del account Microsoft presso [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) per abilitare la sottoscrizione per il servizio CloudSimple. Fornire l'ID sottoscrizione nel messaggio di posta elettronica per cui si vuole abilitare il servizio CloudSimple.  
 
 **Ricerca per categorie accedere al portale di CloudSimple?**
 
@@ -68,7 +68,7 @@ CloudSimple fornisce le opzioni di connettività seguenti per la connessione all
 
 Un circuito ExpressRoute di Azure è una connessione sicura a bassa latenza e ad alta velocità.  CloudSimple fornisce un circuito ExpressRoute dedicato per area per cliente.  Con questo circuito è possibile stabilire una connessione sicura da locale o dalla sottoscrizione di Azure.
 
-@no__t 0What sono i costi di rete per la connessione a CloudSimple?  Si applicano addebiti in uscita tra CloudSimple e Azure o tra aree? **
+**Quali sono i costi di rete per la connessione a CloudSimple?  Si applicano addebiti in uscita tra CloudSimple e Azure o tra aree?**
 
 Non sono previsti addebiti per CloudSimple per l'uscita dalla rete.  Le tariffe standard di Azure si applicano a qualsiasi traffico in uscita dalla rete virtuale o dal circuito ExpressRoute locale.
 
@@ -106,9 +106,9 @@ CloudSimple fornisce le seguenti funzionalità di sicurezza per la protezione de
 
 CloudSimple offre i tipi di host seguenti:
 
-* **Nodo CS28:** CPU: 2x 2,2 GHz, totale 28 core, 48 HT.  RAM: 256 GB.  Archiviazione: 1600 GB di cache NVMe, 5760 GB di dati (tutti i flash). Rete: SCHEDA di interfaccia di rete 4x25Gbe
-* **Nodo CS36:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 512 GB.  Archiviazione: 3200 GB NVMe cache 11520 GB di dati (tutti i flash).  Rete: SCHEDA di interfaccia di rete 4x25Gbe
-* **Nodo CS36m:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 576 GB.  Archiviazione: 3200 GB NVMe cache 13360 GB di dati (tutti i flash).  Rete: SCHEDA di interfaccia di rete 4x25Gbe
+* **Nodo CS28:** CPU: 2x 2,2 GHz, totale 28 core, 48 HT.  RAM: 256 GB.  Archiviazione: 1600 GB di cache NVMe, 5760 GB di dati (tutti i flash). Rete: 4x25Gbe NIC
+* **Nodo CS36:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 512 GB.  Archiviazione: 3200 GB NVMe della cache 11520 GB di dati (tutti i flash).  Rete: 4x25Gbe NIC
+* **Nodo CS36m:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 576 GB.  Archiviazione: 3200 GB NVMe della cache 13360 GB di dati (tutti i flash).  Rete: 4x25Gbe NIC
 
 **In che modo vengono gestiti gli errori hardware?**
 

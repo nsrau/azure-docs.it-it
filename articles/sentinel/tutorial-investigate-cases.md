@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72024618"
 ---
-# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: Esaminare gli eventi imprevisti con Sentinel di Azure
+# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
 > [!IMPORTANT]
 > Il grafico di analisi è attualmente disponibile in anteprima pubblica.
@@ -31,7 +31,7 @@ ms.locfileid: "72024618"
 
 Questa esercitazione consente di esaminare gli eventi imprevisti con Sentinel di Azure. Dopo aver connesso le origini dati ad Azure Sentinel, è necessario ricevere una notifica quando si verifica un evento sospetto. Per consentire l'esecuzione di questa operazione, Azure Sentinel consente di creare regole di avviso avanzate che generano eventi imprevisti che è possibile assegnare ed esaminare.
 
-Questo articolo illustra le attività seguenti:
+Questo articolo riguarda:
 > [!div class="checklist"]
 > * Analizzare gli eventi imprevisti
 > * Usare il grafico di analisi
@@ -39,7 +39,7 @@ Questo articolo illustra le attività seguenti:
 
 Un evento imprevisto può includere più avvisi. Si tratta di un'aggregazione di tutte le evidenze rilevanti per un'indagine specifica. Viene creato un evento imprevisto in base alle regole analitiche create nella pagina di **analisi** . Le proprietà correlate agli avvisi, ad esempio la gravità e lo stato, vengono impostate a livello di evento imprevisto. Quando si lascia che Azure Sentinel conosca quali tipi di minacce si sta cercando e come trovarli, è possibile monitorare le minacce rilevate esaminando gli eventi imprevisti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È possibile esaminare l'evento imprevisto solo se sono stati usati i campi di mapping delle entità quando si configura la regola di analisi. Il grafico di indagine richiede che l'evento imprevisto originale includa entità.
 
 ## <a name="how-to-investigate-incidents"></a>Come analizzare gli eventi imprevisti
@@ -70,11 +70,11 @@ Il grafico di indagine consente agli analisti di porre le domande corrette per o
   
 Il grafico di indagine fornisce:
 
-- **Contesto visivo da dati non elaborati**: Il grafico visuale Live Visualizza le relazioni di entità estratte automaticamente dai dati non elaborati. In questo modo è possibile visualizzare facilmente le connessioni tra origini dati diverse.
+- **Contesto visivo da dati non elaborati**: il grafico visuale attivo Visualizza le relazioni di entità estratte automaticamente dai dati non elaborati. In questo modo è possibile visualizzare facilmente le connessioni tra origini dati diverse.
 
-- **Individuazione completa dell'ambito di analisi**: Espandere l'ambito di analisi usando le query di esplorazione predefinite per emergere l'ambito completo di una violazione.
+- **Individuazione completa dell'ambito di analisi**: espandere l'ambito di analisi usando le query di esplorazione predefinite per individuare l'ambito completo di una violazione.
 
-- **Procedure di analisi predefinite**: Usare le opzioni di esplorazione predefinite per assicurarsi di porre le domande corrette sul fronte di una minaccia.
+- **Procedure di analisi predefinite**: usare opzioni di esplorazione predefinite per assicurarsi di porre le domande corrette in caso di minaccia.
 
 Per usare il grafico di analisi:
 
@@ -97,7 +97,7 @@ Per usare il grafico di analisi:
 
     ![Visualizza avvisi correlati](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query usata in Log Analytics, selezionando **Events @ no__t-1**.
+1. Per ogni query di esplorazione, è possibile selezionare l'opzione per aprire i risultati degli eventi non elaborati e la query utilizzata in Log Analytics, selezionando **gli eventi\>** .
 
 1. Per comprendere l'evento imprevisto, il grafico fornisce una sequenza temporale parallela.
 

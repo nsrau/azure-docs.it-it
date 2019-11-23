@@ -36,7 +36,7 @@ La maggior parte di queste funzionalità sono vincoli di architettura e rapprese
 
 In questa pagina vengono inoltre illustrati i [problemi noti temporanei](#Issues) individuati in istanza gestita, che verranno risolti in futuro.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilità
 
 ### <a name="always-on-availability"></a>Always On
 

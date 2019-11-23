@@ -378,9 +378,9 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit sono simili ai seguenti:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
@@ -388,7 +388,7 @@ A seconda del modo in cui la macchina virtuale di Azure ospitante il sistema SAP
 
 Se la VM è stata distribuita in uno scenario solo cloud senza connettività cross-premise tra l'ambiente locale e Azure, è necessario definire un indirizzo IP pubblico e un'etichetta di dominio. Il formato del nome DNS pubblico della VM si presenta come segue:
 
-> `<custom domainlabel`&gt;.`<azure region`&gt;.cloudapp.azure.com
+> `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
 > 
 
@@ -396,9 +396,9 @@ Altri dettagli relativi al nome DNS sono disponibili [qui][virtual-machines-azur
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 
@@ -531,9 +531,9 @@ Come per i sistemi locali, sono necessari diversi passaggi per abilitare tutte l
 
 I collegamenti generati nella transazione DBACockpit saranno simili ai seguenti:
 
-> https:\//fullyqualifiedhostname>:44300/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> https:\//\<fullyqualifiedhostname >: 44300/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
-> http:\//fullyqualifiedhostname>:8000/SAP/BC/WebDynpro\</SAP/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: 8000/SAP/BC/WebDynpro/SAP/dba_cockpit
 > 
 > 
 
@@ -541,7 +541,7 @@ A seconda del modo in cui la macchina virtuale di Azure ospitante il sistema SAP
 
 Se la VM è stata distribuita in uno scenario solo cloud senza connettività cross-premise tra l'ambiente locale e Azure, è necessario definire un indirizzo IP pubblico e un'etichetta di dominio. Il formato del nome DNS pubblico della VM si presenta come segue:
 
-> `<custom domainlabel`&gt;.`<azure region`&gt;.cloudapp.azure.com
+> `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
 > 
 > 
 
@@ -549,9 +549,9 @@ Altri dettagli relativi al nome DNS sono disponibili [qui][virtual-machines-azur
 
 Impostando il parametro del profilo SAP icm/host_name_full sul nome DNS della VM di Azure, il collegamento sarà simile a:
 
-> https:\//mydomainlabel.westeurope.cloudapp.NET:44300/SAP/BC/WebDynpro/SAP/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http:\//mydomainlabel.westeurope.cloudapp.NET:8000/SAP/BC/WebDynpro/SAP/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 In questo caso è necessario assicurarsi di:
 

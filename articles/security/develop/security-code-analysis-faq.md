@@ -48,7 +48,7 @@ Nella maggior parte dei casi, le attività di compilazione di Azure DevOps sono 
 
 Differenze evidenti:
 
-- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent @ no__t-0work\1\s.
+- Gli strumenti vengono eseguiti dalla cartella di origine dell'agente $ (Build. SourcesDirectory) o da% BUILD_SOURCESDIRECTORY%. Un esempio è C:\agent\_work\1\s.
 - I percorsi negli argomenti possono essere relativi alla radice della directory di origine elencata in precedenza. I percorsi possono anche essere assoluti. È possibile ottenere percorsi assoluti usando le variabili di compilazione di Azure DevOps o eseguendo un agente locale con i percorsi di distribuzione noti delle risorse locali.
 - Gli strumenti forniscono automaticamente un percorso o una cartella di file di output. Se si fornisce un percorso di output per un'attività di compilazione, tale percorso viene sostituito con un percorso del percorso noto dei log nell'agente di compilazione
 - Alcuni argomenti aggiuntivi della riga di comando sono stati modificati per alcuni strumenti. Un esempio è l'aggiunta o la rimozione di opzioni che assicurano che non venga avviata alcuna GUI.
@@ -63,7 +63,7 @@ Le attività di compilazione filtrano l'input dell'utente. Per questa domanda, i
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Dove vengono salvati i file di output generati dagli strumenti? 
 
-Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent. BuildDirectory) \_sdt \ Logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
+Le attività di compilazione aggiungono automaticamente i percorsi di output a questo percorso noto nell'agente di compilazione: $ (Agent. BuildDirectory)\_sdt\logs. Poiché si standardizza in questa posizione, tutti i team che producono o utilizzano log di analisi del codice hanno accesso all'output.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>È possibile accodare una compilazione per eseguire queste attività in un agente di compilazione ospitato? 
 
@@ -154,7 +154,7 @@ Esempi di regole di eliminazione valide:
 
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
- - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
+ - [Insieme di credenziali delle chiavi di Azure](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
@@ -170,17 +170,17 @@ Credential scanner si basa su un set di ricerca di contenuto comunemente definit
 
 Un ricercatore di contenuti viene definito come segue:
 
-- **Nome**: Nome descrittivo del ricercatore da usare nei file di output dello scanner delle credenziali. Si consiglia di usare la convenzione di denominazione dei casi di cammello per i nomi di ricerca.
+- **Nome**: nome del ricercatore descrittivo da usare nei file di output dello scanner delle credenziali. Si consiglia di usare la convenzione di denominazione dei casi di cammello per i nomi di ricerca.
 - **RuleId**: ID opaco stabile del ricercatore:
     - A un ricercatore predefinito di Credential scanner viene assegnato un valore **RuleId** come CSCAN0010, CSCAN0020 o CSCAN0030. L'ultima cifra è riservata per potenzialmente unire o dividere i gruppi di ricerca tramite espressioni regolari (Regex).
-    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 e CSCAN-\<Namespace @ no__t-50030.
+    - Il valore **RuleId** per un ricercatore personalizzato deve avere il proprio spazio dei nomi. Gli esempi includono lo spazio dei nomi CSCAN-\<\>0010, lo spazio dei nomi CSCAN-\<\>0020 e lo spazio dei nomi CSCAN-\<\>0030.
     - Un nome di ricerca completo è la combinazione di un valore **RuleId** e di un nome di ricerca. Gli esempi includono CSCAN0010. KeyStoreFiles e CSCAN0020. Base64EncodedCertificate.
-- **ResourceMatchPattern**: Espressione regolare delle estensioni di file da controllare rispetto al Cercatore.
-- **ContentSearchPatterns**: Matrice di stringhe contenente le istruzioni Regex per le quali trovare una corrispondenza. Se non sono definiti criteri di ricerca, vengono restituiti tutti i file corrispondenti al valore **ResourceMatchPattern** .
-- **ContentSearchFilters**: Matrice di stringhe contenente le istruzioni Regex per filtrare i falsi positivi specifici del Searcher.
-- **MatchDetails**: Un messaggio descrittivo, istruzioni di mitigazione o entrambi da aggiungere per ogni corrispondenza del ricercatore.
-- **Consiglio**: Il contenuto del campo Suggerimenti per una corrispondenza utilizzando il formato di report PREfast.
-- **Gravità**: Intero che riflette il livello di gravità di un problema. Il livello di gravità più alto ha il valore 1.
+- **ResourceMatchPattern**: Regex delle estensioni di file da controllare rispetto al Cercatore.
+- **ContentSearchPatterns**: matrice di stringhe contenenti istruzioni Regex per la corrispondenza. Se non sono definiti criteri di ricerca, vengono restituiti tutti i file corrispondenti al valore **ResourceMatchPattern** .
+- **ContentSearchFilters**: matrice di stringhe che contiene le istruzioni Regex per filtrare falsi positivi specifici del ricercatore.
+- **MatchDetails**: messaggio descrittivo, istruzioni di mitigazione o entrambi da aggiungere per ogni corrispondenza del ricercatore.
+- **Consiglio**: il contenuto del campo Suggerimenti per una corrispondenza usando il formato di report PREfast.
+- **Gravità**: numero intero che riflette il livello di gravità di un problema. Il livello di gravità più alto ha il valore 1.
 
   ![XML che mostra la configurazione dello scanner di credenziali](./media/security-tools/6-credscan-customsearchers.png)
 
@@ -192,7 +192,7 @@ Un ricercatore di contenuti viene definito come segue:
 
 Messaggio di errore completo:
 
-"Error: Il progetto è stato ripristinato con Microsoft. NETCore. app versione *x*. x. x, ma con le impostazioni correnti, verrebbe invece usata la versione *y. y. y* . Per risolvere questo problema, assicurarsi che le stesse impostazioni vengano usate per il ripristino e per le operazioni successive, ad esempio la compilazione o la pubblicazione. Questo problema si verifica in genere se la proprietà RuntimeIdentifier viene impostata durante la compilazione o la pubblicazione ma non durante il ripristino.
+"Errore: il progetto è stato ripristinato con Microsoft. NETCore. app versione *x.* x. x, ma con le impostazioni correnti, verrebbe invece usata la versione *y. y. y* . Per risolvere questo problema, assicurarsi che le stesse impostazioni vengano usate per il ripristino e per le operazioni successive, ad esempio la compilazione o la pubblicazione. Questo problema si verifica in genere se la proprietà RuntimeIdentifier viene impostata durante la compilazione o la pubblicazione ma non durante il ripristino.
 
 Poiché le attività di analizzatore Roslyn vengono eseguite come parte della compilazione, l'albero di origine nel computer di compilazione deve essere in uno stato compilabile.
 
@@ -202,13 +202,13 @@ Un passaggio tra i passaggi principali per la compilazione e l'analizzatore Rosl
 
 Messaggio di errore completo:
 
-"' CSC. exe ' terminato con codice di errore 1. Impossibile creare un'istanza dell'analizzatore *aaaa* da C: \\*bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x.x.* x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
+"' CSC. exe ' terminato con codice di errore 1. Impossibile creare un'istanza di Analyzer *aaaa* da C:\\*bbbb*. dll: Impossibile caricare il file o l'assembly ' Microsoft. CodeAnalysis, Version =*x*. x.x. x. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. The system cannot find the file specified" (Valore 'cwd' '/src' non valido. Impossibile trovare il file specificato)
 
 Verificare che il compilatore supporti gli analizzatori Roslyn. L'esecuzione del comando **csc. exe/version** dovrebbe indicare un valore di versione 2,6 o successiva.
 
 A volte un file con estensione csproj può sostituire l'installazione di Visual Studio del computer di compilazione facendo riferimento a un pacchetto di Microsoft.Net. Compilers. Se non si prevede di usare una versione specifica del compilatore, rimuovere i riferimenti a Microsoft.Net. Compilers. In caso contrario, verificare che anche la versione del pacchetto a cui si fa riferimento sia 2,6 o successiva.
 
-Provare a ottenere il percorso del log degli errori, specificato nell'opzione **/ErrorLog di CSC. exe** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: F:\ts-Services-123 @ no__t-1work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Provare a ottenere il percorso del log degli errori, specificato nell'opzione **/ErrorLog di CSC. exe** . L'opzione e il percorso vengono visualizzati nel log per l'attività di compilazione analizzatori Roslyn. Potrebbero avere un aspetto simile a **/ErrorLog: f:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>La C# versione del compilatore non è abbastanza recente
 
@@ -222,9 +222,9 @@ L'attività di compilazione degli analizzatori Roslyn deve eseguire una query su
 
 Se è necessaria assistenza aggiuntiva, il supporto per l'analisi del codice di sicurezza Microsoft è disponibile dal lunedì al venerdì dalle 9:00 alle 5:00 ora solare Pacifico.
 
-  - Onboarding: Per iniziare, contattare i responsabili dell'account tecnico.
+  - Onboarding: per iniziare, contattare i responsabili dell'account tecnico.
   
-  - Supporto Inviare un messaggio di posta elettronica al [supporto Microsoft Security Analysis code](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
+  - Supporto: inviare un messaggio di posta elettronica al [supporto Microsoft Security Analysis code](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
   >[!NOTE] 
   >È possibile che non si disponga di una relazione di supporto a pagamento con Microsoft. In alternativa, è possibile che si disponga di un'offerta di supporto che impedisce di acquistare servizi dal catalogo Phoenix. Se una di queste condizioni è vera, visitare i [servizi di supporto Home page](https://www.microsoft.com/enterprise/services/support) per altre informazioni.

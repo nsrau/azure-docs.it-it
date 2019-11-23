@@ -23,7 +23,7 @@ ms.locfileid: "72430224"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>I dati del Servizio integrità non sono aggiornati
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Gli agenti nei computer locali che Azure AD Connect Health monitora periodicamente i dati vengono caricati nel servizio Azure AD Connect Health. Se il servizio non riceve dati da un agente, le informazioni presenti nel portale saranno obsolete. Per evidenziare il problema, il servizio genererà i **dati del servizio integrità non** aggiornati. Questo avviso viene generato quando il servizio non ha ricevuto dati completi nelle due ore precedenti.  
 
@@ -40,7 +40,7 @@ Il pannello **Dettagli avviso** indica quando si è verificato l'avviso e l'ulti
  
 Nella tabella seguente viene eseguito il mapping dei tipi di servizio ai tipi di dati necessari corrispondenti:
 
-| Tipo di servizio | Agent (nome del servizio Windows) | Finalità | Tipo di dati generato  |
+| Tipo di servizio | Agent (nome del servizio Windows) | Scopo | Tipo di dati generato  |
 | --- | --- | --- | --- |  
 | Azure AD Connect (sincronizzazione) | Azure AD Connect Health Sync Insights Service | Raccogliere informazioni specifiche di AAD Connect (connettori, regole di sincronizzazione e così via) | - AadSyncService-SynchronizationRules <br />  -AadSyncService-connettori <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | Raccolta di contatori delle prestazioni specifici di AAD Connect, tracce ETW, file | Contatore delle prestazioni |
@@ -59,7 +59,7 @@ Di seguito sono riportati i passaggi necessari per diagnosticare il problema. Il
 
 * Verificare che siano installate le versioni più recenti degli agenti. Visualizza la [cronologia delle versioni](reference-connect-health-version-history.md). 
 * Assicurarsi che i servizi di Azure AD Connect Health Agents siano **in esecuzione** nel computer. Ad esempio, Connect Health per AD FS deve avere tre servizi.
-  ![Verify Azure AD Connect Health @ no__t-1
+  ![verificare Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Assicurarsi di esaminare le informazioni nella [sezione dei requisiti](how-to-connect-health-agent-install.md#requirements) e di essere conformi a tali requisiti.
 * Usare lo [strumento per il test della connettività](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) per individuare i problemi di connettività.

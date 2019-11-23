@@ -53,7 +53,7 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 * **Azure PowerShell** : per un'esercitazione o la procedura dettagliata per la creazione di una data factory tramite PowerShell, vedere [Creare la prima data factory di Azure con Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) . Per una documentazione completa sui cmdlet di Data Factory, vedere Data Factory il contenuto di riferimento per i [cmdlet][adf-powershell-reference] in MSDN Library.
 * **.NET Class Library** È possibile creare data factory a livello di programmazione usando .NET SDK per Data Factory. Per la procedura dettagliata per la creazione di un'istanza di Data Factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante .NET SDK](data-factory-create-data-factories-programmatically.md) . Per una documentazione completa di Data Factory .NET SDK, vedere informazioni di [riferimento sulla libreria di classi Data Factory][msdn-class-library-reference] .
 * **API REST** Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Azure Data Factory. Per una documentazione completa di Data Factory API REST, vedere informazioni di [riferimento sull'API rest Data Factory][msdn-rest-api-reference] .
-* **Modello di Azure Resource Manager**  Vedere [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) per informazioni dettagliate.
+* **Modello di Azure Resource Manager** Per i dettagli, vedere [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) .
 
 ### <a name="can-i-rename-a-data-factory"></a>È possibile rinominare una data factory?
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
@@ -66,16 +66,16 @@ Sì. Usare il pulsante **Sposta** nel pannello della data factory come mostrato 
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Quali sono gli ambienti di calcolo supportati da Data Factory?
 La seguente tabella presenta un elenco degli ambienti di calcolo supportati da Data Factory e le attività eseguibili in tali ambienti.
 
-| Ambiente di calcolo | attività |
+| Ambiente di calcolo | activities |
 | --- | --- |
 | [Cluster HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [il proprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics.](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored procedure](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Come si confronta Azure Data Factory con SQL Server Integration Services (SSIS)? 
-Vedere la presentazione [Azure Data Factory e SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) di un esperto MVP (Most Valued Professional): Reza Rad. Alcune delle modifiche recenti in Data Factory potrebbero non essere elencate della presentazione. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Questi aggiornamenti verranno incorporati nel confronto delle tecnologie di integrazione di dati da Microsoft nel corso di quest'anno.   
+Vedere la presentazione [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) di uno degli MVP (i professionisti più importanti): Reza Rad. Alcune delle modifiche recenti in Data Factory potrebbero non essere elencate della presentazione. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Continuiamo ad aggiungere altre funzionalità ad Azure Data Factory. Questi aggiornamenti verranno incorporati nel confronto delle tecnologie di integrazione di dati da Microsoft nel corso di quest'anno.   
 
 ## <a name="activities---faq"></a>Attività - Domande frequenti
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quali sono i diversi tipi di attività che si possono usare in una pipeline di Data Factory?
@@ -143,7 +143,7 @@ Un errore frequente è la mancata impostazione della proprietà **external** su 
 
 Nell'esempio seguente è necessario soltanto impostare **external** su true in **dataset1**.  
 
-**DataFactory1** Pipeline 1: dataset1 -&gt; activity1 -&gt; dataset2 -&gt; activity2 -&gt; dataset3 Pipeline 2: dataset3-&gt; activity3 -&gt; dataset4
+**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
 
 Se si dispone di un'altra data factory con una pipeline che accetta dataset4 (prodotto dalla pipeline 2 nella data factory 1), contrassegnare dataset4 come set di dati esterno perché tale set di dati è prodotto da una data factory differente (DataFactory1, non DataFactory2).  
 
@@ -170,7 +170,7 @@ Le sezioni giornaliere iniziano alle **6.00** anziché a mezzanotte, ovvero l'im
 
 * Usare l'app di monitoraggio e gestione per eseguire di nuovo una finestra attività o una sezione. Per istruzioni, vedere la sezione [Rieseguire finestre attività selezionate](data-factory-monitor-manage-app.md#perform-batch-actions) .   
 * Fare clic su **Esegui** sulla barra dei comandi nel pannello**SEZIONE DATI** per la sezione nel portale di Azure.
-* Eseguire il cmdlet **set-AzDataFactorySliceStatus** con lo stato impostato su Waiting per la sezione.   
+* Eseguire il cmdlet **set-AzDataFactorySliceStatus** con lo stato impostato su **Waiting** per la sezione.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"

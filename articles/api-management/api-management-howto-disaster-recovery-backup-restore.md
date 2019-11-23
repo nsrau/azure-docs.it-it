@@ -69,7 +69,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 6. Immettere un URL di segnaposto, ad esempio `http://resources` per **URI di reindirizzamento**, che è un campo obbligatorio, ma il valore non viene usato in seguito. Selezionare la casella di controllo per salvare l'applicazione.
 7. Fare clic su **Create**(Crea).
 
-### <a name="add-an-application"></a>Aggiungi applicazione
+### <a name="add-an-application"></a>Aggiungere un'applicazione
 
 1. Dopo aver creato l'applicazione, fare clic su **Impostazioni**.
 2. Fare clic su **Autorizzazioni necessarie**.
@@ -78,7 +78,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 5. Scegliere **API Gestione dei servizi di** **Windows Azure**.
 6. Fare clic su **Seleziona**.
 
-    ![Aggiungi autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Aggiungere autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)** .
 8. Fare clic su **Seleziona**.
@@ -117,7 +117,7 @@ Sostituire `{tenant id}`, `{application id}` e `{redirect uri}` usando le istruz
 
 1. Sostituire `{tenant id}` con l'ID tenant dell'applicazione Azure Active Directory creata. È possibile accedere all'ID facendo clic su **Registrazioni app** -> **Endpoint**.
 
-    ![Endpoint][api-management-endpoint]
+    ![Endpoints][api-management-endpoint]
 
 2. Sostituire `{application id}` con il valore visualizzato passando alla pagina **Impostazioni**.
 3. Sostituire `{redirect uri}` con il valore proveniente dalla scheda **URL di reindirizzamento** dell'applicazione Azure Active Directory.
@@ -180,7 +180,7 @@ Quando si crea una richiesta di backup, occorre attenersi ai vincoli seguenti:
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse**.
 -   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure. Il cliente deve aprire il seguente set di indirizzi IP in ingresso nell'account di archiviazione per il backup. 
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
-### <a name="step2"></a>Ripristino di un servizio di Gestione API
+### <a name="step2"> </a>Ripristino di un servizio di Gestione API
 
 Per ripristinare un servizio di Gestione API da un backup creato in precedenza, creare la seguente richiesta HTTP:
 
@@ -226,7 +226,7 @@ Vedere le risorse seguenti per procedure dettagliate diverse del processo di bac
 
 -   [Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automazione del backup e del ripristino di Gestione API con App per la logica)
--   [Gestione API di Azure: backup e ripristino della configurazione](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+-   [Azure API Management: Backing Up and Restoring Configuration](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) (Gestione API di Azure: backup e ripristino della configurazione) 
     _L'approccio descritto da Stuart non corrisponde alle linee guida ufficiali, ma è molto interessante._
 
 [backup an api management service]: #step1

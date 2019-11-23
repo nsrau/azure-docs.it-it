@@ -39,14 +39,14 @@ La procedura per creare un Load Balancer interno in grado di supportare IPv6 è 
 
 Le modifiche che rendono la configurazione front-end del servizio di bilanciamento del carico interno sono le seguenti:
 - Il `PrivateIpAddressVersion` viene specificato come "IPv6"
-- L'argomento `-PublicIpAddress` è stato omesso o sostituito con `-PrivateIpAddress`. Si noti che l'indirizzo privato deve essere compreso nell'intervallo di spazio IP della subnet in cui verrà distribuito il servizio di bilanciamento del carico interno. Se viene omesso un @no__t statico-0, il successivo indirizzo IPv6 libero verrà selezionato dalla subnet in cui viene distribuito il servizio di bilanciamento del carico interno.
+- L'argomento `-PublicIpAddress` è stato omesso o sostituito con `-PrivateIpAddress`. Si noti che l'indirizzo privato deve essere compreso nell'intervallo di spazio IP della subnet in cui verrà distribuito il servizio di bilanciamento del carico interno. Se un `-PrivateIpAddress` statico viene omesso, verrà selezionato il successivo indirizzo IPv6 libero dalla subnet in cui viene distribuito il servizio di bilanciamento del carico interno.
 - La subnet dello stack doppio in cui verrà distribuito il servizio di bilanciamento del carico interno viene specificata con un argomento `-Subnet` o `-SubnetId`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell versione 6.9.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell versione 6.9.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione per questa funzionalità di anteprima usando i Azure PowerShell seguenti:
 
 Registra come segue:
@@ -151,7 +151,7 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPo
 
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. Per assicurarsi che solo le macchine virtuali integre ricevano il traffico, è possibile definire facoltativamente un probe di integrità. Il servizio di bilanciamento del carico di base usa un probe IPv4 per valutare l'integrità degli endpoint IPv4 e IPv6 nelle VM. Load Balancer standard include il supporto per i probe di integrità IPv6 espliciti.
+Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. Per assicurarsi che solo le macchine virtuali integre ricevano il traffico, è possibile definire facoltativamente un probe di integrità. Il servizio di bilanciamento del carico di base usa un probe IPv4 per valutare l'integrità degli endpoint IPv4 e IPv6 nelle VM. Load Balancer standard include il supporto per i probe di integrità IPv6 espliciti.
 
 Creare una regola di bilanciamento del carico con [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). L'esempio seguente crea regole di bilanciamento del carico denominate *dsLBrule_v4* e *dsLBrule_v6* e bilancia il traffico sulla porta *TCP* *80* alle configurazioni IP front-end IPv4 e IPv6:
 
@@ -192,7 +192,7 @@ $lb = New-AzLoadBalancer  `
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento, è necessario creare risorse di rete di supporto: set di disponibilità, gruppo di sicurezza di rete e NIC virtuali. 
 
-### <a name="create-an-availability-set"></a>Crea un set di disponibilità
+### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 Per migliorare la disponibilità elevata dell'applicazione, posizionare le macchine virtuali in un set di disponibilità.
 
 Creare un set di disponibilità con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). Nell'esempio seguente viene creato un set di disponibilità denominato *dsAVset*:

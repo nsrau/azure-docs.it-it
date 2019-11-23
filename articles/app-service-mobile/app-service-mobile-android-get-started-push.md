@@ -30,13 +30,13 @@ ms.locfileid: "72389019"
 >
 > Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questa esercitazione vengono aggiunte notifiche push al progetto [avvio rapido di Android], in modo che una notifica push venga inviata al dispositivo a ogni inserimento di record.
 
 Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Sono necessari gli elementi seguenti:
 

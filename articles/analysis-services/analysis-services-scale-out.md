@@ -113,7 +113,7 @@ Codici di stato restituiti:
 |0     | La replica        |
 |1     |  Reidratanti       |
 |2     |   Completed       |
-|3     |   Operazione non riuscita      |
+|3     |   Non riuscito      |
 |4     |    Finalizzazione     |
 |||
 
@@ -128,7 +128,7 @@ Per eseguire la sincronizzazione, usare [Sync-AzAnalysisServicesInstance](https:
 
 Per impostare il numero di repliche di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
 
-Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-DefaultConnectionMode` per utilizzare `Readonly`.
+Per separare il server di elaborazione dal pool di query, usare [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Consente di specificare il parametro `-DefaultConnectionMode` facoltativo da utilizzare `Readonly`.
 
 Per altre informazioni, vedere [uso di un'entità servizio con il modulo AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -146,7 +146,7 @@ Per SSMS, Visual Studio e le stringhe di connessione in PowerShell, app per le f
 
 È possibile modificare il piano tariffario in un server con più repliche. Lo stesso piano tariffario si applica a tutte le repliche. Un'operazione di ridimensionamento arresterà prima tutte le repliche in una sola volta e quindi mostrerà tutte le repliche nel nuovo piano tariffario.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 **Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
 

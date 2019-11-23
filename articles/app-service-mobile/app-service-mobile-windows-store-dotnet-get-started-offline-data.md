@@ -29,7 +29,7 @@ ms.locfileid: "72388583"
 >
 > Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Questa esercitazione illustra come aggiungere il supporto offline a un'app UWP (Universal Windows Platform) tramite un back-end di App per dispositivi mobili di Azure. La sincronizzazione offline consente agli utenti finali di interagire con un'app per dispositivi mobili, visualizzando, aggiungendo e modificando i dati, anche se non è disponibile una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo torna online, vengono sincronizzate con il back-end remoto.
 
 In questa esercitazione verrà aggiornato il progetto di app UWP creato nell'esercitazione [Creare un'app Windows] in modo da supportare le funzionalità offline di App per dispositivi mobili di Azure. Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere al progetto il pacchetto di estensione per l'accesso ai dati. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo relativo all' [utilizzo dell'SDK del server back-end .NET per app per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -40,17 +40,17 @@ Per altre informazioni sulla funzionalità di sincronizzazione offline, vedere l
 Per questa esercitazione sono necessari i prerequisiti seguenti:
 
 * Visual Studio 2013 in esecuzione in Windows 8.1 o versioni successive
-* Completamento dell'esercitazione [Creare un'app Windows][Creare un'app Windows].
+* Completamento dell'esercitazione [Creare un'app Windows][creare un'app windows].
 * [Archivio SQLite di servizi mobili di Azure][sqlite store nuget]
 * [SQLite for Universal Windows Platform](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Aggiornare l'app client per supportare le funzionalità offline
-Le funzionalità offline delle app per dispositivi mobili di Azure consentono di interagire con un database locale in uno scenario offline. Per usare queste funzionalità nell'app, inizializzare un'interfaccia [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite viene usato come archivio locale nel dispositivo.
+Le funzionalità offline delle app per dispositivi mobili di Azure consentono di interagire con un database locale in uno scenario offline. Per usare queste funzionalità nell'app, inizializzare un'interfaccia di to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] [SyncContext][synccontext] . SQLite viene usato come archivio locale nel dispositivo.
 
 1. Installare il [runtime di SQLite per la piattaforma UWP (Universal Windows Platform)](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. In Visual Studio aprire Gestione pacchetti NuGet per il progetto di app UWP completato nell'esercitazione [Creare un'app Windows].
     Cercare e installare il pacchetto NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
-3. In Esplora soluzioni fare clic con il pulsante destro del mouse su **riferimenti** > **Aggiungi riferimento...** > **estensioni** **Universal Windows** >, quindi abilitare sia **SQLite per piattaforma UWP (Universal Windows Platform) che per** **Visual C++ 2015 Runtime per le app piattaforma UWP (Universal Windows Platform)** .
+3. In Esplora soluzioni fare clic con il pulsante destro del mouse su **riferimenti** > **Aggiungi riferimento...** > **estensioni**di **Windows > universale** , quindi abilitare sia **SQLite per piattaforma UWP (Universal Windows Platform)** che il **runtime di Visual C++ 2015 per le app piattaforma UWP (Universal Windows Platform)** .
 
     ![Aggiungere un riferimento UWP SQLite][1]
 4. Aprire il file MainPage.xaml.cs e rimuovere i simboli di commendo dalla definizione `#define OFFLINE_SYNC_ENABLED`.
@@ -86,7 +86,7 @@ Alla prima esecuzione dell'applicazione, il gestore eventi `OnNavigatedTo` chiam
 Per supportare le funzionalità offline di servizi mobili, è stata usata l'interfaccia [IMobileServiceSyncTable] e è stato inizializzato [MobileServiceClient. SyncContext][synccontext] con un database SQLite locale. In una situazione offline le normali operazioni CRUD per App per dispositivi mobili funzionano come se l'app fosse ancora connessa, mentre tutte le operazioni interessano l'archivio locale. Per sincronizzare l'archivio locale con il server vengono usati i metodi seguenti:
 
 * **[PushAsync]** . Dato che questo metodo è membro di [IMobileServicesSyncContext], viene effettuato il push al back-end delle modifiche in tutte le tabelle. Solo i record con modifiche locali vengono inviati al server.
-* **[PullAsync]** . Viene avviato un pull da [IMobileServiceSyncTable]. Se nella tabella sono presenti modifiche di cui si è tenuta traccia, viene eseguito un push implicito per assicurarsi che tutte le tabelle nell'archivio locale e le relazioni corrispondenti siano ancora coerenti. Il parametro *pushOtherTables* determina se viene effettuato il push implicito di altre tabelle nel contesto. Il parametro di *query* accetta una stringa di query > o OData di [stringa imobileservicetablequery @ no__t-2T][IMobileServiceTableQuery] per filtrare i dati restituiti. Il parametro *QueryId* viene usato per definire la sincronizzazione incrementale. Per altre informazioni, vedere [sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PullAsync]** . Viene avviato un pull da [IMobileServiceSyncTable]. Se nella tabella sono presenti modifiche di cui si è tenuta traccia, viene eseguito un push implicito per assicurarsi che tutte le tabelle nell'archivio locale e le relazioni corrispondenti siano ancora coerenti. Il parametro *pushOtherTables* determina se viene effettuato il push implicito di altre tabelle nel contesto. Il parametro di *query* accetta una stringa di query [stringa imobileservicetablequery\<t >][IMobileServiceTableQuery] o OData per filtrare i dati restituiti. Il parametro *QueryId* viene usato per definire la sincronizzazione incrementale. Per altre informazioni, vedere [sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).
 * **[PurgeAsync]** . L'app deve chiamare periodicamente questo metodo per ripulire l'archivio locale dai dati non aggiornati. Usare il parametro *force* quando è necessario ripulire tutte le modifiche non ancora sincronizzate.
 
 Per altre informazioni su questi concetti, vedere [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure](app-service-mobile-offline-data-sync.md#how-sync-works).

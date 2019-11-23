@@ -18,7 +18,7 @@ ms.locfileid: "71828117"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM virtuale in una macchina virtuale Linux
 
-È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device](../iot-dps/index.yml)provisioning. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
+È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device provisioning](../iot-dps/index.yml). Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
 
 Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge simulato con i passaggi seguenti:
 
@@ -31,11 +31,11 @@ Questo articolo illustra come testare il provisioning automatico in un dispositi
 > Il TPM 2,0 è obbligatorio quando si usa l'attestazione TPM con DPS e può essere usato solo per creare registrazioni individuali, non di gruppo.
 
 > [!TIP]
-> Questo articolo descrive come testare il provisioning DPS usando un simulatore TPM, ma la maggior parte di esso si applica a hardware TPM fisico, ad esempio [Infineon OPTIGA @ no__t-1 TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified per le cose.
+> Questo articolo descrive come testare il provisioning di DPS usando un simulatore TPM, ma la maggior parte di esso si applica a hardware TPM fisico, ad esempio [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified per l'it.
 >
 > Se si usa un dispositivo fisico, è possibile passare alla sezione recuperare le [informazioni di provisioning da un dispositivo fisico](#retrieve-provisioning-information-from-a-physical-device) in questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un computer di sviluppo Windows con [Hyper-V abilitato](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Questo articolo usa Windows 10 in cui è in esecuzione una macchina virtuale Ubuntu Server.
 * Un hub IoT attivo.
@@ -55,21 +55,21 @@ Un commutatore virtuale consente alla macchina virtuale di connettersi a una ret
 
 3. Scegliere un commutatore virtuale **esterno**, quindi selezionare **Crea commutatore virtuale**. 
 
-4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che il tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
+4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che Tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
 
 5. Un elemento pop-up avvisa l'utente che la connettività di rete potrebbe essere interrotta. Selezionare **Yes** (Sì) per continuare. 
 
 Se si verificano errori in fase di creazione del nuovo commutatore virtuale, assicurarsi che nessun altro commutatore stia usando l'adattatore Ethernet e che nessun altro commutatore usi lo stesso nome. 
 
-### <a name="create-virtual-machine"></a>Crea macchina virtuale
+### <a name="create-virtual-machine"></a>Creare una macchina virtuale
 
 1. Scaricare un file di immagine del disco da usare per la macchina virtuale e salvarlo in locale. Esempio: [Ubuntu Server](https://www.ubuntu.com/download/server). 
 
-2. Nella console di gestione di Hyper-V selezionare **nuova** > **macchina virtuale** dal menu **azioni** .
+2. Nella console di gestione di Hyper-V selezionare **nuovo** > **macchina virtuale** dal menu **azioni** .
 
-3. Completare la **Creazione guidata macchina virtuale** con le configurazioni specifiche seguenti:
+3. Completare la **procedura guidata per la creazione della nuova macchina virtuale** con le configurazioni specifiche seguenti:
 
-   1. **Impostazione generazione**: Selezionare **Generazione 2**. Per le macchine virtuali di seconda generazione è abilitata la virtualizzazione nidificata, necessaria per eseguire IoT Edge in una macchina virtuale.
+   1. **Specifica generazione**: selezionare **Generazione 2**. Per le macchine virtuali di seconda generazione è abilitata la virtualizzazione nidificata, necessaria per eseguire IoT Edge in una macchina virtuale.
    2. **Configura rete**: impostare il valore di **Connessione** sul commutatore virtuale creato nella sezione precedente. 
    3. **Opzioni di installazione**: selezionare **Installa un sistema operativo da un file immagine di avvio** e individuare il file di immagine del disco che è stato salvato in locale.
 
@@ -87,7 +87,7 @@ Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il m
 
 3. Deselezionare l'opzione **Abilita avvio protetto**.
 
-4. Selezionare **Abilita Trusted Platform Module**. 
+4. Selezionare **Enable Trusted Platform Module** (Abilita Trusted Platform Module). 
 
 5. Fare clic su **OK**.  
 
@@ -116,17 +116,17 @@ Nella macchina virtuale creare uno strumento che è possibile usare per recupera
 
 1. Da una finestra di comando passare alla directory `azure-iot-sdk-c` ed eseguire il simulatore TPM. che è in ascolto di un socket sulle porte 2321 e 2322. Non chiudere questa finestra di comando; è necessario lasciare che questo simulatore sia in esecuzione.
 
-   Dalla directory `azure-iot-sdk-c`, eseguire il comando seguente per avviare il simulatore:
+   Dalla directory `azure-iot-sdk-c` eseguire il comando seguente per avviare il simulatore:
 
    ```bash
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. Usando Visual Studio, aprire la soluzione generata nella directory `cmake` denominata `azure_iot_sdks.sln` e compilarla usando il comando **Compila soluzione** del menu **Compila** .
+1. Usando Visual Studio, aprire la soluzione generata nella directory `cmake` denominata `azure_iot_sdks.sln`e compilarla usando il comando **Compila soluzione** del menu **Compila** .
 
 1. Nel riquadro **Esplora soluzioni** di Visual Studio passare alla cartella **Provision\_Tools**. Fare clic con il pulsante destro del mouse sul progetto **tpm_device_provision** e scegliere **Imposta come progetto di avvio**.
 
-1. Eseguire la soluzione usando uno dei comandi **Avvia** del menu **debug** . La finestra di output Visualizza l'ID di **registrazione** del simulatore TPM e la **chiave**di verifica dell'autenticità, che è necessario copiare per l'uso in seguito quando si crea una registrazione singola per il dispositivo in è possibile chiudere questa finestra (con ID registrazione e Chiave di verifica dell'autenticità, ma lasciare la finestra del simulatore TPM in esecuzione.
+1. Eseguire la soluzione usando uno dei comandi **Avvia** del menu **debug** . La finestra di output Visualizza l'ID di **registrazione** del simulatore TPM e la **chiave**di verifica dell'autenticità, che è necessario copiare per l'uso in un secondo momento, quando si crea una registrazione singola per il dispositivo in, è possibile chiudere questa finestra (con ID registrazione e chiave di verifica dell'autenticità), ma lasciare la finestra del simulatore TPM in esecuzione.
 
 ## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Recuperare le informazioni di provisioning da un dispositivo fisico
 
@@ -177,7 +177,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
    5. Se si desidera, specificare un ID per il dispositivo. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non si specifica un ID dispositivo, viene usato l'ID di registrazione.
 
-   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Esempio: 
+   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Ad esempio: 
 
       ```json
       {

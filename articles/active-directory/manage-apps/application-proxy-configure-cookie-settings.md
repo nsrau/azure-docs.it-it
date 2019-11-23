@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) dispone di cookie di sessione e accesso per ac
 
 [Application Proxy](application-proxy.md) utilizza le seguenti impostazioni cookie di sessione e accesso.
 
-| Impostazione dei cookie | Default | DESCRIZIONE | Recommendations |
+| Impostazione dei cookie | Default | Descrizione | Consigli |
 | -------------- | ------- | ----------- | --------------- |
 | Usa cookie solo HTTP | **No** | **Sì** consente ad Application Proxy di includere il contrassegno HTTPOnly nelle intestazioni di risposta HTTP. Questo contrassegno offre vantaggi aggiuntivi di sicurezza, ad esempio, impedisce agli scripting del client (CSS) di copiare o modificare i cookie.<br></br><br></br>Prima che fosse supportata l'impostazione solo HTTP, Application Proxy crittografava e trasmetteva i cookie in un canale SSL per prevenire le modifiche. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.<br></br><br></br>Usare **No** per i client o gli agenti utente che richiedono l'accesso per il cookie di sessione. Ad esempio, usare **No** per un client RDP o MTSC che si connette a un server Gateway Desktop remoto tramite Application Proxy.|
 | Usa cookie protetti | **No** | **Sì** consente ad Application Proxy di includere il contrassegno Protetto nelle intestazioni di risposta HTTP. Cookie protetti migliorano la sicurezza mediante la trasmissione di cookie su un canale TLS protetto, ad esempio HTTPS. Ciò impedisce che i cookie vengano esaminati da parti non autorizzate dovuta alla trasmissione di cookie in testo non crittografato. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.|

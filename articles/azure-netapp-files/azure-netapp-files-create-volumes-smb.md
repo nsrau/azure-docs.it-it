@@ -40,7 +40,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 * Le porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabile.  
     Le porte necessarie sono le seguenti: 
 
-    |     Service           |     Port     |     Protocol     |
+    |     Servizio           |     Port     |     Protocol     |
     |-----------------------|--------------|------------------|
     |    Servizi Web Active Directory    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -86,7 +86,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 
     * **DNS primario**  
         Questo è il DNS necessario per le operazioni di aggiunta a un dominio Active Directory e di autenticazione SMB. 
-    * @No__t **DNS secondario**-1  
+    *   **DNS secondario**  
         Si tratta del server DNS secondario per garantire i servizi dei nomi ridondanti. 
     * **Dominio**  
         Si tratta del nome di dominio del Active Directory Domain Services che si desidera aggiungere.
@@ -100,7 +100,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     * **Percorso unità organizzativa**  
         Si tratta del percorso LDAP per l'unità organizzativa (OU) in cui verranno creati gli account del computer server SMB. Ovvero OU = Second Level, OU = First level. 
 
-        Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa è @no__t 0 quando si configura Active Directory per l'account NetApp.
+        Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa viene `OU=AADDC Computers` quando si configura Active Directory per l'account NetApp.
         
     * Credenziali, inclusi **nome utente** e **password**
 

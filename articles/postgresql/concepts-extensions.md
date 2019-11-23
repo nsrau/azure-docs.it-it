@@ -227,7 +227,7 @@ TimescaleDB è un database di serie temporali assemblato come estensione per Pos
 [Scopri di più su TimescaleDB](https://docs.timescale.com/latest), un marchio registrato di [scala cronologica, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>Installazione di TimescaleDB
-Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettiva una modifica al parametro `shared_preload_libraries` di Postgres è necessario **riavviare il server** . È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
+Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettive le modifiche apportate al parametro `shared_preload_libraries` di Postgres, è necessario **riavviare il server** . È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).
 
 Utilizzando la [portale di Azure](https://portal.azure.com/):
 

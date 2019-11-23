@@ -30,7 +30,7 @@ Dopo aver creato l'applicazione, si apprenderà come configurare il codice usand
 
 Le librerie Microsoft che supportano le app per dispositivi mobili sono:
 
-  Libreria MSAL | Description
+  Libreria MSAL | Descrizione
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Per lo sviluppo di applicazioni portabili. Le piattaforme supportate da MSAL.NET per compilare un'applicazione per dispositivi mobili sono UWP, Novell. iOS e Novell. Android.
   ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Per sviluppare applicazioni iOS native con Objective-C o SWIFT
@@ -82,7 +82,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
 
-Sono disponibili altri metodi con*parametri* che impostano l'elemento padre dell'interfaccia utente, eseguono l'override dell'autorità predefinita, specificano un nome e una versione del client (per la telemetria), specificano un URI di reindirizzamento, specificano la factory HTTP da usare (ad esempio per gestire i proxy, specificare telemetria e registrazione). Questo è l'argomento dei paragrafi seguenti.
+Sono disponibili altri metodi con*parametri* che impostano l'elemento padre dell'interfaccia utente, eseguono l'override dell'autorità predefinita, specificano un nome e una versione del client (per la telemetria), specificano un URI di reindirizzamento, specificano la factory HTTP da usare (ad esempio per gestire i proxy, specificare la telemetria e la registrazione). Questo è l'argomento dei paragrafi seguenti.
 
 ##### <a name="specifying-the-parent-uiwindowactivity"></a>Specifica dell'interfaccia utente/finestra/attività padre
 
@@ -135,7 +135,7 @@ Ecco le specifiche di Novell per Android:
 - [Assicurando che il controllo torni a MSAL una volta terminata la parte interattiva del flusso di autenticazione](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Aggiornare il manifesto Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Usare la visualizzazione Web incorporata (facoltativo)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [risoluzione dei problemi](msal-net-xamarin-android-considerations.md#troubleshooting)
+- [Risoluzione dei problemi](msal-net-xamarin-android-considerations.md#troubleshooting)
 
 Informazioni dettagliate sono disponibili in [considerazioni su Novell Android](msal-net-xamarin-android-considerations.md)
 

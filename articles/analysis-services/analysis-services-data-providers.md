@@ -20,7 +20,7 @@ Le librerie client sono necessarie per la connessione di applicazioni e strument
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
-|Scaricare  |Versione prodotto  | 
+|Scarica  |Versione prodotto  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.10.25    |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.10.25       |

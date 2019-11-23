@@ -17,7 +17,7 @@ ms.locfileid: "72001677"
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità back-end nel gateway applicazione
 ==================================================
 
-<a name="overview"></a>Panoramica
+<a name="overview"></a>Overview
 --------
 
 Per impostazione predefinita, applicazione Azure gateway esegue il probe dei server back-end per verificarne lo stato di integrità e per verificare se sono pronti per gestire le richieste. Gli utenti possono anche creare Probe personalizzati per citare il nome host, il percorso in cui eseguire il probe e i codici di stato da accettare come integri. In ogni caso, se il server back-end non risponde correttamente, il gateway applicazione contrassegna il server come non integro e interrompe l'invio delle richieste al server. Quando il server inizia a rispondere correttamente, il gateway applicazione riprende l'invio delle richieste.
@@ -28,15 +28,15 @@ Per verificare l'integrità del pool back-end, è possibile usare la pagina **in
 
 Lo stato recuperato da uno di questi metodi può essere uno dei seguenti:
 
-- Integra
+- Healthy
 
 - Non integro
 
-- Sconosciute
+- Sconosciuto
 
 Se lo stato di integrità back-end di un server è integro, significa che il gateway applicazione inoltrerà le richieste a tale server. Tuttavia, se l'integrità back-end per tutti i server in un pool back-end non è integra o è sconosciuta, potrebbero verificarsi problemi quando si tenta di accedere alle applicazioni. Questo articolo descrive i sintomi, le cause e la risoluzione di ogni errore visualizzato.
 
-<a name="backend-health-status-unhealthy"></a>Stato di integrità back-end: Non integro
+<a name="backend-health-status-unhealthy"></a>Stato di integrità back-end: non integro
 -------------------------------
 
 Se lo stato di integrità back-end non è integro, la visualizzazione del portale sarà simile alla schermata seguente:
@@ -81,15 +81,15 @@ Dopo aver ricevuto lo stato di un server back-end non integro per tutti i server
 Il messaggio visualizzato nella colonna **Dettagli** fornisce informazioni dettagliate sul problema e, in base a tali informazioni, è possibile iniziare la risoluzione del problema.
 
 > [!NOTE]
-> La richiesta di probe predefinita viene inviata nel formato \<protocol @ no__t-1://127.0.0.1: \<Port @ no__t-3/. Ad esempio, http://127.0.0.1:80 per un probe http sulla porta 80. Solo i codici di stato HTTP da 200 a 399 sono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione Probe su un protocollo, un nome host o un percorso diverso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
+> La richiesta di probe predefinita viene inviata nel formato \<protocollo\>://127.0.0.1:\<porta\>/. Ad esempio, http://127.0.0.1:80 per un probe http sulla porta 80. Solo i codici di stato HTTP da 200 a 399 sono considerati integri. Il protocollo e la porta di destinazione vengono ereditati dalle impostazioni HTTP. Se si vuole che il gateway applicazione Probe su un protocollo, un nome host o un percorso diverso e riconosca un codice di stato diverso come integro, configurare un probe personalizzato e associarlo alle impostazioni HTTP.
 
 <a name="error-messages"></a>messaggi di errore
 ------------------------
 #### <a name="backend-server-timeout"></a>Timeout server back-end
 
-**Messaggio:** Il tempo impiegato dal back-end per rispondere al Probe di integrità del gateway applicazione @ no__t-0 è superiore alla soglia di timeout nell'impostazione del probe.
+**Messaggio:** Il tempo impiegato dal back-end per rispondere al Probe di integrità del gateway applicazione\'s è superiore alla soglia di timeout nell'impostazione del probe.
 
-**Causa:** Dopo che il gateway applicazione ha inviato una richiesta di probe HTTP (S) al server back-end, attende una risposta dal server back-end per un periodo configurato. Se il server back-end non risponde entro il periodo configurato (il valore di timeout), viene contrassegnato come non integro fino a quando non viene riavviata la risposta entro il periodo di timeout configurato.
+**Motivo:** Dopo che il gateway applicazione ha inviato una richiesta di probe HTTP (S) al server back-end, attende una risposta dal server back-end per un periodo configurato. Se il server back-end non risponde entro il periodo configurato (il valore di timeout), viene contrassegnato come non integro fino a quando non viene riavviata la risposta entro il periodo di timeout configurato.
 
 **Risoluzione:** Verificare il motivo per cui l'applicazione o il server back-end non risponde entro il periodo di timeout configurato e controllare anche le dipendenze dell'applicazione. Verificare, ad esempio, se nel database sono presenti problemi che potrebbero causare un ritardo nella risposta. Se si è in grado di riconoscere il comportamento dell'applicazione e deve rispondere solo dopo il valore di timeout, aumentare il valore di timeout dalle impostazioni del probe personalizzato. È necessario disporre di un probe personalizzato per modificare il valore di timeout. Per informazioni su come configurare un probe personalizzato, [vedere la pagina della documentazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
 
@@ -107,7 +107,7 @@ Per aumentare il valore di timeout, attenersi alla procedura seguente:
 
 **Messaggio:** Il gateway applicazione non è riuscito a creare un probe per questo back-end. Questo problema si verifica in genere quando il nome di dominio completo del back-end non è stato immesso correttamente. 
 
-**Causa:** Se il pool back-end è di tipo indirizzo IP/FQDN o servizio app, il gateway applicazione viene risolto nell'indirizzo IP del nome di dominio completo immesso tramite Domain Name System (DNS) (personalizzato o predefinito di Azure) e tenta di connettersi al server sulla porta TCP indicata nelle impostazioni HTTP. Tuttavia, se questo messaggio viene visualizzato, suggerisce che il gateway applicazione non è stato in grado di risolvere correttamente l'indirizzo IP del FQDN immesso.
+**Motivo:** Se il pool back-end è di tipo indirizzo IP/FQDN o servizio app, il gateway applicazione viene risolto nell'indirizzo IP del nome di dominio completo immesso tramite Domain Name System (DNS) (personalizzato o predefinito di Azure) e tenta di connettersi al server sulla porta TCP indicata nelle impostazioni HTTP. Tuttavia, se questo messaggio viene visualizzato, suggerisce che il gateway applicazione non è stato in grado di risolvere correttamente l'indirizzo IP del FQDN immesso.
 
 **Risoluzione:**
 
@@ -127,7 +127,7 @@ Per aumentare il valore di timeout, attenersi alla procedura seguente:
 Verificare che il back-end risponda sulla porta usata per il probe.
 Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di questo back-end
 
-**Causa:** Dopo la fase di risoluzione DNS, il gateway applicazione tenta di connettersi al server back-end sulla porta TCP configurata nelle impostazioni HTTP. Se il gateway applicazione non è in grado di stabilire una sessione TCP sulla porta specificata, il probe viene contrassegnato come non integro con questo messaggio.
+**Motivo:** Dopo la fase di risoluzione DNS, il gateway applicazione tenta di connettersi al server back-end sulla porta TCP configurata nelle impostazioni HTTP. Se il gateway applicazione non è in grado di stabilire una sessione TCP sulla porta specificata, il probe viene contrassegnato come non integro con questo messaggio.
 
 **Soluzione:** Se viene visualizzato questo errore, attenersi alla procedura seguente:
 
@@ -155,9 +155,9 @@ Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di qu
     ```
 1.  Se non si riscontrano problemi con NSG o UDR, controllare il server back-end per individuare problemi relativi all'applicazione che impediscono ai client di stabilire una sessione TCP sulle porte configurate. Ecco alcuni aspetti da controllare:
 
-    a.  Aprire un prompt dei comandi (Win + R-\> cmd), immettere `netstat` e premere INVIO.
+    a.  Aprire un prompt dei comandi (Win + R-\> cmd), immettere `netstat`e premere INVIO.
 
-    b.  Controllare se il server è in ascolto sulla porta configurata. Esempio:
+    b.  Controllare se il server è in ascolto sulla porta configurata. Ad esempio:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -168,20 +168,20 @@ Controllare anche se NSG/UDR/firewall blocca l'accesso all'IP e alla porta di qu
 
 #### <a name="http-status-code-mismatch"></a>Mancata corrispondenza del codice di stato HTTP
 
-**Messaggio:** Il codice di stato della risposta HTTP back-end @ no__t-0 non corrisponde all'impostazione del probe. Previsto: {HTTPStatusCode0} ricevuto: {HTTPStatusCode1}.
+**Messaggio:** Il codice di stato della risposta HTTP back-end\'s non corrisponde all'impostazione del probe. Previsto: {HTTPStatusCode0} ricevuto: {HTTPStatusCode1}.
 
-**Causa:** Una volta stabilita la connessione TCP e viene eseguito un handshake SSL (se SSL è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito sarà \<protocol @ no__t-1://127.0.0.1: \<Port @ no__t-3/e considera i codici di stato della risposta in Rage 200 fino a 399 come integri. Se il server restituisce un altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
+**Motivo:** Una volta stabilita la connessione TCP e viene eseguito un handshake SSL (se SSL è abilitato), il gateway applicazione invierà il probe come richiesta HTTP GET al server back-end. Come descritto in precedenza, il probe predefinito sarà \<protocollo\>://127.0.0.1:\<porta\>/e considera i codici di stato della risposta in Rage 200 fino a 399 come integri. Se il server restituisce un altro codice di stato, verrà contrassegnato come non integro con questo messaggio.
 
 **Soluzione:** A seconda del codice di risposta del server back-end, è possibile eseguire i passaggi seguenti. Di seguito sono elencati alcuni codici di stato comuni:
 
-| **Error (Errore) (Error (Errore)e)** | **Actions** |
+| **Errore** | **Actions** |
 | --- | --- |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 401 | Verificare che il server back-end richieda l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione a questo punto. Consentire \"HTTP 401 @ no__t-1 in una corrispondenza del codice di stato probe o eseguire il probe in un percorso in cui il server non richiede l'autenticazione. | |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 403 | Accesso non consentito. Controllare se l'accesso al percorso è consentito nel server back-end. | |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 404 | Pagina non trovata. Controllare se il percorso del nome host è accessibile nel server back-end. Modificare il nome host o il parametro Path in un valore accessibile. | |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 405 | Le richieste di probe per il gateway applicazione usano il metodo HTTP GET. Controllare se il server consente questo metodo. | |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 500 | Errore interno del server. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. | |
-| Mancata corrispondenza del codice di stato Probe: Ricevuto 503 | Servizio non disponibile. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. | |
+| Mancata corrispondenza del codice di stato Probe: ricevuto 401 | Verificare che il server back-end richieda l'autenticazione. I probe del gateway applicazione non possono passare le credenziali per l'autenticazione a questo punto. Consentire \"\" HTTP 401 in una corrispondenza del codice di stato di un probe o eseguire il probe in un percorso in cui il server non richiede l'autenticazione. | |
+| Mancata corrispondenza del codice di stato Probe: ricevuto 403 | Accesso non consentito. Controllare se l'accesso al percorso è consentito nel server back-end. | |
+| Mancata corrispondenza del codice di stato Probe: ricevuto 404 | Pagina non trovata. Controllare se il percorso del nome host è accessibile nel server back-end. Modificare il nome host o il parametro Path in un valore accessibile. | |
+| Mancata corrispondenza del codice di stato Probe: ricevuto 405 | Le richieste di probe per il gateway applicazione usano il metodo HTTP GET. Controllare se il server consente questo metodo. | |
+| Mancata corrispondenza del codice di stato Probe: ricevuto 500 | Errore interno del server. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. | |
+| Mancata corrispondenza del codice di stato Probe: ricevuto 503 | Servizio non disponibile. Verificare l'integrità del server back-end e se i servizi sono in esecuzione. | |
 
 In alternativa, se si ritiene che la risposta sia legittima e si desidera che il gateway applicazione accetti altri codici di stato come integri, è possibile creare un probe personalizzato. Questo approccio è utile nelle situazioni in cui il sito Web back-end necessita di autenticazione. Poiché le richieste di probe non contengono credenziali utente, avranno esito negativo e verrà restituito un codice di stato HTTP 401 dal server back-end.
 
@@ -189,11 +189,11 @@ Per creare un probe personalizzato, attenersi alla [seguente procedura](https://
 
 #### <a name="http-response-body-mismatch"></a>Mancata corrispondenza del corpo della risposta HTTP
 
-**Messaggio:** Il corpo della risposta HTTP backend @ no__t-0 non corrisponde all'impostazione del probe. Il corpo della risposta ricevuta non contiene {String}.
+**Messaggio:** Il corpo della risposta HTTP back-end\'s non corrisponde all'impostazione del probe. Il corpo della risposta ricevuta non contiene {String}.
 
-**Causa:** Quando si crea un probe personalizzato, è possibile contrassegnare un server back-end come integro associando una stringa dal corpo della risposta. Ad esempio, è possibile configurare il gateway applicazione in modo che accetti "non autorizzato" come stringa per la corrispondenza. Se la risposta del server back-end per la richiesta del probe contiene la stringa non **autorizzata**, verrà contrassegnata come integro. In caso contrario, verrà contrassegnato come non integro con questo messaggio.
+**Motivo:** Quando si crea un probe personalizzato, è possibile contrassegnare un server back-end come integro associando una stringa dal corpo della risposta. Ad esempio, è possibile configurare il gateway applicazione in modo che accetti "non autorizzato" come stringa per la corrispondenza. Se la risposta del server back-end per la richiesta del probe contiene la stringa non **autorizzata**, verrà contrassegnata come integro. In caso contrario, verrà contrassegnato come non integro con questo messaggio.
 
-**Soluzione:** Per risolvere il problema, seguire questa procedura:
+**Soluzione:** Per risolvere il problema, attenersi alla seguente procedura:
 
 1.  Accedere al server back-end localmente o da un computer client nel percorso Probe e verificare il corpo della risposta.
 
@@ -207,7 +207,7 @@ Altre informazioni sulla [corrispondenza dei probe del gateway applicazione](htt
 
 **Messaggio:** Il certificato server usato dal back-end non è firmato da un'autorità di certificazione (CA) Nota. Inserire nell'elenco elementi consentiti il back-end nel gateway applicazione caricando il certificato radice del certificato del server usato dal back-end.
 
-**Causa:** SSL end-to-end con il gateway applicazione V2 richiede che il certificato del server back-end sia verificato per poter considerare integro il server.
+**Motivo:** SSL end-to-end con il gateway applicazione V2 richiede che il certificato del server back-end sia verificato per poter considerare integro il server.
 Affinché un certificato SSL venga considerato attendibile, il certificato del server back-end deve essere emesso da un'autorità di certificazione inclusa nell'archivio attendibile del gateway applicazione. Se il certificato non è stato emesso da un'autorità di certificazione attendibile (ad esempio, se è stato usato un certificato autofirmato), gli utenti devono caricare il certificato dell'autorità emittente nel gateway applicazione.
 
 **Soluzione:** Seguire questa procedura per esportare e caricare il certificato radice attendibile nel gateway applicazione. Questa procedura è per i client Windows.
@@ -218,7 +218,7 @@ Affinché un certificato SSL venga considerato attendibile, il certificato del s
 
 1.  Immettere `certmgr.msc` e premere INVIO. È anche possibile cercare gestione certificati dal menu **Start** .
 
-1.  Individuare il certificato, in genere in `\Certificates - Current User\\Personal\\Certificates\` e aprirlo.
+1.  Individuare il certificato, in genere in `\Certificates - Current User\\Personal\\Certificates\`e aprirlo.
 
 1.  Selezionare il certificato radice e quindi fare clic su **Visualizza certificato**.
 
@@ -240,7 +240,7 @@ Per altre informazioni su come estrarre e caricare i certificati radice trusted 
 
 **Messaggio:** Il certificato radice del certificato del server usato dal back-end non corrisponde al certificato radice attendibile aggiunto al gateway applicazione. Assicurarsi di aggiungere il certificato radice corretto all'elenco elementi consentiti del back-end
 
-**Causa:** SSL end-to-end con il gateway applicazione V2 richiede che il certificato del server back-end sia verificato per poter considerare integro il server.
+**Motivo:** SSL end-to-end con il gateway applicazione V2 richiede che il certificato del server back-end sia verificato per poter considerare integro il server.
 Affinché un certificato SSL venga considerato attendibile, il certificato del server back-end deve essere emesso da un'autorità di certificazione inclusa nell'archivio attendibile del gateway applicazione. Se il certificato non è stato emesso da un'autorità di certificazione attendibile (ad esempio, è stato usato un certificato autofirmato), gli utenti devono caricare il certificato dell'autorità emittente nel gateway applicazione.
 
 Il certificato caricato nelle impostazioni HTTP del gateway applicazione deve corrispondere al certificato radice del certificato del server back-end.
@@ -253,7 +253,7 @@ Per altre informazioni su come estrarre e caricare i certificati radice trusted 
 > [!NOTE]
 > Questo errore può verificarsi anche se il server back-end non scambia la catena completa del certificato, inclusa la radice > intermedio (se applicabile) > foglia durante l'handshake TLS. Per verificare, è possibile usare i comandi OpenSSL da qualsiasi client e connettersi al server back-end usando le impostazioni configurate nel probe del gateway applicazione.
 
-Esempio:
+Ad esempio:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
@@ -280,7 +280,7 @@ Se l'output non Mostra la catena completa del certificato restituito, esportare 
 
 **Messaggio:** Il nome comune (CN) del certificato back-end non corrisponde all'intestazione host del probe.
 
-**Causa:** Il gateway applicazione verifica se il nome host specificato nelle impostazioni HTTP back-end corrisponde a quello del CN presentato dal certificato SSL del server back-end. Questo comportamento è Standard_v2 e WAF_v2 SKU. Lo SKU standard e WAF Indicazione nome server (SNI) viene impostato come FQDN nell'indirizzo del pool back-end.
+**Motivo:** Il gateway applicazione verifica se il nome host specificato nelle impostazioni HTTP back-end corrisponde a quello del CN presentato dal certificato SSL del server back-end. Questo è Standard_v2 e WAF_v2 comportamento dello SKU. Lo SKU standard e WAF Indicazione nome server (SNI) viene impostato come FQDN nell'indirizzo del pool back-end.
 
 Nello SKU V2, se è presente un probe predefinito (nessun Probe personalizzato è stato configurato e associato), SNI verrà impostato dal nome host indicato nelle impostazioni HTTP. In alternativa, se "pick host name from back-end Address" è indicato nelle impostazioni HTTP, dove il pool di indirizzi back-end contiene un FQDN valido, questa impostazione verrà applicata.
 
@@ -319,9 +319,9 @@ Per Linux con OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>Il certificato back-end non è valido
 
-**Messaggio:** Il certificato back-end non è valido. La data corrente non si trova all'interno del \"Valid da @ no__t-1 e \"Valid all'intervallo di date @ no__t-3 nel certificato.
+**Messaggio:** Il certificato back-end non è valido. La data corrente non è compresa nell'intervallo di \"valido da\" e \"valido per\" intervallo di date nel certificato.
 
-**Causa:** Ogni certificato viene specificato con un intervallo di validità e la connessione HTTPS non sarà protetta, a meno che il certificato SSL del server non sia valido. I dati correnti devono essere compresi nell'intervallo **valido da** e **valido a** . In caso contrario, il certificato viene considerato non valido e verrà creato un problema di sicurezza in cui il gateway applicazione contrassegna il server back-end come non integro.
+**Motivo:** Ogni certificato viene specificato con un intervallo di validità e la connessione HTTPS non sarà protetta, a meno che il certificato SSL del server non sia valido. I dati correnti devono essere compresi nell'intervallo **valido da** e **valido a** . In caso contrario, il certificato viene considerato non valido e verrà creato un problema di sicurezza in cui il gateway applicazione contrassegna il server back-end come non integro.
 
 **Soluzione:** Se il certificato SSL è scaduto, rinnovare il certificato con il fornitore e aggiornare le impostazioni del server con il nuovo certificato. Se si tratta di un certificato autofirmato, è necessario generare un certificato valido e caricare il certificato radice nelle impostazioni HTTP del gateway applicazione. A tale scopo, seguire questi passaggi:
 
@@ -335,7 +335,7 @@ Per Linux con OpenSSL:
 
 **Messaggio:** Non è stato possibile verificare la validità del certificato back-end. Per individuare il motivo, controllare la diagnostica SSL aperta per il messaggio associato al codice di errore {errorCode}
 
-**Causa:** Questo errore si verifica quando il gateway applicazione non è in grado di verificare la validità del certificato.
+**Motivo:** Questo errore si verifica quando il gateway applicazione non è in grado di verificare la validità del certificato.
 
 **Soluzione:** Per risolvere questo problema, verificare che il certificato nel server sia stato creato correttamente. Ad esempio, è possibile usare [openssl](https://www.openssl.org/docs/man1.0.2/man1/verify.html) per verificare il certificato e le relative proprietà, quindi provare a ricaricare il certificato nelle impostazioni http del gateway applicazione.
 

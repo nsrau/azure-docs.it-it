@@ -17,7 +17,7 @@ ms.locfileid: "71844716"
 
 È possibile configurare, elencare e scaricare i [log di query lente del database di Azure per MariaDB](concepts-server-logs.md) dalla portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per la procedura descritta in questo articolo è necessario disporre di [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>Configurare la registrazione
@@ -28,11 +28,11 @@ Configurare l'accesso al log di query lente.
 2. Selezionare il server del Database di Azure per MariaDB.
 
 3. Nella sezione **monitoraggio** della barra laterale selezionare log del **Server**. 
-   ![Screenshot delle opzioni dei log del server @ no__t-1
+   ![screenshot delle opzioni dei log del server](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
 4. Per visualizzare i parametri del server, selezionare **fare clic qui per abilitare i log e configurare i parametri del log**.
 
-5. Modificare i parametri che è necessario modificare, inclusa l' **attivazione di** **slow_query_log** . Tutte le modifiche apportate in questa sessione vengono evidenziate in viola. 
+5. Modificare i parametri che è necessario modificare, inclusa l'attivazione di Slow_query_log **su on**. Tutte le modifiche apportate in questa sessione vengono evidenziate in viola. 
 
    Dopo aver modificato i parametri, selezionare **Salva**. In alternativa, è possibile annullare le modifiche.
 
@@ -62,7 +62,7 @@ Una volta iniziata la registrazione, è possibile visualizzare un elenco di log 
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica
 
-1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica** >  Aggiungi impostazioni di**diagnostica**.
+1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica** > **Aggiungi impostazione di diagnostica**.
 
    ![Screenshot delle opzioni delle impostazioni di diagnostica](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
 
@@ -71,10 +71,10 @@ Una volta iniziata la registrazione, è possibile visualizzare un elenco di log 
 1. Specificare i sink di dati per l'invio dei log delle query lente (account di archiviazione, Hub eventi o area di lavoro Log Analytics).
 
 1. Selezionare **MySqlSlowLogs** come tipo di log.
-![Screenshot delle impostazioni di diagnostica opzioni di configurazione @ no__t-1
+![screenshot delle opzioni di configurazione delle impostazioni di diagnostica](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
 
 1. Dopo aver configurato i sink di dati per inviare tramite pipe i log delle query lente a, selezionare **Salva**.
-@no__t 0Screenshot delle opzioni di configurazione delle impostazioni di diagnostica con Save evidenziato @ no__t-1
+![screenshot delle opzioni di configurazione delle impostazioni di diagnostica con Save evidenziato](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
 
 1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Possono essere necessari fino a 10 minuti per la visualizzazione dei log.
 

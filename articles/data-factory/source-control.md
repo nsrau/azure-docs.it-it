@@ -71,7 +71,7 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | DESCRIZIONE | Valore |
+| Impostazione | Descrizione | Valore |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |

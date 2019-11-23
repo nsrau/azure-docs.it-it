@@ -41,7 +41,8 @@ Per ottenere prestazioni ottimali, configurare il server DNS per gestire gli ind
 
 A sinistra è visualizzato un vserver cluster, al centro e a destra compaiono gli indirizzi IP. Configurare ogni punto di accesso client con puntatori e record A come illustrato.
 
-diagramma DNS round robin del cluster ![Avere @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![il diagramma DNS round robin del cluster](media/avere-vfxt-rrdns-diagram.png) 
+<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Ogni indirizzo IP lato client deve avere un nome univoco riservato all'uso interno da parte del cluster. In questo diagramma, gli indirizzi IP client sono denominati vs1-client-IP-* per maggiore chiarezza, ma nell'ambiente di produzione è consigliabile usare qualcosa di più conciso, ad esempio client*.
 

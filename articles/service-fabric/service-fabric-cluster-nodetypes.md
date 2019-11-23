@@ -34,7 +34,7 @@ Come illustrato nella figura precedente, le istanze dei set di scalabilità iniz
 Quando si aumenta un set di scalabilità, viene creata una nuova istanza. Il nome della nuova istanza del set di scalabilità sarà in genere il nome del set di scalabilità + il successivo numero di istanza. Nell'esempio sarà BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Eseguire il mapping dei servizi di bilanciamento del carico dei set di scalabilità a tipi di nodo e set di scalabilità
-Se è stato distribuito il cluster dal portale Azure o è stato usato il modello di Azure Resource Manager di esempio, si otterrà un elenco di tutte le risorse in un gruppo di risorse. Verranno visualizzati i bilanciamenti del carico per ogni set di scalabilità o tipo di nodo. Il nome del servizio di bilanciamento del carico usa il formato seguente: **Lb-&lt;node tipo nome @ no__t-2**. Ad esempio, LB-sfcluster4doc-0, come in questa figura:
+Se è stato distribuito il cluster dal portale Azure o è stato usato il modello di Azure Resource Manager di esempio, si otterrà un elenco di tutte le risorse in un gruppo di risorse. Verranno visualizzati i bilanciamenti del carico per ogni set di scalabilità o tipo di nodo. Il nome del bilanciamento del carico usa il formato seguente: **LB-&lt;nome del tipo di nodo&gt;** . Ad esempio, LB-sfcluster4doc-0, come in questa figura:
 
 ![Risorse][Resources]
 
@@ -75,9 +75,9 @@ Di seguito è riportato un frammento di Service Fabric estensione della macchina
 
 Di seguito sono riportate le descrizioni delle proprietà:
 
-| **Name** | **Valori consentiti** | ** --- ** | **Indicazioni o breve descrizione** |
+| **Nome** | **Valori consentiti** | ** --- ** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| name | string | --- | nome univoco per l'estensione |
+| Nome | string | --- | nome univoco per l'estensione |
 | type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica Service Fabric del sistema operativo per il bootstrap |
 | autoUpgradeMinorVersion | true o false | --- | Abilita l'aggiornamento automatico delle versioni secondarie di runtime SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | nome del server di pubblicazione dell'estensione di Service Fabric |

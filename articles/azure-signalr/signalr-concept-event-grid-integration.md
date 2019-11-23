@@ -29,7 +29,7 @@ Gli eventi del servizio Azure SignalR sono attivi solo quando le connessioni cli
 ## <a name="available-azure-signalr-service-events"></a>Eventi del servizio Azure SignalR disponibili
 Griglia di eventi usa le [sottoscrizioni di eventi](../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Le sottoscrizioni di eventi del servizio Azure SignalR supportano due tipi di eventi:  
 
-|Nome evento|DESCRIZIONE|
+|Nome evento|Descrizione|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|Generato quando una connessione client è connessa.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|Generato quando una connessione client viene disconnessa.|

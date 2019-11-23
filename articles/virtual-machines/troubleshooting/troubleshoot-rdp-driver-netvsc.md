@@ -54,7 +54,7 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 2. Scaricare dalla stessa area l'aggiornamento appropriato in un disco dati nuovo o già esistente collegato a una macchina virtuale in esecuzione:
 
-   - **10.0.14393.594**: [KB4073562 o un aggiornamento](https://support.microsoft.com/help/4073562) successivo
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o un aggiornamento successivo
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o un aggiornamento successivo
 
 3. Scollegare il disco di utilità dalla macchina virtuale in esecuzione e collegarlo alla macchina virtuale non funzionante.
@@ -97,7 +97,7 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 12. Scaricare l'aggiornamento appropriato:
 
-    - **10.0.14393.594**: [KB4073562 o un aggiornamento](https://support.microsoft.com/help/4073562) successivo
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o un aggiornamento successivo
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o un aggiornamento successivo
 
 13. Collegare il disco di sistema come disco dati in una macchina virtuale di ripristino in cui è possibile scaricare l'aggiornamento.
@@ -116,6 +116,6 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 16. [Scollegare il disco di sistema e creare di nuovo la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

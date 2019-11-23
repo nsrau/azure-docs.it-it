@@ -99,7 +99,7 @@ Per visualizzare i risultati in CSV:
 ### <a name="system-requirements"></a>Requisiti di sistema
 - Server che esegue una delle seguenti versioni del sistema operativo:
 
-    | Versione | SKU supportati | Opzioni di distribuzione supportate |
+    | Version | SKU supportati | Opzioni di distribuzione supportate |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter e Standard | Full e Core |
     | Windows Server 2016 | Datacenter e Standard | Full e Core |
@@ -139,7 +139,7 @@ Per visualizzare i risultati in CSV:
 
 ### <a name="files-skipped"></a>File ignorati
 
-| File/cartella | Note |
+| File/cartella | Nota |
 |-|-|
 | Desktop.ini | File specifico del sistema |
 | ethumbs.db$ | File temporaneo per anteprime |
@@ -257,7 +257,7 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | India centrale | Pune |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | RAS di Hong Kong |
-| Stati Uniti orientali | Virginia |
+| Stati Uniti Orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Francia centrale | Parigi |
 | Francia meridionale * | Marsiglia |
@@ -306,7 +306,7 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | India centrale       | India meridionale        |
 | Stati Uniti centrali          | Stati Uniti orientali 2          |
 | Asia orientale           | Asia sudorientale     |
-| Stati Uniti orientali             | Stati Uniti occidentali            |
+| Stati Uniti Orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
 | Francia centrale      | Francia meridionale       |
 | Francia meridionale        | Francia centrale     |
@@ -324,11 +324,11 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Regno Unito meridionale            | Regno Unito occidentale            |
 | Regno Unito occidentale             | Regno Unito meridionale           |
 | Governo degli Stati Uniti - Arizona      | Governo degli Stati Uniti - Texas       |
-| US Gov Iowa         | Governo degli Stati Uniti - Virginia    |
+| Governo degli Stati Uniti - Iowa         | Governo degli Stati Uniti - Virginia    |
 | Governo degli Stati Uniti - Virginia      | Governo degli Stati Uniti - Texas       |
 | Europa occidentale         | Europa settentrionale       |
 | Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
-| Stati Uniti occidentali             | Stati Uniti orientali            |
+| Stati Uniti occidentali             | Stati Uniti Orientali            |
 | Stati Uniti occidentali 2           | Stati Uniti centro-occidentali    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure

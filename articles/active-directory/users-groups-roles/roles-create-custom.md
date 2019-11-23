@@ -122,7 +122,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    body
+    Body
 
     ``` HTTP
    {
@@ -151,7 +151,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    body
+    Body
 
     ``` HTTP
    {

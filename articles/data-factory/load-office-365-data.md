@@ -38,7 +38,7 @@ Questo articolo illustra come usare Data Factory per _caricare dati da Office 36
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
    
    ![Home page di Data factory](./media/load-office-365-data/data-factory-home-page.png)

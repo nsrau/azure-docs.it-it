@@ -34,7 +34,7 @@ Per avviare il dashboard di Kubernetes, usare il comando [AZ AKS browse][az-aks-
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apre il dashboard di Kubernetes in un Web browser. Se un Web browser non si apre al dashboard di Kubernetes, copiare e incollare l'indirizzo URL indicato nell'interfaccia della riga di `http://127.0.0.1:8001`comando di Azure, in genere.
+Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apre il dashboard di Kubernetes in un Web browser. Se un Web browser non si apre al dashboard di Kubernetes, copiare e incollare l'indirizzo URL indicato nell'interfaccia della riga di comando di Azure, in genere `http://127.0.0.1:8001`.
 
 <!--
 ![The login page of the Kubernetes web dashboard](./media/kubernetes-dashboard/dashboard-login.png)

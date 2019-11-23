@@ -27,7 +27,7 @@ In questa esercitazione si completeranno le attività seguenti:
 > * Creare un processo di compilazione Jenkins e un webhook GitHub per compilazioni automatizzate.
 > * Testare la pipeline CI/CD per aggiornare un'applicazione in servizio Azure Kubernetes in base ai commit del codice di GitHub.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, è necessario quanto segue:
 
@@ -230,8 +230,8 @@ Fare clic su **OK** e tornare al portale di Jenkins.
 Nella home page del portale di Jenkins selezionare **New item** (Nuovo elemento) nella parte sinistra:
 
 1. Immettere *azure-vote* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**
-1. Nella sezione **generale** selezionare **GitHub Project (progetto GitHub** ) e immettere l'URL del repository con fork, ad esempio *https: \//github. com/\<your-GitHub-account @ no__t-5/Azure-vote-app-Redis*
-1. Nella sezione **gestione del codice sorgente** selezionare **git**, immettere il repository con fork *. git* URL, ad esempio *https: \//github. com/\<your-GitHub-account @ no__t-6/Azure-voting-app-Redis. git*
+1. Nella sezione **generale** selezionare **GitHub Project (progetto GitHub** ) e immettere l'URL del repository con fork, ad esempio *https:\//github.com/\<your-GitHub-account\>/Azure-voting-app-Redis*
+1. Nella sezione **gestione del codice sorgente** selezionare **git**, immettere il repository con fork *. git* URL, ad esempio *https:\//github.com/\<your-GitHub-account\>/Azure-voting-app-Redis.git*
 
 1. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 1. In **Build Environment** (Ambiente di compilazione) selezionare **Use secret texts or files** (Usa testi o file segreti).

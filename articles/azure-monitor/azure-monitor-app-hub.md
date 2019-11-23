@@ -188,7 +188,7 @@ ms.locfileid: "72899157"
                                                         <br><br>
                                                         <h3>Monitoraggio in tempo reale,<br> visualizzazione e analisi</h3>
                                                         <p>
-                                                            <a href="./app/overview-dashboard.md">Dashboard panoramica e dashboard dell'applicazione</a><br>
+                                                            <a href="./app/overview-dashboard.md">Dashboard panoramica e dashboard dell'applicazione&amp;<br>
                                                             <a href="./app/monitor-web-app-availability.md">Monitoraggio della disponibilità globale</a><br>
                                                             <a href="./app/live-stream.md">Flusso metriche attive</a><br>
                                                             <a href="./app/app-map.md">Mapping delle app distribuite</a><br>
@@ -201,9 +201,9 @@ ms.locfileid: "72899157"
                                                         <h3>Privacy, sicurezza, utilizzo e costo</h3>
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Gestione dei dati personali</a><br>
-                                                            <a href="./app/data-retention-privacy.md">Raccolta, conservazione e archiviazione dei dati</a><br>
+                                                            <a href="./app/data-retention-privacy.md">Raccolta, conservazione e archiviazione dei dati&amp;<br>
                                                             <a href="./app/resources-roles-access-control.md">Accesso in base al ruolo</a><br>
-                                                            <a href="./app/ip-addresses.md">Indirizzi IP ed eccezioni del firewall</a><br>
+                                                            <a href="./app/ip-addresses.md">Indirizzi IP ed eccezioni del firewall&amp;<br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Utilizzo e costi stimati</a>
                                                         </p>
                                                         <br><br>

@@ -31,7 +31,7 @@ Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archivia
 
 Il primo passaggio nell'uso di Azure AD per autorizzare l'accesso alle risorse di archiviazione è la registrazione dell'applicazione client con un tenant di Azure AD dal [portale di Azure](https://portal.azure.com). Quando si registra l'applicazione client, è necessario fornire informazioni sull'applicazione Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione*, da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Per registrare l'applicazione di archiviazione di Azure, seguire la procedura illustrata in [Quickstart: Registrare un'applicazione con Microsoft Identity Platform @ no__t-0. Nella figura seguente vengono illustrate le impostazioni comuni per la registrazione di un'applicazione Web:
+Per registrare l'applicazione di archiviazione di Azure, seguire i passaggi illustrati in [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). Nella figura seguente vengono illustrate le impostazioni comuni per la registrazione di un'applicazione Web:
 
 ![Screenshot che illustra come registrare l'applicazione di archiviazione con Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -94,7 +94,7 @@ L'ID tenant identifica il tenant di Azure AD da usare per l'autenticazione. Vien
 
 [!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
 
-## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: Creare un BLOB in blocchi
+## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: creare un BLOB in blocchi
 
 L'esempio di codice mostra come ottenere un token di accesso da Azure AD. Il token di accesso viene usato per l'autenticazione dell'utente specificato e quindi per l'autorizzazione di una richiesta di creazione di un BLOB in blocchi. Per rendere operativo questo esempio, seguire prima di tutto i passaggi forniti nelle sezioni precedenti.
 
@@ -177,7 +177,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Successivamente, aggiungere un metodo che richiede un token da Azure AD per conto dell'utente. Questo metodo definisce l'ambito per il quale devono essere concesse le autorizzazioni. Per ulteriori informazioni sulle autorizzazioni e gli ambiti, vedere [autorizzazioni e consenso nell'endpoint della piattaforma di identità Microsoft](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Usare l'ID risorsa per costruire l'ambito per il quale acquisire il token. L'esempio costruisce l'ambito usando l'ID risorsa insieme all'ambito predefinito `user_impersonation`, che indica che il token viene richiesto per conto dell'utente.
+Usare l'ID risorsa per costruire l'ambito per il quale acquisire il token. Nell'esempio viene costruito l'ambito usando l'ID della risorsa insieme all'ambito `user_impersonation` incorporato, che indica che il token viene richiesto per conto dell'utente.
 
 Tenere presente che potrebbe essere necessario presentare all'utente un'interfaccia che consenta all'utente di richiedere il token per conto dell'utente. Quando è necessario il consenso, nell'esempio viene intercettato il **MsalUiRequiredException** e viene chiamato un altro metodo per facilitare la richiesta di consenso:
 
@@ -201,7 +201,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app in qualsiasi momento in base al parametro `scope`. Per ulteriori informazioni sul consenso incrementale, vedere la sezione intitolata **consenso incrementale e dinamico** nel [perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app in un determinato momento nel parametro `scope`. Per ulteriori informazioni sul consenso incrementale, vedere la sezione intitolata **consenso incrementale e dinamico** nel [perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 Il metodo seguente costruisce le proprietà di autenticazione per richiedere il consenso incrementale:
 
@@ -279,7 +279,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>Abilita flusso di concessione implicita
 
-Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. A tale scopo, seguire questa procedura:
+Per eseguire l'esempio, potrebbe essere necessario configurare il flusso di concessione implicita per la registrazione dell'app. Seguire questa procedura:
 
 1. Passare alla registrazione dell'app nel portale di Azure.
 1. Nella sezione Gestisci selezionare l'impostazione di **autenticazione** .

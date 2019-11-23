@@ -108,9 +108,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
    > [!IMPORTANT]
    > Si consiglia di usare le seguenti versioni di Azure Fence Agent (o versione successiva) per i clienti per trarre vantaggio da un tempo di failover più veloce, in caso di errore di una risorsa o se i nodi del cluster non sono più in grado di comunicare tra loro:  
-   > RHEL 7,6: Fence-Agents-4.2.1 -11. EL7 _ 6.8  
-   > RHEL 7,5: Fence-Agents-4.0.11 -86. EL7 _ 5.8  
-   > RHEL 7,4: Fence-Agents-4.0.11 -66. EL7 _ 4.12  
+   > RHEL 7,6: Fence-Agents-4.2.1-11. el7_6.8  
+   > RHEL 7,5: Fence-Agents-4.0.11-86. el7_5.8  
+   > RHEL 7,4: Fence-Agents-4.0.11-66. el7_4.12  
    > Per altre informazioni, vedere la pagina relativa [alla macchina virtuale di Azure in esecuzione come membro del cluster a disponibilità elevata RHEL richiede molto tempo per la schermatura o la schermatura si interrompe o si verifica un timeout prima che la macchina virtuale venga arrestata](https://access.redhat.com/solutions/3408711).
 
    Controllare la versione dell'agente di recinzione di Azure. Se necessario, aggiornarlo in una versione uguale o successiva a quella indicata sopra.
@@ -200,13 +200,13 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft Azure. Per creare un'entità servizio, seguire questa procedura.
 
-1. Passare a <https://portal.azure.com>.
+1. Passare a <https://portal.azure.com>
 1. Aprire il pannello Azure Active Directory  
    Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su nuova registrazione
 1. Immettere un nome e selezionare "account solo in questa directory dell'organizzazione" 
-2. Selezionare il tipo di applicazione "Web", immettere un URL di accesso (ad esempio http\/:/localhost) e fare clic su Aggiungi.  
+2. Selezionare il tipo di applicazione "Web", immettere un URL di accesso (ad esempio http:\//localhost) e fare clic su Aggiungi.  
    L'URL di accesso non viene usato e può essere qualsiasi URL valido
 1. Selezionare certificati e segreti, quindi fare clic su nuovo segreto client
 1. Immettere una descrizione per una nuova chiave, selezionare "non scade mai" e fare clic su Aggiungi.
@@ -243,7 +243,7 @@ Per il file di input usare il contenuto seguente. Tale contenuto deve essere ada
 
 Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" creato nel capitolo precedente. Non usare più il ruolo Owner.
 
-1. Passare a https://portal.azure.com.
+1. Passare a https://portal.azure.com
 1. Aprire il pannello Tutte le risorse
 1. Selezionare la macchina virtuale del primo nodo del cluster.
 1. Fare clic su Controllo di accesso (IAM)

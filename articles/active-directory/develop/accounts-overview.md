@@ -24,9 +24,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71679841"
 ---
-# <a name="accounts--tenant-profiles-android"></a>Account & profili tenant (Android)
+# <a name="accounts--tenant-profiles-android"></a>Account e profili tenant (Android)
 
-Questo articolo fornisce una panoramica dell'aspetto di `account` nella piattaforma di identità Microsoft.
+In questo articolo viene fornita una panoramica dell'`account` della piattaforma di identità Microsoft.
 
 L'API Microsoft Authentication Library (MSAL) sostituisce il termine *utente* con il termine *account*. Un motivo è che un utente (Human o software Agent) può avere o può usare più account. Questi account possono essere nell'organizzazione dell'utente e/o in altre organizzazioni di cui l'utente è membro.
 
@@ -47,7 +47,7 @@ Un account nella piattaforma di identità Microsoft è costituito da:
 - La piattaforma di identità Microsoft consente di usare un account per accedere alle risorse appartenenti a più organizzazioni (Azure Active Directory tenant).
   - Per registrare che un account da un sistema di record (tenant di AAD A) ha accesso a una risorsa in un altro sistema di record (tenant di AAD B), l'account deve essere rappresentato nel tenant in cui è definita la risorsa. Questa operazione viene eseguita creando un record locale dell'account dal sistema a nel sistema B.
   - Questo record locale, ovvero la rappresentazione dell'account, è associato all'account originale.
-  - MSAL espone il record locale come `Tenant Profile`.
+  - MSAL espone questo record locale come `Tenant Profile`.
   - Il profilo tenant può avere attributi diversi appropriati per il contesto locale, ad esempio il titolo del processo, la posizione dell'ufficio, le informazioni di contatto e così via.
  
 - Poiché un account può essere presente in uno o più tenant, un account può avere più di un profilo.
@@ -61,7 +61,7 @@ Un account nella piattaforma di identità Microsoft è costituito da:
 
 Nel diagramma precedente:
 
-- L'account `bob@contoso.com` viene creato nell'Active Directory Windows Server locale (sistema locale di origine del record).
+- L'account `bob@contoso.com` viene creato in Windows Server Active Directory locale (sistema locale di origine del record).
 - L'account `tom@live.com` viene creato nel tenant di account Microsoft.
 - `bob@contoso.com` ha accesso ad almeno una risorsa nei seguenti tenant di Azure Active Directory:
   - contoso.com (sistema cloud di record collegato al sistema locale di record)
@@ -72,7 +72,7 @@ Nel diagramma precedente:
   - contoso.com
   - fabrikam.com
   - Un profilo tenant per `tom@live.com` esiste in ognuno di questi tenant.
-- Le informazioni su Tom e Bob in altri tenant possono essere diverse da quelle del sistema di registrazione. Possono variare in base ad attributi quali titolo del processo, posizione dell'ufficio e così via. Possono essere membri di gruppi e/o ruoli all'interno di ogni organizzazione (Azure Active Directory tenant). Si fa riferimento a queste informazioni come profilo tenant bob@contoso.com.
+- Le informazioni su Tom e Bob in altri tenant possono essere diverse da quelle del sistema di registrazione. Possono variare in base ad attributi quali titolo del processo, posizione dell'ufficio e così via. Possono essere membri di gruppi e/o ruoli all'interno di ogni organizzazione (Azure Active Directory tenant). Si fa riferimento a queste informazioni come bob@contoso.com profilo tenant.
 
 Nel diagramma bob@contoso.com e tom@live.com hanno accesso alle risorse in tenant Azure Active Directory diversi. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
@@ -104,13 +104,13 @@ Oltre a richiedere un token di accesso, MSAL richiede sempre un token ID da ogni
 - openid
 - profile
 
-Il token ID contiene un elenco di attestazioni. `Claims` sono coppie nome/valore relative all'account e vengono usate per eseguire la richiesta.
+Il token ID contiene un elenco di attestazioni. `Claims` sono le coppie nome/valore dell'account e vengono usate per eseguire la richiesta.
 
 Come indicato in precedenza, ogni tenant in cui è presente un account può archiviare informazioni diverse sull'account, inclusi, a titolo esemplificativo, attributi come il titolo del processo, la posizione dell'ufficio e così via.
 
 Anche se un account può essere un membro o un guest in più organizzazioni, MSAL non esegue una query su un servizio per ottenere un elenco dei tenant di cui l'account è membro. MSAL compila invece un elenco di tenant in cui è presente l'account, in seguito a richieste di token effettuate.
 
-Le attestazioni esposte nell'oggetto account sono sempre le attestazioni del/{Authority}' tenant principale ' per un account. Se tale account non è stato usato per richiedere un token per il tenant principale, MSAL non può fornire attestazioni tramite l'oggetto account.  Esempio:
+Le attestazioni esposte nell'oggetto account sono sempre le attestazioni del/{Authority}' tenant principale ' per un account. Se tale account non è stato usato per richiedere un token per il tenant principale, MSAL non può fornire attestazioni tramite l'oggetto account.  Ad esempio:
 
 ```java
 // Psuedo Code
@@ -123,14 +123,14 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Per visualizzare un elenco di attestazioni disponibili nell'oggetto account, fare riferimento alle [attestazioni in un token ID](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Per visualizzare un elenco di attestazioni disponibili nell'oggetto account, fare riferimento alle [attestazioni in un id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
 
 > [!TIP]
-> Per includere altre attestazioni nel token ID, vedere la documentazione facoltativa sulle attestazioni in [How per: Fornire attestazioni facoltative all'app Azure AD @ no__t-0
+> Per includere altre attestazioni nel id_token, vedere la documentazione facoltativa sulle attestazioni in [procedura: fornire attestazioni facoltative all'app Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
 
 ### <a name="access-tenant-profile-claims"></a>Accesso alle attestazioni del profilo tenant
 
-Per accedere alle attestazioni relative a un account così come vengono visualizzate in altri tenant, è prima di tutto necessario eseguire il cast dell'oggetto account a `IMultiTenantAccount`. Tutti gli account possono essere multi-tenant, ma il numero di profili tenant disponibili tramite MSAL è basato sui tenant per i quali sono stati richiesti token usando l'account corrente.  Esempio:
+Per accedere alle attestazioni relative a un account così come vengono visualizzate in altri tenant, è prima di tutto necessario eseguire il cast dell'oggetto account a `IMultiTenantAccount`. Tutti gli account possono essere multi-tenant, ma il numero di profili tenant disponibili tramite MSAL è basato sui tenant per i quali sono stati richiesti token usando l'account corrente.  Ad esempio:
 
 ```java
 // Psuedo Code
@@ -145,7 +145,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 I token di aggiornamento per un account non vengono condivisi tra i criteri B2C. Di conseguenza, non è possibile Single Sign-On l'uso di token. Ciò non significa che Single Sign-On non è possibile. Ciò significa che Single Sign-On necessario utilizzare un'esperienza interattiva in cui è disponibile un cookie per abilitare l'Single Sign-On.
 
-Questo significa anche che, nel caso di MSAL, se si acquisiscono token usando criteri B2C diversi, questi vengono considerati come account distinti, ognuno con il proprio identificatore. Se si vuole usare un account per richiedere un token usando `acquireTokenSilent`, sarà necessario selezionare l'account dall'elenco di account che corrisponde al criterio usato con la richiesta di token. Esempio:
+Questo significa anche che, nel caso di MSAL, se si acquisiscono token usando criteri B2C diversi, questi vengono considerati come account distinti, ognuno con il proprio identificatore. Se si vuole usare un account per richiedere un token usando `acquireTokenSilent`, è necessario selezionare l'account dall'elenco di account che corrisponde al criterio usato con la richiesta di token. Ad esempio:
 
 ```java
 // Get Account For Policy

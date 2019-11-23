@@ -105,7 +105,7 @@ Di seguito sono indicate alcune procedure consigliate per il metastore Hive di H
 - Eseguire periodicamente il backup del metastore personalizzato.
 - Mantenere il metastore e il cluster HDInsight nella stessa area.
 - Monitora il Metastore per le prestazioni e la disponibilità usando gli strumenti di monitoraggio del database SQL di Azure, ad esempio portale di Azure o i log di monitoraggio di Azure.
-- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Eseguire il comando **ANALYZE TABLE** all'occorrenza per generare statistiche per tabelle e colonne. Ad esempio `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedure consigliate per diversi carichi di lavoro
 

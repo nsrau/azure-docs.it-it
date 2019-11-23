@@ -56,14 +56,14 @@ Ecco la definizione JSON di esempio di un'attività JAR di Databricks:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-|Proprietà|Descrizione|Obbligatorio|
+|Proprietà|Descrizione|obbligatori|
 |:--|---|:-:|
-|name|Nome dell'attività nella pipeline.|Sì|
-|description|Testo che descrive l'attività.|No|
+|Nome|Nome dell'attività nella pipeline.|Sì|
+|Descrizione|Testo che descrive l'attività.|No|
 |type|Per l'attività JAR di Databricks il tipo di attività è DatabricksSparkJar.|Sì|
 |linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività JAR. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
 |mainClassName|Il nome completo della classe che contiene il metodo Main deve essere eseguito. Questa classe deve essere contenuta in un file JAR fornito come libreria.|Sì|
-|Parametri|Parametri che verranno passati al metodo Main.  È una matrice di stringhe.|No|
+|parameters|Parametri che verranno passati al metodo Main.  È una matrice di stringhe.|No|
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|Sì (almeno una che contiene il metodo mainClassName)|
 
 > [!NOTE]

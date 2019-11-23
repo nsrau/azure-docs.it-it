@@ -27,7 +27,7 @@ Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La ta
 La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). È possibile trovarlo nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio (classico).
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
-## <a name="datasets"></a>Set di dati
+## <a name="datasets"></a>DATASETS
 
 <table>
 
@@ -51,7 +51,7 @@ Subset del database relativo al censimento del 1994, che usa adulti lavoratori d
   <td>
 Codici degli aeroporti degli Stati Uniti.
 <p></p>
-Questo set di dati contiene una riga per ogni aeroporto degli Stati Uniti, contenente il nome e il numero ID dell'aeroporto, la città e lo stato.
+Questo set di dati contiene una riga per ogni aeroporto degli Stati Uniti, con il nome e il numero ID dell'aeroporto, la città e lo stato.
   </td>
 </tr>
 
@@ -70,7 +70,7 @@ Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e
 <tr>
   <td>Bike Rental UCI dataset</td>
   <td>
-Set di dati UCI relativo al noleggio di biciclette basato su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC.
+Set di dati UCI relativi al noleggio di biciclette basato su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC.
 <p></p>
 Il set di dati comprende una riga per ogni ora di ogni giorno del 2011 e del 2012, per un totale di 17.379 righe. Il numero di biciclette noleggiate su base oraria è compreso tra 1 e 977.
 
@@ -239,7 +239,7 @@ Il set di dati è una versione estesa di quello relativo ai tweet sui film. Il s
 <tr>
   <td>MPG data for various automobiles</td>
   <td>
-Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato presso la American Statistical Association Exposition del 1983.
+Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato nella American Statistical Association Exposition del 1983.
 <p></p>
 I dati elencano il consumo di carburante per diverse automobili, in miglia per gallone, oltre a informazioni quali numero di cilindri, cilindrata, potenza, peso totale e accelerazione.
 <p></p>
@@ -397,7 +397,7 @@ Assegnazioni degli argomenti per gli articoli del set di dati relativo alle noti
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Set di dati di competizione dalla KDD Cup 2010 dedicata al data mining in ambito didattico. È disponibile in <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Questi dati provengono dalla competizione KDD Cup 2010 Student performance evaluation (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Il set di dati usato è il training set Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). (2010). Set di dati di competizione dalla KDD Cup 2010 dedicata al data mining in ambito didattico. È disponibile in <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Il set di dati è stato scaricato e memorizzato nell'archivio BLOB di Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contiene i file di log di un sistema di tutoring degli studenti. Le funzionalità fornite includono: ID del problema e breve descrizione, ID dello studente, timestamp e numero di tentativi effettuati dallo studente prima di risolvere il problema nel modo corretto. Il set di dati originale contiene 8,9 milioni di record e questo set di dati è stato ridotto alle prime 100.000 righe. Nel set di dati sono presenti 23 colonne separate da tabulazioni, di vari tipi: numerico, categorico e timestamp.
   </td>

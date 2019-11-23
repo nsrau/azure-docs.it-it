@@ -32,7 +32,7 @@ Il diagramma seguente illustra le attività che vengono completate dal progetto 
 > [!NOTE] 
 > Questo articolo usa Azure Repos e una Data Science Virtual Machine (DSVM) per configurare un ambiente TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team USA altre piattaforme di hosting o sviluppo di codice, le singole attività del collaboratore sono le stesse, ma il modo per completarle può essere diverso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione si presuppone che le risorse e le autorizzazioni seguenti siano state configurate dal [responsabile del gruppo](group-manager-tasks.md), dal responsabile del [Team](team-lead-tasks.md)e dal responsabile del [progetto](project-lead-tasks.md):
 
@@ -55,7 +55,7 @@ Per clonare i repository e modificare il contenuto nel computer locale o in DSVM
 
 Per lavorare con i repository in locale ed effettuare il push delle modifiche al team condiviso e ai repository di progetto, è prima necessario copiare o *clonare* i repository nel computer locale. 
 
-1. In Azure DevOps, passare alla pagina di riepilogo del progetto del team in *https: \/ @ no__t-2 @ no__t-3Server name >/\<organization name >/\<team nome >* , ad esempio **https: \//dev. Azure. com/DataScienceUnit/team**.
+1. In Azure DevOps, passare alla pagina di riepilogo del progetto del team in *https:\//nome del server \<>/\<nome dell'organizzazione >/\<* nome del team >, ad esempio, **https:\//dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Selezionare **repository nel percorso di spostamento a sinistra** , quindi nella parte superiore della pagina selezionare il repository che si vuole clonare.
    

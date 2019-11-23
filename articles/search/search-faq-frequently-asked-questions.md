@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti
+title: Domande frequenti (FAQ)
 titleSuffix: Azure Cognitive Search
 description: Risposte alle domande frequenti sul servizio Microsoft Azure ricerca cognitiva, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
 manager: nitinme
@@ -23,7 +23,7 @@ ms.locfileid: "72792904"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>In che modo Azure ricerca cognitiva è diverso dalla ricerca full-text nel DBMS?
 
-Azure ricerca cognitiva supporta più origini dati, l' [analisi linguistica per molti linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support), l' [analisi personalizzata per input di dati interessanti e insoliti, i](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)controlli di rango di ricerca tramite i [profili di Punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e l'esperienza utente funzionalità come typeahead, hit highlighting e l'esplorazione in base a facet. Include anche altre funzionalità, come i sinonimi e la sintassi di query avanzata, ma queste non sono in genere funzionalità di differenziazione del servizio.
+Azure ricerca cognitiva supporta più origini dati, l' [analisi linguistica per molti linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support), l' [analisi personalizzata per input di dati interessanti e insoliti, i](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)controlli di rango di ricerca tramite i [profili di Punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e le funzionalità dell'esperienza utente, ad esempio typeahead, hit highlighting e navigazione in base a facet. Include anche altre funzionalità, come i sinonimi e la sintassi di query avanzata, ma queste non sono in genere funzionalità di differenziazione del servizio.
 
 ### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Qual è la differenza tra ricerca cognitiva di Azure e elasticsearch?
 
@@ -103,8 +103,8 @@ La maggior parte dei clienti sceglie campi dedicati da una raccolta quando si tr
 
 La domanda riguarda una funzione o una funzionalità mancante? Richiedere la funzionalità sul [sito Web User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
  [StackOverflow:  ricerca cognitiva di Azure](https://stackoverflow.com/questions/tagged/azure-search)  
  [Funzionamento della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md)  
- [Informazioni su Azure ricerca cognitiva](search-what-is-azure-search.md)
+ [Che cos'è la ricerca cognitiva di Azure?](search-what-is-azure-search.md)

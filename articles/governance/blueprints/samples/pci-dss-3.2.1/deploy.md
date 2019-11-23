@@ -5,7 +5,7 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b29a1a66b7407558769e506deed5e65f7ecb064c
 ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2019
 ms.locfileid: "74037264"
@@ -91,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-|Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+|Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |\[Preview\] controllare PCI v 3.2.1:2018 controlla e distribuire estensioni VM specifiche per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco di tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Il valore predefinito è tutte le risorse selezionate| 
 |Percorsi consentiti|Assegnazione dei criteri|Elenco di percorsi consentiti|Elenco di percorsi di data center consentiti per la distribuzione di qualsiasi risorsa in. Questo elenco è personalizzabile nelle località di Azure desiderate a livello globale. Selezionare le località che si desidera consentire.| 

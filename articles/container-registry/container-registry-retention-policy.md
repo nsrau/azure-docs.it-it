@@ -63,7 +63,7 @@ az acr config retention update --registry myregistry --status enabled --days 0 -
 
 Se si Abilita il criterio precedente con un periodo di memorizzazione di 0 giorni, è possibile verificare rapidamente che i manifesti senza tag vengano eliminati:
 
-1. Eseguire il push di un'immagine di test @no__t immagine 0 nel registro di sistema o sostituirla con un'altra immagine di test scelta.
+1. Eseguire il push di un'immagine di test `hello-world:latest` immagine nel registro o sostituirla con un'altra immagine di test scelta.
 1. Contrassegno l'immagine `hello-world:latest`, ad esempio, usando il comando [AZ ACR repository contrassegno][az-acr-repository-untag] . Il manifesto senza tag rimane nel registro di sistema.
     ```azurecli
     az acr repository untag --name myregistry --image hello-world:latest

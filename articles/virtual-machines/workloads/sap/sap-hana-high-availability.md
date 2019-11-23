@@ -77,7 +77,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * Configurazione di un'infrastruttura ottimizzata per le prestazioni per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1). La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA per lo sviluppo locale. Usare la guida per le indicazioni di base.
   * Configurazione di un'infrastruttura ottimizzata per i costi per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1)
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per ottenere disponibilità elevata, il sistema SAP HANA viene installato in due macchine virtuali. I dati vengono replicati tramite la replica di sistema HANA.
 
@@ -112,7 +112,7 @@ Per distribuire il modello, seguire questi passaggi:
     - **System Availability**: selezionare **HA**.
     - **Nome utente amministratore e password amministratore**: viene creato un nuovo utente che può essere usato per accedere al computer.
     - **New Or Existing Subnet** (Subnet nuova o esistente): determina se devono essere create una nuova rete virtuale e una nuova subnet o se deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
-    - **ID subnet**: se si desidera implementare la macchina virtuale in una rete virtuale esistente per cui è stata definita la subnet a cui assegnare la macchina virtuale, denominare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** .
+    - **ID subnet**: se si vuole implementare la macchina virtuale in una rete virtuale esistente per cui è stata definita la subnet a cui assegnare la macchina virtuale, denominare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** .
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -233,7 +233,7 @@ Per distribuire il modello, seguire questi passaggi:
    Per ulteriori informazioni sulle porte necessarie per SAP HANA, vedere il capitolo [connessioni ai database tenant](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nella Guida ai [database tenant di SAP Hana](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) o la [Nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. TCP _timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 > Vedere anche la nota SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Creare un cluster Pacemaker

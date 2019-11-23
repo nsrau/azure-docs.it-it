@@ -112,12 +112,12 @@ Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è
 ## <a name="customize-the-recovery-plan"></a>Personalizzare il piano di ripristino
 
 1. Nell'insieme di credenziali selezionare **piani di ripristino (Site Recovery)**
-2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](site-recovery-create-recovery-plans.md) Se si dispone già di un piano di ripristino, selezionare per aprirlo.
+2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](site-recovery-create-recovery-plans.md). Se si dispone già di un piano di ripristino, selezionare per aprirlo.
 3. Nella pagina piano di ripristino fare clic su **Personalizza**.
 
     ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Fare clic sui puntini di sospensione (...) accanto a **Group 1: Start @ no__t-0 @ no__t-1**Aggiungi post-azione**.
+2. Fare clic sui puntini di sospensione (...) accanto al **gruppo 1: avviare** > **Aggiungi post-azione**.
 3. In **Inserisci azione**verificare che sia selezionato **script** e specificare un nome per lo script (**Hello World**).
 4. Specificare un account di automazione e selezionare un Runbook. Fare clic su **OK** per salvare lo script. Lo script viene aggiunto a **Gruppo 1: passaggi successivi**.
 

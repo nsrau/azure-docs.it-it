@@ -49,7 +49,7 @@ Nell'esercitazione riportata di seguito vengono illustrati i passaggi dettagliat
 > [!NOTE] 
 > Questo articolo usa Azure DevOps e un DSVM per configurare un ambiente del team TDSP, perché questo è il modo in cui implementare TDSP in Microsoft. Se il team USA altre piattaforme di hosting o sviluppo di codice, le attività del responsabile del team sono le stesse, ma il modo per completarle può essere diverso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione si presuppone che le risorse e le autorizzazioni seguenti siano state impostate dal [responsabile del gruppo](group-manager-tasks.md):
 
@@ -77,7 +77,7 @@ I nomi specificati per i repository e le directory in questa esercitazione presu
 - Un piccolo gruppo di data science che non dispone di più team data science. 
 - Un gruppo di data science più grande con più team data science che vogliono comunque ottimizzare la collaborazione tra i team con attività quali la pianificazione dello sprint a livello di gruppo. 
 
-Se i team scelgono di disporre dei repository specifici del team in un singolo progetto di gruppo, i lead del team devono creare i repository con nomi quali  *\<TeamName > template* e  *\<TeamName > Utilities*. Ad esempio: *TeamATemplate* e *TeamAUtilities*. 
+Se i team scelgono di disporre dei repository specifici del team in un singolo progetto di gruppo, i lead del team devono creare i repository con nomi come *\<teamname > template* e *\<TeamName > Utilities*. Ad esempio: *TeamATemplate* e *TeamAUtilities*. 
 
 In ogni caso, i lead del team devono consentire ai membri del team di comprendere quali sono i repository del modello e delle utilità da configurare e clonare. I lead del progetto devono seguire le [attività del responsabile del progetto per un team di Data Science](project-lead-tasks.md) per creare repository di progetto, sia in progetti distinti che in un singolo progetto. 
 
@@ -85,7 +85,7 @@ In ogni caso, i lead del team devono consentire ai membri del team di comprender
 
 Per creare un progetto separato per il team:
 
-1. Nel Web browser passare al gruppo Azure DevOps Organization Home page all'URL *https:\//\<nome server >/\<nome organizzazione >* e selezionare **nuovo progetto**. 
+1. Nel Web browser passare al gruppo Azure DevOps Organization home page all'URL *https:\//\<nome server >/\<nome organizzazione*> e selezionare **nuovo progetto**. 
    
    ![Seleziona nuovo progetto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
@@ -95,7 +95,7 @@ Per creare un progetto separato per il team:
    
    ![Crea progetto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Verrà visualizzata la pagina **Riepilogo** progetto team con URL pagina *https:\/\</nome server >/\<nome organizzazione >/\<nome Team >* .
+Verrà visualizzata la pagina **Riepilogo** progetto team con URL pagina *https:\//nome server \<>/\<nome organizzazione >/\<* nome del team >.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Rinominare il repository predefinito del team in TeamUtilities
 
@@ -140,7 +140,7 @@ Per popolare i repository del team con il contenuto dei repository comuni del gr
    
    ![Selezionare Importa](./media/team-lead-tasks/import-repo.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL per il repository del modello comune di gruppo in **URL clone**. L'URL è *https: \/ @ no__t-2 @ no__t-3Server nome >/\<organization nome >/_git/\<repository nome >* . Ad esempio: *https: \//dev. Azure. com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL per il repository del modello comune di gruppo in **URL clone**. L'URL è *https:\//nome del server \<>/\<nome dell'organizzazione >/_git/\<nome del repository*>. Ad esempio: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Selezionare **Importa**. Il contenuto del repository del modello di gruppo viene importato nel repository del modello Team. 
    
@@ -170,7 +170,7 @@ Per modificare, caricare o creare file o cartelle direttamente in Azure DevOps:
      
    - Per caricare i file, selezionare **Carica file/i**. 
      
-     ![Carica file](./media/team-lead-tasks/upload-files.png)
+     ![Caricare file](./media/team-lead-tasks/upload-files.png)
      
    - Per modificare i file esistenti, passare al file e quindi fare clic su **modifica**. 
      
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di `git commit` eseguire il comando. Eseguire questi due comandi:
+> Se è la prima volta che si esegue il commit in un repository git, potrebbe essere necessario configurare i parametri globali *User.Name* e *User. email* prima di eseguire il comando `git commit`. Eseguire questi due comandi:
 > 
 > `git config --global user.name <your name>`
 > 
@@ -250,7 +250,7 @@ Per aggiungere membri al team:
    
 1. Nella finestra di dialogo **Aggiungi utenti e gruppi** cercare e selezionare i membri da aggiungere al gruppo, quindi selezionare **Salva modifiche**. 
    
-   ![Aggiungi utenti e gruppi](./media/team-lead-tasks/add-users.png)
+   ![Aggiungere utenti e gruppi](./media/team-lead-tasks/add-users.png)
    
 
 Per configurare le autorizzazioni per i membri del team:

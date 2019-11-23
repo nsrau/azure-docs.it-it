@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare Elium per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare Elium per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Elium.
 services: active-directory
 documentationcenter: ''
@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71709528"
 ---
-# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Esercitazione: Configurare Elium per il provisioning utenti automatico
+# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Esercitazione: configurare Elium per il provisioning utenti automatico
 
 Questa esercitazione illustra come configurare Elium e Azure Active Directory (Azure AD) per effettuare automaticamente il provisioning e il deprovisioning di utenti o gruppi in Elium.
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra come configurare Elium e Azure Active Directory (A
 >
 > Questo connettore è attualmente disponibile in anteprima. Per le condizioni per l'utilizzo generali per le funzionalità di Azure in anteprima, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione si presuppone che siano già stati soddisfatti i prerequisiti seguenti:
 
@@ -53,9 +53,9 @@ Quando si assegna un utente a Elium, è necessario selezionare un ruolo valido s
 
 ## <a name="set-up-elium-for-provisioning"></a>Configurare Elium per il provisioning
 
-Prima di configurare Elium per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di sistema per la gestione delle identità tra domini (SCIM) su Elium. A tale scopo, seguire questa procedura:
+Prima di configurare Elium per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di sistema per la gestione delle identità tra domini (SCIM) su Elium. Seguire questa procedura:
 
-1. Accedere a Elium e passare a **profilo** > **Impostazioni**.
+1. Accedere a Elium e passare a **profilo personale** > **Impostazioni**.
 
     ![Voce di menu impostazioni in Elium](media/Elium-provisioning-tutorial/setting.png)
 
@@ -69,7 +69,7 @@ Prima di configurare Elium per il provisioning utenti automatico con Azure AD, �
 
 ## <a name="add-elium-from-the-gallery"></a>Aggiungere Elium dalla raccolta
 
-Per configurare Elium per il provisioning utenti automatico con Azure AD, è anche necessario aggiungere Elium dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS (software-as-a-Service) gestite. A tale scopo, seguire questa procedura:
+Per configurare Elium per il provisioning utenti automatico con Azure AD, è anche necessario aggiungere Elium dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS (software-as-a-Service) gestite. Seguire questa procedura:
 
 1. Nel riquadro di spostamento a sinistra del [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**.
 
@@ -112,7 +112,7 @@ Per configurare il provisioning utenti automatico per Elium in Azure AD, seguire
 
     ![Impostazione automatica per la modalità di provisioning](common/provisioning-automatic.png)
 
-1. Nella sezione **credenziali amministratore** Digitare **\<tenantURL @ no__t-3/scim/V2** nel campo **URL tenant** . ( **Urltenant** è il valore recuperato in precedenza dalla console di amministrazione di Elium). Digitare anche il valore del **token segreto** Elium nel campo **token segreto** . Infine, selezionare **Test connessione** per verificare che Azure ad possa connettersi a Elium. Se la connessione non riesce, verificare che l'account Elium disponga delle autorizzazioni di amministratore e riprovare.
+1. Nella sezione **credenziali amministratore** Digitare **\<urltenant\>/scim/V2** nel campo **URL tenant** . ( **Urltenant** è il valore recuperato in precedenza dalla console di amministrazione di Elium). Digitare anche il valore del **token segreto** Elium nel campo **token segreto** . Infine, selezionare **Test connessione** per verificare che Azure ad possa connettersi a Elium. Se la connessione non riesce, verificare che l'account Elium disponga delle autorizzazioni di amministratore e riprovare.
 
     ![Campi URL tenant e token segreto nelle credenziali di amministratore](common/provisioning-testconnection-tenanturltoken.png)
 

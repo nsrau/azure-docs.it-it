@@ -18,7 +18,7 @@ ms.locfileid: "70173729"
 
 Azure Esplora dati offre due opzioni per la connessione ai dati in Excel: usare il connettore nativo o importare una query da Azure Esplora dati. Questo articolo illustra come importare una query da Azure Esplora dati in Excel per visualizzare i dati. Aggiungere una query kusto come origine dati di Excel per eseguire calcoli o visualizzazioni aggiuntive sui dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Un account di posta elettronica aziendale che è membro di Azure Active Directory, quindi è possibile connettersi al [cluster della Guida di azure Esplora dati](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
@@ -39,7 +39,7 @@ Azure Esplora dati offre due opzioni per la connessione ai dati in Excel: usare 
 
 1. Aprire **Microsoft Excel**.
 
-1. Nella scheda **dati** selezionare **recuperare dati** > **da altre origini** > **query vuote**.
+1. Nella scheda **dati** selezionare **Ottieni dati** > **da altre origini** > **query vuota**.
 
     ![Recuperare i dati e selezionare una query vuota](media/excel-blank-query/get-data-blank-query.png)
 

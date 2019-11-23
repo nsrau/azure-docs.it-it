@@ -20,11 +20,11 @@ ms.locfileid: "71350399"
 > [!IMPORTANT]
 > La funzionalità del log di controllo è attualmente in anteprima.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per proseguire con questa guida, si richiedono:
+Per proseguire con questa guida è necessario:
 
-- [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
 
@@ -38,13 +38,13 @@ Abilitare e configurare la registrazione di controllo.
     ![Parametri del server](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
 1. Aggiornare il parametro **audit_log_enabled** a on.
-    log di controllo ![Enable @ no__t-1
+    ![abilitare i log di controllo](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
 1. Consente di selezionare i [tipi di evento](concepts-audit-logs.md#configure-audit-logging) da registrare aggiornando il parametro **audit_log_events** .
-    eventi del registro ![Audit @ no__t-1
+    ![eventi del log di controllo](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
-1. Aggiungere eventuali utenti MySQL da escludere dalla registrazione aggiornando il parametro **audit_log_exclude_users** . Specificare gli utenti fornendo il nome utente MySQL.
-    ![Audit log escludere gli utenti @ no__t-1
+1. Aggiungere gli utenti MySQL da escludere dalla registrazione aggiornando il parametro **audit_log_exclude_users** . Specificare gli utenti fornendo il nome utente MySQL.
+    ![log di controllo escludere gli utenti](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
 1. Dopo avere modificato i parametri, è possibile fare clic su **Salva**. In alternativa è possibile **annullare** le modifiche.
     ![Salva](./media/howto-configure-audit-logs-portal/save-parameters.png)
@@ -53,17 +53,17 @@ Abilitare e configurare la registrazione di controllo.
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**.
 
-1. Fare clic su "+ Aggiungi impostazione di diagnostica" @no__t-impostazione di diagnostica 0Add @ no__t-1
+1. Fare clic su "+ Aggiungi impostazione di diagnostica" ![Aggiungi impostazione di diagnostica](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Specificare un nome per l'impostazione di diagnostica.
 
 1. Specificare i sink di dati per inviare i log di controllo (account di archiviazione, Hub eventi e/o area di lavoro Log Analytics).
 
 1. Selezionare "MySqlAuditLogs" come tipo di log.
-impostazione di diagnostica ![Configure @ no__t-1
+![configurare l'impostazione di diagnostica](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
 1. Una volta configurati i sink di dati a cui inviare i log di controllo, è possibile fare clic su **Salva**.
-impostazione di diagnostica ![Save @ no__t-1
+![salvare l'impostazione di diagnostica](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
 1. Per accedere ai log di controllo, esplorarli nei sink di dati configurati. Potrebbero essere necessari fino a 10 minuti per la visualizzazione dei log.
 

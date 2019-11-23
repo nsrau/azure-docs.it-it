@@ -214,7 +214,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 |||  
 |-|-|  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
-|digitare|Tipo di analizzatore dall'elenco di analizzatori supportati. Vedere più avanti la colonna **analyzer_type** nella tabella [Analizzatori](#AnalyzerTable).|  
+|Type|Tipo di analizzatore dall'elenco di analizzatori supportati. Vedere più avanti la colonna **analyzer_type** nella tabella [Analizzatori](#AnalyzerTable).|  
 |Opzioni|Devono essere opzioni valide di un analizzatore predefinito elencato più avanti nella tabella [Analizzatori](#AnalyzerTable).|  
 
 #### <a name="custom-analyzers"></a>Analizzatori personalizzati
@@ -222,7 +222,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 |||  
 |-|-|  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
-|digitare|Deve essere "#Microsoft.Azure.Search.CustomAnalyzer".|  
+|Type|Deve essere "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Impostarlo su uno dei filtri di caratteri predefiniti elencati nella tabella [Filtri di caratteri](#char-filters-reference) o su un filtro di caratteri specificato nella definizione dell'indice.|  
 |Tokenizer|Obbligatorio. Impostarlo su uno dei tokenizer predefiniti elencati più avanti nella tabella [Tokenizer](#Tokenizers) o su un tokenizer personalizzato specificato nella definizione dell'indice.|  
 |TokenFilters|Impostarlo su uno dei filtri di token predefiniti elencati nella tabella [Filtri di token](#TokenFilters) o su un filtro di token specificato nella definizione dell'indice.|  
@@ -239,7 +239,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 |||  
 |-|-|  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
-|digitare|Tipo di filtro di caratteri incluso nell'elenco di filtri di caratteri supportati. Vedere più avanti la colonna **char_filter_type** nella tabella [Filtri di caratteri](#char-filters-reference).|  
+|Type|Tipo di filtro di caratteri incluso nell'elenco di filtri di caratteri supportati. Vedere più avanti la colonna **char_filter_type** nella tabella [Filtri di caratteri](#char-filters-reference).|  
 |Opzioni|Devono essere opzioni valide di un determinato tipo di [Filtri di caratteri](#char-filters-reference).|  
 
 ### <a name="tokenizers"></a>Tokenizer
@@ -252,7 +252,7 @@ Un analizzatore personalizzato può usare un tokenizer predefinito con opzioni p
 |||  
 |-|-|  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
-|digitare|Nome del tokenizer incluso nell'elenco di tokenizer supportati. Vedere più avanti la colonna **tokenizer_type** nella tabella [Tokenizer](#Tokenizers).|  
+|Type|Nome del tokenizer incluso nell'elenco di tokenizer supportati. Vedere più avanti la colonna **tokenizer_type** nella tabella [Tokenizer](#Tokenizers).|  
 |Opzioni|Devono essere opzioni valide di un determinato tipo di tokenizer elencato più avanti nella tabella [Tokenizer](#Tokenizers).|  
 
 ### <a name="token-filters"></a>Filtri di token
@@ -263,7 +263,7 @@ In un analizzatore personalizzato possono essere presenti più filtri di token. 
 |||  
 |-|-|  
 |Nome|Può contenere solo lettere, numeri, spazi, trattini o caratteri di sottolineatura, deve iniziare e terminare con caratteri alfanumerici e non può contenere più di 128 caratteri.|  
-|digitare|Nome del filtro di token incluso nell'elenco di filtri di token supportati. Vedere più avanti la colonna **token_filter_type** nella tabella [Filtri di token](#TokenFilters).|  
+|Type|Nome del filtro di token incluso nell'elenco di filtri di token supportati. Vedere più avanti la colonna **token_filter_type** nella tabella [Filtri di token](#TokenFilters).|  
 |Opzioni|Devono essere [filtri di token](#TokenFilters) di un determinato tipo di filtro di token.|  
 
 <a name="PropertyReference"></a>  

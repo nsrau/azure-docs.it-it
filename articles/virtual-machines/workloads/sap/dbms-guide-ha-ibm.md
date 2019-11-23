@@ -60,7 +60,7 @@ Le versioni supportate di IBM DB2 sono 10,5 e versioni successive, come descritt
 
 Prima di iniziare un'installazione, vedere le note e la documentazione SAP seguenti:
 
-| Nota SAP | Description |
+| Nota SAP | Descrizione |
 | --- | --- |
 | [1928533] | Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
 | [2015553] | SAP in Azure: prerequisiti per il supporto |
@@ -86,7 +86,7 @@ Prima di iniziare un'installazione, vedere le note e la documentazione SAP segue
 | [IBM DB2 HADR 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR R 10,5][db2-hadr-10.5] |
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 Per ottenere la disponibilità elevata, IBM DB2 LUW con HADR è installato in almeno due macchine virtuali di Azure, che vengono distribuite in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) o tra [zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
 La grafica seguente mostra una configurazione di due macchine virtuali di Azure del server di database. Entrambe le macchine virtuali di Azure del server di database hanno una propria archiviazione collegata e sono in esecuzione. In HADR, un'istanza di database in una delle macchine virtuali di Azure ha il ruolo di istanza primaria. Tutti i client sono connessi a questa istanza primaria. Tutte le modifiche apportate alle transazioni del database vengono rese disponibili localmente nel log delle transazioni DB2. Poiché i record del log delle transazioni vengono salvati in modo permanente in locale, i record vengono trasferiti tramite TCP/IP all'istanza del database nel secondo server di database, nel server di standby o nell'istanza di standby. L'istanza standby aggiorna il database locale eseguendo il rollforward dei record del log delle transazioni trasferiti. In questo modo, il server di standby viene mantenuto sincronizzato con il server primario.
@@ -201,7 +201,7 @@ Per configurare l'istanza primaria del database IBM DB2 LUW:
 
 Per configurare il server di database di standby usando la procedura di copia di sistema omogenea di SAP, eseguire questi passaggi:
 
-1. Selezionare l'opzione **copia di sistema** > l'istanza del**database**di **sistemi di destinazione** > **Distributed** > .
+1. Selezionare l'opzione **copia di sistema** > i sistemi di **destinazione** > istanza **distribuita** > **database**.
 1. Come metodo di copia, selezionare **sistema omogeneo** in modo da poter utilizzare il backup per ripristinare un backup nell'istanza del server di standby.
 1. Quando si raggiunge il passaggio di uscita per ripristinare il database per la copia di sistema omogenea, uscire dal programma di installazione. Ripristinare il database da un backup dell'host primario. Tutte le fasi di installazione successive sono già state eseguite sul server di database primario.
 1. Configurare HADR per IBM DB2.
@@ -409,8 +409,8 @@ sudo crm configure property maintenance-mode=false</pre></code>
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>STONITH-SBD (STONITH: External/SBD): avviato azibmdb02
 #  <a name="resource-group-g_ip_db2ptr_ptr"></a>Gruppo di risorse: g_ip_db2ptr_PTR
 #      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: heartbeat: IPaddr2): avviata azibmdb02
-#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: heartbeat: Anything): avviata azibmdb02
-#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Set master/slave: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: heartbeat: Anything): avviato azibmdb02
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Master/Slave set: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Master: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Schiavi: [azibmdb01]
 </pre>
@@ -483,7 +483,7 @@ Per connettersi all'istanza primaria della configurazione HADR, il livello dell'
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID >/Global/DB6/db2cli.ini
+/sapmnt/\<SID>/global/db6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -516,7 +516,7 @@ L'archiviazione dei log viene eseguita solo dal database primario. Se si modific
 
 Si consiglia di configurare una condivisione NFS comune in cui i log vengono scritti da entrambi i nodi. La condivisione NFS deve essere a disponibilità elevata. 
 
-È possibile utilizzare condivisioni NFS a disponibilità elevata per trasporti o directory di profilo. Per scoprire di più, vedi:
+È possibile utilizzare condivisioni NFS a disponibilità elevata per trasporti o directory di profilo. Per altre informazioni, vedere:
 
 - [Disponibilità elevata per NFS in macchine virtuali di Azure in SUSE Linux Enterprise Server][nfs-ha] 
 - [Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server con Azure NetApp Files per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
@@ -596,7 +596,7 @@ Eseguire di nuovo la migrazione della risorsa a *azibmdb01* e cancellare i vinco
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **migrazione di risorse crm \<res_name > \<host >:** Crea vincoli di posizione e può causare problemi con l'acquisizione
+- **migrazione di risorse crm \<res_name > host \<>:** Crea vincoli di posizione e può causare problemi con l'acquisizione
 - **cancellazione di risorse crm \<res_name >** : Cancella i vincoli di posizione
 - **pulitura risorse crm \<res_name >** : Cancella tutti gli errori della risorsa
 

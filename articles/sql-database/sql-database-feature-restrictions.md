@@ -66,7 +66,7 @@ La visualizzazione `sys.sql_feature_restrictions` presenta tutte le restrizioni 
 | Nome colonna | Tipo di dati | Descrizione |
 |-------------|-----------|-------------|
 | class       | nvarchar(128) | Classe dell'oggetto a cui viene applicata la restrizione |
-| oggetto      | nvarchar(256) | Nome dell'oggetto a cui viene applicata la restrizione |
+| object      | nvarchar(256) | Nome dell'oggetto a cui viene applicata la restrizione |
 | funzionalità     | nvarchar(128) | Funzionalità con restrizioni |
 
 ## <a name="feature-restrictions"></a>Limitazioni delle funzionalità

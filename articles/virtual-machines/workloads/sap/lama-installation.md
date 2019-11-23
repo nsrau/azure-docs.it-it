@@ -47,11 +47,11 @@ Questa guida descrive come configurare il connettore di Azure per SAP LaMa, come
 > [!NOTE]
 > Il connettore è disponibile solo in SAP LaMa Enterprise Edition.
 
-## <a name="resources"></a>resources
+## <a name="resources"></a>Risorse
 
 Le note SAP seguenti sono correlate all'argomento di SAP LaMa in Azure:
 
-| Numero della nota | Title |
+| Numero della nota | Titolo |
 | --- | --- |
 | [2343511] |Microsoft Azure connector for SAP Landscape Management (LaMa) (Connettore di Microsoft Azure per SAP LaMa) |
 | [2350235] |SAP Landscape Management 3.0 - Enterprise Edition |
@@ -73,11 +73,11 @@ Leggere anche le informazioni disponibili nel [portale del supporto SAP per SAP 
 
 Il connettore di Azure viene fornito a partire da SAP LaMa 3.0 SP05. È consigliabile installare sempre il pacchetto e la patch di supporto più recenti per SAP LaMa 3.0. Il connettore di Azure usa un'entità servizio per l'autorizzazione in Microsoft Azure. Per creare un'entità servizio per SAP Landscape Management (LaMa), seguire questi passaggi.
 
-1. Vai a https://portal.azure.com
+1. Passare a https://portal.azure.com
 1. Aprire il pannello Azure Active Directory
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi
-1. Immettere un nome, selezionare il tipo di applicazione "app Web/API", immettere un URL di accesso (ad esempio http: \//localhost) e fare clic su Crea.
+1. Immettere un nome, selezionare il tipo di applicazione "app Web/API", immettere un URL di accesso (ad esempio http:\//localhost) e fare clic su Crea.
 1. L'URL di accesso non viene usato e può essere qualsiasi URL valido
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva
@@ -86,7 +86,7 @@ Il connettore di Azure viene fornito a partire da SAP LaMa 3.0 SP05. È consigli
 
 L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È quindi necessario concedere all'entità servizio le autorizzazioni di accesso.
 
-1. Vai a https://portal.azure.com
+1. Passare a https://portal.azure.com
 1. Aprire il pannello Gruppi di risorse
 1. Selezionare il gruppo di risorse da usare
 1. Fare clic su Controllo di accesso (IAM)
@@ -258,7 +258,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 > Questa funzionalità non è ancora disponibile. Per altre informazioni, vedere la nota SAP [2815988] (visibile solo per i clienti in anteprima).
 Aprire un evento imprevisto SAP nel componente BC-VCM-LVM-HYPERV e richiedere l'aggiunta dell'adattatore di archiviazione LaMa per Azure NetApp Files anteprima
 
-E fornisce NFS per Azure. Nel contesto di SAP LaMa questo semplifica la creazione delle istanze di ABAP Central Services (ASC) e la successiva installazione dei server applicazioni. In precedenza, l'istanza di ASC doveva fungere anche da server NFS ed è stato necessario aggiungere il parametro acosprep/nfs_paths al host_profile di SAP Hostagent.
+E fornisce NFS per Azure. Nel contesto di SAP LaMa questo semplifica la creazione delle istanze di ABAP Central Services (ASC) e la successiva installazione dei server applicazioni. In precedenza l'istanza di ASC doveva fungere anche da server NFS e il parametro acosprep/nfs_paths doveva essere aggiunto al host_profile di SAP Hostagent.
 
 #### <a name="anf-is-currently-available-in-these-regions"></a>E è attualmente disponibile nelle aree geografiche seguenti:
 
@@ -289,7 +289,7 @@ Nell'account NetApp il pool di capacità specifica le dimensioni e il tipo di di
 
 ![Pool di capacità NetApp di SAP LaMa creato ](media/lama/sap-lama-capacitypool-list.png)
 
-È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza AS sono necessari i seguenti montaggi: */sapmnt/\<SID @ no__t-2*, */usr/SAP/\<SID @ no__t-5*e */Home/\<SID @ no__t-8adm*. Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
+È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza AS sono necessari i seguenti montaggi: */sapmnt/\<sid\>* , */usr/sap/\<SID\>* e */Home/\<SID\>ADM*. Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
 
 > [!NOTE]
 > Durante la fase BETA il nome dei volumi deve essere univoco all'interno della sottoscrizione.
@@ -336,7 +336,7 @@ Una volta completata l'installazione, il sistema deve essere individuato all'int
 
 I punti di montaggio dovrebbero avere un aspetto simile al seguente per ASC e l'istanza AS:
 
-i punti di montaggio ![SAP in LaMa ](media/lama/sap-lama-ascs.png) (questo è un esempio. Gli indirizzi IP e il percorso di esportazione sono diversi da quelli usati in precedenza.
+![punti di montaggio di SAP LaMa in LaMa ](media/lama/sap-lama-ascs.png) (questo è un esempio. Gli indirizzi IP e il percorso di esportazione sono diversi da quelli usati in precedenza.
 
 
 #### <a name="install-sap-hana"></a>Installare SAP HANA
@@ -432,7 +432,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Usare *as1-di-0* per *PAS Instance Host Name* (Nome host istanza PAS) nella finestra di dialogo *Primary Application Server Instance* (Istanza primaria server applicazioni).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="errors-and-warnings-during-discover"></a>Errori e avvisi durante l'individuazione
 

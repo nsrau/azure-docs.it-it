@@ -39,7 +39,7 @@ Per ulteriori informazioni, vedere la [Panoramica di zD & T](https://www.ibm.com
 
 Questo articolo illustra come configurare l'ambiente di sviluppo e test Z (zD & T) Enterprise Edition in Azure. È quindi possibile usare il server Web zD & T Enterprise Edition per creare e gestire ambienti basati su Z in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 > [!NOTE]
 > IBM consente l'installazione di zD & T Enterprise Edition solo negli ambienti di sviluppo/test,*non* negli ambienti di produzione.
@@ -62,11 +62,11 @@ Questo articolo illustra come configurare l'ambiente di sviluppo e test Z (zD & 
 
 3. Ottenere le credenziali SSH visualizzate nel pannello **Panoramica** della macchina virtuale tramite il pulsante **Connetti** . Selezionare la scheda **SSH** e copiare il comando di accesso SSH negli Appunti.
 
-4. Accedere a una [shell bash](/azure/cloud-shell/quickstart) dal computer locale e incollare il comando. Il formato sarà **SSH @ no__t-1user ID @ no__t-2 @ no__t-3 @ no__t-4IP Address @ no__t-5**. Quando vengono richieste le credenziali, immetterle per stabilire una connessione alla Home Directory.
+4. Accedere a una [shell bash](/azure/cloud-shell/quickstart) dal computer locale e incollare il comando. Il formato sarà **ssh\<user id\>\@\<indirizzo IP\>** . Quando vengono richieste le credenziali, immetterle per stabilire una connessione alla Home Directory.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiare il file di installazione nel server
 
-Il file di installazione per il server Web è **ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**. È incluso nel supporto fornito da IBM. È necessario caricare questo file nella macchina virtuale Ubuntu.
+Il file di installazione per il server Web è **ZDT\_installare\_EE\_v 12.0.0.1. tgz**. È incluso nel supporto fornito da IBM. È necessario caricare questo file nella macchina virtuale Ubuntu.
 
 1. Dalla riga di comando immettere il comando seguente per assicurarsi che tutti gli elementi siano aggiornati nell'immagine appena creata:
 
@@ -91,7 +91,7 @@ Il file di installazione per il server Web è **ZDT @ no__t-1Install @ no__t-2EE
 
 ## <a name="install-the-enterprise-edition"></a>Installare Enterprise Edition
 
-1. Passare alla directory ZDT e decomprimere il file ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz usando i comandi seguenti:
+1. Passare alla directory ZDT e decomprimere il file ZDT\_install\_EE\_V 12.0.0.1. tgz usando i comandi seguenti:
 
     ```
     cd ZDT

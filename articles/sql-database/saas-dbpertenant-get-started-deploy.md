@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà:
 
 Una [serie di esercitazioni correlate](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) consente di esplorare i vari modelli di progettazione e gestione SaaS. Gli argomenti trattati nelle esercitazioni non si limitano a questa distribuzione iniziale. Nel corso delle esercitazioni è possibile esaminare gli script disponibili per vedere come vengono implementati i diversi modelli SaaS. Gli script illustrano come le funzionalità del database SQL semplificano lo sviluppo di applicazioni SaaS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, verificare di aver installato Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 

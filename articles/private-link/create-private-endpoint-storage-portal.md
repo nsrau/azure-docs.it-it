@@ -1,6 +1,6 @@
 ---
-title: Connect privately to a storage account using Azure Private Endpoint
-description: Learn how to connect privately to a storage account in Azure using a Private Endpoint.
+title: Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
+description: Informazioni su come connettersi privatamente a un account di archiviazione in Azure usando un endpoint privato.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,58 +14,58 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228084"
 ---
-# <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connect privately to a storage account using Azure Private Endpoint
-Azure Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link resources.
+# <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connettersi privatamente a un account di archiviazione usando un endpoint privato di Azure
+Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse di collegamento privato.
 
-In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with a Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
+In questa Guida introduttiva si apprenderà come creare una VM in una rete virtuale di Azure, un account di archiviazione con un endpoint privato usando il portale di Azure. Quindi, è possibile accedere in modo sicuro all'account di archiviazione dalla macchina virtuale.
 
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-a-vm"></a>Creare una VM
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (a storage account in this example).
+## <a name="create-a-vm"></a>Creare una macchina virtuale
+In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere alla risorsa di collegamento privato (un account di archiviazione in questo esempio).
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource.
+In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere alla risorsa di collegamento privato.
 
 1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | name | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Sottoscrizione | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Località | Selezionare **Stati Uniti centro-occidentali**.|
+    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Location | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 1. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 
-### <a name="create-virtual-machine"></a>Crea macchina virtuale
+### <a name="create-virtual-machine"></a>Creare una macchina virtuale
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**.
 
 1. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
+    | Region | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
-    | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | Image | Selezionare **Windows Server 2019 Datacenter**. |
+    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
-    | Username | Immettere un nome utente a scelta. |
+    | Nome utente | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
@@ -74,15 +74,15 @@ In this section, you will create virtual network and the subnet to host the VM t
     | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
     |||
 
-1. Select **Next: Disks**.
+1. Selezionare **Avanti: dischi**.
 
-1. In **Create a virtual machine - Disks**, leave the defaults and select **Next: Networking**.
+1. In **creare una macchina virtuale-dischi**lasciare le impostazioni predefinite e selezionare **Avanti: rete**.
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
+    | rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
     | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
     | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
@@ -94,56 +94,56 @@ In this section, you will create virtual network and the subnet to host the VM t
 
 1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
-## <a name="create-your-private-endpoint"></a>Create your Private Endpoint
-In this section, you will create a private storage account using a Private Endpoint to it. 
+## <a name="create-your-private-endpoint"></a>Creare l'endpoint privato
+In questa sezione verrà creato un account di archiviazione privato utilizzando un endpoint privato. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Storage** > **Storage account**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **archiviazione** > **account di archiviazione**.
 
-1. In **Create storage account - Basics**, enter or select this information:
+1. In **create storage account-Nozioni di base**immettere o selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
-    | Nome dell'account di archiviazione  | Enter *mystorageaccount*. Se il nome è già usato, creare un nome univoco. |
-    | Area geografica | Selezionare **Stati Uniti centro-occidentali**. |
-    | Performance| Lasciare l'impostazione predefinita **Standard**. |
-    | Tipo di account | Leave the default **Storage (general purpose v2)** . |
-    | Replica | Select **Read-access geo-redundant storage (RA-GRS)** . |
+    | Nome dell'account di archiviazione  | Immettere *mystorageaccount*. Se il nome è già usato, creare un nome univoco. |
+    | Region | Selezionare **Stati Uniti centro-occidentali**. |
+    | Prestazioni| Lasciare l'impostazione predefinita **Standard**. |
+    | Tipo di account | Lasciare la risorsa di **archiviazione predefinita (utilizzo generico v2)** . |
+    | Replica | Selezionare **archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)** . |
     |||
   
-3. Select **Next: Networking**.
-4. In **Create a storage account - Networking**, connectivity method, select **Private Endpoint**.
-5. In **Create a storage account - Networking**, select **Add Private Endpoint**. 
-6. In **Create Private Endpoint**, enter or select this information:
+3. Selezionare **Avanti: rete**.
+4. In **creare un account di archiviazione-rete**, metodo di connettività selezionare **endpoint privato**.
+5. In **creare un account di archiviazione-rete**selezionare **Aggiungi endpoint privato**. 
+6. In **Crea endpoint privato**immettere o selezionare queste informazioni:
 
-    | Impostazione | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Sottoscrizione | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
-    |Località|Selezionare **Stati Uniti centro-occidentali**.|
-    |name|Enter *myPrivateEndpoint*.  |
-    |Storage sub-resource|Leave the default **Blob**. |
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
+    |Location|Selezionare **Stati Uniti centro-occidentali**.|
+    |Nome|Immettere *myPrivateEndpoint*.  |
+    |Sottorisorsa di archiviazione|Lasciare il **BLOB**predefinito. |
     | **RETE** |  |
-    | Rete virtuale  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
+    | rete virtuale  | Selezionare *MyVirtualNetwork* dal gruppo di risorse *myResourceGroup*. |
     | Subnet | Selezionare  *mySubnet*. |
     | **INTEGRAZIONE DNS PRIVATO**|  |
-    | Integra con la zona DNS privato  | Leave the default **Yes**. |
-    | Zona DNS privato  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
+    | Integra con la zona DNS privato  | Lasciare l'impostazione predefinita **Sì**. |
+    | Zona DNS privato  | Lasciare il valore predefinito * * (nuovo) privatelink.blob.core.windows.net * *. |
     |||
 7. Selezionare **OK**. 
 8. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
 9. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
-10. Browse to the storage account resource that you just created.
-11. Select **Access Keys** from the left content menu.
-12. Select **Copy** on the connection string for key1.
+10. Passare alla risorsa dell'account di archiviazione appena creata.
+11. Selezionare **chiavi di accesso** dal menu contenuto a sinistra.
+12. Selezionare **copia** nella stringa di connessione per Key1.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-Connect to the VM *myVm* from the internet as follows:
+Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Nella barra di ricerca del portale immettere *myVm*.
 
@@ -166,15 +166,15 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
-## <a name="access-storage-account-privately-from-the-vm"></a>Access storage account privately from the VM
+## <a name="access-storage-account-privately-from-the-vm"></a>Accedere a un account di archiviazione privatamente dalla macchina virtuale
 
-In this section, you will connect privately to the storage account using the Private Endpoint.
+In questa sezione si effettuerà la connessione privata con l'account di archiviazione usando l'endpoint privato.
 
 > [!IMPORTANT]
-> DNS configuration for storage needs a manual modification on the hosts file to include the FQDN of the specific account Please modify the following file using administrator permissions on Windows: c:\Windows\System32\Drivers\etc\hosts or Linux /etc/hosts Include the DNS information for the account from previous step in the following format [Private IP Address] myaccount.blob.core.windows.net
+> Per la configurazione DNS per l'archiviazione è necessaria una modifica manuale del file hosts per includere il nome di dominio completo dell'account specifico. modificare il file seguente usando le autorizzazioni di amministratore per Windows: c:\Windows\System32\Drivers\etc\hosts o Linux/hosts include le informazioni DNS per l'account del passaggio precedente nel formato seguente [indirizzo IP privato] myaccount.blob.core.windows.net
 
 1. Nel desktop remoto di  *myVM* aprire PowerShell.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net` You'll receive a message similar to this:
+2. Immettere `nslookup mystorageaccount.blob.core.windows.net` verrà visualizzato un messaggio simile al seguente:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -184,28 +184,28 @@ In this section, you will connect privately to the storage account using the Pri
     Aliases:  mystorageaccount.blob.core.windows.net
     ```
 3. Installare [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
+4. Selezionare **account di archiviazione** con il pulsante destro del mouse.
+5. Selezionare **Connetti a un'archiviazione di Azure**.
+6. Selezionare **Usa una stringa di connessione**.
 7. Selezionare **Avanti**.
-8. Enter the connection string by pasting the information previously copied.
+8. Immettere la stringa di connessione incollando le informazioni copiate in precedenza.
 9. Selezionare **Avanti**.
 10. Selezionare **Connessione**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+11. Esplorare i contenitori BLOB da mystorageaccount 
+12. Facoltativamente Creare cartelle e/o caricare file in *mystorageaccount*. 
+13. Chiudere la connessione Desktop remoto a *myVM*. 
 
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
+Opzioni aggiuntive per accedere all'account di archiviazione:
+- Microsoft Azure Storage Explorer è un'app gratuita autonoma di Microsoft che consente di lavorare visivamente con i dati di archiviazione di Azure in Windows, macOS e Linux. È possibile installare l'applicazione per esplorare in modo privato il contenuto dell'account di archiviazione. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Usare AzCopy per trasferire i dati da e verso risorse di archiviazione BLOB, file e tabelle. 
+- L'utilità AzCopy è un'altra opzione per il trasferimento di dati con script a prestazioni elevate per archiviazione di Azure. Usare AzCopy per trasferire i dati da e verso risorse di archiviazione BLOB, file e tabelle. 
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
+Al termine dell'uso dell'endpoint privato, dell'account di archiviazione e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute: 
 1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca. 
 2. Selezionare **Elimina gruppo di risorse**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+3. Immettere *myResourceGroup* per **digitare il nome del gruppo di risorse** e selezionare **Elimina**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+In questa Guida introduttiva è stata creata una VM in una rete virtuale e un account di archiviazione e un endpoint privato. È stata effettuata la connessione a una macchina virtuale da Internet e la comunicazione protetta con l'account di archiviazione tramite un collegamento privato. Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure?](private-endpoint-overview.md).

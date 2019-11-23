@@ -38,7 +38,7 @@ ms.locfileid: "67180550"
 <sup>2</sup> Le dimensioni della cache per unità dipendono dal piano tariffario. Per visualizzare i piani tariffari e i relativi limiti di scalabilità, vedere [prezzi di gestione API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup> Le connessioni vengono raggruppate e riutilizzate a meno che non vengano chiuse in modo esplicito dal back-end.<br/>
 <sup>4</sup> Questo limite è per unità dei livelli Basic, standard e Premium. Il livello Developer è limitato a 1.024. Questo limite non si applica al livello di consumo.<br/> 
-<sup>5</sup> Questo limite si applica ai livelli Basic, standard e Premium. Nel livello di consumo, le dimensioni del documento di criteri sono limitate a 4 KB.<br/>
+<sup>5</sup>questo limite si applica ai livelli Basic, standard e Premium. Nel livello di consumo, le dimensioni del documento di criteri sono limitate a 4 KB.<br/>
 <sup>6</sup> Questa risorsa è disponibile solo nel livello Premium.<br/>
 <sup>7</sup> Questa risorsa si applica solo al livello di consumo.<br/>
 

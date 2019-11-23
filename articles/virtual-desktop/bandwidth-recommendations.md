@@ -27,10 +27,10 @@ La tabella seguente elenca le larghezze di banda minime consigliate per un'esper
 
 |Carico di lavoro        |Applicazioni di esempio                                                                                           |Larghezza di banda consigliata|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|Task Worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5 @ no__t-0Mbps        |
-|Ruolo di lavoro di Office   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Visualizzatore foto                                        |3 @ no__t-0Mbps          |
-|Knowledge Worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Visualizzatore foto, Java                                  |5 @ no__t-0Mbps          |
-|Power Worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Visualizzatore foto, Java, CAD/CAM, illustrazione/pubblicazione|15 @ no__t-0Mbps         |
+|Task Worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1,5&nbsp;Mbps        |
+|Ruolo di lavoro di Office   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Visualizzatore foto                                        |3&nbsp;Mbps          |
+|Knowledge Worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Visualizzatore foto, Java                                  |5&nbsp;Mbps          |
+|Power Worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Visualizzatore foto, Java, CAD/CAM, illustrazione/pubblicazione|15&nbsp;Mbps         |
 
 >[!NOTE]
 >Queste indicazioni si applicano indipendentemente dal numero di utenti presenti nella sessione.

@@ -62,14 +62,14 @@ Ecco la definizione JSON di esempio di un'attività Python di Databricks:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-|Proprietà|Descrizione|Obbligatorio|
+|Proprietà|Descrizione|obbligatori|
 |---|---|---|
-|name|Nome dell'attività nella pipeline.|Sì|
-|description|Testo che descrive l'attività.|No|
+|Nome|Nome dell'attività nella pipeline.|Sì|
+|Descrizione|Testo che descrive l'attività.|No|
 |type|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|Sì|
 |linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
 |pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|Sì|
-|Parametri|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|No|
+|parameters|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|No|
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|No|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Librerie supportate per le attività di databricks
