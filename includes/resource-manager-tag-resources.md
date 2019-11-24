@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180533"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451508"
 ---
 1. Per visualizzare i tag per una risorsa o un gruppo di risorse, cercare i tag esistenti nella panoramica. Se in precedenza non sono stati applicati tag, l'elenco è vuoto.
    
@@ -52,9 +52,9 @@ Per eseguire l'assegnazione in blocco dei tag a più risorse:
 
 Per visualizzare tutte le risorse con un tag:
 
-1. Selezionare **Tutti i servizi** e **Tag**.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![Ricerca in base al tag](./media/resource-manager-tag-resources/find-tags.png)
+     ![Ricerca in base al tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. Selezionare il tag per la visualizzazione delle risorse.
 
@@ -70,4 +70,4 @@ Per visualizzare tutte le risorse con un tag:
 
 1. La visualizzazione è disponibile dal dashboard.
 
-     ![dashboard](./media/resource-manager-tag-resources/dashboard.png)
+     ![dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -8,19 +8,19 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 591e6f1fc114994dd29b0f41d92fc4f099b6ea49
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3064211fe44a416a6288b86c977ed7e2337a7ccd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256826"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451589"
 ---
-La gestione dei contributi dai collaboratori dipende dallo stato corrente dell'app.
+Management of contributions from collaborators depends on the current status of the app.
 
-**Per la creazione di app [migrate delle risorse](../luis-migration-authoring.md)** : i _collaboratori_ vengono gestiti nel portale di Azure per la risorsa di creazione, usando la pagina **controllo di accesso (IAM)** . Aggiungere un utente, usando l'indirizzo di posta elettronica del collaboratore e il ruolo _collaboratore_ . 
+**For [authoring resource migrated](../luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role. 
 
-**Per le app di cui non è ancora stata eseguita la migrazione**: tutti i _collaboratori_ vengono gestiti nel portale Luis dalla pagina dei **collaboratori di gestione >** di ogni app. In questa pagina [aggiungere l'indirizzo di posta elettronica di un utente](../luis-how-to-collaborate.md). Questa operazione consente di creare solo l'accesso a questa app. 
+**For apps that have not migrated yet**: all _collaborators_ are managed in the LUIS portal from each app's **Manage -> Collaborators** page. On this page, [add a user's email address](../luis-how-to-collaborate.md). This provides authoring access to this app only. 
 
 

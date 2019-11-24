@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -8,22 +8,22 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 4dd638d825c73d901de0c9b909307bd6995511a2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: a255a68eab6936de18d238b40f596076261049c1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259717"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451487"
 ---
-Se le app devono essere create da altri utenti, è necessario aggiungere gli indirizzi di posta elettronica associati nella risorsa di creazione del portale di Azure.
+If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
 
-Se si è il **proprietario o l'amministratore della sottoscrizione di Azure**, è possibile aggiungere un collaboratore alla risorsa. 
+If you are the **owner or administrator of your Azure subscription**, you can add a contributor to the resource. 
 
-Se non si è **il proprietario o l'amministratore della sottoscrizione di Azure**, è necessario che l'account `Microsoft.Authorization/roleAssignments/write` di Azure disponga delle autorizzazioni.
+If you are **not the owner or administrator of your Azure subscription**, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
 
-In caso di problemi con questa assegnazione di ruolo, vedere: 
+If you have trouble with this role assignment, review: 
 
-* [Assegnazioni di ruolo di Azure](../../../role-based-access-control/role-assignments-portal.md)
- * [Risoluzione dei problemi di controllo di accesso di Azure](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Azure role assignments](../../../role-based-access-control/role-assignments-portal.md)
+ * [Azure access control troubleshooting](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
