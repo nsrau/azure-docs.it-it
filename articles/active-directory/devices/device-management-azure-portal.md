@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200235"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420610"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -32,9 +32,8 @@ Questo articolo:
 Il portale di Azure AD offre una posizione centralizzata per la gestione delle identità dei dispositivi. È possibile accedere a questa posizione usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o eseguendo la procedura manuale seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Sulla barra di spostamento a sinistra fare clic su **Active Directory**.
 
-   ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/01.png)
+2. Cercare e selezionare **Azure Active Directory** o selezionarlo dalla **Home** page.
 
 3. Nella sezione **Gestisci** fare clic su **Dispositivi**.
 
@@ -215,7 +214,7 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 - Activity resource type (Tipo di risorsa dell'attività)
 - Attività
 - Intervallo di date
-- Obiettivo
+- Destinazione
 - Azione avviata da (attore)
 
 Oltre a usare i filtri, è possibile cercare voci specifiche.

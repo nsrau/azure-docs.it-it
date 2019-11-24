@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bfd75f54e2b57e57fcadc27df2ca43d8be5cf37
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ac52fa7eab055a2b2e9154481019d49acdca65d9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285514"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420532"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -192,7 +192,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso utente prima di autorizzare l'accesso alle macchine virtuali Windows in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "accesso alla macchina virtuale Windows di Azure" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
 
 > [!NOTE]
-> Se si usa "Richiedi autenticazione a più fattori" come controllo di concessione dell'accesso per richiedere l'accesso all'app "accesso alla macchina virtuale Windows di Azure", è necessario fornire un'attestazione di autenticazione a più fattori come parte del client che avvia la sessione RDP alla VM Windows di destinazione in Azure. L'unico modo per ottenere questo risultato in un client Windows 10 consiste nell'usare il PIN di Windows Hello for business o l'autenticazione biometrica durante il protocollo RDP. Il supporto per l'autenticazione biometrica durante il protocollo RDP è stato aggiunto in Windows 10 1809. L'uso dell'autenticazione di Windows Hello for business durante RDP è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non disponibili per il modello di attendibilità della chiave
+> Se si usa "Richiedi autenticazione a più fattori" come controllo di accesso di concessione per richiedere l'accesso all'app "accesso alla macchina virtuale Windows di Azure", è necessario fornire l'attestazione di autenticazione a più fattori come parte del client che avvia la sessione RDP nelle finestre di destinazione VM in Azure. L'unico modo per ottenere questo risultato in un client Windows 10 consiste nell'usare il PIN di Windows Hello for business o la authenication biometrica con il client RDP. Il supporto per l'autenticazione biometrica è stato aggiunto al client RDP in Windows 10 versione 1809. Il desktop remoto che usa l'autenticazione di Windows Hello for business è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non sono disponibili per il modello di attendibilità
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
@@ -344,12 +344,12 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 
 ![Il metodo di accesso che si sta tentando di usare non è consentito.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-Se sono stati configurati criteri di accesso condizionale che richiedono l'autenticazione a più fattori per poter accedere alla risorsa RBAC, è necessario assicurarsi che il PC Windows 10 che avvia la connessione Desktop remoto alla VM esegua l'accesso usando un metodo di autenticazione avanzata, ad esempio come Windows Hello. Se non si utilizza un metodo di autenticazione avanzata per la connessione Desktop remoto, verrà visualizzato l'errore seguente. 
+Se sono stati configurati criteri di accesso condizionale che richiedono l'autenticazione a più fattori prima di poter accedere alla risorsa, è necessario assicurarsi che il PC Windows 10 che avvia la connessione Desktop remoto alla VM esegua l'accesso con un Metodo di autenticazione, ad esempio Windows Hello. Se non si usa un metodo di autenticazione avanzata per la connessione Desktop remoto, verrà visualizzato l'errore precedente.
 
-Se Windows Hello for business non è stato distribuito e se questa opzione non è disponibile per il momento, è possibile exlcude il requisito di autenticazione a più fattori configurando i criteri di accesso condizionale che escludono l'app di accesso alle macchine virtuali Windows di Azure dall'elenco di app cloud che richiedono l'autenticazione a più fattori. Per altre informazioni su Windows Hello for business, vedere [Panoramica di Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Se Windows Hello for business non è stato distribuito e se questa opzione non è disponibile per il momento, è possibile escludere il requisito di autenticazione a più fattori configurando i criteri di accesso condizionale che escludono l'app di accesso alle macchine virtuali Windows di Azure dall'elenco di app cloud che richiedono l'autenticazione a più fattori. Per altre informazioni su Windows Hello for business, vedere [Panoramica di Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
-> L'autenticazione PIN di Windows Hello for business durante il protocollo RDP è stata supportata in Windows 10 per un certo periodo di tempo. Il supporto per l'autenticazione biometrica durante il protocollo RDP è stato aggiunto in Windows 10 1809. L'uso dell'autenticazione di Windows Hello for business durante RDP è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non disponibili per il modello di attendibilità della chiave
+> L'autenticazione PIN di Windows Hello for business con RDP è stata supportata da Windows 10 per diverse versioni, tuttavia è stato aggiunto il supporto per l'autenticazione biometrica con RDP in Windows 10 versione 1809. L'uso dell'autenticazione di Windows Hello for business durante RDP è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non disponibili per il modello di attendibilità della chiave
  
 ## <a name="preview-feedback"></a>Feedback sull'anteprima
 

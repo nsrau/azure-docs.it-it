@@ -1,30 +1,30 @@
 ---
-title: Unità di data warehouse (DWU, Cdwu) in Azure sinapsi Analytics (in precedenza SQL DW)
-description: Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero.
+title: Unità di data warehouse (DWU) in Azure sinapsi Analytics (in precedenza SQL DW)
+description: Suggerimenti per la scelta del numero ideale di unità di data warehouse (DWU) per ottimizzare il prezzo e le prestazioni e come modificare il numero di unità.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7cd6a037f339f193f63cbe152f0ea9964679c231
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133169"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420487"
 ---
-# <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
+# <a name="data-warehouse-units-dwus"></a>Unità di data warehouse (DWU)
 
-Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero.
+Suggerimenti per la scelta del numero ideale di unità di data warehouse (DWU) per ottimizzare il prezzo e le prestazioni e come modificare il numero di unità.
 
 ## <a name="what-are-data-warehouse-units"></a>Che cosa sono le unità di data warehouse
 
-Il pool SQL rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning quando si usa [analisi SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Le risorse analitiche sono definite come una combinazione di CPU, memoria e i/o. Queste tre risorse sono raggruppate in unità di scala di calcolo denominate unità data warehouse (DWU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Una modifica al livello di servizio modifica il numero di DWU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
+Un [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning quando si usa [analisi SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Le risorse analitiche sono definite come una combinazione di CPU, memoria e i/o. Queste tre risorse sono raggruppate in unità di scala di calcolo denominate unità data warehouse (DWU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo. Una modifica al livello di servizio modifica il numero di DWU disponibili per il sistema, che a sua volta regola le prestazioni e il costo del sistema.
 
 Per ottenere prestazioni più elevate, è possibile aumentare il numero di unità di data warehouse. Per un minor numero di prestazioni, ridurre data warehouse unità. I costi di archiviazione e calcolo vengono fatturati separatamente, pertanto la modifica delle unità Data Warehouse non influisce sui costi di archiviazione.
 
@@ -42,40 +42,19 @@ L'aumento delle DWU:
 
 ## <a name="service-level-objective"></a>Obiettivo del livello di servizio
 
-L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per il pool SQL Gen2 sono misurati in unità di calcolo data warehouse (DWU), ad esempio DW2000c. I livelli di servizio del pool SQL di Gen1 sono misurati in DWU, ad esempio DW2000.
-  > [!NOTE]
-  > Il pool SQL di generazione 2 ha recentemente aggiunto funzionalità di ridimensionamento aggiuntive per supportare i livelli di calcolo con una riduzione di 100 DWU. I pool SQL esistenti attualmente in Gen1 che richiedono i livelli di calcolo inferiori possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generation.md).
+L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per il pool SQL Gen2 sono misurati in unità di data warehouse (DWU), ad esempio DW2000c.
 
-In T-SQL l'impostazione del SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL.
+In T-SQL l'impostazione del SERVICE_OBJECTIVE determina il livello di servizio per il pool SQL.
 
 ```sql
---Gen1
-CREATE DATABASE myElasticSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000'
-)
-;
-
---Gen2
-CREATE DATABASE myComputeSQLDW
-(Edition = 'Datawarehouse'
+CREATE DATABASE mySQLDW
+( EDITION = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="performance-tiers-and-data-warehouse-units"></a>Livelli di prestazioni e unità Data Warehouse
-
-Ogni livello di prestazioni usa un'unità di misura leggermente diversa per le unità Data Warehouse. Questa differenza si rispecchia nella fattura, dato che l'unità di scala ha una corrispondenza diretta nella fatturazione.
-
-- I pool SQL Gen1 sono misurati in unità di data warehouse (DWU).
-- I pool SQL Gen2 sono misurati in unità di calcolo data warehouse (Cdwu).
-
-Sia DWU che Cdwu supportano il ridimensionamento del calcolo verso l'alto o verso il basso e la sospensione delle risorse di calcolo quando non è necessario usare il pool SQL. Queste operazioni sono tutte su richiesta. La seconda generazione usa anche una cache basata su disco locale nei nodi di calcolo per migliorare le prestazioni. Quando si ridimensiona o si sospende il sistema, la cache viene invalidata ed è quindi necessario un periodo di aggiornamento della cache prima di ottenere prestazioni ottimali.  
-
-Con l'aumentare delle unità Data Warehouse si aumentano in modo lineare le risorse di calcolo. Gen2 offre le migliori prestazioni di query e la massima scalabilità. I sistemi Gen2 usano anche la cache.
-
-### <a name="capacity-limits"></a>Limiti di capacità
+## <a name="capacity-limits"></a>Limiti di capacità
 
 Ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota di [unità di transazione di database (DTU)](../sql-database/sql-database-what-is-a-dtu.md) che consente un numero specifico di unità di data warehouse. Per altre informazioni, vedere i [limiti della capacità di gestione del carico di lavoro](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
@@ -122,44 +101,44 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="azure-portal"></a>portale di Azure
 
-Per modificare DWU o DWU a elevato utilizzo di calcolo:
+Per modificare DWU:
 
 1. Aprire il [portale di Azure](https://portal.azure.com), aprire il database e fare clic su **Scala**.
 
 2. In **Ridimensiona** spostare il dispositivo di scorrimento verso sinistra o destra per modificare l'impostazione delle DWU.
 
-3. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+3. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per modificare DWU o Cdwu, usare il cmdlet di PowerShell [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.
+Per modificare il DWU, usare il cmdlet di PowerShell [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su compreso dw1000c per il database MySQLDW ospitato nel server MyServer.
 
 ```Powershell
-Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
 Per altre informazioni, vedere i [cmdlet di PowerShell per SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### <a name="t-sql"></a>T-SQL
 
-Con T-SQL è possibile visualizzare le impostazioni correnti per DWU o DWU a elevato utilizzo di calcolo, modificare le impostazioni e controllare lo stato.
+Con T-SQL è possibile visualizzare le impostazioni correnti di DWU, modificare le impostazioni e controllare lo stato di avanzamento.
 
-Per modificare le unità DWU o DWU a elevato utilizzo di calcolo:
+Per modificare le DWU:
 
 1. Connettersi al database master associato al server di database SQL logico.
-2. Usare l'istruzione TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) . L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW.
+2. Usare l'istruzione TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) . Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su compreso dw1000c per il database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
-MODIFY (SERVICE_OBJECTIVE = 'DW1000')
+MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
 ```
 
 ### <a name="rest-apis"></a>API REST
 
-Per modificare le DWU usare l'API REST [Create or Update Database](/rest/api/sql/databases/createorupdate) (Creare o aggiornare il database). Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su DW1000 per il database MySQLDW, che è ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
+Per modificare le DWU usare l'API REST [Create or Update Database](/rest/api/sql/databases/createorupdate) (Creare o aggiornare il database). Nell'esempio seguente l'obiettivo del livello di servizio viene impostato su compreso dw1000c per il database MySQLDW, che è ospitato nel server MyServer. Il server appartiene al gruppo di risorse di Azure ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -167,7 +146,7 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000
+        "requestedServiceObjectiveName": DW1000c
     }
 }
 ```

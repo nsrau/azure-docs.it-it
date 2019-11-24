@@ -24,7 +24,7 @@ Per consentire agli utenti di accedere a macchine virtuali (VM) in Azure usando 
 
 Questo articolo illustra come aggiungere una macchina virtuale CoreOS a un dominio gestito di Azure AD DS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -42,8 +42,8 @@ Se si dispone di una macchina virtuale CoreOS Linux esistente in Azure, connette
 
 Se è necessario creare una VM Linux CoreOS o si vuole creare una macchina virtuale di test da usare con questo articolo, è possibile usare uno dei metodi seguenti:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
-* [interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
+* [Portale di Azure](../virtual-machines/linux/quick-create-portal.md)
+* [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Quando si crea la VM, prestare attenzione alle impostazioni della rete virtuale per assicurarsi che la macchina virtuale sia in grado di comunicare con il dominio gestito di Azure AD DS:
