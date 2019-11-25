@@ -836,8 +836,10 @@
               href: insights/container-insights-update-metrics.md
             - name: Configurazione del monitoraggio dell'integrità
               href: insights/container-insights-health-monitors-config.md
-            - name: Disabilitare il monitoraggio
+            - name: Disabilitare il monitoraggio del servizio Azure Kubernetes
               href: insights/container-insights-optout.md
+            - name: Disabilitare il monitoraggio di Red Hat OpenShift
+              href: insights/container-insights-optout-openshift.md
             - name: risoluzione dei problemi
               href: insights/container-insights-troubleshoot.md
         - name: Monitoraggio dei contenitori Docker e Windows
