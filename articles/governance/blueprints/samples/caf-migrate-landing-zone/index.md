@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto della zona di destinazione per la migrazione di Cloud Adoption Framework - Panoramica
-description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework.
+description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: cba1eb6d4761ae8e236f22fa22ff08c129d9637e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e007c7af4d788016d74f085ba39b63ee218d6de0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038456"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404762"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
 
@@ -43,7 +43,7 @@ Per altre informazioni, vedere [Microsoft Cloud Adoption Framework per Azure - M
 È stata esaminata la panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework.
 
 > [!div class="nextstepaction"]
->  [Progetto della zona di destinazione per la migrazione di Cloud Adoption Framework - Procedura di distribuzione](./deploy.md)
+> [Progetto della zona di destinazione per la migrazione di Cloud Adoption Framework - Procedura di distribuzione](./deploy.md)
 
 Altri articoli sui progetti e su come usarli:
 

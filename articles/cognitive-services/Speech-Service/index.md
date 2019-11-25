@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: Documentazione del servizio di riconoscimento vocale
 description: Introduzione al servizio Voce.
-ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580323"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406179"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -271,7 +271,7 @@ ms.locfileid: "73580323"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Riconoscere la voce, le finalità e le entità</h3>
-                                                    <p>Usare Speech SDK e LUIS per riconoscere la voce, le finalità e le entità.</p>
+                                                    <p>Usare Speech SDK e Language Understanding (LUIS) per riconoscere la voce, le finalità e le entità.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +289,7 @@ ms.locfileid: "73580323"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentazione di LUIS</h3>
+                                                    <h3>Documentazione di Language Understanding (LUIS)</h3>
                                                     <p>Altre informazioni su LUIS (Language Understanding Service) e PNL (Natural Language Processing).</p>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@ ms.locfileid: "73580323"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Portale LUIS</h3>
+                                                    <h3>Portale di Language Understanding (LUIS)</h3>
                                                     <p>Inserire il linguaggio naturale in app, bot e dispositivi IoT.</p>
                                                 </div>
                                             </div>
