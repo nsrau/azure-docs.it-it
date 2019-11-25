@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d915145e64a5f1a097f38cf79b19426c3acbaf2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964914"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457432"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -43,9 +42,9 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 ### <a name="add-modules"></a>Aggiungere moduli
 
-1. Nella sezione **impostazioni container Registry** della pagina fornire le credenziali per accedere ai registri di contenitori privati contenenti le immagini del modulo.
+1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 
-1. Nella sezione **moduli di distribuzione** della pagina selezionare **Aggiungi**.
+1. In the **Deployment Modules** section of the page, select **Add**.
 
 1. Scorrere i tipi di modulo dall'elenco a discesa:
 
@@ -57,7 +56,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 1. Specificare un nome per il modulo e quindi l'immagine del contenitore. ad esempio:
 
-   * **Nome** : SimulatedTemperatureSensor
+   * **Name** - SimulatedTemperatureSensor
    * **URI immagine**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
@@ -92,7 +91,7 @@ Azure Marketplace è un marketplace online di servizi e applicazioni dove è pos
 
 1. Trovare un modulo e iniziare il processo di distribuzione.
 
-   * Portale di Azure: trovare un modulo e selezionare **Crea**.
+   * Azure portal: Find a module and select **Create**.
 
    * Azure Marketplace:
 

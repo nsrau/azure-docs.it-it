@@ -1,19 +1,14 @@
 ---
-title: Attività in più passaggi per compilare, testare & immagine patch-Azure Container Registry
-description: Introduzione alle attività in più passaggi, una funzionalità delle attività ACR in Azure Container Registry che fornisce flussi di lavoro basati su attività per la compilazione, il test e l'applicazione di patch alle immagini del contenitore nel cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Multi-step task to build, test & patch image
+description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: danlep
-ms.openlocfilehash: 06bdcc1cd4f9bfcb1a77140d70435545fbe01079
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74148761"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456164"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container
 
@@ -31,7 +26,7 @@ Le attività in più passaggi estendono la singola funzionalità di creazione ed
 1. Se i test vengono superati, compilare un pacchetto di archivio del grafico di Helm
 1. Eseguire un `helm upgrade` usando il nuovo pacchetto di archivio del grafico di Helm
 
-Tutti i passaggi vengono eseguiti all'interno di Azure, riducendo così il lavoro per le risorse di calcolo di Azure e liberando l'utente dalla gestione dell'infrastruttura. Oltre al Registro Azure Container, si paga solo per le risorse che si usano. Per informazioni sui prezzi, vedere la sezione relativa alla **compilazione del contenitore** in [Azure container Registry prezzi][pricing].
+Tutti i passaggi vengono eseguiti all'interno di Azure, riducendo così il lavoro per le risorse di calcolo di Azure e liberando l'utente dalla gestione dell'infrastruttura. Oltre al Registro Azure Container, si paga solo per le risorse che si usano. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
 
 
 ## <a name="common-task-scenarios"></a>Scenari comuni di attività
@@ -84,13 +79,13 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-Vedere gli [esempi di attività](container-registry-tasks-samples.md) per i file YAML dell'attività in più passaggi e dockerfile per diversi scenari.
+See [task examples](container-registry-tasks-samples.md) for multi-step task YAML files and Dockerfiles for several scenarios.
 
 ## <a name="run-a-sample-task"></a>Eseguire un'attività di esempio
 
 Le attività supportano sia l'esecuzione manuale, denominata "esecuzione veloce" che l'esecuzione automatica su commit GIT o in caso di aggiornamento dell'immagine di base.
 
-Per eseguire un'attività, è necessario innanzitutto definire i passaggi dell'attività in un file YAML, quindi eseguire il comando dell'interfaccia della riga di comando di Azure [AZ ACR Run][az-acr-run].
+To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
 
 Ecco un comando dell'interfaccia della riga di comando di Azure di esempio che esegue un'attività usando un file YAML di attività di esempio. I passaggi creano e quindi eseguono il push di un'immagine. Prima di eseguire il comando, aggiornare `\<acrName\>` con il nome del proprio Registro Azure Container.
 
@@ -155,7 +150,7 @@ Per altre informazioni sulle creazioni automatiche su commit GIT o in caso di ag
 È possibile trovare riferimenti ed esempi sulle attività in più passaggi qui:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) (Riferimenti alle attività): tipi, proprietà e utilizzo dei passaggi di attività.
-* [Esempi di attività](container-registry-tasks-samples.md) : file di esempio `task.yaml` e Docker per diversi scenari, semplici da complesse.
+* [Task examples](container-registry-tasks-samples.md) - Example `task.yaml` and Docker files for several scenarios, simple to complex.
 * [Repository di comandi](https://github.com/AzureCR/cmd): raccolta di contenitori come comandi per Attività di Registro Azure Container.
 
 <!-- IMAGES -->

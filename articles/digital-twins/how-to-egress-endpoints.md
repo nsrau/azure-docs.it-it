@@ -1,21 +1,21 @@
 ---
-title: Uscita ed endpoint-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni su come creare ed estrarre gli endpoint evento nei dispositivi gemelli digitali di Azure.
+title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
+description: Learn how to create and egress event endpoints in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/22/2019
+ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010061"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456921"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint nei dispositivi gemelli digitali di Azure
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress and endpoints in Azure Digital Twins
 
 Gli *endpoint* di Gemelli digitali di Azure rappresentano un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
 
@@ -47,16 +47,16 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attribute | digitare | DESCRIZIONE |
+| Attributo | Type | Description |
 | --- | --- | --- |
-| id | stringa | Identificatore univoco dell'evento. |
-| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
-| data | oggetto | Dati dell'evento specifici del provider di risorse. |
-| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| id | string | Identificatore univoco dell'evento. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| data | object | Dati dell'evento specifici del provider di risorse. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
@@ -85,18 +85,18 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Report
+- Documentazione
 - RoleDefinition
 - Sensore
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Spazio
+- Agenzie spaziali
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- System
-- User
+- Sistema
+- Utente
 - UserBlobMetadata
 - UserExtendedProperty
 
@@ -122,7 +122,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -153,7 +153,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -188,7 +188,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -223,7 +223,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| Value | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -246,7 +246,7 @@ Gli esempi seguenti illustrano come configurare gli endpoint supportati.
 >[!IMPORTANT]
 > Prestare particolare attenzione all'attributo **eventTypes**. Definisce infatti i tipi di eventi gestiti dall'endpoint e ne determina quindi il routing.
 
-Richiesta HTTP POST autenticata rispetto a:
+An authenticated HTTP POST request against:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione|
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | Value | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |

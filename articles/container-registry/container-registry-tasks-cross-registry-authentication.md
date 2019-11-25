@@ -1,62 +1,58 @@
 ---
-title: Autenticazione tra più registri da Azure Container Registry attività
-description: Configurare un'attività Container Registry di Azure (attività ACR) per accedere a un altro registro contenitori di Azure privato usando un'identità gestita per le risorse di Azure
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: Cross-registry authentication from ACR task
+description: Configure an Azure Container Registry Task (ACR Task) to access another private Azure container registry by using a managed identity for Azure Resources
 ms.topic: article
 ms.date: 07/12/2019
-ms.author: danlep
-ms.openlocfilehash: f2ffb42ce109f5e6f7186461f931b7f8da57ff32
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3dc4792f196ab7553f3167983ce34850669fa5bc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931506"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456186"
 ---
-# <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione tra più registri in un'attività ACR usando un'identità gestita da Azure 
+# <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Cross-registry authentication in an ACR task using an Azure-managed identity 
 
-In un' [attività ACR](container-registry-tasks-overview.md)è possibile [abilitare un'identità gestita per le risorse di Azure](container-registry-tasks-authentication-managed-identity.md). L'attività può usare l'identità per accedere ad altre risorse di Azure, senza dover fornire o gestire le credenziali. 
+In an [ACR task](container-registry-tasks-overview.md), you can [enable a managed identity for Azure resources](container-registry-tasks-authentication-managed-identity.md). The task can use the identity to access other Azure resources, without needing to provide or manage credentials. 
 
-Questo articolo illustra come abilitare un'identità gestita in un'attività che estrae un'immagine da un registro diverso da quello usato per eseguire l'attività.
+In this article, you learn how to enable a managed identity in a task that pulls an image from a registry different from the one used to run the task.
 
-Per creare le risorse di Azure, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.68 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+To create the Azure resources, this article requires that you run the Azure CLI version 2.0.68 or later. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
-L'attività di esempio esegue il pull di un'immagine di base da un altro registro contenitori di Azure per compilare ed eseguire il push di un'immagine dell'applicazione. Per eseguire il pull dell'immagine di base, è necessario configurare l'attività con un'identità gestita e assegnarvi le autorizzazioni appropriate. 
+The example task pulls a base image from another Azure container registry to build and push an application image. To pull the base image, you configure the task with a managed identity and assign appropriate permissions to it. 
 
-Questo esempio illustra i passaggi che usano un'identità gestita assegnata dall'utente o assegnata dal sistema. La scelta dell'identità dipende dalle esigenze della propria organizzazione.
+This example shows steps using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
 
-In uno scenario reale, un'organizzazione potrebbe mantenere un set di immagini di base usate da tutti i team di sviluppo per compilare le proprie applicazioni. Queste immagini di base vengono archiviate in un registro aziendale e ogni team di sviluppo dispone solo di diritti di pull. 
+In a real-world scenario, an organization might maintain a set of base images used by all development teams to build their applications. These base images are stored in a corporate registry, with each development team having only pull rights. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo sono necessari due registri contenitori di Azure:
+For this article, you need two Azure container registries:
 
-* Usare il primo registro per creare ed eseguire attività ACR. In questo articolo il registro di sistema è denominato *Registro*di sistema. 
-* Il secondo registro di sistema ospita un'immagine di base usata per l'attività per la compilazione di un'immagine. In questo articolo, il secondo registro di sistema è denominato *mybaseregistry*. 
+* You use the first registry to create and execute ACR tasks. In this article, this registry is named *myregistry*. 
+* The second registry hosts a base image used for the task to build an image. In this article, the second registry is named *mybaseregistry*. 
 
-Sostituire con i nomi dei propri registri nei passaggi successivi.
+Replace with your own registry names in later steps.
 
-Se non si hanno già i registri contenitori di Azure necessari, vedere [Guida introduttiva: creare un registro contenitori privato usando l'interfaccia della](container-registry-get-started-azure-cli.md)riga di comando di Azure. Non è ancora necessario eseguire il push delle immagini nel registro.
+If you don't already have the needed Azure container registries, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). You don't need to push images to the registry yet.
 
-## <a name="prepare-base-registry"></a>Preparare il registro di sistema di base
+## <a name="prepare-base-registry"></a>Prepare base registry
 
-Per prima cosa, creare una directory di lavoro e quindi creare un file denominato Dockerfile con il contenuto seguente. Questo semplice esempio crea un'immagine di base node. js da un'immagine pubblica nell'hub docker.
+First, create a working directory and then create a file named Dockerfile with the following content. This simple example builds a Node.js base image from a public image in Docker Hub.
     
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
-Nella directory corrente eseguire il comando [AZ ACR Build][az-acr-build] per compilare ed effettuare il push dell'immagine di base nel registro di sistema di base. In pratica, un altro team o processo nell'organizzazione potrebbe gestire il registro di sistema di base.
+In the current directory, run the [az acr build][az-acr-build] command to build and push the base image to the base registry. In practice, another team or process in the organization might maintain the base registry.
     
 ```azurecli
 az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
 ```
 
-## <a name="define-task-steps-in-yaml-file"></a>Definire i passaggi dell'attività nel file YAML
+## <a name="define-task-steps-in-yaml-file"></a>Define task steps in YAML file
 
-I passaggi per questo esempio di attività in più [passaggi](container-registry-tasks-multi-step.md) sono definiti in un [file YAML](container-registry-tasks-reference-yaml.md). Creare un file denominato `helloworldtask.yaml` nella directory di lavoro locale e incollare il contenuto seguente. Aggiornare il valore di `REGISTRY_NAME` nell'istruzione di compilazione con il nome del server del registro di sistema di base.
+The steps for this example [multi-step task](container-registry-tasks-multi-step.md) are defined in a [YAML file](container-registry-tasks-reference-yaml.md). Create a file named `helloworldtask.yaml` in your local working directory and paste in the following contents. Update the value of `REGISTRY_NAME` in the build step with the server name of your base registry.
 
 ```yml
 version: v1.0.0
@@ -66,17 +62,17 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-Il passaggio di compilazione usa il file di `Dockerfile-app` nel repository [Azure-Samples/ACR-Build-HelloWorld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) per creare un'immagine. Il `--build-arg` fa riferimento al registro di sistema di base per eseguire il pull dell'immagine di base. Al termine della compilazione, viene effettuato il push dell'immagine nel registro di sistema usato per eseguire l'attività.
+The build step uses the `Dockerfile-app` file in the [Azure-Samples/acr-build-helloworld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) repo to build an image. The `--build-arg` references the base registry to pull the base image. When successfully built, the image is pushed to the registry used to run the task.
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>Opzione 1: creare un'attività con identità assegnata dall'utente
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Option 1: Create task with user-assigned identity
 
-Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'identità assegnata dall'utente. Se invece si desidera abilitare un'identità assegnata dal sistema, vedere l' [opzione 2: creare un'attività con l'identità assegnata dal sistema](#option-2-create-task-with-system-assigned-identity). 
+The steps in this section create a task and enable a user-assigned identity. If you want to enable a system-assigned identity instead, see [Option 2: Create task with system-assigned identity](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *helloworldtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento al file `helloworldtask.yaml` nella directory di lavoro. Il parametro `--assign-identity` passa l'ID risorsa dell'identità assegnata dall'utente. 
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task runs without a source code context, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter passes the resource ID of the user-assigned identity. 
 
 ```azurecli
 az acr task create \
@@ -89,13 +85,13 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>Opzione 2: creare un'attività con identità assegnata dal sistema
+## <a name="option-2-create-task-with-system-assigned-identity"></a>Option 2: Create task with system-assigned identity
 
-Nei passaggi di questa sezione viene creata un'attività e viene abilitata un'identità assegnata dal sistema. Se invece si desidera abilitare un'identità assegnata dall'utente, vedere l' [opzione 1: creare un'attività con l'identità assegnata dall'utente](#option-1-create-task-with-user-assigned-identity). 
+The steps in this section create a task and enable a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Creare un'attività
 
-Creare l'attività *helloworldtask* eseguendo il comando [AZ ACR task create][az-acr-task-create] seguente. L'attività viene eseguita senza un contesto del codice sorgente e il comando fa riferimento al file `helloworldtask.yaml` nella directory di lavoro. Il parametro `--assign-identity` senza valore consente di abilitare l'identità assegnata dal sistema nell'attività. 
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task runs without a source code context, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter with no value enables the system-assigned identity on the task. 
 
 ```azurecli
 az acr task create \
@@ -107,25 +103,25 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="give-identity-pull-permissions-to-the-base-registry"></a>Assegnare le autorizzazioni di pull all'identità al registro di sistema di base
+## <a name="give-identity-pull-permissions-to-the-base-registry"></a>Give identity pull permissions to the base registry
 
-In questa sezione, concedere le autorizzazioni di identità gestite per eseguire il pull dal registro di sistema di base, *mybaseregistry*.
+In this section, give the managed identity permissions to pull from the base registry, *mybaseregistry*.
 
-Usare il comando [AZ ACR Show][az-acr-show] per ottenere l'ID risorsa del registro di sistema di base e archiviarlo in una variabile:
+Use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
 
 ```azurecli
 baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 ```
 
-Usare il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare l'identità del `acrpull` ruolo al registro di sistema di base. Questo ruolo ha le autorizzazioni solo per eseguire il pull delle immagini dal registro di sistema.
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $baseregID --role acrpull
 ```
 
-## <a name="add-target-registry-credentials-to-task"></a>Aggiungere le credenziali del registro di sistema di destinazione all'attività
+## <a name="add-target-registry-credentials-to-task"></a>Add target registry credentials to task
 
-A questo punto usare il comando [AZ ACR Task Credential Add][az-acr-task-credential-add] per aggiungere le credenziali dell'identità all'attività in modo da poter eseguire l'autenticazione con il registro di sistema di base. Eseguire il comando corrispondente al tipo di identità gestita abilitata nell'attività. Se è stata abilitata un'identità assegnata dall'utente, passare `--use-identity` con l'ID client dell'identità. Se è stata abilitata un'identità assegnata dal sistema, passare `--use-identity [system]`.
+Now use the [az acr task credential add][az-acr-task-credential-add] command to add the identity's credentials to the task so that it can authenticate with the base registry. Run the command corresponding to the type of managed identity you enabled in the task. If you enabled a user-assigned identity, pass `--use-identity` with the client ID of the identity. If you enabled a system-assigned identity, pass `--use-identity [system]`.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task
@@ -143,9 +139,9 @@ az acr task credential add \
   --use-identity [system]
 ```
 
-## <a name="manually-run-the-task"></a>Eseguire manualmente l'attività
+## <a name="manually-run-the-task"></a>Manually run the task
 
-Per verificare che l'attività in cui è stata abilitata un'identità gestita venga eseguita correttamente, attivare manualmente l'attività con il comando [AZ ACR task run][az-acr-task-run] . 
+To verify that the task in which you enabled a managed identity runs successfully, manually trigger the task with the [az acr task run][az-acr-task-run] command. 
 
 ```azurecli
 az acr task run \
@@ -153,7 +149,7 @@ az acr task run \
   --registry myregistry
 ```
 
-Se l'attività viene eseguita correttamente, l'output è simile al seguente:
+If the task runs successfully, output is similar to:
 
 ```
 Queued a run with ID: cf10
@@ -202,7 +198,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Eseguire il comando [AZ ACR repository Show-Tags][az-acr-repository-show-tags] per verificare che l'immagine compilata ed è stata inserita correttamente nel *Registro di sistema*:
+Run the [az acr repository show-tags][az-acr-repository-show-tags] command to verify that the image built and was successfully pushed to *myregistry*:
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv
@@ -216,8 +212,8 @@ cf10
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sull' [Abilitazione di un'identità gestita in un'attività ACR](container-registry-tasks-authentication-managed-identity.md).
-* Vedere le informazioni di riferimento su YAML per le [attività ACR](container-registry-tasks-reference-yaml.md)
+* Learn more about [enabling a managed identity in an ACR task](container-registry-tasks-authentication-managed-identity.md).
+* See the [ACR Tasks YAML reference](container-registry-tasks-reference-yaml.md)
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az-login

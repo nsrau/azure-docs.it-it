@@ -1,19 +1,14 @@
 ---
-title: Accedere a Container Registry di Azure dalle istanze di contenitore
+title: Access from Container Instances
 description: Informazioni su come fornire l'accesso alle immagini nel registro del contenitore privato da Istanze di Azure Container usando un'entità del servizio Azure Active Directory.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: danlep
-ms.openlocfilehash: 53cdca72587dafd39abd3f13ad488dcb460bf622
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931663"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456510"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container
 
@@ -49,7 +44,7 @@ az container create \
 
 Gli script di esempio precedenti per l'interfaccia della riga di comando di Azure sono disponibili in GitHub, così come le versioni per Azure PowerShell:
 
-* [Interfaccia della riga di comando di Azure][acr-scripts-cli]
+* [interfaccia della riga di comando di Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passaggi successivi

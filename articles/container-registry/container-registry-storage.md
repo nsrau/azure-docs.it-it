@@ -1,19 +1,14 @@
 ---
-title: Archiviazione immagini in Registro Azure Container
+title: Container image storage
 description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker in Registro Azure Container, tra cui sicurezza, ridondanza e capacità.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: danlep
-ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310528"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456200"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore in Registro Azure Container
 
@@ -35,19 +30,19 @@ Per gli scenari che richiedono una disponibilità ancora più elevata, è consig
 
 Nella tabella seguente vengono descritti i limiti di archiviazione e di immagine del contenitore applicati al Registro contenitori di Azure.
 
-| Risorsa | Limite |
+| Gruppi | Limite |
 | -------- | :---- |
-| Repository | Nessun limite |
-| Immagini | Nessun limite |
-| Livelli | Nessun limite |
-| Tag | Nessun limite|
+| Repository | Senza limiti |
+| Immagini | Senza limiti |
+| Livelli | Senza limiti |
+| Tag | Senza limiti|
 | Archiviazione | 5 TB |
 
 Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository inutilizzati, tag e le immagini come parte di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore in Registro Azure Container](container-registry-delete.md).
 
-## <a name="storage-cost"></a>Costo di archiviazione
+## <a name="storage-cost"></a>Costo delle risorse di archiviazione
 
-Per informazioni dettagliate sui prezzi, vedere [prezzi di Azure container Registry][pricing].
+For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
