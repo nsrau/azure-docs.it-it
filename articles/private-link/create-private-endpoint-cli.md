@@ -1,21 +1,21 @@
 ---
-title: Create an Azure private endpoint using Azure CLI| Microsoft Docs
-description: Learn about Azure private endpoint
+title: Avvio rapido - Creare un endpoint privato di Azure con l'interfaccia della riga di comando di Azure
+description: Informazioni sull'endpoint privato di Azure - Avvio rapido
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 467b2426ccd69a27adc9df7ee3ff0304886b8f4a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224856"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419821"
 ---
-# <a name="create-a-private-endpoint-using-azure-cli"></a>Create a private endpoint using Azure CLI
-Private Endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate privately with Private Link Resources. In this Quickstart, you will learn how to create a VM on a virtual network, a SQL Database Server with a Private Endpoint using Azure CLI. Then, you can access the VM to and securely access the private link resource (a private Azure SQL Database server in this example). 
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Guida introduttiva: Creare un endpoint privato con l'interfaccia della riga di comando di Azure
+Un endpoint privato è il blocco predefinito fondamentale per il servizio Collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una macchina virtuale in una rete virtuale e un server di database SQL con un endpoint privato tramite l'interfaccia della riga di comando di Azure. Sarà quindi possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa Collegamento privato (in questo esempio, un server di database SQL di Azure privato). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,14 +23,14 @@ Se si decide di installare e usare l'interfaccia della riga di comando di Azure 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Before you can create any resource, you have to create a resource group to host the Virtual Network. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *westcentralus* location:
+Per poter creare le risorse, è prima necessario creare un gruppo di risorse in cui ospitare la rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westcentralus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
 
 ## <a name="create-a-virtual-network"></a>Creare una rete virtuale
-Create a Virtual Network with [az network vnet create](/cli/azure/network/vnet). This example creates a default Virtual Network named *myVirtualNetwork* with one subnet named *mySubnet*:
+Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -38,8 +38,8 @@ az network vnet create \
  --resource-group myResourceGroup \
  --subnet-name mySubnet
 ```
-## <a name="disable-subnet-private-endpoint-policies"></a>Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+## <a name="disable-subnet-private-endpoint-policies"></a>Disabilitare i criteri per gli endpoint privati della subnet 
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, di conseguenza è necessario creare o aggiornare la subnet per disabilitare i criteri di rete per gli endpoint privati. Aggiornare una configurazione di subnet denominata *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -49,17 +49,17 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Creare la VM 
-Create a VM with az vm create. When prompted, provide a password to be used as the sign-in credentials for the VM. This example creates a VM named *myVm*: 
+Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Win2019Datacenter
 ```
- Note the public IP address of the VM. Questo indirizzo verrà usato per connettersi alla VM da Internet nel passaggio successivo.
+ Prendere nota dell'indirizzo IP pubblico della macchina virtuale. Questo indirizzo verrà usato per connettersi alla VM da Internet nel passaggio successivo.
 
-## <a name="create-a-sql-database-server"></a>Create a SQL Database Server 
-Create a SQL Database Server with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+## <a name="create-a-sql-database-server"></a>Creare un server di database SQL 
+Creare un server di database SQL con il comando az sql server create. Tenere presente che il nome del SQL Server deve essere univoco in Azure, quindi sostituire il valore del segnaposto tra parentesi acute con il valore univoco personalizzato: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -81,10 +81,10 @@ az sql db create \
     --capacity 1 
 ```
 
-Note the SQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` You will use the SQL Server ID in the next step. 
+Si noti che l'ID di SQL Server è simile a  ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.```. L'ID SQL Server verrà usato nel passaggio successivo. 
 
-## <a name="create-the-private-endpoint"></a>Create the Private Endpoint 
-Create a private endpoint for the SQL Database server in your Virtual Network: 
+## <a name="create-the-private-endpoint"></a>Creare l'endpoint privato 
+Creare un endpoint privato per il server di database SQL nella rete virtuale: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -95,8 +95,8 @@ az network private-endpoint create \
     --group-ids sqlServer \  
     --connection-name myConnection  
  ```
-## <a name="configure-the-private-dns-zone"></a>Configure the Private DNS Zone 
-Create a Private DNS Zone for SQL Database server domain and create an association link with the Virtual Network. 
+## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato 
+Creare una zona DNS privato per il dominio del server di database SQL e creare un collegamento di associazione con la rete virtuale. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.database.windows.net" 
@@ -121,7 +121,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-Connect to the VM *myVm* from the internet as follows:
+Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Nella barra di ricerca del portale immettere *myVm*.
 
@@ -144,12 +144,12 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>Access SQL Database Server privately from the VM
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla macchina virtuale
 
-In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
+In questa sezione si stabilirà la connessione al server di database SQL dalla macchina virtuale tramite l'endpoint privato.
 
- 1. In the Remote Desktop of *myVM*, open PowerShell.
- 2. Enter nslookup myserver.database.windows.net  You'll receive a message similar to this: 
+ 1. Nel Desktop remoto di *myVm1* aprire PowerShell.
+ 2. Immettere nslookup myserver.database.windows.net . Verrà visualizzato un messaggio simile al seguente: 
 
 ```
       Server:  UnKnown 
@@ -159,24 +159,23 @@ In this section, you will connect to the SQL Database Server from the VM using t
       Address:  10.0.0.5 
       Aliases:  myserver.database.windows.net 
 ```
- 3. Install SQL Server Management Studio 
- 4. In Connect to server, enter or select this information: Server type: Select Database Engine.
- Server name: Select myserver.database.windows.net Username: Enter a username provided during creation.
- Password: Enter a password provided during creation.
- Remember password: Select Yes.
+ 3. Installare SQL Server Management Studio 
+ 4. In Connetti al server immettere o selezionare queste informazioni: Tipo di server: selezionare Motore di database.
+ Nome server: selezionare myserver.database.windows.net. Nome utente: immettere il nome utente specificato durante la creazione.
+ Password: immettere la password specificata durante la creazione.
+ Memorizza password: selezionare Sì.
  
  5. Selezionare **Connessione**.
- 6. Browse **Databases** from left menu.
- 7. (Optionally) Create or query information from *mydatabase*
- 8. Close the remote desktop connection to *myVm*.
+ 6. Esplorare i **database** dal menu a sinistra.
+ 7. Creare o eseguire query sulle informazioni di *mydatabase* (passaggio facoltativo)
+ 8. Chiudere la connessione Desktop remoto a *myVm*.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+Quando non sono più necessari, è possibile usare il comando az group delete per rimuovere il gruppo di risorse e tutte le risorse in esso contenute: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Learn more about [Azure Private Link](private-link-overview.md)
- 
+- Altre informazioni su [Collegamento privato di Azure](private-link-overview.md)
