@@ -1,25 +1,20 @@
 ---
-title: Distribuire le Istanze di Azure Container abilitate per la GPU
-description: Informazioni su come distribuire istanze di contenitore di Azure per eseguire app contenitore a elevato utilizzo di calcolo con risorse GPU.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Deploy GPU-enabled container instance
+description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
-ms.openlocfilehash: 08a3cd8841b6b867a2dd22078fca3543d2067830
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ea3b0ccba2d84487356f4bbd404cec3af1d0979a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147885"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484179"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
 Per eseguire determinati carichi di lavoro a elevato utilizzo di calcolo in istanze di Azure Container, distribuire i [gruppi di contenitori](container-instances-container-groups.md) con le *risorse della GPU*. Le istanze di contenitore nel gruppo possono accedere a una o più GPU NVIDIA Tesla durante l'esecuzione dei carichi di lavoro dei contenitori, ad esempio CUDA e applicazioni di Deep Learning.
 
-Questo articolo illustra come aggiungere risorse GPU quando si distribuisce un gruppo di contenitori usando un [file YAML](container-instances-multi-container-yaml.md) o [Gestione risorse modello](container-instances-multi-container-group.md). È anche possibile specificare risorse GPU quando si distribuisce un'istanza del contenitore usando il portale di Azure.
+This article shows how to add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md). You can also specify GPU resources when you deploy a container instance using the Azure portal.
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -32,9 +27,9 @@ In fase di anteprima, durante l'uso di risorse della GPU in gruppi di contenitor
 
 In futuro verrà aggiunto il supporto di ulteriori aree.
 
-**Tipi di sistemi operativi supportati**: solo Linux
+**Supported OS types**: Linux only
 
-**Limitazioni aggiuntive**: non è possibile usare le risorse GPU quando si distribuisce un gruppo di contenitori in una [rete virtuale](container-instances-vnet.md).
+**Additional limitations**: GPU resources can't be used when deploying a container group into a [virtual network](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Informazioni sulle risorse GPU
 
@@ -42,10 +37,10 @@ In futuro verrà aggiunto il supporto di ulteriori aree.
 
 Per usare le GPU in un'istanza di contenitore, specificare una *risorsa GPU* con le informazioni seguenti:
 
-* **Conteggio** : numero di GPU: **1**, **2**o **4**.
-* **SKU** : SKU GPU: **K80**, **P100**o **V100**. Ogni SKU esegue il mapping alla GPU NVIDIA Tesla in una delle famiglie di macchine virtuali di Azure abilitate per la GPU seguenti:
+* **Count** - The number of GPUs: **1**, **2**, or **4**.
+* **SKU** - The GPU SKU: **K80**, **P100**, or **V100**. Ogni SKU esegue il mapping alla GPU NVIDIA Tesla in una delle famiglie di macchine virtuali di Azure abilitate per la GPU seguenti:
 
-  | Sku | Famiglia di macchine virtuali |
+  | SKU | Famiglia di macchine virtuali |
   | --- | --- |
   | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
@@ -53,7 +48,7 @@ Per usare le GPU in un'istanza di contenitore, specificare una *risorsa GPU* con
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Quando si distribuiscono risorse GPU, impostare le risorse di CPU e memoria appropriate per il carico di lavoro, fino al valore massimo indicato nella tabella precedente. Questi valori sono attualmente più grandi delle risorse di CPU e memoria disponibili nei gruppi di contenitori senza risorse GPU.  
+When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
 
 ### <a name="things-to-know"></a>Informazioni importanti
 
@@ -65,9 +60,9 @@ Quando si distribuiscono risorse GPU, impostare le risorse di CPU e memoria appr
 
 * **Driver CUDA**: poiché viene effettuato il pre-provisioning delle istanze di contenitore con risorse della GPU con i driver NVIDIA CUDA e i runtime dei contenitori, è possibile usare le immagini dei contenitori sviluppati per carichi di lavoro CUDA.
 
-  In questa fase è supportato CUDA 9,0. Ad esempio, è possibile usare le immagini di base seguenti per il file docker:
+  We support CUDA 9.0 at this stage. For example, you can use following base images for your Docker file:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [tensorflow/tensorflow: 1.12.0-GPU-PY3](https://hub.docker.com/r/tensorflow/tensorflow)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
 ## <a name="yaml-example"></a>Esempio YAML
 
@@ -93,13 +88,13 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Distribuire il gruppo di contenitori con il comando [AZ container create][az-container-create] , specificando il nome del file YAML per il parametro `--file`. È necessario specificare il nome di un gruppo di risorse e un percorso per il gruppo di contenitori come *eastus* che supporta le risorse della GPU.  
+Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter. È necessario specificare il nome di un gruppo di risorse e un percorso per il gruppo di contenitori come *eastus* che supporta le risorse della GPU.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
-La distribuzione richiede alcuni minuti. Viene quindi avviato il contenitore che esegue un'operazione di aggiunta vettore CUDA. Eseguire il comando [AZ container logs][az-container-logs] per visualizzare l'output del log:
+La distribuzione richiede alcuni minuti. Viene quindi avviato il contenitore che esegue un'operazione di aggiunta vettore CUDA. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
@@ -118,7 +113,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Esempio di modello di Resource Manager
 
-Un altro modo per distribuire un gruppo di contenitori con le risorse GPU consiste nell'usare un [modello di Resource Manager](container-instances-multi-container-group.md). Per iniziare, creare un file denominato `gpudeploy.json` e quindi copiarvi il codice JSON seguente. Questo esempio Mostra come distribuire un'istanza di contenitore con una GPU V100 che esegue un processo di training [TensorFlow](https://www.tensorflow.org/) sul set di dati MNIST. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
+Un altro modo per distribuire un gruppo di contenitori con le risorse GPU consiste nell'usare un [modello di Resource Manager](container-instances-multi-container-group.md). Per iniziare, creare un file denominato `gpudeploy.json` e quindi copiarvi il codice JSON seguente. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/) training job against the MNIST dataset. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
 
 ```JSON
 {
@@ -176,7 +171,7 @@ Distribuire il modello con il comando [az group deployment create][az-group-depl
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-La distribuzione richiede alcuni minuti. Viene quindi avviato il contenitore che esegue il processo TensorFlow. Eseguire il comando [AZ container logs][az-container-logs] per visualizzare l'output del log:
+La distribuzione richiede alcuni minuti. Viene quindi avviato il contenitore che esegue il processo TensorFlow. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
@@ -211,7 +206,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Poiché l'utilizzo delle risorse GPU può risultare costoso, assicurarsi che i contenitori non vengono eseguiti in modo imprevisto per lunghi periodi di tempo. Monitorare i contenitori nel portale di Azure o controllare lo stato di un gruppo di contenitori con il comando [AZ container Show][az-container-show] . Ad esempio:
+Poiché l'utilizzo delle risorse GPU può risultare costoso, assicurarsi che i contenitori non vengono eseguiti in modo imprevisto per lunghi periodi di tempo. Monitor your containers in the Azure portal, or check the status of a container group with the [az container show][az-container-show] command. ad esempio:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

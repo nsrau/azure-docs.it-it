@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a1906b8ac281620381176a2a11dff3841069f69
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 2d54ef06fd63a1064962aea6099a2289d04ff658
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062667"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462006"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -49,42 +49,42 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 
 ### <a name="azure-ad-connect-server"></a>Server di Azure AD Connect
 >[!IMPORTANT]
->Il server di Azure AD Connect contiene dati di identità critici e deve essere considerato come un componente di livello 0 come documentato nel [modello di livello amministrativo Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+>The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in [the Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 
 * Azure AD Connect non può essere installato su Small Business Server o Windows Server Essentials prima del 2019 (Windows Server Essentials 2019 è supportato). Il server deve utilizzare Windows Server Standard o versione successiva.
-* L'installazione di Azure AD Connect in un controller di dominio non è consigliata a causa di procedure di sicurezza e impostazioni più restrittive che possono impedire l'installazione corretta di Azure AD Connect.
+* Installing Azure AD Connect on a Domain Controller is not recommended due to security practices and more restrictive settings that can prevent Azure AD Connect from installing correctly.
 * Il server Azure AD Connect deve avere un'interfaccia utente grafica completa installata. **Non è supportata** l'installazione su Server Core.
 >[!IMPORTANT]
->L'installazione di Azure AD Connect su Small Business Server, server Essentials o Server Core non è supportata.
+>Installing Azure AD Connect on small business server, server essentials, or server core is not supported.
 
-* Azure AD Connect deve essere installato in Windows Server 2008 R2 o versione successiva. Questo server deve essere aggiunto a un dominio e può essere un controller di dominio o un server membro.
+* Azure AD Connect deve essere installato in Windows Server 2008 R2 o versione successiva. This server must be domain joined and may be a domain controller or a member server.
 * Se si installa Azure AD Connect in Windows Server 2008 R2, assicurarsi di applicare gli hotfix più recenti da Windows Update. Se il server non dispone delle patch, l'installazione non può iniziare.
 * Se si prevede di usare la funzionalità di **sincronizzazione delle password**, il server di Azure AD Connect deve essere in Windows Server 2008 R2 SP1 o versione successiva.
 * Se si prevede di usare un **account del servizio gestito del gruppo**, il server Azure AD Connect deve essere installato su Windows Server 2012 o versioni successive.
 * Nel server Azure AD Connect devono essere installati[.NET Framework 4.5.1](#component-prerequisites) o versione successiva e [Microsoft PowerShell 3.0](#component-prerequisites) o versione successiva.
-* Nel server Azure AD Connect non deve essere abilitato il criterio di gruppo per la trascrizione di PowerShell.
+* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. Se si usa la procedura guidata di Azure AD Connect per gestire la configurazione della sincronizzazione, è possibile abilitare la trascrizione di PowerShell.
 * Se viene distribuito Active Directory Federation Services, i server in cui viene installato AD FS o il proxy dell'applicazione Web devono essere Windows Server 2012 R2 o versione successiva. [Gestione remota Windows](#windows-remote-management) .
 * Se viene distribuito Active Directory Federation Services, sono necessari i [Certificati SSL](#ssl-certificate-requirements).
 * Se viene distribuito Active Directory Federation Services, è necessario configurare la [risoluzione dei nomi](#name-resolution-for-federation-servers).
 * Se gli amministratori globali hanno attivato MFA, l’URL quindi **https://secure.aadcdn.microsoftonline-p.com** deve essere nella lista dei siti attendibili. Viene richiesto di aggiungere il sito all'elenco dei siti attendibili quando viene richiesta la verifica MFA, se non è stata aggiunta prima. È possibile usare Internet Explorer per aggiungerlo ai siti attendibili.
-* Microsoft consiglia di eseguire la protezione avanzata del server Azure AD Connect per ridurre la superficie di attacco alla sicurezza per questo componente critico dell'ambiente IT.  Seguendo le indicazioni riportate di seguito si ridurranno i rischi per la sicurezza per l'organizzazione.
+* Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
 
-* Distribuire Azure AD Connect in un server aggiunto a un dominio e limitare l'accesso amministrativo agli amministratori di dominio o ad altri gruppi di sicurezza strettamente controllati.
+* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups.
 
 Per altre informazioni, vedere: 
 
-* [Sicurezza dei gruppi Administrators](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Securing administrators groups](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Protezione degli account di amministratore predefiniti](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Securing built-in administrator accounts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Miglioramento della sicurezza e mantenimento della riduzione delle superfici di attacco](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Security improvement and sustainment by reducing attack surfaces](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Riduzione della superficie di attacco Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Reducing the Active Directory attack surface](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usato da Azure AD Connect
-* Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. Per impostazione predefinita viene installato SQL Server 2012 Express LocalDB (una versione ridotta di SQL Server Express). SQL Server Express ha un limite di dimensioni di 10 GB che consente di gestire circa 100.000 oggetti. Se è necessario gestire un numero di oggetti directory maggiore, si dovrà installare una versione di SQL Server diversa. Il tipo di installazione di SQL Server può influisca sulle [prestazioni di Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
-* Se si usa un'installazione diversa di SQL Server, si applicano i requisiti seguenti:
-  * Azure AD Connect supporta tutte le versioni di Microsoft SQL Server da 2008 R2 (con il Service Pack più recente) a SQL Server 2019. Il database SQL di Microsoft Azure **non è supportato** come database.
+* Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. Per impostazione predefinita viene installato SQL Server 2012 Express LocalDB (una versione ridotta di SQL Server Express). SQL Server Express ha un limite di dimensioni di 10 GB che consente di gestire circa 100.000 oggetti. Se è necessario gestire un numero di oggetti directory maggiore, si dovrà installare una versione di SQL Server diversa. The type of SQL Server installation can impact the [performance of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* If you use a different installation of SQL Server, then these requirements apply:
+  * Azure AD Connect supports all versions of Microsoft SQL Server from 2008 R2 (with latest Service Pack) to SQL Server 2019. Il database SQL di Microsoft Azure **non è supportato** come database.
   * È necessario usare regole di confronto SQL senza distinzione tra maiuscole e minuscole. Queste regole di confronto sono identificate da \_CI_ all'interno del nome. **Non è supportato** l'uso di regole di confronto con distinzione tra maiuscole e minuscole identificate da _CS\_ all'interno del nome.
   * È possibile avere un unico motore di sincronizzazione per istanza SQL. **Non è supportata** la condivisione dell'istanza SQL con la sincronizzazione FIM/MIM, DirSync o Azure AD Sync.
 
@@ -114,7 +114,7 @@ Per altre informazioni, vedere:
     </system.net>
 ```
 
-* Se il server proxy richiede l'autenticazione, l'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) deve trovarsi nel dominio ed è necessario specificare un [account del servizio personalizzato](how-to-connect-install-custom.md#install-required-components) tramite il percorso di installazione delle impostazioni personalizzate. È inoltre necessaria una modifica diversa a Machine. config. Con questa modifica in Machine. config, l'installazione guidata e il motore di sincronizzazione rispondono alle richieste di autenticazione dal server proxy. In tutte le pagine dell'istallazione guidata, esclusa la pagina **Configura**, vengono usate le credenziali dell'utente che ha effettuato l'accesso. Nella pagina **Configura** alla fine dell'installazione guidata il contesto passa all'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
+* Se il server proxy richiede l'autenticazione, l'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) deve trovarsi nel dominio ed è necessario specificare un [account del servizio personalizzato](how-to-connect-install-custom.md#install-required-components) tramite il percorso di installazione delle impostazioni personalizzate. You also need a different change to machine.config. With this change in machine.config, the installation wizard and sync engine respond to authentication requests from the proxy server. In tutte le pagine dell'istallazione guidata, esclusa la pagina **Configura**, vengono usate le credenziali dell'utente che ha effettuato l'accesso. Nella pagina **Configura** alla fine dell'installazione guidata il contesto passa all'[account del servizio](reference-connect-accounts-permissions.md#adsync-service-account) creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
 
 ```
     <system.net>
@@ -137,7 +137,7 @@ Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i
 * Facoltativo: un account utente di prova per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti
-### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
+### <a name="powershell-and-net-framework"></a>PowerShell and .NET Framework
 Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel server deve essere installata questa versione o una versione successiva. In base alla versione di Windows Server, seguire questa procedura:
 
 * Windows Server 2012 R2
@@ -149,9 +149,9 @@ Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel ser
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Abilitare TLS 1.2 per Azure AD Connect
-Prima della versione 1.1.614.0, per impostazione predefinita Azure AD Connect usa TLS 1.0 per crittografare le comunicazioni tra il server del motore di sincronizzazione e Azure AD. È possibile modificare questa impostazione configurando le applicazioni .NET per l'uso di TLS 1,2 per impostazione predefinita nel server. Altre informazioni su TLS 1.2 sono disponibili nell'articolo [Advisory Microsoft sulla sicurezza 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Prima della versione 1.1.614.0, per impostazione predefinita Azure AD Connect usa TLS 1.0 per crittografare le comunicazioni tra il server del motore di sincronizzazione e Azure AD. You can change this by configuring .NET applications to use TLS 1.2 by default on the server. Altre informazioni su TLS 1.2 sono disponibili nell'articolo [Advisory Microsoft sulla sicurezza 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. Non è possibile abilitare TLS 1,2 prima di Windows Server 2008 R2 o versioni precedenti. Verificare che sia installato l'hotfix di .NET 4.5.1 per il sistema operativo in uso, vedere l' [avviso di sicurezza Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Questo hotfix o una versione successiva potrebbe essere già installata nel server.
+1. TLS 1.2 cannot be enabled prior to Windows Server 2008 R2 or earlier. Make sure you have the .NET 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Questo hotfix o una versione successiva potrebbe essere già installata nel server.
 2. Se si usa Windows Server 2008 R2, verificare che TLS 1.2 sia abilitato. In Windows Server 2012 e versioni successive, TLS 1.2 dovrebbe essere già abilitato.
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
@@ -221,7 +221,7 @@ La tabella seguente indica i requisiti minimi di sincronizzazione di Azure AD Co
 | 300.000-600.000 |1,6 GHz |32 GB |450 GB |
 | Più di 600.000 |1,6 GHz |32 GB |500 GB |
 
-I requisiti minimi per i computer che eseguono AD FS o i server proxy applicazione Web sono i seguenti:
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
 * CPU: dual core da 1,6 GHz o superiore
 * MEMORIA: 2 GB o superiore

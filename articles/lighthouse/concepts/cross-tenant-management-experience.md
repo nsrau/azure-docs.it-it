@@ -2,13 +2,13 @@
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 11/7/2019
-ms.topic: overview
-ms.openlocfilehash: 0d04a7a77a3f92cffb185ff829f0d678dac2a9ff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131925"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464025"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -64,7 +64,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Visualizzare avvisi per le sottoscrizioni delegate, con la possibilità di visualizzare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
-- Log Analytics: Eseguire query sui dati dalle aree di lavoro remote dei clienti in più tenant
+- Log analytics: Query data from remote customer workspaces in multiple tenants
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
 
 [Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/):

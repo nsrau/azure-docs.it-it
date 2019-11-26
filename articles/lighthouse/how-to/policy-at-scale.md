@@ -2,13 +2,13 @@
 title: Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 description: Informazioni sul modo in cui la gestione risorse delegate di Azure consente di distribuire una definizione e un'assegnazione dei criteri tra più tenant.
 ms.date: 11/8/2019
-ms.topic: overview
-ms.openlocfilehash: fd335e77feb26241d573db48c2e96c725f70d031
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131281"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463865"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 

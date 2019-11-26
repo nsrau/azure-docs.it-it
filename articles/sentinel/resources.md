@@ -1,6 +1,6 @@
 ---
-title: Risorse utili quando si lavora con Sentinel di Azure | Microsoft Docs
-description: Questo documento fornisce un elenco di risorse utili quando si lavora con Sentinel di Azure.
+title: Useful resources when working with Azure Sentinel| Microsoft Docs
+description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,42 +13,75 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 04c4192293cbfa96eefcc1c84083dd54042ebe8f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71239973"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484078"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>Useful resources for working with Azure Sentinel
 
 
 
-Questo articolo elenca le risorse che consentono di ottenere altre informazioni sull'uso di Azure Sentinel.
+This article lists resources that can help you get more information about working with Azure Sentinel.
 
-Connettori per app per la logica di Azure:<https://docs.microsoft.com/connectors/>
+Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Controllo e creazione di report
-I log di controllo di Azure Sentinel vengono conservati nei [log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+
+The following supported operations can be audited.
+
+|Nome operazione|    Tipo di risorsa|
+|----|----|
+|Create or update workbook  |Microsoft.Insights/workbooks|
+|Delete Workbook    |Microsoft.Insights/workbooks|
+|Set Workflow   |Microsoft.Logic/workflows|
+|Delete Workflow    |Microsoft.Logic/workflows|
+|Create Saved Search    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Delete Saved Search    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Set Dashboard  |Microsoft.Portal/dashboards|
+|Delete Dashboard   |Microsoft.Portal/dashboards|
+|Update Alert Rules |Microsoft.SecurityInsights/alertRules|
+|Delete Alert Rules |Microsoft.SecurityInsights/alertRules|
+|Update Alert Rule Response Actions |Microsoft.SecurityInsights/alertRules|
+|Delete Alert Rule Response Actions |Microsoft.SecurityInsights/alertRules|
+|Update Bookmarks   |Microsoft.SecurityInsights/bookmarks|
+|Delete Bookmarks   |Microsoft.SecurityInsights/bookmarks|
+|Update Cases   |Microsoft.SecurityInsights/Cases|
+|Update Case Investigation  |Microsoft.SecurityInsights/Cases|
+|Create Case Comments   |Microsoft.SecurityInsights/Cases|
+|Update Data Connectors |Microsoft.SecurityInsights/dataConnectors|
+|Delete Data Connectors |Microsoft.SecurityInsights/dataConnectors|
+|Update Settings    |Microsoft.SecurityInsights/settings|
+
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>View audit and reporting data in Azure Sentinel
+
+You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
+
+1. Connect the [Azure Activity](connect-azure-activity.md) data source. After doing this, audit events are streamed into a new table in the **Logs** screen called AzureActivity.
+2. Then, query the data using KQL, like you would any other table.
 
 
-## <a name="vendor-documentation"></a>Documentazione fornitore
 
-| **Fornitore**  | **Usare l'evento imprevisto in Sentinel di Azure** | **Collegamento**|
+## <a name="vendor-documentation"></a>Vendor documentation
+
+| **Fornitore**  | **Use incident in Azure Sentinel** | **Collegamento**|
 |----|----|----|
-| GitHub| Usato per accedere alla pagina della community| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| Configurare CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Corso del linguaggio di query kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
+| PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
+| PluralSight | Kusto Query Language course| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
-## <a name="blogs-and-forums"></a>Blog e forum
+## <a name="blogs-and-forums"></a>Blogs and forums
 
-Inserire le domande nello [spazio TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) per Azure Sentinel.
+Post your questions on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel.
 
-Visualizza i post di Blog di Azure Sentinel da [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) e [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+View Azure Sentinel blog posts from the [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) and [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato ottenuto un elenco di risorse utili quando si lavora con Sentinel di Azure. Per informazioni aggiuntive sulla sicurezza e la conformità di Azure, vedere il [Blog sulla Microsoft Azure sicurezza e conformità](https://blogs.msdn.com/b/azuresecurity/).
+In this document, you got a list of resources that are useful when you're working with Azure Sentinel. You'll find additional information about Azure security and compliance on the [Microsoft Azure Security and Compliance blog](https://blogs.msdn.com/b/azuresecurity/).

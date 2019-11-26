@@ -1,27 +1,22 @@
 ---
-title: Configurare probe di attività in Istanze di Azure Container
+title: Set up liveness probe on container instance
 description: Informazioni su come configurare probe di attività per riavviare i contenitori non integri in Istanze di Azure Container
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: danlep
-ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904439"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481688"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
 
-Le applicazioni incluse in contenitori possono essere eseguite per periodi prolungati di tempo, causando stati interrotti che potrebbero dover essere ripristinati riavviando il contenitore. Istanze di contenitore di Azure supporta i probe di liveity per poter configurare i contenitori all'interno del gruppo di contenitori per il riavvio se le funzionalità critiche non funzionano. Il probe di liveity si comporta come un [Probe di Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+Containerized applications may run for extended periods of time, resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes so that you can configure your containers within your container group to restart if critical functionality is not working. The liveness probe behaves like a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 Questo articolo illustra come distribuire un gruppo di contenitori che include un probe di attività, per dimostrare il riavvio automatico di un contenitore non integro simulato.
 
-Istanze di contenitore di Azure supporta anche [Probe di conformità](container-instances-readiness-probe.md), che è possibile configurare per garantire che il traffico raggiunga un contenitore solo quando è pronto per l'it.
+Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
 
 ## <a name="yaml-deployment"></a>Distribuzione con file YAML
 
@@ -65,17 +60,17 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Comando di avvio
 
-La distribuzione definisce un comando iniziale da eseguire quando viene avviata per la prima volta l'esecuzione del contenitore, definito dalla proprietà `command`, che accetta una matrice di stringhe. In questo esempio, verrà avviata una sessione bash e verrà creato un file denominato `healthy` all'interno della directory `/tmp` passando questo comando:
+The deployment defines a starting command to be run when the container first starts running, defined by the `command` property, which accepts an array of strings. In questo esempio, verrà avviata una sessione bash e verrà creato un file denominato `healthy` all'interno della directory `/tmp` passando questo comando:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Quindi verrà sospeso per 30 secondi prima di eliminare il file e quindi entrerà in una sospensione di 10 minuti.
+ It will then sleep for 30 seconds before deleting the file, then enters a 10-minute sleep.
 
 ### <a name="liveness-command"></a>Comando di verifica dell'attività (liveness)
 
-Questa distribuzione definisce un `livenessProbe` che supporta un comando `exec` liveity che funge da controllo della durata. Se questo comando termina con un valore diverso da zero, il contenitore verrà terminato e riavviato, a indicare che non è stato trovato il file `healthy`. Se questo comando termina correttamente con il codice di uscita 0, non verrà eseguita alcuna azione.
+This deployment defines a `livenessProbe` that supports an `exec` liveness command that acts as the liveness check. Se questo comando termina con un valore diverso da zero, il contenitore verrà terminato e riavviato, a indicare che non è stato trovato il file `healthy`. Se questo comando termina correttamente con il codice di uscita 0, non verrà eseguita alcuna azione.
 
 La proprietà `periodSeconds` stabilisce che il comando di verifica dell'attività deve essere eseguito ogni 5 secondi.
 
@@ -89,7 +84,7 @@ Questi eventi possono essere visualizzati dal portale di Azure o dall'interfacci
 
 ![Evento di non integrità nel portale][portal-unhealthy]
 
-Quando si visualizzano gli eventi nel portale di Azure, gli eventi di tipo `Unhealthy` verranno attivati in caso di errore del comando liveness. L'evento successivo sarà di tipo `Killing`, che significa l'eliminazione di un contenitore, quindi può iniziare un riavvio. Il numero di riavvio per il contenitore viene incrementato ogni volta che si verifica questo evento.
+Quando si visualizzano gli eventi nel portale di Azure, gli eventi di tipo `Unhealthy` verranno attivati in caso di errore del comando liveness. L'evento successivo sarà di tipo `Killing`, che significa l'eliminazione di un contenitore, quindi può iniziare un riavvio. The restart count for the container increments each time this event  occurs.
 
 I riavvi vengono completati sul posto, in modo da mantenere risorse come gli indirizzi IP pubblici e il contenuto specifico del nodo.
 
@@ -99,7 +94,7 @@ Se il probe di attività ha continuamente esito negativo e genera troppi riavvii
 
 ## <a name="liveness-probes-and-restart-policies"></a>Probe di attività e criteri di riavvio
 
-I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai probe di attività. Se, ad esempio, si impostano un `restartPolicy = Never` *e* un probe di Livezza, il gruppo di contenitori non viene riavviato a causa di un controllo del tempo di insuccesso. Il gruppo di contenitori dovrà invece rispettare i criteri di riavvio `Never` del gruppo di contenitori.
+I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai probe di attività. For example, if you set a `restartPolicy = Never` *and* a liveness probe, the container group will not restart because of a failed liveness check. Il gruppo di contenitori dovrà invece rispettare i criteri di riavvio `Never` del gruppo di contenitori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

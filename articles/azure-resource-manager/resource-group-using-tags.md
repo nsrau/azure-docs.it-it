@@ -1,14 +1,14 @@
 ---
-title: Contrassegnare le risorse per l'organizzazione logica
+title: Tag resources for logical organization
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: b332ae86e714d4b642f921d217d80e802fa60572
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f3fca2030d33ba5a52d43924ff542801d435e4de
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149595"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484270"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -20,7 +20,7 @@ Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel 
 
 ## <a name="policies"></a>Criteri
 
-È possibile usare [Criteri di Azure](../governance/policy/overview.md) per applicare le regole e le convenzioni dell'assegnazione di tag. Tramite la creazione di un criterio, è possibile evitare che lo scenario di risorse distribuito nella sottoscrizione non rispetti i tag previsti per l'organizzazione. Anziché procedere manualmente all'applicazione dei tag o alla ricerca delle risorse non conformi, è possibile creare un criterio che applica automaticamente i tag necessari durante la distribuzione. I tag possono essere ora applicati anche alle risorse esistenti con il nuovo effetto [modifica](../governance/policy/concepts/effects.md#modify) e un' [attività di correzione](../governance/policy/how-to/remediate-resources.md). La sezione seguente illustra i criteri di esempio per i tag.
+È possibile usare [Criteri di Azure](../governance/policy/overview.md) per applicare le regole e le convenzioni dell'assegnazione di tag. Tramite la creazione di un criterio, è possibile evitare che lo scenario di risorse distribuito nella sottoscrizione non rispetti i tag previsti per l'organizzazione. Anziché procedere manualmente all'applicazione dei tag o alla ricerca delle risorse non conformi, è possibile creare un criterio che applica automaticamente i tag necessari durante la distribuzione. Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). La sezione seguente illustra i criteri di esempio per i tag.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -104,7 +104,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *non salvare i tag esistenti nelle risorse*, usare lo script seguente:
+To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -114,7 +114,7 @@ foreach ($g in $groups)
 }
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *salvare i tag esistenti nelle risorse non duplicate*, usare lo script seguente:
+To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -206,18 +206,18 @@ az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet -
 Per aggiungere tag a una risorsa che dispone già di tag, recuperare i tag esistenti, riformattare il valore e riapplicare i tag nuovi e già esistenti:
 
 ```azurecli
-jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
+jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags -o json)
 rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *non salvare i tag esistenti nelle risorse*, usare lo script seguente:
+To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
 for rg in $groups
 do
-  jsontag=$(az group show -n $rg --query tags)
+  jsontag=$(az group show -n $rg --query tags -o json)
   t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
   r=$(az resource list -g $rg --query [].id --output tsv)
   for resid in $r
@@ -227,18 +227,18 @@ do
 done
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse e *salvare i tag esistenti nelle risorse*, usare lo script seguente:
+To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
 for rg in $groups
 do
-  jsontag=$(az group show -n $rg --query tags)
+  jsontag=$(az group show -n $rg --query tags -o json)
   t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
   r=$(az resource list -g $rg --query [].id --output tsv)
   for resid in $r
   do
-    jsonrtag=$(az resource show --id $resid --query tags)
+    jsonrtag=$(az resource show --id $resid --query tags -o json)
     rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
     az resource tag --tags $t$rt --id $resid
   done
@@ -247,7 +247,7 @@ done
 
 ## <a name="templates"></a>Modelli
 
-Per contrassegnare una risorsa durante la distribuzione, aggiungere l'elemento `tags` alla risorsa che si sta distribuendo. e specificare il nome e il valore del tag.
+To tag a resource during deployment, add the `tags` element to the resource you're deploying. e specificare il nome e il valore del tag.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>Applicare un valore letterale al nome del tag
 
@@ -283,7 +283,7 @@ L'esempio seguente illustra un account di archiviazione con due tag (`Dept` e `E
 }
 ```
 
-Per impostare un tag su un valore DateTime, utilizzare la [funzione UtcNow](resource-group-template-functions-string.md#utcnow).
+To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
 
 ### <a name="apply-an-object-to-the-tag-element"></a>Applicare un oggetto all'elemento tag
 
@@ -325,7 +325,7 @@ Per impostare un tag su un valore DateTime, utilizzare la [funzione UtcNow](reso
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>Applicare una stringa JSON al nome del tag
 
-Per memorizzare più valori in un singolo tag, è possibile applicare una stringa JSON che rappresenta tali valori. L'intera stringa JSON viene archiviata come un tag che non può superare i 256 caratteri. L'esempio seguente include un tag singolo denominato `CostCenter` che contiene più valori da una stringa JSON:  
+Per memorizzare più valori in un singolo tag, è possibile applicare una stringa JSON che rappresenta tali valori. The entire JSON string is stored as one tag that can't exceed 256 characters. L'esempio seguente include un tag singolo denominato `CostCenter` che contiene più valori da una stringa JSON:  
 
 ```json
 {
@@ -356,9 +356,9 @@ Per memorizzare più valori in un singolo tag, è possibile applicare una string
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Applicare i tag dal gruppo di risorse
+### <a name="apply-tags-from-resource-group"></a>Apply tags from resource group
 
-Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) . Quando si recupera il valore del tag, usare la sintassi `tags.[tag-name]` invece della sintassi `tags.tag-name`, perché alcuni caratteri non vengono analizzati correttamente nella notazione del punto.
+To apply tags from a resource group to a resource, use the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
 
 ```json
 {

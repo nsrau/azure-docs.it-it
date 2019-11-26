@@ -1,32 +1,35 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: container-service
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0695416c65eed2bbf0a19d5ed1ea0c53a7ece332
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67180510"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485427"
 ---
-| Risorsa | Limite predefinito |
+| Gruppi | Limite predefinito |
 | --- | :--- |
-| Numero massimo di cluster per sottoscrizione | 100 |
-| Numero massimo di nodi per cluster | 100 |
-| Numero massimo di pod per nodo: [Rete di base][basic-networking] con Kubenet | 110 |
-| Numero massimo di pod per nodo: [Rete avanzata][advanced-networking] con l'interfaccia di rete di contenitori di Azure | Distribuzione con l'interfaccia della riga di comando di Azure: 30<sup>1</sup><br />Modello di Azure Resource Manager: 30<sup>1</sup><br />Distribuzione con il portale: 30 |
+| Maximum clusters per subscription | 100 |
+| Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU  | 100 |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 800 (100 nodes per [node pool][node-pool]) |
+| Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
+| Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Distribuzione dell'interfaccia della riga di comando di Azure: 30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />Distribuzione portale: 30 |
 
-<sup>1</sup> Quando si distribuisce un cluster Azure Kubernetes Service (AKS) con l'interfaccia della riga di comando di Azure o un modello di Gestione risorse, questo valore è configurabile fino a 250 pod per ogni nodo. Non è possibile configurare il numero massimo di pod per nodo dopo che è già stato distribuito un cluster AKS o se si distribuisce un cluster usando il portale di Azure.<br />
+<sup>1</sup>When you deploy an Azure Kubernetes Service (AKS) cluster with the Azure CLI or a Resource Manager template, this value is configurable up to 250 pods per node. You can't configure maximum pods per node after you've already deployed an AKS cluster, or if you deploy a cluster by using the Azure portal.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

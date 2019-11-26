@@ -1,25 +1,20 @@
 ---
-title: Usare Istanze di Azure Container come agente di compilazione Jenkins
-description: Informazioni su come configurare un server Jenkins per l'esecuzione di processi di compilazione su richiesta in istanze di contenitore di Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Jenkins build on container instance
+description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: danlep
-ms.openlocfilehash: 7e93457a182598a2e8d739f4d626b49ff57b30fb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150224"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484071"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usare Istanze di Azure Container come agente di compilazione Jenkins
 
 Istanze di Azure Container offre un ambiente isolato on demand utilizzabile in modalità burst per eseguire carichi di lavoro in contenitori. Grazie a questi attributi, le istanze di contenitore di Azure sono un'ottima piattaforma per l'esecuzione di processi di compilazione di Jenkins su vasta scala. Questo articolo descrive in modo dettagliato come distribuire e usare un server Jenkins preconfigurato con istanze di contenitore di Azure come destinazione di compilazione.
 
-Per altre informazioni sulle istanze di contenitore di Azure, vedere [informazioni sulle istanze di contenitore di Azure][about-aci].
+For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
 
 ## <a name="deploy-a-jenkins-server"></a>Distribuire un server Jenkins
 
@@ -48,7 +43,7 @@ Per altre informazioni sulle istanze di contenitore di Azure, vedere [informazio
 
    ![Impostazioni aggiuntive per la distribuzione del portale Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Per l'integrazione dell'entità servizio, selezionare **auto (MSI)** per fare in modo che le [identità gestite per le risorse di Azure][managed-identities-azure-resources] creino automaticamente un'identità di autenticazione per l'istanza di Jenkins. Selezionare l'opzione **Manuale** per fornire le credenziali della propria entità servizio.
+4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. Selezionare l'opzione **Manuale** per fornire le credenziali della propria entità servizio.
 
 5. Gli agenti cloud configurano una piattaforma basata sul cloud per i processi di compilazione di Jenkins. Ai fini di questo articolo selezionare un'**istanza di contenitore di Azure**. Con l'agente cloud delle istanze di contenitore di Azure, ogni processo di compilazione di Jenkins viene eseguito in un'istanza di contenitore.
 
@@ -70,7 +65,7 @@ Per altre informazioni sulle istanze di contenitore di Azure, vedere [informazio
 
 4. Quando viene stabilita la connessione eseguire il comando seguente per recuperare la password amministratore iniziale:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
@@ -134,7 +129,7 @@ Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Jenkins in Azure, vedere [Azure e Jenkins][jenkins-azure].
+To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

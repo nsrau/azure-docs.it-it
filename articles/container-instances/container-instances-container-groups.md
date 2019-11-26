@@ -1,28 +1,23 @@
 ---
-title: Gruppi di contenitori in Istanze di Azure Container
-description: Informazioni sui gruppi di contenitori in istanze di contenitore di Azure, una raccolta di istanze che condividono un ciclo di vita e risorse come l'archiviazione e la rete
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Introduction to container groups
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ef6745e18a0df3ee0a572f106d1507d0fca32ac2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150198"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482107"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
 La risorsa di livello principale in Istanze di Azure Container è il *gruppo di contenitori*. Questo articolo descrive le caratteristiche dei gruppi di contenitori e i tipi di scenari possibili.
 
-## <a name="what-is-a-container-group"></a>Che cos'è un gruppo di contenitori?
+## <a name="what-is-a-container-group"></a>What is a container group?
 
-Un gruppo di contenitori è una raccolta di contenitori che vengono pianificati nello stesso computer host I contenitori in un gruppo di contenitori condividono un ciclo di vita, le risorse, la rete locale e i volumi di archiviazione. Si tratta di un concetto simile a un *Pod* in [Kubernetes][kubernetes-pod].
+Un gruppo di contenitori è una raccolta di contenitori che vengono pianificati nello stesso computer host The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a *pod* in [Kubernetes][kubernetes-pod].
 
 Il diagramma seguente mostra un esempio di un gruppo che include più contenitori:
 
@@ -37,45 +32,45 @@ Questo gruppo di contenitori di esempio:
 * Include due condivisioni file di Azure come punti di montaggio di volume e ogni contenitore monta una delle due condivisioni in locale.
 
 > [!NOTE]
-> I gruppi di più contenitori supportano attualmente solo i contenitori Linux. Per i contenitori di Windows, istanze di contenitore di Azure supporta solo la distribuzione di una singola istanza. Mentre stiamo lavorando per riunire tutte le funzionalità nei contenitori di Windows, è possibile trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers)del servizio.
+> Multi-container groups currently support only Linux containers. For Windows containers, Azure Container Instances only supports deployment of a single instance. While we are working to bring all features to Windows containers, you can find current platform differences in the service [Overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Distribuzione
 
-Ecco due modi comuni per distribuire un gruppo di più contenitori: usare un [modello di gestione risorse][resource-manager template] o un [file YAML][yaml-file]. Quando si distribuiscono le istanze di contenitore, è consigliabile usare un modello di Gestione risorse quando è necessario distribuire altre risorse dei servizi di Azure (ad esempio, una [condivisione file di Azure][azure-files]). A causa della natura più concisa del formato YAML, è consigliabile usare un file YAML quando la distribuzione include solo istanze di contenitore. Per informazioni dettagliate sulle proprietà che è possibile impostare, vedere la documentazione di riferimento del [modello di gestione risorse](/azure/templates/microsoft.containerinstance/containergroups) o di [riferimento YAML](container-instances-reference-yaml.md) .
+Here are two common ways to deploy a multi-container group: use a [Resource Manager template][resource-manager template] or a [YAML file][yaml-file]. A Resource Manager template is recommended when you need to deploy additional Azure service resources (for example, an [Azure Files share][azure-files]) when you deploy the container instances. Due to the YAML format's more concise nature, a YAML file is recommended when your deployment includes only container instances. For details on properties you can set, see the [Resource Manager template reference](/azure/templates/microsoft.containerinstance/containergroups) or [YAML reference](container-instances-reference-yaml.md) documentation.
 
-Per mantenere la configurazione di un gruppo di contenitori, è possibile esportare la configurazione in un file YAML usando il comando dell'interfaccia della riga di comando di Azure [AZ container Export][az-container-export]. L'esportazione consente di archiviare le configurazioni del gruppo di contenitori nel controllo della versione per "configurazione come codice". In alternativa, usare il file esportato come punto di partenza per lo sviluppo di una nuova configurazione in YAML.
+To preserve a container group's configuration, you can export the configuration to a YAML file by using the Azure CLI command [az container export][az-container-export]. Export allows you to store your container group configurations in version control for "configuration as code." In alternativa, usare il file esportato come punto di partenza per lo sviluppo di una nuova configurazione in YAML.
 
 
 
 ## <a name="resource-allocation"></a>Allocazione delle risorse
 
-Istanze di contenitore di Azure alloca le risorse, ad esempio CPU, memoria e facoltativamente [GPU][gpus] (anteprima) a un gruppo di contenitori, aggiungendo le [richieste di risorse][resource-requests] delle istanze nel gruppo. Assunzione di risorse della CPU come esempio, se si crea un gruppo di contenitori con due istanze, ciascuna delle quali richiede 1 CPU, al gruppo di contenitori vengono allocate 2 CPU.
+Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
-### <a name="resource-usage-by-instances"></a>Utilizzo delle risorse da istanze
+### <a name="resource-usage-by-instances"></a>Resource usage by instances
 
-A ogni istanza di contenitore vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, l'utilizzo delle risorse da parte di un'istanza di contenitore in un gruppo dipende dalla modalità di configurazione della proprietà del [limite di risorse][resource-limits] facoltativo.
+Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property.
 
-* Se non si specifica un limite di risorse, l'utilizzo massimo delle risorse dell'istanza è uguale a quello della relativa richiesta di risorse.
+* If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
-* Se si specifica un limite di risorse per un'istanza, è possibile modificare l'utilizzo delle risorse dell'istanza per il proprio carico di lavoro, riducendo o aumentando l'utilizzo rispetto alla richiesta di risorse. Il limite massimo di risorse che è possibile impostare è il totale delle risorse allocate al gruppo.
+* If you specify a resource limit for an instance, you can adjust the instance's resource usage for its workload, either reducing or increasing usage relative to the resource request. The maximum resource limit you can set is the total resources allocated to the group.
     
-    Ad esempio, in un gruppo con due istanze che richiedono 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di più CPU rispetto all'altra.
+    For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
-    In questo scenario, è possibile impostare un limite di risorse di 0,5 CPU per un'istanza e un limite di 2 CPU per il secondo. Questa configurazione limita l'utilizzo delle risorse del primo contenitore alla CPU 0,5, consentendo al secondo contenitore di usare fino a 2 CPU complete, se disponibili.
+    In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
 
-Per altre informazioni, vedere la proprietà [ResourceRequirements][resource-requirements] nell'API REST dei gruppi di contenitori.
+For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 
-### <a name="minimum-and-maximum-allocation"></a>Allocazione minima e massima
+### <a name="minimum-and-maximum-allocation"></a>Minimum and maximum allocation
 
-* Allocare **almeno** 1 CPU e 1 GB di memoria a un gruppo di contenitori. È possibile eseguire il provisioning di istanze di contenitore singole all'interno di un gruppo con meno di 1 CPU e 1 GB di memoria. 
+* Allocate a **minimum** of 1 CPU and 1 GB of memory to a container group. Individual container instances within a group can be provisioned with less than 1 CPU and 1 GB of memory. 
 
-* Per le risorse **massime** in un gruppo di contenitori, vedere la pagina relativa alla [disponibilità delle risorse][region-availability] per le istanze di contenitore di Azure nell'area di distribuzione.
+* For the **maximum** resources in a container group, see the [resource availability][region-availability] for Azure Container Instances in the deployment region.
 
 ## <a name="networking"></a>Rete
 
-I gruppi di contenitori condividono un indirizzo IP e uno spazio dei nomi di porta su tale indirizzo IP. Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Poiché i contenitori all'interno del gruppo condividono uno spazio dei nomi di porta, il mapping delle porte non è supportato. I contenitori all'interno di un gruppo possono raggiungere reciprocamente tramite localhost sulle porte esposte, anche se queste porte non sono esposte esternamente all'indirizzo IP del gruppo.
+I gruppi di contenitori condividono un indirizzo IP e uno spazio dei nomi di porta su tale indirizzo IP. Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports aren't exposed externally on the group's IP address.
 
-Facoltativamente, distribuire i gruppi di contenitori in una [rete virtuale di Azure][virtual-network] (anteprima) per consentire ai contenitori di comunicare in modo sicuro con altre risorse nella rete virtuale.
+Optionally deploy container groups into an [Azure virtual network][virtual-network] (preview) to allow containers to communicate securely with other resources in the virtual network.
 
 ## <a name="storage"></a>Archiviazione
 
@@ -90,7 +85,7 @@ Un esempio di utilizzo può includere gli elementi seguenti:
 * Un contenitore che serve un'applicazione Web e un altro che esegue il pull del contenuto più recente dal controllo del codice sorgente.
 * Un contenitore di applicazione e un contenitore di registrazione. Il contenitore di registrazione raccoglie l'output dei log e delle metriche generato dall'applicazione principale e lo scrive in una risorsa di archiviazione a lungo termine.
 * Un contenitore di applicazione e un contenitore di monitoraggio. Il contenitore di monitoraggio invia periodicamente una richiesta all'applicazione per verificare che sia in esecuzione e risponda correttamente e genera un avviso nel caso in cui la verifica abbia esito negativo.
-* Un contenitore front-end e un contenitore back-end. Il front-end potrebbe servire un'applicazione Web, con il back-end che esegue un servizio per recuperare i dati. 
+* A front-end container and a back-end container. The front end might serve a web application, with the back end running a service to retrieve data. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

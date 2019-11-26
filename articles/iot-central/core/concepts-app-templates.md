@@ -1,76 +1,79 @@
 ---
-title: Che cosa sono i modelli di applicazione in Azure IoT Central | Microsoft Docs
-description: I modelli di applicazione IoT Central di Azure consentono di passare allo sviluppo di soluzioni Internet.
+title: What are application templates in Azure IoT Central | Microsoft Docs
+description: Azure IoT Central application templates allow you to jump in to IoT solution development.
 author: philmea
 ms.author: philmea
 ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3389744c44f7eb4f11a1c9a53ea9e370b83dd79b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890834"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480315"
 ---
-# <a name="what-are-application-templates"></a>Che cosa sono i modelli di applicazione?
+# <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
-I modelli di applicazione in Azure IoT Central sono uno strumento che consente ai generatori di soluzioni di eseguire il proprio sviluppo di soluzioni. È possibile usare i modelli di app per tutti gli elementi, in modo da ottenere un'idea di ciò che è possibile, per personalizzare completamente e l'applicazione per la rivendita ai clienti.
+Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing and your application for resale to your customers.
 
-I modelli di applicazione sono costituiti da:
+Application templates consist of:
 
 - Dashboard operatore di esempio
-- Modelli di dispositivo di esempio
-- Dispositivi simulati che producono dati in tempo reale
+- Sample device templates
+- Simulated devices producing real-time data
 - Regole e processi preconfigurati
-- Documentazione avanzata, incluse le esercitazioni e le procedure
+- Rich documentation including tutorials and how-tos
 
-## <a name="preview-templates"></a>Modelli di anteprima
+## <a name="preview-templates"></a>Preview templates
 
-Il modello di applicazione scelto determina se l'applicazione usa IoT Central funzionalità di anteprima, ad esempio Plug and Play per i dispositivi.
+Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
 
-Attualmente, i modelli di applicazione che usano le funzionalità disponibili a livello _generale_ sono:
+Currently, the application templates that use _generally available_ features are:
 
-- App personalizzata > applicazione personalizzata
-- App personalizzata > esempio contoso
-- App personalizzata > esempio devkits
+- Custom app > Custom application
+- Custom app > Sample Contoso
+- Custom app > Sample Devkits
 
-Attualmente, i modelli di applicazione che usano le funzionalità di _anteprima pubblica_ sono:
+Currently, the application templates that use _public preview_ features are:
 
-- Applicazione > anteprima dell'app personalizzata
-- Logistica per la vendita al dettaglio >
-- Centro distribuzione digitale > al dettaglio
-- Analisi in-Store del > al dettaglio-monitoraggio delle condizioni
-- Analisi dei > al dettaglio in-Store-checkout
-- Gestione dell'inventario intelligente > al dettaglio
-- Monitoraggio di energia > Smart Meter
-- Monitoraggio del pannello solare di energia >
-- Gestione dello spreco connesso > per enti pubblici
-- Monitoraggio del consumo idrico > per enti pubblici
-- Monitoraggio della qualità dell'acqua > per enti pubblici
-- Assistenza sanitaria > monitoraggio continuo del paziente
+- Custom app > Preview application
+- Retail > Connected logistics
+- Retail > Digital distribution center
+- Retail > In-store analytics – condition monitoring
+- Retail > In-store analytics – checkout
+- Retail > Smart inventory management
+- Energy > Smart meter monitoring
+- Energy > Solar panel monitoring
+- Government > Connected waste management
+- Government > Water consumption monitoring
+- Government > Water quality monitoring
+- Healthcare > Continuous patient monitoring
 
-## <a name="industry-focused-templates"></a>Modelli mirati al settore
+> [!NOTE]
+> The **Custom application, Sample Contoso, Sample Devkits** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
 
-Azure IoT Central è una piattaforma applicativa indipendente dal settore. I modelli di applicazione sono esempi specifici del settore attualmente disponibili per questi settori, con un maggiore futuro:
+## <a name="industry-focused-templates"></a>Industry focused templates
+
+Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
 
 - [Retail](../retail/overview-iot-central-retail-pnp.md) (Vendita)
   - Logistica connessa
   - Centro di distribuzione digitale
-  - Analisi in-Store-monitoraggio delle condizioni
-  - Analisi in-Store-checkout
-  - Gestione Smart Inventory
+  - In-store analytics - condition monitoring
+  - In-store analytics - checkout
+  - Smart Inventory Management
 - [Energia](../energy/overview-iot-central-energy.md)
-  - Monitoraggio Smart Meter
+  - Monitoraggio contatori intelligenti
   - Monitoraggio pannelli solari
-- [Governo](../government/overview-iot-central-government.md)
+- [Government](../government/overview-iot-central-government.md)
   - Gestione rifiuti connessa
   - Monitoraggio consumo idrico
   - Monitoraggio qualità acqua
-- [Assistenza sanitaria](../healthcare/overview-iot-central-healthcare.md).
+- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
   - Monitoraggio pazienti continuo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conoscono i modelli di applicazione IoT Central, iniziare [creando un'applicazione IoT Central](quick-deploy-iot-central.md).
+Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central.md).

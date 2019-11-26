@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a1f377c3325797f2f55f051830014b1068c51327
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405582"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483377"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "74405582"
 ## <a name="routing-methods"></a>Metodi di routing
 Gestione traffico di Azure usa quattro metodi di routing diversi. Questi metodi vengono descritti nell'elenco seguente, in quanto pertinenti al servizio app di Azure.
 
-* **[Priorità](../traffic-manager/traffic-manager-routing-methods.md#priority):** per usare un'app principale per tutto il traffico e fornire dei backup se l'app principale o quelle di backup non sono disponibili.
+* **[Priorità](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** per usare un'app principale per tutto il traffico e fornire dei backup se l'app principale o quelle di backup non sono disponibili.
 * **[Ponderato](../traffic-manager/traffic-manager-routing-methods.md#weighted):** per distribuire il traffico in un set di app in modo uniforme o in base alle ponderazioni definite.
 * **[Prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando si dispone di app in posizioni geografiche diverse, usare l'app "più vicina" in termini di latenza di rete più bassa.
 * **[Geografico](../traffic-manager/traffic-manager-routing-methods.md#geographic):** per indirizzare gli utenti ad app specifiche in base alla posizione geografica da cui ha origine la query DNS. 

@@ -1,26 +1,21 @@
 ---
-title: Recuperare log ed eventi dei contenitori con Istanze di Azure Container
+title: Get container instance logs & events
 description: Informazioni su come eseguire il debug con i log e gli eventi dei contenitori con Istanze di Azure Container
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325961"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481754"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperare log ed eventi dei contenitori in Istanze di Azure Container
 
-Quando si dispone di un contenitore errato, iniziare visualizzando i log con il comando [AZ container logs][az-container-logs]e trasmettere in streaming il relativo standard e l'errore standard con [AZ container collegata][az-container-attach].
+When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
-## <a name="view-logs"></a>Visualizza i log
+## <a name="view-logs"></a>Visualizzare i log
 
 Per visualizzare i log generati dal codice dell'applicazione all'interno di un contenitore, è possibile usare il comando [az container logs][az-container-logs].
 
@@ -48,9 +43,9 @@ Traceback (most recent call last):
 urllib.error.HTTPError: HTTP Error 404: Not Found
 ```
 
-## <a name="attach-output-streams"></a>Collegare i flussi di output
+## <a name="attach-output-streams"></a>Associare i flussi di output
 
-Il comando [AZ container alleghi][az-container-attach] fornisce informazioni di diagnostica durante l'avvio del contenitore. Dopo l'avvio, il contenitore trasmette STDOUT e STDERR alla console locale.
+The [az container attach][az-container-attach] command provides diagnostic information during container startup. Dopo l'avvio, il contenitore trasmette STDOUT e STDERR alla console locale.
 
 Ecco ad esempio l'output del contenitore basato su attività in [Eseguire un'attività in contenitori in Istanze di contenitore di Azure](container-instances-restart-policy.md), dopo avere specificato un URL valido di un file di testo di grandi dimensioni da elaborare:
 

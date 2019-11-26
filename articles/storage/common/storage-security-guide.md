@@ -1,6 +1,6 @@
 ---
 title: Guida alla sicurezza di Archiviazione di Azure | Microsoft Docs
-description: Metodi dettagliati per la protezione degli account di archiviazione di Azure, tra cui sicurezza del piano di gestione, autorizzazione, sicurezza della rete, crittografia e così via.
+description: Details methods for securing Azure Storage accounts, including management plane security, authorization, network security, encryption, etc.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,44 +10,44 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 15c59a29bff50f13eea104cb436d1a3764f6d713
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 11/25/2019
 ms.locfileid: "72926712"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
-Archiviazione di Azure offre un set completo di funzionalità di sicurezza che consentono alle organizzazioni di creare e distribuire applicazioni sicure:
+Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
 
-- Tutti i dati (inclusi i metadati) scritti in archiviazione di Azure vengono crittografati automaticamente usando [crittografia del servizio di archiviazione (SSE)](storage-service-encryption.md). Per altre informazioni, vedere [annuncio della crittografia predefinita per archiviazione BLOB, file, tabelle e code di Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo (RBAC) sono supportati sia per le operazioni di gestione delle risorse che per le operazioni del piano dati:   
+- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queues Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for both resource management operations and data plane operations:   
     - È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato sull'account di archiviazione alle entità di sicurezza e usare Azure AD per autorizzare le operazioni di gestione delle risorse, ad esempio la gestione delle chiavi.
-    - Azure AD integrazione è supportata per le operazioni sui dati di BLOB e di Accodamento. I ruoli RBAC possono essere limitati a una sottoscrizione, a un gruppo di risorse, a un account di archiviazione, a un singolo contenitore o a una coda. I ruoli possono essere assegnati a un'entità di sicurezza o a un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).
-- I dati possono essere protetti in transito tra un'applicazione e Azure usando la [crittografia lato client](../storage-client-side-encryption.md), HTTPS o SMB 3,0.  
+    - Azure AD integration is supported for blob and queue data operations. RBAC roles can be scoped to a subscription, resource group, storage account, individual container or queue. Roles can be assigned to a security principal or a managed identity for Azure resources. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).
+- Data can be secured in transit between an application and Azure using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
 - I dischi dati e del sistema operativo usati dalle macchine virtuali di Azure possono essere crittografati con [Crittografia dischi di Azure](../../security/fundamentals/encryption-overview.md).
-- È possibile concedere l'accesso delegato agli oggetti dati in archiviazione di Azure usando una firma di accesso condiviso. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](storage-sas-overview.md).
-- La sicurezza a livello di rete tra i componenti dell'applicazione e l'archiviazione può essere abilitata usando il firewall di archiviazione, gli endpoint di servizio o gli endpoint privati.
+- Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
+- Network-layer security between your application components and storage can be enabled using the storage firewall, service endpoints or private endpoints.
 
-Questo articolo offre una panoramica di queste funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Sono disponibili collegamenti ad articoli che forniscono ulteriori dettagli su ogni funzionalità.
+Questo articolo offre una panoramica di queste funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Links are provided to articles provide additional details on each capability.
 
-Ecco le aree descritte in questo articolo:
+Here are the areas covered in this article:
 
-* [Sicurezza del piano di gestione](#management-plane-security) -protezione dell'accesso a livello di risorsa all'account di archiviazione
+* [Management Plane Security](#management-plane-security) – Securing resource-level access to your Storage Account
 
-  Il piano di gestione è costituito dalle operazioni usate per gestire l'account di archiviazione. Questa sezione illustra il modello di distribuzione Azure Resource Manager e come usare il controllo degli accessi in base al ruolo per controllare l'accesso agli account di archiviazione. Descrive anche la gestione delle chiavi dell'account di archiviazione e come rigenerarle.
+  The management plane consists of the operations used to manage your storage account. Questa sezione illustra il modello di distribuzione Azure Resource Manager e come usare il controllo degli accessi in base al ruolo per controllare l'accesso agli account di archiviazione. Descrive anche la gestione delle chiavi dell'account di archiviazione e come rigenerarle.
 
-* [Sicurezza di rete](#network-security) -protezione dell'accesso a livello di rete per l'account di archiviazione
+* [Network Security](#network-security) - Securing network-level access to your Storage Account
 
-  Questa sezione illustra come è possibile proteggere l'accesso a livello di rete agli endpoint dei servizi di archiviazione. Viene illustrato come è possibile utilizzare il firewall di archiviazione per consentire l'accesso ai dati da reti virtuali o intervalli di indirizzi IP specifici. Illustra anche l'uso degli endpoint di servizio e degli endpoint privati con gli account di archiviazione.
+  This section covers how you can secure the network-level access to the storage services endpoints. It discusses how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
 
-* [Autorizzazione](#authorization) : autorizzazione dell'accesso ai dati
+* [Authorization](#authorization) – Authorizing access to your data
 
-  Questa sezione descrive l'accesso agli oggetti dati nell'account di archiviazione, ad esempio BLOB, file, code e tabelle, usando firme di accesso condiviso e criteri di accesso archiviati. Vengono trattate anche le firme di accesso condiviso sia a livello di servizio che di account. Viene inoltre spiegato come limitare l'accesso a un indirizzo IP specifico o un intervallo di indirizzi IP, come limitare il protocollo usato per HTTPS e come revocare una firma di accesso condiviso senza attenderne la scadenza.
+  This section describes access to the data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. Vengono trattate anche le firme di accesso condiviso sia a livello di servizio che di account. Viene inoltre spiegato come limitare l'accesso a un indirizzo IP specifico o un intervallo di indirizzi IP, come limitare il protocollo usato per HTTPS e come revocare una firma di accesso condiviso senza attenderne la scadenza.
 
 * [Crittografia in transito](#encryption-in-transit)
 
-  Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Vengono illustrati l'uso consigliato di HTTPS e la crittografia usata da SMB 3.0 per le condivisioni file di Azure. Verrà inoltre illustrata la crittografia lato client, che consente di crittografare i dati prima del trasferimento nell'archivio e di decrittografare i dati dopo che sono stati trasferiti fuori dallo spazio di archiviazione.
+  Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Vengono illustrati l'uso consigliato di HTTPS e la crittografia usata da SMB 3.0 per le condivisioni file di Azure. We will also discuss Client-side Encryption, which enables you to encrypt data before transfer into Storage, and to decrypt the data after it is transferred out of Storage.
 
 * [Crittografia di dati inattivi](#encryption-at-rest)
 
@@ -122,16 +122,16 @@ Le chiavi dell'account di archiviazione sono stringhe a 512 bit create da Azure 
 
 Per ogni account di archiviazione sono disponibili due chiavi, dette "Chiave 1" e "Chiave 2" nel [portale di Azure](https://portal.azure.com/) e nei cmdlet di PowerShell. Queste possono essere rigenerate manualmente usando uno dei diversi metodi disponibili, inclusi ad esempio il [portale di Azure](https://portal.azure.com/), PowerShell, l'interfaccia della riga di comando di Azure, oppure a livello di codice con la libreria del client di archiviazione per .NET o l'API REST dei servizi di archiviazione di Azure.
 
-Esistono diversi motivi per rigenerare le chiavi dell'account di archiviazione.
+There are various reasons to regenerate your storage account keys.
 
-* È possibile rigenerarle periodicamente per la sicurezza.
-* È possibile rigenerare le chiavi dell'account di archiviazione in caso di compromissione dell'applicazione o della sicurezza di rete.
-* Un'altra istanza per la rigenerazione delle chiavi è quando i membri del team con accesso alle chiavi vengono lasciati. Le firme di accesso condiviso sono state progettate principalmente per risolvere questo scenario: è necessario condividere una stringa o un token di connessione SAS a livello di account, invece di condividere le chiavi di accesso, con la maggior parte degli utenti o delle applicazioni.
+* You may regenerate them periodically for security.
+* You might regenerate your storage account keys if your application or network security is compromised.
+* Another instance for key regeneration is when team members with access to the keys leave. Shared Access Signatures were designed primarily to address this scenario – you should share an account-level SAS connection string or token, instead of sharing access keys, with most individuals or applications.
 
 #### <a name="key-regeneration-plan"></a>Piano di rigenerazione delle chiavi
-Non è consigliabile rigenerare una chiave di accesso in uso senza alcuna pianificazione. La rigenerazione di chiavi improvvise può bloccare l'accesso a un account di archiviazione per le applicazioni esistenti, causando un'interruzione sostanziale. Gli account di archiviazione di Azure forniscono due chiavi, in modo che sia possibile rigenerare una chiave alla volta.
+You should not regenerate an access key in use without planning. Abrupt key regeneration can block access to a storage account for existing applications, causing major disruption. Azure Storage accounts provide two keys, so that you can regenerate one key at a time.
 
-Prima di rigenerare le chiavi, assicurarsi di avere un elenco di tutte le applicazioni che dipendono dall'account di archiviazione, nonché qualsiasi altro servizio usato in Azure. Se ad esempio si usa servizi multimediali di Azure, usare l'account di archiviazione, è necessario risincronizzare le chiavi di accesso con il servizio multimediale dopo la rigenerazione della chiave. Se si usa un'applicazione come Storage Explorer, sarà necessario fornire anche nuove chiavi a tali applicazioni. Se sono disponibili VM i cui file VHD sono archiviati nell'account di archiviazione, queste non saranno interessate dalla rigenerazione delle chiavi dell'account di archiviazione.
+Before you regenerate your keys, be sure you have a list of all applications dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services use your storage account, you must resync the access keys with your media service after you regenerate the key. If you are using an application such as a storage explorer, you will need to provide new keys to those applications as well. Se sono disponibili VM i cui file VHD sono archiviati nell'account di archiviazione, queste non saranno interessate dalla rigenerazione delle chiavi dell'account di archiviazione.
 
 È possibile rigenerare le chiavi nel portale di Azure. Una volta che le chiavi sono state rigenerate, per la sincronizzazione con i servizi di archiviazione possono essere necessari fino a 10 minuti.
 
@@ -145,11 +145,11 @@ Se attualmente si usa la Chiave 2, è possibile usare lo stesso processo, ma inv
 
 Si può eseguire la migrazione nell'arco di un paio di giorni, modificando ogni applicazione per l'uso della nuova chiave e pubblicandola. Una volta modificate tutte le applicazioni, si dovrà rigenerare la chiave precedente in modo che non funzioni più.
 
-Un'altra opzione consiste nell'inserire la chiave dell'account di archiviazione in un [insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) come chiave privata e fare in modo che le applicazioni recuperino la chiave da quella posizione. Di conseguenza, quando si rigenera la chiave e si aggiorna l'insieme di credenziali delle chiave di Azure, non sarà necessario ridistribuire le applicazioni, perché acquisiranno automaticamente la nuova chiave dall'insieme di credenziali delle chiavi di Azure. È possibile fare in caso che l'applicazione legga la chiave ogni volta che è necessaria o che l'applicazione possa memorizzarla nella cache e, se si verifica un errore durante l'uso, recuperare di nuovo la chiave dalla Azure Key Vault.
+Un'altra opzione consiste nell'inserire la chiave dell'account di archiviazione in un [insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) come chiave privata e fare in modo che le applicazioni recuperino la chiave da quella posizione. Di conseguenza, quando si rigenera la chiave e si aggiorna l'insieme di credenziali delle chiave di Azure, non sarà necessario ridistribuire le applicazioni, perché acquisiranno automaticamente la nuova chiave dall'insieme di credenziali delle chiavi di Azure. You can have the application read the key each time it needs it, or the application can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
 
-L'uso dell'insieme di credenziali delle chiavi di Azure aggiunge anche un altro livello di sicurezza per le chiavi di archiviazione. Utilizzando la Key Vault, consente di evitare di scrivere chiavi di archiviazione nei file di configurazione dell'applicazione. Impedisce inoltre l'esposizione delle chiavi a tutti gli utenti che dispongono dell'accesso a tali file di configurazione.
+L'uso dell'insieme di credenziali delle chiavi di Azure aggiunge anche un altro livello di sicurezza per le chiavi di archiviazione. Using the Key Vault, enables you to avoid writing storage keys in application configuration files. It also prevents exposure of keys to everyone with access to those configuration files.
 
-Azure Key Vault offre anche il vantaggio di usare Azure AD per controllare l'accesso alle chiavi. È possibile concedere l'accesso alle applicazioni specifiche che devono recuperare le chiavi da Key Vault, senza esporle ad altre applicazioni che non necessitano dell'accesso alle chiavi.
+Azure Key Vault also has the advantage of using Azure AD to control access to your keys. You can grant access to the specific applications that need to retrieve the keys from Key Vault, without exposing them to other applications that do not need access to the keys.
 
 > [!NOTE]
 > Microsoft consiglia di usare solo una delle chiavi in tutte le applicazioni contemporaneamente. Se si usa la Chiave 1 in alcune posizioni e la Chiave 2 in altre, non si potranno ruotare le chiavi senza quale applicazione perda l'accesso.
@@ -160,39 +160,39 @@ Azure Key Vault offre anche il vantaggio di usare Azure AD per controllare l'acc
 * [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="network-security"></a>Sicurezza di rete
-La sicurezza di rete consente di limitare l'accesso ai dati in un account di archiviazione di Azure da reti selezionate. È possibile usare il firewall di archiviazione di Azure per limitare l'accesso ai client da intervalli di indirizzi IP pubblici specifici, selezionare reti virtuali (reti virtuali) in Azure o risorse di Azure specifiche. È anche possibile creare un endpoint privato per l'account di archiviazione in VNet che richiede l'accesso e bloccare tutti gli accessi tramite l'endpoint pubblico.
+Network Security enables you to restrict access to the data in an Azure Storage Account from select networks. You can use the Azure Storage firewall to restrict access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources. You also have the option to create a Private Endpoint for your storage account in the VNet that needs access, and blocking all access through the public endpoint.
 
-È possibile configurare le regole di accesso alla rete per l'account di archiviazione tramite la scheda [firewall e reti virtuali](storage-network-security.md) nella portale di Azure. Utilizzando il firewall di archiviazione, è possibile negare l'accesso per il traffico Internet pubblico e concedere l'accesso per selezionare i client in base alle regole di rete configurate.
+You can configure the network access rules for your storage account through the [Firewalls and Virtual Networks](storage-network-security.md) tab in the Azure portal. Using the storage firewall, you can deny access for public internet traffic, and grant access to select clients based on the configured network rules.
 
-È anche possibile usare [endpoint privati](../../private-link/private-endpoint-overview.md) per connettersi privatamente e in modo sicuro a un account di archiviazione da una VNet usando [collegamenti privati](../../private-link/private-link-overview.md).
+You can also use [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
 
-Le regole del firewall di archiviazione si applicano solo all'endpoint pubblico per l'account di archiviazione. La subnet che ospita un endpoint privato per un account di archiviazione Ottiene l'accesso implicito all'account quando si approva la creazione di tale endpoint privato.
+Storage firewall rules only apply to the public endpoint for the storage account. The subnet that hosts a private endpoint for a storage account gets implicit access to the account when you approve the creation of that private endpoint.
 
 > [!NOTE]
-> Le regole del firewall di archiviazione non sono applicabili alle operazioni di gestione dell'archiviazione eseguite tramite il portale di Azure e l'API di gestione di archiviazione di Azure.
+> The storage firewall rules are not applicable to storage management operations conducted through the Azure portal and the Azure Storage Management API.
 
-### <a name="access-rules-for-public-ip-address-ranges"></a>Regole di accesso per gli intervalli di indirizzi IP pubblici
-Il firewall di archiviazione di Azure può essere usato per limitare l'accesso a un account di archiviazione da intervalli di indirizzi IP pubblici specifici. È possibile usare le regole degli indirizzi IP per limitare l'accesso a servizi basati su Internet specifici che comunicano su un endpoint IP pubblico fisso o per selezionare le reti locali.
+### <a name="access-rules-for-public-ip-address-ranges"></a>Access rules for public IP address ranges
+The Azure Storage firewall can be used to restrict access to a storage account from specific public IP address ranges. You can use IP address rules to restrict access to specific internet-based services communicating on a fixed public IP endpoint, or to select on-premises networks.
 
-### <a name="access-rules-for-azure-virtual-networks"></a>Regole di accesso per le reti virtuali di Azure
-Per impostazione predefinita, gli account di archiviazione accettano connessioni da client in qualsiasi rete. È possibile limitare l'accesso client ai dati in un account di archiviazione alle reti selezionate usando il firewall di archiviazione. Gli [endpoint di servizio](../../virtual-network/virtual-network-service-endpoints-overview.md) consentono il routing del traffico da una rete virtuale di Azure all'account di archiviazione. 
+### <a name="access-rules-for-azure-virtual-networks"></a>Access rules for Azure virtual networks
+Storage accounts, by default, accept connections from clients on any network. You can restrict the client access to the data in a storage account to selected networks using the storage firewall. [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) enable routing of traffic from an Azure virtual network to the storage account. 
 
-### <a name="granting-access-to-specific-trusted-resource-instances"></a>Concessione dell'accesso a istanze di risorse attendibili specifiche
-È possibile consentire a un [sottoinsieme di servizi attendibili di Azure](storage-network-security.md#trusted-microsoft-services) di accedere all'account di archiviazione tramite il firewall con autenticazione avanzata basata sul tipo di risorsa del servizio o su un'istanza di risorsa.
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>Granting access to specific trusted resource instances
+You can allow a [subset of Azure trusted services](storage-network-security.md#trusted-microsoft-services) to access the storage account through the firewall with strong authentication based on the service resource type, or a resource instance.
 
-Per i servizi che supportano l'accesso basato su istanze di risorse tramite il firewall di archiviazione, solo l'istanza selezionata può accedere ai dati nell'account di archiviazione. In questo caso, il servizio deve supportare l'autenticazione dell'istanza di risorsa usando [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md)assegnate dal sistema.
+For the services that support resource instance-based access through the storage firewall, only the selected instance can access the data in the storage account. In this case, the service must support resource-instance authentication using system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
-### <a name="using-private-endpoints-for-securing-connections"></a>Uso di endpoint privati per la protezione delle connessioni
-Archiviazione di Azure supporta endpoint privati che consentono l'accesso sicuro dell'account di archiviazione da una rete virtuale di Azure. Gli endpoint privati assegnano un indirizzo IP privato dallo spazio degli indirizzi di VNet al servizio di archiviazione. Quando si usano endpoint privati, la stringa di connessione di archiviazione reindirizza il traffico destinato all'account di archiviazione all'indirizzo IP privato. La connessione tra l'endpoint privato e l'account di archiviazione usa un collegamento privato. Usando endpoint privati è possibile bloccare exfiltration di dati da VNet.
+### <a name="using-private-endpoints-for-securing-connections"></a>Using private endpoints for securing connections
+Azure Storage supports private endpoints, which enable secure access of storage account from an Azure virtual network. Private endpoints assign a private IP address from your VNet's address space to the storage service. When using private endpoints, the storage connection string redirects traffic destined for the storage account to the private IP address. The connection between the private endpoint and the storage account uses a private link. Using private endpoints you can block exfiltration of data from your VNet.
 
-Le reti locali connesse tramite il peering privato VPN o [delle expressroute](../../expressroute/expressroute-locations.md) e altre reti virtuali con peering possono accedere anche all'account di archiviazione tramite l'endpoint privato. È possibile creare un endpoint privato per gli account di archiviazione in un VNet in qualsiasi area, abilitando una copertura globale sicura. È anche possibile creare endpoint privati per gli account di archiviazione in altri tenant [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) .
+On-premises networks connected over VPN or [ExpressRoutes](../../expressroute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoint for your storage accounts can be created in a VNet in any region, enabling a secure global reach. You may also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
 
 ## <a name="authorization"></a>Authorization
 La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti dati archiviati in Archiviazione di Azure: BLOB, code, tabelle e file. Sono stati esaminati i metodi per crittografare i dati e per la sicurezza durante la trasmissione di dati, ora si vedrà come fare per controllare l'accesso agli oggetti stessi.
 
 Sono disponibili tre opzioni per autorizzare l'accesso agli oggetti dati in Archiviazione di Azure, tra cui:
 
-- Uso di Azure AD per autorizzare l'accesso a contenitori e code. Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md). 
+- Using Azure AD to authorize access to containers and queues. Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md). 
 - Uso delle chiavi dell'account di archiviazione per autorizzare l'accesso tramite chiave condivisa. L'autorizzazione tramite chiave condivisa richiede l'archiviazione delle chiavi dell'account di archiviazione nell'applicazione, quindi Microsoft consiglia di usare Azure AD, quando possibile.
 - Uso di firme di accesso condiviso per concedere autorizzazioni controllate per oggetti dati specifici per un determinato periodo di tempo.
 
@@ -273,7 +273,7 @@ Per informazioni più dettagliate sull'uso di firme di accesso condiviso e crite
   * [Creazione di una firma di accesso condiviso del servizio](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Creazione di una firma di accesso condiviso dell'account](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* Si tratta di un'esercitazione per l'uso della libreria client .NET per creare firme di accesso condiviso e criteri di accesso archiviati.
+* This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
   * [Uso delle firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md)
 
     Questo articolo contiene una spiegazione del modello di firma di accesso condiviso, esempi di firme di accesso condiviso e suggerimenti per la procedura consigliata da usare per le firme di accesso condiviso. È descritta anche la revoca dell'autorizzazione concessa.
@@ -336,7 +336,7 @@ Per la crittografia stessa, è possibile generare e gestire chiavi di crittograf
   Questo articolo fornisce una spiegazione della crittografia lato client, con esempi d'uso della libreria client di archiviazione per crittografare e decrittografare le risorse dai quattro servizi di archiviazione. Illustra anche l'insieme di credenziali delle chiavi di Azure.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Uso di Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali
-Crittografia dischi di Azure consente di crittografare i dischi del sistema operativo e i dischi dati usati da una macchina virtuale IaaS. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, integrata nell'insieme di credenziali delle chiavi per consentire il controllo e la gestione delle chiavi di crittografia del disco.
+Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, integrata nell'insieme di credenziali delle chiavi per consentire il controllo e la gestione delle chiavi di crittografia del disco.
 
 La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abilitati in Microsoft Azure:
 

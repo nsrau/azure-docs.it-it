@@ -2,13 +2,13 @@
 title: Azure Lighthouse in scenari aziendali
 description: Le funzionalità di Azure Lighthouse possono essere usate per semplificare la gestione tra tenant all'interno di un'azienda che usa più tenant di Azure AD.
 ms.date: 09/25/2019
-ms.topic: overview
-ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132493"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463907"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse in scenari aziendali
 
@@ -24,7 +24,7 @@ Al tempo stesso, in determinate situazioni potrebbe essere necessario per un'org
 
 Quando si centralizzano le operazioni di gestione in più tenant, è necessario determinare in quale tenant saranno inclusi gli utenti che eseguono operazioni di gestione per gli altri tenant. In altri termini, sarà necessario determinare quale sarà il tenant di gestione per gli altri tenant.
 
-Si supponga, ad esempio, che l'organizzazione abbia un tenant singolo denominato *Tenant A*. L'organizzazione acquisisce quindi due tenant aggiuntivi, *Tenant B* e *Tenant C*, che per motivi aziendali devono essere mantenuti distinti.
+For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires two additional tenants, *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants.
 
 L'organizzazione vuole usare le stesse definizioni di criteri e procedure di backup e gli stessi processi di sicurezza in tutti i tenant. Dato che sono già presenti utenti (inclusi gruppi di utenti ed entità servizio) incaricati di queste attività in Tenant A, è possibile eseguire l'onboarding di tutte le sottoscrizioni di Tenant B e Tenant C in modo che gli stessi utenti di Tenant A possano eseguire tali attività.
 

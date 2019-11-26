@@ -1,5 +1,5 @@
 ---
-title: Effettuare il provisioning della macchina virtuale con portale di Azure
+title: Provision virtual machine with Azure portal
 description: Questa guida dettagliata descrive le opzioni per la creazione di macchine virtuali Windows di SQL Server 2017 nel portale di Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 68fda45038da48660da0c29787b3a86e00d9b129
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033576"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464158"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Come effettuare il provisioning di una macchina virtuale Windows di SQL Server nel portale di Azure
 
@@ -37,12 +37,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una delle numerose immagini configurate in precedenza dalla raccolta delle macchine virtuali. La procedura seguente spiega come selezionare una delle immagini di SQL Server 2017.
 
-1. Selezionare **Azure SQL** nel menu a sinistra nel portale di Azure. Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
-1. Selezionare **+ Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. È possibile visualizzare informazioni aggiuntive selezionando **Mostra dettagli**. 
-1. Digitare `2017` nella casella di ricerca immagine SQL Server del riquadro **macchine virtuali SQL** e quindi selezionare **licenza gratuita SQL Server: SQL Server 2017 Developer in Windows Server 2016** dall'elenco a discesa. 
+1. Selezionare **Azure SQL** dal menu a sinistra nel portale di Azure. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
+1. Selezionare **+ Aggiungi** per aprire la pagina **Selezionare l'opzione di distribuzione SQL**. You can view additional information by selecting **Show details**. 
+1. Type `2017` in the SQL Server image search box on the **SQL virtual machines** tile, and then select **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** from the drop-down. 
 
 
-   ![Selezionare l'immagine di macchina virtuale SQL](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
+   ![Select SQL VM image](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
 
    > [!TIP]
    > L'edizione per sviluppatori viene usata in questa procedura dettagliata perché è una versione completa di SQL Serve gratuita per i test di sviluppo. Si paga solo il costo dell'esecuzione della macchina virtuale. Per questa procedura dettagliata è tuttavia possibile scegliere e usare qualsiasi immagine. Per una descrizione delle immagini disponibili, vedere la [panoramica delle macchine virtuali di Microsoft SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -53,36 +53,36 @@ Quando si crea una macchina virtuale di SQL Server, è possibile selezionare una
    > Per altre informazioni su queste opzioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 
-## <a name="1-configure-basic-settings"></a>1. configurare le impostazioni di base
+## <a name="1-configure-basic-settings"></a>1. Configure basic settings
 
 
 Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
-* In **Dettagli progetto**verificare che sia selezionata la sottoscrizione corretta. 
-*  Nella sezione **gruppo di risorse** selezionare un gruppo di risorse esistente dall'elenco oppure scegliere **Crea nuovo** per creare un nuovo gruppo di risorse. Un gruppo di risorse è una raccolta di risorse correlate in Azure, ovvero macchine virtuali, account di archiviazione, reti virtuali e così via. 
+* Under **Project Details**, make sure the correct subscription is selected. 
+*  In the **Resource group** section, either select an existing resource group from the list or choose **Create new** to create a new resource group. Un gruppo di risorse è una raccolta di risorse correlate in Azure, ovvero macchine virtuali, account di archiviazione, reti virtuali e così via. 
 
-    ![sottoscrizione](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Sottoscrizione](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > L'uso di un nuovo gruppo di risorse risulta utile se si stanno solo eseguendo test o se si sta iniziando a usare le distribuzioni di SQL Server in Azure. Dopo aver completato il test, eliminare il gruppo di risorse per eliminare automaticamente la macchina virtuale e tutte le risorse associate a tale gruppo di risorse. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
 
 * In **Dettagli istanza**:
-    1. Immettere un nome univoco per la **macchina virtuale**.  
+    1. Enter a unique **Virtual machine name**.  
     1. Scegliere una posizione per l'**area**. 
-    1. Ai fini di questa guida, lasciare le **Opzioni di disponibilità** impostate su _nessuna ridondanza dell'infrastruttura richiesta_. Per altre informazioni sulle opzioni di disponibilità, vedere [Disponibilità](../../windows/availability.md). 
-    1. Nell'elenco **immagine** selezionare _licenza gratuita SQL Server: SQL Server 2017 Developer in Windows Server 2016_.  
+    1. For the purpose of this guide, leave **Availability options** set to _No infrastructure redundancy required_. Per altre informazioni sulle opzioni di disponibilità, vedere [Disponibilità](../../windows/availability.md). 
+    1. In the **Image** list, select _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_.  
     1. Scegliere **Modifica dimensioni** per modificare le **dimensioni** della macchina virtuale e selezionare l'offerta **A2 Basic**. Assicurarsi di cancellare le risorse quando non sono più necessarie per evitare eventuali addebiti imprevisti. Per i carichi di lavoro di produzione, vedere le dimensioni e la configurazione di VM consigliate in [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
     ![Dettagli dell'istanza](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
-> Il costo mensile stimato visualizzato nella finestra **Scegli una dimensione** non include i costi di licenza di SQL Server, Questa stima rappresenta solo il costo della VM. Per le edizioni Express e Developer di SQL Server, la stima indica il costo stimato totale. Per altre edizioni, vedere la [pagina dei prezzi delle macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e selezionare l'edizione di SQL Server di interesse. Vedere anche le [linee guida sui prezzi per SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md) le [macchine virtuali e le dimensioni di Azure per le macchine virtuali](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Il costo mensile stimato visualizzato nella finestra **Scegli una dimensione** non include i costi di licenza di SQL Server, Questa stima rappresenta solo il costo della VM. Per le edizioni Express e Developer di SQL Server, la stima indica il costo stimato totale. Per altre edizioni, vedere la [pagina dei prezzi delle macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e selezionare l'edizione di SQL Server di interesse. Also see the [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) and [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* In **account amministratore**specificare un nome utente e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* Under **Administrator account**, provide a username and a password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Account amministratore](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
@@ -91,66 +91,66 @@ Nella scheda **Nozioni di base** specificare le informazioni seguenti:
    ![Regole porta in ingresso](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 
-## <a name="2-configure-optional-features"></a>2. configurare le funzionalità facoltative
+## <a name="2-configure-optional-features"></a>2. Configure optional features
 
 ### <a name="disks"></a>Dischi
 
-Nella scheda **dischi** configurare le opzioni del disco. 
+On the **Disks** tab, configure your disk options. 
 
-* In **tipo di disco del sistema operativo**selezionare il tipo di disco desiderato per il sistema operativo dall'elenco a discesa. Il livello Premium è consigliato per i sistemi di produzione, ma non è disponibile per una macchina virtuale di base. Per utilizzare SSD Premium, modificare le dimensioni della macchina virtuale. 
-* In **Avanzate**selezionare **sì** in USA **Managed disks**.
+* Under **OS disk type**, select the type of disk you want for your OS from the drop-down. Premium is recommended for production systems but is not available for a Basic VM. To utilize Premium SSD, change the virtual machine size. 
+* Under **Advanced**, select **Yes** under use **Managed Disks**.
 
    > [!NOTE]
-   > Per SQL Server è consigliabile usare Managed Disks. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. Per altre informazioni, vedere [Panoramica di Managed Disks di Azure](../managed-disks-overview.md). Per informazioni dettagliate sull'uso di Managed Disks in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../manage-availability.md).
+   > Per SQL Server è consigliabile usare Managed Disks. Managed Disks gestisce automaticamente le risorse di archiviazione. Inoltre, quando le macchine virtuali con Managed Disks sono nello stesso set di disponibilità, Azure distribuisce le risorse di archiviazione in modo da garantire la ridondanza appropriata. For more information, see [Azure Managed Disks Overview](../managed-disks-overview.md). Per informazioni dettagliate sull'uso di Managed Disks in un set di disponibilità, vedere [Usare Managed Disks per le macchine virtuali nel set di disponibilità](../manage-availability.md).
 
-![Impostazioni del disco della VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
+![SQL VM Disk settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   
   
 ### <a name="networking"></a>Rete
 
-Nella scheda **rete** configurare le opzioni di rete. 
+On the **Networking** tab, configure your networking options. 
 
-* Creare una nuova **rete virtuale**o usare un vNet esistente per la VM SQL Server. Designare anche una **subnet** . 
+* Create a new **virtual network**, or use an existing vNet for your SQL Server VM. Designate a **Subnet** as well. 
 
-* In **gruppo di sicurezza di rete NIC**selezionare un gruppo di sicurezza di base o il gruppo di sicurezza avanzato. La scelta dell'opzione di base consente di selezionare le porte in ingresso per la macchina virtuale SQL Server (gli stessi valori configurati nella scheda di **base** ). Selezionando l'opzione avanzate è possibile scegliere un gruppo di sicurezza di rete esistente o crearne uno nuovo. 
+* Under **NIC network security group**, select either a basic security group, or the advanced security group. Choosing the basic option allows you to select inbound ports for the SQL Server VM (the same values that were configured on the **Basic** tab). Selecting the advanced option allows you to choose an existing network security group, or create a new one. 
 
 * È possibile apportare altre modifiche alle impostazioni di rete o mantenere i valori predefiniti.
 
-![Impostazioni di rete VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-networking.png)
+![SQL VM Networking settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-networking.png)
 
-#### <a name="monitoring"></a>Monitoraggio
+#### <a name="monitoring"></a>Monitorare
 
-Nella scheda **monitoraggio** configurare il monitoraggio e l'arresto automatico. 
+On the **Monitoring** tab, configure monitoring and autoshutdown. 
 
-* Per impostazione predefinita, Azure Abilita la **diagnostica di avvio** con lo stesso account di archiviazione designato per la macchina virtuale. È possibile modificare queste impostazioni, oltre ad abilitare la **diagnostica Guest del sistema operativo**. 
-* Anche in questa scheda è possibile abilitare l' **identità gestita assegnata dal sistema** e l' **arresto** automatico. 
+* Azure enables **Boot diagnostics** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
+* You can enable **System assigned managed identity** and **autoshutdown** on this tab as well. 
 
-![Impostazioni di gestione delle macchine virtuali SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
+![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
 
-## <a name="3-configure-sql-server-settings"></a>3. configurare le impostazioni di SQL Server
+## <a name="3-configure-sql-server-settings"></a>3. Configure SQL Server settings
 
-Nella scheda **impostazioni SQL Server** configurare impostazioni e ottimizzazioni specifiche per SQL Server. Di seguito sono riportate le impostazioni che è possibile configurare per SQL Server:
+On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
 
 | Impostazione |
 | --- |
 | [Connettività](#connectivity) |
 | [Autenticazione](#authentication) |
-| [Integrazione dell'insieme di credenziali delle chiavi di Azure](#azure-key-vault-integration) |
+| [Integrazione di Azure Key Vault](#azure-key-vault-integration) |
 | [Configurazione dell'archiviazione](#storage-configuration) |
 | [Applicazione automatica delle patch](#automated-patching) |
 | [Backup automatico](#automated-backup) |
-| [R Services (Advanced Analytics)](#r-services-advanced-analytics) |
+| [Machine Learning Services](#machine-learning-services) |
 
 
 ### <a name="connectivity"></a>Connettività
 
-In **Connettività SQL**specificare il tipo di accesso da assegnare all'istanza di SQL Server nella VM. Ai fini di questa procedura dettagliata, selezionare **Pubblica (Internet)** per consentire connessioni a SQL Server da macchine virtuali o servizi su Internet. Se questa opzione è selezionata, Azure configura automaticamente il firewall e il gruppo di sicurezza di rete per consentire il traffico sulla porta selezionata.
+In **Connettività SQL**specificare il tipo di accesso da assegnare all'istanza di SQL Server nella VM. Ai fini di questa procedura dettagliata, selezionare **Pubblica (Internet)** per consentire connessioni a SQL Server da macchine virtuali o servizi su Internet. With this option selected, Azure automatically configures the firewall and the network security group to allow traffic on the port selected.
 
 > [!TIP]
 > Per impostazione predefinita, SQL Server è in ascolto su una porta nota, la porta **1433**. Per aumentare la sicurezza, modificare la porta nella finestra di dialogo precedente impostando l'ascolto su una porta non predefinita, ad esempio la 1401. Se si cambia la porta, è necessario usare tale porta per la connessione da qualsiasi strumento client, ad esempio SSMS.
 
-![Sicurezza VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-security.png)
+![SQL VM Security](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-security.png)
 
 Per connettersi a SQL Server tramite Internet, è necessario abilitare anche l'Autenticazione di SQL Server, illustrata nella sezione successiva.
 
@@ -163,29 +163,29 @@ Se si preferisce non abilitare le connessioni al motore di database tramite Inte
 
 
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
-Se è necessaria l'autenticazione SQL Server, fare clic su **Abilita** in **autenticazione SQL** nella scheda **Impostazioni SQL Server** .
+If you require SQL Server Authentication, click **Enable** under **SQL authentication** on the **SQL Server settings** tab.
 
 ![Autenticazione di SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 > [!NOTE]
 > Se si prevede di accedere a SQL Server tramite Internet (l'opzione di connettività Pubblica), è necessario abilitare l'autenticazione di SQL in questa area. L'accesso pubblico a SQL Server richiede l'uso dell'autenticazione di SQL.
 
-Se si abilita l'autenticazione di SQL Server, specificare un **Nome di accesso** e una **Password**. Questo nome di account di accesso è configurato come account di accesso con autenticazione SQL Server e membro del ruolo predefinito del server **sysadmin** . Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
+Se si abilita l'autenticazione di SQL Server, specificare un **Nome di accesso** e una **Password**. This login name is configured as a SQL Server Authentication login and member of the **sysadmin** fixed server role. Per altre informazioni sulle modalità di autenticazione, vedere [Scegliere una modalità di autenticazione](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
 Se non si abilita l'autenticazione di SQL Server, è possibile usare l'account amministratore locale nella macchina virtuale per connettersi all'istanza di SQL Server.
 
 
 ### <a name="azure-key-vault-integration"></a>Integrazione dell'insieme di credenziali delle chiavi di Azure
 
-Per archiviare i segreti di sicurezza in Azure per la crittografia, selezionare **SQL Server impostazioni**e scorrere verso il basso fino ad **Azure Key Vault Integration**. Selezionare **Abilita** e inserire le informazioni richieste. 
+To store security secrets in Azure for encryption, select **SQL Server settings**, and scroll down to  **Azure key vault integration**. Select **Enable** and fill in the requested information. 
 
 ![Integrazione dell'insieme di credenziali delle chiavi di Azure](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 La tabella seguente include l'elenco dei parametri necessari per configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure.
 
-| PARAMETRO | Descrizione | ESEMPIO |
+| PARAMETRO | DESCRIZIONE | ESEMPIO |
 | --- | --- | --- |
 | **URL dell'insieme di credenziali delle chiavi** |Percorso dell'insieme di credenziali delle chiavi. |https:\//contosokeyvault.vault.azure.net/ |
 | **Nome dell'entità** |Nome dell'entità servizio di Azure Active Directory. È detto anche ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -196,32 +196,32 @@ Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di crede
 
 ### <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-Nella scheda **impostazioni SQL Server** in **Configurazione archiviazione**Selezionare **modifica configurazione** per aprire la pagina Configurazione dell'archiviazione ottimizzata per le prestazioni e specificare i requisiti di archiviazione.
+On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the Performance Optimized Storage Configuration page and specify the storage requirements.
 
-![Configurazione dell'archiviazione delle macchine virtuali SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 In **Ottimizzazione dell'archiviazione**selezionare una delle opzioni seguenti:
 
 * **Generale** : è l'impostazione predefinita e supporta la maggior parte dei carichi di lavoro.
-* L' **elaborazione transazionale** ottimizza l'archiviazione per carichi di lavoro OLTP di database tradizionali.
+* **Transactional processing** optimizes the storage for traditional database OLTP workloads.
 * **Data warehousing** : ottimizza l'archiviazione per i carichi di lavoro di analisi e creazione di report.
 
-![Configurazione dell'archiviazione delle macchine virtuali SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
-È possibile scegliere di lasciare i valori predefiniti oppure è possibile modificare manualmente la topologia di archiviazione in base alle esigenze di IOPS. Per altre informazioni, vedere [configurazione dell'archiviazione](virtual-machines-windows-sql-server-storage-configuration.md). 
+You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md). 
 
-### <a name="sql-server-license"></a>Licenza di SQL Server
-Se sei un cliente di Software Assurance, puoi usare il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere la tua licenza SQL Server e risparmiare sulle risorse. 
+### <a name="sql-server-license"></a>SQL Server License
+If you're a Software Assurance customer, you can utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. 
 
-![Licenza VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
+![SQL VM License](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
 
 ### <a name="automated-patching"></a>Applicazione automatica delle patch
 
 **Automated patching** è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. Specificare un giorno della settimana, un'ora e una durata per la finestra di manutenzione. Durante la finestra di manutenzione Azure esegue l'applicazione delle patch. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale. Se non si vuole consentire ad Azure di applicare automaticamente le patch per SQL Server e per il sistema operativo, fare clic su **Disabilita**.  
 
-![Applicazione automatica delle patch per VM SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
+![SQL VM automated patching](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
 
-Per altre informazioni, vedere [Applicazione automatizzata di patch per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-patching.md).
+Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server nelle macchine virtuali di Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md).
 
 ### <a name="automated-backup"></a>Backup automatico
 
@@ -235,19 +235,19 @@ Quando si abilita il backup automatico di SQL è possibile configurare le impost
 * Backup dei database di sistema
 * Pianificazione dei backup
 
-Per crittografare il backup, fare clic su **Abilita**. Specificare quindi la **Password**. Azure crea un certificato per crittografare i backup e usa la password specificata per proteggere il certificato. Per impostazione predefinita, la pianificazione viene impostata automaticamente, ma è possibile creare una pianificazione manuale selezionando **manuale**. 
+Per crittografare il backup, fare clic su **Abilita**. Specificare quindi la **Password**. Azure crea un certificato per crittografare i backup e usa la password specificata per proteggere il certificato. By default the schedule is set automatically, but you can create a manual schedule by selecting **Manual**. 
 
-![Backup automatici della macchina virtuale SQL](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
+![SQL VM automated backups](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 Per altre informazioni, vedere [Backup automatizzato per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-automated-backup.md).
 
 
-### <a name="r-services-advanced-analytics"></a>R Services (Advanced Analytics)
+### <a name="machine-learning-services"></a>Servizi di Machine Learning
 
-È possibile abilitare [R Services per SQL Server (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). Questa opzione consente di usare l'analisi avanzata con SQL Server 2017. Selezionare **Abilita** nella finestra **Impostazioni SQL Server** .
+You have the option to enable [Machine Learning Services](/sql/advanced-analytics/). This option enables you to use machine learning with Python and R in SQL Server 2017. Select **Enable** on the **SQL Server Settings** window.
 
 
-## <a name="4-review--create"></a>4. Revisione e creazione
+## <a name="4-review--create"></a>4. Review + create
 
 Nella scheda **Rivedi e crea** esaminare il riepilogo e fare clic su **Crea** per creare SQL Server, il gruppo di risorse e le risorse specificati per questa VM.
 
@@ -278,7 +278,7 @@ Le sezioni seguenti illustrano come connettersi tramite internet all'istanza di 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
   > [!NOTE]
-  > Questo esempio usa la porta comune 1433. Tuttavia, questo valore deve essere modificato se durante la distribuzione della macchina virtuale SQL Server è stata specificata una porta diversa (ad esempio 1401). 
+  > This example uses the common port 1433. However, this value will need to be modified if a different port (such as 1401) was specified during the deployment of the SQL Server VM. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

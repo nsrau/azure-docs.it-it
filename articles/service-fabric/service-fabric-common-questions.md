@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 28a0418fd94c03f1fe308c7cd6f17b6d9a331fb0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529362"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481654"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -104,7 +104,7 @@ Se si desidera creare cluster per testare l'applicazione prima di distribuirla, 
 Mentre Microsoft sviluppa un'esperienza migliorata oggi l'utente è responsabile dell'aggiornamento. È necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster per una macchina virtuale per volta. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile crittografare i dischi dati collegati in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
-Sì.  Per altre informazioni, vedere [creare un cluster con dischi dati collegati](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [crittografia dischi di Azure per i set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/disk-encryption-overview.md).
+Sì.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) and [Azure Disk Encryption for Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile usare macchine virtuali con priorità bassa in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
 No. Le macchine virtuali con priorità bassa non sono supportate. 
@@ -136,7 +136,7 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
 R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
-B. Per gli host abilitati per il set di scalabilità di macchine virtuali, è possibile sviluppare un SetupEntryPoint di PowerShell semplice per l'app SF per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti dall'](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)insieme di credenziali delle chiavi.
+B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Progettazione di applicazioni
 
@@ -146,7 +146,8 @@ Le raccolte Reliable Collections sono in genere [partizionate](service-fabric-co
 
 - Creare un servizio che esegua una query di tutte le partizioni di un altro servizio per estrarre i dati richiesti.
 - Creare un servizio che possa ricevere dati da tutte le partizioni di un altro servizio.
-- Inviare periodicamente dati da ogni servizio in un archivio esterno. Questo approccio è appropriato solamente se si eseguono query che non fanno parte della logica di business principale.
+- Inviare periodicamente dati da ogni servizio in un archivio esterno. This approach is only appropriate if the queries you're performing are not part of your core business logic, as the external store's data will be stale.
+- Alternatively, store data that must support querying across all records directly in a data store rather than in a reliable collection. This eliminates the issue with stale data, but doesn't allow the advantages of reliable collections to be leveraged.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Qual è il modo migliore per eseguire query sui dati nei vari attori?
@@ -192,4 +193,4 @@ Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui [concetti di base Service Fabric](service-fabric-technical-overview.md) e sulle [procedure](service-fabric-best-practices-overview.md) consigliate per i concetti di infrastruttura di Ice (Service-Fabric-Technical-Overview.MD) e [sulle procedure consigliate](service-fabric-best-practices-overview.md)
+Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md) ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)

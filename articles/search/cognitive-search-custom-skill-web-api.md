@@ -1,23 +1,23 @@
 ---
-title: Abilità dell'API Web personalizzata in skillsets
+title: Custom Web API skill in skillsets
 titleSuffix: Azure Cognitive Search
-description: Estendi le funzionalità di Azure ricerca cognitiva skillsets chiamando le API Web. Usare la competenza API Web personalizzata per integrare il codice personalizzato.
+description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113806"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484113"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Abilità dell'API Web personalizzata in una pipeline di arricchimento ricerca cognitiva di Azure
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Custom Web API skill in an Azure Cognitive Search enrichment pipeline
 
-La competenza dell' **API Web personalizzata** consente di estendere l'arricchimento di intelligenza artificiale chiamando un endpoint API Web che fornisce operazioni personalizzate. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. A seconda degli input, l'API Web riceve un payload JSON quando l'indicizzatore viene eseguito e restituisce un payload JSON come risposta, insieme a un codice di stato di esito positivo. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
+The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. Analogamente alle competenze predefinite, una competenza **API Web personalizzata** ha input e output. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. È previsto che la risposta abbia gli output specificati dalla competenza personalizzata. Qualsiasi altra risposta è considerata un errore e non vengono eseguiti arricchimenti.
 
 La struttura dei payload JSON è descritta in dettaglio più avanti in questo documento.
 
@@ -34,14 +34,14 @@ Microsoft.Skills.Custom.WebApiSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | DESCRIZIONE |
+| Nome parametro     | Description |
 |--------------------|-------------|
-| Uri | URI dell'API Web a cui verrà inviato il payload _JSON_ . È consentito solo lo schema URI **https** |
+| Uri | The URI of the Web API to which the _JSON_ payload will be sent. È consentito solo lo schema URI **https** |
 | httpMethod | Metodo da usare per l'invio del payload. I metodi consentiti sono `PUT` o `POST` |
 | httpHeaders | Raccolta di coppie chiave-valore in cui le chiavi corrispondono ai nomi di intestazione e i valori rappresentano i valori di intestazione che verranno inviati all'API Web insieme al payload. In questa raccolta è proibito l'uso delle intestazioni seguenti: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. Il timeout può essere impostato su un massimo di 230 secondi e un minimo di 1 secondo. |
+| timeout | (facoltativo) Se specificato, indica il timeout per il client HTTP che effettua la chiamata API. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Ad esempio, `PT60S` per 60 secondi. Se non impostato, viene scelto un valore predefinito di 30 secondi. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 | batchSize | (facoltativo) Indica quanti "record di dati" (vedere la struttura del payload _JSON_ più avanti) verranno inviati per ogni chiamata API. Se non impostato, viene scelto un valore predefinito di 1000. È consigliabile usare questo parametro per ottenere un compromesso accettabile tra velocità effettiva di indicizzazione e carico sull'API |
-| degreeOfParallelism | Opzionale Quando specificato, indica il numero di chiamate che l'indicizzatore farà in parallelo all'endpoint fornito. È possibile ridurre questo valore se l'endpoint ha un errore troppo elevato di un carico di richiesta o se l'endpoint è in grado di accettare più richieste e si desidera un aumento delle prestazioni dell'indicizzatore.  Se non impostato, viene utilizzato il valore predefinito 5. DegreeOfParallelism può essere impostato su un massimo di 10 e un minimo di 1. |
+| degreeOfParallelism | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The degreeOfParallelism can be set to a maximum of 10 and a minimum of 1. |
 
 ## <a name="skill-inputs"></a>Input competenze
 
@@ -137,10 +137,10 @@ Seguirà sempre questi vincoli:
 
 ## <a name="sample-output-json-structure"></a>Struttura JSON di output di esempio
 
-L'output corrisponde alla risposta restituita dall'API Web. L'API Web deve restituire solo un payload _JSON_ (verificato osservando l'intestazione della risposta `Content-Type`) e deve soddisfare i vincoli seguenti:
+The "output" corresponds to the response returned from your Web API. The Web API should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
 
 * Deve contenere un'entità di primo livello denominata `values` che deve essere una matrice di oggetti.
-* Il numero di oggetti nella matrice deve essere uguale al numero di oggetti inviati all'API Web.
+* The number of objects in the array should be the same as the number of objects sent to the Web API.
 * Ogni oggetto deve avere:
    * Una proprietà `recordId`
    * Una proprietà `data`, che è un oggetto in cui i campi sono arricchimenti corrispondenti ai "nomi" nell'`output` e il cui valore viene considerato l'arricchimento.
@@ -201,8 +201,8 @@ Oltre alla non disponibilità dell'API Web o all'invio di codici di stato che no
 
 Nei casi in cui l'API Web non è disponibile o restituisce un errore HTTP, un errore descrittivo con i dettagli disponibili sull'errore HTTP verrà aggiunto alla cronologia di esecuzione dell'indicizzatore.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 + [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
-+ [Aggiungere competenze personalizzate a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
-+ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale (cognitive-ricerca-creazione-personalizzata-skill-example.md)
++ [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)

@@ -1,70 +1,73 @@
 ---
-title: Usare la funzionalità di database di seguito per alleghi i database in Azure Esplora dati
-description: Informazioni su come alleghi i database in Azure Esplora dati usando la funzionalità di database di seguito.
+title: Use follower database feature to attach databases in Azure Data Explorer
+description: Learn about how to attach databases in Azure Data Explorer using the follower database feature.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 61cfcfc41a1d9caeaded475511dd69ebc48756e2
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083199"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462031"
 ---
-# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usare il database di seguito per alleghi i database in Azure Esplora dati
+# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Use follower database to attach databases in Azure Data Explorer
 
-La funzionalità di **database di seguito** consente di aggiungere un database che si trova in un cluster diverso al cluster di Esplora dati di Azure. Il **database di seguito** viene collegato in modalità di sola *lettura* , consentendo di visualizzare i dati ed eseguire query sui dati inseriti nel **database**principale. Il database seguente sincronizza le modifiche nei database leader. A causa della sincronizzazione, si verifica un ritardo dei dati di pochi secondi per alcuni minuti di disponibilità dei dati. La lunghezza dell'intervallo di tempo dipende dalle dimensioni complessive dei metadati del database leader. Per recuperare i dati, i database leader e i database successivi usano lo stesso account di archiviazione. Lo spazio di archiviazione è di proprietà del database leader. Il database di seguito Visualizza i dati senza che sia necessario inserirli. Poiché il database collegato è di sola lettura, i dati, le tabelle e i criteri del database non possono essere modificati tranne che per i criteri, le [entità](#manage-principals)e le [autorizzazioni](#manage-permissions)di [memorizzazione nella cache](#configure-caching-policy). Non è possibile eliminare i database collegati. Devono essere scollegati dal leader o dal seguito e solo successivamente possono essere eliminati. 
+The **follower database** feature allows you to attach a database located in a different cluster to your Azure Data Explorer cluster. The **follower database** is attached in *read-only* mode, making it possible to view the data and run queries on the data that was ingested into the **leader database**. The follower database synchronizes changes in the leader databases. Due to the synchronization, there's a data lag of a few seconds to a few minutes in data availability. The length of the time lag depends on the overall size of the leader database metadata. The leader and follower databases use the same storage account to fetch the data. The storage is owned by the leader database. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables, and policies in the database can't be modified except for [caching policy](#configure-caching-policy), [principals](#manage-principals), and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by the leader or follower and only then they can be deleted. 
 
-Il fissaggio di un database a un cluster diverso mediante la funzionalità di seguito viene usato come infrastruttura per condividere i dati tra organizzazioni e team. Questa funzionalità è utile per separare le risorse di calcolo per proteggere un ambiente di produzione da casi di utilizzo non di produzione. Il follower può essere usato anche per associare il costo di Azure Esplora dati cluster alla parte che esegue query sui dati.
+Attaching a database to a different cluster using the follower capability is used as the infrastructure to share data between organizations and teams. The feature is useful to segregate compute resources to protect a production environment from non-production use cases. Follower can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
 
-## <a name="which-databases-are-followed"></a>Quali database vengono seguiti?
+## <a name="which-databases-are-followed"></a>Which databases are followed?
 
-* Un cluster può seguire un database, diversi database o tutti i database di un cluster leader. 
-* Un singolo cluster può seguire i database di più cluster leader. 
-* Un cluster può contenere sia database di seguito che database leader
+* A cluster can follow one database, several databases, or all databases of a leader cluster. 
+* A single cluster can follow databases from multiple leader clusters. 
+* A cluster can contain both follower databases and leader databases
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-1. [Creare un cluster e un database](/azure/data-explorer/create-cluster-database-portal) per il leader e il follower.
-1. Inserire [i dati](/azure/data-explorer/ingest-sample-data) nel database leader usando uno dei diversi metodi descritti in [Cenni preliminari sull'](/azure/data-explorer/ingest-data-overview)inserimento.
+1. [Create cluster and DB](/azure/data-explorer/create-cluster-database-portal) for the leader and follower.
+1. [Ingest data](/azure/data-explorer/ingest-sample-data) to leader database using one of various methods discussed in [ingestion overview](/azure/data-explorer/ingest-data-overview).
 
 ## <a name="attach-a-database"></a>Collegamento di un database
 
-Esistono diversi metodi che è possibile utilizzare per alleghire un database. In questo articolo viene illustrato come aggiungere un database usando C# o un modello di Azure Resource Manager. Per allineare un database, è necessario disporre delle autorizzazioni per il cluster leader e il cluster di follower. Per ulteriori informazioni sulle autorizzazioni, vedere [gestire le autorizzazioni](#manage-permissions).
+There are various methods you can use to attach a database. In this article, we discuss attaching a database using C# or an Azure Resource Manager template. To attach a database, you must have permissions on the leader cluster and the follower cluster. For more information about permissions, see [manage permissions](#manage-permissions).
 
-### <a name="attach-a-database-using-c"></a>Connessione di un database tramiteC#
+### <a name="attach-a-database-using-c"></a>Attach a database using C#
 
-**NuGet necessari**
+**Needed NuGets**
 
-* Installare [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Installare [Microsoft. Rest. ClientRuntime. Azure. Authentication per l'autenticazione](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
+* Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Install [Microsoft.Rest.ClientRuntime.Azure.Authentication for authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = followerSubscriptionId
+};
 
-var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
+var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
 var attachedDatabaseConfigurationName = "adc";
-var databaseName = "db" // Can be specific database name or * for all databases
+var databaseName = "db"; // Can be specific database name or * for all databases
 var defaultPrincipalsModificationKind = "Union"; 
 var location = "North Central US";
 
 AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new AttachedDatabaseConfiguration()
 {
-    ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}",
+    ClusterResourceId = $"/subscriptions/{leaderSubscriptionId}/resourceGroups/{leaderResourceGroup}/providers/Microsoft.Kusto/Clusters/{leaderClusterName}",
     DatabaseName = databaseName,
     DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind,
     Location = location
@@ -73,9 +76,9 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
-### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Connessione di un database tramite un modello di Azure Resource Manager
+### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Attach a database using an Azure Resource Manager template
 
-In questa sezione viene illustrato come aggiungere un database usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
+In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
 
 ```json
 {
@@ -158,50 +161,53 @@ In questa sezione viene illustrato come aggiungere un database usando un [modell
 
 ### <a name="deploy-the-template"></a>Distribuire il modello 
 
-È possibile distribuire il modello di Azure Resource Manager [usando il portale di Azure](https://portal.azure.com) o tramite PowerShell.
+You can deploy the Azure Resource Manager template by [using the Azure portal](https://portal.azure.com) or using powershell.
 
-   ![distribuzione modello](media/follower/template-deployment.png)
+   ![template deployment](media/follower/template-deployment.png)
 
 
 |**Impostazione**  |**Descrizione**  |
 |---------|---------|
-|Nome del cluster di seguito     |  Nome del cluster di seguito       |
-|Nome delle configurazioni del database associato    |    Nome dell'oggetto configurazioni del database associato. Il nome deve essere univoco a livello di cluster.     |
-|Nome database     |      Nome del database da seguire. Se si desidera seguire tutti i database del leader, utilizzare "*".   |
-|ID risorsa cluster leader    |   ID risorsa del cluster leader.      |
-|Tipo di modifica delle entità predefinite    |   Tipo di modifica principale predefinito. Può essere `Union`, `Replace` o `None`. Per ulteriori informazioni sul tipo di modifica principale predefinito, vedere [comando di controllo del tipo di modifica principale](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|Location   |   Percorso di tutte le risorse. Il leader e il successivo devono trovarsi nella stessa posizione.       |
+|Follower Cluster Name     |  The name of the follower cluster       |
+|Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
+|Nome database     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
+|Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
+|Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, see [principal modification kind control command](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
+|Località   |   The location of all the resources. The leader and the follower must be in the same location.       |
  
-### <a name="verify-that-the-database-was-successfully-attached"></a>Verificare che il database sia stato collegato correttamente
+### <a name="verify-that-the-database-was-successfully-attached"></a>Verify that the database was successfully attached
 
-Per verificare che il database sia stato collegato correttamente, trovare i database collegati nel [portale di Azure](https://portal.azure.com). 
+To verify that the database was successfully attached, find your attached databases in the [Azure portal](https://portal.azure.com). 
 
-1. Passare al cluster di follower e selezionare **database**
-1. Cercare nuovi database di sola lettura nell'elenco database.
+1. Navigate to the follower cluster and select **Databases**
+1. Search for new Read-only databases in the database list.
 
-    ![Database di follower di sola lettura](media/follower/read-only-follower-database.png)
+    ![Read-only follower database](media/follower/read-only-follower-database.png)
 
 In alternativa:
 
-1. Passare al cluster leader e selezionare **database**
-2. Verificare che i database pertinenti siano contrassegnati come **condivisi con altri** > **Sì**
+1. Navigate to the leader cluster and select **Databases**
+2. Check that the relevant databases are marked as **SHARED WITH OTHERS** > **Yes**
 
-    ![Lettura e scrittura di database collegati](media/follower/read-write-databases-shared.png)
+    ![Read and write attached databases](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Scollegare il database di follower usandoC# 
+## <a name="detach-the-follower-database-using-c"></a>Detach the follower database using C# 
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Scollegare il database di follower collegato dal cluster di follower
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Detach the attached follower database from the follower cluster
 
-Il cluster di follower può scollegare qualsiasi database collegato come segue:
+Follower cluster can detach any attached database as follows:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = followerSubscriptionId
+};
 
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
@@ -211,18 +217,21 @@ var attachedDatabaseConfigurationsName = "adc";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Scollegare il database di follower collegato dal cluster leader
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Detach the attached follower database from the leader cluster
 
-Il cluster leader può scollegare qualsiasi database collegato come segue:
+The leader cluster can detach any attached database as follows:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = leaderSubscriptionId
+};
 
 var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
@@ -232,42 +241,42 @@ var followerClusterName = "follower";
 var followerDatabaseDefinition = new FollowerDatabaseDefinition()
     {
         AttachedDatabaseConfigurationName = "adc",
-        ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
+        ClusterResourceId = $"/subscriptions/{followerSubscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
     };
 
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## <a name="manage-principals-permissions-and-caching-policy"></a>Gestire entità, autorizzazioni e criteri di memorizzazione nella cache
+## <a name="manage-principals-permissions-and-caching-policy"></a>Manage principals, permissions, and caching policy
 
-### <a name="manage-principals"></a>Gestisci entità
+### <a name="manage-principals"></a>Manage principals
 
-Quando si connette un database, specificare il **tipo di modifica delle entità predefinite "** . Il valore predefinito è mantenere la raccolta di database leader delle [entità autorizzate](/azure/kusto/management/access-control/index#authorization)
+When attaching a database, specify the **"default principals modification kind"** . The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
 
 |**Tipologia** |**Descrizione**  |
 |---------|---------|
-|**Unione**     |   Le entità di database associate includeranno sempre le entità di database originali, oltre alle nuove entità aggiuntive aggiunte al database di seguito.      |
-|**Replace**   |    Nessuna ereditarietà delle entità del database originale. È necessario creare nuove entità per il database collegato. Per bloccare l'ereditarietà principale, è necessario aggiungere almeno un'entità.     |
-|**Nessuno**   |   Le entità di database associate includono solo le entità del database originale senza entità aggiuntive.      |
+|**Union**     |   The attached database principals will always include the original database principals plus additional new principals added to the follower database.      |
+|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database.     |
+|**Nessuno**   |   The attached database principals include only the principals of the original database with no additional principals.      |
 
-Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare le entità autorizzate, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).
+For more information about using control commands to configure the authorized principals, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
 
-### <a name="manage-permissions"></a>Gestisci autorizzazioni
+### <a name="manage-permissions"></a>Manage permissions
 
-La gestione dell'autorizzazione del database di sola lettura è identica a quella di tutti i tipi di database. Vedere [gestire le autorizzazioni nel portale di Azure](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+Managing read-only database permission is the same as for all database types. See [manage permissions in the Azure portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
-### <a name="configure-caching-policy"></a>Configurare i criteri di memorizzazione nella cache
+### <a name="configure-caching-policy"></a>Configure caching policy
 
-L'amministratore del database seguito può modificare i [criteri di memorizzazione nella cache](/azure/kusto/management/cache-policy) del database collegato o delle relative tabelle nel cluster host. Per impostazione predefinita, la raccolta di database leader viene mantenuta nei criteri di memorizzazione nella cache a livello di tabella e database. È possibile, ad esempio, disporre di un criterio di memorizzazione nella cache di 30 giorni nel database leader per l'esecuzione di report mensili e di un criterio di memorizzazione nella cache di tre giorni nel database di seguito per eseguire una query solo sui dati recenti per la risoluzione dei problemi. Per ulteriori informazioni sull'utilizzo dei comandi di controllo per configurare i criteri di memorizzazione nella cache nel database o nella tabella di seguito, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).
+The follower database administrator can modify the [caching policy](/azure/kusto/management/cache-policy) of the attached database or any of its tables on the hosting cluster. The default is keeping the leader database collection of database and table-level caching policies. You can, for example, have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower database to query only the recent data for troubleshooting. For more information about using control commands to configure the caching policy on the follower database or table, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Limitazioni
 
-* Il follower e i cluster leader devono trovarsi nella stessa area.
-* Non è possibile usare l'inserimento di [flussi](/azure/data-explorer/ingest-data-streaming) in un database che viene seguito.
-* Non è possibile eliminare un database collegato a un cluster diverso prima di scollegarlo.
-* Non è possibile eliminare un cluster con un database collegato a un cluster diverso prima di scollegarlo.
-* Non è possibile arrestare un cluster che ha associato un o più database. 
+* The follower and the leader clusters must be in the same region.
+* [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
+* You can't delete a database that is attached to a different cluster before detaching it.
+* You can't delete a cluster that has a database attached to a different cluster before detaching it.
+* You can't stop a cluster that has attached follower or leader database(s). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla configurazione del cluster di seguito, vedere [comandi di controllo per la gestione di un cluster di follower](/azure/kusto/management/cluster-follower).
+* For information about follower cluster configuration, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).

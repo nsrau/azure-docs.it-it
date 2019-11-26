@@ -2,13 +2,13 @@
 title: Distribuire un criterio che è possibile correggere
 description: Informazioni su come eseguire l'onboarding di un cliente nella gestione risorse delegate di Azure, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant.
 ms.date: 10/11/2019
-ms.topic: overview
-ms.openlocfilehash: 662daeb305856fb36bfb84f98e80bedf48b22756
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132482"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463886"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata
 
@@ -22,7 +22,7 @@ Per consentire a un **principalId**  di creare un'identità gestita nel tenant d
 
 Dopo aver eseguito l'onboarding del cliente, il **principalId** creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle identità gestite nel tenant del cliente. Tuttavia, nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà assegnata a questo cliente.
 
-L'esempio seguente illustra un **principalId** che avrà il ruolo di Amministratore accesso utenti. Questo utente potrà assegnare due ruoli predefiniti alle identità gestite nel tenant del cliente: Collaboratore e Collaboratore di Log Analytics.
+L'esempio seguente illustra un **principalId** che avrà il ruolo di Amministratore accesso utenti. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
 
 ```json
 {

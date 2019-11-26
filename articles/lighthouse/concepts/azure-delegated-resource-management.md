@@ -2,13 +2,13 @@
 title: Gestione risorse delegate di Azure
 description: Le offerte di servizi gestiti consentono ai provider di servizi di vendere offerte di gestione delle risorse ai clienti in Azure Marketplace.
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e79252d38e5e3363ef1d6a82ec060b896fa247a8
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133377"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464016"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Funzionamento della sincronizzazione in Azure AD Domain Services | Microsoft Docs
-description: Informazioni sul funzionamento del processo di sincronizzazione per oggetti e credenziali da un tenant Azure AD o un ambiente Active Directory Domain Services locale a un dominio gestito da Azure Active Directory Domain Services.
+title: How synchronization works in Azure AD Domain Services | Microsoft Docs
+description: Learn how the synchronization process works for objects and credentials from an Azure AD tenant or on-premises Active Directory Domain Services environment to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,51 +11,51 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474482"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481305"
 ---
-# <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure AD Domain Services dominio gestito
+# <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>How objects and credentials are synchronized in an Azure AD Domain Services managed domain
 
-Gli oggetti e le credenziali in un dominio gestito di Azure Active Directory Domain Services (AD DS) possono essere creati localmente all'interno del dominio o sincronizzati da un tenant di Azure Active Directory (Azure AD). Quando si distribuisce per la prima volta Azure AD DS, viene configurata e avviata una sincronizzazione automatica unidirezionale per replicare gli oggetti da Azure AD. Questa sincronizzazione unidirezionale continua a essere eseguita in background per Mantenete aggiornato il dominio gestito di Azure AD DS con eventuali modifiche da Azure AD. Non viene eseguita alcuna sincronizzazione da Azure AD DS a Azure AD.
+Objects and credentials in an Azure Active Directory Domain Services (AD DS) managed domain can either be created locally within the domain, or synchronized from an Azure Active Directory (Azure AD) tenant. When you first deploy Azure AD DS, an automatic one-way synchronization is configured and started to replicate the objects from Azure AD. This one-way synchronization continues to run in the background to keep the Azure AD DS managed domain up-to-date with any changes from Azure AD. No synchronization occurs from Azure AD DS back to Azure AD.
 
-In un ambiente ibrido, gli oggetti e le credenziali di un dominio di servizi di dominio Active Directory locale possono essere sincronizzati con Azure AD usando Azure AD Connect. Una volta che gli oggetti sono stati sincronizzati correttamente con Azure AD, la sincronizzazione automatica in background rende disponibili tali oggetti e credenziali per le applicazioni che usano il dominio gestito Azure AD DS.
+In a hybrid environment, objects and credentials from an on-premises AD DS domain can be synchronized to Azure AD using Azure AD Connect. Once those objects are successfully synchronized to Azure AD, the automatic background sync then makes those objects and credentials available to applications using the Azure AD DS managed domain.
 
-Il diagramma seguente illustra il funzionamento della sincronizzazione tra Azure AD DS, Azure AD e un ambiente di servizi di dominio Active Directory locale facoltativo:
+The following diagram illustrates how synchronization works between Azure AD DS, Azure AD, and an optional on-premises AD DS environment:
 
-![Panoramica della sincronizzazione per un dominio gestito Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Synchronization overview for an Azure AD Domain Services managed domain](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Sincronizzazione da Azure AD a Azure AD DS
+## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Synchronization from Azure AD to Azure AD DS
 
-Gli account utente, le appartenenze ai gruppi e gli hash delle credenziali sono sincronizzati in un modo da Azure AD a Azure AD DS. Questo processo di sincronizzazione è automatico, Non è necessario configurare, monitorare o gestire questo processo di sincronizzazione. La sincronizzazione iniziale può richiedere alcune ore a un paio di giorni, a seconda del numero di oggetti nella directory Azure AD. Al termine della sincronizzazione iniziale, le modifiche apportate in Azure AD, ad esempio le modifiche alla password o agli attributi, vengono sincronizzate automaticamente con Azure AD DS.
+User accounts, group memberships, and credential hashes are synchronized one way from Azure AD to Azure AD DS. Questo processo di sincronizzazione è automatico, You don't need to configure, monitor, or manage this synchronization process. The initial synchronization may take a few hours to a couple of days, depending on the number of objects in the Azure AD directory. After the initial synchronization is complete, changes that are made in Azure AD, such as password or attribute changes, are then automatically synchronized to Azure AD DS.
 
-Il processo di sincronizzazione è unidirezionale/unidirezionale per progettazione. Non è possibile eseguire la sincronizzazione inversa delle modifiche da Azure AD DS a Azure AD. Un dominio gestito di Azure AD DS è in gran parte di sola lettura, tranne che per le unità organizzative personalizzate che è possibile creare. Non è possibile modificare gli attributi utente, le password utente o le appartenenze ai gruppi all'interno di un dominio gestito Azure AD DS.
+The synchronization process is one way / unidirectional by design. There's no reverse synchronization of changes from Azure AD DS back to Azure AD. An Azure AD DS managed domain is largely read-only except for custom OUs that you can create. You can't make changes to user attributes, user passwords, or group memberships within an Azure AD DS managed domain.
 
-## <a name="attribute-synchronization-and-mapping-to-azure-ad-ds"></a>Sincronizzazione degli attributi e mapping a Azure AD DS
+## <a name="attribute-synchronization-and-mapping-to-azure-ad-ds"></a>Attribute synchronization and mapping to Azure AD DS
 
-La tabella seguente elenca alcuni attributi comuni e il modo in cui vengono sincronizzati con Azure AD DS.
+The following table lists some common attributes and how they're synchronized to Azure AD DS.
 
-| Attributo in Azure AD DS | Source (Sorgente) | Note |
+| Attribute in Azure AD DS | Source (Sorgente) | Note |
 |:--- |:--- |:--- |
-| UPN | Attributo *UPN* dell'utente in Azure ad tenant | L'attributo UPN del tenant Azure AD viene sincronizzato così com'è per Azure AD DS. Il modo più affidabile per accedere a un dominio gestito di Azure AD DS consiste nell'usare l'UPN. |
-| SAMAccountName | Attributo *mailNickname* dell'utente in Azure ad tenant o generato automaticamente | L'attributo *sAMAccountName* viene originato dall'attributo *mailNickname* nel tenant Azure ad. Se più account utente hanno lo stesso attributo *mailNickname* , il *sAMAccountName* viene generato automaticamente. Se il *mailNickname* o il prefisso *UPN* dell'utente è più lungo di 20 caratteri, *sAMAccountName* viene generato automaticamente per soddisfare il limite di 20 caratteri per gli attributi *sAMAccountName* . |
-| Password | Password dell'utente dal tenant Azure AD | Gli hash delle password legacy necessari per l'autenticazione NTLM o Kerberos sono sincronizzati dal tenant Azure AD. Se il tenant di Azure AD è configurato per la sincronizzazione ibrida con Azure AD Connect, questi hash delle password vengono originati dall'ambiente Servizi di dominio Active Directory locale. |
-| SID utente/gruppo primario | Generato automaticamente | Il SID primario per gli account utente/di gruppo viene generato automaticamente in Azure AD DS. Questo attributo non corrisponde al SID utente/gruppo primario dell'oggetto in un ambiente di servizi di dominio Active Directory locale. Questa mancata corrispondenza è dovuta al fatto che il dominio gestito di Azure AD DS ha uno spazio dei nomi SID diverso dal dominio di servizi di dominio Active Directory locale. |
-| Cronologia SID per utenti e gruppi | SID utente/gruppo primario locale | L'attributo *sIDHistory* per utenti e gruppi in Azure AD DS è impostato in modo da corrispondere al SID di gruppo o utente primario corrispondente in un ambiente di servizi di dominio Active Directory locale. Questa funzionalità consente di eseguire in modo Lift-and-Shift le applicazioni locali per Azure AD DS più semplice, perché non è necessario rieseguire l'ACL delle risorse. |
+| UPN | User's *UPN* attribute in Azure AD tenant | The UPN attribute from the Azure AD tenant is synchronized as-is to Azure AD DS. The most reliable way to sign in to an Azure AD DS managed domain is using the UPN. |
+| SAMAccountName | User's *mailNickname* attribute in Azure AD tenant or autogenerated | The *SAMAccountName* attribute is sourced from the *mailNickname* attribute in the Azure AD tenant. If multiple user accounts have the same *mailNickname* attribute, the *SAMAccountName* is autogenerated. If the user's *mailNickname* or *UPN* prefix is longer than 20 characters, the *SAMAccountName* is autogenerated to meet the 20 character limit on *SAMAccountName* attributes. |
+| Password | User's password from the Azure AD tenant | Legacy password hashes required for NTLM or Kerberos authentication are synchronized from the Azure AD tenant. If the Azure AD tenant is configured for hybrid synchronization using Azure AD Connect, these password hashes are sourced from the on-premises AD DS environment. |
+| SID utente/gruppo primario | Autogenerated | The primary SID for user/group accounts is autogenerated in Azure AD DS. This attribute doesn't match the primary user/group SID of the object in an on-premises AD DS environment. This mismatch is because the Azure AD DS managed domain has a different SID namespace than the on-premises AD DS domain. |
+| Cronologia SID per utenti e gruppi | SID utente/gruppo primario locale | The *SidHistory* attribute for users and groups in Azure AD DS is set to match the corresponding primary user or group SID in an on-premises AD DS environment. This feature helps make lift-and-shift of on-premises applications to Azure AD DS easier as you don't need to re-ACL resources. |
 
 > [!TIP]
-> **Accedere al dominio gestito usando il formato UPN** L'attributo *sAMAccountName* , ad esempio `CONTOSO\driley`, può essere generato automaticamente per alcuni account utente in un dominio gestito Azure AD DS. Il *sAMAccountName* generato automaticamente dagli utenti può variare dal prefisso UPN, quindi non è sempre un modo affidabile per accedere.
+> **Sign in to the managed domain using the UPN format** The *SAMAccountName* attribute, such as `CONTOSO\driley`, may be auto-generated for some user accounts in an Azure AD DS managed domain. Users' auto-generated *SAMAccountName* may differ from their UPN prefix, so isn't always a reliable way to sign in.
 >
-> Ad esempio, se più utenti hanno lo stesso attributo *mailNickname* o se gli utenti hanno prefissi UPN eccessivamente lunghi, il *sAMAccountName* per questi utenti potrebbe essere generato automaticamente. Usare il formato UPN, ad esempio `driley@contoso.com`, per accedere in modo affidabile a un dominio gestito di Azure AD DS.
+> For example, if multiple users have the same *mailNickname* attribute or users have overly long UPN prefixes, the *SAMAccountName* for these users may be auto-generated. Use the UPN format, such as `driley@contoso.com`, to reliably sign in to an Azure AD DS managed domain.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapping degli attributi per gli account utente
 
-Nella tabella seguente viene illustrato il modo in cui gli attributi specifici per gli oggetti utente in Azure AD vengono sincronizzati con gli attributi corrispondenti in Azure AD DS.
+The following table illustrates how specific attributes for user objects in Azure AD are synchronized to corresponding attributes in Azure AD DS.
 
-| Attributo utente in Azure AD | Attributo utente in Azure AD DS |
+| User attribute in Azure AD | User attribute in Azure AD DS |
 |:--- |:--- |
 | accountEnabled |userAccountControl (imposta o cancella il bit ACCOUNT_DISABLED) |
 | city |l |
@@ -67,7 +67,7 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 | jobTitle |title |
 | mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
-| mailNickname |SAMAccountName (a volte può essere generato automaticamente) |
+| mailNickname |SAMAccountName (may sometimes be autogenerated) |
 | mobile |mobile |
 | objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
@@ -83,56 +83,59 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 
 ### <a name="attribute-mapping-for-groups"></a>Mapping degli attributi per i gruppi
 
-Nella tabella seguente viene illustrato il modo in cui gli attributi specifici per gli oggetti gruppo in Azure AD vengono sincronizzati con gli attributi corrispondenti in Azure AD DS.
+The following table illustrates how specific attributes for group objects in Azure AD are synchronized to corresponding attributes in Azure AD DS.
 
-| Attributo Group in Azure AD | Attributo Group in Azure AD DS |
+| Group attribute in Azure AD | Group attribute in Azure AD DS |
 |:--- |:--- |
 | displayName |displayName |
-| displayName |SAMAccountName (a volte può essere generato automaticamente) |
+| displayName |SAMAccountName (may sometimes be autogenerated) |
 | mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 
-## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Sincronizzazione da servizi di dominio Active Directory locali a Azure AD e Azure AD DS
+## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Synchronization from on-premises AD DS to Azure AD and Azure AD DS
 
-Azure AD Connect viene usato per sincronizzare gli account utente, le appartenenze ai gruppi e gli hash delle credenziali da un ambiente Active Directory Domain Services locale a Azure AD. Gli attributi degli account utente, ad esempio UPN e l'ID di sicurezza locale (SID), sono sincronizzati. Per accedere con Azure AD Domain Services, gli hash delle password legacy necessari per l'autenticazione NTLM e Kerberos sono sincronizzati anche con Azure AD.
+Azure AD Connect is used to synchronize user accounts, group memberships, and credential hashes from an on-premises AD DS environment to Azure AD. Attributes of user accounts such as the UPN and on-premises security identifier (SID) are synchronized. To sign in using Azure AD Domain Services, legacy password hashes required for NTLM and Kerberos authentication are also synchronized to Azure AD.
 
-Se si configura il writeback, le modifiche apportate da Azure AD vengono sincronizzate di nuovo nell'ambiente di servizi di dominio Active Directory locale. Se, ad esempio, un utente modifica la password utilizzando Azure AD la gestione delle password self-service, la password viene aggiornata nuovamente nell'ambiente di servizi di dominio Active Directory locale.
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+
+If you configure write-back, changes from Azure AD are synchronized back to the on-premises AD DS environment. For example, if a user changes their password using Azure AD self-service password management, the password is updated back in the on-premises AD DS environment.
 
 > [!NOTE]
 > Usare sempre la versione più recente di Azure AD Connect per ottenere le correzioni per tutti i bug noti.
 
 ### <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Sincronizzazione da un ambiente locale a più foreste
 
-Molte organizzazioni dispongono di un ambiente Active Directory Domain Services piuttosto complesso che include più insiemi di strutture. Azure AD Connect supporta la sincronizzazione di utenti, gruppi e hash delle credenziali da ambienti a più foreste per Azure AD.
+Many organizations have a fairly complex on-premises AD DS environment that includes multiple forests. Azure AD Connect supports synchronizing users, groups, and credential hashes from multi-forest environments to Azure AD.
 
-Azure AD dispone di uno spazio dei nomi molto più semplice e Flat. Per consentire agli utenti di accedere in modo affidabile ad applicazioni protette da Azure AD, risolvere i conflitti UPN tra gli account utente nelle varie foreste. Azure AD domini gestiti DS utilizzano una struttura di unità organizzativa Flat, simile a Azure AD. Tutti gli account utente e i gruppi vengono archiviati nel contenitore *degli utenti di aaddc Computers* , anche se sono sincronizzati da domini o foreste locali diversi, anche se è stata configurata una struttura organizzativa gerarchica locale. Il dominio gestito Azure AD DS rende flat tutte le strutture OU gerarchiche.
+Azure AD has a much simpler and flat namespace. Per consentire agli utenti di accedere in modo affidabile ad applicazioni protette da Azure AD, risolvere i conflitti UPN tra gli account utente nelle varie foreste. Azure AD DS managed domains use a flat OU structure, similar to Azure AD. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure on-premises. The Azure AD DS managed domain flattens any hierarchical OU structures.
 
-Come descritto in precedenza, non viene eseguita alcuna sincronizzazione tra Azure AD DS e Azure AD. È possibile [creare un'unità organizzativa (OU) personalizzata](create-ou.md) in Azure AD DS e quindi utenti, gruppi o account del servizio all'interno di tali unità organizzative personalizzate. Nessuno degli oggetti creati nelle unità organizzative personalizzate viene sincronizzato nuovamente con Azure AD. Questi oggetti sono disponibili solo all'interno del dominio gestito Azure AD DS e non sono visibili tramite Azure AD cmdlet di PowerShell, Azure AD API Graph o usando l'interfaccia utente di gestione Azure AD.
+As previously detailed, there's no synchronization from Azure AD DS back to Azure AD. You can [create a custom Organizational Unit (OU)](create-ou.md) in Azure AD DS and then users, groups, or service accounts within those custom OUs. None of the objects created in custom OUs are synchronized back to Azure AD. These objects are available only within the Azure AD DS managed domain, and aren't visible using Azure AD PowerShell cmdlets, Azure AD Graph API, or using the Azure AD management UI.
 
-## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Cosa non viene sincronizzato con Azure AD DS
+## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>What isn't synchronized to Azure AD DS
 
-Gli oggetti o gli attributi seguenti non vengono sincronizzati da un ambiente Active Directory Domain Services locale per Azure AD o Azure AD DS:
+The following objects or attributes aren't synchronized from an on-premises AD DS environment to Azure AD or Azure AD DS:
 
-* **Attributi esclusi:** È possibile scegliere di escludere determinati attributi dalla sincronizzazione per Azure AD da un ambiente Active Directory Domain Services locale usando Azure AD Connect. Questi attributi esclusi non sono quindi disponibili in Azure AD DS.
-* **Criteri di gruppo:** I criteri di gruppo configurati in un ambiente di servizi di dominio Active Directory locale non vengono sincronizzati con Azure AD DS.
-* **Cartella SYSVOL:** Il contenuto della cartella *SYSVOL* in un ambiente di servizi di dominio Active Directory locale non è sincronizzato con Azure AD DS.
-* **Oggetti computer:** Gli oggetti computer per i computer aggiunti a un ambiente Servizi di dominio Active Directory locale non vengono sincronizzati con Azure AD DS. Questi computer non hanno una relazione di trust con il dominio gestito di Azure AD DS e appartengono solo all'ambiente Servizi di dominio Active Directory locale. In Azure AD DS vengono visualizzati solo gli oggetti computer per i computer che hanno aggiunto al dominio gestito in modo esplicito.
-* **Attributi sIDHistory per utenti e gruppi:** L'utente primario e i SID del gruppo primario da un ambiente di servizi di dominio Active Directory locale vengono sincronizzati con Azure AD DS. Tuttavia, gli attributi *sIDHistory* esistenti per utenti e gruppi non vengono sincronizzati dall'ambiente Servizi di dominio Active Directory locale a Azure AD DS.
-* **Strutture di unità organizzative (OU):** Le unità organizzative definite in un ambiente di servizi di dominio Active Directory locale non vengono sincronizzate con Azure AD DS. Sono disponibili due unità organizzative predefinite in Azure AD DS, una per gli utenti e una per i computer. Il dominio gestito di Azure AD DS dispone di una struttura di unità organizzativa flat. È possibile scegliere di [creare un'unità organizzativa personalizzata nel dominio gestito](create-ou.md).
+* **Excluded attributes:** You can choose to exclude certain attributes from synchronizing to Azure AD from an on-premises AD DS environment using Azure AD Connect. These excluded attributes aren't then available in Azure AD DS.
+* **Group Policies:** Group Policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS.
+* **Sysvol folder:** The contents of the *Sysvol* folder in an on-premises AD DS environment aren't synchronized to Azure AD DS.
+* **Computer objects:** Computer objects for computers joined to an on-premises AD DS environment aren't synchronized to Azure AD DS. These computers don't have a trust relationship with the Azure AD DS managed domain and only belong to the on-premises AD DS environment. In Azure AD DS, only computer objects for computers that have explicitly domain-joined to the managed domain are shown.
+* **SidHistory attributes for users and groups:** The primary user and primary group SIDs from an on-premises AD DS environment are synchronized to Azure AD DS. However, existing *SidHistory* attributes for users and groups aren't synchronized from the on-premises AD DS environment to Azure AD DS.
+* **Organization Units (OU) structures:** Organizational Units defined in an on-premises AD DS environment don't synchronize to Azure AD DS. There are two built-in OUs in Azure AD DS - one for users, and one for computers. The Azure AD DS managed domain has a flat OU structure. You can choose to [create a custom OU in your managed domain](create-ou.md).
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Considerazioni sulla sicurezza e la sincronizzazione dell'hash delle password
 
-Quando si Abilita Azure AD DS, sono necessari gli hash delle password legacy per l'autenticazione NTLM + Kerberos. Azure AD non archivia le password di testo non crittografato, pertanto non è possibile generare automaticamente questi hash per gli account utente esistenti. Una volta generati e archiviati, gli hash delle password compatibili con NTLM e Kerberos vengono sempre archiviati in modo crittografato in Azure AD. Le chiavi di crittografia sono univoche per ogni tenant Azure AD. Questi hash sono crittografati in modo che solo Azure AD DS abbia accesso alle chiavi di decrittografia. Nessun altro servizio o componente in Azure AD ha accesso alle chiavi di decrittografia. Gli hash delle password legacy vengono quindi sincronizzati da Azure AD nei controller di dominio per un dominio gestito Azure AD DS. I dischi per i controller di dominio gestiti in Azure AD DS vengono crittografati a riposo. Questi hash delle password vengono archiviati e protetti in questi controller di dominio in modo analogo alla modalità di archiviazione e protezione delle password in un ambiente di servizi di dominio Active Directory locale.
+When you enable Azure AD DS, legacy password hashes for NTLM + Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't automatically be generated for existing user accounts. Once generated and stored, NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD. The encryption keys are unique to each Azure AD tenant. These hashes are encrypted such that only Azure AD DS has access to the decryption keys. Nessun altro servizio o componente in Azure AD ha accesso alle chiavi di decrittografia. Legacy password hashes are then synchronized from Azure AD into the domain controllers for an Azure AD DS managed domain. The disks for these managed domain controllers in Azure AD DS are encrypted at rest. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured in an on-premises AD DS environment.
 
-Per gli ambienti di Azure AD solo cloud, [gli utenti devono reimpostare o modificare la password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) affinché gli hash delle password richiesti vengano generati e archiviati in Azure ad. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. I nuovi account non devono reimpostare o modificare la password generano gli hash delle password legacy.
+For cloud-only Azure AD environments, [users must reset/change their password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for the required password hashes to be generated and stored in Azure AD. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. Those new accounts don't need to reset/change their password generate the legacy password hashes.
 
-Per gli account utente ibridi sincronizzati dall'ambiente Servizi di dominio Active Directory locale usando Azure AD Connect, è necessario [configurare Azure ad Connect per sincronizzare gli hash delle password nei formati compatibili con NTLM e Kerberos](tutorial-configure-password-hash-sync.md).
+For hybrid user accounts synced from on-premises AD DS environment using Azure AD Connect, you must [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](tutorial-configure-password-hash-sync.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulle specifiche della sincronizzazione delle password, vedere funzionamento della [sincronizzazione dell'hash delle password con Azure ad Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
+For more information on the specifics of password synchronization, see [How password hash synchronization works with Azure AD Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 
-Per iniziare a usare Azure AD DS, [creare un dominio gestito](tutorial-create-instance.md).
+To get started with Azure AD DS, [create a managed domain](tutorial-create-instance.md).

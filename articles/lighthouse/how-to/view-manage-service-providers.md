@@ -2,13 +2,13 @@
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
 ms.date: 11/15/2019
-ms.topic: overview
-ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132174"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463806"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
@@ -49,7 +49,9 @@ Se il cliente vuole rimuovere un'offerta di provider di servizi, può selezionar
 
 ## <a name="update-service-provider-offers"></a>Aggiornare le offerte dei provider di servizi
 
-Dopo che un cliente ha aggiunto un'offerta, un provider di servizi può pubblicare una versione aggiornata della stessa offerta in Azure Marketplace. Ad esempio, potrebbe voler aggiungere una nuova definizione di ruolo. Se è stata pubblicata una nuova versione dell'offerta, la pagina relativa alle **offerte del provider** visualizzerà un'icona di aggiornamento nella riga relativa all'offerta. Il cliente può selezionare questa icona per visualizzare le differenze tra la versione corrente e la nuova versione dell'offerta. 
+Dopo che un cliente ha aggiunto un'offerta, un provider di servizi può pubblicare una versione aggiornata della stessa offerta in Azure Marketplace. Ad esempio, potrebbe voler aggiungere una nuova definizione di ruolo. Se è stata pubblicata una nuova versione dell'offerta, la pagina relativa alle **offerte del provider** visualizzerà un'icona di aggiornamento nella riga relativa all'offerta. Il cliente può selezionare questa icona per visualizzare le differenze tra la versione corrente e la nuova versione dell'offerta.
+
+ ![Update offer icon](../media/update-offer.jpg)
 
 Una volta controllate le modifiche, il cliente può scegliere di eseguire l'aggiornamento alla nuova versione. Al termine dell'operazione, le autorizzazioni e le altre impostazioni specificate nella nuova versione verranno applicate a tutte le sottoscrizioni e/o ai gruppi di risorse delegati per l'offerta.
 

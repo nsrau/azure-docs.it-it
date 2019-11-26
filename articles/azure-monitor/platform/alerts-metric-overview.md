@@ -1,18 +1,18 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-author: snehithm
-ms.author: snmuvva
-ms.date: 9/18/2018
+author: rboucher
+ms.author: robb
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b92b4233b6ecd8743f98f7f0dd13e07ad4c76c81
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972053"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484252"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -28,16 +28,16 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
-- Tipo di condizione: statico
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
-- Periodo (finestra temporale a fronte della quale vengono controllati i valori delle metriche): Negli ultimi 5 minuti
-- Frequenza (frequenza con cui l'avviso della metrica controlla se vengono soddisfatte le condizioni): 1 min
-- Operatore: Maggiore di
+- Condition Type: Static
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
 - Soglia: 70
 
 Dal momento in cui viene creata la regola di avviso, il monitoraggio viene eseguito ogni minuto, analizza i valori delle metriche per gli ultimi 5 minuti e controlla se la media di questi valori supera 70. Se la condizione viene soddisfatta, ovvero il valore medio di CPU percentuale per gli ultimi 5 minuti supera 70, la regola di avviso genera una notifica attivata. Se è stata configurata un'azione di webhook o posta elettronica nel gruppo di azioni associato alla regola di avviso, si riceverà una notifica attivata su entrambe.
 
-Quando si usano più condizioni in una regola, la regola "con" le condizioni insieme.  Ovvero, l'avviso viene attivato quando tutte le condizioni nell'avviso restituiscono true e si risolvono quando una delle condizioni non è più vera. Un esempio di questo tipo di avviso è un avviso quando "CPU superiore al 90%" e "lunghezza della coda superiore a 300 elementi". 
+When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regola di avviso con tipo di condizione dinamica
 
@@ -45,14 +45,14 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
-- Tipo di condizione: Dynamic
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
-- Periodo (finestra temporale a fronte della quale vengono controllati i valori delle metriche): Negli ultimi 5 minuti
-- Frequenza (frequenza con cui l'avviso della metrica controlla se vengono soddisfatte le condizioni): 1 min
-- Operatore: Maggiore di
-- Sensibilità: Medio
-- Periodi da controllare: 4
-- Numero di violazioni: 4
+- Condition Type: Dynamic
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
+- Sensitivity: Medium
+- Look Back Periods: 4
+- Number of Violations: 4
 
 Dopo la creazione della regola di avviso, l'algoritmo di Machine Learning relativo alle soglie dinamiche acquisisce i dati cronologici disponibili, calcola la soglia più adatta al modello di comportamento della serie di metriche e, in base ai nuovi dati, migliora continuamente l'apprendimento per rendere la soglia più precisa.
 
@@ -64,7 +64,7 @@ Gli esempi di generazione di regole di avviso riportati sopra possono essere vis
 
 Se l'utilizzo in "myVM" rimane al di sopra della soglia nei controlli successivi, la regola di avviso non verrà nuovamente generata fino alla risoluzione delle condizioni.
 
-Dopo un certo periodo di tempo, l'utilizzo di "myVM" Torna al normale (scende al di sotto della soglia). la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
+After some time, the usage on "myVM" comes back down to normal (goes below the threshold). la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
 
 Quando la notifica risolta viene inviata tramite posta elettronica o webhook, anche lo stato dell'istanza di avviso (denominato stato di monitoraggio) nel portale di Azure viene impostato come risolto.
 
@@ -76,13 +76,13 @@ Si supponga di avere un piano di servizio app per il sito Web. Si intende monito
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Tipo di condizione: statico
+- Condition Type: Static
 - Dimensioni
   - Istanza = InstanceName1, InstanceName2
-- Aggregazione temporale: Average
+- Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
-- Frequenza: 1 min
-- Operatore: GreaterThan
+- Frequenza: 1 minuto
+- Operatore: Maggiore di
 - Soglia: 70
 
 Come in precedenza, questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti supera il 70%. Tuttavia, con la stessa regola è possibile monitorare due istanze che eseguono il sito Web. Ogni istanza verrà monitorata individualmente e si riceveranno notifiche individuali.
@@ -91,13 +91,13 @@ Supponiamo di avere un'app Web che registra un numero di richieste elevato, a ca
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Tipo di condizione: statico
+- Condition Type: Static
 - Dimensioni
   - Istanza = *
-- Aggregazione temporale: Average
+- Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
-- Frequenza: 1 min
-- Operatore: GreaterThan
+- Frequenza: 1 minuto
+- Operatore: Maggiore di
 - Soglia: 70
 
 Questa regola monitorerà automaticamente tutti i valori per l'istanza, ovvero è possibile monitorare le istanze in tempo reale senza dover modificare nuovamente la regola di avviso per la metrica.
@@ -108,16 +108,16 @@ Supponiamo di avere un'app Web con numerose istanze e di non sapere quale sia la
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Tipo di condizione: Dynamic
+- Condition Type: Dynamic
 - Dimensioni
   - Istanza = *
-- Aggregazione temporale: Average
+- Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
-- Frequenza: 1 min
-- Operatore: GreaterThan
-- Sensibilità: Medio
-- Periodi da controllare: 1
-- Numero di violazioni: 1
+- Frequenza: 1 minuto
+- Operatore: Maggiore di
+- Sensitivity: Medium
+- Look Back Periods: 1
+- Number of Violations: 1
 
 Questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti supera il comportamento previsto per ogni istanza. Con la stessa regola è possibile monitorare le istanze in tempo reale senza dover modificare nuovamente la regola di avviso per la metrica. Ogni istanza otterrà una soglia adatta al modello di comportamento della serie di metriche e cambierà continuamente in base ai nuovi dati per rendere la soglia più precisa. Ogni istanza verrà monitorata individualmente e si riceveranno notifiche individuali.
 
@@ -143,41 +143,6 @@ Per gli avvisi delle metriche si riceve in genere una notifica in meno di 5 minu
 
 L'elenco completo dei tipi di risorse supportati è disponibile in questo [articolo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi delle metriche supportano tutti i tipi di risorsa usati, nella tabella seguente sono elencati i tipi di risorsa supportati dagli avvisi delle metriche classici e viene indicato se tali tipi di risorsa sono attualmente supportati dagli avvisi delle metriche oppure no.
-
-|Tipo di risorsa supportato da avvisi delle metriche classici | Supportato dagli avvisi delle metriche |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Yes |
-| Microsoft.Batch/batchAccounts| Sì|
-|Microsoft.Cache/redis| Sì |
-|Microsoft.ClassicCompute/virtualMachines | No |
-|Microsoft.ClassicCompute/domainNames/slots/roles | No|
-|Microsoft.CognitiveServices/accounts | No |
-|Microsoft.Compute/virtualMachines | Yes|
-|Microsoft.Compute/virtualMachineScaleSets| Sì|
-|Microsoft.ClassicStorage/storageAccounts| No |
-|Microsoft.DataFactory/datafactories | Sì|
-|Microsoft.DBforMySQL/servers| Sì|
-|Microsoft.DBforPostgreSQL/servers| Yes|
-|Microsoft.Devices/IotHubs | No|
-|Microsoft.DocumentDB/databaseAccounts| Yes|
-|Microsoft.EventHub/namespaces | Sì|
-|Microsoft.Logic/workflows | Sì|
-|Microsoft.Network/loadBalancers |Yes|
-|Microsoft.Network/publicIPAddresses| Sì|
-|Microsoft.Network/applicationGateways| Yes|
-|Microsoft.Network/expressRouteCircuits| Yes|
-|Microsoft.Network/trafficManagerProfiles | Yes|
-|Microsoft.Search/searchServices | Yes|
-|Microsoft.ServiceBus/namespaces| Sì |
-|Microsoft.Storage/storageAccounts | Sì|
-|Microsoft.StreamAnalytics/streamingjobs| Sì|
-|Microsoft.TimeSeriesInsights/environments | Sì|
-|Microsoft. Web/serverfarms | Sì |
-|Microsoft. Web/sites (escluse le funzioni) | Yes|
-|Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| No |
-|Microsoft.SQL/Servers | No |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

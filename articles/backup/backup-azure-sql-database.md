@@ -1,14 +1,14 @@
 ---
 title: Eseguire un backup dei database SQL Server in Azure
-description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
+description: This article explains how to back up SQL Server to Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 811f04edb4d5f0326d0af629146b7cee10424df8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172657"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462582"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -51,7 +51,7 @@ Prima di iniziare, verificare quanto segue:
 * Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. L'interfaccia della riga di comando non è supportata.
 * La soluzione è supportata in entrambe le tipologie di [distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
 * La macchina virtuale che esegue SQL Server richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure.
-* L'**istanza del cluster di failover** di SQL Server e l'istanza del cluster di failover AlwaysOn di SQL Server non sono supportate.
+* SQL Server **Failover Cluster Instance (FCI)** is not supported.
 * Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
 * L'uso di più soluzioni per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità AlwaysOn di SQL potrebbe generare un errore di backup. Evitare questo approccio.
 * Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori.
@@ -59,8 +59,8 @@ Prima di iniziare, verificare quanto segue:
 * Non è possibile proteggere i database con un numero elevato di file. Il numero massimo di file supportato è **~1000**.  
 * È possibile eseguire il backup di un totale di **~2000** database SQL Server in un insieme di credenziali. Nel caso di un numero elevato di database, è possibile creare più insiemi di credenziali.
 * È possibile configurare il backup per un totale di **50** database alla volta. Questa restrizione contribuisce a ottimizzare i carichi di backup.
-* Sono supportati database di dimensioni fino a **2 TB**. Per dimensioni maggiori, potrebbero verificarsi problemi di prestazioni.
-* Per avere un'idea della quantità di database che è possibile proteggere per ogni server, è necessario considerare fattori come la larghezza di banda, le dimensioni delle VM, la frequenza dei backup, le dimensioni dei database e così via. [Scaricare](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) il calcolatore di risorse che fornisce il numero approssimativo di database disponibili per server in base alle risorse delle macchine virtuali e ai criteri di backup.
+* We support databases up to **2 TB** in size; for sizes greater than that performance issues may come up.
+* To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
 * Nel caso dei gruppi di disponibilità, i backup vengono eseguiti da diversi nodi in base ad alcuni fattori. Il comportamento di backup per un gruppo di disponibilità è riepilogato di seguito.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamento di backup nel caso di gruppi di disponibilità AlwaysOn
@@ -74,30 +74,30 @@ Prima di iniziare, verificare quanto segue:
 
 In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo solo copia), i backup vengono eseguiti da uno specifico nodo (primario o secondario).
 
-* **Preferenza di backup: Primario**
+* **Backup preference: Primary**
 
 **Tipo di backup** | **Node**
     --- | ---
-    Completa | Primaria
-    Differenziale | Primaria
-    Log |  Primaria
-    Completo solo copia |  Primaria
+    Completo | Primario
+    Differenziale | Primario
+    Log |  Primario
+    Completo solo copia |  Primario
 
-* **Preferenza di backup: Solo secondario**
+* **Backup preference: Secondary Only**
 
 **Tipo di backup** | **Node**
 --- | ---
-Completa | Primaria
-Differenziale | Primaria
+Completo | Primario
+Differenziale | Primario
 Log |  Secondario
 Completo solo copia |  Secondario
 
-* **Preferenza di backup: Secondario**
+* **Backup preference: Secondary**
 
 **Tipo di backup** | **Node**
 --- | ---
-Completa | Primaria
-Differenziale | Primaria
+Completo | Primario
+Differenziale | Primario
 Log |  Secondario
 Completo solo copia |  Secondario
 
@@ -105,8 +105,8 @@ Completo solo copia |  Secondario
 
 **Tipo di backup** | **Node**
 --- | ---
-Completa | Primaria
-Differenziale | Primaria
+Completo | Primario
+Differenziale | Primario
 Log |  Secondario
 Completo solo copia |  Secondario
 
@@ -176,7 +176,7 @@ Aggiungere gli account di accesso **NT AUTHORITY\SYSTEM** e **NT Service\AzureWL
 
 7. Fare clic su OK.
 8. Ripetere la stessa procedura (passaggi da 1 a 7 precedenti) per aggiungere l'account di accesso NT Service\AzureWLBackupPluginSvc all'istanza di SQL Server. Se l'account di accesso esiste già, assicurarsi che abbia il ruolo del server sysadmin e che in Stato siano selezionate l'opzione Concedi per Autorizzazione per la connessione al motore di database e l'opzione Abilitato per Account di accesso.
-9. Dopo aver concesso l'autorizzazione, selezionare **Individua di nuovo i database** nel portale: Insieme di credenziali **->** Infrastruttura di backup **->** Workload in Azure VM (Carico di lavoro nella macchina virtuale di Azure):
+9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
 
     ![Opzione Individua di nuovo i database nel portale di Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

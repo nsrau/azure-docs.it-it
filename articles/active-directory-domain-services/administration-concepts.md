@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a5a08bddb53afe8f698b0d96621cc116ee866070
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209167"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481017"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Management concepts for user accounts, passwords, and administration in Azure Active Directory Domain Services
 
@@ -59,7 +59,10 @@ For users synchronized from an on-premises AD DS environment using Azure AD Conn
 
 Dopo la corretta configurazione, gli hash delle password utilizzabili vengono archiviati nel dominio gestito di Azure AD DS. Se si elimina il dominio gestito di Azure AD DS, verranno eliminati anche gli hash delle password archiviati in quel momento. Synchronized credential information in Azure AD can't be reused if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Le VM o gli utenti precedentemente aggiunti al domino non saranno in grado di eseguire immediatamente l'autenticazione. Azure AD deve generare e archiviare gli hash delle password nel nuovo dominio gestito di Azure AD DS. Per altre informazioni, vedere [Processo di sincronizzazione degli hash delle password per Azure AD DS e Azure AD Connect][azure-ad-password-sync].
 
-## <a name="forests-and-trusts"></a>Forests and trusts
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+
+## <a name="forests-and-trusts"></a>Foreste e trust
 
 A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
 
