@@ -151,7 +151,7 @@
         - name: Co-location
           href: co-location.md
         - name: Prestazioni di rete
-          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Tipi e dimensioni di VM
       href: sizes.md
       items:
@@ -209,7 +209,7 @@
     - name: Host dedicati
       href: dedicated-hosts.md
     - name: Manutenzione e aggiornamenti
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Archiviazione su disco
       items:
         - name: Introduzione ai dischi gestiti
@@ -376,18 +376,32 @@
           href: download-template.md
         - name: Agente VM di Azure
           href: ../extensions/agent-windows.md
-        - name: Manutenzione pianificata
-          href: maintenance-notifications.md
         - name: Attenuazione dell'esecuzione speculativa
           href: mitigate-se.md
-        - name: Eventi pianificati
-          href: scheduled-events.md
-        - name: Monitorare gli eventi pianificati
-          href: scheduled-event-service.md
         - name: Monitorare i metadati
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata
           href: nested-virtualization.md
+    - name: Manutenzione della piattaforma
+      items:
+        - name: Notifiche di manutenzione
+          items:
+            - name: Panoramica
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Portale
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Controllo della manutenzione
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Eventi pianificati
+          href: scheduled-events.md
+        - name: Servizio eventi pianificati di Windows
+          href: scheduled-event-service.md
     - name: Monitorare le VM
       items:
         - name: Monitoraggio di Azure per le macchine virtuali

@@ -126,7 +126,7 @@
     - name: Host dedicati
       href: dedicated-hosts.md
     - name: Manutenzione e aggiornamenti
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Archiviazione su disco
       items:
         - name: Introduzione ai dischi gestiti
@@ -298,16 +298,30 @@
               href: ../extensions/agent-linux.md
             - name: Aggiornamento dell'agente
               href: update-agent.md
-        - name: Manutenzione pianificata
-          href: maintenance-notifications.md
         - name: Attenuazione dell'esecuzione speculativa
           href: mitigate-se.md
-        - name: Eventi pianificati
-          href: scheduled-events.md
         - name: Monitorare i metadati
           href: instance-metadata-service.md
         - name: Ottenere le metriche di utilizzo con REST
           href: metrics-vm-usage-rest.md
+    - name: Manutenzione della piattaforma
+      items:
+        - name: Notifiche di manutenzione
+          items:
+            - name: Panoramica
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Portale
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Controllo della manutenzione
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Eventi pianificati
+          href: scheduled-events.md
     - name: Monitorare le VM
       items:
         - name: Monitoraggio di Azure per le macchine virtuali

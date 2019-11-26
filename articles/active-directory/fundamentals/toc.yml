@@ -31,6 +31,18 @@
       href: active-directory-data-storage-eu.md
     - name: Novità di Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
+    - name: Informazioni di riferimento sulle operazioni di Azure AD
+      items:
+        - name: Introduzione
+          href: active-directory-ops-guide-intro.md
+        - name: Gestione delle identità e dell'accesso
+          href: active-directory-ops-guide-iam.md
+        - name: Gestione dell'autenticazione
+          href: active-directory-ops-guide-auth.md
+        - name: Identity Governance
+          href: active-directory-ops-guide-govern.md
+        - name: Operazioni
+          href: active-directory-ops-guide-ops.md
 - name: Guide alle procedure
   expanded: true
   items:

@@ -14,6 +14,8 @@
               href: per-vm-quota-requests.md
             - name: Aumento del limite di vCPU totali di un'area
               href: regional-quota-requests.md
+            - name: Aumento del limite di quota per priorità bassa
+              href: low-priority-quota.md
         - name: Modello di distribuzione classica
           href: classic-deployment-model-quota-increase-requests.md
     - name: Aumento del limite delle connessioni di rete
