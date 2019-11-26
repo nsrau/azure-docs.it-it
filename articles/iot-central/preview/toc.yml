@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: Gestire i dispositivi
           href: howto-manage-devices.md
+        - name: Configurare le regole
+          href: howto-configure-rules.md
         - name: Analizzare i dati del dispositivo
           href: howto-create-analytics.md
         - name: Aggiungere riquadri al dashboard
