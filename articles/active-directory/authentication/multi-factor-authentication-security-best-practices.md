@@ -1,5 +1,5 @@
 ---
-title: Security guidance for Azure Multi-Factor Authentication - Azure Active Directory
+title: Indicazioni sulla sicurezza per Azure Multi-Factor Authentication-Azure Active Directory
 description: Questo documento include le linee guida relative all'uso di Azure MFA con account Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -31,7 +31,7 @@ La scelta preferita per migliorare il processo di autenticazione nella maggior p
 
 ### <a name="licenses"></a>Licenze
 
-![Apply licenses to users, enable, notify](./media/multi-factor-authentication-security-best-practices/ems.png)
+![Applicare le licenze agli utenti, abilitare, notificare](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Se si dispone di licenze Azure AD Premium o Enterprise Mobility + Security, si può già usare Azure MFA. L'organizzazione non ha l'esigenza di avere elementi aggiuntivi per estendere la funzionalità di verifica in due passaggi a tutti gli utenti. È sufficiente assegnare una licenza a un utente e quindi è possibile attivare l'autenticazione MFA.
 
@@ -43,7 +43,7 @@ Quando si configura l'autenticazione Multi-Factor Authentication, tenere in cons
 
 ### <a name="multi-factor-auth-provider"></a>Provider di Multi-Factor Authentication
 
-![Multi-Factor Authentication Provider](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![Provider di Multi-Factor Authentication](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 In assenza di licenze che includono Azure MFA, è possibile [creare un provider di autenticazione MFA](concept-mfa-authprovider.md).
 
@@ -52,7 +52,7 @@ Quando si crea il provider di autenticazione, è necessario selezionare una dire
 * Non è necessaria una directory di Azure AD per creare un provider Multi-Factor Authentication, ma con una è possibile ottenere più funzionalità. Le seguenti funzionalità vengono abilitate associando il provider di Multi-Factor Authentication a una directory di Azure AD:
   * Estendere la verifica in due passaggi a tutti gli utenti
   * Offrire funzionalità aggiuntive agli amministratori globali, ad esempio il portale di gestione, messaggi di saluto personalizzati e report.
-* If you synchronize your on-premises Active Directory environment with an Azure AD directory, you need DirSync or Azure AD Sync. If you use an Azure AD directory that is not synchronized with an on-premises instance of Active Directory, you do not need DirSync or Azure AD Sync.
+* Se si sincronizza l'ambiente di Active Directory locale con una directory Azure AD, è necessario usare DirSync o Azure AD Sync. Se si usa una directory Azure AD non sincronizzata con un'istanza locale di Active Directory, non è necessario DirSync o Azure AD Sync.
 * Scegliere il modello di consumo più adatto alle esigenze aziendali. Dopo aver selezionato il modello non sarà possibile modificarlo. I due modelli sono:
   * Per autenticazione: viene applicato un addebito per ogni verifica. Usare questo modello per usare la verifica in due passaggi per qualsiasi utente che accede a una determinata app, non per utenti specifici.
   * Per utente abilitato: viene applicato un addebito per ogni utente che viene abilitato per Azure MFA. Usare questo modello se non tutti gli utenti dispongono di licenze Azure AD Premium o Enterprise Mobility Suite.
@@ -68,7 +68,7 @@ Poiché la maggior parte degli utenti è abituata a usare le password solo per l
 
 Se la società decide di sfruttare la propria infrastruttura per abilitare MFA, è necessario [distribuire un server Microsoft Azure Multi-Factor Authentication in locale](howto-mfaserver-deploy.md). I componenti del server MFA sono illustrati nel diagramma seguente:
 
-![The default MFA Server components](./media/multi-factor-authentication-security-best-practices/server.png) \*Not installed by default \**Installed but not enabled by default
+![i componenti predefiniti del server di autenticazione a più fattori](./media/multi-factor-authentication-security-best-practices/server.png) \*non installati per impostazione predefinita \** installato ma non abilitato per impostazione predefinita
 
 Il server Azure Multi-Factor Authentication può proteggere le risorse del cloud e locali usando la federazione. È necessario avere AD FS federato con un tenant di Azure AD.
 Quando si configura il server Multi-Factor Authentication, tenere in considerazione quanto segue:

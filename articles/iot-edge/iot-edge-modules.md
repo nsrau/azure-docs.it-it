@@ -17,7 +17,7 @@ ms.locfileid: "74456576"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
 
-Azure IoT Edge consente di distribuire e gestire la logica di business sui dispositivi perimetrali sotto forma di *moduli*. I moduli di Azure IoT Edge sono l'unità più piccola di calcolo gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico per la soluzione. To understand how modules are developed, deployed, and maintained, it helps to think of the four conceptual elements of a module:
+Azure IoT Edge consente di distribuire e gestire la logica di business sui dispositivi perimetrali sotto forma di *moduli*. I moduli di Azure IoT Edge sono l'unità più piccola di calcolo gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico per la soluzione. Per comprendere la modalità di sviluppo, distribuzione e manutenzione dei moduli, è utile considerare i quattro elementi concettuali di un modulo:
 
 * Un'**immagine del modulo** è un pacchetto che contiene il software che definisce il modulo.
 * Un'**istanza del modulo** è l'unità di calcolo specifica che esegue l'immagine del modulo in un dispositivo di IoT Edge. L'istanza del modulo viene avviata dal runtime di IoT Edge.
@@ -68,7 +68,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Funzionalità offline
 
-Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once. IoT Edge devices can also extend this offline capability to other IoT devices. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
+I moduli Azure IoT Edge possono funzionare offline per un periodo illimitato dopo la sincronizzazione con l'hub Internet. I dispositivi IoT Edge possono anche estendere questa funzionalità offline ad altri dispositivi. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Informazioni sui requisiti e sugli strumenti per lo sviluppo di moduli IoT Edge](module-development.md)

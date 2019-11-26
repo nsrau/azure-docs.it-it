@@ -30,11 +30,11 @@ Questa pagina presenta i concetti principali relativi a domini, zone DNS e recor
 
 Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "radice", il cui nome è semplicemente " **.** ",  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp" I domini nella gerarchia DNS vengono distribuiti a livello globale, ospitati dai server dei nomi DNS in tutto il mondo.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
+Un registrar di nomi di dominio è un'organizzazione che consente di acquistare un nome di dominio, ad esempio `contoso.com`.  L'acquisto di un nome di dominio offre il diritto di controllare la gerarchia DNS con tale nome, ad esempio consentendo di indirizzare il nome `www.contoso.com` al sito Web della società. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
 
 DNS di Azure offre un'infrastruttura di server dei nomi a disponibilità elevata e distribuita a livello globale, che può essere usata per ospitare il dominio. Ospitando i domini in DNS di Azure, è possibile gestire i record DNS usando gli stessi strumenti, credenziali, API, fatturazione e supporto degli altri servizi di Azure.
 
-DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si vuole acquistare un nome di dominio, è necessario ricorrere a un registrar di terze parti. Il registrar addebita in genere un prezzo annuo ridotto. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record DNS. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
+DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si vuole acquistare un nome di dominio, è necessario ricorrere a un registrar di terze parti. che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record DNS. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
 
 ## <a name="dns-zones"></a>Zone DNS
 
@@ -78,7 +78,7 @@ Questi vincoli derivano dagli standard DNS e non sono limitazioni di DNS di Azur
 
 Un set di record NS viene creato automaticamente in corrispondenza del vertice di ogni zona DNS (nome = "\@") e viene eliminato automaticamente quando viene eliminata la zona; non può essere eliminato separatamente.
 
-Questo set contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona. È possibile aggiungere altri server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati. 
+Questo set contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona. È possibile aggiungere ulteriori server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati. 
 
 Questo si applica solo al set di record NS al vertice della zona. Gli altri set di record NS nella zona, usati per delegare le zone figlio, possono essere creati, modificati ed eliminati senza vincoli.
 
@@ -88,7 +88,7 @@ Un set di record SOA viene creato automaticamente in corrispondenza del vertice 
 
 È possibile modificare tutte le proprietà del record SOA ad eccezione della proprietà "host", che è preconfigurata in modo da fare riferimento al nome del server dei nomi primario fornito da DNS di Azure.
 
-The zone serial number in the SOA record is not updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
+Il numero di serie della zona nel record SOA non viene aggiornato automaticamente quando vengono apportate modifiche ai record nella zona. Se necessario, è possibile aggiornarlo manualmente modificando il record SOA.
 
 ### <a name="spf-records"></a>Record SPF
 
@@ -119,7 +119,7 @@ I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per e
 
 DNS di Azure supporta l'uso di tag di Azure Resource Manager in risorse di zona DNS.  Non supporta i tag nei set di record DNS, anche se in alternativa sono supportati i "metadati", come illustrato di seguito.
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Metadati
 
 In alternativa ai tag dei set di record, DNS di Azure supporta l'annotazione dei set di report tramite "metadati".  Analogamente ai tag, i metadati permettono di associare coppie nome-valore a ogni set di record.  Questo approccio può essere utile, ad esempio, per registrare lo scopo di ogni set di record.  Diversamente dai tag, i metadati non possono essere usati per fornire una visualizzazione filtrata della fattura di Azure e non possono essere specificati in criteri di Azure Resource Manager.
 
@@ -135,8 +135,8 @@ A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le 
 
 | Intestazione | Comportamento |
 | --- | --- |
-| Nessuno |PUT riesce sempre (nessun controllo di Etag) |
-| If-match \<etag> |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
+| nessuno |PUT riesce sempre (nessun controllo di Etag) |
+| If-Match \<ETag > |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |
 

@@ -1,7 +1,7 @@
 ---
-title: Azure service tags overview
+title: Panoramica sui tag del servizio di Azure
 titlesuffix: Azure Virtual Network
-description: Learn about service tags. Service tags help minimize complexity of security rule creation.
+description: Informazioni sui tag di servizio. I tag di servizio consentono di ridurre al minimo la complessità della creazione delle regole di sicurezza.
 services: virtual-network
 documentationcenter: na
 author: jispar
@@ -20,105 +20,105 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384153"
 ---
-# <a name="virtual-network-service-tags"></a>Virtual network service tags 
+# <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale 
 <a name="network-service-tags"></a>
 
-A service tag represents a group of IP address prefixes from a given Azure service. It helps to minimize complexity of frequent updates on network security rules. You can use service tags to define network access controls on [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. By specifying the service tag name (e.g., **ApiManagement**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. 
+Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Consente di ridurre al minimo la complessità degli aggiornamenti frequenti sulle regole di sicurezza di rete. È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o nel firewall di [Azure](https://docs.microsoft.com/azure/firewall/service-tags). È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **ApiManagement**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi. 
 
-## <a name="available-service-tags"></a>Available service tags
-The following table includes all of the service tags available to be used in [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) rules.
+## <a name="available-service-tags"></a>Tag di servizio disponibili
+La tabella seguente include tutti i tag di servizio disponibili per l'uso nelle regole dei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) .
 
-The columns indicate whether the tag is:
+Le colonne indicano se il tag è:
 
-- Suitable for rules covering inbound or outbound traffic
-- Support [regional](https://azure.microsoft.com/regions) scope 
-- Usable in [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) rules
+- Adatto per le regole che coprono il traffico in ingresso o in uscita
+- Supportare l'ambito [regionale](https://azure.microsoft.com/regions) 
+- Utilizzabile nelle regole del [firewall di Azure](https://docs.microsoft.com/azure/firewall/service-tags)
 
-By default, service tags reflect the ranges for the entire cloud.  Some service tags also allow more finer-grain control by restricting the corresponding IP ranges to a specified region.  For example while the service tag **Storage** represents Azure Storage for the entire cloud,  **Storage.WestUS** narrows that to only the storage IP address ranges from the WestUS region.  The descriptions of each Service tag below indicates whether they support such regional scope.  
+Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l'intero cloud.  Alcuni tag di servizio consentono anche un controllo più accurato, limitando gli intervalli IP corrispondenti a un'area specificata.  Ad esempio, mentre l' **archiviazione** dei tag del servizio rappresenta l'archiviazione di Azure per l'intero cloud, **storage. westus** restringe tale spazio solo agli intervalli di indirizzi IP di archiviazione dell'area westus.  La descrizione di ogni tag di servizio seguente indica se supporta tale ambito regionale.  
 
 
 
-| Tag | Finalità | Can use Inbound or Outbound? | Can be Regional? | Can use with Azure Firewall? |
+| Tag | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usare con il firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Gestione API** | Management traffic for APIM dedicated deployments. | Entrambi | No | SÌ |
-| **AppService**    | App Service service. This tag is recommended for outbound security rules to WebApp frontends. | In uscita | SÌ | SÌ |
-| **AppServiceManagement** | Management traffic for App Service Environment dedicated deployments. | Entrambi | No | SÌ |
-| **AzureActiveDirectory** | Azure Active Directory service. | In uscita | No | SÌ |
-| **AzureActiveDirectoryDomainServices** | Management traffic for Azure Active Directory Domain Services dedicated deployments. | Entrambi | No | SÌ |
-| **AzureBackup** |Azure Backup service.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | In uscita | No | SÌ |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). | In uscita | SÌ | SÌ |
-| **AzureConnectors** | Logic Apps connectors for probe/backend connections. | In ingresso | SÌ | SÌ |
-| **AzureContainerRegistry** | Azure Container Registry service. | In uscita | SÌ | SÌ |
-| **AzureCosmosDB** | Azure Cosmos Database service. | In uscita | SÌ | SÌ |
-| **AzureDataLake** | Azure Data Lake service. | In uscita | No | SÌ |
-| **AzureIoTHub** | Azure IoT Hub service. | In uscita | No | No |
-| **AzureKeyVault** | Azure KeyVault service.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | In uscita | SÌ | SÌ |
-| **AzureLoadBalancer** | Azure's infrastructure load balancer. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola. | Entrambi | No | No |
-| **AzureMachineLearning** | Azure Machine Learning service. | In uscita | No | SÌ |
-| **AzureMonitor** | Log Analytics, App Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has dependency on the **Storage** tag. | In uscita | No | SÌ |
-| **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Please exercise caution in using this tag. Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | In uscita | No | No |
-| **AzurePlatformIMDS** | IMDS, which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS.  Please exercise caution in using this tag. Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | In uscita | No | No |
-| **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Please exercise caution in using this tag.  Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | In uscita | No | No |
-| **AzureTrafficManaged** | Azure Traffic Manager probe IP addresses.<br/><br/>Per altre informazioni sugli IP probe di Gestione traffico, consultare [Domande frequenti su Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | In ingresso | No | SÌ |  
-| **BatchNodeManagement** | Management traffic for Azure Batch dedicated deployments. | Entrambi | No | SÌ |
-| **CognitiveServicesManagement** | The address ranges for traffic for Cognitive Services | In uscita | No | No |
-| **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | In uscita | SÌ | No |
-| **EventHub** | Azure EventHub service. | In uscita | SÌ | SÌ |
-| **GatewayManager** | Management traffic for VPN/App Gateways dedicated deployments. | In ingresso | No | No |
-| **Internet** | The IP address space that is outside the virtual network and reachable by the public Internet.<br/><br/>L'intervallo degli indirizzi include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Entrambi | No | No |
-| **MicrosoftContainerRegistry** | Microsoft Container Registry service. | In uscita | SÌ | SÌ |
-| **Bus di servizio** | Azure Service Bus service using the Premium service tier. | In uscita | SÌ | SÌ |
-| **ServiceFabric** | Service Fabric service. | In uscita | No | No |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse services.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. | In uscita | SÌ | SÌ |
-| **SqlManagement** | Management traffic for SQL dedicated deployments. | Entrambi | No | SÌ |
-| **Archiviazione** | Azure Storage service. <br/><br/>*Note:* The tag represents the service, but not specific instances of the service. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. | In uscita | SÌ | SÌ |
-| **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, or virtual network connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](security-overview.md#azure-platform-considerations) and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). Be aware that this tag may also contain default routes. | Entrambi | No | No |
+| **Gestione API** | Traffico di gestione per le distribuzioni dedicate gestione API. | Entrambi | No | Sì |
+| **AppService**    | Servizio app. Questo tag è consigliato per le regole di sicurezza in uscita per i front-end WebApp. | In uscita | Sì | Sì |
+| **AppServiceManagement** | Traffico di gestione per le distribuzioni ambiente del servizio app dedicate. | Entrambi | No | Sì |
+| **AzureActiveDirectory** | Servizio Azure Active Directory. | In uscita | No | Sì |
+| **AzureActiveDirectoryDomainServices** | Traffico di gestione per le distribuzioni Azure Active Directory Domain Services dedicate. | Entrambi | No | Sì |
+| **AzureBackup** |Servizio backup di Azure.<br/><br/>*Nota:* Questo tag presenta una dipendenza sui tag di **archiviazione** e **AzureActiveDirectory** . | In uscita | No | Sì |
+| **AzureCloud** | Tutti [gli indirizzi IP pubblici del Data Center](https://www.microsoft.com/download/details.aspx?id=41653). | In uscita | Sì | Sì |
+| **AzureConnectors** | Connettori delle app per la logica per le connessioni Probe/back-end. | In ingresso | Sì | Sì |
+| **AzureContainerRegistry** | Servizio Container Registry di Azure. | In uscita | Sì | Sì |
+| **AzureCosmosDB** | Azure Cosmos database Service. | In uscita | Sì | Sì |
+| **AzureDataLake** | Servizio Azure Data Lake. | In uscita | No | Sì |
+| **AzureIoTHub** | Servizio Hub Azure. | In uscita | No | No |
+| **AzureKeyVault** | Servizio dell'insieme di credenziali delle credenziali di Azure.<br/><br/>*Nota:* Questo tag presenta una dipendenza dal tag **AzureActiveDirectory** . | In uscita | Sì | Sì |
+| **AzureLoadBalancer** | Servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola. | Entrambi | No | No |
+| **AzureMachineLearning** | Servizio Azure Machine Learning. | In uscita | No | Sì |
+| **AzureMonitor** | Log Analytics, App Insights, AzMon e metriche personalizzate (endpoint GiG).<br/><br/>*Nota:* Per Log Analytics, questo tag presenta una dipendenza dal tag di **archiviazione** . | In uscita | No | Sì |
+| **AzurePlatformDNS** | Il servizio DNS dell'infrastruttura di base (impostazione predefinita).<br/><br>È possibile usare questo tag per disabilitare il DNS predefinito. Prestare attenzione nell'uso di questo tag. È consigliabile leggere le [considerazioni sulla piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) . Il test è consigliato prima di usare questo tag. | In uscita | No | No |
+| **AzurePlatformIMDS** | IMDS, un servizio di infrastruttura di base.<br/><br/>È possibile usare questo tag per disabilitare il valore predefinito di IMDS.  Prestare attenzione nell'uso di questo tag. È consigliabile leggere le [considerazioni sulla piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) . Il test è consigliato prima di usare questo tag. | In uscita | No | No |
+| **AzurePlatformLKM** | Servizio gestione licenze Windows o gestione chiavi.<br/><br/>È possibile utilizzare questo tag per disabilitare le impostazioni predefinite per le licenze. Prestare attenzione nell'uso di questo tag.  È consigliabile leggere le [considerazioni sulla piattaforma Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) . Il test è consigliato prima di usare questo tag. | In uscita | No | No |
+| **AzureTrafficManaged** | Indirizzi IP di probe di gestione traffico di Azure.<br/><br/>Per altre informazioni sugli IP probe di Gestione traffico, consultare [Domande frequenti su Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | In ingresso | No | Sì |  
+| **BatchNodeManagement** | Traffico di gestione per le distribuzioni Azure Batch dedicate. | Entrambi | No | Sì |
+| **CognitiveServicesManagement** | Intervalli di indirizzi per il traffico per servizi cognitivi | In uscita | No | No |
+| **Dynamics365ForMarketingEmail** | Gli intervalli di indirizzi per il servizio di posta elettronica di marketing di Dynamics 365. | In uscita | Sì | No |
+| **EventHub** | Servizio Azure EventHub. | In uscita | Sì | Sì |
+| **GatewayManager** | Traffico di gestione per le distribuzioni dedicate di gateway VPN/app. | In ingresso | No | No |
+| **Internet** | Lo spazio di indirizzi IP esterno alla rete virtuale e raggiungibile tramite la rete Internet pubblica.<br/><br/>L'intervallo degli indirizzi include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Entrambi | No | No |
+| **MicrosoftContainerRegistry** | Servizio Microsoft Container Registry. | In uscita | Sì | Sì |
+| **Bus di servizio** | Servizio del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
+| **ServiceFabric** | Servizio Service Fabric. | In uscita | No | No |
+| **SQL** | Database SQL di Azure, database di Azure per MySQL, database di Azure per PostgreSQL e servizi Azure SQL Data Warehouse.<br/><br/>*Nota:* Questo tag rappresenta il servizio, ma non le istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. | In uscita | Sì | Sì |
+| **Oggetto SqlManagement** | Traffico di gestione per le distribuzioni SQL dedicate. | Entrambi | No | Sì |
+| **Archiviazione** | Servizio di archiviazione di Azure. <br/><br/>*Nota:* Il tag rappresenta il servizio, ma non le istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. | In uscita | Sì | Sì |
+| **VirtualNetwork** | Lo spazio di indirizzi della rete virtuale (tutti gli intervalli di indirizzi IP definiti per la rete virtuale), tutti gli spazi di indirizzi locali connessi, le reti virtuali con [peering](virtual-network-peering-overview.md) o la rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), l'indirizzo [IP virtuale Indirizzo dei](security-overview.md#azure-platform-considerations) prefissi dell'host e degli indirizzi usati nelle [route definite dall'utente](virtual-networks-udr-overview.md). Tenere presente che questo tag può contenere anche route predefinite. | Entrambi | No | No |
 
 >[!NOTE]
->When working in the *Classic* (pre-Azure Resource Manager) environment, a select set of the above tags are supported.  These use an alternative spelling:
+>Quando si lavora in un ambiente *classico* (pre-Azure Resource Manager), sono supportati un set di selezione dei tag precedenti.  Che usano un'ortografia alternativa:
 
-| Classic spelling | Equivalent Resource Manager tag |
+| Ortografia classica | Tag Gestione risorse equivalente |
 |---|---|
 | AZURE_LOADBALANCER | AzureLoadBalancer |
 | INTERNET | Internet |
 | VIRTUAL_NETWORK | VirtualNetwork |
 
 > [!NOTE]
-> I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. e.g. the underlying IP ranges corresponding to the **Sql** tag value will differ between the Azure Public cloud and the Azure China cloud.
+> I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. ad esempio, gli intervalli IP sottostanti corrispondenti al valore del tag **SQL** variano tra il cloud pubblico di Azure e il cloud di Azure China.
 
 > [!NOTE]
 > Se si implementa un [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md) per un servizio come Archiviazione di Azure o Database SQL di Azure, Azure aggiunge una [route](virtual-networks-udr-overview.md#optional-default-routes) a una subnet di rete virtuale per il servizio. I prefissi di indirizzo nella route sono gli stessi prefissi di indirizzo o intervalli CIDR del tag di servizio corrispondente.
 
 
 
-## <a name="service-tags-in-on-premises"></a>Service tags in on-premises  
-You can obtain the current service tag and range information to include as part of your on-premises firewall configurations.  This information is the current point-in-time list of the IP ranges corresponding to each service tag.  The information can be obtained programmatically or via JSON file download as follows.
+## <a name="service-tags-in-on-premises"></a>Tag del servizio in locale  
+È possibile ottenere il tag di servizio e le informazioni sull'intervallo correnti da includere come parte delle configurazioni del firewall locale.  Queste informazioni corrispondono all'elenco temporizzato corrente degli intervalli IP corrispondenti a ogni tag di servizio.  Le informazioni possono essere ottenute a livello di codice o tramite il download del file JSON come indicato di seguito.
 
-### <a name="service-tag-discovery-api-public-preview"></a>Service tag Discovery API (Public Preview)
-You can programmatically retrieve the current list of service tags with IP address range details:
+### <a name="service-tag-discovery-api-public-preview"></a>API di individuazione tag di servizio (anteprima pubblica)
+È possibile recuperare a livello di codice l'elenco corrente dei tag del servizio con i dettagli dell'intervallo di indirizzi IP:
 
 - [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
-> While in Public Preview, the Discovery API may return information that is not as current as the JSON downloads (below).
+> Nell'anteprima pubblica, l'API di individuazione può restituire informazioni non aggiornate come i download JSON (di seguito).
 
 
-### <a name="discover-service-tags-using-downloadable-json-files"></a>Discover service tags using downloadable JSON files 
-You can download JSON files containing the current list of service tags with IP address range details. These are updated and published weekly.  Locations for each cloud are:
+### <a name="discover-service-tags-using-downloadable-json-files"></a>Individuare i tag del servizio usando file JSON scaricabili 
+È possibile scaricare i file JSON contenenti l'elenco corrente dei tag del servizio con i dettagli dell'intervallo di indirizzi IP. Questi vengono aggiornati e pubblicati settimanalmente.  Le località per ogni cloud sono:
 
-- [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
+- [Pubblico di Azure](https://www.microsoft.com/download/details.aspx?id=56519)
 - [Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure per la Cina](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Germania](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 > [!NOTE]
->A subset of this information has previously been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064) and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. Please migrate to using the Discovery API or JSON file downloads as described above.
+>Un subset di queste informazioni è stato pubblicato in precedenza in file XML per [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure Cina](https://www.microsoft.com/download/details.aspx?id=42064) e [Azure Germania](https://www.microsoft.com/download/details.aspx?id=54770). Questi download XML saranno deprecati entro il 30 giugno 2020 e non saranno più disponibili dopo tale data. Eseguire la migrazione a usando l'API di individuazione o i download di file JSON come descritto in precedenza.
 
 ### <a name="tips"></a>Suggerimenti 
-- You can detect updates from one publishing to the next via increased *changeNumber* values within the JSON file. Each subsection (e.g. **Storage.WestUS**) has its own *changeNumber* that is incremented as changes occur.  The top level of the file's *changeNumber* is incremented when any of the subsections has changed.
-- For examples of how to parse the service tag information (e.g. get all address ranges for Storage in WestUS), please refer to the [Service Tag Discovery API PowerShell](https://aka.ms/discoveryapi_powershell) documentation.
+- È possibile rilevare gli aggiornamenti da una pubblicazione a quella successiva tramite valori *ChangeNumber* più elevati all'interno del file JSON. Ogni sottosezione (ad esempio, **storage. westus**) ha un proprio *ChangeNumber* che viene incrementato quando si verificano modifiche.  Il primo livello del *ChangeNumber* del file viene incrementato quando una delle sottosezioni è stata modificata.
+- Per esempi di come analizzare le informazioni sui tag di servizio (ad esempio, ottenere tutti gli intervalli di indirizzi per l'archiviazione in Westus), vedere la documentazione di PowerShell relativa all' [API di individuazione dei tag di servizio](https://aka.ms/discoveryapi_powershell) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [creare un gruppo di sicurezza di rete](tutorial-filter-network-traffic.md).

@@ -46,11 +46,11 @@ Poiché i registri contenitori sono risorse usate in più host contenitori, un r
 
 Anche se è possibile provare con un tipo di host specifico, come le Istanze di Azure Container, probabilmente al termine si vorrà eliminare l'istanza del contenitore. Tuttavia, è anche possibile mantenere la raccolta di immagini inserita in Registro Azure Container. Posizionando il registro nel suo gruppo di risorse, si riduce al minimo il rischio di eliminare accidentalmente la raccolta di immagini nel registro quando si elimina il gruppo di risorse delle istanze del contenitore.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si esegue l'autenticazione con Registro Azure Container, esistono due scenari principali: autenticazione singola e autenticazione di servizio (o "headless"). La tabella seguente fornisce una breve panoramica di questi scenari e il metodo di autenticazione consigliato per ognuno.
 
-| Type | Scenario di esempio | Metodo consigliato |
+| digitare | Scenario di esempio | Metodo consigliato |
 |---|---|---|
 | Identità singola | Uno sviluppatore che esegue il pull o il push di immagini dal computer di sviluppo. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identità headless/del servizio | Pipeline di compilazione e distribuzione in cui l'utente non è direttamente coinvolto. | [Entità servizio](container-registry-authentication.md#service-principal) |
@@ -59,9 +59,9 @@ Per informazioni dettagliate sull'autenticazione a Registro Azure Container, ved
 
 ## <a name="manage-registry-size"></a>Gestire le dimensioni del registro
 
-The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
+I vincoli di archiviazione di [ogni SKU del registro contenitori][container-registry-skus] hanno lo scopo di allinearsi con uno scenario tipico: **Basic** per iniziare, **standard** per la maggior parte delle applicazioni di produzione e **Premium** per le prestazioni con iperscalabilità e la [replica geografica][container-registry-geo-replication]. Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
 
-Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+Usare il comando dell'interfaccia della riga di comando di Azure [AZ ACR Show-Usage][az-acr-show-usage] per visualizzare le dimensioni correnti del registro di sistema:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table

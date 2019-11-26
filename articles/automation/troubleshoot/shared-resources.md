@@ -39,11 +39,11 @@ Per risolvere questo problema è necessario rimuovere il modulo bloccato nello s
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Scenario: AzureRM modules are stuck importing after trying to update them
+### <a name="update-azure-modules-importing"></a>Scenario: l'importazione di moduli AzureRM è bloccata dopo il tentativo di aggiornamento
 
 #### <a name="issue"></a>Problema
 
-A banner with the following message stays in your account after trying to update your AzureRM modules:
+Un banner con il messaggio seguente rimane nell'account dopo aver tentato di aggiornare i moduli di AzureRM:
 
 ```error
 Azure modules are being updated
@@ -51,11 +51,11 @@ Azure modules are being updated
 
 #### <a name="cause"></a>Causa
 
-There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
+Si è verificato un problema noto relativo all'aggiornamento dei moduli AzureRM in un account di automazione che si trova in un gruppo di risorse con un nome numerico che inizia con 0.
 
 #### <a name="resolution"></a>Risoluzione
 
-To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
+Per aggiornare i moduli di Azure nell'account di automazione, è necessario che si trovi in un gruppo di risorse con un nome alfanumerico. I gruppi di risorse con nomi numerici che iniziano con 0 non sono in grado di aggiornare i moduli AzureRM in questo momento.
 
 ### <a name="module-fails-to-import"></a>Scenario: L'importazione del modulo non riesce o i cmdlet non possono essere eseguiti dopo l'importazione
 
@@ -80,7 +80,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 * Aprire il file con estensione psd1 e vedere se il modulo include dipendenze. In caso affermativo, caricare i moduli nell'account di automazione.
 * Assicurarsi che le eventuali DLL a cui viene fatto riferimento siano presenti nella cartella del modulo.
 
-### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 suspends when updating modules
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule. ps1 viene sospeso durante l'aggiornamento di moduli
 
 #### <a name="issue"></a>Problema
 
@@ -118,7 +118,7 @@ Se il processo di aggiornamento viene sospeso, è necessario aggiungere il param
 
 ## <a name="run-as-accounts"></a>Account RunAs
 
-### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
+### <a name="unable-create-update"></a>Scenario: non è possibile creare o aggiornare un account RunAs
 
 #### <a name="issue"></a>Problema
 
@@ -138,11 +138,11 @@ Per creare o aggiornare un account RunAs è necessario disporre delle autorizzaz
 
 Se il problema è causato da un blocco, verificare che sia possibile rimuoverlo. Passare quindi alla risorsa bloccata, fare clic con il pulsante destro del mouse sul blocco e scegliere **Elimina** per rimuovere il blocco.
 
-### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
+### <a name="iphelper"></a>Scenario: viene visualizzato l'errore "Impossibile trovare un punto di ingresso denominato ' GetPerAdapterInfo ' nella DLL ' iplpapi. dll '" durante l'esecuzione di un Runbook.
 
 #### <a name="issue"></a>Problema
 
-When executing a runbook you receive the following exception:
+Quando si esegue un Runbook, si riceve l'eccezione seguente:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
+Questo errore è probabilmente causato da un [account RunAs](../manage-runas-account.md)configurato in modo non corretto.
 
 #### <a name="resolution"></a>Risoluzione
 
-Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
+Verificare che l' [account RunAs](../manage-runas-account.md) sia configurato correttamente. Una volta configurata correttamente, verificare di avere il codice corretto nel Runbook per l'autenticazione con Azure. L'esempio seguente illustra un frammento di codice per l'autenticazione in Azure in una Runbook usando un account RunAs.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
@@ -168,4 +168,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

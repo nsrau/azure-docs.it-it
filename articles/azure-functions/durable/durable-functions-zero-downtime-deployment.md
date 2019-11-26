@@ -1,6 +1,6 @@
 ---
-title: Zero-downtime deployment for Durable Functions
-description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments.
+title: Distribuzione senza tempi di inattività per Durable Functions
+description: Informazioni su come abilitare l'orchestrazione Durable Functions per le distribuzioni senza tempi di inattività.
 author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
@@ -12,61 +12,61 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231264"
 ---
-# <a name="zero-downtime-deployment-for-durable-functions"></a>Zero-downtime deployment for Durable Functions
+# <a name="zero-downtime-deployment-for-durable-functions"></a>Distribuzione senza tempi di inattività per Durable Functions
 
-The [reliable execution model](durable-functions-checkpointing-and-replay.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
+Il [modello di esecuzione affidabile](durable-functions-checkpointing-and-replay.md) di Durable Functions richiede che le orchestrazioni siano deterministiche, il che crea una sfida aggiuntiva da considerare quando si distribuiscono gli aggiornamenti. Quando una distribuzione contiene modifiche alle firme delle funzioni attività o alla logica dell'agente di orchestrazione, le istanze di orchestrazione in corso hanno esito negativo Questa situazione è soprattutto un problema per le istanze di orchestrazioni a esecuzione prolungata, che potrebbero rappresentare ore o giorni di lavoro.
 
-To prevent these failures from happening, you have two options: 
-- Delay your deployment until all running orchestration instances have completed.
-- Make sure that any running orchestration instances use the existing versions of your functions. 
+Per evitare che si verifichino questi errori, sono disponibili due opzioni: 
+- Ritarda la distribuzione finché tutte le istanze di orchestrazione in esecuzione non sono state completate.
+- Verificare che tutte le istanze di orchestrazione in esecuzione usino le versioni esistenti delle funzioni. 
 
 > [!NOTE]
-> This article provides guidance for functions apps that target Durable Functions 1.x. It hasn't been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see [Durable Functions versions](durable-functions-versions.md).
+> Questo articolo fornisce indicazioni per le app per le funzioni destinate a Durable Functions 1. x. Non è stato aggiornato per tenere conto delle modifiche introdotte in Durable Functions 2. x. Per ulteriori informazioni sulle differenze tra le versioni delle estensioni, vedere [Durable Functions versioni](durable-functions-versions.md).
 
-The following chart compares the three main strategies to achieve a zero-downtime deployment for Durable Functions: 
+Nel grafico seguente vengono confrontate le tre strategie principali per ottenere una distribuzione senza tempi di inattività per Durable Functions: 
 
-| Strategia |  Quando usare questa opzione | Vantaggi | Svantaggi |
+| Strategia |  Quando usare la funzionalità | Vantaggi | Svantaggi |
 | -------- | ------------ | ---- | ---- |
-| [Controllo delle versioni](#versioning) |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
-| [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
-| [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. Il valore predefinito è 100. |
+| [Controllo delle versioni](#versioning) |  Applicazioni che non presentano [modifiche di rilievo frequenti.](durable-functions-versioning.md) | Semplice da implementare. |  Aumento delle dimensioni dell'app per le funzioni in memoria e numero di funzioni.<br/>Duplicazione del codice. |
+| [Verifica dello stato con slot](#status-check-with-slot) | Sistema che non dispone di orchestrazioni a esecuzione prolungata che durano più di 24 ore o che si sovrappongono spesso. | Base di codice semplice.<br/>Non richiede la gestione aggiuntiva delle app per le funzioni. | Richiede un account di archiviazione o una gestione Hub attività aggiuntiva.<br/>Richiede periodi di tempo in cui non sono in esecuzione orchestrazioni. |
+| [Routing delle applicazioni](#application-routing) | Sistema che non dispone di periodi di tempo durante i quali le orchestrazioni non sono in esecuzione, ad esempio i periodi di tempo con orchestrazioni che durano più di 24 ore o con orchestrazioni sovrapposte di frequente. | Gestisce le nuove versioni dei sistemi con orchestrazioni continuamente in esecuzione con modifiche di rilievo. | Richiede un router applicazione intelligente.<br/>Potrebbe essere il numero massimo di app per le funzioni consentite dalla sottoscrizione. Il valore predefinito è 100. |
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Define new versions of your functions and leave the old versions in your function app. As you can see in the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
+Definire le nuove versioni delle funzioni e lasciare le versioni precedenti nell'app per le funzioni. Come si può notare nel diagramma, la versione di una funzione diventa parte del nome. Poiché le versioni precedenti delle funzioni vengono mantenute, le istanze di orchestrazione in corso possono continuare a farvi riferimento. Nel frattempo, le richieste di nuove istanze di orchestrazione chiamano la versione più recente, a cui la funzione del client di orchestrazione può fare riferimento da un'impostazione dell'app.
 
-![Versioning strategy](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
+![Strategia di controllo delle versioni](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
 
-In this strategy, every function must be copied, and its references to other functions must be updated. You can make it easier by writing a script. Here's a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
+In questa strategia, ogni funzione deve essere copiata e i relativi riferimenti ad altre funzioni devono essere aggiornati. È possibile semplificare la scrittura di uno script. Ecco un [progetto di esempio](https://github.com/TsuyoshiUshio/DurableVersioning) con uno script di migrazione.
 
 >[!NOTE]
->This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots, see [Azure Functions deployment slots](../functions-deployment-slots.md).
+>Questa strategia USA gli slot di distribuzione per evitare tempi di inattività durante la distribuzione. Per informazioni più dettagliate su come creare e usare nuovi slot di distribuzione, vedere [slot di distribuzione di funzioni di Azure](../functions-deployment-slots.md).
 
-## <a name="status-check-with-slot"></a>Status check with slot
+## <a name="status-check-with-slot"></a>Verifica dello stato con slot
 
-While the current version of your function app is running in your production slot, deploy the new version of your function app to your staging slot. Before you swap your production and staging slots, check to see if there are any running orchestration instances. After all orchestration instances are complete, you can do the swap. This strategy works when you have predictable periods when no orchestration instances are in flight. This is the best approach when your orchestrations aren't long-running and when your orchestration executions don't frequently overlap.
+Mentre la versione corrente dell'app per le funzioni è in esecuzione nello slot di produzione, distribuire la nuova versione dell'app per le funzioni nello slot di staging. Prima di scambiare gli slot di produzione e di staging, verificare se sono presenti istanze di orchestrazione in esecuzione. Una volta completate tutte le istanze di orchestrazione, è possibile eseguire lo scambio. Questa strategia funziona quando si dispone di periodi stimabili quando nessuna istanza di orchestrazione è in fase di elaborazione. Si tratta dell'approccio migliore quando le orchestrazioni non sono a esecuzione prolungata e quando le esecuzioni dell'orchestrazione non si sovrappongono spesso.
 
-### <a name="function-app-configuration"></a>Function app configuration
+### <a name="function-app-configuration"></a>Configurazione dell'app per le funzioni
 
-Use the following procedure to set up this scenario.
+Per configurare questo scenario, attenersi alla procedura riportata di seguito.
 
-1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
+1. [Aggiungere gli slot di distribuzione](../functions-deployment-slots.md#add-a-slot) all'app per le funzioni per la gestione temporanea e la produzione.
 
-1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime. This account is used by the Azure Functions runtime and manages the function's keys.
+1. Per ogni slot, impostare l' [impostazione dell'applicazione AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) sulla stringa di connessione di un account di archiviazione condiviso. Questa stringa di connessione dell'account di archiviazione viene usata dal runtime di funzioni di Azure. Questo account viene usato dal runtime di funzioni di Azure e gestisce le chiavi della funzione.
 
-1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](durable-functions-checkpointing-and-replay.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
+1. Per ogni slot, creare una nuova impostazione di app, ad esempio `DurableManagementStorage`. Impostarne il valore sulla stringa di connessione di account di archiviazione diversi. Questi account di archiviazione vengono usati dall'estensione Durable Functions per l' [esecuzione affidabile](durable-functions-checkpointing-and-replay.md). Usare un account di archiviazione separato per ogni slot. Non contrassegnare questa impostazione come impostazione dello slot di distribuzione.
 
-1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `azureStorageConnectionStringName` as the name of the app setting you created in step 3.
+1. Nella [sezione durableTask del file host. JSON](durable-functions-bindings.md#hostjson-settings)dell'app per le funzioni specificare `azureStorageConnectionStringName` come nome dell'impostazione dell'app creata nel passaggio 3.
 
-The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
+Il diagramma seguente illustra la configurazione descritta degli slot di distribuzione e degli account di archiviazione. In questo potenziale scenario di pre-distribuzione, la versione 2 di un'app per le funzioni è in esecuzione nello slot di produzione, mentre la versione 1 rimane nello slot di staging.
 
-![Deployment slots and storage accounts](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
+![Slot di distribuzione e account di archiviazione](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host.json examples
+### <a name="hostjson-examples"></a>esempi di host. JSON
 
-The following JSON fragments are examples of the connection string setting in the *host.json* file.
+I frammenti JSON seguenti sono esempi di impostazioni della stringa di connessione nel file *host. JSON* .
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Funzioni 2,0
 
 ```json
 {
@@ -89,9 +89,9 @@ The following JSON fragments are examples of the connection string setting in th
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>CI/CD pipeline configuration
+### <a name="cicd-pipeline-configuration"></a>Configurazione della pipeline CI/CD
 
-Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you're using Azure Pipelines, you can create a function that checks for these conditions, as in the following example:
+Configurare la pipeline CI/CD per la distribuzione solo quando l'app per le funzioni non dispone di istanze di orchestrazione in sospeso o in esecuzione. Quando si usa Azure Pipelines, è possibile creare una funzione che controlla le condizioni, come nell'esempio seguente:
 
 ```csharp
 [FunctionName("StatusCheck")]
@@ -110,68 +110,68 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Next, configure the staging gate to wait until no orchestrations are running. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
+Configurare quindi il Gate di gestione temporanea in modo che attenda che non siano in esecuzione orchestrazioni. Per altre informazioni, vedere [Release Deployment Control Using Gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
 
-![Deployment gate](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
+![Controllo distribuzione](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
-Azure Pipelines checks your function app for running orchestration instances before your deployment starts.
+Azure Pipelines controlla l'app per le funzioni per l'esecuzione di istanze di orchestrazione prima dell'avvio della distribuzione.
 
-![Deployment gate (running)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
+![Controllo distribuzione (in esecuzione)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
-Now the new version of your function app should be deployed to the staging slot.
+A questo punto la nuova versione dell'app per le funzioni deve essere distribuita nello slot di staging.
 
-![Staging slot](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
+![Slot di staging](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
-Finally, swap slots. 
+Infine, scambia gli slot. 
 
-Application settings that aren't marked as deployment slot settings are also swapped, so the version 2 app keeps its reference to storage account A. Because orchestration state is tracked in the storage account, any orchestrations running on the version 2 app continue to run in the new slot without interruption.
+Vengono anche scambiate le impostazioni dell'applicazione non contrassegnate come slot di distribuzione, quindi l'app versione 2 conserva il riferimento all'account di archiviazione A. Poiché lo stato dell'orchestrazione viene registrato nell'account di archiviazione, le orchestrazioni in esecuzione nell'app versione 2 continuano a essere eseguite nel nuovo slot senza interruzioni.
 
 ![Slot di distribuzione](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
-To use the same storage account for both slots, you can change the names of your task hubs. In this case, you need to manage the state of your slots and your app's HubName settings. To learn more, see [Task hubs in Durable Functions](durable-functions-task-hubs.md).
+Per usare lo stesso account di archiviazione per entrambi gli slot, è possibile modificare i nomi degli hub attività. In questo caso, è necessario gestire lo stato degli slot e le impostazioni HubName dell'app. Per altre informazioni, vedere [Hub attività in Durable Functions](durable-functions-task-hubs.md).
 
-## <a name="application-routing"></a>Application routing
+## <a name="application-routing"></a>Routing delle applicazioni
 
-This strategy is the most complex. However, it can be used for function apps that don't have time between running orchestrations.
+Questa strategia è la più complessa. Può tuttavia essere usato per le app per le funzioni che non hanno tempo tra l'esecuzione di orchestrazioni.
 
-For this strategy, you must create an *application router* in front of your Durable Functions. This router can be implemented with Durable Functions. The router has the responsibility to:
+Per questa strategia, è necessario creare un *router dell'applicazione* davanti all'Durable Functions. Questo router può essere implementato con Durable Functions. Il router è responsabile di:
 
-* Deploy the function app.
-* Manage the version of Durable Functions. 
-* Route orchestration requests to function apps.
+* Distribuire l'app per le funzioni.
+* Gestire la versione di Durable Functions. 
+* Inviare le richieste di orchestrazione alle app per le funzioni.
 
-The first time an orchestration request is received, the router does the following tasks:
+La prima volta che viene ricevuta una richiesta di orchestrazione, il router esegue le attività seguenti:
 
-1. Creates a new function app in Azure.
-2. Deploys your function app's code to the new function app in Azure.
-3. Forwards the orchestration request to the new app.
+1. Crea una nuova app per le funzioni in Azure.
+2. Distribuisce il codice dell'app per le funzioni nella nuova app per le funzioni in Azure.
+3. Invia la richiesta di orchestrazione alla nuova app.
 
-The router manages the state of which version of your app's code is deployed to which function app in Azure.
+Il router gestisce lo stato della versione del codice dell'app in cui viene distribuita l'app per le funzioni in Azure.
 
-![Application routing (first time)](media/durable-functions-zero-downtime-deployment/application-routing.png)
+![Routing applicazione (per la prima volta)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-The router directs deployment and orchestration requests to the appropriate function app based on the version sent with the request. It ignores the patch version.
+Il router indirizza le richieste di distribuzione e orchestrazione all'app per le funzioni appropriata in base alla versione inviata con la richiesta. Ignora la versione della patch.
 
-When you deploy a new version of your app without a breaking change, you can increment the patch version. The router deploys to your existing function app and sends requests for the old and new versions of the code, which are routed to the same function app.
+Quando si distribuisce una nuova versione dell'app senza modifiche sostanziali, è possibile incrementare la versione della patch. Il router viene distribuito nell'app per le funzioni esistente e invia le richieste per le versioni precedenti e nuove del codice, che vengono instradate alla stessa app per le funzioni.
 
-![Application routing (no breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
+![Routing dell'applicazione (nessuna modifica di rilievo)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
-When you deploy a new version of your app with a breaking change, you can increment the major or minor version. Then the application router creates a new function app in Azure, deploys to it, and routes requests for the new version of your app to it. In the following diagram, running orchestrations on the 1.0.1 version of the app keep running, but requests for the 1.1.0 version are routed to the new function app.
+Quando si distribuisce una nuova versione dell'app con una modifica di rilievo, è possibile incrementare la versione principale o secondaria. Il router applicazione crea quindi una nuova app per le funzioni in Azure, la distribuisce e instrada le richieste per la nuova versione dell'app. Nel diagramma seguente, le orchestrazioni in esecuzione nella versione 1.0.1 dell'app continuano a essere eseguite, ma le richieste per la versione 1.1.0 vengono indirizzate alla nuova app per le funzioni.
 
-![Application routing (breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
+![Routing applicazione (modifica di rilievo)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-The router monitors the status of orchestrations on the 1.0.1 version and removes apps after all orchestrations are finished. 
+Il router monitora lo stato delle orchestrazioni nella versione 1.0.1 e rimuove le app al termine di tutte le orchestrazioni. 
 
-### <a name="tracking-store-settings"></a>Tracking store settings
+### <a name="tracking-store-settings"></a>Impostazioni archivio di rilevamento
 
-Each function app should use separate scheduling queues, possibly in separate storage accounts. If you want to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. You can share tables by configuring the `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` settings in the [host.json settings](durable-functions-bindings.md#host-json) file so that they all use the same values.
+Ogni app per le funzioni deve usare code di pianificazione separate, possibilmente in account di archiviazione separati. Se si desidera eseguire una query su tutte le istanze di orchestrazioni in tutte le versioni dell'applicazione, è possibile condividere le tabelle di istanze e di cronologia nelle app per le funzioni. È possibile condividere le tabelle configurando le impostazioni `trackingStoreConnectionStringName` e `trackingStoreNamePrefix` nel file di [Impostazioni host. JSON](durable-functions-bindings.md#host-json) in modo che tutti usino gli stessi valori.
 
-For more information, see [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
+Per altre informazioni, vedere [gestire le istanze in Durable Functions in Azure](durable-functions-instance-management.md).
 
-![Tracking store settings](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
+![Impostazioni archivio di rilevamento](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Versioning Durable Functions](durable-functions-versioning.md)
+> [Controllo delle versioni Durable Functions](durable-functions-versioning.md)
 

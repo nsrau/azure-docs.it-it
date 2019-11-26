@@ -1,6 +1,6 @@
 ---
-title: Set up a lab to teach database management for relational databases | Microsoft Docs
-description: Learn how to set up a lab to teach the management of relational databases.
+title: Configurare un Lab per insegnare la gestione dei database per i database relazionali | Microsoft Docs
+description: Informazioni su come configurare un Lab per insegnare la gestione dei database relazionali.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -20,59 +20,59 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233766"
 ---
-# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Set up a lab to teach database management for relational databases
+# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurare un Lab per insegnare la gestione dei database per i database relazionali
 
-This article describes how to set up a lab for a basic databases management class in Azure Lab Services. Databases concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
+Questo articolo descrive come configurare un Lab per una classe di gestione di database di base in Azure Lab Services. I concetti relativi ai database sono uno dei corsi introduttivi che hanno insegnato nella maggior parte dei reparti di informatica dell'Università. Structured Query Language (SQL) è uno standard internazionale. SQL è il linguaggio standard per la gestione dei database relazionali, tra cui l'aggiunta, l'accesso e la gestione del contenuto in un database.  È più indicato per l'elaborazione rapida, l'affidabilità comprovata, la facilità e la flessibilità di utilizzo.
 
-In this article, we'll show how to set up a virtual machine template in a lab with both MySQL Database Server and SQL Server 2019 server.  [MySQL](https://www.mysql.com/) is a freely available open source Relational Database Management System (RDBMS).  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) is the latest version of Microsoft’s RDBMS.
+Questo articolo illustra come configurare un modello di macchina virtuale in un Lab con il server di database MySQL e con SQL Server Server 2019.  [MySQL](https://www.mysql.com/) è un sistema di gestione di database relazionali Open Source disponibile gratuitamente (RDBMS).  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) è la versione più recente di RDBMS Microsoft.
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-To set up this lab, you need an Azure subscription and lab account to get started. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere [esercitazione per la configurazione di un account Lab](tutorial-setup-lab-account.md).  È anche possibile usare un account lab esistente.
 
-### <a name="lab-account-settings"></a>Lab account settings
+### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
 
-| Lab account setting | Istruzioni |
+| Impostazione dell'account Lab | Istruzioni |
 | ------------------- | ------------ |
-|Marketplace image| Enable the ‘SQL Server 2019 Standard on Windows Server 2019’ image for use within your lab account.|
+|Immagine del Marketplace| Abilitare l'immagine ' SQL Server 2019 standard in Windows Server 2019' per l'uso nell'account Lab.|
 
-### <a name="lab-settings"></a>Lab settings
+### <a name="lab-settings"></a>Impostazioni Lab
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+Usare le impostazioni nella tabella seguente quando si configura un Lab della classe.  Per altre informazioni su come creare un Lab per le aule, vedere [l'esercitazione sulla configurazione di una classe Lab](tutorial-setup-classroom-lab.md).
 
-| Lab settings | Value/instructions |
+| Impostazioni Lab | Valore/istruzioni |
 | ------------ | ------------------ |
-|Dimensioni della macchina virtuale| Media. This size is best suited for relational databases, in-memory caching, and analytics.|
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|Dimensioni della macchina virtuale| Media. Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi.|
+|Immagine della macchina virtuale| SQL Server 2019 standard in Windows Server 2019|
 
-## <a name="template-machine-configuration"></a>Template machine configuration
+## <a name="template-machine-configuration"></a>Configurazione computer modello
 
-To install MySQL on Windows Server 2019, you can follow the steps mentioned in [Install and Run MySQL Community Server on a Virtual Machine](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Per installare MySQL in Windows Server 2019, è possibile seguire la procedura descritta in [installare ed eseguire MySQL Community Server in una macchina virtuale](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
-SQL Server 2019 is pre-installed in the virtual machine image we chose when creating the new lab.
+SQL Server 2019 è preinstallato nell'immagine di macchina virtuale selezionata durante la creazione del nuovo Lab.
 
 ## <a name="cost-estimate"></a>Stima dei costi
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was medium, which is 42 lab units.
+Verrà ora trattata una possibile stima dei costi per questa classe.  Verrà usata una classe di 25 studenti.  Sono previste 20 ore di tempo della classe pianificata.  Ogni studente riceve inoltre una quota di 10 ore per il lavoro o assegnazioni al di fuori dell'orario di classe pianificato.  Le dimensioni della macchina virtuale scelte sono medie, ovvero 42 unità Lab.
 
-Here is an example of a possible cost estimate for this class:
+Di seguito è riportato un esempio di una possibile stima dei costi per questa classe:
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 0.42 USD per hour  = 315.00 USD
+25 studenti \* (20 ore pianificate + 10 ore di quota) \* 0,42 USD all'ora = 315,00 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+Per ulteriori informazioni sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusione
 
-This article walked you through the steps necessary to create a lab for basic database management concepts using both MySQL and SQL Server. You can use a similar setup for other databases classes.
+Questo articolo illustra i passaggi necessari per creare un Lab per i concetti di base sulla gestione dei database usando MySQL e SQL Server. È possibile utilizzare una configurazione simile per altre classi di database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Next steps are common to setting up any lab.
+I passaggi successivi sono comuni per la configurazione di qualsiasi Lab.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Creare e gestire un modello](how-to-create-manage-template.md)
 - [Aggiungere utenti](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [Imposta quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Impostare una pianificazione](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Collegamenti per la registrazione tramite posta elettronica agli studenti](how-to-configure-student-usage.md#send-invitations-to-users)

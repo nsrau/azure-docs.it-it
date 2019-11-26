@@ -1,6 +1,6 @@
 ---
-title: Collect and analyze Azure activity logs in Log Analytics workspace | Microsoft Docs
-description: Collect the Azure Activity Log in Azure Monitor Logs and use the monitoring solution to analyze and search the Azure activity log across all your Azure subscriptions.
+title: Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics | Microsoft Docs
+description: Raccogliere il log attività di Azure nei log di monitoraggio di Azure e usare la soluzione di monitoraggio per analizzare e cercare il log attività di Azure in tutte le sottoscrizioni di Azure.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
@@ -14,66 +14,66 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74212580"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere e analizzare i log attività di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure
 
 > [!NOTE]
-> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md).
+> È ora possibile raccogliere il log attività in un'area di lavoro Log Analytics usando un'impostazione di diagnostica simile a come si raccolgono i log delle risorse. Vedere [raccogliere e analizzare i log attività di Azure nell'area di lavoro log Analytics in monitoraggio di Azure](diagnostic-settings-subscription.md).
 
-The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. This article describes how to collect the Activity Log into a Log Analytics workspace and how to use the Activity Log Analytics [monitoring solution](../insights/solutions.md), which provides log queries and views for analyzing this data. 
+Il [log attività di Azure](activity-logs-overview.md) fornisce informazioni sugli eventi a livello di sottoscrizione che si sono verificati nella sottoscrizione di Azure. Questo articolo descrive come raccogliere il log attività in un'area di lavoro Log Analytics e come usare la [soluzione di monitoraggio](../insights/solutions.md)analisi log attività, che fornisce le query e le visualizzazioni di log per l'analisi di questi dati. 
 
-Connecting the Activity Log to a Log Analytics workspace provides the following benefits:
+La connessione del log attività a un'area di lavoro di Log Analytics offre i vantaggi seguenti:
 
-- Consolidate the Activity Log from multiple Azure subscriptions into one location for analysis.
-- Store Activity Log entries for longer than 90 days.
-- Correlate Activity Log data with other monitoring data collected by Azure Monitor.
-- Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
+- Consolidare il log attività da più sottoscrizioni di Azure in un'unica posizione per l'analisi.
+- Archivia le voci del log attività per più di 90 giorni.
+- Correlare i dati del log attività con altri dati di monitoraggio raccolti da monitoraggio di Azure.
+- Usare le [query di log](../log-query/log-query-overview.md) per eseguire analisi complesse e ottenere informazioni approfondite sulle voci del log attività.
 
-## <a name="connect-to-log-analytics-workspace"></a>Connect to Log Analytics workspace
-A single workspace can be connected to the Activity Log for multiple subscriptions in the same Azure tenant. For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md).
+## <a name="connect-to-log-analytics-workspace"></a>Connetti a Log Analytics area di lavoro
+Una singola area di lavoro può essere connessa al log attività per più sottoscrizioni nello stesso tenant di Azure. Per la raccolta tra più tenant, vedere [raccogliere i log attività di Azure in un'area di lavoro log Analytics tra sottoscrizioni in Azure Active Directory tenant diversi](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
-> You may receive an error with the following procedure if the Microsoft.OperationalInsights and Microsoft.OperationsManagement resource providers aren't registered for your subscription. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register these providers.
+> È possibile che venga visualizzato un errore con la seguente procedura se i provider di risorse Microsoft. OperationalInsights e Microsoft. OperationsManagement non sono registrati per la sottoscrizione. Per registrare questi provider, vedere [provider e tipi di risorse di Azure](../../azure-resource-manager/resource-manager-supported-services.md) .
 
-Use the following procedure to connect the Activity Log to your Log Analytics workspace:
+Usare la procedura seguente per connettere il log attività all'area di lavoro Log Analytics:
 
-1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the Activity Log.
-1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
-1. Click the subscription you want to connect.
+1. Dal menu **log Analytics aree di lavoro** della portale di Azure selezionare l'area di lavoro per raccogliere il log attività.
+1. Nella sezione **origini dati dell'area di lavoro** del menu dell'area di lavoro selezionare **log attività di Azure**.
+1. Fare clic sulla sottoscrizione che si desidera connettere.
 
     ![Aree di lavoro](media/activity-log-export/workspaces.png)
 
-1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
+1. Fare clic su **Connetti** per connettere il log attività nella sottoscrizione all'area di lavoro selezionata. Se la sottoscrizione è già connessa a un'altra area di lavoro, fare clic su **Disconnetti** prima per disconnetterla.
 
-    ![Connect Workspaces](media/activity-log-export/connect-workspace.png)
+    ![Connettere le aree di lavoro](media/activity-log-export/connect-workspace.png)
 
-## <a name="analyze-in-log-analytics-workspace"></a>Analyze in Log Analytics workspace
-When you connect an Activity Log to a Log Analytics workspace, entries will be written to the workspace into a table called **AzureActivity** that you can retrieve with a [log query](../log-query/log-query-overview.md). The structure of this table varies depending on the [category of log entry](activity-logs-overview.md#categories-in-the-activity-log). See [Azure Activity Log event schema](activity-log-schema.md) for a description of each category.
+## <a name="analyze-in-log-analytics-workspace"></a>Analizza nell'area di lavoro Log Analytics
+Quando si connette un log attività a un'area di lavoro Log Analytics, le voci vengono scritte nell'area di lavoro in una tabella denominata **AzureActivity** che è possibile recuperare con una [query di log](../log-query/log-query-overview.md). La struttura di questa tabella varia a seconda della [categoria della voce di log](activity-logs-overview.md#categories-in-the-activity-log). Per una descrizione di ogni categoria, vedere [schema degli eventi del log attività di Azure](activity-log-schema.md) .
 
-## <a name="activity-logs-analytics-monitoring-solution"></a>Activity Logs Analytics monitoring solution
-The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace.
+## <a name="activity-logs-analytics-monitoring-solution"></a>Soluzione di monitoraggio dei log attività
+La soluzione di monitoraggio di Azure Log Analytics include più query e visualizzazioni di log per analizzare i record del log attività nell'area di lavoro Log Analytics.
 
 ### <a name="install-the-solution"></a>Installare la soluzione
-Use the procedure in [Install a monitoring solution](../insights/solutions.md#install-a-monitoring-solution) to install the **Activity Log Analytics** solution. There is no additional configuration required.
+Usare la procedura descritta in [installare una soluzione di monitoraggio](../insights/solutions.md#install-a-monitoring-solution) per installare la soluzione **analisi log attività** . Non è necessaria alcuna configurazione aggiuntiva.
 
 ### <a name="use-the-solution"></a>Usare la soluzione
-Monitoring solutions are accessed from the **Monitor** menu in the Azure portal. Select **More** in the **Insights** section to open the **Overview** page with the solution tiles. The **Azure Activity Logs** tile displays a count of the number of **AzureActivity** records in your workspace.
+È possibile accedere alle soluzioni di monitoraggio dal menu **monitoraggio** della portale di Azure. Per aprire la pagina **Panoramica** con i riquadri della soluzione, selezionare **altre informazioni** nella sezione **Insights** . Il riquadro **log attività di Azure** Visualizza un conteggio del numero di record **AzureActivity** nell'area di lavoro.
 
 ![Riquadro Log attività di Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view. The view includes the visualization parts in the following table. Each part lists up to 10 items matching that parts's criteria for the specified time range. You can run a log query that returns all  matching records by clicking **See all** at the bottom of the part.
+Fare clic sul riquadro **log attività di Azure** per aprire la visualizzazione **log attività di Azure** . La vista include le parti di visualizzazione nella tabella seguente. Ogni parte elenca fino a 10 elementi corrispondenti ai criteri delle parti per l'intervallo di tempo specificato. È possibile eseguire una query di log che restituisce tutti i record corrispondenti facendo clic su **Visualizza tutto** nella parte inferiore della parte.
 
 ![Dashboard Log attività di Azure](media/collect-activity-logs/activity-log-dash.png)
 
-| Visualization part | Description |
+| Parte della visualizzazione | DESCRIZIONE |
 | --- | --- |
-| Voci del Log attività di Azure | Shows a bar chart of the top Azure Activity Log entry record totals for the date range that you have selected and shows a list of the top 10 activity callers. Fare clic sul grafico a barre per eseguire una ricerca di log per `AzureActivity`. Click a caller item to run a log search returning all Activity Log entries for that item. |
-| Log attività per stato | Shows a doughnut chart for Azure Activity Log status for the selected date range and a list of the top ten status records. Click the chart to run a log query for `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Click a status item to run a log search returning all Activity Log entries for that status record. |
-| Log attività per risorsa | Shows the total number of resources with Activity Logs and lists the top ten resources with record counts for each resource. Fare clic sull'area totale per eseguire una ricerca di log per `AzureActivity | summarize AggregatedValue = count() by Resource`, che mostra tutte le risorse di Azure disponibili per la soluzione. Click a resource to run a log query returning all activity records for that resource. |
-| Log attività per provider di risorse | Shows the total number of resource providers that produce Activity Logs and lists the top ten. Click the total area to run a log query for `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, which shows all Azure resource providers. Click a resource provider to run a log query returning all activity records for the provider. |
+| Voci del Log attività di Azure | Mostra un grafico a barre dei totali dei record di voci del log attività di Azure superiore per l'intervallo di date selezionato e Mostra un elenco dei primi 10 chiamanti di attività. Fare clic sul grafico a barre per eseguire una ricerca di log per `AzureActivity`. Fare clic su un elemento chiamante per eseguire una ricerca log che restituisce tutte le voci del log attività per tale elemento. |
+| Log attività per stato | Mostra un grafico ad anello per lo stato del log attività di Azure per l'intervallo di date selezionato e un elenco dei primi dieci record di stato. Fare clic sul grafico per eseguire una query di log per `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Fare clic su un elemento di stato per eseguire una ricerca log che restituisce tutte le voci del log attività per il record di stato. |
+| Log attività per risorsa | Mostra il numero totale di risorse con log attività ed elenca le prime dieci risorse con conteggi di record per ogni risorsa. Fare clic sull'area totale per eseguire una ricerca di log per `AzureActivity | summarize AggregatedValue = count() by Resource`, che mostra tutte le risorse di Azure disponibili per la soluzione. Fare clic su una risorsa per eseguire una query di log che restituisce tutti i record di attività per tale risorsa. |
+| Log attività per provider di risorse | Mostra il numero totale di provider di risorse che producono log attività ed elenca i primi dieci. Fare clic sull'area totale per eseguire una query di log per `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, che Mostra tutti i provider di risorse di Azure. Fare clic su un provider di risorse per eseguire una query di log che restituisce tutti i record di attività per il provider. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Learn more about the [Activity Log](activity-logs-overview.md).
-- Learn more about the [Azure Monitor data platform](data-platform.md).
-- Use [log queries](../log-query/log-query-overview.md) to view detailed information from your Activity Log.
+- Altre informazioni sul [log attività](activity-logs-overview.md).
+- Scopri di più sulla [piattaforma dati di monitoraggio di Azure](data-platform.md).
+- Usare le [query di log](../log-query/log-query-overview.md) per visualizzare informazioni dettagliate dal log attività.

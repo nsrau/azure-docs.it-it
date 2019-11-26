@@ -1,6 +1,6 @@
 ---
-title: Firewall access rules
-description: Configure rules to access an Azure container registry from behind a firewall.
+title: Regole di accesso al firewall
+description: Configurare le regole per accedere a un registro contenitori di Azure da dietro un firewall.
 ms.topic: article
 ms.date: 07/17/2019
 ms.openlocfilehash: 6a0a169f7e5a7e07771cb9fee474b7f4a9391a4e
@@ -10,39 +10,39 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455179"
 ---
-# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure rules to access an Azure container registry behind a firewall
+# <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall
 
-This article explains how to configure rules on your firewall to allow access to an Azure container registry. For example, an Azure IoT Edge device behind a firewall or proxy server might need to access a container registry to pull a container image. Or, a locked-down server in an on-premises network might need access to push an image.
+Questo articolo illustra come configurare le regole nel firewall per consentire l'accesso a un registro contenitori di Azure. Ad esempio, un dispositivo Azure IoT Edge dietro un firewall o un server proxy potrebbe dover accedere a un registro contenitori per eseguire il pull di un'immagine del contenitore. In alternativa, un server bloccato in una rete locale potrebbe avere l'esigenza di accedere per eseguire il push di un'immagine.
 
-If instead you want to configure inbound network access rules on a container registry to allow access only within an Azure virtual network or a public IP address range, see [Restrict access to an Azure container registry from a virtual network](container-registry-vnet.md).
+Se invece si vuole configurare le regole di accesso alla rete in ingresso in un registro contenitori per consentire l'accesso solo all'interno di una rete virtuale di Azure o di un intervallo di indirizzi IP pubblici, vedere [limitare l'accesso a un registro contenitori di Azure da una rete virtuale](container-registry-vnet.md).
 
-## <a name="about-registry-endpoints"></a>About registry endpoints
+## <a name="about-registry-endpoints"></a>Informazioni sugli endpoint del registro di sistema
 
-To pull or push images or other artifacts to an Azure container registry, a client such as a Docker daemon needs to interact over HTTPS with two distinct endpoints.
+Per eseguire il pull o il push di immagini o altri artefatti in un registro contenitori di Azure, un client come un daemon Docker deve interagire con HTTPS con due endpoint distinti.
 
-* **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server URL of the registry, or an associated IP address range. 
+* **Endpoint API REST del registro** di sistema: le operazioni di autenticazione e gestione del registro di sistema vengono gestite tramite l'endpoint API REST pubblico del registro di sistema. Questo endpoint è l'URL del server di accesso del registro di sistema o un intervallo di indirizzi IP associato. 
 
-* **Storage endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure storage accounts on behalf of each registry to manage container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
+* **Endpoint di archiviazione** : Azure [alloca l'archiviazione BLOB](container-registry-storage.md) negli account di archiviazione di Azure per conto di ogni registro di sistema per gestire le immagini del contenitore e altri artefatti. Quando un client accede a livelli immagine in un registro contenitori di Azure, effettua richieste usando un endpoint dell'account di archiviazione fornito dal registro di sistema.
 
-If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with REST and storage endpoints in a specific region or in multiple replicated regions.
+Se il registro di sistema è con [replica geografica](container-registry-geo-replication.md), un client potrebbe dover interagire con gli endpoint REST e di archiviazione in un'area specifica o in più aree replicate.
 
-## <a name="allow-access-to-rest-and-storage-urls"></a>Allow access to REST and storage URLs
+## <a name="allow-access-to-rest-and-storage-urls"></a>Consenti l'accesso agli URL REST e di archiviazione
 
-* **REST endpoint** - Allow access to the registry server URL, such as  `myregistry.azurecr.io`
-* **Storage endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`
+* **Endpoint REST** : consentire l'accesso all'URL del server del registro di sistema, ad esempio `myregistry.azurecr.io`
+* **Endpoint di archiviazione** : consentire l'accesso a tutti gli account di archiviazione BLOB di Azure usando il carattere jolly `*.blob.core.windows.net`
 
 
-## <a name="allow-access-by-ip-address-range"></a>Allow access by IP address range
+## <a name="allow-access-by-ip-address-range"></a>Consenti l'accesso in base all'intervallo di indirizzi IP
 
-If you need to allow access to specific IP addresses, download [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+Se è necessario consentire l'accesso a indirizzi IP specifici, scaricare gli [intervalli IP di Azure e i tag del servizio-cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519).
 
-To find the ACR REST endpoint IP ranges, search for **AzureContainerRegistry** in the JSON file.
+Per trovare gli intervalli IP dell'endpoint REST di ACR, cercare **AzureContainerRegistry** nel file JSON.
 
 > [!IMPORTANT]
-> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network to access Azure Container Registry, use the **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) instead.
+> Gli intervalli di indirizzi IP per i servizi di Azure possono cambiare e gli aggiornamenti vengono pubblicati settimanalmente. Scaricare regolarmente il file JSON e apportare gli aggiornamenti necessari nelle regole di accesso. Se lo scenario prevede la configurazione delle regole del gruppo di sicurezza di rete in una rete virtuale di Azure per accedere ad Azure Container Registry, usare invece il [tag del servizio](#allow-access-by-service-tag) **AzureContainerRegistry** .
 >
 
-### <a name="rest-ip-addresses-for-all-regions"></a>REST IP addresses for all regions
+### <a name="rest-ip-addresses-for-all-regions"></a>Indirizzi IP REST per tutte le aree
 
 ```json
 {
@@ -58,9 +58,9 @@ To find the ACR REST endpoint IP ranges, search for **AzureContainerRegistry** i
     [...]
 ```
 
-### <a name="rest-ip-addresses-for-a-specific-region"></a>REST IP addresses for a specific region
+### <a name="rest-ip-addresses-for-a-specific-region"></a>Indirizzi IP REST per un'area specifica
 
-Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**.
+Cercare l'area specifica, ad esempio **AzureContainerRegistry. AustraliaEast**.
 
 ```json
 {
@@ -76,7 +76,7 @@ Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-all-regions"></a>Storage IP addresses for all regions
+### <a name="storage-ip-addresses-for-all-regions"></a>Indirizzi IP di archiviazione per tutte le aree
 
 ```json
 {
@@ -92,9 +92,9 @@ Search for the specific region, such as **AzureContainerRegistry.AustraliaEast**
     [...]
 ```
 
-### <a name="storage-ip-addresses-for-specific-regions"></a>Storage IP addresses for specific regions
+### <a name="storage-ip-addresses-for-specific-regions"></a>Indirizzi IP di archiviazione per aree specifiche
 
-Search for the specific region, such as **Storage.AustraliaCentral**.
+Cercare l'area specifica, ad esempio **storage. AustraliaCentral**.
 
 ```json
 {
@@ -110,17 +110,17 @@ Search for the specific region, such as **Storage.AustraliaCentral**.
     [...]
 ```
 
-## <a name="allow-access-by-service-tag"></a>Allow access by service tag
+## <a name="allow-access-by-service-tag"></a>Consenti l'accesso in base al tag del servizio
 
-In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
+In una rete virtuale di Azure, usare le regole di sicurezza di rete per filtrare il traffico da una risorsa, ad esempio una macchina virtuale, a un registro contenitori. Per semplificare la creazione delle regole di rete di Azure, usare il [tag del servizio](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry** . Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP per accedere a un servizio di Azure a livello globale o per area di Azure. Il tag viene aggiornato automaticamente in caso di modifica degli indirizzi. 
 
-For example, create an outbound network security group rule with destination **AzureContainerRegistry** to allow traffic to an Azure container registry. To allow access to the service tag only in a specific region, specify the region in the following format: **AzureContainerRegistry**.[*region name*].
+Ad esempio, creare una regola del gruppo di sicurezza di rete in uscita con **AzureContainerRegistry** di destinazione per consentire il traffico verso un registro contenitori di Azure. Per consentire l'accesso al tag del servizio solo in un'area specifica, specificare l'area nel formato seguente: **AzureContainerRegistry**. [*nome area*].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Learn about [Azure best practices for network security](../security/fundamentals/network-best-practices.md)
+* Informazioni sulle [procedure consigliate di Azure per la sicurezza di rete](../security/fundamentals/network-best-practices.md)
 
-* Learn more about [security groups](/azure/virtual-network/security-overview) in an Azure virtual network
+* Altre informazioni sui [gruppi di sicurezza](/azure/virtual-network/security-overview) in una rete virtuale di Azure
 
 
 

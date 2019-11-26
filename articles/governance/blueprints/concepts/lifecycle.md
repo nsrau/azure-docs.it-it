@@ -1,6 +1,6 @@
 ---
 title: Informazioni sul ciclo di vita di un progetto
-description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
+description: Informazioni sul ciclo di vita della definizione di un progetto e informazioni dettagliate su ogni fase, tra cui l'aggiornamento e la rimozione di assegnazioni di progetti.
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
@@ -29,7 +29,7 @@ Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di v
 
 Quando si crea un progetto, aggiungere artefatti, salvarli in un gruppo di gestione o in una sottoscrizione e fornire un nome univoco e una versione univoca. Il progetto è ora in modalità **Bozza** e non può ancora essere assegnato. Nella modalità **Bozza** può continuare a essere aggiornato e modificato.
 
-Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. The **Latest Version** is displayed as **Draft** for these never published blueprints.
+Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. La **versione più recente** viene visualizzata come **bozza** per questi progetti mai pubblicati.
 
 Creare e modificare un progetto tramite il [portale di Azure](../create-blueprint-portal.md#create-a-blueprint) o [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -63,11 +63,11 @@ Ogni versione di un progetto è un oggetto univoco e può essere **Pubblicato** 
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
+1. Selezionare **definizioni progetto** nella pagina a sinistra e usare le opzioni di filtro per individuare il progetto di cui si vuole eliminare una versione. Selezionarlo per aprire la pagina modifica.
 
-1. Select the **Published versions** tab and locate the version you wish to delete.
+1. Selezionare la scheda **versioni pubblicate** e individuare la versione che si desidera eliminare.
 
-1. Right-click on the version to delete and select **Delete this version**.
+1. Fare clic con il pulsante destro del mouse sulla versione da eliminare e selezionare **Elimina la versione**.
 
 ## <a name="deleting-the-blueprint"></a>Eliminazione del progetto
 
@@ -90,20 +90,20 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 - Aggiungere o rimuovere il [blocco delle risorse](resource-locking.md)
 - Modificare il valore dei [parametri dinamici](parameters.md#dynamic-parameters)
-- Aggiornare l'assegnazione a una versione più recente **Pubblicata** del progetto
+- Aggiornare l'assegnazione a una versione **pubblicata** più recente del progetto
 
 Per informazioni, vedere [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Unassigning assignments
+### <a name="unassigning-assignments"></a>Annullare l'assegnazione di assegnazioni
 
-If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
+Se il progetto non è più necessario, è possibile che non sia assegnato dal gruppo di gestione o dalla sottoscrizione. Durante l'unassegnazione del progetto, si verifica quanto segue:
 
-- Removal of [blueprint resource locking](resource-locking.md)
-- Deletion of the blueprint assignment object
-- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
+- Rimozione del [blocco delle risorse del progetto](resource-locking.md)
+- Eliminazione dell'oggetto di assegnazione progetto
+- Condizionale Se è stata usata un' **identità gestita assegnata dal sistema** , viene eliminata anche
 
 > [!NOTE]
-> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
+> Tutte le risorse distribuite dall'assegnazione progetto rimangono invariate, ma non sono più protette dai progetti di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

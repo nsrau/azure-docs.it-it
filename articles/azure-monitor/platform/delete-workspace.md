@@ -1,5 +1,5 @@
 ---
-title: Delete and recover Azure Log Analytics workspace | Microsoft Docs
+title: Eliminare e ripristinare l'area di lavoro di Azure Log Analytics | Microsoft Docs
 description: Informazioni su come eliminare l'area di lavoro Log Analytics, se ne è stata creata una in una sottoscrizione personale, o come ristrutturare il modello dell'area di lavoro.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -14,15 +14,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326502"
 ---
-# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Delete and restore Azure Log Analytics workspace
+# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
-This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover deleted workspace. 
+Questo articolo illustra il concetto di eliminazione temporanea dell'area di lavoro di Azure Log Analytics e come ripristinare l'area di lavoro eliminata. 
 
-## <a name="considerations-when-deleting-a-workspace"></a>Considerations when deleting a workspace
+## <a name="considerations-when-deleting-a-workspace"></a>Considerazioni sull'eliminazione di un'area di lavoro
 
-When you delete a Log Analytics workspace, a soft-delete operation is performed to allow the recovery of the workspace including its data and connected agents within 14 days, whether the deletion was accidental or intentional. After the soft-delete period, the workspace and its data are non-recoverable – data is queued for permanent deletion within 30 days and the workspace name is available and can be used to create a new workspace.
+Quando si elimina un'area di lavoro Log Analytics, viene eseguita un'operazione di eliminazione temporanea per consentire il ripristino dell'area di lavoro, inclusi i dati e gli agenti connessi entro 14 giorni, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale. Dopo il periodo di eliminazione temporanea, l'area di lavoro e i relativi dati non sono recuperabili. i dati vengono accodati per l'eliminazione permanente entro 30 giorni e il nome dell'area di lavoro è disponibile e può essere usato per creare una nuova area di lavoro.
 
-You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operation. Review what agents, solutions, and other Azure services and sources that store their data in Log Analytics, such as:
+Si desidera prestare attenzione quando si elimina un'area di lavoro perché potrebbero essere presenti dati e configurazioni importanti che potrebbero influire negativamente sull'operazione del servizio. Esaminare gli agenti, le soluzioni e gli altri servizi e origini di Azure che archiviano i dati in Log Analytics, ad esempio:
 
 * Soluzioni di gestione
 * Automazione di Azure
@@ -30,40 +30,40 @@ You want to exercise caution when you delete a workspace because there might be 
 * Agenti in esecuzione in computer Windows e Linux nell'ambiente
 * System Center Operations Manager
 
-The soft-delete operation deletes the workspace resource and any associated users’ permission is broken. If users are associated with other workspaces, then they can continue using Log Analytics with those other workspaces.
+L'operazione di eliminazione temporanea Elimina la risorsa dell'area di lavoro e le autorizzazioni degli utenti associati vengono interrotte. Se gli utenti sono associati ad altre aree di lavoro, possono continuare a usare Log Analytics con le altre aree di lavoro.
 
 ## <a name="soft-delete-behavior"></a>Comportamento della funzione di eliminazione temporanea
 
-The workspace delete operation removes the workspace Resource Manager resource, but its configuration and data are kept for 14 days, while giving the appearance that the workspace is deleted. Any agents and System Center Operations Manager management groups configured to report to the workspace remain in an orphaned state during the soft-delete period. The service further provides a mechanism for recovering the deleted workspace including its data and connected resources, essentially undoing the deletion.
+L'operazione di eliminazione dell'area di lavoro consente di rimuovere l'area di lavoro Gestione risorse risorsa, ma la configurazione e i dati vengono conservati per 14 giorni, assicurando allo stesso tempo l'eliminazione dell'area di lavoro. Gli agenti e i gruppi di gestione System Center Operations Manager configurati per l'area di lavoro rimangono in uno stato orfano durante il periodo di eliminazione temporanea. Il servizio fornisce inoltre un meccanismo per il ripristino dell'area di lavoro eliminata, inclusi i dati e le risorse connesse, evitando essenzialmente l'eliminazione.
 
 > [!NOTE] 
-> Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can’t be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previously configured state.
+> Le soluzioni installate e i servizi collegati come l'account di automazione di Azure vengono rimossi definitivamente dall'area di lavoro in fase di eliminazione e non possono essere recuperati. Queste devono essere riconfigurate dopo l'operazione di ripristino per portare l'area di lavoro allo stato configurato in precedenza.
 
-You can delete a workspace using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
+È possibile eliminare un'area di lavoro usando [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), l' [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)o nel [portale di Azure](https://portal.azure.com).
 
-### <a name="delete-workspace-in-azure-portal"></a>Delete workspace in Azure portal
+### <a name="delete-workspace-in-azure-portal"></a>Elimina area di lavoro in portale di Azure
 
-1. To sign in, go to the [Azure portal](https://portal.azure.com). 
+1. Per accedere, passare alla [portale di Azure](https://portal.azure.com). 
 2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
-3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
+3. Nell'elenco delle aree di lavoro Log Analytics selezionare un'area di lavoro, quindi fare clic su **Elimina** nella parte superiore del riquadro centrale.
    ![Delete option from Workspace properties pane](media/delete-workspace/log-analytics-delete-workspace.png) (Opzione Elimina dal riquadro delle proprietà dell'area di lavoro)
 4. Fare clic su **Sì** nella finestra di messaggio di conferma visualizzata che richiede di confermare l'eliminazione dell'area di lavoro.
    ![Confermare l'eliminazione dell'area di lavoro](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 
-## <a name="recover-workspace"></a>Recover workspace
+## <a name="recover-workspace"></a>Ripristina area di lavoro
 
-If you have Contributor permissions to the subscription and resource group where the workspace was associated before the soft-delete operation, you can recover it during its soft-delete period including its data, configuration and connected agents. After the soft-delete period, the workspace is non-recoverable and assigned for permanent deletion. Names of deleted workspaces are preserved during the soft-delete period and can't be used when attempting to create a new workspace.  
+Se si dispone delle autorizzazioni di collaboratore per la sottoscrizione e il gruppo di risorse in cui l'area di lavoro è stata associata prima dell'operazione di eliminazione temporanea, è possibile ripristinarla durante il periodo di eliminazione temporanea, inclusi i dati, la configurazione e gli agenti connessi. Dopo il periodo di eliminazione temporanea, l'area di lavoro non è reversibile e assegnata per l'eliminazione permanente. I nomi delle aree di lavoro eliminate vengono conservati durante il periodo di eliminazione temporanea e non possono essere usati quando si tenta di creare una nuova area di lavoro.  
 
-You can recover a workspace by re-creating it using the following workspace create methods: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) or [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) as long as the following properties are populated with the deleted workspace details:
+Per ripristinare un'area di lavoro, è possibile ricrearla usando i metodi di creazione dell'area di lavoro seguenti: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o l' [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , purché le proprietà seguenti vengano popolate con i dettagli dell'area di lavoro eliminati:
 
 * ID sottoscrizione
 * Nome del gruppo di risorse
 * Nome dell'area di lavoro
-* Area geografica
+* Area
 
-The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
+L'area di lavoro e tutti i relativi dati vengono restituiti dopo l'operazione di ripristino. Le soluzioni e i servizi collegati sono stati rimossi definitivamente dall'area di lavoro al momento dell'eliminazione ed è necessario riconfigurarli per portare l'area di lavoro allo stato configurato in precedenza. Alcuni dati potrebbero non essere disponibili per la query dopo il ripristino dell'area di lavoro fino a quando le soluzioni associate non vengono reinstallate e i relativi schemi vengono aggiunti all'area di lavoro.
 
 > [!NOTE]
-> * Workspace recovery isn't supported in the [Azure portal](https://portal.azure.com). 
-> * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
+> * Il ripristino dell'area di lavoro non è supportato nell' [portale di Azure](https://portal.azure.com). 
+> * La ricreazione di un'area di lavoro durante il periodo di eliminazione temporanea indica che il nome dell'area di lavoro è già in uso. 
 > 

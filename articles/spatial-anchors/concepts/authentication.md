@@ -69,7 +69,7 @@ _cloudSession!.configuration.accountKey = "MyAccountKey"
 mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
@@ -137,7 +137,7 @@ _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
 mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();
@@ -228,7 +228,7 @@ _cloudSession!.configuration.accessToken = "MyAccessToken"
 mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
 
 ```cpp
 auto configuration = cloudSession_->Configuration();

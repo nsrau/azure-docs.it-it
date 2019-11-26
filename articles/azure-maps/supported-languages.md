@@ -148,7 +148,7 @@ Per impostazione predefinita, il parametro di visualizzazione è impostato su **
 
 Nella tabella seguente vengono fornite le visualizzazioni supportate.
 
-| visualizzazione         | DESCRIZIONE                            |  Mappe | Cerca | controllo mappa JS |
+| View         | DESCRIZIONE                            |  Mappe | Cerca | controllo mappa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirati Arabi Uniti (visualizzazione araba)    |   ✓   |        |     ✓          |
 | AR           | Argentina (vista Argentina)           |   ✓   |    ✓   |     ✓          |

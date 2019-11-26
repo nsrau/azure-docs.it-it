@@ -27,7 +27,7 @@ Questo articolo illustra come si possono monitorare applicazioni, cluster e infr
 
 ## <a name="dynatrace"></a>Dynatrace
 
-La nostra Integrazione con Dynatrace offre molte funzionalità predefinite per monitorare i cluster di Service Fabric. L'installazione di Dynatrace OneAgent nelle istanze del set di scalabilità di macchine virtuali offre contatori delle prestazioni e una topologia della distribuzione di Service Fabric fino al livello di app. Dynatrace è anche un'ottima scelta per il monitoraggio locale. Check out more of the features listed in the [announcement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) to enable Dynatrace on your cluster. 
+La nostra Integrazione con Dynatrace offre molte funzionalità predefinite per monitorare i cluster di Service Fabric. L'installazione di Dynatrace OneAgent nelle istanze del set di scalabilità di macchine virtuali offre contatori delle prestazioni e una topologia della distribuzione di Service Fabric fino al livello di app. Dynatrace è anche un'ottima scelta per il monitoraggio locale. Vedere altre funzionalità elencate nell' [annuncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [istruzioni](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) per abilitare dynaTrace nel cluster. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -47,7 +47,7 @@ Lo stack ELK è una raccolta di tecnologie open source: Elasticsearch, Logstash 
 
 ## <a name="humio"></a>Humio
 
-Humio is a log collection service that can gather logs from your applications and events from Service Fabric in the cloud or on-premises in real time. In addition to live observability, Humio offers state of the art analysis and visualization capabilities for viewing and collecting insights from your diagnostics. Humio has cost effective pricing plans and is built to scale while retaining it's lightening fast speed. It directly integrates with Service Fabric platform events and Application telemetry. You can read more about the Humio and Service Fabric integration [here](https://github.com/humio/service-fabric-humio).
+Humio è un servizio di raccolta log in grado di raccogliere log dalle applicazioni e dagli eventi da Service Fabric nel cloud o in locale in tempo reale. Oltre all'osservabilità in tempo reale, Humio offre lo stato delle funzionalità di visualizzazione e analisi dell'arte per la visualizzazione e la raccolta di informazioni dettagliate dalla diagnostica. Humio offre piani tariffari convenienti ed è progettato per la scalabilità, mantenendo al tempo stesso una rapida velocità. Si integra direttamente con gli eventi della piattaforma Service Fabric e i dati di telemetria dell'applicazione. Per altre informazioni sull'integrazione di Humio e Service Fabric, vedere [qui](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

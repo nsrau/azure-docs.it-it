@@ -13,12 +13,12 @@ ms.locfileid: "74232959"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 
-Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato per la funzione dell'agente di orchestrazione. Questo stato viene fornito tramite l'API HTTP GetStatus o l'API `DurableOrchestrationClient.GetStatusAsync`.
+Lo stato dell'orchestrazione personalizzato consente di impostare un valore di stato personalizzato per la funzione di agente di orchestrazione. Questo stato viene fornito tramite l'API HTTP GetStatus o l'API `DurableOrchestrationClient.GetStatusAsync`.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
 > [!NOTE]
-> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Gli esempi seguenti illustrano come usare la funzionalità di stato C# personalizzato in e JavaScript. Gli C# esempi sono scritti per Durable Functions 2. x e non sono compatibili con Durable functions 1. x. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 ### <a name="visualize-progress"></a>Visualizzazione dello stato
 
@@ -333,9 +333,9 @@ I client visualizzano la risposta seguente:
 ```
 
 > [!WARNING]
-> Il payload dello stato personalizzato è limitato a 16 KB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archiviazione tabelle di Azure. We recommend you use external storage if you need a larger payload.
+> Il payload dello stato personalizzato è limitato a 16 kB di testo JSON UTF-16, perché deve rientrare in una colonna dell'archivio tabelle di Azure. Se è necessario un payload di dimensioni maggiori, è consigliabile usare l'archiviazione esterna.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Learn about durable timers](durable-functions-timers.md)
+> [Informazioni sui timer durevoli](durable-functions-timers.md)

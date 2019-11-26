@@ -110,7 +110,7 @@ Come per gli altri report nel portale di Azure, è possibile usare i filtri per 
 - **Utente**
 - **Applicazione**
 - **Status**
-- **Date**
+- **Data**
 - **Data (UTC)** (dove UTC è Coordinated Universal Time)
 - **Metodo** di autenticazione a più fattori (metodo di autenticazione a più fattori)
 - **Dettagli** autenticazione a più fattori (dettagli autenticazione a più fattori)

@@ -1,5 +1,5 @@
 ---
-title: Java user-defined function (UDF) with Apache Hive Azure HDInsight
+title: Funzione definita dall'utente (UDF) Java con Apache Hive Azure HDInsight
 description: Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Apache Hive. In questo esempio, UDF converte una tabella di stringhe di testo in caratteri minuscoli.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -19,23 +19,23 @@ ms.locfileid: "74327201"
 
 Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Apache Hive. La UDF Java di questo esempio converte una tabella di stringhe di testo in caratteri minuscoli.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* A Hadoop cluster on HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 * [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
-* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
+* Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Si tratta di wasb://per archiviazione di Azure, abfs://per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
 * Un editor di testo o ambiente IDE Java
 
     > [!IMPORTANT]  
     > Se si creano i file Python in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting) , che include passaggi per la rimozione del carattere CR.
 
-## <a name="test-environment"></a>Test environment
+## <a name="test-environment"></a>Ambiente di test
 
-The environment used for this article was a computer running Windows 10.  The commands were executed in a command prompt, and the various files were edited with Notepad. Modify accordingly for your environment.
+L'ambiente usato per questo articolo è un computer che esegue Windows 10.  I comandi sono stati eseguiti in un prompt dei comandi e i vari file sono stati modificati con blocco note. Modificare di conseguenza per l'ambiente in uso.
 
-From a command prompt, enter the commands below to create a working environment:
+Da un prompt dei comandi, immettere i comandi seguenti per creare un ambiente di lavoro:
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -44,28 +44,28 @@ cd C:\HDI
 
 ## <a name="create-an-example-java-udf"></a>Creare una UDF Java di esempio
 
-1. Create a new Maven project by entering the following command:
+1. Creare un nuovo progetto Maven immettendo il comando seguente:
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    This command creates a directory named `exampleudf`, which contains the Maven project.
+    Questo comando crea una directory denominata `exampleudf`, che contiene il progetto Maven.
 
-2. Once the project has been created, delete the `exampleudf/src/test` directory that was created as part of the project by entering the following command:
+2. Una volta creato il progetto, eliminare la directory `exampleudf/src/test` creata come parte del progetto immettendo il comando seguente:
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. Open `pom.xml` by entering the command below:
+3. Aprire `pom.xml` immettendo il comando seguente:
 
     ```cmd
     notepad pom.xml
     ```
 
-    Then replace the existing `<dependencies>` entry with the following XML:
+    Sostituire quindi la voce di `<dependencies>` esistente con il codice XML seguente:
 
     ```xml
     <dependencies>
@@ -144,13 +144,13 @@ cd C:\HDI
 
     Salvare il file dopo avere apportato le modifiche.
 
-4. Enter the command below to create and open a new file `ExampleUDF.java`:
+4. Immettere il comando seguente per creare e aprire un nuovo file `ExampleUDF.java`:
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Then copy and paste the java code below into the new file. Then close the file.
+    Quindi copiare e incollare il codice Java riportato di seguito nel nuovo file. Chiudere quindi il file.
 
     ```java
     package com.microsoft.examples;
@@ -181,9 +181,9 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>Compilare e installare la UDF
 
-In the commands below, replace `sshuser` with the actual username if different. Replace `mycluster` with the actual cluster name.
+Nei comandi seguenti sostituire `sshuser` con il nome utente effettivo, se diverso. Sostituire `mycluster` con il nome del cluster effettivo.
 
-1. Compile and package the UDF by entering the following command:
+1. Compilare e creare il pacchetto della funzione definita dall'utente immettendo il comando seguente:
 
     ```cmd
     mvn compile package
@@ -191,19 +191,19 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
     Questo comando compila e impacchetta la UDF nel file `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
-2. Use the `scp` command to copy the file to the HDInsight cluster by entering the following command:
+2. Usare il comando `scp` per copiare il file nel cluster HDInsight immettendo il comando seguente:
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-3. Connect to the cluster using SSH by entering the following command:
+3. Connettersi al cluster tramite SSH immettendo il comando seguente:
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-4. From the open SSH session, copy the jar file to HDInsight storage.
+4. Dalla sessione SSH aperta copiare il file jar nell'archiviazione HDInsight.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -211,7 +211,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 ## <a name="use-the-udf-from-hive"></a>Utilizzare la UDF da Hive
 
-1. Start the Beeline client from the SSH session by entering the following command:
+1. Avviare il client di controllo della connessione dalla sessione SSH immettendo il comando seguente:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -232,7 +232,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
     SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    This query selects the state from the table, convert the string to lower case, and then display them along with the unmodified name. L'output appare simile al seguente testo:
+    Questa query consente di selezionare lo stato della tabella, convertire la stringa in lettere minuscole e quindi visualizzarli insieme al nome non modificato. L'output appare simile al seguente testo:
 
         +---------------+---------------+--+
         |  exampleudf   |     state     |
@@ -249,9 +249,9 @@ In the commands below, replace `sshuser` with the actual username if different. 
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-When running the hive job, you may come across an error similar to the following text:
+Quando si esegue il processo hive, è possibile che si verifichi un errore simile al testo seguente:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 

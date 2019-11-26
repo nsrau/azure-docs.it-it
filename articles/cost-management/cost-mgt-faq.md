@@ -42,7 +42,7 @@ Cloudyn può essere abilitato solo da un amministratore del servizio Azure. Le a
 Per poter generare la chiave API del contratto Enterprise di Azure per la configurazione di Cloudyn, abilitare prima di tutto l'API di fatturazione di Azure seguendo queste istruzioni:
 
 - [Panoramica delle API di creazione di report per i clienti Enterprise](../billing/billing-enterprise-api.md)
-- Sezione **Enabling data access to the API** (Abilitazione dell'accesso ai dati nell'API) in [Microsoft Azure Enterprise Portal Reporting API](https://ea.azure.com/helpdocs/reportingAPI) (API di creazione report di Microsoft Azure Enterprise Portal)
+- Sezione [Enabling data access to the API](https://ea.azure.com/helpdocs/reportingAPI) (Abilitazione dell'accesso ai dati nell'API) in **Microsoft Azure Enterprise Portal Reporting API** (API di creazione report di Microsoft Azure Enterprise Portal)
 
 
 Potrebbe anche essere necessario concedere ad amministratori di reparto, proprietari di account e amministratori dell'organizzazione le autorizzazioni per _visualizzare gli addebiti_ con l'API di fatturazione.
@@ -74,9 +74,9 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
 
-> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1 non crea account utente. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
+> Admin1 potrebbe essere un provider di soluzioni Microsoft Cloud o un utente Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. La persona che registra il servizio Cloudyn e accede al portale di Cloudyn, admin1 diventa l' *amministratore primario*. Admin1 non crea account utente. Tuttavia, tramite il portale di Cloudyn, vengono creati account Azure e viene configurata una gerarchia di entità. Admin1 informa Amministratore2, un amministratore tenant, che devono registrarsi con Cloudyn e accedere al portale di Cloudyn.
 >
-> Admin2 esegue la registrazione tramite il portale di Azure, However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+> Admin2 esegue la registrazione tramite il portale di Azure, Tuttavia, quando tentano di accedere al portale di Cloudyn, viene segnalato un errore che indica che l'account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
@@ -90,7 +90,7 @@ Per attivare l'account utente:
 
 Gli account utente Cloudyn si connettono tramite Single Sign-On da Azure. Se un utente digita in modo non corretto la propria password, potrebbe essere bloccato da Cloudyn pur potendo ancora accedere ad Azure.
 
-If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." Se l'account utente viene bloccato, contattare un altro amministratore per reimpostarlo.
+Se si modifica l'indirizzo di posta elettronica in Cloudyn dall'indirizzo predefinito in Azure, l'account può essere bloccato. Potrebbe visualizzare "status initiallySuspended". Se l'account utente viene bloccato, contattare un altro amministratore per reimpostarlo.
 
 È consigliabile creare almeno due account amministratore di Cloudyn nel caso in cui uno venga bloccato.
 

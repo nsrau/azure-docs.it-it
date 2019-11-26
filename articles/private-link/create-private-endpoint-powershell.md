@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs
-description: Learn about Azure Private Link
+title: Creare un endpoint privato di Azure usando Azure PowerShell | Microsoft Docs
+description: Informazioni sul collegamento privato di Azure
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229394"
 ---
-# <a name="create-a-private-endpoint-using-azure-powershell"></a>Create a private endpoint using Azure PowerShell
+# <a name="create-a-private-endpoint-using-azure-powershell"></a>Creare un endpoint privato usando Azure PowerShell
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. 
 
 Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando Azure PowerShell. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
@@ -23,7 +23,7 @@ Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Before you can create your resources, you must create a resource group that hosts the Virtual Network and the private endpoint with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *WestUS* location:
+Prima di poter creare le risorse, è necessario creare un gruppo di risorse che ospiti la rete virtuale e l'endpoint privato con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nella posizione *westus* :
 
 ```azurepowershell
 
@@ -33,11 +33,11 @@ New-AzResourceGroup `
 ```
 
 ## <a name="create-a-virtual-network"></a>Creare una rete virtuale
-In this section, you create a virtual network and a subnet. Next, you associate the subnet to your Virtual Network.
+In questa sezione viene creata una rete virtuale e una subnet. Successivamente, associare la subnet alla rete virtuale.
 
 ### <a name="create-a-virtual-network"></a>Creare una rete virtuale
 
-Create a Virtual network for your private endpoint with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a Virtual Network named *MyVirtualNetwork*:
+Creare una rete virtuale per l'endpoint privato con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Nell'esempio seguente viene creata una rete virtuale denominata *MyVirtualNetwork*:
  
 ```azurepowershell
 
@@ -48,9 +48,9 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-### <a name="add-a-subnet"></a>Add a Subnet
+### <a name="add-a-subnet"></a>Aggiungere una subnet
 
-Azure deploys resources to a subnet within a Virtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
+Azure distribuisce le risorse in una subnet all'interno di una rete virtuale, pertanto è necessario creare una subnet. Creare una *configurazione di subnet denominata subnet* con [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). Nell'esempio seguente viene creata una subnet *denominata subnet* con il flag di criteri di rete dell'endpoint privato impostato su **disabilitato**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -60,9 +60,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-### <a name="associate-the-subnet-to-the-virtual-network"></a>Associate the Subnet to the Virtual Network
+### <a name="associate-the-subnet-to-the-virtual-network"></a>Associare la subnet alla rete virtuale
 
-You can write the subnet configuration to the Virtual Network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Questo comando crea la subnet:
+È possibile scrivere la configurazione della subnet nella rete virtuale con [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Questo comando crea la subnet:
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -70,7 +70,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Create a VM in the Virtual Network with [New-AzVM](/powershell/module/az.compute/new-azvm). Quando si esegue il comandi seguente, viene chiesto di immettere le credenziali. Immettere un nome utente e una password per la macchina virtuale:
+Creare una VM nella rete virtuale con [New-AzVM](/powershell/module/az.compute/new-azvm). Quando si esegue il comandi seguente, viene chiesto di immettere le credenziali. Immettere un nome utente e una password per la macchina virtuale:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -95,9 +95,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>Create a SQL Database Server 
+## <a name="create-a-sql-database-server"></a>Creare un server di database SQL 
 
-Create a  SQL Database Server by using the New-AzSqlServer command. Remember that the name of your SQL Database server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
+Per creare un server di database SQL, usare il comando New-AzSqlServer. Tenere presente che il nome del server di database SQL deve essere univoco in Azure, quindi sostituire il valore del segnaposto tra parentesi quadre con il proprio valore univoco:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -117,7 +117,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-private-endpoint"></a>Creare un endpoint privato
 
-Private Endpoint for the SQL Database Server in your Virtual Network with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
+Endpoint privato per il server di database SQL nella rete virtuale con [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
@@ -138,8 +138,8 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
-## <a name="configure-the-private-dns-zone"></a>Configure the Private DNS Zone 
-Create a private DNS zone for SQL Database Server domain and create an association link with the virtual network: 
+## <a name="configure-the-private-dns-zone"></a>Configurare la zona di DNS privato 
+Creare una zona DNS privata per il dominio del server di database SQL e creare un collegamento di associazione con la rete virtuale: 
 
 ```azurepowershell
 
@@ -167,7 +167,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-Usare [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) per restituire l'indirizzo IP pubblico di una macchina virtuale. This example returns the public IP address of the *myVM* VM:
+Usare [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) per restituire l'indirizzo IP pubblico di una macchina virtuale. Questo esempio restituisce l'indirizzo IP pubblico della macchina virtuale *myVM* :
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Aprire un prompt dei comandi nel computer locale. Run the mstsc command. Sostituire <publicIpAddress> con l'indirizzo IP pubblico ottenuto nell'ultimo passaggio: 
+Aprire un prompt dei comandi nel computer locale. Eseguire il comando mstsc. Sostituire <publicIpAddress> con l'indirizzo IP pubblico ottenuto nell'ultimo passaggio: 
 
 
 > [!NOTE]
@@ -187,14 +187,14 @@ mstsc /v:<publicIpAddress>
 1. Quando richiesto, selezionare **Connetti**. 
 2. Immettere il nome utente e la password specificati al momento della creazione della VM.
   > [!NOTE]
-  > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
+  > Potrebbe essere necessario selezionare altre opzioni > usare un account diverso per specificare le credenziali immesse durante la creazione della macchina virtuale. 
   
 3. Selezionare **OK**. 
 4. Si potrebbe ricevere un avviso del certificato. Se sì, selezionare **Sì** oppure **Continua**. 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>Access SQL Database Server privately from the VM
+## <a name="access-sql-database-server-privately-from-the-vm"></a>Accedere al server di database SQL privatamente dalla macchina virtuale
 
-1. In the Remote Desktop of myVM, open PowerShell.
+1. Nel Desktop remoto di myVM aprire PowerShell.
 2. Immettere `nslookup myserver.database.windows.net`. 
 
     Verrà visualizzato un messaggio simile al seguente:
@@ -206,22 +206,22 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Install SQL Server Management Studio
-4. In Connect to server, enter or select this information: Setting Value Server type   Select Database Engine.
-      Server name   Select myserver.database.windows.net Username  Enter a username provided during creation.
-      Password  Enter a password provided during creation.
-      Remember password Select Yes.
-5. Select Connect.
-6. Browse Databases from left menu. 
-7. (Optionally) Create or query information from mydatabase
-8. Close the remote desktop connection to *myVM*. 
+3. Installa SQL Server Management Studio
+4. In Connetti al server immettere o selezionare le informazioni seguenti: impostazione tipo di server valore selezionare motore di database.
+      Nome server selezionare myserver.database.windows.net nomeutente immettere un nome utente specificato durante la creazione.
+      Password immettere una password specificata durante la creazione.
+      Ricorda password selezionare Sì.
+5. Selezionare Connetti.
+6. Esplorare i database dal menu a sinistra. 
+7. Facoltativamente Creare o eseguire query sulle informazioni da database
+8. Chiudere la connessione Desktop remoto a *myVM*. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
-When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:
+Al termine dell'uso dell'endpoint privato, del server di database SQL e della VM, usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse disponibili:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Learn more about [Azure Private Link](private-link-overview.md)
+- Scopri di più sul [collegamento privato di Azure](private-link-overview.md)

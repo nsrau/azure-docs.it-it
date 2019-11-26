@@ -1,5 +1,5 @@
 ---
-title: Get container instance logs & events
+title: Ottenere i log dell'istanza di contenitore & eventi
 description: Informazioni su come eseguire il debug con i log e gli eventi dei contenitori con Istanze di Azure Container
 ms.topic: article
 ms.date: 03/21/2019
@@ -13,7 +13,7 @@ ms.locfileid: "74481754"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperare log ed eventi dei contenitori in Istanze di Azure Container
 
-When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
+Quando si dispone di un contenitore errato, iniziare visualizzando i log con il comando [AZ container logs][az-container-logs]e trasmettere in streaming il relativo standard e l'errore standard con [AZ container collegata][az-container-attach].
 
 ## <a name="view-logs"></a>Visualizzare i log
 
@@ -43,9 +43,9 @@ Traceback (most recent call last):
 urllib.error.HTTPError: HTTP Error 404: Not Found
 ```
 
-## <a name="attach-output-streams"></a>Associare i flussi di output
+## <a name="attach-output-streams"></a>Collegare i flussi di output
 
-The [az container attach][az-container-attach] command provides diagnostic information during container startup. Dopo l'avvio, il contenitore trasmette STDOUT e STDERR alla console locale.
+Il comando [AZ container alleghi][az-container-attach] fornisce informazioni di diagnostica durante l'avvio del contenitore. Dopo l'avvio, il contenitore trasmette STDOUT e STDERR alla console locale.
 
 Ecco ad esempio l'output del contenitore basato su attività in [Eseguire un'attività in contenitori in Istanze di contenitore di Azure](container-instances-restart-policy.md), dopo avere specificato un URL valido di un file di testo di grandi dimensioni da elaborare:
 

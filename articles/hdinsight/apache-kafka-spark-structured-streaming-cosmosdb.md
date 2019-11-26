@@ -1,5 +1,5 @@
 ---
-title: Apache Spark & Apache Kafka with Cosmos DB - Azure HDInsight
+title: Apache Spark & Apache Kafka con Cosmos DB-Azure HDInsight
 description: Informazioni su come usare lo streaming strutturato Apache Spark per leggere i dati da Apache Kafka e quindi archiviarli in Azure Cosmos DB. In questo esempio i dati vengono trasmessi in streaming tramite un notebook Jupyter da Spark in HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -32,7 +32,7 @@ Lo streaming strutturato Spark è un motore di elaborazione del flusso basato su
 
 ## <a name="create-the-clusters"></a>Creare i cluster
 
-Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Tutto ciò che comunica con Kafka deve trovarsi nella stessa rete virtuale di Azure dei nodi del cluster Kafka. Per questo esempio, i cluster Spark e Kafka si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
+Apache Kafka in HDInsight non fornisce l'accesso ai broker Kafka attraverso la rete Internet pubblica. Tutto ciò che comunica con Kafka deve trovarsi nella stessa rete virtuale di Azure dei nodi del cluster Kafka. Per questo esempio, i cluster Spark e Kafka si trovano entrambi in una rete virtuale di Azure. Il diagramma seguente illustra il flusso delle comunicazioni tra i cluster:
 
 ![Diagramma dei cluster Spark e Kafka in una rete virtuale di Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
@@ -64,19 +64,19 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 1. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
 
-    |Proprietà |Value |
+    |Proprietà |Valore |
     |---|---|
-    |Sottoscrizione|Selezionare la sottoscrizione di Azure.|
-    |Gruppo di risorse|creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.|
-    |Cosmos DB Account Name|questo valore viene usato come nome dell'account Cosmos DB. The name can only contain lowercase letters, numbers, and the hyphen (-) character. Deve avere una lunghezza compresa tra 3 e 31 caratteri.|
-    |Base Cluster Name|questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **myhdi** viene creato un cluster Spark denominato __spark-myhdi__ e un cluster Kafka denominato **kafka-myhdi**.|
-    |Cluster Version|versione del cluster HDInsight. In questo esempio è stato eseguito un test con HDInsight 3.6 e potrebbe non funzionare con altri tipi di cluster.|
+    |sottoscrizione|Selezionare la sottoscrizione di Azure.|
+    |Resource group|creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.|
+    |Nome account Cosmos DB|questo valore viene usato come nome dell'account Cosmos DB. Il nome può contenere solo lettere minuscole, numeri e il segno meno (-). Deve avere una lunghezza compresa tra 3 e 31 caratteri.|
+    |Nome del cluster di base|questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **myhdi** viene creato un cluster Spark denominato __spark-myhdi__ e un cluster Kafka denominato **kafka-myhdi**.|
+    |Versione cluster|versione del cluster HDInsight. In questo esempio è stato eseguito un test con HDInsight 3.6 e potrebbe non funzionare con altri tipi di cluster.|
     |Nome utente dell'account di accesso del cluster|nome utente amministratore per i cluster Spark e Kafka.|
     |Password di accesso al cluster|password dell'utente amministratore per i cluster Spark e Kafka.|
-    |Ssh User Name|utente SSH da creare per i cluster Spark e Kafka.|
-    |Ssh Password|password dell'utente SSH per i cluster Spark e Kafka.|
+    |Nome utente SSH|utente SSH da creare per i cluster Spark e Kafka.|
+    |Password ssh|password dell'utente SSH per i cluster Spark e Kafka.|
 
-    ![HDInsight custom deployment values](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    ![HDInsight valori di distribuzione personalizzati](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
 1. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 
@@ -156,7 +156,7 @@ Nella home page di [Jupyter Notebook](https://jupyter.org/) selezionare la voce 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Now that you've learned how to use Apache Spark Structured Streaming, see the following documents to learn more about working with Apache Spark, Apache Kafka, and Azure Cosmos DB:
+Ora che si è appreso come usare Apache Spark flusso strutturato, vedere i documenti seguenti per altre informazioni sull'utilizzo di Apache Spark, Apache Kafka e Azure Cosmos DB:
 
 * [Come usare il flusso Apache Spark (DStream) con Apache Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Iniziare a usare Jupyter Notebook e Apache Spark in HDInsight](spark/apache-spark-jupyter-spark-sql.md)

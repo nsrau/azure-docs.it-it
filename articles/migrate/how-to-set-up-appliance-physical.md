@@ -69,7 +69,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
 - Installa gli agenti e un'applicazione Web per l'individuazione e la valutazione dei server fisici.
 - Installa i ruoli di Windows, tra cui il Servizio Attivazione Windows, IIS e PowerShell ISE.
-- Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
+- Scarica e installa un modulo di IIS riscrivibile. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435)
 - Aggiorna una chiave del Registro di sistema (HKLM) con i dettagli delle impostazioni permanenti per Azure Migrate.
 - Crea i seguenti file nei relativi percorsi:
     - **File di configurazione**: %Programdata%\Microsoft Azure\Config

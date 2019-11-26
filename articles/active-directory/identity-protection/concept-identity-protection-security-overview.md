@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection security overview
-description: Learn how the Security overview gives you an insight into your organization’s security posture.
+title: Panoramica della sicurezza Azure Active Directory Identity Protection
+description: Scopri come la panoramica sulla sicurezza ti offre informazioni dettagliate sul comportamento di sicurezza dell'organizzazione.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -20,7 +20,7 @@ ms.locfileid: "74382189"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Panoramica della sicurezza
 
-The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure portal gives you an insight into your organization’s security posture. Consente di identificare gli attacchi potenziali e comprendere l'efficacia dei criteri.
+La [Panoramica della sicurezza](https://aka.ms/IdentityProtectionRefresh) nella portale di Azure fornisce informazioni approfondite sul comportamento di sicurezza dell'organizzazione. Consente di identificare gli attacchi potenziali e comprendere l'efficacia dei criteri.
 
 "Panoramica della sicurezza" è diviso in linea di massima in due sezioni:
 
@@ -37,7 +37,7 @@ Questo grafico mostra il numero dei nuovi utenti a rischio rilevati nel periodo 
 
 ### <a name="new-risky-sign-ins-detected"></a>Nuovi accessi a rischio rilevati
 
-Questo grafico mostra il numero dei nuovi accessi a rischio rilevati nel periodo di tempo selezionato. È possibile filtrare la visualizzazione di questo grafico in base al tipo di rischio di accesso (in tempo reale o aggregato) e al livello di rischio di accesso (basso, medio, elevato). Gli accessi non protetti sono accessi a rischio con esito positivo in tempo reale a cui non è stata inviata una richiesta di autenticazione a più fattori. (Note: Sign-ins that are risky because of offline detections cannot be protected in real-time by sign-in risk policies). Passare il mouse sugli incrementi delle date in UTC per visualizzare il numero di accessi a rischio rilevati per quel giorno. Facendo clic su questo grafico si accede al report "Accessi a rischio".
+Questo grafico mostra il numero dei nuovi accessi a rischio rilevati nel periodo di tempo selezionato. È possibile filtrare la visualizzazione di questo grafico in base al tipo di rischio di accesso (in tempo reale o aggregato) e al livello di rischio di accesso (basso, medio, elevato). Gli accessi non protetti sono accessi a rischio con esito positivo in tempo reale a cui non è stata inviata una richiesta di autenticazione a più fattori. (Nota: gli accessi rischiosi a causa di rilevamenti offline non possono essere protetti in tempo reale tramite criteri di rischio di accesso). Passare il mouse sugli incrementi delle date in UTC per visualizzare il numero di accessi a rischio rilevati per quel giorno. Facendo clic su questo grafico si accede al report "Accessi a rischio".
 
 ## <a name="tiles"></a>Riquadri
  
@@ -52,7 +52,7 @@ Il riquadro "Utenti a medio rischio", mostra il numero più recente di utenti co
 
 ### <a name="unprotected-risky-sign-ins"></a>Accessi a rischio non protetti
 
-The ‘Unprotected risky sign-ins' tile shows the last week’s count of successful, real-time risky sign-ins that were not blocked or MFA challenged by a Conditional Access policy, Identity Protection risk policy, or per-user MFA. Si tratta di accessi con esito positivo potenzialmente compromessi a cui non è stata inviata una richiesta di autenticazione a più fattori. Per proteggere tali accessi in futuro, applicare un criterio di rischio di accesso. Facendo clic sul riquadro "Accessi a rischio non protetti" si viene reindirizzati al pannello di configurazione dei criteri di rischio di accesso in cui configurare il criterio per richiedere l'autenticazione a più fattori per un accesso che presenta un livello di rischio specificato.
+Il riquadro "accessi a rischio" non protetto Mostra il numero di accessi a rischio in tempo reale di una settimana che non sono stati bloccati o con autenticazione a più fattori in base a criteri di accesso condizionale, criteri di rischio per la protezione delle identità o multi-factor authentication per utente. Si tratta di accessi con esito positivo potenzialmente compromessi a cui non è stata inviata una richiesta di autenticazione a più fattori. Per proteggere tali accessi in futuro, applicare un criterio di rischio di accesso. Facendo clic sul riquadro "Accessi a rischio non protetti" si viene reindirizzati al pannello di configurazione dei criteri di rischio di accesso in cui configurare il criterio per richiedere l'autenticazione a più fattori per un accesso che presenta un livello di rischio specificato.
 
 ### <a name="legacy-authentication"></a>Autenticazione legacy
 
@@ -60,10 +60,10 @@ Il riquadro "Autenticazione legacy" mostra il numero di autenticazioni legacy de
 
 ### <a name="identity-secure-score"></a>Identity Secure Score
 
-Identity Secure Score valuta e confronta il comportamento di sicurezza con i modelli del settore. If you click on ‘Identity Secure Score (Preview)’ tile, it will redirect to the ‘Identity Secure Score’ blade where you can learn more about improving your security posture.
+Identity Secure Score valuta e confronta il comportamento di sicurezza con i modelli del settore. Se si fa clic sul riquadro "Identity Secure Score (Preview)", verrà reindirizzato al pannello "Identity Secure Score", in cui è possibile ottenere altre informazioni sul miglioramento del comportamento di sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [What is risk](concept-identity-protection-risks.md)
+- [Che cosa sono i rischi?](concept-identity-protection-risks.md)
 
-- [Policies available to mitigate risks](concept-identity-protection-policies.md)
+- [Criteri disponibili per attenuare i rischi](concept-identity-protection-policies.md)

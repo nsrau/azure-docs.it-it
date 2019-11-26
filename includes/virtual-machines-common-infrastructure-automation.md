@@ -27,7 +27,7 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) è un motore di automazione per la gestione della configurazione, la creazione di macchine virtuali e la distribuzione di applicazioni. Ansible usa un modello senza agente, in genere con chiavi SSH, per autenticare e gestire i computer di destinazione. Le attività di configurazione vengono definite nei playbook, con alcuni moduli Ansible disponibili per eseguire attività specifiche. Per altre informazioni, vedere [How Ansible works](https://www.ansible.com/how-ansible-works) (Funzionamento di Ansible).
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Installare e configurare Ansible su Linux per l'uso in Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
 - [Creare una macchina virtuale Linux](../articles/virtual-machines/linux/ansible-create-vm.md).
@@ -37,7 +37,7 @@ Scopri come:
 ## <a name="chef"></a>Chef
 [Chef](https://www.chef.io/) è una piattaforma di automazione che permette di definire le modalità di configurazione, distribuzione e gestione dell'infrastruttura. I componenti aggiuntivi includono Chef Habitat per l'automazione del ciclo di vita dell'applicazione anziché dell'infrastruttura e Chef InSpec, che permette di automatizzare la conformità ai requisiti di sicurezza e dei criteri. I client Chef vengono installati nei computer di destinazione, con uno o più server Chef centrali che archiviano e gestiscono le configurazioni. Per altre informazioni, vedere [An Overview of Chef](https://docs.chef.io/chef_overview.html) (Panoramica di Chef).
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview) (Distribuire Chef Automate da Azure Marketplace).
 - [Installare Chef in Windows e creare macchine virtuali di Azure](../articles/virtual-machines/windows/chef-automation.md).
@@ -46,7 +46,7 @@ Scopri come:
 ## <a name="puppet"></a>Puppet
 [Puppet](https://www.puppet.com) è una piattaforma di automazione di livello aziendale che gestisce il processo di distribuzione delle applicazioni. Gli agenti vengono installati nei computer di destinazione per consentire a Puppet Master di eseguire i manifesti che definiscono la configurazione desiderata dell'infrastruttura e delle macchine virtuali di Azure. Puppet può integrarsi con altre soluzioni come Jenkins e GitHub per offrire un flusso di lavoro DevOps migliorato. Per altre informazioni, vedere [How Puppet works](https://puppet.com/products/how-puppet-works) (Funzionamento di Puppet).
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview) (Distribuire Puppet da Azure Marketplace).
 
@@ -67,7 +67,7 @@ Microsoft sta collaborando attivamente con i partner di distribuzione Linux appr
 
 Le configurazioni DSC definiscono che cosa installare nel computer e come configurare l'host. Un motore di Gestione configurazione locale viene eseguito in ogni nodo di destinazione che elabora le azioni necessarie in base alle configurazioni di cui è stato eseguito il push. Un server di pull è un servizio Web che viene eseguito in un host centrale per archiviare le configurazioni DSC e le risorse associate. Il server di pull comunica con il motore di Gestione configurazione locale in ogni host di destinazione per fornire le configurazioni necessarie e i report sulla conformità.
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Creare una configurazione DSC di base](/powershell/scripting/dsc/quickstarts/website-quickstart).
 - [Configurazione di un server di pull DSC](/powershell/scripting/dsc/pull-server/pullserver).
@@ -79,7 +79,7 @@ L'estensione di script personalizzata per [Linux](../articles/virtual-machines/l
 
 Gli script possono essere scaricati da una risorsa di archiviazione di Azure o da qualsiasi posizione pubblica, ad esempio un repository GitHub. Con l'estensione di script personalizzata è possibile scrivere script in qualsiasi linguaggio in esecuzione nella macchina virtuale di origine. Questi script possono essere usati per installare applicazioni o configurare la macchina virtuale in base alle esigenze. Per proteggere le credenziali, le informazioni riservate come le password possono essere archiviate in una configurazione protetta. Queste credenziali vengono decrittografate solo all'interno della macchina virtuale.
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Creare una VM Linux con l'interfaccia della riga di comando di Azure e usare l'estensione di script personalizzata](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
 - [Creare una VM Windows con Azure PowerShell e usare l'estensione di script personalizzata](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
@@ -88,7 +88,7 @@ Scopri come:
 ## <a name="packer"></a>Packer
 [Packer](https://www.packer.io) automatizza il processo di compilazione quando si crea un'immagine di macchina virtuale personalizzata in Azure. È possibile usare Packer per definire il sistema operativo ed eseguire script di post-configurazione per personalizzare la macchina virtuale per esigenze specifiche. Una volta configurata, la macchina virtuale viene acquisita come immagine del disco gestito. Packer automatizza il processo per creare risorse di rete, archiviazione e macchina virtuale di origine, eseguire script di configurazione e quindi creare l'immagine di macchina virtuale.
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Come usare Packer per creare immagini di macchine virtuali di Linux in Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
 - [Come usare Packer per creare immagini di macchine virtuali di Windows in Azure](../articles/virtual-machines/windows/build-image-with-packer.md).
@@ -97,7 +97,7 @@ Scopri come:
 ## <a name="terraform"></a>Terraform
 [Terraform](https://www.terraform.io) è uno strumento di automazione che permette di definire e creare un'intera infrastruttura di Azure con un unico linguaggio in formato basato su modelli, ovvero HCL (HashiCorp Configuration Language). Con Terraform è possibile definire i modelli per automatizzare il processo di creazione di risorse di rete, archiviazione e macchina virtuale per una soluzione di applicazione specifica. È possibile usare i modelli Terraform esistenti per altre piattaforme con Azure per garantire la coerenza e semplificare la distribuzione dell'infrastruttura senza che sia necessaria la conversione in modelli di Azure Resource Manager.
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Installare e configurare Terraform con Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
 - [Creare un'infrastruttura di Azure con Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
@@ -108,7 +108,7 @@ Scopri come:
 
 Automazione di Azure fornisce anche un servizio DSC (Desired State Configuration) che permette di creare le definizioni per la configurazione di un set specifico di macchine virtuali. DSC assicura quindi che la configurazione necessaria venga applicata e che la macchina virtuale resti coerente. Azure Automation DSC viene eseguito su computer Windows e Linux.
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Creare un runbook di PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
 - [Usare un ruolo di lavoro ibrido per runbook per gestire risorse locali](../articles/automation/automation-hybrid-runbook-worker.md).
@@ -126,7 +126,7 @@ Altre informazioni su:
 ## <a name="jenkins"></a>Jenkins
 [Jenkins](https://www.jenkins.io) è un server di integrazione continua che permette di distribuire e testare le applicazioni e creare pipeline automatiche per il recapito del codice. Sono disponibili centinaia di plug-in per l'estensione della piattaforma Jenkins principale ed è anche possibile l'integrazione con molti altri prodotti e soluzioni tramite webhook. È possibile installare manualmente Jenkins in una macchina virtuale di Azure, eseguire Jenkins da un contenitore Docker oppure usare un'immagine di Azure Marketplace predefinita.
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 - [Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
 

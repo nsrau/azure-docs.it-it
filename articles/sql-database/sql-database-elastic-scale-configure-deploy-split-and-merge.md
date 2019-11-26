@@ -36,7 +36,7 @@ Lo strumento di divisione e unione sposta i dati tra database partizionati. Vede
 
 I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **contenuto\splitmerge\servizio** e gli script di PowerShell di divisione e unione, compresi i file DLL client necessari, si trovano nella sottodirectory **contenuto\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 
@@ -63,7 +63,7 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Enter this connection string in the *.cscfg* file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
+1. Immettere questa stringa di connessione nel file con *estensione cscfg* nelle sezioni del ruolo **SplitMergeWeb** e **SplitMergeWorker** nell'impostazione ElasticScaleMetadata.
 
 1. Per il ruolo **SplitMergeWorker**, immettere una stringa di connessione valida nell'archiviazione di Azure per l'impostazione **WorkerRoleSynchronizationStorageAccountConnectionString**.
 
@@ -184,7 +184,7 @@ I file di script inclusi sono i seguenti:
    <table style="width:100%">
      <tr>
        <th>File PowerShell</th>
-       <th>Procedure</th>
+       <th>Passi</th>
      </tr>
      <tr>
        <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
@@ -206,7 +206,7 @@ I file di script inclusi sono i seguenti:
    <table style="width:100%">
      <tr>
        <th>File PowerShell</th>
-       <th>Procedure</th>
+       <th>Passi</th>
      </tr>
    <tr>
        <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
@@ -230,13 +230,13 @@ I file di script inclusi sono i seguenti:
 2. Creare un server di database SQL di Azure (o sceglierne uno esistente) che conterrà il gestore delle mappe partizioni e le partizioni stesse.
 
    > [!NOTE]
-   > The *SetupSampleSplitMergeEnvironment.ps1* script creates all these databases on the same server by default to keep the script simple. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.
+   > Per impostazione predefinita, lo script *SetupSampleSplitMergeEnvironment. ps1* crea tutti questi database nello stesso server per rendere semplice lo script. Non si tratta di una restrizione del servizio di divisione e unione in sé stesso.
 
    Per spostare dati e aggiornare il mapping della partizione, sarà necessario un account di accesso di autenticazione SQL con accesso in lettura/scrittura ai database per il servizio di divisione e unione. Poiché il servizio di divisione e unione viene eseguito nel cloud, non supporta attualmente l'autenticazione integrata.
 
    Assicurarsi che il server SQL di Azure sia configurato per consentire l'accesso dall'indirizzo IP del computer che esegue questi script. È possibile trovare questa impostazione nel server SQL di Azure, in / configurazione / indirizzi IP consentiti.
 
-3. Execute the *SetupSampleSplitMergeEnvironment.ps1* script to create the sample environment.
+3. Eseguire lo script *SetupSampleSplitMergeEnvironment. ps1* per creare l'ambiente di esempio.
 
    L'esecuzione di questo script comporterà la cancellazione di tutte le strutture di dati di gestione dei mapping della partizione nel relativo database, nonché di tutte le partizioni. Potrebbe risultare utile eseguire nuovamente lo script se si vuole inizializzare nuovamente il mapping della partizione o le partizioni stesse.
 
@@ -254,7 +254,7 @@ I file di script inclusi sono i seguenti:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute the *ExecuteSampleSplitMerge.ps1* script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). Se si è configurato SSL e si è lasciato l'endpoint http disabilitato, assicurarsi di usare l'endpoint https://.
+5. Eseguire lo script *ExecuteSampleSplitMerge. ps1* per eseguire un'operazione Split (spostando la metà dei dati sulla prima partizione nella seconda partizione) e quindi un'operazione di Unione (spostando i dati di nuovo nella prima partizione). Se si è configurato SSL e si è lasciato l'endpoint http disabilitato, assicurarsi di usare l'endpoint https://.
 
    Riga di comando di esempio:
 
@@ -309,7 +309,7 @@ I file di script inclusi sono i seguenti:
 
 6. Ora è possibile sperimentare il processo con altri tipi di dati. Questi script accettano un parametro facoltativo, ShardKeyType, che consente di specificare il tipo di chiave. Il tipo predefinito è Int32, ma è anche possibile specificare Int64, Guid o Binary.
 
-## <a name="create-requests"></a>Richieste di creazione
+## <a name="create-requests"></a>Creare richieste
 
 Il servizio può essere usato tramite l'interfaccia utente Web o l'importazione nonché mediante il modulo PowerShell SplitMerge.psm1 che invierà le richieste tramite il ruolo web.
 
@@ -327,7 +327,7 @@ Per eseguire un'operazione di divisione e unione, è necessario dichiarare le ta
 
 Il servizio di divisione e unione non crea automaticamente il database di destinazione (o lo schema per tutte le tabelle nel database). Questi devono essere creati precedentemente, prima di inviare richieste al servizio.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Quando si eseguono gli script di PowerShell di esempio, è possibile che venga visualizzato un messaggio simile a quello riportato di seguito:
 

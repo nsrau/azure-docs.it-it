@@ -40,7 +40,7 @@ Seguire questa procedura per nascondere un'applicazione nel pannello App persona
 5.  Cercare l'applicazione che si desidera nascondere e fare clic su di essa.  Viene visualizzata la panoramica dell'applicazione.
 6.  Fare clic su **Proprietà**. 
 7.  Nel campo **Visibile agli utenti?** fare clic su **No**.
-8.  Fare clic su **Salva**.
+8.  Fare clic su **Save**.
 
 
 ## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Nascondere le applicazioni di Office 365 nel pannello App personali
@@ -52,7 +52,7 @@ Seguire questa procedura per nascondere tutte le applicazioni di Office 365 dal 
 3.  Selezionare **Impostazioni utente**.
 4.  In **Applicazioni aziendali** fare clic su **Gestire il modo in cui gli utenti finali avviano e visualizzano le applicazioni**.
 5.  In **Gli utenti possono visualizzare le app di Office 365 solo nel portale di Office 365** fare clic su **Sì**.
-6.  Fare clic su **Salva**.
+6.  Fare clic su **Save**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: Use Azure IoT Hub Device Provisioning Service SDKs tools
+title: Usare gli strumenti degli SDK del servizio Device provisioning in hub Azure
 description: Questo documento illustra gli strumenti di sviluppo disponibili negli SDK del servizio Device Provisioning in hub IoT di Azure
 author: robinsh
 ms.author: robinsh
@@ -34,7 +34,7 @@ I [certificati X.509](https://docs.microsoft.com/azure/iot-dps/concepts-security
 * Per un ambiente di produzione, è consigliabile acquistare un certificato della CA X.509 da una CA radice pubblica.
 * Per un ambiente di test, è possibile generare un certificato X.509 radice o una catena di certificati X.509 usando uno degli strumenti seguenti.
     * OpenSSL: è possibile usare gli script per la generazione di certificati:
-        * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
+        * [Node.JS](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell o Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * Emulatore DICE (Device Identity Composition Engine): DICE consente di ottenere l'identità crittografica dei dispositivi e l'attestazione basata sul protocollo TLS e certificati client X.509.  [Altre informazioni](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) sull'identità dei dispositivi con DICE.

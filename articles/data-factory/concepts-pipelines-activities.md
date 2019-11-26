@@ -74,7 +74,7 @@ Attività di controllo | DESCRIZIONE
 [Esegui pipeline](control-flow-execute-pipeline-activity.md) | L'attività di esecuzione pipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
 [Filter](control-flow-filter-activity.md) | Applicare un'espressione di filtro a una matrice di input
 [Per ogni](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
-[Ottenere i metadati](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
+[Ottenere metadati](control-flow-get-metadata-activity.md) | Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory.
 [Attività della condizione If](control-flow-if-condition-activity.md) | Può essere usata per creare un ramo in base alla condizione che il valore restituito sia true o false. L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`.
 [Attività Lookup](control-flow-lookup-activity.md) | L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
 [Imposta variabile](control-flow-set-variable-activity.md) | Impostare il valore di una variabile esistente.

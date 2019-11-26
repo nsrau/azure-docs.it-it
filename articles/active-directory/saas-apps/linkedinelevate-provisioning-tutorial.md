@@ -106,7 +106,7 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 12. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-13. Fare clic su **Salva**.
+13. Fare clic su **Save**.
 
 14. Nella sezione **Mapping degli attributi** esaminare gli attributi degli utenti e dei gruppi da sincronizzare da Azure AD a LinkedIn Elevate. Gli attributi selezionati come proprietà **corrispondenti** verranno usati per trovare le corrispondenze con gli account utente e i gruppi in LinkedIn Elevate per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
 
@@ -114,7 +114,7 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 15. Per abilitare il servizio di provisioning di Azure AD per LinkedIn Elevate, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-16. Fare clic su **Salva**.
+16. Fare clic su **Save**.
 
 Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a LinkedIn Elevate nella sezione Utenti e gruppi. Si noti che la sincronizzazione iniziale richiederà più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato e seguire i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app LinkedIn Elevate.
 

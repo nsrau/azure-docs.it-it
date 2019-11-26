@@ -37,7 +37,7 @@ L'associazione di input di App per dispositivi mobili carica un record da un end
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#input---c-script-example)
+* [Script C# (.csx)](#input---c-script-example)
 * JavaScript
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
@@ -134,7 +134,7 @@ Per informazioni sulle proprietà degli attributi che è possibile configurare, 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "in"|
@@ -166,7 +166,7 @@ L'associazione di output di app per dispositivi mobili consente di scrivere un n
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script C# (file con estensione csx)](#output---c-script-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
@@ -292,7 +292,7 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "out"|

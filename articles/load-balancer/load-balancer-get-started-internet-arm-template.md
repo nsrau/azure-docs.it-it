@@ -23,9 +23,9 @@ ms.locfileid: "74225357"
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Creazione di un servizio di bilanciamento del carico pubblico con un modello
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Portale](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -43,7 +43,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 Per distribuire il modello scaricato tramite PowerShell, seguire questa procedura.
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
-2. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
+2. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse usando il modello.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `

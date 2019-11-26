@@ -37,61 +37,61 @@ Dal portale di Azure o da PowerShell è possibile gestire tutte le configurazion
 
 ![Screenshot della pagina di accesso di Automazione di Azure](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>Import reporting data into Azure Monitor logs
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importare i dati di report nei log di monitoraggio di Azure
 
-I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. To learn how to send State Configuration status data to your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
+I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro Log Analytics. Per informazioni su come inviare i dati sullo stato della configurazione dello stato nell'area di lavoro Log Analytics, vedere [inoltrare i dati dei report di configurazione dello stato di automazione di Azure ai log di monitoraggio](automation-dsc-diagnostics.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Please consider the following requirements when using Azure Automation State Configuration (DSC).
+Quando si usa la configurazione dello stato di automazione di Azure (DSC), considerare i requisiti seguenti.
 
-### <a name="operating-system-requirements"></a>Operating System Requirements
+### <a name="operating-system-requirements"></a>Requisiti del sistema operativo
 
-For nodes running Windows, the following versions are supported:
+Per i nodi che eseguono Windows sono supportate le versioni seguenti:
 
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 SP1
-- Windows 10
+- Windows Server 2008 R2 SP1,
+- Windows 10
 - Windows 8.1
 - Windows 7
 
-The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) standalone product sku does not contain an implementation of Desired State Configuraion so it cannot be managed by PowerShell DSC or Azure Automation State Configuration.
+Lo SKU del prodotto [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) autonomo non contiene un'implementazione della configurazione dello stato desiderato, quindi non può essere gestito da PowerShell DSC o dalla configurazione dello stato di automazione di Azure.
 
-For nodes running Linux, the following distros/versions are supported:
+Per i nodi che eseguono Linux, sono supportate le distribuzioni/versioni seguenti:
 
-The DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
+L'estensione DSC per Linux supporta tutte le distribuzioni di Linux elencate in [distribuzioni di Linux supportate](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
-### <a name="dsc-requirements"></a>DSC requirements
+### <a name="dsc-requirements"></a>Requisiti DSC
 
-For all Windows nodes running in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7, [WinRM will be enabled](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Per tutti i nodi Windows in esecuzione in Azure, [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) verrà installato durante l'onboarding.  Per i nodi che eseguono Windows Server 2012 e Windows 7, [WinRM sarà abilitato](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
-For all Linux nodes running in Azure, [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) will be installed during onboarding.
+Per tutti i nodi Linux in esecuzione in Azure, [PowerShell DSC per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) verrà installato durante l'onboarding.
 
-### <a name="network-planning"></a>Configure private networks
+### <a name="network-planning"></a>Configurare le reti private
 
-If your nodes are located within a private network, the following port and URLs are required for State Configuration (DSC) to communicate with Automation:
+Se i nodi si trovano all'interno di una rete privata, la porta e gli URL seguenti sono necessari per la comunicazione con l'automazione dello stato (DSC):
 
 * Porta: è necessaria solo la porta TCP 443 per l'accesso a Internet in uscita.
 * URL globale: *.azure-automation.net
 * URL globale di US Gov Virginia: *.azure-automation.us
 * Servizio agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-This provides network connectivity for the managed node to communicate with Azure Automation.
-If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you will also need to allow traffic between nodes.
-See the documentation for each DSC resource to understand those network requirements.
+In questo modo si fornisce la connettività di rete per la comunicazione tra il nodo gestito e automazione di Azure.
+Se si usano risorse DSC che comunicano tra i nodi, ad esempio le [risorse di aspetter *](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), sarà necessario anche consentire il traffico tra i nodi.
+Per informazioni sui requisiti di rete, vedere la documentazione relativa a ogni risorsa DSC.
 
-#### <a name="proxy-support"></a>Proxy Support
+#### <a name="proxy-support"></a>Supporto proxy
 
-Proxy support for the DSC agent is available in Windows version 1809 and later.
-To configure this option, set the value for **ProxyURL** and **ProxyCredential** in the [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) used to register nodes.
-Proxy is not available in DSC for previous versions of Windows.
+Il supporto del proxy per l'agente DSC è disponibile nella versione 1809 e successive di Windows.
+Per configurare questa opzione, impostare il valore di **ProxyURL** e **ProxyCredential** nello [script di metaconfigurazione](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usato per registrare i nodi.
+Il proxy non è disponibile in DSC per le versioni precedenti di Windows.
 
-For Linux nodes, the DSC agent supports proxy and will utilize the http_proxy variable to determine the url.
+Per i nodi Linux, l'agente DSC supporta il proxy e utilizzerà la variabile http_proxy per determinare l'URL.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure State Configuration network ranges and namespace
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Spazi dei nomi e intervalli di rete di configurazione stato di Azure
 
 È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP è possibile scaricare gli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
 
@@ -111,7 +111,7 @@ Se è disponibile un account di Automazione definito per un'area specifica, è p
 | Giappone orientale |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Australia sud-orientale |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Regno Unito meridionale | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| Governo degli Stati Uniti - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il file XML degli [indirizzi IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) dall'Area download Microsoft.
 
@@ -124,7 +124,7 @@ Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il f
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sull'onboarding dei nodi, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)

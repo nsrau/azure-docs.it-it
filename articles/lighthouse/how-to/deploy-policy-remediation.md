@@ -22,7 +22,7 @@ Per consentire a un **principalId**  di creare un'identità gestita nel tenant d
 
 Dopo aver eseguito l'onboarding del cliente, il **principalId** creato in questa autorizzazione potrà assegnare questi ruoli predefiniti alle identità gestite nel tenant del cliente. Tuttavia, nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà assegnata a questo cliente.
 
-L'esempio seguente illustra un **principalId** che avrà il ruolo di Amministratore accesso utenti. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
+L'esempio seguente illustra un **principalId** che avrà il ruolo di Amministratore accesso utenti. Questo utente sarà in grado di assegnare due ruoli predefiniti alle identità gestite nel tenant del cliente: collaboratore e collaboratore Log Analytics.
 
 ```json
 {

@@ -77,7 +77,7 @@ Per creare una pipeline da questo file:
 1. Selezionare l'opzione per creare una **nuova** pipeline di compilazione.
 1. Selezionare **GitHub** come origine, autorizzare con l'account github, se necessario, e selezionare il ramo _azds_updates_ dalla versione con fork del repository dell'applicazione di esempio _dev-Spaces_ .
 1. Selezionare **configurazione come codice**o **YAML**come modello.
-1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Viene visualizzata una pagina di configurazione per la pipeline di compilazione. Come indicato in precedenza, passare al percorso specifico della lingua per il **percorso del file YAML** usando il pulsante **..** .. Ad esempio: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Passare alla scheda **variabili** .
 1. Aggiungere manualmente _dockerId_ come variabile, corrispondente al nome utente dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account) (indicato nei prerequisiti dell'articolo).
 1. Aggiungere manualmente _dockerPassword_ come variabile, corrispondente alla password dell'[account amministratore del Registro Azure Container](../../container-registry/container-registry-authentication.md#admin-account). Assicurarsi di specificare _dockerPassword_ come segreto (selezionando l'icona a forma di lucchetto) per motivi di sicurezza.
@@ -99,7 +99,7 @@ A questo punto, è stata creata una soluzione CI che compilerà automaticamente 
 1. Per la **versione predefinita**, scegliere **più recente dal ramo predefinito della pipeline di compilazione con i tag**.
 1. Lasciare i **tag** vuoti.
 1. Impostare **Alias di origine** su `drop`. Il valore dell' **alias di origine** viene usato dalle attività di rilascio predefinite, quindi deve essere impostato.
-1. Fare clic su **Aggiungi**.
+1. Fare clic su **Add**.
 1. Fare ora clic sull'icona del fulmine sull'origine dell'elemento `drop` appena creato, come illustrato sotto:
 
     ![Configurazione della distribuzione continua dell'elemento della versione](../media/common/release-artifact-cd-setup.png)

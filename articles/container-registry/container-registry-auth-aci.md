@@ -1,5 +1,5 @@
 ---
-title: Access from Container Instances
+title: Accesso da istanze di contenitore
 description: Informazioni su come fornire l'accesso alle immagini nel registro del contenitore privato da Istanze di Azure Container usando un'entità del servizio Azure Active Directory.
 ms.topic: article
 ms.date: 04/23/2018
@@ -44,7 +44,7 @@ az container create \
 
 Gli script di esempio precedenti per l'interfaccia della riga di comando di Azure sono disponibili in GitHub, così come le versioni per Azure PowerShell:
 
-* [interfaccia della riga di comando di Azure][acr-scripts-cli]
+* [Interfaccia della riga di comando di Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,5 +1,5 @@
 ---
-title: Configure private IP addresses for VMs - Azure CLI
+title: Configurare indirizzi IP privati per le VM-interfaccia della riga di comando di Azure
 description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na

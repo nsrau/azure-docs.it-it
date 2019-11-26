@@ -1,6 +1,6 @@
 ---
-title: Durable orchestrator code constraints - Azure Functions
-description: Orchestration function replay and code constraints for Azure Durable Functions.
+title: Vincoli di codice del codificatore durevole-funzioni di Azure
+description: Riesecuzione delle funzioni di orchestrazione e vincoli di codice per Durable Functions di Azure.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
@@ -12,64 +12,64 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232970"
 ---
-# <a name="orchestrator-function-code-constraints"></a>Orchestrator function code constraints
+# <a name="orchestrator-function-code-constraints"></a>Vincoli del codice della funzione di orchestrazione
 
-Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you build stateful apps. You can use an [orchestrator function](durable-functions-orchestrations.md) to orchestrate the execution of other durable functions within a function app. Orchestrator functions are stateful, reliable, and potentially long-running.
+Durable Functions è un'estensione di [funzioni di Azure](../functions-overview.md) che consente di creare app con stato. È possibile usare una [funzione di orchestrazione](durable-functions-orchestrations.md) per orchestrare l'esecuzione di altre funzioni permanenti all'interno di un'app per le funzioni. Le funzioni dell'agente di orchestrazione sono con stato, affidabile e potenzialmente con esecuzione prolungata.
 
 ## <a name="orchestrator-code-constraints"></a>Vincoli del codice dell'agente di orchestrazione
 
-Orchestrator functions use [event sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) to ensure reliable execution and to maintain local variable state. The [replay behavior](durable-functions-orchestrations.md#reliability) of orchestrator code creates constraints on the type of code that you can write in an orchestrator function. For example, orchestrator functions must be *deterministic*: an orchestrator function will be replayed multiple times, and it must produce the same result each time.
+Le funzioni dell'agente di orchestrazione usano l'origine [eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) per garantire un'esecuzione affidabile e mantenere lo stato delle variabili locali. Il [comportamento di riproduzione](durable-functions-orchestrations.md#reliability) del codice dell'agente di orchestrazione crea vincoli sul tipo di codice che è possibile scrivere in una funzione dell'agente di orchestrazione. Ad esempio, le funzioni dell'agente di orchestrazione devono essere *deterministiche*: una funzione dell'agente di orchestrazione verrà riprodotta più volte e deve produrre lo stesso risultato ogni volta.
 
-### <a name="using-deterministic-apis"></a>Using deterministic APIs
+### <a name="using-deterministic-apis"></a>Uso di API deterministiche
 
-This section provides some simple guidelines that help ensure your code is deterministic.
+In questa sezione vengono fornite alcune semplici linee guida che consentono di garantire la deterministicità del codice.
 
-Orchestrator functions can call any API in their target languages. However, it's important that orchestrator functions call only deterministic APIs. A *deterministic API* is an API that always returns the same value given the same input, no matter when or how often it's called.
+Le funzioni dell'agente di orchestrazione possono chiamare qualsiasi API nelle lingue di destinazione. Tuttavia, è importante che le funzioni dell'agente di orchestrazione chiamino solo API deterministiche. Un' *API deterministica* è un'API che restituisce sempre lo stesso valore dato lo stesso input, indipendentemente da quando o con quale frequenza viene chiamato.
 
-The following table shows examples of APIs that you should avoid because they are *not* deterministic. These restrictions apply only to orchestrator functions. Other function types don't have such restrictions.
+La tabella seguente illustra esempi di API da evitare perché *non* sono deterministiche. Queste restrizioni si applicano solo alle funzioni dell'agente di orchestrazione. Altri tipi di funzione non hanno restrizioni di questo tipo.
 
-| API category | Motivo | Soluzione alternativa |
+| Categoria API | Motivo | Soluzione alternativa |
 | ------------ | ------ | ---------- |
-| Date e ore  | APIs that return the current date or time are nondeterministic because the returned value is different for each replay. | Use the`CurrentUtcDateTime` API in .NET or the `currentUtcDateTime` API in JavaScript, which are safe for replay. |
-| GUIDs and UUIDs  | APIs that return a random GUID or UUID are nondeterministic because the generated value is different for each replay. | Use `NewGuid` in .NET or `newGuid` in JavaScript to safely generate random GUIDs. |
-| Random numbers | APIs that return random numbers are nondeterministic because the generated value is different for each replay. | Use an activity function to return random numbers to an orchestration. The return values of activity functions are always safe for replay. |
-| Associazioni | Input and output bindings typically do I/O and are nondeterministic. An orchestrator function must not directly use even the [orchestration client](durable-functions-bindings.md#orchestration-client) and [entity client](durable-functions-bindings.md#entity-client) bindings. | Use input and output bindings inside client or activity functions. |
-| Rete | Network calls involve external systems and are nondeterministic. | Use activity functions to make network calls. If you need to make an HTTP call from your orchestrator function, you also can use the [durable HTTP APIs](durable-functions-http-features.md#consuming-http-apis). |
-| Blocking APIs | Blocking APIs like `Thread.Sleep` in .NET and similar APIs can cause performance and scale problems for orchestrator functions and should be avoided. In the Azure Functions Consumption plan, they can even result in unnecessary runtime charges. | Use alternatives to blocking APIs when they're available. For example, use  `CreateTimer` to introduce delays in orchestration execution. [Durable timer](durable-functions-timers.md) delays don't count towards the execution time of an orchestrator function. |
-| Async APIs | Orchestrator code must never start any async operation except by using the `IDurableOrchestrationContext` API or the `context.df` object's API. For example, you can't use `Task.Run`, `Task.Delay`, and `HttpClient.SendAsync` in .NET or `setTimeout` and `setInterval` in JavaScript. The Durable Task Framework runs orchestrator code on a single thread. It can't interact with any other threads that might be called by other async APIs. | An orchestrator function should make only durable async calls. Activity functions should make any other async API calls. |
-| Async JavaScript functions | You can't declare JavaScript orchestrator functions as `async` because the node.js runtime doesn't guarantee that asynchronous functions are deterministic. | Declare JavaScript orchestrator functions as synchronous generator functions. |
-| Threading APIs | The Durable Task Framework runs orchestrator code on a single thread and can't interact with any other threads. Introducing new threads into an orchestration's execution can result in nondeterministic execution or deadlocks. | Orchestrator functions should almost never use threading APIs. If such APIs are necessary, limit their use to only activity functions. |
-| Variabili statiche | Avoid using nonconstant static variables in orchestrator functions because their values can change over time, resulting in nondeterministic runtime behavior. | Use constants, or limit the use of static variables to activity functions. |
-| Variabili di ambiente | Don't use environment variables in orchestrator functions. Their values can change over time, resulting in nondeterministic runtime behavior. | Environment variables must be referenced only from within client functions or activity functions. |
-| Infinite loops | Evitare i cicli infiniti nelle funzioni di orchestrazione. Because the Durable Task Framework saves execution history as the orchestration function progresses, an infinite loop can cause an orchestrator instance to run out of memory. | For infinite loop scenarios, use APIs like `ContinueAsNew` in .NET or `continueAsNew` in JavaScript to restart the function execution and to discard previous execution history. |
+| Date e ore  | Le API che restituiscono la data o l'ora corrente sono non deterministiche, perché il valore restituito è diverso per ogni riproduzione. | Usare l'API`CurrentUtcDateTime` in .NET o l'API `currentUtcDateTime` in JavaScript, che sono sicure per la riproduzione. |
+| GUID e UUID  | Le API che restituiscono un GUID o un UUID casuale sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Usare `NewGuid` in .NET o `newGuid` in JavaScript per generare in modo sicuro GUID casuali. |
+| Numeri casuali | Le API che restituiscono numeri casuali sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Utilizzare una funzione di attività per restituire numeri casuali a un'orchestrazione. I valori restituiti delle funzioni di attività sono sempre sicuri per la riproduzione. |
+| Associazioni | Le associazioni di input e output eseguono in genere operazioni di I/O e non deterministiche. Una funzione dell'agente di orchestrazione non deve usare direttamente anche le associazioni client di [orchestrazione](durable-functions-bindings.md#orchestration-client) e [client di entità](durable-functions-bindings.md#entity-client) . | Usare le associazioni di input e output all'interno di funzioni client o di attività. |
+| Network | Le chiamate di rete coinvolgono sistemi esterni e sono non deterministiche. | Usare le funzioni di attività per effettuare chiamate di rete. Se è necessario effettuare una chiamata HTTP dalla funzione dell'agente di orchestrazione, è anche possibile usare le [API HTTP durevoli](durable-functions-http-features.md#consuming-http-apis). |
+| API di blocco | Il blocco di API come `Thread.Sleep` in .NET e API simili può causare problemi di prestazioni e scalabilità per le funzioni dell'agente di orchestrazione e deve essere evitato. Nel piano a consumo di funzioni di Azure possono anche verificarsi addebiti di runtime superflui. | Usare le alternative alle API di blocco quando sono disponibili. Utilizzare, ad esempio, `CreateTimer` per introdurre ritardi nell'esecuzione dell'orchestrazione. I ritardi di [timer durevoli](durable-functions-timers.md) non vengono conteggiati per il tempo di esecuzione di una funzione di orchestrazione. |
+| API asincrone | Il codice dell'agente di orchestrazione non deve mai avviare alcuna operazione asincrona tranne che tramite l'API `IDurableOrchestrationContext` o l'API dell'oggetto `context.df`. Ad esempio, non è possibile usare `Task.Run`, `Task.Delay`e `HttpClient.SendAsync` in .NET o `setTimeout` e `setInterval` in JavaScript. Il Framework di attività permanenti esegue il codice dell'agente di orchestrazione su un singolo thread. Non può interagire con altri thread che potrebbero essere chiamati da altre API asincrone. | Una funzione dell'agente di orchestrazione deve effettuare solo chiamate asincrone durevoli. Le funzioni di attività devono effettuare qualsiasi altra chiamata API asincrona. |
+| Funzioni JavaScript asincrone | Non è possibile dichiarare le funzioni dell'agente di orchestrazione JavaScript come `async` perché il runtime di node. js non garantisce che le funzioni asincrone siano deterministiche. | Dichiarare funzioni dell'agente di orchestrazione JavaScript come funzioni generatore sincrone. |
+| API di threading | Il Framework di attività permanenti esegue il codice dell'agente di orchestrazione su un singolo thread e non può interagire con altri thread. L'introduzione di nuovi thread nell'esecuzione di un'orchestrazione può comportare un deadlock o un'esecuzione non deterministica. | Le funzioni dell'agente di orchestrazione non dovrebbero mai usare API di Threading. Se tali API sono necessarie, limitarne l'uso solo alle funzioni di attività. |
+| Variabili statiche | Evitare di usare variabili statiche non costanti nelle funzioni dell'agente di orchestrazione perché i relativi valori possono cambiare nel tempo, causando un comportamento di runtime non deterministico. | Utilizzare le costanti oppure limitare l'utilizzo di variabili statiche alle funzioni di attività. |
+| Variabili di ambiente | Non usare variabili di ambiente nelle funzioni dell'agente di orchestrazione. I valori possono cambiare nel tempo, ottenendo un comportamento di runtime non deterministico. | È necessario fare riferimento alle variabili di ambiente solo nelle funzioni client o nelle funzioni di attività. |
+| Cicli infiniti | Evitare i cicli infiniti nelle funzioni di orchestrazione. Poiché il Framework di attività permanenti salva la cronologia di esecuzione durante l'avanzamento della funzione di orchestrazione, un ciclo infinito può causare l'esaurimento della memoria di un'istanza dell'agente di orchestrazione. | Per gli scenari con ciclo infinito, usare API come `ContinueAsNew` in .NET o `continueAsNew` in JavaScript per riavviare l'esecuzione della funzione ed eliminare la cronologia di esecuzione precedente. |
 
-Although applying these constraints might seem difficult at first, in practice they're easy to follow.
+Sebbene l'applicazione di questi vincoli potrebbe sembrare difficile in primo luogo, in pratica è facile da seguire.
 
-The Durable Task Framework attempts to detect violations of the preceding rules. If it finds a violation, the framework throws a **NonDeterministicOrchestrationException** exception. However, this detection behavior won't catch all violations, and you shouldn't depend on it.
+Il Framework di attività permanenti tenta di rilevare le violazioni delle regole precedenti. Se viene trovata una violazione, il Framework genera un'eccezione **NonDeterministicOrchestrationException** . Tuttavia, questo comportamento di rilevamento non intercetta tutte le violazioni e non è necessario dipendono da esso.
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-A durable orchestration might run continuously for days, months, years, or even [eternally](durable-functions-eternal-orchestrations.md). Any code updates made to Durable Functions apps that affect unfinished orchestrations might break the orchestrations' replay behavior. That's why it's important to plan carefully when making updates to code. For a more detailed description of how to version your code, see the [versioning article](durable-functions-versioning.md).
+È possibile che un'orchestrazione durevole venga eseguita continuamente per giorni, mesi, anni o addirittura [eternamente](durable-functions-eternal-orchestrations.md). Eventuali aggiornamenti del codice apportati alle app Durable Functions che interessano le orchestrazioni non completate potrebbero compromettere il comportamento di riproduzione delle orchestrazioni. Per questo motivo è importante pianificare con attenzione quando si effettuano aggiornamenti al codice. Per una descrizione più dettagliata di come eseguire la versione del codice, vedere l'articolo relativo al [controllo delle versioni](durable-functions-versioning.md).
 
 ## <a name="durable-tasks"></a>Attività permanenti
 
 > [!NOTE]
-> Questa sezione descrive i dettagli di implementazione interna del framework di attività permanenti. You can use durable functions without knowing this information. che vengono date al solo scopo di comprendere il comportamento di riesecuzione.
+> Questa sezione descrive i dettagli di implementazione interna del framework di attività permanenti. È possibile utilizzare funzioni permanenti senza conoscere queste informazioni. che vengono date al solo scopo di comprendere il comportamento di riesecuzione.
 
-Tasks that can safely wait in orchestrator functions are occasionally referred to as *durable tasks*. The Durable Task Framework creates and manages these tasks. Examples are the tasks returned by **CallActivityAsync**, **WaitForExternalEvent**, and **CreateTimer** in .NET orchestrator functions.
+Le attività che possono attendere in modo sicuro nelle funzioni dell'agente di orchestrazione vengono talvolta definite *attività durevoli*. Il Framework di attività permanenti crea e gestisce queste attività. Gli esempi sono le attività restituite da **CallActivityAsync**, **WaitForExternalEvent**e **CreateTimer** nelle funzioni dell'agente di orchestrazione .NET.
 
-These durable tasks are internally managed by a list of `TaskCompletionSource` objects in .NET. During replay, these tasks are created as part of orchestrator code execution. They're finished as the dispatcher enumerates the corresponding history events.
+Queste attività durevoli sono gestite internamente da un elenco di oggetti `TaskCompletionSource` in .NET. Durante la riproduzione, queste attività vengono create come parte dell'esecuzione del codice dell'agente di orchestrazione. Sono finiti perché il dispatcher enumera gli eventi di cronologia corrispondenti.
 
-The tasks are executed synchronously using a single thread until all the history has been replayed. Durable tasks that aren't finished by the end of history replay have appropriate actions carried out. For example, a message might be enqueued to call an activity function.
+Le attività vengono eseguite in modo sincrono utilizzando un thread singolo fino a quando non viene riprodotta tutta la cronologia. Le attività durevoli che non sono finite entro la fine della riproduzione della cronologia hanno le azioni appropriate eseguite. Ad esempio, un messaggio può essere accodato per chiamare una funzione di attività.
 
-This section's description of runtime behavior should help you understand why an orchestrator function can't use `await` or `yield` in a nondurable task. There are two reasons: the dispatcher thread can't wait for the task to finish, and any callback by that task might potentially corrupt the tracking state of the orchestrator function. Some runtime checks are in place to help detect these violations.
+Questa sezione descrive il comportamento di runtime per comprendere il motivo per cui una funzione dell'agente di orchestrazione non può utilizzare `await` o `yield` in un'attività non durevole. Esistono due motivi: il thread del dispatcher non può attendere il completamento dell'attività e qualsiasi callback da tale attività potrebbe potenzialmente danneggiare lo stato di rilevamento della funzione dell'agente di orchestrazione. Alcuni controlli di runtime sono disponibili per consentire il rilevamento di tali violazioni.
 
-To learn more about how the Durable Task Framework executes orchestrator functions, consult the [Durable Task source code on GitHub](https://github.com/Azure/durabletask). In particular, see [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) and [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
+Per ulteriori informazioni sul modo in cui il Framework di attività permanenti esegue le funzioni dell'agente di orchestrazione, consultare il [codice sorgente delle attività durevoli su GitHub](https://github.com/Azure/durabletask). In particolare, vedere [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Learn how to invoke sub-orchestrations](durable-functions-sub-orchestrations.md)
+> [Informazioni su come richiamare le orchestrazioni secondarie](durable-functions-sub-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Informazioni su come gestire il controllo delle versioni](durable-functions-versioning.md)

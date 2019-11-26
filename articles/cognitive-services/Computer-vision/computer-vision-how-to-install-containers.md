@@ -18,23 +18,23 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74323616"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Install and run Read containers (Preview)
+# <a name="install-and-run-read-containers-preview"></a>Installare ed eseguire i contenitori di lettura (anteprima)
 
-Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
+I contenitori consentono di eseguire le API Visione artificiale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore Visione artificiale.
 
-A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
+È disponibile un singolo contenitore Docker, *letto*, per visione artificiale. Il contenitore *Read* consente di rilevare ed estrarre il *testo stampato* da immagini di vari oggetti con diverse superfici e sfondi, ad esempio ricevute, poster e biglietti da visita. Il contenitore *Read* rileva inoltre il *testo scritto a mano* nelle immagini e fornisce il supporto per file PDF, TIFF e a più pagine. Per ulteriori informazioni, vedere la documentazione relativa all' [API di lettura](concept-recognizing-text.md#read-api) .
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-You must meet the following prerequisites before using the containers:
+Prima di usare i contenitori, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Finalità|
+|obbligatori|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Computer Vision resource |Per usare il contenitore, è necessario disporre di:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}** : One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}** : The endpoint as provided on the **Overview** page|
+|Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Richiedere l'accesso al registro contenitori privato
 
@@ -52,15 +52,15 @@ You must meet the following prerequisites before using the containers:
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Container images for Read are available.
+Sono disponibili le immagini del contenitore per la lettura.
 
-| Contenitore | Container Registry / Repository / Image Name |
+| Contenitore: | Container Registry/repository/nome dell'immagine |
 |-----------|------------|
-| Lettura | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Read | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
 Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore.
 
-### <a name="docker-pull-for-the-read-container"></a>Docker pull for the Read container
+### <a name="docker-pull-for-the-read-container"></a>Pull Docker per il contenitore di lettura
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
@@ -77,9 +77,9 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 
 ## <a name="run-the-container-with-docker-run"></a>Eseguire il contenitore con `docker run`
 
-Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
+Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori `{ENDPOINT_URI}` e `{API_KEY}`, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) .
 
-[Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+Sono disponibili [esempi](computer-vision-resource-container-config.md#example-docker-run-commands) del comando `docker run`.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -91,15 +91,15 @@ ApiKey={API_KEY}
 
 Questo comando:
 
-* Runs the Read container from the container image.
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Esegue il contenitore di lettura dall'immagine del contenitore.
+* Alloca 8 core CPU e 16 gigabyte (GB) di memoria.
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
 Sono disponibili altri [esempi](./computer-vision-resource-container-config.md#example-docker-run-commands) del comando `docker run`. 
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -113,15 +113,15 @@ Il contenitore fornisce API dell'endpoint di stima di query basate su REST.
 
 Usare l'host, `http://localhost:5000`, per le API del contenitore.
 
-### <a name="asynchronous-read"></a>Asynchronous read
+### <a name="asynchronous-read"></a>Lettura asincrona
 
-You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+È possibile usare le operazioni `POST /vision/v2.0/read/core/asyncBatchAnalyze` e `GET /vision/v2.0/read/operations/{operationId}` in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio Visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un `operationId` usato come identificatore per la richiesta HTTP GET.
 
-From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
+Dall'interfaccia utente di spavalderia selezionare la `asyncBatchAnalyze` per espanderla nel browser. Selezionare quindi **try it** > **Choose file**. In questo esempio si userà l'immagine seguente:
 
-![tabs vs spaces](media/tabs-vs-spaces.png)
+![tabulazioni e spazi](media/tabs-vs-spaces.png)
 
-When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
+Quando il POST asincrono viene eseguito correttamente, restituisce un codice di stato **HTTP 202** . Come parte della risposta, è presente un'intestazione `operation-location` che contiene l'endpoint di risultato per la richiesta.
 
 ```http
  content-length: 0
@@ -130,7 +130,7 @@ When the asynchronous POST has run successfully, it returns an **HTTP 202** stat
  server: Kestrel
 ```
 
-The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
+Il `operation-location` è l'URL completo a cui è possibile accedere tramite HTTP GET. Ecco la risposta JSON dall'esecuzione dell'URL `operation-location` dall'immagine precedente:
 
 ```json
 {
@@ -219,9 +219,9 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
-### <a name="synchronous-read"></a>Synchronous read
+### <a name="synchronous-read"></a>Lettura sincrona
 
-You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously read an image. When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+È possibile usare l'operazione `POST /vision/v2.0/read/core/Analyze` per leggere in modo sincrono un'immagine. Quando l'immagine viene letta completamente, solo l'API restituisce una risposta JSON. L'unica eccezione è rappresentata dal caso in cui si verifichi un errore. Quando si verifica un errore, viene restituito il codice JSON seguente:
 
 ```json
 {
@@ -229,7 +229,7 @@ You can use the `POST /vision/v2.0/read/core/Analyze` operation to synchronously
 }
 ```
 
-The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, the following types could be used to cast the JSON response as an `AnalyzeResult` object.
+L'oggetto di risposta JSON ha lo stesso oggetto grafico della versione asincrona. Se si è un utente JavaScript e si vuole l'indipendenza dai tipi, è possibile usare i tipi seguenti per eseguire il cast della risposta JSON come oggetto `AnalyzeResult`.
 
 ```typescript
 export interface AnalyzeResult {
@@ -276,13 +276,13 @@ export interface Word {
 }
 ```
 
-For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here <span class="docon docon-navigate-external x-hidden-focus"></span></a> and select **Run** to visualize its ease-of-use.
+Per un esempio di utilizzo, vedere il <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sandbox typescript qui <span class="docon docon-navigate-external x-hidden-focus"></span> </a> e selezionare **Run (Esegui** ) per visualizzarne la semplicità d'uso.
 
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](./computer-vision-resource-container-config.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore.
 
@@ -290,7 +290,7 @@ Se si esegue il contenitore con un punto di [montaggio](./computer-vision-resour
 
 ## <a name="billing"></a>Fatturazione
 
-The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
+I contenitori di servizi cognitivi inviano informazioni di fatturazione ad Azure, usando la risorsa corrispondente nell'account Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -300,14 +300,14 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./c
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>summary
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Visione artificiale. In sintesi:
 
-* Computer Vision provides a Linux container for Docker, encapsulating Read.
-* Container images are downloaded from the "Container Preview" container registry in Azure.
+* Visione artificiale fornisce un contenitore Linux per Docker, incapsulando Read.
+* Le immagini del contenitore vengono scaricate dal registro contenitori "anteprima contenitore" in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
-* You can use either the REST API or SDK to call operations in Read containers by specifying the host URI of the container.
+* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di lettura specificando l'URI host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
 
 > [!IMPORTANT]

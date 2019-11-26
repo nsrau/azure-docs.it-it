@@ -1,6 +1,6 @@
 ---
-title: Sign-in using authentication with a work or school account - Azure AD
-description: Learn how to sign in to your work or school account using the various two-factor verification methods.
+title: Accedere usando l'autenticazione con un account aziendale o dell'Istituto di istruzione-Azure AD
+description: Informazioni su come accedere all'account aziendale o dell'Istituto di istruzione usando i vari metodi di verifica a due fattori.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233224"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Sign in to your work or school account using your two-factor verification method
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Accedere all'account aziendale o dell'Istituto di istruzione usando il metodo di verifica a due fattori
 
 > [!NOTE]
 > Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull’accesso o per la risoluzione dei problemi, vedere [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).

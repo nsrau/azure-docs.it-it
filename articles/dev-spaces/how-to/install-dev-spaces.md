@@ -1,9 +1,9 @@
 ---
-title: Install Azure Dev Spaces on AKS & the client-side tooling
+title: Installare Azure Dev Spaces su AKS & gli strumenti lato client
 services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
-description: Learn how to install Azure Dev Spaces on an AKS cluster and install the client-side tooling.
+description: Informazioni su come installare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
@@ -12,16 +12,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325788"
 ---
-# <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Install Azure Dev Spaces on AKS and the client-side tooling
+# <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Installare Azure Dev Spaces su AKS e gli strumenti lato client
 
-This article shows you several ways to install Azure Dev Spaces on an AKS cluster as well as install the client-side tooling.
+Questo articolo illustra diversi modi per installare Azure Dev Spaces in un cluster AKS e installare gli strumenti lato client.
 
-## <a name="install-azure-dev-spaces-using-the-cli"></a>Install Azure Dev Spaces using the CLI
+## <a name="install-azure-dev-spaces-using-the-cli"></a>Installare Azure Dev Spaces usando l'interfaccia della riga di comando
 
-Before you can install Dev Spaces using the CLI, you need:
+Prima di poter installare gli spazi di sviluppo usando l'interfaccia della riga di comando, è necessario:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
-* [The Azure CLI installed][install-cli].
-* [An AKS cluster][create-aks-cli] in a [supported region][supported-regions].
+* [Interfaccia della riga di comando di Azure installata][install-cli].
+* [Un cluster AKS][create-aks-cli] in un' [area supportata][supported-regions].
 
 Usare il comando `use-dev-spaces` per abilitare Dev Spaces nel cluster del servizio Azure Kubernetes e seguire i prompt.
 
@@ -29,7 +29,7 @@ Usare il comando `use-dev-spaces` per abilitare Dev Spaces nel cluster del servi
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 ```
 
-The above command enables Dev Spaces on the *myAKSCluster* cluster in the *myResourceGroup* group and creates a *default* dev space.
+Il comando precedente Abilita gli spazi di sviluppo nel cluster *myAKSCluster* nel gruppo *myResourceGroup* e crea uno spazio di sviluppo *predefinito* .
 
 ```cmd
 $ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
@@ -49,32 +49,32 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-The `use-dev-spaces` command also installs the Azure Dev Spaces CLI.
+Il comando `use-dev-spaces` installa anche l'interfaccia della riga di comando di Azure Dev Spaces.
 
-## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Install Azure Dev Spaces using the Azure portal
+## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Installare Azure Dev Spaces usando il portale di Azure
 
-Before you can install Dev Spaces using the Azure portal, you need:
+Prima di poter installare gli spazi di sviluppo usando il portale di Azure, è necessario:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
-* [An AKS cluster][create-aks-portal] in a [supported region][supported-regions].
+* [Un cluster AKS][create-aks-portal] in un' [area supportata][supported-regions].
 
-To install Azure Dev Spaces using the Azure portal:
+Per installare Azure Dev Spaces utilizzando il portale di Azure:
 1. Accedere al [portale di Azure][az-portal].
-1. Navigate to your AKS cluster.
-1. Click *Dev Spaces*.
+1. Passare al cluster AKS.
+1. Fare clic su *spazi di sviluppo*.
 1. Impostare *Abilita Dev Spaces* su *Sì* e fare clic su *Salva*.
 
 ![Abilitare Dev Spaces nel portale di Azure](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
 
-Installing Azure Dev Spaces using the Azure portal **does not** install any client-side tooling for Azure Dev Spaces.
+L'installazione di Azure Dev Spaces utilizzando **il portale di Azure non** installa gli strumenti lato client per Azure Dev Spaces.
 
-## <a name="install-the-client-side-tooling"></a>Install the client-side tooling
+## <a name="install-the-client-side-tooling"></a>Installare gli strumenti lato client
 
-You can use the Azure Dev Spaces client-side tooling to interact with dev spaces on an AKS cluster from your local machine. There are several ways to install the client-side tooling:
+È possibile usare gli strumenti lato client Azure Dev Spaces per interagire con gli spazi di sviluppo in un cluster AKS dal computer locale. Sono disponibili diversi modi per installare gli strumenti lato client:
 
-* In [Visual Studio Code][vscode], install the [Azure Dev Spaces extension][vscode-extension].
-* In [Visual Studio 2019][visual-studio], install the Azure Development workload.
-* In Visual Studio 2017, install the Web Development workload and [Visual Studio Tools for Kubernetes][visual-studio-k8s-tools].
-* Download and install the [Windows][cli-win], [Mac][cli-mac], or [Linux][cli-linux] CLI.
+* In [Visual Studio Code][vscode]installare l' [estensione Azure Dev Spaces][vscode-extension].
+* In [Visual Studio 2019][visual-studio]installare il carico di lavoro sviluppo di Azure.
+* In Visual Studio 2017 installare il carico di lavoro sviluppo Web e [Visual Studio Tools per Kubernetes][visual-studio-k8s-tools].
+* Scaricare e installare l'interfaccia della riga di comando di [Windows][cli-win], [Mac][cli-mac]o [Linux][cli-linux] .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

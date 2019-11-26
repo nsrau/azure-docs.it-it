@@ -176,7 +176,7 @@ Questi agenti non sono necessari a meno che non si usi la visualizzazione delle 
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>È possibile usare un'area di lavoro per la visualizzazione delle dipendenze?
 
-Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#how-does-it-work).
+Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#how-does-it-work)
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>È possibile esportare il report di visualizzazione delle dipendenze?
 

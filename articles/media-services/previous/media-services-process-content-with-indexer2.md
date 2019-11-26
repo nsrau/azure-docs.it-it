@@ -24,7 +24,7 @@ ms.locfileid: "74464071"
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 
 > [!NOTE]
-> The [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) media processor will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> Il processore di contenuti multimediali [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) verrà ritirato il 1 ° gennaio 2020. [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate sono l'italiano, l'inglese, il francese, il tedesco, lo spagnolo, il portoghese, il giapponese, il cinese (mandarino semplificato), l'arabo e il russo.
 
@@ -36,7 +36,7 @@ Questo articolo illustra come creare processi di indicizzazione con **Azure Medi
 
 Si applicano le considerazioni seguenti:
  
-* Indexer 2 is not supported in Azure China 21Vianet and Azure Government.
+* Indexer 2 non è supportato in Azure China 21Vianet e in Azure per enti pubblici.
 * Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
  
 ## <a name="input-and-output-files"></a>File di input e output
@@ -86,7 +86,7 @@ Azure Media Indexer 2 Preview supporta il riconoscimento vocale per le lingue se
 * Giapponese [JaJp]
 * Russo [RuRu]
 * Inglese britannico [EnGb]
-* Spanish (Mexico) [EsMx] 
+* Spagnolo (Messico) [EsMx] 
 
 ## <a name="supported-file-types"></a>Tipi di file supportati
 
@@ -291,10 +291,10 @@ namespace IndexContent
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati

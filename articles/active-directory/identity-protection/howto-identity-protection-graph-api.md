@@ -124,7 +124,7 @@ Ecco gli elementi che occorre avere prima di iniziare:
 
    1. Nella casella di testo **Descrizione chiave** Digitare una descrizione, ad esempio *Azure ad rilevamento dei rischi*.
    1. Come **Durata** selezionare **Tra 1 anno**.
-   1. Fare clic su **Salva**.
+   1. Fare clic su **Save**.
    1. Copiare il valore della chiave e quindi incollarlo in una posizione sicura.   
    
    > [!NOTE]

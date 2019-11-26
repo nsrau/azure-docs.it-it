@@ -86,7 +86,7 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
    - **Tipo di attestazione in uscita**: indirizzo di posta elettronica
 
 8. Selezionare **Fine**.
-9. Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Applica**. 
+9. Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Apply**. 
 10. Fare clic su **OK**.  
 
 ### <a name="create-an-email-transform-rule"></a>Creare una regola di trasformazione della posta elettronica
@@ -99,8 +99,8 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
    - **Formato ID nome in uscita**: identificatore persistente 
    - Selezionare **Pass-through di tutti i valori attestazione**.
 
-3. Scegliere **Fine**. 
-4. Nella finestra **modifica regole attestazione** vengono visualizzate le nuove regole. Fare clic su **Applica**. 
+3. Fare clic su **Finish**(Fine). 
+4. Nella finestra **modifica regole attestazione** vengono visualizzate le nuove regole. Fare clic su **Apply**. 
 5. Fare clic su **OK**. Il server AD FS è ora configurato per la Federazione diretta usando il protocollo SAML 2,0.
 
 ## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Configurare AD FS per la Federazione diretta WS-Fed 
@@ -140,7 +140,7 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
    - **Regola personalizzata**: `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID"), query = "samAccountName={0};objectGUID;{1}", param = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), param = c.Value);`
 
 1. Selezionare **Fine**. 
-1. Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Applica**.  
+1. Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Apply**.  
 1. Nella stessa procedura guidata **modifica regole attestazione** selezionare **Aggiungi regola**. In **tipo di regola cohose**selezionare **Invia attributi LDAP come attestazioni**. Selezionare **Avanti**.
 1. In **Configura regola attestazione**specificare i valori seguenti: 
 
@@ -150,7 +150,7 @@ Prima di iniziare questa procedura, è necessario che un server AD FS sia già c
    - **Tipo di attestazione in uscita**: indirizzo di posta elettronica 
 
 1.  Selezionare **Fine**. 
-1.  Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Applica**.  
+1.  Nella finestra **modifica regole attestazione** viene visualizzata la nuova regola. Fare clic su **Apply**.  
 1.  Fare clic su **OK**. Il server AD FS è ora configurato per la Federazione diretta tramite WS-Fed.
 
 ## <a name="next-steps"></a>Passaggi successivi

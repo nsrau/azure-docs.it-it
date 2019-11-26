@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -17,10 +17,10 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74451589"
 ---
-Management of contributions from collaborators depends on the current status of the app.
+La gestione dei contributi dai collaboratori dipende dallo stato corrente dell'app.
 
-**For [authoring resource migrated](../luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Add a user, using the collaborator's email address and the _contributor_ role. 
+**Per la creazione di app [migrate delle risorse](../luis-migration-authoring.md)** : i _collaboratori_ vengono gestiti nel portale di Azure per la risorsa di creazione, usando la pagina **controllo di accesso (IAM)** . Aggiungere un utente, usando l'indirizzo di posta elettronica del collaboratore e il ruolo _collaboratore_ . 
 
-**For apps that have not migrated yet**: all _collaborators_ are managed in the LUIS portal from each app's **Manage -> Collaborators** page. On this page, [add a user's email address](../luis-how-to-collaborate.md). This provides authoring access to this app only. 
+**Per le app di cui non è ancora stata eseguita la migrazione**: tutti i _collaboratori_ vengono gestiti nel portale Luis dalla pagina dei **collaboratori di gestione >** di ogni app. In questa pagina [aggiungere l'indirizzo di posta elettronica di un utente](../luis-how-to-collaborate.md). Questa operazione consente di creare solo l'accesso a questa app. 
 
 

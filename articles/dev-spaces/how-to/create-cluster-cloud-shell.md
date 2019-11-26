@@ -1,5 +1,5 @@
 ---
-title: Create a Kubernetes cluster with Azure Dev Spaces enabled - Azure Cloud Shell
+title: Creare un cluster Kubernetes con Azure Dev Spaces abilitato-Azure Cloud Shell
 services: azure-dev-spaces
 ms.date: 10/04/2018
 ms.topic: conceptual
@@ -12,13 +12,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74325765"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Create a Kubernetes cluster with Azure Dev Spaces enabled with Azure Cloud Shell
+# <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Creare un cluster Kubernetes con Azure Dev Spaces abilitato con Azure Cloud Shell
 
-You can use [Azure Cloud Shell](/azure/cloud-shell) to create an Azure Kubernetes Service cluster by using the **Try It** button from this page. Se non si è connessi, seguire le istruzioni per accedere con un account Azure, quindi digitare i comandi al prompt di Azure Cloud Shell, quando viene visualizzato.
+È possibile usare [Azure cloud Shell](/azure/cloud-shell) per creare un cluster del servizio Kubernetes di Azure usando il pulsante **prova** da questa pagina. Se non si è connessi, seguire le istruzioni per accedere con un account Azure, quindi digitare i comandi al prompt di Azure Cloud Shell, quando viene visualizzato.
 
 ## <a name="create-the-cluster"></a>Creare il cluster
 
-First, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
+Per prima cosa, creare il gruppo di risorse in un' [area che supporta Azure Dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -37,7 +37,7 @@ La creazione del cluster richiede alcuni minuti.  Al termine dell'esercitazione,
 Vedere [Azure Dev Spaces](/azure/dev-spaces/) per i collegamenti alle esercitazioni complete.
 
 > [!IMPORTANT]
-> Many of the Azure Dev Spaces quickstarts and tutorials use the Azure Dev Spaces CLI to perform operations. Non è possibile installare l'interfaccia della riga di comando Azure Dev Spaces in Azure Cloud Shell.
+> Molti dei Azure Dev Spaces guide introduttive e le esercitazioni usano l'interfaccia della riga di comando Azure Dev Spaces per eseguire operazioni. Non è possibile installare l'interfaccia della riga di comando Azure Dev Spaces in Azure Cloud Shell.
 
 
 [supported-regions]: ../about.md#supported-regions-and-configurations

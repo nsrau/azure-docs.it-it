@@ -62,11 +62,11 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
     [![configurare un nuovo URI di reindirizzamento del post](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. Per assicurarsi che [l'app sia registrata come **client pubblico**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), aprire il riquadro di **autenticazione** per la registrazione dell'app e scorrere verso il basso in tale riquadro. Nella sezione **tipo di client predefinito** scegliere **Sì** per **considera applicazione come client pubblico**e quindi fare clic su **Salva**.
+1. Per assicurarsi che [l'app sia registrata come **client pubblico**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), aprire il riquadro **Autenticazione** per la registrazione app e scorrere verso il basso. Nella sezione **Tipo di client predefinito** scegliere **Sì** per **Consente di gestire l'applicazione come un client pubblico**, quindi premere **Salva**.
 
-    Controllare i **token di accesso** per abilitare l'impostazione **Oauth2AllowImplicitFlow** nel file manifest. JSON.
+    Selezionare **Token di accesso** per abilitare l'impostazione **oauth2AllowImplicitFlow** nel file Manifest.json.
 
-    [impostazione di configurazione client pubblica ![](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Impostazione di configurazione del client pubblico](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. Copiare e conservare l'**ID applicazione** dell'app di Azure Active Directory. Viene usato nei passaggi seguenti.
 

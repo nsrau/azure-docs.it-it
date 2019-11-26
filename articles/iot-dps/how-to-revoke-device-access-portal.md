@@ -1,5 +1,5 @@
 ---
-title: Disenroll device from Azure IoT Hub Device Provisioning Service
+title: Annullare la registrazione del dispositivo dal servizio Device provisioning in hub Azure
 description: Come annullare la registrazione di un dispositivo per impedire il provisioning tramite il servizio Device Provisioning in hub IoT
 author: wesmc7777
 ms.author: wesmc
@@ -26,7 +26,7 @@ La registrazione di un dispositivo nel servizio Device Provisioning ne consente 
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Inserire i dispositivi usando una voce di registrazione singola nell'elenco di elementi non consentiti
 
-Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+Le registrazioni singole sono valide per un singolo dispositivo e possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. I dispositivi che usano i token di firma di accesso condiviso come meccanismo di attestazione possono essere sottoposti a provisioning solo tramite una registrazione singola. Per inserire nella blacklist un dispositivo con una registrazione singola, è possibile disabilitare o eliminare la relativa voce di registrazione. 
 
 Per inserire temporaneamente il dispositivo nell'elenco di elementi non consentiti disabilitando la voce di registrazione: 
 

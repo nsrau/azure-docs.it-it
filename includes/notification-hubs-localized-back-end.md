@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs

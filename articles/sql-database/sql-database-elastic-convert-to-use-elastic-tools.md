@@ -22,7 +22,7 @@ ms.locfileid: "74421211"
 
 È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Come prima cosa convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per eseguire la migrazione di un database partizionato esistente:
 
@@ -100,7 +100,7 @@ Per usare questo modello di mapping, i valori dell'ID tenant devono essere a int
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Option 3: List mappings on an individual database
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opzione 3: elencare i mapping in un singolo database
 
 Per l'impostazione di questo modello è necessario anche creare una mappa di tipo elenco, come illustrato nel passaggio 2, opzione 1.
 
@@ -149,7 +149,7 @@ Get-Shards -ShardMap $ShardMap
 Get-Mappings -ShardMap $ShardMap
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>summary
 
 Dopo aver completato l'installazione, è possibile iniziare a usare la libreria client di database elastici. È anche possibile usare il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e le [query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
 

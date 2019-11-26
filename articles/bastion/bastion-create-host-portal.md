@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Bastion host  | Microsoft Docs
-description: In this article, learn how to create an Azure Bastion host
+title: Creare un host Bastion di Azure | Microsoft Docs
+description: Questo articolo illustra come creare un host Bastion di Azure
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -14,70 +14,70 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422124"
 ---
-# <a name="create-an-azure-bastion-host"></a>Create an Azure Bastion host
+# <a name="create-an-azure-bastion-host"></a>Creare un host Bastion di Azure
 
-This article shows you how to create an Azure Bastion host. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all your VMs in the same virtual network. Questa distribuzione viene effettuata per rete virtuale e non per sottoscrizione/account o macchina virtuale.
+Questo articolo illustra come creare un host Bastion di Azure. Dopo aver effettuato il provisioning del servizio Azure Bastion nella rete virtuale, l'esperienza RDP/SSH trasparente è disponibile per tutte le macchine virtuali nella stessa rete virtuale. Questa distribuzione viene effettuata per rete virtuale e non per sottoscrizione/account o macchina virtuale.
 
-There are two ways that you can create a Bastion host resource:
+È possibile creare una risorsa host Bastion in due modi:
 
-* Create a Bastion resource using the Azure portal.
-* Create a Bastion resource in the Azure portal by using existing VM settings.
+* Creare una risorsa Bastion usando il portale di Azure.
+* Creare una risorsa Bastion nel portale di Azure usando le impostazioni della macchina virtuale esistente.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Bastion is available in the following Azure public regions:
+Bastion è disponibile nelle aree pubbliche di Azure seguenti:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-## <a name="createhost"></a>Create a bastion host
+## <a name="createhost"></a>Creare un host Bastion
 
-This section helps you create a new Azure Bastion resource from the Azure portal.
+Questa sezione consente di creare una nuova risorsa di Azure Bastion dalla portale di Azure.
 
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
+1. Dal menu [portale di Azure](https://portal.azure.com) o dalla **Home** page selezionare **Crea una risorsa**.
 
-1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
+1. Nella **nuova** pagina, nel campo *Cerca nel Marketplace* digitare **Bastion**, quindi premere **invio** per ottenere i risultati della ricerca.
 
-1. From the results, click **Bastion**. Verificare che l'editore sia *Microsoft* e che la categoria sia *Rete*.
+1. Nei risultati fare clic su **Bastion**. Verificare che l'editore sia *Microsoft* e che la categoria sia *Rete*.
 
-1. On the **Bastion** page, click **Create** to open the **Create a bastion** page.
+1. Nella pagina **Bastion** fare clic su **Crea** per aprire la pagina **creare un Bastion** .
 
-1. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your Bastion resource.
+1. Nella pagina **creare un Bastion** configurare una nuova risorsa Bastion. Specificare le impostazioni di configurazione per la risorsa Bastion.
 
-    ![create a bastion](./media/bastion-create-host-portal/settings.png)
+    ![creare un Bastion](./media/bastion-create-host-portal/settings.png)
 
-    * **Subscription**: The Azure subscription you want to use to create a new Bastion resource.
-    * **Resource Group**: The Azure resource group in which the new Bastion resource will be created in. Se non è già disponibile un gruppo di risorse, è possibile crearne uno nuovo.
-    * **Name**: The name of the new Bastion resource
-    * **Region**: The Azure public region that the resource will be created in.
-    * **Virtual network**: The virtual network in which the Bastion resource will be created in. You can create a new virtual network in the portal during this process, in case you don’t have or don’t want to use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements.
-    * **Subnet**: The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. This is different than a Gateway subnet.You must use a subnet of at least a /27 or larger subnet (/27, /26, and so on). Create the **AzureBastionSubnet** without any route tables or delegations. When you use Network Security Groups on the **AzureBastionSubnet**, refer to [Work with NSGs](bastion-nsg.md).
-    * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
-    * **Public IP address name**: The name of the public IP address resource.
-    * **Public IP address SKU**: Prepopulated by default to **Standard**. Azure Bastion uses/supports only the Standard Public IP SKU.
-    * **Assignment**: Prepopulated by default to **Static**.
+    * **Sottoscrizione**: la sottoscrizione di Azure che si vuole usare per creare una nuova risorsa Bastion.
+    * **Gruppo di risorse**: il gruppo di risorse di Azure in cui verrà creata la nuova risorsa Bastion. Se non è già disponibile un gruppo di risorse, è possibile crearne uno nuovo.
+    * **Nome**: il nome della nuova risorsa Bastion
+    * **Region**: area pubblica di Azure in cui verrà creata la risorsa.
+    * **Rete virtuale**: la rete virtuale in cui verrà creata la risorsa Bastion. È possibile creare una nuova rete virtuale nel portale durante questo processo, nel caso in cui non si disponga o non si desideri usare una rete virtuale esistente. Se si usa una rete virtuale esistente, assicurarsi che la rete virtuale esistente disponga di spazio di indirizzi libero sufficiente per soddisfare i requisiti della subnet Bastion.
+    * **Subnet**: la subnet nella rete virtuale in cui verrà distribuita la nuova risorsa host Bastion. È necessario creare una subnet usando il valore nome **AzureBastionSubnet**. Questo valore consente ad Azure di stabilire la subnet in cui distribuire le risorse Bastion. Questa operazione è diversa rispetto a una subnet del gateway. È necessario usare una subnet di almeno una subnet/27 o più grande (/27,/26 e così via). Creare **AzureBastionSubnet** senza alcuna tabella o delega di route. Quando si usano i gruppi di sicurezza di rete in **AzureBastionSubnet**, vedere [lavorare con gruppi](bastion-nsg.md).
+    * **Indirizzo IP pubblico: Indirizzo**IP pubblico della risorsa Bastion a cui verrà eseguito l'accesso a RDP/SSH (sulla porta 443). Creare un nuovo indirizzo IP pubblico o utilizzarne uno esistente. L'indirizzo IP pubblico deve trovarsi nella stessa area della risorsa Bastion che si sta creando.
+    * **Nome dell'indirizzo IP pubblico**: il nome della risorsa indirizzo IP pubblico.
+    * **Indirizzo IP pubblico SKU**: prepopolato per impostazione predefinita in **standard**. Azure Bastion USA/supporta solo lo SKU IP pubblico standard.
+    * **Assegnazione**: prepopolata per impostazione predefinita su **static**.
 
-1. When you have finished specifying the settings, click **Review + Create**. This validates the values. Once validation passes, you can begin the creation process.
-1. On the Create a bastion page, click **Create**.
-1. You will see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 mins for the Bastion resource to be created and deployed.
+1. Al termine della specifica delle impostazioni, fare clic su **Verifica + crea**. Vengono convalidati i valori. Al termine della convalida, è possibile avviare il processo di creazione.
+1. Nella pagina Crea Bastion fare clic su **Crea**.
+1. Verrà visualizzato un messaggio che informa che la distribuzione è in corso. Lo stato verrà visualizzato in questa pagina durante la creazione delle risorse. Per la creazione e la distribuzione della risorsa Bastion sono necessari circa 5 minuti.
 
-## <a name="createvmset"></a>Create a bastion host using VM settings
+## <a name="createvmset"></a>Creare un host Bastion usando le impostazioni della macchina virtuale
 
-If you create a bastion host in the portal by using an existing VM, various settings will automatically default corresponding to your virtual machine and/or virtual network.
+Se si crea un host Bastion nel portale usando una macchina virtuale esistente, le impostazioni predefinite di diverse impostazioni verranno automaticamente corrispondenti alla macchina virtuale e/o alla rete virtuale.
 
-1. Aprire il [portale di Azure](https://portal.azure.com). Go to your virtual machine, then click **Connect**.
+1. Aprire il [portale di Azure](https://portal.azure.com). Passare alla macchina virtuale e quindi fare clic su **Connetti**.
 
-   ![VM Connect](./media/bastion-create-host-portal/vmsettings.png)
-1. On the right sidebar, click **Bastion**, then **Use Bastion**.
+   ![Connessione VM](./media/bastion-create-host-portal/vmsettings.png)
+1. Sulla barra laterale destra fare clic su **Bastion**, quindi **usare Bastion**.
 
    ![Bastion](./media/bastion-create-host-portal/vmbastion.png)
-1. On the Bastion page, fill out the following settings fields:
+1. Nella pagina Bastion compilare i campi delle impostazioni seguenti:
 
-   * **Name**: The name of the bastion host you want to create.
-   * **Subnet**: The subnet inside your virtual network to which Bastion resource will be deployed. The subnet must be created with the name **AzureBastionSubnet**. This lets Azure know which subnet to deploy the Bastion resource to. This is different than a Gateway subnet. Click **Manage subnet configuration** to create the Azure Bastion Subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, etc.). Create the **AzureBastionSubnet** without any Network Security Groups, route tables, or delegations. Click **Create** to create the subnet, then proceed with the next settings.
-   * **Public IP address**: The public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
-   * **Public IP address name**: The name of the public IP address resource.
-1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed.
+   * **Nome**: il nome dell'host Bastion che si vuole creare.
+   * **Subnet**: la subnet all'interno della rete virtuale in cui verrà distribuita la risorsa Bastion. La subnet deve essere creata con il nome **AzureBastionSubnet**. Ciò consente ad Azure di individuare la subnet in cui distribuire la risorsa bastione. Questa operazione è diversa rispetto a una subnet del gateway. Fare clic su **Gestisci configurazione subnet** per creare la subnet di Azure Bastion. Si consiglia vivamente di utilizzare almeno una subnet/27 o più grande (/27,/26 e così via). Creare **AzureBastionSubnet** senza gruppi di sicurezza di rete, tabelle di route o deleghe. Fare clic su **Crea** per creare la subnet, quindi procedere con le impostazioni successive.
+   * **Indirizzo IP pubblico: Indirizzo**IP pubblico della risorsa Bastion a cui verrà eseguito l'accesso a RDP/SSH (sulla porta 443). Creare un nuovo indirizzo IP pubblico o utilizzarne uno esistente. L'indirizzo IP pubblico deve trovarsi nella stessa area della risorsa Bastion che si sta creando.
+   * **Nome dell'indirizzo IP pubblico**: il nome della risorsa indirizzo IP pubblico.
+1. Nella schermata convalida fare clic su **Crea**. Attendere circa 5 minuti per la creazione e la distribuzione della risorsa Bastion.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Read the [Bastion FAQ](bastion-faq.md)
+Leggi le [domande frequenti sul Bastion](bastion-faq.md)

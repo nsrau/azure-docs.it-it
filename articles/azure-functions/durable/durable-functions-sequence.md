@@ -27,10 +27,10 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E1_HelloSequence`: funzione di orchestrazione che chiama `E1_SayHello` più volte in una sequenza. Archivia gli output delle chiamate `E1_SayHello` e registra i risultati.
 * `E1_SayHello`: funzione di attività che antepone una stringa con "Hello".
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per C# gli script e JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
 
 > [!NOTE]
-> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
+> Durable Functions JavaScript sono disponibili solo per il runtime di funzioni 2,0.
 
 ## <a name="e1_hellosequence"></a>E1_HelloSequence
 
@@ -43,7 +43,7 @@ Se si usa Visual Studio Code o il portale di Azure per lo sviluppo, questo è il
 Fondamentale è il tipo di associazione `orchestrationTrigger`. Tutte le funzioni di orchestrazione devono usare questo tipo di trigger.
 
 > [!WARNING]
-> Per rispettare la regola "no I/O" delle funzioni di orchestrazione, non usare associazioni di input o output quando si usa l'associazione di trigger `orchestrationTrigger`.  Quando sono necessarie altre associazioni di input o output, occorre invece usarle nel contesto delle funzioni `activityTrigger` già chiamate dall'agente di orchestrazione. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
+> Per rispettare la regola "no I/O" delle funzioni di orchestrazione, non usare associazioni di input o output quando si usa l'associazione di trigger `orchestrationTrigger`.  Quando sono necessarie altre associazioni di input o output, occorre invece usarle nel contesto delle funzioni `activityTrigger` già chiamate dall'agente di orchestrazione. Per ulteriori informazioni, vedere l'articolo sui vincoli del codice della funzione dell'agente di [orchestrazione](durable-functions-code-constraints.md) .
 
 ### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (Visual Studio Code e codice di esempio del portale di Azure)
 
@@ -51,7 +51,7 @@ Il codice sorgente è il seguente:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Tutte le funzioni di orchestrazione C# devono avere un parametro di tipo `DurableOrchestrationContext` disponibile nell'assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se si usa lo script C#, è possibile fare riferimento all'assembly usando la notazione `#r`. This context object lets you call other *activity* functions and pass input parameters using its `CallActivityAsync` method.
+Tutte le funzioni di orchestrazione C# devono avere un parametro di tipo `DurableOrchestrationContext` disponibile nell'assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Se si usa lo script C#, è possibile fare riferimento all'assembly usando la notazione `#r`. Questo oggetto Context consente di chiamare altre funzioni di *attività* e passare parametri di input usando il relativo metodo `CallActivityAsync`.
 
 Il codice chiama `E1_SayHello` tre volte in sequenza con valori dei parametri diversi. Il valore restituito di ogni chiamata viene aggiunto all'elenco `outputs`, che viene restituito al termine della funzione.
 
@@ -61,7 +61,7 @@ Il codice sorgente è il seguente:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Tutte le funzioni di orchestrazione JavaScript devono includere il [modulo `durable-functions`](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. Esistono tre differenze significative tra una funzione di orchestrazione e altre funzioni JavaScript:
+Tutte le funzioni di orchestrazione JavaScript devono includere il [modulo `durable-functions`](https://www.npmjs.com/package/durable-functions). Si tratta di una libreria che consente di scrivere Durable Functions in JavaScript. Esistono tre differenze significative tra una funzione di orchestrazione e altre funzioni JavaScript:
 
 1. La funzione è una [funzione generatore.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. Per la funzione viene eseguito il wrapping in una chiamata al metodo `durable-functions` del modulo `orchestrator` (qui `df`).
@@ -86,7 +86,7 @@ L'implementazione di `E1_SayHello` è un'operazione di formattazione delle strin
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-This function has a parameter of type `DurableActivityContext`, which it uses to get the input that was passed to it by the orchestrator function's call to `CallActivityAsync<T>`.
+Questa funzione ha un parametro di tipo `DurableActivityContext`, che usa per ottenere l'input passato dalla chiamata della funzione dell'agente di orchestrazione al `CallActivityAsync<T>`.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -139,7 +139,7 @@ Come si può notare, il `runtimeStatus` dell'istanza è *Completato* e `output` 
 > [!NOTE]
 > L'endpoint HTTP POST che ha avviato la funzione di orchestrazione è implementato nell'applicazione di esempio come una funzione di trigger HTTP denominata "HttpStart". È possibile implementare una logica di avvio simile per altri tipi di trigger, ad esempio `queueTrigger`, `eventHubTrigger`, o `timerTrigger`.
 
-Esaminare i log di esecuzione della funzione. The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [orchestration reliability](durable-functions-orchestrations.md#reliability) topic. In compenso, si sono verificate solo tre esecuzioni di `E1_SayHello` da quando tali esecuzioni delle funzioni non vengono riprodotte.
+Esaminare i log di esecuzione della funzione. La funzione `E1_HelloSequence` è stata avviata e completata più volte a causa del comportamento di riproduzione descritto nell'argomento relativo all' [affidabilità dell'orchestrazione](durable-functions-orchestrations.md#reliability) . In compenso, si sono verificate solo tre esecuzioni di `E1_SayHello` da quando tali esecuzioni delle funzioni non vengono riprodotte.
 
 ## <a name="visual-studio-sample-code"></a>Codice di esempio di Visual Studio
 

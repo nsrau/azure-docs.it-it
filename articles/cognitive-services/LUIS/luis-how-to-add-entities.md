@@ -1,7 +1,7 @@
 ---
-title: Add entities - LUIS
+title: Aggiungere entità-LUIS
 titleSuffix: Azure Cognitive Services
-description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests.
+description: Creare entità per estrarre i dati chiave da espressioni utente nelle app Language Understanding (LUIS). I dati di entità estratti vengono usati dall'applicazione client per rispettasse le richieste dei clienti.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,160 +18,160 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383668"
 ---
-# <a name="add-entities-to-extract-data"></a>Add entities to extract data 
+# <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati 
 
-Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by your client application to fullfil customer requests.
+Creare entità per estrarre i dati chiave da espressioni utente nelle app Language Understanding (LUIS). I dati di entità estratti vengono usati dall'applicazione client per rispettasse le richieste dei clienti.
 
-L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Le entità descrivono le informazioni rilevanti per la finalità e sono talvolta essenziali affinché l'app svolga la sua attività. You can create entities when you add an example utterance to an intent or apart from (before or after) adding an example utterance to an intent.
+L'entità rappresenta una parola o una frase all'interno dell'espressione che si intende estrarre. Le entità descrivono le informazioni rilevanti per la finalità e sono talvolta essenziali affinché l'app svolga la sua attività. È possibile creare entità quando si aggiunge un enunciato di esempio a un preventivo o a parte (prima o dopo) aggiungendo un enunciato di esempio a uno scopo.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="plan-entities-then-create-and-label"></a>Plan entities, then create and label
+## <a name="plan-entities-then-create-and-label"></a>Pianificare entità, quindi creare ed etichettare
 
-Machine-learned entities can be created from the example utterances or created from the **Entities** page. 
+Le entità apprese dal computer possono essere create dalle espressioni di esempio o create dalla pagina **entità** . 
 
-In general, a best practice is to spend time planning the entities before creating a machine-learned entity in the portal. Then create the machine-learned entity from the example utterance with as much detail in the subcomponents and descriptors and constraints as you know at the time. The [decomposable entity tutorial](tutorial-machine-learned-entity.md) demonstrates how to use this method. 
+In generale, una procedura consigliata consiste nel dedicare tempo alla pianificazione delle entità prima di creare un'entità appresa dal computer nel portale. Creare quindi l'entità Machine-learned dall'espressione di esempio con tutti i dettagli nei sottocomponenti e nei descrittori e nei vincoli che si conoscono al momento. Nell' [esercitazione sull'entità decomponibile](tutorial-machine-learned-entity.md) viene illustrato come utilizzare questo metodo. 
 
-As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the **Entities** page before they are labeled in example utterances. 
+Come parte della pianificazione delle entità, è possibile che siano necessarie entità corrispondenti al testo (ad esempio, entità predefinite, entità di espressioni regolari o entità di elenco). È possibile crearli dalla pagina **entità** prima che vengano etichettati in espressioni di esempio. 
 
-When labeling, you can either label individual entities then build up to a parent machine-learned entity. Or you can start with a parent machine-learned entity and decompose into child entities. 
+Quando si etichetta, è possibile etichettare singole entità, quindi creare fino a un'entità padre appresa dal computer. In alternativa, è possibile iniziare con un'entità padre acquisita dal computer e decomporre le entità figlio. 
 
 > [!TIP] 
->Label all words that may indicate an entity, even if the words are not used when extracted in the client application. 
+>Etichettare tutte le parole che possono indicare un'entità, anche se le parole non vengono utilizzate quando vengono estratte nell'applicazione client. 
 
-## <a name="creating-an-entity-before-or-with-labeling"></a>Creating an entity before or with labeling
+## <a name="creating-an-entity-before-or-with-labeling"></a>Creazione di un'entità prima o con l'assegnazione di etichette
 
-Use the following table to understand which entities where to create or add each entity to the app. 
+Usare la tabella seguente per comprendere quali entità devono creare o aggiungere ogni entità all'app. 
 
-|Tipo di entità|Where to create entity in the LUIS portal|
+|Tipo di entità|Dove creare un'entità nel portale LUIS|
 |--|--|
-|Entità basata su Machine Learning|Entities or Intent detail|
-|Entità elenco|Entities or Intent detail|
+|Entità basata su Machine Learning|Entità o dettagli finalità|
+|Entità elenco|Entità o dettagli finalità|
 |Entità di espressione regolare|Entità|
 |Entità pattern.any|Entità|
 |Entità predefinite|Entità|
-|Prebuilt domain entity|Entità|
+|Entità di dominio predefinita|Entità|
 
-You can create all the entities from the **Entities** page, or you can create a couple of the entities as part of labeling the entity in the example utterance on the **Intent detail** page. You can only _label_ an entity in an example utterance from the **Intent detail** page. 
+È possibile creare tutte le entità dalla pagina **entità** oppure creare un paio di entità nell'ambito dell'assegnazione di etichette all'entità nell'enunciato di esempio nella pagina dei dettagli dello **scopo** . È possibile _assegnare un'etichetta_ a un'entità solo in un enunciato di esempio dalla pagina dei **dettagli dello scopo** . 
 
-## <a name="create-a-machine-learned-entity"></a>Create a machine-learned entity
+## <a name="create-a-machine-learned-entity"></a>Creare un'entità Machine-Learned
 
 [!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-## <a name="create-a-text-matching-entity"></a>Create a text-matching entity
+## <a name="create-a-text-matching-entity"></a>Creare un'entità corrispondente al testo
 
-Use text-matching entities provide several ways to extract data:
+Usare le entità di corrispondenza testo per estrarre i dati in diversi modi:
 
-|Text-matching entities|Finalità|
+|Entità corrispondenti al testo|Scopo|
 |--|--|
-|[List entity](#add-list-entities-for-exact-matches)|list of canonical names along with synonyms as alternative forms|
-|Entità di espressione regolare|match text using a regular expression entity|
-|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|match common data types such as number, email, date|
-|Prebuilt domain entity|match using selected subject domains|
-|[Pattern.any](#add-a-patternany-entity)| to match entities that may be easily confused with the surrounding text|  
+|[Elenca entità](#add-list-entities-for-exact-matches)|elenco di nomi canonici insieme a sinonimi come form alternativi|
+|Entità di espressione regolare|trovare la corrispondenza con il testo usando un'entità di espressione regolare|
+|[Entità predefinita](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|corrispondenza tra tipi di dati comuni, ad esempio numero, posta elettronica, data|
+|Entità di dominio predefinita|corrispondenza con i domini oggetto selezionati|
+|[Pattern.any](#add-a-patternany-entity)| per individuare le entità che possono essere confuse facilmente con il testo circostante|  
 
-Prebuilt entities work without providing any custom training data. The other entities need you to provide either customer training data (such as List entity's items) or an expression (such as a regular expression or pattern.any).
+Le entità predefinite funzionano senza fornire dati di training personalizzati. Per le altre entità è necessario fornire i dati di training del cliente (ad esempio, gli elementi dell'entità elenco) o un'espressione (ad esempio, un'espressione regolare o un modello. Any).
 
 <a name="add-list-entities"></a>
 
-### <a name="how-to-create-a-new-custom-entity"></a>How to create a new custom entity
+### <a name="how-to-create-a-new-custom-entity"></a>Come creare una nuova entità personalizzata
 
-1. In the LUIS portal, goto the **Manage** section, then the **Entities** page. 
-1. Select **+ Create**, then select the entity type. 
-1. Continue configuring the entity then select **Create** when you are done. 
+1. Nel portale LUIS, passare alla sezione **Gestisci** e quindi alla pagina **entità** . 
+1. Selezionare **+ Crea**, quindi selezionare il tipo di entità. 
+1. Continuare la configurazione dell'entità, quindi selezionare **Crea** al termine dell'operazione. 
 
-### <a name="add-list-entities-for-exact-matches"></a>Add list entities for exact matches
+### <a name="add-list-entities-for-exact-matches"></a>Aggiungere entità elenco per corrispondenze esatte
 
-Le entità elenco rappresentano un set fisso e chiuso di parole correlate. While you, as the author, can change the list, LUIS won't grow or shrink the list. You can also import to an existing list entity using a [list entity .json format(reference-entity-list.md#example-json-to-import-into-list-entity). 
+Le entità elenco rappresentano un set fisso e chiuso di parole correlate. Mentre l'autore può modificare l'elenco, LUIS non aumenterà o ridurrà l'elenco. È anche possibile importare in un'entità List esistente usando un [list Entity. JSON format (Reference-Entity-List. MD # example-JSON-to-Import-into-list-Entity). 
 
-The following list demonstrates the canonical name and the synonyms. 
+Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi. 
 
-|Color - list item name|Color - synonyms|
+|Nome elemento elenco colori|Colori-sinonimi|
 |--|--|
-|Rosso|crimson, blood, apple, fire-engine|
-|Blu|sky, azure, cobalt|
-|Verde|kelly, lime|
+|Rosso|Crimson, Blood, Apple, Fire-Engine|
+|Blu|Sky, Azure, Cobalt|
+|Verde|Kelly, limone|
 
-Use the procedure to create a list entity. Once the list entity is created, you don't need to label example utterances in an intent. List items and synonyms are matched using exact text. 
+Utilizzare la procedura per creare un'entità elenco. Una volta creata l'entità dell'elenco, non è necessario etichettare espressioni di esempio in uno scopo. Gli elementi dell'elenco e i sinonimi vengono confrontati con il testo esatto. 
 
-1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
+1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
 
-1. In the **Create an entity type** dialog box, enter the name of the entity, such as `Colors` and select **List**.
-1. In the **Create a list entity** dialog box, in the **Add new sublist....** , enter the list item name, such as `Green`, then add synonyms.
+1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità, ad esempio `Colors` e Select **List**.
+1. Nella finestra di dialogo **Crea entità elenco** , in **Aggiungi nuovo sottoelenco**, immettere il nome dell'elemento di elenco, ad esempio `Green`, quindi aggiungere sinonimi.
 
     > [!div class="mx-imgBorder"]
-    > ![Create a list of colors as a list entity in the Entity detail page.](media/how-to-add-entities/create-list-entity-of-colors.png) 
+    > ![creare un elenco di colori come entità elenco nella pagina dei dettagli dell'entità.](media/how-to-add-entities/create-list-entity-of-colors.png) 
 
-1. When you are finished adding list items and synonyms, select **Create**.
+1. Al termine dell'aggiunta di elementi elenco e sinonimi, selezionare **Crea**.
 
-    When you are done with a group of changes to the app, remember to **Train** the app. Do not train the app after a single change. 
+    Al termine di un gruppo di modifiche apportate all'app, ricordarsi di eseguire il **Training** dell'app. Non eseguire il training dell'app dopo una singola modifica. 
 
     > [!NOTE]
-    > This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
+    > Questa procedura illustra la creazione e l'assegnazione di etichette a un'entità elenco da un enunciato di esempio nella pagina dei **Dettagli Intent** . È anche possibile creare la stessa entità dalla pagina **entità** .
 
-## <a name="add-a-role-for-an-entity"></a>Add a role for an entity
+## <a name="add-a-role-for-an-entity"></a>Aggiungere un ruolo per un'entità
 
-A role is a named subtype of an entity, based on context. 
+Un ruolo è un sottotipo denominato di un'entità, in base al contesto. 
 
-### <a name="add-a-role-to-distinguish-different-contexts"></a>Add a role to distinguish different contexts
+### <a name="add-a-role-to-distinguish-different-contexts"></a>Aggiungere un ruolo per distinguere i diversi contesti
 
-In the following utterance, there are two locations, and each is specified semantically by the words around it such as `to` and `from`: 
+Nell'espressione seguente sono presenti due posizioni e ognuna viene specificata in modo semantico in base alle parole, ad esempio `to` e `from`: 
 
 `Pick up the package from Seattle and deliver to New York City.`
 
-In this procedure, add `origin` and `destination` roles to a prebuilt geographyV2 entity.
+In questa procedura aggiungere `origin` e ruoli di `destination` a un'entità geographyV2 predefinita.
 
 1. Nella sezione **Build** (Compila) selezionare **Entities** (Entità) nel pannello a sinistra.
 
-1. Select **+ Add prebuilt entity**. Select **geographyV2** then select **Done**. This adds a prebuilt entity to the app.
+1. Selezionare **+ Aggiungi entità precompilata**. Selezionare **geographyV2** e quindi **fare**clic su fine. Viene aggiunta un'entità predefinita all'app.
     
     Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](reference-pattern-syntax.md#explicit-lists) per risolvere il problema. 
 
-1. Select the newly added prebuilt geographyV2 entity from the **Entities** page list of entities. 
-1. To add a new role, select **+** next to **No roles added**.
-1. In the **Type role...** textbox, enter the name of the role `Origin` then enter. Add a second role name of `Destination` then enter. 
+1. Selezionare l'entità geographyV2 precompilata appena aggiunta dall'elenco di pagine **entità** delle entità. 
+1. Per aggiungere un nuovo ruolo, selezionare **+** accanto a **nessun ruolo aggiunto**.
+1. Nella casella di testo **type Role..** . Immettere il nome del ruolo `Origin` quindi INVIO. Aggiungere un secondo nome ruolo di `Destination` quindi immettere. 
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of adding Origin role to Location entity](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
+    > ![screenshot dell'aggiunta del ruolo Origin all'entità location](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
 
-    The role is added to the prebuilt entity but isn't added to any utterances using that entity. 
+    Il ruolo viene aggiunto all'entità precompilata, ma non viene aggiunto a espressioni con tale entità. 
 
-### <a name="label-text-with-a-role-in-an-example-utterance"></a>Label text with a role in an example utterance
+### <a name="label-text-with-a-role-in-an-example-utterance"></a>Testo etichetta con un ruolo in un enunciato di esempio
 
-1. Go to the Intent details page, which has example utterances that use the role. 
-1. To label with the role, select the entity label (solid line under text) in the example utterance, then select **View in entity palette** from the drop-down list. 
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of selecting View in entity Palette](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
-
-    The entity palette opens to the right. 
-
-1. Select the entity, then go to the bottom of the palette and select the role. 
+1. Passare alla pagina Dettagli finalità, che contiene espressioni di esempio che usano il ruolo. 
+1. Per assegnare un'etichetta con il ruolo, selezionare l'etichetta dell'entità (linea continua sotto testo) nell'espressione di esempio, quindi selezionare **Visualizza in tavolozza entità** nell'elenco a discesa. 
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of selecting View in entity Palette](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+    > ![screenshot della selezione della vista nella tavolozza delle entità](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
+
+    La tavolozza entità si apre a destra. 
+
+1. Selezionare l'entità, quindi passare alla parte inferiore della tavolozza e selezionare il ruolo. 
+
+    > [!div class="mx-imgBorder"]
+    > ![screenshot della selezione della vista nella tavolozza delle entità](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-a-patternany-entity"></a>Add a pattern.any entity
+## <a name="add-a-patternany-entity"></a>Aggiungere un pattern. Any (entità)
 
-[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. Questo tipo di entità consente a LUIS di trovare la fine di entità di lunghezza e scelta delle parole variabili. Poiché questa entità viene usata in un criterio, LUIS sa dove si trova la fine dell'entità nel modello dell'espressione.
+[Modello. le](luis-concept-entity-types.md) entità sono valide solo nei [modelli](luis-how-to-model-intent-pattern.md), non negli enunciati di esempio. Questo tipo di entità consente a LUIS di trovare la fine di entità di lunghezza e scelta delle parole variabili. Poiché questa entità viene usata in un criterio, LUIS sa dove si trova la fine dell'entità nel modello dell'espressione.
 
-### <a name="steps-to-create-a-patternany-entity"></a>Steps to create a pattern.any entity
+### <a name="steps-to-create-a-patternany-entity"></a>Procedura per creare un modello. qualsiasi entità
 
-1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
+1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
 
-1. In the **Choose an entity type** dialog box, enter the entity name in the **Name** box, and select **Pattern.Any** as the **Type** then select **Create**.
+1. Nella finestra di dialogo **scegliere un tipo di entità** immettere il nome dell'entità nella **casella nome** e selezionare **pattern. any** come **tipo** e quindi selezionare **Crea**.
 
-    Once you [create a pattern utterance](luis-how-to-model-intent-pattern.md) using this entity, the entity is extracted with a combined machine-learned and text-matching algorithm. 
+    Una volta [creato un modello di espressione](luis-how-to-model-intent-pattern.md) usando questa entità, l'entità viene estratta con un algoritmo combinato di ricerca di computer e di corrispondenza del testo. 
 
-### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Create a pattern template utterance to use pattern.any entity
+### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Creare un'espressione modello di modello per usare pattern. any Entity
 
 Per usare l'entità pattern.any, aggiungere un criterio nella pagina **Patterns** (Criteri) nella sezione **Improve app performance** (Migliora prestazioni app) con la sintassi con parentesi graffe corretta, ad esempio `Where is **{HumanResourcesFormTitle}** on the server?`.
 
 Se si rileva che il criterio, quando include Pattern.any, estrae le entità in modo errato, usare un [elenco esplicito](reference-pattern-syntax.md#explicit-lists) per risolvere il problema. 
 
-## <a name="do-not-change-entity-type"></a>Do not change entity type
+## <a name="do-not-change-entity-type"></a>Non modificare il tipo di entità
 
 LUIS non consente di modificare il tipo di entità perché non conoscere gli elementi da aggiungere o rimuovere per costruire tale entità. Per modificare il tipo, è preferibile creare una nuova entità del tipo corretto con un nome leggermente diverso. Dopo aver creato l'entità, in ogni espressione rimuovere il vecchio nome dell'entità con etichetta e aggiungere quello nuovo. Dopo che tutte le espressioni sono stata nuovamente etichettate, eliminare l'entità precedente. 
 
@@ -180,17 +180,17 @@ LUIS non consente di modificare il tipo di entità perché non conoscere gli ele
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"] 
-> [Use prebuilt models](howto-add-prebuilt-models.md) 
+> [USA modelli predefiniti](howto-add-prebuilt-models.md) 
 
 Altre informazioni su:
-* How to [train](luis-how-to-train.md)
-* How to [test](luis-interactive-test.md)
-* How to [publish](luis-how-to-publish-app.md)
-* Patterns:
+* Come eseguire il [Training](luis-how-to-train.md)
+* Come eseguire il [test](luis-interactive-test.md)
+* Come [pubblicare](luis-how-to-publish-app.md)
+* Modelli
     * [Concetti](luis-concept-patterns.md)
     * [Sintassi](reference-pattern-syntax.md)
-* [Prebuilt entities GitHub repository](https://github.com/Microsoft/Recognizers-Text)
-* [Data Extraction concepts](luis-concept-data-extraction.md)
+* [Repository GitHub delle entità predefinite](https://github.com/Microsoft/Recognizers-Text)
+* [Concetti sull'estrazione dei dati](luis-concept-data-extraction.md)
 
 
  

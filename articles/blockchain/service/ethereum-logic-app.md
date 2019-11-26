@@ -1,5 +1,5 @@
 ---
-title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
+title: Usare il connettore blockchain di Ethereum con app per la logica di Azure-servizio blockchain di Azure
 description: Usare il connettore blockchain per Ethereum con App per la logica di Azure per attivare funzioni di contratto intelligente e rispondere agli eventi di contratto intelligente.
 ms.date: 10/14/2019
 ms.topic: article
@@ -15,9 +15,9 @@ ms.locfileid: "74325212"
 
 Usare il [connettore blockchain per Ethereum](https://docs.microsoft.com/connectors/blockchainethereum/) con [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/) per eseguire azioni di contratto intelligente e rispondere agli eventi di contratto intelligente. Ad esempio, si vuole creare un microservizio basato su REST che restituisce informazioni da un libro mastro della blockchain. Con un'app per la logica, è possibile accettare richieste HTTP che eseguono query per recuperare le informazioni archiviate in un libro mastro della blockchain.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). I moduli di avvio rapido guidano l'utente attraverso l'installazione dell'estensione [Azure Blockchain Development Kit per Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e la configurazione dell'ambiente di sviluppo blockchain.
+Completare la Guida introduttiva al prerequisito facoltativo [: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md). I moduli di avvio rapido guidano l'utente attraverso l'installazione dell'estensione [Azure Blockchain Development Kit per Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e la configurazione dell'ambiente di sviluppo blockchain.
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica
 
@@ -52,7 +52,7 @@ Usare i trigger di evento della blockchain Ethereum quando l'app per la logica d
 
     ![Progettazione app per la logica le proprietà del trigger di evento](./media/ethereum-logic-app/event-properties.png)
 
-    | Proprietà | Description |
+    | Proprietà | DESCRIZIONE |
     |----------|-------------|
     | **Contract ABI** (Interfaccia ABI contratto) | L'interfaccia ABI (Application Binary Interface) del contratto definisce le interfacce del contratto intelligente. Per altre informazioni, vedere [Ottenere l'interfaccia ABI del contratto](#get-the-contract-abi). |
     | **Smart contract address** (Indirizzo contratto intelligente) | L'indirizzo del contratto è l'indirizzo di destinazione del contratto intelligente nella blockchain Ethereum. Per altre informazioni, vedere [Ottenere l'indirizzo del contratto](#get-the-contract-address). |
@@ -78,7 +78,7 @@ Le azioni del connettore richiedono un trigger. È possibile usare un'azione del
 1. Modificare o [creare una connessione API](#create-an-api-connection) al servizio Azure Blockchain.
 1. A seconda dell'azione scelta, specificare i dettagli seguenti relativi alla funzione di contratto intelligente.
 
-    | Proprietà | Description |
+    | Proprietà | DESCRIZIONE |
     |----------|-------------|
     | **Contract ABI** (Interfaccia ABI contratto) | L'interfaccia ABI (Application Binary Interface) del contratto definisce le interfacce del contratto intelligente. Per altre informazioni, vedere [Ottenere l'interfaccia ABI del contratto](#get-the-contract-abi). |
     | **Contract bytecode** (Bytecode del contratto) | Il bytecode del contratto intelligente compilato. Per altre informazioni, vedere [Ottenere il bytecode del contratto](#get-the-contract-bytecode). |
@@ -124,7 +124,7 @@ Ad esempio, la procedura seguente genera un'app per la logica di microservizio b
 
 1. Selezionare **Progettazione** per passare alla visualizzazione Progettazione.
 1. L'app per la logica include i passaggi di base per lo scenario. È tuttavia necessario aggiornare i dettagli della configurazione per il connettore blockchain per Ethereum.
-1. Selezionare il passaggio [Connessioni](#create-an-api-connection) e modificare o **creare una connessione API** al servizio Azure Blockchain.
+1. Selezionare il passaggio **Connessioni** e modificare o [creare una connessione API](#create-an-api-connection) al servizio Azure Blockchain.
 
     ![Visualizzazione progettazione con l'opzione Connessioni selezionata](./media/ethereum-logic-app/microservice-logic-app.png)
 
@@ -153,10 +153,10 @@ Il connettore blockchain per Ethereum richiede una connessione API a una blockch
 
 Per semplificare la configurazione di una connessione a un membro del servizio Azure Blockchain è disponibile l'elenco seguente contenente le proprietà necessarie a seconda dello scenario.
 
-| Proprietà | Description |
+| Proprietà | DESCRIZIONE |
 |----------|-------------|
-|**Nome connessione** | Nome della connessione API. Richiesto. |
-|**Ethereum RPC endpoint** (Endpoint RPC Ethereum) | Indirizzo HTTP del nodo della transazione del servizio Azure Blockchain. Richiesto. Per altre informazioni, vedere [Ottenere l'endpoint RPC](#get-the-rpc-endpoint). |
+|**Nome connessione** | Nome della connessione API. Obbligatorio. |
+|**Ethereum RPC endpoint** (Endpoint RPC Ethereum) | Indirizzo HTTP del nodo della transazione del servizio Azure Blockchain. Obbligatorio. Per altre informazioni, vedere [Ottenere l'endpoint RPC](#get-the-rpc-endpoint). |
 |**Chiave privata** | Chiave privata dell'account Ethereum. Per le transazioni sono necessari la chiave privata o l'indirizzo dell'account e la password. Per altre informazioni, vedere [Ottenere la chiave privata](#get-the-private-key). |
 |**Account address** | Indirizzo dell'account del membro del servizio Azure Blockchain. Per le transazioni sono necessari la chiave privata o l'indirizzo dell'account e la password. Per altre informazioni, vedere [Ottenere l'indirizzo dell'account](#get-the-account-address). |
 |**Password account** | La password dell'account viene impostata durante la creazione del membro. Per informazioni su come reimpostare la password, vedere [Account Ethereum](consortium.md#ethereum-account).|
@@ -193,7 +193,7 @@ L'indirizzo dell'endpoint RPC del servizio Azure Blockchain è necessario per co
 È possibile usare la chiave privata dell'account Ethereum per eseguire l'autenticazione quando si invia una transazione alla blockchain. Le chiavi pubbliche e private dell'account Ethereum vengono generate da un promemoria di 12 parole. Azure Blockchain Development Kit per Ethereum genera un promemoria quando viene stabilita la connessione a un membro del consorzio del servizio Azure Blockchain. È possibile ottenere l'indirizzo dell'endpoint con l'estensione kit di sviluppo.
 
 1. In Visual Studio Code aprire il riquadro comandi (F1).
-1. Select **Azure Blockchain: Retrieve private key**.
+1. Selezionare **Azure blockchain: Recupera chiave privata**.
 1. Selezionare il promemoria salvato durante la connessione al membro del consorzio.
 
     ![Riquadro comandi con un'opzione per selezionare il promemoria](./media/ethereum-logic-app/private-key.png)

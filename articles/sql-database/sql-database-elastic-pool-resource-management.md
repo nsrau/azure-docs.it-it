@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2019
 ms.locfileid: "74187189"
 ---
-# <a name="resource-management-in-dense-elastic-pools"></a>Gestione delle risorse in pool elastici densi
+# <a name="resource-management-in-dense-elastic-pools"></a>Gestione risorse in pool elastici densi
 
 Il [pool elastici](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) del database SQL di Azure è una soluzione conveniente per la gestione di molti database con un utilizzo delle risorse variabile. Tutti i database in un pool elastico condividono la stessa allocazione di risorse, ad esempio CPU, memoria, thread di lavoro, spazio di archiviazione, tempdb, presupposto che solo un subset di database nel pool utilizzerà le risorse di calcolo in un determinato momento. Questo presupposto consente ai pool elastici di essere convenienti. Invece di pagare per tutte le risorse che ogni singolo database potrebbe richiedere, i clienti pagano per un set di risorse molto più piccolo, condivise tra tutti i database nel pool.
 

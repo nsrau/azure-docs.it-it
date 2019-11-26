@@ -392,7 +392,7 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad servizio Azur
 
 - [INTERFACCIA della riga di comando][helm-cli]
 - [Controller di ingresso NGINX][nginx-ingress]
-- [cert-manager][cert-manager]
+- [Gestione certificati][cert-manager]
 
 È anche possibile:
 

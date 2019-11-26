@@ -1,6 +1,6 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
-description: Learn how you can understand the impact of your Conditional Access policies on your environment.
+title: Lo strumento di What If dell'accesso condizionale-Azure Active Directory
+description: Informazioni su come è possibile comprendere l'impatto dei criteri di accesso condizionale nell'ambiente in uso.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,21 +18,21 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379988"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risolvere i problemi usando lo strumento What If nell'accesso condizionale
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
+[L'accesso condizionale](../active-directory-conditional-access-azure-portal.md) è una funzionalità di Azure Active Directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Come è possibile sapere cosa aspettarsi dai criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare lo **strumento di What If dell'accesso condizionale**.
 
-This article explains how you can use this tool to test your Conditional Access policies.
+Questo articolo illustra come usare questo strumento per testare i criteri di accesso condizionale.
 
 ## <a name="what-it-is"></a>Che cos'è
 
-The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Anziché testare i criteri eseguendo più accessi in modo manuale, questo strumento ti permette di valutare un accesso simulato di un utente. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+Lo **strumento criteri di What If di accesso condizionale** consente di comprendere l'impatto dei criteri di accesso condizionale nell'ambiente in uso. Anziché testare i criteri eseguendo più accessi in modo manuale, questo strumento consente di valutare un accesso simulato di un utente. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione. Il report non elenca solo i criteri di accesso condizionale applicati, ma anche i [criteri classici](policy-migration.md#classic-policies) eventualmente esistenti.    
 
-The **What If** tool provides a way to quickly determine the policies that apply to a specific user. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
+Lo strumento **What If** fornisce un modo per determinare rapidamente i criteri applicati a un utente specifico. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
-In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. Tali impostazioni includono:
+Nello **strumento di What If dell'accesso condizionale**, è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Tali impostazioni includono:
 
 - L'utente da testare 
 - Le app cloud a cui l'utente proverà ad accedere
@@ -44,21 +44,21 @@ Al termine della valutazione, lo strumento genera un report dei criteri interess
 
 ## <a name="running-the-tool"></a>Esecuzione dello strumento
 
-You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+È possibile trovare lo strumento **What If** nella pagina **[accesso condizionale-criteri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** della portale di Azure.
 
-To start the tool, in the toolbar on top of the list of policies, click **What If**.
+Per avviare lo strumento, sulla barra degli strumenti nella parte superiore dell'elenco di criteri fare clic su **What If**.
 
 ![What If](./media/what-if-tool/01.png)
 
 Prima di eseguire una valutazione, è necessario configurare le impostazioni.
 
-## <a name="settings"></a>Impostazioni
+## <a name="settings"></a>Settings
 
 Questa sezione fornisce informazioni sulle impostazioni della simulazione.
 
 ![What If](./media/what-if-tool/02.png)
 
-### <a name="user"></a>Utente
+### <a name="user"></a>User
 
 È possibile selezionare un solo utente. Questo campo è l'unico obbligatorio.
 
@@ -88,7 +88,7 @@ Questa impostazione simula la [condizione di rischio di accesso](conditions.md#s
 
 ## <a name="evaluation"></a>Versione di valutazione 
 
-You start an evaluation by clicking **What If**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
+Per avviare una valutazione, fare clic su **What If**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
 
 ![What If](./media/what-if-tool/03.png)
 

@@ -195,7 +195,7 @@ Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di ret
     | Impostazione        | Valore                                                   |
     | ---            | ---                                                     |
     | Nome           | Il nome deve essere univoco all'interno di un gruppo di risorse.        |
-    | Sottoscrizione   | Selezionare la propria sottoscrizione.                               |
+    | sottoscrizione   | Selezionare la propria sottoscrizione.                               |
     | Resource group | Selezionare un gruppo di risorse esistente o crearne uno nuovo. |
     | Location       | Selezionare una località                                       |
 

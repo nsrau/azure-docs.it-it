@@ -1,7 +1,7 @@
 ---
-title: Working with projections in a knowledge store (preview)
+title: Utilizzo delle proiezioni in un archivio informazioni (anteprima)
 titleSuffix: Azure Cognitive Search
-description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. L'archivio conoscenze è attualmente disponibile in anteprima pubblica.
+description: Salvare e modellare i dati arricchiti dalla pipeline di indicizzazione dell'intelligenza artificiale in un archivio informazioni per l'uso in scenari diversi dalla ricerca full-text. L'archivio conoscenze è attualmente disponibile in anteprima pubblica.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
@@ -15,71 +15,71 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326600"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Working with projections in a knowledge store in Azure Cognitive Search
+# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilizzo delle proiezioni in un archivio informazioni in Azure ricerca cognitiva
 
 > [!IMPORTANT] 
-> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
+> L'archivio conoscenze è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Queste funzionalità di anteprima vengono fornite dall'[API REST versione 2019-05-06-Preview](search-api-preview.md). Il supporto del portale è attualmente limitato e non è disponibile alcun supporto per .NET SDK.
 
-Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
+Azure ricerca cognitiva consente di arricchire il contenuto tramite competenze cognitive predefinite e competenze personalizzate come parte dell'indicizzazione. Gli arricchimenti aggiungono la struttura ai documenti e rendono più efficiente la ricerca. In molti casi, i documenti arricchiti sono utili per scenari diversi dalla ricerca, ad esempio per le informazioni di data mining.
 
-Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
+Le proiezioni, un componente dell' [Archivio informazioni](knowledge-store-concept-intro.md), sono viste di documenti arricchiti che possono essere salvati nell'archiviazione fisica per scopi di data mining. Una proiezione consente di "proiettare" i dati in una forma allineata alle esigenze, mantenendo le relazioni in modo che gli strumenti come Power BI possano leggere i dati senza sforzi aggiuntivi.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
+Le proiezioni possono essere tabulari, con dati archiviati in righe e colonne nell'archiviazione tabelle di Azure o oggetti JSON archiviati nell'archivio BLOB di Azure. È possibile definire più proiezioni dei dati in fase di arricchimento. Più proiezioni sono utili quando si desidera che gli stessi dati vengano modellati in modo diverso per i singoli casi di utilizzo.
 
-The knowledge store supports three types of projections:
+L'archivio informazioni supporta tre tipi di proiezioni:
 
-+ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
++ **Tabelle**: per i dati rappresentati in modo ottimale come righe e colonne, le proiezioni di tabella consentono di definire una forma o proiezione schematizzato nell'archivio tabelle.
 
-+ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
++ **Oggetti**: quando è necessaria una rappresentazione JSON dei dati e degli arricchimenti, le proiezioni di oggetti vengono salvate come BLOB.
 
-+ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images.
++ **File**: quando è necessario salvare le immagini estratte dai documenti, le proiezioni di file consentono di salvare le immagini normalizzate.
 
-To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
+Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione per iniziare a [usare l'archivio informazioni](knowledge-store-howto.md).
 
-## <a name="projection-groups"></a>Projection groups
+## <a name="projection-groups"></a>Gruppi di proiezione
 
-In some cases, you will need to project your enriched data in different shapes to meet different objectives. The knowledge store allows you to define multiple groups of projections. Projection groups have the following key characteristics of mutual exclusivity and relatedness.
+In alcuni casi, sarà necessario proiettare i dati arricchiti in forme diverse per soddisfare obiettivi diversi. L'archivio informazioni consente di definire più gruppi di proiezioni. I gruppi di proiezione presentano le seguenti caratteristiche principali di esclusività e correlazione reciproca.
 
-### <a name="mutual-exclusivity"></a>Mutual exclusivity
+### <a name="mutual-exclusivity"></a>Esclusività reciproca
 
-All content projected into a single group is independent of data projected into other projection groups.
-This independence implies that you can have the same data shaped differently, yet repeated in each projection group.
+Tutti i contenuti proiettati in un singolo gruppo sono indipendenti dai dati proiettati in altri gruppi di proiezione.
+Questa indipendenza implica che è possibile avere gli stessi dati a forma diversa, ma ripetuti in ogni gruppo di proiezione.
 
-### <a name="relatedness"></a>Relatedness
+### <a name="relatedness"></a>Correlazione
 
-Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
+I gruppi di proiezione consentono ora di proiettare i documenti tra tipi di proiezione mantenendo le relazioni tra i tipi di proiezione. Tutto il contenuto proiettato all'interno di un singolo gruppo di proiezione conserva le relazioni all'interno dei dati tra i tipi di proiezione. All'interno delle tabelle, le relazioni sono basate su una chiave generata e ogni nodo figlio mantiene un riferimento al nodo padre. Tra i tipi (tabelle, oggetti e file), le relazioni vengono mantenute quando un singolo nodo viene proiettato tra tipi diversi. Si consideri ad esempio uno scenario in cui è presente un documento contenente immagini e testo. È possibile proiettare il testo in tabelle o oggetti e le immagini in file in cui le tabelle o gli oggetti hanno una proprietà contenente l'URL del file.
 
-## <a name="input-shaping"></a>Input shaping
+## <a name="input-shaping"></a>Shaping input
 
-Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
+Il recupero dei dati nella forma o nella struttura corretta è fondamentale per l'uso effettivo, ovvero tabelle o oggetti. La possibilità di modellare o strutturare i dati in base al modo in cui si prevede di accedervi e usarla è una funzionalità chiave esposta come la capacità di **shaper** all'interno del sistema di competenze.  
 
-Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
+Le proiezioni sono più semplici da definire quando si dispone di un oggetto nell'albero di arricchimento che corrisponde allo schema della proiezione. La [capacità di shaper](cognitive-search-skill-shaper.md) aggiornata consente di comporre un oggetto da nodi diversi dell'albero di arricchimento e di associarli a un nuovo nodo. L'abilità dell' **shaper** consente di definire tipi complessi con oggetti annidati.
 
-When you have a new shape defined that contains all the elements you need to project out, you can now use this shape as the source for your projections or as an input to another skill.
+Quando si dispone di una nuova forma definita che contiene tutti gli elementi che è necessario proiettare, è ora possibile usare questa forma come origine per le proiezioni o come input per un'altra competenza.
 
-## <a name="projection-slicing"></a>Projection slicing
+## <a name="projection-slicing"></a>Sezionamento della proiezione
 
-When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a shaper skill that can be the source for all of your projections.
+Quando si definisce un gruppo di proiezione, un singolo nodo nell'albero di arricchimento può essere sezionato in più tabelle o oggetti correlati. L'aggiunta di una proiezione con un percorso di origine figlio di una proiezione esistente provocherà il sezionamento del nodo figlio all'esterno del nodo padre e proiettato nella nuova tabella o oggetto correlato. Questa tecnica consente di definire un singolo nodo in un'abilità shaper che può essere l'origine di tutte le proiezioni.
 
-## <a name="table-projections"></a>Table projections
+## <a name="table-projections"></a>Proiezioni tabella
 
-Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing the cardinality between table relationships. 
+Poiché semplifica l'importazione, si consigliano le proiezioni di tabella per l'esplorazione dei dati con Power BI. Inoltre, le proiezioni di tabella consentono di modificare la cardinalità tra le relazioni tra tabelle. 
 
-You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
+È possibile proiettare un singolo documento nell'indice in più tabelle, mantenendo le relazioni. Quando si proietta a più tabelle, la forma completa verrà proiettata in ogni tabella, a meno che un nodo figlio non sia l'origine di un'altra tabella nello stesso gruppo.
 
-### <a name="defining-a-table-projection"></a>Defining a table projection
+### <a name="defining-a-table-projection"></a>Definizione di una proiezione di tabella
 
-When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project.
+Quando si definisce una proiezione di tabella all'interno dell'elemento `knowledgeStore` del suo competenze, iniziare eseguendo il mapping di un nodo nell'albero di arricchimento all'origine della tabella. In genere, questo nodo è l'output di una competenza di **shaper** aggiunto all'elenco di competenze per produrre una forma specifica che è necessario proiettare nelle tabelle. Il nodo scelto per il progetto può essere sezionato in modo da essere proiettato in più tabelle. La definizione delle tabelle è un elenco di tabelle che si desidera proiettare.
 
-Each table requires three properties:
+Ogni tabella richiede tre proprietà:
 
-+ tableName: The name of the table in Azure Storage.
++ TableName: il nome della tabella in archiviazione di Azure.
 
-+ generatedKeyName: The column name for the key that uniquely identifies this row.
++ generatedKeyName: il nome della colonna per la chiave che identifica in modo univoco questa riga.
 
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills.
++ Source: nodo dall'albero di arricchimento da cui si stanno riprendendo le risorse. Questo nodo è in genere l'output di un shaper, ma potrebbe essere l'output di qualsiasi competenza.
 
-Here is an example of table projections.
+Di seguito è riportato un esempio di proiezioni di tabella.
 
 ```json
 {
@@ -112,7 +112,7 @@ Here is an example of table projections.
 }
 ```
 
-As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
+Come illustrato in questo esempio, le frasi chiave e le entità sono modellate in tabelle diverse e conterranno un riferimento all'elemento padre (per cui è possibile eseguire la manutenzione) per ogni riga.
 
 <!---
 The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
@@ -120,9 +120,9 @@ The following illustration is a reference to the Case-law exercise in [How to ge
 ![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
 --->
 
-## <a name="object-projections"></a>Object projections
+## <a name="object-projections"></a>Proiezioni oggetto
 
-Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
+Le proiezioni oggetto sono rappresentazioni JSON dell'albero di arricchimento che possono essere originate da qualsiasi nodo. In molti casi, per generare una proiezione di oggetti è possibile usare la stessa capacità di **shaper** che crea una proiezione di tabella. 
 
 ```json
 {
@@ -158,15 +158,15 @@ Object projections are JSON representations of the enrichment tree that can be s
 }
 ```
 
-Generating an object projection requires a few object-specific attributes:
+Per la generazione di una proiezione di oggetti sono necessari alcuni attributi specifici dell'oggetto:
 
-+ storageContainer: The container where the objects will be saved
-+ source: The path to the node of the enrichment tree that is the root of the projection
-+ key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
++ storageContainer: il contenitore in cui verranno salvati gli oggetti
++ Source: percorso del nodo della struttura ad albero di arricchimento che è la radice della proiezione
++ Key: un percorso che rappresenta una chiave univoca per l'oggetto da archiviare. Verrà usato per creare il nome del BLOB nel contenitore.
 
-## <a name="file-projection"></a>File projection
+## <a name="file-projection"></a>Proiezione file
 
-File projections are similar to object projections and only act on the `normalized_images` collection. Similar to object projections, file projections are saved in the blob container with folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container.
+Le proiezioni di file sono simili alle proiezioni degli oggetti e agiscono solo sulla raccolta di `normalized_images`. Analogamente alle proiezioni di oggetti, le proiezioni di file vengono salvate nel contenitore BLOB con il prefisso della cartella del valore con codifica Base64 dell'ID documento. Le proiezioni di file non possono condividere lo stesso contenitore delle proiezioni di oggetti e devono essere proiettate in un contenitore diverso.
 
 ```json
 {
@@ -200,23 +200,23 @@ File projections are similar to object projections and only act on the `normaliz
 }
 ```
 
-## <a name="projection-lifecycle"></a>Projection lifecycle
+## <a name="projection-lifecycle"></a>Ciclo di vita della proiezione
 
-Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and reindexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you've configured for your index. Projections are not deleted when the indexer or the search service itself is deleted.
+Le proiezioni hanno un ciclo di vita associato ai dati di origine nell'origine dati. Con l'aggiornamento e la reindicizzazione dei dati, le proiezioni vengono aggiornate con i risultati degli arricchimenti che assicurano che le proiezioni siano coerenti con i dati nell'origine dati. Le proiezioni ereditano il criterio di eliminazione configurato per l'indice. Le proiezioni non vengono eliminate quando l'indicizzatore o il servizio di ricerca stesso viene eliminato.
 
-## <a name="using-projections"></a>Using projections
+## <a name="using-projections"></a>Utilizzo delle proiezioni
 
-After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
+Dopo l'esecuzione dell'indicizzatore, è possibile leggere i dati proiettati nei contenitori o nelle tabelle specificate tramite proiezioni.
 
-For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
+Per l'analisi, l'esplorazione in Power BI è semplice come impostare l'archiviazione tabelle di Azure come origine dati. È possibile creare facilmente un set di visualizzazioni sui dati usando le relazioni all'interno di.
 
-Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
+In alternativa, se è necessario usare i dati arricchiti in una pipeline di data science, è possibile [caricare i dati dai BLOB in un frame di dati Pandas](../machine-learning/team-data-science-process/explore-data-blob.md).
 
-Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice. 
+Infine, se è necessario esportare i dati dall'archivio informazioni, Azure Data Factory dispone di connettori per esportare i dati e interrarli nel database di propria scelta. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-As a next step, create your first knowledge store using sample data and instructions.
+Come passaggio successivo, creare il primo archivio informazioni usando i dati di esempio e le istruzioni.
 
 > [!div class="nextstepaction"]
-> [How to create a knowlege store](knowledge-store-howto.md).
+> [Creazione di un archivio informazioni](knowledge-store-howto.md).

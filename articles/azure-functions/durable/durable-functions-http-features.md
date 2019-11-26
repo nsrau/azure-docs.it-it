@@ -1,6 +1,6 @@
 ---
-title: HTTP features in Durable Functions - Azure Functions
-description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
+title: Funzionalità HTTP in Durable Functions-funzioni di Azure
+description: Informazioni sulle funzionalità HTTP integrate nell'estensione Durable Functions per funzioni di Azure.
 author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
@@ -12,33 +12,33 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232879"
 ---
-# <a name="http-features"></a>HTTP Features
+# <a name="http-features"></a>Funzionalità HTTP
 
-Durable Functions has several features that make it easy to incorporate durable orchestrations and entities into HTTP workflows. This article goes into detail about some of those features.
+Durable Functions dispone di diverse funzionalità che semplificano l'incorporamento di orchestrazioni ed entità durevoli in flussi di lavoro HTTP. Questo articolo illustra in dettaglio alcune di queste funzionalità.
 
-## <a name="exposing-http-apis"></a>Exposing HTTP APIs
+## <a name="exposing-http-apis"></a>Esposizione di API HTTP
 
-Orchestrations and entities can be invoked and managed using HTTP requests. The Durable Functions extension exposes built-in HTTP APIs. It also provides APIs for interacting with orchestrations and entities from within HTTP-triggered functions.
+Le orchestrazioni e le entità possono essere richiamate e gestite tramite richieste HTTP. L'estensione Durable Functions espone le API HTTP predefinite. Fornisce inoltre le API per interagire con le orchestrazioni e le entità dalle funzioni attivate da HTTP.
 
-### <a name="built-in-http-apis"></a>Built-in HTTP APIs
+### <a name="built-in-http-apis"></a>API HTTP predefinite
 
-The Durable Functions extension automatically adds a set of HTTP APIs to the Azure Functions host. With these APIs, you can interact with and manage orchestrations and entities without writing any code.
+L'estensione Durable Functions aggiunge automaticamente un set di API HTTP all'host di funzioni di Azure. Con queste API è possibile interagire con e gestire le orchestrazioni e le entità senza scrivere codice.
 
-The following built-in HTTP APIs are supported.
+Sono supportate le API HTTP predefinite seguenti.
 
-* [Start new orchestration](durable-functions-http-api.md#start-orchestration)
-* [Query orchestration instance](durable-functions-http-api.md#get-instance-status)
-* [Terminate orchestration instance](durable-functions-http-api.md#terminate-instance)
-* [Send an external event to an orchestration](durable-functions-http-api.md#raise-event)
-* [Purge orchestration history](durable-functions-http-api.md#purge-single-instance-history)
-* [Send an operation event to an entity](durable-functions-http-api.md#signal-entity)
-* [Query the state of an entity](durable-functions-http-api.md#query-entity)
+* [Avvia nuova orchestrazione](durable-functions-http-api.md#start-orchestration)
+* [Istanza di orchestrazione query](durable-functions-http-api.md#get-instance-status)
+* [Termina l'istanza di orchestrazione](durable-functions-http-api.md#terminate-instance)
+* [Inviare un evento esterno a un'orchestrazione](durable-functions-http-api.md#raise-event)
+* [Elimina cronologia orchestrazione](durable-functions-http-api.md#purge-single-instance-history)
+* [Inviare un evento Operation a un'entità](durable-functions-http-api.md#signal-entity)
+* [Eseguire query sullo stato di un'entità](durable-functions-http-api.md#query-entity)
 
-See the [HTTP APIs article](durable-functions-http-api.md) for a full description of all the built-in HTTP APIs exposed by the Durable Functions extension.
+Per una descrizione completa di tutte le API HTTP predefinite esposte dall'estensione Durable Functions, vedere l'articolo relativo alle [API HTTP](durable-functions-http-api.md) .
 
 ### <a name="http-api-url-discovery"></a>Rilevamento dell'URL di API HTTP
 
-The [orchestration client binding](durable-functions-bindings.md#orchestration-client) exposes APIs that can generate convenient HTTP response payloads. For example, it can create a response containing links to management APIs for a specific orchestration instance. The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
+L' [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) espone le API che possono generare utili payload di risposta http. Ad esempio, è possibile creare una risposta contenente collegamenti alle API di gestione per un'istanza di orchestrazione specifica. Negli esempi seguenti viene illustrata una funzione trigger HTTP che illustra come utilizzare questa API per una nuova istanza di orchestrazione:
 
 #### <a name="precompiled-c"></a>C# precompilato
 
@@ -48,7 +48,7 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript with Functions 2.0 or later only
+#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript con funzioni solo 2,0 o versioni successive
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
@@ -56,13 +56,13 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
-Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
+L'avvio di una funzione di orchestrazione tramite le funzioni trigger HTTP mostrate in precedenza può essere eseguito usando qualsiasi client HTTP. Il comando cURL seguente avvia una funzione dell'agente di orchestrazione denominata `DoWork`:
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-Next is an example response for an orchestration that has `abc123` as its ID. Some details have been removed for clarity.
+Di seguito è riportato un esempio di risposta per un'orchestrazione con `abc123` come ID. Alcuni dettagli sono stati rimossi per maggiore chiarezza.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -79,42 +79,42 @@ Retry-After: 10
 }
 ```
 
-In the previous example, each of the fields ending in `Uri` corresponds to a built-in HTTP API. You can use these APIs to manage the target orchestration instance.
+Nell'esempio precedente, ognuno dei campi che terminano con `Uri` corrisponde a un'API HTTP incorporata. È possibile utilizzare queste API per gestire l'istanza di orchestrazione di destinazione.
 
 > [!NOTE]
-> The format of the webhook URLs depends on which version of the Azure Functions host you are running. The previous example is for the Azure Functions 2.0 host.
+> Il formato degli URL del webhook dipende dalla versione dell'host di funzioni di Azure in esecuzione. L'esempio precedente è per l'host di funzioni di Azure 2,0.
 
-For a description of all built-in HTTP APIs, see the [HTTP API reference](durable-functions-http-api.md).
+Per una descrizione di tutte le API HTTP predefinite, vedere le informazioni di [riferimento sull'API HTTP](durable-functions-http-api.md).
 
 ### <a name="async-operation-tracking"></a>Verifica di operazioni asincrone
 
-La risposta HTTP indicata in precedenza è stata concepita per semplificare l'implementazione di API asincrone a esecuzione prolungata con Durable Functions. This pattern is sometimes referred to as the *polling consumer pattern*. Il flusso client/server funziona come segue:
+La risposta HTTP indicata in precedenza è stata concepita per semplificare l'implementazione di API asincrone a esecuzione prolungata con Durable Functions. Questo modello viene talvolta definito *modello di consumer di polling*. Il flusso client/server funziona come segue:
 
-1. The client issues an HTTP request to start a long-running process like an orchestrator function.
-1. The target HTTP trigger returns an HTTP 202 response with a Location header that has the value "statusQueryGetUri".
-1. The client polls the URL in the Location header. The client continues to see HTTP 202 responses with a Location header.
-1. When the instance finishes or fails, the endpoint in the Location header returns HTTP 200.
+1. Il client invia una richiesta HTTP per avviare un processo a esecuzione prolungata come una funzione dell'agente di orchestrazione.
+1. Il trigger HTTP di destinazione restituisce una risposta HTTP 202 con un'intestazione Location con il valore "statusQueryGetUri".
+1. Il client esegue il polling dell'URL nell'intestazione Location. Il client continua a vedere le risposte HTTP 202 con un'intestazione Location.
+1. Quando l'istanza viene completata o non riesce, l'endpoint nell'intestazione Location restituisce HTTP 200.
 
-This protocol allows coordination of long-running processes with external clients or services that can poll an HTTP endpoint and follow the Location header. Both the client and server implementations of this pattern are built into the Durable Functions HTTP APIs.
-
-> [!NOTE]
-> Per impostazione predefinita, tutte le azioni basate su HTTP fornite dalle [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) supportano il modello di operazione asincrono standard. Questa funzionalità rende possibile incorporare una funzione permanente a esecuzione prolungata come parte di un flusso di lavoro di App per la logica. You can find more details on Logic Apps support for asynchronous HTTP patterns in the [Azure Logic Apps workflow actions and triggers documentation](../../logic-apps/logic-apps-workflow-actions-triggers.md).
+Questo protocollo consente il coordinamento dei processi a esecuzione prolungata con client o servizi esterni che possono eseguire il polling di un endpoint HTTP e seguire l'intestazione Location. Entrambe le implementazioni client e server di questo modello sono incorporate nelle API HTTP Durable Functions.
 
 > [!NOTE]
-> Interactions with orchestrations can be done from any function type, not just HTTP-triggered functions.
-
-For more information on how to manage orchestrations and entities using client APIs, see the [Instance management article](durable-functions-instance-management.md).
-
-## <a name="consuming-http-apis"></a>Consuming HTTP APIs
-
-As described in the [orchestrator function code constraints](durable-functions-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activity functions](durable-functions-types-features-overview.md#activity-functions) that do I/O operations.
-
-Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
+> Per impostazione predefinita, tutte le azioni basate su HTTP fornite dalle [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) supportano il modello di operazione asincrono standard. Questa funzionalità rende possibile incorporare una funzione permanente a esecuzione prolungata come parte di un flusso di lavoro di App per la logica. Per altre informazioni sul supporto delle app per la logica per i modelli HTTP asincroni [, vedere la documentazione sulle azioni e sui trigger del flusso di lavoro app](../../logic-apps/logic-apps-workflow-actions-triggers.md)per la logica di Azure.
 
 > [!NOTE]
-> The ability to call HTTP endpoints directly from orchestrator functions is not yet available in JavaScript.
+> Le interazioni con le orchestrazioni possono essere eseguite da qualsiasi tipo di funzione, non solo da funzioni attivate da HTTP.
 
-The following example code shows a C# orchestrator function making an outbound HTTP request using the **CallHttpAsync** .NET API:
+Per ulteriori informazioni sulla gestione delle orchestrazioni e delle entità mediante le API client, vedere l'articolo relativo alla [gestione delle istanze](durable-functions-instance-management.md).
+
+## <a name="consuming-http-apis"></a>Utilizzo di API HTTP
+
+Come descritto nei vincoli di codice della funzione dell'agente di [orchestrazione](durable-functions-code-constraints.md), le funzioni dell'agente di orchestrazione non possono eseguire direttamente i/ Ma in genere chiamano [funzioni di attività](durable-functions-types-features-overview.md#activity-functions) che eseguono operazioni di I/O.
+
+A partire da Durable Functions 2,0, le orchestrazioni possono utilizzare le API HTTP in modo nativo utilizzando l' [associazione del trigger di orchestrazione](durable-functions-bindings.md#orchestration-trigger).
+
+> [!NOTE]
+> La possibilità di chiamare endpoint HTTP direttamente dalle funzioni dell'agente di orchestrazione non è ancora disponibile in JavaScript.
+
+Il codice di esempio seguente illustra C# una funzione dell'agente di orchestrazione che effettua una richiesta HTTP in uscita tramite l'API .NET **CallHttpAsync** :
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,26 +134,26 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
+Utilizzando l'azione "Call HTTP", è possibile eseguire le operazioni seguenti nelle funzioni dell'agente di orchestrazione:
 
-* Call HTTP APIs directly from orchestration functions, with some limitations that are mentioned later.
-* Automatically support client-side HTTP 202 status polling patterns.
-* Use [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to make authorized HTTP calls to other Azure endpoints.
+* Chiamare le API HTTP direttamente dalle funzioni di orchestrazione, con alcune limitazioni indicate in seguito.
+* Supporta automaticamente i modelli di polling dello stato HTTP 202 sul lato client.
+* Usare le [identità gestite di Azure](../../active-directory/managed-identities-azure-resources/overview.md) per effettuare chiamate http autorizzate ad altri endpoint di Azure.
 
-The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
+La possibilità di utilizzare le API HTTP direttamente dalle funzioni dell'agente di orchestrazione è concepita come una praticità per un determinato set di scenari comuni. È possibile implementare tutte queste funzionalità usando le funzioni di attività. In molti casi, le funzioni di attività potrebbero offrire maggiore flessibilità.
 
-### <a name="http-202-handling"></a>HTTP 202 handling
+### <a name="http-202-handling"></a>Gestione HTTP 202
 
-The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
+L'API "Call HTTP" può implementare automaticamente il lato client del modello consumer di polling. Se un'API chiamata restituisce una risposta HTTP 202 con un'intestazione Location, la funzione dell'agente di orchestrazione esegue automaticamente il polling della risorsa location fino alla ricezione di una risposta diversa da 202. Questa risposta sarà la risposta restituita al codice della funzione dell'agente di orchestrazione.
 
 > [!NOTE]
-> Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
+> Le funzioni dell'agente di orchestrazione supportano inoltre in modo nativo il modello di consumer di polling lato server, come descritto in [rilevamento delle operazioni asincrone](#async-operation-tracking). Questo supporto significa che le orchestrazioni in un'app per le funzioni possono coordinare facilmente le funzioni dell'agente di orchestrazione in altre app per le funzioni. Questa operazione è simile al concetto di [orchestrazione secondaria](durable-functions-sub-orchestrations.md) , ma con supporto per la comunicazione tra app. Questo supporto è particolarmente utile per lo sviluppo di app in stile microservizio.
 
 ### <a name="managed-identities"></a>Identità gestite
 
-Durable Functions natively supports calls to APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
+Durable Functions supporta in modo nativo le chiamate alle API che accettano i token di Azure Active Directory (Azure AD) per l'autorizzazione. Questo supporto usa le [identità gestite di Azure](../../active-directory/managed-identities-azure-resources/overview.md) per acquisire questi token.
 
-The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+Il codice seguente è un esempio di una funzione dell'agente di orchestrazione .NET. La funzione effettua chiamate autenticate per riavviare una macchina virtuale usando l' [API REST Azure Resource Manager macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -178,41 +178,41 @@ public static async Task RunOrchestrator(
 }
 ```
 
-In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
+Nell'esempio precedente, il parametro `tokenSource` è configurato per acquisire i token di Azure AD per [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). I token sono identificati dall'URI della risorsa `https://management.core.windows.net`. Nell'esempio si presuppone che l'app per le funzioni corrente sia in esecuzione localmente o sia stata distribuita come app per le funzioni con un'identità gestita. Si presuppone che l'identità locale o l'identità gestita disponga di autorizzazioni per gestire le macchine virtuali nel gruppo di risorse specificato `myRG`.
 
-At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the Authorization header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
+In fase di esecuzione, l'origine del token configurata restituisce automaticamente un token di accesso OAuth 2,0. L'origine aggiunge quindi il token come bearer token all'intestazione di autorizzazione della richiesta in uscita. Questo modello rappresenta un miglioramento rispetto all'aggiunta manuale di intestazioni di autorizzazione alle richieste HTTP per i motivi seguenti:
 
-* Token refresh is handled automatically. You don't need to worry about expired tokens.
-* Tokens are never stored in the durable orchestration state.
-* You don't need to write any code to manage token acquisition.
+* L'aggiornamento del token viene gestito automaticamente. Non è necessario preoccuparsi dei token scaduti.
+* I token non vengono mai archiviati nello stato dell'orchestrazione durevole.
+* Non è necessario scrivere codice per gestire l'acquisizione dei token.
 
-You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+È possibile trovare un esempio più completo nell' [esempio C# RestartVMs precompilato](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
 
-Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Le identità gestite non sono limitate a gestione risorse di Azure. È possibile usare le identità gestite per accedere a qualsiasi API che accetti Azure AD token di connessione, inclusi i servizi di Azure da Microsoft e dalle app Web dei partner. L'app Web di un partner può anche essere un'altra app per le funzioni. Per un elenco dei servizi di Azure Microsoft che supportano l'autenticazione con Azure AD, vedere [servizi di Azure che supportano l'autenticazione Azure ad](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### <a name="limitations"></a>Limitazioni
 
-The built-in support for calling HTTP APIs is a convenience feature. It's not appropriate for all scenarios.
+Il supporto incorporato per la chiamata di API HTTP è una funzionalità comoda. Non è appropriato per tutti gli scenari.
 
-HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also has limitations:
+Le richieste HTTP inviate dalle funzioni dell'agente di orchestrazione e le relative risposte vengono serializzate e permanenti come messaggi in coda. Questo comportamento di Accodamento garantisce che le chiamate HTTP siano [affidabili e sicure per la riproduzione dell'orchestrazione](durable-functions-orchestrations.md#reliability). Tuttavia, anche il comportamento di Accodamento presenta limitazioni:
 
-* Each HTTP request involves additional latency when compared to a native HTTP client.
-* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage can cause potential performance degradation.
-* Streaming, chunked, and binary payloads aren't supported.
-* The ability to customize the behavior of the HTTP client is limited.
+* Ogni richiesta HTTP comporta una latenza aggiuntiva rispetto a un client HTTP nativo.
+* I messaggi di richiesta o di risposta di grandi dimensioni che non possono rientrare in un messaggio in coda possono ridurre significativamente le prestazioni dell'orchestrazione Il sovraccarico di offload dei messaggi nell'archiviazione BLOB può causare un potenziale calo delle prestazioni.
+* I payload di flusso, Chunked e Binary non sono supportati.
+* La possibilità di personalizzare il comportamento del client HTTP è limitata.
 
-If any of these limitations might affect your use case, consider instead using activity functions and language-specific HTTP client libraries to make outbound HTTP calls.
+Se una di queste limitazioni potrebbe influenzare il caso d'uso, è consigliabile usare invece le funzioni di attività e le librerie client HTTP specifiche del linguaggio per effettuare chiamate HTTP in uscita.
 
 > [!NOTE]
-> If you are a .NET developer, you might wonder why this feature uses the **DurableHttpRequest** and **DurableHttpResponse** types instead of the built-in .NET **HttpRequestMessage** and **HttpResponseMessage** types.
+> Gli sviluppatori .NET possono chiedersi perché questa funzionalità usi i tipi **DurableHttpRequest** e **DurableHttpResponse** anziché i tipi .NET **HttpRequestMessage** e **HttpResponseMessage** predefiniti.
 >
-> Questa scelta di progettazione è intenzionale. The primary reason is that custom types help ensure users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Types specific to Durable Functions also make it possible to simplify API design. They also can more easily make available special features like [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling). 
+> Questa scelta di progettazione è intenzionale. Il motivo principale è che i tipi personalizzati contribuiscono a garantire che gli utenti non rifacciano presupposti non corretti sui comportamenti supportati del client HTTP interno. I tipi specifici di Durable Functions consentono anche di semplificare la progettazione dell'API. Possono anche rendere più semplici le funzionalità speciali disponibili, ad esempio l' [integrazione delle identità gestite](#managed-identities) e il [modello di consumer di polling](#http-202-handling). 
 
-### <a name="extensibility-net-only"></a>Extensibility (.NET only)
+### <a name="extensibility-net-only"></a>Estensibilità (solo .NET)
 
-Customizing the behavior of the orchestration's internal HTTP client is possible using [Azure Functions .NET dependency injection](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
+È possibile personalizzare il comportamento del client HTTP interno dell'orchestrazione tramite l' [inserimento di dipendenze .NET di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Questa possibilità può essere utile per apportare piccole modifiche di comportamento. Può anche essere utile per eseguire il testing unità del client HTTP inserendo oggetti fittizi.
 
-The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
+L'esempio seguente illustra l'uso dell'inserimento di dipendenze per disabilitare la convalida del certificato SSL per le funzioni dell'agente di orchestrazione che chiamano endpoint HTTP esterni.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -243,4 +243,4 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Learn about durable entities](durable-functions-entities.md)
+> [Informazioni sulle entità durevoli](durable-functions-entities.md)

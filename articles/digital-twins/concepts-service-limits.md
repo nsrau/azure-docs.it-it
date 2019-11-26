@@ -1,6 +1,6 @@
 ---
-title: Public preview service limits - Azure Digital Twins | Microsoft Docs
-description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
+title: Limiti del servizio di anteprima pubblica-gemelli di Azure Digital | Microsoft Docs
+description: Informazioni sul servizio di anteprima pubblica, sulla sottoscrizione, sull'istanza e sui limiti di velocità per i dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -70,8 +70,8 @@ I limiti seguenti definiscono il numero totale di tutte le chiamate delle funzio
 
 I limiti seguenti si applicano al numero totale di tutti i messaggi che i dispositivi possono inviare all'istanza di Gemelli digitali di Azure:
 
-- 100 messages per second across all devices
--   25 messages per second per device
+- 100 messaggi al secondo in tutti i dispositivi
+-   25 messaggi al secondo per dispositivo
 
 ## <a name="next-steps"></a>Passaggi successivi
 

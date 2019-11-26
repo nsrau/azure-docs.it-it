@@ -1,5 +1,5 @@
 ---
-title: Manage users in Azure Blockchain Workbench
+title: Gestire gli utenti in Azure blockchain Workbench
 description: Come gestire gli utenti in Azure Blockchain Workbench.
 ms.date: 05/09/2019
 ms.topic: article
@@ -15,7 +15,7 @@ ms.locfileid: "74324702"
 
 Azure Blockchain Workbench include la gestione degli utenti per persone e organizzazioni che fanno parte del consorzio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 È necessaria una distribuzione di Blockchain Workbench. Per informazioni dettagliate sulla distribuzione, vedere [Distribuzione di Azure Blockchain Workbench](deploy.md).
 
@@ -32,7 +32,7 @@ Gli utenti di Blockchain Workbench devono essere inclusi nel tenant di Azure AD 
 
     ![Nuovo utente](./media/manage-users/add-ad-user.png)
 
-5.  Completare i campi obbligatori per il nuovo utente. Selezionare **Create** (Crea).
+5.  Completare i campi obbligatori per il nuovo utente. Selezionare **Create**.
 
 Per altre informazioni su come gestire gli utenti in Azure AD, visitare il sito della documentazione di [Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -83,7 +83,7 @@ Usare l'applicazione Blockchain Workbench per gestire utenti e organizzazioni ch
 
     ![Aggiungere membri](./media/manage-users/application-add-members.png)
 
-3. Cercare il nome dell'utente.  Sono elencati solo gli utenti di Azure AD che esistono nel tenant di Blockchain Workbench. Se non è possibile trovare l'utente, è necessario [aggiungere utenti di Azure AD](#add-azure-ad-users).
+3. Cercare il nome dell'utente.  Vengono elencati solo gli utenti di Azure AD presenti nel tenant di Blockchain Workbench. Se non è possibile trovare l'utente, è necessario [aggiungere utenti di Azure AD](#add-azure-ad-users).
 
     ![Aggiungere membri](./media/manage-users/find-user.png)
 

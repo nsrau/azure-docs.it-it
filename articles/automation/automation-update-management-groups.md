@@ -24,7 +24,7 @@ Gestione aggiornamenti offre la possibilità di specificare come destinazione un
 
 Questi gruppi vengono definiti da una query. Quando inizia una distribuzione di aggiornamenti, i membri di tale gruppo vengono valutati. I gruppi dinamici non funzionano con le VM classiche. Quando si definisce la query, gli elementi seguenti possono essere utilizzati insieme per popolare il gruppo dinamico:
 
-* Sottoscrizione
+* sottoscrizione
 * Gruppi di risorse
 * Località
 * Tag

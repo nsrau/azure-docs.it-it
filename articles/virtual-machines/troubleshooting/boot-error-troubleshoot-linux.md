@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot boot errors in Azure Linux Virtual Machines | Microsoft Docs
-description: This article helps link you to articles to troubleshoot boot errors in Azure Linux Virtual Machines.
+title: Risolvere gli errori di avvio in Azure macchine virtuali Linux | Microsoft Docs
+description: Questo articolo consente di collegare gli articoli per risolvere gli errori di avvio in Azure macchine virtuali Linux.
 services: virtual-machines-linux
 documentationCenter: ''
 author: vilibert
@@ -19,34 +19,34 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74408742"
 ---
-# <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>Troubleshoot Azure Linux Virtual Machines boot errors
+# <a name="troubleshoot-azure-linux-virtual-machines-boot-errors"></a>Risolvere gli errori di avvio macchine virtuali Linux di Azure
 
-This article lists the common boot errors that you may receive when you start a Linux virtual machine (VM) in Microsoft Azure. Per altre informazioni sugli errori, vedere gli articoli della sezione **Errori di avvio e soluzioni**.
+Questo articolo elenca gli errori di avvio comuni che è possibile ricevere quando si avvia una macchina virtuale (VM) Linux in Microsoft Azure. Per altre informazioni sugli errori, vedere gli articoli della sezione **Errori di avvio e soluzioni**.
 
 ## <a name="boot-errors-and-solutions"></a>Errori di avvio e soluzioni
 
-* [GRUB rescue](troubleshoot-vm-boot-error.md)
+* [Salvataggio di GRUB](troubleshoot-vm-boot-error.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Console seriale per la macchina virtuale](serial-console-linux.md)
 
-Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using Azure:
+Risolvere i problemi di una VM Linux connettendo il disco del sistema operativo a una VM di ripristino tramite Azure:
 
-- [Azure VM repair](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)
+- [Ripristino della macchina virtuale di Azure](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)
 
- Disk Swap – this can be automated using either:
-- [Power Shell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
-- [bash Recovery Scripts](https://github.com/sribs/azure-support-scripts)
+ Swap su disco: questa operazione può essere automatizzata usando:
+- [Script di ripristino di Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+- [Script di ripristino bash](https://github.com/sribs/azure-support-scripts)
 
-- [Interfaccia della riga di comando](troubleshoot-recovery-disks-linux.md)
-- [Azure portal](troubleshoot-recovery-disks-portal-linux.md)
+- [CLI](troubleshoot-recovery-disks-linux.md)
+- [Portale di Azure](troubleshoot-recovery-disks-portal-linux.md)
 
 
-## <a name="disk-swap-video"></a>Disk Swap Video:
+## <a name="disk-swap-video"></a>Video di scambio disco:
 
-If you do not have access to GRUB watch [this](https://youtu.be/m5t0GZ5oGAc) video and see, how you can easily automate the disk swap procedure to recover your VM
+Se non si ha accesso a GRUB, guardare [questo](https://youtu.be/m5t0GZ5oGAc) video e vedere come è possibile automatizzare facilmente la procedura di scambio del disco per ripristinare la macchina virtuale
 
-## <a name="unofficial-solution"></a>Unofficial solution
+## <a name="unofficial-solution"></a>Soluzione non ufficiale
 
-Recovery of a VM can also be attempted with the unsupported BETA script [ALAR](https://github.com/malachma/azure-auto-recover)
+Il ripristino di una macchina virtuale può anche essere eseguito con lo script BETA non supportato [Alar](https://github.com/malachma/azure-auto-recover)

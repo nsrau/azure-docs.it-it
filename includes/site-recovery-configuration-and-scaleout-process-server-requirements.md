@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260778"
 ---
-**Configuration and process server requirements**
+**Requisiti del server di configurazione e di elaborazione**
 
 
 ## <a name="hardware-requirements"></a>Requisiti hardware
@@ -37,30 +37,30 @@ Spazio libero su disco (disco di conservazione) | 600 GB
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Impostazioni locali del sistema operativo | Inglese (en-us)
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Ulteriori informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
-FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
+FIPS (Federal Information Processing Standards) | Non abilitare la modalità FIPS
 |
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
 **Componente** | **Requisito** 
 --- | --- 
-Tipo di indirizzo IP | Statica 
+Tipo di indirizzo IP | Static 
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati) 
-Tipo di scheda di interfaccia di rete | VMXNET3 (if the configuration server is a VMware VM)
+Tipo di scheda di interfaccia di rete | VMXNET3 (se il server di configurazione è una macchina virtuale VMware)
  |
-**Internet access**  (the server needs access to the following URLs, directly or via proxy):|
-\*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati di replica
-\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati di replica
+**Accesso a Internet** (il server deve accedere agli URL seguenti, direttamente o tramite proxy):|
+\*.backup.windowsazure.com | Usato per il coordinamento e il trasferimento dei dati replicati
+\*.store.core.windows.net | Usato per il coordinamento e il trasferimento dei dati replicati
 \*.blob.core.windows.net | Usato per accedere all'account di archiviazione in cui sono archiviati i dati replicati
 \*.hypervrecoverymanager.windowsazure.com | Usato per il coordinamento e le operazioni di gestione della replica
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica 
-*.services.visualstudio.com | Used for telemetry purposes (optional)
-time.nist.gov | Used to check time synchronization between system and global time
-time.windows.com | Used to check time synchronization between system and global time
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also whitelisted, if necessary.
+*.services.visualstudio.com | Usato per scopi di telemetria (facoltativo)
+time.nist.gov | Usato per controllare la sincronizzazione dell'ora tra sistema e ora globale
+time.windows.com | Usato per controllare la sincronizzazione dell'ora tra sistema e ora globale
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | L'installazione di OVF richiede l'accesso a questi URL. Vengono usati per il controllo di accesso e la gestione delle identità Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Per completare il download di MySQL. </br> In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che anche l'URL della rete CDN sia incluso nell'elenco elementi consentiti, se necessario.
 |
 
 ## <a name="required-software"></a>Requisiti software
@@ -73,7 +73,7 @@ MYSQL | MySQL deve essere installato. È possibile eseguire l'installazione manu
 
 ## <a name="sizing-and-capacity-requirements"></a>Requisiti di dimensioni e capacità
 
-La tabella seguente riepiloga i requisiti di capacità del server di configurazione. If you're replicating multiple VMware VMs, review the [capacity planning considerations](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) and run the [Azure Site Recovery Deployment Planner tool](../articles/site-recovery/site-recovery-deployment-planner.md).
+La tabella seguente riepiloga i requisiti di capacità del server di configurazione. Se si esegue la replica di più macchine virtuali VMware, rivedere le [considerazioni sulla pianificazione della capacità](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) ed eseguire lo [strumento Azure Site Recovery Deployment Planner](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
 **CPU** | **Memoria** | **Disco cache** | **Frequenza di modifica dei dati** | **Computer replicati**

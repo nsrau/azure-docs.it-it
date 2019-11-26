@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Autenticazione
 titleSuffix: Azure Cognitive Services
 description: 'Esistono tre modi per autenticare una richiesta a una risorsa di Servizi cognitivi di Azure: tramite una chiave di sottoscrizione, un token di connessione o una sottoscrizione multiservizio. Questo articolo descrive ciascun modo e come effettuare una richiesta.'
 services: cognitive-services
@@ -23,23 +23,23 @@ Ogni richiesta a un servizio di Servizi cognitivi di Azure deve includere un'int
 * [Eseguire l'autenticazione con una chiave di sottoscrizione a servizio singolo](#authenticate-with-a-single-service-subscription-key)
 * [Eseguire l'autenticazione con una chiave di sottoscrizione multiservizio](#authenticate-with-a-multi-service-subscription-key)
 * [Eseguire l'autenticazione con un token](#authenticate-with-an-authentication-token)
-* [Authenticate with Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* [Eseguire l'autenticazione con Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. If you don't have an account, we have a guide to get you set up in minutes: [Create a Cognitive Services account for Azure](cognitive-services-apis-create-account.md).
+Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. Se non si dispone di un account, è presente una guida che consente di configurare in pochi minuti: [creare un account di servizi cognitivi per Azure](cognitive-services-apis-create-account.md).
 
-You can get your subscription key from the [Azure portal](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) after creating your account, or activating a [free trial](https://azure.microsoft.com/try/cognitive-services/my-apis).
+È possibile ottenere la chiave di sottoscrizione dalla [portale di Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo la creazione dell'account o l'attivazione di una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>Intestazioni di autenticazione
 
 È opportuno esaminare rapidamente le intestazioni di autenticazione disponibili per l'uso con Servizi cognitivi di Azure.
 
-| Intestazione | Description |
+| Intestazione | DESCRIZIONE |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Usare questa intestazione per eseguire l'autenticazione con una chiave di sottoscrizione per un servizio specifico o una chiave di sottoscrizione multiservizio. |
 | Ocp-Apim-Subscription-Region | Questa intestazione è richiesta solo quando si usa una chiave di sottoscrizione multiservizio con l'[API Traduzione testuale](./Translator/reference/v3-0-reference.md). Usare questa intestazione per specificare l'area di sottoscrizione. |
-| Authorization | Usare questa intestazione se si usa un token di autenticazione. Le sezioni seguenti descrivono in dettaglio i passaggi per eseguire uno scambio di token. Il valore specificato segue questo formato: `Bearer <TOKEN>`. |
+| Autorizzazione | Usare questa intestazione se si usa un token di autenticazione. Le sezioni seguenti descrivono in dettaglio i passaggi per eseguire uno scambio di token. Il valore specificato segue questo formato: `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Eseguire l'autenticazione con una chiave di sottoscrizione a servizio singolo
 
@@ -66,7 +66,7 @@ Il video seguente illustra l'uso di una chiave di Servizi cognitivi.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Eseguire l'autenticazione con una chiave di sottoscrizione multiservizio
 
 >[!WARNING]
-> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+> A questo punto, questi servizi **non** supportano chiavi multiservizio: QnA Maker, servizi vocali, visione personalizzata e rilevamento anomalie.
 
 Questa opzione usa anche una chiave di sottoscrizione per autenticare le richieste. La differenza principale è che una chiave di sottoscrizione non è associata a un servizio specifico. Una singola chiave può infatti essere usata per autenticare le richieste per più servizi cognitivi. Per informazioni sulla disponibilità regionale, le funzionalità supportate e i prezzi, vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
@@ -115,11 +115,11 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Alcuni Servizi cognitivi di Azure accettano e in alcuni casi richiedono un token di autenticazione. Questi servizi attualmente supportano i token di autenticazione:
 
 * API Traduzione testuale
-* Speech Services: Speech-to-text REST API
-* Speech Services: Text-to-speech REST API
+* Servizi di riconoscimento vocale: API REST per sintesi vocale
+* Servizi vocali: API REST di sintesi vocale
 
 >[!NOTE]
-> Anche QnA Maker usa l'intestazione di autorizzazione, ma richiede una chiave di endpoint. For more information, see [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
+> Anche QnA Maker usa l'intestazione di autorizzazione, ma richiede una chiave di endpoint. Per ulteriori informazioni, vedere [QnA Maker: ottenere la risposta dalla Knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
 > I servizi che supportano i token di autenticazione possono cambiare nel tempo. Controllare l'API di riferimento per un servizio prima di usare questo metodo di autenticazione.
@@ -161,8 +161,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Che cosa sono i servizi cognitivi?](welcome.md)
 * [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Custom subdomains](cognitive-services-custom-subdomains.md)
+* [Sottodomini personalizzati](cognitive-services-custom-subdomains.md)

@@ -1,5 +1,5 @@
 ---
-title: Create, list & delete user-assigned managed identity using Azure PowerShell - Azure AD
+title: Creare, elencare & eliminare l'identità gestita assegnata dall'utente usando Azure PowerShell-Azure AD
 description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -32,7 +32,7 @@ In questo articolo è illustrato come creare, elencare ed eliminare un'identità
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.

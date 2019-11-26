@@ -1,6 +1,6 @@
 ---
 title: Architettura di Azure Blockchain Workbench
-description: Overview of Azure Blockchain Workbench Preview architecture and its components.
+description: Panoramica dell'architettura di anteprima di Azure blockchain Workbench e dei relativi componenti.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -13,9 +13,9 @@ ms.locfileid: "74324889"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
 
-Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench può essere distribuito tramite un modello di soluzione disponibile in Azure Marketplace. Il modello permette di scegliere i moduli e i componenti da distribuire, ad esempio lo stack di blockchain, il tipo di applicazione client e il supporto per l'integrazione IoT. Una volta distribuito, Blockchain Workbench fornisce l'accesso a un'app Web, un'app per iOS e un'app per Android.
+Azure blockchain Workbench Preview semplifica lo sviluppo di applicazioni blockchain fornendo una soluzione che usa diversi componenti di Azure. Blockchain Workbench può essere distribuito tramite un modello di soluzione disponibile in Azure Marketplace. Il modello permette di scegliere i moduli e i componenti da distribuire, ad esempio lo stack di blockchain, il tipo di applicazione client e il supporto per l'integrazione IoT. Una volta distribuito, Blockchain Workbench fornisce l'accesso a un'app Web, un'app per iOS e un'app per Android.
 
-![Blockchain Workbench architecture](./media/architecture/architecture.png)
+![Architettura di blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identità e autenticazione
 
@@ -107,7 +107,7 @@ Dagli ordini di acquisto alle bolle di accompagnamento, dalle immagini usate nei
 
 Blockchain Workbench supporta la possibilità di aggiungere documenti o altro contenuto multimediale con logica di business basata su blockchain. Un hash del documento o del contenuto multimediale viene archiviato nella blockchain e l'effettivo documento o contenuto viene archiviato in Archiviazione di Azure. Le informazioni sulle transazioni associate vengono inviate al broker di messaggi in ingresso, incluse in un pacchetto, firmate e instradate alla blockchain. Questo processo attiva eventi, che vengono condivisi tramite il broker di messaggi in uscita. Il database SQL utilizza queste informazioni e le invia al database per la successiva esecuzione di query. Anche i sistemi a valle possono utilizzare questi eventi per operare nel modo appropriato.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 Workbench offre la registrazione delle applicazioni tramite Application Insights e Monitoraggio di Azure. Application Insights viene usato per archiviare tutte le informazioni registrate da Blockchain Workbench e include errori, avvisi e operazioni riuscite. Application Insights può essere usato dagli sviluppatori per eseguire il debug di problemi relativi a Blockchain Workbench. 
 

@@ -41,7 +41,7 @@ I diagrammi di protocollo seguenti descrivono la sequenza di Single Sign-On per 
 
 1. Nella portale di Azure selezionare **Azure Active Directory > applicazioni aziendali** e selezionare **nuova applicazione**.
 
-2. Nella sezione **applicazioni locali** selezionare **Aggiungi un'applicazione locale**.
+2. Nella sezione **Applicazioni locali** selezionare **Aggiungi un'applicazione locale**.
 
 3. Immettere il nome visualizzato per la nuova applicazione e quindi selezionare **Aggiungi**.
 

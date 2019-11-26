@@ -1,6 +1,6 @@
 ---
 title: Distribuzione continua per Funzioni di Azure
-description: Use the continuous deployment features of Azure App Service to publish your functions.
+description: Usare le funzionalità di distribuzione continua del servizio app Azure per pubblicare le funzioni.
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
@@ -13,59 +13,59 @@ ms.locfileid: "74230891"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
 
-You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers deployment to Azure. If you're new to Azure Functions, get started by reviewing the [Azure Functions overview](functions-overview.md).
+È possibile usare funzioni di Azure per distribuire il codice in modo continuo usando l' [integrazione del controllo](functions-deployment-technologies.md#source-control)del codice sorgente. L'integrazione del controllo del codice sorgente consente un flusso di lavoro in cui un aggiornamento del codice attiva la distribuzione in Azure. Se non si ha familiarità con funzioni di Azure, vedere la Panoramica di [funzioni di Azure](functions-overview.md).
 
-Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous deployment in Azure Functions from the following source code locations:
+La distribuzione continua è una scelta ideale per i progetti in cui si integrano contributi multipli e frequenti. Quando si usa la distribuzione continua, si mantiene un'unica fonte di verità per il codice, che consente ai team di collaborare con facilità. È possibile configurare la distribuzione continua in funzioni di Azure dalle seguenti posizioni del codice sorgente:
 
 * [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
-The unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time. After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the source of truth is set to be elsewhere.
+L'unità di distribuzione per le funzioni in Azure è l'app per le funzioni. Tutte le funzioni in un'app per le funzioni vengono distribuite nello stesso momento. Dopo aver abilitato la distribuzione continua, l'accesso al codice della funzione nella portale di Azure viene configurato come di sola *lettura* , perché l'origine della verità è impostata come altrove.
 
-## <a name="requirements-for-continuous-deployment"></a>Requirements for continuous deployment
+## <a name="requirements-for-continuous-deployment"></a>Requisiti per la distribuzione continua
 
-For continuous deployment to succeed, your directory structure must be compatible with the basic folder structure that Azure Functions expects.
+Per la riuscita della distribuzione continua, la struttura di directory deve essere compatibile con la struttura di cartelle di base prevista da funzioni di Azure.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 >[!NOTE]  
-> Continuous deployment is not yet supported for Linux apps running on a Consumption plan. 
+> La distribuzione continua non è ancora supportata per le app Linux in esecuzione in un piano a consumo. 
 
-## <a name="credentials"></a>Set up continuous deployment
+## <a name="credentials"></a>Configurare la distribuzione continua
 
-To configure continuous deployment for an existing function app, complete these steps. The steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
+Per configurare la distribuzione continua per un'app per le funzioni esistente, completare questi passaggi. I passaggi illustrano l'integrazione con un repository GitHub, ma si applicano passaggi simili per Azure Repos o altri repository del codice sorgente.
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Platform features** > **Deployment Center**.
+1. Nell'app per le funzioni nella [portale di Azure](https://portal.azure.com)selezionare **funzionalità della piattaforma** > **centro distribuzione**.
 
-    ![Open Deployment Center](./media/functions-continuous-deployment/platform-features.png)
+    ![Apri Centro distribuzione](./media/functions-continuous-deployment/platform-features.png)
 
-2. In **Deployment Center**, select **GitHub**, and then select **Authorize**. If you've already authorized GitHub, select **Continue**. 
+2. In **centro distribuzione**selezionare **GitHub**e quindi selezionare **autorizza**. Se GitHub è già stato autorizzato, selezionare **continue (continua**). 
 
-    ![Azure App Service Deployment Center](./media/functions-continuous-deployment/github.png)
+    ![Centro distribuzione servizio app Azure](./media/functions-continuous-deployment/github.png)
 
-3. In GitHub, select the **Authorize AzureAppService** button. 
+3. In GitHub selezionare il pulsante **autorizza AzureAppService** . 
 
-    ![Authorize Azure App Service](./media/functions-continuous-deployment/authorize.png)
+    ![Autorizzare il servizio app Azure](./media/functions-continuous-deployment/authorize.png)
     
-    In **Deployment Center** in the Azure portal, select **Continue**.
+    In **centro distribuzione** nel portale di Azure selezionare **continua**.
 
-4. Select one of the following build providers:
+4. Selezionare uno dei provider di compilazione seguenti:
 
-    * **App Service build service**: Best when you don't need a build or if you need a generic build.
-    * **Azure Pipelines (Preview)** : Best when you need more control over the build. This provider currently is in preview.
+    * **Servizio di compilazione del servizio app**: migliore quando non è necessaria una compilazione o se è necessaria una compilazione generica.
+    * **Azure Pipelines (anteprima)** : migliore quando è necessario un maggiore controllo sulla compilazione. Questo provider è attualmente disponibile in anteprima.
 
-    ![Select a build provider](./media/functions-continuous-deployment/build.png)
+    ![Selezionare un provider di compilazione](./media/functions-continuous-deployment/build.png)
 
-5. Configure information specific to the source control option you specified. For GitHub, you must enter or select values for **Organization**, **Repository**, and **Branch**. The values are based on the location of your code. Selezionare quindi **Continua**.
+5. Configurare informazioni specifiche per l'opzione di controllo del codice sorgente specificata. Per GitHub è necessario immettere o selezionare i valori per **Organization**, **repository**e **Branch**. I valori sono basati sulla posizione del codice. Selezionare quindi **Continua**.
 
     ![Configurare GitHub](./media/functions-continuous-deployment/github-specifics.png)
 
-6. Review all details, and then select **Finish** to complete your deployment configuration.
+6. Esaminare tutti i dettagli e quindi fare clic su **fine** per completare la configurazione della distribuzione.
 
-    ![Summary](./media/functions-continuous-deployment/summary.png)
+    ![summary](./media/functions-continuous-deployment/summary.png)
 
-When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
+Al termine del processo, tutto il codice dall'origine specificata viene distribuito nell'app. A questo punto, le modifiche apportate all'origine della distribuzione attivano una distribuzione di tali modifiche nell'app per le funzioni in Azure.
 
 ## <a name="deployment-scenarios"></a>Scenari di distribuzione
 
@@ -73,12 +73,12 @@ When the process is finished, all code from the specified source is deployed to 
 
 ### <a name="move-existing-functions-to-continuous-deployment"></a>Trasferire le funzioni esistenti nella distribuzione continua
 
-If you've already written functions in the [Azure portal](https://portal.azure.com) and you want to download the contents of your app before you switch to continuous deployment, go to the **Overview** tab of your function app. Select the **Download app content** button.
+Se sono già state scritte funzioni nell' [portale di Azure](https://portal.azure.com) e si vuole scaricare il contenuto dell'app prima di passare alla distribuzione continua, passare alla scheda **Panoramica** dell'app per le funzioni. Selezionare il pulsante **Scarica contenuto dell'app** .
 
-![Download app content](./media/functions-continuous-deployment/download.png)
+![Scarica contenuto dell'app](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
-> After you configure continuous integration, you can no longer edit your source files in the Functions portal.
+> Dopo aver configurato l'integrazione continua, non è più possibile modificare i file di origine nel portale delle funzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

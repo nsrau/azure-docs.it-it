@@ -16,7 +16,7 @@ ms.locfileid: "74227076"
 
 Questo articolo illustra come eseguire il debug di una funzione locale che gestisce un evento della Griglia di eventi di Azure generato da un account di archiviazione. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Creare o usare un'app per le funzioni esistente
 - Creare o usare un account di archiviazione esistente

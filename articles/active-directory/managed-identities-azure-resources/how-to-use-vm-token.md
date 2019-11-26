@@ -1,5 +1,5 @@
 ---
-title: Use managed identities on a virtual machine to acquire access token - Azure AD
+title: Usare identità gestite in una macchina virtuale per acquisire il token di accesso-Azure AD
 description: Istruzioni dettagliate ed esempi per l'utilizzo di identità gestite per risorse di Azure in una macchina virtuale per acquisire un token di accesso OAuth.
 services: active-directory
 documentationcenter: ''
@@ -26,11 +26,11 @@ ms.locfileid: "74232204"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo fornisce vari esempi di codice e script per l'acquisizione di token, oltre a indicazioni su argomenti importanti come la gestione degli errori HTTP e di scadenza dei token. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Se si prevede di usare gli esempi di Azure PowerShell presenti in questo articol
 > [!IMPORTANT]
 > - Il limite di sicurezza delle identità gestite per risorse di Azure è la risorsa in cui le identità vengono usate. Tutti i codici e gli script in esecuzione in una macchina virtuale possono richiedere e recuperare token per qualsiasi identità gestita disponibile nella macchina stessa. 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Un'applicazione client può richiedere un [token di accesso solo app](../develop/developer-glossary.md#access-token) per le identità gestite per risorse di Azure per accedere a una determinata risorsa. Il token è [basato sulle identità gestite per l'entità servizio delle risorse di Azure](overview.md#how-does-it-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/v1-oauth2-client-creds-grant-flow.md).
 
@@ -70,7 +70,7 @@ Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| Elemento | Description |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure per il servizio metadati. |
@@ -79,7 +79,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Un campo di intestazione della richiesta HTTP, richiesto dalle identità gestite per risorse di Azure come mitigazione degli attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole. |
 | `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 | `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
-| `mi_res_id` | (Optional) A query string parameter, indicating the mi_res_id (Azure Resource ID) of the managed identity you would like the token for. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
+| `mi_res_id` | Opzionale Parametro della stringa di query, che indica il mi_res_id (ID risorsa di Azure) dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
 
 Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale delle identità gestite per risorse di Azure *(la cui deprecazione è pianificata per il gennaio 2019)* :
 
@@ -88,7 +88,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | Description |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure, dove 50342 è la porta predefinita ed è configurabile. |
@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | Description |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
 | `refresh_token` | Non usata dalle identità gestite per risorse di Azure. |
@@ -362,16 +362,16 @@ L'endpoint delle identità gestite per risorse di Azure segnala gli errori trami
 
 Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene dati JSON con i dettagli dell'errore:
 
-| Elemento | Description |
+| Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | error   | Identificatore dell'errore. |
-| error_description | Descrizione dettagliata dell'errore. **Error descriptions can change at any time. Do not write code that branches based on values in the error description.**|
+| error_description | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento. Non scrivere codice che si dirama in base ai valori nella descrizione dell'errore.**|
 
 ### <a name="http-response-reference"></a>Riferimenti per la risposta HTTP
 
 Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 OK" costituisce una risposta con esito positivo e il token di accesso è contenuto nei dati JSON del corpo della risposta, nell'elemento access_token.
 
-| Codice di stato | Errore | Descrizione dell'errore | Soluzione |
+| Codice di stato | Tipi di errore | Descrizione dell'errore | Soluzione |
 | ----------- | ----- | ----------------- | -------- |
 | 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata *\<URI\>* non è stata trovata nel tenant denominato *\<TENANT-ID\>* . Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
 | 400 - Richiesta non valida | bad_request_102 | L'intestazione dei metadati richiesta non è stata specificata. | Il campo di intestazione della richiesta `Metadata` non è presente nella richiesta oppure non è formattato correttamente. Il valore deve essere specificato come `true`, usando tutte lettere minuscole. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
@@ -397,7 +397,7 @@ Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente:
 
 ## <a name="resource-ids-for-azure-services"></a>ID di risorsa per i servizi di Azure
 
-Per un elenco di risorse che supportano Azure AD e che sono state testate con le identità gestite per le risorse di Azure e i relativi ID risorsa, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md).
+Per un elenco di risorse che supportano Azure AD e che sono state testate con le identità gestite per risorse di Azure e i relativi ID risorsa, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
