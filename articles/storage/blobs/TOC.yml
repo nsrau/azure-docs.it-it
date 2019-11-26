@@ -667,7 +667,21 @@
               href: ../blobs/data-lake-storage-explorer.md
             - name: Aggiornare un account di archiviazione
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Inserire dati
+        - name: 'Gestire directory, file ed elenchi di controllo di accesso'
+          items:
+            - name: .NET
+              href: data-lake-storage-directory-file-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-directory-file-acl-java.md
+            - name: Python
+              href: data-lake-storage-directory-file-acl-python.md
+            - name: PowerShell
+              href: data-lake-storage-directory-file-acl-powershell.md
+            - name: CLI
+              href: data-lake-storage-directory-file-acl-cli.md
+            - name: Storage Explorer
+              href: data-lake-storage-how-to-set-permissions-storage-explorer.md
+        - name: Trasferire i dati
           items:
             - name: AzCopy
               items:
@@ -717,10 +731,16 @@
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gestire i file (BLOB)
           items:
-            - name: PowerShell
-              href: /powershell/module/azure.storage
-            - name: Interfaccia della riga di comando di Azure
-              href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Panoramica
+              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare Spark in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare Hive in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare MapReduce in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Ottimizzare Storm in HDInsight
+              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Eseguire la migrazione dei dati
           items:
             - name: Eseguire l'aggiornamento da Data Lake Storage Gen1

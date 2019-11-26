@@ -133,6 +133,9 @@
         - name: Elaborare i dati di Hub eventi
           href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
+        - name: Elaborare il database SQL di Azure
+          href: ../sql-database/sql-database-stream-analytics.md
+          maintainContext: true
         - name: Scenari geospaziali
           href: geospatial-scenarios.md
     - name: Monitorare

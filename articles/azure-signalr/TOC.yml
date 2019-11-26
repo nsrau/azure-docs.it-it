@@ -61,6 +61,8 @@
   items:
     - name: Scalabilità
       items:
+        - name: Istanza singola
+          href: signalr-howto-scale-signalr.md
         - name: Più istanze
           href: signalr-howto-scale-multi-instances.md
     - name: Proteggere
