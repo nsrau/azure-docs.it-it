@@ -45,6 +45,8 @@
       href: batch-api-basics.md
     - name: API e strumenti
       href: batch-apis-tools.md
+    - name: Procedure consigliate
+      href: best-practices.md
     - name: Quote e limiti
       href: batch-quota-limit.md
     - name: Dimensioni delle macchine virtuali supportate

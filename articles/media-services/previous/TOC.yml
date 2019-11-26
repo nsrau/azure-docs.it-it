@@ -266,18 +266,6 @@
           href: media-services-dotnet-long-operations.md
         - name: Specifica per l'inserimento live di un flusso MP4 frammentato
           href: ../media-services-fmp4-live-ingest-overview.md
-        - name: Introduzione
-          href: media-services-azure-media-clipper-getting-started.md
-        - name: Caricare video
-          href: media-services-azure-media-clipper-load-assets.md
-        - name: Configurare le scelte rapide da tastiera
-          href: media-services-azure-media-clipper-keyboard-shortcuts.md
-        - name: Configurare la localizzazione
-          href: media-services-azure-media-clipper-localization.md
-        - name: Inviare processi di ritaglio
-          href: media-services-azure-media-clipper-submit-job.md
-        - name: Portale di Azure
-          href: media-services-azure-media-clipper-portal.md
     - name: Proteggere il contenuto
       href: media-services-content-protection-overview.md
       items:
