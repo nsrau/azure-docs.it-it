@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub bindings for Azure Functions
-description: Understand how to use IoT Hub bindings in Azure Functions.
+title: Binding dell'hub Azure per funzioni di Azure
+description: Informazioni su come usare le associazioni dell'hub Internet in funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 03/05/2019
@@ -12,15 +12,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227265"
 ---
-# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure IoT Hub bindings for Azure Functions
+# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Binding dell'hub Azure per funzioni di Azure
 
-This article explains how to work with Azure Functions bindings for IoT Hub. The IoT Hub support is based on the [Azure Event Hubs Binding](functions-bindings-event-hubs.md).
+Questo articolo illustra come usare le associazioni di funzioni di Azure per l'hub Internet. Il supporto per hub eventi è basato sull' [associazione di hub eventi di Azure](functions-bindings-event-hubs.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
-For Azure Functions version 1.x, the IoT Hub bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs).
+Per le funzioni di Azure versione 1. x, le associazioni dell'hub Internet sono disponibili nel pacchetto NuGet [Microsoft. Azure. webjobs. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) versione 2. x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -31,7 +31,7 @@ Per Funzioni 2.x, usare il pacchetto [Microsoft.Azure.WebJobs.Extensions.EventHu
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 > [!IMPORTANT]
-> While the following code samples use the Event Hub API, the given syntax is applicable for IoT Hub functions.
+> Sebbene gli esempi di codice seguenti usino l'API dell'hub eventi, la sintassi specificata è applicabile alle funzioni dell'hub Internet.
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 

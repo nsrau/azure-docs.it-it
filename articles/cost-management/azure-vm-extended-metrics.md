@@ -28,10 +28,10 @@ Dopo aver abilitato la raccolta delle metriche, è possibile:
 - Controllare i costi in base all'utilizzo.
 - Ottenere consigli efficaci in termini di costi per l'ottimizzazione delle dimensioni da Cloudyn.
 
-Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memoria delle macchine virtuali di Azure. The Azure VM metrics correspond to _Percentage CPU_ and _\Memory\% Committed Bytes In Use_.
+Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memoria delle macchine virtuali di Azure. Le metriche delle macchine virtuali di Azure corrispondono a _percentuale CPU_ e _\Memoria\% byte vincolati in uso_.
 
 > [!NOTE]
-> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn is not compatible with the [Log Analytics agent](../azure-monitor/platform/agents-overview.md). 
+> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn non è compatibile con l' [agente di log Analytics](../azure-monitor/platform/agents-overview.md). 
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinare se le metriche estese sono abilitate
 
@@ -44,7 +44,7 @@ Nell'esempio precedente è disponibile un set limitato di metriche standard per 
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Abilitare le metriche estese nel portale di Azure
 
-Le metriche standard sono le metriche dei computer host. The _Percentage CPU_ metric is one example. Sono disponibili anche le metriche di base per le macchine virtuali guest, chiamate metriche estese. Examples of extended metrics include _\Memory\% Committed Bytes In Use_ and _\Memory\Available Bytes_.
+Le metriche standard sono le metriche dei computer host. La metrica _percentuale CPU_ è un esempio. Sono disponibili anche le metriche di base per le macchine virtuali guest, chiamate metriche estese. Esempi di metriche estese includono _\memoria\% i byte vincolati in uso_ e _\Memoria\MByte byte_.
 
 L'abilitazione delle metriche estese è un processo semplice. Per ogni macchina virtuale abilitare il monitoraggio a livello di guest. Quando si abilita il monitoraggio a livello di guest, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Per impostazione predefinita, viene aggiunto un set di base di metriche estese. Il processo seguente è lo stesso per macchine virtuali classiche e normali e macchine virtuali Windows e Linux.
 

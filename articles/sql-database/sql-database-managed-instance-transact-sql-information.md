@@ -29,14 +29,14 @@ Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modif
 - La [disponibilità](#availability) include le differenze tra [Always-on](#always-on-availability) e i [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
 - La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il [mirroring del database](#database-mirroring), le opzioni di [database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
-- [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
+- Le [funzionalità](#functionalities) includono [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transazioni distribuite](#distributed-transactions), [eventi estesi](#extended-events), [librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [polibase](#polybase), [replica](#replication), [ripristino](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
 - [Impostazioni dell'ambiente](#Environment) , ad esempio le configurazioni di reti virtuali e subnet.
 
 La maggior parte di queste funzionalità sono vincoli di architettura e rappresentano le funzionalità del servizio.
 
 In questa pagina vengono inoltre illustrati i [problemi noti temporanei](#Issues) individuati in istanza gestita, che verranno risolti in futuro.
 
-## <a name="availability"></a>Disponibilità
+## <a name="availability"></a>Availability
 
 ### <a name="always-on-availability"></a>Always On
 

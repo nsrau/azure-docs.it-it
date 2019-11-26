@@ -1,5 +1,5 @@
 ---
-title: OpenAPI metadata in Azure Functions
+title: Metadati OpenAPI in funzioni di Azure
 description: Panoramica del supporto OpenAPI in Funzioni di Azure
 author: alexkarcher-msft
 ms.topic: conceptual
@@ -40,7 +40,7 @@ Per istruzioni dettagliate, vedere l'[esercitazione introduttiva](./functions-ap
 
 ### <a name="templates"></a>Modelli disponibili
 
-|name| Description |
+|Nome| DESCRIZIONE |
 |:-----|:-----|
 |Definizione generata|Una definizione OpenAPI con la quantità massima di informazioni deducibili dai metadati esistenti della funzione.|
 

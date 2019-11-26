@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Device concepts
+title: Servizio Device provisioning in hub Azure-concetti relativi ai dispositivi
 description: Descrive i concetti relativi al dispositivo di reprovisioning per il servizio di Device Provisioning in hub IoT di Azure
 author: wesmc7777
 ms.author: wesmc
@@ -16,7 +16,7 @@ ms.locfileid: "74228847"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concetti di reprovisioning di un dispositivo hub IoT
 
-Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. Le ragioni di questo spostamento possono includere gli scenari seguenti:
+Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. I motivi per eseguire lo spostamento possono includere i seguenti scenari:
 
 * **Georilevazione/GeoLatency**: quando un dispositivo si sposta tra le posizioni, la latenza della rete viene migliorata migrando il dispositivo su un hub IoT più vicino.
 
@@ -50,11 +50,11 @@ A seconda dello scenario, mentre un dispositivo si sposta tra gli hub IoT, potre
 
 In genere (in base allo scenario), un dispositivo invia una richiesta a un'istanza del servizio di provisioning al riavvio del sistema. Supporta anche un metodo per l'attivazione manuale del provisioning su richiesta. I criteri per rieffettuare il provisioning su una voce di registrazione determinano il modo in cui l'istanza del servizio Device Provisioning gestisce queste richieste di provisioning e stabilisce se i dati sullo stato del dispositivo devono essere migrati durante il nuovo provisioning. Gli stessi criteri sono disponibili per le registrazioni individuali e di gruppi:
 
-* **Rieseguire il provisioning e la migrazione dei dati**: questo criterio è il valore predefinito per le nuove voci di registrazione. Questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta (1). A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Le informazioni sullo stato dei dispositivi aggiornati da tale hub IoT iniziale verranno migrate sul nuovo hub IoT (2). Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
+* **Rieseguire il provisioning e la migrazione dei dati**: questo criterio è il valore predefinito per le nuove voci di registrazione. Questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta (1). A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando l'hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Le informazioni sullo stato dei dispositivi aggiornati da tale hub IoT iniziale verranno migrate sul nuovo hub IoT (2). Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
 
     ![Provisioning con il servizio Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Rieseguire il provisioning e ripristinare la configurazione iniziale**: Questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning (1). A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT (2). Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
+* **Rieseguire il provisioning e ripristinare la configurazione iniziale**: Questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning (1). A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando l'hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT (2). Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
 
     Questo criterio viene spesso usato per il ripristino senza modificare l'hub IoT.
 
@@ -80,7 +80,7 @@ Il seguente diagramma di flusso aiuta a capire quando è presente il comportamen
 
 La tabella seguente mostra le versioni dell'API precedenti alla disponibilità del supporto di reprovisioning nativo nel servizio Device Provisioning:
 
-| API REST | SDK per C | Python SDK |  Node SDK | Java SDK | .NET SDK |
+| API REST | SDK per C | Python SDK |  Node SDK | SDK per Java | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
 | [2018-04-01 e versioni precedenti](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 e versioni precedenti](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 e versioni precedenti](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 e versioni precedenti](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 e versioni precedenti](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 e versioni precedenti](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 

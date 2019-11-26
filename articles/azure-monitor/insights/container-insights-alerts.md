@@ -299,7 +299,7 @@ Seguire questa procedura per creare un avviso del log in monitoraggio di Azure u
     1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on**selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
     1. Nella sezione **valutato in base** a impostare il valore del **periodo** su **60 minuti**. La regola viene eseguita ogni 5 minuti e restituisce i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un'ampia finestra account per la potenziale latenza dei dati. Garantisce inoltre che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai attivato.
 
-9. Selezionare **per completare** la regola di avviso.
+9. Selezionare **fine** per completare la regola di avviso.
 10. Immettere un nome nel campo **Nome regola di avviso** . Specificare una **Descrizione** che fornisca dettagli sull'avviso. E selezionare un livello di gravità appropriato dalle opzioni fornite.
 11. Per attivare immediatamente la regola di avviso, accettare il valore predefinito per **Abilita regola al momento della creazione**.
 12. Selezionare un **gruppo di azioni** esistente o creare un nuovo gruppo. Questo passaggio garantisce che vengano eseguite le stesse azioni ogni volta che viene attivato un avviso. Configurare in base alle modalità di gestione degli eventi imprevisti da parte del team operativo IT o DevOps.

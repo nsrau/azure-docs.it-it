@@ -1,6 +1,6 @@
 ---
-title: Delegate a subdomain - Azure PowerShell - Azure DNS
-description: With this learning path, get started delegating an Azure DNS subdomain using Azure PowerShell.
+title: Delegare un sottodominio-Azure PowerShell-DNS di Azure
+description: Con questo percorso di apprendimento, iniziare a delegare un sottodominio DNS di Azure usando Azure PowerShell.
 services: dns
 author: asudbring
 ms.service: dns
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per delegare un sottodominio DNS di Azure occorre prima delegare il dominio pubblico alla zona DNS di Azure. Per istruzioni sulla configurazione dei server dei nomi per la delega, vedere [Esercitazione: Ospitare il dominio in DNS di Azure](./dns-delegate-domain-azure-dns.md). Una volta delegato il dominio alla zona del servizio DNS di Azure, è possibile delegare il sottodominio.
 

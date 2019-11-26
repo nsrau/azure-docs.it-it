@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center and Azure Container Registry
-description: Learn about Azure Security Center's integration with Azure Container Registry
+title: Centro sicurezza di Azure e Azure Container Registry
+description: Informazioni sull'integrazione del Centro sicurezza di Azure con Azure Container Registry
 services: security-center
 documentationcenter: na
 author: memildin
@@ -19,35 +19,35 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229313"
 ---
-# <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry integration with Security Center (Preview)
+# <a name="azure-container-registry-integration-with-security-center-preview"></a>Integrazione di Azure Container Registry con Centro sicurezza (anteprima)
 
-Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
+Azure Container Registry (ACR) è un servizio di registro Docker privato gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. Si basa sul registro Docker open source 2,0.
 
-For deeper visibility into your registry and images' vulnerabilities, users of Azure Security Center's standard tier can enable the optional Container Registries bundle. Per altre informazioni, vedere la pagina relativa ai [prezzi](security-center-pricing.md). With the bundle enabled, Security Center automatically scans images in your registry whenever an image is pushed to the registry.
+Per una maggiore visibilità delle vulnerabilità del registro di sistema e delle immagini, gli utenti del livello standard del Centro sicurezza di Azure possono abilitare il bundle facoltativo dei registri contenitori. Per altre informazioni, vedere la pagina relativa ai [prezzi](security-center-pricing.md). Con il bundle abilitato, il Centro sicurezza analizza automaticamente le immagini nel registro di sistema ogni volta che viene eseguito il push di un'immagine nel registro.
 
 > [!NOTE]
-> Security Center's first scan of a registry will only occur after the Container Registries bundle is enabled and an image is pushed to the registry.
+> La prima analisi del Centro sicurezza di un registro si verificherà solo dopo l'abilitazione del bundle dei registri contenitori e il push di un'immagine nel registro di sistema.
 
-When the scan completes (typically after approximately 10 minutes), findings are available in Security Center recommendations like this:
+Al termine dell'analisi, in genere dopo circa 10 minuti, i risultati sono disponibili nelle raccomandazioni del Centro sicurezza, come indicato di seguito:
 
-[![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![raccomandazione del Centro sicurezza di Azure di esempio sulle vulnerabilità individuate in un'immagine ospitata in Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Vantaggi dell'integrazione
 
-Security Center identifies ACR registries in your subscription and seamlessly provides:
+Il Centro sicurezza identifica i registri ACR nella sottoscrizione e fornisce facilmente:
 
-* **Azure-native vulnerability scanning** for all pushed Linux images. Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys. This native solution is seamlessly integrated by default.
+* **Analisi delle vulnerabilità native di Azure** per tutte le immagini Linux sottomesse a push. Il Centro sicurezza esegue l'analisi dell'immagine usando uno scanner del fornitore leader del settore per l'analisi delle vulnerabilità, Qualys. Questa soluzione nativa è integrata per impostazione predefinita.
 
-* **Security recommendations** for Linux images with known vulnerabilities. Security Center provides details of each reported vulnerability and a  severity classification. Additionally, it gives guidance for how to  remediate the specific vulnerabilities found on each image pushed to registry.
+* **Raccomandazioni sulla sicurezza** per le immagini Linux con vulnerabilità note. Il Centro sicurezza fornisce i dettagli di ogni vulnerabilità segnalata e una classificazione di gravità. Inoltre, vengono fornite indicazioni su come correggere le vulnerabilità specifiche presenti in ogni immagine di cui è stato eseguito il push nel registro di sistema.
 
-![Azure Security Center and Azure Container Registry (ACR) high-level overview](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Panoramica di alto livello del Centro sicurezza di Azure e di Azure Container Registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-To learn more about Security Center's container security features, see:
+Per ulteriori informazioni sulle funzionalità di sicurezza del contenitore del Centro sicurezza, vedere:
 
-* [Azure Security Center and container security](container-security.md)
+* [Sicurezza del contenitore e del Centro sicurezza di Azure](container-security.md)
 
-* [Integration with Azure Kubernetes Service](azure-kubernetes-service-integration.md)
+* [Integrazione con il servizio Azure Kubernetes](azure-kubernetes-service-integration.md)
 
-* [Virtual Machine protection](security-center-virtual-machine-protection.md) - Describes Security Center's recommendations
+* [Protezione della macchina virtuale](security-center-virtual-machine-protection.md) : descrive le raccomandazioni del Centro sicurezza

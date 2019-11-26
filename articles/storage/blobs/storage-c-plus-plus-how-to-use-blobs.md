@@ -32,14 +32,14 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
-* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+* **Linux:** Seguire le istruzioni fornite nella pagina della [libreria client di archiviazione C++ di Azure per il file Leggimi: introduzione in Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
+* **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire la [Guida](https://github.com/microsoft/vcpkg#quick-start) introduttiva per inizializzare vcpkg. Usare quindi il comando seguente per installare la libreria:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
+È possibile trovare una guida su come compilare il codice sorgente ed esportare in NuGet nel file [Leggimi](https://github.com/Azure/azure-storage-cpp#download--install) .
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurazione dell'applicazione per l'accesso all'archiviazione BLOB
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere ai BLOB:  
@@ -70,7 +70,7 @@ Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Sta
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.  
 
-## <a name="retrieve-your-storage-account"></a>Retrieve your storage account
+## <a name="retrieve-your-storage-account"></a>Recuperare l'account di archiviazione
 Per visualizzare le informazioni dell'account di archiviazione, è possibile usare la classe **cloud_storage_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .  
 
 ```cpp
@@ -125,7 +125,7 @@ I BLOB in un contenitore pubblico sono visibili a tutti gli utenti di Internet, 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Procedura: caricare un BLOB in un contenitore
 In Archivio BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine. Nella maggior parte dei casi è consigliabile utilizzare il tipo di BLOB in blocchi.  
 
-Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload_from_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore e si presuppone che il contenitore sia già stato creato.  
+Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, è possibile caricarvi qualsiasi flusso di dati chiamando il metodo **upload_from_stream**. Questa operazione consentirà di creare il BLOB se non già esistente o di sovrascriverlo se già esistente. Nell'esempio seguente viene illustrato come caricare un BLOB in un contenitore, presupponendo che il contenitore sia già stato creato.  
 
 ```cpp
 // Retrieve storage account from connection string.

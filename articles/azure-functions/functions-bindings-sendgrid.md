@@ -29,7 +29,7 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
 
 > [!NOTE]
-> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
+> La versione 2. x non crea l'argomento o la sottoscrizione configurata nell'istanza di `ServiceBusTrigger`. La versione 2. x si basa su [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) e non gestisce la gestione delle code.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -38,7 +38,7 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#c-example)
-* [Script C# (file con estensione csx)](#c-script-example)
+* [Script C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 * [Java](#java-example)
 
@@ -162,7 +162,7 @@ public class Message
 
 ### <a name="java-example"></a>Esempio per Java
 
-The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
+L'esempio seguente usa l'annotazione `@SendGridOutput` dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica usando l'associazione di output SendGrid.
 
 ```java
 @FunctionName("SendEmail")
@@ -229,7 +229,7 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs).
 
@@ -251,7 +251,7 @@ Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SendGrid`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**type**|| Obbligatoria. Deve essere impostata su `sendGrid`.|
 |**direction**|| Obbligatoria. Deve essere impostata su `out`.|
@@ -284,9 +284,9 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```  
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------| 
-|from|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+|Da|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

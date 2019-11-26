@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224444"
 ---
-| Gruppi | Limite predefinito | Limite massimo | Note |
+| Risorsa | Limite predefinito | Limite massimo | Nota |
 | --- | --- | --- | --- |
-| Azure Network Watcher | 1 per area | 1 per area | Network Watcher is created to enable access to the service. Only one instance of Network Watcher is required per subscription per region. |
-| Packet capture sessions |10,000 per region | 10,000 |Number of sessions only, not saved captures. |
+| Azure Network Watcher | 1 per area | 1 per area | Network Watcher viene creato per consentire l'accesso al servizio. È necessaria una sola istanza di Network Watcher per ogni sottoscrizione per area. |
+| Sessioni di acquisizione pacchetti |10.000 per area | 10.000 |Solo numero di sessioni, acquisizioni non salvate. |

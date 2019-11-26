@@ -43,7 +43,7 @@ I ruoli di lavoro di Funzioni di Azure vengono distribuiti nei contenitori Windo
 
 Per iniziare a usare il runtime di Funzioni di Azure è necessario disporre di un computer con Windows Server 2016 o Windows 10 Creators Update con accesso a un'istanza di SQL Server.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Installare l'[anteprima del runtime di Funzioni di Azure](https://aka.ms/azafrdoc)
 

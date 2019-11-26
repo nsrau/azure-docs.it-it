@@ -36,7 +36,7 @@ Per la distribuzione di unità di istanze Large di HANA, Microsoft richiede le i
 - Per ogni area di distribuzione di Azure:
     - Intervallo di indirizzi IP /29 per le connessioni ER-P2P che connettono le reti virtuali di Azure a istanze Large di HANA.
     - Blocco CIDR /24 usato per il pool di indirizzi IP del server di istanze Large di HANA.
-    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
+    - Facoltativo quando si usa [ExpressRoute copertura globale](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) per abilitare il routing diretto da unità locali a istanze large di Hana o il routing tra unità di istanze large di Hana in diverse aree di Azure, è necessario riservare un altro intervallo di indirizzi IP. Questo intervallo specifico potrebbe non sovrapporsi ad altri intervalli di indirizzi IP definiti in precedenza.
 - Valori dell'intervallo di indirizzi IP usati nell'attributo dello spazio di indirizzi di ogni rete virtuale di Azure che si connette alle istanze Large di HANA.
 - Dati per ogni sistema di istanze Large di HANA:
   - Nome host desiderato, preferibilmente con un nome di dominio completo.

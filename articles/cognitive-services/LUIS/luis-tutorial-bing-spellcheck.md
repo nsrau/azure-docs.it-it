@@ -1,5 +1,5 @@
 ---
-title: Correct misspelled words - LUIS
+title: Correggi parole errate-LUIS
 titleSuffix: Azure Cognitive Services
 description: È possibile correggere le parole in espressioni errate aggiungendo API Controllo ortografico Bing v7 alle query di endpoint LUIS.
 services: cognitive-services
@@ -96,12 +96,12 @@ L'URL dell'endpoint ha diversi valori che devono essere passati correttamente. L
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorare errori di ortografia
 
-If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
+Se non si vuole usare il servizio Controllo ortografico Bing API V7, è necessario aggiungere l'ortografia corretta e non corretta. 
 
-Two solutions are:
+Sono disponibili due soluzioni:
 
-* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
-* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
+* Etichettare espressioni di esempio con tutte le ortografie diverse in modo che LUIS possa apprendere l'ortografia corretta e gli errori di digitazione. Questa opzione richiede un maggiore sforzo di etichettatura rispetto all'uso di un correttore ortografico.
+* Creare un elenco di frasi con tutte le varianti della parola. Con questa soluzione non è necessario etichettare le varianti di parola nelle espressioni di esempio. 
 
 ## <a name="publishing-page"></a>Pubblicazione di una pagina
 La pagina di [pubblicazione](luis-how-to-publish-app.md) contiene una casella di controllo **Abilita correttore ortografico Bing**. Si tratta di una comodità per creare la chiave e capire come cambia l'URL dell'endpoint. È comunque necessario usare i parametri di endpoint corretti per avere il controllo ortografico corretto per ogni espressione. 

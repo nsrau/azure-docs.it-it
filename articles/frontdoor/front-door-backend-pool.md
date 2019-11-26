@@ -1,6 +1,6 @@
 ---
-title: Backends and backend pools in Azure Front Door Service | Microsoft Docs
-description: This article describes what backends and backend pools are in Front Door configuration.
+title: Back-end e pool back-end nel servizio front door di Azure | Microsoft Docs
+description: Questo articolo descrive i back-end e i pool back-end che si trovano nella configurazione di sportello anteriore.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -19,77 +19,77 @@ ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229024"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end e pool back-end nel servizio Frontdoor di Azure
-This article describes concepts about how to map your app deployment with Azure Front Door Service. It also explains the different terms in Front Door configuration around app backends.
+Questo articolo descrive i concetti relativi a come eseguire il mapping della distribuzione dell'app con il servizio front door di Azure. Vengono inoltre illustrati i diversi termini della configurazione front-end intorno ai backend dell'app.
 
 ## <a name="backends"></a>Back-end
-A backend is equal to an app's deployment instance in a region. Front Door Service supports both Azure and non-Azure backends, so the region isn't only restricted to Azure regions. Also, it can be your on-premises datacenter or an app instance in another cloud.
+Un back-end è uguale all'istanza di distribuzione di un'app in un'area. Il servizio front door supporta sia i backend di Azure che quelli non Azure, quindi l'area non è limitata solo alle aree di Azure. Può anche trattarsi di un Data Center locale o di un'istanza di app in un altro cloud.
 
-Front Door Service backends refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend. When you add a backend in a Front Door backend pool, you must also add the following:
+I backend del servizio front door fanno riferimento al nome host o all'indirizzo IP pubblico dell'app, che può gestire le richieste dei client. I backend non devono essere confusi con il livello di database, il livello di archiviazione e così via. I back-end devono essere visualizzati come endpoint pubblico del back-end dell'app. Quando si aggiunge un back-end in un pool back-end della porta anteriore, è necessario aggiungere anche quanto segue:
 
-- **Backend host type**. The type of resource you want to add. Front Door Service supports autodiscovery of your app backends from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
+- **Tipo di host back-end**. Tipo di risorsa che si desidera aggiungere. Il servizio front door supporta l'individuazione automatica dei backend dell'app dal servizio app, dal servizio cloud o dall'archiviazione. Se si vuole una risorsa diversa in Azure o anche in un back-end non di Azure, selezionare **host personalizzato**.
 
     >[!IMPORTANT]
-    >During configuration, APIs don't validate if the backend is inaccessible from Front Door environments. Make sure that Front Door can reach your backend.
+    >Durante la configurazione, le API non vengono convalidate se il back-end non è accessibile dagli ambienti di porte anteriori. Verificare che lo sportello anteriore possa raggiungere il back-end.
 
-- **Subscription and Backend host name**. If you haven't selected **Custom host** for backend host type, select your backend by choosing the appropriate subscription and the corresponding backend host name in the UI.
+- **Sottoscrizione e nome host back-end**. Se non è stato selezionato **host personalizzato** per il tipo di host back-end, selezionare il back-end scegliendo la sottoscrizione appropriata e il nome host back-end corrispondente nell'interfaccia utente.
 
-- **Backend host header**. The host header value sent to the backend for each request. For more information, see [Backend host header](#hostheader).
+- **Intestazione host back-end**. Valore dell'intestazione host inviato al back-end per ogni richiesta. Per altre informazioni, vedere [intestazione host back-end](#hostheader).
 
-- **Priorità**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](front-door-routing-methods.md#priority).
+- **Priorità**. Assegnare le priorità ai back-end diversi quando si vuole usare un back-end del servizio primario per tutto il traffico. Inoltre, fornire backup se i back-end primari o di backup non sono disponibili. Per altre informazioni, vedere [Priority](front-door-routing-methods.md#priority).
 
-- **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](front-door-routing-methods.md#weighted).
+- **Peso**. Assegnare pesi ai diversi backend per distribuire il traffico in un set di backend, in modo uniforme o in base ai coefficienti di peso. Per ulteriori informazioni, vedere [weights](front-door-routing-methods.md#weighted).
 
 ### <a name = "hostheader"></a>Intestazione host back-end
 
-Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. Il valore per questo campo in genere deriva dall'URI del back-end e contiene l'host e la porta.
+Le richieste inviate dalla porta anteriore a un back-end includono un campo di intestazione host usato dal back-end per recuperare la risorsa di destinazione. Il valore per questo campo in genere deriva dall'URI del back-end e contiene l'host e la porta.
 
-For example, a request made for www\.contoso.com will have the host header www\.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door Service will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door Service will set the host header as www\.contoso.com.
+Ad esempio, una richiesta effettuata per www\.contoso.com avrà l'intestazione host www\.contoso.com. Se si usa portale di Azure per configurare il back-end, il valore predefinito per questo campo è il nome host del back-end. Se il back-end è contoso-westus.azurewebsites.net, nella portale di Azure il valore popolato automaticamente per l'intestazione dell'host back-end sarà contoso-westus.azurewebsites.net. Tuttavia, se si usano Azure Resource Manager modelli o un altro metodo senza impostare in modo esplicito questo campo, il servizio front door invierà il nome host in ingresso come valore per l'intestazione host. Se la richiesta è stata effettuata per www\.contoso.com e il back-end è contoso-westus.azurewebsites.net che include un campo di intestazione vuoto, il servizio front door imposta l'intestazione host come www\.contoso.com.
 
-Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will use a different hostname such as www\.contoso.azurefd.net.
+La maggior parte dei back-end dell'app (app Web di Azure, archiviazione BLOB e servizi cloud) richiede che l'intestazione host corrisponda al dominio del back-end. Tuttavia, l'host front-end che instrada al back-end utilizzerà un nome host diverso, ad esempio www\.contoso.azurefd.net.
 
-If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name backend.
+Se il back-end richiede che l'intestazione host corrisponda al nome host back-end, assicurarsi che l'intestazione host backend includa il back-end del nome host.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurazione dell'intestazione host back-end per il back-end
 
-To configure the **backend host header** field for a backend in the backend pool section:
+Per configurare il campo **intestazione host backend** per un back-end nella sezione pool back-end:
 
-1. Open your Front Door resource and select the backend pool with the backend to configure.
+1. Aprire la risorsa front door e selezionare il pool back-end con il back-end da configurare.
 
-2. Add a backend if you haven't done so, or edit an existing one.
+2. Aggiungere un back-end, se non è già stato fatto, o modificarne uno esistente.
 
-3. Set the backend host header field to a custom value or leave it blank. The hostname for the incoming request will be used as the host header value.
+3. Impostare il campo intestazione host back-end su un valore personalizzato o lasciarlo vuoto. Il nome host per la richiesta in ingresso verrà usato come valore dell'intestazione host.
 
-## <a name="backend-pools"></a>Backend pools
-A backend pool in Front Door Service refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
+## <a name="backend-pools"></a>Pool back-end
+Un pool back-end nel servizio front door fa riferimento al set di back-end che ricevono traffico simile per l'app. In altre parole, si tratta di un raggruppamento logico delle istanze dell'app in tutto il mondo che ricevono lo stesso traffico e rispondono con il comportamento previsto. Questi backend vengono distribuiti in aree diverse o all'interno della stessa area. Tutti i backend possono essere in modalità di distribuzione attiva/attiva o definire una configurazione attiva/passiva.
 
-A backend pool defines how the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
+Un pool back-end definisce la modalità di valutazione dei diversi back-end tramite i probe di integrità. Definisce anche il modo in cui viene eseguito il bilanciamento del carico tra di essi.
 
 ### <a name="health-probes"></a>Probe di integrità
-Front Door Service sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
+Il servizio front door invia richieste di probe HTTP/HTTPS periodiche a ognuno dei backend configurati. Le richieste di probe determinano la vicinanza e l'integrità di ogni back-end per il bilanciamento del carico delle richieste degli utenti finali. Le impostazioni del probe di integrità per un pool back-end definiscono come viene eseguito il polling dello stato di integrità dei back-end Per la configurazione del bilanciamento del carico sono disponibili le impostazioni seguenti:
 
-- **Percorso**. The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door Service environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **Percorso**. URL usato per le richieste di probe per tutti i back-end nel pool back-end. Ad esempio, se uno dei backend è contoso-westus.azurewebsites.net e il percorso è impostato su/probe/test.aspx, quindi gli ambienti del servizio front door, supponendo che il protocollo sia impostato su HTTP, invierà le richieste di probe di integrità a http\://contoso-westus.azurewebsites.net/probe/test.aspx.
 
-- **Protocollo**. Defines whether to send the health probe requests from Front Door Service to your backends with HTTP or HTTPS protocol.
+- **Protocollo**. Definisce se inviare le richieste di probe di integrità dal servizio front door ai backend con il protocollo HTTP o HTTPS.
 
-- **Interval (seconds)** . Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
+- **Intervallo (secondi)** . Definisce la frequenza di probe di integrità per i backend o gli intervalli in cui ognuno degli ambienti della porta anteriore Invia un probe.
 
     >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 90 Front Door environments or POPs globally, each backend will receive about 3-5 probe requests per second.
+    >Per un failover più veloce, impostare l'intervallo su un valore inferiore. Più basso è il valore, maggiore è il volume del probe di integrità che i backend ricevono. Ad esempio, se l'intervallo è impostato su 30 secondi con 90 ambienti front-end o pop a livello globale, ogni back-end riceverà circa 3-5 richieste probe al secondo.
 
-For more information, see [Health probes](front-door-health-probes.md).
+Per altre informazioni, vedere [Probe di integrità](front-door-health-probes.md).
 
-### <a name="load-balancing-settings"></a>Load-balancing settings
-Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. The following settings are available for load-balancing configuration:
+### <a name="load-balancing-settings"></a>Impostazioni di bilanciamento del carico
+Le impostazioni di bilanciamento del carico per il pool back-end definiscono il modo in cui vengono valutati i probe di integrità. Queste impostazioni determinano se il back-end è integro o non integro. Viene inoltre controllato come bilanciare il carico del traffico tra back-end diversi nel pool back-end. Per la configurazione del bilanciamento del carico sono disponibili le impostazioni seguenti:
 
-- **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
+- **Dimensioni campione**. Identifica il numero di campioni di probe di integrità che è necessario considerare per la valutazione dell'integrità back-end.
 
-- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5, and successful sample size is 3. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
+- **Dimensioni del campione riuscite**. Definisce le dimensioni del campione come indicato in precedenza, il numero di campioni riusciti necessari per chiamare il back-end integro. Si supponga ad esempio che un intervallo di probe di integrità della porta anteriore sia 30 secondi, che le dimensioni del campione siano pari a 5 e che le dimensioni del campione siano 3. Ogni volta che si valutano i probe di integrità per il back-end, si esaminano gli ultimi cinque campioni oltre 150 secondi (5 x 30). Per dichiarare il back-end come integro sono necessari almeno tre Probe con esito positivo.
 
-- **Latency sensitivity (additional latency)** . Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
+- **Sensibilità alla latenza (latenza aggiuntiva)** . Definisce se si vuole che la porta anteriore invii la richiesta ai back-end entro l'intervallo di sensibilità della misurazione della latenza o inoltra la richiesta al back-end più vicino.
 
-For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
+Per ulteriori informazioni, vedere [metodo di routing con minore latenza](front-door-routing-methods.md#latency).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Create a Front Door profile](quickstart-create-front-door.md)
-- [How Front Door works](front-door-routing-architecture.md)
+- [Creare un profilo di porta anteriore](quickstart-create-front-door.md)
+- [Funzionamento della porta anteriore](front-door-routing-architecture.md)

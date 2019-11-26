@@ -26,7 +26,7 @@ ms.locfileid: "74211681"
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
 > * [Interfaccia della riga di comando classica di Azure](dns-operations-recordsets-cli-nodejs.md)
-> * [interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Questo articolo descrive come gestire i record DNS per la zona DNS usando Azure PowerShell. Per gestire i record DNS è anche possibile usare l'[interfaccia della riga di comando multipiattaforma di Azure](dns-operations-recordsets-cli.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
@@ -50,7 +50,7 @@ Se il nuovo record ha lo stesso nome e tipo di un record esistente, è necessari
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Creare record di tipo "A" in un nuovo set di record
 
-I set di record vengono creati usando il cmdlet `New-AzDnsRecordSet`. Quando si crea un set di record, è necessario specificare il nome, la zona, la durata (TTL), il tipo di record e i record da creare.
+I set di record vengono creati usando il cmdlet `New-AzDnsRecordSet` . Quando si crea un set di record, è necessario specificare il nome, la zona, la durata (TTL), il tipo di record e i record da creare.
 
 I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Quando ad esempio si usa un set di record di tipo A, è necessario specificare l'indirizzo IP usando il parametro `-IPv4Address`. Per altri tipi di record vengono usati altri parametri. Per altre informazioni, vedere la sezione Altri esempi di tipi di record.
 
@@ -314,7 +314,7 @@ Set-AzDnsRecordSet -RecordSet $rs
 
 Il set di record NS al vertice della zona viene creato automaticamente con ogni zona DNS. Contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona.
 
-È possibile aggiungere altri server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati.
+È possibile aggiungere ulteriori server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati.
 
 Notare che questo si applica solo al set di record NS al vertice della zona. Gli altri set di record NS nella zona (usati per delegare le zone figlio) possono essere modificati senza vincoli.
 

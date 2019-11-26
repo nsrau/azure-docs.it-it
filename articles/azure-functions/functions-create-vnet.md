@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Functions with an Azure virtual network
-description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
+title: Integrare funzioni di Azure con una rete virtuale di Azure
+description: Esercitazione dettagliata che illustra come connettere una funzione a una rete virtuale di Azure
 author: alexkarcher-msft
 ms.topic: article
 ms.date: 5/03/2019
@@ -13,156 +13,156 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227090"
 ---
-# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrate Functions with an Azure virtual network
+# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: integrare funzioni con una rete virtuale di Azure
 
-This tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network. you'll create a function that has access to both the internet and to a VM running WordPress in virtual network.
+Questa esercitazione illustra come usare funzioni di Azure per connettersi alle risorse in una rete virtuale di Azure. verrà creata una funzione che ha accesso sia a Internet che a una macchina virtuale che esegue WordPress nella rete virtuale.
 
 > [!div class="checklist"]
-> * Create a function app in the Premium plan
-> * Deploy a WordPress site to VM in a virtual network
-> * Connect the function app to the virtual network
-> * Create a function proxy to access WordPress resources
-> * Request a WordPress file from inside the virtual network
+> * Creare un'app per le funzioni nel piano Premium
+> * Distribuire un sito WordPress in una macchina virtuale in una rete virtuale
+> * Connettere l'app per le funzioni alla rete virtuale
+> * Creare un proxy di funzione per accedere alle risorse di WordPress
+> * Richiedere un file WordPress dall'interno della rete virtuale
 
 ## <a name="topology"></a>Topologia
 
-The following diagram shows the architecture of the solution that you create:
+Il diagramma seguente illustra l'architettura della soluzione creata:
 
- ![UI for virtual network integration](./media/functions-create-vnet/topology.png)
+ ![Interfaccia utente per l'integrazione della rete virtuale](./media/functions-create-vnet/topology.png)
 
-Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the VNet Integration feature. To learn more about VNet Integration, including troubleshooting and advanced configuration, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
+Le funzioni in esecuzione nel piano Premium hanno le stesse funzionalità di hosting di app Web nel servizio app Azure, che include la funzionalità di integrazione VNet. Per altre informazioni sull'integrazione di VNet, incluse la risoluzione dei problemi e la configurazione avanzata, vedere [integrare l'app con una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
+Per questa esercitazione, è importante comprendere gli indirizzi IP e la suddivisione in subnet. È possibile iniziare con [questo articolo che illustra le nozioni di base sull'indirizzamento e la suddivisione in subnet](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Molti altri articoli e video sono disponibili online.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-function-app-in-a-premium-plan"></a>Create a function app in a Premium plan
+## <a name="create-a-function-app-in-a-premium-plan"></a>Creare un'app per le funzioni in un piano Premium
 
-First, you create a function app in the [Premium plan]. This plan provides serverless scale while supporting virtual network integration.
+In primo luogo, si crea un'app per le funzioni nel [piano Premium]. Questo piano offre una scalabilità senza server per supportare l'integrazione della rete virtuale.
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
-You can pin the function app to the dashboard by selecting the pin icon in the upper right-hand corner. Pinning makes it easier to return to this function app after you create your VM.
+È possibile aggiungere l'app per le funzioni al dashboard selezionando l'icona Aggiungi nell'angolo in alto a destra. Il blocco rende più semplice tornare a questa app per le funzioni dopo aver creato la macchina virtuale.
 
-## <a name="create-a-vm-inside-a-virtual-network"></a>Create a VM inside a virtual network
+## <a name="create-a-vm-inside-a-virtual-network"></a>Creare una VM all'interno di una rete virtuale
 
-Next, create a preconfigured VM that runs WordPress inside a virtual network ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware). A WordPress VM is used because of its low cost and convenience. This same scenario works with any resource in a virtual network, such as REST APIs, App Service Environments, and other Azure services. 
+Successivamente, creare una macchina virtuale preconfigurata che esegue WordPress all'interno di una rete virtuale ([Wordpress LEMP7 max performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware). Viene usata una macchina virtuale WordPress a causa del costo e della convenienza ridotti. Questo stesso scenario funziona con tutte le risorse in una rete virtuale, ad esempio le API REST, gli ambienti del servizio app e altri servizi di Azure. 
 
-1. In the portal, choose **+ Create a resource** on the left navigation pane, in the search field type `WordPress LEMP7 Max Performance`, and press Enter.
+1. Nel portale fare clic su **+ Crea una risorsa** nel riquadro di spostamento a sinistra, nel campo di ricerca digitare `WordPress LEMP7 Max Performance`e premere INVIO.
 
-1. Choose **Wordpress LEMP Max Performance** in the search results. Select a software plan of **Wordpress LEMP Max Performance for CentOS** as the **Software Plan** and select **Create**.
+1. Scegliere **Wordpress Lemp max performance** nei risultati della ricerca. Selezionare un piano software di **Wordpress Lemp max performance per CentOS** come **piano software** e selezionare **Crea**.
 
-1. In the **Basics** tab, use the VM settings as specified in the table below the image:
+1. Nella scheda **nozioni di base** usare le impostazioni della macchina virtuale come specificato nella tabella sotto l'immagine:
 
-    ![Basics tab for creating a VM](./media/functions-create-vnet/create-vm-1.png)
+    ![Scheda nozioni di base per la creazione di una macchina virtuale](./media/functions-create-vnet/create-vm-1.png)
 
-    | Impostazione      | Valore consigliato  | Description      |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
     | ------------ | ---------------- | ---------------- |
-    | **Sottoscrizione** | Sottoscrizione in uso | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
-    | **Nome macchina virtuale** | VNET-Wordpress | The VM name needs to be unique in the resource group |
-    | **[Region](https://azure.microsoft.com/regions/)** | (Europa) Europa occidentale | Choose a region near you or near the functions that access the VM. |
-    | **Dimensione** | B1s | Choose **Change size** and then select the B1s standard image, which has 1 vCPU and 1 GB of memory. |
-    | **Tipo di autenticazione** | Password | To use password authentication, you must also specify a **Username**, a secure **Password**, and then **Confirm password**. For this tutorial, you won't need to sign in to the VM unless you need to troubleshoot. |
+    | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui vengono create le risorse. | 
+    | **[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Scegliere `myResourceGroup`o il gruppo di risorse creato con l'app per le funzioni. L'uso dello stesso gruppo di risorse per l'app per le funzioni, la macchina virtuale WordPress e il piano di hosting rende più semplice la pulizia delle risorse al termine dell'esercitazione. |
+    | **Nome macchina virtuale** | VNET-Wordpress | Il nome della macchina virtuale deve essere univoco nel gruppo di risorse |
+    | **[Area](https://azure.microsoft.com/regions/)** | (Europa) Europa occidentale | Scegliere un'area vicina o vicina alle funzioni che accedono alla macchina virtuale. |
+    | **Dimensione** | B1S | Scegliere **modifica dimensioni** , quindi selezionare l'immagine standard B1S, che include 1 vCPU e 1 GB di memoria. |
+    | **Tipo di autenticazione** | Password | Per usare l'autenticazione della password, è necessario specificare anche un **nome utente**, una **password**sicura e quindi **confermare la password**. Per questa esercitazione non è necessario accedere alla macchina virtuale, a meno che non sia necessario risolvere il problema. |
 
-1. Choose the **Networking** tab and under Configure virtual networks select **Create new**.
+1. Scegliere la scheda **rete** e in Configura reti virtuali selezionare **Crea nuovo**.
 
-1. In **Create virtual network**, use the settings in the table below the image:
+1. In **Crea rete virtuale**usare le impostazioni nella tabella sotto l'immagine:
 
-    ![Networking tab of create VM](./media/functions-create-vnet/create-vm-2.png)
+    ![Scheda rete di Crea macchina virtuale](./media/functions-create-vnet/create-vm-2.png)
 
-    | Impostazione      | Valore consigliato  | Description      |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
     | ------------ | ---------------- | ---------------- |
-    | **Nome** | myResourceGroup-vnet | You can use the default name generated for your virtual network. |
-    | **Intervallo di indirizzi** | 10.10.0.0/16 | Use a single address range for the virtual network. |
-    | **Nome della subnet** | Tutorial-Net | Name of the subnet. |
-    | **Address range** (subnet) | 10.10.1.0/24   | The subnet size defines how many interfaces can be added to the subnet. This subnet is used by the WordPress site.  A `/24` subnet provides 254 host addresses. |
+    | **Nome** | myResourceGroup-vnet | È possibile usare il nome predefinito generato per la rete virtuale. |
+    | **Intervallo di indirizzi** | 10.10.0.0/16 | Usare un singolo intervallo di indirizzi per la rete virtuale. |
+    | **Nome della subnet** | Esercitazione-NET | Nome della subnet. |
+    | **Intervallo di indirizzi** (subnet) | 10.10.1.0/24   | Le dimensioni della subnet definiscono il numero di interfacce che è possibile aggiungere alla subnet. Questa subnet viene usata dal sito WordPress.  Una subnet `/24` fornisce 254 indirizzi host. |
 
-1. Select **OK** to create the virtual network.
+1. Selezionare **OK** per creare la rete virtuale.
 
-1. Back in the **Networking** tab, choose **None** for **Public IP**.
+1. Tornare alla scheda **rete** e scegliere **nessuno** per l' **indirizzo IP pubblico**.
 
-1. Choose the **Management** tab, then in **Diagnostics storage account**, choose the Storage account you created with your function app.
+1. Scegliere la scheda **gestione** , quindi in **account di archiviazione di diagnostica**scegliere l'account di archiviazione creato con l'app per le funzioni.
 
-1. Selezionare **Rivedi e crea**. After validation completes, select **Create**. The VM create process takes a few minutes. The created VM can only access the virtual network.
+1. Selezionare **Rivedi e crea**. Al termine della convalida, selezionare **Crea**. Il processo di creazione della macchina virtuale richiede alcuni minuti. La VM creata può accedere solo alla rete virtuale.
 
-1. After the VM is created, choose **Go to resource** to view the page for your new VM, then choose **Networking** under **Settings**.
+1. Dopo aver creato la VM, scegliere **Vai alla risorsa** per visualizzare la pagina per la nuova macchina virtuale, quindi scegliere **rete** in **Impostazioni**.
 
-1. Verify that there's no **Public IP**. Make a note the **Private IP**, which you use to connect to the VM from your function app.
+1. Verificare che non sia presente alcun **indirizzo IP pubblico**. Prendere nota dell' **indirizzo IP privato**, che viene usato per connettersi alla macchina virtuale dall'app per le funzioni.
 
-    ![Networking settings in the VM](./media/functions-create-vnet/vm-networking.png)
+    ![Impostazioni di rete nella macchina virtuale](./media/functions-create-vnet/vm-networking.png)
 
-You now have a WordPress site deployed entirely within your virtual network. This site isn't accessible from the public internet.
+A questo punto si dispone di un sito WordPress distribuito interamente nella rete virtuale. Il sito non è accessibile dalla rete Internet pubblica.
 
-## <a name="connect-your-function-app-to-the-virtual-network"></a>Connect your function app to the virtual network
+## <a name="connect-your-function-app-to-the-virtual-network"></a>Connettere l'app per le funzioni alla rete virtuale
 
-With a WordPress site running in a VM in a virtual network, you can now connect your function app to that virtual network.
+Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtuale, è ora possibile connettere l'app per le funzioni a tale rete virtuale.
 
-1. In your new function app, select **Platform features** > **Networking**.
+1. Nella nuova app per le funzioni selezionare **funzionalità della piattaforma** > **rete**.
 
-    ![Choose networking in the function app](./media/functions-create-vnet/networking-0.png)
+    ![Scegliere la rete nell'app per le funzioni](./media/functions-create-vnet/networking-0.png)
 
-1. Under **VNet Integration**, select **Click here to configure**.
+1. In **integrazione VNet**selezionare **fare clic qui per configurare**.
 
-    ![Status for configuring a network feature](./media/functions-create-vnet/Networking-1.png)
+    ![Stato per la configurazione di una funzionalità di rete](./media/functions-create-vnet/Networking-1.png)
 
-1. On the virtual network integration page, select **Add VNet (preview)** .
+1. Nella pagina di integrazione della rete virtuale selezionare **Aggiungi VNet (anteprima)** .
 
-    ![Add the VNet Integration preview](./media/functions-create-vnet/networking-2.png)
+    ![Aggiungere l'anteprima dell'integrazione VNet](./media/functions-create-vnet/networking-2.png)
 
-1. In **Network Feature Status**, use the settings in the table below the image:
+1. In **stato funzionalità di rete**usare le impostazioni nella tabella sotto l'immagine:
 
-    ![Define the function app virtual network](./media/functions-create-vnet/networking-3.png)
+    ![Definire la rete virtuale dell'app per le funzioni](./media/functions-create-vnet/networking-3.png)
 
-    | Impostazione      | Valore consigliato  | Description      |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE      |
     | ------------ | ---------------- | ---------------- |
-    | **Rete virtuale** | MyResourceGroup-vnet | This virtual network is the one you created earlier. |
-    | **Subnet** | Create New Subnet | Create a subnet in the virtual network for your function app to use. VNet Integration must be configured to use an empty subnet. It doesn't matter that your functions use a different subnet than your VM. The virtual network automatically routes traffic between the two subnets. |
-    | **Nome della subnet** | Function-Net | Nome della nuova subnet. |
-    | **Virtual network address block** | 10.10.0.0/16 | Choose the same address block used by the WordPress site. You should only have one address block defined. |
-    | **Intervallo di indirizzi** | 10.10.2.0/24   | The subnet size restricts the total number of instances that your Premium plan function app can scale out to. This example uses a `/24` subnet with 254 available host addresses. This subnet is over-provisioned, but easy to calculate. |
+    | **Rete virtuale** | MyResourceGroup-vnet | Questa rete virtuale è quella creata in precedenza. |
+    | **Subnet** | Crea nuova subnet | Creare una subnet nella rete virtuale da usare per l'app per le funzioni. L'integrazione di VNet deve essere configurata per l'uso di una subnet vuota. Non è importante che le funzioni usino una subnet diversa da quella della macchina virtuale. La rete virtuale instrada automaticamente il traffico tra le due subnet. |
+    | **Nome della subnet** | Funzione-NET | Nome della nuova subnet. |
+    | **Blocco di indirizzi della rete virtuale** | 10.10.0.0/16 | Scegliere lo stesso blocco di indirizzi usato dal sito WordPress. È necessario definire un solo blocco di indirizzi. |
+    | **Intervallo di indirizzi** | 10.10.2.0/24   | Le dimensioni della subnet limitano il numero totale di istanze per le quali l'app per le funzioni del piano Premium può essere scalata. Questo esempio usa una subnet `/24` con 254 indirizzi host disponibili. Questa subnet viene sottoposta a provisioning eccessivo, ma facile da calcolare. |
 
-1. Select **OK** to add the subnet. Close the VNet Integration and Network Feature Status pages to return to your function app page.
+1. Selezionare **OK** per aggiungere la subnet. Chiudere le pagine di integrazione VNet e di stato della funzionalità di rete per tornare alla pagina dell'app per le funzioni.
 
-The function app can now access the virtual network where the WordPress site is running. Next, you use [Azure Functions Proxies](functions-proxies.md) to return a file from the WordPress site.
+L'app per le funzioni può ora accedere alla rete virtuale in cui è in esecuzione il sito WordPress. Usare quindi [proxy di funzioni di Azure](functions-proxies.md) per restituire un file dal sito WordPress.
 
-## <a name="create-a-proxy-to-access-vm-resources"></a>Create a proxy to access VM resources
+## <a name="create-a-proxy-to-access-vm-resources"></a>Creare un proxy per accedere alle risorse della macchina virtuale
 
-With VNet Integration enabled, you can create a proxy in your function app to forward requests to the VM running in the virtual network.
+Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per le funzioni per inviare le richieste alla macchina virtuale in esecuzione nella rete virtuale.
 
-1. In your function app, select  **Proxies** >  **+** , then use the proxy settings in the table below the image:
+1. Nell'app per le funzioni selezionare **proxy** >  **+** , quindi usare le impostazioni proxy nella tabella sotto l'immagine:
 
-    ![Define the proxy settings](./media/functions-create-vnet/create-proxy.png)
+    ![Definire le impostazioni del proxy](./media/functions-create-vnet/create-proxy.png)
 
-    | Impostazione  | Valore consigliato  | Description      |
+    | Impostazione  | Valore consigliato  | DESCRIZIONE      |
     | -------- | ---------------- | ---------------- |
-    | **Nome** | Plant | The name can be any value. It's used to identify the proxy. |
-    | **Route Template** | /plant | Route that maps to a VM resource. |
-    | **Backend URL** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Replace `<YOUR_VM_IP>` with the IP address of your WordPress VM that you created earlier. This mapping returns a single file from the site. |
+    | **Nome** | Impianto | Il nome può essere qualsiasi valore. Viene usato per identificare il proxy. |
+    | **Modello di route** | /plant | Route mappata a una risorsa VM. |
+    | **URL back-end** | http://< YOUR_VM_IP >/wp-content/themes/twentyseventeen/assets/images/header.jpg | Sostituire `<YOUR_VM_IP>` con l'indirizzo IP della macchina virtuale WordPress creata in precedenza. Questo mapping restituisce un singolo file dal sito. |
 
-1. Select **Create** to add the proxy to your function app.
+1. Selezionare **Crea** per aggiungere il proxy all'app per le funzioni.
 
-## <a name="try-it-out"></a>Provare il servizio
+## <a name="try-it-out"></a>Prova
 
-1. In your browser, try to access the URL you used as the **Backend URL**. As expected, the request times out. A timeout occurs because your WordPress site is connected only to your virtual network and not the internet.
+1. Nel browser provare ad accedere all'URL usato come **URL back-end**. Come previsto, si verifica il timeout della richiesta. Si verifica un timeout perché il sito WordPress è connesso solo alla rete virtuale e non a Internet.
 
-1. Copy the **Proxy URL** value from your new proxy and paste it into the address bar of your browser. The returned image is from the WordPress site running inside your virtual network.
+1. Copiare il valore di **URL proxy** dal nuovo proxy e incollarlo nella barra degli indirizzi del browser. L'immagine restituita si trova nel sito WordPress in esecuzione all'interno della rete virtuale.
 
-    ![Plant image file returned from the WordPress site](./media/functions-create-vnet/plant.png)
+    ![File di immagine impianto restituito dal sito WordPress](./media/functions-create-vnet/plant.png)
 
-Your function app is connected to both the internet and your virtual network. The proxy is receiving a request over the public internet, and then acting as a simple HTTP proxy to forward that request to the connected virtual network. The proxy then relays the response back to you publicly over the internet.
+L'app per le funzioni è connessa sia a Internet che alla rete virtuale. Il proxy riceve una richiesta attraverso la rete Internet pubblica e quindi funge da proxy HTTP semplice per l'inoltro della richiesta alla rete virtuale connessa. Il proxy inoltra quindi la risposta all'utente tramite Internet.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this tutorial, the WordPress site serves as an API that is called by using a proxy in the function app. This scenario makes a good tutorial because it's easy to set up and visualize. You could use any other API deployed within a virtual network. You could also have created a function with code that calls APIs deployed within the virtual network. A more realistic scenario is a function that uses data client APIs to call a SQL Server instance deployed in the virtual network.
+In questa esercitazione il sito WordPress funge da API che viene chiamata usando un proxy nell'app per le funzioni. Questo scenario costituisce un'esercitazione efficace perché è facile da configurare e visualizzare. È possibile usare qualsiasi altra API distribuita in una rete virtuale. È anche possibile creare una funzione con il codice che chiama le API distribuite nella rete virtuale. Uno scenario più realistico è una funzione che usa le API client dei dati per chiamare un'istanza di SQL Server distribuita nella rete virtuale.
 
-Functions running in a Premium plan share the same underlying App Service infrastructure as web apps on PremiumV2 plans. All the documentation for [web apps in Azure App Service](../app-service/overview.md) applies to your Premium plan functions.
+Le funzioni in esecuzione in un piano Premium condividono la stessa infrastruttura del servizio app sottostante come app Web nei piani PremiumV2. Tutta la documentazione per le [app Web nel servizio app Azure](../app-service/overview.md) si applica alle funzioni del piano Premium.
 
 > [!div class="nextstepaction"]
-> [Learn more about the networking options in Functions](./functions-networking-options.md)
+> [Altre informazioni sulle opzioni di rete in funzioni](./functions-networking-options.md)
 
-[Premium plan]: functions-scale.md#premium-plan
+[Piano Premium]: functions-scale.md#premium-plan

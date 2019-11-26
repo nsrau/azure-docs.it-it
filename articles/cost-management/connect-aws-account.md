@@ -49,7 +49,7 @@ Per prima cosa, è necessario ottenere dal portale di Cloudyn la passphrase di c
     ![Incollare l'ID esterno da Cloudyn nella pagina Create role (Crea ruolo)](./media/connect-aws-account/create-role01.png)
 5. In **Attach permissions policies** (Collega i criteri di autorizzazione), nella casella del filtro di ricerca **Policy type** (Tipo di criteri), digitare `ReadOnlyAccess`, selezionare **ReadOnlyAccess** e quindi fare clic su **Next: Review** (Avanti: Revisione).  
     ![Selezionare ReadOnlyAccess nell'elenco di nomi di criteri](./media/connect-aws-account/readonlyaccess.png)
-6. Nella pagina Review (Revisione) verificare che le selezioni siano corrette e digitare un valore in **Role name** (Nome ruolo). For example, *Azure-Cost-Mgt*. Enter a **Role description**. Ad esempio, _Assegnazione di ruolo per Cloudyn_ e quindi fare clic su **Create role** (Crea ruolo).
+6. Nella pagina Review (Revisione) verificare che le selezioni siano corrette e digitare un valore in **Role name** (Nome ruolo). Ad esempio, *Azure-cost-Gest*. Immettere una **Descrizione del ruolo**. Ad esempio, _Assegnazione di ruolo per Cloudyn_ e quindi fare clic su **Create role** (Crea ruolo).
 7. Nell'elenco **Roles** (Ruoli) fare clic sul ruolo creato e copiare il valore di **Role ARN** (ARN ruolo) dalla pagina Summary (Riepilogo). L'ARN (Amazon Resource Name) del ruolo sarà utile in un secondo momento, quando si registrerà la configurazione in Cloudyn.  
     ![Copiare il valore di Role ARN (ARN del ruolo) dalla pagina Summary (Riepilogo)](./media/connect-aws-account/role-arn.png)
 
@@ -78,7 +78,7 @@ Le sezioni seguenti illustrano le procedure per creare un utente di sola lettura
 ### <a name="add-aws-read-only-user-based-access"></a>Aggiungere l'accesso di sola lettura in base all'utente di AWS
 
 1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com/iam/home e selezionare **Users** (Utenti).
-2. Fare clic su **Add User**.
+2. Fare clic su **Aggiungi utente**.
 3. Nel campo **User name** (Nome utente) digitare un nome per l'utente.
 4. Per **Access type** (Tipo di accesso) selezionare **Programmatic access** (Accesso a livello di codice) e fare clic su **Next: Permissions** (Avanti: Autorizzazioni).  
     ![Immettere un nome utente nella pagina Add user (Aggiungi utente)](./media/connect-aws-account/add-user01.png)
@@ -172,7 +172,7 @@ Occorre creare un bucket S3 in cui archiviare le informazioni di fatturazione de
    }
    ```
 
-9. Fare clic su **Salva**  
+9. Fare clic su **Save**.  
     ![In Bucket policy editor (Editor criteri bucket) fare clic su Save (Salva)](./media/connect-aws-account/bucket-policy-editor.png)
 
 

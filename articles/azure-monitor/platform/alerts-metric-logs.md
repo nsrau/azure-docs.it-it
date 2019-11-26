@@ -17,13 +17,13 @@ ms.locfileid: "74226527"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Monitoraggio di Azure un [tipo di avviso delle metriche](../../azure-monitor/platform/alerts-metric-near-real-time.md) che presenta vantaggi rispetto agli [avvisi classici](../../azure-monitor/platform/alerts-classic-portal.md). Sono disponibili metriche per un [lungo elenco di servizi di Azure](../../azure-monitor/platform/metrics-supported.md). Questo articolo illustra l'uso di un subset per la risorsa - `Microsoft.OperationalInsights/workspaces`.
 
-You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premises. Le soluzioni di Log Analytics supportate sono elencate di seguito:
+È possibile usare gli avvisi delle metriche sui log di Log Analytics più diffusi estratte come metriche come parte delle metriche dei log, incluse le risorse in Azure o in locale. Le soluzioni di Log Analytics supportate sono elencate di seguito:
 
 - [Contatori delle prestazioni](../../azure-monitor/platform/data-sources-performance-counters.md) per i computer Windows e Linux
 - [Record di heartbeat per l'Integrità agente](../../azure-monitor/insights/solution-agenthealth.md)
@@ -56,8 +56,8 @@ Di seguito sono elencati i modi in cui creare un avviso delle metriche per i log
 Prima che sia possibile usare la metrica per i log raccolta sui dati di Log Analytics, è necessario che siano configurati e disponibili gli elementi seguenti:
 
 1. **area di lavoro Log Analytics attiva**: è necessario che sia presente un'area di lavoro Log Analytics valida e attiva. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
-2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) on-premises VMs to send data into the Log Analytics Workspace used in earlier step. Per altre informazioni, vedere [Panoramica degli agenti di Azure per monitorare macchine virtuali di Azure](../../azure-monitor/platform/agents-overview.md).
-3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat records for Agent Health](../../azure-monitor/insights/solution-agenthealth.md), [Update management](../../automation/automation-update-management.md), and [Event data](../../azure-monitor/platform/data-sources-windows-events.md).
+2. **Agent è configurato per log Analytics area di lavoro**: l'agente deve essere configurato per le macchine virtuali di Azure e/o le VM locali per inviare i dati nell'area di lavoro log Analytics usata nel passaggio precedente. Per altre informazioni, vedere [Panoramica degli agenti di Azure per monitorare macchine virtuali di Azure](../../azure-monitor/platform/agents-overview.md).
+3. Sono **installate soluzioni log Analytics supportate**: log Analytics soluzione deve essere configurata e l'invio di dati nelle soluzioni log Analytics supportate per l'area di lavoro sono [contatori delle prestazioni per Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [record heartbeat per integrità agente](../../azure-monitor/insights/solution-agenthealth.md), [Gestione aggiornamenti](../../automation/automation-update-management.md)e [dati evento](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **Soluzioni di Log Analytics configurate per inviare log**: per la soluzione Log Analytics è necessario che siano abilitati i log e i dati necessari corrispondenti alle [metriche supportate per le aree di lavoro di Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces). Ad esempio, per il valore relativo alla *percentuale di memoria disponibile* il contatore relativo deve essere prima configurato nella soluzione [contatori delle prestazioni](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurazione degli avvisi delle metriche per i log

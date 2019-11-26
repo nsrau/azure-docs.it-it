@@ -1,7 +1,7 @@
 ---
 title: Creare un servizio di bilanciamento del carico di base interno - Interfaccia della riga di comando di Azure
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to create an internal load balancer using Azure CLI
+description: In questo articolo viene illustrato come creare un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -39,7 +39,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupILB* nel
     --name myResourceGroupILB \
     --location eastus
 ```
-## <a name="create-a-virtual-network"></a>Crea una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet* nel gruppo *myResourceGroup* con il comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
@@ -60,7 +60,7 @@ Questa sezione descrive dettagliatamente come creare e configurare i componenti 
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+Creare un Load Balancer interno con [AZ Network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominato **myLoadBalancer** che include una configurazione IP front-end denominata **frontend**, un pool back-end denominato **myBackEndPool** associato a un indirizzo IP privato * * 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \

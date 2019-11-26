@@ -14,20 +14,20 @@ ms.locfileid: "74233050"
 
 Questo articolo illustra come disabilitare una funzione in Funzioni di Azure. *Disabilitare* una funzione significa fare in modo che il runtime ignori il trigger automatico definito per la funzione. La modalità di disabilitazione di una funzione dipende dalla versione del runtime e dal linguaggio di programmazione:
 
-* Functions 2.x:
+* Funzioni 2. x:
   * Una sola modalità per tutti i linguaggi
   * Una modalità facoltativa per le librerie di classi C#
-* Functions 1.x:
+* Funzioni 1. x:
   * Linguaggi di scripting
   * Libreria di classi C#
 
 ## <a name="functions-2x---all-languages"></a>Funzioni 2.x: tutti i linguaggi
 
-In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
+In functions 2. x, una funzione viene disabilitata usando un'impostazione dell'app nel formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. È possibile creare e modificare l'impostazione dell'applicazione in diversi modi, ad esempio usando l'interfaccia della riga di comando di [Azure](/cli/azure/) e dalla scheda **Gestisci** della funzione nella [portale di Azure](https://portal.azure.com). 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` set it to `true`. 
+Nell'interfaccia della riga di comando di Azure usare il comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) per creare e modificare l'impostazione dell'app. Il comando seguente disabilita una funzione denominata `QueueTrigger` creando un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` impostarla su `true`. 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -35,7 +35,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-To re-enable the function, rerun the same command with a value of `false`.
+Per riabilitare la funzione, eseguire di nuovo lo stesso comando con il valore `false`.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -45,7 +45,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ### <a name="portal"></a>di Microsoft Azure
 
-You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
+È anche possibile usare l'opzione di **stato della funzione** nella scheda **Gestisci** della funzione. Il Commuter funziona creando ed eliminando l'impostazione dell'app `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
 
 ![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 
@@ -71,7 +71,7 @@ Per i linguaggi di scripting come Script C# e JavaScript, si usa la proprietà `
     "disabled": true
 }
 ```
-Oppure 
+oppure 
 
 ```json
     "bindings": [
@@ -82,7 +82,7 @@ Oppure
 
 Nel secondo esempio la funzione viene disabilitata se è presente un'impostazione dell'app denominata IS_DISABLED che è impostata su `true` o 1.
 
-You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
+È possibile modificare il file nella portale di Azure o usare l'opzione di **stato della funzione** nella scheda **Gestisci** della funzione. Il commutatore del portale funziona cambiando il file *Function. JSON* .
 
 ![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 

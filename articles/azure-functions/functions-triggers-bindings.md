@@ -1,6 +1,6 @@
 ---
 title: Trigger e associazioni in Funzioni di Azure
-description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
+description: Informazioni su come usare trigger e associazioni per connettere la funzione di Azure agli eventi online e ai servizi basati sul cloud.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
@@ -14,41 +14,41 @@ ms.locfileid: "74226554"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
-In this article you learn the high-level concepts surrounding functions triggers and bindings.
+In questo articolo vengono illustrati i concetti di alto livello che circondano i trigger e le associazioni di funzioni.
 
-Triggers are what cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function. 
+I trigger sono la cosa che determina l'esecuzione di una funzione. Un trigger definisce il modo in cui viene richiamata una funzione e una funzione deve avere esattamente un trigger. Ai trigger sono associati dati, che vengono spesso forniti come payload della funzione. 
 
-Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. I dati dei binding vengono forniti alla funzione come parametri.
+Il binding a una funzione è un modo per connettere in modo dichiarativo un'altra risorsa alla funzione; i binding possono essere connessi come *binding di input*, *associazioni di output*o entrambi. I dati dei binding vengono forniti alla funzione come parametri.
 
-You can mix and match different bindings to suit your needs. Bindings are optional and a function might have one or multiple input and/or output bindings.
+È possibile combinare e associare associazioni diverse in base alle esigenze. Le associazioni sono facoltative e una funzione può avere una o più associazioni di input e/o output.
 
-Triggers and bindings let you avoid hardcoding access to other services. La funzione riceve i dati, ad esempio il contenuto di un messaggio della coda, nei parametri della funzione. I dati vengono inviati, ad esempio per creare un messaggio della coda, usando il valore restituito della funzione. 
+Trigger e associazioni consentono di evitare l'accesso hardcoded ad altri servizi. La funzione riceve i dati, ad esempio il contenuto di un messaggio della coda, nei parametri della funzione. I dati vengono inviati, ad esempio per creare un messaggio della coda, usando il valore restituito della funzione. 
 
-Consider the following examples of how you could implement different functions.
+Si considerino gli esempi seguenti di come implementare funzioni diverse.
 
-| Scenario di esempio | Trigger | Input binding | Output binding |
+| Scenario di esempio | Trigger | Binding di input | Binding di output |
 |-------------|---------|---------------|----------------|
-| A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *Nessuno* | Queue<sup>*</sup> |
-|A scheduled job reads Blob Storage contents and creates a new Cosmos DB document. | Timer | Archiviazione BLOB | Cosmos DB |
-|The Event Grid is used to read an image from Blob Storage and a document from Cosmos DB to send an email. | Griglia di eventi | Blob Storage and  Cosmos DB | SendGrid |
-| A webhook that uses Microsoft Graph to update an Excel sheet. | http | *Nessuno* | Microsoft Graph |
+| Arriva un nuovo messaggio di coda che esegue una funzione per scrivere in un'altra coda. | <sup>*</sup> della coda | *Nessuno* | <sup>*</sup> della coda |
+|Un processo pianificato legge il contenuto dell'archiviazione BLOB e crea un nuovo documento Cosmos DB. | Timer | Archiviazione BLOB | Cosmos DB |
+|La griglia di eventi viene usata per leggere un'immagine dall'archiviazione BLOB e un documento da Cosmos DB per inviare un messaggio di posta elettronica. | Griglia di eventi | Archiviazione BLOB e Cosmos DB | SendGrid |
+| Un webhook che usa Microsoft Graph per aggiornare un foglio di Excel. | http | *Nessuno* | Microsoft Graph |
 
-<sup>\*</sup> Represents different queues
+<sup>\*</sup> Rappresenta le code diverse
 
-These examples are not meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
+Questi esempi non sono destinati a essere esaustivi, ma vengono forniti per illustrare come è possibile usare i trigger e le associazioni.
 
-###  <a name="trigger-and-binding-definitions"></a>Trigger and binding definitions
+###  <a name="trigger-and-binding-definitions"></a>Trigger e definizioni di binding
 
-Triggers and bindings are defined differently depending on the development approach.
+I trigger e le associazioni sono definiti in modo diverso a seconda dell'approccio di sviluppo.
 
-| Piattaforma | Triggers and bindings are configured by... |
+| Piattaforma | Trigger e associazioni sono configurati da... |
 |-------------|--------------------------------------------|
-| C# class library | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with C# attributes |
-| All others (including Azure portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+| C#libreria di classi | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;metodi e parametri di decorazione C# con attributi |
+| Tutti gli altri (inclusi portale di Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aggiornamento di [Function. JSON](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
 
-The portal provides a UI for this configuration, but you can edit the file directly by opening the **Advanced editor** available via the **Integrate** tab of your function.
+Il portale fornisce un'interfaccia utente per questa configurazione, ma è possibile modificare il file direttamente aprendo l' **Editor avanzato** disponibile tramite la scheda **integra** della funzione.
 
-In .NET, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary and a custom type to de-serialize to an object.
+In .NET, il tipo di parametro definisce il tipo di dati per i dati di input. Ad esempio, usare `string` per eseguire l'associazione al testo di un trigger della coda, una matrice di byte da leggere come binary e un tipo personalizzato da deserializzare in un oggetto.
 
 Per i linguaggi tipizzati in modo dinamico, ad esempio JavaScript, usare la proprietà `dataType` nel file *function.json*. Ad esempio, per eseguire la lettura del contenuto di una richiesta HTTP in formato binario, impostare `dataType` su `binary`:
 
@@ -69,7 +69,7 @@ Tutti i trigger e le associazioni hanno una proprietà `direction` nel file [fun
 
 - Per i trigger, la direzione è sempre `in`
 - Le associazioni di input e di output usano `in` e `out`
-- Alcune associazioni supportano una direzione speciale `inout`. If you use `inout`, only the **Advanced editor** is available via the **Integrate** tab in the portal.
+- Alcune associazioni supportano una direzione speciale `inout`. Se si usa `inout`, solo l' **Editor avanzato** è disponibile tramite la scheda **integrazione** nel portale.
 
 Quando si usano gli [attributi in una libreria di classi](functions-dotnet-class-library.md) per configurare i trigger e le associazioni, la direzione viene specificata in un costruttore di attributo o dedotta dal tipo di parametro.
 
@@ -79,15 +79,15 @@ Quando si usano gli [attributi in una libreria di classi](functions-dotnet-class
 
 Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambiente di produzione, vedere [Linguaggi supportati ](supported-languages.md).
 
-## <a name="resources"></a>resources
-- [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
-- [Using the Azure Function return value](./functions-bindings-return-value.md)
-- [How to register a binding expression](./functions-bindings-register.md)
+## <a name="resources"></a>Risorse
+- [Espressioni e modelli di associazione](./functions-bindings-expressions-patterns.md)
+- [Uso del valore restituito della funzione di Azure](./functions-bindings-return-value.md)
+- [Come registrare un'espressione di associazione](./functions-bindings-register.md)
 - Testing:
   - [Strategie per il test del codice in Funzioni di Azure](functions-test-a-function.md)
   - [Eseguire manualmente una funzione non attivata da HTTP](functions-manually-run-non-http.md)
-- [Handling binding errors](./functions-bindings-errors.md)
+- [Gestione degli errori di associazione](./functions-bindings-errors.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Register Azure Functions binding extensions](./functions-bindings-register.md)
+> [Registrare le estensioni di binding di funzioni di Azure](./functions-bindings-register.md)

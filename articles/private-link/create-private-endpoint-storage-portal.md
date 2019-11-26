@@ -38,7 +38,7 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
     | ------- | ----- |
     | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | sottoscrizione | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
     | Location | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
@@ -56,11 +56,11 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | sottoscrizione | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Region | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Image | Selezionare **Windows Server 2019 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
@@ -104,11 +104,11 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | sottoscrizione | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome dell'account di archiviazione  | Immettere *mystorageaccount*. Se il nome è già usato, creare un nome univoco. |
-    | Region | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area | Selezionare **Stati Uniti centro-occidentali**. |
     | Prestazioni| Lasciare l'impostazione predefinita **Standard**. |
     | Tipo di account | Lasciare la risorsa di **archiviazione predefinita (utilizzo generico v2)** . |
     | Replica | Selezionare **archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)** . |
@@ -122,7 +122,7 @@ In questa sezione verrà creato un account di archiviazione privato utilizzando 
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | sottoscrizione | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     |Location|Selezionare **Stati Uniti centro-occidentali**.|
     |Nome|Immettere *myPrivateEndpoint*.  |

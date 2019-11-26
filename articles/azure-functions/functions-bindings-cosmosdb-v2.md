@@ -14,7 +14,7 @@ ms.locfileid: "74227353"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-bindings-cosmosdb.md)
 > * [Versione 2](functions-bindings-cosmosdb-v2.md)
 
@@ -46,7 +46,7 @@ Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../c
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script C# (file con estensione csx)](#trigger---c-script-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
@@ -156,7 +156,7 @@ Ecco il codice JavaScript:
     }
 ```
 
-### <a name="trigger---java-example"></a>Trigger - Esempio Java
+### <a name="trigger---java-example"></a>Trigger - esempio Java
 
 L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione C# è interessata in caso di inserimenti o aggiornamenti nel database e nella raccolta specificati.
 
@@ -190,7 +190,7 @@ Ecco il codice Java:
 ```
 
 
-Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBTrigger` per i parametri il cui valore deriva da Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBTrigger` per i parametri il cui valore deriva da Cosmos DB.  Questa annotazione può essere usata con i tipi nativi Java, POJO o i valori nullable usando facoltativo\<T >.
 
 
 Ignorare esempi trigger
@@ -250,7 +250,7 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**type** || Il valore deve essere impostato su `cosmosDBTrigger`. |
 |**direction** || Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
@@ -269,7 +269,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (Facoltativo) Se impostato, definisce, in millisecondi, l'intervallo che indica la durata di un lease su un lease che rappresenta una partizione. Se il lease non viene rinnovato entro questo intervallo, ne comporterà la scadenza e la proprietà della partizione passerà a un'altra istanza. Il valore predefinito è 60000 (60 secondi).
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Facoltativo) Se impostato, definisce, in millisecondi, l'intervallo di rinnovo per tutti i lease per le partizioni attualmente occupate da un'istanza. Il valore predefinito è 17000 (17 secondi).
 |**checkpointFrequency**| **CheckpointFrequency**| (Facoltativo) Se impostato, definisce, in millisecondi, l'intervallo tra i checkpoint dei lease. Il valore predefinito è sempre dopo ogni chiamata di funzione.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optional) When set, this property sets the maximum amount of items received per Function call. If operations in the monitored collection are performed through stored procedures, [transaction scope](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) is preserved when reading items from the Change Feed. As a result of this, it's possible for the amount of items received to be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| Opzionale Se impostata, questa proprietà imposta la quantità massima di elementi ricevuti per ogni chiamata di funzione. Se le operazioni nella raccolta monitorata vengono eseguite tramite stored procedure, l' [ambito della transazione](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) viene mantenuto durante la lettura di elementi dal feed delle modifiche. Di conseguenza, è possibile che la quantità di elementi ricevuti sia superiore al valore specificato, in modo che gli elementi modificati dalla stessa transazione vengano restituiti come parte di un batch atomico.
 |**startFromBeginning**| **StartFromBeginning**| (Facoltativo) Se impostato, indica al trigger di iniziare a leggere le modifiche dall'inizio della cronologia della raccolta anziché dall'ora corrente. Questo funziona solo al primo avvio del trigger, perché per le esecuzioni successive i checkpoint sono già archiviati. L'impostazione su `true` in presenza di lease già creati non ha alcun effetto.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -288,7 +288,7 @@ Il trigger non indica se un documento è stato aggiornato o aggiunto, fornisce s
 L'associazione di input di Azure Cosmos DB usa l'API SQL per recuperare uno o più documenti di Azure Cosmos DB e li passa al parametro di input della funzione. L'ID documento o i parametri di query possono essere determinati in base al trigger che richiama la funzione.
 
 > [!NOTE]
-> If the collection is [partitioned](../cosmos-db/partition-data.md#logical-partitions), lookup operations need to also specify the partition key value.
+> Se la raccolta è [partizionata](../cosmos-db/partition-data.md#logical-partitions), è necessario che le operazioni di ricerca specifichino anche il valore della chiave di partizione.
 >
 
 ## <a name="input---examples"></a>Input: esempi
@@ -296,7 +296,7 @@ L'associazione di input di Azure Cosmos DB usa l'API SQL per recuperare uno o pi
 Vedere gli esempi specifici di ogni linguaggio per leggere un singolo documento specificando un valore di ID:
 
 * [C#](#input---c-examples)
-* [Script C# (file con estensione csx)](#input---c-script-examples)
+* [Script C# (.csx)](#input---c-script-examples)
 * [F#](#input---f-examples)
 * [Java](#input---java-examples)
 * [JavaScript](#input---javascript-examples)
@@ -333,7 +333,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>Trigger della coda e ricerca dell'ID da JSON (C#)
 
-L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. La funzione viene attivata da un messaggio in coda contenente un oggetto JSON. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. La funzione viene attivata da un messaggio in coda contenente un oggetto JSON. Il trigger Queue analizza il file JSON in un oggetto denominato `ToDoItemLookup`, che contiene l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -386,7 +386,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-query-string-c"></a>Trigger HTTP e ricerca dell'ID da una stringa di query (C#)
 
-L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 >[!NOTE]
 >Il parametro di stringa di query HTTP fa distinzione tra maiuscole e minuscole.
@@ -436,7 +436,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-route-data-c"></a>Trigger HTTP e ricerca dell'ID dai dati della route (C#)
 
-L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -487,7 +487,7 @@ L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md)
 L'esempio illustra come usare un'espressione di associazione nel parametro `SqlQuery`. Si possono passare i dati della route al parametro `SqlQuery` come illustrato, ma attualmente [non è possibile passare valori di stringhe di query](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
+> Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string-c), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-queries.md) delle query in base all'ID.
 >
 
 ```cs
@@ -575,7 +575,7 @@ namespace CosmosDBSamplesV2
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un elenco di documenti. La funzione viene attivata da una richiesta HTTP. Il codice usa un'istanza di `DocumentClient` fornita dall'associazione di Azure Cosmos DB per leggere un elenco di documenti. L'istanza di `DocumentClient` potrebbe essere usata anche per operazioni di scrittura.
 
 > [!NOTE]
-> You can also use the [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) interface to make testing easier.
+> È anche possibile usare l'interfaccia [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) per semplificare i test.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -738,7 +738,7 @@ Ecco il codice script C#:
 
 #### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>Trigger HTTP e ricerca dell'ID da una stringa di query (script C#)
 
-L'esempio seguente illustra una [funzione script C#](functions-reference-csharp.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione script C#](functions-reference-csharp.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -801,7 +801,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 #### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>Trigger HTTP e ricerca dell'ID dai dati della route (script C#)
 
-L'esempio seguente illustra una [funzione script C#](functions-reference-csharp.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione script C#](functions-reference-csharp.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1056,7 +1056,7 @@ Ecco il codice JavaScript:
 
 #### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>Trigger HTTP e ricerca dell'ID da una stringa di query (JavaScript)
 
-L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1115,7 +1115,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Trigger HTTP e ricerca dell'ID dai dati della route (JavaScript)
 
-L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1269,7 +1269,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 #### <a name="http-trigger-look-up-id-from-query-string-python"></a>Trigger HTTP e ricerca dell'ID da una stringa di query (Python)
 
-L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1328,7 +1328,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>Trigger HTTP e ricerca dell'ID dai dati della route (Python)
 
-L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
+L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. Tale ID e valore della chiave di partizione vengono utilizzati per recuperare un documento `ToDoItem` dal database e dalla raccolta specificati.
 
 Ecco il file *function.json*:
 
@@ -1503,7 +1503,7 @@ public class ToDoItem {
 
 #### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>Trigger HTTP e ricerca dell'ID da una stringa di query - Parametro String (Java)
 
-L'esempio seguente illustra una funzione Java che recupera un singolo documento. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, in String form.
+L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un documento dal database e dalla raccolta specificati, in formato stringa.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1545,11 +1545,11 @@ public class DocByIdFromQueryString {
 }
  ```
 
-Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBInput` per i parametri di funzione il cui valore deriva da Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBInput` per i parametri di funzione il cui valore deriva da Cosmos DB.  Questa annotazione può essere usata con i tipi nativi Java, POJO o i valori nullable usando facoltativo\<T >.
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>Trigger HTTP e ricerca dell'ID da una stringa di query - Parametro POJO (Java)
 
-L'esempio seguente illustra una funzione Java che recupera un singolo documento. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value used to retrieve a document from the specified database and collection. Il documento viene quindi convertito in un'istanza del ```ToDoItem``` POJO precedentemente creato e passato come argomento alla funzione.
+L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. ID e valore della chiave di partizione utilizzati per recuperare un documento dal database e dalla raccolta specificati. Il documento viene quindi convertito in un'istanza del ```ToDoItem``` POJO precedentemente creato e passato come argomento alla funzione.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1591,7 +1591,7 @@ public class DocByIdFromQueryStringPojo {
 
 #### <a name="http-trigger-look-up-id-from-route-data-java"></a>Trigger HTTP e ricerca dell'ID dai dati della route (Java)
 
-L'esempio seguente illustra una funzione Java che recupera un singolo documento. The function is triggered by a HTTP request that uses a route parameter to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, returning it as an ```Optional<String>```.
+L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza un parametro di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un documento dal database e dalla raccolta specificati, restituendo il valore come ```Optional<String>```.
 
 ```java
 public class DocByIdFromRoute {
@@ -1639,7 +1639,7 @@ public class DocByIdFromRoute {
 L'esempio seguente illustra una funzione Java che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa un parametro di route per specificare l'ID da cercare. Questo ID viene usato per recuperare un documento dal database e dalla raccolta specificati, convertendo il set di risultati in ```ToDoItem[]```, dato che possono essere restituiti molti documenti, a seconda dei criteri di query.
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
+> Se è necessario eseguire una query solo con l'ID, è consigliabile usare una ricerca, come negli [esempi precedenti](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), perché utilizzerà meno [unità richiesta](../cosmos-db/request-units.md). Le operazioni di lettura del punto (GET) sono [più efficienti](../cosmos-db/optimize-cost-queries.md) delle query in base all'ID.
 >
 
 ```java
@@ -1732,7 +1732,7 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `cosmosDB`.        |
 |**direction**     || Il valore deve essere impostato su `in`.         |
@@ -1742,7 +1742,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**id**    | **Id** | ID del documento da recuperare. Questa proprietà supporta le [espressioni di associazione](./functions-bindings-expressions-patterns.md). Non impostare entrambe le proprietà **id** e **sqlQuery**. Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta. |
 |**sqlQuery**  |**SqlQuery**  | Query SQL di Azure Cosmos DB usata per recuperare più documenti. La proprietà supporta le associazioni del runtime, come nell'esempio seguente: `SELECT * FROM c where c.departmentId = {departmentId}`. Non impostare entrambe le proprietà **id** e **sqlQuery**. Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Nome dell'impostazione app contenente la stringa di connessione di Azure Cosmos DB.        |
-|**partitionKey**|**PartitionKey**|Specifica il valore della chiave di partizione per la ricerca. Può includere i parametri di associazione. It is required for lookups in [partitioned](../cosmos-db/partition-data.md#logical-partitions) collections.|
+|**partitionKey**|**PartitionKey**|Specifica il valore della chiave di partizione per la ricerca. Può includere i parametri di associazione. È necessario per le ricerche nelle raccolte [partizionate](../cosmos-db/partition-data.md#logical-partitions) .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1761,7 +1761,7 @@ L'associazione di output di Azure Cosmos DB consente di scrivere un nuovo docume
 Vedere gli esempi specifici per ciascun linguaggio:
 
 * [C#](#output---c-examples)
-* [Script C# (file con estensione csx)](#output---c-script-examples)
+* [Script C# (.csx)](#output---c-script-examples)
 * [F#](#output---f-examples)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
@@ -2295,11 +2295,11 @@ L'esempio seguente mostra una funzione Java che scrive più documenti in Cosmos 
 
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBOutput` per i parametri che saranno scritti su Cosmos DB.  Il tipo di parametro di annotazione deve essere ```OutputBinding<T>```, dove T è un tipo nativo di Java o un oggetto POJO.
 
-### <a name="output---python-examples"></a>Output - Python examples
+### <a name="output---python-examples"></a>Output-esempi Python
 
-The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.
+Nell'esempio seguente viene illustrato come scrivere un documento in un database CosmosDB di Azure come output di una funzione.
 
-The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
+La definizione di associazione è definita in *Function. JSON,* dove *Type* è impostato su `cosmosDB`.
 
 ```json
 {
@@ -2333,7 +2333,7 @@ The binding definition is defined in *function.json* where *type* is set to `cos
 }
 ```
 
-To write to the database, pass a document object to the `set` method of the database parameter.
+Per scrivere nel database, passare un oggetto Document al metodo `set` del parametro database.
 
 ```python
 import azure.functions as func
@@ -2369,7 +2369,7 @@ Per un esempio completo, vedere Output - esempio in C#.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `cosmosDB`.        |
 |**direction**     || Il valore deve essere impostato su `out`.         |
@@ -2392,9 +2392,9 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimento |
+| Binding | riferimento |
 |---|---|
-| CosmosDB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 <a name="host-json"></a>
 
@@ -2417,7 +2417,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Default | DESCRIZIONE |
 |---------|---------|---------|
 |GatewayMode|Gateway|La modalità di connessione usata dalla funzione durante la connessione al servizio di Azure Cosmos DB. Le opzioni sono `Direct` e `Gateway`|
 |Protocol|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|

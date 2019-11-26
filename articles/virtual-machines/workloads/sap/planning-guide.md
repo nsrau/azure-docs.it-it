@@ -319,7 +319,7 @@ Questo documento è complementare alla documentazione relativa all'installazione
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 Cloud computing è un termine ampiamente diffuso che sta assumendo un'importanza sempre più rilevante nel settore IT, dalle piccole imprese fino alle grandi aziende e alle multinazionali.
 
 Microsoft Azure è la piattaforma di servizi cloud di Microsoft che offre un'ampia gamma di nuove possibilità. I clienti possono infatti effettuare rapidamente il provisioning e il deprovisioning di applicazioni come servizi sul cloud, senza essere soggetti a eventuali limiti tecnici o di budget. Anziché investire tempo e denaro nell'infrastruttura hardware, le aziende possono concentrarsi sull'applicazione, sui processi aziendali e sui vantaggi per clienti e utenti.
@@ -1332,7 +1332,7 @@ Potrebbe essere necessario configurare il firewall nelle macchine virtuali per c
 > ![Windows][Logo_Windows] Windows
 >
 > Per impostazione predefinita, Windows Firewall all'interno di una macchina virtuale distribuita di Azure è attivato. A questo punto è necessario consentire l'apertura della porta SAP, in caso contrario l'interfaccia utente grafica SAP non potrà connettersi.
-> A tale scopo, effettuare le seguenti operazioni:
+> A tale scopo, seguire questa procedura:
 >
 > * Aprire **Impostazioni avanzate** in Pannello di controllo\Sistema e Sicurezza\Windows Firewall.
 > * Fare clic con il pulsante destro del mouse su Regole connessioni in entrata e scegliere **Nuova regola**.
@@ -1658,7 +1658,7 @@ La configurazione delle stampanti di rete locali basate su TCP/IP in una VM di A
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> A tale scopo, effettuare le seguenti operazioni:
+> A tale scopo, seguire questa procedura:
 >
 > * Alcune stampanti di rete sono dotate di una configurazione guidata che semplifica la configurazione della stampante in una VM di Azure. Se non è stato distribuito alcun software di procedura guidata con la stampante, la modalità manuale di configurazione della stampante prevede la creazione di una nuova porta stampante TCP/IP.
 > * Aprire Pannello di controllo -> Dispositivi e stampanti -> Aggiungi stampante
@@ -2053,7 +2053,7 @@ Dalla metà del 2014, le estensioni ai vari componenti di Hyper-V, System Center
 
 Per una descrizione dettagliata di come distribuire questa soluzione, vedere il blog seguente: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>summary
 
 I punti chiave della disponibilità elevata per i sistemi SAP in Azure sono i seguenti:
 

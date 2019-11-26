@@ -15,7 +15,7 @@ ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 2f8ba53080b10568a3ac74e9ad2a81114e1c7c93
 ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206697"
@@ -31,7 +31,7 @@ Azure è supportato da un'infrastruttura che esegue Windows Server 2016. Windows
 >
 > Per altre informazioni, vedere [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016). 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 La precisione di un orologio del computer viene misurata in base a quanto l'orologio del computer si avvicina allo standard dell'ora UTC. L'ora UTC è definita da un campione multinazionale di orologi atomici precisi che possono essere sfalsati solo di un secondo in 300 anni. Tuttavia, leggere l'ora UTC direttamente richiede un hardware specializzato. Al contrario, i server di riferimento ora vengono sincronizzati con UTC e sono accessibili da altri computer in modo da garantire scalabilità e affidabilità. In ogni computer viene eseguito un servizio di sincronizzazione dell'ora che sa quali server di riferimento ora usare e verifica periodicamente se l'orologio del computer deve essere corretto e, se necessario, regola l'ora. 
 
@@ -71,7 +71,7 @@ Per verificare che NTP esegua correttamente la sincronizzazione, usare il comand
 
 ### <a name="host-only"></a>Solo host 
 
-Poiché i server NTP, ad esempio time.windows.com e ntp.ubuntu.com, sono pubblici, la sincronizzazione dell'ora con gli stessi richiede l'invio di traffico via Internet. Varying packet delays can negatively affect quality of the time sync. Removing NTP by switching to host-only sync can sometimes improve your time sync results.
+Poiché i server NTP, ad esempio time.windows.com e ntp.ubuntu.com, sono pubblici, la sincronizzazione dell'ora con gli stessi richiede l'invio di traffico via Internet. La variazione dei ritardi dei pacchetti può influire negativamente sulla qualità della sincronizzazione dell'ora. La rimozione di NTP passando alla sincronizzazione solo host può talvolta migliorare i risultati della sincronizzazione del tempo.
 
 Il passaggio alla sincronizzazione dell'ora solo per l'host ha senso se si verificano problemi di sincronizzazione dell'ora usando la configurazione predefinita. Provare la sincronizzazione solo per l'host per verificare se contribuisce a migliorare la sincronizzazione dell'ora nella macchina virtuale. 
 
@@ -145,11 +145,11 @@ Per altre informazioni su chrony, vedere la pagina relativa all'[uso di chrony](
 
 Se le origini chrony e TimeSync vengono abilitate simultaneamente, è possibile contrassegnarne una come **preferenza** che imposti l'altra origine come backup. Poiché i servizi NTP non aggiornano l'orologio in caso di sfasamenti di grandi dimensioni, se non dopo un lungo periodo, VMICTimeSync ripristinerà l'orologio dagli eventi della macchina virtuale messi in pausa molto più rapidamente rispetto ai soli strumenti basati su NTP.
 
-By default chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony will fail to fix the drift. To overcome this the `makestep` parameter in **/etc/chrony.conf** can be changed to force a timesync if the drift exceeds the threshold specified.
+Per impostazione predefinita, chronyd accelera o rallenta il clock di sistema per correggere eventuali deviazioni temporali. Se la deriva diventa troppo grande, Chrony non riuscirà a correggere la tendenza. Per ovviare a questo problema, è possibile modificare il parametro `makestep` in **/etc/Chrony.conf** in modo da forzare un TimeSync se la deriva supera la soglia specificata.
  ```bash
 makestep 1.0 -1
 ```
-Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service.
+In questo caso, Chrony forza un aggiornamento temporale se la tendenza è maggiore di 1 secondo. Per applicare le modifiche, riavviare il servizio chronyd.
 
 ```bash
 systemctl restart chronyd

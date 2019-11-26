@@ -1,5 +1,5 @@
 ---
-title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
+title: Come eseguire il provisioning dei dispositivi per il multitenant nel servizio Device provisioning in hub Azure
 description: Come effettuare il provisioning di dispositivi per la multi-tenancy con l'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
@@ -36,9 +36,9 @@ Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* Completamento dell'avvio rapido della [configurazione del servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+* Completamento della guida introduttiva [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -419,8 +419,8 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+- Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
+- Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md) 
 
 
 

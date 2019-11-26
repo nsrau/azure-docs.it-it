@@ -99,7 +99,7 @@ Non è possibile aggiungere o rimuovere record dal set di record SOA creato auto
 
 Il set di record NS al vertice della zona viene creato automaticamente con ogni zona DNS. Contiene i nomi dei server dei nomi DNS di Azure assegnati alla zona.
 
-È possibile aggiungere altri server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati.
+È possibile aggiungere ulteriori server dei nomi a questo set di record NS per supportare domini coesistenti con più provider DNS. È anche possibile modificare il valore TTL e i metadati per questo set di record. Tuttavia, non è possibile rimuovere o modificare i server dei nomi DNS di Azure già popolati.
 
 Notare che questo si applica solo al set di record NS al vertice della zona. Gli altri set di record NS nella zona (usati per delegare le zone figlio) possono essere modificati senza vincoli.
 
@@ -109,7 +109,7 @@ Non è possibile eliminare i set di record SOA e NS al vertice della zona (name 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sul servizio DNS di Azure, vedere la [panoramica del servizio DNS di Azure](dns-overview.md).
+* Per altre informazioni sul servizio DNS di Azure, vedere [Panoramica di DNS di Azure](dns-overview.md).
 * Per altre informazioni sull'automazione di DNS, vedere [Creazione di zone e set di record DNS con .NET SDK](dns-sdk.md).
 * Per altre informazioni sui record DNS inversi, vedere [Panoramica del DNS inverso e supporto in Azure](dns-reverse-dns-overview.md).
 * Per altre informazioni sui record alias DNS di Azure, vedere [Panoramica dei record alias DNS di Azure](dns-alias.md).

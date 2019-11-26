@@ -1,6 +1,6 @@
 ---
-title: Overview of reverse DNS in Azure - Azure DNS
-description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
+title: Panoramica del DNS inverso in Azure-DNS di Azure
+description: In questo percorso di apprendimento è possibile iniziare ad apprendere il funzionamento del DNS inverso e il modo in cui può essere usato in Azure
 services: dns
 documentationcenter: na
 author: asudbring
@@ -33,7 +33,7 @@ I record DNS inversi vengono usati in varie situazioni. I record DNS inversi, ad
 
 I record DNS inversi sono ospitati in speciali zone DNS, chiamate zone "ARPA".  Queste zone costituiscono una gerarchia DNS separata parallela alla normale gerarchia che ospita domini come "contoso.com".
 
-Il record DNS "www.contoso.com", ad esempio, viene implementato usando un record "A" DNS con il nome "www" nella zona "contoso.com".  Questo record A fa riferimento all'indirizzo IP corrispondente, in questo caso 64.4.6.100.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
+Il record DNS "www.contoso.com", ad esempio, viene implementato usando un record "A" DNS con il nome "www" nella zona "contoso.com".  Questo record A fa riferimento all'indirizzo IP corrispondente, in questo caso 64.4.6.100.  La ricerca inversa viene implementata separatamente, usando un record ' PTR ' denominato ' 100' nella zona ' 6.4.64.in-addr. arpa ' (si noti che gli indirizzi IP sono invertiti nelle zone ARPA).  Questo record PTR, se è stato configurato correttamente, punta al nome "www.contoso.com".
 
 Quando a un'organizzazione viene assegnato un blocco di indirizzi IP, acquisisce anche il diritto di gestire la zona ARPA corrispondente. Le zone ARPA corrispondenti ai blocchi di indirizzi IP usati da Azure vengono ospitate e gestite da Microsoft. L'ISP può ospitare per l'utente la zona ARPA per gli indirizzi IP o può consentire di ospitare la zona ARPA nel servizio DNS preferito, ad esempio DNS di Azure.
 

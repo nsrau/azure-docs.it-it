@@ -1,5 +1,5 @@
 ---
-title: View service principal of a managed identity - Azure CLI - Azure AD
+title: Visualizzare l'entità servizio di un'identità gestita-interfaccia della riga di comando di Azure-Azure AD
 description: Istruzioni dettagliate su come visualizzare l'entità servizio di un'identità gestita tramite l'interfaccia della riga di comando di Azure.
 services: active-directory
 documentationcenter: ''
@@ -28,7 +28,7 @@ Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'iden
 
 In questo articolo viene descritto come visualizzare l'entità servizio di un'identità gestita tramite l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha già un account Azure, è possibile [registrarsi per ottenerne uno gratuito](https://azure.microsoft.com/free/).

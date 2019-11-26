@@ -35,21 +35,21 @@ Gli avvisi sul credito consentono di ricevere una notifica quando vengono consum
 
 Gli avvisi relativi alla quota di spesa del reparto consentono di ricevere una notifica quando la spesa del reparto raggiunge una soglia fissa della quota. Le quote di spesa sono configurate nel portale EA. Ogni volta che viene raggiunta una soglia, viene generato un messaggio di posta elettronica per i responsabili del reparto e l'evento viene visualizzato negli avvisi per i costi. Ad esempio, al 50% o al 75% della quota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
+## <a name="supported-alert-features-by-offer-categories"></a>Funzionalità di avviso supportate in base alle categorie di offerte
 
-Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
+Il supporto per i tipi di avviso dipende dal tipo di account di Azure disponibile (offerta Microsoft). La tabella seguente illustra le funzionalità di avviso supportate da diverse offerte Microsoft. È possibile visualizzare l'elenco completo delle offerte Microsoft per [informazioni sui dati di gestione dei costi](understand-cost-mgt-data.md).
 
-| Tipo di avviso | Contratto Enterprise Agreement | Contratto del cliente Microsoft | Web direct/Pay-As-You-Go |
+| Tipo di avviso | Enterprise Agreement | Contratto del cliente Microsoft | Web diretto/con pagamento in base al consumo |
 |---|---|---|---|
-| Budget | ✔ | ✔ | ✔ |
+| Bilancio | ✔ | ✔ | ✔ |
 | Riconoscimenti | ✔ |✘ | ✘ |
-| Department spending quota | ✔ | ✘ | ✘ |
+| Quota di spesa del reparto | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>Visualizzare gli avvisi per i costi
 
-To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+Per visualizzare gli avvisi relativi ai costi, aprire l'ambito desiderato nel portale di Azure e selezionare **budget** nel menu. Utilizzare la pillola **ambito** per passare a un ambito diverso. Selezionare **avvisi di costo** nel menu. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ![Immagine di esempio degli avvisi visualizzati in Gestione costi](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ Quando si visualizzano i dettagli di un avviso ignorato, è possibile riattivarl
 
 ![Immagine di esempio che mostra le opzioni per ignorare e riattivare l'avviso](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - Se non è ancora stato creato un budget o impostate le condizioni di avviso per un budget, completare l'esercitazione [Creare e gestire i budget](tutorial-acm-create-budgets.md).

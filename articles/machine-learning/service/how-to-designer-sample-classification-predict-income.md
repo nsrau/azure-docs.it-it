@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict income example'
+title: 'Finestra di progettazione: esempio di classificazione, stima del reddito'
 titleSuffix: Azure Machine Learning
-description: Follow this example build a no-code classifier to predict income with Azure Machine Learning designer.
+description: Seguire questo esempio per creare un classificatore senza codice per stimare il reddito con Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,57 +17,57 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214083"
 ---
-# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Build a classifier & use feature selection to predict income with Azure Machine Learning designer
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Compilare un classificatore & usare la selezione delle funzioni per stimare il reddito con Azure Machine Learning Designer
 
-**Designer (preview) sample 3**
+**Finestra di progettazione (anteprima) sample 3**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
+Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima). Questo esempio consente di eseguire il training di un **albero delle decisioni con boosting a due classi** per stimare il reddito del censimento adulto (> = 50.000 o < = 50.000).
 
-Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+Poiché la domanda risponde a "quale?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 
-Here's the final pipeline graph for this sample:
+Ecco il grafico della pipeline finale per questo esempio:
 
-![Graph of the pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
+![Grafico della pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click the sample 3 to open it.
+4. Fare clic sul campione 3 per aprirlo.
 
 
 
 ## <a name="data"></a>Dati
 
-The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset: ![data](media/how-to-designer-sample-classification-predict-income/data.png)
+Il set di dati contiene 14 funzionalità e una colonna etichetta. Sono disponibili più tipi di funzionalità, inclusi numerici e categorici. Il diagramma seguente mostra un estratto del set di dati: ![dati](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
-## <a name="pipeline-summary"></a>Pipeline summary
+## <a name="pipeline-summary"></a>Riepilogo della pipeline
 
-Follow these steps to create the pipeline:
+Per creare la pipeline, attenersi alla procedura seguente:
 
-1. Drag the Adult Census Income Binary dataset module into the pipeline canvas.
-1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
-1. Add the **Filter Based Feature Selection** module to select 5 features by PearsonCorreclation. 
-1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
-1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
-1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.
-![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
-1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
+1. Trascinare il modulo DataSet Adult Census income Binary DataSet nel Canvas della pipeline.
+1. Aggiungere un modulo **Split data** per creare i set di training e di test. Impostare la frazione di righe nel primo set di dati di output su 0,7. Questa impostazione specifica che il 70% dei dati verrà restituito alla porta sinistra del modulo e il resto sulla porta destra. Il set di dati a sinistra viene usato per il training e quello giusto per i test.
+1. Aggiungere il modulo di selezione delle caratteristiche **basato su filtro** per selezionare 5 funzionalità per PearsonCorreclation. 
+1. Aggiungere un modulo a **albero delle decisioni con boosting a due classi** per inizializzare un classificatore di albero delle decisioni con boosting.
+1. Aggiungere un modulo **Train Model** . Connettere il classificatore dal passaggio precedente alla porta di input sinistra del modello di **Training**. Connettere il set di dati filtrato dal modulo di selezione delle caratteristiche basato su filtro come set di dati di training  Il training **Model** eseguirà il training del classificatore.
+1. Aggiungere la trasformazione Seleziona colonne e applicare il modulo di trasformazione per applicare la stessa trasformazione (selezione funzionalità basata su filtro) al set di dati di test.
+![Apply-Transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
+1. Aggiungere il modulo **Score Model** e connettervi il modulo **Train Model** . Aggiungere quindi il set di test (l'output del modulo Apply Transformation che applica la selezione delle caratteristiche anche al set di test) al **modello di Punteggio**. Il **modello di Punteggio** effettuerà le stime. È possibile selezionare la relativa porta di output per visualizzare le stime e le probabilità della classe positiva.
 
 
-    This pipeline has two score modules, the one on the right has excluded label column before make the prediction. This is prepared to deploy a real-time endpoint, because the web service input will expect only features not label. 
+    Questa pipeline ha due moduli score, uno a destra ha esclusa la colonna Label prima di eseguire la stima. Questa operazione è preparata per la distribuzione di un endpoint in tempo reale, perché l'input del servizio Web prevede che non vengano etichettate solo le funzionalità. 
 
-1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
+1. Aggiungere un modulo **Evaluate Model** e connettere il set di dati con punteggio alla relativa porta di input sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del modulo **Evaluate Model** e selezionare **Visualize (Visualizza**).
 
 ## <a name="results"></a>Risultati
 
 ![Valutare i risultati](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
-In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
+Nei risultati della valutazione è possibile osservare che le curve, ad esempio ROC, Precision-Recall e confusione, sono metriche. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -75,11 +75,11 @@ In the evaluation results, you can see that the curves like ROC, Precision-recal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Explore the other samples available for the designer:
+Esplorare gli altri esempi disponibili per la finestra di progettazione:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
+- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 7-classificazione di testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)

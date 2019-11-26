@@ -1,6 +1,6 @@
 ---
-title: Azure Functions error handling guidance
-description: Learn to handle errors in Azure Functions with links to specific binding errors.
+title: Linee guida per la gestione degli errori in funzioni di Azure
+description: Informazioni su come gestire gli errori in funzioni di Azure con collegamenti a errori di binding specifici.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
@@ -14,9 +14,9 @@ ms.locfileid: "74227331"
 ---
 # <a name="azure-functions-error-handling"></a>Gestione degli errori di Funzioni di Azure
 
-Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application.
+La gestione degli errori in funzioni di Azure è importante per evitare la perdita di dati, eventi mancanti e per monitorare l'integrità dell'applicazione.
 
-This article describes general strategies for error handling along with links to binding-specific errors.
+Questo articolo descrive le strategie generali per la gestione degli errori insieme ai collegamenti ad errori specifici dell'associazione.
 
 ## <a name="handling-errors"></a>Gestione degli errori
 
@@ -24,7 +24,7 @@ This article describes general strategies for error handling along with links to
 
 ## <a name="binding-error-codes"></a>Codici degli errori di associazione
 
-When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
+Quando si esegue l'integrazione con i servizi di Azure, gli errori possono provenire dalle API dei servizi sottostanti. Le informazioni relative agli errori specifici dell'associazione sono disponibili nella sezione **eccezioni e codici restituiti** degli articoli seguenti:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
@@ -32,7 +32,7 @@ When integrating with Azure services, errors may originate from the APIs of the 
 
 + [Hub eventi](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 
-+ [Hub di notifica](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
++ [Hub di notifica di Azure](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
 + [Archiviazione code](functions-bindings-storage-queue.md#exceptions-and-return-codes)
 

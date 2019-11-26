@@ -1,5 +1,5 @@
 ---
-title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal
+title: Gestire le registrazioni dei dispositivi per il servizio Device provisioning in hub Azure nel portale di Azure
 description: Come gestire le registrazioni dei dispositivi per il servizio Device Provisioning nel portale di Azure
 author: wesmc7777
 ms.author: wesmc
@@ -33,10 +33,10 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
   1. Nel servizio di provisioning:  
      a. Fare clic su **Gestisci registrazioni**, quindi selezionare la scheda **Gruppi di registrazione**.  
      b. Fare clic sul pulsante **Add** (Aggiungi) in alto.  
-     c. Quando viene visualizzato il pannello "Add Enrollment Group" (Aggiungi gruppo di registrazione), inserire le informazioni necessarie per la voce dell'elenco di registrazione.  Il **nome del gruppo** è obbligatorio. Selezionare inoltre "CA o Intermedio" per **Tipo di certificato** e caricare il **certificato primario** radice per il gruppo di dispositivi.  
-     d. Fare clic su **Salva** Dopo avere creato il gruppo di registrazione, sotto la scheda **Enrollment Groups** (Gruppi di registrazione) verrà visualizzato il nome del gruppo.  
+     C. Quando viene visualizzato il pannello "Add Enrollment Group" (Aggiungi gruppo di registrazione), inserire le informazioni necessarie per la voce dell'elenco di registrazione.  Il **nome del gruppo** è obbligatorio. Selezionare inoltre "CA o Intermedio" per **Tipo di certificato** e caricare il **certificato primario** radice per il gruppo di dispositivi.  
+     d. Fare clic su **Save**. Dopo avere creato il gruppo di registrazione, sotto la scheda **Enrollment Groups** (Gruppi di registrazione) verrà visualizzato il nome del gruppo.  
 
-     [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![gruppo di registrazione nel portale](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * Una **registrazione individuale** è una voce per un singolo dispositivo che esegue la registrazione. Le registrazioni individuali possono usare certificati x.509 o token di firma di accesso condiviso (in un TPM fisico o virtuale) come meccanismo di attestazione. È consigliabile usare le registrazioni individuali per i dispositivi che richiedono configurazioni iniziali univoche oppure per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
@@ -48,8 +48,8 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     1. Nel servizio di provisioning:  
        a. Fare clic su **Gestisci registrazioni**, quindi selezionare la scheda **Registrazioni singole**.  
        b. Fare clic sul pulsante **Add** (Aggiungi) in alto.   
-       c. Quando viene visualizzato il pannello "Add Enrollment" (Aggiungi registrazione), inserire le informazioni necessarie per la voce dell'elenco di registrazione. Selezionare il **meccanismo** di attestazione per il dispositivo (X.509 o TPM). Per l'attestazione X.509 è necessario caricare il **certificato primario** foglia per il dispositivo. Per TPM è necessario immettere la **chiave dell'attestazione** e l'**ID di registrazione** per il dispositivo.  
-       d. Fare clic su **Salva** Dopo avere creato il gruppo di registrazione, sotto la scheda **Individual Enrollments** (Registrazioni singole) verrà visualizzato il nome del gruppo.  
+       C. Quando viene visualizzato il pannello "Add Enrollment" (Aggiungi registrazione), inserire le informazioni necessarie per la voce dell'elenco di registrazione. Selezionare il **meccanismo** di attestazione per il dispositivo (X.509 o TPM). Per l'attestazione X.509 è necessario caricare il **certificato primario** foglia per il dispositivo. Per TPM è necessario immettere la **chiave dell'attestazione** e l'**ID di registrazione** per il dispositivo.  
+       d. Fare clic su **Save**. Dopo avere creato il gruppo di registrazione, sotto la scheda **Individual Enrollments** (Registrazioni singole) verrà visualizzato il nome del gruppo.  
 
        [![Registrazione singola sul portale](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

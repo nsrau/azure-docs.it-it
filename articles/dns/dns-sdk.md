@@ -1,7 +1,7 @@
 ---
 title: Creare zone e set di record DNS con .NET SDK
 titleSuffix: Azure DNS
-description: In this learning path, get started creating DNS zones and record sets in Azure DNS by using the .NET SDK.
+description: In questo percorso di apprendimento iniziare a creare zone e set di record DNS in DNS di Azure con .NET SDK.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -23,14 +23,14 @@ ms.locfileid: "74210947"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creare zone e set di record DNS con .NET SDK
 
-È possibile automatizzare le operazioni per creare, eliminare o aggiornare zone, set di record e record DNS usando DNS SDK con la libreria di gestione DNS per .NET. Un progetto completo di Visual Studio è disponibile [qui](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
+È possibile automatizzare le operazioni per creare, eliminare o aggiornare zone, set di record e record DNS usando DNS SDK con la libreria di gestione DNS per .NET. Un progetto completo di Visual Studio è disponibile [qui](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
 
 ## <a name="create-a-service-principal-account"></a>Creare un account dell'entità servizio
 
 L'accesso a livello di programmazione alle risorse di Azure viene in genere concesso tramite un account dedicato, non tramite le proprie credenziali utente. Questi account dedicati sono denominati 'account dell'entità servizio'. Per usare il progetto di esempio Azure SDK per DNS, è prima necessario creare un account dell'entità servizio e assegnargli le autorizzazioni corrette.
 
 1. Seguire [queste istruzioni](../active-directory/develop/howto-authenticate-service-principal-powershell.md) per creare un account dell'entità servizio. Il progetto di esempio Azure SDK per DNS presuppone che l'autenticazione sia basata su password.
-2. Creare un gruppo di risorse seguendo [questa procedura](../azure-resource-manager/resource-group-template-deploy-portal.md).
+2. Creare un gruppo di risorse seguendo[questa procedura](../azure-resource-manager/resource-group-template-deploy-portal.md).
 3. Usare il Controllo degli accessi in base al ruolo di Azure per concedere all'account dell'entità servizio le autorizzazioni 'DNS Zone Contributor' per il gruppo di risorse. A questo scopo, seguire [questa procedura](../role-based-access-control/role-assignments-portal.md).
 4. Se si usa il progetto di esempio Azure SDK per DNS, modificare il file 'program.cs' come segue:
 
@@ -146,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>Elencare zone e set di record
 
-To list zones, use the *DnsManagementClient.Zones.List...* methods, which support listing either all zones in a given resource group or all zones in a given Azure subscription (across resource groups.) To list record sets, use *DnsManagementClient.RecordSets.List...* methods, which support either listing all record sets in a given zone or only those record sets of a specific type.
+Per elencare le zone, usare i metodi *DnsManagementClient. Zones. list...* , che supportano l'elenco di tutte le zone in un determinato gruppo di risorse o di tutte le zone in una sottoscrizione di Azure specifica (tra gruppi di risorse). Per elencare i set di record, usare i metodi *DnsManagementClient. Recordsets. list...* che supportano l'elenco di tutti i set di record in una determinata zona o solo i set di record di un tipo specifico.
 
 Quando si elencano le zone e i set di record, i risultati potrebbero essere impaginati.  L'esempio seguente illustra come scorrere le pagine dei risultati. Vengono usate dimensioni della pagina artificialmente ridotte pari a '2' per forzare il paging; nella pratica questo parametro deve essere omesso e verranno usate le dimensioni della pagina predefinite.
 

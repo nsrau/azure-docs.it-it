@@ -1,6 +1,6 @@
 ---
-title: Create app passwords from Security info (preview) page - Azure AD
-description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. Questa password dell'app è distinta da una password normale e può essere configurata dalla pagina Info di sicurezza.
+title: Creare password di app dalla pagina delle informazioni di sicurezza (anteprima)-Azure AD
+description: Creare password generate automaticamente (password dell'app) da usare con qualsiasi app non basata su browser o qualsiasi app che non supporta la verifica a due fattori nell'organizzazione. Questa password dell'app è distinta da una password normale e può essere configurata dalla pagina Info di sicurezza.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231798"
 ---
-# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Create app passwords from the Security info (preview) page
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Creare password di app dalla pagina info di sicurezza (anteprima)
 
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
@@ -30,7 +30,7 @@ Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'ass
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 
-- App passwords are auto-generated, and should be created and entered once per app.
+- Le password dell'app vengono generate automaticamente e devono essere create e immesse una volta per ogni app.
 
 - Il limite è di 40 password per utente. Se si prova a crearne un'altra oltre questo limite, verrà chiesto di eliminare una password esistente prima di poter creare quella nuova.
 

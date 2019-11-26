@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict car prices (advanced) example'
+title: "Finestra di progettazione: stimare l'esempio prezzi auto (avanzate)"
 titleSuffix: Azure Machine Learning
-description: Build & compare multiple ML regression models to predict an automobile's price  based on technical features with Azure Machine Learning designer.
+description: Compilare & confrontare più modelli di regressione ML per stimare il prezzo di un'automobile in base a funzionalità tecniche con Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,62 +17,62 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225014"
 ---
-# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Train & compare multiple regression models to predict car prices with Azure Machine Learning designer
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Eseguire il Training & confrontare più modelli di regressione per stimare i prezzi delle automobili con Azure Machine Learning Designer
 
-**Designer (preview) sample 2**
+**Esempio di finestra di progettazione (anteprima) 2**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
+Informazioni su come creare una pipeline di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione (anteprima). Questo esempio consente di eseguire il training e confrontare più modelli di regressione per stimare il prezzo di un'automobile in base alle funzionalità tecniche. Forniremo la logica per le scelte effettuate in questa pipeline, in modo da poter affrontare i problemi di apprendimento automatico.
 
-If you're just getting started with machine learning, take a look at the [basic version](how-to-designer-sample-regression-automobile-price-basic.md) of this pipeline.
+Se si sta iniziando a usare Machine Learning, vedere la [versione di base](how-to-designer-sample-regression-automobile-price-basic.md) di questa pipeline.
 
-Here's the completed graph for this pipeline:
+Ecco il grafico completato per questa pipeline:
 
-[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
+[Grafico ![della pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click sample 2 to open it. 
+4. Fare clic su Sample 2 per aprirlo. 
 
-## <a name="pipeline-summary"></a>Pipeline summary
+## <a name="pipeline-summary"></a>Riepilogo della pipeline
 
-Use following steps to build the machine learning pipeline:
+Per compilare la pipeline di Machine Learning, seguire questa procedura:
 
-1. Get the data.
-1. Pre-process the data.
-1. Train the model.
-1. Test, evaluate, and compare the models.
+1. Ottenere i dati.
+1. Pre-elaborare i dati.
+1. Eseguire il training del modello.
+1. Testare, valutare e confrontare i modelli.
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
-This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. This dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score.
+Questo esempio usa il set di **dati automobile price data (RAW)** , che fa parte del Repository UCI Machine Learning. Questo set di dati contiene 26 colonne contenenti informazioni sulle automobili, incluse le funzionalità marca, modello, prezzo, veicolo (ad esempio il numero di cilindri), MPG e un punteggio di rischio assicurativo.
 
-## <a name="pre-process-the-data"></a>Pre-process the data
+## <a name="pre-process-the-data"></a>Pre-elaborare i dati
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the designer, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+Le attività di preparazione dei dati principali includono la pulizia, l'integrazione, la trasformazione, la riduzione e la discretizzazione o la quantizzazione dei dati. Nella finestra di progettazione è possibile trovare moduli per eseguire queste operazioni e altre attività di pre-elaborazione dei dati nel gruppo **trasformazione dati** nel riquadro sinistro.
 
-Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
+Usare il modulo **Select Columns in DataSet** per escludere le perdite normalizzate con molti valori mancanti. Si usano quindi **Clean Missing data** per rimuovere le righe con valori mancanti. Questo consente di creare un set di dati di training puliti.
 
 ![Pre-elaborazione dei dati](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
-## <a name="train-the-model"></a>Training del modello
+## <a name="train-the-model"></a>Eseguire il training del modello
 
-Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
+I problemi di Machine Learning variano. Le attività comuni di Machine Learning includono sistemi di classificazione, clustering, regressione e raccomandazione, ciascuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Dopo aver selezionato un algoritmo, è necessario ottimizzarne i parametri per eseguire il training di un modello più accurato. È quindi necessario valutare tutti i modelli in base alle metriche come accuratezza, intelligibilità ed efficienza.
 
-Because the goal of this pipeline is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear.
+Poiché l'obiettivo di questa pipeline è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare.
 
-To compare the performance of different algorithms, we use two nonlinear algorithms, **Boosted Decision Tree Regression** and **Decision Forest Regression**, to build models. Both algorithms have parameters that you can change, but this sample uses the default values for this pipeline.
+Per confrontare le prestazioni di algoritmi diversi, vengono usati due algoritmi non lineari, la **regressione dell'albero delle decisioni con boosting** e la **regressione della foresta delle decisioni**, per la compilazione dei modelli. Entrambi gli algoritmi hanno parametri che è possibile modificare, ma in questo esempio vengono usati i valori predefiniti per questa pipeline.
 
-Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
+Usare il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di testing contenga il 30% dei dati originali.
 
-## <a name="test-evaluate-and-compare-the-models"></a>Test, evaluate, and compare the models
+## <a name="test-evaluate-and-compare-the-models"></a>Testare, valutare e confrontare i modelli
 
-You use two different sets of randomly chosen data to train and then test the model, as described in the previous section. Split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
+Usare due diversi set di dati scelti in modo casuale per eseguire il training e il test del modello, come descritto nella sezione precedente. Suddividere il set di dati e utilizzare set di dati diversi per eseguire il training e il test del modello in modo da rendere la valutazione del modello più obiettivo.
 
-After the model is trained, use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. **Score Model** generates predictions for the test dataset by using the trained model. Then pass the scores to **Evaluate Model** to generate evaluation metrics.
+Dopo aver eseguito il training del modello, utilizzare i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli. **Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Passare quindi i punteggi per **valutare il modello** per generare le metriche di valutazione.
 
 
 
@@ -80,9 +80,9 @@ Ecco i risultati:
 
 ![Confrontare i risultati](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
+Questi risultati mostrano che il modello compilato con la **regressione dell'albero delle decisioni con boosting** ha un errore quadratico medio più basso rispetto al modello basato sulla **regressione della foresta delle decisioni**.
 
-Both algorithms have a lower error on the training dataset than on the unseen testing dataset.
+Entrambi gli algoritmi hanno un errore inferiore nel set di dati di training rispetto al set di dati di test non visibile.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -90,11 +90,11 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Explore the other samples available for the designer:
+Esplorare gli altri esempi disponibili per la finestra di progettazione:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](how-to-designer-sample-classification-predict-income.md)
+- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
+- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 7-classificazione di testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)

@@ -14,7 +14,7 @@ ms.locfileid: "74230867"
 
 Esistono attualmente tre tipi di piani di hosting per un'app eseguita in funzioni di Azure, ognuno dei quali ha un proprio modello di determinazione dei prezzi: 
 
-| Pianificare | Descrizione |
+| Pianificare | DESCRIZIONE |
 | ---- | ----------- |
 | [**Consumo**](functions-scale.md#consumption-plan) | Viene addebitato solo il tempo di esecuzione dell'app per le funzioni. Questo piano include una[pagina dei prezzi] di [concessione gratuita]per ogni sottoscrizione.|
 | [**Premium**](functions-scale.md#premium-plan) | Fornisce le stesse funzionalità e il meccanismo di scalabilità del piano a consumo, ma con prestazioni migliorate e accesso VNET. Il costo si basa sul piano tariffario scelto. Per altre informazioni, vedere [piano Premium di funzioni di Azure](functions-premium-plan.md). |
@@ -45,7 +45,7 @@ Per le funzioni in esecuzione in un piano a consumo, il costo totale è il costo
 
 Quando si stimano i costi complessivi dell'app per le funzioni e dei servizi correlati, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=functions). 
 
-| Costo correlato | Descrizione |
+| Costo correlato | DESCRIZIONE |
 | ------------ | ----------- |
 | **Account di archiviazione** | Per ogni app per le funzioni è necessario avere un [account di archiviazione di Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)associato per utilizzo generico, [fatturato separatamente](https://azure.microsoft.com/pricing/details/storage/). Questo account viene utilizzato internamente dal runtime di funzioni, ma è possibile utilizzarlo anche per i trigger e le associazioni di archiviazione. Se non si ha un account di archiviazione, ne viene creato uno automaticamente quando viene creata l'app per le funzioni. Per altre informazioni, vedere [requisiti dell'account di archiviazione](functions-scale.md#storage-account-requirements).|
 | **Application Insights** | Si basa su [Application Insights](../azure-monitor/app/app-insights-overview.md) per offrire un'esperienza di monitoraggio ad alte prestazioni per le app per le funzioni. Sebbene non sia necessario, è necessario [abilitare l'integrazione Application Insights](functions-monitoring.md#enable-application-insights-integration). Ogni mese viene inclusa una concessione gratuita dei dati di telemetria. Per altre informazioni, vedere [la pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). |
@@ -76,9 +76,9 @@ Usare [Esplora metriche di monitoraggio di Azure](../azure-monitor/platform/metr
     ![Selezionare la risorsa dell'app per le funzioni](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |Impostazione  |Valore consigliato  |Descrizione  |
+    |Impostazione  |Valore consigliato  |DESCRIZIONE  |
     |---------|---------|---------|
-    | Sottoscrizione    |  Sottoscrizione in uso  | Sottoscrizione con l'app per le funzioni.  |
+    | sottoscrizione    |  Sottoscrizione in uso  | Sottoscrizione con l'app per le funzioni.  |
     | Resource group     | Gruppo di risorse in uso  | Il gruppo di risorse che contiene l'app per le funzioni.   |
     | Tipo di risorsa     |  Servizi app | Le app per le funzioni vengono visualizzate come istanze di servizi app in monitoraggio. |
     | Risorsa     |  App per le funzioni  | App per le funzioni da monitorare.        |
@@ -97,7 +97,7 @@ Il grafico risultante contiene i totali per entrambe le metriche di esecuzione n
 
 Poiché il numero di unità di esecuzione è molto superiore al numero di esecuzioni, il grafico mostra solo le unità di esecuzione.
 
-Questo grafico mostra un totale di 1,11 miliardi `Function Execution Units` utilizzati in un periodo di due ore, misurato in MB-millisecondi. Per eseguire la conversione in GB-secondi, dividere per 1024000. In questo esempio l'app per le funzioni è stata usata `1110000000 / 1024000 = 1083.98` GB-secondi. È possibile utilizzare questo valore e moltiplicare per il prezzo corrente del tempo di esecuzione nella[dei prezzi relativa alle pagina][pagina dei prezzi], che offre il costo di queste due ore, presupponendo che siano già state utilizzate concessioni gratuite del tempo di esecuzione. 
+Questo grafico mostra un totale di 1,11 miliardi `Function Execution Units` utilizzati in un periodo di due ore, misurato in MB-millisecondi. Per eseguire la conversione in GB-secondi, dividere per 1024000. In questo esempio l'app per le funzioni è stata usata `1110000000 / 1024000 = 1083.98` GB-secondi. È possibile utilizzare questo valore e moltiplicare per il prezzo corrente del tempo di esecuzione nella[pagina]dei prezzi relativa alle [funzioni], che offre il costo di queste due ore, presupponendo che siano già state utilizzate concessioni gratuite del tempo di esecuzione. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

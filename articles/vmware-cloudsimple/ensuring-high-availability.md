@@ -1,6 +1,6 @@
 ---
-title: Ensure application high availability when running in VMware on Azure
-description: Describes CloudSimple high availability features to address common application failure scenarios for applications running in a CloudSimple Private Cloud
+title: Garantire la disponibilità elevata dell'applicazione durante l'esecuzione in VMware in Azure
+description: Descrive le funzionalità di disponibilità elevata di CloudSimple per risolvere scenari comuni di errore dell'applicazione per le applicazioni in esecuzione in un cloud privato CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -15,52 +15,52 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206535"
 ---
-# <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Ensure application high availability when running in VMware on Azure
+# <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantire la disponibilità elevata dell'applicazione durante l'esecuzione in VMware in Azure
 
-The CloudSimple solution provides high availability for your applications running on VMware in the Azure environment. The following table lists failure scenarios and the associated high availability features.
+La soluzione CloudSimple offre disponibilità elevata per le applicazioni in esecuzione su VMware nell'ambiente Azure. La tabella seguente elenca gli scenari di errore e le funzionalità di disponibilità elevata associate.
 
-| Failure scenario | Application protected? | Platform HA feature | VMware HA feature | Azure HA feature |
+| Scenario di errore | Applicazione protetta | Funzionalità disponibilità elevata piattaforma | Funzionalità disponibilità elevata VMware | Funzionalità disponibilità elevata di Azure |
 ------------ | ------------- | ------------ | ------------ | ------------- |
-| Disk Failure | SÌ | Fast replacement of failed node | [About the vSAN Default Storage Policy](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Fan Failure | SÌ | Redundant fans, fast replacement of failed node |  |  |
-| NIC Failure | SÌ | Redundant NIC, fast replacement of failed node
-| Host Power Failure | SÌ | Redundant power supply |  |  |
-| ESXi Host Failure | SÌ | fast replacement of failed node | [VMware vSphere High Availability](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| VM Failure | SÌ | [Servizi di bilanciamento del carico](load-balancers.md)  | [VMware vSphere High Availability](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer for stateless VMware VMs |
-| Leaf Switch Port Failure | SÌ | Redundant NIC |  |  |
-| Leaf Switch Failure | SÌ | Redundant leaf switches |  |  |
-| Rack Failure | SÌ | Gruppi di posizionamento |  |  |
-| Network Connectivity to on-premises DC | SÌ  | Redundant networking services |  | Redundant ER circuits |
-| Network Connectivity to Azure | SÌ | |  | Redundant ER circuits |
-| Datacenter Failure | SÌ |  |  | Zone di disponibilità |
-| Regional Failure | SÌ  |  |  | Aree di Azure |
+| Errore del disco | SÌ | Sostituzione rapida del nodo non riuscito | [Informazioni sui criteri di archiviazione predefiniti di rete VSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
+| Errore della ventola | SÌ | Ventilatori ridondanti, sostituzione rapida del nodo non riuscito |  |  |
+| Errore NIC | SÌ | NIC ridondante, sostituzione rapida del nodo non riuscito
+| Errore di alimentazione dell'host | SÌ | Alimentatore ridondante |  |  |
+| Errore host ESXi | SÌ | Sostituzione rapida del nodo non riuscito | [Disponibilità elevata VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
+| Errore della macchina virtuale | SÌ | [Servizi di bilanciamento del carico](load-balancers.md)  | [Disponibilità elevata VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer per le macchine virtuali VMware senza stato |
+| Errore della porta di commutazione foglia | SÌ | SCHEDA di interfaccia di rete ridondante |  |  |
+| Errore switch foglia | SÌ | Commutatori foglia ridondanti |  |  |
+| Errore rack | SÌ | Gruppi di posizionamento |  |  |
+| Connettività di rete al controller di dominio locale | SÌ  | Servizi di rete ridondanti |  | Circuiti ER ridondanti |
+| Connettività di rete ad Azure | SÌ | |  | Circuiti ER ridondanti |
+| Errore del Data Center | SÌ |  |  | Zone di disponibilità |
+| Errore a livello di area | SÌ  |  |  | Aree di Azure |
 
-Azure VMware Solution by CloudSimple provides the following high availability features.
+La soluzione VMware di Azure di CloudSimple offre le seguenti funzionalità di disponibilità elevata.
 
-## <a name="fast-replacement-of-failed-node"></a>Fast replacement of failed node
+## <a name="fast-replacement-of-failed-node"></a>Sostituzione rapida del nodo non riuscito
 
-The CloudSimple control plane software continuously monitors the health of VMware clusters and detects when an ESXi node fails. It then automatically adds a new ESXi host to the affected VMware cluster from its pool of readily available nodes and takes the failed node out of the cluster. This functionality ensures that the spare capacity in the VMware cluster is restored quickly so that the cluster’s resiliency provided by vSAN and VMware HA is restored.
+Il software del piano di controllo CloudSimple monitora costantemente l'integrità dei cluster VMware e rileva quando un nodo ESXi ha esito negativo. Viene quindi aggiunto automaticamente un nuovo host ESXi al cluster VMware interessato dal pool di nodi immediatamente disponibili e viene eliminato il nodo in errore dal cluster. Questa funzionalità garantisce che la capacità di riserva nel cluster VMware venga ripristinata rapidamente in modo da ripristinare la resilienza del cluster fornita da rete VSAN e VMware HA.
 
 ## <a name="placement-groups"></a>Gruppi di posizionamento
 
-A user who creates a Private Cloud can select an Azure region and a placement group within the selected region. A placement group is a set of nodes spread across multiple racks but within the same spine network segment. Nodes within the same placement group can reach each other with a maximum of two extra switch hops. A placement group is always within a single Azure availability zone and spans multiple racks. The CloudSimple control plane distributes nodes of a Private Cloud across multiple racks based on best effort. Nodes in different placement groups are guaranteed to be placed in different racks.
+Un utente che crea un cloud privato può selezionare un'area di Azure e un gruppo di posizionamento all'interno dell'area selezionata. Un gruppo di posizionamento è un set di nodi distribuiti tra più rack, ma all'interno dello stesso segmento di rete di rotazione. I nodi all'interno dello stesso gruppo di posizionamento possono raggiungere reciprocamente un massimo di due hop di commutazione aggiuntivi. Un gruppo di posizionamento è sempre all'interno di una singola zona di disponibilità di Azure e si estende su più rack. Il piano di controllo CloudSimple distribuisce i nodi di un cloud privato tra più rack in base al massimo sforzo. I nodi in gruppi di posizionamento diversi sono sicuramente posizionati in rack diversi.
 
 ## <a name="availability-zones"></a>Zone di disponibilità
 
-Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Availability zones are special physical locations within an Azure region. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Each region has one availability zone. For more information, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md).
+Le zone di disponibilità sono un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Le zone di disponibilità sono posizioni fisiche speciali all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Ogni area ha una zona di disponibilità. Per ulteriori informazioni, vedere [che cosa sono zone di disponibilità in Azure?](../availability-zones/az-overview.md).
 
-## <a name="redundant-azure-expressroute-circuits"></a>Redundant Azure ExpressRoute circuits
+## <a name="redundant-azure-expressroute-circuits"></a>Circuiti ExpressRoute di Azure ridondanti
 
-Data center connectivity to Azure vNet using ExpressRoute has redundant circuits to provide highly available network connectivity link.
+La connettività dei data center ad Azure vNet usando ExpressRoute ha circuiti ridondanti per fornire collegamenti di connettività di rete a disponibilità elevata.
 
-## <a name="redundant-networking-services"></a>Redundant networking services
+## <a name="redundant-networking-services"></a>Servizi di rete ridondanti
 
-All the CloudSimple networking services for the Private Cloud (including VLAN, firewall, public IP addresses, Internet, and VPN) are designed to be highly available and able to support the service SLA.
+Tutti i servizi di rete CloudSimple per il cloud privato, tra cui VLAN, firewall, indirizzi IP pubblici, Internet e VPN, sono progettati per essere a disponibilità elevata e in grado di supportare il contratto di servizio.
 
-## <a name="azure-layer-7-load-balancer-for-stateless-vmware-vms"></a>Azure Layer 7 Load Balancer for stateless VMware VMs
+## <a name="azure-layer-7-load-balancer-for-stateless-vmware-vms"></a>Load Balancer di Azure Layer 7 per macchine virtuali VMware senza stato
 
-Users can put an Azure Layer 7 Load Balancer in front of the stateless web tier VMs running in the VMware environment to achieve high availability for the web tier.
+Gli utenti possono inserire un'Load Balancer di livello 7 di Azure davanti alle macchine virtuali di livello Web senza stato in esecuzione nell'ambiente VMware per ottenere la disponibilità elevata per il livello Web.
 
 ## <a name="azure-regions"></a>Aree di Azure
 
-An Azure region is a set of data centers deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. For details, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions).
+Un'area di Azure è un set di data center distribuiti in un perimetro definito dalla latenza e connessi tramite una rete a bassa latenza regionale dedicata. Per informazioni dettagliate, vedere [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions).

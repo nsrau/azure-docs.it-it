@@ -1,5 +1,5 @@
 ---
-title: Manage device enrollments using Azure DPS SDKs
+title: Gestire le registrazioni dei dispositivi con gli SDK di Azure DPS
 description: Come gestire le registrazioni dei dispositivi nel servizio Device Provisioning in hub IoT usando gli SDK del servizio
 author: robinsh
 ms.author: robinsh
@@ -17,7 +17,7 @@ ms.locfileid: "74228810"
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Ottenere la stringa di connessione da un'istanza del servizio Device Provisioning.
 * Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-security.md#attestation-mechanism) in uso:
     * [**TPM (Trusted Platform Module)** ](/azure/iot-dps/concepts-security#trusted-platform-module):

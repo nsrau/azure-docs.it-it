@@ -13,14 +13,14 @@ ms.locfileid: "74231287"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni secondarie in Funzioni permanenti (Funzioni di Azure)
 
-Oltre a chiamare le funzioni di attività, le funzioni dell'agente di orchestrazione possono chiamare altre funzioni dell'agente di orchestrazione. For example, you can build a larger orchestration out of a library of smaller orchestrator functions. Oppure è possibile eseguire più istanze di una funzione dell'agente di orchestrazione in parallelo.
+Oltre a chiamare le funzioni di attività, le funzioni dell'agente di orchestrazione possono chiamare altre funzioni dell'agente di orchestrazione. Ad esempio, è possibile creare un'orchestrazione più ampia da una libreria di funzioni di orchestrazione più piccole. Oppure è possibile eseguire più istanze di una funzione dell'agente di orchestrazione in parallelo.
 
-An orchestrator function can call another orchestrator function using the `CallSubOrchestratorAsync` or the `CallSubOrchestratorWithRetryAsync` methods in .NET, or the `callSubOrchestrator` or `callSubOrchestratorWithRetry` methods in JavaScript. L'articolo [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) (Gestione e compensazione degli errori) contiene informazioni sulla ripetizione automatica.
+Una funzione dell'agente di orchestrazione può chiamare un'altra funzione dell'agente di orchestrazione usando il `CallSubOrchestratorAsync` o i metodi di `CallSubOrchestratorWithRetryAsync` in .NET oppure i metodi di `callSubOrchestrator` o `callSubOrchestratorWithRetry` in JavaScript. L'articolo [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) (Gestione e compensazione degli errori) contiene informazioni sulla ripetizione automatica.
 
 Le funzioni secondarie dell'agente di orchestrazione si comportano come le funzioni di attività dal punto di vista del chiamante. Possono restituire un valore, generare un'eccezione e possono essere attese dalla funzione dell'agente di orchestrazione padre. 
 ## <a name="example"></a>Esempio
 
-L'esempio seguente illustra uno scenario di IoT ("Internet delle cose") in cui sono presenti più dispositivi di cui è necessario eseguire il provisioning. The following function represents the provisioning workflow that needs to be executed for each device:
+L'esempio seguente illustra uno scenario di IoT ("Internet delle cose") in cui sono presenti più dispositivi di cui è necessario eseguire il provisioning. La funzione seguente rappresenta il flusso di lavoro di provisioning che deve essere eseguito per ogni dispositivo:
 
 ### <a name="c"></a>C#
 
@@ -64,7 +64,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Questa funzione dell'agente di orchestrazione può essere usata così com'è per il provisioning occasionale di dispositivi o può essere parte di un'orchestrazione di dimensioni maggiori. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (.NET) or `callSubOrchestrator` (JavaScript) API.
+Questa funzione dell'agente di orchestrazione può essere usata così com'è per il provisioning occasionale di dispositivi o può essere parte di un'orchestrazione di dimensioni maggiori. Nel secondo caso, la funzione dell'agente di orchestrazione padre può pianificare le istanze di `DeviceProvisioningOrchestration` usando l'API `CallSubOrchestratorAsync` (.NET) o `callSubOrchestrator` (JavaScript).
 
 Di seguito è riportato un esempio che illustra come eseguire più funzioni dell'agente di orchestrazione in parallelo.
 
@@ -92,7 +92,7 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
 
 ### <a name="javascript-functions-20-only"></a>JavaScript (solo Funzioni 2.0)
 
@@ -119,9 +119,9 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> Sub-orchestrations must be defined in the same function app as the parent orchestration. If you need to call and wait for orchestrations in another function app, consider using the built-in support for HTTP APIs and the HTTP 202 polling consumer pattern. For more information, see the [HTTP Features](durable-functions-http-features.md) topic.
+> Le orchestrazioni secondarie devono essere definite nella stessa app per le funzioni dell'orchestrazione padre. Se è necessario chiamare e attendere le orchestrazioni in un'altra app per le funzioni, provare a usare il supporto incorporato per le API HTTP e il modello di consumer di polling HTTP 202. Per ulteriori informazioni, vedere l'argomento [funzionalità http](durable-functions-http-features.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Learn how to set a custom orchestration status](durable-functions-custom-orchestration-status.md)
+> [Informazioni su come impostare lo stato di un'orchestrazione personalizzata](durable-functions-custom-orchestration-status.md)

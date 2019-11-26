@@ -16,25 +16,25 @@ ms.locfileid: "74230611"
 
 Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure tramite C# nelle librerie di classi .NET.
 
-Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per materiale sussidiario sull'[uso di C# nel portale di Azure](functions-create-function-app-portal.md), vedere [Guida di riferimento a per sviluppatori di script C# (.csx)](functions-reference-csharp.md).
+Funzioni di Azure supporta i linguaggi di programmazione C# e script C# . Per materiale sussidiario sull'[uso di C# nel portale di Azure](functions-create-function-app-portal.md), vedere [Guida di riferimento a per sviluppatori di script C# (.csx)](functions-reference-csharp.md).
 
 Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 
 * [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md)
-* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
+* [Strumenti di Visual Studio 2019 per funzioni di Azure](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versioni supportate
 
-The Azure Functions 2.x runtime uses .NET Core 2.2. Your function code can use .NET Core 2.2 APIs by updating the Visual Studio project settings. The Function templates do not default to .NET Core 2.2 to avoid adversely affecting customers that do not have .NET Core 2.2 installed.
+Il runtime di funzioni di Azure 2. x USA .NET Core 2,2. Il codice di funzione può usare le API di .NET Core 2,2 aggiornando le impostazioni del progetto di Visual Studio. I modelli di funzione non usano per impostazione predefinita .NET Core 2,2 per evitare che i clienti che non dispongono di .NET Core 2,2 siano installati in modo negativo.
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
 In Visual Studio il modello di progetto **Funzioni di Azure** crea un progetto di libreria di classi C# contenente i file seguenti:
 
 * [host.json](functions-host-json.md): archivia le impostazioni di configurazione che interessano tutte le funzioni del progetto quando vengono eseguite nell'ambiente locale o in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Aggiungere invece [le impostazioni dell'app all'app per le funzioni](functions-develop-vs.md#function-app-settings).
 
-When you build the project, a folder structure that looks like the following example is generated in the build output directory:
+Quando si compila il progetto, nella directory di output di compilazione viene generata una struttura di cartelle simile all'esempio seguente:
 
 ```
 <framework.version>
@@ -69,7 +69,7 @@ public static class SimpleExample
 } 
 ```
 
-L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
+L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, numeri, `_`e `-`, con una lunghezza di 127 caratteri. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel parametro `myQueueItem`.
 
@@ -178,7 +178,7 @@ Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchett
 </ItemGroup>
 ```
 
-Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 2.x triggers and bindings target .NET Core.
+Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1. x fa riferimento a trigger e binding 1. x perché i trigger e le associazioni sono destinati alla .NET Framework, mentre i trigger e le associazioni 2. x hanno come destinazione .NET Core.
 
 Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e indirettamente da [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Queste dipendenze consentono di assicurarsi che il progetto usi le versioni dei pacchetti compatibili con la versione del runtime di Funzioni definita come destinazione del progetto. Se ad esempio è disponibile `Newtonsoft.Json` versione 11 per .NET Framework 4.6.1, ma il runtime di Funzioni che ha come destinazione .NET Framework 4.6.1 è compatibile solo con `Newtonsoft.Json` 9.0.1, anche il codice delle funzioni nel progetto deve usare `Newtonsoft.Json` 9.0.1.
 
@@ -196,7 +196,7 @@ Se si installano gli strumenti di base usando npm, questo non ha alcun effetto s
 
 ## <a name="supported-types-for-bindings"></a>Tipi supportati per le associazioni
 
-Ogni associazione supporta determinati tipi. Ad esempio è possibile applicare un attributo trigger di BLOB a un parametro stringa, un parametro POCO, un parametro `CloudBlockBlob` o uno dei molti altri tipi supportati. L'[articolo di riferimento sull'associazione relativo alle associazioni BLOB](functions-bindings-storage-blob.md#trigger---usage) elenca tutti i tipi di parametri supportati. Per altre informazioni, vedere [Trigger e associazioni](functions-triggers-bindings.md) e i [documenti di riferimento per ogni tipo di associazione](functions-triggers-bindings.md#next-steps).
+Ogni associazione supporta determinati tipi. Ad esempio è possibile applicare un attributo trigger di BLOB a un parametro stringa, un parametro POCO, un parametro `CloudBlockBlob` o uno dei molti altri tipi supportati. L'[articolo di riferimento sull'associazione relativo alle associazioni BLOB](functions-bindings-storage-blob.md#trigger---usage) elenca tutti i tipi di parametri supportati. Per altre informazioni, vedere [Trigger e associazioni](functions-triggers-bindings.md) e i [documenti di riferimento sull'associazione per ogni tipo di associazione](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -341,7 +341,7 @@ Definire un'associazione imperativa, come segue:
   }
   ```
 
-  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) with imperative binding.
+  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con binding imperativo.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -370,7 +370,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  ad esempio:
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

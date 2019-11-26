@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Security concepts
+title: Servizio Device provisioning in hub Azure-concetti sulla sicurezza
 description: Descrive i concetti relativi al provisioning della sicurezza specifici dei dispositivi con il servizio Device Provisioning e l'hub IoT
 author: nberdy
 ms.author: nberdy
@@ -28,7 +28,7 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 Il servizio Device Provisioning supporta i seguenti tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
 * **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Questa attestazione non richiede un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chiave simmetrica** basata sui [token di sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens) della firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per maggiori informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
+* **Chiave simmetrica** basata sui [token di sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens) della firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per altre informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
@@ -78,7 +78,7 @@ Un certificato intermedio è un certificato X.509 che è stato firmato dal certi
 
 Il certificato foglia, o certificato dell'entità finale, identifica il titolare del certificato. Include il certificato radice nella relativa catena di certificati, nonché zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. Identifica in modo univoco il dispositivo per il servizio di provisioning e a volte viene chiamato anche certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata a questo certificato per rispondere a una richiesta di prova di possesso dal servizio.
 
-Leaf certificates used with an [Individual enrollment](./concepts-service.md#individual-enrollment) entry have a requirement that the **Subject Name** must be set to the registration ID of the Individual Enrollment entry. Leaf certificates used with an [Enrollment group](./concepts-service.md#enrollment-group) entry should have the **Subject Name** set to the desired device ID which will be shown in the **Registration Records** for the authenticated device in the enrollment group.
+I certificati foglia usati con una voce di registrazione [singola](./concepts-service.md#individual-enrollment) hanno il requisito che il **nome del soggetto** deve essere impostato sull'ID di registrazione della voce di registrazione singola. I certificati foglia usati con una voce del [gruppo](./concepts-service.md#enrollment-group) di registrazioni devono avere il **nome soggetto** impostato sull'ID dispositivo desiderato, che verrà visualizzato nei **record di registrazione** per il dispositivo autenticato nel gruppo di registrazione.
 
 Per altre informazioni, vedere [Autenticazione dei dispositivi firmati con i certificati della CA X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 

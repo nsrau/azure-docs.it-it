@@ -25,7 +25,7 @@ ms.locfileid: "74215266"
 > [!div class="op_single_selector"]
 > * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Scaricare il file dei parametri sul disco locale.
 3. Modificare il file e salvarlo.
-4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
+4. Eseguire il cmdlet **New-AzResourceGroupDeployment** per creare un gruppo di risorse usando il modello.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `

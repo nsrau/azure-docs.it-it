@@ -1,5 +1,5 @@
 ---
-title: Funzioni di modelli
+title: Funzioni di modello
 description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
 ms.topic: conceptual
 ms.date: 11/19/2019
@@ -12,7 +12,7 @@ ms.locfileid: "74224173"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
 
-Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager. For information about using functions in your template, see [template syntax](template-expressions.md).
+Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager. Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](template-expressions.md).
 
 Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](resource-group-authoring-templates.md#functions).
 
@@ -35,7 +35,7 @@ Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](resou
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funzioni di array e di oggetto
-Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
+Resource Manager offre diverse funzioni per l'uso di matrici e oggetti.
 
 * [array](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
@@ -78,7 +78,7 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
-* [environment](resource-group-template-functions-deployment.md#environment)
+* [ambiente](resource-group-template-functions-deployment.md#environment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
@@ -222,4 +222,4 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md)
 * Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](resource-group-linked-templates.md)
 * Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md)
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+* Per informazioni su come distribuire il modello creato, vedere [distribuire un'applicazione con il modello di Azure Resource Manager](resource-group-template-deploy.md)

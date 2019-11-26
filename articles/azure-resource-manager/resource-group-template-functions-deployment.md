@@ -1,5 +1,5 @@
 ---
-title: Template functions - deployment
+title: Funzioni di modello-distribuzione
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
 ms.topic: conceptual
 ms.date: 11/19/2019
@@ -15,13 +15,13 @@ ms.locfileid: "74230227"
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
 * [deployment](#deployment)
-* [environment](#environment)
+* [ambiente](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
 Per ottenere valori da risorse, gruppi di risorse o sottoscrizioni, vedere [Funzioni delle risorse](resource-group-template-functions-resource.md).
 
-## <a name="deployment"></a>distribuzione
+## <a name="deployment"></a>deployment
 
 `deployment()`
 
@@ -133,15 +133,15 @@ L'esempio precedente restituisce l'oggetto seguente:
 
 Per un modello a livello di sottoscrizione che usa la funzione di distribuzione, vedere la [funzione di distribuzione per sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). La distribuzione si esegue con i comandi `az deployment create` o `New-AzDeployment`.
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>Environment
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Restituisce informazioni sull'ambiente Azure usato per la distribuzione.
 
 ### <a name="return-value"></a>Valore restituito
 
-This function returns properties for the current Azure environment.
+Questa funzione restituisce le proprietà per l'ambiente Azure corrente.
 
 ```json
 {
@@ -179,7 +179,7 @@ This function returns properties for the current Azure environment.
 
 ### <a name="example"></a>Esempio
 
-The following example template returns the environment object.
+Il modello di esempio seguente restituisce l'oggetto Environment.
 
 ```json
 {
@@ -195,7 +195,7 @@ The following example template returns the environment object.
 }
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+L'esempio precedente restituisce l'oggetto seguente quando viene distribuito in Azure globale:
 
 ```json
 {
@@ -231,17 +231,17 @@ The preceding example returns the following object when deployed to global Azure
 }
 ```
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
 Restituisce un valore di parametro. Il nome del parametro specificato deve essere definito nella sezione parameters del modello.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatoria | Type | Description |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| parameterName |SÌ |string |Nome del parametro da restituire. |
+| parameterName |Sì |stringa |Nome del parametro da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -326,15 +326,15 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| name | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| stringOutput | Stringa | option 1 |
-| intOutput | Int | 1 |
-| objectOutput | Oggetto | {"one": "a", "two": "b"} |
+| stringOutput | String | option 1 |
+| intOutput | int | 1 |
+| objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Stringa | option 1 |
+| crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
 
 ## <a name="variables"></a>variables
 
@@ -342,11 +342,11 @@ For more information about using parameters, see [Parameters in Azure Resource M
 
 Restituisce il valore della variabile. Il nome della variabile specificato deve essere definito nella sezione variables del modello.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>parametri
 
-| Parametro | Obbligatoria | Type | Description |
+| . | obbligatori | digitare | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| variableName |SÌ |Stringa |Nome della variabile da restituire. |
+| variableName |Sì |String |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -418,14 +418,14 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| name | Type | Value |
+| Nome | digitare | Valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | Stringa | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | Stringa | myVariable |
-| exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

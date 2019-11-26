@@ -38,7 +38,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
       - Cost Analysis (Analisi dei costi)
       - Allocation (Allocazione)
-      - Gestione degli asset
+      - Asset Management (Gestione degli asset)
       - Ottimizzazione
 
    Digitare un nome di filtro e quindi fare clic su **Save** (Salva).
@@ -73,9 +73,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
    Ecco alcuni esempi:
    - Centro di costo
-   - Department
-   - Richiesta
-   - Ambiente
+   - department
+   - Applicazione
+   - Environment
    - Codice di costo
 
      Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
@@ -105,14 +105,14 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
        - Tipo di risorsa in uso.
      - **Sub-Type** (Sottotipo)
        - Selezionare il sottotipo.
-     - **Operazione**
+     - **operazione**
        - Selezionare l'operazione o **Show all** (Mostra tutto).
      - **Price Model** (Modello di prezzo)
        - All Upfront (Tutto anticipato)
        - No Upfront (Nessun anticipo)
        - Partial Upfront (Anticipo parziale)
-       - On demand
-       - Prenotazione
+       - On Demand (Su richiesta)
+       - Reservation
        - Spot (Contante)
      - **Charge Type** (Tipo di addebito)
        - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
@@ -134,7 +134,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 7. **Amortization** (Ammortamento)
 
     Usare questo elenco nei report di allocazione costi per visualizzare le spese di servizio non basate sull'utilizzo o i costi "una tantum" e ripartirli in modo uniforme nel corso della vita utile del servizio. Ecco alcuni esempi di spese "una tantum":
-    - Spese annuali per il supporto tecnico
+    - Corrispettivi annuali per il supporto tecnico
     - Spese annuali per i componenti di sicurezza
     - Spese per l'acquisto di istanze riservate
     - Alcuni elementi di Azure Marketplace
@@ -144,9 +144,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 8. **Risoluzione**
 
     Usare questo elenco per selezionare la risoluzione dei dati temporali nell'intervallo di date selezionato. La risoluzione determina il numero di unità visualizzate nel report e può essere:
-    - Al giorno
+    - Giornaliera
     - Settimanale
-    - Impegno di spesa
+    - Mensile
     - Trimestrale
     - Annuale
 
@@ -191,7 +191,7 @@ Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selez
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Salvare un report in una risorsa di archiviazione di un provider di servizi cloud
 
-Per salvare un report con un provider di servizi cloud, è necessario avere già configurato un account di archiviazione. Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione o aggiungerne uno nuovo. Immettere un prefisso che viene aggiunto al nome del file di report. Select a CSV or JSON file format and then save the report.
+Per salvare un report con un provider di servizi cloud, è necessario avere già configurato un account di archiviazione. Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione o aggiungerne uno nuovo. Immettere un prefisso che viene aggiunto al nome del file di report. Selezionare un formato di file CSV o JSON e quindi salvare il report.
 
 ### <a name="schedule-a-report"></a>Pianificare un report
 

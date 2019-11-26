@@ -1,6 +1,6 @@
 ---
-title: Create a function app from the Azure Portal
-description: Create a new function app in Azure from the portal.
+title: Creare un'app per le funzioni dal portale di Azure
+description: Creare una nuova app per le funzioni in Azure dal portale.
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: mvc
@@ -13,7 +13,7 @@ ms.locfileid: "74230781"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creare un'app per le funzioni dal portale di Azure
 
-This topic shows you how to use Azure Functions to create a function app in the Azure portal. Un'app per le funzioni è un contenitore che ospita l'esecuzione delle singole funzioni. 
+Questo argomento illustra come usare funzioni di Azure per creare un'app per le funzioni nella portale di Azure. Un'app per le funzioni è un contenitore che ospita l'esecuzione delle singole funzioni. 
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
@@ -27,15 +27,15 @@ Dopo aver creato l'app per le funzioni, è possibile creare singole funzioni in 
 
 ## <a name="service-plans"></a>Piani di servizio
 
-Azure Functions has three different service plans: Consumption plan, Premium plan, and Dedicated (App Service) plan. You must choose your service plan when your function app is created, and it cannot subsequently be changed. Per altre informazioni, vedere [Scegliere un piano di hosting di Funzioni di Azure](functions-scale.md).
+Funzioni di Azure prevede tre diversi piani di servizio: piano a consumo, piano Premium e piano dedicato (servizio app). Quando si crea l'app per le funzioni, è necessario scegliere il piano di servizio e non è possibile modificarlo successivamente. Per altre informazioni, vedere [Scegliere un piano di hosting di Funzioni di Azure](functions-scale.md).
 
-If you are planning to run JavaScript functions on a Dedicated (App Service) plan, you should choose a plan with fewer cores. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+Se si prevede di eseguire funzioni JavaScript in un piano dedicato (servizio app), è consigliabile scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Le funzioni usano internamente l'archiviazione per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Le funzioni usano internamente l'archiviazione per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione, come gli account di archiviazione solo BLOB, Archiviazione Premium di Azure e gli account di archiviazione di uso generico con replica ZRS, non supportano code e tabelle. Questi account vengono filtrati dal pannello Account di archiviazione quando si crea una nuova app per le funzioni.
 
 >[!NOTE]
 >Quando si usa il piano di hosting a consumo, i file del codice di funzione e la configurazione di binding vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto verrà eliminato e non potrà essere ripristinato.

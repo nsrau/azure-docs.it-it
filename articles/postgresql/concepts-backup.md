@@ -1,6 +1,6 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL - Single Server
-description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
+title: Backup e ripristino nel database di Azure per PostgreSQL-server singolo
+description: Informazioni sui backup automatici e il ripristino del database di Azure per il server PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -13,17 +13,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74209648"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup and restore in Azure Database for PostgreSQL - Single Server
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
 Database di Azure per PostgreSQL crea automaticamente backup del server e li archivia in un archivio con ridondanza locale o geografica configurato dall'utente. I backup possono essere usati per ripristinare il server a un momento specifico. Il backup e il ripristino sono una parte essenziale di qualsiasi strategia di continuità aziendale, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale.
 
 ## <a name="backups"></a>Backup
 
-Azure Database for PostgreSQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16 TB max storage servers). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Database di Azure per PostgreSQL esegue il backup dei file di dati e del log delle transazioni. A seconda delle dimensioni massime di archiviazione supportate, si accettano backup completi e differenziali (4 TB Max Storage Servers) o backup di snapshot (fino a 16 TB Max Storage Server). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
-Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale. As snapshots are instantanious, servers with support up to 16 TB of storage can be restored all the way back to the create time.
+In genere, i backup completi vengono eseguiti settimanalmente, i backup differenziali si verificano due volte al giorno per i server con un massimo di spazio di archiviazione supportato di 4 TB. I backup di snapshot vengono eseguiti almeno una volta al giorno per i server che supportano fino a 16 TB di spazio di archiviazione. I backup del log delle transazioni in entrambi i casi si verificano ogni cinque minuti. Il primo snapshot del backup completo viene pianificato subito dopo la creazione di un server. Il backup completo iniziale può richiedere più tempo in un server ripristinato di grandi dimensioni. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale. Poiché gli snapshot sono instantanious, i server con supporto fino a 16 TB di spazio di archiviazione possono essere ripristinati fino al momento della creazione.
 
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
@@ -38,7 +38,7 @@ Database di Azure per PostgreSQL offre fino al 100% delle risorse di archiviazio
 
 Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono disponibili 250 GB per l'archiviazione dei backup senza costi aggiuntivi. Lo spazio di archiviazione oltre 250 GB viene addebitato.
 
-## <a name="restore"></a>Ripristinare
+## <a name="restore"></a>Ripristino
 
 In Database di Azure per PostgreSQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
 
@@ -62,7 +62,7 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for PostgeSQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area geografica abbinata o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici in qualsiasi area che supporti i server a 16 TB. Per l'elenco delle aree supportate, vedere i [piani tariffari per database di Azure per PostgeSQL](concepts-pricing-tiers.md) .
 
 Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
@@ -79,6 +79,6 @@ Dopo il ripristino con uno dei due meccanismi, per rendere nuovamente operativi 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Learn how to restore using [the Azure portal](howto-restore-server-portal.md).
-- Learn how to restore using [the Azure CLI](howto-restore-server-cli.md).
+- Informazioni su come eseguire il ripristino usando [il portale di Azure](howto-restore-server-portal.md).
+- Informazioni su come eseguire il ripristino usando [l'interfaccia della](howto-restore-server-cli.md)riga di comando di Azure.
 - Per altre informazioni sulla continuità aziendale, vedere la relativa  [panoramica](concepts-business-continuity.md).

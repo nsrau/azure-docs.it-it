@@ -41,7 +41,7 @@ Il trigger Griglia di eventi è disponibile nel pacchetto NuGet [Microsoft.Azure
 Fare riferimento all'esempio di trigger Griglia di eventi specifico per ogni linguaggio:
 
 * C#
-* [Script C# (file con estensione csx)](#c-script-example)
+* [Script C# (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
@@ -293,7 +293,7 @@ All'arrivo, il payload JSON dell'evento viene deserializzato nel POJO ```EventSc
 
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `EventGridTrigger` per i parametri il cui valore deriva da EventGrid. I parametri con queste annotazioni attivano l'esecuzione della funzione quando viene ricevuto un evento.  Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`.
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs).
 
@@ -313,7 +313,7 @@ Per un esempio completo, vedere l'esempio in C#.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
-|Proprietà di function.json |Description|
+|Proprietà di function.json |DESCRIZIONE|
 |---------|---------|
 | **type** | Obbligatoria. Deve essere impostata su `eventGridTrigger`. |
 | **direction** | Obbligatoria. Deve essere impostata su `in`. |
@@ -333,7 +333,7 @@ Per le funzioni C# e F# in Funzioni di Azure 2.x è anche possibile usare il tip
 > [!NOTE]
 > In Funzioni v1, se si prova a eseguire l'associazione a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, il compilatore mostrerà un messaggio che segnala che il parametro è deprecato e suggerisce di usare `Microsoft.Azure.EventGrid.Models.EventGridEvent`. Per usare il tipo più recente, fare riferimento al pacchetto NuGet [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) e specificare il nome completo del tipo `EventGridEvent` anteponendo il prefisso `Microsoft.Azure.EventGrid.Models`. Per informazioni su come fare riferimento a pacchetti NuGet in una funzione script C#, vedere [Uso dei pacchetti NuGet](functions-reference-csharp.md#using-nuget-packages)
 
-Per le funzioni JavaScript, il parametro denominato in base alla proprietà `name` di *function.json* contiene un riferimento all'oggetto evento.
+Per le funzioni JavaScript, il parametro denominato in base alla proprietà *di*function.json`name` contiene un riferimento all'oggetto evento.
 
 ## <a name="event-schema"></a>Schema di eventi
 
@@ -377,7 +377,7 @@ Il tipo `EventGridEvent` definisce solo le proprietà di livello superiore, ment
 
 Per iniziare a ricevere richieste HTTP di Griglia di eventi, è necessario creare una sottoscrizione di Griglia di eventi in cui sia specificato l'URL dell'endpoint che richiama la funzione.
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi, selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
 
@@ -521,14 +521,14 @@ Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](
 * Impostare un'intestazione `Content-Type: application/json`.
 * Impostare un'intestazione `aeg-event-type: Notification`.
 * Incollare i dati di RequestBin nel corpo della richiesta.
-* Post to the URL of your Event Grid trigger function.
-  * For 2.x use the following pattern:
+* Inserire l'URL della funzione trigger griglia di eventi.
+  * Per 2. x usare il modello seguente:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * For 1.x use:
+  * Per 1. x usare:
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -548,7 +548,7 @@ La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log 
 
 ## <a name="local-testing-with-ngrok"></a>Test locale con ngrok
 
-Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. You can do that with a tool like [ngrok](https://ngrok.com/):
+Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. A tale scopo, è possibile usare uno strumento come [ngrok](https://ngrok.com/):
 
 1. [Creare un endpoint ngrok](#create-an-ngrok-endpoint).
 1. [Eseguire la funzione trigger Griglia di eventi](#run-the-event-grid-trigger-function).

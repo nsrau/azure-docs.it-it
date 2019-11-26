@@ -1,6 +1,6 @@
 ---
-title: Security controls for Azure Load Balancer
-description: A checklist of security controls for evaluating Load Balancer
+title: Controlli di sicurezza per Azure Load Balancer
+description: Elenco di controllo dei controlli di sicurezza per la valutazione Load Balancer
 services: load-balancer
 author: asudbring
 manager: KumudD
@@ -15,52 +15,52 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214891"
 ---
-# <a name="security-controls-for-azure-load-balancer"></a>Security controls for Azure Load Balancer
+# <a name="security-controls-for-azure-load-balancer"></a>Controlli di sicurezza per Azure Load Balancer
 
-This article documents the security controls built into Azure Load Balancer.
+Questo articolo descrive i controlli di sicurezza incorporati in Azure Load Balancer.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
-## <a name="network"></a>Rete
+## <a name="network"></a>Network
 
-| Security control | Sì/No | Note |
+| Controllo di sicurezza | Sì/No | note |
 |---|---|--|
-| Service endpoint support| N/D | |
-| VNet injection support| N/D | |
-| Network Isolation and Firewalling support| N/D |  |
-| Forced tunneling support| N/D | |
+| Supporto per endpoint di servizio| N/D | |
+| Supporto di VNet Injection| N/D | |
+| Isolamento rete e supporto del firewall| N/D |  |
+| Supporto del tunneling forzato| N/D | |
 
-## <a name="monitoring--logging"></a>Monitoring & logging
+## <a name="monitoring--logging"></a>Monitoraggio & registrazione
 
-| Security control | Sì/No | Note|
+| Controllo di sicurezza | Sì/No | note|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| SÌ | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
-| Control and management plane logging and audit| SÌ | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
-| Data plane logging and audit | N/D |  |
+| Supporto di monitoraggio di Azure (log Analytics, Application Insights e così via)| Sì | Vedere [log di monitoraggio di Azure per Load Balancer di base pubblici](load-balancer-monitor-log.md). |
+| Registrazione e controllo del piano di gestione e controllo| Sì | Vedere [log di monitoraggio di Azure per Load Balancer di base pubblici](load-balancer-monitor-log.md). |
+| Registrazione e controllo del piano dati | N/D |  |
 
 ## <a name="identity"></a>Identità
 
-| Security control | Sì/No | Note|
+| Controllo di sicurezza | Sì/No | note|
 |---|---|--|
-| Authentication| N/D |  |
-| Authorization| N/D |  |
+| Autenticazione| N/D |  |
+| Autorizzazione| N/D |  |
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
-| Security control | Sì/No | Note |
+| Controllo di sicurezza | Sì/No | note |
 |---|---|--|
-| Server-side encryption at rest: Microsoft-managed keys | N/D | |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/D | |
-| Server-side encryption at rest: customer-managed keys (BYOK) | N/D | |
-| Column level encryption (Azure Data Services)| N/D | |
-| Chiamate API crittografate| SÌ | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Crittografia lato server: chiavi gestite da Microsoft | N/D | |
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| N/D | |
+| Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | N/D | |
+| Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
+| Chiamate API crittografate| Sì | Tramite il [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
-| Security control | Sì/No | Note|
+| Controllo di sicurezza | Sì/No | note|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| N/D |  | 
+| Supporto per la gestione della configurazione (controllo delle versioni della configurazione e così via)| N/D |  | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- Altre informazioni sui [controlli di sicurezza incorporati nei servizi di Azure](../security/fundamentals/security-controls.md).

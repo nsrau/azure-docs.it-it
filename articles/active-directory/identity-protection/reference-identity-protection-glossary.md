@@ -21,48 +21,48 @@ ms.locfileid: "74232353"
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
 
 ### <a name="at-risk-user"></a>A rischio (utente)
-A user with one or more active risk detections. 
+Utente con uno o più rilevamenti di rischio attivi. 
 
 ### <a name="atypical-sign-in-location"></a>Posizione di accesso atipica
 Accesso da una posizione geografica non tipica per l'utente specifico, utenti simili o il tenant.
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
-A security module of Azure Active Directory that provides a consolidated view into risk detections and potential vulnerabilities affecting an organization’s identities.
+Un modulo di sicurezza di Azure Active Directory che fornisce una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che interessano le identità di un'organizzazione.
 
 ### <a name="conditional-access"></a>Accesso condizionale
-Criteri per la protezione dell'accesso alle risorse. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Le regole includono la limitazione dell'accesso in base alla posizione dell'utente, all'integrità del dispositivo o al metodo di autenticazione dell'utente.
+Criteri per la protezione dell'accesso alle risorse. Le regole di accesso condizionale vengono archiviate nel Azure Active Directory e vengono valutate da Azure AD prima di concedere l'accesso alla risorsa.  Le regole includono la limitazione dell'accesso in base alla posizione dell'utente, all'integrità del dispositivo o al metodo di autenticazione dell'utente.
 
 ### <a name="credentials"></a>Credenziali
 Informazioni che includono l'identificazione e la prova dell'identificazione usata per ottenere l'accesso alle risorse locali e di rete. Tra le credenziali sono inclusi nomi utente e password, smart card e certificati.
 
-### <a name="event"></a>Event
+### <a name="event"></a>Evento
 Record di un'attività in Azure Active Directory.
 
-### <a name="false-positive-risk-detection"></a>False-positive (risk detection)
-A risk detection status set manually by an Identity Protection user, indicating that the risk detection was investigated and was incorrectly flagged as a risk detection.
+### <a name="false-positive-risk-detection"></a>Falso positivo (rilevamento del rischio)
+Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che il rilevamento del rischio è stato analizzato ed è stato erroneamente contrassegnato come rilevamento dei rischi.
 
 ### <a name="identity"></a>Identità
 Persona o entità che deve essere verificata tramite autenticazione, in base a criteri quali password o certificato.
 
-### <a name="identity-risk-detection"></a>Identity risk detection
-Azure AD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
+### <a name="identity-risk-detection"></a>Rilevamento del rischio di identità
+Azure AD evento contrassegnato come anomalo da Identity Protection e potrebbe indicare che un'identità è stata compromessa.
 
-### <a name="ignored-risk-detection"></a>Ignored (risk detection)
-A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.
+### <a name="ignored-risk-detection"></a>Ignorato (rilevamento del rischio)
+Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che il rilevamento dei rischi viene chiuso senza eseguire un'azione di correzione.
 
 ### <a name="impossible-travel-from-atypical-locations"></a>Trasferimento impossibile con posizioni atipiche
-A risk detection triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
+Rilevamento dei rischi attivato quando vengono rilevati due accessi per lo stesso utente, in cui almeno uno di essi si trova in una posizione di accesso atipica e dove il tempo tra gli accessi è inferiore al tempo minimo necessario per spostarsi fisicamente tra questi posizioni.  
 
 ### <a name="investigation"></a>Analisi
-The process of reviewing the activities, logs, and other relevant information related to a risk detection to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
+Il processo di revisione di attività, log e altre informazioni rilevanti relative a un rilevamento dei rischi per decidere se sono necessarie procedure di correzione o mitigazione, comprendere se e come l'identità è stata compromessa e comprendere il modo in cui l'identità è stata compromessa è stata usata l'identità.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
-A risk detection triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
+Rilevamento dei rischi attivato quando le credenziali dell'utente corrente (nome utente e password) vengono trovate pubblicate nel Dark Web dai ricercatori.
 
 ### <a name="mitigation"></a>Mitigazione
-Azione che consente di limitare o eliminare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. A mitigation does not resolve previous risk detections associated with the identity or device.
+Azione che consente di limitare o eliminare la possibilità che un utente malintenzionato sfrutti un'identità o un dispositivo compromesso senza ripristinare l'identità o il dispositivo a uno stato sicuro. Una mitigazione non risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 Metodo di autenticazione che richiede due o più fattori di autenticazione. Può includere un elemento di cui l'utente è in possesso, ad esempio un certificato, un'informazione nota all'utente, ad esempio nomi utente, password o passphrase, attributi fisici, ad esempio un'impronta digitale, e attributi personali, ad esempio una firma personale.
 
 ### <a name="offline-detection"></a>Rilevamento offline
@@ -72,13 +72,13 @@ Rilevamento di anomalie e valutazione del rischio di un evento, ad esempio un te
 Parte dei criteri di sicurezza che definiscono le entità (gruppi, utenti, app, piattaforme dei dispositivi, stati dei dispositivi, intervalli di indirizzi IP, tipi di client) inclusi nei criteri o esclusi da essi.
 
 ### <a name="policy-rule"></a>Regola dei criteri
-The part of a security policy that describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
+Parte di un criterio di sicurezza che descrive le circostanze che attivano i criteri e le azioni intraprese quando viene attivato il criterio.
 
 ### <a name="prevention"></a>Prevenzione
-Azione per prevenire i danni arrecati all'organizzazione derivanti dall'uso non corretto di un'identità o di un dispositivo che si sospetta o si ritiene sia compromesso. A prevention action does not secure the device or identity, and does not resolve previous risk detections.
+Azione per prevenire i danni arrecati all'organizzazione derivanti dall'uso non corretto di un'identità o di un dispositivo che si sospetta o si ritiene sia compromesso. Un'azione di prevenzione non protegge il dispositivo o l'identità e non risolve i rilevamenti dei rischi precedenti.
 
 ### <a name="privileged-user"></a>Con privilegi (utente)
-A user that at the time of a risk detection, had permanent or temporary admin permissions to one or more resources in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
+Un utente che al momento di un rilevamento dei rischi aveva autorizzazioni di amministratore permanenti o temporanee per una o più risorse in Azure Active Directory, ad esempio un amministratore globale, un amministratore di fatturazione, un amministratore del servizio, un amministratore utente e una password Amministratore. 
 
 ### <a name="real-time"></a>Tempo reale
 Vedere Rilevamento in tempo reale.
@@ -86,23 +86,23 @@ Vedere Rilevamento in tempo reale.
 ### <a name="real-time-detection"></a>Rilevamento in tempo reale
 Rilevamento di anomalie e valutazione del rischio di un evento, ad esempio un tentativo di accesso prima che all'evento sia consentito di procedere.
 
-### <a name="remediated-risk-detection"></a>Remediated (risk detection)
-A risk detection status set automatically by Identity Protection, indicating that the risk detection was remediated using the standard remediation action for this type of risk detection. For example, when the user password is reset, many risk detections that indicate that the previous password was compromised are automatically remediated.
+### <a name="remediated-risk-detection"></a>Corretti (rilevamento del rischio)
+Stato di rilevamento del rischio impostato automaticamente da Identity Protection, che indica che il rilevamento dei rischi è stato risolto utilizzando l'azione di correzione standard per questo tipo di rilevamento dei rischi. Ad esempio, quando viene reimpostata la password utente, molti rilevamenti dei rischi che indicano che la password precedente è stata compromessa vengono risolti automaticamente.
 
 ### <a name="remediation"></a>Correzione
-Azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato ritenuto o sospettato essere compromesso. A remediation action restores the identity or device to a safe state, and resolves previous risk detections associated with the identity or device.
+Azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato ritenuto o sospettato essere compromesso. Un'azione di correzione ripristina l'identità o il dispositivo a uno stato sicuro e risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
-### <a name="resolved-risk-detection"></a>Resolved (risk detection)
-A risk detection status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk detection should be considered closed.
+### <a name="resolved-risk-detection"></a>Risolto (rilevamento del rischio)
+Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che l'utente ha eseguito un'azione di correzione appropriata all'esterno di Identity Protection e che il rilevamento dei rischi deve essere considerato chiuso.
 
-### <a name="risk-detection-status"></a>Risk detection status
-A property of a risk detection, indicating whether the event is active, and if closed, the reason for closing it.
+### <a name="risk-detection-status"></a>Stato di rilevamento del rischio
+Proprietà di un rilevamento dei rischi, che indica se l'evento è attivo e se chiuso, il motivo per la chiusura.
 
 ### <a name="risk-detection-type"></a>Tipo di rilevamento dei rischi
-A category for the risk detection, indicating the type of anomaly that caused the event to be considered risky.
+Categoria per il rilevamento dei rischi, che indica il tipo di anomalia che ha causato l'evento come rischioso.
 
-### <a name="risk-level-risk-detection"></a>Risk level (risk detection)
-An indication (High, Medium, or Low) of the severity of the risk detection to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
+### <a name="risk-level-risk-detection"></a>Livello di rischio (rilevamento del rischio)
+Indicazione (alta, media o bassa) della gravità del rilevamento dei rischi per consentire agli utenti di Identity Protection di assegnare una priorità alle azioni eseguite per ridurre i rischi per la propria organizzazione. 
 
 ### <a name="risk-level-sign-in"></a>Livello di rischio (accesso)
 Può essere Alto, Medio o Basso e indica la probabilità che per un accesso specifico qualcun altro stia tentando di usare l'identità dell'utente.
@@ -126,22 +126,22 @@ Consente di eseguire l'autenticazione a un'identità in Azure Active Directory.
 Processo o azione di autenticazione di un'identità in Azure Active Directory ed evento che acquisisce questa operazione.
 
 ### <a name="sign-in-from-anonymous-ip-address"></a>Accesso da indirizzo IP anonimo
-A risk detection triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
+Rilevamento dei rischi attivato dopo un accesso riuscito dall'indirizzo IP che è stato identificato come indirizzo IP proxy anonimo.
 
 ### <a name="sign-in-from-infected-device"></a>Accesso da dispositivo infetto
-A risk detection triggered when a sign-in originates from an IP address, which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
+Rilevamento dei rischi attivato quando un accesso proviene da un indirizzo IP, che è noto come usato da uno o più dispositivi compromessi che tentano attivamente di comunicare con un server bot.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Accesso da indirizzo IP con attività sospetta
-A risk detection triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
+Rilevamento dei rischi attivato dopo un accesso riuscito da un indirizzo IP con un numero elevato di tentativi di accesso non riusciti tra più account utente in un breve periodo di tempo.
 
 ### <a name="sign-in-from-unfamiliar-location"></a>Accesso da posizione non nota
-A risk detection triggered when a user successfully signs in from a new location (IP, Latitude/Longitude, and ASN).
+Rilevamento dei rischi attivato quando un utente accede correttamente da una nuova posizione (IP, Latitudine/Longitudine e ASN).
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
 Vedere Livello di rischio (accesso)
 
-### <a name="sign-in-risk-policy"></a>Criteri di rischio di accesso
-A Conditional Access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+### <a name="sign-in-risk-policy"></a>Configura
+Criteri di accesso condizionale che valutano il rischio per un accesso specifico e applicano le mitigazioni in base a condizioni e regole predefinite.
 
 ### <a name="user-compromise-risk"></a>Rischio di compromissione dell'utente
 Vedere Livello di rischio (compromissione dell'utente)
@@ -150,14 +150,14 @@ Vedere Livello di rischio (compromissione dell'utente)
 Vedere Livello di rischio (compromissione dell'utente)
 
 ### <a name="user-risk-policy"></a>Criteri di rischio utente
-A Conditional Access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
+Criteri di accesso condizionale che considerano l'accesso e applicano le mitigazioni in base a condizioni e regole predefinite.
 
 ### <a name="users-flagged-for-risk"></a>Utenti contrassegnati per il rischio
-Users that have risk detections, which are either active or remediated
+Utenti con rilevamento dei rischi, attivi o corretti
 
 ### <a name="vulnerability"></a>Vulnerabilità
 Configurazione o condizione in Azure Active Directory che rende la directory vulnerabile ad attacchi o minacce.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

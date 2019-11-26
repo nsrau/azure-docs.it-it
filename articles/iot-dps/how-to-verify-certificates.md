@@ -1,6 +1,6 @@
 ---
-title: Verify X.509 CA certificates with Azure IoT Hub Device Provisioning Service
-description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service
+title: Verificare i certificati della CA X. 509 con il servizio Device provisioning in hub Azure
+description: Come eseguire la verifica del possesso per i certificati della CA X. 509 con il servizio Device provisioning in hub Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
@@ -34,7 +34,7 @@ Per registrare un certificato della CA con il servizio di provisioning e ottener
 3. Immettere un nome visualizzato descrittivo per il certificato. Individuare il file con estensione cer o pem che rappresenta la parte pubblica del certificato X.509. Fare clic su **Carica**.
 4. Quando si riceve una notifica che il certificato è stato caricato correttamente, fare clic su **Salva**.
 
-    ![Caricamento del certificato](./media/how-to-verify-certificates/add-new-cert.png)  
+    ![Carica certificato](./media/how-to-verify-certificates/add-new-cert.png)  
 
    Il certificato verrà visualizzato nell'elenco **Esplora certificati**. Si noti che lo **STATO** di questo certificato è *Non verificato*.
 

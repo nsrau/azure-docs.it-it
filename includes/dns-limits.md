@@ -11,20 +11,20 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74211000"
 ---
-**Public DNS zones**
+**Zone DNS pubbliche**
 
-| Gruppi | Limite predefinito |
+| Risorsa | Limite predefinito |
 | --- | --- |
-| Public DNS Zones per subscription |250 <sup>1</sup> |
-| Record sets per public DNS zone |10,000 <sup>1</sup> |
-| Records per record set in public DNS zone |20 |
-| Number of Alias records for a single Azure resource |20|
-| Private DNS zones per subscription |1000|
-| Record sets per private DNS zone |25000|
-| Records per record set for private DNS zones |20|
-| Virtual Network Links per private DNS zone |1000|
-| Virtual Networks Links per private DNS zones with auto-registration enabled |100|
-| Number of private DNS zones a virtual network can get linked to with auto-registration enabled |1|
-| Number of private DNS zones a virtual network can get linked |1000|
+| Zone DNS pubblico per sottoscrizione |250 <sup>1</sup> |
+| Set di record per zona DNS pubblica |10.000 <sup>1</sup> |
+| Record per set di record nella zona DNS pubblica |20 |
+| Numero di record alias per una singola risorsa di Azure |20|
+| Zone DNS privato per sottoscrizione |1000|
+| Set di record per zona DNS privata |25000|
+| Record per set di record per le zone DNS private |20|
+| Collegamenti di rete virtuale per zona DNS privata |1000|
+| Collegamenti alle reti virtuali per zone DNS private con registrazione automatica abilitata |100|
+| Numero di zone DNS private a cui può essere collegata una rete virtuale con registrazione automatica abilitata |1|
+| Numero di zone DNS private che possono essere collegate a una rete virtuale |1000|
 
-<sup>1</sup>If you need to increase these limits, contact Azure Support.
+<sup>1</sup> Se è necessario aumentare questi limiti, contattare il supporto tecnico di Azure.

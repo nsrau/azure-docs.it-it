@@ -1,5 +1,5 @@
 ---
-title: Roll X.509 certificates in Azure IoT Hub Device Provisioning Service
+title: Eseguire il Rolling dei certificati X. 509 nel servizio Device provisioning in hub Azure
 description: Come rinnovare i certificati X.509 in un'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
@@ -94,7 +94,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Registrazioni singole** e quindi sulla voce dell'ID di registrazione nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     ![Gestire le registrazioni singole usando il certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +177,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-security.md#x509-certificates).
 

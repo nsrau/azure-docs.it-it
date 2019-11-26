@@ -1,6 +1,6 @@
 ---
-title: Understand security best practices - Azure Digital Twins | Microsoft Docs
-description: Learn about security best practices for Azure Digital Twins and the Internet of Things.
+title: 'Informazioni sulle procedure consigliate per la sicurezza: dispositivi gemelli digitali di Azure | Microsoft Docs'
+description: Informazioni sulle procedure di sicurezza consigliate per i dispositivi gemelli digitali di Azure e il Internet delle cose.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -27,7 +27,7 @@ Questo articolo riepiloga le principali procedure consigliate da seguire.
 > Per garantire la massima sicurezza per lo spazio IoT, esaminare altre risorse relative alla sicurezza. Assicurarsi di includere i fornitori di dispositivi.
 
 > [!TIP]
-> Use [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/) to help detect IoT security threats and vulnerabilities.
+> Usa il [Centro sicurezza di Azure per](https://docs.microsoft.com/azure/asc-for-iot/) gli Internet per scoprire le minacce e le vulnerabilità della sicurezza.
 
 ## <a name="iot-security-best-practices"></a>Procedure consigliate per la sicurezza IoT
 
@@ -38,8 +38,8 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > * Limitare il ruolo di ogni dispositivo, sensore e persona all'interno dello spazio IoT. In caso di compromissione, l'impatto sarà ridotto al minimo.
 > * Prendere in considerazione l'eventualità di usare il filtro degli indirizzi IP dei dispositivi e la restrizione della porta.
 > * Limitare larghezza di banda di I/O e dei dispositivi per migliorare le prestazioni. La limitazione della velocità può consentire di migliorare la sicurezza impedendo attacchi Denial of Service.
-> * Keep device firmware, operating system, and software up to date.
-> * Periodically audit and review device, software, network, and gateway security best practices as they continue to improve and evolve.
+> * Mantieni aggiornato il firmware, il sistema operativo e il software del dispositivo.
+> * Controllare periodicamente le procedure consigliate per la sicurezza dei dispositivi, dei software, delle reti e dei gateway Man mano che continuano a migliorare e a evolversi.
 
 Ecco alcune tra le principali procedure consigliate per proteggere in modo sicuro uno spazio IoT:
 
@@ -47,20 +47,20 @@ Ecco alcune tra le principali procedure consigliate per proteggere in modo sicur
 > * Crittografare i dati salvati, archiviati o salvati in modo permanente.
 > * Richiedere la modifica o l'aggiornamento periodico di password o chiavi.
 > * Limitare attentamente le autorizzazioni e l'accesso in base al ruolo. Vedere la sezione [Procedure consigliate per il controllo degli accessi in base al ruolo](#role-based-access-control-best-practices) seguente.
-> * Consider a divided network topology so that devices on each network are isolated from the others.
-> * Usare la crittografia avanzata. Require long passwords, use secure protocols, and [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+> * Si consideri una topologia di rete divisa in modo che i dispositivi in ogni rete siano isolati dagli altri.
+> * Usare la crittografia avanzata. Richiedi password lunghe, USA protocolli sicuri e autenticazione a più [fattori](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 [Monitorare](./how-to-configure-monitoring.md) le risorse IoT per individuare outlier, minacce o parametri delle risorse che non rientrano nell'intervallo del normale funzionamento. Usare Azure Analytics per monitorare la gestione.
 
 > [!IMPORTANT]
-> Read Azure [IoT security best practices](../iot-fundamentals/iot-security-best-practices.md) to begin a comprehensive IoT security strategy.
+> Leggi le [procedure consigliate](../iot-fundamentals/iot-security-best-practices.md) per la sicurezza di Azure. per iniziare una strategia di sicurezza completa.
 
 > [!NOTE]
 > Per altre informazioni sull'elaborazione e monitoraggio degli eventi, vedere [Routing di eventi e messaggi](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Procedure consigliate per Azure Active Directory
 
-Azure Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) to authenticate users and protect applications. Azure Active Directory supporta l'autenticazione per un'ampia gamma di architetture moderne. Tutte queste sono basate sui protocolli standard come OAuth 2.0 o OpenID Connect. Ecco alcune tra le principali procedure consigliate per proteggere lo spazio IoT per Azure Active Directory:
+I dispositivi gemelli digitali di Azure usano [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) per autenticare gli utenti e proteggere le applicazioni. Azure Active Directory supporta l'autenticazione per un'ampia gamma di architetture moderne. Tutte queste sono basate sui protocolli standard come OAuth 2.0 o OpenID Connect. Ecco alcune tra le principali procedure consigliate per proteggere lo spazio IoT per Azure Active Directory:
 
 > [!div class="checklist"]
 > * Archiviare chiavi e chiavi private delle app di Azure Active Directory in una posizione sicura, ad esempio [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).

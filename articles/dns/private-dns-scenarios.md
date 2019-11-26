@@ -1,6 +1,6 @@
 ---
-title: Scenarios for Private Zones - Azure DNS
-description: In this article, learn about common scenarios for using Azure DNS Private Zones.
+title: Scenari per le zone private-DNS di Azure
+description: In questo articolo vengono fornite informazioni sugli scenari comuni per l'utilizzo di Zone private di DNS di Azure.
 services: dns
 author: asudbring
 ms.service: dns
@@ -14,7 +14,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74210470"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS Private zones scenarios
+# <a name="azure-dns-private-zones-scenarios"></a>Scenari di zone private di DNS di Azure
 
 Il servizio Zone private di DNS di Azure consente la risoluzione dei nomi all'interno di una rete virtuale e tra reti virtuali. In questo articolo vengono esaminati alcuni scenari comuni che è possibile attuare con questa funzionalità.
 

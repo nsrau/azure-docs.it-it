@@ -37,7 +37,7 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
     | ------- | ----- |
     | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | sottoscrizione | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
     | Location | Selezionare **Stati Uniti centro-occidentali**.|
     | Subnet - Nome | Immettere *mySubnet*. |
@@ -55,11 +55,11 @@ In questa sezione si creerà una rete virtuale e la subnet per ospitare la macch
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | sottoscrizione | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Region | Selezionare **Stati Uniti centro-occidentali**. |
+    | Area | Selezionare **Stati Uniti centro-occidentali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Image | Selezionare **Windows Server 2019 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |

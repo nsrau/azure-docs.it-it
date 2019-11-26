@@ -1,5 +1,5 @@
 ---
-title: Manage versions - LUIS
+title: Gestisci versioni-LUIS
 titleSuffix: Azure Cognitive Services
 description: Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una versione diversa dell'app prima di apportare modifiche al modello.
 services: cognitive-services
@@ -24,10 +24,10 @@ Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura 
 
 Per usare le versioni, aprire l'app selezionando il relativo nome nella pagina **Mie app**, quindi selezionare **Gestisci** nella barra superiore e successivamente **Versioni** nella sezione di navigazione a sinistra. 
 
-The list of versions shows which versions are published, where they are published, and which version is currently active. 
+L'elenco delle versioni indica quali versioni sono pubblicate, dove sono pubblicate e quale versione è attualmente attiva. 
 
 > [!div class="mx-imgBorder"]
-> [![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png "Gestire una sezione e la pagina versioni")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+> [![Sezione Gestisci, pagina versioni](./media/luis-how-to-manage-versions/versions-import.png "Gestire una sezione e la pagina versioni")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Clonare una versione
 
@@ -44,26 +44,26 @@ The list of versions shows which versions are published, where they are publishe
 
 ## <a name="set-active-version"></a>Impostare la versione attiva
 
-Select a version from the list, then select **Activate** from the toolbar. 
+Selezionare una versione dall'elenco e quindi selezionare **Activate (attiva** ) dalla barra degli strumenti. 
 
 > [!div class="mx-imgBorder"]
-> [![Manage section, versions page, make a version action](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page, make a version action")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+> [![Gestisci sezione, pagina versioni, Esegui un'azione versione](./media/luis-how-to-manage-versions/versions-other.png "Gestisci sezione, pagina versioni, Esegui un'azione versione")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importare la versione
 
-You can import a `.json` or a `.lu` version of your application.
+È possibile importare un `.json` o una versione `.lu` dell'applicazione.
 
-1. Select **Import** from the toolbar, then select the format. 
+1. Selezionare **Importa** dalla barra degli strumenti e quindi selezionare il formato. 
 
-2. Nel comando **Importa nuova versione** della finestra popup, immettere il nuovo nome della versione di dieci caratteri. You only need to set a version ID if the version in the file already exists in the app.
+2. Nel comando **Importa nuova versione** della finestra popup, immettere il nuovo nome della versione di dieci caratteri. È sufficiente impostare un ID versione se la versione nel file esiste già nell'app.
 
     ![Sezione relativa alla gestione della pagina delle versioni, importazione di una nuova versione](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Una volta importata una versione, la nuova versione diventa quella attiva.
 
-### <a name="import-errors"></a>Import errors
+### <a name="import-errors"></a>Errori di importazione
 
-* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#custom-tokenizer-versions) than the app currently uses. To fix this, see [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions).
+* Errori Tokenizer: se si verifica un **errore Tokenizer** durante l'importazione, si sta tentando di importare una versione che usa un [Tokenizer](luis-language-support.md#custom-tokenizer-versions) diverso da quello attualmente usato dall'app. Per risolvere questo problema, vedere la pagina relativa alla [migrazione tra le versioni Tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
@@ -71,5 +71,5 @@ You can import a `.json` or a `.lu` version of your application.
 
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Elimina** nella barra degli strumenti. Selezionare **OK**. 
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Rinomina** nella barra degli strumenti. Immettere un nuovo nome e selezionare **Fatto**. 
-* Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Choose JSON to export for backup, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).  
+* Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Scegliere JSON per l'esportazione per il backup, scegliere **Esporta per contenitore** per [usare questa app in un contenitore Luis](luis-container-howto.md).  
 

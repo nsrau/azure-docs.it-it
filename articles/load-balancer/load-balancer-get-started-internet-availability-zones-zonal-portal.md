@@ -28,7 +28,7 @@ Questo articolo illustra i passaggi per la creazione di un [Load Balancer Standa
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
-> Il supporto per le zone di disponibilità è disponibile per determinate risorse, aree e famiglie di dimensioni di macchine virtuali di Azure. Per altre informazioni su come iniziare e con quali risorse, aree e famiglie di dimensioni di macchina virtuale di Azure è possibile provare le zone di disponibilità, vedere [Panoramica delle zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Per assistenza è possibile usare il forum di [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) oppure [aprire un ticket di supporto di Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> Il supporto per le zone di disponibilità viene fornito per determinate risorse, aree e famiglie di dimensioni di macchine virtuali di Azure. Per altre informazioni su come iniziare e con quali risorse, aree e famiglie di dimensioni di macchina virtuale di Azure è possibile provare le zone di disponibilità, vedere [Panoramica di zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Per assistenza è possibile usare il forum di [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) oppure [aprire un ticket di supporto di Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure 
 
@@ -38,7 +38,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Nel browser passare al portale di Azure [https://portal.azure.com](https://portal.azure.com) e accedere con l'account Azure.
 2. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer.**
-3. Nella pagina **Crea servizio di bilanciamento del carico** in **Nome** digitare **myLoadBalancer**.
+3. Nella pagina **Crea servizio di bilanciamento del carico**, in **Nome** digitare **myLoadBalancer**.
 4. In **Tipo** selezionare **Pubblica**.
 5. In SKU selezionare **Standard**.
 6. Fare clic su **Scegliere un indirizzo IP pubblico**, quindi su **Crea nuovo**. Nella pagina **Crea indirizzo IP pubblico** digitare **myPublicIPStandard** in Nome, per SKU selezionare **Standard** e per Zona di disponibilità selezionare **1**.

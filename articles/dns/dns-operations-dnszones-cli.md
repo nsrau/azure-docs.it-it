@@ -23,9 +23,9 @@ ms.locfileid: "74211932"
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](dns-operations-dnszones-portal.md)
+> * [Portale](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
+> * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
 
 Questa guida illustra come gestire le zone DNS usando l'interfaccia della riga di comando di Azure multipiattaforma, disponibile per Windows, Mac e Linux. È anche possibile gestire le zone DNS usando [Azure PowerShell](dns-operations-dnszones.md) o il portale di Azure.
@@ -62,21 +62,21 @@ Controllare le sottoscrizioni per l'account.
 az account list
 ```
 
-Scegliere quali sottoscrizioni Azure usare.
+Scegliere le sottoscrizioni ad Azure da usare.
 
 ```azurecli
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Optional: To install/use Azure DNS Private Zones feature
-The Azure DNS Private Zone feature is available via an extension to the Azure CLI. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature"></a>Facoltativo: per installare/usare Zone private di DNS di Azure funzionalità
+La funzionalità zona privata di DNS di Azure è disponibile tramite un'estensione dell'interfaccia della riga di comando di Azure. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
 ```
 az extension add --name dns
 ``` 
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dato che tutte le risorse DNS sono globali, non regionali, la scelta del percorso del gruppo di risorse non ha alcun impatto sul servizio DNS di Azure.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dato che tutte le risorse DNS sono globali, non regionali, la scelta del percorso del gruppo di risorse non ha alcun impatto sul servizio DNS di Azure.
 
 Se si usa un gruppo di risorse esistente, è possibile ignorare questo passaggio.
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Risorse della Guida
 
-Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  ad esempio:
+Tutti i comandi dell'interfaccia della riga di comando di Azure relativi a DNS di Azure iniziano con `az network dns`. Sono disponibili informazioni per ogni comando tramite l'opzione `--help` (forma breve `-h`).  Ad esempio:
 
 ```azurecli
 az network dns --help

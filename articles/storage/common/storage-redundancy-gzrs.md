@@ -10,7 +10,7 @@ ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
 ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2019
 ms.locfileid: "74186605"

@@ -1,5 +1,5 @@
 ---
-title: Manage Cloudyn budgets in Azure
+title: Gestire i budget Cloudyn in Azure
 description: Questo articolo consente di creare rapidamente i budget e di iniziare a gestirli in Cloudyn.
 services: cost-management
 keywords: ''
@@ -54,7 +54,7 @@ Per esportare il budget completato come file CSV, in **Azioni** selezionare **Es
 
 ## <a name="view-budget-in-reports"></a>Visualizzare il budget nei report
 
-When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. È inoltre possibile pianificare i report basati sulle soglie di budget usando **Azioni**.
+Al termine, il budget viene mostrato nella maggior parte dei report sui costi in termini di **costi** &gt; **analisi** dei costi e nel rapporto costo e budget nel tempo. È inoltre possibile pianificare i report basati sulle soglie di budget usando **Azioni**.
 
 Ecco un esempio del report Analisi dei costi. Questo report mostra il budget e il costo totali in base al carico di lavoro e ai tipi di utilizzo partendo dall'inizio dell'anno.
 
@@ -64,7 +64,7 @@ In questo esempio si presuppone che la data corrente sia il 22 giugno. Il costo 
 
 Un altro modo per visualizzare il report consiste nell'esaminare il costo accumulato rispetto al budget. Per vedere i costi accumulati, in **Mostra/Nascondi campi** selezionare **Costo accumulato** e **Budget totale**. Ecco un esempio che mostra il costo accumulato dall'inizio dell'anno.
 
-![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
+![Esempio di costo accumulato e del budget totale indicato nel rapporto cost vs. budget nel tempo](./media/manage-budgets/accumulated-budget.png)
 
 È possibile che a un certo punto il costo accumulato superi il budget. Questa situazione è più facile da vedere se si imposta la visualizzazione del grafico sul tipo _a linee_.
 
@@ -79,7 +79,7 @@ Nell'esempio precedente si nota che il costo accumulato si è avvicinato al valo
 
 Ecco un esempio.
 
-In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Salva**
+Nel report cost vs. budget over time fare clic su **Actions** e quindi selezionare **Schedule report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Save**.
 
 ![Creazione di un avviso del budget nella finestra Save or Schedule this report (Salva o pianifica questo report)](./media/manage-budgets/budget-alert.png)
 

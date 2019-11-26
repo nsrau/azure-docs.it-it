@@ -1,5 +1,5 @@
 ---
-title: Configure managed identities on Azure VM using template - Azure AD
+title: Configurare le identità gestite nella macchina virtuale di Azure usando template-Azure AD
 description: Istruzioni dettagliate per la configurazione di identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite un modello di Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -26,20 +26,20 @@ ms.locfileid: "74224318"
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo illustra, tramite il modello di distribuzione di Azure Resource Manager, come eseguire queste identità gestite per le operazioni delle risorse di Azure su una macchina virtuale di Azure:
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con l'uso del modello di distribuzione di Azure Resource Manager, consultare la [sezione Panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#how-does-it-work)** .
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 Analogamente al portale di Azure e all'esecuzione dello script, i modelli di gestione di [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) offrono la possibilità di distribuire risorse nuove o modificate definite da un gruppo di risorse di Azure. Diverse opzioni sono disponibili per la modifica e la distribuzione dei modelli, sia in locale che basati sul portale incluso quanto segue:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
+   - Uso di un [modello personalizzato da Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), che consente di creare un modello da zero o di basarlo su un modello comune o di [avvio rapido](https://azure.microsoft.com/documentation/templates/)esistente.
    - Derivazione da un gruppo di risorse esistente, tramite l'esportazione di un modello da una [distribuzione originale](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) o dallo [stato attuale della distribuzione](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](../../azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) di Visual Studio per creare e distribuire un modello.  

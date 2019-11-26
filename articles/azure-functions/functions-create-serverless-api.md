@@ -1,6 +1,6 @@
 ---
-title: Customize an HTTP endpoint in Azure Functions
-description: Learn how to customize an HTTP trigger endpoint in Azure Functions
+title: Personalizzare un endpoint HTTP in funzioni di Azure
+description: Informazioni su come personalizzare un endpoint di trigger HTTP in funzioni di Azure
 author: mattchenderson
 ms.topic: conceptual
 ms.date: 05/04/2017
@@ -13,17 +13,17 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230688"
 ---
-# <a name="customize-an-http-endpoint-in-azure-functions"></a>Customize an HTTP endpoint in Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
 
-In this article, you learn how Azure Functions allows you to build highly scalable APIs. Funzioni di Azure include una raccolta di trigger HTTP e binding integrati che semplificano la creazione di un endpoint in una varietà di linguaggi, inclusi Node.JS, C# e altri. In this article, you will customize an HTTP trigger to handle specific actions in your API design. Ci si preparerà inoltre a far crescere l'API integrandola con i proxy di Funzioni di Azure e a configurare API fittizie. Tutto ciò avviene nell'ambiente di calcolo senza server di Funzioni di Azure, pertanto non è necessario preoccuparsi della scalabilità delle risorse ma è possibile concentrarsi semplicemente sulla logica di API.
+Questo articolo illustra come funzioni di Azure consente di creare API altamente scalabili. Funzioni di Azure include una raccolta di trigger HTTP e binding integrati che semplificano la creazione di un endpoint in una varietà di linguaggi, inclusi Node.JS, C# e altri. In questo articolo verrà personalizzato un trigger HTTP per gestire azioni specifiche nella progettazione dell'API. Ci si preparerà inoltre a far crescere l'API integrandola con i proxy di Funzioni di Azure e a configurare API fittizie. Tutto ciò avviene nell'ambiente di calcolo senza server di Funzioni di Azure, pertanto non è necessario preoccuparsi della scalabilità delle risorse ma è possibile concentrarsi semplicemente sulla logica di API.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-The resulting function will be used for the rest of this article.
+La funzione risultante verrà usata per la parte restante di questo articolo.
 
-### <a name="sign-in-to-azure"></a>Accedere a Azure
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Aprire il Portale di Azure. A tale scopo, accedere al link [https://portal.azure.com](https://portal.azure.com) con l'account di Azure.
 
@@ -37,7 +37,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
 
 1. Usare le impostazioni di trigger HTTP come specificato nella tabella.
 
-    | Campo | Valore di esempio | Description |
+    | Campo | Valore di esempio | DESCRIZIONE |
     |---|---|---|
     | Metodi HTTP consentiti | Metodi selezionati | Determina quali metodi HTTP possono essere usati per chiamare questa funzione |
     | Metodi HTTP selezionati | GET | Consente di usare solo i metodi HTTP selezionati per chiamare questa funzione |
@@ -47,7 +47,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
     > [!NOTE] 
     > Si noti che non è stato incluso il prefisso del percorso base `/api` nel modello di route e l'operazione viene gestita da un'impostazione globale.
 
-1. Fare clic su **Salva**
+1. Fare clic su **Save**.
 
 Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
@@ -88,7 +88,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     > [!NOTE] 
     > Le impostazioni di app sono consigliate perché la configurazione dell'host eviti una dipendenza di ambiente hard-coded per il proxy. Usare le impostazioni dell'app significa che è possibile spostare la configurazione del proxy tra ambienti e saranno applicate le impostazioni dell'app specifiche dell'ambiente.
 
-1. Fare clic su **Salva**
+1. Fare clic su **Save**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Creazione di un proxy nel front-end
 
@@ -97,9 +97,9 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     ![Creazione di un proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Usare le impostazioni specificate nella tabella. 
 
-    | Campo | Valore di esempio | Description |
+    | Campo | Valore di esempio | DESCRIZIONE |
     |---|---|---|
-    | name | HelloProxy | Nome descrittivo utilizzato solo per la gestione |
+    | Nome | HelloProxy | Nome descrittivo utilizzato solo per la gestione |
     | Modello di route | /api/remotehello | Determina quale route viene usata per chiamare questo proxy |
     | URL back-end | https://%HELLO_HOST%/api/hello | Specifica l'endpoint a cui la richiesta deve essere trasmessa tramite proxy |
     
@@ -172,13 +172,13 @@ Ora si aggiungerà l'API fittizia. Sostituire il file proxies.json con il seguen
 }
 ```
 
-In questo modo viene aggiunto un nuovo proxy, "GetUserByName", senza la proprietà backendUri. Invece di chiamare un'altra risorsa, viene modificata la risposta predefinita di Proxy usando un override della risposta. È possibile anche usare gli override di richiesta e risposta in combinazione con un URL di back-end. This is particularly useful when proxying to a legacy system, where you might need to modify headers, query parameters, etc. To learn more about request and response overrides, see [Modifying requests and responses in Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+In questo modo viene aggiunto un nuovo proxy, "GetUserByName", senza la proprietà backendUri. Invece di chiamare un'altra risorsa, viene modificata la risposta predefinita di Proxy usando un override della risposta. È possibile anche usare gli override di richiesta e risposta in combinazione con un URL di back-end. Questa operazione è particolarmente utile quando si esegue l'inoltro a un sistema legacy, in cui potrebbe essere necessario modificare intestazioni, parametri di query e così via. Per altre informazioni sugli override di richiesta e risposta, vedere [modifica delle richieste e delle risposte nei proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Testare l'API fittizia chiamando l'endpoint `<YourProxyApp>.azurewebsites.net/api/users/{username}` mediante un browser o il client REST preferito. Assicurarsi di sostituire _{username}_ con un valore stringa che rappresenta un nome utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this article, you learned how to build and customize an API on Azure Functions. È stato inoltre illustrato come mettere insieme più API, incluse quelle fittizie, in una sola superficie API unificata. È possibile usare queste tecniche per creare API di qualsiasi complessità, il tutto durante l'esecuzione del modello di calcolo senza server fornito da Funzioni di Azure.
+In questo articolo si è appreso come creare e personalizzare un'API in funzioni di Azure. È stato inoltre illustrato come mettere insieme più API, incluse quelle fittizie, in una sola superficie API unificata. È possibile usare queste tecniche per creare API di qualsiasi complessità, il tutto durante l'esecuzione del modello di calcolo senza server fornito da Funzioni di Azure.
 
 I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'API:
 

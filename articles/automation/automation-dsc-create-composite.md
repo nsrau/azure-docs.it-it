@@ -1,7 +1,7 @@
 ---
-title: Convert configurations to composite resources for state configuration - Azure Automation
-description: Learn how to convert configurations to composite resources for state configuration in Azure Automation.
-keywords: dsc,powershell,configuration,setup
+title: Convertire le configurazioni in risorse composite per la configurazione dello stato-automazione di Azure
+description: Informazioni su come convertire le configurazioni in risorse composite per la configurazione dello stato in automazione di Azure.
+keywords: DSC, PowerShell, configurazione, configurazione
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -19,44 +19,44 @@ ms.locfileid: "74231643"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertire le configurazioni in risorse composite
 
-> Applies To: Windows PowerShell 5.1
+> Si applica a: Windows PowerShell 5,1
 
-Once you get started authoring configurations, you can quickly create "scenarios" that manage groups of settings.
-Examples would be:
+Una volta avviata la creazione di configurazioni, è possibile creare rapidamente "scenari" per la gestione dei gruppi di impostazioni.
+Esempi:
 
-- create a web server
-- create a DNS server
-- create a SharePoint server
-- configure a SQL cluster
-- manage firewall settings
-- manage password settings
+- creazione di un server Web
+- creazione di un server DNS
+- creazione di un server SharePoint
+- configurare un cluster SQL
+- gestire le impostazioni del firewall
+- Gestisci impostazioni password
 
-If you are interested in sharing this work with others, the best option is to package the configuration as a [Composite Resource](/powershell/scripting/dsc/resources/authoringresourcecomposite).
-Creating composite resources for the first time can be overwhelming.
+Se si è interessati a condividere questo lavoro con altri utenti, l'opzione migliore consiste nel creare un pacchetto della configurazione come [risorsa composita](/powershell/scripting/dsc/resources/authoringresourcecomposite).
+La creazione di risorse composite per la prima volta può risultare eccessiva.
 
 > [!NOTE]
-> This article refers to a solution that is maintained by the Open Source community.
-> Support is only available in the form of GitHub collaboration, not from Microsoft.
+> Questo articolo fa riferimento a una soluzione gestita dalla community open source.
+> Il supporto è disponibile solo sotto forma di collaborazione con GitHub, non da Microsoft.
 
-## <a name="community-project-compositeresource"></a>Community project: CompositeResource
+## <a name="community-project-compositeresource"></a>Progetto della community: CompositeResource
 
-A community maintained solution named [CompositeResource](https://github.com/microsoft/compositeresource) has been created to resolve this challenge.
+Per risolvere questo problema, è stata creata una soluzione gestita dalla community denominata [CompositeResource](https://github.com/microsoft/compositeresource) .
 
-CompositeResource automates the process of creating a new module from your configuration.
-You start by [dot sourcing](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) the configuration script on your workstation (or build server) so it is loaded in memory.
-Next, rather than running the configuration to generate a MOF file, use the function provided by the CompositeResource module to automate a conversion.
-The cmdlet will load the contents of your configuration, get the list of parameters, and generate a new module with everything you need.
+CompositeResource automatizza il processo di creazione di un nuovo modulo dalla configurazione.
+Si inizia con l'assegnazione di un [punto](https://blogs.technet.microsoft.com/heyscriptingguy/2010/08/10/how-to-reuse-windows-powershell-functions-in-scripts/) allo script di configurazione nella workstation (o nel server di compilazione), in modo che venga caricato in memoria.
+Quindi, invece di eseguire la configurazione per generare un file MOF, usare la funzione fornita dal modulo CompositeResource per automatizzare una conversione.
+Il cmdlet caricherà il contenuto della configurazione, otterrà l'elenco dei parametri e genererà un nuovo modulo con tutti gli elementi necessari.
 
-Once you have generated a module, you can increment the version and add release notes each time you make changes and publish it to your own [PowerShellGet repository](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
+Dopo aver generato un modulo, è possibile incrementare la versione e aggiungere le note sulla versione ogni volta che si apportano modifiche e lo si pubblica nel [repository PowerShellGet](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
-Once you have create a composite resource module containing your configuration (or multiple configurations), you can use them in the [Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources) in Azure, or add them to [DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
-The latest update to the project has also published [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) for Azure Automation to automate the process of importing configurations from the PowerShell Gallery.
+Dopo aver creato un modulo di risorsa composita contenente la configurazione (o più configurazioni), è possibile usarli nell' [esperienza di creazione componibile](/azure/automation/compose-configurationwithcompositeresources) in Azure oppure aggiungerli agli script di [configurazione DSC](/powershell/scripting/dsc/configurations/configurations) per generare file MOF e [caricare i file MOF in automazione di Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Quindi registrare i server da [locale](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) o [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) per eseguire il pull delle configurazioni.
+L'aggiornamento più recente del progetto ha pubblicato anche [manuali operativi](https://www.powershellgallery.com/packages?q=DscGallerySamples) per automazione di Azure per automatizzare il processo di importazione delle configurazioni dal PowerShell Gallery.
 
-To try out automating creation of composite resources for DSC, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) and download the solution or click "Project Site" to view the [documentation](https://github.com/microsoft/compositeresource).
+Per provare ad automatizzare la creazione di risorse composite per DSC, visitare il [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) e scaricare la soluzione oppure fare clic su "progetto sito" per visualizzare la [documentazione](https://github.com/microsoft/compositeresource).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview)
-- [DSC Resources](/powershell/scripting/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [Risorse DSC](/powershell/scripting/dsc/resources/resources)
+- [Configurazione della Configuration Manager locale](/powershell/scripting/dsc/managing-nodes/metaconfig)

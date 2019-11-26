@@ -27,7 +27,7 @@ ms.locfileid: "74228159"
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questa esercitazione viene illustrato come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per iOS. Al termine si sarà appreso come effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app nelle quali le notifiche devono essere inviate a gruppi di utenti che hanno dichiarato un interesse, ad esempio lettori di feed RSS, app per fan di musica e così via.
 
@@ -39,15 +39,15 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Aggiungere una selezione delle categorie all'app
 > * Inviare notifiche con tag
 > * Inviare notifiche dal dispositivo
-> * Eseguire l'app e generare notifiche
+> * Esecuzione dell'app e generazione di notifiche
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-This topic builds on the app you created in [Tutorial: Push notifications to iOS apps using Azure Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Tutorial: Push notifications to iOS apps using Azure Notification Hubs][get-started].
+Questo argomento si basa sull'app creata in [esercitazione: notifiche push alle app iOS con hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario avere già completato l' [esercitazione: notifiche push alle app iOS con hub di notifica di Azure][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 
-Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente allo storyboard esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione nell'hub di notifica con le categorie selezionate come tag.
+Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente allo storyboard esistente per consentire all'utente di selezionare le categorie per le quali registrarsi. Le categorie selezionate da un utente sono archiviate nel dispositivo. All'avvio dell'app, viene creata una registrazione del dispositivo nell'hub di notifica con le categorie selezionate come tag.
 
 1. Nel file **MainStoryboard_iPhone.storyboard** aggiungere i componenti seguenti dalla libreria di oggetti:
 
@@ -154,7 +154,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
     ```
 
     > [!NOTE]
-    > Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completo viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
+    > Poiché le credenziali che sono distribuite con un'app client in genere non sono sicure, distribuire solo la chiave per l'accesso Listen con l'app client. L'accesso Listen consente all'app di registrarsi per le notifiche ma le registrazioni esistenti non possono essere modificate e le notifiche non possono essere inviate. La chiave di accesso completa viene usata in un servizio back-end sicuro per l'invio delle notifiche e la modifica delle registrazioni esistenti.
 
 9. Nel metodo `didRegisterForRemoteNotificationsWithDeviceToken` in `AppDelegate.m` sostituire il codice nel metodo con il codice seguente per passare il token del dispositivo alla classe `notifications`. La classe `notifications` esegue la registrazione per le notifiche con le categorie. Se l'utente modifica le selezioni delle categorie, chiamare il metodo `subscribeWithCategories` in risposta al pulsante **sottoscrizione** per aggiornarle.
 
@@ -177,7 +177,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     A questo punto, non dovrebbe essere presente altro codice nel metodo `didRegisterForRemoteNotificationsWithDeviceToken`.
 
-10. The following methods should already be present in `AppDelegate.m` from completing the [Get started with Notification Hubs][get-started] tutorial. In caso contrario, aggiungerli.
+10. I metodi seguenti devono essere già presenti in `AppDelegate.m` dopo aver completato l'esercitazione Introduzione [ad hub di notifica][get-started] . In caso contrario, aggiungerli.
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -247,13 +247,13 @@ Ora l'app può archiviare un insieme di categorie nella risorsa di archiviazione
 
 ## <a name="optional-send-tagged-notifications"></a>(facoltativo) Invio di notifiche con tag
 
-Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [Azure portal] usando la scheda debug per l'hub di notifica.
+Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [portale di Azure] usando la scheda debug per l'hub di notifica.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(facoltativo) Inviare notifiche dal dispositivo
 
-In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. To do so, you update the `SendNotificationRESTAPI` method that you defined in the [Get started with Notification Hubs][get-started] tutorial.
+In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo, è necessario aggiornare il metodo `SendNotificationRESTAPI` definito nell'esercitazione Introduzione [ad hub di notifica][get-started] .
 
 1. In `ViewController.m` aggiornare il metodo `SendNotificationRESTAPI` come segue in modo che accetti un parametro per il tag di categoria e invii la notifica [modello](notification-hubs-templates-cross-platform-push-messages.md) appropriata.
 
@@ -337,7 +337,7 @@ In genere le notifiche vengono inviate da un servizio di back-end ma per questa 
 
 3. Ricompilare il progetto e assicurarsi che non siano presenti errori di compilazione.
 
-## <a name="run-the-app-and-generate-notifications"></a>Eseguire l'app e generare notifiche
+## <a name="run-the-app-and-generate-notifications"></a>Esecuzione dell'app e generazione di notifiche
 
 1. Premere il pulsante Esegui per compilare il progetto e avviare l'app. Selezionare alcune opzioni di notizie per cui eseguire la sottoscrizione e premere il pulsante **Subscribe** . Verrà visualizzata una finestra di dialogo che indica che è staa effettuata la sottoscrizione alle notifiche.
 
@@ -371,4 +371,4 @@ In questa esercitazione sono state inviate notifiche di trasmissione ai disposit
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure portal]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com

@@ -1,6 +1,6 @@
 ---
-title: Protecting DNS Zones and Records - Azure DNS
-description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
+title: Protezione di Zone DNS e record-DNS di Azure
+description: In questo percorso di apprendimento iniziare a proteggere le zone DNS e i set di record in Microsoft Azure DNS.
 services: dns
 author: asudbring
 ms.service: dns
@@ -22,7 +22,7 @@ Le zone e i record DNS sono risorse critiche. L'eliminazione di una zona DNS o p
 
 Questo articolo spiega come è possibile proteggere i record e le zone DNS da queste modifiche con DNS di Azure.  Si usano due potenti funzionalità di sicurezza fornite da Azure Resource Manager: il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) e i [blocchi risorse](../azure-resource-manager/resource-group-lock-resources.md).
 
-## <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 Il Controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per gli utenti, i gruppi e le risorse di Azure. Il Controllo degli accessi in base al ruolo permette di concedere agli utenti esattamente il livello di accesso necessario per eseguire i propri processi. Per altre informazioni su come il Controllo degli accessi in base al ruolo facilita la gestione degli accessi, vedere l'articolo relativo al [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
@@ -160,7 +160,7 @@ Per altre informazioni su come creare, gestire e assegnare ruoli personalizzati,
 
 Oltre al Controllo degli accessi in base al ruolo, Azure Resource Manager supporta un altro tipo di controllo di sicurezza, ovvero la possibilità di bloccare le risorse. Le regole del Controllo degli accessi in base al ruolo di Azure consentono di controllare le azioni di utenti e gruppi specifici,mentre i blocchi risorse vengono applicati alla risorsa e hanno effetto su tutti gli utenti e i ruoli. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md).
 
-There are two types of resource lock: **CanNotDelete** and **ReadOnly**. Questi blocchi possono essere applicati a una zona DNS o a un singolo set di record.  Le sezioni seguenti descrivono diversi scenari comuni e come supportarli usando i blocchi risorse.
+Esistono due tipi di blocco delle risorse: **CanNotDelete** e **ReadOnly**. Questi blocchi possono essere applicati a una zona DNS o a un singolo set di record.  Le sezioni seguenti descrivono diversi scenari comuni e come supportarli usando i blocchi risorse.
 
 ### <a name="protecting-against-all-changes"></a>Protezione da tutte le modifiche
 

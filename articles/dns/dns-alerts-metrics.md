@@ -1,6 +1,6 @@
 ---
-title: Metrics and alerts - Azure DNS
-description: With this learning path, get started with Azure DNS metrics and alerts.
+title: Metriche e avvisi-DNS di Azure
+description: Con questo percorso di apprendimento, iniziare a usare le metriche e gli avvisi di DNS di Azure.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -24,7 +24,7 @@ DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione
 
 ## <a name="azure-dns-metrics"></a>Metriche di DNS di Azure
 
-Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. In aggiunta con le metriche di DNS di Azure, è possibile configurare e ricevere avvisi in base alle condizioni di interesse. Le metriche sono disponibili tramite il [servizio Monitoraggio di Azure](../azure-monitor/index.yml). DNS di Azure contiene le metriche seguenti tramite Monitoraggio di Azure per le zone DNS:
+DNS di Azure fornisce la metrica per consentire ai clienti di monitorare aspetti specifici delle zone DNS ospitate nel servizio. In aggiunta con le metriche di DNS di Azure, è possibile configurare e ricevere avvisi in base alle condizioni di interesse. Le metriche sono disponibili tramite il [servizio Monitoraggio di Azure](../azure-monitor/index.yml). DNS di Azure contiene le metriche seguenti tramite Monitoraggio di Azure per le zone DNS:
 
 -   QueryVolume
 -   RecordSetCount
@@ -34,7 +34,7 @@ Azure DNS provides metrics for customers to enable them to monitor specific aspe
 >[!NOTE]
 > In questo momento le metriche sono disponibili solo per le zone DNS pubbliche ospitate in DNS di Azure. Se in DNS di Azure sono ospitate zone private, le metriche non indicheranno i dati per queste zone. In aggiunta le metriche e la funzionalità di avviso sono supportate solo nel cloud pubblico di Azure. Il supporto per i cloud sovrani verrà effettuato in un secondo momento. 
 
-The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
+L'elemento più granulare per cui è possibile visualizzare le metriche è una zona DNS. Attualmente non è possibile visualizzare le metriche per i singoli record di risorse all'interno di una zona.
 
 ### <a name="query-volume"></a>Volume delle query
 

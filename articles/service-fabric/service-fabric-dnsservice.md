@@ -114,10 +114,10 @@ Quando si dispone di un modello, è possibile abilitare il servizio DNS seguendo
 3. Dopo avere aggiornato il modello di cluster con le modifiche, applicarle e consentire il completamento dell'aggiornamento. Al termine dell'aggiornamento, il servizio di sistema DNS viene avviato nel cluster. Il nome del servizio è `fabric:/System/DnsService`, e sarà possibile trovarlo nella sezione **Sistema** del servizio in Service Fabric Explorer. 
 
 > [!NOTE]
-> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+> Quando si aggiorna DNS da disabilitato ad abilitato, Service Fabric Explorer possibile che non rifletta il nuovo stato. Per risolvere il problemi, riavviare i nodi modificando il UpgradePolicy nel modello di Azure Resource Manager. Per ulteriori informazioni, vedere il [riferimento al modello di Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) .
 
 > [!NOTE]
-> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
+> L'abilitazione del servizio DNS durante lo sviluppo in un computer locale sostituirà alcune impostazioni DNS. Se si verificano problemi di connessione a Internet, controllare le impostazioni DNS.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Impostazione del nome DNS del servizio
 È possibile impostare un nome DNS per i servizi scegliendo tra il modo dichiarativo per i servizi predefiniti nel file ApplicationManifest.xml oppure tramite i comandi di PowerShell.
@@ -184,7 +184,7 @@ Le query DNS che usano come destinazione una partizione vengono formattate come 
 Dove:
 
 - *First-Label-Of-Partitioned-Service-DNSName* è la prima parte del nome DNS del servizio.
-- *artitionPrefix* è un valore che può essere impostato nella sezione DnsService del manifesto del cluster o tramite il modello di Resource Manager del cluster. The default value is "--". Per altre informazioni, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *artitionPrefix* è un valore che può essere impostato nella sezione DnsService del manifesto del cluster o tramite il modello di Resource Manager del cluster. Il valore predefinito è "--". Per altre informazioni, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* è il nome della partizione. 
 - *PartitionSuffix* è un valore che può essere impostato nella sezione DnsService del manifesto del cluster o tramite il modello di Resource Manager del cluster. Il valore predefinito è una stringa vuota. Per altre informazioni, vedere [Impostazioni del servizio DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* è la parte rimanente del nome DNS del servizio.

@@ -1,6 +1,6 @@
 ---
-title: Register Azure Functions binding extensions
-description: Learn to register an Azure Functions binding extension based on your environment.
+title: Registrare le estensioni di binding di funzioni di Azure
+description: Informazioni su come registrare un'estensione di binding di funzioni di Azure in base all'ambiente in uso.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
@@ -12,61 +12,61 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231101"
 ---
-# <a name="register-azure-functions-binding-extensions"></a>Register Azure Functions binding extensions
+# <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni di binding di funzioni di Azure
 
-In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+In funzioni di Azure versione 2. x, le [associazioni](./functions-triggers-bindings.md) sono disponibili come pacchetti distinti dal runtime di funzioni. Mentre le funzioni .NET accedono ai binding tramite pacchetti NuGet, i bundle di estensione consentono ad altre funzioni di accedere a tutte le associazioni tramite un'impostazione di configurazione.
 
-Consider the following items related to binding extensions:
+Considerare i seguenti elementi correlati alle estensioni di binding:
 
-- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio](#local-csharp).
+- Le estensioni di binding non vengono registrate in modo esplicito in funzioni 1. x tranne quando si [Crea una C# libreria di classi con Visual Studio](#local-csharp).
 
-- HTTP and timer triggers are supported by default and don't require an extension.
+- I trigger HTTP e timer sono supportati per impostazione predefinita e non richiedono un'estensione.
 
-The following table indicates when and how you register bindings.
+La tabella seguente indica quando e come registrare le associazioni.
 
 | Ambiente di sviluppo |Registrazione<br/> in Funzioni 1.x  |Registrazione<br/> in Funzioni 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portale di Azure|Automatico|Automatico|
-|Non-.NET languages or local Azure Core Tools development|Automatico|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
-|C# class library using Visual Studio|[Usare gli strumenti di NuGet](#vs)|[Usare gli strumenti di NuGet](#vs)|
+|portale di Azure|Automatico|Automatico|
+|Lingue Non-.NET o sviluppo locale di strumenti di Azure Core|Automatico|[Usare i bundle di Azure Functions Core Tools ed estensione](#extension-bundles)|
+|C#libreria di classi con Visual Studio|[Usare gli strumenti di NuGet](#vs)|[Usare gli strumenti di NuGet](#vs)|
 |Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#vs-code)|
 
-## <a name="extension-bundles"></a>Extension bundles for local development
+## <a name="extension-bundles"></a>Bundle di estensione per lo sviluppo locale
 
-Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. You enable extension bundles in the app's host.json file.  
+Bundle di estensione è una tecnologia di distribuzione che consente di aggiungere un set compatibile di estensioni di associazione di funzioni all'app per le funzioni. Quando si compila l'app, viene aggiunto un set predefinito di estensioni. I pacchetti di estensione definiti in un bundle sono compatibili tra loro, consentendo di evitare conflitti tra i pacchetti. Si abilitano i bundle di estensione nel file host. JSON dell'app.  
 
-You can use extension bundles with version 2.x and later versions of the Functions runtime. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+È possibile usare i bundle di estensione con la versione 2. x e le versioni successive del runtime di funzioni. Quando si sviluppa localmente, assicurarsi di usare la versione più recente di [Azure Functions Core Tools](functions-run-local.md#v2).
 
-Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely.
+Usare i bundle di estensione per lo sviluppo locale usando Azure Functions Core Tools, Visual Studio Code e quando si compila in modalità remota.
 
-If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Extension bundles removes this requirement for local development. 
+Se non si usano i bundle di estensione, è necessario installare .NET Core 2. x SDK nel computer locale prima di installare le estensioni di binding. I bundle di estensione rimuovono questo requisito per lo sviluppo locale. 
 
-To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
+Per usare i bundle di estensione, aggiornare il file *host. JSON* in modo da includere la voce seguente per `extensionBundle`:
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="vs"></a> C\# class library with Visual Studio
+## <a name="vs"></a>Libreria di classi\# C con Visual Studio
 
-In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
+In **Visual Studio**è possibile installare i pacchetti dalla console di gestione pacchetti usando il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) , come illustrato nell'esempio seguente:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
 ```
 
-The name of the package used for a given binding is provided in the reference article for that binding. Per un esempio, vedere la [sezione sui pacchetti dell'articolo di riferimento sull'associazione del bus di servizio](functions-bindings-service-bus.md#packages---functions-1x).
+Il nome del pacchetto utilizzato per una determinata associazione viene fornito nell'articolo di riferimento per l'associazione. Per un esempio, vedere la [sezione sui pacchetti dell'articolo di riferimento sull'associazione del bus di servizio](functions-bindings-service-bus.md#packages---functions-1x).
 
-Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle singole pagine del pacchetto in [NuGet.org](https://nuget.org). Le versioni principali che corrispondono alle funzioni runtime 1. x o 2. x sono specificate nell'articolo di riferimento per l'associazione.
 
-If you use `Install-Package` to reference a binding, you don't need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
+Se si usa `Install-Package` per fare riferimento a un'associazione, non è necessario usare i [bundle di estensione](#extension-bundles). Questo approccio è specifico per le librerie di classi compilate in Visual Studio.
 
-## <a name="vs-code"></a> C# class library with Visual Studio Code
+## <a name="vs-code"></a>C# libreria di classi con Visual Studio Code
 
 > [!NOTE]
-> We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages. 
+> Si consiglia di usare [bundle di estensione](#extension-bundles) per installare automaticamente un set compatibile di pacchetti di estensioni di binding. 
 
-In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
+In **Visual Studio Code**, installare i pacchetti per C# un progetto di libreria di classi dal prompt dei comandi usando il comando [DotNet Add Package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nel interfaccia della riga di comando di .NET Core. Nell'esempio seguente viene illustrato come aggiungere un'associazione:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
@@ -74,10 +74,10 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 L'interfaccia della riga di comando di .NET Core può essere usata solo per lo sviluppo di Funzioni di Azure 2.x.
 
-Replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
+Sostituire `<BINDING_TYPE_NAME>` con il nome del pacchetto che contiene l'associazione necessaria. È possibile trovare l'articolo di riferimento per l'associazione desiderato nell' [elenco di associazioni supportate](./functions-triggers-bindings.md#supported-bindings).
 
-Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle singole pagine del pacchetto in [NuGet.org](https://nuget.org). Le versioni principali che corrispondono alle funzioni runtime 1. x o 2. x sono specificate nell'articolo di riferimento per l'associazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Azure Function trigger and binding example](./functions-bindings-example.md)
+> [Trigger di funzione di Azure ed esempio di associazione](./functions-bindings-example.md)

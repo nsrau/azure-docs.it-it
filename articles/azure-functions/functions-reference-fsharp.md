@@ -1,5 +1,5 @@
 ---
-title: Azure Functions F# developer reference
+title: Riferimento per F# gli sviluppatori di funzioni di Azure
 description: Informazioni su come sviluppare Funzioni di Azure usando lo script F#.
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
@@ -51,7 +51,7 @@ FunctionsProject
 Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni di Azure sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
-Ogni associazione supporta set di argomenti, come descritto nei dettagli in [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md). Ad esempio, una delle associazioni di argomento supportate da un trigger del BLOB è un oggetto POCO, che può essere espresso con un record F#. ad esempio:
+Ogni associazione supporta set di argomenti, come descritto nei dettagli in [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md). Ad esempio, una delle associazioni di argomento supportate da un trigger del BLOB è un oggetto POCO, che può essere espresso con un record F#. Ad esempio:
 
 ```fsharp
 type Item = { Id: string }
@@ -65,7 +65,7 @@ La funzione F# di Azure richiederà uno o più argomenti. Per "argomenti di Funz
 
 Nell'esempio precedente, `blob` è un argomento di input, mentre `output` è un argomento di output. Si noti che è stato usato `byref<>` per `output`. Non è necessario aggiungere l'annotazione `[<Out>]`. L'uso di un tipo `byref<>` consente alla funzione di cambiare il record o l'oggetto cui l'argomento fa riferimento.
 
-Quando un record F# viene usato come tipo di input, la definizione del record deve essere contrassegnata con `[<CLIMutable>]` per consentire al framework di Funzioni di Azure di impostare i campi in modo appropriato prima di passare il record alla funzione. `[<CLIMutable>]` genera setter in background per le proprietà del record. ad esempio:
+Quando un record F# viene usato come tipo di input, la definizione del record deve essere contrassegnata con `[<CLIMutable>]` per consentire al framework di Funzioni di Azure di impostare i campi in modo appropriato prima di passare il record alla funzione. `[<CLIMutable>]` genera setter in background per le proprietà del record. Ad esempio:
 
 ```fsharp
 [<CLIMutable>]
@@ -77,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Una classe F# può essere usata negli argomenti di input e di output. Per una classe, le proprietà necessitano in genere di getter e setter. ad esempio:
+Una classe F# può essere usata negli argomenti di input e di output. Per una classe, le proprietà necessitano in genere di getter e setter. Ad esempio:
 
 ```fsharp
 type Item() =
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registrazione
-Per registrare l'output nei [log in streaming](../app-service/troubleshoot-diagnostic-logs.md) in F#, la funzione deve accettare un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Per coerenza è consigliabile denominare questo argomento `log`. ad esempio:
+Per registrare l'output nei [log in streaming](../app-service/troubleshoot-diagnostic-logs.md) in F#, la funzione deve accettare un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Per coerenza è consigliabile denominare questo argomento `log`. Ad esempio:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -182,7 +182,7 @@ Gli assembly seguenti sono anche casi speciali ai quali è possibile fare riferi
 Per fare riferimento a un assembly privato è possibile caricare il file dell'assembly in una cartella `bin` relativa alla funzione e farvi riferimento usando il nome file, ad esempio `#r "MyAssembly.dll"`. Per informazioni su come caricare i file nella cartella della funzione vedere la sezione seguente sulla gestione dei pacchetti.
 
 ## <a name="editor-prelude"></a>Codice introduttivo dell'editor
-Un editor che supporta i servizi di compilazione F# non è in grado di riconoscere gli spazi dei nomi e gli assembly inclusi automaticamente con Funzioni di Azure. Può quindi essere utile includere un codice introduttivo che consenta all'editor di trovare gli assembly usati e di aprire in modo esplicito gli spazi dei nomi. ad esempio:
+Un editor che supporta i servizi di compilazione F# non è in grado di riconoscere gli spazi dei nomi e gli assembly inclusi automaticamente con Funzioni di Azure. Può quindi essere utile includere un codice introduttivo che consenta all'editor di trovare gli assembly usati e di aprire in modo esplicito gli spazi dei nomi. Ad esempio:
 
 ```fsharp
 #if !COMPILED
@@ -202,7 +202,7 @@ Quando esegue il codice, Funzioni di Azure elabora l'origine con `COMPILED` defi
 
 <a name="package"></a>
 
-## <a name="package-management"></a>Gestione pacchetti
+## <a name="package-management"></a>Gestione dei pacchetti
 Per usare i pacchetti NuGet in una funzione F#, aggiungere un file `project.json` nella cartella della funzione nel file system dell'app della funzione. Di seguito è riportato un esempio di file `project.json` che aggiunge un riferimento ai pacchetti NuGet a `Microsoft.ProjectOxford.Face` versione 1.1.0:
 
 ```json
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Riutilizzo del codice del file con estensione fsx
-È possibile usare il codice di altri file `.fsx` tramite una direttiva `#load`. ad esempio:
+È possibile usare il codice di altri file `.fsx` tramite una direttiva `#load`. Ad esempio:
 
 `run.fsx`
 
@@ -287,9 +287,9 @@ La direttiva `#load` funziona solo con i file `.fsx` (script F# ), non con i fil
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
-* [F# Guide](/dotnet/articles/fsharp/index) (Guida di F#)
+* [F# Guide](/dotnet/articles/fsharp/index)
 * [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
-* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
+* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 * [Test di Funzioni di Azure](functions-test-a-function.md)
 * [Scalabilità di Funzioni di Azure](functions-scale.md)

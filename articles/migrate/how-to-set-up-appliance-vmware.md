@@ -127,7 +127,7 @@ Per individuare le applicazioni, i ruoli, le funzionalità e visualizzare le dip
 2. Selezionare il **sistema operativo**.
 3. Specificare un nome descrittivo per le credenziali.
 4. In **nome utente** e **password**specificare un account che disponga almeno dell'accesso guest nelle macchine virtuali.
-5. Fare clic su **Aggiungi**.
+5. Fare clic su **Add**.
 
 Dopo aver specificato le credenziali server vCenter e VM (facoltativo), fare clic su **Salva e avvia individuazione** per avviare l'individuazione dell'ambiente locale.
 

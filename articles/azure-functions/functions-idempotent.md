@@ -1,6 +1,6 @@
 ---
-title: Designing Azure Functions for identical input
-description: Building Azure Functions to be idempotent
+title: Progettazione di funzioni di Azure per l'input identico
+description: Creazione di funzioni di Azure da idempotente
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
@@ -12,34 +12,34 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74226866"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>Designing Azure Functions for identical input
+# <a name="designing-azure-functions-for-identical-input"></a>Progettazione di funzioni di Azure per l'input identico
 
-The reality of event-driven and message-based architecture dictates the need to accept identical requests while preserving data integrity and system stability.
+La realtà di un'architettura basata su eventi e basata su messaggi impone la necessità di accettare richieste identiche mantenendo al tempo stesso l'integrità dei dati e la stabilità del sistema.
 
-To illustrate, consider an elevator call button. As you press the button, it lights up and an elevator is sent to your floor. A few moments later, someone else joins you in the lobby. This person smiles at you and presses the illuminated button a second time. You smile back and chuckle to yourself as you're reminded that the command to call an elevator is idempotent.
+Per illustrare, prendere in considerazione un pulsante di chiamata all'ascensore. Quando si preme il pulsante, viene accesa e viene inviato un ascensore al pavimento. Pochi istanti dopo, un altro utente si unirà alla lobby. Questa persona sorride e preme il pulsante illuminato una seconda volta. Sorridendo e ridacchiando a se stessi come si ricorda che il comando per chiamare un ascensore è idempotente.
 
-Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
+Quando si preme un pulsante di chiamata dell'ascensore, il secondo, il terzo o il quarto orario non ha alcun impatto sul risultato finale. Quando si preme il pulsante, indipendentemente dal numero di volte, l'ascensore viene inviato al pavimento. I sistemi idempotente, ad esempio l'ascensore, comportano lo stesso risultato indipendentemente dal numero di comandi identici eseguiti.
 
-When it comes to building applications, consider the following scenarios:
+Quando si tratta di creare applicazioni, considerare gli scenari seguenti:
 
-- What happens if your inventory control application tries to delete the same product more than once?
-- How does your human resource application behave if there is more than one request to create an employee record for the same person?
-- Where does the money go if your banking app gets 100 requests to make the same withdrawal?
+- Cosa accade se l'applicazione di controllo dell'inventario tenta di eliminare lo stesso prodotto più di una volta?
+- In che modo l'applicazione di risorse umane si comporta se è presente più di una richiesta di creazione di un record dipendente per la stessa persona?
+- Dove si ottiene il denaro se l'app Banking riceve 100 richieste di effettuare lo stesso ritiro?
 
-There are many contexts where requests to a function may receive identical commands. Some situations include:
+Esistono molti contesti in cui le richieste a una funzione possono ricevere comandi identici. Alcune situazioni includono:
 
-- Retry policies sending the same request many times
-- Cached commands replayed to the application
-- Application errors sending multiple identical requests
+- Criteri di ripetizione che inviano la stessa richiesta molte volte
+- Comandi memorizzati nella cache riprodotti all'applicazione
+- Errori dell'applicazione che inviano più richieste identiche
 
-To protect data integrity and system health, an idempotent application contains logic that may contain the following behaviors:
+Per proteggere l'integrità dei dati e l'integrità del sistema, un'applicazione idempotente contiene la logica che può contenere i comportamenti seguenti:
 
-- Verifying of the existence of data before trying to execute a delete
-- Checking to see if data already exists before trying to execute a create action
-- Reconciling logic that creates eventual consistency in data
-- Concurrency controls
-- Duplication detection
-- Data freshness validation
-- Guard logic to verify input data
+- Verifica dell'esistenza dei dati prima di tentare di eseguire un'eliminazione
+- Verifica per determinare se i dati esistono già prima del tentativo di eseguire un'azione di creazione
+- Riconciliazione della logica che crea la coerenza finale nei dati
+- Controlli della concorrenza
+- Rilevamento della duplicazione
+- Convalida dell'aggiornamento dei dati
+- Logica di Guard per verificare i dati di input
 
-Ultimately idempotency is achieved by ensuring a given action is possible and is only executed once.
+Infine, idempotenza viene ottenuto garantendo che sia possibile una determinata azione e che venga eseguita una sola volta.

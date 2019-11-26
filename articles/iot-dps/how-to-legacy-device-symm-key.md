@@ -1,5 +1,5 @@
 ---
-title: Provision legacy devices using symmetric keys - Azure IoT Hub Device Provisioning Service
+title: Eseguire il provisioning di dispositivi legacy con chiavi simmetriche-servizio Device provisioning in hub Azure
 description: Come usare le chiavi simmetriche per effettuare il provisioning di dispositivi legacy con l'istanza del servizio di provisioning di dispositivi
 author: wesmc7777
 ms.author: wesmc
@@ -28,9 +28,9 @@ Questo articolo presuppone anche che l'aggiornamento del dispositivo venga esegu
 Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è possibile eseguire le procedure in Linux. Per un esempio di Linux, vedere [Come effettuare il provisioning per la multi-tenancy](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> The sample used in this article is written in C. There is also a [C# device provisioning symmetric key sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) available. To use this sample, download or clone the [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) repository and follow the in-line instructions in the sample code. You can follow the instructions in this article to create a symmetric key enrollment group using the portal and to find the ID Scope and enrollment group primary and secondary keys needed to run the sample. You can also create individual enrollments using the sample.
+> L'esempio usato in questo articolo è scritto in C. È disponibile anche un [ C# esempio di chiave simmetrica per il provisioning dei dispositivi](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) . Per usare questo esempio, scaricare o clonare il repository [Azure-Azure-Samples-CSharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e seguire le istruzioni inline nel codice di esempio. È possibile seguire le istruzioni riportate in questo articolo per creare un gruppo di registrazioni con chiavi simmetriche usando il portale e per trovare l'ambito ID e le chiavi primarie e secondarie del gruppo di registrazione necessarie per eseguire l'esempio. È anche possibile creare registrazioni singole usando l'esempio.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Verrà definito un ID di registrazione univoco per ogni dispositivo in base alle informazioni che lo identificano. Ad esempio, l'indirizzo MAC o il numero di serie.
 
@@ -41,9 +41,9 @@ Il codice del dispositivo illustrato in questo articolo seguirà lo stesso model
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* Completamento dell'avvio rapido della [configurazione del servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+* Completamento della guida introduttiva [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o versione successiva con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -148,7 +148,7 @@ Non includere la chiave master del gruppo nel codice del dispositivo.
 
 Se si usa una workstation di Linux, è possibile usare openssl per generare la chiave di dispositivo derivata come illustrato nell'esempio seguente.
 
-Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
+Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
 Sostituire il valore di **REG_ID**(ID_REG) con l'ID di registrazione.
 
@@ -169,7 +169,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 Se si usan una workstation basata su Windows, è possibile usare PowerShell per generare le chiavi di dispositivo derivate come illustrato nell'esempio seguente.
 
-Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
+Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
 Sostituire il valore di **REG_ID**(ID_REG) con l'ID di registrazione.
 
@@ -263,7 +263,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
     Press enter key to exit:
     ```
 
-9. In the portal, navigate to the IoT hub your simulated device was assigned to and click the **IoT Devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
+9. Nel portale passare all'hub cose a cui è stato assegnato il dispositivo simulato e fare clic sulla scheda **dispositivi** . Al completamento del provisioning del simulato nell'hub, il relativo ID dispositivo viene visualizzato nel pannello **dispositivi** Internet, con *lo stato* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -279,9 +279,9 @@ Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-* [Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
-* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+* Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
+* [Avvio rapido: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md) 
 
 
 
