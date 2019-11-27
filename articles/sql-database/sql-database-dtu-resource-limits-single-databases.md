@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811276"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539328"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto DTU
 
@@ -43,6 +43,12 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | Numero massimo di sessioni simultanee | 300 |
 |||
 
+> [!IMPORTANT]
+> Il livello di servizio Basic fornisce meno di un vCore (CPU).  Per i carichi di lavoro con utilizzo intensivo della CPU, è consigliabile un livello di servizio di S3 o superiore. 
+>
+>Per quanto riguarda l'archiviazione dei dati, il livello di servizio Basic viene inserito nei BLOB di pagine standard. I BLOB di pagine standard usano supporti di archiviazione basati su unità disco rigido e sono più adatti per lo sviluppo, il test e altri carichi di lavoro ad accesso sporadico, meno sensibili alla variabilità delle prestazioni.
+>
+
 ### <a name="standard-service-tier"></a>Livello di servizio Standard
 
 | **Dimensioni di calcolo** | **S0** | **S1** | **S2** | **S3** |
@@ -54,6 +60,12 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 60 | 90 | 120 | 200 |
 | Numero massimo di sessioni simultanee |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> I livelli Standard S0, S1 e S2 forniscono meno di un vCore (CPU).  Per i carichi di lavoro con utilizzo intensivo della CPU, è consigliabile un livello di servizio di S3 o superiore. 
+>
+>Per quanto riguarda l'archiviazione dei dati, i livelli di servizio Standard S0 e S1 sono posizionati in BLOB di pagine standard. I BLOB di pagine standard usano supporti di archiviazione basati su unità disco rigido e sono più adatti per lo sviluppo, il test e altri carichi di lavoro ad accesso sporadico, meno sensibili alla variabilità delle prestazioni.
+>
 
 ### <a name="standard-service-tier-continued"></a>Livello di servizio Standard (continua)
 
@@ -72,8 +84,8 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | **Dimensioni di calcolo** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Max DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Risorse di archiviazione incluse (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| Opzioni per lo spazio di archiviazione massimo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| Risorse di archiviazione incluse (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| Opzioni per lo spazio di archiviazione massimo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Spazio di archiviazione OLTP in memoria max (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Numero massimo di sessioni simultanee | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |

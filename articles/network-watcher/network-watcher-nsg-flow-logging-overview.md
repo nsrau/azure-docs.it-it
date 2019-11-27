@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 490f2e7bb394d6593e51438c1e484a4677c963a3
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277990"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539356"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -87,6 +87,12 @@ Per gli stati *C* ed *E* del flusso, i conteggi di byte e pacchetti sono contegg
 Di seguito è riportato un testo di esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente.
 
 ## <a name="nsg-flow-logging-considerations"></a>Considerazioni relative alla registrazione dei flussi dei gruppi di sicurezza di rete
+
+**Considerazioni sull'account di archiviazione**: 
+
+1. Località: l'account di archiviazione usato deve trovarsi nella stessa area del NSG.
+2. Nessun firewall: i log di flusso NSG non vengono caricati come [servizio Microsoft attendibile per archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Vedere [ricerca per categorie disabilitare il firewall nell'account di archiviazione?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) per disabilitare il firewall. 
+3. Nessun endpoint di servizio: a causa di una limitazione corrente, i log possono essere emessi direttamente solo negli account di archiviazione e non tramite gli endpoint di servizio. Vedere [ricerca per categorie usare i log di flusso NSG con gli endpoint del servizio?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) per informazioni sulla rimozione degli endpoint di servizio esistenti.
 
 **Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Modalità di valutazione del traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated). 
 

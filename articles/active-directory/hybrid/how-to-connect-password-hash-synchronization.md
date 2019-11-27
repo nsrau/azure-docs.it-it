@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d5ca62bc032c12c568e2b8065630dcd8b687513
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483106"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539014"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -160,7 +160,7 @@ La sincronizzazione di una password non ha alcun impatto sull'utente di Azure co
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Processo di sincronizzazione dell'hash delle password per Azure AD Domain Services
 
-Se si usa Azure AD Domain Services per fornire l'autenticazione legacy per le applicazioni e i servizi che devono usare Keberos, LDAP o NTLM, alcuni processi aggiuntivi fanno parte del flusso di sincronizzazione dell'hash delle password. Azure AD Connect usa il processo aggiuntivo seguente per sincronizzare gli hash delle password con Azure AD da usare nei Azure AD Domain Services:
+Se si usa Azure AD Domain Services per fornire l'autenticazione legacy per le applicazioni e i servizi che devono usare Kerberos, LDAP o NTLM, alcuni processi aggiuntivi fanno parte del flusso di sincronizzazione dell'hash delle password. Azure AD Connect usa il processo aggiuntivo seguente per sincronizzare gli hash delle password con Azure AD da usare nei Azure AD Domain Services:
 
 > [!IMPORTANT]
 > Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti di servizi di dominio Active Directory locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito Azure AD DS per sincronizzare nuovamente gli oggetti con Azure AD.

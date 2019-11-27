@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306225"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538232"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
@@ -41,7 +41,7 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 ## <a name="how-to-do-it"></a>Procedura
 Questa fase comprende tre attività principali:
 
-  * **Progettazione di caratteristiche**: creare caratteristiche dai dati non elaborati per facilitare il training del modello.
+  * **Progettazione delle funzioni**: creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
   * **Training del modello**: trovare il modello che risponde alla domanda in modo più accurato rispetto alle metriche di riuscita.
   * Stabilire se il modello è **adatto alla produzione**.
 
@@ -63,7 +63,7 @@ Il processo di training del modello include i passaggi seguenti:
    * **Determinare la soluzione "migliore"** per rispondere alla domanda confrontando la metrica di riuscita tra metodi alternativi.
 
 > [!NOTE]
-> **Evitare perdite**: la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime troppo valide per essere reali. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare la perdita, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza dei risultati. 
+> **Evitare perdite**: la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime estremamente valide. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare la perdita, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza dei risultati. 
 > 
 > 
 
@@ -72,8 +72,8 @@ Con il processo TDSP è disponibile uno [strumento di creazione di report e mode
 ## <a name="artifacts"></a>Elementi
 Gli elementi generati in questa fase includono:
 
-   * [Set di caratteristiche](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): le caratteristiche sviluppate per la modellazione sono descritte nella sezione relativa al **set di caratteristiche** del report di **definizione dei dati**. Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
-   * [Report del modello](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard basato su modello che fornisce dettagli su ogni esperimento.
+   * [Set di funzionalità](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): le funzionalità sviluppate per la modellazione sono descritte nella sezione **Set di funzionalità** del report di **definizione dei dati**. Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
+   * [Report dei modelli](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard basato su modelli che fornisce dettagli su ogni esperimento.
    * **Decisione di checkpoint**: valutare se le prestazioni del modello sono sufficienti per la distribuzione in un sistema di produzione. Alcune domande chiave da porsi:
      * Il modello risponde alla domanda con sufficiente certezza rispetto ai dati del test? 
      * È consigliabile tentare approcci alternativi? È consigliabile raccogliere dati aggiuntivi, eseguire nuove progettazioni di funzionalità o provare con altri algoritmi?

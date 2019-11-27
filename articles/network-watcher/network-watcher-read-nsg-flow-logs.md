@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: edc4cc32cd358bd37fdab46e323c59ec207b2d5a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cdfcf6b379feb5cc71c173275601ce9c55d57d12
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293473"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539253"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
@@ -33,9 +33,9 @@ I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un accoun
 
 Nello scenario seguente, si dispone di un log dei flussi di esempio che viene archiviato in un account di archiviazione. Viene indicato come è possibile leggere in modo selettivo gli eventi più recenti nei log dei flussi del gruppo di sicurezza di rete. In questo articolo si usa PowerShell, tuttavia, i concetti illustrati nell'articolo non sono limitati al linguaggio di programmazione e sono applicabili a tutte i linguaggi supportati dall'API di Archiviazione di Azure.
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Setup
 
-Prima di iniziare, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in uno o più gruppi di sicurezza di rete nell'account usato. Per istruzioni in proposito, vedere: [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
+Prima di iniziare, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in uno o più gruppi di sicurezza di rete nell'account usato. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 
 ## <a name="retrieve-the-block-list"></a>Recuperare l'elenco di blocco
 
@@ -85,7 +85,7 @@ function Get-NSGFlowLogBlockList  {
     )
     process {
         # Stores the block list in a variable from the block blob.
-        $blockList = $CloudBlockBlob.DownloadBlockList()
+        $blockList = $CloudBlockBlob.DownloadBlockListAsync()
 
         # Return the Block List
         $blockList
@@ -142,7 +142,7 @@ function Get-NSGFlowLogReadBlock  {
         $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
         # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
-        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length-1)) | Out-Null
+        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length)) | Out-Null
 
         # Increment the index by adding the current block length to the previous index
         $index = $index + $blockList[$i].Length
@@ -188,6 +188,6 @@ Questo scenario è un esempio di come leggere le voci nei log dei flussi del gru
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visitare [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usare Grafana](network-watcher-nsg-grafana.md) e [Usare Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) per altre informazioni sui vari modi per visualizzare i log del flusso del gruppo di sicurezza di rete. Un approccio open source di Funzione di Azure per usare direttamente i BLOB ed emetterli a vari consumer di Log Analytics è disponibile qui: [Connettore di log del flusso del gruppo di sicurezza di rete di Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Visitare [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usare Grafana](network-watcher-nsg-grafana.md) e [Usare Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) per altre informazioni sui vari modi per visualizzare i log del flusso del gruppo di sicurezza di rete. Un approccio open source di funzioni di Azure per l'utilizzo dei BLOB direttamente e la creazione di diversi consumer di log Analytics è disponibile qui: [connettore azure Network Watcher NSG Flow logs](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Per altre informazioni sui blob di archiviazione, vedere: [Binding dell'archiviazione BLOB di Funzioni di Azure](../azure-functions/functions-bindings-storage-blob.md)
+Per altre informazioni sui BLOB di archiviazione, consultare [Binding dell'archiviazione BLOB di Funzioni di Azure](../azure-functions/functions-bindings-storage-blob.md)

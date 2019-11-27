@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: efeb8b28ef2b8eec480fcf5090e0173d6451deef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225521"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533795"
 ---
 # <a name="add-contributors-to-your-app"></a>Aggiungere collaboratori all'app
 
@@ -89,7 +89,7 @@ L'amministratore del tenant collabora direttamente con l'utente che necessita de
 
 Se l'amministratore del tenant vuole che solo determinati utenti usino LUIS, sono due le soluzioni possibili:
 * Dare il "consenso amministratore" (consenso a tutti gli utenti di Azure AD), ma successivamente impostare su "Sì" l'opzione "Assegnazione utenti obbligatoria" nelle proprietà dell'applicazione aziendale e infine assegnare/aggiungere all'applicazione solo gli utenti desiderati. In questo modo l'amministratore dà comunque il "consenso amministratore" per l'applicazione, ma è possibile controllare gli utenti che possono accedervi.
-* Una seconda soluzione consiste nell'usare l'[API Graph di Azure AD](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) per dare il consenso per ogni utente specifico. 
+* Una seconda soluzione consiste nell'usare l' [API di gestione delle identità e degli accessi Azure ad in Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) per fornire il consenso a ogni utente specifico. 
 
 Altre informazioni sugli utenti di Azure Active Directory e sul consenso: 
 * [Limitare l'app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a un set di utenti

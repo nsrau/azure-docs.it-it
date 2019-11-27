@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09a1b8e54726accf705515bf077f6a599f0f9b78
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266911"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534536"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Azure ricerca cognitiva
 
@@ -69,7 +69,7 @@ Un indicizzatore consente di automatizzare alcune attività relative all'inserim
 > Anche se gli indicizzatori non possono generare automaticamente un indice, la procedura guidata **Importa dati** nel portale può risultare utile. Nella maggior parte dei casi, la procedura guidata può dedurre uno schema di indice dai metadati esistenti nell'origine, presentando uno schema dell'indice preliminare che è possibile modificare inline mentre la procedura guidata è attiva. Dopo la creazione dell'indice nel servizio, le ulteriori modifiche nel portale sono per lo più limitate all'aggiunta di nuovi campi. Prendere in considerazione la procedura guidata per la creazione, ma non per la revisione di un indice. Per un'esperienza di apprendimento pratico, seguire le indicazioni della [procedura dettagliata per il portale](search-get-started-portal.md).
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Passaggio 3: Creare e pianificare l'indicizzatore
-La definizione dell'indicizzatore è un costrutto che riunisce tutti gli elementi correlati all'inserimento di dati. Gli elementi necessari includono un'origine dati e un indice. Gli elementi facoltativi includono una pianificazione e mapping dei campi. Il mapping dei campi è facoltativo solo se i campi di origine e di indice corrispondono chiaramente. Un indicizzatore può fare riferimento a un'origine dati di un altro servizio, purché tale origine dati appartenga alla stessa sottoscrizione. Per altre informazioni sulla struttura di un indicizzatore, vedere [creare un indicizzatore (API REST di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+La definizione dell'indicizzatore è un costrutto che riunisce tutti gli elementi correlati all'inserimento di dati. Gli elementi necessari includono un'origine dati e un indice. Gli elementi facoltativi includono una pianificazione e mapping dei campi. Il mapping dei campi è facoltativo solo se i campi di origine e di indice corrispondono chiaramente. Per altre informazioni sulla struttura di un indicizzatore, vedere [creare un indicizzatore (API REST di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 

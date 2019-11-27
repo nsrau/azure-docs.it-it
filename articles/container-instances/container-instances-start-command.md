@@ -1,23 +1,18 @@
 ---
-title: Usare una riga di comando iniziale in istanze di contenitore di Azure
-description: Eseguire l'override del EntryPoint configurato in un'immagine del contenitore quando si distribuisce un'istanza di contenitore di Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Sostituisci EntryPoint nell'istanza del contenitore
+description: Impostare una riga di comando per eseguire l'override del EntryPoint in un'immagine del contenitore quando si distribuisce un'istanza di contenitore di Azure
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619672"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533413"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Impostare la riga di comando in un'istanza di contenitore per sostituire l'operazione della riga di comando predefinita
 
-Quando si crea un'istanza del contenitore, è possibile specificare facoltativamente un comando per eseguire l'override dell'istruzione della riga di comando predefinita preparata nell'immagine del contenitore. Questo comportamento è simile all'argomento `--entrypoint` della riga di comando di `docker run`.
+Quando si crea un'istanza del contenitore, è possibile specificare facoltativamente un comando per eseguire l'override dell'istruzione della riga di comando predefinita preparata nell'immagine del contenitore. Questo comportamento è simile all'argomento della riga di comando `--entrypoint` per `docker run`.
 
 Come l'impostazione delle [variabili di ambiente](container-instances-environment-variables.md) per le istanze di contenitore, specificare una riga di comando iniziale è utile per i processi batch in cui è necessario preparare ogni contenitore in modo dinamico con la configurazione specifica dell'attività.
 
@@ -37,7 +32,7 @@ Come l'impostazione delle [variabili di ambiente](container-instances-environmen
 
 * A seconda della configurazione del contenitore, potrebbe essere necessario impostare un percorso completo per l'eseguibile della riga di comando o per gli argomenti.
 
-* Impostare un [criterio di riavvio](container-instances-restart-policy.md) appropriato per l'istanza del contenitore, a seconda che la riga di comando specifichi un'attività a esecuzione prolungata o un'attività Run-Once. Ad esempio, per un'attività Run `Never` - `OnFailure` once è consigliabile un criterio di riavvio di o. 
+* Impostare un [criterio di riavvio](container-instances-restart-policy.md) appropriato per l'istanza del contenitore, a seconda che la riga di comando specifichi un'attività a esecuzione prolungata o un'attività Run-Once. Ad esempio, è consigliabile un criterio di riavvio di `Never` o `OnFailure` per un'attività Esegui una sola volta. 
 
 * Se sono necessarie informazioni sul set di EntryPoint predefinito in un'immagine del contenitore, usare il comando di [controllo dell'immagine Docker](https://docs.docker.com/engine/reference/commandline/image_inspect/) .
 
@@ -45,22 +40,22 @@ Come l'impostazione delle [variabili di ambiente](container-instances-environmen
 
 La sintassi della riga di comando varia a seconda dell'API o dello strumento di Azure usato per creare le istanze. Se si specifica un ambiente della shell, osservare anche le convenzioni della sintassi del comando della shell.
 
-* comando [AZ container create][az-container-create] : Passare una stringa con il `--command-line` parametro. Esempio: `--command-line "python myscript.py arg1 arg2"`).
+* comando [AZ container create][az-container-create] : passa una stringa con il parametro `--command-line`. Esempio: `--command-line "python myscript.py arg1 arg2"`).
 
-* [New-AzureRmContainerGroup][new-azurermcontainergroup] Cmdlet di Azure PowerShell: Passare una stringa con il `-Command` parametro. Esempio: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Cmdlet Azure PowerShell: passare una stringa con il parametro `-Command`. Esempio: `-Command "echo hello"`.
 
-* Portale di Azure: Nella proprietà **Command override** della configurazione del contenitore specificare un elenco di stringhe delimitato da virgole, senza virgolette. Esempio: `python, myscript.py, arg1, arg2`). 
+* Portale di Azure: nella proprietà di **override del comando** della configurazione del contenitore specificare un elenco di stringhe delimitato da virgole, senza virgolette. Esempio: `python, myscript.py, arg1, arg2`). 
 
-* Gestione risorse modello o file YAML o uno degli SDK di Azure: Specificare la proprietà della riga di comando come una matrice di stringhe. Esempio: matrice `["python", "myscript.py", "arg1", "arg2"]` JSON in un modello di gestione risorse. 
+* Gestione risorse modello o file YAML o uno degli SDK di Azure: specificare la proprietà della riga di comando come una matrice di stringhe. Esempio: la matrice JSON `["python", "myscript.py", "arg1", "arg2"]` in un modello di Gestione risorse. 
 
   Se si ha familiarità con la sintassi di [Dockerfile](https://docs.docker.com/engine/reference/builder/) , questo formato è simile al formato *Exec* dell'istruzione cmd.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
-|    |  Interfaccia della riga di comando di Azure   | Portale | Modello | 
+|    |  Interfaccia della riga di comando di Azure   | di Microsoft Azure | Modello | 
 | ---- | ---- | --- | --- |
-| Singolo comando | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Più comandi | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Override del comando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| Singolo comando | `--command-line "python myscript.py arg1 arg2"` | **Override del comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| Più comandi | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Override del comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
