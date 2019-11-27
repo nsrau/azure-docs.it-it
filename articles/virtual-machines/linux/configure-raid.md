@@ -22,11 +22,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74534187"
 ---
-# <a name="configure-software-raid-on-linux"></a>Configurare RAID software in Linux
+# <a name="configure-software-raid-on-linux"></a>Configurare una soluzione RAID software in Linux
 I RAID software vengono spesso usati nelle macchine virtuali Linux in Azure per presentare più dischi dati collegati come se si trattasse di un singolo dispositivo RAID. In genere questa configurazione consente di migliorare le prestazioni e la velocità effettiva rispetto all'utilizzo di un unico disco.
 
 ## <a name="attaching-data-disks"></a>Collegamento di dischi dati
-Per configurare un dispositivo RAID sono necessari due o più dischi dati vuoti.  Il dispositivo RAID viene creato principalmente per migliorare le prestazioni dell'I/O su disco.  In base alle esigenze di I/O, è possibile scegliere di collegare dischi che sono archiviati nell'archiviazione Standard con un massimo di 500 IO/ps per ogni disco o nell'archiviazione Premium con un massimo di 5.000 IO/ps per ogni disco. In questo articolo non verrà illustrato in dettaglio come eseguire il provisioning e collegare dischi dati a una macchina virtuale Linux.  Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Microsoft Azure relativo al [collegamento di dischi](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per configurare un dispositivo RAID sono necessari due o più dischi dati vuoti.  Il dispositivo RAID viene creato principalmente per migliorare le prestazioni dell'I/O su disco.  In base alle esigenze di I/O, è possibile scegliere di collegare dischi che sono archiviati nell'archiviazione Standard con un massimo di 500 IO/ps per ogni disco o nell'archiviazione Premium con un massimo di 5.000 IO/ps per ogni disco. In questo articolo non verrà illustrato in dettaglio come eseguire il provisioning e collegare dischi dati a una macchina virtuale Linux.  Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Azure relativo al [collegamento di dischi](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 > [!IMPORTANT]
 >Non combinare dischi di dimensioni diverse, in modo che le prestazioni del raidset siano limitate a quelle del disco più lento. 

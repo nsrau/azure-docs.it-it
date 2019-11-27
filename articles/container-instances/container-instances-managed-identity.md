@@ -261,7 +261,7 @@ La risposta avrà un aspetto simile a quanto riportato di seguito e mostrerà il
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Abilitare l'identità gestita con un modello di Resource Manager
 
-Per abilitare un'identità gestita in un gruppo di contenitori usando un [modello di Resource Manager](container-instances-multi-container-group.md), impostare la proprietà `identity` dell'oggetto `Microsoft.ContainerInstance/containerGroups` con un oggetto `ContainerGroupIdentity`. I frammenti di codice seguenti mostrano la proprietà `identity` configurata per scenari diversi. Vedere il [riferimento al modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Specificare `apiVersion` come `2018-10-01`.
+Per abilitare un'identità gestita in un gruppo di contenitori usando un [modello di Resource Manager](container-instances-multi-container-group.md), impostare la proprietà `identity` dell'oggetto `Microsoft.ContainerInstance/containerGroups` con un oggetto `ContainerGroupIdentity`. I frammenti di codice seguenti mostrano la proprietà `identity` configurata per scenari diversi. Vedere il [riferimento al modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Specificare `2018-10-01` come `apiVersion`.
 
 ### <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 
@@ -309,7 +309,7 @@ In un gruppo di contenitori è possibile abilitare sia un'identità assegnata da
 ## <a name="enable-managed-identity-using-yaml-file"></a>Abilitare l'identità gestita usando un file YAML
 
 Per abilitare un'identità gestita in un gruppo di contenitori distribuiti usando un [file YAML](container-instances-multi-container-yaml.md), includere il codice YAML seguente.
-Specificare `apiVersion` come `2018-10-01`.
+Specificare `2018-10-01` come `apiVersion`.
 
 ### <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 

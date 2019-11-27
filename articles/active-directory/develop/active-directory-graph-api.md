@@ -43,7 +43,7 @@ L'API Graph di Azure Active Directory consente l'accesso a livello di codice ad 
 
 Per iniziare a usare l'API Graph di Azure Active Directory, vedere [Guida introduttiva per l'API Graph di Azure AD](active-directory-graph-api-quickstart.md) oppure la [documentazione interattiva di riferimento per l'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 
 L'API Graph di Azure AD offre le funzionalità seguenti:
 

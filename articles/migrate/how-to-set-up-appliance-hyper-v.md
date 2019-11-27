@@ -29,8 +29,8 @@ L'appliance di macchine virtuali Hyper-V è un dispositivo leggero usato dalla v
 
 Per configurare l'appliance occorre:
 - Scaricare un disco rigido virtuale Hyper-V compresso dal portale di Azure.
-- Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
-- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate.
+- Creare l'appliance e verificare che riesca a connettersi allo strumento di valutazione server di Azure Migrate.
+- Configurare l'appliance per la prima volta e registrarla con il progetto di Azure Migrate.
 
 ## <a name="download-the-vhd"></a>Scaricare il disco rigido virtuale
 
@@ -106,7 +106,7 @@ Configurare l'appliance per la prima volta.
 
 1. Fare clic su **Log in** (Accedi). Se l'opzione non è visualizzata, verificare di aver disabilitato il blocco popup nel browser.
 2. Nella nuova scheda accedere con le credenziali di Azure.
-    - Accedere con il nome utente e la password.
+    - Accedere con il proprio nome utente e la password.
     - L'accesso con un PIN non è supportato.
 3. Dopo aver eseguito l'accesso, tornare all'app Web.
 4. Selezionare la sottoscrizione in cui è stato creato il progetto di Azure Migrate. Quindi selezionare il progetto.

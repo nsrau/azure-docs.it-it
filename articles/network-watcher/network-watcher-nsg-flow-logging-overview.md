@@ -27,7 +27,7 @@ ms.locfileid: "74539356"
 I log dei flussi del gruppo di sicurezza di rete (NSG) sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, l'interfaccia di rete (NIC) a cui si applica il flusso, informazioni a 5 tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo), se il traffico è consentito o meno e informazioni sulla velocità effettiva (byte e pacchetti) nella versione 2.
 
 
-![Panoramica dei log dei flussi](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
+![Panoramica dei log di flusso](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
 Anche se i log dei flussi specificano come destinazione gruppi di sicurezza di rete, non vengono visualizzati come gli altri log. I log dei flussi vengono archiviati solo in un account di archiviazione e hanno un percorso di registrazione come quello dell'esempio seguente:
 
@@ -36,7 +36,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 È possibile analizzare i log dei flussi e ottenere informazioni approfondite del traffico di rete usando l'[analisi del traffico](traffic-analytics.md).
 
-Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. Per i criteri di conservazione dei log è possibile impostare da 1 a 2147483647 giorni. Se non viene impostato alcun criterio di conservazione, i log vengono conservati per sempre.
+Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. Per i criteri di conservazione dei log è possibile impostare da 1 a 2147483647 giorni. Se i criteri di conservazione non sono impostati, i log vengono conservati per sempre.
 
 > [!NOTE] 
 > L'uso della funzionalità dei criteri di conservazione insieme alla registrazione dei flussi dei gruppi di sicurezza di rete può avere come effetto un volume elevato di operazioni di archiviazione, con i conseguenti costi associati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0.

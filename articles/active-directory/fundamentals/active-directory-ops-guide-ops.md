@@ -31,7 +31,7 @@ Questa sezione della [Guida di riferimento alle operazioni Azure ad](active-dire
 
 La gestione di Azure Active Directory richiede l'esecuzione continua delle attività e dei processi operativi principali, che potrebbero non essere parte di un progetto di implementazione. È ancora importante configurare queste attività per ottimizzare l'ambiente. Le attività principali e i proprietari consigliati includono:
 
-| attività | Proprietario |
+| Attività | Proprietario |
 | :- | :- |
 | Miglioramenti dell'unità per il Punteggio di identità sicuro | Team operativo di InfoSec |
 | Gestire i server di Azure AD Connect | Team operativo IAM |
@@ -172,7 +172,7 @@ Il [modello a livelli](https://docs.microsoft.com/windows-server/identity/securi
 
 Bloccare l'accesso ai componenti di identità locali, ad esempio Azure AD Connect, AD FS e i servizi SQL allo stesso modo di quanto avviene per i controller di dominio.
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 Esistono sette aspetti di un'infrastruttura di identità sicura. Questo elenco consente di trovare le azioni da intraprendere per ottimizzare le operazioni per Azure Active Directory (Azure AD).
 

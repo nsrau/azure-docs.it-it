@@ -23,7 +23,7 @@ Usare l' [API di moderazione del testo](https://westus.dev.cognitive.microsoft.c
 
 ## <a name="get-your-api-key"></a>Ottenere la chiave dell'API
 
-Prima di poter eseguire il test drive dell'API nella console online, è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Passare al riferimento sulle API
 
@@ -41,7 +41,7 @@ Per **Open API testing console** (Apri console di test dell'API) selezionare l'a
 
 ## <a name="select-the-inputs"></a>Selezionare gli input
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
 Selezionare i parametri di query che si intende usare nella schermata di testo. Per questo esempio usare il valore predefinito per **language**. È possibile anche lasciarlo vuoto, perché l'operazione rileverà automaticamente la lingua nel corso della sua esecuzione.
 

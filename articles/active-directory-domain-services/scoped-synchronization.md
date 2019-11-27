@@ -42,9 +42,9 @@ Usare il portale di Azure o PowerShell per configurare le impostazioni di sincro
 
 | Azione | | |
 |--|--|--|
-| Creare un dominio gestito di Azure AD DS e configurare la sincronizzazione con ambito | [Portale di Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificare la sincronizzazione con ambito | [Portale di Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Disabilitare la sincronizzazione con ambito | [Portale di Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Creare un dominio gestito di Azure AD DS e configurare la sincronizzazione con ambito | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificare la sincronizzazione con ambito | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Disabilitare la sincronizzazione con ambito | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Se si modifica l'ambito di sincronizzazione, il dominio gestito Azure AD DS Risincronizza tutti i dati.

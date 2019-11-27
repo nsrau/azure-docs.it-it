@@ -34,7 +34,7 @@ In questo argomento viene illustrato come eseguire queste attività:
 * Spostare l'account di integrazione in un gruppo di risorse o in una sottoscrizione di Azure differente.
 * Eliminare l'account di integrazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -56,13 +56,13 @@ Per questa attività, è possibile usare l'portale di Azure seguendo la procedur
 
    ![Specificare i dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Proprietà | obbligatori | Valore | DESCRIZIONE |
+   | Proprietà | Obbligatoria | Value | Description |
    |----------|----------|-------|-------------|
-   | **Nome** | Sì | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
-   | **Sottoscrizione** | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
-   | **Gruppo di risorse** | Sì | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/resource-group-overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
-   | **Livello di prezzo** | Sì | <> *a livello di prezzo* | Il piano tariffario per l'account di integrazione, che può essere modificato in un secondo momento. Per questo esempio, selezionare **Free**. Per altre informazioni, vedere gli argomenti seguenti: <p>[modello di determinazione dei prezzi - app](../logic-apps/logic-apps-pricing.md#integration-accounts) per la logica <p>[limiti e configurazione di - app per la logica](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>[prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/) per la logica -  |
-   | **Località** | Sì | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Nome** | SÌ | <*integration-account-name*> | Nome dell'account di integrazione, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). In questo esempio viene usato "Fabrikam-Integration". |
+   | **Sottoscrizione** | SÌ | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure |
+   | **Gruppo di risorse** | SÌ | <*Azure-resource-group-name*> | Nome del gruppo di [risorse di Azure](../azure-resource-manager/resource-group-overview.md) da usare per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome "FabrikamIntegration-RG". |
+   | **Piano tariffario** | SÌ | <> *a livello di prezzo* | Il piano tariffario per l'account di integrazione, che può essere modificato in un secondo momento. Per questo esempio, selezionare **Free**. Per altre informazioni, vedere gli argomenti seguenti: <p>[modello di determinazione dei prezzi - app](../logic-apps/logic-apps-pricing.md#integration-accounts) per la logica <p>[limiti e configurazione di - app per la logica](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>[prezzi di app](https://azure.microsoft.com/pricing/details/logic-apps/) per la logica -  |
+   | **Località** | SÌ | <*Area di Azure*> | Area in cui archiviare i metadati dell'account di integrazione. Selezionare lo stesso percorso dell'app per la logica o creare le app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio, usare "Stati Uniti occidentali". <p>**Nota**: per creare un account di integrazione all'interno di un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), selezionare ISE come percorso. Per altre informazioni, vedere [creare account di integrazione in un ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | No | Disattivato, acceso | Per questo esempio, lasciare l'impostazione **off** . |
    |||||
 
@@ -113,7 +113,7 @@ Per aumentare i [limiti](../logic-apps/logic-apps-limits-and-config.md#integrati
 
 Per apportare questa modifica, è possibile usare l'portale di Azure attenendosi alla procedura descritta in questa sezione o nell' [interfaccia](#upgrade-tier-azure-cli)della riga di comando di Azure.
 
-#### <a name="azure-portal"></a>portale di Azure
+#### <a name="azure-portal"></a>Portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali dell'account Azure.
 
@@ -207,7 +207,7 @@ Se si vuole collegare l'app per la logica a un altro account di integrazione o n
    },
    ```
 
-   Ad esempio:
+   ad esempio:
 
    ![Trova oggetto "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

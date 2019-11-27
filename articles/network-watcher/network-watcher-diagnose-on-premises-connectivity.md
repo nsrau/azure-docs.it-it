@@ -84,7 +84,7 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
+| NoFault | Non viene rilevato alcun errore. |SÌ|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No|
 | PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No|
 | UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No |
@@ -92,26 +92,26 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No|
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No|
 | NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No|
-| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Sì|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
+| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| SÌ|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | SÌ |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Sì|
+| NoFault | Non viene rilevato alcun errore. |SÌ|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No|
 | PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No|
 | UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No |
 | VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No |
 | ConnectionEntityNotFound | La configurazione della connessione non è presente. | No |
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No|
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
-| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Autenticazione | Mancata corrispondenza della chiave precondivisa. | Sì|
-| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | SÌ |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| SÌ|
+| Authentication | Mancata corrispondenza della chiave precondivisa. | SÌ|
+| PeerReachability | Il gateway peer non è raggiungibile. | SÌ|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | SÌ|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |SÌ|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

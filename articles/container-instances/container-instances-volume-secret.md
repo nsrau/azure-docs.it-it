@@ -95,7 +95,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Oltre alla distribuzione dall'interfaccia della riga di comando e da YAML, è possibile distribuire un gruppo di contenitori usando un [modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) di Azure.
 
-Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo del contenitore del modello. Quando si esegue la distribuzione con un modello di Resource Manager, i valori del segreto devono essere **con codifica Base64** nel modello. Tuttavia, i valori del segreto sono visualizzati in testo non crittografato all'interno dei file nel contenitore.
+Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo di contenitori del modello. Quando si esegue la distribuzione con un modello di Resource Manager, i valori del segreto devono essere **con codifica Base64** nel modello. Tuttavia, i valori del segreto sono visualizzati in testo non crittografato all'interno dei file nel contenitore.
 
 Successivamente per ogni contenitore del gruppo di contenitori in cui si desidera montare il volume *segreto*, popolare la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore.
 

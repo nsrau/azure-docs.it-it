@@ -73,7 +73,7 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 È possibile specificare i tipi di metadati seguenti nell'elenco dei campi attività Recupera metadati per recuperare le informazioni corrispondenti:
 
-| Tipo di metadati | DESCRIZIONE |
+| Tipo di metadati | Description |
 |:--- |:--- |
 | itemName | Nome del file o della cartella. |
 | itemType | Tipo di file o di cartella. Il valore restituito è `File` o `Folder`. |
@@ -136,10 +136,10 @@ L'attività Ottieni metadati accetta un set di dati come input e restituisce inf
 
 Attualmente, l'attività Ottieni metadati può restituire i seguenti tipi di informazioni sui metadati:
 
-Proprietà | DESCRIZIONE | obbligatori
+Proprietà | Description | Obbligatoria
 -------- | ----------- | --------
-fieldList | Tipi di informazioni sui metadati necessari. Per informazioni dettagliate sui metadati supportati, vedere la sezione opzioni per i [metadati](#metadata-options) di questo articolo. | Sì 
-attività | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | Sì
+fieldList | Tipi di informazioni sui metadati necessari. Per informazioni dettagliate sui metadati supportati, vedere la sezione opzioni per i [metadati](#metadata-options) di questo articolo. | SÌ 
+dataset | Set di dati di riferimento i cui metadati devono essere recuperati dall'attività Recupera metadati. Vedere la sezione [funzionalità](#capabilities) per informazioni sui connettori supportati. Per informazioni dettagliate sulla sintassi dei set di dati, vedere gli argomenti del connettore specifici. | SÌ
 formatSettings | Applicare quando si usa il tipo di formato DataSet. | No
 storeSettings | Applicare quando si usa il tipo di formato DataSet. | No
 

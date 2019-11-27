@@ -30,7 +30,7 @@ La risposta del servizio include le informazioni seguenti:
 - Dati personali
 - Testo corretto automaticamente
 - Testo originale
-- Lingua
+- Linguaggio
 
 ## <a name="profanity"></a>Contenuto volgare
 
@@ -80,7 +80,7 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
 La funzionalità dati personali rileva la potenziale presenza di queste informazioni:
 
-- Indirizzo di posta elettronica
+- Indirizzo e-mail
 - Indirizzo postale degli Stati Uniti
 - Indirizzo IP
 - Numero di telefono degli Stati Uniti

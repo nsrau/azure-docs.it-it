@@ -130,12 +130,12 @@ Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azur
 Una tipica routine comprende i passaggi seguenti:
 
 1. Connettersi ad Azure Active Directory usando il cmdlet [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0).
-1. Ottenere l'elenco dei dispositivi.
+1. Ottenere l'elenco dei dispositivi
 1. Disabilitare il dispositivo usando il cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 1. Attendere il periodo di tolleranza del numero di giorni specificati prima di eliminare il dispositivo.
 1. Rimuovere il dispositivo usando il cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
-### <a name="get-the-list-of-devices"></a>Ottenere l'elenco dei dispositivi.
+### <a name="get-the-list-of-devices"></a>Ottenere l'elenco dei dispositivi
 
 Per ottenere tutti i dispositivi e archiviare i dati restituiti in un file CSV:
 

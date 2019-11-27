@@ -39,13 +39,13 @@ Questo articolo descrive brevemente e fornisce collegamenti a esempi per l'endpo
 
 Per comprendere lo scenario di base per ogni tipo di esempio, vedere [tipi di app per l'endpoint della piattaforma Microsoft Identity](v2-app-types.md).
 
-È possibile contribuire agli esempi su GitHub. Per sapere come, vedere [Esempi e documentazione su Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
+È possibile contribuire agli esempi su GitHub. Per sapere come, vedere [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory) (Esempi e documentazione su Microsoft Azure Active Directory).
 
 ## <a name="single-page-applications"></a>Applicazioni a pagina singola
 
 Questi esempi illustrano come scrivere un'applicazione a singola pagina protetta con la piattaforma di identità Microsoft. Questi esempi usano una delle versioni di MSAL. js.
 
-| Piattaforma | DESCRIZIONE | Collegamento |
+| Piattaforma | Description | Collegamento |
 | -------- | --------------------- | -------- |
 | ![questa immagine mostra il logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Chiama Microsoft Graph |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![questa immagine mostra il logo JavaScript](media/sample-v2-code/logo_js.png) [JavaScript (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Chiama B2C |[B2C-JavaScript-MSAL-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
@@ -121,7 +121,7 @@ Gli esempi seguenti illustrano come proteggere una funzione di Azure usando Http
 
 Per informazioni su [esempi](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) ed esercitazioni che mostrano modelli di utilizzo diversi per l'API Microsoft Graph, tra cui l'autenticazione con Azure AD, vedere [Microsoft Graph Community samples & tutorials](https://github.com/microsoftgraph/msgraph-community-samples) (Esempi ed esercitazioni della community di Microsoft Graph).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Guida per gli sviluppatori di Azure Active Directory (v 1.0)](v1-overview.md)
 - [Concetti e riferimenti relativi all'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)

@@ -43,7 +43,7 @@ Con Azure Machine Learning, è possibile monitorare gli input per un modello dis
 
 Con Azure Machine Learning, la deriva dei dati viene monitorata tramite set di dati o distribuzioni. Per monitorare la deriva dei dati, viene specificato un set di dati di base, in genere il set di dati di training per un modello. Un secondo set di dati, in genere il modello di dati di input raccolti da una distribuzione, viene testato rispetto al set di dati di base. Entrambi i set di dati vengono profilati e vengono inseriti nel servizio di monitoraggio della deriva dati. Viene eseguito il training di un modello di apprendimento automatico per rilevare le differenze tra i due set di impostazioni. Le prestazioni del modello vengono convertite nel coefficiente di derivazione, che misura la grandezza della deviazione tra i due set di impostazioni. Grazie all' [interpretazione dei modelli](how-to-machine-learning-interpretability.md), vengono calcolate le funzionalità che contribuiscono al coefficiente di drifting. Dal profilo del set di dati vengono rilevate informazioni statistiche su ogni funzionalità. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -123,7 +123,7 @@ RunDetails(dd_run).show()
 Dopo aver inviato l'esecuzione di DataDriftDetector, è possibile visualizzare le metriche di spostamento salvate in ogni iterazione di esecuzione per un'attività di drifting dei dati:
 
 
-|Metrica|DESCRIZIONE|
+|Metrica|Description|
 --|--|
 wasserstein_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|
 energy_distance|Distanza statistica definita per la distribuzione numerica unidimensionale.|

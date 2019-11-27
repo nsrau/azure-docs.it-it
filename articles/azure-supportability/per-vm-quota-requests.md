@@ -35,7 +35,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 È anche possibile richiedere una quota per più aree tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 11 riportato di seguito.
 
-1. In https://portal.azure.comselezionare **Guida e supporto**.
+1. In https://portal.azure.com selezionare **Guida e supporto**.
 
    ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -87,7 +87,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 È anche possibile **richiedere una quota per più aree** tramite un unico caso di supporto. Per informazioni dettagliate, vedere il passaggio 10 riportato di seguito
 
-1. In https://portal.azure.com, selezionare **Sottoscrizioni**.
+1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
 
    ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
 

@@ -14,7 +14,7 @@ ms.locfileid: "74533432"
 
 L'impostazione dei [criteri di riavvio](container-instances-restart-policy.md) di un gruppo di contenitori determina il modo in cui le istanze del contenitore vengono avviate o interrotte per È possibile eseguire l'override dell'impostazione predefinita arrestando o avviando manualmente un gruppo di contenitori.
 
-## <a name="stop"></a>Arresto
+## <a name="stop"></a>Interrompi
 
 Arrestare manualmente un gruppo di contenitori in esecuzione, ad esempio usando il comando [AZ container stop][az-container-stop] o portale di Azure. Per determinati carichi di lavoro del contenitore, potrebbe essere necessario arrestare un gruppo di contenitori con esecuzione prolungata dopo un periodo definito per risparmiare sui costi. 
 
@@ -24,7 +24,7 @@ Quando i contenitori vengono riciclati, le [risorse](container-instances-contain
 
 L'azione di arresto non ha effetto se il gruppo di contenitori è già stato terminato (si trova nello stato SUCCEEDED o Failed). Ad esempio, un gruppo di contenitori con attività del contenitore Run-Once che è stato eseguito correttamente termina con lo stato succeeded. Il tentativo di arrestare il gruppo in tale stato non modifica lo stato. 
 
-## <a name="start"></a>Inizia
+## <a name="start"></a>Inizio
 
 Quando un gruppo di contenitori viene arrestato, perché i contenitori sono terminati autonomamente oppure il gruppo è stato arrestato manualmente, è possibile avviare i contenitori. Ad esempio, usare il comando [AZ container Start][az-container-start] o portale di Azure per avviare manualmente i contenitori nel gruppo. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
 
@@ -34,7 +34,7 @@ Tutti i contenitori in un gruppo di contenitori vengono avviati da questa azione
 
 Dopo aver avviato o riavviato manualmente un gruppo di contenitori, questo funzionerà in base ai criteri di riavvio configurati.
   
-## <a name="restart"></a>Riavvia
+## <a name="restart"></a>Riavvio
 
 È possibile riavviare un gruppo di contenitori mentre è in esecuzione, ad esempio usando il comando [AZ container restart][az-container-restart] . Questa operazione riavvia tutti i contenitori nel gruppo di contenitori. Se l'immagine di un contenitore viene aggiornata, verrà inserita una nuova immagine. 
 

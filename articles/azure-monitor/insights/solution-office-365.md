@@ -37,7 +37,7 @@ La soluzione di gestione di Office 365 consente di monitorare l'ambiente Office 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di installare e configurare la soluzione, è richiesto quanto segue.
 
@@ -103,14 +103,14 @@ Il primo passaggio consiste nel creare un'applicazione in Azure Active Directory
 1. Selezionare **autorizzazioni API** e quindi **aggiungere un'autorizzazione**.
 1. Fare clic su **API di gestione di Office 365**. 
 
-    ![Selezionare l'API](media/solution-office-365/select-api.png)
+    ![Seleziona un'API](media/solution-office-365/select-api.png)
 
 1. In **quali tipi di autorizzazioni sono necessarie per l'applicazione?** selezionare le opzioni seguenti per le autorizzazioni **dell'applicazione** e le **autorizzazioni delegate**:
    - Legge le informazioni sull'integrità dei servizi per l'organizzazione
    - Legge i dati dell'attività per l'organizzazione
    - Legge i report attività per l'organizzazione
 
-     ![Selezionare l'API](media/solution-office-365/select-permissions-01.png)![Selezionare l'API](media/solution-office-365/select-permissions-02.png)
+     ![Seleziona un'API](media/solution-office-365/select-permissions-01.png)![Seleziona un'API](media/solution-office-365/select-permissions-02.png)
 
 1. Fare clic su **Aggiungi autorizzazioni**.
 1. Fare clic su **concedi il consenso dell'amministratore** e quindi su **Sì** quando viene richiesta la verifica.
@@ -379,7 +379,7 @@ L'ultimo passaggio consiste nel creare la sottoscrizione dell'applicazione all'a
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se è già stata eseguita la sottoscrizione dell'applicazione per quest'area di lavoro o se è stata eseguita la sottoscrizione del tenant per un'altra area di lavoro, è possibile che venga visualizzato l'errore seguente.
 
@@ -532,10 +532,10 @@ Fare clic sul riquadro **Office 365** per aprire la dashboard di **Office 365**.
 
 Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i primi dieci avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su Visualizza tutto nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Description |
 |:--|:--|
 | Operazioni | Fornisce informazioni sugli utenti attivi da tutte le sottoscrizioni Office 365 monitorate. Sarà inoltre possibile visualizzare il numero di attività che si verificano nel corso del tempo.
-| Exchange | Mostra i dettagli delle attività di Exchange Server, ad esempio Add-Mailbox Permission o Set-Mailbox. |
+| Scambia | Mostra i dettagli delle attività di Exchange Server, ad esempio Add-Mailbox Permission o Set-Mailbox. |
 | SharePoint | Mostra le prime attività che gli utenti eseguono nei documenti di SharePoint. Quando si visualizzano i dettagli da questo riquadro, nella pagina di ricerca vengono visualizzati i dettagli di queste attività, ad esempio il documento di destinazione e il percorso di questa attività. Ad esempio, per un evento di accesso al file sarà possibile visualizzare il documento a cui si accede, il nome account associato e l'indirizzo IP. |
 | Azure Active Directory | Include le attività degli utenti superiori, ad esempio i tentativi di accesso e di reimpostazione password utente. È possibile visualizzare i dettagli di queste attività, ad esempio lo stato dei risultati. Questa funzionalità è particolarmente utile se si desidera monitorare le attività sospette in Azure Active Directory. |
 
@@ -550,25 +550,25 @@ Tutti i record creati nell'area di lavoro Log Analytics in Monitoraggio di Azure
 
 Le proprietà seguenti sono comuni a tutti i record di Office 365.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| digitare | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | L'indirizzo IP del dispositivo usato quando l'attività è stata registrata. L'indirizzo IP viene visualizzato in formato di indirizzo IPv4 o IPv6. |
-| OfficeWorkload | Servizio di Office 365 a cui il record fa riferimento.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| OfficeWorkload | Servizio di Office 365 a cui il record fa riferimento.<br><br>AzureActiveDirectory<br>Scambia<br>SharePoint|
 | Operazione | Il nome dell'attività utente o l'attività dell'amministratore.  |
 | OrganizationId | GUID per il tenant di Office 365 dell'organizzazione. Questo valore sarà sempre lo stesso per l'organizzazione, indipendentemente dal servizio Office 365 in cui si verifica. |
 | RecordType | Tipo di operazione eseguita. |
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministratore<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>System |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Admin<br>Richiesta<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
 
 Le proprietà seguenti sono comuni a tutti i record di Azure Active Directory.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -580,7 +580,7 @@ Le proprietà seguenti sono comuni a tutti i record di Azure Active Directory.
 
 Questi record vengono creati quando un utente di Active Directory tenta di accedere.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -594,7 +594,7 @@ Questi record vengono creati quando un utente di Active Directory tenta di acced
 
 Questi record vengono creati quando vengono apportate modifiche o aggiunte agli oggetti di Azure Active Directory.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -612,7 +612,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte agli 
 
 Questi record vengono creati dai dati di controllo della sicurezza del centro dati.  
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | EffectiveOrganization | Il nome del tenant a cui l'elevazione/cmdlet sono destinati. |
 | ElevationApprovedTime | Il timestamp di quando è stata approvata l'elevazione. |
@@ -628,24 +628,24 @@ Questi record vengono creati dai dati di controllo della sicurezza del centro da
 
 Questi record vengono creati quando vengono apportate modifiche alla configurazione di Exchange.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Scambia |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Specifica se il cmdlet è stato eseguito da un utente nell'organizzazione, dal personale del centro dati di Microsoft, da un account di servizio del centro dati o da un amministratore delegato. Il valore False indica che il cmdlet è stato eseguito da un utente nell'organizzazione. Il valore True indica che il cmdlet è stato eseguito dal personale del centro dati, un account del servizio del centro dati o un amministratore delegato. |
 | ModifiedObjectResolvedName |  Questo è il nome descrittivo dell'oggetto modificato dal cmdlet. Viene registrato solo se il cmdlet modifica l'oggetto. |
 | OrganizationName | Nome del tenant. |
 | OriginatingServer | Il nome del server da cui è stato eseguito il cmdlet. |
-| parametri | Nome e valore per tutti i parametri usati con il cmdlet identificato nella proprietà Operations. |
+| parameters | Nome e valore per tutti i parametri usati con il cmdlet identificato nella proprietà Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Cassetta postale di Exchange
 
 Questi record vengono creati quando vengono apportate modifiche o aggiunte alle cassette postali di Exchange.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Scambia |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informazioni sul client di posta elettronica usato per eseguire l'operazione, ad esempio una versione del browser, la versione di Outlook e le informazioni sul dispositivo mobile. |
 | Client_IPAddress | L'indirizzo IP del dispositivo usato quando l'operazione è stata registrata. L'indirizzo IP viene visualizzato in formato di indirizzo IPv4 o IPv6. |
@@ -666,11 +666,11 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte alle 
 
 Questi record vengono creati quando viene creata una voce di controllo delle cassette postali.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Scambia |
 | RecordType     | ExchangeItem |
-| Item | Rappresenta l'elemento su cui è stata eseguita l'operazione | 
+| Elemento | Rappresenta l'elemento su cui è stata eseguita l'operazione | 
 | SendAsUserMailboxGuid | Il GUID di Exchange della cassetta postale a cui è stato effettuato l'accesso per inviare e-mail. |
 | SendAsUserSmtp | Indirizzo SMTP dell'utente che viene rappresentato. |
 | SendonBehalfOfUserMailboxGuid | Il GUID di Exchange della cassetta postale a cui è stato effettuato l'accesso per inviare e-mail per conto di. |
@@ -681,9 +681,9 @@ Questi record vengono creati quando viene creata una voce di controllo delle cas
 
 Questi record vengono creati quando vengono apportate modifiche o aggiunte ai gruppi di Exchange.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Scambia |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Informazioni su ogni elemento nel gruppo. |
 | CrossMailboxOperations | Indica se nell'operazione è coinvolta più di una cassetta postale. |
@@ -700,7 +700,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte ai gr
 
 Queste proprietà sono comuni a tutti i record di SharePoint.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -717,7 +717,7 @@ Queste proprietà sono comuni a tutti i record di SharePoint.
 
 Questi record vengono creati quando vengono apportate modifiche alla configurazione di SharePoint.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -730,7 +730,7 @@ Questi record vengono creati quando vengono apportate modifiche alla configurazi
 
 Questi record vengono creati in risposta alle operazioni sui file in SharePoint.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -751,7 +751,7 @@ Questi record vengono creati in risposta alle operazioni sui file in SharePoint.
 
 La tabella seguente contiene esempi di ricerche log per i record di aggiornamento raccolti da questa soluzione.
 
-| Query | DESCRIZIONE |
+| Query | Description |
 | --- | --- |
 |Conteggio di tutte le operazioni per la sottoscrizione di Office 365 |OfficeActivity &#124; summarize count() by Operation |
 |Uso di siti di SharePoint|OfficeActivity &#124; where OfficeWorkload = ~ "SharePoint" &#124; riepiloga Count () by SiteUrl \| sort by count ASC|

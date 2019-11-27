@@ -61,7 +61,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 È necessario creare questa singola tabella o vista prima di eseguire la procedura guidata e deve contenere contenuto. Per ovvie ragioni, non è consigliabile eseguire la procedura guidata di **importazione dei dati** in un'origine dati vuota.
 
-|  Selezione | DESCRIZIONE |
+|  Selezione | Description |
 | ---------- | ----------- |
 | **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, potrebbe essere presente una definizione dell'origine dati che è possibile riutilizzare. In Azure ricerca cognitiva gli oggetti origine dati vengono utilizzati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati** e riutilizzarli in base alle esigenze.|
 | **Esempi**| Azure ricerca cognitiva offre due origini dati di esempio predefinite che vengono usate nelle esercitazioni e nelle guide introduttive: un database SQL immobiliare e un database di hotel ospitato su Cosmos DB. Per una procedura dettagliata basata sull'esempio di Hotel, vedere l'articolo relativo alla [creazione di un indice nella portale di Azure](search-get-started-portal.md) Guida introduttiva. |
@@ -75,7 +75,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 Dietro le quinte, la procedura guidata consente di creare, configurare e richiamare gli oggetti seguenti. Dopo l'esecuzione della procedura guidata, è possibile trovarne l'output nelle pagine del portale. La pagina Panoramica del servizio include elenchi di indici, indicizzatori, origini dati e skillsets. Le definizioni degli indici possono essere visualizzate in formato JSON completo nel portale. Per altre definizioni, è possibile usare l' [API REST](https://docs.microsoft.com/rest/api/searchservice/) per ottenere oggetti specifici.
 
-| Object | DESCRIZIONE | 
+| Oggetto | Description | 
 |--------|-------------|
 | [Origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Rende permanente le informazioni di connessione ai dati di origine, incluse le credenziali. Un oggetto origine dati viene utilizzato esclusivamente con gli indicizzatori. | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Struttura di dati fisici utilizzata per la ricerca full-text e altre query. | 

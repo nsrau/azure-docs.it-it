@@ -31,7 +31,7 @@ Questa sezione della Guida di riferimento per le [operazioni Azure ad](active-di
 
 La gestione di Azure Active Directory richiede l'esecuzione continua delle attività e dei processi operativi principali che potrebbero non far parte di un progetto di implementazione. È ancora importante configurare queste attività per gestire l'ambiente. Le attività principali e i proprietari consigliati includono:
 
-| attività | Proprietario |
+| Attività | Proprietario |
 | :- | :- |
 | Definire il processo come creare le sottoscrizioni di Azure | Varia in base all'organizzazione |
 | Decidere chi ottiene Enterprise Mobility + Security licenze | Team operativo IAM |
@@ -97,7 +97,7 @@ Se l'organizzazione non dispone di una strategia di ripristino di emergenza e di
 
 ![Screenshot della configurazione della modalità di gestione temporanea Azure AD Connect](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>Mantenersi aggiornati
+#### <a name="stay-current"></a>Mantieniti aggiornato
 
 Microsoft Update Azure AD Connect regolarmente. Rimanere aggiornati per sfruttare i miglioramenti delle prestazioni, le correzioni di bug e le nuove funzionalità disponibili in ogni nuova versione.
 
@@ -191,7 +191,7 @@ La frequenza di [sincronizzazione delta predefinita](https://docs.microsoft.com/
 - [Preparare gli attributi di directory per la sincronizzazione con Office 365 usando lo strumento IdFix-Office 365](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: risoluzione degli errori durante la sincronizzazione](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 Esistono cinque aspetti di un'infrastruttura di identità sicura. Questo elenco ti aiuterà a trovare e intraprendere rapidamente le azioni necessarie per proteggere e gestire il ciclo di vita delle identità e dei rispettivi diritti nell'organizzazione.
 

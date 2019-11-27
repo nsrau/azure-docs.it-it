@@ -22,7 +22,7 @@ ms.lasthandoff: 11/26/2019
 ms.locfileid: "74546210"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Ripulire un endpoint della rete CDN di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 I nodi perimetrali della rete CDN di Azure memorizzeranno nella cache gli asset fino alla scadenza della durata TTL dell'asset.  Dopo la scadenza della durata TTL dell'asset, quando un client richiede l'asset dal nodo periodico, questo recupera una nuova copia aggiornata dell'asset per soddisfare la richiesta del client e aggiornare la cache.
 
 La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL.  La rete CDN recupera immediatamente i nuovi asset per le richieste client successive.  A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati.  Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
@@ -73,7 +73,7 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 > 
 > 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Precaricamento di risorse in un endpoint della rete CDN di Azure](cdn-preload-endpoint.md)
 * [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](/rest/api/cdn/endpoints)
 

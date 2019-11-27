@@ -22,7 +22,7 @@ Gli esempi presentati in questo articolo usano l'interfaccia della riga di coman
 
 Quando si crea un [gruppo di contenitori](container-instances-container-groups.md) in Istanze di Azure Container, è possibile specificare una delle tre impostazioni dei criteri di riavvio.
 
-| Criterio di riavvio   | DESCRIZIONE |
+| Criterio di riavvio   | Description |
 | ---------------- | :---------- |
 | `Always` | I contenitori nel gruppo contenitore vengono sempre riavviati. Questa è l'impostazione **predefinita** applicata quando non si specifica alcun criterio di riavvio al momento della creazione del contenitore. |
 | `Never` | I contenitori nel gruppo contenitore non vengono riavviati mai. I contenitori vengono eseguiti al massimo una volta. |

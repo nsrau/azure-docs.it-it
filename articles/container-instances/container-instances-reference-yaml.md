@@ -137,218 +137,218 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="microsoftcontainerinstancecontainergroups-object"></a>Oggetto Microsoft. ContainerInstance/containerGroups
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Nome | stringa | Sì | Nome del gruppo di contenitori. |
-|  apiVersion | enum | Sì | 2018-10-01 |
-|  location | stringa | No | Percorso della risorsa. |
-|  Tag | oggetto | No | Tag delle risorse. |
-|  identity | oggetto | No | Identità del gruppo di contenitori, se configurata. - [oggetto ContainerGroupIdentity](#ContainerGroupIdentity) |
-|  properties | oggetto | Sì | [Oggetto ContainerGroupProperties](#ContainerGroupProperties) |
+|  name | string | SÌ | Nome del gruppo di contenitori. |
+|  apiVersion | enum | SÌ | 2018-10-01 |
+|  location | string | No | Percorso della risorsa. |
+|  tags | object | No | Tag delle risorse. |
+|  identità | object | No | Identità del gruppo di contenitori, se configurata. - [oggetto ContainerGroupIdentity](#ContainerGroupIdentity) |
+|  properties | object | SÌ | [Oggetto ContainerGroupProperties](#ContainerGroupProperties) |
 
 
 <a id="ContainerGroupIdentity" />
 
 ### <a name="containergroupidentity-object"></a>Oggetto ContainerGroupIdentity
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
 |  type | enum | No | Tipo di identità utilizzata per il gruppo di contenitori. Il tipo ' SystemAssigned, UserAssigned ' include un'identità creata in modo implicito e un set di identità assegnate dall'utente. Il tipo ' none ' rimuoverà tutte le identità dal gruppo di contenitori. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
-|  userAssignedIdentities | oggetto | No | Elenco di identità utente associate al gruppo di contenitori. I riferimenti alle chiavi del dizionario identità utente verranno Azure Resource Manager ID risorsa nel formato '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
+|  userAssignedIdentities | object | No | Elenco di identità utente associate al gruppo di contenitori. I riferimenti alle chiavi del dizionario identità utente verranno Azure Resource Manager ID risorsa nel formato '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
 
 
 <a id="ContainerGroupProperties" />
 
 ### <a name="containergroupproperties-object"></a>Oggetto ContainerGroupProperties
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  containers | array | Sì | Contenitori all'interno del gruppo di contenitori.[oggetto contenitore](#Container)  -  |
+|  containers | array | SÌ | Contenitori all'interno del gruppo di contenitori.[oggetto contenitore](#Container)  -  |
 |  Credenziali | array | No | Credenziali del registro di sistema dell'immagine da cui viene creato il gruppo di contenitori. - [oggetto ImageRegistryCredential](#ImageRegistryCredential) |
 |  restartPolicy | enum | No | Criteri di riavvio per tutti i contenitori all'interno del gruppo di contenitori. - `Always` sempre il riavvio `OnFailure` riavvio in caso di errore-`Never` non riavviare mai. -Always, OnFailure, mai |
-|  IpAddress | oggetto | No | Tipo di indirizzo IP del gruppo di contenitori. - [oggetto IPAddress](#IpAddress) |
-|  osType | enum | Sì | Tipo di sistema operativo necessario per i contenitori nel gruppo di contenitori. -Windows o Linux |
+|  IpAddress | object | No | Tipo di indirizzo IP del gruppo di contenitori. - [oggetto IPAddress](#IpAddress) |
+|  osType | enum | SÌ | Tipo di sistema operativo necessario per i contenitori nel gruppo di contenitori. -Windows o Linux |
 |  volumes | array | No | Elenco di volumi che possono essere montati da contenitori in questo gruppo di contenitori. - [oggetto volume](#Volume) |
-|  diagnostica | oggetto | No | Informazioni di diagnostica per un gruppo di contenitori. - [oggetto ContainerGroupDiagnostics](#ContainerGroupDiagnostics) |
-|  NetworkProfile | oggetto | No | Informazioni sul profilo di rete per un gruppo di contenitori. - [oggetto ContainerGroupNetworkProfile](#ContainerGroupNetworkProfile) |
-|  dnsConfig | oggetto | No | Informazioni di configurazione DNS per un gruppo di contenitori. - [oggetto DnsConfiguration](#DnsConfiguration) |
+|  diagnostica | object | No | Informazioni di diagnostica per un gruppo di contenitori. - [oggetto ContainerGroupDiagnostics](#ContainerGroupDiagnostics) |
+|  NetworkProfile | object | No | Informazioni sul profilo di rete per un gruppo di contenitori. - [oggetto ContainerGroupNetworkProfile](#ContainerGroupNetworkProfile) |
+|  dnsConfig | object | No | Informazioni di configurazione DNS per un gruppo di contenitori. - [oggetto DnsConfiguration](#DnsConfiguration) |
 
 
 <a id="Container" />
 
 ### <a name="container-object"></a>Oggetto contenitore
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Nome | stringa | Sì | Nome dell'istanza del contenitore fornito dall'utente. |
-|  properties | oggetto | Sì | Proprietà dell'istanza di contenitore. - [oggetto ContainerProperties](#ContainerProperties) |
+|  name | string | SÌ | Nome dell'istanza del contenitore fornito dall'utente. |
+|  properties | object | SÌ | Proprietà dell'istanza di contenitore. - [oggetto ContainerProperties](#ContainerProperties) |
 
 
 <a id="ImageRegistryCredential" />
 
 ### <a name="imageregistrycredential-object"></a>Oggetto ImageRegistryCredential
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  server | stringa | Sì | Il server del registro immagini Docker senza protocollo come "http" e "https". |
-|  username | stringa | Sì | Nome utente per il registro privato. |
-|  Password | stringa | No | Password per il registro di sistema privato. |
+|  server | string | SÌ | Il server del registro immagini Docker senza protocollo come "http" e "https". |
+|  Nome utente | string | SÌ | Nome utente per il registro privato. |
+|  password | string | No | Password per il registro di sistema privato. |
 
 
 <a id="IpAddress" />
 
 ### <a name="ipaddress-object"></a>Oggetto IpAddress
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  ports | array | Sì | Elenco di porte esposte nel gruppo di contenitori.[oggetto porta](#Port)  -  |
-|  type | enum | Sì | Specifica se l'indirizzo IP è esposto alla rete Internet pubblica o alla VNET privata. -Pubblico o privato |
-|  IP | stringa | No | IP esposto alla rete Internet pubblica. |
-|  dnsNameLabel | stringa | No | Etichetta del nome DNS per l'indirizzo IP. |
+|  ports | array | SÌ | Elenco di porte esposte nel gruppo di contenitori.[oggetto porta](#Port)  -  |
+|  type | enum | SÌ | Specifica se l'indirizzo IP è esposto alla rete Internet pubblica o alla VNET privata. -Pubblico o privato |
+|  IP | string | No | IP esposto alla rete Internet pubblica. |
+|  dnsNameLabel | string | No | Etichetta del nome DNS per l'indirizzo IP. |
 
 
 <a id="Volume" />
 
 ### <a name="volume-object"></a>Oggetto volume
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Nome | stringa | Sì | Il nome del volume. |
-|  azureFile | oggetto | No | Il volume di file di Azure. - [oggetto AzureFileVolume](#AzureFileVolume) |
-|  emptyDir | oggetto | No | Volume di directory vuoto. |
-|  secret | oggetto | No | Volume Secret. |
-|  gitRepo | oggetto | No | Volume del repository git. - [oggetto GitRepoVolume](#GitRepoVolume) |
+|  name | string | SÌ | Il nome del volume. |
+|  azureFile | object | No | Il volume di file di Azure. - [oggetto AzureFileVolume](#AzureFileVolume) |
+|  emptyDir | object | No | Volume di directory vuoto. |
+|  secret | object | No | Volume Secret. |
+|  gitRepo | object | No | Volume del repository git. - [oggetto GitRepoVolume](#GitRepoVolume) |
 
 
 <a id="ContainerGroupDiagnostics" />
 
 ### <a name="containergroupdiagnostics-object"></a>Oggetto ContainerGroupDiagnostics
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  logAnalytics | oggetto | No | Informazioni su log Analytics del gruppo di contenitori. - [oggetto LogAnalytics](#LogAnalytics) |
+|  logAnalytics | object | No | Informazioni su log Analytics del gruppo di contenitori. - [oggetto LogAnalytics](#LogAnalytics) |
 
 
 <a id="ContainerGroupNetworkProfile" />
 
 ### <a name="containergroupnetworkprofile-object"></a>Oggetto ContainerGroupNetworkProfile
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  id | stringa | Sì | Identificatore di un profilo di rete. |
+|  id | string | SÌ | Identificatore di un profilo di rete. |
 
 
 <a id="DnsConfiguration" />
 
 ### <a name="dnsconfiguration-object"></a>Oggetto DnsConfiguration
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Nameserver | array | Sì | Server DNS per il gruppo di contenitori. -stringa |
-|  searchDomains | stringa | No | Domini di ricerca DNS per la ricerca del nome host nel gruppo di contenitori. |
-|  options | stringa | No | Opzioni DNS per il gruppo di contenitori. |
+|  Nameserver | array | SÌ | Server DNS per il gruppo di contenitori. -stringa |
+|  searchDomains | string | No | Domini di ricerca DNS per la ricerca del nome host nel gruppo di contenitori. |
+|  options | string | No | Opzioni DNS per il gruppo di contenitori. |
 
 
 <a id="ContainerProperties" />
 
 ### <a name="containerproperties-object"></a>Oggetto ContainerProperties
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  immagine | stringa | Sì | Nome dell'immagine utilizzata per creare l'istanza di contenitore. |
+|  image | string | SÌ | Nome dell'immagine utilizzata per creare l'istanza di contenitore. |
 |  command | array | No | Comandi da eseguire all'interno dell'istanza del contenitore in formato EXEC. -stringa |
 |  ports | array | No | Porte esposte nell'istanza del contenitore. - [oggetto PORTACONTENITORE](#ContainerPort) |
 |  environmentVariables | array | No | Variabili di ambiente da impostare nell'istanza del contenitore. - [oggetto Metodo EnvironmentVariable](#EnvironmentVariable) |
-|  resources | oggetto | Sì | Requisiti delle risorse dell'istanza di contenitore. - [oggetto ResourceRequirements](#ResourceRequirements) |
+|  resources | object | SÌ | Requisiti delle risorse dell'istanza di contenitore. - [oggetto ResourceRequirements](#ResourceRequirements) |
 |  volumeMounts | array | No | Il volume viene montato in modo da essere disponibile per l'istanza del contenitore. - [oggetto VolumeMount](#VolumeMount) |
-|  livenessProbe | oggetto | No | Probe di vita. - [oggetto ContainerProbe](#ContainerProbe) |
-|  readinessProbe | oggetto | No | Probe di conformità. - [oggetto ContainerProbe](#ContainerProbe) |
+|  livenessProbe | object | No | Probe di vita. - [oggetto ContainerProbe](#ContainerProbe) |
+|  readinessProbe | object | No | Probe di conformità. - [oggetto ContainerProbe](#ContainerProbe) |
 
 
 <a id="Port" />
 
 ### <a name="port-object"></a>Oggetto Port
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | No | Protocollo associato alla porta. -TCP o UDP |
-|  port | numero intero | Sì | Numero di porta. |
+|  port | integer | SÌ | Numero di porta. |
 
 
 <a id="AzureFileVolume" />
 
 ### <a name="azurefilevolume-object"></a>Oggetto AzureFileVolume
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  shareName | stringa | Sì | Nome della condivisione file di Azure da montare come volume. |
+|  shareName | string | SÌ | Nome della condivisione file di Azure da montare come volume. |
 |  readOnly | boolean | No | Flag che indica se il file di Azure condiviso montato come volume è di sola lettura. |
-|  storageAccountName | stringa | Sì | Nome dell'account di archiviazione che contiene la condivisione file di Azure. |
-|  storageAccountKey | stringa | No | Chiave di accesso dell'account di archiviazione usata per accedere alla condivisione file di Azure. |
+|  storageAccountName | string | SÌ | Nome dell'account di archiviazione che contiene la condivisione file di Azure. |
+|  storageAccountKey | string | No | Chiave di accesso dell'account di archiviazione usata per accedere alla condivisione file di Azure. |
 
 
 <a id="GitRepoVolume" />
 
 ### <a name="gitrepovolume-object"></a>Oggetto GitRepoVolume
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Directory | stringa | No | Nome della directory di destinazione. Non devono contenere o iniziare con '. .'.  Se viene specificato ' .', la directory del volume sarà il repository git.  In caso contrario, se specificato, il volume conterrà il repository git nella sottodirectory con il nome specificato. |
-|  repository | stringa | Sì | URL del repository |
-|  revision | stringa | No | Hash di commit per la revisione specificata. |
+|  Directory | string | No | Nome della directory di destinazione. Non devono contenere o iniziare con '. .'.  Se viene specificato ' .', la directory del volume sarà il repository git.  In caso contrario, se specificato, il volume conterrà il repository git nella sottodirectory con il nome specificato. |
+|  repository | string | SÌ | URL del repository |
+|  revision | string | No | Hash di commit per la revisione specificata. |
 
 
 <a id="LogAnalytics" />
 
 ### <a name="loganalytics-object"></a>Oggetto LogAnalytics
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  workspaceId | stringa | Sì | ID dell'area di lavoro per log Analytics |
-|  workspaceKey | stringa | Sì | Chiave dell'area di lavoro per log Analytics |
+|  workspaceId | string | SÌ | ID dell'area di lavoro per log Analytics |
+|  workspaceKey | string | SÌ | Chiave dell'area di lavoro per log Analytics |
 |  logType | enum | No | Tipo di log da utilizzare. -ContainerInsights o ContainerInstanceLogs |
-|  metadata | oggetto | No | Metadati per log Analytics. |
+|  metadata | object | No | Metadati per log Analytics. |
 
 
 <a id="ContainerPort" />
 
 ### <a name="containerport-object"></a>Oggetto PORTACONTENITORE
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | No | Protocollo associato alla porta. -TCP o UDP |
-|  port | numero intero | Sì | Numero di porta esposto all'interno del gruppo di contenitori. |
+|  port | integer | SÌ | Numero di porta esposto all'interno del gruppo di contenitori. |
 
 
 <a id="EnvironmentVariable" />
 
 ### <a name="environmentvariable-object"></a>Oggetto Metodo EnvironmentVariable
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Nome | stringa | Sì | Nome della variabile di ambiente. |
-|  Valore | stringa | No | Valore della variabile di ambiente. |
-|  Parametro securevalue | stringa | No | Valore della variabile di ambiente protetta. |
+|  name | string | SÌ | Nome della variabile di ambiente. |
+|  value | string | No | Valore della variabile di ambiente. |
+|  Parametro securevalue | string | No | Valore della variabile di ambiente protetta. |
 
 
 <a id="ResourceRequirements" />
 
 ### <a name="resourcerequirements-object"></a>Oggetto ResourceRequirements
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  requests | oggetto | Sì | Richieste di risorse dell'istanza di contenitore. - [oggetto ResourceRequests](#ResourceRequests) |
-|  limiti | oggetto | No | Limiti delle risorse di questa istanza di contenitore. - [oggetto ResourceLimits](#ResourceLimits) |
+|  requests | object | SÌ | Richieste di risorse dell'istanza di contenitore. - [oggetto ResourceRequests](#ResourceRequests) |
+|  limiti | object | No | Limiti delle risorse di questa istanza di contenitore. - [oggetto ResourceLimits](#ResourceLimits) |
 
 
 <a id="VolumeMount" />
 
 ### <a name="volumemount-object"></a>Oggetto VolumeMount
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Nome | stringa | Sì | Nome del montaggio del volume. |
-|  mountPath | stringa | Sì | Il percorso all'interno del contenitore in cui deve essere montato il volume. Non devono contenere due punti (:). |
+|  name | string | SÌ | Nome del montaggio del volume. |
+|  mountPath | string | SÌ | Il percorso all'interno del contenitore in cui deve essere montato il volume. Non devono contenere due punti (:). |
 |  readOnly | boolean | No | Flag che indica se il montaggio del volume è di sola lettura. |
 
 
@@ -356,44 +356,44 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containerprobe-object"></a>Oggetto ContainerProbe
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Exec | oggetto | No | Comando di esecuzione per l'oggetto Probe- [ContainerExec](#ContainerExec) |
-|  httpGet | oggetto | No | Impostazioni HTTP Get per l'oggetto Probe- [ContainerHttpGet](#ContainerHttpGet) |
-|  initialDelaySeconds | numero intero | No | Secondi di ritardo iniziali. |
-|  periodSeconds | numero intero | No | Secondi del periodo. |
-|  failureThreshold | numero intero | No | Soglia di errore. |
-|  successThreshold | numero intero | No | Soglia di esito positivo. |
-|  timeoutSeconds | numero intero | No | Secondi di timeout. |
+|  Exec | object | No | Comando di esecuzione per l'oggetto Probe- [ContainerExec](#ContainerExec) |
+|  httpGet | object | No | Impostazioni HTTP Get per l'oggetto Probe- [ContainerHttpGet](#ContainerHttpGet) |
+|  initialDelaySeconds | integer | No | Secondi di ritardo iniziali. |
+|  periodSeconds | integer | No | Secondi del periodo. |
+|  failureThreshold | integer | No | Soglia di errore. |
+|  successThreshold | integer | No | Soglia di esito positivo. |
+|  timeoutSeconds | integer | No | Secondi di timeout. |
 
 
 <a id="ResourceRequests" />
 
 ### <a name="resourcerequests-object"></a>Oggetto ResourceRequests
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | number | Sì | Richiesta di memoria in GB dell'istanza di contenitore. |
-|  cpu | number | Sì | Richiesta di CPU dell'istanza di contenitore. |
-|  gpu | oggetto | No | Richiesta GPU di questa istanza di contenitore. - [oggetto GpuResource](#GpuResource) |
+|  memoryInGB | d'acquisto | SÌ | Richiesta di memoria in GB dell'istanza di contenitore. |
+|  cpu | d'acquisto | SÌ | Richiesta di CPU dell'istanza di contenitore. |
+|  gpu | object | No | Richiesta GPU di questa istanza di contenitore. - [oggetto GpuResource](#GpuResource) |
 
 
 <a id="ResourceLimits" />
 
 ### <a name="resourcelimits-object"></a>Oggetto ResourceLimits
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | number | No | Limite di memoria in GB dell'istanza di contenitore. |
-|  cpu | number | No | Limite di CPU dell'istanza di contenitore. |
-|  gpu | oggetto | No | Limite GPU di questa istanza di contenitore. - [oggetto GpuResource](#GpuResource) |
+|  memoryInGB | d'acquisto | No | Limite di memoria in GB dell'istanza di contenitore. |
+|  cpu | d'acquisto | No | Limite di CPU dell'istanza di contenitore. |
+|  gpu | object | No | Limite GPU di questa istanza di contenitore. - [oggetto GpuResource](#GpuResource) |
 
 
 <a id="ContainerExec" />
 
 ### <a name="containerexec-object"></a>Oggetto ContainerExec
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
 |  command | array | No | Comandi da eseguire all'interno del contenitore. -stringa |
 
@@ -402,10 +402,10 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containerhttpget-object"></a>Oggetto ContainerHttpGet
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  path | stringa | No | Percorso del probe. |
-|  port | numero intero | Sì | Numero di porta su cui eseguire il probe. |
+|  path | string | No | Percorso del probe. |
+|  port | integer | SÌ | Numero di porta su cui eseguire il probe. |
 |  scheme | enum | No | Schema. -http o HTTPS |
 
 
@@ -413,10 +413,10 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="gpuresource-object"></a>Oggetto GpuResource
 
-|  Nome | digitare | obbligatori | Valore |
+|  name | Type | Obbligatoria | Value |
 |  ---- | ---- | ---- | ---- |
-|  Numero | numero intero | Sì | Conteggio della risorsa GPU. |
-|  sku | enum | Sì | SKU della risorsa GPU. -K80, P100, V100 |
+|  count | integer | SÌ | Conteggio della risorsa GPU. |
+|  sku | enum | SÌ | SKU della risorsa GPU. -K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -31,7 +31,7 @@ Questa sezione della [Guida di riferimento alle operazioni Azure ad](active-dire
 
 La gestione di Azure Active Directory richiede l'esecuzione continua delle attività e dei processi operativi principali, che potrebbero non essere parte di un progetto di implementazione. È ancora importante configurare queste attività per ottimizzare l'ambiente. Le attività principali e i proprietari consigliati includono:
 
-| attività | Proprietario |
+| Attività | Proprietario |
 | :- | :- |
 | Archiviare i log di controllo Azure AD nel sistema SIEM | Team operativo di InfoSec |
 | Individuare le applicazioni che sono gestite fuori conformità | Team operativo IAM |
@@ -56,7 +56,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 Sono presenti modifiche che richiedono considerazioni speciali durante i test, da semplici tecniche, ad esempio la distribuzione di un subset di destinazione di utenti alla distribuzione di una modifica in un tenant di test parallelo. Se non è stata implementata una strategia di test, è necessario definire un approccio di test in base alle linee guida riportate nella tabella seguente:
 
-| Scenario| Raccomandazione |
+| Scenario| Recommendation |
 |-|-|
 |Modifica del tipo di autenticazione da federato a pH/PTA o viceversa| Usare l' [implementazione temporanea](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) per verificare l'effetto della modifica del tipo di autenticazione.|
 |Implementazione di nuovi criteri di accesso condizionale (CA) o di protezione delle identità|Creare un nuovo criterio CA e assegnarlo agli utenti di test.|
@@ -128,7 +128,7 @@ Per chiarire, se il livello di autorizzazione del portale EA è attualmente impo
 > [!NOTE]
 > Azure AD la gestione dei diritti richiede Azure AD Premium le licenze P2.
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 Ci sono otto aspetti per una governance di identità sicura. Questo elenco consente di identificare le azioni da intraprendere per valutare e attestare l'accesso concesso alle identità senza privilegi e con privilegi, controllare e controllare le modifiche apportate all'ambiente.
 

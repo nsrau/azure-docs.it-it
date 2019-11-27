@@ -34,7 +34,7 @@ Altre informazioni su come **aumentare i limiti di vCPU di VM con priorità bass
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
 
-1. In https://portal.azure.comselezionare **Guida e supporto**.
+1. In https://portal.azure.com selezionare **Guida e supporto**.
 
 ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -65,7 +65,7 @@ Seguire le istruzioni riportate di seguito per creare una richiesta di supporto 
 
 Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure. 
 
-1. In https://portal.azure.com, selezionare **Sottoscrizioni**.
+1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
 
 ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
 

@@ -53,7 +53,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 2. Per creare una sessione Livestream da una query di ricerca:
     
     1. Dalla scheda **query** individuare la query di ricerca da usare.
-    2. Fare clic con il pulsante destro del mouse sulla query e scegliere **Aggiungi a livestream**. Ad esempio:
+    2. Fare clic con il pulsante destro del mouse sulla query e scegliere **Aggiungi a livestream**. ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![creare una sessione livestream dalla query di ricerca di Azure Sentinel](./media/livestream/livestream-from-query.png)
@@ -83,7 +83,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 
 1. Nella portale di Azure passare a **Sentinel** > **Threat Management** > **Hunting** > **livestream** Tab.
 
-2. Selezionare la sessione livestream che si vuole visualizzare o modificare. Ad esempio:
+2. Selezionare la sessione livestream che si vuole visualizzare o modificare. ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![creare una sessione livestream dalla query di ricerca di Azure Sentinel](./media/livestream/livestream-tab.png)
@@ -92,7 +92,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
 
 ## <a name="receive-notifications-when-new-events-occur"></a>Ricevi notifiche quando si verificano nuovi eventi
 
-Poiché le notifiche livestream per i nuovi eventi usano portale di Azure notifiche, queste notifiche vengono visualizzate ogni volta che si usa il portale di Azure. Ad esempio:
+Poiché le notifiche livestream per i nuovi eventi usano portale di Azure notifiche, queste notifiche vengono visualizzate ogni volta che si usa il portale di Azure. ad esempio:
 
 ![Notifica portale di Azure per Livestream](./media/livestream/notification.png)
 

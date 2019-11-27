@@ -147,7 +147,7 @@ Sebbene sia raro, un'attività può essere ritentata internamente a causa di err
 - **Raccogliere i log dell'agente batch se si verifica un problema**  
     Se si nota un problema che interessa il comportamento di un nodo o di attività in esecuzione in un nodo, è consigliabile raccogliere i log dell'agente batch prima di deallocare i nodi in questione. I log dell'agente batch possono essere raccolti usando l'API di caricamento dei log del servizio batch. Questi log possono essere forniti come parte di un ticket di supporto a Microsoft e consentono di risolvere i problemi e la risoluzione dei problemi.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="security-isolation"></a>Isolamento di sicurezza
 

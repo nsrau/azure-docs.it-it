@@ -15,13 +15,13 @@ ms.locfileid: "74538865"
 
 Azure Resource Manager consente di visualizzare la cronologia di distribuzione ed esaminare operazioni specifiche nelle distribuzioni precedenti. È possibile visualizzare le risorse che sono state distribuite e ottenere informazioni su eventuali errori.
 
-Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="get-deployments-and-correlation-id"></a>Ottenere le distribuzioni e l'ID di correlazione
 
 È possibile visualizzare i dettagli di una distribuzione tramite l'portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Ogni distribuzione ha un ID correlazione, che viene usato per tenere traccia degli eventi correlati. Può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
 1. Selezionare il gruppo di risorse che si desidera esaminare.
 
@@ -57,7 +57,7 @@ Per ottenere l'ID di correlazione, usare:
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment).CorrelationId
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per elencare la distribuzione per un gruppo di risorse, usare [AZ Group Deployment list](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-list).
 
@@ -113,7 +113,7 @@ La risposta include l'ID di correlazione.
 
 Ogni distribuzione può includere più operazioni. Per visualizzare altri dettagli su una distribuzione, visualizzare le operazioni di distribuzione. Quando una distribuzione ha esito negativo, le operazioni di distribuzione includono un messaggio di errore.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
 1. Nel riepilogo per una distribuzione selezionare **Dettagli operazione**.
 
@@ -143,7 +143,7 @@ Per ottenere il messaggio di stato delle operazioni non riuscite, utilizzare il 
 ((Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName ExampleDeploy ).Properties | Where-Object ProvisioningState -eq Failed).StatusMessage.error
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per visualizzare le operazioni di distribuzione per la distribuzione in un gruppo di risorse, usare il comando [AZ Group Deployment Operation List](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-group-deployment-operation-list) .
 
@@ -209,7 +209,7 @@ La risposta include un messaggio di errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per altre informazioni sull'uso dei log attività per monitorare altri tipi di azioni, vedere [Visualizzare i log attività per gestire le risorse di Azure](resource-group-audit.md).
 * Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
 

@@ -19,7 +19,7 @@ ms.locfileid: "74533158"
 
 Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i connettori in Azure Data Factory.
 
-## <a name="azure-data-lake-storage"></a>Archiviazione di Azure Data Lake
+## <a name="azure-data-lake-storage"></a>Archiviazione Azure Data Lake
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Messaggio di errore: il server remoto ha restituito un errore: (403) non consentito
 
@@ -72,7 +72,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
     - Se si usa **Upsert** come comportamento di scrittura e si imposta un'altra chiave univoca per il contenitore, questo errore indica che i dati di origine contengono righe/oggetti con ID diversi ma lo stesso valore per la chiave univoca definita.
 
-- **Risoluzione**: 
+- **Soluzione**: 
 
     - Per cause1, impostare **Upsert** come comportamento di scrittura.
     - Per la seconda ragione, assicurarsi che ogni documento abbia un valore diverso per la chiave univoca definita.
@@ -136,7 +136,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
     2. Se si usa Azure Key Vault per archiviare il contenuto della chiave privata o usare il modo programmatico per creare il servizio collegato SFTP, questo errore indica che il contenuto della chiave privata non è corretto, probabilmente non è con codifica Base64.
     3. Contenuto della chiave privata o delle credenziali non valido.
 
-- **Risoluzione**: 
+- **Soluzione**: 
 
     - Per causare #1 eseguire i comandi seguenti per convertire la chiave nel formato di chiave tradizionale, quindi utilizzarla nell'interfaccia utente di creazione di ADF.
 
@@ -294,7 +294,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 
 - **Motivo**: la connessione SQL è stata chiusa dal database SQL quando l'esecuzione simultanea e il server interrompono la connessione.
 
-- **Raccomandazione**: il server remoto chiude la connessione SQL. Riprovare. Se si tratta di un problema, contattare il supporto SQL di Azure.
+- **Raccomandazione**: il server remoto chiude la connessione SQL. Riprova. Se si tratta di un problema, contattare il supporto SQL di Azure.
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Messaggio di errore: conversione non riuscita durante la conversione da una stringa di caratteri a uniqueidentifier
 
@@ -373,7 +373,7 @@ Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i c
 - **Soluzione**: eseguire la stessa query in SSMS e verificare se viene visualizzato lo stesso risultato. In caso affermativo, aprire un ticket di supporto per Azure SQL Data Warehouse e fornire il nome del server e del database SQL DW per procedere con la risoluzione dei problemi.
             
 
-## <a name="azure-blob-storage"></a>Archivio BLOB di Azure
+## <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
 ### <a name="error-code--azurebloboperationfailed"></a>Codice di errore: AzureBlobOperationFailed
 

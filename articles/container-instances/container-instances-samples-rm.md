@@ -38,13 +38,13 @@ Per le opzioni di distribuzione, vedere la sezione [Distribuzione](#deployment).
 
 Sono disponibili diverse opzioni per la distribuzione delle risorse con modelli di Gestione risorse:
 
-[Interfaccia della riga di comando di Azure][deploy-cli]
+[interfaccia della riga di comando di Azure][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 
-[Portale di Azure][deploy-portal]
+[Azure portal][deploy-portal]
 
-[API REST][deploy-rest]
+[REST API][deploy-rest]
 
 <!-- LINKS - External -->
 [app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav

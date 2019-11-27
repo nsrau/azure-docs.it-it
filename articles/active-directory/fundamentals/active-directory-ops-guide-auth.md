@@ -31,7 +31,7 @@ Questa sezione della Guida di riferimento per le [operazioni di Azure ad](active
 
 La gestione di Azure Active Directory richiede l'esecuzione continua delle attività e dei processi operativi principali, che potrebbero non essere parte di un progetto di implementazione. È ancora importante configurare queste attività per ottimizzare l'ambiente. Le attività principali e i proprietari consigliati includono:
 
-| attività | Proprietario |
+| Attività | Proprietario |
 | :- | :- |
 | Gestire la configurazione del ciclo di vita della Single Sign-On (SSO) in Azure AD | Team operativo IAM |
 | Progettare criteri di accesso condizionale per applicazioni Azure AD | Team di architettura InfoSec |
@@ -59,7 +59,7 @@ Gestire le password in modo sicuro è una delle parti più importanti della gest
 
 Usare la tabella seguente per trovare la soluzione consigliata per attenuare il problema che deve essere risolto:
 
-| Problema | Raccomandazione |
+| Problema | Recommendation |
 | :- | :- |
 | Nessun meccanismo per la protezione da password vulnerabili | Abilita Azure AD la [reimpostazione della password self-service (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) e la [protezione con password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | Nessun meccanismo per rilevare le password perse | Abilitare la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (pH) per ottenere informazioni dettagliate |
@@ -217,7 +217,7 @@ In base alla priorità, usare la tabella seguente per trovare la soluzione consi
 
 Azure AD possibile calcolare il rischio per ogni accesso e ogni utente. L'uso dei rischi come criterio nei criteri di accesso può offrire un'esperienza utente migliore, ad esempio un minor numero di richieste di autenticazione e una maggiore sicurezza, ad esempio, solo gli utenti che richiedono la richiesta e automatizzano la risposta e la correzione.
 
-![Configura](./media/active-directory-ops-guide/active-directory-ops-img11.png)
+![Criteri di rischio di accesso](./media/active-directory-ops-guide/active-directory-ops-img11.png)
 
 Se si possiedono già Azure AD Premium licenze P2 che supportano l'uso dei rischi nei criteri di accesso, ma non vengono usati, è consigliabile aggiungere i rischi per la sicurezza.
 
@@ -281,7 +281,7 @@ Se l'autenticazione legacy viene ampiamente utilizzata nell'ambiente in uso, è 
    
    b. Pianificare un intervallo di tempo cutover per bloccare i passaggi riportati di seguito.
    
-   C. Identificare le applicazioni legacy che hanno una dipendenza rigida dall'autenticazione legacy. Vedere il passaggio 3 riportato di seguito.
+   c. Identificare le applicazioni legacy che hanno una dipendenza rigida dall'autenticazione legacy. Vedere il passaggio 3 riportato di seguito.
 
 2. Disabilitare i protocolli legacy nell'origine (ad esempio cassetta postale di Exchange) per gli utenti che non usano l'autenticazione legacy per evitare un'esposizione più approfondita.
 3. Per gli account rimanenti (idealmente non umani, ad esempio gli account del servizio), usare [l'accesso condizionale per limitare i protocolli legacy](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) dopo l'autenticazione.
@@ -300,7 +300,7 @@ Di seguito sono riportate le autorizzazioni che è possibile esaminare per i ser
 - Le applicazioni con autorizzazioni delegate possono leggere, inviare o gestire i messaggi di posta elettronica per conto dell'utente
 - Applicazioni a cui viene concesso utilizzando le autorizzazioni seguenti:
 
-| Risorsa | Autorizzazione |
+| Gruppi | Autorizzazione |
 | -------------------------- | -------------------- |
 | Office 365 Exchange Online | EAS. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
@@ -365,7 +365,7 @@ L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è
 - [Informazioni di riferimento sull'API di gestione di Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
 - [Come usare il pacchetto di contenuto Azure Active Directory Power BI](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
 
-## <a name="summary"></a>summary
+## <a name="summary"></a>Summary
 
 Esistono 12 aspetti di un'infrastruttura di identità sicura. Questo elenco consente di proteggere e gestire ulteriormente le credenziali, definire l'esperienza di autenticazione, assegnare i delegati, misurare l'utilizzo e definire i criteri di accesso in base al comportamento di sicurezza dell'organizzazione.
 

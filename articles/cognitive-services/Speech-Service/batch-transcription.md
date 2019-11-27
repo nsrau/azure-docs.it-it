@@ -21,7 +21,7 @@ ms.locfileid: "74538123"
 
 La trascrizione batch è ideale se si desidera trascrivere una grande quantità di audio in un archivio, ad esempio BLOB di Azure. Usando l'API REST dedicata è possibile puntare ai file audio con un URI di firma di accesso condiviso (SAS) e ricevere trascrizioni in modo asincrono.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="subscription-key"></a>Chiave di sottoscrizione
 
@@ -84,7 +84,7 @@ I parametri di configurazione vengono forniti in formato JSON:
 
 Usare queste proprietà facoltative per configurare la trascrizione:
 
-| . | DESCRIZIONE |
+| Parametro | Description |
 |-----------|-------------|
 | `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` che disabilita i filtri del contenuto volgare, `masked` che sostituisce il contenuto volgare con gli asterischi, `removed` che rimuove tutto il contenuto volgare dal risultato, o `tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `masked`. |
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` che consente di disattivare la punteggiatura, `dictated` che implica la punteggiatura esplicita, `automatic` che permette al decodificatore di occuparsi della punteggiatura, o `dictatedandautomatic` che implica segni di punteggiatura dettata o automatica. |
@@ -125,7 +125,7 @@ Si noti inoltre che la registrazione non è disponibile nelle registrazioni ster
 > [!NOTE]
 > La predisposizione è disponibile in tutte le aree geografiche e per tutte le impostazioni locali.
 
-## <a name="sentiment"></a>Valutazione
+## <a name="sentiment"></a>Sentiment
 
 Il sentimento è una nuova funzionalità dell'API di trascrizione di batch ed è una funzionalità importante del dominio del Call Center. I clienti possono usare i parametri di `AddSentiment` per le richieste a
 
@@ -206,4 +206,4 @@ L'esempio è disponibile nella directory `samples/batch` nel [repository di esem
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)

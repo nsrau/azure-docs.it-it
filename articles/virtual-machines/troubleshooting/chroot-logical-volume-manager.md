@@ -190,7 +190,7 @@ Eseguire il comando **LVS** per verificare quali **LVS** sono disponibili per il
 
 Uscire dall'ambiente **chroot** montare la richiesta **LV**
 
-![Avanzate](./media/chroot-logical-volume-manager/advanced.png)
+![Funzionalità avanzate](./media/chroot-logical-volume-manager/advanced.png)
 
 Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
@@ -198,11 +198,11 @@ Ora accedere di nuovo all'ambiente **chroot** eseguendo
 
 Tutti LVs devono essere visibili come partizioni montate
 
-![Avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Funzionalità avanzate](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Eseguire una query sul **kernel** installato
 
-![Avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Funzionalità avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Se necessario, aggiornare il **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

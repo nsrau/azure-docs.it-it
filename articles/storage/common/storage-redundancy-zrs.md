@@ -107,7 +107,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell'area \_\_. 
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create**.
+7. Selezionare **Create** (Crea).
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 
@@ -163,7 +163,7 @@ Per eseguire l'aggiornamento a ZRS tramite CLI, chiamare il comando seguente:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [Replica di Archiviazione di Azure](storage-redundancy.md)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)

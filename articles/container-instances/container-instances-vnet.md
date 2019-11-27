@@ -57,7 +57,7 @@ L'**eliminazione delle risorse di rete** richiede [passaggi aggiuntivi](#delete-
 
 Per distribuire gruppi di contenitori in una rete virtuale, sono necessarie tre risorse di Rete virtuale di Azure, ovvero la [rete virtuale](#virtual-network) stessa, una [subnet delegata](#subnet-delegated) nella rete virtuale e un [profilo di rete](#network-profile). 
 
-### <a name="virtual-network"></a>rete virtuale
+### <a name="virtual-network"></a>Rete virtuale
 
 Una rete virtuale definisce lo spazio degli indirizzi in cui si creano una o più subnet. A questo punto è possibile distribuire le risorse di Azure (ad esempio i gruppi di contenitori) nelle subnet nella rete virtuale.
 

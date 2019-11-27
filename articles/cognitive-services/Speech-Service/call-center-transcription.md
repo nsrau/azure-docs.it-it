@@ -50,7 +50,7 @@ Se il dominio è post-chiamata o in tempo reale, Azure offre un set di tecnologi
 
 Il [riconoscimento vocale](speech-to-text.md) è la funzionalità più ricercata in qualsiasi soluzione Call Center. Poiché molti dei processi di analisi downstream si basano sul testo trascritto, la frequenza degli errori di parola (_wer_) è di importanza fondamentale. Tra le principali sfide da superare nella trascrizione dei call center sono inclusi il rumore prevalente nella sala (ad esempio: il sottofondo degli altri operatori che parlano), l'ampia varietà di impostazioni locali della lingua e di dialetti, nonché la bassa qualità dello stesso segnale telefonico. WER è strettamente correlato al modo in cui viene eseguito il training dei modelli acustici e di lingua per le impostazioni locali, quindi è importante la possibilità di personalizzare il modello in base alle impostazioni locali. I più recenti modelli unificati di quarta generazione rappresentano la soluzione ideale sia per l'accuratezza che per la latenza della trascrizione. Con training con decine di migliaia di ore di dati acustici e miliardi di informazioni lessicali, i modelli unificati sono i modelli più accurati sul mercato per la trascrizione dei dati del Call Center.
 
-### <a name="sentiment"></a>Valutazione
+### <a name="sentiment"></a>Sentiment
 
 Valutare se il cliente ha avuto una buona esperienza è una delle aree più importanti dell'analisi vocale, quando applicata allo spazio del call center. L'[API di trascrizione Batch](batch-transcription.md) offre l'analisi del sentiment per ogni espressione. È possibile aggregare il set di valori ottenuti come parte di una trascrizione di chiamata per determinare il sentiment della chiamata sia per gli operatori che per il cliente.
 
@@ -70,7 +70,7 @@ La latenza end-to-end è notevolmente bassa per le varie tecnologie interattive,
 
 Le nuove voci sono inoltre indistinguibili da quelle umane. Puoi usare le nostre voci per offrire al tuo bot la sua personalità univoca.
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 Un altro elemento di base dell'analisi consiste nell'identificare le interazioni in cui si è verificata un'esperienza o un evento specifico. Questa operazione viene in genere eseguita con uno dei due approcci seguenti: una ricerca ad hoc in cui l'utente digita semplicemente una frase e il sistema risponde oppure una query più strutturata in cui un analista può creare un set di istruzioni logiche che identificano uno scenario in una chiamata e quindi ogni chiamata può essere indicizzata in base a tale set di query. Un esempio di ricerca valido è la dichiarazione di conformità universale "questa chiamata verrà registrata per scopi qualitativi... ". Molte aziende desiderano assicurarsi che i loro agenti forniscano questa dichiarazione di non responsabilità ai clienti prima che la chiamata venga effettivamente registrata. La maggior parte dei sistemi di analisi è in grado di eseguire la tendenza dei comportamenti individuati dagli algoritmi di ricerca/query e questa segnalazione delle tendenze è in definitiva una delle funzioni più importanti di un sistema di analisi. Grazie alla [directory Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/directory/search/), la soluzione end-to-end può essere significativamente migliorata con funzionalità di indicizzazione e ricerca.
 
@@ -121,7 +121,7 @@ Un altro scenario è l'integrazione diretta con SIP (Session Initiation Protocol
 
  Il servizio riconoscimento vocale funziona bene con i modelli predefiniti. Tuttavia, potrebbe essere necessario personalizzare ulteriormente e ottimizzare l'esperienza per il prodotto o l'ambiente. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio. Dopo aver compilato un modello personalizzato, è possibile usarlo con le funzionalità del servizio riconoscimento vocale in modalità batch o in tempo reale.
 
-| Servizio Voce | Modello | DESCRIZIONE |
+| Servizio Voce | Modello | Description |
 | -------------- | ----- | ----------- |
 | Riconoscimento vocale | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 |                | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
@@ -136,7 +136,7 @@ Il codice di esempio è disponibile in GitHub per ognuna delle funzionalità del
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch) (Esempi di trascrizione batch (REST))
 - [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS) (Esempi di sintesi vocale (REST))
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 - [Speech SDK](speech-sdk-reference.md)
 - [Speech Devices SDK](speech-devices-sdk.md)

@@ -72,7 +72,7 @@ Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare le condizioni 
 > [!NOTE]
 > Il completamento dell'offerta in Azure Marketplace completa solo una parte dell'installazione. Seguire le istruzioni riportate di seguito per completare la distribuzione di Azure FarmBeats nella sottoscrizione di Azure.
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Prepara
 
 Per la distribuzione di Azure FarmBeats sono necessarie le autorizzazioni seguenti:
 
@@ -154,7 +154,7 @@ Questo file è il file di input per Azure Cloud Shell e i parametri i cui valori
 
 Verificare i parametri prima di preparare il file.
 
-|Comando | DESCRIZIONE|
+|Comando | Description|
 |--- | ---|
 |sku  | Offre la possibilità di scaricare uno o entrambi i componenti di Azure FarmBeats. Specifica i componenti da scaricare. Per installare solo l'hub dati, usare "onlydatabhub". Per installare hub dati e acceleratore, usare "both"|
 |subscriptionId | Specifica la sottoscrizione per l'installazione di Azure FarmBeats|

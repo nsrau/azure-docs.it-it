@@ -24,7 +24,7 @@ Per impostazione predefinita, Azure Active Directory Domain Services (Azure AD D
 
 Questo articolo illustra come disabilitare le crittografie NTLM v1 e TLS v1 e disabilitare la sincronizzazione degli hash delle password NTLM.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, sono necessarie le risorse seguenti:
 

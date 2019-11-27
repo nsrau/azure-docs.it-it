@@ -38,7 +38,7 @@ Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relat
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
-| Quota | DESCRIZIONE |
+| Quota | Description |
 | --- | --- |
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
@@ -72,7 +72,7 @@ Le metriche forniscono informazioni sull'app o sul comportamento del piano di se
 
 Le metriche disponibili per un'app sono:
 
-| Metrica | DESCRIZIONE |
+| Metrica | Description |
 | --- | --- |
 | **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, in secondi. |
 | **Working set della memoria medio** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
@@ -115,7 +115,7 @@ Le metriche disponibili per un piano di servizio app sono:
 > Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic*, *Standard* e *Premium*.
 > 
 
-| Metrica | DESCRIZIONE |
+| Metrica | Description |
 | --- | --- |
 | **Percentuale di CPU** | CPU media usata tra tutte le istanze del piano. |
 | **Percentuale memoria** | Memoria media usata tra tutte le istanze del piano. |

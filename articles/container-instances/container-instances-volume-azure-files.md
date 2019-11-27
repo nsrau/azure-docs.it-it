@@ -13,7 +13,7 @@ ms.locfileid: "74533251"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
 
-Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Come illustrato in questo articolo, le istanze di contenitore di Azure possono montare una condivisione file di Azure creata con [file di Azure](../storage/files/storage-files-introduction.md). File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
+Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Come illustrato in questo articolo, le istanze di contenitore di Azure possono montare una condivisione file di Azure creata con [file di Azure](../storage/files/storage-files-introduction.md). File di Azure offre condivisioni file completamente gestite sul cloud, accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
 
 > [!NOTE]
 > Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).
@@ -143,7 +143,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Oltre all'interfaccia della riga di comando e alla distribuzione YAML, è possibile distribuire un gruppo di contenitori e montare un volume in un contenitore usando un [modello di gestione risorse](/azure/templates/microsoft.containerinstance/containergroups)di Azure.
 
-Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo del contenitore del modello. 
+Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo di contenitori del modello. 
 
 Quindi, per ogni contenitore in cui si vuole montare il volume, popolare la matrice di `volumeMounts` nella sezione `properties` della definizione del contenitore.
 

@@ -69,7 +69,7 @@ Il processo di training del modello include i passaggi seguenti:
 
 Con il processo TDSP è disponibile uno [strumento di creazione di report e modellazione automatizzato](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling), da eseguire in diversi algoritmi e sweep parametrici per produrre un modello di base. Lo strumento produce anche un report di modellazione di base che riepiloga le prestazioni di ogni combinazione di modello e parametro, inclusa l'importanza delle variabili. Anche questo processo è iterativo poiché potrebbe risultare in una nuova progettazione di funzionalità. 
 
-## <a name="artifacts"></a>Elementi
+## <a name="artifacts"></a>Artefatti
 Gli elementi generati in questa fase includono:
 
    * [Set di funzionalità](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): le funzionalità sviluppate per la modellazione sono descritte nella sezione **Set di funzionalità** del report di **definizione dei dati**. Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.

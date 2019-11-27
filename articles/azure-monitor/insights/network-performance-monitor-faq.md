@@ -69,7 +69,7 @@ Lo script configura Windows Firewall solo in locale. Se sono definite regole del
 ### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual è il numero massimo di agenti che è possibile usare o viene visualizzato l'errore ".... è stato raggiunto il limite di configurazione?
 NPM limita il numero di indirizzi IP a 5000 IP per ogni area di lavoro. Se un nodo dispone sia di indirizzi IPv4 che IPv6, questo vale come 2 indirizzi IP per tale nodo. Di conseguenza, il limite di 5000 IP stabilisce il limite massimo del numero di agenti. È possibile eliminare gli agenti inattivi dalla scheda Nodi in NPM >> Configura. NPM gestisce anche la cronologia di tutti gli indirizzi IP che sono stati assegnati alla macchina virtuale che ospita l'agente e ognuno viene conteggiato come IP separato, contribuendo a tale limite superiore di 5000 IP. Per liberare gli IP per l'area di lavoro, è possibile usare la pagina nodi per eliminare gli IP non in uso.
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 ### <a name="how-are-loss-and-latency-calculated"></a>Come vengono calcolate la perdita e la latenza?
 Gli agenti di origine inviano richieste SYN TCP (se è selezionato TCP come protocollo per il monitoraggio) o ECHO ICMP (se invece è selezionato ICMP) all'indirizzo IP di destinazione a intervalli regolari per verificare che tutti i percorsi per la combinazione di IP di origine e destinazione siano coperti. Per calcolare la perdita e la latenza di ogni percorso viene misurata la percentuale di pacchetti ricevuti e di tempo di round trip dei pacchetti. I dati vengono aggregati per l'intervallo di polling e per tutti i percorsi in modo da ottenere i valori complessivi di perdita e latenza per la combinazione di IP per lo specifico intervallo di polling.
@@ -173,7 +173,7 @@ Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qua
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono al traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non tenta di individuare più hop.
@@ -225,7 +225,7 @@ I percorsi di rete tra il nodo A e il B possono essere diversi da quelli tra il 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Per quale motivo non tutti i circuiti e le connessioni di peering di ExpressRoute vengono individuati?
 NPM individua ora i circuiti ExpressRoute e le connessioni di peering in tutte le sottoscrizioni a cui l'utente ha accesso. Scegliere tutte le sottoscrizioni in cui sono collegate risorse di ExpressRoute e abilitare il monitoraggio per ogni risorsa individuata. NPM cerca gli oggetti di connessione durante l'individuazione di un peering privato, verificare quindi se il peering è associato a una rete virtuale.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Che cosa significa?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La funzionalità Monitoraggio di ExpressRoute visualizza un messaggio di diagnostica per segnalare che il traffico non passa attraverso alcun circuito. Cosa significa?
 
 Può verificarsi uno scenario in cui è presente una connessione integra tra il nodo locale e quello di Azure, ma il traffico non passa attraverso il circuito ExpressRoute configurato per il monitoraggio tramite Monitoraggio prestazioni rete. 
 
@@ -258,7 +258,7 @@ Questa situazione può verificarsi se almeno una di queste condizioni è vera:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Per quale motivo, nella funzionalità Monitoraggio connettività servizio, il tempo di risposta del servizio non è disponibile, ma i valori di perdita di rete e latenza sono validi?
 Questa situazione può verificarsi se il servizio di destinazione non è un'applicazione Web, ma il test è configurato come test Web. Modificare la configurazione di test e scegliere il tipo di test Rete invece di Web.
 
-## <a name="miscellaneous"></a>Miscellaneous
+## <a name="miscellaneous"></a>Varie
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Si può riscontrare un impatto sulle prestazioni del nodo usato per il monitoraggio?
 Monitoraggio prestazioni rete è configurato in modo da arrestare il processo di monitoraggio se utilizza più del 5% delle risorse della CPU dell'host. Ciò consente di assicurarsi di poter usare i nodi per i normali carichi di lavoro senza alcun impatto sulle prestazioni.

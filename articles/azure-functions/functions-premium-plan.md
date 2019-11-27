@@ -31,7 +31,7 @@ In questo esempio, sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PL
 
 Dopo aver creato il piano, è possibile usare il comando [AZ functionapp create](/cli/azure/functionapp#az-functionapp-create) per creare l'app per le funzioni. Nel portale vengono creati contemporaneamente il piano e l'app. Per un esempio di script dell'interfaccia della riga di comando di Azure completo, vedere [creare un'app per le funzioni in un piano Premium](scripts/functions-cli-create-premium-plan.md).
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 
 Per le app per le funzioni distribuite in un piano Premium sono disponibili le funzionalità seguenti.
 
@@ -88,22 +88,22 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimensioni delle istanze.  Ti verrà addebitato il numero totale di core e memoria utilizzati al secondo.  L'app può essere ridimensionata automaticamente a più istanze in base alle esigenze.  
 
-|Sku|Core|Memoria|Archiviazione|
+|SKU|Core|Memoria|Archiviazione|
 |--|--|--|--|
 |EP1|1|3,5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Regioni
+## <a name="regions"></a>Aree
 
 Di seguito sono elencate le aree attualmente supportate per ogni sistema operativo.
 
-|Area| Windows | Linux |
+|Area geografica| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| ✔<sup>1</sup> | |
 |Australia centrale 2| ✔<sup>1</sup> | |
 |Australia orientale| ✔ | |
-|Australia sudorientale | ✔ | ✔ |
+|Australia sud-orientale | ✔ | ✔ |
 |Brasile meridionale| ✔<sup>2</sup> |  |
 |Canada centrale| ✔ |  |
 |Stati Uniti centrali| ✔ |  |
@@ -113,12 +113,12 @@ Di seguito sono elencate le aree attualmente supportate per ogni sistema operati
 |Francia centrale| ✔ |  |
 |Giappone orientale| ✔ | ✔ |
 |Giappone occidentale| ✔ | |
-|Corea del Sud centrale| ✔ |  |
+|Corea centrale| ✔ |  |
 |Stati Uniti centro-settentrionali| ✔ |  |
 |Europa settentrionale| ✔ | ✔ |
 |Stati Uniti centro-meridionali| ✔ |  |
 |India meridionale | ✔ | |
-|Asia sudorientale| ✔ | ✔ |
+|Asia sud-orientale| ✔ | ✔ |
 |Regno Unito meridionale| ✔ | |
 |Regno Unito occidentale| ✔ |  |
 |Europa occidentale| ✔ | ✔ |

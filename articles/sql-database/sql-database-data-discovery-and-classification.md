@@ -120,7 +120,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 8. Per completare la classificazione ed etichettare in modo permanente le colonne del database con i nuovi metadati di classificazione, fare clic su **Salva** nel menu superiore della finestra.
 
-   ![Save](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
+   ![Salva](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>Controllo dell'accesso ai dati sensibili
 
@@ -180,7 +180,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 
 ## <a id="subheading-5"></a>Passaggi successivi
 
-- Altre informazioni su [Advanced data security](sql-database-advanced-data-security.md) (Sicurezza dei dati avanzata).
+- Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
 - Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](sql-database-auditing.md) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 
 <!--Anchors-->

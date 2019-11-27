@@ -36,7 +36,7 @@ Si sta iniziando a esplorare solo le funzionalità dei servizi cognitivi di Azur
 
 Esplora la gamma di [Opzioni di supporto di Azure e scegli il piano](https://azure.microsoft.com/support/plans) più adatto, che tu sia uno sviluppatore che sta iniziando a sviluppare il tuo percorso Cloud o un'organizzazione di grandi dimensioni che distribuisce applicazioni strategiche e cruciali per l'azienda. I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
 
-* [Portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Pubblicare una domanda in Stack Overflow
@@ -73,13 +73,13 @@ Per richiedere nuove funzionalità, pubblicarle in UserVoice. Condividi le tue i
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Servizio visione artificiale personalizzato                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Viso                          | https://cognitive.uservoice.com/forums/430315-face |
-| Formato                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Form                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Coinvolgente                     | https://feedback.azure.com/forums/34192--general-feedback |
-| Comprensione del linguaggio (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
+| LUIS (Language Understanding) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizza esperienze                  | https://cognitive.uservoice.com/forums/921562-personalizer |
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Servizi Voce               | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Text Analytics                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Analisi del testo                | https://cognitive.uservoice.com/forums/555922-text-analytics |
 | Traduzione testuale               | https://cognitive.uservoice.com/forums/558796-translator |
 | Indicizzatore video                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
@@ -106,7 +106,7 @@ Le note sulla versione vengono aggiornate quando vengono rese disponibili nuove 
 
 Le notizie sui servizi cognitivi vengono condivise nel [Blog di Azure](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
-## <a name="search"></a>Cerca
+## <a name="search"></a>Ricerca
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>

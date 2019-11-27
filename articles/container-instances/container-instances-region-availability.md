@@ -25,7 +25,7 @@ Per informazioni su quote e altri limiti nelle distribuzioni, vedere [Quote e li
 
 Per i gruppi di contenitori con Linux e i contenitori basati su Windows Server 2016 [supportati](container-instances-faq.md#what-windows-base-os-images-are-supported) sono disponibili le aree geografiche e le risorse seguenti.
 
-| Location | SO | CPU | Memoria (GB) |
+| Località | Sistema operativo | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
 | Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Stati Uniti occidentali | Linux | 4 | 16 |
 | Europa occidentale, Stati Uniti occidentali 2 | Linux | 4 | 14 |
@@ -39,7 +39,7 @@ Per i gruppi di contenitori con Linux e i contenitori basati su Windows Server 2
 
 Per i gruppi di contenitori con contenitori basati su Windows Server 2019 (anteprima) sono disponibili le aree geografiche e le risorse seguenti.
 
-| Location | SO | CPU | Memoria (GB) |
+| Località | Sistema operativo | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
 | Asia sud-orientale, Europa settentrionale, Europa occidentale, Stati Uniti centrali, Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti occidentali 2 | Windows | 4 | 16 |
 | Stati Uniti orientali 2 | Windows | 2 | 3,5 |

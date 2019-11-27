@@ -25,9 +25,9 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 > * [Cursori del database](/azure/kusto/management/databasecursor).
 > * [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
 * Accedere all' [interfaccia utente Web](https://dataexplorer.azure.com/).
 * Creare [un cluster e un database di Azure Esplora dati](create-cluster-database-portal.md)
 

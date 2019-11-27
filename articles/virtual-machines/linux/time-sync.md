@@ -31,7 +31,7 @@ Azure è supportato da un'infrastruttura che esegue Windows Server 2016. Windows
 >
 > Per altre informazioni, vedere [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time) (Ora esatta per Windows Server 2016). 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 La precisione di un orologio del computer viene misurata in base a quanto l'orologio del computer si avvicina allo standard dell'ora UTC. L'ora UTC è definita da un campione multinazionale di orologi atomici precisi che possono essere sfalsati solo di un secondo in 300 anni. Tuttavia, leggere l'ora UTC direttamente richiede un hardware specializzato. Al contrario, i server di riferimento ora vengono sincronizzati con UTC e sono accessibili da altri computer in modo da garantire scalabilità e affidabilità. In ogni computer viene eseguito un servizio di sincronizzazione dell'ora che sa quali server di riferimento ora usare e verifica periodicamente se l'orologio del computer deve essere corretto e, se necessario, regola l'ora. 
 

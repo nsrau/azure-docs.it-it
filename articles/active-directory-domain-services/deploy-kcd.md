@@ -24,7 +24,7 @@ Quando si eseguono le applicazioni, potrebbe essere necessario che tali applicaz
 
 Questo articolo illustra come configurare la delega vincolata Kerberos basata sulle risorse in un dominio gestito di Azure AD DS.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, sono necessarie le risorse seguenti:
 

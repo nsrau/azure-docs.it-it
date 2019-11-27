@@ -22,7 +22,7 @@ Per inviare i dati di log ed eventi dei gruppi di contenitori ai log di Monitora
 > [!NOTE]
 > Attualmente, è possibile inviare i dati degli eventi solo da istanze di contenitori Linux a Log Analytics.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
@@ -48,7 +48,7 @@ Dopo aver ottenuto l'ID e la chiave primaria dell'area di lavoro Log Analytics, 
 
 Gli esempi seguenti illustrano due modi per creare un gruppo di contenitori con un unico contenitore [fluentd][fluentd] : interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Azure con un modello YAML. Il contenitore Fluentd produce più righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
 
-### <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
+### <a name="deploy-with-azure-cli"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di Azure
 
 Per eseguire la distribuzione con l'interfaccia della riga di comando di Azure, specificare i parametri `--log-analytics-workspace` e `--log-analytics-workspace-key` nel comando [az container create][az-container-create]. Sostituire i due valori dell'area di lavoro con i valori ottenuti nel passaggio precedente (e aggiornare il nome del gruppo di risorse) prima di eseguire il comando seguente.
 
@@ -111,7 +111,7 @@ Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se inizial
 
 ![Risultati di Ricerca log nel portale di Azure][log-search-01]
 
-## <a name="view-events"></a>Visualizzare eventi
+## <a name="view-events"></a>Visualizza eventi
 
 È anche possibile visualizzare gli eventi per le istanze di contenitori nel portale di Azure. Gli eventi includono la data e l'ora di creazione e di avvio dell'istanza. Per visualizzare i dati degli eventi nella tabella `ContainerEvent_CL`:
 

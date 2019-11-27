@@ -20,7 +20,7 @@ ms.locfileid: "74549245"
 
 Quando si lavora con app per la logica di Azure, è possibile configurare un [ *ambiente di Integration Services* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per l'hosting di app per la logica che richiedono l'accesso alle risorse in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Se sono presenti più istanze di ISE che richiedono l'accesso ad altri endpoint con restrizioni IP, distribuire un [firewall di Azure](../firewall/overview.md) o un' [appliance di rete virtuale](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e indirizzare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile fare in modo che tutte le istanze di ISE nella rete virtuale usino un singolo indirizzo IP prevedibile e pubblico per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall nei sistemi di destinazione per ogni ISE. Questo argomento illustra come instradare il traffico in uscita attraverso un firewall di Azure, ma è possibile applicare concetti simili a un'appliance virtuale di rete virtuale, ad esempio un firewall di terze parti da Azure Marketplace.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un firewall di Azure in esecuzione nella stessa rete virtuale di ISE. Se non si dispone di un firewall, aggiungere prima di tutto [una subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) denominata `AzureFirewallSubnet` alla rete virtuale. È quindi possibile [creare e distribuire un firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) nella rete virtuale.
 
@@ -50,7 +50,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
    ![Configurare la regola per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | Value | Description |
    |----------|-------|-------------|
    | **Nome route** | <*Unique-route-name*> | Nome univoco per la route nella tabella di route |
    | **Prefisso indirizzo** | <*indirizzo di destinazione*> | Indirizzo del sistema di destinazione in cui si desidera che il traffico passi. Assicurarsi di usare la [notazione CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per questo indirizzo. |
@@ -72,7 +72,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
    **Proprietà della raccolta regole di rete**
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | Value | Description |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Collection-name*> | Nome della raccolta di regole di rete |
    | **Priorità** | <> *a livello di priorità* | Ordine di priorità da utilizzare per l'esecuzione della raccolta regole. Per altre informazioni, vedere [quali sono alcuni concetti di Azure firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -81,7 +81,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
    **Proprietà della regola di rete**
 
-   | Proprietà | Valore | DESCRIZIONE |
+   | Proprietà | Value | Description |
    |----------|-------|-------------|
    | **Nome** | <*Network-rule-name*> | Nome della regola di rete |
    | **Protocollo** | *protocolli di connessione* <> | Protocolli di connessione da utilizzare. Ad esempio, se si usano le regole di NSG, selezionare sia **TCP** che **UDP**, non solo **TCP**. |

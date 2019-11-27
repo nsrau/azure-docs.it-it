@@ -36,7 +36,7 @@ Alcune raccomandazioni potrebbero non essere applicabili all'ambiente di tutti i
 
 In ogni sezione di questa guida di riferimento è consigliabile assegnare le parti interessate per pianificare e implementare correttamente le attività principali. La tabella seguente illustra l'elenco di tutte le parti interessate in questa guida:
 
-| Stakeholder | DESCRIZIONE |
+| Stakeholder | Description |
 | :- | :- |
 | Team operativo IAM | Questo team gestisce la gestione delle operazioni quotidiane del sistema di gestione delle identità e degli accessi |
 | Team di produttività | Questo team possiede e gestisce le applicazioni di produttività, ad esempio la posta elettronica, la condivisione di file e la collaborazione, la messaggistica immediata e la conferenza. |

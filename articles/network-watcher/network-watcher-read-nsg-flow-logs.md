@@ -33,7 +33,7 @@ I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un accoun
 
 Nello scenario seguente, si dispone di un log dei flussi di esempio che viene archiviato in un account di archiviazione. Viene indicato come è possibile leggere in modo selettivo gli eventi più recenti nei log dei flussi del gruppo di sicurezza di rete. In questo articolo si usa PowerShell, tuttavia, i concetti illustrati nell'articolo non sono limitati al linguaggio di programmazione e sono applicabili a tutte i linguaggi supportati dall'API di Archiviazione di Azure.
 
-## <a name="setup"></a>Setup
+## <a name="setup"></a>Configurazione
 
 Prima di iniziare, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in uno o più gruppi di sicurezza di rete nell'account usato. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 

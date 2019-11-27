@@ -29,10 +29,10 @@ Nella tabella seguente sono elencati i limiti degli elementi e dei caratteri del
 
 | Operazione | Dimensione massima dell'elemento della matrice |   Numero massimo di elementi di matrice |  Dimensioni massime richiesta (caratteri) |
 |:----|:----|:----|:----|
-| Tradurre | 5\.000 | 100   | 5\.000 |
-| Traslitterare | 5\.000 | 10    | 5\.000 |
-| Rilevamento | 10.000 | 100 |   50.000 |
-| BreakSentence | 10.000    | 100 | 50.000 |
+| Translate | 5\.000 | 100   | 5\.000 |
+| Transliterate | 5\.000 | 10    | 5\.000 |
+| Detect | 10,000 | 100 |   50.000 |
+| BreakSentence | 10,000    | 100 | 50.000 |
 | Ricerca nel dizionario| 100 |  10  | 1\.000 |
 | Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|   2\.000 |
 
@@ -56,7 +56,7 @@ I limiti per le [sottoscrizioni multiservizio](https://docs.microsoft.com/azure/
 
 Questi limiti sono limitati ai modelli di traduzione standard di Microsoft. I modelli di traduzione personalizzati che usano il convertitore personalizzato sono limitati a 1.800 caratteri al secondo.
 
-## <a name="latency"></a>Latenza
+## <a name="latency"></a>Latency
 
 Il API Traduzione testuale ha una latenza massima di 15 secondi usando modelli standard e 120 secondi quando si usano modelli personalizzati. In genere, le risposte *per il testo entro 100 caratteri* vengono restituite in 150 millisecondi a 300 millisecondi. I modelli di conversione personalizzati hanno caratteristiche di latenza simili per la frequenza delle richieste sostenute e possono avere una latenza più elevata quando la frequenza delle richieste è intermittente. I tempi di risposta variano in base alle dimensioni della coppia di richieste e lingue. Se non si riceve una traduzione o una [risposta di errore](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) entro questo intervallo di tempo, verificare il codice, la connessione di rete e riprovare. 
 
@@ -64,7 +64,7 @@ Il API Traduzione testuale ha una latenza massima di 15 secondi usando modelli s
 
 Quando si usa la funzione [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), lunghezza delle frasi è limitata a 275 caratteri. Sono previste eccezioni per queste lingue:
 
-| Lingua | Codice | Limite di caratteri |
+| Linguaggio | Codice | Limite di caratteri |
 |----------|------|-----------------|
 | Cinese | zh | 132 |
 | Tedesco | de | 290 |

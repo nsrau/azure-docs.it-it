@@ -22,7 +22,7 @@ ms.locfileid: "74535821"
 
 Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifications.md) , è possibile verificare la presenza di un elenco di macchine virtuali interessate. 
 
-È possibile usare il portale di Azure per cercare le macchine virtuali pianificate per la manutenzione.
+È possibile utilizzare il portale di Azure per cercare le macchine virtuali pianificate per la manutenzione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -34,9 +34,9 @@ Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifi
 
    **Stato manutenzione**: Mostra lo stato di manutenzione della macchina virtuale. Ecco di seguito i valori possibili:
       
-      | Valore | DESCRIZIONE |
+      | Value | Description |
       |-------|-------------|
-      | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
+      | Inizia subito | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
       | Pianificato | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra di manutenzione pianificata in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
       | Già aggiornato | La macchina virtuale è già aggiornata e in questo momento non è richiesta alcuna azione ulteriore. | 
       | Riprova più tardi | La manutenzione è stata avviata, ma senza successo. Sarà possibile usare l'usare di manutenzione self-service in un secondo momento. | 

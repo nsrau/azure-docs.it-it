@@ -65,11 +65,11 @@ La manutenzione Self-Service non è consigliata per le distribuzioni che usano i
 È consigliabile usare la manutenzione self-service nei casi seguenti:
 - Necessità di comunicare un intervallo di manutenzione esatto ai propri responsabili o ai clienti finali. 
 - Necessità di completare la manutenzione entro una data specifica. 
-- Necessità di controllare la sequenza di manutenzione, ad esempio, di un'applicazione a più livelli per garantire un recupero sicuro.
+- Necessità di controllare la sequenza di manutenzione, ad esempio applicazione a più livelli per garantire un recupero sicuro.
 - Sono necessari più di 30 minuti di tempo per il ripristino delle macchine virtuali tra due domini di aggiornamento (UDs). Per controllare l'intervallo tra i domini di aggiornamento, è necessario attivare la manutenzione sulle macchine virtuali di un dominio di aggiornamento alla volta.
 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 
 **D: Perché è necessario riavviare ora le macchine virtuali?**
