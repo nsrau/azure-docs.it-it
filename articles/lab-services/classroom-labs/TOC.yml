@@ -72,8 +72,6 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Abilitare la virtualizzazione annidata in una VM modello
           href: how-to-enable-nested-virtualization-template-vm.md
-        - name: Creare un ambiente con più macchine virtuali all'interno di un modello di macchina virtuale
-          href: how-to-enable-multi-vm-environment.md
     - name: Connettersi a una macchina virtuale in lab per le classi (studente)
       items:
         - name: Accedere ai lab per le classi
