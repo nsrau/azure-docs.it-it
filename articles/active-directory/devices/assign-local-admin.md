@@ -1,5 +1,5 @@
 ---
-title: How to manage local administrators on Azure AD joined devices
+title: Come gestire gli amministratori locali nei dispositivi Azure AD aggiunti
 description: Informazioni su come assegnare i ruoli di Azure al gruppo di amministratori locale di un dispositivo Windows.
 services: active-directory
 ms.service: active-directory
@@ -24,7 +24,7 @@ Per gestire un dispositivo Windows, è necessario essere un membro del gruppo di
 
 Questo articolo illustra come funziona l'aggiornamento dell'appartenenza e come è possibile personalizzarlo durante un'aggiunta ad Azure AD. Il contenuto di questo articolo non si applica a un'aggiunta ad Azure AD **ibrida**.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si connette un dispositivo Windows con Azure AD usando un'aggiunta ad Azure AD, Azure AD aggiunge i principi di sicurezza seguenti al gruppo di amministratori locale nel dispositivo:
 
@@ -59,10 +59,10 @@ Per modificare il ruolo Amministratore dispositivo, configurare **Amministratori
 >[!NOTE]
 > Questa opzione richiede un tenant Azure AD Premium. 
 
-Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
+Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. Nei dispositivi in cui un utente è già connesso, viene eseguito l'aggiornamento dei privilegi quando si verificano *entrambe* le azioni seguenti:
 
-- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
-- User signs out and signs back in, not lock/unlock, to refresh their profile.
+- sono trascorse 4 ore per Azure AD per emettere un nuovo token di aggiornamento primario con i privilegi appropriati. 
+- L'utente si disconnette e torna indietro, non blocca/sblocca, per aggiornare il proprio profilo.
 
 ## <a name="manage-regular-users"></a>Gestire utenti normali
 
@@ -75,7 +75,7 @@ Per impostazione predefinita, Azure AD aggiunge l'utente che esegue l'aggiunta a
 
 Oltre a usare il processo di aggiunta AD Azure, è anche possibile elevare manualmente un utente normale in modo che diventi un amministratore locale su un dispositivo specifico. Per eseguire questo passaggio, è necessario già essere un membro del gruppo Amministratori locale. 
 
-Starting with the **Windows 10 1709** release, you can perform this task from **Settings -> Accounts -> Other users**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
+A partire dalla versione di **Windows 10 1709** , è possibile eseguire questa attività da **Settings-> accounts-> altri utenti**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
  
 È anche possibile aggiungere gli utenti usando il prompt dei comandi:
 
@@ -93,4 +93,4 @@ Quando si rimuovono gli utenti dal ruolo Amministratore dispositivo, questi hann
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica sulla gestione del dispositivo nel portale di Azure AD, vedere [Gestione dei dispositivi tramite il portale di Azure](device-management-azure-portal.md)
-- To learn more about device-based Conditional Access, see [configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).
+- Per altre informazioni sull'accesso condizionale basato su dispositivo, vedere [configurare Azure Active Directory Criteri di accesso condizionale basato su dispositivo](../conditional-access/require-managed-devices.md).

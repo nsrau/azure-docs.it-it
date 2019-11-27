@@ -198,7 +198,7 @@ Per scaricare il pacchetto con versione, fare riferimento alla [documentazione d
 
 Usare il comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire il contenitore. Per informazioni dettagliate su come ottenere i valori `{ENDPOINT_URI}` e `{API_KEY}`, vedere [raccolta dei parametri obbligatori](#gathering-required-parameters) .
 
-Sono disponibili [esempi](luis-container-configuration.md#example-docker-run-commands) di comando `docker run`.
+Sono disponibili [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`.
 
 ```console
 docker run --rm -it -p 5000:5000 ^

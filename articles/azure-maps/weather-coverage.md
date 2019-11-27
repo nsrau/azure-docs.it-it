@@ -193,7 +193,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Polinesia francese                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
 | Isole Heard e McDonald | ✓ |   |  ✓| 
-| RAS di Hong Kong                     | ✓ |   |  ✓| 
+| Hong Kong - R.A.S.                     | ✓ |   |  ✓| 
 | India                             | ✓ |   |  ✓| 
 | Indonesia                         | ✓ |   |  ✓| 
 | Giappone                             | ✓ | ✓ |  ✓| 
