@@ -25,7 +25,7 @@ Dopo la distribuzione delle risorse in un'area specifica di Azure, è possibile 
 - **Allinea per servizi/funzionalità**: spostare le risorse per sfruttare i vantaggi dei servizi o delle funzionalità disponibili in un'area specifica.
 - **Rispondere agli sviluppi aziendali**: spostare le risorse in un'area in risposta alle modifiche aziendali, ad esempio fusioni o acquisizioni.
 - **Allinea per prossimità**: sposta le risorse in un'area locale nell'azienda.
-- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
+- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf)
 - **Rispondere ai requisiti di distribuzione**: spostare le risorse distribuite in errore o spostarle in risposta alle esigenze di capacità. 
 - **Rispondere alla rimozione delle autorizzazioni**: spostare le risorse dovute alla rimozione delle autorizzazioni delle aree.
 

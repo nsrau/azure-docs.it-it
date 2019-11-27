@@ -77,7 +77,7 @@ In questa sezione viene creato un cluster Interactive Query in HDInsight usando 
 
     ![Portale del dashboard del cluster HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Dashboard del cluster HDInsight nel portale")
 
-4. Dal dashboard fare clic sul riquadro **Grafana**. In alternativa, individuare il percorso `/grafana/` dell'URL del cluster. Ad esempio `https://<clustername>.azurehdinsight.net/grafana/`.
+4. Dal dashboard fare clic sul riquadro **Grafana**. In alternativa, individuare il percorso `/grafana/` dell'URL del cluster. Ad esempio: `https://<clustername>.azurehdinsight.net/grafana/`.
 
 5. Immettere le credenziali dell'utente del cluster Hadoop.
 

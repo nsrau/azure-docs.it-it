@@ -1,5 +1,5 @@
 ---
-title: Container image storage
+title: Archiviazione di immagini contenitore
 description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker in Registro Azure Container, tra cui sicurezza, ridondanza e capacità.
 ms.topic: article
 ms.date: 03/21/2018
@@ -30,19 +30,19 @@ Per gli scenari che richiedono una disponibilità ancora più elevata, è consig
 
 Nella tabella seguente vengono descritti i limiti di archiviazione e di immagine del contenitore applicati al Registro contenitori di Azure.
 
-| Gruppi | Limite |
+| Risorsa | Limite |
 | -------- | :---- |
-| Repository | Senza limiti |
-| Immagini | Senza limiti |
-| Livelli | Senza limiti |
-| Tag | Senza limiti|
+| Repository | Nessun limite |
+| Immagini | Nessun limite |
+| Livelli | Nessun limite |
+| Tag | Nessun limite|
 | Archiviazione | 5 TB |
 
 Un numero molto elevato di repository e tag può compromettere le prestazioni del registro. Eliminare periodicamente i repository inutilizzati, tag e le immagini come parte di una routine di manutenzione del registro. Le risorse del registro eliminate, come repository, immagini e tag, *non possono* essere recuperate dopo l'eliminazione. Per altre informazioni sull'eliminazione delle risorse del registro, vedere [Eliminare le immagini del contenitore in Registro Azure Container](container-registry-delete.md).
 
-## <a name="storage-cost"></a>Costo delle risorse di archiviazione
+## <a name="storage-cost"></a>Costo di archiviazione
 
-For full details about pricing, see [Azure Container Registry pricing][pricing].
+Per informazioni dettagliate sui prezzi, vedere [prezzi di Azure container Registry][pricing].
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,7 +1,7 @@
 ---
-title: Entity types - LUIS
+title: Tipi di entità-LUIS
 titleSuffix: Azure Cognitive Services
-description: 'Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances.'
+description: "Le entità estraggono i dati dall'espressione. I tipi di entità offrono un'estrazione prevedibile dei dati. Esistono due tipi di entità: Machine-learned e non-Machine-Learned. È importante individuare il tipo di entità che si sta utilizzando nelle espressioni."
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -18,66 +18,66 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422575"
 ---
-# <a name="entities-and-their-purpose-in-luis"></a>Entities and their purpose in LUIS
+# <a name="entities-and-their-purpose-in-luis"></a>Entità e relativo scopo in LUIS
 
-The primary purpose of entities is to give the client application predictable extraction of data. An _optional_, secondary purpose is to boost the prediction of the intent or other entities with descriptors.
+Lo scopo principale delle entità è fornire all'applicazione client l'estrazione dei dati prevedibile. Uno scopo _facoltativo_, secondario è quello di aumentare la stima della finalità o di altre entità con i descrittori.
 
-There are two types of entities:
+Esistono due tipi di entità:
 
-* machine-learned - from context
-* non-machine-learned - for exact text matches, pattern matches, or detection by prebuilt entities
+* dal contesto di apprendimento automatico
+* non-Machine-Learned: per le corrispondenze esatte del testo, i criteri di ricerca o il rilevamento da entità predefinite
 
-Machine-learned entities provide the widest range of data extraction choices. Non-machine-learned entities work by text matching and may be used independently or as a [constraint](#design-entities-for-decomposition) on a machine-learned entity.
+Le entità apprese dal computer forniscono la più ampia gamma di opzioni di estrazione dei dati. Le entità non apprese dal computer funzionano in base alla corrispondenza del testo e possono essere usate in modo indipendente o come [vincolo](#design-entities-for-decomposition) in un'entità appresa dal computer.
 
 ## <a name="entities-represent-data"></a>Le entità rappresentano dati
 
-Entities are data you want to pull from the utterance, such as names, dates, product names, or any significant group of words. Un'espressione può includere molte entità oppure nessuna. A client application _may_ need the data to perform its task.
+Le entità sono dati che si desidera estrarre dall'espressione, ad esempio nomi, date, nomi di prodotto o qualsiasi gruppo di parole significativo. Un'espressione può includere molte entità oppure nessuna. Un'applicazione client _può_ richiedere i dati per eseguire la relativa attività.
 
-Entities need to be labeled consistently across all training utterances for each intent in a model.
+Le entità devono essere etichettate in modo coerente in tutte le espressioni di training per ogni finalità di un modello.
 
- You can define your own entities or use prebuilt entities to save time for common concepts such as [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [email](luis-reference-prebuilt-email.md), and [phone number](luis-reference-prebuilt-phonenumber.md).
+ È possibile definire entità personalizzate o usare entità predefinite per risparmiare tempo per i concetti comuni, ad esempio [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinale](luis-reference-prebuilt-ordinal.md), [e-mail](luis-reference-prebuilt-email.md)e [numero di telefono](luis-reference-prebuilt-phonenumber.md).
 
-|Espressione|Persona giuridica|Dati|
+|Espressione|Entità|Dati|
 |--|--|--|
 |Buy 3 tickets to New York|Number predefinito<br>Location.Destination|3<br>New York|
-|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>5 marzo 2018|
+|Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>DatetimeV2 predefinito|New York<br>Londra<br>March 5, 2018|
 
-### <a name="entities-are-optional"></a>Entities are optional
+### <a name="entities-are-optional"></a>Le entità sono facoltative
 
 A differenza delle finalità che sono obbligatorie, le entità sono facoltative. Non è necessario creare entità per ogni concetto nell'app, ma solo per quelli necessari all'applicazione client per eseguire un'azione.
 
-If your utterances do not have data the client application requires, you do not need to add entities. As your application develops and a new need for data is identified, you can add appropriate entities to your LUIS model later.
+Se le espressioni non dispongono di dati richiesti dall'applicazione client, non è necessario aggiungere entità. Quando l'applicazione si sviluppa e viene individuata una nuova esigenza di dati, è possibile aggiungere le entità appropriate al modello LUIS in un secondo momento.
 
 ## <a name="entity-compared-to-intent"></a>Entità e finalità
 
-The entity represents a data concept inside the utterance that you want extracted.
+L'entità rappresenta un concetto di dati all'interno dell'espressione che si desidera estrarre.
 
-An utterance may optionally include entities. By comparison, the prediction of the intent for an utterance is _required_ and represents the entire utterance. LUIS requires example utterances are contained in an intent.
+Un enunciato può includere facoltativamente entità. Per confronto, la stima dello scopo di un enunciato è _obbligatoria_ e rappresenta l'intera espressione. LUIS richiede che le espressioni di esempio siano contenute in un Intent.
 
-Consider the following 4 utterances:
+Si considerino le 4 espressioni seguenti:
 
-|Espressione|Finalità stimata|Entities extracted|Spiegazione|
+|Espressione|Finalità stimata|Entità estratte|Spiegazione|
 |--|--|--|--|
-|Supporto|help|-|Nothing to extract.|
-|Send something|sendSomething|-|Nothing to extract. The model has not been trained to extract `something` in this context, and there is no recipient either.|
-|Send Bob a present|sendSomething|`Bob`, `present`|The model has been trained with the [personName](luis-reference-prebuilt-person.md) prebuilt entity, which has extracted the name `Bob`. A machine-learned entity has been used to extract `present`.|
-|Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|The two important pieces of data, `Bob` and the `box of chocolates`, have been extracted by entities.|
+|Guida|help|-|Nessun elemento da estrarre.|
+|Invia qualcosa|sendSomething|-|Nessun elemento da estrarre. Non è stato eseguito il training del modello per estrarre `something` in questo contesto e non esiste alcun destinatario.|
+|Invia Bob a presente|sendSomething|`Bob`, `present`|È stato eseguito il training del modello con l'entità predefinita [PersonName](luis-reference-prebuilt-person.md) , che ha estratto il nome `Bob`. Per estrarre `present`è stata usata un'entità Machine-Learned.|
+|Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|Le due parti importanti dei dati, `Bob` e le `box of chocolates`, sono state estratte dalle entità.|
 
-## <a name="design-entities-for-decomposition"></a>Design entities for decomposition
+## <a name="design-entities-for-decomposition"></a>Progetta entità per la scomposizione
 
-It is good entity design to make your top-level entity a machine-learned entity. This allows for changes to your entity design over time and the use of **subcomponents** (child entities), optionally with **constraints** and **descriptors**, to decompose the top-level entity into the parts needed by the client application.
+Si tratta di una progettazione di entità efficace che rende l'entità di livello superiore un'entità appresa dal computer. Questo consente di modificare la progettazione dell'entità nel tempo e l'utilizzo di **sottocomponenti** (entità figlio), facoltativamente con i **vincoli** e i **descrittori**, per scomporre l'entità di primo livello nelle parti richieste dall'applicazione client.
 
-Designing for decomposition allows LUIS to return a deep degree of entity resolution to your client application. This allows your client application to focus on business rules and leave data resolution to LUIS.
+La progettazione per la scomposizione consente a LUIS di restituire un livello di risoluzione approfondito dell'entità all'applicazione client. Ciò consente all'applicazione client di concentrarsi sulle regole business e lasciare la risoluzione dei dati a LUIS.
 
-### <a name="machine-learned-entities-are-primary-data-collections"></a>Machine-learned entities are primary data collections
+### <a name="machine-learned-entities-are-primary-data-collections"></a>Le entità apprese dal computer sono raccolte dati primarie
 
-[**Machine-learned entities**](tutorial-machine-learned-entity.md) are the top-level data unit. Subcomponents are child entities of machine-learned entities.
+Le [**entità apprese dal computer**](tutorial-machine-learned-entity.md) sono l'unità dati di primo livello. I sottocomponenti sono entità figlio di entità apprese dal computer.
 
-A machine-learned entity triggers based on the context learned through training utterances. **Constraints** are optional rules applied to a machine-learned entity that further constrains triggering based on the exact-text matching definition of a non-machine-learned entity such as a [List](reference-entity-list.md) or [Regex](reference-entity-regular-expression.md). For example, a `size` machine-learned entity can have a constraint of a `sizeList` list entity that constrains the `size` entity to trigger only when values contained within the `sizeList` entity are encountered.
+Trigger di entità appresa dal computer in base al contesto acquisito tramite espressioni di training. I **vincoli** sono regole facoltative applicate a un'entità appresa dal computer che vincola ulteriormente l'attivazione in base alla definizione di corrispondenza esatta del testo di un'entità non appresa dal computer, ad esempio un [elenco](reference-entity-list.md) o un' [espressione regolare](reference-entity-regular-expression.md). Ad esempio, un'entità `size` Machine-learned può avere un vincolo di un'entità `sizeList` list che vincola l'entità `size` a essere attivata solo quando vengono rilevati valori contenuti all'interno dell'entità `sizeList`.
 
-[**Descriptors**](luis-concept-feature.md) are features applied to boost the relevance of the words or phrases for the prediction. They are called *descriptors* because they are used to *describe* an intent or entity. Descriptors describe distinguishing traits or attributes of data, such as important words or phrases. that LUIS observes and learns through.
+I [**descrittori**](luis-concept-feature.md) sono funzionalità applicate per aumentare la pertinenza delle parole o delle frasi per la stima. Sono denominati *descrittori* perché vengono usati per *descrivere* uno scopo o un'entità. I descrittori descrivono la distinzione tra tratti o attributi dei dati, ad esempio parole o frasi importanti. che LUIS osserva e apprende.
 
-When you create a phrase list feature in your LUIS app, it is enabled globally by default and applies evenly across all intents and entities. However, if you apply the phrase list as a descriptor (feature) of a machine-learned entity (or *model*), then its scope reduces to apply only to that model and is no longer used with all the other models. Using a phrase list as a descriptor to a model helps decomposition by assisting with the accuracy for the model it is applied to.
+Quando si crea una funzionalità di elenco di frasi nell'app LUIS, questa viene abilitata a livello globale per impostazione predefinita e si applica in modo uniforme a tutti gli Intent ed entità. Tuttavia, se si applica l'elenco di frasi come descrittore (funzionalità) di un'entità appresa dal computer (o *modello*), l'ambito viene ridotto in modo da applicare solo a tale modello e non viene più utilizzato con tutti gli altri modelli. L'utilizzo di un elenco di frasi come descrittore per un modello consente la scomposizione mediante l'assistenza con l'accuratezza del modello a cui viene applicato.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -90,54 +90,54 @@ When you create a phrase list feature in your LUIS app, it is enabled globally b
 
 Scegliere l'entità in base a come devono essere estratti i dati e a come devono essere rappresentati dopo l'estrazione.
 
-|Tipo di entità|Finalità|
+|Tipo di entità|Scopo|
 |--|--|
-|[**Machine-learned**](tutorial-machine-learned-entity.md)|Machine-learned entities learn from context in the utterance. Parent grouping of entities, regardless of entity type. This makes variation of placement in example utterances significant. |
-|[**Elenco**](reference-entity-list.md)|List of items and their synonyms extracted with **exact text match**.|
+|[**Apprendimento automatico**](tutorial-machine-learned-entity.md)|Le entità apprese dal computer imparano dal contesto nell'espressione. Raggruppamento padre di entità, indipendentemente dal tipo di entità. In questo modo la variazione del posizionamento in espressioni di esempio è significativa. |
+|[**Elenco**](reference-entity-list.md)|Elenco di elementi e relativi sinonimi estratti con la **corrispondenza esatta del testo**.|
 |[**Pattern.any**](reference-entity-pattern-any.md)|Entità di cui è difficile determinare la fine. |
-|[**Predefinita**](luis-reference-prebuilt-entities.md)|Already trained to extract specific kind of data such as URL or email. Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto.|
-|[**Espressione regolare**](reference-entity-regular-expression.md)|Uses regular expression for **exact text match**.|
+|[**Predefinita**](luis-reference-prebuilt-entities.md)|È già stato eseguito il training per estrarre un tipo specifico di dati, ad esempio URL o posta elettronica. Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto.|
+|[**Espressione regolare**](reference-entity-regular-expression.md)|Usa l'espressione regolare per la **corrispondenza esatta del testo**.|
 
-## <a name="extracting-contextually-related-data"></a>Extracting contextually related data
+## <a name="extracting-contextually-related-data"></a>Estrazione di dati correlati al contesto
 
-An utterance may contain two or more occurrences of an entity where the meaning of the data is based on context within the utterance. An example is an utterance for booking a flight that has two locations, origin and destination.
+Un'espressione può contenere due o più occorrenze di un'entità in cui il significato dei dati è basato sul contesto all'interno dell'espressione. Un esempio è un enunciato per la prenotazione di un volo con due località, Origin e Destination.
 
 `Book a flight from Seattle to Cairo`
 
-The two examples of a `location` entity need to be extracted. The client-application needs to know the type of location for each in order to complete the ticket purchase.
+È necessario estrarre i due esempi di un'entità `location`. Per completare l'acquisto del ticket, l'applicazione client deve conoscerne il tipo di posizione.
 
-There are two techniques for extracting contextually-related data:
+Sono disponibili due tecniche per l'estrazione dei dati correlati al contesto:
 
- * The `location` entity is a machine-learned entity and uses two subcomponent entities to capture the  `origin` and `destination` (preferred)
- * The `location` entity uses two **roles** of `origin` and `destination`
+ * L'entità `location` è un'entità appresa dal computer e usa due entità sottocomponenti per acquisire i `origin` e `destination` (scelta consigliata)
+ * L'entità `location` utilizza due **ruoli** di `origin` e `destination`
 
-Multiple entities can exist in an utterance and can be extracted without using decomposition or roles if the context in which they are used has no significance. For example, if the utterance includes a list of locations, `I want to travel to Seattle, Cairo, and London.`, this is a list where each item doesn't have an additional meaning.
+Più entità possono esistere in un enunciato e possono essere estratte senza usare la scomposizione o i ruoli se il contesto in cui vengono usati non ha alcun significato. Se, ad esempio, l'espressione include un elenco di percorsi, `I want to travel to Seattle, Cairo, and London.`, si tratta di un elenco in cui ogni elemento non ha un significato aggiuntivo.
 
-### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Using subcomponent entities of a machine-learned entity to define context
+### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Uso di entità sottocomponenti di un'entità appresa dal computer per la definizione del contesto
 
-You can use a [**machine-learned entity**](tutorial-machine-learned-entity.md) to extract the data that describes the action of booking a flight and then to decompose the top-level entity into the separate parts needed by the client application.
+È possibile usare un' [**entità appresa dal computer**](tutorial-machine-learned-entity.md) per estrarre i dati che descrivono l'azione di prenotazione di un volo e quindi scomporre l'entità di primo livello nelle parti separate richieste dall'applicazione client.
 
-In this example, `Book a flight from Seattle to Cairo`, the top-level entity could be `travelAction` and labeled to extract `flight from Seattle to Cairo`. Then two subcomponent entities are created, called `origin` and `destination`, both with a constraint applied of the prebuilt `geographyV2` entity. In the training utterances, the `origin` and `destination` are labeled appropriately.
+In questo esempio `Book a flight from Seattle to Cairo`, l'entità di livello superiore potrebbe essere `travelAction` ed essere etichettata per estrarre `flight from Seattle to Cairo`. Vengono quindi create due entità sottocomponenti, denominate `origin` e `destination`, con un vincolo applicato dall'entità `geographyV2` predefinita. Negli enunciati di training, il `origin` e il `destination` sono etichettati in modo appropriato.
 
-### <a name="using-entity-role-to-define-context"></a>Using Entity role to define context
+### <a name="using-entity-role-to-define-context"></a>Uso del ruolo entità per la definizione del contesto
 
-A Role is a named alias for an entity based on context within the utterance. Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio. In this example, the `location` entity needs two roles of `origin` and `destination` and both need to be marked in the example utterances.
+Un ruolo è un alias denominato per un'entità in base al contesto all'interno dell'espressione. Un ruolo può essere usato con qualsiasi tipo di entità predefinita o personalizzata, e può essere usato sia nelle espressioni che nei modelli di esempio. In questo esempio, l'entità `location` necessita di due ruoli di `origin` e `destination` ed entrambi devono essere contrassegnati nelle espressioni di esempio.
 
-If LUIS finds the `location` but can't determine the role, the location entity is still returned. The client application would need to follow up with a question to determine which type of location the user meant.
+Se LUIS trova il `location` ma non riesce a determinare il ruolo, l'entità location viene ancora restituita. L'applicazione client dovrà completare una domanda per determinare il tipo di posizione che l'utente ha significato.
 
 
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se sono necessarie più entità rispetto al numero massimo
 
-If you need more than the limit, contact support. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di supporto tecnico, contattare [il supporto tecnico Azure](https://azure.microsoft.com/support/options/).
+Se è necessario più del limite, contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Entity prediction status
+## <a name="entity-prediction-status"></a>Stato stima entità
 
-The LUIS portal shows when the entity, in an example utterance, has a different entity prediction than the entity you selected. This different score is based on the current trained model.
+Il portale LUIS Mostra quando l'entità, in un enunciato di esempio, ha una stima di entità diversa rispetto all'entità selezionata. Questo punteggio diverso si basa sul modello attualmente sottoposto a training.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sui concetti delle [espressioni](luis-concept-utterance.md) valide.
 
-Vedere [Aggiungere entità](luis-how-to-add-entities.md) per altre informazioni sull'aggiunta di entità all'app LUIS.
+Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
 
-See [Tutorial: Extract structured data from user utterance with machine-learned entities in Language Understanding (LUIS)](tutorial-machine-learned-entity.md) to learn how to extract structured data from an utterance using the machine-learned entity.
+Per informazioni su come estrarre i dati strutturati da un enunciato usando l'entità di Machine Learning, vedere [esercitazione: estrarre dati strutturati da un enunciato utente con entità apprese dal computer in Language Understanding (Luis)](tutorial-machine-learned-entity.md) .

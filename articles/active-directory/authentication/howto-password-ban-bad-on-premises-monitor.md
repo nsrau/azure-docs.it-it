@@ -1,5 +1,5 @@
 ---
-title: Password protection monitor and logging- Azure Active Directory
+title: 'Monitoraggio e registrazione delle password: Azure Active Directory'
 description: Informazioni sul monitoraggio e la registrazione in Protezione password di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -22,7 +22,7 @@ ms.locfileid: "74381684"
 
 Dopo la distribuzione di Protezione password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo spiega nel dettaglio varie tecniche di monitoraggio, indicando i percorsi in cui ogni servizio registra le informazioni e illustrando come creare report sull'uso di Protezione password di Azure AD.
 
-Monitoring and reporting are done either by event log messages or by running PowerShell cmdlets. The DC agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
+Il monitoraggio e la creazione di report vengono eseguiti dai messaggi del registro eventi o eseguendo i cmdlet di PowerShell. L'agente controller di dominio e i servizi proxy registrano entrambi i messaggi del registro eventi. Tutti i cmdlet di PowerShell descritti di seguito sono disponibili solo nel server proxy (vedere il modulo AzureADPasswordProtection di PowerShell). Il software dell'agente di controller di dominio non installa un modulo di PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Registrazione eventi dell'agente del controller di dominio
 
@@ -96,9 +96,9 @@ PasswordSetErrors               : 1
 
 È possibile influire sull'ambito del reporting del cmdlet usando uno dei parametri –Forest, -Domain o –DomainController. Se non si specifica un parametro, viene usato il parametro –Forest.
 
-Il cmdlet `Get-AzureADPasswordProtectionSummaryReport` esegue query sul log eventi dell'agente del controller di dominio e quindi conta il numero totale di eventi che corrispondono a ogni categoria di risultati visualizzata. The following table contains the mappings between each outcome and its corresponding event ID:
+Il cmdlet `Get-AzureADPasswordProtectionSummaryReport` esegue query sul log eventi dell'agente del controller di dominio e quindi conta il numero totale di eventi che corrispondono a ogni categoria di risultati visualizzata. La tabella seguente contiene i mapping tra ogni risultato e l'ID evento corrispondente:
 
-|Proprietà Get-AzureADPasswordProtectionSummaryReport |Corresponding event ID|
+|Proprietà Get-AzureADPasswordProtectionSummaryReport |ID evento corrispondente|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -235,7 +235,7 @@ La registrazione di testo è disabilitata per impostazione predefinita. Per rend
 
 Il software del servizio agente del controller di dominio installa un oggetto contatore delle prestazioni denominato **protezione password di Azure AD**. Sono attualmente disponibili i contatori delle prestazioni seguenti:
 
-|Nome contatore delle prestazioni | Description|
+|Nome contatore delle prestazioni | DESCRIZIONE|
 | --- | --- |
 |Passwords processed (Password elaborate) |Questo contatore indica il numero totale di password elaborate (accettate o rifiutate) dall'ultimo riavvio.|
 |Passwords accepted (Password accettate) |Questo contatore indica il numero totale di password accettate dall'ultimo riavvio.|
@@ -269,11 +269,11 @@ L'ambito della query del cmdlet può essere ulteriormente definito usando il par
 
 Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto al fatto che l'agente del controller di dominio di Protezione password di Azure AD in quel controller di dominio non è in esecuzione o è stato disinstallato oppure il computer è stato abbassato di livello e non è più un controller di dominio.
 
-If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine is not working properly.
+Se il valore di PasswordPolicyDateUTC non è aggiornato, potrebbe trattarsi di un sintomo del mancato funzionamento dell'agente del controller di dominio Azure AD Password Protection nel computer.
 
-## <a name="dc-agent-newer-version-available"></a>DC agent newer version available
+## <a name="dc-agent-newer-version-available"></a>Versione più recente dell'agente DC disponibile
 
-The DC agent service will log a 30034 warning event to the Operational log upon detecting that a newer version of the DC agent software is available, for example:
+Il servizio agente controller di dominio registrerà un evento di avviso 30034 nel registro operativo quando rileverà la disponibilità di una versione più recente del software dell'agente controller di dominio, ad esempio:
 
 ```text
 An update for Azure AD Password Protection DC Agent is available.
@@ -287,10 +287,10 @@ https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
 Current version: 1.2.116.0
 ```
 
-The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
+L'evento precedente non specifica la versione del software più recente. Per tali informazioni, è necessario passare al collegamento nel messaggio dell'evento.
 
 > [!NOTE]
-> Despite the references to "autoupgrade" in the above event message, the DC agent software does not currently support this feature.
+> Nonostante i riferimenti a "AutoUpgrade" nel messaggio di evento precedente, il software dell'agente di controller di dominio non supporta attualmente questa funzionalità.
 
 ## <a name="proxy-service-event-logging"></a>Registrazione eventi del servizio proxy
 
@@ -313,7 +313,7 @@ Gli eventi vengono registrati dai diversi componenti proxy tramite gli intervall
 | --- | --- |
 |Processo di hosting del servizio proxy| 10000-19999|
 |Logica di business di base del servizio proxy| 20000-29999|
-|Cmdlet di PowerShell| 30000-39999|
+|Cmdlet PowerShell| 30000-39999|
 
 ## <a name="proxy-service-text-logging"></a>Registrazione di testo del servizio proxy
 
@@ -335,7 +335,7 @@ La registrazione di testo è disabilitata per impostazione predefinita. Per rend
 
 I cmdlet di PowerShell che generano una modifica dello stato (ad esempio Register-AzureADPasswordProtectionProxy) normalmente registrano un evento risultato nel log operativo.
 
-In addition, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
+Inoltre, la maggior parte dei cmdlet di PowerShell per la protezione Azure AD password scriverà in un log di testo che si trova in:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -361,9 +361,9 @@ L'ambito della query del cmdlet può essere ulteriormente definito usando il par
 
 Se il valore HeartbeatUTC non viene aggiornato, il problema può essere dovuto al fatto che il proxy di Protezione password di Azure AD in quel computer non è in esecuzione o è stato disinstallato.
 
-## <a name="proxy-agent-newer-version-available"></a>Proxy agent newer version available
+## <a name="proxy-agent-newer-version-available"></a>Versione più recente dell'agente proxy disponibile
 
-The Proxy service will log a 20002 warning event to the Operational log upon detecting that a newer version of the proxy software is available, for example:
+Il servizio proxy registrerà un evento di avviso 20002 nel registro operativo quando rileverà la disponibilità di una versione più recente del software proxy, ad esempio:
 
 ```text
 An update for Azure AD Password Protection Proxy is available.
@@ -378,9 +378,9 @@ Current version: 1.2.116.0
 .
 ```
 
-The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
+L'evento precedente non specifica la versione del software più recente. Per tali informazioni, è necessario passare al collegamento nel messaggio dell'evento.
 
-This event will be emitted even if the Proxy agent is configured with autoupgrade enabled.
+Questo evento verrà generato anche se l'agente proxy è configurato con AutoUpgrade abilitato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

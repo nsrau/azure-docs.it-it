@@ -1,6 +1,6 @@
 ---
-title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
-description: Learn how to create and egress event endpoints in Azure Digital Twins.
+title: Uscita ed endpoint-dispositivi gemelli digitali di Azure | Microsoft Docs
+description: Informazioni su come creare ed estrarre gli endpoint evento nei dispositivi gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456921"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress and endpoints in Azure Digital Twins
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint nei dispositivi gemelli digitali di Azure
 
 Gli *endpoint* di Gemelli digitali di Azure rappresentano un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
 
@@ -47,16 +47,16 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attributo | Type | Description |
+| Attribute | digitare | DESCRIZIONE |
 | --- | --- | --- |
-| id | string | Identificatore univoco dell'evento. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| data | object | Dati dell'evento specifici del provider di risorse. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| id | stringa | Identificatore univoco dell'evento. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| data | oggetto | Dati dell'evento specifici del provider di risorse. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 
 Per altre informazioni sullo schema di eventi di Griglia di eventi:
 
@@ -85,18 +85,18 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Documentazione
+- Report
 - RoleDefinition
 - Sensore
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Agenzie spaziali
+- Spazio
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- Sistema
-- Utente
+- System
+- User
 - UserBlobMetadata
 - UserExtendedProperty
 
@@ -122,7 +122,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -153,7 +153,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -188,7 +188,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -223,7 +223,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -246,7 +246,7 @@ Gli esempi seguenti illustrano come configurare gli endpoint supportati.
 >[!IMPORTANT]
 > Prestare particolare attenzione all'attributo **eventTypes**. Definisce infatti i tipi di eventi gestiti dall'endpoint e ne determina quindi il routing.
 
-An authenticated HTTP POST request against:
+Richiesta HTTP POST autenticata rispetto a:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione|
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |

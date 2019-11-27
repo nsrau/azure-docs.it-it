@@ -6,58 +6,58 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 23687ddcfb7911a999ee06ac8df8badf341b41d9
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484208"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>View deployment history with Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Visualizzare la cronologia delle distribuzioni con Azure Resource Manager
 
-Azure Resource Manager enables you to view your deployment history and examine specific operations in past deployments. You can see the resources that were deployed, and get information about any errors.
+Azure Resource Manager consente di visualizzare la cronologia di distribuzione ed esaminare operazioni specifiche nelle distribuzioni precedenti. È possibile visualizzare le risorse che sono state distribuite e ottenere informazioni su eventuali errori.
 
-Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>di Microsoft Azure
 
-To get details about a deployment from the deployment history.
+Per ottenere informazioni dettagliate su una distribuzione dalla cronologia di distribuzione.
 
-1. Select the resource group you want to examine.
+1. Selezionare il gruppo di risorse che si desidera esaminare.
 
-1. Select the link under **Deployments**.
+1. Selezionare il collegamento in **distribuzioni**.
 
-   ![Select deployment history](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![Seleziona cronologia di distribuzione](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. Select one of the deployments from the deployment history.
+1. Selezionare una delle distribuzioni dalla cronologia di distribuzione.
 
    ![Selezionare la distribuzione](./media/resource-manager-deployment-operations/select-details.png)
 
-1. A summary of the deployment is displayed, including a list of the resources that were deployed.
+1. Viene visualizzato un riepilogo della distribuzione, incluso un elenco delle risorse che sono state distribuite.
 
     ![Riepilogo della distribuzione](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. To view the template used for the deployment, select **Template**. You can download the template to reuse it.
+1. Per visualizzare il modello utilizzato per la distribuzione, selezionare **modello**. È possibile scaricare il modello per riutilizzarlo.
 
     ![Mostrare il modello](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. If your deployment failed, you see an error message. Select the error message for more details.
+1. Se la distribuzione non è riuscita, viene visualizzato un messaggio di errore. Per ulteriori informazioni, selezionare il messaggio di errore.
 
-    ![View failed deployment](./media/resource-manager-deployment-operations/show-error.png)
+    ![Visualizzazione della distribuzione non riuscita](./media/resource-manager-deployment-operations/show-error.png)
 
-1. The detailed error message is displayed.
+1. Viene visualizzato il messaggio di errore dettagliato.
 
-    ![View error details](./media/resource-manager-deployment-operations/show-details.png)
+    ![Visualizza dettagli errore](./media/resource-manager-deployment-operations/show-details.png)
 
-1. The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+1. L'ID di correlazione viene utilizzato per tenere traccia degli eventi correlati e può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione.
 
-    ![Get correlation ID](./media/resource-manager-deployment-operations/get-correlation-id.png)
+    ![Ottenere l'ID di correlazione](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. To learn more about the step that failed, select **Operation details**.
+1. Per ulteriori informazioni sul passaggio che ha avuto esito negativo, selezionare **Dettagli operazione**.
 
-    ![Select deployment operations](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![Selezionare le operazioni di distribuzione](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. You see the details for that step of the deployment.
+1. Vengono visualizzati i dettagli per il passaggio della distribuzione.
 
-    ![Show operation details](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![Mostra dettagli operazione](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -75,7 +75,7 @@ In alternativa, è possibile filtrare i risultati per visualizzare solo le distr
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment. Per ottenere l'ID di correlazione, usare:
+L'ID di correlazione viene utilizzato per tenere traccia degli eventi correlati e può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione. Per ottenere l'ID di correlazione, usare:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -121,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, You'll use the trackingId in the next step to focus on a particular operation.
+Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, Il trackingId verrà usato nel passaggio successivo per concentrarsi su una determinata operazione.
 
 Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
@@ -137,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are logged.
+Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Durante la distribuzione, è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono registrate.
 
 Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
 
@@ -149,13 +149,13 @@ Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi Pow
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-To get the overall status of a deployment, use the **azure group deployment show** command.
+Per ottenere lo stato complessivo di una distribuzione, usare il comando **Azure Group Deployment Show** .
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+L'ID di correlazione viene utilizzato per tenere traccia degli eventi correlati e può essere utile quando si utilizza il supporto tecnico per risolvere i problemi relativi a una distribuzione.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -169,7 +169,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## <a name="rest"></a>REST
 
-The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
+Nell'esempio seguente viene illustrato come ottenere informazioni su una distribuzione. Per la documentazione relativa alla versione più recente dell'API, vedere l'operazione [Deployments-Get](/rest/api/resources/deployments/get) .
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -192,7 +192,7 @@ Nella risposta si notino in particolare gli elementi **provisioningState**, **co
 }
 ```
 
-The following example shows how to get deployment operations. For documentation about the latest API version, see the [Deployment Operations - List](/rest/api/resources/deploymentoperations/list) operation.
+Nell'esempio seguente viene illustrato come ottenere le operazioni di distribuzione. Per la documentazione relativa alla versione più recente dell'API, vedere operazione di [distribuzione-elenco](/rest/api/resources/deploymentoperations/list) .
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -226,7 +226,7 @@ La risposta include la richiesta e/o le informazioni sulla risposta in base a qu
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per altre informazioni sull'uso dei log attività per monitorare altri tipi di azioni, vedere [Visualizzare i log attività per gestire le risorse di Azure](resource-group-audit.md).
 * Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
 

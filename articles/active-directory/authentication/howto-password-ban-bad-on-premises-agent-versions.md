@@ -1,5 +1,5 @@
 ---
-title: Password protection agent release history - Azure Active Directory
+title: Cronologia delle versioni dell'agente protezione password-Azure Active Directory
 description: Documentazione della cronologia delle versioni e delle modifiche di comportamento
 services: active-directory
 ms.service: active-directory
@@ -22,39 +22,39 @@ ms.locfileid: "74381725"
 
 ## <a name="121250"></a>1.2.125.0
 
-Release date: 3/22/2019
+Data di rilascio: 3/22/2019
 
-* Fix minor typo errors in event log messages
-* Update EULA agreement to final General Availability version
+* Correzione di errori di digitazione secondari nei messaggi del registro eventi
+* Aggiornare il contratto EULA alla versione finale di disponibilità generale
 
 > [!NOTE]
-> Build 1.2.125.0 is the General Availability build. Thank you again to everyone has provided feedback on the product!
+> Build 1.2.125.0 è la build di disponibilità generale. Grazie ancora a tutti gli utenti hanno inviato commenti e suggerimenti sul prodotto.
 
 ## <a name="121160"></a>1.2.116.0
 
-Release date: 3/13/2019
+Data di rilascio: 3/13/2019
 
-* The Get-AzureADPasswordProtectionProxy and Get-AzureADPasswordProtectionDCAgent cmdlets now report software version and the current Azure tenant with the following limitations:
-  * Software version and Azure tenant data are only available for DC agents and proxies running version 1.2.116.0 or later.
-  * Azure tenant data may not be reported until a re-registration (or renewal) of the proxy or forest has occurred.
-* The Proxy service now requires that .NET 4.7 is installed.
-  * .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * On Server Core systems it may be necessary to pass the /q flag to the .NET 4.7 installer to get it to succeed.
-* The Proxy service now supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default.
-* Automatic upgrade can be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
-* The service binary for the DC agent service has been renamed to AzureADPasswordProtectionDCAgent.exe.
-* The service binary for the Proxy service has been renamed to AzureADPasswordProtectionProxy.exe. Firewall rules may need to be modified accordingly if a third-party firewall is in-use.
-  * NOTE: if an http proxy config file was being used in a previous Proxy install, it will need to be renamed (from *proxyservice.exe.config* to *AzureADPasswordProtectionProxy.exe.config*) after this upgrade.
-* All time-limited functionality checks have been removed from the DC agent.
-* Minor bugs fixes and logging improvements.
+* I cmdlet Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent ora segnalano la versione del software e il tenant di Azure corrente con le limitazioni seguenti:
+  * La versione del software e i dati del tenant di Azure sono disponibili solo per gli agenti DC e i proxy che eseguono la versione 1.2.116.0 o successiva.
+  * I dati del tenant di Azure potrebbero non essere segnalati fino a quando non si è verificata una nuova registrazione (o rinnovo) del proxy o della foresta.
+* Il servizio proxy richiede ora l'installazione di .NET 4,7.
+  * .NET 4,7 dovrebbe essere già installato in un server Windows completamente aggiornato. In caso contrario, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione di .NET Framework 4,7 offline per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Nei sistemi Server Core può essere necessario passare il flag/q al programma di installazione di .NET 4,7 per ottenere un esito positivo.
+* Il servizio proxy supporta ora l'aggiornamento automatico. L'aggiornamento automatico usa il servizio Microsoft Azure AD Connect Agent Updater, installato side-by-side con il servizio proxy. L'aggiornamento automatico è on per impostazione predefinita.
+* L'aggiornamento automatico può essere abilitato o disabilitato usando il cmdlet Set-AzureADPasswordProtectionProxyConfiguration. È possibile eseguire query sull'impostazione corrente usando il cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* Il file binario del servizio per il servizio agente di controller di dominio è stato rinominato in AzureADPasswordProtectionDCAgent. exe.
+* Il file binario del servizio proxy è stato rinominato in AzureADPasswordProtectionProxy. exe. Se è in uso un firewall di terze parti, potrebbe essere necessario modificare le regole del firewall di conseguenza.
+  * Nota: se è stato usato un file di configurazione proxy HTTP in un'installazione proxy precedente, sarà necessario rinominarlo (da *proxyservice. exe. config* a *AzureADPasswordProtectionProxy. exe. config*) dopo l'aggiornamento.
+* Tutti i controlli di funzionalità con limiti di tempo sono stati rimossi dall'agente del controller di dominio.
+* Correzioni di bug secondari e miglioramenti della registrazione.
 
 ## <a name="12650"></a>1.2.65.0
 
-Release date: 2/1/2019
+Data di rilascio: 2/1/2019
 
 Modifiche:
 
-* L'agente del controller di dominio e il servizio proxy sono ora supportati in Server Core. Mininimum OS requirements are unchanged from before: Windows Server 2012 for DC agents, and Windows Server 2012 R2 for proxies.
+* L'agente del controller di dominio e il servizio proxy sono ora supportati in Server Core. I requisiti del sistema operativo Mininimum sono rimasti invariati rispetto alle precedenti: Windows Server 2012 per gli agenti DC e Windows Server 2012 R2 per proxy.
 * I cmdlet Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest ora supportano le modalità di autenticazione di Azure basate sul codice del dispositivo.
 * Il cmdlet Get-AzureADPasswordProtectionDCAgent ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug a causa del quale talvolta i controller di dominio venivano visualizzati più volte nell'output.
 * Il cmdlet Get-AzureADPasswordProtectionSummaryReport ignorerà i punti di connessione del servizio modificati e/o non validi. Questa modifica corregge il bug a causa del quale talvolta i controller di dominio venivano visualizzati più volte nell'output.

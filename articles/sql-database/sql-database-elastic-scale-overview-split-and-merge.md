@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati tra database cloud con scalabilità orizzontale
+title: Spostamento di dati tra database cloud con scalabilità orizzontale
 description: Illustra come gestire partizioni e spostare dati tramite un servizio self-hosted usando API di database elastici.
 services: sql-database
 ms.service: sql-database
@@ -18,15 +18,15 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74421567"
 ---
-# <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostare i dati tra database cloud con scalabilità orizzontale
+# <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
 
 Se lo sviluppatore di un'app SaaS (Software as a Service) registra un incremento importante della richiesta dell'app, dovrà far fronte alla domanda. A tale scopo aggiungerà altri database (partizioni). Come ridistribuire i dati nei nuovi database senza comprometterne l'integrità? Per spostare dati dai database vincolati ai nuovi database, usare lo **strumento di suddivisione-unione** .  
 
 Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. Un amministratore o uno sviluppatore usa lo strumento per spostare shardlet (dati di una partizione) tra diversi database (partizioni). Lo strumento usa la gestione delle mappe partizioni per gestire il database di metadati del servizio e per garantire mapping coerenti.
 
-![Panoramica][1]
+![Overview][1]
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scaricare
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
@@ -36,7 +36,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 2. [Configurazione della sicurezza dei servizi di "split and merge"](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Considerazioni sulla sicurezza dello strumento di suddivisione-unione](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
-5. [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
+5. [Eseguire la migrazione di database esistenti per aumentare il numero di istanze](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [Strumenti di database elastici](sql-database-elastic-scale-introduction.md)
 7. [Glossario sugli strumenti di database elastici](sql-database-elastic-scale-glossary.md)
 
@@ -180,7 +180,7 @@ L'implementazione corrente del servizio di suddivisione-unione deve rispettare i
 
 Il servizio di suddivisione-unione viene eseguito come servizio cloud nella sottoscrizione Microsoft Azure. Pertanto all'istanza del servizio vengono applicate tariffe per i servizi cloud. Se non si eseguono spesso operazioni di suddivisione/unione/spostamento, è consigliabile eliminare il servizio cloud di suddivisione-unione, in modo da ridurre i costi per le istanze dei servizi cloud in esecuzione o distribuite. È possibile eseguire di nuovo la distribuzione e avviare la configurazione pronta per l'esecuzione quando occorre eseguire operazioni di suddivisione-unione.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 ### <a name="status-tables"></a>Tabelle di stato
 
@@ -210,7 +210,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Valore XML che fornisce un report di stato più dettagliato. Il report di stato viene aggiornato periodicamente durante la copia di set di righe dall'origine alla destinazione. In caso di errori o eccezioni, questa colonna include anche informazioni più dettagliate sull'errore.
 
-### <a name="azure-diagnostics"></a>Diagnostica di Azure
+### <a name="azure-diagnostics"></a>Diagnostica Azure
 
 Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure SDK 2.5 per il monitoraggio e la diagnostica. È possibile controllare la configurazione della diagnostica come indicato di seguito: [Abilitazione della diagnostica nei servizi cloud e nelle macchine virtuali di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). Il pacchetto di download include due configurazioni della diagnostica: una per il ruolo Web e una per il ruolo di lavoro. Essi includono le definizioni per la registrazione di contatori delle prestazioni, log IIS, registri eventi di Windows e registri eventi dell'applicazione di suddivisione-unione.
 
@@ -219,7 +219,7 @@ Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione della diagnostica per i ruoli Web e di lavoro forniti dal pacchetto NuGet, eseguire i seguenti comandi utilizzando Azure PowerShell:
 
@@ -251,7 +251,7 @@ La tabella WADLogsTable evidenziata nella figura precedente include gli eventi d
 
 ![Configurazione][3]
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 
 In generale i livelli di servizio più elevati ed efficienti del database SQL di Azure offrono prestazioni migliori. Allocazioni di IO, CPU e memoria più elevate per i livelli di servizio superiori risulteranno utili per le operazioni di copia ed eliminazione in blocco usate internamente dal servizio di suddivisione-unione. Per questo motivo, aumentare il livello di servizio solo per tali database per un periodo di tempo limitato e definito.
 

@@ -1,6 +1,6 @@
 ---
-title: Reverse DNS for Azure services - Azure DNS
-description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
+title: DNS inverso per i servizi di Azure-DNS di Azure
+description: Con questo percorso di apprendimento, iniziare a configurare le ricerche DNS inverse per i servizi ospitati in Azure.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -61,7 +61,7 @@ Azure supporta attualmente il DNS inverso solo per le risorse PublicIpAddress IP
 
 #### <a name="powershell"></a>PowerShell
 
-To update reverse DNS to an existing PublicIpAddress:
+Per aggiornare il DNS inverso a un PublicIpAddress esistente:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -212,7 +212,7 @@ Per rimuovere una proprietà di DNS inverso da un servizio cloud esistente:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>Quanto costano i record DNS inversi?
 

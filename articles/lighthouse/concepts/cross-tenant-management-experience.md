@@ -64,7 +64,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Visualizzare avvisi per le sottoscrizioni delegate, con la possibilità di visualizzare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
-- Log analytics: Query data from remote customer workspaces in multiple tenants
+- Log Analytics: eseguire query sui dati dalle aree di lavoro del cliente remoto in più tenant
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio runbook di Automazione di Azure o Funzioni di Azure, nel tenant del provider di servizi tramite webhook
 
 [Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/):

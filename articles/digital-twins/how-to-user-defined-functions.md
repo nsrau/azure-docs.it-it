@@ -1,5 +1,5 @@
 ---
-title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
+title: Come creare funzioni definite dall'utente-in dispositivi gemelli digitali di Azure | Microsoft Docs
 description: Linee guida su come creare funzioni definite dall'utente, matcher e assegnazioni di ruolo con Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -69,7 +69,7 @@ Con corpo JSON:
 }
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Area del server in cui è ospitata l'istanza |
 
@@ -109,9 +109,9 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | Sostituire con |
+| Valore | Sostituire con |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
+| USER_DEFINED_BOUNDARY | Un nome di limite del contenuto costituito da più parti |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
 | YOUR_MATCHER_IDENTIFIER | ID del matcher da usare |
 
@@ -214,7 +214,7 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_SPACE_NAME | Nome dello spazio da usare |
 
@@ -234,11 +234,11 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     }
     ```
 
-    | Value | Sostituire con |
+    | Valore | Sostituire con |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificatore del ruolo desiderato |
     | YOUR_USER_DEFINED_FUNCTION_ID | L'ID per la funzione definita dall'utente da usare |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID che specifica il tipo di funzione definito dall'utente (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | Percorso di controllo di accesso |
 
 >[!TIP]

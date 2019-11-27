@@ -1,5 +1,5 @@
 ---
-title: Resource providers and resource types
+title: Provider di risorse e tipi di risorse
 description: Descrive i provider di risorse che supportano Gestione risorse, i relativi schemi e le versioni API disponibili, nonché le aree che possono ospitare le risorse.
 ms.topic: conceptual
 ms.date: 08/29/2019
@@ -12,7 +12,7 @@ ms.locfileid: "74422223"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
-Quando si distribuiscono risorse, è spesso necessario recuperare informazioni sui provider e i tipi di risorse. For example, if you want to store keys and secrets, you work with the Microsoft.KeyVault resource provider. This resource provider offers a resource type called vaults for creating the key vault.
+Quando si distribuiscono risorse, è spesso necessario recuperare informazioni sui provider e i tipi di risorse. Se ad esempio si vuole archiviare chiavi e segreti, è possibile usare il provider di risorse Microsoft. Key Vault. Questo provider di risorse offre un tipo di risorsa denominato Vaults per la creazione dell'insieme di credenziali delle chiavi.
 
 Il nome di un tipo di risorsa è nel formato: **{resource-provider}/{resource-type}** . Il tipo di risorsa per un insieme di credenziali delle chiavi è **Microsoft.KeyVault/vaults**.
 
@@ -25,16 +25,16 @@ In questo articolo viene spiegato come:
 * Visualizzare le località valide per un tipo di risorsa
 * Visualizzare le versioni API valide per un tipo di risorsa
 
-You can do these steps through the Azure portal, Azure PowerShell, or Azure CLI.
+Per eseguire questa procedura, è possibile usare l'interfaccia della riga di comando di portale di Azure, Azure PowerShell o Azure.
 
-For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
+Per un elenco che esegue il mapping dei provider di risorse ai servizi di Azure, vedere [provider di risorse per i servizi di Azure](azure-services-resource-providers.md).
 
-## <a name="azure-portal"></a>Portale di Azure
+## <a name="azure-portal"></a>portale di Azure
 
 Per visualizzare tutti i provider di risorse e lo stato di registrazione della propria sottoscrizione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. On the Azure portal menu, select **All services**.
+2. Scegliere **tutti i servizi**dal menu portale di Azure.
 
     ![selezionare sottoscrizioni](./media/resource-manager-supported-services/select-all-services.png)
 
@@ -44,14 +44,14 @@ Per visualizzare tutti i provider di risorse e lo stato di registrazione della p
 
     ![visualizzare i provider di risorse](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Per registrare un provider di risorse, selezionare **Registra**. Nello screenshot precedente il collegamento **Registra** è evidenziato per **Microsoft.Blueprint**.
+6. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. Per registrare un provider di risorse, è necessario disporre dell'autorizzazione per eseguire l'operazione `/register/action` per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Per registrare un provider di risorse, selezionare **Registra**. Nello screenshot precedente il collegamento **Registra** è evidenziato per **Microsoft.Blueprint**.
 
-    You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
+    Non è possibile annullare la registrazione di un provider di risorse quando i tipi di risorse del provider di risorse sono ancora presenti nella sottoscrizione.
 
 Per visualizzare le informazioni relative uno specifico provider di risorse:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. On the Azure portal menu, select **All services**.
+2. Scegliere **tutti i servizi**dal menu portale di Azure.
 3. Nella casella **Tutti i servizi** immettere **esplora risorse** e quindi selezionare **Esplora risorse**.
 
     ![Selezionare Tutti i servizi](./media/resource-manager-supported-services/select-resource-explorer.png)
@@ -94,7 +94,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario.
+La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. Per registrare un provider di risorse, è necessario disporre dell'autorizzazione per eseguire l'operazione `/register/action` per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,7 +109,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
+Non è possibile annullare la registrazione di un provider di risorse quando i tipi di risorse del provider di risorse sono ancora presenti nella sottoscrizione.
 
 Per visualizzare informazioni su un provider di risorse specifico, usare il comando seguente:
 
@@ -199,7 +199,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario.
+La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. Per registrare un provider di risorse, è necessario disporre dell'autorizzazione per eseguire l'operazione `/register/action` per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -207,7 +207,7 @@ az provider register --namespace Microsoft.Batch
 
 Che restituisce un messaggio di registrazione in corso.
 
-You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
+Non è possibile annullare la registrazione di un provider di risorse quando i tipi di risorse del provider di risorse sono ancora presenti nella sottoscrizione.
 
 Per visualizzare informazioni su un provider di risorse specifico, usare il comando seguente:
 
@@ -289,5 +289,5 @@ West US
 
 * Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). 
 * Per visualizzare gli schemi dei modelli dei provider di risorse, vedere le [informazioni di riferimento sui modelli](/azure/templates/).
-* For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
+* Per un elenco che esegue il mapping dei provider di risorse ai servizi di Azure, vedere [provider di risorse per i servizi di Azure](azure-services-resource-providers.md).
 * Per visualizzare le operazioni di un provider di risorse, vedere [Azure REST API](/rest/api/) (API REST di Azure).

@@ -25,12 +25,12 @@ I comandi ``cp`` o ``copy`` che vengono comunemente usati per trasferire dati da
 
 Questo articolo illustra le strategie per creare un sistema di copia multi-client a thread multipli per spostare dati nel cluster Avere vFXT. Spiega i concetti relativi al trasferimento di file e le decisioni da prendere per una copia dei dati efficiente usando più client e semplici comandi di copia.
 
-Illustra inoltre alcune utilità che possono essere di ausilio. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using ``rsync`` commands. Lo script ``parallelcp`` è un'altra utilità che legge la directory di origine e invia automaticamente i comandi di copia. Also, the ``rsync`` tool can be used in two phases to provide a quicker copy that still provides data consistency.
+Illustra inoltre alcune utilità che possono essere di ausilio. L'utilità ``msrsync`` può essere utilizzata per automatizzare parzialmente il processo di suddivisione di un set di dati in bucket e l'utilizzo di ``rsync`` comandi. Lo script ``parallelcp`` è un'altra utilità che legge la directory di origine e invia automaticamente i comandi di copia. Inoltre, lo strumento ``rsync`` può essere utilizzato in due fasi per offrire una copia più veloce che fornisce ancora la coerenza dei dati.
 
 Fare clic sul collegamento per passare a una sezione:
 
 * [Esempio di copia manuale ](#manual-copy-example): spiegazione completa sull'uso dei comandi di copia
-* [Two-phase rsync example](#use-a-two-phase-rsync-process)
+* [Esempio di rsync a due fasi](#use-a-two-phase-rsync-process)
 * [Esempio di automazione parziale (msrsync)](#use-the-msrsync-utility)
 * [Esempio di copia parallela](#use-the-parallel-copy-script)
 
@@ -113,7 +113,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ### <a name="when-to-add-mount-points"></a>Quando aggiungere punti di montaggio
 
-Quando si raggiunge un numero sufficiente di thread paralleli verso un singolo punto di montaggio del file system di destinazione, vi sarà un punto in cui l'aggiunta di più thread non offre una velocità effettiva maggiore. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.
+Quando si raggiunge un numero sufficiente di thread paralleli verso un singolo punto di montaggio del file system di destinazione, vi sarà un punto in cui l'aggiunta di più thread non offre una velocità effettiva maggiore. (La velocità effettiva viene misurata in file al secondo o in byte al secondo, a seconda del tipo di dati.) O peggio, il overthreading può a volte causare una riduzione della velocità effettiva.
 
 In questo caso, è possibile aggiungere punti di montaggio lato client ad altri indirizzi IP del cluster vFXT, usando lo stesso percorso di montaggio del file system remoto:
 
@@ -240,7 +240,7 @@ Se hai cinque client, usare un comando simile al seguente:
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-And for six.... Extrapolate as needed.
+E per sei.... Estrapolare in base alle esigenze.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
@@ -258,44 +258,44 @@ Il comando precedente fornirà *N* file, ognuno con un comando di copia per riga
 
 L'obiettivo è eseguire contemporaneamente più thread di questi script per client, in parallelo in più client.
 
-## <a name="use-a-two-phase-rsync-process"></a>Use a two-phase rsync process
+## <a name="use-a-two-phase-rsync-process"></a>Usare un processo rsync a due fasi
 
-The standard ``rsync`` utility does not work well for populating cloud storage through the Avere vFXT for Azure system because it generates a large number of file create and rename operations to guarantee data integrity. However, you can safely use the ``--inplace`` option with ``rsync`` to skip the more careful copying procedure if you follow that with a second run that checks file integrity.
+L'utilità di ``rsync`` standard non funziona bene per il popolamento dell'archiviazione cloud tramite il vFXT di sicurezza di rete per Azure perché genera un numero elevato di operazioni di creazione e ridenominazione dei file per garantire l'integrità dei dati. Tuttavia, è possibile usare in modo sicuro l'opzione ``--inplace`` con ``rsync`` per ignorare la procedura di copia più attenta se si segue con una seconda esecuzione che controlla l'integrità dei file.
 
-A standard ``rsync`` copy operation creates a temporary file and fills it with data. If the data transfer completes successfully, the temporary file is renamed to the original filename. This method guarantees consistency even if the files are accessed during copy. But this method generates more write operations, which slows file movement through the cache.
+Un'operazione di copia ``rsync`` standard crea un file temporaneo e lo compila con i dati. Se il trasferimento dei dati viene completato correttamente, il file temporaneo viene rinominato con il nome file originale. Questo metodo garantisce la coerenza anche se si accede ai file durante la copia. Questo metodo genera tuttavia più operazioni di scrittura, che rallentano lo spostamento dei file nella cache.
 
-The option ``--inplace`` writes the new file directly in its final location. Files are not guaranteed to be consistent during transfer, but that is not important if you are priming a storage system for use later.
+L'opzione ``--inplace`` scrive il nuovo file direttamente nella posizione finale. Non è garantito che i file siano coerenti durante il trasferimento, ma ciò non è importante se si sta comprimendo un sistema di archiviazione per usarlo in seguito.
 
-The second ``rsync`` operation serves as a consistency check on the first operation. Because the files have already been copied, the second phase is a quick scan to ensure that the files on the destination match the files on the source. If any files don't match, they are recopied.
+La seconda operazione di ``rsync`` funge da verifica della coerenza sulla prima operazione. Poiché i file sono già stati copiati, la seconda fase è un'analisi veloce per assicurarsi che i file nella destinazione corrispondano ai file nell'origine. Se i file non corrispondono, vengono ricopiati.
 
-You can issue both phases together in one command:
+È possibile eseguire entrambe le fasi insieme in un unico comando:
 
 ```bash
 rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 ```
 
-This method is a simple and time-effective method for datasets up to the number of files the internal directory manager can handle. (This is typically 200 million files for a 3-node cluster, 500 million files for a six-node cluster, and so on.)
+Questo metodo è un metodo semplice e a tempo effettivo per i set di dati fino al numero di file che possono essere gestiti da gestione directory interna. Si tratta in genere di 200 milioni file per un cluster a 3 nodi, 500 milioni file per un cluster a sei nodi e così via.
 
-## <a name="use-the-msrsync-utility"></a>Use the msrsync utility
+## <a name="use-the-msrsync-utility"></a>Usare l'utilità msrsync
 
 Per spostare i dati in un core filer back-end per il cluster Avere si può anche usare lo strumento ``msrsync``. Questo strumento è progettato per ottimizzare l'utilizzo della larghezza di banda mediante l'esecuzione parallela di più processi ``rsync``. È disponibile da GitHub all'indirizzo <https://github.com/jbd/msrsync>.
 
 ``msrsync`` suddivide la directory di origine in contenitori separati e quindi esegue singoli processi ``rsync`` in ogni contenitore.
 
-I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``-p`` di ``msrsync`` per impostare il numero di processi su 64.
+I test preliminari su una macchina virtuale con quattro core hanno indicato la massima efficienza utilizzando 64 processi. Usare l'opzione ``msrsync`` di ``-p`` per impostare il numero di processi su 64.
 
-You also can use the ``--inplace`` argument with ``msrsync`` commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process), described above) to ensure data integrity.
+È anche possibile usare l'argomento ``--inplace`` con ``msrsync`` comandi. Se si usa questa opzione, provare a eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
 
-``msrsync`` can only write to and from local volumes. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
+``msrsync`` possibile scrivere solo in e da volumi locali. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
 
-To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, follow these instructions:
+Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di inserimento, seguire queste istruzioni:
 
-1. Install ``msrsync`` and its prerequisites (rsync and Python 2.6 or later)
+1. Installare ``msrsync`` e i relativi prerequisiti (rsync e Python 2,6 o versione successiva)
 1. Determinare il numero totale di file e directory da copiare.
 
-   For example, use the Avere utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Usare, ad esempio, l'utilità ``prime.py`` con gli argomenti ```prime.py --directory /path/to/some/directory``` (disponibili scaricando l'URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
-   If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
+   Se non si usa ``prime.py``, è possibile calcolare il numero di elementi con lo strumento di ``find`` GNU come indicato di seguito:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -305,13 +305,13 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
 
 1. Dividere il numero di elementi per 64 per determinare il numero di elementi per ogni processo. Usare questo numero con l'opzione ``-f`` per impostare le dimensioni dei contenitori quando si esegue il comando.
 
-1. Issue the ``msrsync`` command to copy files:
+1. Eseguire il comando ``msrsync`` per copiare i file:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   If using ``--inplace``, add a second execution without the option to check that the data is correctly copied:
+   Se si usa ``--inplace``, aggiungere una seconda esecuzione senza l'opzione per verificare che i dati vengano copiati correttamente:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>

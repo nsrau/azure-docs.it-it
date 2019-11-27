@@ -1,6 +1,6 @@
 ---
-title: Password protection operations and reports - Azure Active Directory
-description: Azure AD Password Protection post-deployment operations and reporting
+title: Operazioni di protezione delle password e report-Azure Active Directory
+description: Operazioni di post-distribuzione e creazione di report per la protezione delle password Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -28,11 +28,11 @@ Seguire le indicazioni fornite nell'articolo [Configurazione dell'elenco persona
 
 ## <a name="enable-password-protection"></a>Abilitare la password di protezione
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password Protection**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**, metodi di **autenticazione**e quindi **proteggere con password**.
 1. Impostare **Enable Password Protection on Windows Server Active Directory** (Abilita la password di protezione in Windows Server Active Directory) su **Sì**
 1. Come indicato nella [Guida alla distribuzione](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), è consigliabile impostare inizialmente **Modalità** su **Controllo**
    * Dopo avere familiarizzato con la funzione, è possibile impostare **Modalità** su **Applicato**
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**
 
 ![Abilitazione dei componenti della password di protezione di Azure AD nel portale di Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
@@ -56,11 +56,11 @@ Questo messaggio è solo un esempio dei possibili risultati. Il messaggio di err
 Gli utenti finali interessati potrebbero avere bisogno di collaborare con il proprio personale IT per comprendere i nuovi requisiti e scegliere password sicure.
 
 > [!NOTE]
-> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
+> Azure AD Password Protection non ha alcun controllo sul messaggio di errore specifico visualizzato dal computer client quando viene rifiutata una password vulnerabile.
 
 ## <a name="enable-mode"></a>Modalità di abilitazione
 
-This setting should be left in its default enabled (Yes) state. Se si configura questa impostazione sullo stato disabilitato (No) tutti gli agenti del controller di dominio della password di protezione di Azure AD passeranno a una modalità inattiva in cui tutte le password vengono accettate così come sono, senza alcuna attività di convalida (ad esempio, non verranno generati nemmeno gli eventi di controllo).
+Questa impostazione deve essere lasciata nello stato predefinito abilitato (Sì). Se si configura questa impostazione sullo stato disabilitato (No) tutti gli agenti del controller di dominio della password di protezione di Azure AD passeranno a una modalità inattiva in cui tutte le password vengono accettate così come sono, senza alcuna attività di convalida (ad esempio, non verranno generati nemmeno gli eventi di controllo).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

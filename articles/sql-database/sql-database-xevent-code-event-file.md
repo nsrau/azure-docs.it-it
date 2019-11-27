@@ -1,5 +1,5 @@
 ---
-title: XEvent Event File code
+title: Codice del file evento XEvent
 description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Database SQL di Azure. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
 ms.service: sql-database
@@ -34,12 +34,12 @@ Questo argomento presenta un esempio di codice in due fasi:
   - per assegnare il contenitore di Archiviazione di Azure a una destinazione del file evento.
   - Per creare e avviare la sessione dell'evento e così via.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 - Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Qualsiasi database in cui è possibile creare una tabella.
@@ -54,7 +54,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 
 - È necessario che i [moduli di Azure PowerShell](https://go.microsoft.com/?linkid=9811175) siano installati.
 
-  - The modules provide commands such as - **New-AzStorageAccount**.
+  - I moduli forniscono comandi come- **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
 
@@ -74,7 +74,7 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 
 ### <a name="powershell-code"></a>Codice PowerShell
 
-This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+Questo script di PowerShell presuppone che sia già stato installato il modulo AZ. Per informazioni, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. One **\<event>** element is displayed which shows one UPDATE statement.
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un **\<evento >** elemento che mostra un'istruzione Update.
 
-Here is one **\<event>** element that was generated during testing:
+Di seguito è riportato un **\<evento >** elemento generato durante il test:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">

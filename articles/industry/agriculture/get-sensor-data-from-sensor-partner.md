@@ -1,6 +1,6 @@
 ---
-title: Get sensor data from the partners
-description: Describes how to get sensor data from partners
+title: Ottenere i dati dei sensori dai partner
+description: Viene descritto come ottenere i dati dei sensori dai partner
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -12,50 +12,50 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406495"
 ---
-# <a name="get-sensor-data-from-sensor-partners"></a>Get sensor data from sensor partners
+# <a name="get-sensor-data-from-sensor-partners"></a>Ottenere i dati dei sensori dai partner dei sensori
 
-Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Data hub. Currently, the following Sensor device partners are supported:
+Azure FarmBeats ti aiuta a importare i dati in streaming dai tuoi dispositivi e sensori Internet all'hub dati. Attualmente sono supportati i seguenti partner di dispositivi per i sensori:
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-Integrating Device data with Azure FarmBeats helps you get ground data from the IoT Sensors deployed in your farm to the Data hub. The data, once available can be visualized through the FarmBeats Accelerator and can be used for data fusion and AI/ML model building using FarmBeats.
+L'integrazione dei dati del dispositivo con Azure FarmBeats consente di ottenere dati di base dai sensori di Internet delle cose distribuiti nella farm nell'hub dati. I dati, una volta disponibili, possono essere visualizzati tramite l'acceleratore FarmBeats e possono essere usati per la fusione dei dati e per la creazione di modelli AI/ML con FarmBeats.
 
-To start sensor data streaming, ensure the following:
+Per avviare il flusso di dati dei sensori, verificare quanto segue:
 
--  You have installed FarmBeats from Azure Marketplace.
--  You have decided on the sensors and devices that you want to install on your farm.
--  If you are planning to use soil moisture sensors, you can use FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of       sensors and where exactly should place the sensors. For more information, see [Generate Maps](generate-maps.md).
+-  È stato installato FarmBeats da Azure Marketplace.
+-  Si è deciso di scegliere i sensori e i dispositivi da installare nella farm.
+-  Se si prevede di usare i sensori di umidità del suolo, è possibile usare la mappa di posizionamento del sensore di umidità del suolo FarmBeats per ottenere una raccomandazione sul numero di sensori e dove posizionare esattamente i sensori. Per altre informazioni, vedere [generate Maps](generate-maps.md).
 
-- Purchase and deploy device/sensors from your device partner in your farm. Make sure you can access the sensor data via your device partners’ solution.
+- Acquistare e distribuire dispositivi/sensori dal partner del dispositivo nella farm. Assicurarsi che sia possibile accedere ai dati dei sensori tramite la soluzione per i partner del dispositivo.
 
-### <a name="enable-device-integration-with-farmbeats"></a>Enable device integration with FarmBeats   
+### <a name="enable-device-integration-with-farmbeats"></a>Abilitare l'integrazione dei dispositivi con FarmBeats   
 
-Once you have started the streaming of sensor data, you can start the process of getting the data into your FarmBeats system. You need to provide the following information to your device provider to enable the integration to FarmBeats:  
+Una volta avviato lo streaming dei dati del sensore, è possibile avviare il processo di recupero dei dati nel sistema FarmBeats. Per abilitare l'integrazione con FarmBeats, è necessario fornire le informazioni seguenti al provider di dispositivi:  
 
  - Endpoint API  
  - ID tenant  
- - ID client  
- - Client Secret  
- - EventHub Connection String
+ - ID Client  
+ - Segreto client  
+ - Stringa di connessione EventHub
 
-The above information is provided to you by your system integrator. For any issues while enabling the device integrations, contact your system integrator.
+Le informazioni sopra riportate sono fornite dall'integratore di sistemi. Per eventuali problemi durante l'abilitazione delle integrazioni dei dispositivi, contattare l'integratore di sistemi.
 
-Alternatively, you can generate the credentials by running this script from the Azure Cloud Shell. Seguire questa procedura:
+In alternativa, è possibile generare le credenziali eseguendo questo script dalla Azure Cloud Shell. Seguire questa procedura:
 
-1. Download the [ZIP file](https://aka.ms/farmbeatspartnerscript) and extract to your local drive. You will find two files inside the ZIP file.
-2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)  
+1. Scaricare il [file zip](https://aka.ms/farmbeatspartnerscript) ed estrarlo nell'unità locale. Sono presenti due file all'interno del file ZIP.
+2. Accedere a https://portal.azure.com/ e aprire Cloud Shell (questa opzione è disponibile nella barra superiore destra del portale)  
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
+    ![Beat Farm progetto](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Ensure the environment is set to **PowerShell** - by default it is set to Bash.
+3. Verificare che l'ambiente sia impostato su **PowerShell** . per impostazione predefinita, è impostato su bash.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. Upload the two files (from step 1 above) in your Cloud Shell.
+4. Caricare i due file (dal passaggio 1 precedente) nell'Cloud Shell.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (by default it gets uploaded to the home directory> username).
+5. Passare alla directory in cui sono stati caricati i file (per impostazione predefinita, viene caricata nella Home Directory > nome utente).
 6. Eseguire lo script seguente:
 
     ```azurepowershell-interactive 
@@ -63,97 +63,97 @@ Alternatively, you can generate the credentials by running this script from the 
     ./generateCredentials.ps1   
 
     ```
-7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String). The EventHub Connection String will be available as part of the API response in the swagger.
+7. Seguire le istruzioni visualizzate per acquisire i valori. (Endpoint API, ID tenant, ID client, segreto client e stringa di connessione EventHub). La stringa di connessione EventHub sarà disponibile come parte della risposta API in spavalderia.
 
-**Integrate device data using the generated credentials**
+**Integrare i dati del dispositivo usando le credenziali generate**
 
-Visit the device partner portal, to link FarmBeats using the set of credentials you generated in the previous section.
+Visitare il portale per i partner per i dispositivi per collegare FarmBeats usando il set di credenziali generate nella sezione precedente.
 
  - Endpoint API  
- - EventHub Connection String  
- - ID client  
- - Client Secret  
+ - Stringa di connessione EventHub  
+ - ID Client  
+ - Segreto client  
  - ID tenant  
 
- The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
+ Il provider del dispositivo conferma una corretta integrazione. Al momento della conferma, è possibile visualizzare tutti i dispositivi e i sensori in Azure FarmBeats.
 
-## <a name="view-devices-and-sensors"></a>View devices and sensors
+## <a name="view-devices-and-sensors"></a>Visualizzare dispositivi e sensori
 
-Use the following section to view the devices and sensors in your farm.
+Usare la sezione seguente per visualizzare i dispositivi e i sensori nella farm.
 
 ### <a name="view-devices"></a>Visualizzare i dispositivi
 
-Currently FarmBeats supports the following devices:
+Attualmente FarmBeats supporta i dispositivi seguenti:
 
-- **Node**: a device to which one or more sensors are attached to.
-- **Gateway**: a device to which one or more nodes are attached to.
-
-Seguire questa procedura:
-
-1. On the home page, select **Devices** from the menu.
-  The Devices page displays the device type, model, status, the farm it’s placed in, and the last updated date for metadata. By default, the farm column is set to NULL. You can choose to assign a device to a farm. For more information, see [Assign devices](#assign-devices).
-2. Select the device to view the device properties, telemetry and child devices connected to the device.  
-
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
-
-### <a name="view-sensors"></a>View sensors
+- **Node**: dispositivo a cui sono collegati uno o più sensori.
+- **Gateway**: un dispositivo a cui sono collegati uno o più nodi.
 
 Seguire questa procedura:
 
-1. On the home page, select **Sensors** from the menu.
-  The Sensors page displays details about type of sensor, the farm it's connected to, the parent device, port name, port type and the last updated status.
-2. Select the sensor to view sensor properties, active alerts and telemetry from the sensor.
+1. Nella home page selezionare **dispositivi** dal menu.
+  Nella pagina dispositivi vengono visualizzati il tipo di dispositivo, il modello, lo stato, la farm in cui è inserito e la data dell'ultimo aggiornamento per i metadati. Per impostazione predefinita, la colonna della farm è impostata su NULL. È possibile scegliere di assegnare un dispositivo a una farm. Per altre informazioni, vedere [assegnare i dispositivi](#assign-devices).
+2. Selezionare il dispositivo per visualizzare le proprietà del dispositivo, la telemetria e i dispositivi figlio connessi al dispositivo.  
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
 
-## <a name="assign-devices"></a>Assign devices  
-
-Once you have the sensor data flowing in, you can assign it to the farm in which you have deployed the sensors.
-
-1. On the home page, select **Farms** from the menu, the **Farms** list page is displayed.  
-2. Select the Farm to which you want to assign the device and select **Add Devices**.  
-3. The **Add Devices** window displays. Select the device you want to assign to the farm.
-
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
-
-4. Select **Add Devices**. Alternatively, go to the **Devices** menu, select the devices you want to assign to a farm and select **Associate Devices**.  
-5. In the **Associate Devices** window, select the farm from drop-down and select **Apply to All** to associate the farm to all the selected devices.
-
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
-
-6. To associate each device to a different farm, select the drop-down in the **Assign to Farm** column and select a farm for each device row.  
-7. Select **Assign** to complete device assignment.
-
-### <a name="visualize-sensor-data"></a>Visualize sensor data
+### <a name="view-sensors"></a>Visualizza sensori
 
 Seguire questa procedura:
 
-1. On the home page, select **Farms** from the menu to view the **Farms** page.  
-2. Select the **Farm** for which you want to see the sensor data.  
-3. On the **Farm** dashboard, you can view telemetry data. You can choose to view live telemetry or use **Custom Range** to view in a specific date range.
+1. Nella home page selezionare **sensori** dal menu.
+  La pagina sensori Visualizza i dettagli relativi al tipo di sensore, alla farm a cui è connessa, al dispositivo padre, al nome della porta, al tipo di porta e all'ultimo stato aggiornato.
+2. Selezionare il sensore per visualizzare le proprietà dei sensori, gli avvisi attivi e i dati di telemetria dal sensore.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
-## <a name="delete-sensor"></a>Delete sensor
+## <a name="assign-devices"></a>Assegnare i dispositivi  
+
+Una volta che i dati del sensore sono stati propagati in, è possibile assegnarli alla farm in cui sono stati distribuiti i sensori.
+
+1. Nella home page selezionare **Farm** dal menu. viene visualizzata la pagina dell'elenco **Farm** .  
+2. Selezionare la farm a cui si vuole assegnare il dispositivo e selezionare **Aggiungi dispositivi**.  
+3. Viene visualizzata la finestra **Aggiungi dispositivi** . Selezionare il dispositivo che si desidera assegnare alla farm.
+
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+
+4. Selezionare **Aggiungi dispositivi**. In alternativa, passare al menu **dispositivi** , selezionare i dispositivi da assegnare a una farm e selezionare **Associa dispositivi**.  
+5. Nella finestra **Associa dispositivi** selezionare la farm dall'elenco a discesa e selezionare **applica a tutti** per associare la farm a tutti i dispositivi selezionati.
+
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
+
+6. Per associare ogni dispositivo a una farm diversa, selezionare l'elenco a discesa nella colonna **assegna a farm** e selezionare una farm per ogni riga del dispositivo.  
+7. Selezionare **assegna** per completare l'assegnazione del dispositivo.
+
+### <a name="visualize-sensor-data"></a>Visualizzare i dati dei sensori
 
 Seguire questa procedura:
 
-1. On the home page, select **Sensors** from the menu to view the **Sensors** page.  
-2. Select the device you want to delete and select **Delete** from confirmation window.
+1. Nella home page selezionare **Farm** dal menu per visualizzare la pagina **Farm** .  
+2. Selezionare la **Farm** per cui si desidera visualizzare i dati del sensore.  
+3. Nel dashboard della **Farm** è possibile visualizzare i dati di telemetria. È possibile scegliere di visualizzare la telemetria in tempo reale o usare un **intervallo personalizzato** per visualizzarlo in un intervallo di date specifico.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/telemetry-data-1.png)
 
-A confirmation message shows that the sensor is successfully deleted.  
+## <a name="delete-sensor"></a>Elimina sensore
+
+Seguire questa procedura:
+
+1. Nella home page selezionare **sensori** dal menu per visualizzare la pagina **sensori** .  
+2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** dalla finestra di conferma.
+
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+
+Un messaggio di conferma indica che il sensore è stato eliminato correttamente.  
 
 ## <a name="delete-devices"></a>Eliminare dispositivi
 
 Seguire questa procedura:
 
-1. On the home page, select **Devices** from the menu to view the devices page.  
-2. Select the device you want to delete and select **Delete** from the confirmation window.
+1. Nella home page selezionare **dispositivi** dal menu per visualizzare la pagina dispositivi.  
+2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** dalla finestra di conferma.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
+    ![Beat Farm progetto](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-You now have sensor data flowing into your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps.md#generate-maps) for your farms.
+È ora possibile passare i dati del sensore nell'istanza di Azure FarmBeats. A questo punto, viene illustrato come [generare mappe](generate-maps.md#generate-maps) per le farm.

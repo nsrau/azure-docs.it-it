@@ -1,5 +1,5 @@
 ---
-title: Migrate TDE certificate - managed instance
+title: Eseguire la migrazione del certificato Transparent Data-istanza gestita
 description: Eseguire la migrazione a un'istanza gestita del database SQL di Azure del certificato di protezione della chiave di crittografia di un database con Transparent Data Encryption
 services: sql-database
 ms.service: sql-database
@@ -30,9 +30,9 @@ In caso di migrazione di un database protetto tramite [Transparent Data Encrypti
 Per un'opzione alternativa basata sull'uso di un servizio completamente gestito per una migrazione senza problemi sia del database protetto tramite TDE che del certificato corrispondente, vedere l'articolo su [come eseguire la migrazione di un database locale a Istanza gestita con Servizio Migrazione del database di Azure](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. Soon after restore is done, the migrated certificate gets replaced by a different protector, either service-managed certificate or asymmetric key from the key vault, depending on the type of the transparent data encryption you set on the instance.
+> Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. Al termine del ripristino, il certificato migrato viene sostituito da una protezione diversa, ovvero un certificato gestito dal servizio o una chiave asimmetrica dall'insieme di credenziali delle chiavi, a seconda del tipo di Transparent Data Encryption impostato sull'istanza.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare le procedure in questo articolo, sono necessari i prerequisiti seguenti:
 
@@ -43,22 +43,22 @@ Per completare le procedure in questo articolo, sono necessari i prerequisiti se
 
 Assicurarsi che sia disponibile quanto segue:
 
-- Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
+- Modulo Azure PowerShell [installato e aggiornato](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [AZ. SQL Module](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-Run the following commands in PowerShell to install/update the module:
+Eseguire i comandi seguenti in PowerShell per installare/aggiornare il modulo:
 
 ```azurepowershell
 Install-Module -Name Az.Sql
 Update-Module -Name Az.Sql
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -156,9 +156,9 @@ Se il certificato si trova nell'archivio certificati del computer locale di SQL 
        -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-You need to first [setup an Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) with your *.pfx* file.
+È necessario innanzitutto [configurare un Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) con il file con *estensione pfx* .
 
 1. Per iniziare, eseguire i passaggi di preparazione in PowerShell:
 

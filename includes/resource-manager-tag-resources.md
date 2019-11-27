@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -52,7 +52,7 @@ Per eseguire l'assegnazione in blocco dei tag a più risorse:
 
 Per visualizzare tutte le risorse con un tag:
 
-1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
+1. Scegliere **tutti i servizi**dal menu portale di Azure. Selezionare **generale**, quindi **tag**.
 
      ![Ricerca in base al tag](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -70,4 +70,4 @@ Per visualizzare tutte le risorse con un tag:
 
 1. La visualizzazione è disponibile dal dashboard.
 
-     ![dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)
+     ![Dashboard](./media/resource-manager-tag-resources/dashboard-with-view.png)
