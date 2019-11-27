@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: c691281f1ff0cf88d1ba61af43fad8e7782924aa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278516"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546961"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
 
@@ -218,7 +218,7 @@ Nella sezione **origine** dell'attività di copia sono supportate le proprietà 
 | requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No |
 
 >[!NOTE]
->REST Connector ignora qualsiasi intestazione "Accept" specificata in `additionalHeaders`. Poiché il connettore REST supporta solo la risposta in JSON, TT genererà automaticamente un'intestazione di `Accept: application/json`.
+>REST Connector ignora qualsiasi intestazione "Accept" specificata in `additionalHeaders`. Poiché REST Connector supporta solo la risposta in JSON, viene generata automaticamente un'intestazione di `Accept: application/json`.
 
 **Esempio 1: uso del metodo Get con l'impaginazione**
 

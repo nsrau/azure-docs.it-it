@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eefac10e2ab196affc4c4148348d19959fcfeec
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266905"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547518"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -326,6 +326,10 @@ gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Power BI, 
 
 > [!NOTE]
 > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Power BI". È l'"Amministratore di Power BI" nel [portale di Azure](https://portal.azure.com).
+
+### <a name="power-platform-administratorpower-platform-administrator-permissions"></a>[Amministratore di Power Platform](#power-platform-administrator-permissions)
+
+Gli utenti con questo ruolo possono creare e gestire tutti gli aspetti degli ambienti, PowerApps, i flussi, i criteri di prevenzione della perdita dei dati. Inoltre, gli utenti con questo ruolo hanno la possibilità di gestire i ticket di supporto e monitorare l'integrità dei servizi.
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[Amministratore di autenticazione con privilegi](#privileged-authentication-administrator-permissions)
 
@@ -1345,12 +1349,31 @@ Può gestire tutti gli aspetti del prodotto Power BI.
 > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
 >
 >
-
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gestire tutti gli aspetti di Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
+
+
+### <a name="power-platform-administrator-permissions"></a>Autorizzazioni di amministratore di Power Platform
+
+Consente di creare e gestire tutti gli aspetti di Microsoft Dynamics 365, PowerApps e Microsoft Flow. 
+
+> [!NOTE]
+> Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+>
+>
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| Microsoft. Dynamics 365/allEntities/allTasks | Gestire tutti gli aspetti di Dynamics 365. |
+| Microsoft. Flow/allEntities/allTasks | Gestire tutti gli aspetti del Microsoft Flow. |
+| Microsoft. powerApps/allEntities/allTasks | Gestire tutti gli aspetti di PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1708,6 +1731,7 @@ Supporto partner - Livello 1 | Supporto partner - Livello 1 | 4ba39ca4-527c-499a
 Supporto partner - Livello 2 | Supporto partner - Livello 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Amministratore password | Amministratore password | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Amministratore del servizio Power BI | Amministratore Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Amministratore di Power Platform | Amministratore piattaforma Power | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Amministratore di autenticazione con privilegi | Amministratore di autenticazione con privilegi | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Amministratore dei ruoli con privilegi | Amministratore dei ruoli con privilegi | e8611ab8-c189-46e8-94e1-60213ab1f814
 Lettore di report | Lettore di report | 4a5d8f65-41da-4de4-8968-e035b65339cf

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: f356b9d248ac9c5f0bcfaaeeb37b43d958eaa528
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/25/2019
+ms.openlocfilehash: 74cc13386befa5cd97900b6b36d07d3144d9b727
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822366"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534212"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto vCore
 
@@ -31,7 +31,6 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 > [!IMPORTANT]
 > Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un pool elastico](sql-database-elastic-pool-scale.md)
-
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Calcolo per utilizzo generico-Gen4
 
@@ -48,8 +47,8 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Numero massimo di database per pool|100|200|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Dimensioni massime dei dati (GB)|512|756|756|1536|1536|1536|
-|Dimensioni massime dei log|154|227|227|461|461|461|
+|Dimensioni massime dei dati (GB)|512|756|1536|1536|1536|2048|
+|Dimensioni massime dei log|154|227|461|461|461|614|
 |Dimensioni di TempDB (GB)|32|64|96|128|160|192|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
@@ -66,7 +65,6 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
-
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio per utilizzo generico: piattaforma di calcolo di generazione 4 (parte 2)
 
 |Dimensioni di calcolo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
@@ -77,8 +75,8 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Numero massimo di database per pool|500|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Dimensioni massime dei dati (GB)|1536|2048|2048|2048|3584|4096|
-|Dimensioni massime del log (GB)|461|614|614|614|1075|1229|
+|Dimensioni massime dei dati (GB)|2048|2048|2048|2048|3584|4096|
+|Dimensioni massime del log (GB)|614|614|614|614|1075|1229|
 |Dimensioni di TempDB (GB)|224|256|288|320|384|384|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
@@ -95,7 +93,6 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 \* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
-
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Calcolo per utilizzo generico-quinta generazione
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio utilizzo generico: piattaforma di calcolo di generazione 5 (parte 1)
@@ -104,12 +101,12 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10.2|20,4|30,6|40.8|51|61,2|71,4|
+|Memoria (GB)|10.2|20.4|30,6|40.8|51|61,2|71,4|
 |Numero massimo di database per pool|100|200|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Dimensioni massime dei dati (GB)|512|756|756|1536|1536|1536|
-|Dimensioni massime del log (GB)|154|227|227|461|461|461|461|
+|Dimensioni massime dei dati (GB)|512|756|1536|1536|1536|2048|2048|
+|Dimensioni massime del log (GB)|154|227|461|461|461|614|614|
 |Dimensioni di TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
@@ -132,12 +129,12 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|81,6|91,8|102|122.4|163,2|204|408|
+|Memoria (GB)|81.6|91,8|102|122.4|163,2|204|408|
 |Numero massimo di database per pool|500|500|500|500|500|500|500|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Dimensioni massime dei dati (GB)|2048|2048|3072|3072|4096|4096|4096|
-|Dimensioni massime del log (GB)|614|614|922|922|1229|1229|1229|
+|Dimensioni massime dei dati (GB)|2048|3072|3072|3072|4096|4096|4096|
+|Dimensioni massime del log (GB)|614|922|922|922|1229|1229|1229|
 |Dimensioni di TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
@@ -178,11 +175,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |Scalabilità orizzontale in lettura|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|
 
-
-
-
 \* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
-
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Calcolo con provisioning critico per il business-Gen4
 
@@ -191,29 +184,29 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Livello di servizio business critical: piattaforma di calcolo di generazione 4 (parte 1)
 
-|Dimensioni di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Dimensioni di calcolo|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCore|1|2|3|4|5|6|
-|Memoria (GB)|7|14|21|28|35|42|
-|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1|2|3|4|5|6|
-|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
-|Dimensioni massime dei dati (GB)|650|650|650|650|650|650|
-|Dimensioni massime del log (GB)|195|195|195|195|195|195|
-|Dimensioni di TempDB (GB)|32|64|96|128|160|192|
-|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Limiti di velocità del log (MBps)|10|20|30|40|50|60|
-|Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|
-|Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|
-|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
-|Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
-|Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
-|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+|Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|
+|vCore|2|3|4|5|6|
+|Memoria (GB)|14|21|28|35|42|
+|Numero massimo di database per pool|100|100|100|100|100|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|2|3|4|5|6|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|
+|Dimensioni massime del log (GB)|307|307|307|307|307|
+|Dimensioni di TempDB (GB)|64|96|128|160|192|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Target IOPS (64 KB)|10000|15000|20000|25000|30000|
+|Limiti di velocità del log (MBps)|20|30|40|50|60|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|420|630|840|1050|1260|
+|Numero massimo di accessi simultanei per pool (richieste) *|420|630|840|1050|1260|
+|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|
+|Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1...3|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...5|0, 0,25, 0,5, 1...6|
+|Numero di repliche|4|4|4|4|4|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
@@ -223,13 +216,13 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione di calcolo|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCore|7|8|9|10|16|24|
-|Memoria (GB)|81,6|91,8|102|122.4|163,2|204|
+|Memoria (GB)|81.6|91,8|102|122.4|163,2|204|
 |Numero massimo di database per pool|100|100|100|100|100|100|
 |Supporto per columnstore|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archiviazione OLTP in memoria (GB)|7|8|9,5|11|20|36|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
-|Dimensioni massime dei dati (GB)|650|650|650|650|1024|1024|
-|Dimensioni massime del log (GB)|195|195|195|195|307|307|
+|Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
+|Dimensioni massime del log (GB)|307|307|307|307|307|307|
 |Dimensioni di TempDB (GB)|224|256|288|320|384|384|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
@@ -249,29 +242,29 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio business critical: generazione 5 piattaforma di calcolo (parte 1)
 
-|Dimensioni di calcolo|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Dimensioni di calcolo|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
-|vCore|2|4|6|8|10|12|14|
-|Memoria (GB)|10.2|20,4|30,6|40.8|51|61,2|71,4|
-|Numero massimo di database per pool|Sono supportati solo i database singoli per queste dimensioni di calcolo|50|100|100|100|100|100|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1.571|3.142|4,713|6.284|8,655|11,026|13,397|
-|Dimensioni massime dei dati (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Dimensioni massime del log (GB)|307|307|307|461|461|922|922|
-|Dimensioni di TempDB (GB)|64|128|192|256|320|384|384|
-|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
-|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
-|Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Limiti di velocità del log (MBps)|15|30|45|60|75|90|105|
-|Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
-|Numero massimo di accessi simultanei per pool (richieste) *|210|420|630|840|1050|1260|1470|
-|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
-|Numero minimo/massimo di opzioni vCore del pool elastico per database|N/D|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
-|Numero di repliche|4|4|4|4|4|4|4|
+|Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
+|vCore|4|6|8|10|12|14|
+|Memoria (GB)|20.4|30,6|40.8|51|61,2|71,4|
+|Numero massimo di database per pool|100|100|100|100|100|100|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|3.142|4,713|6.284|8,655|11,026|13,397|
+|Dimensioni massime dei dati (GB)|1024|1536|1536|1536|3072|3072|
+|Dimensioni massime del log (GB)|307|307|461|461|922|922|
+|Dimensioni di TempDB (GB)|128|192|256|320|384|384|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Target IOPS (64 KB)|10000|15000|20000|25000|30000|35000|
+|Limiti di velocità del log (MBps)|30|45|60|75|90|105|
+|Numero massimo di ruoli di lavoro simultanei per pool (richieste) *|420|630|840|1050|1260|1470|
+|Numero massimo di accessi simultanei per pool (richieste) *|420|630|840|1050|1260|1470|
+|Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
+|Numero minimo/massimo di opzioni vCore del pool elastico per database|0, 0,25, 0,5, 1...4|0, 0,25, 0,5, 1...6|0, 0,25, 0,5, 1...8|0, 0,25, 0,5, 1...10|0, 0,25, 0,5, 1...12|0, 0,25, 0,5, 1...14|
+|Numero di repliche|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
-|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 \* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
@@ -281,7 +274,7 @@ Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del d
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|81,6|91,8|102|122.4|163,2|204|408|
+|Memoria (GB)|81.6|91,8|102|122.4|163,2|204|408|
 |Numero massimo di database per pool|100|100|100|100|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|15.768|18,139|20,51|25.252|37.936|52.22|131.64|
@@ -342,7 +335,7 @@ La tabella seguente descrive le proprietà per i database in pool.
 > [!NOTE]
 > I limiti di risorse di singoli database nei pool elastici sono in genere gli stessi di quelli per i database singoli al di fuori dei pool che hanno le stesse dimensioni di calcolo. Ad esempio, il numero massimo di ruoli di lavoro simultanei per un database GP_Gen4_1 è 200. Di conseguenza, anche il numero massimo di ruoli di lavoro per un database in un pool GP_Gen4_1 è 200. Si noti che il numero totale di ruoli di lavoro simultanei in un pool GP_Gen4_1 è 210.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Numero massimo di vCore per database |Numero massimo di vCore che qualsiasi database nel pool può usare, se disponibile in base all'utilizzo da parte di altri database nel pool. Il numero massimo di vCore per database non è una garanzia di risorse per un database. Si tratta di un'impostazione globale che si applica a tutti i database nel pool. Impostare il numero massimo di vCore per database su un valore sufficientemente elevato per gestire i picchi di utilizzo dei database. È previsto un certo grado di overcommit perché il pool in genere presuppone modelli di utilizzo dei database a freddo e a caldo in cui i database non raggiungono il picco contemporaneamente.|
 | Numero minimo di vCore per database |Numero minimo di vCore garantito per ogni database nel pool. Si tratta di un'impostazione globale che si applica a tutti i database nel pool. Il numero minimo di vCore per database può essere impostato su 0, che è anche il valore predefinito. Questa proprietà è impostata su qualsiasi valore compreso tra 0 e l'utilizzo medio di vCore per ogni database. Il prodotto tra il numero di database nel pool e il numero minimo di vCore per database non può superare il numero di vCore per pool.|

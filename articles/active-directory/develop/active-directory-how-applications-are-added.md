@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803447"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533007"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
-In Azure AD ci sono due rappresentazioni delle applicazioni: 
+In Azure AD ci sono due rappresentazioni delle applicazioni:
+
 * [Oggetti applicazione](app-objects-and-service-principals.md#application-object): anche se ci sono alcune [eccezioni](#notes-and-exceptions), questi oggetti possono essere considerati la definizione di un'applicazione.
 * [Entità servizio](app-objects-and-service-principals.md#service-principal-object): questi oggetti possono essere considerati un'istanza di un'applicazione. Le entità servizio in genere fanno riferimento a un oggetto applicazione e a ogni oggetto applicazione possono fare riferimento più entità servizio in diverse directory.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Cosa sono gli oggetti applicazione e da dove provengono?
+
 È possibile gestire gli [oggetti applicazione](app-objects-and-service-principals.md#application-object) nel portale di Azure tramite l'esperienza [Registrazioni per l'app](https://aka.ms/appregistrations). Gli oggetti applicazione descrivono l'applicazione ad Azure AD e possono essere considerati la definizione dell'applicazione, che consente al servizio di sapere come rilasciare token per l'applicazione in base alle relative impostazioni. L'oggetto applicazione è disponibile solo nella relativa home directory, anche se si tratta di un'applicazione multi-tenant che supporta entità servizio in altre directory. L'oggetto applicazione può includere gli elementi seguenti (oltre che informazioni aggiuntive non elencate):
+
 * Nome, logo ed editore
 * URI di reindirizzamento
 * Segreti (chiavi simmetriche e/o asimmetriche usate per autenticare l'applicazione)
@@ -45,13 +48,15 @@ In Azure AD ci sono due rappresentazioni delle applicazioni:
 * Metadati e configurazione proxy
 
 È possibile creare oggetti applicazione in più modi, tra cui:
+
 * Registrazione delle applicazioni nel portale di Azure
 * Creazione di una nuova applicazione con Visual Studio e configurazione dell'applicazione per l'uso dell'autenticazione di Azure AD
 * Quando un amministratore aggiunge un'applicazione dalla raccolta di app (in questo caso viene creata anche un'entità servizio)
-* Usando l'API Microsoft Graph, l'API Graph di Azure AD o PowerShell per creare una nuova applicazione
+* Uso dell'API Microsoft Graph o di PowerShell per creare una nuova applicazione
 * Molti altri modi, tra cui diverse esperienze di sviluppo in Azure ed esperienze di esplorazione API nei centri per sviluppatori
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Cosa sono le entità servizio e da dove provengono?
+
 È possibile gestire le [entità servizio](app-objects-and-service-principals.md#service-principal-object) nel portale di Azure tramite l'esperienza [Applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Le entità servizio sono oggetti che governano un'applicazione che si connette ad Azure AD e possono essere considerate come l'istanza dell'applicazione nella directory. Per ogni applicazione specifica possono esserci più di un oggetto applicazione (registrato in una "home" directory) e uno o più oggetti entità servizio che rappresentano le istanze dell'applicazione in ogni directory in cui è in funzione. 
 
 L'entità servizio può includere:

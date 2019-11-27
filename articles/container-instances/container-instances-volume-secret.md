@@ -1,19 +1,14 @@
 ---
-title: Montare un volume segreto in Istanze di Azure Container
+title: Montaggio del volume Secret nel gruppo di contenitori
 description: Informazioni su come montare un volume segreto per archiviare informazioni sensibili per l'accesso da parte delle istanze di contenitore
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: danlep
-ms.openlocfilehash: 2e96ef73c3ff89fd7941fa14a8a1e53e6d4d8593
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 7f212a5090923a7d7bf00fc8ac78299f2edcc9c1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68325417"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533179"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di Azure Container
 
@@ -26,7 +21,7 @@ Tutti i volumi *segreti* sono supportati da [tmpfs][tmpfs], un filesystem con su
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montare un volume segreto - Interfaccia della riga di comando di Azure
 
-Per distribuire un contenitore con uno o più segreti usando l'interfaccia della riga di comando di `--secrets` Azure `--secrets-mount-path` , includere i parametri e nel comando [AZ container create][az-container-create] . Questo esempio monta un volume *segreto* costituito da due segreti, "mysecret1" e "mysecret2", in `/mnt/secrets`:
+Per distribuire un contenitore con uno o più segreti usando l'interfaccia della riga di comando di Azure, includere i parametri `--secrets` e `--secrets-mount-path` nel comando [AZ container create][az-container-create] . Questo esempio monta un volume *segreto* costituito da due segreti, "mysecret1" e "mysecret2", in `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -89,7 +84,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Per eseguire la distribuzione con il modello YAML, salvare il YAML precedente in un `deploy-aci.yaml`file denominato, quindi eseguire il comando [AZ container create][az-container-create] con il `--file` parametro:
+Per eseguire la distribuzione con il modello YAML, salvare la YAML precedente in un file denominato `deploy-aci.yaml`, quindi eseguire il comando [AZ container create][az-container-create] con il parametro `--file`:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -100,7 +95,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Oltre alla distribuzione dall'interfaccia della riga di comando e da YAML, è possibile distribuire un gruppo di contenitori usando un [modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) di Azure.
 
-Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo di contenitori del modello. Quando si esegue la distribuzione con un modello di Resource Manager, i valori del segreto devono essere **con codifica Base64** nel modello. Tuttavia, i valori del segreto sono visualizzati in testo non crittografato all'interno dei file nel contenitore.
+Popolare innanzitutto la matrice `volumes` nella sezione `properties` del gruppo del contenitore del modello. Quando si esegue la distribuzione con un modello di Resource Manager, i valori del segreto devono essere **con codifica Base64** nel modello. Tuttavia, i valori del segreto sono visualizzati in testo non crittografato all'interno dei file nel contenitore.
 
 Successivamente per ogni contenitore del gruppo di contenitori in cui si desidera montare il volume *segreto*, popolare la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore.
 
@@ -109,7 +104,7 @@ Il modello di Resource Manager seguente definisce un gruppo di contenitori con u
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Per eseguire la distribuzione con il modello di gestione risorse, salvare il codice JSON precedente `deploy-aci.json`in un file denominato, quindi eseguire il comando [AZ Group Deployment create][az-group-deployment-create] con il `--template-file` parametro:
+Per eseguire la distribuzione con il modello di Gestione risorse, salvare il codice JSON precedente in un file denominato `deploy-aci.json`, quindi eseguire il comando [AZ Group Deployment create][az-group-deployment-create] con il parametro `--template-file`:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9e1529517a812ac11f5a3023b699bd8f1332fc98
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 3ea77eb5dd8a03f877164179e3accc3a6f6d0aef
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484414"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548324"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -50,7 +50,14 @@ I dischi delle macchine virtuali non gestiti non sono supportati negli account c
 
 ## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>Ambito API per la libreria client di Data Lake Storage per SDK, PowerShell e l'interfaccia della riga di comando
 
-Le funzionalità seguenti non sono attualmente supportate nella libreria client di data Lake per PowerShell, l'interfaccia della riga di comando di Azure, Java, Python e .NET SDK: `RecursiveACL`, `setExpiry`, `Concat` e `ConcurrentAppend`.
+### <a name="filesystem-support-in-sdks"></a>Supporto del filesystem negli SDK
+
+- .NET, Java e Python sono disponibili in anteprima pubblica. Gli altri SDK non sono attualmente supportati.
+- Le operazioni get e set ACL non sono attualmente ricorsive.
+
+### <a name="filesystem-support-in-powershell-and-azure-cli"></a>Supporto del filesystem in PowerShell e nell'interfaccia della riga di comando
+
+Le operazioni get e set ACL non sono attualmente ricorsive.
 
 ## <a name="support-for-other-blob-storage-features"></a>Supporto per altre funzionalità di archiviazione BLOB
 
@@ -59,7 +66,7 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | Funzionalità/strumento    | Altre informazioni    |
 |--------|-----------|
 | **AzCopy** | Supporto specifico della versione <br><br>Usare solo la versione più recente di AzCopy ([AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.|
-| **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Sono supportati tutti i livelli di accesso. Il livello di accesso all'archivio è attualmente in anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata. |
+| **Criteri di gestione del ciclo di vita dell'archiviazione BLOB di Azure** | Sono supportati i criteri di gestione del ciclo di vita (anteprima).  Sono supportati tutti i livelli di accesso. Il livello di accesso all'archivio è attualmente in anteprima. L'eliminazione degli snapshot BLOB non è ancora supportata. <br><br> Attualmente sono presenti bug che influiscono sui criteri di gestione del ciclo di vita e sul livello di accesso dell'archivio.  Iscriversi per l'anteprima dei criteri di gestione del ciclo di vita e del livello di accesso di archiviazione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
 | **Rete per la distribuzione di contenuti (CDN) di Azure** | Non ancora supportato|
 | **Ricerca di Azure** |Supportato (anteprima)|
 | **Azure Storage Explorer** | Supporto specifico della versione. <br><br>Utilizzare solo le versioni `1.6.0` o versione successiva. <br> Attualmente esiste un bug di archiviazione che influisce sulla versione `1.11.0` che può causare errori di autenticazione in determinati scenari. È in corso il rollup di una correzione per il bug di archiviazione, ma come soluzione alternativa è consigliabile usare la versione `1.10.x`, disponibile come [download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` non è influenzato dal bug di archiviazione.|
@@ -69,7 +76,7 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | **Storage Explorer nella portale di Azure** | Supporto limitato. Gli ACL non sono ancora supportati. |
 | **Registrazione diagnostica** |I log di diagnostica sono supportati (anteprima).<br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Assicurarsi di specificare `Blob` come valore del parametro `-ServiceType`, come illustrato in questo esempio. <br><br>Attualmente non è possibile usare Azure Storage Explorer per la visualizzazione dei log di diagnostica. Per visualizzare i log, usare AzCopy o gli SDK.
 | **Archiviazione non modificabile** |Non ancora supportato <br><br>L'archiviazione non modificabile offre la possibilità di archiviare i dati in un [worm (scrivere una sola volta, leggere molti)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) stato.|
-| **Livelli a livello di oggetto** |Sono supportati i livelli ad accesso sporadico e archivio. Il livello archivio è in anteprima. Tutti gli altri livelli di accesso non sono ancora supportati.|
+| **Livelli a livello di oggetto** |Sono supportati i livelli ad accesso sporadico e archivio. Il livello archivio è in anteprima. Tutti gli altri livelli di accesso non sono ancora supportati. <br><br> Attualmente sono presenti bug che interessano il livello di accesso dell'archivio.  Iscriversi per l'anteprima del livello di accesso dell'archivio [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
 | **Supporto di PowerShell e CLI** | Funzionalità limitate <br><br>Sono supportate le operazioni BLOB. L'utilizzo delle directory e l'impostazione degli elenchi di controllo di accesso (ACL) non sono ancora supportati. |
 | **Siti web statici** |Non ancora supportato <br><br>In particolare, la possibilità di gestire i file nei [siti web statici](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Applicazioni di terze parti** | Supporto limitato <br><br>Le applicazioni di terze parti che usano le API REST per lavorare continueranno a funzionare se vengono usate con Data Lake Storage Gen2. <br>Le applicazioni che chiamano API blob probabilmente funzioneranno.|

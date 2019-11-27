@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186667"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544622"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS) per la creazione di applicazioni di archiviazione di Azure a disponibilità elevata
 
@@ -39,7 +39,7 @@ Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale 
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
 
-Per gli account filestorage (condivisioni file Premium), ZRS è disponibile a livello generale nelle aree seguenti:
+Per gli account filestorage (condivisioni file Premium) e gli account BlockBlobStorage (BLOB in blocchi Premium), ZRS è disponibile a livello generale nelle aree seguenti:
 
 - Europa occidentale
 - Stati Uniti orientali

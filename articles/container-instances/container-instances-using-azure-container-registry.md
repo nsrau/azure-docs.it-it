@@ -1,28 +1,25 @@
 ---
-title: Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
+title: Distribuire l'immagine del contenitore da Azure Container Registry
 description: Informazioni su come distribuire i contenitori in Istanze di Azure Container usando le immagini contenitore in un Registro Azure Container.
 services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325554"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533281"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
 [Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di Azure Container immagini del contenitore archiviate in un Registro Azure Container.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-**Registro Azure Container**: per completare i passaggi descritti in questo articolo, sono necessari un registro Azure Container e almeno un'immagine del contenitore nel registro. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro contenitori di Azure**: è necessario un registro contenitori di Azure e almeno un'immagine del contenitore nel registro di sistema, per completare i passaggi descritti in questo articolo. Se occorre un registro, vedere [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
 **Interfaccia della riga di comando di Azure**: gli esempi della riga di comando in questo articolo usano l'[interfaccia della riga di comando di Azure](/cli/azure/) e sono formattati per la shell Bash. È possibile [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure localmente oppure usare la [Azure cloud Shell][cloud-shell-bash].
 
@@ -32,7 +29,7 @@ In qualsiasi scenario di produzione l'accesso a un Registro Azure Container deve
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 
-### <a name="create-key-vault"></a>Crea un insieme di credenziali delle chiavi
+### <a name="create-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
 Se non si ha già un insieme di credenziali delle chiavi in [Azure Key Vault](../key-vault/key-vault-overview.md), crearne uno usando i comandi seguenti nell'interfaccia della riga di comando di Azure.
 

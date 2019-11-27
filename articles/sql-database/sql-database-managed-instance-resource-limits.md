@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 10/02/2019
-ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823344"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548381"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -31,7 +31,7 @@ L'istanza gestita presenta le caratteristiche e i limiti delle risorse che dipen
 
 |   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
-| Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
+| Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 V4 (Broadwell) 2,3 GHz e Intel SP-8160 (Skylake), unità SSD NVMe veloce, vCore = 1 LP (Hyper-thread) |
 | Numero di vCore | 8, 16, 24 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vcore |
 | Memoria massima (rapporto memoria/Core) | 7 GB per vCore<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. | 5,1 GB per vCore<br/>Aggiungere altri Vcore per ottenere una maggiore quantità di memoria. |
 | Memoria OLTP max in memoria | Limite di istanze: 1-1,5 GB per vCore| Limite di istanze: 0,8-1,65 GB per vCore |
@@ -78,7 +78,7 @@ Istanza gestita ha due livelli di servizio: [per utilizzo generico](sql-database
 | Limite velocità effettiva scrittura log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](#file-io-characteristics-in-general-purpose-tier) | Non limitato. |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
-| OLTP in memoria | Non supportate | Disponibile, [le dimensioni dipendono dal numero di vCore](#in-memory-oltp-available-space) |
+| OLTP in memoria | Non supportato | Disponibile, [le dimensioni dipendono dal numero di vCore](#in-memory-oltp-available-space) |
 | Numero massimo di sessioni | 30000 | 30000 |
 | [Repliche di sola lettura](sql-database-read-scale-out.md) | 0 | 1 (incluso nel prezzo) |
 
@@ -162,7 +162,7 @@ Per avviare il processo di acquisizione di una quota maggiore:
 
      ![Tipo di problema: Quota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Fare clic su **Avanti**.
+3. Fare clic su **Next** (Avanti).
 4. Nella **scheda problema** relativa alla nuova richiesta di supporto:
    - Per **Gravità** selezionare il livello di gravità del problema.
    - In **Dettagli** inserire informazioni aggiuntive relative al problema riscontrato, inclusi i messaggi di errore.
@@ -176,9 +176,9 @@ Per avviare il processo di acquisizione di una quota maggiore:
      > - Numero necessario di Vcore, per livello di servizio nelle subnet esistenti dopo l'aumento della quota (se è necessario espandere una delle subnet esistenti.
      > - Numero necessario di nuove subnet e numero totale di Vcore per ogni livello di servizio all'interno delle nuove subnet, se è necessario distribuire istanze gestite in nuove subnet.
 
-5. Fare clic su **Avanti**.
+5. Fare clic su **Next** (Avanti).
 6. Nella scheda Informazioni contatto della nuova richiesta di supporto immettere la modalità di contatto preferita (posta elettronica o telefono) e i dettagli di contatto.
-7. Fare clic su **Create**.
+7. Fare clic su **Create**(Crea).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

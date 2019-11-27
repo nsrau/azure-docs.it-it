@@ -11,18 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: orspodek
-ms.openlocfilehash: 6945e4dcf6baf44881bd5b13571dd03e3dee41ed
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0ffec2639d9dfbf3a82a3c24248d65a53e114745
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300551"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547154"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Esplora dati usando Azure Data Factory
 
 Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da o verso [Esplora dati di Azure](../data-explorer/data-explorer-overview.md). Si basa sull'articolo [Panoramica dell'attività di copia](copy-activity-overview.md) , che offre una panoramica generale dell'attività di copia.
+
+>[!TIP]
+>Per Azure Data Factory e l'integrazione con Esplora dati di Azure in generale, Scopri di più su come [integrare azure Esplora dati con Azure Data Factory](../data-explorer/data-factory-integration.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -42,10 +45,10 @@ Con il connettore Azure Esplora dati è possibile eseguire le operazioni seguent
 * Come origine, recupero di dati tramite una query KQL (Kusto).
 * Come sink, accodamento di dati a una tabella di destinazione.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Per iniziare
 
 >[!TIP]
->Per una procedura dettagliata di Azure Esplora dati Connector, vedere [copiare i dati da e verso azure Esplora dati con Azure Data Factory](../data-explorer/data-factory-load-data.md).
+>Per una procedura dettagliata di Azure Esplora dati Connector, vedere Copiare dati da e verso [azure Esplora dati usando Azure Data Factory](../data-explorer/data-factory-load-data.md) e [la copia bulk da un database in Azure Esplora dati](../data-explorer/data-factory-template.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -71,14 +74,14 @@ Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio
 
 Per il servizio collegato di Azure Esplora dati sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | obbligatori |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureDataExplorer**. | Yes |
-| endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
-| database | Nome del database. | Yes |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questa operazione è nota come "ID autorità" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarlo posizionando il puntatore del mouse nell'angolo superiore destro del portale di Azure. | Yes |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. Questa operazione è nota come "ID client dell'applicazione AAD" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Questa operazione è nota come "chiave dell'applicazione AAD" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a dati protetti archiviati nel Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| type | La proprietà **Type** deve essere impostata su **AzureDataExplorer**. | Sì |
+| endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sì |
+| database | Nome del database. | Sì |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questa operazione è nota come "ID autorità" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarlo posizionando il puntatore del mouse nell'angolo superiore destro del portale di Azure. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. Questa operazione è nota come "ID client dell'applicazione AAD" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Questa operazione è nota come "chiave dell'applicazione AAD" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a dati protetti archiviati nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 
 **Esempio di proprietà del servizio collegato:**
 
@@ -101,7 +104,7 @@ Per il servizio collegato di Azure Esplora dati sono supportate le proprietà se
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà del set di dati
+## <a name="dataset-properties"></a>Proprietà dei set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets in Azure Data Factory](concepts-datasets-linked-services.md). Questa sezione elenca le proprietà supportate dal set di dati di Azure Esplora dati.
 
@@ -109,9 +112,9 @@ Per copiare dati in Esplora dati di Azure, impostare la proprietà type del set 
 
 Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | obbligatori |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureDataExplorerTable**. | Yes |
+| type | La proprietà **Type** deve essere impostata su **AzureDataExplorerTable**. | Sì |
 | table | Nome della tabella a cui fa riferimento il servizio collegato. | Sì per il sink, no per l'origine |
 
 **Esempio di proprietà del set di dati:**
@@ -139,13 +142,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="azure-data-explorer-as-source"></a>Esplora dati di Azure come origine
 
-Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell'origine dell'attività di copia su **AzureDataExplorerSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell'origine dell'attività di copia su **AzureDataExplorerSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | obbligatori |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su: **AzureDataExplorerSource** | Yes |
-| query | Richiesta di sola lettura in [formato KQL](/azure/kusto/query/). Usare la query KQL personalizzata come riferimento. | Yes |
-| queryTimeout | Il tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 10 minuti (00:10:00); il valore massimo consentito è 1 ora (01:00:00). | No |
+| type | La proprietà **Type** dell'origine dell'attività di copia deve essere impostata su: **AzureDataExplorerSource** | Sì |
+| query | Richiesta di sola lettura in [formato KQL](/azure/kusto/query/). Usare la query KQL personalizzata come riferimento. | Sì |
+| queryTimeout | Tempo di attesa prima del timeout della richiesta di query. Il valore predefinito è 10 min (00:10:00); il valore massimo consentito è 1 ora (01:00:00). | No |
 | notroncamento | Indica se troncare il set di risultati restituito. Per impostazione predefinita, il risultato viene troncato dopo 500.000 record o 64 megabyte (MB). Il troncamento è fortemente consigliato per garantire il comportamento corretto dell'attività. |No |
 
 >[!NOTE]
@@ -188,10 +191,10 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 
 Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink dell'attività di copia su **AzureDataExplorerSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | DESCRIZIONE | obbligatori |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink**. | Yes |
-| ingestionMappingName | Nome di un [mapping](/azure/kusto/management/mappings#csv-mapping) creato in precedenza in una tabella kusto. Per eseguire il mapping delle colonne dall'origine ad Azure Esplora dati (che si applica a [tutti i formati e archivi di origine supportati](copy-activity-overview.md#supported-data-stores-and-formats), inclusi i formati CSV/JSON/Avro), è possibile usare il [mapping](copy-activity-schema-and-type-mapping.md) delle colonne dell'attività di copia (in modo implicito in base al nome o in modo esplicito come configurato) e o mapping del Esplora dati di Azure. | No |
+| type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink**. | Sì |
+| ingestionMappingName | Nome di un [mapping](/azure/kusto/management/mappings#csv-mapping) creato in precedenza in una tabella kusto. Per eseguire il mapping delle colonne dall'origine ad Azure Esplora dati (che si applica a [tutti i formati e archivi di origine supportati](copy-activity-overview.md#supported-data-stores-and-formats), inclusi i formati CSV/JSON/Avro), è possibile usare il [mapping delle colonne](copy-activity-schema-and-type-mapping.md) dell'attività di copia (in modo implicito in base al nome o in modo esplicito come configurato) e/o i mapping di Esplora dati di Azure. | No |
 
 **Esempio:**
 

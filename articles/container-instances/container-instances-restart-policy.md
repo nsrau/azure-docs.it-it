@@ -1,19 +1,14 @@
 ---
-title: Usare i criteri di riavvio con le attività in contenitori in Istanze di Azure Container
+title: Criteri di riavvio per le attività Esegui una sola volta
 description: Informazioni su come usare Istanze di Azure Container per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325686"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533465"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Eseguire attività in contenitori con criteri di riavvio
 
@@ -35,7 +30,7 @@ Quando si crea un [gruppo di contenitori](container-instances-container-groups.m
 
 ## <a name="specify-a-restart-policy"></a>Specificare un criterio di riavvio
 
-Le modalità con cui si specificano i criteri di riavvio dipendano da come si creano le istanze del contenitore, ad esempio con l'interfaccia della riga di comando di Azure, i cmdlet di Azure PowerShell o nel portale di Azure. Nell'interfaccia della riga di comando di `--restart-policy` Azure specificare il parametro quando si chiama [AZ container create][az-container-create].
+Le modalità con cui si specificano i criteri di riavvio dipendano da come si creano le istanze del contenitore, ad esempio con l'interfaccia della riga di comando di Azure, i cmdlet di Azure PowerShell o nel portale di Azure. Nell'interfaccia della riga di comando di Azure specificare il parametro `--restart-policy` quando si chiama [AZ container create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -47,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Eseguire l'esempio di completamento
 
-Per visualizzare i criteri di riavvio in azione, creare un'istanza di contenitore dall'immagine Microsoft [ACI-WordCount][aci-wordcount-image] e specificare il `OnFailure` criterio di riavvio. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
+Per visualizzare i criteri di riavvio in azione, creare un'istanza di contenitore dall'immagine Microsoft [ACI-WordCount][aci-wordcount-image] e specificare il criterio di riavvio del `OnFailure`. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
 
 Eseguire il contenitore di esempio con il comando [AZ container create][az-container-create] seguente:
 

@@ -1,20 +1,14 @@
 ---
-title: Usare un'identità gestita con Istanze di Azure Container
-description: Informazioni su come usare un'identità gestita per l'autenticazione con altri servizi di Azure da Istanze di Azure Container.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Abilitare l'identità gestita nel gruppo di contenitori
+description: Informazioni su come abilitare un'identità gestita in istanze di contenitore di Azure in grado di eseguire l'autenticazione con altri servizi di Azure
 ms.topic: article
 ms.date: 10/22/2018
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325932"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533687"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -84,7 +78,7 @@ az keyvault secret set --name SampleSecret --value "Hello Container Instances!" 
 
 Continuare con gli esempi seguenti per accedere all'insieme di credenziali delle chiavi usando un'identità gestita assegnata dall'utente o assegnata dal sistema in Istanze di Azure Container.
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Esempio 1: Usare un'identità assegnata dall'utente per accedere ad Azure Key Vault
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Esempio 1: usare un'identità assegnata dall'utente per accedere ad Azure Key Vault
 
 ### <a name="create-an-identity"></a>Creare un'identità
 
@@ -183,7 +177,7 @@ La risposta avrà un aspetto simile a quanto riportato di seguito e mostrerà il
 {"value":"Hello Container Instances!","contentType":"ACIsecret","id":"https://mykeyvault.vault.azure.net/secrets/SampleSecret/xxxxxxxxxxxxxxxxxxxx","attributes":{"enabled":true,"created":1539965967,"updated":1539965967,"recoveryLevel":"Purgeable"},"tags":{"file-encoding":"utf-8"}}
 ```
 
-## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Esempio 2 Usare un'identità assegnata dal sistema per accedere ad Azure Key Vault
+## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Esempio 2: usare un'identità assegnata dal sistema per accedere ad Azure Key Vault
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Abilitare un'identità assegnata dal sistema in un gruppo di contenitori
 
@@ -267,7 +261,7 @@ La risposta avrà un aspetto simile a quanto riportato di seguito e mostrerà il
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Abilitare l'identità gestita con un modello di Resource Manager
 
-Per abilitare un'identità gestita in un gruppo di contenitori usando un [modello di Resource Manager](container-instances-multi-container-group.md), impostare la proprietà `identity` dell'oggetto `Microsoft.ContainerInstance/containerGroups` con un oggetto `ContainerGroupIdentity`. I frammenti di codice seguenti mostrano la proprietà `identity` configurata per scenari diversi. Vedere il [riferimento al modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Specificare `2018-10-01` come `apiVersion`.
+Per abilitare un'identità gestita in un gruppo di contenitori usando un [modello di Resource Manager](container-instances-multi-container-group.md), impostare la proprietà `identity` dell'oggetto `Microsoft.ContainerInstance/containerGroups` con un oggetto `ContainerGroupIdentity`. I frammenti di codice seguenti mostrano la proprietà `identity` configurata per scenari diversi. Vedere il [riferimento al modello di Resource Manager](/azure/templates/microsoft.containerinstance/containergroups). Specificare `apiVersion` come `2018-10-01`.
 
 ### <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 
@@ -315,7 +309,7 @@ In un gruppo di contenitori è possibile abilitare sia un'identità assegnata da
 ## <a name="enable-managed-identity-using-yaml-file"></a>Abilitare l'identità gestita usando un file YAML
 
 Per abilitare un'identità gestita in un gruppo di contenitori distribuiti usando un [file YAML](container-instances-multi-container-yaml.md), includere il codice YAML seguente.
-Specificare `2018-10-01` come `apiVersion`.
+Specificare `apiVersion` come `2018-10-01`.
 
 ### <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 

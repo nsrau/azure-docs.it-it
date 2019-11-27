@@ -1,19 +1,14 @@
 ---
-title: Distribuire le istanze di contenitore in una rete virtuale di Azure
+title: Distribuire un gruppo di contenitori in rete virtuale di Azure
 description: Informazioni su come distribuire gruppi di contenitori in una rete virtuale Azure nuova o esistente.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
-ms.author: danlep
-ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034982"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533276"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -62,7 +57,7 @@ L'**eliminazione delle risorse di rete** richiede [passaggi aggiuntivi](#delete-
 
 Per distribuire gruppi di contenitori in una rete virtuale, sono necessarie tre risorse di Rete virtuale di Azure, ovvero la [rete virtuale](#virtual-network) stessa, una [subnet delegata](#subnet-delegated) nella rete virtuale e un [profilo di rete](#network-profile). 
 
-### <a name="virtual-network"></a>Rete virtuale
+### <a name="virtual-network"></a>rete virtuale
 
 Una rete virtuale definisce lo spazio degli indirizzi in cui si creano una o più subnet. A questo punto è possibile distribuire le risorse di Azure (ad esempio i gruppi di contenitori) nelle subnet nella rete virtuale.
 
@@ -186,11 +181,11 @@ L'output del registro illustra che `wget` è stato in grado di connettersi e sca
 
 È anche possibile distribuire un gruppo di contenitori in una rete virtuale esistente usando un file YAML. Per distribuire una subnet in una rete virtuale, specificare varie proprietà aggiuntive nel codice YAML:
 
-* `ipAddress`: le impostazioni dell'indirizzo IP per il gruppo di contenitori.
-  * `ports`: le porte da aprire, se presenti.
-  * `protocol`: il protocollo (TCP o UDP) per la porta aperta.
+* `ipAddress`: impostazioni dell'indirizzo IP per il gruppo di contenitori.
+  * `ports`: porte da aprire, se presenti.
+  * `protocol`: protocollo (TCP o UDP) per la porta aperta.
 * `networkProfile`: specifica le impostazioni di rete, ad esempio la rete virtuale e la subnet per una risorsa di Azure.
-  * `id`: l'ID completo della risorsa di Resource Manager di `networkProfile`.
+  * `id`: ID completo della risorsa di Resource Manager dell'elemento `networkProfile`.
 
 Per distribuire un gruppo di contenitori in una rete virtuale con un file YAML, è necessario ottenere l'ID del profilo di rete. Eseguire il comando [AZ network profile list][az-network-profile-list] , specificando il nome del gruppo di risorse che contiene la rete virtuale e la subnet delegata.
 
@@ -271,7 +266,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 L'anteprima iniziale di questa funzionalità richiede altri comandi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete.
 
-Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Aggiornare il nome della rete virtuale se non è stato usato il nome `aci-vnet` suggerito in precedenza. Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
+Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Se non è stato usato il nome `aci-vnet` suggerito in precedenza, aggiornare il nome della rete virtuale. Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
 
 > [!WARNING]
 > Questo script elimina le risorse. Elimina la rete virtuale e tutte le subnet contenute. Verificare che non sia più necessaria *alcuna* risorsa nella rete virtuale, ad esempio le subnet che contiene, prima di eseguire lo script. Dopo l'eliminazione, **tali risorse non sono recuperabili**.

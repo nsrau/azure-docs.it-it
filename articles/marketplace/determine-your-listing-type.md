@@ -2,19 +2,19 @@
 title: Determinare l'opzione di pubblicazione in Azure Marketplace | Azure
 description: Questo articolo illustra i criteri di idoneità e i requisiti di pubblicazione per i partner che vogliono comprendere come pubblicare le app in Microsoft Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed25b92dc759f687e35a8424558453a830369a57
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825912"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548351"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 L'opzione di pubblicazione scelta per l'offerta è correlata direttamente sia ai requisiti di idoneità che ai vantaggi GMT del marketplace. Ancora più importante, la selezione dell'opzione di pubblicazione e il tipo di offerta definiscono il modo in cui gli utenti interagiranno con l'offerta del Marketplace.
@@ -41,7 +41,7 @@ Le applicazioni **AppSource** sono soluzioni line-of-business che possono essere
 
 ## <a name="understand-storefront-selection"></a>Informazioni sulla selezione della vetrina
 
-La vetrina in cui verrà presentata l'offerta, Azure Marketplace e/o AppSource, verrà determinata automaticamente in base ai dettagli dell'offerta e ai destinatari, nonché alle categorie e ai settori selezionati dall'utente durante la creazione dell'offerta. 
+Ogni vetrina offre requisiti univoci per i clienti. La vetrina in cui verrà pubblicata l'offerta sarà determinata dal tipo di offerta, offrirà funzionalità di transazione e categoria e/o selezione del settore per destinatari specifici. 
 
 >[!Note]
 >"Cross-listing" (solo per app SaaS): quando un elenco o un'offerta basata sulla versione di valutazione soddisfa i criteri per i destinatari tecnici e aziendali, l'offerta sarà elencata in entrambe le vetrine. Altre informazioni sulle opzioni di pubblicazione sono disponibili di seguito.

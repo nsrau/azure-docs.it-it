@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083779"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533841"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -110,7 +110,7 @@ Per avviare la replica di tutte le macchine virtuali dell'applicazione SAP al da
 
 * Per le linee guida sulla protezione di Active Directory e DNS, fare riferimento al documento [Proteggere Active Directory e DNS con Azure Site Recovery](site-recovery-active-directory.md).
 
-* Per le linee guida sulla protezione del livello database in esecuzione in SQL Server, fare riferimento al documento [Proteggere SQL Server](site-recovery-active-directory.md).
+* Per le linee guida sulla protezione del livello database in esecuzione in SQL Server, fare riferimento al documento [Proteggere SQL Server](site-recovery-sql.md).
 
 ## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 

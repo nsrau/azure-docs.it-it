@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d6d128677d2e82f4750a7771885474bf284fb1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184221"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547395"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per l'accesso 
 
@@ -41,7 +41,7 @@ Se si prevede di usare gli esempi di Azure PowerShell e dell'interfaccia della r
 
 ## <a name="overview"></a>Overview
 
-Le identità gestite per le risorse di Azure forniscono un [oggetto entità servizio](../develop/developer-glossary.md#service-principal-object) che viene [creato quando si abilitano le identità gestite per le risorse di Azure](overview.md#how-does-it-work) nella macchina virtuale. L'entità servizio può acquisire l'accesso alle risorse di Azure e può essere usata come identità dai client da script o riga di comando per l'accesso al client e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
+Le identità gestite per le risorse di Azure forniscono un [oggetto entità servizio](../develop/developer-glossary.md#service-principal-object) che viene [creato quando si abilitano le identità gestite per le risorse di Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) nella macchina virtuale. L'entità servizio può acquisire l'accesso alle risorse di Azure e può essere usata come identità dai client da script o riga di comando per l'accesso al client e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
 
    - essere registrato e autorizzato da Azure AD come applicazione client Web/riservata
    - accedere con la propria entità servizio usando le credenziali dell'app (probabilmente integrate nello script)

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470131"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546185"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio predefinite per app Web, sistemi back-end mobili e app per le API nel [portale di Azure](https://portal.azure.com).
 
-Nel portale di Azure è possibile esaminare *quote* e *metriche* di un'app, rivedere il piano di servizio app e configurare automaticamente *avvisi* e *ridimensionamento* in base alle metriche.
+Nella portale di Azure è possibile esaminare le *quote* e le *metriche* per un piano di servizio app e app e configurare gli *avvisi* e la *scalabilità automatica* basati su metriche.
 
 ## <a name="understand-quotas"></a>Informazioni sulle quote
 
@@ -38,7 +38,7 @@ Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relat
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
-| Quota | Description |
+| Quota | DESCRIZIONE |
 | --- | --- |
 | **Tempo CPU (breve)** | Quantità di CPU consentita per l'app in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti. |
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
@@ -46,7 +46,7 @@ Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 | **Larghezza di banda** | Quantità totale di larghezza di banda in uscita consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
 | **File system** | Quantità totale di spazio di archiviazione consentito. |
 
-L'unica quota applicabile alle app ospitate nei piani *Basic*, *Standard* e *Premium* è Filesystem.
+L'unica quota applicabile alle app ospitate in *Basic*, *standard*e *Premium* è file System.
 
 Per altre informazioni su quote, funzionalità e limiti specifici per i vari SKU del servizio app, vedere i [limiti del servizio per la sottoscrizione di Azure](../azure-subscription-service-limits.md#app-service-limits).
 
@@ -64,11 +64,15 @@ Se viene superata la quota Filesystem, tutte le operazioni di scrittura hanno es
 
 ## <a name="understand-metrics"></a>Informazioni sulle metriche
 
+> [!NOTE]
+> L' **utilizzo del file System** è una nuova metrica distribuita a livello globale, non è previsto alcun dato, a meno che non sia stata inserita nell'elenco elementi consentiti per l'anteprima privata.
+> 
+
 Le metriche forniscono informazioni sull'app o sul comportamento del piano di servizio app.
 
 Le metriche disponibili per un'app sono:
 
-| Metrica | Description |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | **Tempo medio di risposta** | Tempo medio impiegato dall'app per gestire le richieste, in secondi. |
 | **Working set della memoria medio** | Quantità media di memoria usata dall'app, espressa in megabyte (MiB). |
@@ -77,6 +81,7 @@ Le metriche disponibili per un'app sono:
 | **Assembly attuali** | Numero corrente di assembly caricati in tutti i domini dell'applicazione di questa applicazione. |
 | **Dati in entrata** | Larghezza di banda in entrata utilizzata dall'app, espressa in MiB. |
 | **Dati in uscita** | Larghezza di banda in uscita utilizzata dall'app, espressa in MiB. |
+| **Utilizzo del file System** | Percentuale di quota del file System utilizzata dall'app. |
 | **Garbage Collection di generazione 0** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 0 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
 | **Garbage Collection di generazione 1** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
 | **Garbage Collection di generazione 2** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|
@@ -90,7 +95,7 @@ Le metriche disponibili per un'app sono:
 | **Http 4xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 400 e < 500. |
 | **Errori server HTTP** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 500 e < 600. |
 | **I/O - Altri byte al secondo** | Frequenza con cui il processo dell'app rilascia byte alle operazioni di I/O che non coinvolgono i dati, ad esempio le operazioni di controllo.|
-| **I/O - Altre operazioni al secondo** | Frequenza con cui il processo dell'app rilascia operazioni di I/O diverse dalle operazioni di lettura o di scrittura.|
+| **I/O - Altre operazioni al secondo** | Velocità con cui il processo dell'app emette operazioni di I/O che non sono operazioni di lettura o scrittura.|
 | **I/O - Byte in lettura al secondo** | Frequenza con cui il processo dell'app legge i byte dalle operazioni di I/O.|
 | **I/O - Operazioni di lettura al secondo** | Frequenza con cui il processo dell'app rilascia le operazioni di I/O di lettura.|
 | **I/O - Byte in scrittura al secondo** | Frequenza con cui il processo dell'app scrive i byte nelle operazioni di I/O.|
@@ -110,7 +115,7 @@ Le metriche disponibili per un piano di servizio app sono:
 > Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic*, *Standard* e *Premium*.
 > 
 
-| Metrica | Description |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | **Percentuale di CPU** | CPU media usata tra tutte le istanze del piano. |
 | **Percentuale memoria** | Memoria media usata tra tutte le istanze del piano. |

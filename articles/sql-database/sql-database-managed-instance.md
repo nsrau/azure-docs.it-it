@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823286"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548384"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -53,7 +53,7 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
-|Funzionalità | Descrizione|
+|Funzionalità | DESCRIZIONE|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
 | Backup automatici gestiti | Sì |
@@ -77,7 +77,7 @@ Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) pe
 Nel modello vCore è possibile scegliere tra diverse generazioni di hardware.
 
 - **Gen4** Le CPU logiche sono basate su processori Intel E5-2673 V3 (Haswell) a 2,4 GHz, unità SSD collegata, core fisici, 7 GB di RAM per core e dimensioni di calcolo comprese tra 8 e 24 vcore.
-- **Quinta generazione** Le CPU logiche sono basate su processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz, unità SSD Fast NVMe, core logico con Hyper-Threading e dimensioni di calcolo tra 4 e 80 core.
+- **Quinta generazione** Le CPU logiche sono basate su processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), unità SSD NVMe veloce, core logico con Hyper-Threading e dimensioni di calcolo tra 4 e 80 core.
 
 Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [Limiti delle risorse per le istanze gestite](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -153,7 +153,7 @@ Nella tabella seguente sono riepilogate le operazioni e le durate generali tipic
 |Distribuzione |Prima istanza di un'altra generazione di hardware in una subnet non vuota (ad esempio, la prima istanza di generazione 5 in una subnet con istanze di generazione 4)|Creazione di un cluster virtuale *|90% di operazioni completate tra 4 ore|
 |Distribuzione |Creazione della prima istanza di 4 Vcore, in una subnet vuota o non vuota|Creazione di un cluster virtuale * *|90% di operazioni completate tra 4 ore|
 |Distribuzione |Creazione dell'istanza successiva all'interno della subnet non vuota (2a, terza e così via)|Ridimensionamento di cluster virtuali|90% di operazioni completate tra 2,5 ore|
-|**Aggiornarlo** |Modifica proprietà istanza (password amministratore, accesso ad AAD, flag di Vantaggio Azure Hybrid)|N/D|Fino a 1 minuto|
+|**Aggiornare** |Modifica proprietà istanza (password amministratore, accesso ad AAD, flag di Vantaggio Azure Hybrid)|N/D|Fino a 1 minuto|
 |Update |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (per utilizzo generico livello di servizio)|-Ridimensionamento cluster virtuale<br>-Connessione dei file di database|90% di operazioni completate tra 2,5 ore|
 |Update |Scalabilità verticale/orizzontale per l'archiviazione delle istanze (business critical livello di servizio)|-Ridimensionamento cluster virtuale<br>-Always On seeding del gruppo di disponibilità|90% di operazioni completate tra 2,5 ore + tempo per il seeding di tutti i database (220 GB/ora)|
 |Update |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico)|-Ridimensionamento cluster virtuale<br>-Connessione dei file di database|90% di operazioni completate tra 2,5 ore|

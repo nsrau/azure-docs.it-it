@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112719"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533962"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -33,7 +33,7 @@ I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON
 
 Il metodo più semplice di indicizzazione dei documenti JSON consiste nell'usare una procedura guidata nel [portale di Azure](https://portal.azure.com/). Analizzando i metadati nel contenitore BLOB di Azure, la procedura guidata [**Importa dati**](search-import-data-portal.md) può creare un indice predefinito, eseguire il mapping dei campi di origine ai campi di indice di destinazione e caricare l'indice con una sola operazione. A seconda delle dimensioni e della complessità dei dati di origine, si può ottenere un indice di ricerca full-text operativo in pochi minuti.
 
-È consigliabile usare la stessa sottoscrizione di Azure sia per Azure ricerca cognitiva sia per archiviazione di Azure, preferibilmente nella stessa area.
+È consigliabile usare la stessa area o la stessa località per Azure ricerca cognitiva e archiviazione di Azure per una latenza più bassa ed evitare costi di larghezza di banda.
 
 ### <a name="1---prepare-source-data"></a>1 - Preparare i dati di origine
 
@@ -110,9 +110,9 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 
 Per l'indicizzazione JSON basata sul codice, usare il [post](search-get-started-postman.md) e l'API REST per creare questi oggetti:
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 L'ordine delle operazioni richiede la creazione e la chiamata di oggetti in questo ordine. A differenza del flusso di lavoro del portale, un approccio del codice richiede un indice disponibile per accettare i documenti JSON inviati tramite la richiesta **create Indexer** .
 

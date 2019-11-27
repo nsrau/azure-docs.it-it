@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 922a2eb910a99a899bdb9f2b3e2392559ec9b0f3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889827"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548411"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificazione & individuazione dati del database SQL di Azure e SQL Data Warehouse
 
@@ -120,7 +120,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 8. Per completare la classificazione ed etichettare in modo permanente le colonne del database con i nuovi metadati di classificazione, fare clic su **Salva** nel menu superiore della finestra.
 
-   ![Salva](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
+   ![Save](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>Controllo dell'accesso ai dati sensibili
 
@@ -128,8 +128,9 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 
 ![Log di controllo](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Gestire la classificazione dei dati con T-SQL
+### <a name="manage-classifications"></a>Gestisci classificazioni
 
+# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 È possibile utilizzare T-SQL per aggiungere o rimuovere le classificazioni di colonna, nonché recuperare tutte le classificazioni per l'intero database.
 
 > [!NOTE]
@@ -139,8 +140,7 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - Rimuovere la classificazione da una o più colonne: [ELIMINA CLASSIFICAZIONE DI RISERVATEZZA](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visualizzare tutte le classificazioni sul database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="manage-classifications-using-rest-apis"></a>Gestire le classificazioni usando le API REST
-
+# <a name="rest-apistabazure-rest-api"></a>[API REST](#tab/azure-rest-api)
 È anche possibile usare l'API REST per gestire le classificazioni a livello di codice. Le API REST pubblicate supportano le operazioni seguenti:
 
 - [Crea o aggiorna](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crea o aggiorna l'etichetta di riservatezza di una determinata colonna
@@ -152,12 +152,8 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 
 - [Elenco consigliato per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : ottiene le etichette di riservatezza consigliate di un determinato database
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Gestire l'individuazione e la classificazione dei dati tramite Azure PowerShell
-
-È possibile usare PowerShell per ottenere tutte le colonne consigliate in un database SQL di Azure e in un'istanza gestita.
-
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlet di PowerShell per il database SQL di Azure
-
+# <a name="powershell-cmdlet-for-azure-sqltabazure-portal-sqldb"></a>[Cmdlet di PowerShell per SQL di Azure](#tab/azure-portal-sqldb)
+È possibile usare PowerShell per ottenere tutte le colonne consigliate in un database SQL di Azure.
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -165,8 +161,8 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlet di PowerShell per istanza gestita
-
+# <a name="powershell-cmdlets-for-managed-instancetabazure-powershell-mi"></a>[Cmdlet di PowerShell per Istanza gestita](#tab/azure-powershell-mi)
+È possibile usare PowerShell per ottenere tutte le colonne consigliate in un'istanza gestita.
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
@@ -184,7 +180,7 @@ Scopri di più su [RBAC per le risorse di Azure](https://docs.microsoft.com/azur
 
 ## <a id="subheading-5"></a>Passaggi successivi
 
-- Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
+- Altre informazioni su [Advanced data security](sql-database-advanced-data-security.md) (Sicurezza dei dati avanzata).
 - Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](sql-database-auditing.md) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 
 <!--Anchors-->

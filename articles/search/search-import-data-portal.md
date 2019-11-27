@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793685"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534545"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Importazione guidata dati per Azure ricerca cognitiva
 
@@ -43,7 +43,7 @@ Le limitazioni note sono riepilogate come segue:
 
 + La procedura guidata non supporta l'iterazione o il riutilizzo. Ogni passaggio della procedura guidata consente di creare una nuova configurazione di indice, competenze e indicizzatore. Solo le origini dati possono essere rese permanente e riutilizzate nella procedura guidata. Per modificare o perfezionare altri oggetti, è necessario usare le API REST o .NET SDK per recuperare e modificare le strutture.
 
-+ Il contenuto di origine deve trovarsi in un'origine dati di Azure supportata, in un servizio nella stessa sottoscrizione.
++ Il contenuto di origine deve trovarsi in un'origine dati di Azure supportata.
 
 + Il campionamento è su un subset di dati di origine. Per le origini dati di grandi dimensioni, la procedura guidata può perdere i campi. Se il campionamento non è sufficiente, potrebbe essere necessario estendere lo schema o correggere i tipi di dati dedotti.
 
@@ -61,7 +61,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 È necessario creare questa singola tabella o vista prima di eseguire la procedura guidata e deve contenere contenuto. Per ovvie ragioni, non è consigliabile eseguire la procedura guidata di **importazione dei dati** in un'origine dati vuota.
 
-|  Selezione | Description |
+|  Selezione | DESCRIZIONE |
 | ---------- | ----------- |
 | **Origine dati esistente** |Se nel servizio di ricerca sono già definiti indicizzatori, potrebbe essere presente una definizione dell'origine dati che è possibile riutilizzare. In Azure ricerca cognitiva gli oggetti origine dati vengono utilizzati solo dagli indicizzatori. È possibile creare un oggetto origine dati a livello di codice o tramite la procedura guidata **Importa dati** e riutilizzarli in base alle esigenze.|
 | **Esempi**| Azure ricerca cognitiva offre due origini dati di esempio predefinite che vengono usate nelle esercitazioni e nelle guide introduttive: un database SQL immobiliare e un database di hotel ospitato su Cosmos DB. Per una procedura dettagliata basata sull'esempio di Hotel, vedere l'articolo relativo alla [creazione di un indice nella portale di Azure](search-get-started-portal.md) Guida introduttiva. |
@@ -75,7 +75,7 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 Dietro le quinte, la procedura guidata consente di creare, configurare e richiamare gli oggetti seguenti. Dopo l'esecuzione della procedura guidata, è possibile trovarne l'output nelle pagine del portale. La pagina Panoramica del servizio include elenchi di indici, indicizzatori, origini dati e skillsets. Le definizioni degli indici possono essere visualizzate in formato JSON completo nel portale. Per altre definizioni, è possibile usare l' [API REST](https://docs.microsoft.com/rest/api/searchservice/) per ottenere oggetti specifici.
 
-| Oggetto | Description | 
+| Object | DESCRIZIONE | 
 |--------|-------------|
 | [Origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Rende permanente le informazioni di connessione ai dati di origine, incluse le credenziali. Un oggetto origine dati viene utilizzato esclusivamente con gli indicizzatori. | 
 | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Struttura di dati fisici utilizzata per la ricerca full-text e altre query. | 

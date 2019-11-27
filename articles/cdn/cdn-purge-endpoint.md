@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: ff877810cb32d22cffd2af79880b6223c41d7d73
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593536"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546210"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Ripulire un endpoint della rete CDN di Azure
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 I nodi perimetrali della rete CDN di Azure memorizzeranno nella cache gli asset fino alla scadenza della durata TTL dell'asset.  Dopo la scadenza della durata TTL dell'asset, quando un client richiede l'asset dal nodo periodico, questo recupera una nuova copia aggiornata dell'asset per soddisfare la richiesta del client e aggiornare la cache.
 
 La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL.  La rete CDN recupera immediatamente i nuovi asset per le richieste client successive.  A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati.  Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
@@ -52,9 +52,9 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
    > 
    > 
 4. Selezionare gli asset che si desidera ripulire dai nodi periferici.  Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo **Elimina tutto** .  In alternativa digitare il percorso di ogni asset che si vuole eliminare nella casella di testo **Percorso**. I formati seguenti sono supportati nel percorso.
-    1. **Eliminazione di un URL singolo**: Ripulire singolo asset specificando l'URL completo, con o senza l'estensione di file, ad esempio,`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Eliminazione dei caratteri jolly**: L’asterisco (\*) può essere usato come carattere jolly. Consente di eliminare tutte le cartelle, le sottocartelle e i file in un endpoint inserendo `/*` nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da `/*`, ad esempio `/pictures/*`.  Si noti che l'eliminazione dei caratteri jolly non è attualmente supportata dalla rete CDN di Azure fornita da Akamai. 
-    3. **Elimina dominio radice**: Consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
+    1. **Single URL purge**: (Eliminazione di un URL singolo) eliminazione di un singolo asset specificando l'URL completo, con o senza l'estensione di file, ad esempio `/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Consente di eliminare tutte le cartelle, le sottocartelle e i file in un endpoint inserendo `/*` nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da `/*`, ad esempio `/pictures/*`.  Si noti che l'eliminazione dei caratteri jolly non è attualmente supportata dalla rete CDN di Azure fornita da Akamai. 
+    3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
    
    > [!TIP]
    > Per l'eliminazione, è necessario che i percorsi vengano specificati e che siano un URL relativo che soddisfi l'[espressione regolare](/dotnet/standard/base-types/regular-expression-language-quick-reference) seguente. Le funzioni **Elimina tutti** e **Wildcard purge** (Eliminazione dei caratteri jolly) non sono attualmente supportate con la **rete CDN di Azure fornita da Akamai**.
@@ -69,7 +69,7 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
     ![Pulsante di eliminazione](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Le richieste di eliminazione impieghi circa 2 minuti per l'elaborazione con **rete CDN di Azure fornita da Microsoft** e **rete CDN di Azure fornita da Verizon** (standard e premium) e circa 10 secondi con **rete CDN di Azure fornita da Akamai**.  La rete CDN di Azure ha un limite di 50 richieste di eliminazione simultanee in qualsiasi momento a livello del profilo. 
+> La ripulitura delle richieste richiede circa 10 minuti per l'elaborazione con la rete **CDN di Azure di Microsoft**, circa 2 minuti con la rete **CDN di Azure di Verizon** (standard e Premium) e circa 10 secondi con la rete **CDN di Azure di Akamai**.  La rete CDN di Azure ha un limite di 50 richieste di eliminazione simultanee in qualsiasi momento a livello del profilo. 
 > 
 > 
 

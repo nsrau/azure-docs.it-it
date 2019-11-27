@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275947"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531818"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
@@ -42,7 +42,7 @@ Si vuole configurare una connessione da sito a sito tra Azure e la rete locale t
 
 Per istruzioni dettagliate per la configurazione di una connessione da sito a sito, vedere: [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-Uno dei passaggi critici consiste nella configurazione dei parametri di comunicazione IPsec perché qualsiasi errore di configurazione comporta la perdita di connettività tra la rete locale e Azure. I gateway VPN di Azure sono attualmente configurati per supportare i parametri IPsec seguenti per la fase 1. Come indicato in precedenza, non è possibile modificare queste impostazioni.  Come si può notare nella tabella seguente, gli algoritmi di crittografia supportati dal gateway VPN di Azure sono AES256, AES128 e 3DES.
+Uno dei passaggi critici consiste nella configurazione dei parametri di comunicazione IPsec perché qualsiasi errore di configurazione comporta la perdita di connettività tra la rete locale e Azure. I gateway VPN di Azure sono attualmente configurati per supportare i parametri IPsec seguenti per la fase 1. Come si può notare nella tabella seguente, gli algoritmi di crittografia supportati dal gateway VPN di Azure sono AES256, AES128 e 3DES.
 
 ### <a name="ike-phase-1-setup"></a>Configurazione fase 1 IKE
 
@@ -53,7 +53,7 @@ Uno dei passaggi critici consiste nella configurazione dei parametri di comunica
 | Metodo di autenticazione |Chiave precondivisa |Chiave precondivisa |
 | Algoritmi di crittografia |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo di hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Durata (tempo) associazione di sicurezza (SA) fase 1 |28.800 secondi |10.800 secondi |
+| Durata (tempo) associazione di sicurezza (SA) fase 1 |28.800 secondi |28.800 secondi |
 
 L'utente deve configurare il dispositivo FortiGate. Un esempio di configurazione è disponibile in [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Si supponga che il dispositivo FortiGate sia stato inconsapevolmente configurato per l'uso dell'algoritmo di hash SHA-512. Questo algoritmo non è supportato per le connessioni basate su criteri, quindi la connessione VPN non funziona.
 

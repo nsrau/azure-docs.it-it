@@ -1,19 +1,14 @@
 ---
-title: Aggiornare i contenitori in Istanze di Azure Container
+title: Aggiornamento del gruppo di contenitori
 description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di Azure Container.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: danlep
-ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307704"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533310"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di Azure Container
 
@@ -71,7 +66,7 @@ Queste proprietà richiedono l'eliminazione del gruppo di contenitori prima dell
 * Tipo di sistema operativo
 * CPU
 * Memoria
-* Criteri di riavvio
+* Criterio di riavvio
 * Porte
 
 Quando si elimina un gruppo di contenitori e lo si ricrea, questo non viene "ridistribuito", ma creato nuovo. Il pull di tutti i livelli dell'immagine viene eseguito dai dati aggiornati del registro, non da quelli memorizzati nella cache da una distribuzione precedente. L'indirizzo IP del contenitore può cambiare anche a causa della distribuzione in un altro host sottostante.

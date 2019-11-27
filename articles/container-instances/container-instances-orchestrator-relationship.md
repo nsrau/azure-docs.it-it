@@ -1,20 +1,15 @@
 ---
-title: Istanze di Azure Container e orchestrazione dei contenitori
+title: Istanze di contenitore e orchestrazione di contenitori
 description: Informazioni sull'interazione tra Istanze di Azure Container e agenti di orchestrazione dei contenitori.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972244"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533670"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di Azure Container e agenti di orchestrazione dei contenitori
 
@@ -26,14 +21,14 @@ Istanze di Azure Container fornisce alcune funzionalità di base di pianificazio
 
 La definizione standard dell'orchestrazione include le attività seguenti:
 
-- **Pianificazione**: Data un'immagine del contenitore e una richiesta di risorse, trovare una macchina adatta in cui eseguire il contenitore.
-- **Affinità/Antiaffinità**: Specificare che i contenitori di un set devono essere eseguiti vicini tra loro (per le prestazioni) o sufficientemente distanti tra loro (per la disponibilità).
-- **Monitoraggio dell'integrità**: Monitorare gli errori dei contenitori e modificare automaticamente la pianificazione.
-- **Failover**: Tenere traccia degli elementi in esecuzione in ogni computer e ripianificare i contenitori dai computer con errori ai nodi integri.
-- **Ridimensionamento**: Aggiungere o rimuovere istanze di contenitori per soddisfare la domanda, in modo automatico o manuale.
-- **Rete**: Fornire una rete di overlay per coordinare i contenitori nella comunicazione tra più computer host.
-- **Individuazione del servizio**: Consentire l'individuazione reciproca dei contenitori anche quando si spostano tra computer host e cambiano indirizzo IP.
-- **Aggiornamenti coordinati delle applicazioni**: Gestire gli aggiornamenti dei contenitori per evitare tempi di inattività delle applicazioni e consentire il rollback in caso di errore.
+- **Pianificazione**: data un'immagine del contenitore e una richiesta di risorse, trovare una macchina adatta in cui eseguire il contenitore.
+- **Affinità/Antiaffinità**: specificare che i contenitori di un set devono essere eseguiti vicini tra loro (per le prestazioni) o sufficientemente distanti tra loro (disponibilità).
+- **Monitoraggio dell'integrità**: monitorare gli errori dei contenitori e modificare automaticamente la pianificazione.
+- **Failover**: tenere traccia degli elementi in esecuzione in ogni macchina e ripianificare i contenitori dalle macchine con errori ai nodi integri.
+- **Scalabilità**: aggiungere o rimuovere istanze di contenitori per soddisfare la domanda, in modo automatico o manuale.
+- **Rete**: fornire una rete di overlay per coordinare i contenitori nella comunicazione tra più computer host.
+- **Individuazione del servizio**: consentire l'individuazione reciproca dei contenitori anche quando si spostano tra computer host e cambiano indirizzo IP.
+- **Aggiornamenti coordinati delle applicazioni**: gestire gli aggiornamenti dei contenitori per evitare tempi di inattività delle applicazioni e consentire il rollback in caso di errore.
 
 ## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestrazione con Istanze di Azure Container: un approccio a più livelli
 

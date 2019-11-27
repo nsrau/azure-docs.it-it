@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200323"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533048"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?
 
@@ -62,9 +62,9 @@ Il consenso dell'amministratore fornito per conto di un'organizzazione richiede 
 
 ## <a name="scopes-not-resources"></a>Ambiti e non risorse
 
-Per le app che usano l'endpoint v1.0, un'app può comportarsi come una **risorsa** o come un destinatario di token. Una risorsa può definire diversi **ambiti** o autorizzazioni **oAuth2Permissions** che può riconoscere, consentendo alle app client di richiedere token dalla risorsa per un determinato set di ambiti. Si consideri l'API Graph di Azure AD come esempio di una risorsa:
+Per le app che usano l'endpoint v1.0, un'app può comportarsi come una **risorsa** o come un destinatario di token. Una risorsa può definire diversi **ambiti** o autorizzazioni **oAuth2Permissions** che può riconoscere, consentendo alle app client di richiedere token dalla risorsa per un determinato set di ambiti. Si consideri l'API Microsoft Graph come esempio di una risorsa:
 
-* Identificatore della risorsa o `AppID URI`: `https://graph.windows.net/`
+* Identificatore della risorsa o `AppID URI`: `https://graph.microsoft.com/`
 * Ambiti o `oAuth2Permissions`: `Directory.Read`, `Directory.Write` e così via.
 
 Questo vale per l'endpoint della piattaforma Microsoft Identity. Un'app può comunque comportarsi come una risorsa, definire gli ambiti ed essere identificata da un URI. Le app client possono richiedere ancora l'accesso a questi ambiti, Tuttavia, il modo in cui un client richiede tali autorizzazioni è stato modificato.
@@ -95,7 +95,7 @@ Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richi
 
 ### <a name="offline-access"></a>Accesso offline
 
-Le app che usano l'endpoint della piattaforma Microsoft Identity possono richiedere l'uso di una nuova autorizzazione nota per le app: l'ambito `offline_access`. Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app. L'ambito `offline_access` viene visualizzato all'utente in finestre di dialogo di consenso, come **Accedi ai dati personali in qualsiasi momento**, che l'utente deve accettare. La richiesta dell'autorizzazione `offline_access` consentirà all'app Web di ricevere OAuth 2,0 token dall'endpoint della piattaforma di identità Microsoft. I token di aggiornamento hanno una lunga durata e possono essere scambiati con i nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.
+Le app che usano l'endpoint della piattaforma Microsoft Identity possono richiedere l'uso di una nuova autorizzazione nota per le app: l'ambito `offline_access`. Tutte le app dovranno richiedere questa autorizzazione, se devono accedere alle risorse per conto di un utente per un periodo di tempo prolungato, anche se l'utente non sta usando attivamente l'app. L'ambito `offline_access` viene visualizzato all'utente in finestre di dialogo di consenso, come **Accedi ai dati personali in qualsiasi momento**, che l'utente deve accettare. La richiesta dell'autorizzazione `offline_access` consentirà all'app Web di ricevere refresh_tokens OAuth 2,0 dall'endpoint della piattaforma di identità Microsoft. I token di aggiornamento hanno una lunga durata e possono essere scambiati con i nuovi token di accesso di OAuth 2.0 per periodi prolungati di accesso.
 
 Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Ciò significa che, quando si riscatta un codice di autorizzazione nel flusso del codice di autorizzazione OAuth 2.0, si riceve solo un token di accesso dall'endpoint `/token`. Tale token di accesso rimane valido per un breve periodo di tempo, in genere un'ora, poi scade. A questo punto, l'app deve reindirizzare l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento l'utente può o meno dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni, a seconda del tipo di app.
 
@@ -103,12 +103,12 @@ Per ulteriori informazioni su OAuth 2,0, `refresh_tokens`e `access_tokens`, vede
 
 ### <a name="openid-profile-and-email"></a>OpenID, profilo e indirizzo di posta elettronica
 
-Storicamente, il flusso di accesso OpenID Connect più semplice con la piattaforma di identità Microsoft fornirebbe numerose informazioni sull'utente nel *token ID*risultante. Le attestazioni nel token ID includono, ad esempio, il nome dell'utente, il nome utente preferito, l'indirizzo di posta elettronica, l'ID oggetto e altro ancora.
+Storicamente, il flusso di accesso OpenID Connect più semplice con la piattaforma di identità Microsoft fornirebbe numerose informazioni sull'utente nell' *id_token*risultante. Le attestazioni nel token ID includono, ad esempio, il nome dell'utente, il nome utente preferito, l'indirizzo di posta elettronica, l'ID oggetto e altro ancora.
 
 Le informazioni a cui l'app ha accesso tramite l'ambito `openid` sono ora limitate. L'ambito `openid` consente all'app di far accedere l'utente e di ricevere un identificatore specifico dell'app per l'utente. Per ottenere dati personali sull'utente nell'app, questa deve richiedere autorizzazioni aggiuntive all'utente. Due nuovi ambiti, `email` e `profile`, consentiranno di richiedere autorizzazioni aggiuntive.
 
 * L'ambito `email` consente all'app di accedere all'indirizzo di posta elettronica primario dell'utente tramite l'attestazione `email` nell'id_token, ammesso che l'utente abbia un indirizzo e-mail utilizzabile.
-* L'ambito `profile` consente all'app di accedere a tutte le altre informazioni di base sull'utente, ad esempio il nome, il nome utente preferito, l'ID oggetto e così via, nella token ID.
+* L'ambito `profile` consente all'app di accedere a tutte le altre informazioni di base sull'utente, ad esempio il nome, il nome utente preferito, l'ID oggetto e così via, nella id_token.
 
 Questi ambiti permettono di creare il codice dell'app in modo che la divulgazione delle informazioni sia minima ed è possibile chiedere all'utente solo il set di informazioni di cui l'app ha bisogno per svolgere le sue funzioni. Per ulteriori informazioni su questi ambiti, vedere [il riferimento all'ambito della piattaforma Microsoft Identity](v2-permissions-and-consent.md).
 
@@ -117,7 +117,7 @@ Questi ambiti permettono di creare il codice dell'app in modo che la divulgazion
 Per impostazione predefinita, l'endpoint della piattaforma di identità Microsoft rilascia un set più piccolo di attestazioni nei token per evitare che i payload siano ridotti. Se sono presenti app e servizi che hanno una dipendenza da un'attestazione specifica in un token v 1.0 che non è più disponibile per impostazione predefinita in un token della piattaforma di identità Microsoft, è consigliabile usare la funzionalità di [attestazione facoltativa](active-directory-optional-claims.md) per includere tale attestazione.
 
 > [!IMPORTANT]
-> i token v 1.0 e v 2.0 possono essere emessi sia dagli endpoint v 1.0 che dalla versione 2.0. token ID corrisponde *sempre* all'endpoint da cui sono stati richiesti e i token di accesso corrispondono *sempre* al formato previsto dall'API Web che il client chiamerà usando tale token.  Quindi, se l'app usa l'endpoint v 2.0 per ottenere un token per chiamare Microsoft Graph, che prevede i token di accesso in formato v 1.0, l'app riceverà un token nel formato v 1.0.  
+> i token v 1.0 e v 2.0 possono essere emessi sia dagli endpoint v 1.0 che dalla versione 2.0. id_tokens corrisponde *sempre* all'endpoint da cui sono stati richiesti e i token di accesso corrispondono *sempre* al formato previsto dall'API Web che il client chiamerà usando tale token.  Quindi, se l'app usa l'endpoint v 2.0 per ottenere un token per chiamare Microsoft Graph, che prevede i token di accesso in formato v 1.0, l'app riceverà un token nel formato v 1.0.  
 
 ## <a name="limitations"></a>Limitazioni
 
