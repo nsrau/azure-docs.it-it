@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ccd8fc293d284150d7318242b71a46a99fec12fa
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
-ms.translationtype: HT
+ms.openlocfilehash: 0fc7eb6c3b582c4fc95d78397c4cb2820ebb4ea8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406314"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534232"
 ---
 # <a name="deploy-farmbeats"></a>Distribuire FarmBeats
 
@@ -68,6 +68,9 @@ Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare le condizioni 
 6. Selezionare **Chiudi**, quindi la casella di controllo "Accetto" e quindi selezionare **Crea**.
 7. Il contratto di licenza con l'utente finale (EULA) di Azure FarmBeats è stato firmato sul Marketplace.  
 7. Per continuare con la distribuzione, seguire i passaggi successivi di questa guida.
+
+> [!NOTE]
+> Il completamento dell'offerta in Azure Marketplace completa solo una parte dell'installazione. Seguire le istruzioni riportate di seguito per completare la distribuzione di Azure FarmBeats nella sottoscrizione di Azure.
 
 ## <a name="prepare"></a>Preparare
 

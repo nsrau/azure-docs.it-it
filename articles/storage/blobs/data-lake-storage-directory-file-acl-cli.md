@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 95bb43f1531b6234ccb90eb7d66404ccc66f60f3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485146"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534288"
 ---
 # <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usare l'interfaccia della riga di comando di Azure per i file & ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -301,6 +301,6 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 * [Esempio](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Mapping tra Gen1 e Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
-* [Gap di funzionalità note](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Codice sorgente](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 

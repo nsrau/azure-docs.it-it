@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 6d60663e345f297246a423e1b4e7a4fb45f352a5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8eee516beaaf26ed25bd20f9689d26fdb1eb9b40
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754328"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546230"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Disabilitare le crittografie vulnerabili e la sincronizzazione degli hash delle password per proteggere un dominio gestito Azure AD Domain Services
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, Azure Active Directory Domain Services (Azure AD D
 
 Questo articolo illustra come disabilitare le crittografie NTLM v1 e TLS v1 e disabilitare la sincronizzazione degli hash delle password NTLM.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questo articolo, sono necessarie le risorse seguenti:
 

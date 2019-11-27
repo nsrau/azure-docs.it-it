@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a4aebd27e5f71680610ff8cc9ba211dedfe41219
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: a65e8b2c5fbcdd4f6df0f8f39b24fa97b8deeca3
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485107"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534422"
 ---
 # <a name="use-python-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usare Python per i file & ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -274,5 +274,5 @@ def list_directory_contents():
 * [Pacchetto (indice pacchetto Python)](https://pypi.org/project/azure-storage-file-datalake/)
 * [Esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Mapping tra Gen1 e Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Gap di funzionalità note](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-python/issues)

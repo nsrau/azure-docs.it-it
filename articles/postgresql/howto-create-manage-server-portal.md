@@ -1,26 +1,26 @@
 ---
-title: Gestire database di Azure per MariaDB-portale di Azure
-description: Informazioni su come gestire un database di Azure per il server MariaDB dalla portale di Azure.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+title: Gestire database di Azure per PostgreSQL-portale di Azure
+description: Informazioni su come gestire un server di database di Azure per PostgreSQL dalla portale di Azure.
+author: rachel-msft
+ms.author: raagyema
+ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 7e09db9308f9ecf623ce0ab0d948ed1056dd21b1
+ms.date: 11/20/2019
+ms.openlocfilehash: bcddd64afca29ac9fdd5d284fc8f809ff9e2477d
 ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534388"
+ms.locfileid: "74535691"
 ---
-# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gestire un database di Azure per il server MariaDB usando il portale di Azure
-Questo articolo illustra come gestire il database di Azure per i server MariaDB. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
+# <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Gestire un database di Azure per il server PostgreSQL usando il portale di Azure
+Questo articolo illustra come gestire i server del database di Azure per PostgreSQL. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
 
 ## <a name="sign-in"></a>Accedi
 Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Creare un server
-Per informazioni su come creare e iniziare a usare un database di Azure per il server MariaDB, vedere la [Guida introduttiva](quickstart-create-mariadb-server-database-using-azure-portal.md) .
+Visitare la [Guida introduttiva](quickstart-create-server-database-portal.md) per informazioni su come creare e iniziare a usare un database di Azure per il server PostgreSQL.
 
 ## <a name="scale-compute-and-storage"></a>Ridimensionare le risorse di calcolo e archiviazione
 
@@ -104,4 +104,4 @@ Se non è più necessario, è possibile eliminare il server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui [backup e sul ripristino del server](howto-restore-server-portal.md)
-- Informazioni sulle [Opzioni di ottimizzazione e monitoraggio nel database di Azure per MariaDB](concepts-monitoring.md)
+- Informazioni sulle [Opzioni di ottimizzazione e monitoraggio in database di Azure per PostgreSQL](concepts-monitoring.md)

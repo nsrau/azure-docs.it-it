@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515122"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546855"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Usare la caccia a livestream in Azure Sentinel per rilevare le minacce
 
 > [!IMPORTANT]
-> La caccia a livestream in Azure Sentinel è attualmente disponibile in anteprima pubblica.
+> La caccia a livestream in Azure Sentinel è attualmente disponibile in anteprima pubblica e viene gradualmente implementata nei tenant.
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -63,7 +63,7 @@ Usare la caccia di livestream per creare sessioni interattive che consentono di 
     1. Selezionare la scheda **livestream**
     2. Selezionare **Vai a livestream**.
     
-4. Nel pannello **livestream** :
+4. Nel riquadro **livestream** :
     
     - Se è stato avviato Livestream da una query, rivedere la query e apportare le modifiche desiderate.
     - Se è stato avviato Livestream da zero, creare la query. 
@@ -96,7 +96,7 @@ Poiché le notifiche livestream per i nuovi eventi usano portale di Azure notifi
 
 ![Notifica portale di Azure per Livestream](./media/livestream/notification.png)
 
-Selezionare la notifica per aprire il pannello **livestream** .
+Selezionare la notifica per aprire il riquadro **livestream** .
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>Elevare una sessione livestream a un avviso
 

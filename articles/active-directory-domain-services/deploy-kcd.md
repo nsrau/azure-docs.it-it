@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842666"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546280"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurare la delega vincolata Kerberos (delega vincolata Kerberos) in Azure Active Directory Domain Services
 
 Quando si eseguono le applicazioni, potrebbe essere necessario che tali applicazioni accedano alle risorse nel contesto di un altro utente. Active Directory Domain Services (AD DS) supporta un meccanismo denominato *delega Kerberos* che consente il caso d'uso. La delega *vincolata* Kerberos (delega vincolata Kerberos) si basa quindi su questo meccanismo per definire risorse specifiche a cui è possibile accedere nel contesto dell'utente. I domini gestiti Azure Active Directory Domain Services (Azure AD DS) sono bloccati in modo più sicuro negli ambienti di servizi di dominio Active Directory locali tradizionali, quindi è consigliabile usare un delega vincolata Kerberos più sicuro *basato sulle risorse* .
 
-Questo articolo illustra come configurare la delega vincolata Kerberos di Resource-basd in un dominio gestito di Azure AD DS.
+Questo articolo illustra come configurare la delega vincolata Kerberos basata sulle risorse in un dominio gestito di Azure AD DS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questo articolo, sono necessarie le risorse seguenti:
 
@@ -42,7 +42,9 @@ Per completare questo articolo, sono necessarie le risorse seguenti:
 
 La delega Kerberos consente a un account di rappresentare un altro account per accedere alle risorse. Ad esempio, un'applicazione Web che accede a un componente Web back-end può essere rappresentata come un account utente diverso quando effettua la connessione back-end. La delega Kerberos non è protetta perché non limita le risorse a cui l'account di rappresentazione può accedere.
 
-La delega vincolata Kerberos (delega vincolata Kerberos) limita i servizi o le risorse che un server o un'applicazione specificata può connettere quando rappresenta un'altra identità. Per la delega vincolata Kerberos tradizionale sono necessari privilegi di amministratore di dominio per configurare un account di dominio per un servizio e l'account viene limitato per l'esecuzione in un singolo dominio. Il delega vincolata Kerberos tradizionale presenta anche alcuni problemi. Ad esempio, nei sistemi operativi precedenti, l'amministratore del servizio non aveva alcun modo utile per individuare i servizi front-end delegati ai servizi delle risorse di cui è proprietario. Qualsiasi servizio front-end che può delegare a un servizio risorse è un potenziale punto di attacco. Se un server che ospita un servizio front-end configurato per delegare i servizi risorse è stato compromesso, è possibile che anche i servizi risorse siano compromessi.
+La delega vincolata Kerberos (delega vincolata Kerberos) limita i servizi o le risorse che un server o un'applicazione specificata può connettere quando rappresenta un'altra identità. Per la delega vincolata Kerberos tradizionale sono necessari privilegi di amministratore di dominio per configurare un account di dominio per un servizio e l'account viene limitato per l'esecuzione in un singolo dominio.
+
+Il delega vincolata Kerberos tradizionale presenta anche alcuni problemi. Ad esempio, nei sistemi operativi precedenti, l'amministratore del servizio non aveva alcun modo utile per individuare i servizi front-end delegati ai servizi delle risorse di cui è proprietario. Qualsiasi servizio front-end che può delegare a un servizio risorse è un potenziale punto di attacco. Se un server che ospita un servizio front-end configurato per delegare i servizi risorse è stato compromesso, è possibile che anche i servizi risorse siano compromessi.
 
 In un dominio gestito Azure AD DS, non si dispone dei privilegi di amministratore di dominio. Di conseguenza, il delega vincolata Kerberos tradizionale basato su account non può essere configurato in un dominio gestito di Azure AD DS. È invece possibile usare il delega vincolata Kerberos basato su risorse, che è anche più sicuro.
 

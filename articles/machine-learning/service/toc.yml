@@ -280,6 +280,9 @@
         - name: Servizio app di Azure
           displayName: web app
           href: how-to-deploy-app-service.md
+        - name: Funzioni di Azure
+          displayName: functions app
+          href: how-to-deploy-functions.md
         - name: VM notebook
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Usare l'immagine Docker personalizzata

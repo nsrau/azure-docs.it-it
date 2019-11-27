@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/26/2019
 ms.author: b-juche
-ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173598"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546948"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -143,6 +143,10 @@ Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il perc
 
 Azure NetApp Files supporta le versioni di Active Directory Domain Services di Windows Server 2008r2SP1-2019.
 
+### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Perché lo spazio disponibile nel client SMB non Mostra le dimensioni di cui è stato effettuato il provisioning?
+
+Le dimensioni del volume segnalate dal client SMB sono le dimensioni massime consentite per l'aumento del volume Azure NetApp Files. Le dimensioni del volume Azure NetApp Files come illustrato nel client SMB non riflettono la quota o le dimensioni del volume. È possibile ottenere la dimensione o la quota del volume Azure NetApp Files tramite la portale di Azure o l'API.
+
 ## <a name="capacity-management-faqs"></a>Domande frequenti sulla gestione della capacità
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Ricerca per categorie monitorare l'utilizzo per il pool di capacità e il volume di Azure NetApp Files? 
@@ -160,7 +164,7 @@ Azure NetApp Files fornisce volumi NFS e SMB.  È possibile utilizzare qualsiasi
 
 NetApp offre una soluzione basata su SaaS, la [sincronizzazione cloud NetApp](https://cloud.netapp.com/cloud-sync-service).  La soluzione consente di replicare i dati NFS o SMB in Azure NetApp Files le esportazioni NFS o le condivisioni SMB. 
 
-È anche possibile usare un'ampia gamma di strumenti gratuiti per la copia dei dati. Per NFS, è possibile usare strumenti di carico di lavoro come [rsync](https://rsync.samba.org/examples.html) per copiare e sincronizzare i dati di origine in un volume Azure NetApp files. Per SMB, è possibile utilizzare [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) dei carichi di lavoro nello stesso modo.  Questi strumenti possono anche replicare le autorizzazioni per file o cartelle. 
+È anche possibile usare un'ampia gamma di strumenti gratuiti per la copia dei dati. Per NFS, è possibile usare strumenti di carico di lavoro come [rsync](https://rsync.samba.org/examples.html) per copiare e sincronizzare i dati di origine in un volume Azure NetApp files. Per SMB, è possibile utilizzare [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) dei carichi di lavoro nello stesso modo.  Questi strumenti possono anche replicare le autorizzazioni per file o cartelle. 
 
 I requisiti per la migrazione dei dati da locale a Azure NetApp Files sono i seguenti: 
 
@@ -175,7 +179,7 @@ Azure NetApp Files fornisce volumi NFS e SMB.  Qualsiasi strumento di copia basa
 
 NetApp offre una soluzione basata su SaaS, la [sincronizzazione cloud NetApp](https://cloud.netapp.com/cloud-sync-service).  La soluzione consente di replicare i dati NFS o SMB in Azure NetApp Files le esportazioni NFS o le condivisioni SMB. 
 
-È anche possibile usare un'ampia gamma di strumenti gratuiti per la copia dei dati. Per NFS, è possibile usare strumenti di carico di lavoro come [rsync](https://rsync.samba.org/examples.html) per copiare e sincronizzare i dati di origine in un volume Azure NetApp files. Per SMB, è possibile utilizzare [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) dei carichi di lavoro nello stesso modo.  Questi strumenti possono anche replicare le autorizzazioni per file o cartelle. 
+È anche possibile usare un'ampia gamma di strumenti gratuiti per la copia dei dati. Per NFS, è possibile usare strumenti di carico di lavoro come [rsync](https://rsync.samba.org/examples.html) per copiare e sincronizzare i dati di origine in un volume Azure NetApp files. Per SMB, è possibile utilizzare [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) dei carichi di lavoro nello stesso modo.  Questi strumenti possono anche replicare le autorizzazioni per file o cartelle. 
 
 I requisiti per la replica di un volume Azure NetApp Files in un'altra area di Azure sono i seguenti: 
 - Assicurarsi che Azure NetApp Files sia disponibile nell'area di Azure di destinazione.

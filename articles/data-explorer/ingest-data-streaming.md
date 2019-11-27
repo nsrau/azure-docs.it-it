@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090625"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548346"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -25,7 +25,7 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 > * [Cursori del database](/azure/kusto/management/databasecursor).
 > * [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Accedere all' [interfaccia utente Web](https://dataexplorer.azure.com/).
@@ -73,8 +73,7 @@ Sono disponibili due tipi di inserimento di flussi supportati:
 
 ## <a name="limitations"></a>Limitazioni
 
-* Le prestazioni e la capacità di inserimento dei flussi vengono ridimensionate con dimensioni maggiori di macchine virtuali e cluster. Per un singolo nodo D14, il carico consigliato è fino a 150 richieste al secondo.
-* Attualmente, il supporto è solo per gli SKU con 8 e 16 core (D13, D14, L8 e L16).
+* Le prestazioni e la capacità di inserimento dei flussi vengono ridimensionate con dimensioni maggiori di macchine virtuali e cluster. Le inserimenti simultanei sono limitate a 6 inserimenti per core. Ad esempio, per gli SKU a 16 core, ad esempio D14 e L16, il carico massimo supportato è 96 di inserimenti simultanei. Per 2 SKU principali, ad esempio D11, il carico massimo supportato è 12 inserimenti simultanei.
 * Il limite per le dimensioni dei dati per ogni richiesta di inserimento è 4 MB.
 * Gli aggiornamenti dello schema, ad esempio la creazione e la modifica di tabelle e mapping di inserimento, possono richiedere fino a 5 minuti per il servizio di inserimento di flussi.
 * L'abilitazione dell'inserimento di flussi in un cluster, anche quando i dati non vengono inseriti tramite lo streaming, usa una parte del disco SSD locale dei computer del cluster per il flusso dei dati di inserimento e riduce lo spazio di archiviazione disponibile per la cache a caldo.

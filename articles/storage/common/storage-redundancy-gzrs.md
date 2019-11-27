@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186605"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534316"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creazione di applicazioni di archiviazione di Azure a disponibilità elevata con archiviazione con ridondanza geografica (GZRS) (anteprima)
 
@@ -85,6 +85,11 @@ L'obiettivo del tempo di ripristino (RTO) è una misura del tempo necessario per
 ## <a name="migrate-a-storage-account-to-gzrs-or-ra-gzrs"></a>Eseguire la migrazione di un account di archiviazione a GZRS o RA-GZRS
 
 È possibile eseguire la migrazione di qualsiasi account di archiviazione esistente a GZRS o RA-GZRS. La migrazione da un account ZRS esistente a GZRS o RA-GZRS è semplice, mentre la migrazione da un account con ridondanza locale, GRS o RA-GRS è più complessa. Le sezioni seguenti descrivono come eseguire la migrazione in entrambi i casi.
+
+**Limitazioni note**
+
+- Il livello archivio non è attualmente supportato per gli account GZRS (RA-). Per altri dettagli [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) .
+- I dischi gestiti non supportano (RA-) GZRS. È possibile archiviare snapshot e immagini per SDD Standard Managed Disks nell'archiviazione HDD Standard e [scegliere tra le opzioni con ridondanza locale e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### <a name="migrating-from-a-zrs-account"></a>Migrazione da un account ZRS
 

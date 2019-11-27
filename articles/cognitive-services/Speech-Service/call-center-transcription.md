@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2025eb611a394cf4b67c05a4019ccf03bcadf9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075872"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538166"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
 
@@ -95,7 +95,6 @@ Una tipica soluzione usa questi servizi:
 - Il servizio di riconoscimento vocale viene usato per trascrivere il riconoscimento vocale. Per usare l'API di trascrizione batch, è necessaria una sottoscrizione standard (S0) per il servizio di riconoscimento vocale. Le sottoscrizioni gratuite (F0) non funzioneranno.
 - Per archiviare i dati di telefonia e le trascrizioni restituite dall'API di trascrizione batch si usa [Archiviazione di Azure](https://azure.microsoft.com/services/storage/). Questo account di archiviazione deve usare le notifiche, in particolare quando vengono aggiunti nuovi file. Queste notifiche vengono usate per attivare il processo di trascrizione.
 - [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) consente di creare l'URI di firma di accesso condiviso per ogni registrazione e attivare la richiesta POST HTTP per avviare una trascrizione. Inoltre, Funzioni di Azure consente di creare richieste per recuperare ed eliminare trascrizioni usando l'API di trascrizione batch.
-- I [webhook](webhooks.md) vengono usati per ricevere notifiche quando le trascrizioni sono state completate.
 
 Microsoft usa internamente le suddette tecnologie per supportare le chiamate dei clienti in modalità batch.
 ![Architettura batch](media/scenarios/call-center-batch-pipeline.png)
@@ -148,4 +147,4 @@ Il codice di esempio è disponibile in GitHub per ognuna delle funzionalità del
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Ricevi gratuitamente una chiave di sottoscrizione del servizio vocale](get-started.md)
+> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)

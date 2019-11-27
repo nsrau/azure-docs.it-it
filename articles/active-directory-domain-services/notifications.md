@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993144"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546265"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurare le notifiche di posta elettronica per i problemi in Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ La notifica di posta elettronica di esempio seguente indica che è stato generat
 ![Esempio di notifica di posta elettronica](./media/active-directory-domain-services-alerts/email-alert.png)
 
 > [!WARNING]
-> Assicurarsi sempre che il messaggio di posta elettronica provenga da un mittente Microsoft verificato prima di fare clic sui collegamenti nel messaggio. Le notifiche tramite posta elettronica provengono sempre `azure-noreply@microsoft.com` dall'indirizzo.
+> Assicurarsi sempre che il messaggio di posta elettronica provenga da un mittente Microsoft verificato prima di fare clic sui collegamenti nel messaggio. Le notifiche tramite posta elettronica provengono sempre dall'indirizzo `azure-noreply@microsoft.com`.
 
 ### <a name="why-would-i-receive-email-notifications"></a>Perché si ricevono notifiche di posta elettronica?
 
@@ -68,7 +68,7 @@ Per esaminare i destinatari delle notifiche di posta elettronica esistenti o agg
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>È stata ricevuta una notifica di posta elettronica per un avviso, ma nel portale di Azure non è presente alcun avviso. Cosa è successo?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>È stata ricevuta una notifica di posta elettronica per un avviso, ma nel portale di Azure non è presente alcun avviso. Che cosa è successo?
 
 Se un avviso viene risolto, l'avviso viene cancellato dal portale di Azure. Il motivo più probabile è che un altro utente che riceve le notifiche tramite posta elettronica ha risolto l'avviso sul dominio gestito Azure AD DS oppure è stato risolto automaticamente dalla piattaforma Azure.
 
@@ -78,7 +78,7 @@ Se non si riesce ad accedere alla pagina delle impostazioni di notifica nella po
 
 ### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>Non si ricevono notifiche di posta elettronica anche se è stato fornito l'indirizzo di posta elettronica. Perché?
 
-Controllare la cartella posta indesiderata o posta indesiderata nel messaggio di posta elettronica per la notifica `azure-noreply@microsoft.com`e assicurarsi di consentire al mittente di.
+Controllare la cartella posta indesiderata o posta indesiderata nel messaggio di posta elettronica per la notifica e assicurarsi di consentire il mittente del `azure-noreply@microsoft.com`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

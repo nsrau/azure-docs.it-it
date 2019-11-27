@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 4593c16905c331b0d76c9c5c93faac6accfb0977
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485211"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534260"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>USA Java per file & ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -326,5 +326,5 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 * [Pacchetto (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
 * [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Mapping tra Gen1 e Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Gap di funzionalità note](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-java/issues)

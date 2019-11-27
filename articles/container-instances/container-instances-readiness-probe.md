@@ -1,21 +1,16 @@
 ---
-title: Configurare Probe di conformità nelle istanze di contenitore di Azure
+title: Configurare il probe di conformità sull'istanza del contenitore
 description: Informazioni su come configurare un probe per garantire che i contenitori nelle istanze di contenitore di Azure ricevano richieste solo quando sono pronte
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 10/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cdc8362c377be28a3ed1300b599dc8ebef9e903
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905576"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533553"
 ---
-# <a name="configure-readiness-probes"></a>Configurare Probe di conformità
+# <a name="configure-readiness-probes"></a>Configurare probe di idoneità
 
 Per le applicazioni incluse in contenitori che gestiscono il traffico, potrebbe essere necessario verificare che il contenitore sia pronto per la gestione delle richieste in ingresso. Istanze di contenitore di Azure supporta i probe di conformità per includere le configurazioni, in modo che non sia possibile accedere al contenitore in determinate condizioni. Il probe di conformità si comporta come un [Probe di conformità di Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). Ad esempio, un'app contenitore potrebbe dover caricare un set di dati di grandi dimensioni durante l'avvio e non si vuole che riceva richieste durante questo periodo di tempo.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1676ad3dde5a97d2afdb64595d51f5502f9dcc3d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185925"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534500"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
 
@@ -50,7 +50,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 1. Nel computer in cui è stato scaricato il file aprire una finestra di comando con privilegi di amministratore.
 2. Eseguire il comando seguente per generare il codice hash per il disco rigido virtuale
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
 3.  Per la versione appliance 2.19.11.12, l'hash generato deve corrispondere a queste impostazioni.
 
   **Algoritmo** | **Valore hash**
