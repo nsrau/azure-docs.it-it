@@ -1,6 +1,6 @@
 ---
 title: Processi di database elastico (anteprima)
-description: Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases
+description: Configurare i processi di database elastici (anteprima) per eseguire script Transact-SQL (T-SQL) in un set di uno o più database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -27,19 +27,19 @@ Se non si sono mai usati processi elastici, vedere [altre informazioni sui conce
 ## <a name="create-and-configure-the-agent"></a>Creare e configurare l'agente
 
 1. Creare o identificare un database SQL vuoto con livello di servizio S0 o superiore. Questo database verrà usato come *database di processo* durante la creazione dell'agente di processo elastico.
-2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+2. Creare un agente processo elastico nel [portale](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) o con [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
    ![Creazione dell'agente di processo elastico](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Creare, eseguire e gestire i processi
 
-1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+1. Creazione di una credenziale per l'esecuzione del processo nel *database del processo* tramite [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Definire il gruppo di destinazione (i database su cui si vuole eseguire il processo) usando [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
 3. Creare una credenziale di agente di processo in ogni database in cui verrà eseguito il processo[, aggiungendo l'utente (o il ruolo) a ogni database del gruppo](sql-database-control-access.md). Per un esempio, vedere l'[esercitazione di PowerShell](elastic-jobs-powershell.md).
-4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+4. Creare un processo usando [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Aggiungere passaggi di processo usando [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+6. Eseguire un processo usando [PowerShell](elastic-jobs-powershell.md#run-the-job) o [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+7. Monitorare lo stato di esecuzione del processo usando il portale, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) o [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![di Microsoft Azure](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -55,9 +55,9 @@ La configurazione delle credenziali corrette per l'esecuzione di un processo pu�
 
 L'immagine seguente semplifica la comprensione e la configurazione delle credenziali di processo corrette. **Ricordarsi di creare l'utente in ogni database (tutti i *database utente di destinazione*) in cui è necessario eseguire il processo**.
 
-![Credenziali di processi elastici](media/elastic-jobs-overview/job-credentials.png)
+![Credenziali dei processi elastici](media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
+## <a name="security-best-practices"></a>Procedure di sicurezza consigliate
 
 Alcune considerazioni sulle procedure consigliate per l'uso dei processi elastici:
 
@@ -77,7 +77,7 @@ Attualmente, l'anteprima è limitata a 100 processi simultanei.
 
 Per garantire che le risorse non siano sovraccariche quando si eseguono processi sul database in un pool elastico SQL, è possibile configurare i processi in modo da limitare il numero di database in cui un processo può essere eseguito contemporaneamente.
 
-Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+Impostare il numero di database simultanei in cui viene eseguito un processo impostando il parametro di `@max_parallelism` del stored procedure di `sp_add_jobstep` in T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Procedure consigliate per la creazione di processi
 

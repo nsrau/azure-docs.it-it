@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Service consortium
-description: Overview of how Azure Blockchain service implements consortium blockchain networks.
+title: Azure blockchain Service Consortium
+description: Panoramica sul modo in cui il servizio Azure blockchain implementa le reti blockchain del Consorzio.
 ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
@@ -11,72 +11,72 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455759"
 ---
-# <a name="azure-blockchain-service-consortium"></a>Azure Blockchain Service consortium
+# <a name="azure-blockchain-service-consortium"></a>Azure blockchain Service Consortium
 
-Using Azure Blockchain Service, you can create private consortium blockchain networks where each blockchain network can be limited to specific participants in the network. Only participants in the private consortium blockchain network can view and interact with the blockchain. Consortium networks in Azure Blockchain Service can contain two types of member participant roles:
+Con il servizio blockchain di Azure è possibile creare reti blockchain del consorzio privato in cui ogni rete blockchain può essere limitata a specifici partecipanti nella rete. Solo i partecipanti alla rete blockchain del consorzio privato possono visualizzare e interagire con il blockchain. Le reti del Consorzio nel servizio Azure blockchain possono contenere due tipi di ruoli del partecipante del membro:
 
-* **Administrator** - Privileged participants who can take consortium management actions and can participate in blockchain transactions.
+* Partecipanti con privilegi **amministrativi** che possono intraprendere azioni di gestione del Consorzio e possono partecipare alle transazioni blockchain.
 
-* **User** -  Participants who cannot take any consortium management action but can participate in blockchain transactions.
+* **Utenti** -partecipanti che non possono intraprendere alcuna azione di gestione del Consorzio, ma possono partecipare alle transazioni blockchain.
 
-Consortium networks can be a mix of participant roles and can have an arbitrary number of each role type. There must be at least one administrator.
+Le reti Consortium possono essere una combinazione di ruoli dei partecipanti e possono avere un numero arbitrario di ogni tipo di ruolo. Deve essere presente almeno un amministratore.
 
-The following diagram shows a consortium network with multiple participants:
+Il diagramma seguente mostra una rete Consortium con più partecipanti:
 
-![Private consortium network diagram](./media/consortium/network-diagram.png)
+![Diagramma di rete del consorzio privato](./media/consortium/network-diagram.png)
 
-With consortium management in Azure Blockchain Service, you can manage participants in the consortium network. Management of the consortium is based on the consensus model of the network. In the current preview release, Azure Blockchain Service provides a centralized consensus model for consortium management. Any privileged participant with an administer role can take consortium management actions, such as adding or removing participants from a network.
+Con la gestione del Consorzio nel servizio blockchain di Azure, è possibile gestire i partecipanti nella rete Consortium. La gestione del Consorzio è basata sul modello di consenso della rete. Nella versione di anteprima corrente, il servizio Azure blockchain fornisce un modello di consenso centralizzato per la gestione del Consorzio. Qualsiasi partecipante con privilegi con un ruolo di amministratore può eseguire azioni di gestione del Consorzio, ad esempio l'aggiunta o la rimozione di partecipanti da una rete.
 
 ## <a name="roles"></a>Ruoli
 
-Participants in a consortium can be individuals or organizations and can be assigned a user role or an administrator role. The following table lists the high-level differences between the two roles:
+I partecipanti a un consorzio possono essere individui o organizzazioni e possono essere assegnati a un ruolo utente o a un ruolo di amministratore. Nella tabella seguente sono elencate le differenze di alto livello tra i due ruoli:
 
 | Azione | Ruolo utente | Ruolo amministratore
 |--------|:----:|:------------:|
-| Create new member | SÌ | SÌ |
-| Invite new members | No | SÌ |
-| Set or change member participant role | No | SÌ |
-| Change member display name | Only for own member | Only for own member |
-| Rimuovere membri | Only for own member | SÌ |
-| Participate in blockchain transactions | SÌ | SÌ |
+| Crea nuovo membro | Sì | Sì |
+| Invita nuovi membri | No | Sì |
+| Impostare o modificare il ruolo del partecipante del membro | No | Sì |
+| Modificare il nome visualizzato del membro | Solo per il membro personale | Solo per il membro personale |
+| Rimuovere membri | Solo per il membro personale | Sì |
+| Partecipa alle transazioni blockchain | Sì | Sì |
 
 ### <a name="user-role"></a>Ruolo utente
 
-Users are consortium participants with no administrator capabilities. They cannot participate in managing members related to the consortium. Users can change their member display name and can remove themselves from a consortium.
+Gli utenti sono partecipanti al Consorzio senza capacità di amministratore. Non possono partecipare alla gestione dei membri correlati al Consorzio. Gli utenti possono modificare il nome visualizzato del membro e possono rimuovere se stessi da un consorzio.
 
 ### <a name="administrator"></a>Amministratore
 
-An administrator can manage members within the consortium. An administrator can invite members, remove members, or update members roles within the consortium.
-There must always be at least one administrator within a consortium. The last administrator must specify another participant as an administrator role before leaving a consortium.
+Un amministratore può gestire i membri all'interno del Consorzio. Un amministratore può invitare membri, rimuovere membri o aggiornare i ruoli dei membri all'interno del Consorzio.
+In un consorzio deve essere sempre presente almeno un amministratore. L'ultimo amministratore deve specificare un altro partecipante come ruolo di amministratore prima di uscire da un consorzio.
 
-## <a name="managing-members"></a>Managing members
+## <a name="managing-members"></a>Gestione dei membri
 
-Only administrators can invite other participants to the consortium. Administrators invite participants using their Azure subscription ID.
+Solo gli amministratori possono invitare altri partecipanti al Consorzio. Gli amministratori possono invitare i partecipanti a usare l'ID sottoscrizione di Azure.
 
-Once invited, participants can join the blockchain consortium by deploying a new member in Azure Blockchain Service. To view and join the invited consortium, you must specify the same Azure subscription ID used in the invite by the network administrator.
+Una volta invitati, i partecipanti possono partecipare al Consorzio blockchain distribuendo un nuovo membro nel servizio Azure blockchain. Per visualizzare e partecipare al Consorzio invitato, è necessario specificare lo stesso ID sottoscrizione di Azure usato nell'invito da parte dell'amministratore di rete.
 
-Administrators can remove any participant from the consortium, including other administrators. Members can only remove themselves from a consortium.
+Gli amministratori possono rimuovere qualsiasi partecipante dal Consorzio, inclusi altri amministratori. I membri possono solo rimuovere se stessi da un consorzio.
 
-## <a name="consortium-management-smart-contract"></a>Consortium management smart contract
+## <a name="consortium-management-smart-contract"></a>Contratto intelligente di gestione del Consorzio
 
-Consortium management in Azure Blockchain Service is done via consortium management smart contracts. The smart contracts are automatically deployed to your nodes when you deploy a new blockchain member.
+La gestione del Consorzio nel servizio blockchain di Azure viene eseguita tramite contratti intelligenti di gestione del Consorzio. I contratti intelligenti vengono distribuiti automaticamente nei nodi quando si distribuisce un nuovo membro di blockchain.
 
-The address of the root consortium management smart contract can be viewed in the Azure portal. The **RootContract address** is in blockchain member's overview section.
+L'indirizzo dello Smart Contract di gestione del Consorzio radice può essere visualizzato nella portale di Azure. L' **Indirizzo RootContract** si trova nella sezione Panoramica del membro blockchain.
 
-![RootContract address](./media/consortium/rootcontract-address.png)
+![Indirizzo RootContract](./media/consortium/rootcontract-address.png)
 
-You can interact with the consortium management smart contract using the consortium management [PowerShell module](manage-consortium-powershell.md), Azure portal, or directly through the smart contract using the Azure Blockchain Service generated Ethereum account.
+È possibile interagire con lo Smart Contract di gestione del Consorzio usando il [modulo di PowerShell](manage-consortium-powershell.md)di gestione del Consorzio, portale di Azure o direttamente tramite il contratto intelligente usando il servizio Azure blockchain generato dall'account Ethereum.
 
-## <a name="ethereum-account"></a>Ethereum account
+## <a name="ethereum-account"></a>Account Ethereum
 
-When a member is created, an Ethereum account key is created. Azure Blockchain Service uses the key to create transactions related to consortium management. The Ethereum account key is managed by Azure Blockchain Service automatically.
+Quando viene creato un membro, viene creata una chiave dell'account Ethereum. Il servizio Azure blockchain usa la chiave per creare transazioni correlate alla gestione del Consorzio. La chiave dell'account Ethereum viene gestita automaticamente dal servizio blockchain di Azure.
 
-The member account can be viewed in the Azure portal. The member account is in blockchain member's overview section.
+L'account del membro può essere visualizzato nella portale di Azure. L'account membro si trova nella sezione Panoramica del membro blockchain.
 
-![Member account](./media/consortium/member-account.png)
+![Account membro](./media/consortium/member-account.png)
 
-You can reset your Ethereum account by clicking on your member account and entering a new password. Both the Ethereum account address and the password will be reset.  
+È possibile reimpostare l'account Ethereum facendo clic sull'account del membro e immettendo una nuova password. Sia l'indirizzo dell'account Ethereum che la password verranno reimpostati.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consortium management actions can be accessed through PowerShell. For more information, see [Manage consortium members in Azure Blockchain Service using PowerShell](manage-consortium-powershell.md).
+È possibile accedere alle azioni di gestione del Consorzio tramite PowerShell. Per altre informazioni, vedere [Manage Consortium members in Azure blockchain Service using PowerShell](manage-consortium-powershell.md).

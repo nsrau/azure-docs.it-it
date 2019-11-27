@@ -76,7 +76,7 @@ Questa associazione di input per il token di autenticazione ottiene un token Azu
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#auth-token---example)
-* [Attributes (Attributi)](#auth-token---attributes)
+* [Attributes (Attributi) (Attributi)](#auth-token---attributes)
 * [Configurazione](#auth-token---configuration)
 * [Utilizzo](#auth-token---usage)
 
@@ -84,7 +84,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#auth-token---c-script-example)
+* [Script C# (.csx)](#auth-token---c-script-example)
 * [JavaScript](#auth-token---javascript-example)
 
 #### <a name="auth-token---c-script-example"></a>Token di autenticazione: esempio di script C#
@@ -205,7 +205,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Token`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di input per il token di autenticazione nel codice](#token-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `token`.|
@@ -234,7 +234,7 @@ L'associazione di input per la tabella di Excel legge il contenuto di una tabell
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#excel-input---example)
-* [Attributes (Attributi)](#excel-input---attributes)
+* [Attributes (Attributi) (Attributi)](#excel-input---attributes)
 * [Configurazione](#excel-input---configuration)
 * [Utilizzo](#excel-input---usage)
 
@@ -242,7 +242,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#excel-input---c-script-example)
+* [Script C# (.csx)](#excel-input---c-script-example)
 * [JavaScript](#excel-input---javascript-example)
 
 #### <a name="excel-input---c-script-example"></a>Input di Excel: esempio di script C#
@@ -340,7 +340,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Excel`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per la tabella di Excel. Vedere [Usare un'associazione di input per la tabella di Excel nel codice](#excel-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `excel`.|
@@ -357,14 +357,14 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Gruppi|Autorizzazione|
+|Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Leggere i file dell'utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - stringa[][]
 - Microsoft.Graph.WorkbookTable
-- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -383,7 +383,7 @@ Questa associazione di output di Excel modifica il contenuto di una tabella di E
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#excel-output---example)
-* [Attributes (Attributi)](#excel-output---attributes)
+* [Attributes (Attributi) (Attributi)](#excel-output---attributes)
 * [Configurazione](#excel-output---configuration)
 * [Utilizzo](#excel-output---usage)
 
@@ -391,7 +391,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#excel-output---c-script-example)
+* [Script C# (.csx)](#excel-output---c-script-example)
 * [JavaScript](#excel-output---javascript-example)
 
 #### <a name="excel-output---c-script-example"></a>Output di Excel: esempio di script C#
@@ -502,7 +502,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Excel`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il token di autenticazione. Vedere [Usare un'associazione di ouput per la tabella di Excel nel codice](#excel-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `excel`.|
@@ -520,7 +520,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Gruppi|Autorizzazione|
+|Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
 
@@ -528,7 +528,7 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 - stringa[][]
 - Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
-- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -542,7 +542,7 @@ L'associazione di input di file di OneDrive legge il contenuto di un file archiv
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#file-input---example)
-* [Attributes (Attributi)](#file-input---attributes)
+* [Attributes (Attributi) (Attributi)](#file-input---attributes)
 * [Configurazione](#file-input---configuration)
 * [Utilizzo](#file-input---usage)
 
@@ -550,7 +550,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#file-input---c-script-example)
+* [Script C# (.csx)](#file-input---c-script-example)
 * [JavaScript](#file-input---javascript-example)
 
 #### <a name="file-input---c-script-example"></a>Input di file: esempio di script C#
@@ -648,7 +648,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `OneDrive`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di input per i file di OneDrive nel codice](#onedrive-input-code).|
 |**type**||Obbligatoria. Deve essere impostata su `onedrive`.|
@@ -663,14 +663,14 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Gruppi|Autorizzazione|
+|Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Leggere i file dell'utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
-- Flusso
-- string
+- Stream
+- stringa
 - Microsoft.Graph.DriveItem
 
 
@@ -686,7 +686,7 @@ L'associazione di output di file di OneDrive modifica il contenuto di un file ar
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#file-output---example)
-* [Attributes (Attributi)](#file-output---attributes)
+* [Attributes (Attributi) (Attributi)](#file-output---attributes)
 * [Configurazione](#file-output---configuration)
 * [Utilizzo](#file-output---usage)
 
@@ -694,7 +694,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#file-output---c-script-example)
+* [Script C# (.csx)](#file-output---c-script-example)
 * [JavaScript](#file-output---javascript-example)
 
 #### <a name="file-output---c-script-example"></a>Output di file: esempio di script C#
@@ -796,7 +796,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `OneDrive`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il file. Vedere [Usare un'associazione di output per i file di OneDrive nel codice](#onedrive-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `onedrive`.|
@@ -811,14 +811,14 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Gruppi|Autorizzazione|
+|Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - byte[]
-- Flusso
-- string
+- Stream
+- stringa
 - Microsoft.Graph.DriveItem
 
 
@@ -833,7 +833,7 @@ L'associazione di output del messaggio di Outlook invia un messaggio di posta tr
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#outlook-output---example)
-* [Attributes (Attributi)](#outlook-output---attributes)
+* [Attributes (Attributi) (Attributi)](#outlook-output---attributes)
 * [Configurazione](#outlook-output---configuration)
 * [Utilizzo](#outlook-output---usage)
 
@@ -841,7 +841,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#outlook-output---c-script-example)
+* [Script C# (.csx)](#outlook-output---c-script-example)
 * [JavaScript](#outlook-output---javascript-example)
 
 #### <a name="outlook-output---c-script-example"></a>Output di Outlook: esempio di script C#
@@ -947,7 +947,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attribu
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Outlook`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `outlook`.|
@@ -961,15 +961,15 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
 
-|Gruppi|Autorizzazione|
+|Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Inviare un messaggio di posta elettronica come utente|
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
-- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- stringa
+- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -998,7 +998,7 @@ Il trigger di webhook di Microsoft Graph consente di rispondere a un webhook in 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-trigger---example)
-* [Attributes (Attributi)](#webhook-trigger---attributes)
+* [Attributes (Attributi) (Attributi)](#webhook-trigger---attributes)
 * [Configurazione](#webhook-trigger---configuration)
 * [Utilizzo](#webhook-trigger---usage)
 
@@ -1006,7 +1006,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#webhook-trigger---c-script-example)
+* [Script C# (.csx)](#webhook-trigger---c-script-example)
 * [JavaScript](#webhook-trigger---javascript-example)
 
 #### <a name="webhook-trigger---c-script-example"></a>Trigger di webhook: esempio di script C#
@@ -1084,13 +1084,13 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Trigger di webhook: attributi
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) attribute.
+In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) .
 
 ### <a name="webhook-trigger---configuration"></a>Trigger di webhook: configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `graphWebhook`.|
@@ -1104,7 +1104,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
 - Tipi di Microsoft Graph SDK pertinenti al tipo di risorsa, ad esempio `Microsoft.Graph.Message` o `Microsoft.Graph.DriveItem`.
-- Tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
+- i tipi di oggetto personalizzati tramite l'associazione di modelli strutturali
 
 
 
@@ -1117,7 +1117,7 @@ L'associazione di input per il webhook di Microsoft Graph consente di recuperare
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-input---example)
-* [Attributes (Attributi)](#webhook-input---attributes)
+* [Attributes (Attributi) (Attributi)](#webhook-input---attributes)
 * [Configurazione](#webhook-input---configuration)
 * [Utilizzo](#webhook-input---usage)
 
@@ -1125,7 +1125,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#webhook-input---c-script-example)
+* [Script C# (.csx)](#webhook-input---c-script-example)
 * [JavaScript](#webhook-input---javascript-example)
 
 #### <a name="webhook-input---c-script-example"></a>Input di webhook: esempio di script C#
@@ -1236,13 +1236,13 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Input di webhook: attributi
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
+In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) .
 
 ### <a name="webhook-input---configuration"></a>Input di webhook: configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookSubscription`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
@@ -1268,7 +1268,7 @@ L'associazione di output per la sottoscrizione webhook consente di creare, elimi
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-output---example)
-* [Attributes (Attributi)](#webhook-output---attributes)
+* [Attributes (Attributi) (Attributi)](#webhook-output---attributes)
 * [Configurazione](#webhook-output---configuration)
 * [Utilizzo](#webhook-output---usage)
 
@@ -1276,7 +1276,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#webhook-output---c-script-example)
+* [Script C# (.csx)](#webhook-output---c-script-example)
 * [JavaScript](#webhook-output---javascript-example)
 
 #### <a name="webhook-output---c-script-example"></a>Output di webhook: esempio di script C#
@@ -1377,13 +1377,13 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Output di webhook: attributi
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
+In [ C# librerie di classi](functions-dotnet-class-library.md)usare l'attributo [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) .
 
 ### <a name="webhook-output---configuration"></a>Output di webhook: configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `GraphWebhookSubscription`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**nome**||Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**||Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
@@ -1398,7 +1398,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 ### <a name="webhook-output---usage"></a>Output di webhook: utilizzo
 
 L'associazione espone i tipi seguenti nelle funzioni .NET:
-- string
+- stringa
 - Microsoft.Graph.Subscription
 
 
@@ -1409,7 +1409,7 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 
 Esistono due approcci all'aggiornamento delle sottoscrizioni:
 
-- Usare l'identità di applicazione per gestire tutte le sottoscrizioni. This will require consent from an Azure Active Directory admin. This can be used by all languages supported by Azure Functions.
+- Usare l'identità di applicazione per gestire tutte le sottoscrizioni. Questa operazione richiede il consenso di un amministratore Azure Active Directory. Questo può essere usato da tutti i linguaggi supportati da funzioni di Azure.
 - Usare l'identità associata a ogni sottoscrizione associando manualmente ogni ID utente. Affinché questa operazione esegua l'associazione è necessario il codice personalizzato. Questa può essere usata solo dalle funzioni .NET.
 
 In questa sezione contiene un esempio per ognuno di questi approcci:
@@ -1421,7 +1421,7 @@ In questa sezione contiene un esempio per ognuno di questi approcci:
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script C# (file con estensione csx)](#app-identity-refresh---c-script-example)
+* [Script C# (.csx)](#app-identity-refresh---c-script-example)
 * JavaScript
 
 ### <a name="app-identity-refresh---c-script-example"></a>Aggiornamento dell'identità app: esempio di script C#

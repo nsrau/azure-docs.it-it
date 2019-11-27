@@ -1,6 +1,6 @@
 ---
-title: Self-service password reset deployment - Azure Active Directory
-description: Strategy for successful implementation of Azure AD self-service password reset
+title: Distribuzione della reimpostazione della password self-service-Azure Active Directory
+description: Strategia per la corretta implementazione di Azure AD la reimpostazione della password self-service
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -21,229 +21,229 @@ ms.locfileid: "74381296"
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Distribuire la reimpostazione della password self-service di Azure AD
 
 > [!NOTE]
-> This guide explains self-service password reset and how to deploy it. If you are looking for the self service password reset tool to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr). 
+> Questa guida illustra la reimpostazione della password self-service e come distribuirla. Se si sta cercando lo strumento di reimpostazione della password self-service per tornare all'account, passare a [https://aka.ms/sspr](https://aka.ms/sspr). 
 
-Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to reset their passwords without needing to contact IT staff. Employees must register for or be registered for self-service password reset before using the service. During registration, the employee chooses one or more authentication methods enabled by their organization.
+La reimpostazione della password self-service (SSPR) è una funzionalità Azure Active Directory che consente ai dipendenti di reimpostare le proprie password senza dover contattare il personale IT. Prima di usare il servizio, i dipendenti devono registrarsi per la reimpostazione della password self-service o essere registrati. Durante la registrazione, il dipendente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione.
 
-SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
+SSPR consente ai dipendenti di essere sbloccati rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo agli utenti di sbloccare autonomamente, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per la maggior parte dei problemi comuni relativi alle password.
 
-Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This action will generate a large volume of sign-ins and will drive registration.
+Consentire agli utenti di registrarsi rapidamente distribuendo SSPR insieme a un'altra applicazione o servizio nell'organizzazione. Questa azione genererà un volume elevato di accessi e guiderà la registrazione.
 
-Before deploying SSPR, organizations may want to determine how many password reset related help desk calls happen over time and the average cost of each call. They can use this data post deployment to show the value SSPR is bringing to your organization.  
+Prima di distribuire SSPR, è possibile che le organizzazioni desiderino determinare il numero di richieste di reimpostazione della password correlate help desk eseguite nel tempo e il costo medio di ogni chiamata. Possono usare questi dati dopo la distribuzione per mostrare il valore che SSPR sta portando all'organizzazione.  
 
-## <a name="how-sspr-works"></a>How SSPR works
+## <a name="how-sspr-works"></a>Funzionamento di SSPR
 
-1. When a user attempts to reset a password, they must verify their previously registered authentication method or methods to prove their identity.
-1. Then the user enters a new password.
-   1. For cloud-only users, the new password is stored in Azure Active Directory. For more information, see the article [How SSPR works](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
-   1. For hybrid users, the password is written back to the on-premises Active Directory via the Azure AD Connect service. For more information, see the article [What is password writeback](concept-sspr-writeback.md#how-password-writeback-works).
+1. Quando un utente tenta di reimpostare una password, deve verificare il metodo o i metodi di autenticazione precedentemente registrati per dimostrare la propria identità.
+1. Quindi, l'utente immette una nuova password.
+   1. Per gli utenti solo cloud, la nuova password viene archiviata in Azure Active Directory. Per ulteriori informazioni, vedere l'articolo funzionamento di [SSPR](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
+   1. Per gli utenti ibridi, la password viene riscritta nell'Active Directory locale tramite il servizio Azure AD Connect. Per ulteriori informazioni, vedere l'articolo relativo al [writeback delle password](concept-sspr-writeback.md#how-password-writeback-works).
 
-## <a name="licensing-considerations"></a>Licensing considerations
+## <a name="licensing-considerations"></a>Considerazioni sulle licenze
 
-Azure Active Directory is licensed per-user meaning each user has to have an appropriate license for the features they utilize.
+Azure Active Directory viene concesso in licenza per ogni utente, il che significa che ogni utente deve disporre di una licenza appropriata per le funzionalità che usano.
 
-More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
+Ulteriori informazioni sulle licenze sono disponibili nella pagina relativa ai [prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 
-## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Enable combined registration for SSPR and MFA
+## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Abilita la registrazione combinata per SSPR e multi-factor authentication
 
-Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
+Microsoft consiglia alle organizzazioni di abilitare l'esperienza di registrazione combinata per SSPR e la funzionalità di autenticazione a più fattori. Quando si abilita questa esperienza di registrazione combinata, gli utenti devono solo selezionare le informazioni di registrazione una sola volta per abilitare entrambe le funzionalità.
 
-![Combined security information registration](./media/howto-sspr-deployment/combined-security-info.png)
+![Registrazione di informazioni di sicurezza combinate](./media/howto-sspr-deployment/combined-security-info.png)
 
-The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication to use. The combined registration experience provides organizations a better user experience compared to the traditional individual components. More information about combined registration, and how to enable, can be found in the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
+L'esperienza di registrazione combinata non richiede che le organizzazioni consentano l'uso di SSPR e Azure Multi-Factor Authentication. L'esperienza di registrazione combinata fornisce alle organizzazioni un'esperienza utente migliore rispetto ai singoli componenti tradizionali. Altre informazioni sulla registrazione combinata e su come abilitarle sono disponibili nell'articolo [registrazione di informazioni di sicurezza combinate (anteprima)](concept-registration-mfa-sspr-combined.md)
 
-## <a name="plan-the-configuration"></a>Plan the configuration
+## <a name="plan-the-configuration"></a>Pianificare la configurazione
 
-The following settings are required to enable SSPR along with recommended values.
+Le impostazioni seguenti sono necessarie per abilitare SSPR insieme ai valori consigliati.
 
-| Area | Impostazione | Value |
+| Area | Impostazione | Valore |
 | --- | --- | --- |
-| **SSPR Properties** | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
-| **Metodi di autenticazione** | Authentication methods required to register | Always 1 more than required for reset |
-|   | Authentication methods required to reset | One or two |
-| **Registrazione** | Richiedere agli utenti di registrarsi all'accesso | SÌ |
-|   | Number of days before users are asked to re-confirm their authentication information | 90 – 180 days |
-| **Notifiche** | Inviare notifiche agli utenti al momento della reimpostazione della password | SÌ |
-|   | Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password | SÌ |
-| **Personalizzazione** | Customize helpdesk link | SÌ |
-|   | Custom helpdesk email or URL | Support site or email address |
-| **Integrazione locale** | Write back passwords to on-premises AD | SÌ |
-|   | Allow users to unlock account without resetting password | SÌ |
+| **Proprietà di SSPR** | Reimpostazione password self-service abilitata | Gruppo **selezionato** per Pilot/ **All** per la produzione |
+| **Metodi di autenticazione** | Metodi di autenticazione necessari per la registrazione | Sempre 1 più del necessario per la reimpostazione |
+|   | Metodi di autenticazione necessari per la reimpostazione | Uno o due |
+| **Registrazione** | Richiedere agli utenti di registrarsi all'accesso | Sì |
+|   | Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione | 90 – 180 giorni |
+| **Notifiche** | Inviare notifiche agli utenti al momento della reimpostazione della password | Sì |
+|   | Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password | Sì |
+| **Personalizzazione** | Personalizzare il collegamento al supporto tecnico | Sì |
+|   | Indirizzo di posta elettronica o URL del supporto tecnico personalizzato | Sito di supporto o indirizzo di posta elettronica |
+| **Integrazione locale** | Eseguire il writeback delle password in Active Directory locale | Sì |
+|   | Consenti agli utenti di sbloccare l'account senza reimpostare la password | Sì |
 
-### <a name="sspr-properties-recommendations"></a>SSPR properties recommendations
+### <a name="sspr-properties-recommendations"></a>Raccomandazioni sulle proprietà di SSPR
 
-When enabling Self-service password reset, choose a security group to be used during the pilot.
+Quando si Abilita la reimpostazione della password self-service, scegliere un gruppo di sicurezza da utilizzare durante il progetto pilota.
 
-When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriate Azure AD Security group or AD group synced to Azure AD.
+Quando si prevede di avviare il servizio in modo più ampio, è consigliabile usare l'opzione all per applicare SSPR per tutti gli utenti dell'organizzazione. Se non è possibile impostare su tutti, selezionare il gruppo di sicurezza Azure AD o il gruppo di Active Directory appropriato sincronizzato con Azure AD.
 
 ### <a name="authentication-methods"></a>Metodi di autenticazione
 
-Set Authentication methods required to register to at least one more than the number required to reset. Allowing multiple gives users flexibility when they need to reset.
+Impostare i metodi di autenticazione necessari per la registrazione ad almeno un numero maggiore del numero necessario per la reimpostazione. Consentire a più utenti di fornire flessibilità quando è necessario reimpostarli.
 
-Set **Number of methods required to reset** to a level appropriate to your organization. One requires the least friction, while two may increase your security posture.
+Impostare il **numero di metodi necessari per la reimpostazione** a un livello appropriato per l'organizzazione. Uno richiede il minor attrito, mentre due può aumentare il comportamento di sicurezza.
 
-See [What are authentication methods](concept-authentication-methods.md) for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
+Vedere [che cosa sono i metodi di autenticazione](concept-authentication-methods.md) per informazioni dettagliate sui metodi di autenticazione disponibili per SSPR, domande di sicurezza predefinite e su come creare domande di sicurezza personalizzate.
 
 ### <a name="registration-settings"></a>Impostazioni di registrazione
 
-Set **Require users to register when signing in** to **Yes**. This setting means that the users are forced to register when signing in, ensuring that all users are protected.
+Impostare **Richiedi agli utenti di registrarsi all'accesso** a **Sì**. Questa impostazione indica che gli utenti devono eseguire la registrazione al momento dell'accesso, assicurandosi che tutti gli utenti siano protetti.
 
-Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
+Impostare il **numero di giorni prima che agli utenti venga richiesto di riconfermare le informazioni di autenticazione** a un intervallo compreso tra **90** e **180** giorni, a meno che l'organizzazione non abbia bisogno di un intervallo di tempo più breve.
 
-### <a name="notifications-settings"></a>Notifications settings
+### <a name="notifications-settings"></a>Impostazioni notifiche
 
-Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
+Configurare la reimpostazione della **password invia notifiche agli utenti** e **Invia notifiche a tutti gli amministratori quando altri amministratori reimpostano la propria password** su **Sì**. Se **si seleziona Sì, si** aumenta la sicurezza garantendo che gli utenti siano consapevoli della reimpostazione della password e che tutti gli amministratori siano consapevoli quando un amministratore modifica una password. Se gli utenti o gli amministratori ricevono una notifica di questo tipo e non hanno avviato la modifica, possono segnalare immediatamente una potenziale violazione della sicurezza.
 
 ### <a name="customization"></a>Personalizzazione
 
-It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this option to a common helpdesk email address or web page that your users are familiar with.
+È fondamentale personalizzare l' **URL o l'indirizzo di posta elettronica del supporto tecnico** per assicurarsi che gli utenti che riscontrano problemi possano ottenere rapidamente la guida. Impostare questa opzione su un indirizzo di posta elettronica o una pagina Web del supporto tecnico comune con cui gli utenti hanno familiarità.
 
 ### <a name="on-premises-integration"></a>Integrazione locale
 
-If you have a hybrid environment, ensure that **Write back passwords to on-premises AD** is set to **Yes**. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
+Se si dispone di un ambiente ibrido, verificare che il **writeback delle password in Active Directory locale** sia impostato su **Sì**. Impostare anche l'opzione Consenti agli utenti di sbloccare l'account senza reimpostare la password su Sì, perché offre una maggiore flessibilità.
 
-### <a name="changingresetting-passwords-of-administrators"></a>Changing/Resetting passwords of administrators
+### <a name="changingresetting-passwords-of-administrators"></a>Modifica/reimpostazione delle password degli amministratori
 
-Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
+Gli account amministratore sono account speciali con autorizzazioni elevate. Per proteggerli, si applicano le restrizioni seguenti alla modifica delle password degli amministratori:
 
-- On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only change their password in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
-- An administrator cannot use secret Questions & Answers as a method to reset password.
+- Gli amministratori dell'organizzazione locale o gli amministratori di dominio non possono reimpostare la password tramite SSPR. Possono solo modificare la password nell'ambiente locale. Pertanto, è consigliabile non sincronizzare gli account amministratori di AD locali per Azure AD.
+- Un amministratore non può usare domande segrete & risposte come metodo per reimpostare la password.
 
-### <a name="environments-with-multiple-identity-management-systems"></a>Environments with multiple identity management systems
+### <a name="environments-with-multiple-identity-management-systems"></a>Ambienti con più sistemi di gestione delle identità
 
-If there are multiple identity management systems within an environment such as on-premises identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to Active Directory may need to be synchronized to the other systems using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Se sono presenti più sistemi di gestione delle identità all'interno di un ambiente, ad esempio gestori di identità locali come Oracle AM, SiteMinder o altri sistemi, è possibile che le password scritte in Active Directory debbano essere sincronizzate con gli altri sistemi usando uno strumento come il servizio di notifica di modifica della password (PCNS) con Microsoft Identity Manager (MIM). Per trovare informazioni su questo scenario più complesso, vedere l'articolo [distribuire il servizio di notifica di modifica della password di MIM in un controller di dominio](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
-## <a name="plan-deployment-and-support-for-sspr"></a>Plan deployment and support for SSPR
+## <a name="plan-deployment-and-support-for-sspr"></a>Pianificare la distribuzione e il supporto per SSPR
 
-### <a name="engage-the-right-stakeholders"></a>Engage the right stakeholders
+### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountability.
+Quando i progetti tecnologici hanno esito negativo, in genere lo fanno a causa di una mancata corrispondenza delle aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, assicurarsi di coinvolgere gli stakeholder appropriati e che i ruoli delle parti interessate nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
 
-### <a name="communications-plan"></a>Communications plan
+### <a name="communications-plan"></a>Piano di comunicazione
 
-Communication is critical to the success of any new service. Proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
+La comunicazione è fondamentale per il successo di un nuovo servizio. Comunicare in modo proattivo con gli utenti come usare il servizio e cosa possono fare per ottenere assistenza se qualcosa non funziona come previsto. Esaminare i [materiali di implementazione della reimpostazione della password self-service nell'area download Microsoft](https://www.microsoft.com/download/details.aspx?id=56768) per idee su come pianificare la strategia di comunicazione dell'utente finale.
 
-### <a name="testing-plan"></a>Testing plan
+### <a name="testing-plan"></a>Piano di test
 
-To ensure that your deployment works as expected, you should plan out a set of test cases you will use to validate the implementation. The following table includes some useful test scenarios you can use to document your organizations expected results based on your policies.
+Per assicurarsi che la distribuzione funzioni come previsto, è necessario pianificare un set di test case che verranno usati per convalidare l'implementazione. La tabella seguente include alcuni utili scenari di test che è possibile usare per documentare i risultati previsti dalle organizzazioni in base ai criteri.
 
 | Business case | Risultato previsto |
 | --- | --- |
-| SSPR portal is accessible from within the corporate network | Determined by your organization |
-| SSPR portal is accessible from outside the corporate network | Determined by your organization |
-| Reset user password from browser when user is not enabled for password reset | User is not able to access the password reset flow |
-| Reset user password from browser when user has not registered for password reset | User is not able to access the password reset flow |
-| User signs in when password reset registration is enforced | User is prompted to register security information |
-| User signs in when password reset registration has been completed | User is not prompted to register security information |
-| SSPR portal is accessible when the user does not have a license | Is accessible |
-| Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen after user has registered | User can reset password |
-| SSPR registration and usage data are available to administrators in near real time | Is available via audit logs |
+| Il portale di SSPR è accessibile dall'interno della rete aziendale | Determinato dall'organizzazione |
+| Il portale di SSPR è accessibile dall'esterno della rete aziendale | Determinato dall'organizzazione |
+| Reimposta la password utente dal browser quando l'utente non è abilitato per la reimpostazione della password | L'utente non è in grado di accedere al flusso di reimpostazione della password |
+| Reimposta la password utente dal browser quando l'utente non ha effettuato la registrazione per la reimpostazione della password | L'utente non è in grado di accedere al flusso di reimpostazione della password |
+| L'utente accede quando viene applicata la registrazione per la reimpostazione della password | All'utente viene richiesto di registrare le informazioni di sicurezza |
+| L'utente accede quando è stata completata la registrazione per la reimpostazione della password | All'utente non viene richiesto di registrare le informazioni di sicurezza |
+| Il portale di SSPR è accessibile quando l'utente non dispone di una licenza | Accessibile |
+| Reimposta la password dell'utente da Windows 10 Azure AD la schermata di blocco del dispositivo aggiunta o ibrida Azure AD aggiunta dopo che l'utente ha eseguito la registrazione | L'utente può reimpostare la password |
+| I dati di registrazione e di utilizzo di SSPR sono disponibili per gli amministratori quasi in tempo reale | È disponibile tramite i log di controllo |
 
 ### <a name="support-plan"></a>Piano di supporto
 
-While SSPR does not typically create user issues, it is important to have support staff prepared to deal with issues that may arise.
+Sebbene in genere SSPR non crei problemi con gli utenti, è importante che il personale di supporto sia pronto per gestire i problemi che possono verificarsi.
 
-While an administrator can change or reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+Sebbene un amministratore possa modificare o reimpostare la password per gli utenti finali tramite il portale di Azure AD, è preferibile risolvere il problema tramite un processo di supporto self-service.
 
-In the operational guide section of this document, create a list of support cases and their likely causes, and create a guide for resolution.
+Nella sezione Guida operativa di questo documento creare un elenco di casi di supporto e le relative cause probabili e creare una guida per la risoluzione.
 
 ### <a name="auditing-and-reporting"></a>Controllo e creazione di report
 
 Dopo la distribuzione molte organizzazioni vogliono sapere come o se il servizio Reimpostazione password self-service viene effettivamente usato. La funzionalità di creazione di report disponibile in Azure Active Directory (Azure AD) consente di rispondere a domande specifiche grazie a report predefiniti.
 
-Audit logs for registration and password reset are available for 30 days. Therefore, if security auditing within a corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
+I log di controllo per la registrazione e la reimpostazione della password sono disponibili per 30 giorni. Se pertanto il controllo della sicurezza in un'azienda richiede un periodo di conservazione più lungo, i log devono essere esportati e utilizzati in uno strumento SIEM, ad esempio [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o ArcSight.
 
-In a table, like the one below, document the backup schedule, the system, and the responsible parties. You may not need separate auditing and reporting backups, but you should have a separate backup from which you can recover from an issue.
+In una tabella, come quella riportata di seguito, documentare la pianificazione del backup, il sistema e le parti responsabili. Potrebbero non essere necessari backup distinti per il controllo e la creazione di report, ma è necessario disporre di un backup separato da cui è possibile eseguire il ripristino da un problema.
 
-|   | Frequency of download | Target system | Parte responsabile |
+|   | Frequenza di download | Sistema di destinazione | Parte responsabile |
 | --- | --- | --- | --- |
-| Auditing backup |   |   |   |
-| Reporting backup |   |   |   |
-| Disaster recovery backup |   |   |   |
+| Backup del controllo |   |   |   |
+| Backup dei report |   |   |   |
+| Backup del ripristino di emergenza |   |   |   |
 
 ## <a name="implementation"></a>Implementazione
 
-Implementation occurs in three stages:
+L'implementazione si verifica in tre fasi:
 
-- Configure users and licenses
-- Configure Azure AD SSPR for registration and self-service
-- Configure Azure AD Connect for password writeback
+- Configurare gli utenti e le licenze
+- Configurare Azure AD SSPR per la registrazione e la gestione self-service
+- Configurare Azure AD Connect per il writeback delle password
 
-### <a name="communicate-the-change"></a>Communicate the change
+### <a name="communicate-the-change"></a>Comunicare la modifica
 
-Begin implementation of the communications plan that you developed in the planning phase.
+Iniziare l'implementazione del piano di comunicazione sviluppato nella fase di pianificazione.
 
-### <a name="ensure-groups-are-created-and-populated"></a>Ensure groups are created and populated
+### <a name="ensure-groups-are-created-and-populated"></a>Verificare che i gruppi siano creati e popolati
 
-Reference the Planning password authentication methods section and ensure the group(s) for the pilot or production implementation are available, and all appropriate users are added to the groups.
+Fare riferimento alla sezione Planning Password Authentication Methods e verificare che i gruppi per l'implementazione pilota o di produzione siano disponibili e che tutti gli utenti appropriati vengano aggiunti ai gruppi.
 
-### <a name="apply-licenses"></a>Apply licenses
+### <a name="apply-licenses"></a>Applica licenze
 
-The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign licenses directly to the group, or you can use existing license policies such as through PowerShell or Group-Based Licensing.
+Ai gruppi che si intende implementare deve essere assegnata la licenza Azure AD Premium. È possibile assegnare le licenze direttamente al gruppo oppure usare i criteri di licenza esistenti, ad esempio tramite PowerShell o le licenze basate sui gruppi.
 
-Information about assigning licenses to groups of users can be found in the article, [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
+Per informazioni sull'assegnazione delle licenze ai gruppi di utenti, vedere l'articolo assegnare le [licenze agli utenti in base all'appartenenza al gruppo in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### <a name="configure-sspr"></a>Configure SSPR
+### <a name="configure-sspr"></a>Configurare SSPR
 
-#### <a name="enable-groups-for-sspr"></a>Enable groups for SSPR
+#### <a name="enable-groups-for-sspr"></a>Abilitare i gruppi per SSPR
 
-1. Access the Azure portal with an administrator account.
-1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory.
-1. On the Active Directory blade, select Password reset.
-1. In the properties pane, select Selected. If you want all users enabled, Select All.
-1. In the Default password reset policy blade, type the name of the first group, select it, and then click Select at the bottom of the screen, and select Save at the top of the screen.
-1. Repeat this process for each group.
+1. Accedere al portale di Azure con un account amministratore.
+1. Selezionare tutti i servizi e nella casella filtro digitare Azure Active Directory e quindi selezionare Azure Active Directory.
+1. Nel pannello Active Directory selezionare reimpostazione password.
+1. Nel riquadro Proprietà selezionare selezionato. Se si desidera che tutti gli utenti siano abilitati, selezionare tutti.
+1. Nel pannello criteri di reimpostazione password predefiniti digitare il nome del primo gruppo, selezionarlo, quindi fare clic su Seleziona nella parte inferiore della schermata e selezionare Salva nella parte superiore della schermata.
+1. Ripetere questo processo per ogni gruppo.
 
-#### <a name="configure-the-authentication-methods"></a>Configure the authentication methods
+#### <a name="configure-the-authentication-methods"></a>Configurare i metodi di autenticazione
 
-Reference your planning from the Planning Password Authentication Methods section of this document.
+Fare riferimento alla pianificazione dalla sezione relativa alla pianificazione dei metodi di autenticazione della password di questo documento.
 
-1. Select Registration, under Require user to register when signing in, select Yes, and then set the number of days before expiration, and then select Save.
-1. Select Notification, and configure per your plan, and then select Save.
-1. Select Customization, and configure per your plan, and then select Save.
-1. Select On-premises integration, and configure per your plan, and then select Save.
+1. Selezionare registrazione, in Richiedi utente per la registrazione al momento dell'accesso, selezionare Sì, quindi impostare il numero di giorni prima della scadenza e quindi selezionare Salva.
+1. Selezionare Notification (notifica) e configurare in base al piano e quindi selezionare Save (Salva).
+1. Selezionare personalizzazione e configurare in base al piano e quindi selezionare Salva.
+1. Selezionare integrazione locale e configurare in base al piano e quindi selezionare Salva.
 
-### <a name="enable-sspr-in-windows"></a>Enable SSPR in Windows
+### <a name="enable-sspr-in-windows"></a>Abilitare SSPR in Windows
 
-Windows 10 devices running version 1803 or higher that are either Azure AD joined or hybrid Azure AD joined can reset their passwords at the Windows login screen. Information and steps to configure this capability can be found in the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md)
+I dispositivi Windows 10 che eseguono la versione 1803 o una versione successiva, che sono Azure AD aggiunti o ibridi Azure AD Uniti possono reimpostare le proprie password nella schermata di accesso di Windows. Informazioni e procedure per la configurazione di questa funzionalità sono disponibili nell'articolo [Azure ad la reimpostazione della password dalla schermata di accesso](tutorial-sspr-windows.md)
 
 ### <a name="configure-password-writeback"></a>Configurare il writeback delle password
 
-Steps to configure password writeback for your organization can be found in the article [How-to: Configure password writeback](howto-sspr-writeback.md).
+I passaggi per configurare il writeback delle password per l'organizzazione sono disponibili nell'articolo [procedura: configurare il writeback delle password](howto-sspr-writeback.md).
 
-## <a name="manage-sspr"></a>Manage SSPR
+## <a name="manage-sspr"></a>Gestisci SSPR
 
-Required roles to manage features associated with self-service password reset.
+Ruoli necessari per gestire le funzionalità associate alla reimpostazione della password self-service.
 
-| Business role/persona | Azure AD Role (if necessary) |
+| Ruolo aziendale/persona | Ruolo Azure AD (se necessario) |
 | :---: | :---: |
-| Level 1 Helpdesk | Amministratore password |
-| Level 2 Helpdesk | Amministratore utenti |
-| SSPR Administrator | Amministratore globale |
+| Supporto tecnico di livello 1 | Amministratore password |
+| Supporto tecnico di livello 2 | Amministratore utenti |
+| Amministratore di SSPR | Amministratore globale |
 
-### <a name="support-scenarios"></a>Support scenarios
+### <a name="support-scenarios"></a>Scenari di supporto
 
-To enable your support team success, you can create an FAQ based on questions you receive from your users. The following table contains common support scenarios.
+Per consentire al team di supporto di avere esito positivo, è possibile creare domande frequenti in base alle domande ricevute dagli utenti. La tabella seguente contiene scenari di supporto comuni.
 
-| Scenari | Description |
+| Scenari | DESCRIZIONE |
 | --- | --- |
-| User does not have any registered authentication methods available | A user is trying to reset their password but does not have any of the authentication methods that they registered available (Example: they left their cell phone at home and can’t access email) |
-| User is not receiving a text or call on their office or mobile phone | A user is trying to verify their identity via text or call but is not receiving a text/call. |
-| User cannot access the password reset portal | A user wants to reset their password but is not enabled for password reset and therefore cannot access the page to update passwords. |
-| User cannot set a new password | A user completes verification during the password reset flow but cannot set a new password. |
-| User does not see a Reset Password link on a Windows 10 device | A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Intune device policy is not enabled |
+| Nessun metodo di autenticazione registrato disponibile per l'utente | Un utente sta tentando di reimpostare la password, ma non dispone di alcun metodo di autenticazione registrato disponibile (ad esempio, ha lasciato il telefono cellulare a casa e non può accedere alla posta elettronica) |
+| L'utente non riceve un SMS o una chiamata sul proprio ufficio o telefono cellulare | Un utente sta provando a verificare la propria identità tramite il testo o la chiamata ma non riceve un testo/chiamata. |
+| L'utente non può accedere al portale di reimpostazione della password | Un utente desidera reimpostare la password, ma non è abilitata per la reimpostazione della password e pertanto non può accedere alla pagina per aggiornare le password. |
+| L'utente non può impostare una nuova password | Un utente completa la verifica durante il flusso di reimpostazione della password, ma non può impostare una nuova password. |
+| L'utente non visualizza un collegamento per la reimpostazione della password in un dispositivo Windows 10 | Un utente sta tentando di reimpostare la password dalla schermata di blocco di Windows 10, ma il dispositivo non è stato aggiunto a Azure AD oppure i criteri dei dispositivi di Intune non sono abilitati |
 
-You may also want to include information such as the following for additional troubleshooting.
+Per ulteriori informazioni sulla risoluzione dei problemi, è anche possibile includere informazioni come la seguente.
 
-- Which groups are enabled for SSPR.
-- Which authentication methods are configured.
-- The access policies related to on or of the corporate network.
-- Troubleshooting steps for common scenarios.
+- Gruppi abilitati per SSPR.
+- Quali metodi di autenticazione sono configurati.
+- Criteri di accesso correlati a in o alla rete aziendale.
+- Procedura di risoluzione dei problemi per gli scenari comuni.
 
-You can also refer to our online documentation on troubleshooting self-service password reset to understand general troubleshooting steps for the most common SSPR scenarios.
+È anche possibile fare riferimento alla documentazione online sulla risoluzione dei problemi relativi alla reimpostazione della password self-service per comprendere le procedure generali per la risoluzione dei problemi per gli scenari SSPR più comuni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Consider implementing Azure AD password protection](concept-password-ban-bad.md)
+- [Prendere in considerazione l'implementazione della protezione Azure AD password](concept-password-ban-bad.md)
 
-- [Consider implementing Azure AD Smart Lockout](howto-password-smart-lockout.md)
+- [Prendere in considerazione l'implementazione di Azure AD blocco intelligente](howto-password-smart-lockout.md)

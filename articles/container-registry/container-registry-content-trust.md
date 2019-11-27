@@ -1,6 +1,6 @@
 ---
-title: Manage signed images
-description: Learn how to enable content trust for your Azure container registry, and push and pull signed images.
+title: Gestisci immagini firmate
+description: Informazioni su come abilitare il trust del contenuto per il registro contenitori di Azure e per eseguire il push e il pull delle immagini firmate.
 ms.topic: article
 ms.date: 09/06/2019
 ms.openlocfilehash: 0418b13c352dc3b81d34501e7e76be6c54615a83
@@ -38,7 +38,7 @@ L'attendibilità dei contenuti viene gestita tramite l'uso di un set di chiavi d
 
 Il primo passaggio consiste nell'abilitare l'attendibilità dei contenuti a livello di registro. Una volta abilita l'attendibilità dei contenuti, i client (utenti o servizi) possono eseguire il push delle immagini firmate nel registro. L'abilitazione dell'attendibilità dei contenuti nel registro non limita l'utilizzo del registro ai soli consumer per cui è abilitata l'attendibilità dei contenuti. I consumer per cui non è abilitata l'attendibilità dei contenuti possono continuare a usare normalmente il registro. I consumer nei cui client è abilitata l'attendibilità dei contenuti, tuttavia, potranno visualizzare *solo* le immagini firmate nel registro.
 
-Per abilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **Criteri** selezionare **Attendibilità contenuto** > **Abilitata** > **Salva**. You can also use the [az acr config content-trust update][az-acr-config-content-trust-update] command in the Azure CLI.
+Per abilitare l'attendibilità dei contenuti per il registro, passare al registro nel portale di Azure. In **Criteri** selezionare **Attendibilità contenuto** > **Abilitata** > **Salva**. È anche possibile usare il comando [AZ ACR config content-Trust Update][az-acr-config-content-trust-update] nell'interfaccia della riga di comando di Azure.
 
 ![Abilitazione dell'attendibilità dei contenuti per un registro nel portale di Azure][content-trust-01-portal]
 
@@ -72,11 +72,11 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 Solo gli utenti o i sistemi a cui è stata concessa l'autorizzazione possono eseguire il push di immagini attendibili nel registro. Per concedere l'autorizzazione per il push di immagini attendibili a un utente (o a un sistema che usa un'entità servizio), concedere alle relative identità di Azure Active Directory il ruolo `AcrImageSigner`. Questo ruolo è in aggiunta al ruolo `AcrPush` (o equivalente) richiesto per il push delle immagini nel registro. Per informazioni dettagliate, vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md).
 
 > [!NOTE]
-> You can't grant trusted image push permission to the [admin account](container-registry-authentication.md#admin-account) of an Azure container registry.
+> Non è possibile concedere l'autorizzazione push di un'immagine attendibile all' [account amministratore](container-registry-authentication.md#admin-account) di un registro contenitori di Azure.
 
 I dettagli per la concessione del ruolo `AcrImageSigner` nel portale di Azure e nell'interfaccia della riga di comando di Azure sono illustrati di seguito.
 
-### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>portale di Azure
 
 Passare al registro nel portale di Azure e quindi selezionare **Controllo di accesso (IAM)**  > **Aggiungi assegnazione di ruolo**. In **Aggiungi assegnazione di ruolo** selezionare `AcrImageSigner` in **Ruolo**, quindi in **Seleziona** selezionare uno o più utenti o entità servizio e quindi fare clic su **Salva**.
 
@@ -112,7 +112,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 Il valore di `<service principal ID>` può corrispondere a **appId** o **objectId** dell'entità servizio oppure a uno dei relativi valori **servicePrincipalNames**. Per altre informazioni sull'uso di entità servizio e Registro Azure Container, vedere [Autenticazione al Registro Azure Container con entità servizio](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. For information about verifying roles for an identity, see [Manage access to Azure resources using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md) and [Troubleshoot RBAC for Azure resources](../role-based-access-control/troubleshooting.md).
+> Dopo eventuali modifiche ai ruoli, eseguire `az acr login` per aggiornare il token di identità locale per l'interfaccia della riga di comando di Azure per rendere effettivi i nuovi ruoli. Per informazioni sulla verifica dei ruoli per un'identità, vedere [gestire l'accesso alle risorse di Azure con RBAC e l'interfaccia della riga](../role-based-access-control/role-assignments-cli.md) di comando di Azure e [risolvere i problemi di RBAC per le risorse di Azure](../role-based-access-control/troubleshooting.md)
 
 ## <a name="push-a-trusted-image"></a>Eseguire il push di un'immagine attendibile
 

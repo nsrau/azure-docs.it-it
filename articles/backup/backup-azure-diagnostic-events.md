@@ -10,7 +10,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281103"
 ---
-# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Uso delle impostazioni di diagnostica per gli insiemi di credenziali dei servizi di ripristino
+# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino
 
 Backup di Azure invia eventi di diagnostica che possono essere raccolti e usati a scopo di analisi, avvisi e report. 
 

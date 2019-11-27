@@ -1,5 +1,5 @@
 ---
-title: Android certificate-based authentication - Azure Active Directory
+title: Autenticazione basata su certificati Android-Azure Active Directory
 description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi Android
 services: active-directory
 ms.service: active-directory
@@ -35,16 +35,16 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 
 | App | Supporto |
 | --- | --- |
-| App Azure Information Protection |![Check mark signifying support for this application][1] |
-| Portale aziendale Intune |![Check mark signifying support for this application][1] |
-| Microsoft Teams |![Check mark signifying support for this application][1] |
-| OneNote |![Check mark signifying support for this application][1] |
-| OneDrive |![Check mark signifying support for this application][1] |
-| Outlook |![Check mark signifying support for this application][1] |
-| Power BI |![Check mark signifying support for this application][1] |
-| Skype for Business |![Check mark signifying support for this application][1] |
-| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
-| Yammer |![Check mark signifying support for this application][1] |
+| App Azure Information Protection |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Portale aziendale Intune |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Microsoft Teams |![Segno di spunta che significa supporto per questa applicazione][1] |
+| OneNote |![Segno di spunta che significa supporto per questa applicazione][1] |
+| OneDrive |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Outlook |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Power BI |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Skype for Business Online |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Word / Excel / PowerPoint |![Segno di spunta che significa supporto per questa applicazione][1] |
+| Yammer |![Segno di spunta che significa supporto per questa applicazione][1] |
 
 ### <a name="implementation-requirements"></a>Requisiti di implementazione
 

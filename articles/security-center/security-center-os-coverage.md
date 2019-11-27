@@ -101,7 +101,7 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * Account Batch
 * Account di Service Fabric
 * Account di Automazione
-* Load Balancer
+* Servizio di bilanciamento del carico
 * Cerca
 * Spazio dei nomi del bus di servizio
 * Analisi dei flussi

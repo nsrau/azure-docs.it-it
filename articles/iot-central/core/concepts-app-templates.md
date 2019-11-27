@@ -1,6 +1,6 @@
 ---
-title: What are application templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central application templates allow you to jump in to IoT solution development.
+title: Che cosa sono i modelli di applicazione in Azure IoT Central | Microsoft Docs
+description: I modelli di applicazione IoT Central di Azure consentono di passare allo sviluppo di soluzioni Internet.
 author: philmea
 ms.author: philmea
 ms.date: 10/25/2019
@@ -16,64 +16,64 @@ ms.locfileid: "74480315"
 ---
 # <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
-Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing and your application for resale to your customers.
+I modelli di applicazione in Azure IoT Central sono uno strumento che consente ai generatori di soluzioni di eseguire il proprio sviluppo di soluzioni. È possibile usare i modelli di app per tutti gli elementi, in modo da ottenere un'idea di ciò che è possibile, per personalizzare completamente e l'applicazione per la rivendita ai clienti.
 
-Application templates consist of:
+I modelli di applicazione sono costituiti da:
 
 - Dashboard operatore di esempio
-- Sample device templates
-- Simulated devices producing real-time data
+- Modelli di dispositivo di esempio
+- Dispositivi simulati che producono dati in tempo reale
 - Regole e processi preconfigurati
-- Rich documentation including tutorials and how-tos
+- Documentazione avanzata, incluse le esercitazioni e le procedure
 
-## <a name="preview-templates"></a>Preview templates
+## <a name="preview-templates"></a>Modelli di anteprima
 
-Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
+Il modello di applicazione scelto determina se l'applicazione usa IoT Central funzionalità di anteprima, ad esempio Plug and Play per i dispositivi.
 
-Currently, the application templates that use _generally available_ features are:
+Attualmente, i modelli di applicazione che usano le funzionalità disponibili a livello _generale_ sono:
 
-- Custom app > Custom application
-- Custom app > Sample Contoso
-- Custom app > Sample Devkits
+- App personalizzata > applicazione personalizzata
+- App personalizzata > esempio contoso
+- App personalizzata > esempio devkits
 
-Currently, the application templates that use _public preview_ features are:
+Attualmente, i modelli di applicazione che usano le funzionalità di _anteprima pubblica_ sono:
 
-- Custom app > Preview application
-- Retail > Connected logistics
-- Retail > Digital distribution center
-- Retail > In-store analytics – condition monitoring
-- Retail > In-store analytics – checkout
-- Retail > Smart inventory management
-- Energy > Smart meter monitoring
-- Energy > Solar panel monitoring
-- Government > Connected waste management
-- Government > Water consumption monitoring
-- Government > Water quality monitoring
-- Healthcare > Continuous patient monitoring
+- Applicazione > anteprima dell'app personalizzata
+- Logistica per la vendita al dettaglio >
+- Centro distribuzione digitale > al dettaglio
+- Analisi in-Store del > al dettaglio-monitoraggio delle condizioni
+- Analisi dei > al dettaglio in-Store-checkout
+- Gestione dell'inventario intelligente > al dettaglio
+- Monitoraggio di energia > Smart Meter
+- Monitoraggio del pannello solare di energia >
+- Gestione dello spreco connesso > per enti pubblici
+- Monitoraggio del consumo idrico > per enti pubblici
+- Monitoraggio della qualità dell'acqua > per enti pubblici
+- Assistenza sanitaria > monitoraggio continuo del paziente
 
 > [!NOTE]
-> The **Custom application, Sample Contoso, Sample Devkits** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
+> L' **applicazione personalizzata, esempio contoso,** modelli di devkits di esempio è attualmente disponibile in **Stati Uniti**, **Australia**, **Asia Pacifico**o nelle località dell' **Europa** , mentre altri modelli sono attualmente disponibili solo in **Europa** e negli **Stati Uniti** .
 
-## <a name="industry-focused-templates"></a>Industry focused templates
+## <a name="industry-focused-templates"></a>Modelli mirati al settore
 
-Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
+Azure IoT Central è una piattaforma applicativa indipendente dal settore. I modelli di applicazione sono esempi specifici del settore attualmente disponibili per questi settori, con un maggiore futuro:
 
 - [Retail](../retail/overview-iot-central-retail-pnp.md) (Vendita)
   - Logistica connessa
   - Centro di distribuzione digitale
-  - In-store analytics - condition monitoring
-  - In-store analytics - checkout
-  - Smart Inventory Management
+  - Analisi in-Store-monitoraggio delle condizioni
+  - Analisi in-Store-checkout
+  - Gestione Smart Inventory
 - [Energia](../energy/overview-iot-central-energy.md)
   - Monitoraggio contatori intelligenti
   - Monitoraggio pannelli solari
-- [Government](../government/overview-iot-central-government.md)
+- [Governo](../government/overview-iot-central-government.md)
   - Gestione rifiuti connessa
   - Monitoraggio consumo idrico
   - Monitoraggio qualità acqua
-- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+- [Assistenza sanitaria](../healthcare/overview-iot-central-healthcare.md).
   - Monitoraggio pazienti continuo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central.md).
+Ora che si conoscono i modelli di applicazione IoT Central, iniziare [creando un'applicazione IoT Central](quick-deploy-iot-central.md).

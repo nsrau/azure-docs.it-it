@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Send events to Event Grid
+title: Guida introduttiva-inviare eventi a griglia di eventi
 description: In questa guida introduttiva si abilitano gli eventi di Griglia di eventi per il proprio registro contenitori e quindi si inviano gli eventi push e delete di un'immagine di contenitore a un'applicazione di esempio.
 ms.topic: article
 ms.date: 08/23/2018
@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455355"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Send events from private container registry to Event Grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
 
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un registro contenitori, sottoscrivere gli eventi del registro e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, si attivano gli eventi `push` e `delete` di un'immagine di contenitore e si visualizza il payload degli eventi nell'applicazione di esempio.
 
@@ -27,7 +27,7 @@ I comandi dell'interfaccia della riga di comando di Azure in questo articolo son
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure. The following [az group create][az-group-create] command creates a resource group named *myResourceGroup* in the *eastus* region. Se si vuole usare un altro nome per il gruppo di risorse, impostare `RESOURCE_GROUP_NAME` su un valore diverso.
+Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse di Azure. Il comando [AZ Group create][az-group-create] seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Se si vuole usare un altro nome per il gruppo di risorse, impostare `RESOURCE_GROUP_NAME` su un valore diverso.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -35,9 +35,9 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Crea un registro contenitori
+## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
-Dopo aver creato il gruppo di risorse, distribuire un registro contenitori nel gruppo con i comandi seguenti. Before you run the [az acr create][az-acr-create] command, set `ACR_NAME` to a name for your registry. Il nome del registro deve essere univoco in Azure e contenere un numero di caratteri alfanumerici compreso tra 5 e 50.
+Dopo aver creato il gruppo di risorse, distribuire un registro contenitori nel gruppo con i comandi seguenti. Prima di eseguire il comando [AZ ACR create][az-acr-create] , impostare `ACR_NAME` su un nome per il registro. Il nome del registro deve essere univoco in Azure e contenere un numero di caratteri alfanumerici compreso tra 5 e 50.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -96,7 +96,7 @@ Verrà visualizzata l'app di esempio senza messaggi di evento:
 
 ## <a name="subscribe-to-registry-events"></a>Sottoscrivere gli eventi del registro
 
-In Griglia di eventi si sottoscrive un *argomento* per indicare gli eventi di cui si vuole tenere traccia e la destinazione a cui inviarli. The following [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] command subscribes to the container registry you created, and specifies your web app's URL as the endpoint to which it should send events. In questo caso vengono riutilizzate le variabili di ambiente popolate nelle sezioni precedenti. Non è quindi necessaria alcuna modifica.
+In Griglia di eventi si sottoscrive un *argomento* per indicare gli eventi di cui si vuole tenere traccia e la destinazione a cui inviarli. Il comando [AZ eventgrid Event-Subscription create][az-eventgrid-event-subscription-create] seguente sottoscrive il registro contenitori creato e specifica l'URL dell'app Web come endpoint a cui inviare gli eventi. In questo caso vengono riutilizzate le variabili di ambiente popolate nelle sezioni precedenti. Non è quindi necessaria alcuna modifica.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -181,7 +181,7 @@ $ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 ### <a name="delete-the-image"></a>Eliminare l'immagine
 
-Now, generate an `ImageDeleted` event by deleting the image with the [az acr repository delete][az-acr-repository-delete] command:
+A questo punto, generare un evento `ImageDeleted` eliminando l'immagine con il comando [AZ ACR repository Delete][az-acr-repository-delete] :
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -203,7 +203,7 @@ Lo screenshot seguente mostra l'app di esempio con tre eventi. L'evento `ImageDe
 
 ![Visualizzazione nel Web browser dell'app di esempio con gli eventi ImagePushed e ImageDeleted][sample-app-03]
 
-Congratulazioni. Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
+Congratulazioni! Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

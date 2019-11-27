@@ -1,5 +1,5 @@
 ---
-title: Use an Azure file share with Azure Storage | Microsoft Docs
+title: Usare una condivisione file di Azure con archiviazione di Azure | Microsoft Docs
 description: Informazioni su come usare una condivisione file di Azure con Windows e Windows Server.
 author: todmccoy
 manager: dcscontentpm
@@ -17,29 +17,29 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233792"
 ---
-# <a name="how-to-recover-a-deleted-storage-account"></a>How to recover a deleted storage account
+# <a name="how-to-recover-a-deleted-storage-account"></a>Come ripristinare un account di archiviazione eliminato
 
-Azure Storage provides data resiliency through automated replicas, but doesn't prevent users or application code from corrupting data, whether accidentally or maliciously. Maintaining data fidelity during instances of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log.
+Archiviazione di Azure garantisce la resilienza dei dati tramite le repliche automatiche, ma non impedisce a utenti o codice dell'applicazione di danneggiare i dati, sia accidentalmente che intenzionalmente. La gestione della fedeltà dei dati durante le istanze dell'errore dell'applicazione o dell'utente richiede tecniche più avanzate, ad esempio la copia dei dati in un percorso di archiviazione secondario con un log di controllo.
 
-The following table provides overview of the scope of Storage Account Recovery depending on the replication strategy.
+La tabella seguente fornisce una panoramica dell'ambito del ripristino dell'account di archiviazione, a seconda della strategia di replica.
 
-| |LRS|ZRS|GRS|RA - GRS|
+| |Archiviazione con ridondanza locale|ZRS|Archiviazione con ridondanza geografica|RA-GRS|
 |---|---|---|---|---|
-|Storage Account Azure Resource Manager|SÌ|SÌ|SÌ|SÌ|
-|Storage Account Classic|SÌ|SÌ|SÌ|SÌ|
+|Azure Resource Manager dell'account di archiviazione|Sì|Sì|Sì|Sì|
+|Account di archiviazione classico|Sì|Sì|Sì|Sì|
 
-Gather the following information and file a support request with Microsoft Support:
+Raccogliere le informazioni seguenti e archiviare una richiesta di supporto con supporto tecnico Microsoft:
 
 * Nome dell'account di archiviazione
-* Date of deletion
-* Storage account region
-* How was the storage account deleted?
-* What method deleted the storage account? (Portal, PowerShell, etc.)
+* Data di eliminazione
+* Area dell'account di archiviazione
+* Come è stato eliminato l'account di archiviazione?
+* Quale metodo ha eliminato l'account di archiviazione? (Portale, PowerShell e così via)
 
-Important Points
+Punti importanti
 
-* It can generally take up to 15 days from the time of deletion for the storage service to perform garbage collection, so storage accounts recovery may not be recovered with an SLA.
-* Microsoft Support will try to recover the Container/Account on a best-effort basis and cannot guarantee the recovery.
+* In genere può essere necessario attendere fino a 15 giorni dal momento dell'eliminazione affinché il servizio di archiviazione esegua Garbage Collection, quindi il ripristino degli account di archiviazione non può essere recuperato con un contratto di servizio.
+* Supporto tecnico Microsoft tenterà di ripristinare il contenitore o l'account in base al massimo sforzo e non potrà garantire il ripristino.
 
 > [!NOTE]
-> The recovery may not be successful if the account has been re-created. If you have already re-created the account, you must delete it first before recovery can be attempted.
+> Il ripristino potrebbe non riuscire se l'account è stato ricreato. Se è già stato ricreato l'account, è necessario eliminarlo prima di poter tentare il ripristino.

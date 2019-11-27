@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Active Directory access - Azure Blockchain Service
-description: How to configure Azure Blockchain Service with Azure Active Directory access
+title: Configurare l'accesso Azure Active Directory-servizio Azure blockchain
+description: Come configurare il servizio Azure blockchain con accesso Azure Active Directory
 ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
@@ -11,95 +11,95 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74455853"
 ---
-# <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>How to configure Azure Active Directory access for Azure Blockchain Service
+# <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Come configurare l'accesso Azure Active Directory per il servizio Azure blockchain
 
-In this article, you learn how to grant access and connect to Azure Blockchain Service nodes using Azure Active Directory (Azure AD) user, group, or application IDs.
+Questo articolo illustra come concedere l'accesso e connettersi ai nodi del servizio blockchain di Azure usando gli ID utente, gruppo o applicazione Azure Active Directory (Azure AD).
 
-Azure AD provides cloud-based identity management and allows you to use a single identity across an entire enterprise and access applications in Azure. Azure Blockchain Service is integrated with Azure AD and offers benefits such as ID federation, single sign-on and multi-factor authentication.
+Azure AD offre la gestione delle identità basata sul cloud e consente di usare una singola identità in un'intera azienda e accedere alle applicazioni in Azure. Il servizio Azure blockchain è integrato con Azure AD e offre vantaggi come federazione ID, Single Sign-On e autenticazione a più fattori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* [Create a blockchain member using the Azure portal](create-member.md)
+* [Creare un membro blockchain usando il portale di Azure](create-member.md)
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-You can grant access at both the member level and the node level. Granting access rights at the member level will in turn grant access to all nodes under the member.
+È possibile concedere l'accesso a livello di membro e a livello di nodo. La concessione dei diritti di accesso a livello di membro consentirà a sua volta l'accesso a tutti i nodi del membro.
 
-### <a name="grant-member-level-access"></a>Grant member level access
+### <a name="grant-member-level-access"></a>Concedi accesso a livello di membro
 
-To grant access permission at the member level.
+Per concedere l'autorizzazione di accesso a livello di membro.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Navigate to **Access control (IAM) > Add > Add role assignment**.
-1. Select the **Blockchain Member Node Access (Preview)** role and add the Azure AD ID object you wish to grant access to. Azure AD ID object can be:
+1. Passare a **controllo di accesso (IAM) > aggiungi > Aggiungi assegnazione ruolo**.
+1. Selezionare il ruolo di **accesso al nodo membro blockchain (anteprima)** e aggiungere l'oggetto ID Azure ad a cui si vuole concedere l'accesso. Azure AD oggetto ID può essere:
 
-    | Azure AD object | Esempio |
+    | Oggetto Azure AD | Esempio |
     |-----------------|---------|
-    | Azure AD user   | `kim@contoso.onmicrosoft.com` |
-    | Azure AD group  | `sales@contoso.onmicrosoft.com` |
+    | Utente Azure AD   | `kim@contoso.onmicrosoft.com` |
+    | Gruppo di Azure AD  | `sales@contoso.onmicrosoft.com` |
     | ID applicazione  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
     ![Aggiungi un'assegnazione di ruolo](./media/configure-aad/add-role-assignment.png)
 
 1. Selezionare **Salva**.
 
-### <a name="grant-node-level-access"></a>Grant node level access
+### <a name="grant-node-level-access"></a>Concessione dell'accesso a livello di nodo
 
-You can grant access at the node level by navigating to node security and click on the node name that you wish to grant access.
+È possibile concedere l'accesso a livello di nodo passando alla sicurezza del nodo e facendo clic sul nome del nodo a cui si vuole concedere l'accesso.
 
-Select the Blockchain Member Node Access (Preview) role and add the Azure AD ID object you wish to grant access to.
+Selezionare il ruolo di accesso al nodo membro blockchain (anteprima) e aggiungere l'oggetto ID Azure AD a cui si vuole concedere l'accesso.
 
-For more information, see [Configure Azure Blockchain Service transaction nodes](configure-transaction-nodes.md#azure-active-directory-access-control).
+Per altre informazioni, vedere [configurare i nodi delle transazioni del servizio blockchain di Azure](configure-transaction-nodes.md#azure-active-directory-access-control).
 
-## <a name="connect-using-azure-blockchain-connector"></a>Connect using Azure Blockchain Connector
+## <a name="connect-using-azure-blockchain-connector"></a>Connettersi con Azure blockchain Connector
 
-Download or clone the [Azure Blockchain Connector from GitHub](https://github.com/Microsoft/azure-blockchain-connector/).
+Scaricare o clonare il [connettore Azure blockchain da GitHub](https://github.com/Microsoft/azure-blockchain-connector/).
 
 ```bash
 git clone https://github.com/Microsoft/azure-blockchain-connector.git
 ```
 
-The follow the quickstart section in the **readme** to build the connector from the source code.
+La sezione seguire la Guida introduttiva nel **file Leggimi** per compilare il connettore dal codice sorgente.
 
-### <a name="connect-using-an-azure-ad-user-account"></a>Connect using an Azure AD user account
+### <a name="connect-using-an-azure-ad-user-account"></a>Connettersi usando un account utente Azure AD
 
-1. Run the following command to authenticate using an Azure AD user account. Replace \<myAADDirectory\> with an Azure AD domain. Ad esempio `yourdomain.onmicrosoft.com`.
+1. Eseguire il comando seguente per eseguire l'autenticazione con un account utente Azure AD. Sostituire \<\> myAADDirectory con un dominio Azure AD. Ad esempio: `yourdomain.onmicrosoft.com`.
 
     ```
     connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
     ```
 
-1. Azure AD prompts for credentials.
-1. Sign in with your user name and password.
-1. Upon successful authentication, your local proxy connects to your blockchain node. You can now attach your Geth client with the local endpoint.
+1. Azure AD richiede le credenziali.
+1. Accedere con il nome utente e la password.
+1. Al completamento dell'autenticazione, il proxy locale si connette al nodo blockchain. È ora possibile associare il client di Geth con l'endpoint locale.
 
     ```bash
     geth attach http://127.0.0.1:3100
     ```
 
-### <a name="connect-using-an-application-id"></a>Connect using an application ID
+### <a name="connect-using-an-application-id"></a>Connetti usando un ID applicazione
 
-Many applications authenticate with Azure AD using an application ID instead of an Azure AD user account.
+Molte applicazioni eseguono l'autenticazione con Azure AD usando un ID applicazione anziché un account utente Azure AD.
 
-To connect to your node using an application ID, replace **aadauthcode** with **aadclient**.
+Per connettersi al nodo usando un ID applicazione, sostituire **aadauthcode** con **aadclient**.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myClientID> -client-secret "<myClientSecret>" -tenant-id <myAADDirectory>
 ```
 
-| Parametro | Description |
+| . | DESCRIZIONE |
 |-----------|-------------|
-| tenant-id | Azure AD domain, For example, `yourdomain.onmicrosoft.com`
-| client-id | Client ID of the registered application in Azure AD
-| client-secret | Client secret of the registered application in Azure AD
+| ID tenant | Azure AD dominio, ad esempio `yourdomain.onmicrosoft.com`
+| ID client | ID client dell'applicazione registrata in Azure AD
+| segreto client | Segreto client dell'applicazione registrata in Azure AD
 
-For more information on how to register an application in Azure AD, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md)
+Per altre informazioni su come registrare un'applicazione in Azure AD, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md)
 
-### <a name="connect-a-mobile-device-or-text-browser"></a>Connect a mobile device or text browser
+### <a name="connect-a-mobile-device-or-text-browser"></a>Connettere un dispositivo mobile o un browser di testo
 
-For a mobile device or text-based browser where the Azure AD authentication pop-up display is not possible, Azure AD generates a one-time passcode. You can copy the passcode and proceed with Azure AD authentication in another environment.
+Per un dispositivo mobile o un browser basato su testo in cui non è possibile visualizzare la visualizzazione popup dell'autenticazione Azure AD, Azure AD genera un solo codice di accesso. È possibile copiare il codice e procedere con l'autenticazione Azure AD in un altro ambiente.
 
-To generate the passcode, replace **aadauthcode** with **aaddevice**. Replace \<myAADDirectory\> with an Azure AD domain. Ad esempio `yourdomain.onmicrosoft.com`.
+Per generare il codice, sostituire **aadauthcode** con **aaddevice**. Sostituire \<\> myAADDirectory con un dominio Azure AD. Ad esempio: `yourdomain.onmicrosoft.com`.
 
 ```
 connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAADDirectory>
@@ -107,4 +107,4 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).
+Per altre informazioni sulla sicurezza dei dati nel servizio Azure blockchain, vedere la pagina relativa alla [sicurezza del servizio blockchain di Azure](data-security.md).

@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -21,9 +21,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74482503"
 ---
-Before reading this article, you should be familiar with the following concepts:
+Prima di leggere questo articolo, è necessario avere familiarità con i concetti seguenti:
 
-- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
+- [Panoramica della piattaforma di identità Microsoft](../articles/active-directory/develop/v2-overview.md)
 - [Nozioni di base sull'autenticazione](../articles/active-directory/develop/authentication-scenarios.md)
 - [Destinatari](../articles/active-directory/develop/v2-supported-account-types.md)
 - [Entità servizio e applicazione](../articles/active-directory/develop/app-objects-and-service-principals.md)

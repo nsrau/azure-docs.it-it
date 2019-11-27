@@ -1,5 +1,5 @@
 ---
-title: Create and manage claimable VMs in Azure DevTest Labs | Microsoft Docs
+title: Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs | Microsoft Docs
 description: Informazioni su come aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -72,7 +72,7 @@ Un utente può richiedere qualsiasi macchina virtuale dall'elenco "Claimable vir
   ![Richiedere una macchina virtuale a disposizione degli utenti.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-After a user claims a VM, DevTest Labs will start the machine and move it up into lab user's list of "My virtual machines". This means the lab user will now have owner privileges on this machine. The time required for this step may vary depending on start up times as well as any other custom actions being performed during the claim event. Once claimed, the machine is no longer available in the claimable pool.  
+Quando un utente dichiara una macchina virtuale, DevTest Labs avvierà il computer e lo sposterà nell'elenco di "macchine virtuali" dell'utente del Lab. Ciò significa che l'utente del Lab avrà i privilegi di proprietario sul computer. Il tempo necessario per questo passaggio può variare a seconda dei tempi di avvio e di qualsiasi altra azione personalizzata eseguita durante l'evento di attestazione. Una volta richiesto, il computer non è più disponibile nel pool di attestazioni.  
 
 ## <a name="unclaim-a-vm"></a>Annullare la richiesta di una macchina virtuale
 
@@ -86,7 +86,7 @@ Quando un utente non ha più bisogno di una macchina virtuale richiesta e deside
 
   ![Annullare la richiesta di una macchina virtuale nel riquadro di gestione della macchina virtuale.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-When a user unclaims a VM, they no longer have owner permissions for that specific lab VM and it is available to be claimed by any other lab user in the state that it was retured to the pool. 
+Quando un utente annulla la richiesta di una macchina virtuale, non dispone più delle autorizzazioni di proprietario per la VM Lab specifica ed è disponibile per la richiesta da parte di qualsiasi altro utente del Lab nello stato in cui è stata ripristinata nel pool. 
 
 ### <a name="transferring-the-data-disk"></a>Trasferimento del disco dati
 Se una macchina virtuale richiedibile dispone di un disco dati collegato a questa e un utente ne annulla la richiesta, il disco dati rimane associato alla macchina virtuale. Quando un altro utente richiede quella macchina virtuale, richiede sia il disco dati che la macchina virtuale.

@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -17,13 +17,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74451487"
 ---
-If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
+Se le app devono essere create da altri utenti, è necessario aggiungere gli indirizzi di posta elettronica associati nella risorsa di creazione del portale di Azure.
 
-If you are the **owner or administrator of your Azure subscription**, you can add a contributor to the resource. 
+Se si è il **proprietario o l'amministratore della sottoscrizione di Azure**, è possibile aggiungere un collaboratore alla risorsa. 
 
-If you are **not the owner or administrator of your Azure subscription**, your Azure account needs to have `Microsoft.Authorization/roleAssignments/write` permissions.
+Se non si è **il proprietario o l'amministratore della sottoscrizione di Azure**, l'account Azure deve avere `Microsoft.Authorization/roleAssignments/write` autorizzazioni.
 
-If you have trouble with this role assignment, review: 
+In caso di problemi con questa assegnazione di ruolo, vedere: 
 
-* [Azure role assignments](../../../role-based-access-control/role-assignments-portal.md)
- * [Azure access control troubleshooting](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Assegnazioni di ruolo di Azure](../../../role-based-access-control/role-assignments-portal.md)
+ * [Risoluzione dei problemi di controllo di accesso di Azure](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use managed identity to access Azure Storage using SAS credential - Azure AD
+title: Esercitazione`:` usare l'identità gestita per accedere ad archiviazione di Azure usando le credenziali SAS-Azure AD
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso anziché tramite una chiave di accesso dell'account di archiviazione.
 services: active-directory
 documentationcenter: ''
@@ -35,7 +35,7 @@ La firma di accesso condiviso del servizio offre la possibilità di concedere ac
 > * Concedere alla macchina virtuale l'accesso alla firma di accesso condiviso dell'account di archiviazione in Resource Manager 
 > * Ottenere un token di accesso tramite l'identità della macchina virtuale e usarlo per recuperare la firma di accesso condiviso da Resource Manager 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -45,7 +45,7 @@ La firma di accesso condiviso del servizio offre la possibilità di concedere ac
 
 Se non ne è già disponibile uno, creare un account di archiviazione. È anche possibile ignorare questo passaggio e concedere all'identità gestita assegnata dal sistema della macchina virtuale l'accesso alle credenziali di firma di accesso condiviso di un account di archiviazione esistente. 
 
-1. Fare clic sul pulsante **+/Crea nuovo servizio** che si trova nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
 2. Fare clic su **Archiviazione**, quindi **Account di archiviazione**. Viene visualizzato un nuovo pannello "Crea account di archiviazione".
 3. Immettere un nome per l'account di archiviazione, che verrà usato in un secondo momento.  
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su "Gestione di risorse" e "Utilizzo generico". 
@@ -70,10 +70,10 @@ Successivamente verrà caricato e scaricato un file per il nuovo account di arch
 Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  È tuttavia possibile usare un'identità gestita per recuperare una firma di accesso condiviso di archiviazione da Gestione risorse e quindi usarla per accedere alle risorse di archiviazione.  In questo passaggio si concede l'accesso alla firma di accesso condiviso dell'account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale.   
 
 1. Tornare all'account di archiviazione appena creato.   
-2. Fare clic su collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
+2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
 3. Fare clic su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per la macchina virtuale.
 4. Impostare **Ruolo** su "Collaboratore Account di archiviazione" sul lato destro della pagina.  
-5. Nell'elenco a discesa impostare **Assegna accesso a** sulla risorsa "Macchina virtuale".  
+5. Nell'elenco a discesa successivo impostare **Assegna accesso a** sulla risorsa "Macchina virtuale".  
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su "Tutti i gruppi di risorse".  
 7. In **Seleziona** scegliere infine la macchina virtuale Windows nell'elenco a discesa e quindi fare clic su **Salva**. 
 
@@ -97,12 +97,12 @@ In questa sezione è necessario usare i cmdlet PowerShell di Azure Resource Mana
     > [!NOTE]
     > Il valore del parametro "risorsa" deve corrispondere esattamente a quello previsto da Azure AD. Quando si usa l'ID risorsa di Azure Resource Manager, è necessario includere la barra finale nell'URI.
     
-    Estrarre quindi l'elemento "Contenuto", che è archiviato come stringa in formato JSON (JavaScript Object Notation) nell'oggetto $response. 
+    Estrarre quindi l'elemento "Content", archiviato come stringa in formato JSON (JavaScript Object Notation) nell'oggetto $response. 
     
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
-    Estrarre quindi il token di accesso dalla risposta.
+    Estrarre poi il token di accesso dalla risposta.
     
     ```powershell
     $ArmToken = $content.access_token
@@ -159,7 +159,7 @@ Verrà quindi creato un file denominato "test.txt". Usare quindi le credenziali 
 echo "This is a test text file." > test.txt
 ```
 
-Assicurarsi di installare i cmdlet di Archiviazione di Azure usando `Install-Module Azure.Storage`. Caricare quindi il BLOB appena creato, usando il cmdlet `Set-AzStorageBlobContent` di PowerShell:
+Assicurarsi di installare prima i cmdlet di Archiviazione di Azure tramite `Install-Module Azure.Storage`. Caricare quindi il BLOB appena creato, usando il cmdlet PowerShell `Set-AzStorageBlobContent`:
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
@@ -202,7 +202,7 @@ Name              : testblob
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso.  Per altre informazioni su Archiviazione di Azure SAS, vedere:
+Questa esercitazione ha illustrato come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso.  Per altre informazioni su Archiviazione di Azure SAS, consultare:
 
 > [!div class="nextstepaction"]
 >[Uso delle firme di accesso condiviso](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

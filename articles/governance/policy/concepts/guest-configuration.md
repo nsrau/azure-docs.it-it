@@ -1,6 +1,6 @@
 ---
-title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
+title: Informazioni su come controllare il contenuto delle macchine virtuali
+description: Informazioni su come criteri di Azure usa l'agente di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: f68bbc64ee8f0da02d213895a70e4c533b9a5f63
@@ -12,9 +12,9 @@ ms.locfileid: "74463802"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
-Beyond auditing and [remediating](../how-to/remediate-resources.md) Azure resources, Azure Policy can audit settings inside a machine. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
+Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, i criteri di Azure possono controllare le impostazioni all'interno di un computer. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione, tramite il client, convalida impostazioni come:
 
-- The configuration of the operating system
+- Configurazione del sistema operativo
 - Configurazione o presenza di applicazioni
 - Impostazioni dell'ambiente
 
@@ -22,15 +22,15 @@ Al momento, Configurazione guest di Criteri di Azure controlla solo le impostazi
 
 ## <a name="extension-and-client"></a>Estensione e client
 
-To audit settings inside a machine, a [virtual machine extension](../../../virtual-machines/extensions/overview.md) is enabled. L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente.
+Per controllare le impostazioni all'interno di un computer, è abilitata un' [estensione della macchina virtuale](../../../virtual-machines/extensions/overview.md) . L'estensione scarica l'assegnazione dei criteri applicabile e la configurazione corrispondente.
 
-### <a name="limits-set-on-the-extension"></a>Limits set on the extension
+### <a name="limits-set-on-the-extension"></a>Limiti impostati per l'estensione
 
-To limit the extension from impacting applications running inside the machine, the Guest Configuration isn't allowed to exceed more than 5% of CPU utilization. This limitation exists for both built-in and custom definitions.
+Per limitare l'estensione da applicazioni in esecuzione all'interno del computer, la configurazione Guest non può superare il 5% di utilizzo della CPU. Questa limitazione è disponibile sia per le definizioni predefinite sia per quelle personalizzate.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
 
-Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione nel portale o con PowerShell. The resource provider is registered automatically if assignment of a Guest Configuration policy is done through the portal.
+Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione nel portale o con PowerShell. Il provider di risorse viene registrato automaticamente se l'assegnazione dei criteri di configurazione Guest viene eseguita tramite il portale.
 
 ### <a name="registration---portal"></a>Registrazione - Portale
 
@@ -55,117 +55,117 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="validation-tools"></a>Strumenti di convalida
 
-Inside the machine, the Guest Configuration client uses local tools to run the audit.
+All'interno del computer, il client di configurazione Guest utilizza gli strumenti locali per eseguire il controllo.
 
 La tabella seguente elenca gli strumenti locali usati on ciascun sistema operativo supportato:
 
-|Sistema operativo|Strumento di convalida|Note|
+|Sistema operativo|Strumento di convalida|note|
 |-|-|-|
-|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
+|Windows|[Windows PowerShell DSC (Desired state Configuration](/powershell/scripting/dsc/overview/overview) ) V2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python vengono installati dall'estensione della configurazione guest. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
-Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. This update causes Azure Policy to evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit of the configuration within the machine.
+Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. Questo aggiornamento fa in modo che i criteri di Azure valutino le proprietà del Azure Resource Manager. Una valutazione di criteri di Azure su richiesta Recupera il valore più recente dal provider di risorse di configurazione Guest. Tuttavia, non attiva un nuovo controllo della configurazione all'interno del computer.
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 
 La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 
-|Editore|name|Versioni|
+|Autore|Nome|Versioni|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
-|Microsoft|Client Windows|Windows 10|
+|Macchina virtuale|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
+|Macchina virtuale|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux.|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and modify the **If** section to include your image properties.
+> La configurazione Guest può controllare i nodi che eseguono un sistema operativo supportato. Se si desidera controllare le macchine virtuali che utilizzano un'immagine personalizzata, è necessario duplicare la definizione **DeployIfNotExists** e modificare la sezione **if** per includere le proprietà dell'immagine.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
-Windows Server Nano Server isn't supported in any version.
+Windows Server nano server non è supportato in alcuna versione.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Guest Configuration Extension network requirements
+## <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete dell'estensione di configurazione Guest
 
-To communicate with the Guest Configuration resource provider in Azure, machines require outbound access to Azure datacenters on port **443**. If you're using a private virtual network in Azure that doesn't allow outbound traffic, configure exceptions with [Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. A service tag doesn't currently exist for Azure Policy Guest Configuration.
+Per comunicare con il provider di risorse di configurazione Guest in Azure, i computer richiedono l'accesso in uscita ai Data Center di Azure sulla porta **443**. Se si usa una rete virtuale privata in Azure che non consente il traffico in uscita, configurare le eccezioni con le regole del [gruppo di sicurezza di rete](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Un tag di servizio non esiste attualmente per la configurazione Guest di criteri di Azure.
 
-For IP address lists, you can download [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. You only need to allow outbound access to the IPs in the regions where your VMs are deployed.
+Per gli elenchi di indirizzi IP è possibile scaricare [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. È sufficiente consentire l'accesso in uscita agli indirizzi IP nelle aree in cui vengono distribuite le macchine virtuali.
 
 > [!NOTE]
 > Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione. Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana. È consigliabile scaricare il nuovo file XML ogni settimana e aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure. Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 
-Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists** definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to prepare the machine with the Guest Configuration agent and other components to support the [validation tools](#validation-tools).
+Ogni controllo eseguito dalla configurazione Guest richiede due definizioni di criteri, una definizione **DeployIfNotExists** e una definizione **AuditIfNotExists** . La definizione **DeployIfNotExists** viene utilizzata per preparare il computer con l'agente di configurazione Guest e altri componenti per supportare gli [strumenti di convalida](#validation-tools).
 
 La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
 
-- Validate the machine has been assigned a configuration to evaluate. If no assignment is currently present, get the assignment and prepare the machine by:
-  - Authenticating to the machine using a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
+- Verificare che al computer sia stata assegnata una configurazione da valutare. Se non è attualmente presente alcuna assegnazione, ottenere l'assegnazione e preparare il computer:
+  - Autenticazione al computer tramite un' [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Installazione della versione più recente dell'estensione **Microsoft.GuestConfiguration**
   - Installazione degli [strumenti di convalida](#validation-tools) e delle dipendenze, se necessario
 
-If the **DeployIfNotExists** assignment is Non-compliant, a [remediation task](../how-to/remediate-resources.md#create-a-remediation-task) can be used.
+Se l'assegnazione **DeployIfNotExists** non è conforme, è possibile utilizzare un' [attività di correzione](../how-to/remediate-resources.md#create-a-remediation-task) .
 
-Once the **DeployIfNotExists** assignment is Compliant, the **AuditIfNotExists** policy assignment uses the local validation tools to determine if the configuration assignment is Compliant or Non-compliant. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
+Quando l'assegnazione **DeployIfNotExists** è conforme, l'assegnazione dei criteri **AuditIfNotExists** usa gli strumenti di convalida locali per determinare se l'assegnazione di configurazione è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 
 > [!NOTE]
-> The **DeployIfNotExists** policy is required for the **AuditIfNotExists** policy to return results. Without the **DeployIfNotExists**, the **AuditIfNotExists** policy shows "0 of 0" resources as status.
+> Il criterio **DeployIfNotExists** è necessario affinché i criteri **AuditIfNotExists** restituiscano i risultati. Senza **DeployIfNotExists**, il criterio **AuditIfNotExists** Mostra le risorse "0 di 0" come stato.
 
-Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. The built-in initiative named _\[Preview\]: Audit Password security settings inside Linux and Windows machines_ contains 18 policies. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. The [policy definition](definition-structure.md#policy-rule) logic validates that only the target operating system is evaluated.
+Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata _\[Preview\]: controllare le impostazioni di sicurezza delle password nei computer Linux e Windows_ contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **AuditIfNotExists** per Windows e tre coppie per Linux. La logica di [definizione dei criteri](definition-structure.md#policy-rule) convalida che viene valutato solo il sistema operativo di destinazione.
 
-#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditing operating system settings following industry baselines
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Controllo delle impostazioni del sistema operativo seguenti linee di base del settore
 
-One of the initiatives available in Azure Policy provides the ability to audit operating system settings inside virtual machines following a "baseline" from Microsoft. The definition, _\[Preview\]: Audit Windows VMs that do not match Azure security baseline settings_ includes a complete set of audit rules based on settings from Active Directory Group Policy.
+Una delle iniziative disponibili in criteri di Azure consente di controllare le impostazioni del sistema operativo all'interno di macchine virtuali che seguono una "baseline" di Microsoft. La definizione _\[anteprima\]: controllare le macchine virtuali Windows che non corrispondono alle impostazioni di base di sicurezza di Azure_ include un set completo di regole di controllo basate sulle impostazioni di Active Directory Criteri di gruppo.
 
-Most of the settings are available as parameters. This functionality allows you to customize what is audited to align the policy with your organizational requirements or to map the policy to third party information such as industry regulatory standards.
+La maggior parte delle impostazioni è disponibile come parametri. Questa funzionalità consente di personalizzare gli elementi controllati per allineare i criteri ai requisiti dell'organizzazione o per eseguire il mapping dei criteri a informazioni di terze parti, ad esempio standard normativi del settore.
 
-Some parameters support an integer value range. For example, the Maximum Password Age parameter can be set using a range operator to give flexibility to machine owners. You could audit that the effective Group Policy setting requiring users to change their passwords should be no more than 70 days, but shouldn't be less than one day. As described in the info-bubble for the parameter, to make this business policy the effective audit value, set the value to "1,70".
+Alcuni parametri supportano un intervallo di valori interi. È ad esempio possibile impostare il parametro validità massima password utilizzando un operatore di intervallo per offrire flessibilità ai proprietari dei computer. È possibile controllare che l'impostazione Criteri di gruppo efficace che richiede agli utenti di modificare le password non sia superiore a 70 giorni, ma non deve essere inferiore a un giorno. Come descritto nella sezione info-Bubble per il parametro, per impostare il valore di controllo effettivo per i criteri di business, impostare il valore su "1, 70".
 
-If you assign the policy using an Azure Resource Manager deployment template, you can use a parameters file to manage these settings from source control. Using a tool such as Git to manage changes to Audit policies with comments at each check-in documents evidence as to why an assignment should be an exception to the expected value.
+Se si assegnano i criteri usando un modello di distribuzione di Azure Resource Manager, è possibile usare un file di parametri per gestire queste impostazioni dal controllo del codice sorgente. Usare uno strumento come Git per gestire le modifiche apportate ai criteri di controllo con commenti a ogni archiviazione per documentare il motivo per cui un'assegnazione deve essere un'eccezione al valore previsto.
 
-#### <a name="applying-configurations-using-guest-configuration"></a>Applying configurations using Guest Configuration
+#### <a name="applying-configurations-using-guest-configuration"></a>Applicazione di configurazioni con la configurazione Guest
 
-The latest feature of Azure Policy configures settings inside machines. The definition _Configure the time zone on Windows machines_ makes changes to the machine by configuring the time zone.
+La funzionalità più recente di criteri di Azure consente di configurare le impostazioni all'interno dei computer. La definizione _configurare il fuso orario sui computer Windows_ apporta modifiche al computer configurando il fuso orario.
 
-When assigning definitions that begin with _Configure_, you must also assign the definition _Deploy prerequisites to enable Guest Configuration Policy on Windows VMs_. You can combine these definitions in an initiative if you choose.
+Quando si assegnano definizioni che iniziano con _Configure_, è necessario assegnare anche i _prerequisiti per la definizione di distribuzione per abilitare i criteri di configurazione Guest nelle macchine virtuali Windows_. Se si sceglie, è possibile combinare queste definizioni in un'iniziativa.
 
-#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Assigning policies to machines outside of Azure
+#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Assegnazione di criteri a computer esterni ad Azure
 
-The Audit policies available for Guest Configuration include the **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to [Azure Arc for Servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy assignment are automatically included.
+I criteri di controllo disponibili per la configurazione Guest includono il tipo di risorsa **Microsoft. HybridCompute/machines** . Tutti i computer caricati in [Azure Arc per i server](../../../azure-arc/servers/overview.md) che rientrano nell'ambito dell'assegnazione di criteri vengono inclusi automaticamente.
 
-### <a name="multiple-assignments"></a>Multiple assignments
+### <a name="multiple-assignments"></a>Più assegnazioni
 
-Guest Configuration policies currently only support assigning the same Guest Assignment once per machine, even if the Policy assignment uses different parameters.
+I criteri di configurazione Guest attualmente supportano solo l'assegnazione della stessa assegnazione Guest una volta per ogni computer, anche se l'assegnazione dei criteri USA parametri diversi.
 
-## <a name="built-in-resource-modules"></a>Built-in resource modules
+## <a name="built-in-resource-modules"></a>Moduli di risorse predefiniti
 
-When installing the Guest Configuration extension, the 'GuestConfiguration' PowerShell module is included with the latest version of DSC resource modules. This module can be downloaded from the PowerShell Gallery by using the 'Manual Download' link from the module page [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). The '.nupkg' file format can be renamed to '.zip' to uncompress and review.
+Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Il formato del file ". nupkg" può essere rinominato in ". zip" per decomprimere ed esaminare.
 
-## <a name="client-log-files"></a>Client log files
+## <a name="client-log-files"></a>File di log del client
 
-The Guest Configuration extension writes log files to the following locations:
+L'estensione di configurazione Guest scrive i file di log nei percorsi seguenti:
 
 Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-Where `<version>` refers to the current version number.
+Dove `<version>` fa riferimento al numero di versione corrente.
 
-### <a name="collecting-logs-remotely"></a>Collecting logs remotely
+### <a name="collecting-logs-remotely"></a>Raccolta di log in modalità remota
 
-The first step in troubleshooting Guest Configuration configurations or modules should be to use the `Test-GuestConfigurationPackage` cmdlet following the steps in [Test a Guest Configuration package](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
-If that isn't successful, collecting client logs can help diagnose issues.
+Il primo passaggio nella risoluzione dei problemi relativi alle configurazioni o ai moduli di configurazione Guest deve essere quello di usare il cmdlet `Test-GuestConfigurationPackage` seguendo la procedura descritta in [testare un pacchetto di configurazione Guest](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+Se l'operazione non riesce, la raccolta dei log del client può aiutare a diagnosticare i problemi.
 
 #### <a name="windows"></a>Windows
 
-To use the Azure VM Run Command capability to capture information from log files in Windows machines, the following example PowerShell script can be helpful. For more information, see [Run PowerShell scripts in your Windows VM with Run Command](../../../virtual-machines/windows/run-command.md).
+Per usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Windows, è possibile usare lo script di PowerShell di esempio seguente. Per altre informazioni, vedere [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../../virtual-machines/windows/run-command.md).
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -176,7 +176,7 @@ Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCM
 
 #### <a name="linux"></a>Linux
 
-To use the Azure VM Run Command capability to capture information from log files in Linux machines, the following example Bash script can be helpful. For more information, see [Run shell scripts in your Linux VM with Run Command](../../../virtual-machines/linux/run-command.md)
+Per usare la funzionalità di esecuzione dei comandi della macchina virtuale di Azure per acquisire informazioni dai file di log nei computer Linux, è possibile usare lo script bash di esempio seguente. Per altre informazioni, vedere [eseguire script della shell nella VM Linux con il comando Run](../../../virtual-machines/linux/run-command.md)
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -185,19 +185,19 @@ latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfigurati
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
 ```
 
-## <a name="guest-configuration-samples"></a>Guest Configuration samples
+## <a name="guest-configuration-samples"></a>Esempi di configurazione Guest
 
-Samples for Policy Guest Configuration are available in the following locations:
+Gli esempi per la configurazione Guest per i criteri sono disponibili nei percorsi seguenti:
 
-- [Samples index - Guest Configuration](../samples/index.md#guest-configuration)
-- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Indice degli esempi-configurazione Guest](../samples/index.md#guest-configuration)
+- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Esaminare gli esempi in [esempi di criteri di Azure](../samples/index.md).
 - Vedere la [struttura delle definizioni di Criteri di Azure](definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](effects.md).
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/get-compliance-data.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server and Active Directory - Azure Active Directory
+title: Server di autenticazione a più fattori di Azure e Active Directory Azure Active Directory
 description: Informazioni su come eseguire l'integrazione tra il server Azure Multi-Factor Authentication e Active Directory, in modo da poter sincronizzare le directory.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -24,18 +24,18 @@ ms.locfileid: "74404237"
 Usare la sezione Integrazione directory del server Azure MFA per l'integrazione con Active Directory o un'altra directory LDAP. È possibile configurare attributi corrispondenti allo schema di directory e impostare la sincronizzazione automatica degli utenti.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
-## <a name="settings"></a>Impostazioni
+## <a name="settings"></a>Settings
 
 Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) è configurato per importare o sincronizzare utenti da Active Directory.  La scheda Integrazione directory permette di eseguire l'override del comportamento predefinito e di eseguire il binding a una directory LDAP diversa, a una directory ADAM oppure a un controller di dominio di Active Directory specifico.  Permette anche di usare l'autenticazione LDAP per il proxy LDAP o per binding LDAP come destinazione RADIUS, la preautenticazione per l'autenticazione IIS oppure l'autenticazione primaria per il portale utenti.  La tabella seguente illustra le singole impostazioni.
 
-![Edit LDAP configuration in MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+![Modificare la configurazione LDAP nel server multi-factor authentication](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
+> Non è garantito che l'integrazione della directory funzioni con directory diverse da Active Directory Domain Services.
 
-| Funzionalità | Description |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Usa Active Directory |Selezionare l'opzione Usa Active Directory per usare Active Directory per l'importazione e la sincronizzazione.  Questa è l'impostazione predefinita. <br>Nota: per un corretto funzionamento dell'integrazione con Active Directory, è necessario aggiungere il computer a un dominio e accedere con un account di dominio. |
 | Includi domini trusted |Selezionare **Includi domini attendibili** per fare in modo che l'agente provi a connettersi ai domini ritenuti attendibili dal dominio corrente, a un altro dominio nella foresta o a domini coinvolti in un trust tra foreste.  Se non si importano o sincronizzano utenti da domini trusted, deselezionare la casella di controllo per migliorare le prestazioni.  La casella di controllo è selezionata per impostazione predefinita. |
@@ -45,7 +45,7 @@ Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) 
 
 La tabella seguente illustra le impostazioni di configurazione per LDAP.
 
-| Funzionalità | Description |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Server |Immettere il nome host o indirizzo IP del server che esegue la directory LDAP.  È anche possibile specificare un server di backup separato da un punto e virgola. <br>Nota: se per Tipo di binding è selezionato SSL, è necessario un nome host completo. |
 | Nome distinto di base |Immettere il nome distinto dell'oggetto directory di base da cui vengono avviate tutte le query su directory.  Ad esempio, dc=abc,dc=com. |
@@ -60,7 +60,7 @@ La tabella seguente illustra le impostazioni di configurazione per LDAP.
 
 I filtri permettono di configurare criteri per qualificare i record durante l'esecuzione di una ricerca di directory.  Il filtro permette di definire l'ambito degli oggetti da sincronizzare.  
 
-![Configure directory filtering in MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configurare il filtro di directory nel server multi-factor authentication](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication offre le tre opzioni di filtro seguenti:
 
@@ -68,27 +68,27 @@ Azure Multi-Factor Authentication offre le tre opzioni di filtro seguenti:
 * **Filtro gruppo di sicurezza** : specificare i criteri di filtro usati per qualificare record gruppi di sicurezza quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  Per altre directory LDAP, usare criteri di filtro che qualificano ogni tipo di oggetto gruppo di sicurezza, a seconda dello schema di directory.  <br>Nota: se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).
 * **Filtro utente** : specificare i criteri di filtro usati per qualificare record utenti quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectClass=user)(objectCategory=person)).  Per altre directory LDAP, usare (objectClass=inetOrgPerson) o un criterio simile, a seconda dello scherma di directory. <br>Nota: se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=person)(objectClass=user)).
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
-È possibile personalizzare gli attributi per una directory specifica in base alle necessità.  Questo permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Use the name of the attribute as defined in the directory schema for the value of each attribute field. La tabella seguente contiene informazioni aggiuntive su ognuna delle funzionalità.
+È possibile personalizzare gli attributi per una directory specifica in base alle necessità.  Questo permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Usare il nome dell'attributo come definito nello schema di directory per il valore di ogni campo attributo. La tabella seguente contiene informazioni aggiuntive su ognuna delle funzionalità.
 
 Gli attributi possono essere immessi manualmente e non devono corrispondere necessariamente a un attributo dell'elenco.
 
-![Customize directory integration attributes in MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Personalizzare gli attributi di integrazione della directory in server multi-factor](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| Funzionalità | Description |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Identificatore univoco |Immettere il nome dell'attributo da usare come identificatore univoco di record contenitori, gruppi di sicurezza e utenti.  In Active Directory si usa in genere objectGUID. In altre implementazioni LDAP è possibile usare entryUUID o un valore simile.  Il valore predefinito è objectGUID. |
 | Tipo di identificatore univoco |Selezionare il tipo di attributo dell'identificatore univoco.  In Active Directory l'attributo objectGUID è di tipo GUID. In altre implementazioni LDAP è possibile usare il tipo Stringa o Matrice di byte ASCII.  Il valore predefinito è GUID. <br><br>È importante impostare correttamente questo tipo, perché il relativo identificatore univoco fa riferimento agli elementi di sincronizzazione. Il tipo identificatore univoco viene usato per trovare direttamente l'oggetto nella directory.  Se si imposta questo tipo su Stringa mentre nella directory il valore viene archiviato come matrice di byte di caratteri ASCII, la sincronizzazione non può funzionare correttamente. |
-| Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>If an attribute containing just the distinguished name doesn't exist, the ads path attribute may be used.  La parte "LDAP://\<server\>/" del percorso viene automaticamente rimossa lasciando solo il nome distinto dell'oggetto. |
-| Nome contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
+| Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, è possibile utilizzare l'attributo percorso ADS.  La parte "LDAP://\<server\>/" del percorso viene automaticamente rimossa lasciando solo il nome distinto dell'oggetto. |
+| Nome del contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
 | Nome gruppo di sicurezza |Immettere il nome dell'attributo che contiene il nome in un record gruppo di sicurezza.  Il valore di questo attributo viene visualizzato nell'elenco Gruppo di sicurezza durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. |
-| Username |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
+| Nome utente |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
 | Nome |Immettere il nome dell'attributo che contiene il nome in un record utente.  Il valore predefinito è givenName. |
 | Cognome |Immettere il nome dell'attributo che contiene il cognome in un record utente.  Il valore predefinito è sn. |
-| Indirizzo e-mail |Immettere il nome dell'attributo che contiene l'indirizzo e-mail in un record utente.  L'indirizzo di posta elettronica viene usato per inviare all'utente messaggi di benvenuto e di aggiornamento.  Il valore predefinito è mail. |
+| Indirizzo di posta elettronica |Immettere il nome dell'attributo che contiene l'indirizzo e-mail in un record utente.  L'indirizzo di posta elettronica viene usato per inviare all'utente messaggi di benvenuto e di aggiornamento.  Il valore predefinito è mail. |
 | Gruppo utenti |Immettere il nome dell'attributo che contiene il gruppo utenti in un record utente.  Il gruppo utenti consente di filtrare utenti nell'agente e nei report del portale di gestione del server Multi-Factor Authentication. |
-| Description |Immettere il nome dell'attributo che contiene la descrizione in un record utente.  La descrizione viene usata solo per le ricerche.  Il valore predefinito è description. |
+| DESCRIZIONE |Immettere il nome dell'attributo che contiene la descrizione in un record utente.  La descrizione viene usata solo per le ricerche.  Il valore predefinito è description. |
 | Lingua telefonata |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per le chiamate vocali all'utente. |
 | Lingua SMS |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per i messaggi SMS inviati all'utente. |
 | Lingua app mobile |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per i messaggi SMS inviati dall'app telefono all'utente. |
@@ -99,13 +99,13 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | Cellulare |Immettere il nome dell'attributo che contiene il numero di telefono cellulare in un record utente.  Il valore predefinito è mobile. |
 | Fax |Immettere il nome dell'attributo che contiene il numero di fax in un record utente.  Il valore predefinito è facsimileTelephoneNumber. |
 | Telefono IP |Immettere il nome dell'attributo che contiene il numero di telefono IP in un record utente.  Il valore predefinito è ipPhone. |
-| Personalizzato |Immettere il nome dell'attributo che contiene un numero di telefono personalizzato in un record utente.  Il valore predefinito è blank. |
+| Personalizzate |Immettere il nome dell'attributo che contiene un numero di telefono personalizzato in un record utente.  Il valore predefinito è blank. |
 | Estensione |Immettere il nome dell'attributo che contiene l'interno telefonico in un record utente.  Il valore di questo campo viene usato come interno solo per il numero di telefono principale.  Il valore predefinito è blank. <br><br>Se l'attributo Estensione non è specificato, è possibile includere l'interno come parte dell'attributo del telefono. In questo caso, anteporre una "x" all'interno in modo che venga analizzato correttamente.  Ad esempio, 555-123-4567 x890 indica che 555-123-4567 è il numero di telefono e 890 è l'interno. |
 | Pulsante Ripristina impostazioni predefinite |Fare clic su **Ripristina impostazioni predefinite** per ripristinare il valore predefinito di tutti gli attributi.  Le impostazioni predefinite dovrebbero funzionare correttamente con lo schema normale di Active Directory o ADAM. |
 
-To edit attributes, click **Edit** on the Attributes tab.  This brings up a window where you can edit the attributes. Selezionare i puntini **...** accanto a un attributo per aprire una finestra in cui è possibile scegliere gli attributi da visualizzare.
+Per modificare gli attributi, fare clic su **modifica** nella scheda attributi.  Viene visualizzata una finestra in cui è possibile modificare gli attributi. Selezionare i puntini **...** accanto a un attributo per aprire una finestra in cui è possibile scegliere gli attributi da visualizzare.
 
-![Edit directory attribute mapping in MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Modifica mapping degli attributi di directory nel server multi-factor authentication](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Sincronizzazione
 
@@ -117,11 +117,11 @@ Il servizio di sincronizzazione di Active Directory del server Multi-Factor Auth
 
 Se la directory LDAP supporta ed è configurata per DirSync, il polling delle modifiche apportate a utenti e gruppi di sicurezza viene eseguito nello stesso modo in cui avviene in Active Directory.  Se la directory LDAP non supporta il controllo DirSync, viene eseguita una sincronizzazione completa durante ogni ciclo.
 
-![Synchronization of directory objects to MFA Server](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Sincronizzazione degli oggetti directory nel server multi-factor authentication](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 La tabella seguente contiene informazioni aggiuntive su ciascuna delle impostazioni della scheda Sincronizzazione.
 
-| Funzionalità | Description |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Abilita sincronizzazione con Active Directory |Se questa opzione è selezionata, il servizio del server Multi-Factor Authentication esegue periodicamente il polling delle modifiche ad Active Directory. <br><br>Nota: affinché il servizio del server Multi-Factor Authentication possa iniziare a elaborare le modifiche è necessario aggiungere almeno un elemento di sincronizzazione ed eseguire una sincronizzazione. |
 | Sincronizza ogni |Specificare l'intervallo di attesa tra il polling e l'elaborazione delle modifiche da parte del servizio del server Multi-Factor Authentication. <br><br> Nota: l'intervallo specificato corrisponde al lasso di tempo che intercorre tra l'inizio di ogni ciclo.  Se il tempo impiegato per l'elaborazione delle modifiche supera l'intervallo specificato, il servizio riesegue subito il polling. |
@@ -143,8 +143,8 @@ I pulsanti Sposta su e Sposta giù consentono all'amministratore di modificare l
 > [!TIP]
 > Dopo aver rimosso elementi di sincronizzazione è opportuno eseguire una sincronizzazione completa.  Dopo aver ordinato gli elementi di sincronizzazione è opportuno eseguire una sincronizzazione completa.  Fare clic su **Sincronizza ora** per eseguire una sincronizzazione completa.
 
-## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication servers
+## <a name="multi-factor-authentication-servers"></a>Server Multi-Factor Authentication
 
-Additional Multi-Factor Authentication servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. La configurazione di sincronizzazione è condivisa tra tutti gli agenti, However, only one of these agents may have the Multi-Factor Authentication server service running. This tab allows you to select the Multi-Factor Authentication server that should be enabled for synchronization.
+È possibile configurare altri server di Multi-Factor Authentication per fungere da proxy RADIUS di backup, proxy LDAP o per l'autenticazione IIS. La configurazione di sincronizzazione è condivisa tra tutti gli agenti, Tuttavia, solo uno di questi agenti potrebbe avere il servizio Multi-Factor Authentication Server in esecuzione. Questa scheda consente di selezionare il server Multi-Factor Authentication che deve essere abilitato per la sincronizzazione.
 
-![Related Multi-Factor Authentication Servers](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Server Multi-Factor Authentication correlati](./media/howto-mfaserver-dir-ad/dirint6.png)

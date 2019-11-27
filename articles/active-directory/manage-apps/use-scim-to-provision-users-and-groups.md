@@ -280,7 +280,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 ##### <a name="request-2"></a>Richiesta
 
-*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
+*GET/Users? filter = userName EQ "Test_User_dfeef4c5-5681 -4387-B016-bdf221e82081"*
 
 ##### <a name="response-2"></a>Risposta
 

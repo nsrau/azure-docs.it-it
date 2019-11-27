@@ -1,6 +1,6 @@
 ---
-title: Passwordless sign-in with the Microsoft Authenticator app - Azure Active Directory
-description: Enable passwordless sign-in to Azure AD using the Microsoft Authenticator app (preview)
+title: Accesso senza password con l'app Microsoft Authenticator-Azure Active Directory
+description: Abilitare l'accesso senza password per Azure AD usando l'app Microsoft Authenticator (anteprima)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,88 +18,88 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381871"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Enable passwordless sign-in with the Microsoft Authenticator app (preview)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
-L'app Microsoft Authenticator consente di accedere a qualsiasi account di Azure AD senza usare la password. Analogamente alla tecnologia di [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare credenziali utente associate a un dispositivo e basate su un sensore biometrico o un PIN. This authentication method can be used on any device platform, including mobile, and with any app or website that integrates with Microsoft authentication libraries. 
+L'app Microsoft Authenticator consente di accedere a qualsiasi account di Azure AD senza usare la password. Analogamente alla tecnologia di [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare credenziali utente associate a un dispositivo e basate su un sensore biometrico o un PIN. Questo metodo di autenticazione può essere usato in qualsiasi piattaforma per dispositivi, inclusi i dispositivi mobili e con qualsiasi app o sito Web che si integra con le librerie di autenticazione Microsoft. 
 
-![Example of a browser sign-in asking for user to approve the sign-in](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
+![Esempio di accesso del browser che richiede all'utente di approvare l'accesso](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Instead of seeing a prompt for a password after entering a username, a person who has enabled phone sign-in from the Microsoft Authenticator app will see a message telling them to tap a number in their app. L'utente dovrà quindi toccare il numero corrispondente nell'app, scegliere l'opzione di approvazione e fornire il codice PIN o la chiave biometrica e l'autenticazione verrà completata.
+Anziché visualizzare la richiesta di una password dopo l'immissione di un nome utente, una persona che ha abilitato l'accesso tramite telefono dall'app Microsoft Authenticator visualizzerà un messaggio che informa di toccare un numero nell'app. L'utente dovrà quindi toccare il numero corrispondente nell'app, scegliere l'opzione di approvazione e fornire il codice PIN o la chiave biometrica e l'autenticazione verrà completata.
 
 > [!NOTE]
-> This capability has been in the Microsoft Authenticator app since March of 2017, so there is a possibility that when the policy is enabled for a directory, users may encounter this flow immediately, and see an error message if they have not been enabled by policy. Tenere presente queste informazioni e preparare gli utenti per questa modifica.
+> Questa funzionalità è stata rilevata nell'app Microsoft Authenticator da marzo 2017, quindi è possibile che, quando il criterio è abilitato per una directory, gli utenti possano riscontrare immediatamente questo flusso e visualizzare un messaggio di errore se non sono stati abilitati dai criteri. Tenere presente queste informazioni e preparare gli utenti per questa modifica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-- Azure Multi-Factor Authentication, with push notifications allowed as a verification method 
+- Multi-Factor Authentication di Azure, con notifiche push consentite come metodo di verifica 
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.
 
 > [!NOTE]
-> If you enabled the previous Microsoft Authenticator app passwordless sign-in preview using Azure AD PowerShell, it was enabled for your entire directory. If you enable using this new method, it will supercede the PowerShell policy. We recommend enabling for all users in your tenant via the new Authentication Methods, otherwise users not in the new policy will no longer be able to log in passwordlessly. 
+> Se è stata abilitata la precedente anteprima dell'accesso senza password dell'app Microsoft Authenticator usando Azure AD PowerShell, è stata abilitata per l'intera directory. Se si Abilita utilizzando questo nuovo metodo, i criteri di PowerShell vengono sostituiti. Si consiglia di abilitare per tutti gli utenti nel tenant tramite i nuovi metodi di autenticazione. in caso contrario, gli utenti non presenti nei nuovi criteri non saranno più in grado di accedere a passwordlessly. 
 
-## <a name="enable-passwordless-authentication-methods"></a>Enable passwordless authentication methods
+## <a name="enable-passwordless-authentication-methods"></a>Abilita metodi di autenticazione con password
 
-### <a name="enable-the-combined-registration-experience"></a>Enable the combined registration experience
+### <a name="enable-the-combined-registration-experience"></a>Abilitare l'esperienza di registrazione combinata
 
-Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
+Le funzionalità di registrazione per i metodi di autenticazione con password si basano sull'anteprima della registrazione combinata. Per abilitare l'anteprima della registrazione combinata, seguire la procedura descritta nell'articolo [abilitare la registrazione delle informazioni di sicurezza combinata (anteprima)](howto-registration-mfa-sspr-combined.md).
 
-### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Enable passwordless phone sign-in authentication methods
+### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Abilitare i metodi di autenticazione per l'accesso tramite telefono senza password
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
-1. Cercare e selezionare *Azure Active Directory*. Select **Security** > **Authentication methods** > **Authentication method policy (Preview)**
-1. Under **Passwordless phone sign-in**, choose the following options
-   1. **Enable** - Yes or No
-   1. **Target** - All users or Select users
-1. **Save** to set the new policy
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i **metodi di autenticazione** > **sicurezza** > **criteri metodo di autenticazione (anteprima)**
+1. In **accesso con telefono senza password**scegliere le opzioni seguenti
+   1. **Abilita** -Sì o no
+   1. **Destinazione** -tutti gli utenti o utenti selezionati
+1. **Salva** per impostare il nuovo criterio
 
-## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>User registration and management of Microsoft Authenticator app
+## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registrazione e gestione degli utenti dell'app Microsoft Authenticator
 
 1. Passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
-1. Sign in if not already
-1. Add an authenticator app by clicking **Add method**, choosing **Authenticator app**, and clicking **Add**
-1. Follow the instructions to install and configure the Microsoft Authenticator app on your device
-1. Click **Done** to complete Authenticator MFA app setup flow. 
-1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the account drop-down menu
-1. Follow the instructions in the app to finish registering for passwordless phone sign-in. 
+1. Accedi se non è già stato fatto
+1. Aggiungere un'app Authenticator facendo clic su **Aggiungi metodo**, scegliendo **app autenticatore**e facendo clic su **Aggiungi** .
+1. Seguire le istruzioni per installare e configurare l'app Microsoft Authenticator nel dispositivo
+1. Fare clic su **fine** per completare il flusso di installazione dell'app autenticazione a più fattori. 
+1. In **Microsoft Authenticator**scegliere **Abilita l'accesso tramite telefono** dal menu a discesa account
+1. Seguire le istruzioni nell'app per completare la registrazione per l'accesso tramite telefono senza password. 
 
-Organizations can point their users to the article [Sign in with your phone, not your password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) for further assistance setting up in the Microsoft Authenticator app and enabling phone sign-in.
+Le organizzazioni possono indirizzare gli utenti all'articolo [accesso con il telefono, non alla password](../user-help/microsoft-authenticator-app-phone-signin-faq.md) per ulteriori interventi di configurazione nell'app Microsoft Authenticator e abilitazione dell'accesso tramite telefono.
 
-## <a name="sign-in-with-passwordless-credential"></a>Sign in with passwordless credential
+## <a name="sign-in-with-passwordless-credential"></a>Accedi con credenziali senza password
 
-Per l'anteprima pubblica, non è possibile obbligare gli utenti a creare o usare nuove credenziali. A user will only encounter passwordless sign-in once an admin has enabled their tenant **and** the user has updated their Microsoft Authenticator app to enable phone sign-in.
+Per l'anteprima pubblica, non è possibile obbligare gli utenti a creare o usare nuove credenziali. Un utente troverà l'accesso senza password solo dopo che un amministratore ha abilitato il tenant **e** l'utente ha aggiornato l'app Microsoft Authenticator per abilitare l'accesso tramite telefono.
 
-After typing your username on the web and selecting **Next**, users are presented with a number and are prompted in their Microsoft Authenticator app to select the appropriate number to authenticate instead of using their password. 
+Dopo aver digitato il nome utente sul Web e aver selezionato **Avanti**, gli utenti vengono presentati con un numero e vengono richiesti nell'app Microsoft Authenticator per selezionare il numero appropriato da autenticare invece di usare la password. 
 
-![Example of a browser sign-in using the Microsoft Authenticator app](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
+![Esempio di accesso del browser con l'app Microsoft Authenticator](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>User is not enabled by policy but still has passwordless phone sign-in method in Microsoft Authenticator
+### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>L'utente non è abilitato dal criterio ma ha ancora un metodo di accesso telefonico senza password in Microsoft Authenticator
 
-It is possible that a user has at some point created a passwordless phone sign-in credential in their current Microsoft Authenticator app, or on an earlier device. Once an admin enables the authentication method policy for passwordless phone sign-in, any user with a credential registered, will start to experience the new sign-in prompt, regardless of whether they have been enabled to use the policy or not. If the user has not been allowed to use the credential by policy, they will see an error after completing the authentication flow. 
+È possibile che un utente abbia creato a un certo punto credenziali di accesso con telefono senza password nell'app Microsoft Authenticator corrente o in un dispositivo precedente. Quando un amministratore abilita i criteri del metodo di autenticazione per l'accesso tramite telefono senza password, qualsiasi utente con una credenziale registrata, inizierà a provare il nuovo prompt di accesso, indipendentemente dal fatto che sia stato abilitato o meno per l'uso del criterio. Se l'utente non è autorizzato a usare le credenziali per criterio, verrà visualizzato un errore dopo aver completato il flusso di autenticazione. 
 
-The admin can choose to enable the user to use passwordless phone sign-in, or the user must remove the method. If the user no longer has the registered device, they can go to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) and remove it. If they are still using the Authenticator for MFA, they can choose **Disable phone sign-in** from within the Microsoft Authenticator.  
+L'amministratore può scegliere di consentire all'utente di usare l'accesso tramite telefono senza password oppure l'utente deve rimuovere il metodo. Se l'utente non dispone più del dispositivo registrato, può passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e rimuoverlo. Se usano ancora l'autenticatore per l'autenticazione a più fattori, possono scegliere di **disabilitare l'accesso tramite telefono** dall'interno del Microsoft Authenticator.  
 
-### <a name="ad-fs-integration"></a>AD FS integration
+### <a name="ad-fs-integration"></a>Integrazione di AD FS
 
 Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, per impostazione predefinita l'autenticazione per l'utente invierà sempre una notifica di approvazione. Questa logica impedisce agli utenti di un tenant ibrido di essere reindirizzati ad AD FS per la verifica di accesso senza dover prima fare clic su "Usa la tua password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. 
 
-If a user has an unanswered passwordless phone sign-in verification pending and attempts to sign in again, the user may be taken to ADFS to enter a password instead.  
+Se un utente dispone di una verifica di accesso tramite telefono senza password senza risposta in sospeso e tenta di accedere di nuovo, è possibile che l'utente venga immesso in ADFS per immettere una password.  
 
 ### <a name="azure-mfa-server"></a>Server di Azure MFA
 
-End users who are enabled for MFA through an organization’s on-premises Azure MFA server can still create and use a single passwordless phone sign in credential. Se l'utente tenta di aggiornare più installazioni (più di 5) di Microsoft Authenticator con le credenziali create, questa modifica può determinare un errore.  
+Gli utenti finali abilitati per l'autenticazione a più fattori tramite il server Azure multi-factor authentication locale di un'organizzazione possono comunque creare e usare una sola credenziale di accesso con telefono senza password. Se l'utente tenta di aggiornare più installazioni (più di 5) di Microsoft Authenticator con le credenziali create, questa modifica può determinare un errore.  
 
 ### <a name="device-registration"></a>Registrazione del dispositivo
 
-One of the prerequisites to create this new strong credential, is that the device, where the Microsoft Authenticator app is installed, must also be registered within the Azure AD tenant to an individual user. Due to current device registration restrictions, a device can only be registered in a single tenant. A causa di questa limitazione, nell'app Microsoft Authenticator può essere abilitato per l'accesso tramite telefono un solo account aziendale o dell'istituto di istruzione.
+Uno dei prerequisiti per creare la nuova credenziale avanzata è che il dispositivo, in cui è installata l'app Microsoft Authenticator, deve essere registrato anche all'interno del tenant di Azure AD a un singolo utente. A causa delle restrizioni di registrazione del dispositivo correnti, un dispositivo può essere registrato solo in un singolo tenant. A causa di questa limitazione, nell'app Microsoft Authenticator può essere abilitato per l'accesso tramite telefono un solo account aziendale o dell'istituto di istruzione.
 
 > [!NOTE]
-> Device registration is not the same as device management or "MDM." It only associates a device ID and a user ID together in the Azure AD directory.  
+> La registrazione del dispositivo non è identica alla gestione dei dispositivi o alla "MDM". Associa solo un ID dispositivo e un ID utente insieme nella directory Azure AD.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[What is passwordless?](concept-authentication-passwordless.md)
+[Che cosa sono le password?](concept-authentication-passwordless.md)
 
 [Informazioni sulla registrazione dei dispositivi](../devices/overview.md#getting-devices-in-azure-ad)
 

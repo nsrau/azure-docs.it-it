@@ -1,5 +1,5 @@
 ---
-title: Matrice di supporto di SAP HANA backup
+title: Matrice di supporto del backup di SAP HANA
 description: In questo articolo vengono fornite informazioni sugli scenari e le limitazioni supportati quando si usa backup di Azure per eseguire il backup dei database SAP HANA nelle VM di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019

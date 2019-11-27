@@ -1,6 +1,6 @@
 ---
-title: Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
-description: Use the Azure CLI to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
+title: Usare l'interfaccia della riga di comando di Azure per i file & ACL in Azure Data Lake Storage Gen2 (anteprima)
+description: Usare l'interfaccia della riga di comando di Azure per gestire directory e elenchi di controllo di accesso (ACL) di file e directory in account di archiviazione che hanno uno spazio dei nomi gerarchico.
 services: storage
 author: normesta
 ms.service: storage
@@ -11,46 +11,46 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.openlocfilehash: 95bb43f1531b6234ccb90eb7d66404ccc66f60f3
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485146"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usare l'interfaccia della riga di comando di Azure per i file & ACL in Azure Data Lake Storage Gen2 (anteprima)
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+Questo articolo illustra come usare l'interfaccia della [riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per creare e gestire directory, file e autorizzazioni negli account di archiviazione che hanno uno spazio dei nomi gerarchico. 
 
 > [!IMPORTANT]
-> The `storage-preview` extension that is featured in this article is currently in public preview.
+> L'estensione `storage-preview` descritta in questo articolo è attualmente disponibile in anteprima pubblica.
 
-[Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Prerequisiti
+[Esempio](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | il [mapping di Gen1 a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [inviare commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
+## <a name="prerequisites"></a>prerequisiti
 
 > [!div class="checklist"]
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
-> * Azure CLI version `2.0.67` or higher.
+> * Un account di archiviazione con spazio dei nomi gerarchico (HNS) abilitato. Seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni per crearne uno.
+> * Versione `2.0.67` o successiva dell'interfaccia della riga di comando di Azure
 
-## <a name="install-the-storage-cli-extension"></a>Install the storage CLI extension
+## <a name="install-the-storage-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando di archiviazione
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Aprire il [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)o, se l'interfaccia della riga di comando di Azure è stata [installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) localmente, aprire un'applicazione console comando come Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.0.67` or higher by using the following command.
+2. Verificare che la versione dell'interfaccia della riga di comando di Azure installata sia `2.0.67` o successiva usando il comando seguente.
 
    ```azurecli
     az --version
    ```
-   If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Se la versione dell'interfaccia della riga di comando di Azure è inferiore a `2.0.67`, installare una versione successiva. Vedere [installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Install the `storage-preview` extension.
+3. Installare l'estensione `storage-preview`.
 
    ```azurecli
    az extension add -n storage-preview
    ```
 
-## <a name="connect-to-the-account"></a>Connect to the account
+## <a name="connect-to-the-account"></a>Connettersi all'account
 
-1. If you're using Azure CLI locally, run the login command.
+1. Se si usa l'interfaccia della riga di comando di Azure in locale, eseguire il comando login.
 
    ```azurecli
    az login
@@ -58,23 +58,23 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
    Se l'interfaccia della riga di comando può aprire il browser predefinito, eseguirà questa operazione e caricherà una pagina di accesso di Azure.
 
-   Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal. Then, sign in with your account credentials in the browser.
+   In caso contrario, aprire una pagina del browser in [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e immettere il codice di autorizzazione visualizzato nel terminale. Quindi, accedere con le credenziali dell'account nel browser.
 
-   To learn more about different authentication methods, see Sign in with Azure CLI.
+   Per altre informazioni sui diversi metodi di autenticazione, vedere accedere con l'interfaccia della riga di comando di Azure.
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione che ospiterà il sito Web statico.
 
    ```azurecli
    az account set --subscription <subscription-id>
    ```
 
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+   Sostituire il valore del segnaposto `<subscription-id>` con l'ID della sottoscrizione.
 
 ## <a name="create-a-file-system"></a>Creare un file system
 
-A file system acts as a container for your files. You can create one by using the `az storage container create` command. 
+Un file system funge da contenitore per i file. È possibile crearne uno usando il comando `az storage container create`. 
 
-This example creates a file system named `my-file-system`.
+In questo esempio viene creato un file system denominato `my-file-system`.
 
 ```azurecli
 az storage container create --name my-file-system
@@ -82,27 +82,27 @@ az storage container create --name my-file-system
 
 ## <a name="create-a-directory"></a>Creare una directory
 
-Create a directory reference by using the `az storage blob directory create` command. 
+Creare un riferimento alla directory usando il comando `az storage blob directory create`. 
 
-This example adds a directory named `my-directory` to a file system named `my-file-system` that is located in an account named `mystorageaccount`.
+In questo esempio viene aggiunta una directory denominata `my-directory` a una file system denominata `my-file-system` che si trova in un account denominato `mystorageaccount`.
 
 ```azurecli
 az storage blob directory create -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="show-directory-properties"></a>Show directory properties
+## <a name="show-directory-properties"></a>Mostra proprietà Directory
 
-You can print the properties of a directory to the console by using the `az storage blob show` command.
+È possibile stampare le proprietà di una directory nella console usando il comando `az storage blob show`.
 
 ```azurecli
 az storage blob directory show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="rename-or-move-a-directory"></a>Rename or move a directory
+## <a name="rename-or-move-a-directory"></a>Rinominare o spostare una directory
 
-Rename or move a directory by using the `az storage blob directory move` command.
+Rinominare o spostare una directory usando il comando `az storage blob directory move`.
 
-This example renames a directory from the name `my-directory` to the name `my-new-directory`.
+Questo esempio rinomina una directory dal nome `my-directory` al nome `my-new-directory`.
 
 ```azurecli
 az storage blob directory move -c my-file-system -d my-new-directory -s my-directory --account-name mystorageaccount
@@ -110,35 +110,35 @@ az storage blob directory move -c my-file-system -d my-new-directory -s my-direc
 
 ## <a name="delete-a-directory"></a>Eliminare una directory
 
-Delete a directory by using the `az storage blob directory delete` command.
+Eliminare una directory usando il comando `az storage blob directory delete`.
 
-This example deletes a directory named `my-directory`. 
+In questo esempio viene eliminata una directory denominata `my-directory`. 
 
 ```azurecli
 az storage blob directory delete -c my-file-system -d my-directory --account-name mystorageaccount 
 ```
 
-## <a name="check-if-a-directory-exists"></a>Check if a directory exists
+## <a name="check-if-a-directory-exists"></a>Controllare se esiste una directory
 
-Determine if a specific directory exists in the file system by using the `az storage blob directory exist` command.
+Determinare se una directory specifica esiste nel file system usando il comando `az storage blob directory exist`.
 
-This example reveals whether a directory named `my-directory` exists in the `my-file-system` file system. 
+Questo esempio Mostra se nella file system `my-file-system` esiste una directory denominata `my-directory`. 
 
 ```azurecli
 az storage blob directory exists -c my-file-system -d my-directory --account-name mystorageaccount 
 ```
 
-## <a name="download-from-a-directory"></a>Download from a directory
+## <a name="download-from-a-directory"></a>Scarica da una directory
 
-Download a file from a directory by using the `az storage blob directory download` command.
+Scaricare un file da una directory usando il comando `az storage blob directory download`.
 
-This example downloads a file named `upload.txt` from a directory named `my-directory`. 
+Questo esempio Scarica un file denominato `upload.txt` da una directory denominata `my-directory`. 
 
 ```azurecli
 az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/upload.txt" -d "C:\mylocalfolder\download.txt"
 ```
 
-This example downloads an entire directory.
+In questo esempio viene scaricata un'intera directory.
 
 ```azurecli
 az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/" -d "C:\mylocalfolder" --recursive
@@ -146,43 +146,43 @@ az storage blob directory download -c my-file-system --account-name mystorageacc
 
 ## <a name="list-directory-contents"></a>Elencare il contenuto della directory
 
-List the contents of a directory by using the `az storage blob directory list` command.
+Elencare il contenuto di una directory usando il comando `az storage blob directory list`.
 
-This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` file system of a storage account named `mystorageaccount`. 
+Questo esempio elenca il contenuto di una directory denominata `my-directory` che si trova nel `my-file-system` file system di un account di archiviazione denominato `mystorageaccount`. 
 
 ```azurecli
 az storage blob directory list -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Upload a file to a directory
+## <a name="upload-a-file-to-a-directory"></a>Caricare un file in una directory
 
-Upload a file to a directory by using the `az storage blob directory upload` command.
+Caricare un file in una directory usando il comando `az storage blob directory upload`.
 
-This example uploads a file named `upload.txt` to a directory named `my-directory`. 
+In questo esempio viene caricato un file denominato `upload.txt` in una directory denominata `my-directory`. 
 
 ```azurecli
 az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\upload.txt" -d my-directory
 ```
 
-This example uploads an entire directory.
+Questo esempio carica un'intera directory.
 
 ```azurecli
 az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\" -d my-directory --recursive 
 ```
 
-## <a name="show-file-properties"></a>Show file properties
+## <a name="show-file-properties"></a>Mostra proprietà file
 
-You can print the properties of a file to the console by using the `az storage blob show` command.
+È possibile stampare le proprietà di un file nella console usando il comando `az storage blob show`.
 
 ```azurecli
 az storage blob show -c my-file-system -b my-file.txt --account-name mystorageaccount
 ```
 
-## <a name="rename-or-move-a-file"></a>Rename or move a file
+## <a name="rename-or-move-a-file"></a>Rinominare o spostare un file
 
-Rename or move a file by using the `az storage blob move` command.
+Rinominare o spostare un file usando il comando `az storage blob move`.
 
-This example renames a file from the name `my-file.txt` to the name `my-file-renamed.txt`.
+Questo esempio rinomina un file dal nome `my-file.txt` al nome `my-file-renamed.txt`.
 
 ```azurecli
 az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --account-name mystorageaccount
@@ -190,117 +190,117 @@ az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --a
 
 ## <a name="delete-a-file"></a>Eliminare un file
 
-Delete a file by using the `az storage blob delete` command.
+Eliminare un file usando il comando `az storage blob delete`.
 
-This example deletes a file named `my-file.txt`
+Questo esempio elimina un file denominato `my-file.txt`
 
 ```azurecli
 az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
 ```
 
-## <a name="manage-permissions"></a>Manage permissions
+## <a name="manage-permissions"></a>Gestisci autorizzazioni
 
-You can get, set, and update access permissions of directories and files.
+È possibile ottenere, impostare e aggiornare le autorizzazioni di accesso di directory e file.
 
-### <a name="get-directory-and-file-permissions"></a>Get directory and file permissions
+### <a name="get-directory-and-file-permissions"></a>Ottenere le autorizzazioni per directory e file
 
-Get the ACL of a **directory** by using the `az storage blob directory access show` command.
+Ottenere l'ACL di una **directory** usando il comando `az storage blob directory access show`.
 
-This example gets the ACL of a directory, and then prints the ACL to the console.
+Questo esempio Mostra come ottenere l'ACL di una directory e quindi stampa l'ACL nella console.
 
 ```azurecli
 az storage blob directory access show -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-Get the access permissions of a **file** by using the `az storage blob access show` command. 
+Ottenere le autorizzazioni di accesso di un **file** usando il comando `az storage blob access show`. 
 
-This example gets the ACL of a file and then prints the ACL to the console.
+Questo esempio Mostra come ottenere l'ACL di un file e quindi stamparlo nella console.
 
 ```azurecli
 az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-The following image shows the output after getting the ACL of a directory.
+Nell'immagine seguente viene illustrato l'output dopo aver ricevuto l'ACL di una directory.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
+![Ottieni output ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In questo esempio, l'utente proprietario dispone delle autorizzazioni di lettura, scrittura ed esecuzione. Il gruppo proprietario dispone solo delle autorizzazioni di lettura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [controllo di accesso in Azure Data Lake storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="set-directory-and-file-permissions"></a>Set directory and file permissions
+### <a name="set-directory-and-file-permissions"></a>Impostare le autorizzazioni per directory e file
 
-Use the `az storage blob directory access set` command to set the ACL of a **directory**. 
+Usare il comando `az storage blob directory access set` per impostare l'ACL di una **directory**. 
 
-This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
+Questo esempio imposta l'ACL in una directory per l'utente proprietario, il gruppo proprietario o altri utenti, quindi stampa l'ACL nella console.
 
 ```azurecli
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-Use the `az storage blob access set` command to set the acl of a **file**. 
+Usare il comando `az storage blob access set` per impostare l'ACL di un **file**. 
 
-This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
+In questo esempio viene impostato l'ACL in un file per l'utente proprietario, il gruppo proprietario o altri utenti, quindi viene stampato l'ACL nella console.
 
 ```azurecli
 az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-The following image shows the output after setting the ACL of a file.
+Nell'immagine seguente viene illustrato l'output dopo l'impostazione dell'ACL di un file.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Ottieni output ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In questo esempio, l'utente proprietario e il gruppo proprietario hanno solo le autorizzazioni di lettura e scrittura. Tutti gli altri utenti dispongono di autorizzazioni di scrittura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [controllo di accesso in Azure Data Lake storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="update-directory-and-file-permissions"></a>Update directory and file permissions
+### <a name="update-directory-and-file-permissions"></a>Aggiornare le autorizzazioni per directory e file
 
-Another way to set this permission is to use the `az storage blob directory access update` or `az storage blob access update` command. 
+Un altro modo per impostare questa autorizzazione consiste nell'usare il comando `az storage blob directory access update` o `az storage blob access update`. 
 
-Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
+Aggiornare l'ACL di una directory o di un file impostando il parametro `-permissions` sulla forma abbreviata di un ACL.
 
-This example updates the ACL of a **directory**.
+Questo esempio aggiorna l'ACL di una **directory**.
 
 ```azurecli
 az storage blob directory access update --permissions "rwxrwxrwx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-This example updates the ACL of a **file**.
+Questo esempio aggiorna l'ACL di un **file**.
 
 ```azurecli
 az storage blob access update --permissions "rwxrwxrwx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
+È anche possibile aggiornare l'utente proprietario e il gruppo di una directory o di un file impostando i parametri `--owner` o `group` sull'ID entità o sul nome dell'entità utente (UPN) di un utente. 
 
-This example changes the owner of a directory. 
+Questo esempio Mostra come modificare il proprietario di una directory. 
 
 ```azurecli
 az storage blob directory access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
-This example changes the owner of a file. 
+In questo esempio viene modificato il proprietario di un file. 
 
 ```azurecli
 az storage blob access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-## <a name="manage-user-defined-metadata"></a>Manage user-defined metadata
+## <a name="manage-user-defined-metadata"></a>Gestire i metadati definiti dall'utente
 
-You can add user-defined metadata to a file or directory by using the `az storage blob directory metadata update` command with one or more name-value pairs.
+È possibile aggiungere metadati definiti dall'utente a un file o a una directory usando il comando `az storage blob directory metadata update` con una o più coppie nome/valore.
 
-This example adds user-defined metadata for a directory named `my-directory` directory.
+Questo esempio aggiunge i metadati definiti dall'utente per una directory denominata `my-directory` directory.
 
 ```azurecli
 az storage blob directory metadata update --metadata tag1=value1 tag2=value2 -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-This example shows all user-defined metadata for directory named `my-directory`.
+Questo esempio Mostra tutti i metadati definiti dall'utente per la directory denominata `my-directory`.
 
 ```azurecli
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Esempio](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Mapping tra Gen1 e Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Gap di funzionalità note](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Codice sorgente](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 

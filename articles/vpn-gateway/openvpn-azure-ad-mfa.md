@@ -1,6 +1,6 @@
 ---
-title: 'Enable MFA for VPN users: Azure AD authentication'
-description: Enable multi-factor authentication for VPN users
+title: "Abilitare l'autenticazione a più fattori per gli utenti VPN: autenticazione Azure AD"
+description: Abilitare la funzionalità di autenticazione a più fattori per gli utenti VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -14,46 +14,46 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382233"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Enable Azure Multi-Factor Authentication (MFA) for VPN users
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Abilitare Azure Multi-Factor Authentication (multi-factor authentication) per gli utenti VPN
 
-If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) for your Azure AD tenant. The steps in this article help you enable a requirement for two-step verification.
+Se si desidera che agli utenti venga richiesto un secondo fattore di autenticazione prima di concedere l'accesso, è possibile configurare il Multi-Factor Authentication di Azure per il tenant di Azure AD. I passaggi descritti in questo articolo consentono di abilitare un requisito per la verifica in due passaggi.
 
-## <a name="prereq"></a>Prerequisite
+## <a name="prereq"></a>Prerequisiti
 
-The prerequisite for this configuration is a configured Azure AD tenant using the steps in [Configure a tenant](openvpn-azure-ad-tenant.md).
+Il prerequisito per questa configurazione è un tenant di Azure AD configurato usando la procedura descritta in [configurare un tenant](openvpn-azure-ad-tenant.md).
 
-## <a name="mfa"></a>Open the MFA page
+## <a name="mfa"></a>Aprire la pagina di autenticazione a più fattori
 
 1. Accedere al portale di Azure.
-2. Navigate to **Azure Active Directory -> All users**.
-3. Select **Multi-Factor Authentication** to open the multi-factor authentication page.
+2. Passare a **Azure Active Directory-> tutti gli utenti**.
+3. Selezionare **multi-factor authentication** per aprire la pagina autenticazione a più fattori.
 
-   ![Accesso](./media/openvpn-azure-ad-mfa/mfa1.jpg)
+   ![Accedi](./media/openvpn-azure-ad-mfa/mfa1.jpg)
 
-## <a name="users"></a> Select users
+## <a name="users"></a>Seleziona utenti
 
-1. On the **multi-factor authentication** page, select the user(s) for which you want to enable MFA.
+1. Nella pagina **multi-factor authentication** selezionare gli utenti per i quali si desidera abilitare l'autenticazione a più fattori.
 2. Selezionare **Abilita**.
 
-   ![Seleziona](./media/openvpn-azure-ad-mfa/mfa2.jpg)
+   ![Selezionare](./media/openvpn-azure-ad-mfa/mfa2.jpg)
 
-## <a name="enableauth"></a>Enable authentication
+## <a name="enableauth"></a>Abilita autenticazione
 
-1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
-2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
+1. Passare a **Azure Active Directory-> applicazioni aziendali-> tutte le applicazioni**.
+2. Nella pagina **applicazioni aziendali-tutte le applicazioni** selezionare **VPN di Azure**.
 
    ![ID directory](./media/openvpn-azure-ad-mfa/user1.jpg)
 
-## <a name="enablesign"></a> Configure sign-in settings
+## <a name="enablesign"></a>Configurare le impostazioni di accesso
 
-On the **Azure VPN - Properties** page, configure sign-in settings.
+Nella pagina **VPN di Azure-Proprietà** configurare le impostazioni di accesso.
 
-1. Set **Enabled for users to sign-in?** to **Yes**. This allows all users in the AD tenant to connect to the VPN successfully.
-2. Set **User assignment required?** to **Yes** if you want to limit sign-in to only users that have permissions to the Azure VPN.
+1. Impostare **abilitata per l'accesso degli utenti?** a **Sì**. Ciò consente a tutti gli utenti nel tenant di Active Directory di connettersi alla VPN correttamente.
+2. Impostare **assegnazione utente obbligatoria?** su **Sì** se si vuole limitare l'accesso solo agli utenti che dispongono delle autorizzazioni per la VPN di Azure.
 3. Salvare le modifiche.
 
    ![autorizzazioni](./media/openvpn-azure-ad-mfa/user2.jpg)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+Per connettersi alla rete virtuale, è necessario creare e configurare un profilo client VPN. Vedere [configurare un client VPN per le connessioni VPN P2S](openvpn-azure-ad-client.md).

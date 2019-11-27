@@ -1,6 +1,6 @@
 ---
 title: Spark Streaming in Azure HDInsight
-description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
+description: Come usare Apache Spark lo streaming di applicazioni in cluster HDInsight Spark.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -29,7 +29,7 @@ Spark Streaming rappresenta un flusso continuo di dati in ingresso con un *fluss
 
 Un flusso DStream fornisce un livello di astrazione in aggiunta ai dati di evento non elaborati.
 
-Iniziare con un singolo evento, ad esempio una lettura di temperatura da un termostato connesso. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. Spark Core usa una struttura di dati che distribuisce i dati tra più nodi nel cluster, in cui ogni nodo mantiene in genere i propri dati in memoria per garantire prestazioni ottimali. Questa struttura di dati viene chiamata *RDD* (Resilient Distributed Dataset, set di dati distribuito resiliente).
+Iniziare con un singolo evento, ad esempio una lettura di temperatura da un termostato connesso. Quando questo evento arriva all'applicazione Spark streaming, l'evento viene archiviato in modo affidabile, dove viene replicato in più nodi. Questa tolleranza di errore garantisce che l'errore di un singolo nodo non comporterà la perdita dell'evento. Spark Core usa una struttura di dati che distribuisce i dati tra più nodi nel cluster, in cui ogni nodo mantiene in genere i propri dati in memoria per garantire prestazioni ottimali. Questa struttura di dati viene chiamata *RDD* (Resilient Distributed Dataset, set di dati distribuito resiliente).
 
 Ogni RDD rappresenta gli eventi raccolti in un intervallo di tempo definito dall'utente chiamato *intervallo di invio in batch*. Allo scadere di ogni intervallo di invio in batch, viene prodotto un nuovo RDD che contiene tutti i dati dell'intervallo. Il set continuo di RDD viene raccolto in un flusso DStream. Ad esempio, se l'intervallo di invio in batch è lungo un secondo, il flusso DStream genera ogni secondo un batch che contiene un RDD, che a sua volta contiene tutti i dati inseriti durante il secondo. Durante l'elaborazione del flusso DStream, l'evento di temperatura appare in uno di questi batch. Un'applicazione Spark Streaming elabora i batch che contengono gli eventi e infine agisce sui dati archiviati in ogni RDD.
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
+Attendere circa 30 secondi dopo l'avvio dell'applicazione.  Quindi, è possibile eseguire periodicamente una query sul frame di dataframe per visualizzare il set di valori corrente presente nel batch, ad esempio usando questa query SQL:
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 L'output risultante è simile al seguente:
 
-| value | time |
+| Valore | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -222,7 +222,7 @@ ssc.start()
 
 Dopo il primo minuto sono presenti 12 voci, sei da ognuno dei due batch raccolti nella finestra.
 
-| value | time |
+| Valore | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

@@ -51,7 +51,7 @@ Se il cliente vuole rimuovere un'offerta di provider di servizi, può selezionar
 
 Dopo che un cliente ha aggiunto un'offerta, un provider di servizi può pubblicare una versione aggiornata della stessa offerta in Azure Marketplace. Ad esempio, potrebbe voler aggiungere una nuova definizione di ruolo. Se è stata pubblicata una nuova versione dell'offerta, la pagina relativa alle **offerte del provider** visualizzerà un'icona di aggiornamento nella riga relativa all'offerta. Il cliente può selezionare questa icona per visualizzare le differenze tra la versione corrente e la nuova versione dell'offerta.
 
- ![Update offer icon](../media/update-offer.jpg)
+ ![Icona dell'offerta di aggiornamento](../media/update-offer.jpg)
 
 Una volta controllate le modifiche, il cliente può scegliere di eseguire l'aggiornamento alla nuova versione. Al termine dell'operazione, le autorizzazioni e le altre impostazioni specificate nella nuova versione verranno applicate a tutte le sottoscrizioni e/o ai gruppi di risorse delegati per l'offerta.
 

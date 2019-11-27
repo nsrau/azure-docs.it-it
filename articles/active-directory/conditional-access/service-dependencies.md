@@ -1,6 +1,6 @@
 ---
-title: Conditional Access service dependencies - Azure Active Directory
-description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
+title: Dipendenze del servizio di accesso condizionale-Azure Active Directory
+description: Informazioni sul modo in cui vengono usate le condizioni nell'accesso condizionale Azure Active Directory per attivare un criterio.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,48 +18,48 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380020"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>What are service dependencies in Azure Active Directory Conditional Access? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Che cosa sono le dipendenze del servizio in Azure Active Directory l'accesso condizionale? 
 
-With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multi-factor authentication (MFA) or [managed devices](require-managed-devices.md). 
+Con i criteri di accesso condizionale, è possibile specificare i requisiti di accesso ai siti Web e ai servizi. Ad esempio, i requisiti di accesso possono includere la richiesta di autenticazione a più fattori o di [dispositivi gestiti](require-managed-devices.md). 
 
-When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires MFA for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy.   
+Quando si accede direttamente a un sito o a un servizio, l'effetto di un criterio correlato è in genere facile da valutare. Se, ad esempio, sono stati configurati criteri che richiedono l'autenticazione a più fattori per SharePoint Online, viene applicato l'autenticazione a più fattori per ogni accesso al portale Web di SharePoint. Tuttavia, non è sempre semplice valutare l'effetto di un criterio perché sono presenti app cloud con dipendenze da altre app cloud. Ad esempio, Microsoft teams può fornire l'accesso alle risorse in SharePoint Online. Quindi, quando si accede a Microsoft teams nello scenario corrente, si è anche soggetti ai criteri di autenticazione a più fattori di SharePoint.   
 
 ## <a name="policy-enforcement"></a>Imposizione dei criteri 
 
-If you have a service dependency configured, the policy may be applied using early-bound or late-bound enforcement. 
+Se è stata configurata una dipendenza del servizio, è possibile applicare i criteri tramite l'imposizione ad associazione anticipata o ad associazione tardiva. 
 
-- **Early-bound policy enforcement** means a user must satisfy the dependent service policy before accessing the calling app. For example, a user must satisfy SharePoint policy before signing into MS Teams. 
-- **Late-bound policy enforcement** occurs after the user signs into the calling app. Enforcement is deferred to when calling app requests, a token for the downstream service. Examples include MS Teams accessing Planner and Office.com accessing SharePoint. 
+- L' **imposizione di criteri ad associazione anticipata** indica che un utente deve soddisfare i criteri del servizio dipendenti prima di accedere all'app chiamante. Ad esempio, un utente deve soddisfare i criteri di SharePoint prima di accedere a Microsoft teams. 
+- L' **imposizione di criteri ad associazione tardiva** si verifica dopo che l'utente accede all'app chiamante. L'imposizione è rinviata a quando si chiamano le richieste dell'app, un token per il servizio downstream. Gli esempi includono MS teams che accedono a Planner e Office.com che accedono a SharePoint. 
 
-The diagram below illustrates MS Teams service dependencies. Solid arrows indicate early-bound enforcement the dashed arrow for Planner indicates late-bound enforcement. 
+Il diagramma seguente illustra le dipendenze del servizio MS teams. Le frecce solide indicano l'imposizione ad associazione anticipata. la freccia tratteggiata per Planner indica l'imposizione ad associazione tardiva. 
 
-![MS Teams service dependencies](./media/service-dependencies/01.png)
+![Dipendenze del servizio MS Teams](./media/service-dependencies/01.png)
 
-As a best practice, you should set common policies across related apps and services whenever possible. Having a consistent security posture provides you with the best user experience. For example, setting a common policy across Exchange Online, SharePoint Online, Microsoft Teams, and Skype for business significantly reduces unexpected prompts that may arise from different policies being applied to downstream services. 
+Come procedura consigliata, è consigliabile impostare criteri comuni tra app e servizi correlati, quando possibile. Un comportamento di sicurezza coerente offre la migliore esperienza utente. Ad esempio, l'impostazione di un criterio comune tra Exchange Online, SharePoint Online, Microsoft teams e Skype for business riduce significativamente le richieste impreviste che possono verificarsi da criteri diversi applicati ai servizi downstream. 
 
-The below table lists additional service dependencies, where the client apps must satisfy  
+La tabella seguente elenca le dipendenze del servizio aggiuntive, in cui le app client devono soddisfare  
 
-| App client         | Downstream service                          | Enforcement |
+| App client         | Servizio downstream                          | Imposizione |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Microsoft Azure Management (portal and API) | Early-bound |
-| Microsoft Classroom | Scambia                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound |
-| Microsoft Teams     | Scambia                                    | Early-bound |
-|                     | MS Planner                                  | Late-bound  |
-|                     | SharePoint                                  | Early-bound |
-|                     | Skype for Business Online                   | Early-bound |
-| Office Portal       | Scambia                                    | Late-bound  |
-|                     | SharePoint                                  | Late-bound  |
-| Outlook groups      | Scambia                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound |
-| PowerApps           | Microsoft Azure Management (portal and API) | Early-bound |
-|                     | Microsoft Azure Active Directory              | Early-bound |
-| Project             | Dynamics CRM                                | Early-bound |
-| Skype for Business  | Scambia                                    | Early-bound |
-| Visual Studio       | Microsoft Azure Management (portal and API) | Early-bound |
-| Microsoft Forms     | Scambia                                    | Early-bound |
-|                     | SharePoint                                  | Early-bound |
-| Microsoft To-Do     | Scambia                                    | Early-bound |
+| Azure Data Lake     | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
+| Classe Microsoft | Exchange                                    | Ad associazione anticipata |
+|                     | SharePoint                                  | Ad associazione anticipata |
+| Microsoft Teams     | Exchange                                    | Ad associazione anticipata |
+|                     | Microsoft Planner                                  | Ad associazione tardiva  |
+|                     | SharePoint                                  | Ad associazione anticipata |
+|                     | Skype for Business Online                   | Ad associazione anticipata |
+| Portale di Office       | Exchange                                    | Ad associazione tardiva  |
+|                     | SharePoint                                  | Ad associazione tardiva  |
+| Gruppi di Outlook      | Exchange                                    | Ad associazione anticipata |
+|                     | SharePoint                                  | Ad associazione anticipata |
+| PowerApps           | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
+|                     | Microsoft Azure Active Directory              | Ad associazione anticipata |
+| Project             | Dynamics CRM                                | Ad associazione anticipata |
+| Skype for Business Online  | Exchange                                    | Ad associazione anticipata |
+| Visual Studio       | Gestione Microsoft Azure (portale e API) | Ad associazione anticipata |
+| Microsoft Forms     | Exchange                                    | Ad associazione anticipata |
+|                     | SharePoint                                  | Ad associazione anticipata |
+| Microsoft To-Do     | Exchange                                    | Ad associazione anticipata |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

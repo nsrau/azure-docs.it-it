@@ -1,5 +1,5 @@
 ---
-title: 'Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: 'Ottimizzare le prestazioni: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Linee guida per l'ottimizzazione delle prestazioni di Spark in Azure Data Lake Storage Gen2
 services: storage
 author: normesta
@@ -16,19 +16,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327554"
 ---
-# <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2
+# <a name="tune-performance-spark-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: Spark, HDInsight & Azure Data Lake Storage Gen2
 
 Per l'ottimizzazione delle prestazioni in Spark, è necessario considerare il numero di applicazioni che verranno eseguite nel cluster.  Per impostazione predefinita, nel cluster HDI è possibile eseguire 4 app simultaneamente (nota: l'impostazione predefinita è soggetta a modifiche).  È possibile decidere di usare un numero inferiore di app in modo da sostituire le impostazioni predefinite e usare una parte più ampia del cluster per tali applicazioni.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Azure Data Lake Storage Gen2**. For instructions on how to create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+* **Un account di Azure Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: creare un account di archiviazione Azure Data Lake storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di cluster Spark in Data Lake Storage Gen2**.  Per altre informazioni, vedere [Usare il cluster Spark di HDInsight per analizzare i dati in Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md) (Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2). 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parametri
 
 Di seguito sono riportate le impostazioni più importanti che possono essere ottimizzate per migliorare le prestazioni in Data Lake Storage Gen2 durante l'esecuzione di processi Spark:
 
@@ -46,7 +46,7 @@ Di seguito sono riportate le impostazioni più importanti che possono essere ott
 
 Per impostazione predefinita, durante l'esecuzione di Spark in HDInsight, vengono definiti due core YARN virtuali per ogni core fisico.  Questo numero fornisce un buon bilanciamento tra concorrenza e quantità di contesto nel passaggio tra più thread.  
 
-## <a name="guidance"></a>Guida
+## <a name="guidance"></a>Indicazioni
 
 Durante l'esecuzione di carichi di lavoro analitici di Spark per l'elaborazione dei dati in Data Lake Storage Gen2, è consigliabile usare la versione più recente di HDInsight per ottenere prestazioni ottimali con Data Lake Storage Gen2. Quando il processo prevede un I/O più intensivo, è possibile configurare alcuni parametri per migliorare le prestazioni.  Data Lake Storage Gen2 è una piattaforma di archiviazione altamente scalabile in grado di gestire un'elevata velocità effettiva.  Se il processo è costituito principalmente da lettura o scrittura, l'aumento della concorrenza di I/O da e verso Data Lake Storage Gen2 potrebbe migliorare le prestazioni.
 
@@ -54,14 +54,14 @@ Esistono alcuni modi generali per aumentare la concorrenza per i processi con I/
 
 **Passaggio 1: Determinare il numero di app in esecuzione nel cluster**. È necessario conoscere il numero di applicazioni in esecuzione nel cluster, inclusa quella corrente.  I valori predefiniti per ogni impostazione Spark presumono che siano presenti 4 applicazioni in esecuzione contemporanea.  Pertanto, si disporrà solo del 25% del cluster per ogni applicazione.  Per ottenere prestazioni migliori, è possibile sostituire le impostazioni predefinite modificando il numero di executor.  
 
-**Step 2: Set executor-memory** – The first thing to set is the executor-memory.  La memoria dipende dal processo da eseguire.  È possibile aumentare la concorrenza allocando una quantità inferiore di memoria per ogni executor.  Se vengono visualizzate eccezioni di memoria insufficiente quando si esegue il processo, è necessario aumentare il valore di questo parametro.  In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando le dimensioni del cluster.  Una maggiore quantità di memoria consentirà di usare più executor, ottenendo così più concorrenza.
+**Passaggio 2: impostare Executor-Memory** , il primo elemento da impostare è la memoria dell'executor.  La memoria dipende dal processo da eseguire.  È possibile aumentare la concorrenza allocando una quantità inferiore di memoria per ogni executor.  Se vengono visualizzate eccezioni di memoria insufficiente quando si esegue il processo, è necessario aumentare il valore di questo parametro.  In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando le dimensioni del cluster.  Una maggiore quantità di memoria consentirà di usare più executor, ottenendo così più concorrenza.
 
 **Passaggio 3: Impostare executor-cores**. Per carichi di lavoro I/O intensivi che non prevedono operazioni complesse, è consigliabile iniziare con un numero elevato di core per ogni executor al fine di aumentare il numero di attività parallele per ognuno di essi.  Per iniziare, è consigliabile impostare executor-cores su 4.   
 
     executor-cores = 4
 L'aumento del numero di core dell'executor offrirà maggior parallelismo in modo che sia possibile sperimentare diversi core dell'executor.  Per i processi che includono operazioni più complesse, è necessario ridurre il numero di core per ogni executor.  Se executor-cores viene impostato su un valore superiore a 4, la Garbage Collection può diventare inefficiente e incidere negativamente sulle prestazioni.
 
-**Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
+**Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda configs (configurazioni).  La memoria YARN viene visualizzata in questa finestra.  
 Si noti che nella finestra è possibile visualizzare anche le dimensioni predefinite del contenitore YARN.  Le dimensioni del contenitore YARN sono uguali alle dimensioni della memoria per ogni parametro executor.
 
     Total YARN memory = nodes * YARN memory per node

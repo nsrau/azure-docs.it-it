@@ -1,5 +1,5 @@
 ---
-title: Preventing attacks using smart lockout - Azure Active Directory
+title: Prevenzione degli attacchi con blocco intelligente-Azure Active Directory
 description: La funzione di blocco intelligente di Azure Active Directory consente di proteggere le organizzazioni da eventuali attacchi di forza bruta costituiti da tentativi di indovinare le password
 services: active-directory
 ms.service: active-directory
@@ -29,11 +29,11 @@ Il blocco intelligente tiene traccia degli ultimi tre hash delle password non va
  > [!NOTE]
  > La funzionalità di rilevamento hash non è disponibile per i clienti con autenticazione pass-through abilitata, poiché l'autenticazione avviene in locale e non nel cloud.
 
-Federated deployments using AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
+Le distribuzioni federate con AD FS 2016 e AF FS 2019 possono offrire vantaggi simili utilizzando il [blocco ad FS Extranet e il blocco Smart Extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Il blocco intelligente è sempre attivo per tutti i clienti di Azure AD con le impostazioni predefinite che offrono la giusta combinazione di sicurezza e usabilità. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
+Il blocco intelligente è sempre attivo per tutti i clienti di Azure AD con le impostazioni predefinite che offrono la giusta combinazione di sicurezza e usabilità. Per personalizzare le impostazioni di blocco Smart, con valori specifici per l'organizzazione, è necessario disporre di licenze a pagamento Azure AD per gli utenti.
 
-Using smart lockout does not guarantee that a genuine user will never be locked out. When smart lockout locks a user account, we try our best to not lockout the genuine user. Il servizio di blocco cerca di garantire che gli utenti non autorizzati non possano accedere all'account degli utenti originali.  
+L'utilizzo del blocco intelligente non garantisce che un utente autentico non venga mai bloccato. Quando il blocco intelligente blocca un account utente, è possibile provare a non bloccare l'utente autentico. Il servizio di blocco cerca di garantire che gli utenti non autorizzati non possano accedere all'account degli utenti originali.  
 
 * Ogni data center di Azure Active Directory tiene traccia del blocco in modo indipendente. Un utente disporrà di un numero di tentativi pari a (limite_soglia * conteggio_datacenter), se l'utente esegue l'accesso a ogni data center.
 * Il blocco intelligente usa la differenziazione tra posizioni conosciute e sconosciute per individuare gli utenti originali e distinguerli da quelli non autorizzati. Le posizioni conosciute e quelle sconosciute disporranno entrambe di contatori di blocco distinti.
@@ -43,12 +43,12 @@ Il blocco intelligente può essere integrato con distribuzioni ibride, tramite l
 Quando si usa l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md), è necessario verificare quanto segue:
 
 * La soglia di blocco di Azure AD è **inferiore** alla soglia di blocco dell'account Active Directory. Configurare i valori in modo che la soglia di blocco dell'account Active Directory sia almeno due o tre volte superiore rispetto alla soglia di blocco di Azure AD. 
-* The Azure AD lockout duration must be set longer than the Active Directory reset account lockout counter after duration. Be aware that the Azure AD duration is set in seconds, while the AD duration is set in minutes. 
+* La durata del blocco di Azure AD deve essere impostata più a lungo rispetto al contatore del blocco dell'account di Active Directory reset dopo la durata. Tenere presente che la durata del Azure AD è impostata in secondi, mentre la durata di Active Directory è impostata in minuti. 
 
-For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds).
+Se ad esempio si vuole che il contatore di Azure AD sia maggiore di AD, Azure AD sarà di 120 secondi (2 minuti) mentre Active Directory locale è impostato su 1 minuto (60 secondi).
 
 > [!IMPORTANT]
-> Currently, an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. L'amministratore deve attendere la scadenza della durata del blocco. However, the user can unlock by using self-service password reset (SSPR) from a trusted device or location.
+> Attualmente, un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco Smart. L'amministratore deve attendere la scadenza della durata del blocco. Tuttavia, l'utente può sbloccare usando la reimpostazione della password self-service (SSPR) da una posizione o un dispositivo attendibile.
 
 ## <a name="verify-on-premises-account-lockout-policy"></a>Verificare i criteri di blocco degli account locali
 
@@ -59,16 +59,16 @@ Per verificare i criteri di blocco degli account di Active Directory, usare le i
 3. Passare a **Configurazione computer** > **Criteri** > **Impostazioni di Windows** > **Impostazioni di sicurezza** > **Criteri account** > **Criterio di blocco account**.
 4. Verificare i valori di **Soglia di blocchi dell'account** e **Reimposta contatore blocco account dopo**.
 
-![Modify the on-premises Active Directory account lockout policy](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificare i criteri di blocco degli account Active Directory locali](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gestire i valori del blocco intelligente di Azure AD
 
-In base alle esigenze dell'organizzazione, può essere necessario personalizzare i valori del blocco intelligente. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
+In base alle esigenze dell'organizzazione, può essere necessario personalizzare i valori del blocco intelligente. Per personalizzare le impostazioni di blocco Smart, con valori specifici per l'organizzazione, è necessario disporre di licenze a pagamento Azure AD per gli utenti.
 
 Per verificare o modificare i valori del blocco intelligente per l'organizzazione, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Cercare e selezionare *Azure Active Directory*. Select **Authentication methods** > **Password protection**.
+1. Cercare e selezionare *Azure Active Directory*. Selezionare i **metodi di autenticazione** > la protezione con **password**.
 1. Impostare il valore di **Soglia di blocco**, in base al numero di accessi non riusciti consentiti per un account prima che venga applicato il primo blocco. Il valore predefinito è 10.
 1. Impostare il valore di **Durata del blocco in secondi** sulla durata in secondi di ogni blocco. Il valore predefinito è 60 secondi (1 minuto).
 
@@ -77,11 +77,11 @@ Per verificare o modificare i valori del blocco intelligente per l'organizzazion
 
 ![Personalizzare i criteri di blocco intelligente di Azure Active Directory nel portale di Azure](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>How to determine if the Smart lockout feature is working or not
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Come determinare se la funzionalità di blocco Smart funziona o meno
 
-When the smart lockout threshold is triggered, you will get the following message while the account is locked:
+Quando viene attivata la soglia di blocco Smart, si riceverà il messaggio seguente quando l'account è bloccato:
 
-**Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
+**L'account è temporaneamente bloccato per impedire l'uso non autorizzato. Riprovare più tardi. se il problema persiste, contattare l'amministratore.**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

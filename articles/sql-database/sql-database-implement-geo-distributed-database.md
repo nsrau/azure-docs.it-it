@@ -1,5 +1,5 @@
 ---
-title: Implement a geo-distributed solution
+title: Implementare una soluzione con distribuzione geografica
 description: Informazioni su come configurare il database SQL di Azure e l'applicazione per il failover in un database replicato e su come testare un failover.
 services: sql-database
 ms.service: sql-database
@@ -29,19 +29,19 @@ Questa esercitazione mostra come configurare un database SQL di Azure e l'applic
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Per completare l'esercitazione, verificare di avere installato i componenti seguenti:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- A single database in Azure SQL Database. Per crearne uno, usare:
-  - [di Microsoft Azure](sql-database-single-database-get-started.md)
-  - [Interfaccia della riga di comando](sql-database-cli-samples.md)
+- Un database singolo nel database SQL di Azure. Per crearne uno, usare:
+  - [Portale](sql-database-single-database-get-started.md)
+  - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
@@ -90,10 +90,10 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
-> Run `az login` to sign in to Azure.
+> Eseguire `az login` per accedere ad Azure.
 
 ```powershell
 $admin = "<adminName>"
@@ -319,7 +319,7 @@ Eseguire gli script seguenti per simulare un failover e osservare i risultati de
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-You can check the role of the disaster recovery server during the test with the following command:
+È possibile controllare il ruolo del server di ripristino di emergenza durante il test con il comando seguente:
 
 ```powershell
 (Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
@@ -342,9 +342,9 @@ Per testare un failover:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-You can check the role of the disaster recovery server during the test with the following command:
+È possibile controllare il ruolo del server di ripristino di emergenza durante il test con il comando seguente:
 
 ```azure-cli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer

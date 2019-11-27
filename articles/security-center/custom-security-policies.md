@@ -1,6 +1,6 @@
 ---
-title: Create custom security policies in Azure Security Center | Microsoft Docs
-description: Azure custom policy definitions monitored by Azure Security Center.
+title: Creare criteri di sicurezza personalizzati nel centro sicurezza di Azure | Microsoft Docs
+description: Definizioni dei criteri personalizzati di Azure monitorati dal centro sicurezza di Azure.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -15,60 +15,60 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483956"
 ---
-# <a name="using-custom-security-policies-preview"></a>Using custom security policies (Preview)
+# <a name="using-custom-security-policies-preview"></a>Uso di criteri di sicurezza personalizzati (anteprima)
 
-To help secure your systems and environment, Azure Security Center generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
+Per proteggere i sistemi e l'ambiente, il Centro sicurezza di Azure genera raccomandazioni sulla sicurezza. Questi consigli si basano sulle procedure consigliate del settore, che vengono incorporate nei criteri di sicurezza generici predefiniti forniti a tutti i clienti. Possono inoltre derivare dalla conoscenza di standard di settore e normativi del Centro sicurezza.
 
-With this preview feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create.
+Con questa funzionalità di anteprima, è possibile aggiungere iniziative *personalizzate* . Si riceveranno quindi raccomandazioni se l'ambiente non segue i criteri creati.
 
-As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) in the Azure Policy documentation, when you specify a location for your custom initiative, it must be a management group or a subscription. 
+Come illustrato nella documentazione di [criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) , quando si specifica un percorso per l'iniziativa personalizzata, deve trattarsi di un gruppo di gestione o di una sottoscrizione. 
 
-## <a name="to-add-a-custom-initiative-to-your-subscription"></a>To add a custom initiative to your subscription 
+## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Per aggiungere un'iniziativa personalizzata alla sottoscrizione 
 
-1. From Security Center's sidebar, open the **Security policy** page.
+1. Dalla barra laterale del Centro sicurezza aprire la pagina dei **criteri di sicurezza** .
 
-1. Select a subscription or Management Group to which you would like to add a custom initiative.
+1. Selezionare una sottoscrizione o un gruppo di gestione a cui si desidera aggiungere un'iniziativa personalizzata.
 
-    [![Selecting a subscription for which you'll create your custom policy](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
+    [![selezionare una sottoscrizione per la quale si creeranno i criteri personalizzati](media/custom-security-policies/custom-policy-selecting-a-subscription.png)](media/custom-security-policies/custom-policy-selecting-a-subscription.png#lightbox)
 
     > [!NOTE]
-    > You must add custom standards at the subscription level (or higher) for them to be evaluated and displayed in Security Center. 
+    > È necessario aggiungere standard personalizzati a livello di sottoscrizione (o superiore) per la valutazione e la visualizzazione nel centro sicurezza. 
     >
-    > When you add a custom standard, it assigns an *initiative* to that scope. We therefore recommend that you select the widest scope required for that assignment.
+    > Quando si aggiunge uno standard personalizzato, viene assegnata un' *iniziativa* a tale ambito. Si consiglia pertanto di selezionare l'ambito più ampio necessario per l'assegnazione.
 
-1. In the Security policy page, under Your custom initiatives (Preview), click **Add a custom initiative**.
+1. Nella pagina Criteri di sicurezza, sotto le iniziative personalizzate (anteprima), fare clic su **Aggiungi un'iniziativa personalizzata**.
 
-    [![Click **Add a custom initiative**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![fare clic su * * Aggiungi un'iniziativa personalizzata * *](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
-    The following page appears:
+    Viene visualizzata la pagina seguente:
 
-    ![Create or add a policy](media/custom-security-policies/create-or-add-custom-policy.png)
+    ![Creare o aggiungere un criterio](media/custom-security-policies/create-or-add-custom-policy.png)
 
-1. In the Add custom initiatives page, review the list of custom policies already created in your organization. If you see one you want to assign to your subscription, click **Add**. If there isn't an initiative in the list that meets your needs, skip this step.
+1. Nella pagina Aggiungi iniziative personalizzate esaminare l'elenco dei criteri personalizzati già creati nell'organizzazione. Se ne viene visualizzato uno che si vuole assegnare alla sottoscrizione, fare clic su **Aggiungi**. Se nell'elenco non è presente un'iniziativa che soddisfi le proprie esigenze, ignorare questo passaggio.
 
-1. To create a new custom initiative:
+1. Per creare una nuova iniziativa personalizzata:
 
-    1. Click **Create new**.
-    1. Enter the definition's location and name.
-    1. Select the policies to include and click **Add**.
-    1. Enter any desired parameters.
-    1. Fare clic su **Salva**
-    1. In the Add custom initiatives page, click refresh and your new initiative will be shown as available.
-    1. Click **Add** and assign it to your subscription.
+    1. Fare clic su **Crea nuovo**.
+    1. Immettere il percorso e il nome della definizione.
+    1. Selezionare i criteri da includere e fare clic su **Aggiungi**.
+    1. Immettere i parametri desiderati.
+    1. Fare clic su **Save**.
+    1. Nella pagina Aggiungi iniziative personalizzate fare clic su Aggiorna e la nuova iniziativa verrà visualizzata come disponibile.
+    1. Fare clic su **Aggiungi** e assegnarlo alla sottoscrizione.
 
     > [!NOTE]
-    > Creating new initiatives requires subscription owner credentials. For more information about Azure roles, see [Permissions in Azure Security Center](security-center-permissions.md).
+    > La creazione di nuove iniziative richiede le credenziali del proprietario della sottoscrizione. Per altre informazioni sui ruoli di Azure, vedere [autorizzazioni nel centro sicurezza di Azure](security-center-permissions.md).
 
-1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a “Custom” label and be available within approximately one hour.
+1. Per visualizzare le raccomandazioni risultanti per il criterio, fare clic su **raccomandazioni** nella barra laterale per aprire la pagina raccomandazioni. Le indicazioni verranno visualizzate con un'etichetta "personalizzata" e saranno disponibili entro circa un'ora.
 
-    [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+    [![consigli personalizzati](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In this article, you learned how to create custom security policies. 
+In questo articolo si è appreso come creare criteri di sicurezza personalizzati. 
 
-For other related material, see the following articles: 
+Per altri materiali correlati, vedere gli articoli seguenti: 
 
-- [The overview of security policies](tutorial-security-policy.md)
-- [A list of the built-in security policies](security-center-policy-definitions.md)
+- [Panoramica dei criteri di sicurezza](tutorial-security-policy.md)
+- [Elenco dei criteri di sicurezza predefiniti](security-center-policy-definitions.md)

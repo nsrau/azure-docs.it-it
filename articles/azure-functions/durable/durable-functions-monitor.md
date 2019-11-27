@@ -54,7 +54,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E3_GetIsClear`: funzione dell'attività che controlla le condizioni meteo correnti per una località.
 * `E3_SendGoodWeatherAlert`: funzione dell'attività che invia un SMS tramite Twilio.
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per C# gli script e JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestrazione di monitoraggio del meteo (Visual Studio Code e codice di esempio del portale di Azure)
 
@@ -79,13 +79,13 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 3. Chiama **E3_GetIsClear** per determinare se nella località richiesta il tempo è sereno.
 4. Se il tempo è sereno, chiama **E3_SendGoodWeatherAlert** per inviare un SMS di notifica al numero di telefono richiesto.
 5. Crea un timer durevole per riprendere l'orchestrazione all'intervallo di polling successivo. L'esempio usa un valore hardcoded per ragioni di brevità.
-6. Continues running until the `CurrentUtcDateTime` (.NET) or `currentUtcDateTime` (JavaScript) passes the monitor's expiration time, or an SMS alert is sent.
+6. Continua l'esecuzione fino a quando il `CurrentUtcDateTime` (.NET) o `currentUtcDateTime` (JavaScript) non supera la data di scadenza del monitoraggio o viene inviato un avviso SMS.
 
 Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione inviando più **MonitorRequest**. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Trasferimento dei dati fortemente tipizzati (solo .NET)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
+L'agente di orchestrazione richiede più dati, quindi [gli oggetti poco condivisi](../functions-reference-csharp.md#reusing-csx-code) vengono usati per il trasferimento di dati C# fortemente C# tipizzati in e nello script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

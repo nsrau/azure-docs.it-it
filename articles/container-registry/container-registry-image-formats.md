@@ -1,6 +1,6 @@
 ---
-title: Supported content formats
-description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
+title: Formati di contenuto supportati
+description: Informazioni sui formati di contenuto supportati da Azure Container Registry, incluse le immagini del contenitore compatibili con Docker, i grafici Helm, le immagini OCI e gli artefatti OCI.
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
@@ -16,25 +16,25 @@ Usare un repository privato in Registro Azure Container per gestire uno dei form
 
 ## <a name="docker-compatible-container-images"></a>Immagini di contenitori compatibili con Docker
 
-The following Docker container image formats are supported:
+Sono supportati i seguenti formati di immagini del contenitore docker:
 
 * [Manifesto immagine Docker V2, schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
 * [Manifesto immagine Docker V2, schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - Include elenchi di manifesti che consentono ai registri di archiviare immagini multipiattaforma con un unico riferimento "image:tag"
 
-## <a name="oci-images"></a>OCI images
+## <a name="oci-images"></a>Immagini OCI
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
+Azure Container Registry supporta le immagini che soddisfano la [specifica del formato di immagine OCI (Open Container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md). I formati di packaging includono il [formato SIF (Singularity Image Format)](https://github.com/sylabs/sif).
 
-## <a name="oci-artifacts"></a>OCI artifacts
+## <a name="oci-artifacts"></a>Elementi OCI
 
-Azure Container Registry supports the [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec), a vendor-neutral, cloud-agnostic spec to store, share, secure, and deploy container images and other content types (artifacts). The specification allows a registry to store a wide range of artifacts in addition to container images. You use tooling appropriate to the artifact to push and pull artifacts. For an example, see [Push and pull an OCI artifact using an Azure container registry](container-registry-oci-artifacts.md).
+Azure Container Registry supporta la [specifica di distribuzione OCI](https://github.com/opencontainers/distribution-spec), una specifica indipendente dal fornitore e indipendente dal cloud per archiviare, condividere, proteggere e distribuire immagini del contenitore e altri tipi di contenuto (elementi). La specifica consente a un registro di archiviare un'ampia gamma di elementi oltre alle immagini del contenitore. Si usano gli strumenti appropriati per l'artefatto per eseguire il push e il pull degli artefatti. Per un esempio, vedere effettuare il [push e il pull di un elemento OCI usando un registro contenitori di Azure](container-registry-oci-artifacts.md).
 
-To learn more about OCI artifacts, see the [OCI Registry as Storage (ORAS)](https://github.com/deislabs/oras) repo and the [OCI Artifacts](https://github.com/opencontainers/artifacts) repo on GitHub.
+Per ulteriori informazioni sugli artefatti OCI, vedere il repository [OCI Registry As Storage (Oras)](https://github.com/deislabs/oras) e il repository di [artefatti OCI](https://github.com/opencontainers/artifacts) su GitHub.
 
 ## <a name="helm-charts"></a>Grafici Helm
 
-Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 2 (2.11.0 or later) is supported.
+Azure Container Registry può ospitare repository per i [grafici Helm](https://helm.sh/), un formato di creazione di pacchetti usato per gestire e distribuire rapidamente le applicazioni per Kubernetes. Il [client Helm](https://docs.helm.sh/using_helm/#installing-helm) versione 2 (2.11.0 o versione successiva) è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

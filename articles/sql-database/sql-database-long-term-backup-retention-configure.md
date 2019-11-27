@@ -21,10 +21,10 @@ ms.locfileid: "74420798"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
-In Azure SQL Database, you can configure a single or a pooled database with a [long-term backup retention](sql-database-long-term-retention.md) policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
+Nel database SQL di Azure è possibile configurare un database singolo o in pool con criteri di [conservazione dei backup a lungo termine](sql-database-long-term-retention.md) per mantenere automaticamente i backup del database in contenitori di archiviazione BLOB di Azure separati per un massimo di 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
 
 > [!IMPORTANT]
-> [Azure SQL database managed instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
+> [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md) attualmente non supporta la conservazione dei backup a lungo termine.
 
 ## <a name="using-azure-portal"></a>Uso del portale di Azure
 
@@ -45,9 +45,9 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 3. Al termine, fare clic su **Applica**.
 
 > [!IMPORTANT]
-> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
+> Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
-### <a name="view-backups-and-restore-from-a-backup"></a>View backups and restore from a backup
+### <a name="view-backups-and-restore-from-a-backup"></a>Visualizzare i backup e il ripristino da un backup
 
 Visualizzare i backup conservati per un database specifico con i criteri di conservazione a lungo termine ed eseguire il ripristino da tali backup.
 
@@ -74,36 +74,36 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per [estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="using-powershell"></a>Con PowerShell
+## <a name="using-powershell"></a>Tramite PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>Ruoli Controllo degli accessi in base al ruolo per gestire la conservazione a lungo termine
 
-For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, you will need to have one of the following roles:
+Per **Get-AzSqlDatabaseLongTermRetentionBackup** e **Restore-AzSqlDatabase**è necessario disporre di uno dei ruoli seguenti:
 
-- Subscription Owner role or
-- SQL Server Contributor role or
-- Custom role with the following permissions:
+- Ruolo proprietario sottoscrizione o
+- SQL Server ruolo Collaboratore o
+- Ruolo personalizzato con le autorizzazioni seguenti:
 
-   Microsoft.Sql/locations/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read  Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+   Microsoft. SQL/locations/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/lettura
 
-For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one of the following roles:
+Per **Remove-AzSqlDatabaseLongTermRetentionBackup**è necessario disporre di uno dei ruoli seguenti:
 
-- Subscription Owner role or
-- Custom role with the following permission:
+- Ruolo proprietario sottoscrizione o
+- Ruolo personalizzato con l'autorizzazione seguente:
 
    Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
 > [!NOTE]
-> The SQL Server Contributor role does not have permission to delete LTR backups.
+> Il ruolo Collaboratore SQL Server non dispone dell'autorizzazione per eliminare i backup di LTR.
 
-RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
+È possibile concedere autorizzazioni RBAC nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un server eliminato, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale server.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -186,7 +186,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. To delete an LTR backup after the server has been deleted you must have Subscription scope permission. È possibile impostare le notifiche su ogni eliminazione in Monitoraggio di Azure filtrando in base all'operazione di eliminazione di un backup con conservazione a lungo termine. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
+> L'eliminazione di un backup con conservazione a lungo termine non è reversibile. Per eliminare un backup di LTR dopo che il server è stato eliminato, è necessario disporre dell'autorizzazione per l'ambito della sottoscrizione. È possibile impostare le notifiche su ogni eliminazione in Monitoraggio di Azure filtrando in base all'operazione di eliminazione di un backup con conservazione a lungo termine. Il log attività contiene informazioni su chi ha effettuato la richiesta e sul momento in cui è stata effettuata. Per istruzioni dettagliate, vedere [Creare gli avvisi del log attività](../azure-monitor/platform/alerts-activity-log.md).
 
 ### <a name="restore-from-ltr-backups"></a>Eseguire il ripristino dai backup con conservazione a lungo termine
 
@@ -199,7 +199,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 ```
 
 > [!IMPORTANT]
-> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
+> Per eseguire il ripristino da un backup di LTR dopo che il server è stato eliminato, è necessario avere l'ambito delle autorizzazioni per la sottoscrizione del server e che la sottoscrizione sia attiva. È inoltre necessario omettere il parametro facoltativo-ResourceGroupName.
 
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente. Vedere [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).

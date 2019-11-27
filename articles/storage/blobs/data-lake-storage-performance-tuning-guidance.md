@@ -1,5 +1,5 @@
 ---
-title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
+title: Ottimizzare Azure Data Lake Storage Gen2 per le prestazioni | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -15,7 +15,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327934"
 ---
-# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimize Azure Data Lake Storage Gen2 for performance
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizza Azure Data Lake Storage Gen2 per le prestazioni
 
 Azure Data Lake Storage Gen2 supporta la velocità effettiva elevata per l'analisi con uso intensivo dell'I/O e lo spostamento dei dati.  In Data Lake Storage Gen2 è importante poter usare tutta la velocità effettiva disponibile, ovvero la quantità di dati che possono essere letti o scritti al secondo, per ottenere prestazioni ottimali.  Questo risultato viene ottenuto eseguendo il numero massimo possibile di operazioni di lettura e scrittura in parallelo.
 
@@ -43,7 +43,7 @@ La connettività di rete tra i dati di origine e Data Lake Storage Gen2 può tal
 
 Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dalla connettività di rete, si è pronti per configurare gli strumenti di inserimento. La tabella seguente presenta un riepilogo delle impostazioni delle chiavi per diversi strumenti di inserimento comuni e include collegamenti ad articoli di approfondimento sull'ottimizzazione delle prestazioni.  Per altre informazioni sullo strumento da usare per uno scenario specifico, vedere questo [articolo](data-lake-storage-data-scenarios.md).
 
-| Strumento               | Impostazioni     | Altre informazioni                                                                 |
+| Strumento               | Settings     | Altre informazioni                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Collegamento](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Data factory di Azure| parallelCopies    | [Collegamento](../../data-factory/copy-activity-performance.md)                          |
@@ -138,5 +138,5 @@ Oltre alle linee guida generali sopra illustrate, ogni applicazione dispone di d
 | [MapReduce in HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm in HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Numero di processi del ruolo di lavoro</li><li>Numero di istanze di spout executor</li><li>Numero di istanze di bolt executor </li><li>Numero di attività spout</li><li>Numero di attività bolt</li></ul>|
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

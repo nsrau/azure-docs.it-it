@@ -1,5 +1,5 @@
 ---
-title: Customize self-service password reset - Azure Active Directory
+title: Personalizzare la reimpostazione della password self-service-Azure Active Directory
 description: Opzioni di personalizzazione per la reimpostazione della password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -24,22 +24,22 @@ I professionisti IT che vogliono distribuire la reimpostazione della password se
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personalizzare il collegamento "Contatta l'amministratore"
 
-Self-service password reset users have a "Contact your administrator" link available to them in the password reset portal. If a user selects this link, it will do one of two things:
+Per gli utenti con reimpostazione della password self-service è disponibile un collegamento "contattare l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona questo collegamento, effettuerà una delle due operazioni seguenti:
 
-* If left in the default state:
-   * Email is sent to your administrators and asks them to provide assistance in changing the user's password. See the [sample email](#sample-email) below.
-* If customized:
-   * Sends your user to a webpage or email address specified by the administrator for assistance.
+* Se lasciato nello stato predefinito:
+   * Viene inviato un messaggio di posta elettronica agli amministratori e viene chiesto di fornire assistenza per la modifica della password dell'utente. Vedere il [messaggio di posta elettronica di esempio](#sample-email) seguente.
+* Se personalizzato:
+   * Invia l'utente a una pagina Web o a un indirizzo di posta elettronica specificato dall'amministratore per assistenza.
 
 > [!TIP]
-> If you customize this, we recommend setting this to something users are already familiar with for support
+> Se si Personalizza questa impostazione, è consigliabile impostarla su un elemento con cui gli utenti hanno già familiarità per il supporto
 
 > [!WARNING]
-> If you customize this setting with an email address and account that needs a password reset the user may be unable to ask for assistance.
+> Se si Personalizza questa impostazione con un indirizzo di posta elettronica e un account che richiedono la reimpostazione della password, l'utente potrebbe non essere in grado di richiedere assistenza.
 
 ### <a name="sample-email"></a>Esempio di messaggio di posta elettronica
 
-![Sample request to reset email sent to Administrator][Contact]
+![Richiesta di esempio per reimpostare la posta elettronica inviata all'amministratore][Contact]
 
 Questo contatto di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
 
@@ -76,8 +76,8 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
 
 * Dopo che l'utente immette il proprio nome utente
 * Se l'utente accede all'URL personalizzato:
-   * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
-   * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando il parametro `whr` alla pagina di reimpostazione della password, ad esempio `https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando il parametro `username` alla pagina di reimpostazione della password, ad esempio `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Per Informazioni dettagliate su come configurare le informazioni personalizzate distintive dell'azienda, vedere l'articolo [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](../fundamentals/customize-branding.md).
 
@@ -100,7 +100,7 @@ Per Informazioni dettagliate su come configurare le informazioni personalizzate 
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help with resetting your password email example"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contattare l'amministratore per assistenza per la reimpostazione dell'esempio di indirizzo di posta elettronica della password"

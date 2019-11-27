@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Kubernetes Service cluster resource
+title: Creare una risorsa cluster del servizio Kubernetes di Azure
 titleSuffix: Azure Cognitive Services
-description: Learn how to create an Azure Kubernetes Service (AKS) resource.
+description: Informazioni su come creare una risorsa di Azure Kubernetes Service (AKS).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -16,36 +16,36 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383481"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Create an Azure Kubernetes Service cluster resource
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Creare una risorsa cluster del servizio Kubernetes di Azure
 
-1. Go to [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks), and select **Create**.
+1. Passare al [servizio Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)e selezionare **Crea**.
 
-1. On the **Basics** tab, enter the following information:
+1. Nella scheda informazioni di **base** immettere le informazioni seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |--|--|
-    |Sottoscrizione|Scegliere la sottoscrizione appropriata.|
-    |Gruppo di risorse|Select an available resource group.|
-    |Kubernetes cluster name|Enter a name (lowercase).|
-    |Area geografica|Select a nearby location.|
-    |Kubernetes version|Whatever value is marked as **(default)** .|
-    |DNS name prefix|Created automatically, but you can override.|
-    |Node size|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Node count|Leave the slider at the default value.|
+    |sottoscrizione|Scegliere la sottoscrizione appropriata.|
+    |Resource group|Selezionare un gruppo di risorse disponibile.|
+    |Nome del cluster Kubernetes|Immettere un nome (minuscolo).|
+    |Area|Selezionare una località vicina.|
+    |Versione di Kubernetes|Qualsiasi valore è contrassegnato come **(impostazione predefinita)** .|
+    |Prefisso nome DNS|Creato automaticamente, ma è possibile eseguire l'override di.|
+    |Dimensioni del nodo|DS2 standard v2:<br>`2 vCPUs`, `7 GB`|
+    |Numero di nodi|Lasciare il dispositivo di scorrimento sul valore predefinito.|
 
-1. On the **Scale** tab, leave **Virtual nodes** and **VM scale sets** set to their default values.
-1. On the **Authentication** tab, leave **Service principal** and **Enable RBAC** set to their default values.
-1. On the **Networking** tab, enter the following selections:
+1. Nella scheda **scala** lasciare i **nodi virtuali** e i **set di scalabilità di VM** impostati sui rispettivi valori predefiniti.
+1. Nella scheda **autenticazione** lasciare l' **entità servizio** e **abilitare RBAC** impostato sui valori predefiniti.
+1. Nella scheda **rete** immettere le selezioni seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |--|--|
     |Routing di applicazioni HTTP|No|
     |Configurazione delle impostazioni di rete|Basic|
 
-1. On the **Monitoring** tab, make sure that **Enable container monitoring** is set to **Yes**, and leave **Log Analytics workspace** as the default value.
-1. On the **Tags** tab, leave the name/value pairs blank for now.
-1. Select **Review and Create**.
-1. After validation passes, select **Create**.
+1. Nella scheda **monitoraggio** verificare che **Enable container Monitoring** sia impostato su **Sì**e lasciare **log Analytics area di lavoro** come valore predefinito.
+1. Nella scheda **tag** lasciare vuote le coppie nome/valore per il momento.
+1. Selezionare **revisione e creazione**.
+1. Al termine della convalida, selezionare **Crea**.
 
 > [!NOTE]
-> If validation fails, it might be because of a "Service principal" error. Go back to the **Authentication** tab and then go back to **Review + create**, where validation should run and then pass.
+> Se la convalida ha esito negativo, la causa potrebbe essere un errore di "entità servizio". Tornare alla scheda **Authentication (autenticazione** ), quindi tornare a **Review + create**, in cui la convalida deve essere eseguita e quindi passata.

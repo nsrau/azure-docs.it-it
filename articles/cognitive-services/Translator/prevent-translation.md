@@ -22,9 +22,9 @@ ms.locfileid: "74326769"
 L'API Traduzione testuale consente di aggiungere tag ai contenuti in modo che non vengano tradotti. Ad esempio è possibile aggiungere tag al codice, al nome di un marchio o a una parola o frase che non deve essere localizzata.
 
 ## <a name="methods-for-preventing-translation"></a>Metodi per impedire la traduzione
-1. Eseguire l'escape di un tag @somethingtopassthrough di Twitter o #somethingtopassthrough. Annullare l'escape dopo la traduzione. This is the regular expression for valid twitter tags: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. A tag should start with a "@" sign, followed by a character and then followed by one or many characters, digits or underscore. It is recommended to keep tags short and the opening tag must be preceded by a space.
+1. Eseguire l'escape di un tag @somethingtopassthrough di Twitter o #somethingtopassthrough. Annullare l'escape dopo la traduzione. Si tratta dell'espressione regolare per i tag Twitter validi: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. Un tag deve iniziare con un segno "@", seguito da un carattere, seguito da uno o più caratteri, cifre o caratteri di sottolineatura. È consigliabile tenere i tag brevi e il tag di apertura deve essere preceduto da uno spazio.
 
-2. Aggiungere tag al contenuto con `notranslate`. It's by design that this works only when the input textType is set as HTML
+2. Aggiungere tag al contenuto con `notranslate`. Si tratta di un modello che funziona solo quando il textType di input è impostato come HTML
 
    Esempio:
 
@@ -42,7 +42,7 @@ L'API Traduzione testuale consente di aggiungere tag ai contenuti in modo che no
 
 4. Non passare la stringa all'API Traduzione testuale per la traduzione.
 
-5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
+5. Traduttore personalizzato: usare un [dizionario in un convertitore personalizzato](custom-translator/what-is-dictionary.md) per prescrivere la traduzione di una frase con probabilità del 100%.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

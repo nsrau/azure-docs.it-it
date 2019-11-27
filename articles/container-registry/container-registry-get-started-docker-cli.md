@@ -1,5 +1,5 @@
 ---
-title: Push & pull Docker image
+title: Push & immagine Docker pull
 description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 ms.topic: article
 ms.date: 01/23/2019
@@ -17,7 +17,7 @@ Registro Azure Container archivia e gestisce le immagini private dei contenitori
 
 La procedura seguente esegue il download di un'[immagine di Nginx](https://store.docker.com/images/nginx) ufficiale dal registro pubblico di Docker Hub, la contrassegna per il Registro Azure Container privato, ne effettua il push nel registro e quindi ne effettua il pull dal registro.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Registro Azure Container**: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
 * **Interfaccia della riga di comando di Docker**: è anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
@@ -57,7 +57,7 @@ Eseguire quindi il comando [docker run](https://docs.docker.com/engine/reference
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. Verrà visualizzata una pagina simile alla seguente:
+Passare a `http://localhost:8080` per visualizzare la pagina Web predefinita servita da nginx nel contenitore in esecuzione. Verrà visualizzata una pagina simile alla seguente:
 
 ![Nginx sul computer locale](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -99,7 +99,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/run/) per
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Browse to `http://localhost:8080` to view the running container.
+Passare a `http://localhost:8080` per visualizzare il contenitore in esecuzione.
 
 Per arrestare e rimuovere il contenitore, premere `Control`+`C`.
 

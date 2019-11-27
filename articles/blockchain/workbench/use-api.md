@@ -1,6 +1,6 @@
 ---
-title: Using Azure Blockchain Workbench REST APIs
-description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
+title: Uso delle API REST di Azure blockchain Workbench
+description: Scenari per l'uso dell'API REST di Azure blockchain Workbench Preview
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74324194"
 ---
-# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Using the Azure Blockchain Workbench Preview REST API
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso dell'API REST di Azure blockchain Workbench Preview
 
-Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. Questo documento illustra in modo dettagliato diversi metodi importanti dell'API REST di Workbench. Si supponga, ad esempio, che uno sviluppatore voglia creare un client di blockchain personalizzato. Questo client di blockchain consente agli utenti che eseguono l'accesso di visualizzare e interagire con le applicazioni blockchain assegnate. Il client consente agli utenti di visualizzare le istanze di contratto e di eseguire delle azioni sui contratti smart. Il client usa l'API REST di Workbench nel contesto dell'utente connesso per eseguire le azioni seguenti:
+L'API REST di Azure blockchain Workbench Preview fornisce a sviluppatori e Information Worker un modo per creare integrazioni avanzate per le applicazioni blockchain. Questo documento illustra in modo dettagliato diversi metodi importanti dell'API REST di Workbench. Si supponga, ad esempio, che uno sviluppatore voglia creare un client di blockchain personalizzato. Questo client di blockchain consente agli utenti che eseguono l'accesso di visualizzare e interagire con le applicazioni blockchain assegnate. Il client consente agli utenti di visualizzare le istanze di contratto e di eseguire delle azioni sui contratti smart. Il client usa l'API REST di Workbench nel contesto dell'utente connesso per eseguire le azioni seguenti:
 
 * Elenco applicazioni
 * Elencare i flussi di lavoro per un'applicazione
@@ -23,18 +23,18 @@ Azure Blockchain Workbench Preview REST API provides developers and information 
 
 Le applicazioni blockchain di esempio usate negli scenari sono disponibili per il [download in GitHub](https://github.com/Azure-Samples/blockchain).
 
-## <a name="blockchain-workbench-api-endpoint"></a>Blockchain Workbench API endpoint
+## <a name="blockchain-workbench-api-endpoint"></a>Endpoint API blockchain Workbench
 
-Blockchain Workbench APIs are accessed through an endpoint for your deployment. To get the API endpoint URL for your deployment:
+È possibile accedere alle API di blockchain Workbench tramite un endpoint per la distribuzione. Per ottenere l'URL dell'endpoint API per la distribuzione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. In the left-hand navigation pane, select **Resource groups**.
-1. Choose the resource group name your deployed Blockchain Workbench.
+1. Nel riquadro di spostamento a sinistra selezionare gruppi di **risorse**.
+1. Scegliere il nome del gruppo di risorse blockchain Workbench distribuito.
 1. Selezionare l'intestazione di colonna **TIPO** per ordinare l'elenco in ordine alfabetico in base al tipo.
-1. Sono presenti due risorse di tipo **Servizio app**. Select the resource of type **App Service** *with* the "-api" suffix.
-1. In the App Service **Overview**, copy the **URL** value, which represents the API endpoint URL to your deployed Blockchain Workbench.
+1. Sono presenti due risorse di tipo **Servizio app**. Selezionare la risorsa di tipo **servizio app** *con* il suffisso "-API".
+1. Nella **Panoramica**del servizio app, copiare il valore dell' **URL** , che rappresenta l'URL dell'endpoint API per il Workbench blockchain distribuito.
 
-    ![App service API endpoint URL](media/use-api/app-service-api.png)
+    ![URL dell'endpoint dell'API del servizio app](media/use-api/app-service-api.png)
 
 ## <a name="list-applications"></a>Elenco applicazioni
 

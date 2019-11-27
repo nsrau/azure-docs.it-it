@@ -1,6 +1,6 @@
 ---
 title: Fasi della distribuzione di un progetto
-description: Learn the security and artifact related steps the Azure Blueprint services goes through while creating a blueprint assignment.
+description: Informazioni sui passaggi correlati alla sicurezza e agli artefatti eseguiti dai servizi Azure Blueprint durante la creazione di un'assegnazione di progetto.
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4c1d0cd47e0f43b73e3178e18a4ba5d705048a72
@@ -12,47 +12,47 @@ ms.locfileid: "74463558"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fasi della distribuzione di un progetto
 
-When a blueprint gets deployed, a series of actions is taken by the Azure Blueprints service to deploy the resources defined in the blueprint. This article provides details about what each step involves.
+Quando viene distribuito un progetto, una serie di azioni viene eseguita dal servizio Blueprints di Azure per distribuire le risorse definite nel progetto. Questo articolo fornisce informazioni dettagliate su ogni passaggio.
 
-Blueprint deployment is triggered by assigning a blueprint to a subscription or [updating an existing assignment](../how-to/update-existing-assignments.md). During the deployment, Blueprints takes the following high-level steps:
+La distribuzione del progetto viene attivata assegnando un progetto a una sottoscrizione o [aggiornando un'assegnazione esistente](../how-to/update-existing-assignments.md). Durante la distribuzione, i progetti adottano i passaggi di alto livello seguenti:
 
 > [!div class="checklist"]
-> - Blueprints granted owner rights
-> - The blueprint assignment object is created
-> - Optional - Blueprints creates **system-assigned** managed identity
-> - The managed identity deploys blueprint artifacts
-> - Blueprint service and **system-assigned** managed identity rights are revoked
+> - Progetti concessi diritti di proprietario
+> - Viene creato l'oggetto di assegnazione progetto
+> - Facoltativo-Blueprints crea un'identità gestita **assegnata dal sistema**
+> - L'identità gestita distribuisce gli artefatti del progetto
+> - Il servizio Blueprint e i diritti di identità gestiti **assegnati dal sistema** vengono revocati
 
-## <a name="blueprints-granted-owner-rights"></a>Blueprints granted owner rights
+## <a name="blueprints-granted-owner-rights"></a>Progetti concessi diritti di proprietario
 
-The Azure Blueprints service principal is granted owner rights to the assigned subscription or subscriptions when a [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) managed identity is used. The granted role allows Blueprints to create, and later revoke, the **system-assigned** managed identity. If using a **user-assigned** managed identity, the Azure Blueprints service principal doesn't get and doesn't need owner rights on the subscription.
+All'entità servizio di Azure Blueprints vengono concessi i diritti di proprietario per la sottoscrizione o le sottoscrizioni assegnate quando viene usata un'identità gestita gestita da un' [identità gestita assegnata dal sistema](../../../active-directory/managed-identities-azure-resources/overview.md) . Il ruolo concesso consente ai progettisti di creare e revocare successivamente l'identità gestita **assegnata dal sistema** . Se si usa un'identità gestita **assegnata dall'utente** , l'entità servizio di Azure Blueprints non ottiene e non necessita dei diritti di proprietario per la sottoscrizione.
 
-The rights are granted automatically if the assignment is done through the portal. However, if the assignment is done through the REST API, granting the rights needs to be done with a separate API call. The Azure Blueprint AppId is `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, but the service principal varies by tenant. Use [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service principal. Then, grant the Azure Blueprints the _Owner_ role through the [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md), or a [Resource Manager template](../../../role-based-access-control/role-assignments-template.md).
+I diritti vengono concessi automaticamente se l'assegnazione viene eseguita tramite il portale. Tuttavia, se l'assegnazione viene eseguita tramite l'API REST, la concessione dei diritti deve essere eseguita con una chiamata API separata. Il Azure Blueprint AppId è `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, ma l'entità servizio varia in base al tenant. Usare [Azure Active Directory API Graph](../../../active-directory/develop/active-directory-graph-api.md) e l'endpoint REST [entità servizio](/graph/api/resources/serviceprincipal) per ottenere l'entità servizio. Quindi, concedere al modello di Azure il ruolo di _proprietario_ tramite il [portale](../../../role-based-access-control/role-assignments-portal.md), l' [interfaccia](../../../role-based-access-control/role-assignments-cli.md)della riga di comando di Azure, [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l' [API REST](../../../role-based-access-control/role-assignments-rest.md)o un [modello di gestione risorse](../../../role-based-access-control/role-assignments-template.md).
 
-The Blueprints service doesn't directly deploy the resources.
+Il servizio Blueprints non distribuisce direttamente le risorse.
 
-## <a name="the-blueprint-assignment-object-is-created"></a>The blueprint assignment object is created
+## <a name="the-blueprint-assignment-object-is-created"></a>Viene creato l'oggetto di assegnazione progetto
 
-A user, group, or service principal assigns a blueprint to a subscription. The assignment object exists at the subscription level where the blueprint was assigned. Resources created by the deployment aren't done in context of the deploying entity.
+Un utente, un gruppo o un'entità servizio assegna un progetto a una sottoscrizione. L'oggetto di assegnazione esiste a livello di sottoscrizione a cui è stato assegnato il progetto. Le risorse create dalla distribuzione non vengono eseguite nel contesto dell'entità di distribuzione.
 
-While creating the blueprint assignment, the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) is selected. The default is a **system-assigned** managed identity. A **user-assigned** managed identity can be chosen. When using a **user-assigned** managed identity, it must be defined and granted permissions before the blueprint assignment is created. Both the [Owner](../../../role-based-access-control/built-in-roles.md#owner) and [Blueprint Operator](../../../role-based-access-control/built-in-roles.md#blueprint-operator) built-in roles have the necessary `blueprintAssignment/write` permission to create an assignment that uses a **user-assigned** managed identity.
+Durante la creazione dell'assegnazione del progetto, viene selezionato il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) . Il valore predefinito è un'identità gestita **assegnata dal sistema** . È possibile scegliere un'identità gestita **assegnata dall'utente** . Quando si usa un'identità gestita **assegnata dall'utente** , è necessario definire e concedere le autorizzazioni prima della creazione dell'assegnazione del progetto. Sia i ruoli predefiniti dell' [operatore](../../../role-based-access-control/built-in-roles.md#blueprint-operator) [proprietario](../../../role-based-access-control/built-in-roles.md#owner) e progetto hanno l'autorizzazione `blueprintAssignment/write` necessaria per creare un'assegnazione che usa un'identità gestita **assegnata dall'utente** .
 
-## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Optional - Blueprints creates system-assigned managed identity
+## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Facoltativo-Blueprints crea un'identità gestita assegnata dal sistema
 
-When [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) is selected during assignment, Blueprints creates the identity and grants the managed identity the [owner](../../../role-based-access-control/built-in-roles.md#owner) role. If an [existing assignment is upgraded](../how-to/update-existing-assignments.md), Blueprints uses the previously created managed identity.
+Quando si seleziona [identità gestita assegnata dal sistema](../../../active-directory/managed-identities-azure-resources/overview.md) durante l'assegnazione, i progettisti creano l'identità e concedono l'identità gestita al ruolo [proprietario](../../../role-based-access-control/built-in-roles.md#owner) . Se [viene aggiornata un'assegnazione esistente](../how-to/update-existing-assignments.md), i progettisti usano l'identità gestita creata in precedenza.
 
-The managed identity related to the blueprint assignment is used to deploy or redeploy the resources defined in the blueprint. This design avoids assignments inadvertently interfering with each other.
-This design also supports the [resource locking](./resource-locking.md) feature by controlling the security of each deployed resource from the blueprint.
+L'identità gestita correlata all'assegnazione del progetto viene usata per distribuire o ridistribuire le risorse definite nel progetto. Questa progettazione evita che le assegnazioni interferiscano inavvertitamente tra loro.
+Questa progettazione supporta anche la funzionalità di [blocco delle risorse](./resource-locking.md) controllando la sicurezza di ogni risorsa distribuita dal progetto.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>The managed identity deploys blueprint artifacts
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>L'identità gestita distribuisce gli artefatti del progetto
 
-The managed identity then triggers the Resource Manager deployments of the artifacts within the blueprint in the defined [sequencing order](./sequencing-order.md). The order can be adjusted to ensure artifacts dependent on other artifacts are deployed in the correct order.
+L'identità gestita attiva quindi le distribuzioni Gestione risorse degli elementi all'interno del progetto nell' [ordine di sequenziazione](./sequencing-order.md)definito. È possibile modificare l'ordine in modo che gli artefatti dipendenti da altri artefatti vengano distribuiti nell'ordine corretto.
 
-An access failure by a deployment is often the result of the level of access granted to the managed identity. The Blueprints service manages the security lifecycle of the **system-assigned** managed identity. However, the user is responsible for managing the rights and lifecycle of a **user-assigned** managed identity.
+Un errore di accesso da parte di una distribuzione è spesso il risultato del livello di accesso concesso all'identità gestita. Il servizio cianografie gestisce il ciclo di vita della sicurezza dell'identità gestita **assegnata dal sistema** . Tuttavia, l'utente è responsabile della gestione dei diritti e del ciclo di vita di un'identità gestita **assegnata dall'utente** .
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Blueprint service and system-assigned managed identity rights are revoked
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Il servizio Blueprint e i diritti di identità gestiti assegnati dal sistema vengono revocati
 
-Once the deployments are completed, Blueprints revokes the rights of the **system-assigned** managed identity from the subscription. Then, the Blueprints service revokes its rights from the subscription. Rights removal prevents Blueprints from becoming a permanent owner on a subscription.
+Una volta completate le distribuzioni, i progetti revocano i diritti dell'identità gestita **assegnata dal sistema** dalla sottoscrizione. Il servizio Blueprints revoca quindi i propri diritti dalla sottoscrizione. La rimozione dei diritti impedisce che i progetti diventino un proprietario permanente in una sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

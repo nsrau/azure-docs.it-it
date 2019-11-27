@@ -17,7 +17,7 @@ Microsoft Power BI offre la possibilità di generare in modo semplice report ava
 
 Questo articolo contiene una procedura dettagliata su come connettersi al database SQL di Azure Blockchain Workbench da Power BI Desktop, creare un report e distribuirlo in powerbi.com.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Scaricare [Power BI Desktop](https://aka.ms/pbidesktopstore).
 

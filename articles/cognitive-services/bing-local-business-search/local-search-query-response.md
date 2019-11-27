@@ -1,5 +1,5 @@
 ---
-title: Sending and using API queries and responses - Bing Local Business Search
+title: Invio e uso di query e risposte API-ricerca aziendale locale Bing
 titleSuffix: Azure Cognitive Services
 description: Usare questo articolo per informazioni su come inviare e usare query di ricerca con l'API di ricerca di attività locali Bing.
 services: cognitive-services
@@ -23,7 +23,7 @@ ms.locfileid: "74326730"
 
 ## <a name="creating-a-request"></a>Creazione di una richiesta
 
-Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. ad esempio:
+Per inviare una richiesta all'API di ricerca di attività locali Bing, aggiungere un termine di ricerca al parametro `q=` prima di aggiungerlo all'endpoint API, includendo l'intestazione `Ocp-Apim-Subscription-Key`. Ad esempio:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -61,10 +61,10 @@ I risultati JSON restituiti dall'API includono gli attributi seguenti:
 * entityPresentationInfo
 * area geografica
 * id
-* name
+* Nome
 * routeablePoint
 * telephone
-* url
+* URL
 
 Per informazioni generali su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere le informazioni di riferimento sull'[API di ricerca locale Bing v7](local-search-reference.md).
 
@@ -147,7 +147,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Local Business Search quickstart](quickstarts/local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-- [Guida introduttiva a Local Business Search in Java](quickstarts/local-search-java-quickstart.md)
-- [Guida introduttiva a Local Business Search in Node](quickstarts/local-search-node-quickstart.md)
-- [Guida introduttiva a Local Business Search in Python](quickstarts/local-search-python-quickstart.md)
+- [Guida introduttiva a Local Business Search](quickstarts/local-quickstart.md)
+- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Java)
+- [Guida introduttiva a Local Business Search con Node](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Python quickstart](quickstarts/local-search-python-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Python)

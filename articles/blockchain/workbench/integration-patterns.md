@@ -1,6 +1,6 @@
 ---
-title: Smart contract integration patterns - Azure Blockchain Workbench
-description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
+title: Modelli di integrazione con contratti intelligenti-Azure blockchain Workbench
+description: Panoramica dei modelli di integrazione di Smart Contract nell'anteprima di Azure blockchain Workbench.
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
@@ -174,7 +174,7 @@ In questo modello in cui non è possibile inviare direttamente un messaggio in u
 
 Uno scenario di integrazione comune consiste nell'inclusione in un contratto intelligente di dati di telemetria recuperati da sensori. In base ai dati inviati dai sensori, i contratti intelligenti possono eseguire azioni informate e modificare lo stato del contratto.
 
-Ad esempio, l'aumento della temperatura oltre i 40 gradi in un veicolo usato per il trasporto di medicinali potrebbe influire sull'efficacia dei farmaci e causare un problema di sicurezza pubblica se il problema non venisse rilevato e il veicolo rimosso dalla supply chain. If a driver accelerated their car to 100 miles per hour, the resulting sensor information could trigger a cancellation of insurance by their insurance provider. Se l'auto fosse a noleggio, i dati del GPS potrebbero indicare quando il conducente esce dall'area geografica coperta dal contratto di noleggio e addebitare una penale.
+Ad esempio, l'aumento della temperatura oltre i 40 gradi in un veicolo usato per il trasporto di medicinali potrebbe influire sull'efficacia dei farmaci e causare un problema di sicurezza pubblica se il problema non venisse rilevato e il veicolo rimosso dalla supply chain. Se un driver ha accelerato l'automobile a 100 km all'ora, le informazioni del sensore risultante potrebbero causare l'annullamento delle assicurazioni da parte del provider assicurativo. Se l'auto fosse a noleggio, i dati del GPS potrebbero indicare quando il conducente esce dall'area geografica coperta dal contratto di noleggio e addebitare una penale.
 
 La difficolta sta nel fatto che questi sensori possono inviare costantemente dati e non è appropriato inviare tutti questi dati a un contratto intelligente. Un approccio tipico consiste nel limitare il numero di messaggi inviati alla blockchain, recapitando allo stesso tempo tutti i messaggi a un archivio secondario. Ad esempio, possono essere recapitati solo i messaggi ricevuti a intervalli fissi, ad esempio una volta all'ora, e quando un valore contenuto non rientra nell'intervallo previsto per un contratto intelligente. Il controllo dei valori che non rientrano nelle tolleranze assicura che i dati rilevanti per la logica di business dei contratti vengano ricevuti ed eseguiti. Il controllo del valore in base all'intervallo conferma che il sensore sta ancora inviando dati. Tutti i dati vengono inviati a un archivio di reporting secondario per consentire la creazione di report, l'analisi e l'apprendimento automatico. Ad esempio, se acquisire ogni minuto le letture dei sensori di un sistema GPS potrebbe non essere necessario per un contratto intelligente, ciò potrebbe fornire dati interessanti da usare nei report o per la rappresentazione degli itinerari su una mappa.
 
@@ -194,11 +194,11 @@ Il processo illustra un modello:
 -   Azure Blockchain Workbench avvia una chiamata al libro mastro, inviando i dati dal sistema esterno a un contratto specifico.
 -   Al momento della ricezione del messaggio, il contratto valuta i dati e può modificare lo stato in base al risultato della valutazione. Ad esempio, per una temperatura elevata, potrebbe modificare lo stato in *Non conforme*.
 
-## <a name="data-integration"></a>Integrazione dati
+## <a name="data-integration"></a>Integrazione dei dati
 
 Oltre alle API REST e basata su messaggi, Azure Blockchain Workbench fornisce anche l'accesso a un database SQL popolato con i metadati sulle applicazioni e sui contratti, nonché i dati transazionali dal libri mastri distribuiti.
 
-![Integrazione dati](./media/integration-patterns/data-integration.png)
+![Integrazione dei dati](./media/integration-patterns/data-integration.png)
 
 L'integrazione dei dati è ben nota:
 

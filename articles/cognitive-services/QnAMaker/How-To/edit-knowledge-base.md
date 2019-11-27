@@ -40,10 +40,10 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
     |--|--|
     |Aggiungere URL|È possibile aggiungere nuovi URL per aggiungere nuovi contenuti delle domande frequenti alla knowledge base facendo clic sul collegamento **Gestisci Knowledge base -> "+ Aggiungi URL"** .|
     |Eliminare URL|È possibile eliminare gli URL esistenti selezionando l'icona di eliminazione (cestino).|
-    |Refresh content|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. This will update the knowledge base with latest URL content once. This is not setting a regular schedule of updates.|
+    |Aggiorna contenuto|Se si vuole che la knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, selezionare la casella di controllo **Aggiorna**. La Knowledge base verrà aggiornata con il contenuto dell'URL più recente. Questa operazione non sta impostando una pianificazione regolare degli aggiornamenti.|
     |Aggiungere file|È possibile aggiungere un documento supportato come parte di una knowledge base selezionando **Gestisci Knowledge base** e quindi **+ Aggiungi file**.|
-    |Importa|È anche possibile importare le knowledge base esistenti selezionando il pulsante **Importa Knowledge base**. |
-    |Aggiornare|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.
+    |Importazione|È anche possibile importare le knowledge base esistenti selezionando il pulsante **Importa Knowledge base**. |
+    |Update|L'aggiornamento della Knowledge base dipende dal **piano tariffario di gestione** usato durante la creazione del servizio QnA Maker associato alla knowledge base. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.
 
 1. Dopo aver apportato le modifiche alla knowledge base, selezionare **Save and train** (Salva ed esegui training) nell'angolo in alto a destra della pagina per salvare le modifiche in modo permanente.    
 
@@ -54,7 +54,7 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
 
 ## <a name="add-a-qna-pair"></a>Aggiungere una coppia domanda/risposta
 
-On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
+Nella pagina **modifica** selezionare **Aggiungi coppia QnA** per aggiungere una nuova riga alla tabella della Knowledge base.
 
 ![Add QnA pair (Aggiungi coppia domanda/risposta)](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Aggiungere domande alternative a una coppia domanda/risposta esistente per aumen
 
 ## <a name="add-metadata"></a>Aggiungere metadati
 
-Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
+Aggiungere le coppie di metadati selezionando prima **Opzioni di visualizzazione**, quindi selezionando **Mostra metadati**. Verrà visualizzata la colonna di metadati. Selezionare quindi il segno di **+** per aggiungere una coppia di metadati. Questa coppia è costituita da una chiave e un valore.
 
 ![Aggiungere metadati](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -81,15 +81,15 @@ Add metadata pairs by first selecting **View options**, then selecting **Show me
 
 ## <a name="manage-large-knowledge-bases"></a>Gestire Knowledge Base di grandi dimensioni
 
-* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. È possibile espandere o comprimere l'origine dati.
+* **Gruppi di origini dati**: i QnAs vengono raggruppati in base all'origine dati da cui sono stati estratti. È possibile espandere o comprimere l'origine dati.
 
     ![Usare la barra di origine dati di QnA Maker per comprimere ed espandere le risposte e le domande sull'origine dati](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
+* **Ricerca**nella Knowledge Base: è possibile eseguire ricerche nella Knowledge base digitando nella casella di testo nella parte superiore della tabella della Knowledge base. Premere INVIO per eseguire la ricerca nelle domande, nelle risposte o nei metadati. Fare clic sull'icona X per rimuovere il filtro di ricerca.
 
     ![Usare la casella di ricerca di QnA Maker sopra alle domande e risposte, per limitare la visualizzazione solo agli elementi corrispondenti al filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Pagination**: Quickly move through data sources to manage large knowledge bases
+* **Paginazione**: spostarsi rapidamente tra le origini dati per gestire le Knowledge base di grandi dimensioni
 
     ![Usare le funzionalità di paginazione QnA Maker sopra alle domande e risposte, per spostarsi tra le pagine di domande e risposte](../media/qnamaker-how-to-edit-kb/pagination.png)
 

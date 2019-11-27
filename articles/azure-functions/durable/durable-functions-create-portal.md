@@ -17,7 +17,7 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di
 
 > [!NOTE]
 > 
-> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * Se si sviluppano funzioni permanenti C#in, è necessario prendere in considerazione [lo sviluppo di Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se si sviluppano funzioni permanenti in JavaScript, è consigliabile usare invece lo [sviluppo di Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni

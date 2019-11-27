@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot legacy hybrid Azure Active Directory joined devices
+title: Risolvere i problemi relativi ai dispositivi ibridi legacy Azure Active Directory aggiunti
 description: Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
 ms.service: active-directory
@@ -32,7 +32,7 @@ Per Windows 10 o Windows Server 2016, vedere [Risoluzione dei problemi relativi 
 
 Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md) per supportare gli scenari seguenti:
 
-- Device-based Conditional Access
+- Accesso condizionale basato su dispositivo
 
 Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.  
 
@@ -69,11 +69,11 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
     ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere causato dai servizi AD FS mancanti o non configurati correttamente (per i domini federati) o dall'accesso Single Sign-On facile di Azure AD mancante o non configurato correttamente (per i domini gestiti) o da problemi di rete. 
-   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
+   - È possibile che multi-factor authentication sia abilitato/configurato per l'utente e WIAORMULTIAUTHN alla non sia configurato nel server AD FS. 
    - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
    - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
    - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
-   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
+   - **Autoarea di lavoro. exe** richiede che il client abbia una linea di controllo diretta dal client al controller di dominio ad locale dell'organizzazione, il che significa che il join Azure ad ibrido riesce solo quando il client è connesso alla rete Intranet dell'organizzazione.
    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 - Non si è connessi come utente di dominio
 

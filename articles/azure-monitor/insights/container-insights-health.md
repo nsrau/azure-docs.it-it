@@ -19,7 +19,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74279644"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informazioni sull'integrità del cluster Kubernetes con monitoraggio di Azure per i contenitori
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informazioni sull'integrità del cluster Kubernetes con Monitoraggio di Azure per i contenitori
 
 Con monitoraggio di Azure per i contenitori, monitora e segnala lo stato di integrità dei componenti dell'infrastruttura gestita e di tutti i nodi in esecuzione su qualsiasi cluster Kubernetes supportato da monitoraggio di Azure per i contenitori. Questa esperienza si estende oltre lo stato di integrità del cluster calcolato e segnalato sulla visualizzazione a più [cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), in cui è ora possibile capire se uno o più nodi del cluster sono vincolati alle risorse oppure se un nodo o un pod non è disponibile che può influisca su un'applicazione in esecuzione nel cluster in base a metriche curate.
 

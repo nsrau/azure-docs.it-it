@@ -31,20 +31,20 @@ Le dipendenze in uscita dell'ambiente del servizio app sono quasi interamente de
 La soluzione per proteggere gli indirizzi in uscita consiste nell'usare un dispositivo firewall che può controllare il traffico in uscita in base ai nomi di dominio. Firewall di Azure può limitare il traffico HTTP e HTTPS in uscita in base all'FQDN della destinazione.  
 
 > [!NOTE]
-> At this moment, we can't fully lockdown the outbound connection currently.
+> Attualmente non è possibile bloccare completamente la connessione in uscita.
 
 ## <a name="system-architecture"></a>Architettura di sistema
 
-Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.
+Per la distribuzione di un ambiente del servizio app con traffico in uscita attraverso un dispositivo firewall è necessario modificare le route nella subnet dell'ambiente del servizio app. Le route operano a livello IP. Se non si è attenti a definire le route, è possibile forzare il traffico di risposta TCP in origine da un altro indirizzo. Quando l'indirizzo di risposta è diverso da quello in cui è stato inviato il traffico di indirizzi, il problema è denominato routing asimmetrico e interrompe il protocollo TCP.
 
-There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. Routes must be defined for inbound management requests and for inbound application requests.
+È necessario definire le route in modo che il traffico in ingresso all'ambiente del servizio app possa rispondere allo stesso modo in cui è arrivato il traffico. È necessario definire le route per le richieste di gestione in ingresso e per le richieste di applicazioni in ingresso.
 
-The traffic to and from an ASE must abide by the following conventions
+Il traffico da e verso un ambiente del servizio app deve rispettare le convenzioni seguenti
 
-* The traffic to Azure SQL, Storage, and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
-* Route table rules must be defined that send inbound management traffic back from where it came.
-* Route table rules must be defined that send inbound application traffic back from where it came. 
-* All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
+* Il traffico verso Azure SQL, archiviazione e hub eventi non è supportato con l'uso di un dispositivo firewall. Il traffico deve essere inviato direttamente a tali servizi. In questo modo è possibile configurare gli endpoint di servizio per questi tre servizi. 
+* È necessario definire le regole della tabella di route che inviano il traffico di gestione in ingresso da dove provengono.
+* È necessario definire le regole della tabella di route che inviano il traffico dell'applicazione in ingresso da dove provengono. 
+* Tutto il resto del traffico che esce dall'ambiente del servizio app può essere inviato al dispositivo firewall con una regola della tabella di route.
 
 ![Flusso di connessioni tra l'ambiente del servizio app e Firewall di Azure][5]
 
@@ -52,7 +52,7 @@ The traffic to and from an ASE must abide by the following conventions
 
 I passaggi per bloccare i dati in uscita dall'ambiente del servizio app esistente con Firewall di Azure sono:
 
-1. Abilitare gli endpoint di servizio per SQL, archiviazione e hub eventi nella subnet dell'ambiente del servizio app. To enable service endpoints, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. Se si dispone di endpoint di servizio abilitati per SQL Azure, devono essere configurate con gli endpoint di servizio anche le dipendenze SQL Azure delle app. 
+1. Abilitare gli endpoint di servizio per SQL, archiviazione e hub eventi nella subnet dell'ambiente del servizio app. Per abilitare gli endpoint di servizio, accedere al portale di rete > subnet e selezionare Microsoft. EventHub, Microsoft. SQL e Microsoft. storage dall'elenco a discesa endpoint servizio. Se si dispone di endpoint di servizio abilitati per SQL Azure, devono essere configurate con gli endpoint di servizio anche le dipendenze SQL Azure delle app. 
 
    ![Selezionare endpoint di servizio][2]
   
@@ -94,9 +94,9 @@ Firewall di Azure può inviare log ai log di Archiviazione di Azure, Hub eventi 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+L'integrazione del firewall di Azure con i log di monitoraggio di Azure è utile quando si esegue per la prima volta un'applicazione quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di monitoraggio di Azure, vedere [analizzare i dati del log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Le informazioni seguenti sono necessarie solo se si vuole configurare un'appliance firewall diversa da Firewall di Azure. 
 
@@ -110,7 +110,7 @@ Le informazioni seguenti sono necessarie solo se si vuole configurare un'applian
 
 | Endpoint |
 |----------|
-| Azure SQL |
+| SQL di Azure |
 | Archiviazione di Azure |
 | Hub eventi di Azure |
 
@@ -119,15 +119,15 @@ Le informazioni seguenti sono necessarie solo se si vuole configurare un'applian
 | Endpoint | Dettagli |
 |----------| ----- |
 | \*:123 | Controllo dell'orologio NTP. Il traffico viene verificato in più endpoint sulla porta 123. |
-| \*:12000 | Questa porta viene usata per alcune attività di monitoraggio del sistema. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
-| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
-| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
-| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
-| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
-| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
-| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
-| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
-| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
+| \*:12000 | Questa porta viene usata per alcune attività di monitoraggio del sistema. Se bloccato, alcuni problemi saranno più difficili da valutare, ma l'ambiente del servizio app continuerà a funzionare |
+| 40.77.24.27:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 40.77.24.27:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.90.249.229:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.90.249.229:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 104.45.230.69:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 104.45.230.69:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.82.184.151:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.82.184.151:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
 
 Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente con i tag FQDN. 
 
@@ -220,7 +220,7 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-| \*.identity.azure.net:443 |
+| \*. identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Dipendenze Linux 
 
@@ -235,7 +235,7 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
-| \*.cdn.mscr.io:443 |
+| \*. cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
@@ -252,15 +252,15 @@ Con Firewall di Azure, tutto ciò che segue viene configurato automaticamente co
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>US Gov dependencies
+## <a name="us-gov-dependencies"></a>Dipendenze US Gov
 
-For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
+Per US Gov è ancora necessario impostare gli endpoint di servizio per archiviazione, SQL e hub eventi.  È anche possibile usare il firewall di Azure con le istruzioni riportate in precedenza in questo documento. Se è necessario usare il proprio dispositivo firewall in uscita, gli endpoint sono elencati di seguito.
 
 | Endpoint |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
+| \*. ctldl.windowsupdate.com:80 |
+| \*. management.usgovcloudapi.net:80 |
+| \*. update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -303,9 +303,9 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com
-|ocsp.digicert.0 |
+|OCSP. DigiCert. 0 |
 |ocsp.msocsp.co|
-|ocsp.verisign.0 |
+|OCSP. Verisign. 0 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -317,7 +317,7 @@ For US Gov you still need to set service endpoints for Storage, SQL and Event Hu
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
+|\*. management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

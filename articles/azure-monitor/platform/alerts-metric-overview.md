@@ -28,16 +28,16 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
-- Condition Type: Static
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Supported time aggregations are Min, Max, Avg, Total, Count): Average
-- Period (The look back window over which metric values are checked): Over the last 5 mins
-- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
-- Operator: Greater Than
+- Tipo di condizione: static
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
+- Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
+- Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
+- Operatore: maggiore di
 - Soglia: 70
 
 Dal momento in cui viene creata la regola di avviso, il monitoraggio viene eseguito ogni minuto, analizza i valori delle metriche per gli ultimi 5 minuti e controlla se la media di questi valori supera 70. Se la condizione viene soddisfatta, ovvero il valore medio di CPU percentuale per gli ultimi 5 minuti supera 70, la regola di avviso genera una notifica attivata. Se è stata configurata un'azione di webhook o posta elettronica nel gruppo di azioni associato alla regola di avviso, si riceverà una notifica attivata su entrambe.
 
-When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
+Quando si usano più condizioni in una regola, la regola "con" le condizioni insieme.  Ovvero, l'avviso viene attivato quando tutte le condizioni nell'avviso restituiscono true e si risolvono quando una delle condizioni non è più vera. Un esempio di questo tipo di avviso è un avviso quando "CPU superiore al 90%" e "lunghezza della coda superiore a 300 elementi". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regola di avviso con tipo di condizione dinamica
 
@@ -45,14 +45,14 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
-- Condition Type: Dynamic
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Supported time aggregations are Min, Max, Avg, Total, Count): Average
-- Period (The look back window over which metric values are checked): Over the last 5 mins
-- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
-- Operator: Greater Than
-- Sensitivity: Medium
-- Look Back Periods: 4
-- Number of Violations: 4
+- Tipo di condizione: Dynamic
+- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le aggregazioni temporali supportate sono min, Max, AVG, Total, count): Average
+- Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
+- Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
+- Operatore: maggiore di
+- Sensibilità: media
+- Punti di ricerca indietro: 4
+- Numero di violazioni: 4
 
 Dopo la creazione della regola di avviso, l'algoritmo di Machine Learning relativo alle soglie dinamiche acquisisce i dati cronologici disponibili, calcola la soglia più adatta al modello di comportamento della serie di metriche e, in base ai nuovi dati, migliora continuamente l'apprendimento per rendere la soglia più precisa.
 
@@ -64,7 +64,7 @@ Gli esempi di generazione di regole di avviso riportati sopra possono essere vis
 
 Se l'utilizzo in "myVM" rimane al di sopra della soglia nei controlli successivi, la regola di avviso non verrà nuovamente generata fino alla risoluzione delle condizioni.
 
-After some time, the usage on "myVM" comes back down to normal (goes below the threshold). la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
+Dopo un certo periodo di tempo, l'utilizzo di "myVM" Torna al normale (scende al di sotto della soglia). la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
 
 Quando la notifica risolta viene inviata tramite posta elettronica o webhook, anche lo stato dell'istanza di avviso (denominato stato di monitoraggio) nel portale di Azure viene impostato come risolto.
 
@@ -76,7 +76,7 @@ Si supponga di avere un piano di servizio app per il sito Web. Si intende monito
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Condition Type: Static
+- Tipo di condizione: static
 - Dimensioni
   - Istanza = InstanceName1, InstanceName2
 - Aggregazione temporale: Media
@@ -91,7 +91,7 @@ Supponiamo di avere un'app Web che registra un numero di richieste elevato, a ca
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Condition Type: Static
+- Tipo di condizione: static
 - Dimensioni
   - Istanza = *
 - Aggregazione temporale: Media
@@ -108,16 +108,16 @@ Supponiamo di avere un'app Web con numerose istanze e di non sapere quale sia la
 
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
-- Condition Type: Dynamic
+- Tipo di condizione: Dynamic
 - Dimensioni
   - Istanza = *
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 minuto
 - Operatore: Maggiore di
-- Sensitivity: Medium
-- Look Back Periods: 1
-- Number of Violations: 1
+- Sensibilità: media
+- Punti di ricerca: 1
+- Numero di violazioni: 1
 
 Questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti supera il comportamento previsto per ogni istanza. Con la stessa regola è possibile monitorare le istanze in tempo reale senza dover modificare nuovamente la regola di avviso per la metrica. Ogni istanza otterrà una soglia adatta al modello di comportamento della serie di metriche e cambierà continuamente in base ai nuovi dati per rendere la soglia più precisa. Ogni istanza verrà monitorata individualmente e si riceveranno notifiche individuali.
 

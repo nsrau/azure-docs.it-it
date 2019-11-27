@@ -67,7 +67,7 @@ Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disp
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Azioni di arresto o riavvio avviate dall'utente
 
-If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
+Se si esegue un riavvio dalla portale di Azure, Azure PowerShell, dall'interfaccia della riga di comando o dall'API REST, è possibile trovare l'evento nel [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 Se si esegue l'azione dal sistema operativo della VM, è possibile trovare l'evento nei log di sistema.
 
@@ -101,7 +101,7 @@ Tutte le macchine virtuali presenti nell'host vengono automaticamente riassegnat
 
 In rare occasioni, è possibile che il team operativo di Azure debba eseguire alcune attività di manutenzione per garantire l'integrità complessiva della piattaforma Azure. Questo comportamento può influire sulla disponibilità della macchina virtuale e in genere determina la stessa azione di recupero automatico descritta in precedenza.  
 
-Unplanned maintenance include the following:
+La manutenzione non pianificata include quanto segue:
 
 - Deframmentazione urgente di un nodo
 - Aggiornamenti urgenti di switch di rete
@@ -118,7 +118,7 @@ La durata dell'arresto può essere di cinque minuti o molto più lunga. Di segui
 
 **Superamento dei limiti di I/O**
 
-È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. (L'archiviazione su disco standard è limitata a 500 IOPS). Per attenuare questo problema, usare lo striping del disco o configurare lo spazio di archiviazione all'interno della macchina virtuale Guest, a seconda del carico di lavoro. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Altri eventi imprevisti
 

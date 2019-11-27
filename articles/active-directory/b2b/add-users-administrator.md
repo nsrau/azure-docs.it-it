@@ -45,14 +45,14 @@ Per aggiungere utenti di Collaborazione B2B alla directory, seguire questa proce
    > [!NOTE]
    > L'opzione **Nuovo utente guest** è disponibile anche nella pagina **Relazioni aziendali**. In **Azure Active Directory**, nell'area **Gestisci**, selezionare **Relazioni aziendali**.
 
-5. Nella pagina **nuovo utente** selezionare **invita utente** e quindi aggiungere le informazioni dell'utente Guest. 
+5. Nella pagina **Nuovo utente** selezionare **Invita l'utente** e quindi aggiungere le informazioni dell'utente Guest. 
 
     > [!NOTE]
     > Gli indirizzi e-mail di gruppo non sono supportati; inserire l'indirizzo e-mail di una sola persona. Alcuni provider di posta elettronica consentono agli utenti di aggiungere il simbolo più (+) e il testo aggiuntivo ai relativi indirizzi e-mail per consentire operazioni come il filtraggio della posta in arrivo. Tuttavia, Azure AD attualmente non supporta più simboli in indirizzi di posta elettronica. Per evitare problemi di recapito, omettere il simbolo di segno più e tutti i caratteri seguenti fino al simbolo @.
 
-   - **Nome.** Il primo e il cognome dell'utente Guest.
-   - **Indirizzo di posta elettronica (obbligatorio)** . Indirizzo di posta elettronica dell'utente Guest.
-   - **Messaggio personale (facoltativo)** Includere un messaggio di benvenuto personale per l'utente Guest.
+   - **Nome.** Nome e cognome dell'utente guest.
+   - **Indirizzo e-mail (obbligatorio)** . Indirizzo e-mail dell'utente guest.
+   - **Messaggio personale (facoltativo)** .Includere un messaggio di benvenuto personale per l'utente guest.
    - **Gruppi**: è possibile aggiungere l'utente Guest a uno o più gruppi esistenti oppure è possibile eseguire questa operazione in un secondo momento.
    - **Ruolo della directory**: se è necessario Azure ad autorizzazioni amministrative per l'utente, è possibile aggiungerle a un ruolo di Azure ad. 
 

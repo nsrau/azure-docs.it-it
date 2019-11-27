@@ -1,6 +1,6 @@
 ---
-title: Setup your environment for Blueprint Operator
-description: Learn how to configure your Azure environment for use with the Blueprint Operator built-in role-based access control (RBAC) role.
+title: Configurare l'ambiente per l'operatore Blueprint
+description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito di controllo degli accessi in base al ruolo (RBAC).
 ms.date: 08/26/2019
 ms.topic: conceptual
 ms.openlocfilehash: 671ac3aaf42bddb3e775baec6838e4c271c4e855
@@ -12,27 +12,27 @@ ms.locfileid: "74406364"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di Blueprint
 
-The management of your blueprint definitions and blueprint assignments can be assigned to different teams. It's common for an architect or governance team to be responsible for the lifecycle management of your blueprint definitions while an operations team is responsible for managing assignments of those centrally controlled blueprint definitions.
+La gestione delle definizioni dei progetti e delle assegnazioni di progetto può essere assegnata a team diversi. È comune che un progettista o un team di governance sia responsabile della gestione del ciclo di vita delle definizioni del progetto, mentre un team operativo è responsabile della gestione delle assegnazioni di tali definizioni di progetto controllate centralmente.
 
-The **Blueprint Operator** built-in role-based access control (RBAC) is designed specifically for use in this type of scenario. The role allows for operations type teams to manage the assignment of the organizations blueprint definitions, but not the ability to modify them. Doing so requires some configuration in your Azure environment and this article explains the necessary steps.
+Il controllo degli accessi in base al ruolo incorporato nell' **operatore Blueprint** è stato progettato in modo specifico per l'uso in questo tipo di scenario. Il ruolo consente ai team dei tipi di operazioni di gestire l'assegnazione delle definizioni del progetto dell'organizzazione, ma non di modificarle. Questa operazione richiede una configurazione nell'ambiente Azure e in questo articolo vengono illustrati i passaggi necessari.
 
-## <a name="grant-permission-to-the-blueprint-operator"></a>Grant permission to the Blueprint Operator
+## <a name="grant-permission-to-the-blueprint-operator"></a>Concedere l'autorizzazione all'operatore Blueprint
 
-The first step is to grant the **Blueprint Operator** role to the account or security group (recommended) that is going to be assigning blueprints. This action should be done at the highest level in the management group hierarchy that encompasses all of the management groups and subscriptions the operations team should have blueprint assignment access to. It's recommended to follow the principle of least privilege when granting these permissions.
+Il primo passaggio consiste nel concedere il ruolo di **operatore Blueprint** all'account o al gruppo di sicurezza (scelta consigliata) che sta per assegnare i progetti. Questa azione deve essere eseguita al livello più elevato nella gerarchia del gruppo di gestione che comprende tutti i gruppi di gestione e le sottoscrizioni a cui il team operativo deve disporre dell'accesso di assegnazione progetto. Quando si concedono tali autorizzazioni, è consigliabile seguire il principio dei privilegi minimi.
 
-1. (Recommended) [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
+1. Consigliabile [Creare un gruppo di sicurezza e aggiungere membri](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) of **Blueprint Operator** to the account or security group
+1. [Aggiungere un'assegnazione di ruolo](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) dell' **operatore Blueprint** all'account o al gruppo di sicurezza
 
-## <a name="user-assign-managed-identity"></a>User-assign managed identity
+## <a name="user-assign-managed-identity"></a>Utente-assegna identità gestita
 
-A blueprint definition can use either system-assigned or user-assigned managed identities. However, when using the **Blueprint Operator** role, the blueprint definition needs to be configured to use a user-assigned managed identity. Additionally, the account or security group being granted the **Blueprint Operator** role needs to be granted the **Managed Identity Operator** role on the user-assigned managed identity. Without this permission, blueprint assignments fail because of lack of permissions.
+Una definizione di progetto può usare identità gestite assegnate dal sistema o dall'utente. Tuttavia, quando si usa il ruolo **operatore progetto** , la definizione del progetto deve essere configurata in modo da usare un'identità gestita assegnata dall'utente. Inoltre, all'account o al gruppo di sicurezza a cui viene concesso il ruolo di **operatore Blueprint** deve essere concesso il ruolo di **operatore identità gestito** nell'identità gestita assegnata dall'utente. Senza questa autorizzazione, le assegnazioni di progetto hanno esito negativo a causa della mancanza di autorizzazioni.
 
-1. [Create a user-assigned managed identity](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) for use by an assigned blueprint
+1. [Creare un'identità gestita assegnata dall'utente](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) per l'uso da un progetto assegnato
 
-1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) of **Managed Identity Operator** to the account or security group. Scope the role assignment to the new user-assigned managed identity.
+1. [Aggiungere un'assegnazione di ruolo](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) dell' **operatore di identità gestito** all'account o al gruppo di sicurezza. Definire l'ambito dell'assegnazione di ruolo alla nuova identità gestita assegnata dall'utente.
 
-1. As the **Blueprint Operator**, [assign a blueprint](../create-blueprint-portal.md#assign-a-blueprint) that uses the new user-assigned managed identity.
+1. Come **operatore del progetto**, [assegnare un progetto](../create-blueprint-portal.md#assign-a-blueprint) che usi la nuova identità gestita assegnata dall'utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

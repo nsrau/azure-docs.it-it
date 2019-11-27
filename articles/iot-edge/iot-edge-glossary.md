@@ -22,4 +22,4 @@ Questo articolo elenca alcuni dei termini comuni usati negli articoli su IoT Edg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[IoT Hub glossary](../iot-hub/iot-hub-devguide-glossary.md)
+[Glossario dell'hub Internet delle cose](../iot-hub/iot-hub-devguide-glossary.md)

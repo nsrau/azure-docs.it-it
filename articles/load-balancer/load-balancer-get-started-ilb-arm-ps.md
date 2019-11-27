@@ -23,9 +23,9 @@ ms.locfileid: "74225395"
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -90,7 +90,7 @@ Creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico. S
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per tutte le risorse in questo gruppo di risorse. Usare sempre lo stesso gruppo di risorse per tutti i comandi correlati alla creazione del servizio di bilanciamento del carico.
+Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per tutte le risorse in questo gruppo di risorse. Usare sempre lo stesso gruppo di risorse per tutti i comandi correlati alla creazione del servizio di bilanciamento del carico.
 
 Nell'esempio è stato creato un gruppo di risorse denominato **NRP-RG** nell'area Stati Uniti occidentali.
 
@@ -251,7 +251,7 @@ Dopo aver creato la macchina virtuale, aggiungere l'interfaccia di rete.
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>Passaggio 1: Archiviare la risorsa di bilanciamento del carico
 
-Se non è già stato fatto, archiviare la risorsa di bilanciamento del carico in una variabile. We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
+Se non è già stato fatto, archiviare la risorsa di bilanciamento del carico in una variabile. Si sta usando il nome della variabile **$lb**. Per i valori degli attributi nello script, usare i nomi per le risorse del servizio di bilanciamento del carico create nei passaggi precedenti.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

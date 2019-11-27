@@ -44,7 +44,7 @@ La tecnologia di clustering principale di Service Fabric può essere usata per u
 
 Se si è interessati a questo scenario, è consigliabile contattare Microsoft tramite la pagina di [elenco di problemi di Service Fabric su GitHub](https://github.com/azure/service-fabric-issues) oppure tramite il rappresentante del supporto tecnico per ottenere informazioni aggiuntive. Il team di Service Fabric sta lavorando per fornire ulteriori informazioni, materiale sussidiario e consigli per questo scenario. 
 
-Ecco alcuni aspetti da considerare: 
+Alcuni aspetti da considerare: 
 
 1. La risorsa cluster di Service Fabric in Azure è ora divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Ciò significa che in caso di malfunzionamento di un'area si potrebbe perdere la possibilità di gestire il cluster tramite Azure Resource Manager o il portale di Azure. Questa situazione può verificarsi anche se il cluster resta in esecuzione ed è possibile interagire direttamente con esso. Azure inoltre attualmente non offre la possibilità di disporre di una singola rete virtuale che può essere usata tra le aree. Ciò significa che un cluster con più aree in Azure richiede [indirizzi IP pubblici per ogni macchina virtuale nei set di scalabilità di macchine virtuali di Microsoft Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Queste opzioni di rete hanno effetti diversi sui costi, sulle prestazioni e su alcuni livelli di progettazione di applicazioni. È richiesta un'attenta analisi e una pianificazione prima di affrontare un ambiente di questo tipo.
 2. La manutenzione, gestione e monitoraggio di tali computer possono diventare complicati, soprattutto quando estesi su _tipi_ di ambienti, ad esempio tra provider di cloud diversi o tra risorse locali e Azure. È necessario determinare accuratamente gli aggiornamenti, il monitoraggio, la gestione e la diagnostica per il cluster e le applicazioni prima di eseguire i carichi di lavoro di produzione in tale ambiente. Se si ha già esperienza di risoluzione di questi problemi in Azure o nei propri data center, è possibile che si possano applicare queste stesse soluzioni durante la compilazione o l'esecuzione del cluster di Service Fabric. 
@@ -104,7 +104,7 @@ Se si desidera creare cluster per testare l'applicazione prima di distribuirla, 
 Mentre Microsoft sviluppa un'esperienza migliorata oggi l'utente è responsabile dell'aggiornamento. È necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster per una macchina virtuale per volta. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile crittografare i dischi dati collegati in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
-Sì.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) and [Azure Disk Encryption for Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-overview.md).
+Sì.  Per altre informazioni, vedere [creare un cluster con dischi dati collegati](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [crittografia dischi di Azure per i set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile usare macchine virtuali con priorità bassa in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
 No. Le macchine virtuali con priorità bassa non sono supportate. 
@@ -135,8 +135,8 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>In che modo è possibile autenticare l'applicazione con Key Vault per ottenere i segreti?
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
-R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
-B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+a. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
+B. Per gli host abilitati per il set di scalabilità di macchine virtuali, è possibile sviluppare un SetupEntryPoint di PowerShell semplice per l'app SF per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti dall'](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)insieme di credenziali delle chiavi.
 
 ## <a name="application-design"></a>Progettazione di applicazioni
 
@@ -146,8 +146,8 @@ Le raccolte Reliable Collections sono in genere [partizionate](service-fabric-co
 
 - Creare un servizio che esegua una query di tutte le partizioni di un altro servizio per estrarre i dati richiesti.
 - Creare un servizio che possa ricevere dati da tutte le partizioni di un altro servizio.
-- Inviare periodicamente dati da ogni servizio in un archivio esterno. This approach is only appropriate if the queries you're performing are not part of your core business logic, as the external store's data will be stale.
-- Alternatively, store data that must support querying across all records directly in a data store rather than in a reliable collection. This eliminates the issue with stale data, but doesn't allow the advantages of reliable collections to be leveraged.
+- Inviare periodicamente dati da ogni servizio in un archivio esterno. Questo approccio è appropriato solo se le query eseguite non fanno parte della logica di business principale, perché i dati dell'archivio esterno saranno obsoleti.
+- In alternativa, archiviare i dati che devono supportare l'esecuzione di query su tutti i record direttamente in un archivio dati invece che in una raccolta reliable. In questo modo si elimina il problema con i dati non aggiornati, ma non vengono utilizzati i vantaggi delle raccolte affidabili.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Qual è il modo migliore per eseguire query sui dati nei vari attori?
@@ -193,4 +193,4 @@ Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md) ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
+Informazioni sui [concetti di base Service Fabric](service-fabric-technical-overview.md) e sulle [procedure](service-fabric-best-practices-overview.md) consigliate per i concetti di infrastruttura di Ice (Service-Fabric-Technical-Overview.MD) e [sulle procedure consigliate](service-fabric-best-practices-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Enterprise State Roaming in Azure Active Directory
+title: Risolvere i problemi di Enterprise State Roaming in Azure Active Directory
 description: Fornisce le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app.
 services: active-directory
 ms.service: active-directory
@@ -66,9 +66,9 @@ Enterprise State Roaming richiede che il dispositivo sia registrato con Azure AD
 1. Dopo aver aperto il prompt dei comandi, digitare "*dsregcmd.exe /status*".
 1. Per ottenere l'output previsto, il valore del campo **AzureAdJoined** deve essere "SÌ", il valore del campo **WamDefaultSet** deve essere "SÌ" e il valore del campo **WamDefaultGUID** deve essere un GUID con "(AzureAd)" alla fine.
 
-**Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device does not sync. If it is showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. L'utente potrebbe dover attendere alcune ore per l'applicazione dei criteri. Altri passaggi di risoluzione dei problemi potrebbero includere un nuovo tentativo di registrazione automatica mediante disconnessione e riconnessione o l'avvio dell'attività nell'Utilità di pianificazione. In alcuni casi eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
+**Potenziale problema**: **WamDefaultSet** e **AzureAdJoined** hanno entrambi "No" nel valore del campo, il dispositivo è stato aggiunto a un dominio e registrato con Azure ad e il dispositivo non viene sincronizzato. Se viene visualizzato questo problema, potrebbe essere necessario attendere che i criteri vengano applicati o che l'autenticazione del dispositivo non sia riuscita durante la connessione a Azure AD. L'utente potrebbe dover attendere alcune ore per l'applicazione dei criteri. Altri passaggi di risoluzione dei problemi potrebbero includere un nuovo tentativo di registrazione automatica mediante disconnessione e riconnessione o l'avvio dell'attività nell'Utilità di pianificazione. In alcuni casi eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
 
-**Potential issue**: The field for **SettingsUrl** is empty and the device does not sync. The user may have last logged in to the device before Enterprise State Roaming was enabled in the Azure Active Directory Portal. Riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Facoltativamente, nel portale l'amministratore IT può provare a passare ad **Azure Active Directory** > **Dispositivi** > **Enterprise State Roaming** e quindi disabilitare e riabilitare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Una volta riattivata l'opzione, riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Se il problema non viene risolto, il campo **SettingsUrl** potrebbe essere vuoto in caso di un certificato del dispositivo non valido. In questo caso eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
+**Potenziale problema**: il campo per **SettingsUrl** è vuoto e il dispositivo non viene sincronizzato. È possibile che l'utente abbia effettuato l'ultimo accesso al dispositivo prima che Enterprise State Roaming sia stato abilitato nel portale di Azure Active Directory. Riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Facoltativamente, nel portale l'amministratore IT può provare a passare ad **Azure Active Directory** > **Dispositivi** > **Enterprise State Roaming** e quindi disabilitare e riabilitare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Una volta riattivata l'opzione, riavviare il dispositivo e fare in modo che l'utente esegua l'accesso. Se il problema non viene risolto, il campo **SettingsUrl** potrebbe essere vuoto in caso di un certificato del dispositivo non valido. In questo caso eseguendo "*dsregcmd.exe /leave*" in una finestra del prompt dei comandi con privilegi elevati, riavviando e ripetendo il tentativo di registrazione si può risolvere il problema.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming e Multi-Factor Authentication 
 
@@ -76,7 +76,7 @@ In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a si
 
 **Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere la Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero riuscire comunque a sincronizzare l'accesso ai dispositivi Windows 10 tramite il PIN Microsoft Passport for Work o eseguendo la Multi-Factor Authentication durante l'accesso ad altri servizi Azure, come Office 365.
 
-**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
+**Potenziale problema**: la sincronizzazione può non riuscire se l'amministratore configura il Active Directory Federation Services multi-factor authentication i criteri di accesso condizionale e il token di accesso nel dispositivo scade. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
 
 ### <a name="event-viewer"></a>Aprire il Visualizzatore eventi
 
@@ -107,7 +107,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Per evitare la perdita di dati, i dati protetti con [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise State Roaming per i dispositivi con Windows 10 Anniversary Update.
 
 **Azione consigliata**  
-None. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 
@@ -116,7 +116,7 @@ None. È possibile che questo problema venga risolto da aggiornamenti futuri di 
 Nei dispositivi aggiunti a un dominio non verranno sincronizzati la data, l'ora e l'ora automatica dell'area. L'uso dell'ora automatica potrebbe sovrascrivere le altre impostazioni di data, ora e area e causare la mancata sincronizzazione di queste impostazioni. 
 
 **Azione consigliata**  
-None. 
+Nessuno. 
 
 ---
 
@@ -134,7 +134,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Se si tenta di accedere al dispositivo Windows utilizzando una smart card, anche virtuale, la sincronizzazione delle impostazioni cesserà di funzionare.     
 
 **Azione consigliata**  
-None. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 

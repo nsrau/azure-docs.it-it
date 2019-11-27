@@ -52,7 +52,7 @@ Al termine dell'individuazione, se sono state fornite le credenziali per l'indiv
 1. In **Azure migrate-server** > **Azure migrate: server Assessment**, fare clic sul conteggio visualizzato per aprire la pagina **server individuati** .
 
     > [!NOTE]
-    > In questa fase è anche possibile impostare facoltativamente il mapping delle dipendenze per i computer individuati, in modo che sia possibile visualizzare le dipendenze tra i computer che si desidera valutare. [Altre informazioni](how-to-create-group-machine-dependencies.md).
+    > In questa fase è anche possibile impostare facoltativamente il mapping delle dipendenze per i computer individuati, in modo che sia possibile visualizzare le dipendenze tra i computer che si desidera valutare. [Altre informazioni](how-to-create-group-machine-dependencies.md)
 
 2. In **applicazioni individuate**fare clic sul conteggio visualizzato.
 3. Nell' **inventario delle applicazioni**è possibile esaminare le app, i ruoli e le funzionalità individuate.

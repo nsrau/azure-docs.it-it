@@ -21,7 +21,7 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 - [AuditIfNotExists](#auditifnotexists)
 - [Negare](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabilitata](#disabled)
+- [Disabilitato](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (anteprima)
 - [EnforceRegoPolicy](#enforceregopolicy) (anteprima)
 - [Modificare](#modify)

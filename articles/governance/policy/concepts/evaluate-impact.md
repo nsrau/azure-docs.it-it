@@ -1,6 +1,6 @@
 ---
-title: Evaluate the impact of a new Azure policy
-description: Understand the process to follow when introducing a new policy definition into your Azure environment.
+title: Valutare l'effetto di un nuovo criterio di Azure
+description: Comprendere il processo da seguire quando si introduce una nuova definizione dei criteri nell'ambiente Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
@@ -10,67 +10,67 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463517"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Evaluate the impact of a new Azure policy
+# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Valutare l'effetto di un nuovo criterio di Azure
 
-Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet compliance needs. When people, processes, or pipelines create or update resources, Azure Policy reviews the request. When the policy definition effect is [Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the creation or alteration of the request.
+Criteri di Azure è uno strumento potente per gestire le risorse di Azure in base agli standard aziendali e soddisfare le esigenze di conformità. Quando persone, processi o pipeline creano o aggiornano risorse, i criteri di Azure esaminano la richiesta. Quando l'effetto della definizione dei criteri è [Append](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), Policy modifica la richiesta o la aggiunge. Quando l'effetto della definizione dei criteri è [Audit](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), Policy causa la creazione di una voce del log attività. Quando l'effetto della definizione dei criteri è [Deny](./effects.md#deny), il criterio interrompe la creazione o l'alterazione della richiesta.
 
-These outcomes are exactly as desired when you know the policy is defined correctly. However, it's important to validate a new policy works as intended before allowing it to change or block work. The validation must ensure only the intended resources are determined to be non-compliant and no compliant resources are incorrectly included (known as a _false positive_) in the results.
+Questi risultati sono esattamente quelli desiderati quando si è certi che i criteri siano definiti correttamente. Tuttavia, è importante convalidare un nuovo criterio funziona come previsto prima di consentire la modifica o bloccare il lavoro. La convalida deve garantire che vengano determinate solo le risorse desiderate come non conformi e che nel risultato non sia inclusa erroneamente alcuna risorsa conforme (nota come _falso positivo_).
 
-The recommended approach to validating a new policy definition is by following these steps:
+L'approccio consigliato per la convalida di una nuova definizione dei criteri consiste nella procedura seguente:
 
-- Tightly define your policy
-- Audit your existing resources
-- Audit new or updated resource requests
-- Deploy your policy to resources
+- Definire strettamente i criteri
+- Controllare le risorse esistenti
+- Controlla richieste di risorse nuove o aggiornate
+- Distribuire i criteri alle risorse
 - Monitoraggio continuo
 
-## <a name="tightly-define-your-policy"></a>Tightly define your policy
+## <a name="tightly-define-your-policy"></a>Definire strettamente i criteri
 
-It's important to understand how the business policy is implemented as a policy definition and the relationship of Azure resources with other Azure services. This step is accomplished by [identifying the requirements](../tutorials/create-custom-policy-definition.md#identify-requirements) and [determining the resource properties](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
-But it's also important to see beyond the narrow definition of your business policy. Does your policy state for example "All Virtual Machines must..."? What about other Azure services that make use of VMs, such as HDInsight or AKS? When defining a policy, we must consider how this policy impacts resources that are used by other services.
+È importante comprendere come vengono implementati i criteri di business come definizione dei criteri e la relazione delle risorse di Azure con altri servizi di Azure. Questo passaggio viene eseguito [identificando i requisiti](../tutorials/create-custom-policy-definition.md#identify-requirements) e [determinando le proprietà delle risorse](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
+Tuttavia, è anche importante vedere oltre la definizione stretta dei criteri di business. Lo stato del criterio, ad esempio "tutte le macchine virtuali deve..."? Quali sono gli altri servizi di Azure che usano macchine virtuali, ad esempio HDInsight o AKS? Quando si definiscono i criteri, è necessario considerare il modo in cui questo criterio influisca sulle risorse utilizzate da altri servizi.
 
-For this reason, your policy definitions should be as tightly defined and focused on the resources and the properties you need to evaluate for compliance as possible.
+Per questo motivo, le definizioni dei criteri devono essere definite strettamente e incentrate sulle risorse e sulle proprietà necessarie per valutare la conformità.
 
-## <a name="audit-existing-resources"></a>Audit existing resources
+## <a name="audit-existing-resources"></a>Controllare le risorse esistenti
 
-Before looking to manage new or updated resources with your new policy definition, it's best to see how it evaluates a limited subset of existing resources, such as a test resource group. Use the [enforcement mode](./assignment-structure.md#enforcement-mode)
-_Disabled_ (DoNotEnforce) on your policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from being created.
+Prima di cercare di gestire risorse nuove o aggiornate con la nuova definizione dei criteri, è consigliabile vedere come valuta un subset limitato di risorse esistenti, ad esempio un gruppo di risorse di test. Utilizzare la [modalità di imposizione](./assignment-structure.md#enforcement-mode)
+_disabilitato_ (DoNotEnforce) nell' [assegnazione dei criteri](./effects.md) per impedire che venga creato il trigger o le voci del log attività.
 
-This step gives you a chance to evaluate the compliance results of the new policy on existing resources without impacting work flow. Check that no compliant resources are marked as non-compliant (_false positive_) and that all the resources you expect to be non-compliant are marked correctly.
-After the initial subset of resources validates as expected, slowly expand the evaluation to all existing resources.
+Questo passaggio consente di valutare i risultati di conformità del nuovo criterio sulle risorse esistenti senza influire sul flusso di lavoro. Verificare che non siano presenti risorse conformi contrassegnate come non conformi (_falso positivo_) e che tutte le risorse che si prevede siano non conformi siano contrassegnate correttamente.
+Dopo che il subset iniziale di risorse è stato convalidato come previsto, espandere lentamente la valutazione per tutte le risorse esistenti.
 
-Evaluating existing resources in this way also provides an opportunity to remediate non-compliant resources before full implementation of the new policy. This cleanup can be done manually or through a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is _DeployIfNotExists_.
+La valutazione delle risorse esistenti in questo modo consente anche di monitorare e aggiornare le risorse non conformi prima dell'implementazione completa del nuovo criterio. Questa pulitura può essere eseguita manualmente o tramite un' [attività di monitoraggio e aggiornamento](../how-to/remediate-resources.md) se l'effetto della definizione dei criteri è _DeployIfNotExists_.
 
-## <a name="audit-new-or-updated-resources"></a>Audit new or updated resources
+## <a name="audit-new-or-updated-resources"></a>Controllare le risorse nuove o aggiornate
 
-Once you've validated your new policy definition is reporting correctly on existing resources, it's time to look at the impact of the policy when resources get created or updated. If the policy definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration allows you to monitor the creation and updating of resources to see if the new policy definition triggers an entry in Azure Activity log for a resource that is non-compliant without impacting existing work or requests.
+Una volta convalidata la nuova definizione dei criteri, la creazione di report avviene correttamente per le risorse esistenti, è il momento di esaminare l'effetto del criterio quando le risorse vengono create o aggiornate. Se la definizione dei criteri supporta la parametrizzazione dell'effetto, utilizzare [Audit](./effects.md#audit). Questa configurazione consente di monitorare la creazione e l'aggiornamento delle risorse per verificare se la nuova definizione dei criteri attiva una voce nel log attività di Azure per una risorsa non conforme senza alcun effetto sulle richieste o sul lavoro esistente.
 
-It's recommended to both update and create new resources that match your policy definition to see that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
-These impacted resources are another example of _false positives_ and must be fixed in the policy definition before full implementation.
+È consigliabile aggiornare e creare nuove risorse corrispondenti alla definizione dei criteri per verificare che l'effetto di _controllo_ venga attivato correttamente quando previsto. Trovarsi in Lookout per le richieste di risorse che non devono essere interessate dalla nuova definizione dei criteri che attiva l'effetto di _controllo_ .
+Queste risorse interessate sono un altro esempio di _falsi positivi_ e devono essere corrette nella definizione dei criteri prima dell'implementazione completa.
 
-In the event the policy definition is changed at this stage of testing, it's recommended to begin the validation process over with the auditing of existing resources. A change to the policy definition for a _false positive_ on new or updated resources is likely to also have an impact on existing resources.
+Nel caso in cui la definizione dei criteri venga modificata in questa fase di test, è consigliabile iniziare il processo di convalida con il controllo delle risorse esistenti. Una modifica alla definizione dei criteri per un _falso positivo_ sulle risorse nuove o aggiornate potrebbe avere anche un impatto sulle risorse esistenti.
 
-## <a name="deploy-your-policy-to-resources"></a>Deploy your policy to resources
+## <a name="deploy-your-policy-to-resources"></a>Distribuire i criteri alle risorse
 
-After completing validation of your new policy definition with both existing resources and new or updated resource requests, you begin the process of implementing the policy. It's recommended to create the policy assignment for the new policy definition to a subset of all resources first, such as a resource group. After validating initial deployment, extend the scope of the policy to broader and broader levels, such as subscriptions and management groups. This expansion is achieved by removing the assignment and creating a new one at the target scopes until it's assigned to the full scope of resources intended to be covered by your new policy definition.
+Dopo aver completato la convalida della nuova definizione dei criteri con risorse esistenti e richieste di risorse nuove o aggiornate, si inizia il processo di implementazione del criterio. È consigliabile creare l'assegnazione dei criteri per la nuova definizione dei criteri a un subset di tutte le risorse, ad esempio un gruppo di risorse. Dopo aver convalidato la distribuzione iniziale, estendere l'ambito dei criteri a livelli più ampi e più ampi, ad esempio le sottoscrizioni e i gruppi di gestione. Questa espansione viene eseguita rimuovendo l'assegnazione e creandone una nuova negli ambiti di destinazione fino a quando non viene assegnata all'ambito completo delle risorse destinate a essere coperte dalla nuova definizione dei criteri.
 
-During rollout, if resources are located that should be exempt from your new policy definition, address them in one of the following ways:
+Durante l'implementazione, se si trovano risorse che devono essere esentate dalla nuova definizione dei criteri, risolverle in uno dei modi seguenti:
 
-- Update the policy definition to be more explicit to reduce unintended impact
-- Change the scope of the policy assignment (by removing and creating a new assignment)
-- Add the group of resources to the exclusion list for the policy assignment
+- Aggiornare la definizione dei criteri in modo che sia più esplicita per ridurre l'effetto imprevisto
+- Modificare l'ambito dell'assegnazione di criteri (rimuovendo e creando una nuova assegnazione)
+- Aggiungere il gruppo di risorse all'elenco di esclusione per l'assegnazione dei criteri
 
-Any changes to the scope (level or exclusions) should be fully validated and communicated with your security and compliance organizations to ensure there are no gaps in coverage.
+Tutte le modifiche apportate all'ambito (livello o esclusioni) devono essere completamente convalidate e comunicate con le organizzazioni di sicurezza e conformità per assicurarsi che non vi siano gap nel code coverage.
 
-## <a name="monitor-your-policy-and-compliance"></a>Monitor your policy and compliance
+## <a name="monitor-your-policy-and-compliance"></a>Monitorare i criteri e la conformità
 
-Implementing and assigning your policy definition isn't the final step. Continuously monitor the [compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and setup appropriate [Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md) for when non-compliant devices are identified. It's also recommended to evaluate the policy definition and related assignments on a scheduled basis to validate the policy definition is meeting business policy and compliance needs. Policies should be removed if no longer needed. Policies also need updating from time to time as the underlying Azure resources evolve and add new properties and capabilities.
+L'implementazione e l'assegnazione della definizione dei criteri non è il passaggio finale. Monitora costantemente il livello di [conformità](../how-to/get-compliance-data.md) delle risorse alla nuova definizione dei criteri e imposta [avvisi e notifiche di monitoraggio di Azure](../../../azure-monitor/platform/alerts-overview.md) appropriati per l'identificazione di dispositivi non conformi. È inoltre consigliabile valutare la definizione dei criteri e le assegnazioni correlate in base a una pianificazione per convalidare che la definizione dei criteri soddisfi le esigenze di conformità e i criteri aziendali. I criteri devono essere rimossi se non sono più necessari. Anche i criteri richiedono l'aggiornamento di tanto in tanto quando le risorse di Azure sottostanti si evolvono e aggiungono nuove proprietà e funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Learn about the [policy definition structure](./definition-structure.md).
-- Learn about the [policy assignment structure](./assignment-structure.md).
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/get-compliance-data.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- Informazioni sulla [struttura della definizione dei criteri](./definition-structure.md).
+- Informazioni sulla [struttura di assegnazione dei criteri](./assignment-structure.md).
+- Informazioni su come [creare criteri a livello di codice](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/get-compliance-data.md).
+- Informazioni su come monitorare e [aggiornare le risorse non conformi](../how-to/remediate-resources.md).
 - Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

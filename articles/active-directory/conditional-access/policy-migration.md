@@ -1,5 +1,5 @@
 ---
-title: Migrate Conditional Access policies - Azure Active Directory
+title: Eseguire la migrazione dei criteri di accesso condizionale-Azure Active Directory
 description: Informazioni che è necessario conoscere per eseguire la migrazione dei criteri classici nel portale di Azure.
 services: active-directory
 ms.service: active-directory
@@ -18,28 +18,28 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380547"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>What is a policy migration in Azure Active Directory Conditional Access? 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Che cos'è una migrazione dei criteri in Azure Active Directory accesso condizionale? 
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
+[L'accesso condizionale](../active-directory-conditional-access-azure-portal.md) è una funzionalità di Azure Active directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Anche se lo scopo è sempre lo stesso, il rilascio del nuovo portale di Azure ha introdotto miglioramenti significativi nel funzionamento dell'accesso condizionale.
 
 Valutare la possibilità di eseguire la migrazione dei criteri che non sono stati creati nel portale di Azure per i motivi seguenti:
 
 - È ora possibile gestire scenari che in precedenza non era possibile gestire.
 - Il consolidamento consente di ridurre il numero di criteri da gestire.   
-- You can manage all your Conditional Access policies in one central location.
+- È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centrale.
 - Il portale di Azure classico verrà ritirato.   
 
-This article explains what you need to know to migrate your existing Conditional Access policies to the new framework.
+Questo articolo spiega cosa è necessario sapere per eseguire la migrazione dei criteri di accesso condizionale esistenti al nuovo Framework.
  
 ## <a name="classic-policies"></a>Criteri classici
 
-In the [Azure portal](https://portal.azure.com), the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page is your entry point to your Conditional Access policies. However, in your environment, you might also have Conditional Access policies you have not created using this page. ovvero i *criteri classici*. Classic policies are Conditional Access policies, you have created in:
+Nella [portale di Azure](https://portal.azure.com)la pagina [accesso condizionale-criteri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) è il punto di ingresso per i criteri di accesso condizionale. Tuttavia, nell'ambiente in uso, è possibile che i criteri di accesso condizionale non siano stati creati in questa pagina. ovvero i *criteri classici*. I criteri classici sono criteri di accesso condizionale creati in:
 
 - Portale di Azure classico
 - Portale di Intune classico
 - Portale di Protezione app di Intune
 
-On the **Conditional Access** page, you can access your classic policies by clicking [**Classic policies (preview)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in the **Manage** section. 
+Nella pagina **accesso condizionale** è possibile accedere ai criteri classici facendo clic su [**criteri classici (anteprima)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) nella sezione **Gestisci** . 
 
 ![Azure Active Directory](./media/policy-migration/71.png)
 
@@ -53,7 +53,7 @@ La visualizzazione **Criteri classici** consente di eseguire queste operazioni:
 
    ![Azure Active Directory](./media/policy-migration/73.png)
    
-- Review the settings of a classic policy (and to disable it).
+- Esaminare le impostazioni di un criterio classico (e per disabilitarlo).
 
    ![Azure Active Directory](./media/policy-migration/74.png)
 
@@ -63,19 +63,19 @@ Una volta disabilitati, i criteri classici non possono più essere ripristinati.
 
 Modificando i gruppi selezionati o escludendo gruppi specifici, è possibile testare l'effetto dei criteri classici disabilitati per alcuni utenti di test prima di disabilitare i criteri per tutti gli utenti e i gruppi inclusi. 
 
-## <a name="azure-ad-conditional-access-policies"></a>Azure AD Conditional Access policies
+## <a name="azure-ad-conditional-access-policies"></a>Azure AD criteri di accesso condizionale
 
-With Conditional Access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how Conditional Access has changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
+Con l'accesso condizionale nella portale di Azure è possibile gestire tutti i criteri in un'unica posizione centrale. Poiché l'implementazione del modo in cui l'accesso condizionale è stato modificato, è necessario acquisire familiarità con i concetti di base prima di eseguire la migrazione dei criteri classici.
 
 Vedere:
 
-- [What is Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md) to get some guidance on deploying Conditional Access in your organization.
-- [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
+- Informazioni sull' [accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) per apprendere i concetti di base e la terminologia.
+- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md) per ottenere indicazioni sulla distribuzione dell'accesso condizionale nell'organizzazione.
+- Richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md) per acquisire familiarità con l'interfaccia utente nell'portale di Azure.
  
 ## <a name="migration-considerations"></a>Considerazioni sulla migrazione
 
-In this article, Azure AD Conditional Access policies are also referred to as *new policies*.
+In questo articolo Azure AD i criteri di accesso condizionale sono detti anche *nuovi criteri*.
 I criteri classici continuano a funzionare in parallelo con quelli nuovi finché non vengono disabilitati o eliminati. 
 
 Nella prospettiva di un consolidamento dei criteri è importante considerare gli aspetti seguenti:
@@ -104,7 +104,7 @@ Se si ha un criterio nuovo con **Exchange Active Sync** configurato come condizi
 
 ![Azure Active Directory](./media/policy-migration/16.png)
  
-I criteri classici [basati su app](technical-reference.md#approved-client-app-requirement) per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione per le app client consentono l'uso di [piattaforme di dispositivo](technical-reference.md#device-platform-condition) **supportate** e **non supportate**. Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](technical-reference.md#device-platform-condition). 
+I criteri classici [basati su app](technical-reference.md#approved-client-app-requirement) per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione per le app client consentono l'uso di **piattaforme di dispositivo** **supportate** e [non supportate](technical-reference.md#device-platform-condition). Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](technical-reference.md#device-platform-condition). 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 

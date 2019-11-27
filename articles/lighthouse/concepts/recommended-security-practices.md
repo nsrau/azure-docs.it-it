@@ -28,10 +28,10 @@ Quando si crea la struttura di autorizzazioni, assicurarsi di seguire il princip
 
 È ad esempio possibile usare una struttura simile alla seguente:
 
-|Nome gruppo  |Type  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
+|Nome gruppo  |digitare  |principalId  |Definizione di ruolo  |ID di definizione del ruolo  |
 |---------|---------|---------|---------|---------|
 |Architetti     |Gruppo utenti         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Valutazione     |Gruppo utenti         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Valutazione     |Gruppo utenti         |\<principalId\>         |reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Specialisti di macchine virtuali     |Gruppo utenti         |\<principalId\>         |Collaboratore macchina virtuale         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automazione     |Nome dell'entità servizio (SPN)         |\<principalId\>         |Collaboratore         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 

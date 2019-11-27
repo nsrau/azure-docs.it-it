@@ -21,7 +21,7 @@ Hub di notifica di Azure deve essere configurato per il sistema PNS (Platform No
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google has [deprecated Google Cloud Messaging (GCM) in favor of Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). This output binding doesn't support FCM. To send notifications using FCM, use the [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directly in your function or use [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google ha [deprecato Google Cloud Messaging (GCM) a favore di Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Questa associazione di output non supporta FCM. Per inviare notifiche tramite FCM, usare l' [API Firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) direttamente nella funzione o usare le [notifiche del modello](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
 
@@ -237,7 +237,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs).
 
@@ -247,7 +247,7 @@ I parametri e le proprietà del costruttore dell'attributo sono descritte nella 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `NotificationHub`:
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 |**type** |N/D| Il valore deve essere impostato su `notificationHub`. |
 |**direction** |N/D| Il valore deve essere impostato su `out`. | 
@@ -296,7 +296,7 @@ Il nome di questa impostazione applicazione corrisponde all'impostazione di conn
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimento |
+| Binding | riferimento |
 |---|---|
 | Hub di notifica | [Operations Guide](https://docs.microsoft.com/rest/api/notificationhubs/) (Guida operativa) |
 

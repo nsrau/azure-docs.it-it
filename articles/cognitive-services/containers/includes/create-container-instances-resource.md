@@ -1,7 +1,7 @@
 ---
 title: Supporto dei contenitori
 titleSuffix: Azure Cognitive Services
-description: Learn how to create an Azure container instance resource.
+description: Informazioni su come creare una risorsa dell'istanza di contenitore di Azure.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -16,37 +16,37 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383519"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Create an Azure Container Instance resource
+## <a name="create-an-azure-container-instance-resource"></a>Creare una risorsa dell'istanza di contenitore di Azure
 
-1. Go to the [Create](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) page for Container Instances.
+1. Passare alla pagina [Crea](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) per le istanze di contenitore.
 
-2. On the **Basics** tab, enter the following details:
+2. Nella scheda informazioni di **base** immettere i dettagli seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |--|--|
-    |Sottoscrizione|Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse|Select the available resource group or create a new one such as `cognitive-services`.|
-    |Nome contenitore|Enter a name such as `cognitive-container-instance`. The name must be in lower caps.|
-    |Località|Select a region for deployment.|
-    |Tipo di immagine|If your container image is stored in a container registry that doesn’t require credentials, choose `Public`. If accessing your container image requires credentials, choose `Private`. Refer to [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) for details on whether or not the container image is `Public` or `Private` ("Public Preview"). |
-    |Nome dell'immagine|Enter the Cognitive Services container location. The location is what's used as an argument to the `docker pull` command. Refer to the [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) for the available image names and their corresponding repository.<br><br>The image name must be fully qualified specifying three parts. First, the container registry, then the repository, finally the image name: `<container-registry>/<repository>/<image-name>`.<br><br>Here is an example, `mcr.microsoft.com/azure-cognitive-services/keyphrase` would represent the Key Phrase Extraction image in the Microsoft Container Registry under the Azure Cognitive Services repository. Another example is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` which would represent the Speech to Text image in the Microsoft repository of the Container Preview container registry. |
+    |sottoscrizione|Selezionare la propria sottoscrizione.|
+    |Resource group|Selezionare il gruppo di risorse disponibile o crearne uno nuovo, ad esempio `cognitive-services`.|
+    |Nome del contenitore|Immettere un nome, ad esempio `cognitive-container-instance`. Il nome deve essere in maiuscolo.|
+    |Location|Selezionare un'area per la distribuzione.|
+    |Tipo di immagine|Se l'immagine del contenitore è archiviata in un registro contenitori che non richiede credenziali, scegliere `Public`. Se l'accesso all'immagine del contenitore richiede credenziali, scegliere `Private`. Per informazioni dettagliate su come specificare se l'immagine del contenitore è `Public` o `Private` ("anteprima pubblica"), vedere [repository e immagini del contenitore](../../cognitive-services-container-support.md#container-repositories-and-images) . |
+    |Nome dell'immagine|Immettere il percorso del contenitore di servizi cognitivi. Il percorso è quello usato come argomento del comando `docker pull`. Vedere i [repository del contenitore e le immagini](../../cognitive-services-container-support.md#container-repositories-and-images) per i nomi delle immagini disponibili e il repository corrispondente.<br><br>Il nome dell'immagine deve essere completo specificando tre parti. Innanzitutto, il registro contenitori, quindi il repository, infine il nome dell'immagine: `<container-registry>/<repository>/<image-name>`.<br><br>Di seguito è riportato un esempio, `mcr.microsoft.com/azure-cognitive-services/keyphrase` rappresenta l'immagine Estrazione frasi chiave nel Container Registry Microsoft nel repository dei servizi cognitivi di Azure. Un altro esempio è costituito da `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` che rappresenterebbe il riconoscimento vocale per l'immagine di testo nel repository Microsoft del registro contenitori di anteprima del contenitore. |
     |Tipo di sistema operativo|`Linux`|
-    |Dimensioni|Change size to the suggested recommendations for your specific Cognitive Service container:<br>2 CPU cores<br>4 GB
+    |Dimensione|Modificare le dimensioni in base alle raccomandazioni suggerite per il contenitore di servizi cognitivi specifico:<br>2 core CPU<br>4 GB
 
-3. On the **Networking** tab, enter the following details:
+3. Nella scheda **rete** immettere i dettagli seguenti:
 
-    |Impostazione|Value|
+    |Impostazione|Valore|
     |--|--|
-    |Porte|Set the TCP port to `5000`. Exposes the container on port 5000.|
+    |Porte|Impostare la porta TCP su `5000`. Espone il contenitore sulla porta 5000.|
 
-4. On the **Advanced** tab, enter the required **Environment Variables** for the container billing settings of the Azure Container Instance resource:
+4. Nella scheda **Avanzate** immettere le **variabili di ambiente** necessarie per le impostazioni di fatturazione del contenitore della risorsa istanza di contenitore di Azure:
 
-    | Chiave | Value |
+    | Chiave | Valore |
     |--|--|
-    |`apikey`|Copied from the **Keys** page of the resource. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copied from the **Overview** page of the resource.|
+    |`apikey`|Copiato dalla pagina **chiavi** della risorsa. Si tratta di una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Copiato dalla pagina **Panoramica** della risorsa.|
     |`eula`|`accept`|
 
-1. Click **Review and Create**
-1. After validation passes, click **Create** to finish the creation process
-1. When the resource is successfully deployed, it's ready
+1. Fare clic su **Verifica e crea**
+1. Al termine della convalida, fare clic su **Crea** per completare il processo di creazione
+1. Quando la risorsa viene distribuita correttamente, è pronta

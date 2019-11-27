@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi comuni
-description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
+description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di progetti quali violazioni dei criteri e funzioni di parametri del progetto.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
@@ -20,9 +20,9 @@ L'assegnazione di un progetto a un ambito comporta una serie di errori. Quando s
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Select **Assigned blueprints** from the page on the left and use the search box to filter the blueprint assignments to find the failed assignment. È inoltre possibile ordinare la tabella delle assegnazioni tramite la colonna **Stato di provisioning** per visualizzare tutte le assegnazioni non riuscite raggruppate.
+1. Selezionare **progetti assegnati** dalla pagina a sinistra e usare la casella di ricerca per filtrare le assegnazioni di progetto per trovare l'assegnazione non riuscita. È inoltre possibile ordinare la tabella delle assegnazioni tramite la colonna **Stato di provisioning** per visualizzare tutte le assegnazioni non riuscite raggruppate.
 
-1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment details**.
+1. Fare clic con il pulsante destro del mouse sul progetto con lo stato _non riuscito_ oppure fare clic con il pulsante destro del mouse e selezionare **Visualizza Dettagli assegnazione**.
 
 1. Nella parte superiore della pagina di assegnazione del progetto viene visualizzato un banner rosso che avvisa dell'esito negativo dell'assegnazione. Fare clic sul banner per ottenere altri dettagli.
 
@@ -47,7 +47,7 @@ I criteri possono entrare in conflitto con la distribuzione per diversi motivi:
 
 Modificare il progetto in modo che non entri in conflitto con i criteri nei dettagli dell'errore. Nel caso in cui la modifica non sia possibile, l'alternativa consiste nel modificare l'ambito di assegnazione dei criteri in modo che il progetto non entri più in conflitto con i criteri.
 
-### <a name="escape-function-parameter"></a>Scenario: Blueprint parameter is a function
+### <a name="escape-function-parameter"></a>Scenario: il parametro Blueprint è una funzione
 
 #### <a name="issue"></a>Problema
 
@@ -59,12 +59,12 @@ Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[res
 
 #### <a name="resolution"></a>Risoluzione
 
-Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. For more information, see [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/template-expressions.md).
+Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
+- Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
 - Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
-- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito del [supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiedi supporto**.
+- Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

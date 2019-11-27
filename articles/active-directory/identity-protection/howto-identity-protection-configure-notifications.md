@@ -20,7 +20,7 @@ ms.locfileid: "74382160"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
 
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk detections:
+Azure AD Identity Protection invia due tipi di messaggi di posta elettronica di notifica automatici che consentono di gestire i rischi utente e i rilevamenti dei rischi:
 
 - Messaggio di posta elettronica relativo al rilevamento di utenti a rischio
 - Messaggio di posta elettronica di riepilogo settimanale
@@ -31,23 +31,23 @@ Questo articolo offre una panoramica di entrambi i messaggi di posta elettronica
 
 In risposta al rilevamento di un account a rischio, Azure AD Identity Protection genera un avviso di posta elettronica con oggetto **Users at risk detected** (Rilevati utenti a rischio). Il messaggio include un collegamento al report **[Utenti contrassegnati per il rischio](../reports-monitoring/concept-user-at-risk.md)** . È consigliabile controllare immediatamente gli utenti a rischio.
 
-The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second user at risk detected alert if John then moves to high risk or has additional risk detections.
+La configurazione di questo avviso consente di specificare a quale livello di rischio utente si desidera generare l'avviso. Il messaggio di posta elettronica verrà generato quando il livello di rischio dell'utente raggiunge gli elementi specificati. Tuttavia, non si riceveranno nuovi utenti a rischio di avvisi di posta elettronica rilevati per questo utente dopo il passaggio a questo livello di rischio utente. Se, ad esempio, si impostano i criteri per l'avviso sul rischio di un utente medio e l'utente John passa a un livello di rischio medio, si riceverà il messaggio di posta elettronica di rischio rilevato per John. Tuttavia, non verrà visualizzato un secondo utente a rischio di avviso se Giorgio passa ad alto rischio o presenta rilevamenti di rischio aggiuntivi.
 
 ![Messaggio di posta elettronica relativo al rilevamento di utenti a rischio](./media/howto-identity-protection-configure-notifications/01.png)
 
-### <a name="configure-users-at-risk-detected-alerts"></a>Configure users at risk detected alerts
+### <a name="configure-users-at-risk-detected-alerts"></a>Configurare gli utenti a rischio di avvisi rilevati
 
 Gli amministratori possono impostare:
 
-- **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
+- **Il livello di rischio utente che attiva la generazione di questo messaggio di posta elettronica** : per impostazione predefinita, il livello di rischio è impostato sul rischio "elevato".
 - **I destinatari di questo messaggio di posta elettronica**: per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.
-   - Optionally you can **Add additional emails to receive alert notifications** this feature is a preview and users defined must have the appropriate permissions to view the linked reports in the Azure portal.
+   - Facoltativamente, è possibile **aggiungere altri messaggi di posta elettronica per ricevere notifiche di avviso** . questa funzionalità è un'anteprima e gli utenti definiti devono disporre delle autorizzazioni appropriate per visualizzare i report collegati nel portale di Azure.
 
-Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
+Configurare gli utenti a rischio di posta elettronica nel **portale di Azure** in **Azure Active Directory** > **sicurezza** > **Identity Protection** > **utenti a rischio di avvisi rilevati**.
 
 ## <a name="weekly-digest-email"></a>Messaggio di posta elettronica di riepilogo settimanale
 
-The weekly digest email contains a summary of new risk detections.  
+Il messaggio di posta elettronica del digest settimanale contiene un riepilogo dei nuovi rilevamenti dei rischi.  
 Sono inclusi:
 
 - Utenti a rischio.
@@ -57,14 +57,14 @@ Sono inclusi:
 
 ![Messaggio di posta elettronica di riepilogo settimanale](./media/howto-identity-protection-configure-notifications/400.png)
 
-By default, recipients include all Global Admins. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.
+Per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.
 
-### <a name="configure-weekly-digest-email"></a>Configure weekly digest email
+### <a name="configure-weekly-digest-email"></a>Configurare la posta elettronica del digest settimanale
 
-As an administrator, you can switch sending a weekly digest email on or off and choose the users assigned to receive the email.
+In qualità di amministratore, è possibile attivare o disattivare l'invio di un messaggio di posta elettronica del digest settimanale e scegliere gli utenti assegnati a ricevere il messaggio di posta elettronica.
 
-Configure the weekly digest email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Weekly digest**.
+Configurare la posta elettronica del digest settimanale nella **portale di Azure** in **Azure Active Directory** > **Security** > **Identity Protection** > **digest settimanale**.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

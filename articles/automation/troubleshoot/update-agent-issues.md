@@ -27,7 +27,7 @@ L'elenco seguente indica i tre possibili stati di conformità di un computer:
 * **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
 
 > [!NOTE]
-> There may be a slight delay between what the Azure portal shows and the current state of the machine.
+> È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente del computer.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
@@ -52,18 +52,18 @@ I risultati vengono visualizzati nella pagina quando sono pronti. Le sezioni dei
 
 Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per runbook esegue uno di questi sistemi operativi:
 
-|Sistema operativo  |Note  |
+|Sistema operativo  |note  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supporta solo le valutazioni degli aggiornamenti.         |
-|Windows Server 2008 R2 SP1 e versioni successive |.NET Framework 4.6 or later is required. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4,6 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5,1 è obbligatorio.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-462"></a>.NET 4.6.2
+### <a name="net-462"></a>4\.6.2 .NET
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installed.
+Il controllo .NET Framework verifica che nel sistema sia installato almeno [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) .
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-The WMF check verifies that the system has the required version of the Windows Management Framework (WMF) - [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+Il controllo WMF verifica che il sistema disponga della versione richiesta di Windows Management Framework (WMF)- [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -107,7 +107,7 @@ Il controllo dell'accesso alla cartella Crypto determina se l'account sistema lo
 
 ## <a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Lo script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) è disponibile in PowerShell Gallery. Per eseguire lo script è necessario che sia installato WMF 4,0 o versione successiva. Per scaricare la versione più recente di PowerShell, vedere [installazione di diverse versioni di PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 L'output di questo script è simile al seguente:
 

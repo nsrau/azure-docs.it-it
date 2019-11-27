@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Runtime Installation
+title: Installazione runtime di Funzioni di Azure
 description: Come installare l'anteprima del runtime di Funzioni di Azure 2
 author: apwestgarth
 ms.topic: conceptual
@@ -25,7 +25,7 @@ Se si desidera installare la versione di anteprima del runtime di Funzioni di Az
 1. Completare la configurazione dell'anteprima del runtime di Funzioni di Azure 2.
 1. Creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di installare l'anteprima del runtime di Funzioni di Azure è necessario avere le risorse seguenti:
 
@@ -75,19 +75,19 @@ Per completare l'installazione del runtime di Funzioni di Azure è necessario co
 
     ![Anteprima del runtime di Funzioni di Azure - Configurazione del database][8]
 
-1. Click the **Credentials** tab.  Here, you must create two new credentials for use with a file share for hosting all your function apps.  Specificare le combinazioni di **nome utente** e **password** per il **proprietario della condivisione file** e per l'**utente della condivisione file** e quindi fare clic su **Applica**.
+1. Fare clic sulla scheda **credenziali** .  Qui è necessario creare due nuove credenziali da usare con una condivisione file per l'hosting di tutte le app per le funzioni.  Specificare le combinazioni di **nome utente** e **password** per il **proprietario della condivisione file** e per l'**utente della condivisione file** e quindi fare clic su **Applica**.
 
     ![Anteprima del runtime di Funzioni di Azure - Credenziali][9]
 
-1. Click the **File Share** tab.  Here you must specify the details of the file share  location.  È possibile creare la condivisione file o usare una condivisione file esistente e fare clic su **Applica**.  Se si seleziona un nuovo percorso di condivisione file è necessario specificare una directory per l'uso da parte del runtime di Funzioni di Azure.
+1. Fare clic sulla scheda **condivisione file** .  Qui è necessario specificare i dettagli del percorso della condivisione file.  È possibile creare la condivisione file o usare una condivisione file esistente e fare clic su **Applica**.  Se si seleziona un nuovo percorso di condivisione file è necessario specificare una directory per l'uso da parte del runtime di Funzioni di Azure.
 
     ![Anteprima del runtime di Funzioni di Azure - Condivisione file][10]
 
-1. Click the **IIS** tab.  This tab shows the details of the websites in IIS that the Azure Functions Runtime configuration tool creates.  Qui è possibile specificare un nome DNS personalizzato per il portale di anteprima del runtime di Funzioni di Azure.  Fare clic su **Applica** per completare l'operazione.
+1. Fare clic sulla scheda **IIS** .  Questa scheda Mostra i dettagli dei siti Web in IIS creati dallo strumento di configurazione runtime di Funzioni di Azure.  Qui è possibile specificare un nome DNS personalizzato per il portale di anteprima del runtime di Funzioni di Azure.  Fare clic su **Applica** per completare l'operazione.
 
     ![Anteprima del runtime di Funzioni di Azure - IIS][11]
 
-1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  Se dopo la configurazione iniziale il **servizio di attivazione host di Funzioni di Azure** non è in esecuzione fare clic su **Avvia servizio**.
+1. Fare clic sulla scheda **Servizi** .  Questa scheda Mostra lo stato dei servizi nello strumento di configurazione runtime di Funzioni di Azure.  Se dopo la configurazione iniziale il **servizio di attivazione host di Funzioni di Azure** non è in esecuzione fare clic su **Avvia servizio**.
 
     ![Anteprima del runtime di Funzioni di Azure - Configurazione completata][12]
 
@@ -99,13 +99,13 @@ Per completare l'installazione del runtime di Funzioni di Azure è necessario co
 
 Per creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
-1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>` for example `https://mycomputer.mydomain.com`.
+1. Passare al **portale di runtime di funzioni di Azure** come `https://<machinename>.<domain>` ad esempio `https://mycomputer.mydomain.com`.
 
 1. Viene richiesto di effettuare l'**accesso**. Se distribuito in un dominio usare il nome utente e la password dell'account di dominio, altrimenti usare il nome utente e la password dell'account locale per accedere al portale.
 
     ![Anteprima del runtime di Funzioni di Azure - Accesso al portale][14]
 
-1. Per creare app per le funzioni è necessario creare una sottoscrizione.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions.
+1. Per creare app per le funzioni è necessario creare una sottoscrizione.  Nell'angolo superiore sinistro del portale fare clic sull'opzione **+** accanto alle sottoscrizioni.
 
     ![Anteprima del runtime di Funzioni di Azure - Sottoscrizioni del portale][15]
 

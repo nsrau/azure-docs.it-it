@@ -93,7 +93,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 | resourceId |S | |ID della risorsa interessata. |
 | resourceRegion |S | |Area o posizione della risorsa interessata. |
 | portalLink |S | |Collegamento diretto alla pagina di riepilogo delle risorse del portale. |
-| properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
+| properties |N |Facoltativo |Set di coppie chiave/valore contenente i dettagli sull'evento. Ad esempio: `Dictionary<String, String>`. Il campo properties è facoltativo. In un flusso di lavoro basato su un'interfaccia utente personalizzata o un'app per la logica, gli utenti possono immettere una coppia chiave/valore che può essere passata tramite il payload. Un metodo alternativo per passare le proprietà personalizzate al webhook è rappresentato dall'URI del webhook stesso (sotto forma di parametri di query). |
 
 > [!NOTE]
 > È possibile impostare il campo delle **proprietà** solo tramite le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn933805.aspx).

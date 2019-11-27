@@ -1,6 +1,6 @@
 ---
-title: Managed identities in Azure HDInsight
-description: Provides an overview of the implementation of managed identities in Azure HDInsight.
+title: Identità gestite in Azure HDInsight
+description: Viene fornita una panoramica dell'implementazione di identità gestite in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,36 +15,36 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327378"
 ---
-# <a name="managed-identities-in-azure-hdinsight"></a>Managed identities in Azure HDInsight
+# <a name="managed-identities-in-azure-hdinsight"></a>Identità gestite in Azure HDInsight
 
-A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD, or maintain credentials such as certificates.
+Un'identità gestita è un'identità registrata in Azure Active Directory (Azure AD) le cui credenziali sono gestite da Azure. Con le identità gestite, non è necessario registrare le entità servizio in Azure AD o gestire le credenziali, ad esempio i certificati.
 
-Managed identities can be used in Azure HDInsight to allow your clusters to access Azure AD domain services, access Azure Key Vault, or access files in Azure Data Lake Storage Gen2.
+È possibile usare le identità gestite in Azure HDInsight per consentire ai cluster di accedere ai file di Azure AD Domain Services, di accedere Azure Key Vault o di accedere ai file in Azure Data Lake Storage Gen2.
 
-There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Azure AD and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
+Esistono due tipi di identità gestite: assegnato dall'utente e assegnato dal sistema. Azure HDInsight Usa identità gestite assegnate dall'utente. Un'identità gestita assegnata dall'utente viene creata come risorsa di Azure autonoma, che può quindi essere assegnata a una o più istanze del servizio di Azure. Al contrario, viene creata un'identità gestita assegnata dal sistema in Azure AD e quindi abilitata direttamente in una specifica istanza del servizio di Azure. Il ciclo di vita dell'identità gestita assegnata dal sistema viene quindi associato alla durata dell'istanza del servizio su cui è abilitata.
 
-## <a name="hdinsight-managed-identity-implementation"></a>HDInsight managed identity implementation
+## <a name="hdinsight-managed-identity-implementation"></a>Implementazione dell'identità gestita di HDInsight
 
-In Azure HDInsight, managed identities are provisioned on each node of the cluster. These identity components, however, are only usable by the HDInsight service. There's currently no supported method for you to generate access tokens using the managed identities installed on HDInsight cluster nodes. For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens for interacting with other Azure services on your own.
+In Azure HDInsight, viene eseguito il provisioning delle identità gestite in ogni nodo del cluster. Questi componenti Identity, tuttavia, sono utilizzabili solo dal servizio HDInsight. Attualmente non è disponibile alcun metodo supportato per generare token di accesso usando le identità gestite installate nei nodi del cluster HDInsight. Per alcuni servizi di Azure, le identità gestite sono implementate con un endpoint che è possibile usare per acquisire i token di accesso per interagire con altri servizi di Azure.
 
-## <a name="create-a-managed-identity"></a>Create a managed identity
+## <a name="create-a-managed-identity"></a>Creare un'identità gestita
 
-Managed identities can be created with any of the following methods:
+È possibile creare identità gestite con uno dei metodi seguenti:
 
-* [Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
-* [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
-* [interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
+* [Gestione risorse di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
+* [Interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
-The remaining steps for configuring the managed identity depend on the scenario where it will be used.
+I passaggi rimanenti per la configurazione dell'identità gestita dipendono dallo scenario in cui verrà usato.
 
-## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Managed identity scenarios in Azure HDInsight
+## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Scenari di identità gestite in Azure HDInsight
 
-Managed identities are used in Azure HDInsight in multiple scenarios. See the related documents for detailed setup and configuration instructions:
+Le identità gestite vengono usate in HDInsight di Azure in più scenari. Per istruzioni dettagliate sull'installazione e sulla configurazione, vedere i documenti correlati:
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
-* [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
+* [Bring Your Own Key Kafka (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

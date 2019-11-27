@@ -1,6 +1,6 @@
 ---
-title: How to install IoT Edge on Kubernetes | Microsoft Docs
-description: Learn on how to install IoT Edge on Kubernetes using a local development cluster environment
+title: Come installare IoT Edge in Kubernetes | Microsoft Docs
+description: Informazioni su come installare IoT Edge in Kubernetes usando un ambiente cluster di sviluppo locale
 author: kgremban
 manager: philmea
 ms.author: veyalla
@@ -15,55 +15,55 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74457337"
 ---
-# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>How to install IoT Edge on Kubernetes (Preview)
+# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Come installare IoT Edge in Kubernetes (anteprima)
 
-IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. It registers an IoT Edge *Custom Resource Definition* (CRD) with the Kubernetes API Server. Additionally, it provides an *Operator* (IoT Edge agent) that reconciles cloud-managed desired state with the local cluster state. 
+IoT Edge può essere integrato con Kubernetes usandolo come livello infrastruttura resiliente e a disponibilità elevata. Viene registrato un IoT Edge *definizione di risorsa personalizzata* (CRD) con il server dell'API Kubernetes. Fornisce inoltre un *operatore* (IOT Edge Agent) che riconcilia lo stato desiderato gestito dal cloud con lo stato del cluster locale. 
 
-Module lifetime is managed by the Kubernetes scheduler, which maintains module availability and chooses their placement. IoT Edge manages the edge application platform running on top, continuously reconciling the desired state specified in IoT Hub with the state on the edge cluster. The edge application model is still the familiar model based on IoT Edge modules and routes. The IoT Edge agent operator performs *automatic* translation to the Kubernetes natives constructs like pods, deployments, services etc.
+La durata del modulo viene gestita dall'utilità di pianificazione di Kubernetes, che mantiene la disponibilità dei moduli e sceglie la selezione host. IoT Edge gestisce la piattaforma applicativa perimetrale in esecuzione in primo piano, riconciliando continuamente lo stato desiderato specificato nell'hub Internet con lo stato nel cluster perimetrale. Il modello di applicazione Edge è ancora il modello familiare basato su moduli e route IoT Edge. L'operatore IoT Edge Agent esegue la conversione *automatica* ai costrutti nativi Kubernetes come Pod, distribuzioni, servizi e così via.
 
-Here is a high-level architecture diagram:
+Di seguito è riportato un diagramma dell'architettura di alto livello:
 
-![kubernetes arch](./media/how-to-install-iot-edge-kubernetes/k8s-arch.png)
+![kubernetes Arch](./media/how-to-install-iot-edge-kubernetes/k8s-arch.png)
 
-Every component of the edge deployment is scoped to a Kubernetes namespace specific to the device, making it possible to share the same cluster resources among multiple edge devices and their deployments.
+Ogni componente della distribuzione perimetrale ha come ambito uno spazio dei nomi Kubernetes specifico per il dispositivo, rendendo possibile la condivisione delle stesse risorse cluster tra più dispositivi perimetrali e le relative distribuzioni.
 
 >[!NOTE]
->IoT Edge on Kubernetes is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>IoT Edge in Kubernetes è in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="install-locally-for-a-quick-test-environment"></a>Install locally for a quick test environment
+## <a name="install-locally-for-a-quick-test-environment"></a>Installare localmente per un ambiente di testing rapido
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
-* Kubernetes 1.10 or newer. If you don't have an existing cluster setup, you can use [Minikube](https://kubernetes.io/docs/setup/minikube/) for a local cluster environment. 
+* Kubernetes 1,10 o versione successiva. Se non si dispone di una configurazione cluster esistente, è possibile usare [Minikube](https://kubernetes.io/docs/setup/minikube/) per un ambiente cluster locale. 
 
-* [Helm](https://helm.sh/docs/using_helm/#quickstart-guide), the Kubernetes package manager.
+* [Helm](https://helm.sh/docs/using_helm/#quickstart-guide), gestione pacchetti Kubernetes.
 
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for viewing and interacting with the cluster.
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) per la visualizzazione e l'interazione con il cluster.
 
 ### <a name="setup-steps"></a>Procedura di configurazione
 
-1. Start **Minikube**
+1. Avviare **Minikube**
 
     ``` shell
     minikube start
     ```
 
-1. Initialize the **Helm** server component (*tiller*) in your cluster
+1. Inizializzare il componente server Helm *(timone*) nel cluster
 
     ``` shell
     helm init
     ```
 
-1. Add IoT Edge repo and update the helm installation
+1. Aggiungere IoT Edge repository e aggiornare l'installazione di Helm
 
     ``` shell
     helm repo add edgek8s https://edgek8s.blob.core.windows.net/helm/
     helm repo update
     ```
 
-1. [Create an IoT Hub](../iot-hub/iot-hub-create-through-portal.md), [register an IoT Edge device](how-to-register-device.md), and note its connection string.
+1. [Creare un hub](../iot-hub/iot-hub-create-through-portal.md)tutto, [registrare un dispositivo IOT Edge](how-to-register-device.md)e prendere nota della relativa stringa di connessione.
 
-1. Install iotedged and IoT Edge agent into your cluster
+1. Installare iotedged e IoT Edge Agent nel cluster
 
     ```shell
     helm install \
@@ -71,21 +71,21 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
     --set "deviceConnectionString=replace-with-device-connection-string" \
     edgek8s/edge-kubernetes
     ```
-1. Open the Kubernetes dashboard in the browser
+1. Aprire il dashboard di Kubernetes nel browser
 
     ```shell
     minikube dashboard
     ```
 
-    Under the cluster namespaces, you will see one for the IoT Edge device following the convention *msiot-\<iothub-name>-\<edgedevice-name>* . The IoT Edge agent and iotedged pods should be up and running in this namespace.
+    Negli spazi dei nomi del cluster ne viene visualizzato uno per il dispositivo IoT Edge dopo la convenzione *msiot-\<iothub-name >-\<edgedevice-name >* . L'agente IoT Edge e i pod iotedged devono essere operativi in questo spazio dei nomi.
 
-1. Add a simulated temperature sensor module using the steps in the [Deploy a module](quickstart-linux.md#deploy-a-module) section of the quickstart. IoT Edge module management is done from the IoT Hub portal just like any other IoT Edge device. Making local changes to module configuration via Kubernetes tools is not recommended as they might get overwritten.
+1. Aggiungere un modulo di sensore di temperatura simulato seguendo i passaggi descritti nella sezione [distribuire un modulo](quickstart-linux.md#deploy-a-module) della Guida introduttiva. IoT Edge gestione dei moduli viene eseguita dal portale dell'hub Internet come qualsiasi altro dispositivo IoT Edge. Non è consigliabile apportare modifiche locali alla configurazione del modulo tramite gli strumenti Kubernetes perché potrebbero essere sovrascritti.
 
-1. In a few seconds, refreshing the **Pods** page under the edge device namespace in the dashboard will list the IoT Edge hub and simulated sensor pods as running with the IoT Edge hub pod ingesting data into IoT Hub.
+1. In pochi secondi, l'aggiornamento della pagina **Pod** nello spazio dei nomi del dispositivo perimetrale nel dashboard elenca l'hub IOT Edge e i pod dei sensori simulati come in esecuzione con il Pod dell'hub IOT Edge inserimento dei dati nell'hub.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-To remove all resources created by the edge deployment, use the following command with the name used in step 5 of the previous section.
+Per rimuovere tutte le risorse create dalla distribuzione perimetrale, usare il comando seguente con il nome usato nel passaggio 5 della sezione precedente.
 
 ``` shell
 helm delete --purge k8s-edge1
@@ -93,6 +93,6 @@ helm delete --purge k8s-edge1
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="deploy-as-a-highly-available-edge-gateway"></a>Deploy as a highly available edge gateway 
+### <a name="deploy-as-a-highly-available-edge-gateway"></a>Distribuire come gateway perimetrale a disponibilità elevata 
 
-The edge device in a Kubernetes cluster can be used as an IoT gateway for downstream devices. It can be configured to be resilient to node failure thus providing high availability to edge deployments. See this [detailed walkthrough](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) to use IoT Edge in this scenario.
+Il dispositivo perimetrale in un cluster Kubernetes può essere usato come gateway Internet delle cose per i dispositivi downstream. Può essere configurato in modo da essere resiliente agli errori del nodo, garantendo così una disponibilità elevata per le distribuzioni perimetrali. Vedere questa [procedura](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) dettagliata per usare IOT Edge in questo scenario.

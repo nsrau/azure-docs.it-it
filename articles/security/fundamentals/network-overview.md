@@ -32,7 +32,7 @@ Questo articolo illustra alcune delle opzioni offerte da Azure nell'area della s
 * Controllo di accesso alla rete
 * Firewall di Azure
 * Accesso remoto sicuro e connettività cross-premise
-* Disponibilità
+* Availability
 * Risoluzione dei nomi
 * Architettura di rete perimetrale
 * Protezione DDoS di Azure
@@ -134,7 +134,7 @@ Ad esempio, i requisiti di sicurezza possono includere:
 
 Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo come servizio con disponibilità elevata incorporata e scalabilità del cloud senza restrizioni. Alcune funzionalità includono:
 
-* Disponibilità elevata
+* disponibilità elevata
 * Scalabilità del cloud
 * Regole di filtro del nome di dominio completo dell'applicazione
 * Regole di filtro per il traffico di rete
@@ -158,7 +158,7 @@ Rete di Azure supporta gli scenari di accesso remoto sicuro seguenti:
 
 È possibile che si desideri consentire a singoli sviluppatori o al personale operativo di gestire le macchine virtuali e i servizi in Azure. Si supponga ad esempio di dover accedere a una macchina virtuale in una rete virtuale. I criteri di protezione applicati tuttavia non consentono l'accesso remoto RDP o SSH a singole macchine virtuali. In questo caso, è possibile usare una connessione [VPN da punto a sito](../../vpn-gateway/point-to-site-about.md).
 
-La connessione VPN da punto a sito consente di configurare una connessione privata e sicura tra l'utente e la rete virtuale. Quando viene stabilita la connessione VPN, l'utente può usare RDP o SSH tramite il collegamento VPN in una macchina virtuale qualsiasi nella rete virtuale. (This assumes that the user can authenticate and is authorized.) Point-to-site VPN supports:
+La connessione VPN da punto a sito consente di configurare una connessione privata e sicura tra l'utente e la rete virtuale. Quando viene stabilita la connessione VPN, l'utente può usare RDP o SSH tramite il collegamento VPN in una macchina virtuale qualsiasi nella rete virtuale. Si presuppone che l'utente possa autenticarsi e sia autorizzato. La VPN da punto a sito supporta:
 
 * Secure Socket Tunneling Protocol (SSTP), un protocollo VPN di proprietà basato su SSL. Una soluzione VPN SSL può penetrare i firewall perché la maggior parte dei firewall apre la porta TCP 443 usata da SSL. SSTP è supportato solo nei dispositivi Windows. Azure supporta tutte le versioni di Windows che hanno SSTP (Windows 7 e versioni successive).
 
@@ -212,7 +212,7 @@ Altre informazioni:
 
 Un altro modo per connettere le reti virtuali è il [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md). Questa funzionalità consente di connettere due reti Azure in modo che la comunicazione tra di esse avvenga sull'infrastruttura backbone Microsoft senza passare attraverso la rete Internet. Con il peering di rete virtuale è possibile connettere due reti virtuali all'interno della stessa area oppure due reti virtuali in aree Azure diverse. Per limitare la connettività tra subnet o sistemi diversi è possibile usare gruppi di sicurezza di rete.
 
-## <a name="availability"></a>Disponibilità
+## <a name="availability"></a>Availability
 
 La disponibilità è un componente fondamentale di qualsiasi programma di sicurezza. Se gli utenti e i sistemi non possono accedere alle risorse necessarie attraverso la rete, il servizio può essere considerato compromesso. Azure offre tecnologie di rete che supportano i meccanismi a disponibilità elevata seguenti:
 
@@ -322,10 +322,10 @@ Con la piattaforma Azure, Microsoft offre la protezione DDoS denominata **Basic*
 * **Monitoraggio del traffico sempre attivo:** i modelli di traffico delle applicazioni vengono monitorati 24 ore su 24, 7 giorni su 7, cercando gli indicatori di attacchi DDoS. La mitigazione viene applicata quando vengono superati i criteri di protezione.
 * **Report di mitigazione dei rischi di attacco** I report di mitigazione dei rischi di attacco usano i dati del flusso di rete aggregati per fornire informazioni dettagliate sugli attacchi delle risorse mirate.
 * **Log del flusso di mitigazione degli attacchi** I log del flusso di mitigazione degli attacchi consentono di esaminare il traffico eliminato, il traffico inoltrato e altri dati sugli attacchi in tempo quasi reale durante un attacco DDoS attivo.
-* **Adaptive tuning:** Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo. Protezione dal livello 3 al livello 7: offre protezione DDoS dello stack completo, se usata con un WAF (web application firewall).
+* **Ottimizzazione adattiva:** La profilatura del traffico intelligente apprende il traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto per il servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo. Protezione dal livello 3 al livello 7: offre protezione DDoS dello stack completo, se usata con un WAF (web application firewall).
 * **Scala di mitigazione completa:** è possibile mitigare più di 60 tipi diversi di attacchi con capacità globale, per una protezione dai più noti attacchi DDoS.
 * **Metriche degli attacchi:** tramite Monitoraggio di Azure è possibile accedere al riepilogo delle metriche per ogni attacco.
-* **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
+* **Avviso di attacco:** Gli avvisi possono essere configurati in fase di avvio e arresto di un attacco e sulla durata dell'attacco, usando le metriche di attacco predefinite. Gli avvisi si integrano nel software operativo, come Microsoft Azure log di monitoraggio, Splunk, archiviazione di Azure, posta elettronica e il portale di Azure.
 * **Garanzia sui costi:** crediti per il servizio di trasferimento dati e scale-out dell'applicazione per attacchi DDoS documentati.
 * **DDoS Rapid Response** I clienti con Protezione DDoS Standard dispongono ora dell'accesso al team Rapid Response durante un attacco in corso. DRR può facilitare l'analisi dell'attacco, le mitigazioni personalizzate durante un attacco e l'analisi post-attacco.
 
@@ -369,7 +369,7 @@ Per altre informazioni su Network Watcher e su come avviare i test di alcune del
 > [!NOTE]
 > Per ricevere le notifiche più aggiornate sulla disponibilità e lo stato di questo servizio, vedere la [pagina degli aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
-### <a name="azure-security-center"></a>Centro sicurezza Azure
+### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure aiuta a impedire, rilevare e rispondere alle minacce offrendo visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio set di soluzioni di sicurezza.
 
@@ -402,4 +402,4 @@ La registrazione a livello di rete è una funzione chiave per qualsiasi scenario
 Per visualizzare e analizzare questi log è anche possibile usare [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uno strumento avanzato di visualizzazione dei dati.
 Altre informazioni:
 
-* [Azure Monitor logs for Network Security Groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md)
+* [Log di monitoraggio di Azure per i gruppi di sicurezza di rete (gruppi)](../../virtual-network/virtual-network-nsg-manage-log.md)

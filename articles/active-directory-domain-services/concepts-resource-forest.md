@@ -1,6 +1,6 @@
 ---
-title: Resource forest concepts for Azure AD Domain Services | Microsoft Docs
-description: Learn what a resource forest is in Azure Active Directory Domain Services and how they benefit your organization in hybrid environment with limited user authentication options or security concerns.
+title: Concetti relativi alla foresta delle risorse per Azure AD Domain Services | Microsoft Docs
+description: Informazioni sul modo in cui una foresta di risorse è Azure Active Directory Domain Services e su come traggono vantaggio dall'organizzazione nell'ambiente ibrido con opzioni di autenticazione utente limitate o problemi di sicurezza.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -17,106 +17,106 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233610"
 ---
-# <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Resource forest concepts and features for Azure Active Directory Domain Services
+# <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Concetti e funzionalità della foresta di risorse per Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) provides a sign-in experience for legacy, on-premises, line-of-business applications. Users, groups, and password hashes of on-premises and cloud users are synchronized to the Azure AD DS managed domain. These synchronized password hashes are what gives users a single set of credentials they can use for the on-premises AD DS, Office 365, and Azure Active Directory.
+Azure Active Directory Domain Services (AD DS) offre un'esperienza di accesso per le applicazioni line-of-business legacy, locali. Gli utenti, i gruppi e gli hash delle password degli utenti locali e cloud vengono sincronizzati con il dominio gestito Azure AD DS. Questi hash delle password sincronizzati forniscono agli utenti un singolo set di credenziali che possono usare per servizi di dominio Active Directory, Office 365 e Azure Active Directory locali.
 
-Although secure and provides additional security benefits, some organizations can't synchronize those user passwords hashes to Azure AD or Azure AD DS. Users in an organization may not know their password because they only use smart card authentication. These limitations prevent some organizations from using Azure AD DS to lift and shift on-premises classic applications to Azure.
+Sebbene sia sicuro e fornisca vantaggi aggiuntivi per la sicurezza, alcune organizzazioni non possono sincronizzare gli hash delle password utente per Azure AD o Azure AD DS. Gli utenti di un'organizzazione potrebbero non conoscerne la password perché usano solo l'autenticazione con smart card. Queste limitazioni impediscono ad alcune organizzazioni di usare Azure AD DS per spostare in Azure le applicazioni classiche locali.
 
-To address these needs and restrictions, you can create an Azure AD DS managed domain that uses a resource forest. This conceptual article explains what forests are, and how they trust other resources to provide a secure authentication method. Azure AD DS resource forests are currently in preview.
+Per rispondere a queste esigenze e restrizioni, è possibile creare un dominio gestito Azure AD DS che usa una foresta di risorse. Questo articolo concettuale illustra le foreste e il modo in cui considera attendibili le altre risorse per fornire un metodo di autenticazione protetto. Le foreste di risorse Azure AD DS sono attualmente in anteprima.
 
 > [!IMPORTANT]
-> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
+> Le foreste di risorse Azure AD DS attualmente non supportano Azure HDInsight o File di Azure. Le foreste utente Azure AD DS predefinite supportano entrambi i servizi aggiuntivi.
 
-## <a name="what-are-forests"></a>What are forests?
+## <a name="what-are-forests"></a>Che cosa sono le foreste?
 
-A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
+Una *foresta* è un costrutto logico usato da Active Directory Domain Services (ad DS) per raggruppare uno o più *domini*. I domini archiviano quindi gli oggetti per utenti o gruppi e forniscono servizi di autenticazione.
 
-In Azure AD DS, the forest only contains one domain. On-premises AD DS forests often contain many domains. In large organizations, especially after mergers and acquisitions, you may end up with multiple on-premises forests that each then contain multiple domains.
+In Azure AD DS la foresta contiene solo un dominio. Le foreste di servizi di dominio Active Directory locali contengono spesso molti domini. Nelle organizzazioni di grandi dimensioni, soprattutto dopo fusioni e acquisizioni, è possibile che si verifichino più foreste locali, ognuna delle quali contiene più domini.
 
-By default, an Azure AD DS managed domain is created as a *user* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can directly authenticate against the Azure AD DS managed domain, such as to sign in to a domain-joined VM. A user forest works when the password hashes can be synchronized and users aren't using exclusive sign-in methods like smart card authentication.
+Per impostazione predefinita, un dominio gestito Azure AD DS viene creato come foresta *utente* . Questo tipo di foresta Sincronizza tutti gli oggetti da Azure AD, inclusi tutti gli account utente creati in un ambiente di servizi di dominio Active Directory locale. Gli account utente possono eseguire l'autenticazione direttamente nel dominio gestito di Azure AD DS, ad esempio per accedere a una macchina virtuale aggiunta a un dominio. Una foresta utente funziona quando gli hash delle password possono essere sincronizzati e gli utenti non usano metodi di accesso esclusivi come l'autenticazione con smart card.
 
-In an Azure AD DS *resource* forest, users authenticate over a one-way forest *trust* from their on-premises AD DS. With this approach, the user objects and password hashes aren't synchronized to Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. This approach lets enterprises host resources and application platforms in Azure that depend on classic authentication such LDAPS, Kerberos, or NTLM, but any authentication issues or concerns are removed. Azure AD DS resource forests are currently in preview.
+In una foresta di *risorse* Azure AD DS, gli utenti eseguono l'autenticazione su un *trust* tra foreste unidirezionale rispetto ai servizi di dominio Active Directory locali. Con questo approccio, gli oggetti utente e gli hash delle password non vengono sincronizzati con Azure AD DS. Gli oggetti e le credenziali utente esistono solo in servizi di dominio Active Directory locale. Questo approccio consente alle aziende di ospitare risorse e piattaforme applicative in Azure che dipendono dall'autenticazione classica, ad esempio LDAPs, Kerberos o NTLM, ma vengono rimossi eventuali problemi di autenticazione o problemi. Le foreste di risorse Azure AD DS sono attualmente in anteprima.
 
-Resource forests also provide the capability to lift-and-shift your applications one component at a time. Many legacy on-premises applications are multi-tiered, often using a web server or front end and many database-related components. These tiers make it hard to lift-and-shift the entire application to the cloud in one step. With resource forests, you can lift your application to the cloud in phased approach, which makes it easier to move your application to Azure.
+Le foreste di risorse offrono inoltre la possibilità di trasferire in modalità Lift-and-Shift le applicazioni un componente alla volta. Molte applicazioni locali legacy sono a più livelli e spesso usano un server Web o un front-end e molti componenti correlati al database. Questi livelli rendono difficile trasferire in modo Lift-and-Shift l'intera applicazione nel cloud in un unico passaggio. Con le foreste di risorse è possibile trasferire l'applicazione al cloud in un approccio in più fasi, semplificando così lo spostamento dell'applicazione in Azure.
 
-## <a name="what-are-trusts"></a>What are trusts?
+## <a name="what-are-trusts"></a>Che cosa sono i trust?
 
-Organizations that have more than one domain often need users to access shared resources in a different domain. Access to these shared resources requires that users in one domain authenticate to another domain. To provide these authentication and authorization capabilities between clients and servers in different domains, there must be a *trust* between the two domains.
+Le organizzazioni che hanno più di un dominio spesso richiedono che gli utenti accedano a risorse condivise in un dominio diverso. Per accedere a queste risorse condivise è necessario che gli utenti di un dominio eseguano l'autenticazione a un altro dominio. Per fornire queste funzionalità di autenticazione e autorizzazione tra client e server in domini diversi, è necessario che esista una relazione di *trust* tra i due domini.
 
-With domain trusts, the authentication mechanisms for each domain trust the authentications coming from the other domain. Trusts help provide controlled access to shared resources in a resource domain (the *trusting* domain) by verifying that incoming authentication requests come from a trusted authority (the *trusted* domain). Trusts act as bridges that only allow validated authentication requests to travel between domains.
+Con i trust di dominio, i meccanismi di autenticazione per ogni dominio considerano attendibili le autenticazioni provenienti dall'altro dominio. I trust consentono di fornire l'accesso controllato alle risorse condivise in un dominio di risorse (il dominio *trusting* ) verificando che le richieste di autenticazione in ingresso provengano da un'autorità attendibile (dominio *Trusted* ). I trust fungono da Bridge che consentono solo le richieste di autenticazione convalidate per spostarsi tra i domini.
 
-How a trust passes authentication requests depends on how it's configured. Trusts can be configured in one of the following ways:
+Il modo in cui un trust supera le richieste di autenticazione dipende dalla relativa configurazione. I trust possono essere configurati in uno dei modi seguenti:
 
-* **One-way** - provides access from the trusted domain to resources in the trusting domain.
-* **Two-way** - provides access from each domain to resources in the other domain.
+* **Unidirezionale** : fornisce l'accesso dal dominio trusted alle risorse nel dominio trusting.
+* **Bidirezionale** : fornisce l'accesso da ogni dominio alle risorse nell'altro dominio.
 
-Trusts are also be configured to handle additional trust relationships in one of the following ways:
+I trust sono inoltre configurati per la gestione di relazioni di trust aggiuntive in uno dei modi seguenti:
 
-* **Nontransitive** - The trust exists only between the two trust partner domains.
-* **Transitive** - Trust automatically extends to any other domains that either of the partners trusts.
+* Non **transitivo** : il trust esiste solo tra i due domini trust partner.
+* **Transitive** : l'attendibilità si estende automaticamente a qualsiasi altro dominio considerato attendibile da uno dei partner.
 
-In some cases, trust relationships are automatically established when domains are created. Other times, you must choose a type of trust and explicitly establish the appropriate relationships. The specific types of trusts used and the structure of those trust relationships depend on how the Active Directory directory service is organized, and whether different versions of Windows coexist on the network.
+In alcuni casi, le relazioni di trust vengono stabilite automaticamente al momento della creazione dei domini. In altri casi, è necessario scegliere un tipo di trust e stabilire in modo esplicito le relazioni appropriate. I tipi specifici di trust utilizzati e la struttura di tali relazioni di trust dipendono dal modo in cui il servizio di Active Directory directory è organizzato e dal fatto che le versioni di Windows diverse siano coesistenti sulla rete.
 
-## <a name="trusts-between-two-forests"></a>Trusts between two forests
+## <a name="trusts-between-two-forests"></a>Trust tra due foreste
 
-You can extend domain trusts within a single forest to another forest by manually creating a one-way or two-way forest trust. A forest trust is a transitive trust that exists only between a forest root domain and a second forest root domain.
+È possibile estendere i trust di dominio all'interno di una singola foresta a un'altra foresta creando manualmente un trust tra foreste unidirezionale o bidirezionale. Un trust tra foreste è un trust transitivo esistente solo tra un dominio radice della foresta e un secondo dominio radice della foresta.
 
-* A one-way forest trust allows all users in one forest to trust all domains in the other forest.
-* A two-way forest trust forms a transitive trust relationship between every domain in both forests.
+* Un trust tra foreste unidirezionale consente a tutti gli utenti di una foresta di considerare attendibili tutti i domini nell'altra foresta.
+* Un trust tra foreste bidirezionale costituisce una relazione di trust transitiva tra tutti i domini in entrambe le foreste.
 
-The transitivity of forest trusts is limited to the two forest partners. The forest trust doesn't extend to additional forests trusted by either of the partners.
+La transitività dei trust tra foreste è limitata ai due partner della foresta. Il trust tra foreste non si estende ad altre foreste considerate attendibili da uno dei partner.
 
-![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagramma del trust tra foreste da Azure AD DS a servizi di dominio Active Directory locale](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-You can create different domain and forest trust configurations depending on the Active Directory structure of the organization. Azure AD DS only supports a one-way forest trust. In this configuration, resources in Azure AD DS can trust all domains in an on-premises forest.
+È possibile creare configurazioni di trust tra domini e foreste diverse a seconda della struttura Active Directory dell'organizzazione. Azure AD DS supporta solo un trust tra foreste unidirezionali. In questa configurazione le risorse in Azure AD DS possono considerare attendibili tutti i domini in una foresta locale.
 
-## <a name="supporting-technology-for-trusts"></a>Supporting technology for trusts
+## <a name="supporting-technology-for-trusts"></a>Tecnologia di supporto per i trust
 
-Trusts use various services and features, such as DNS to locate domain controllers in partnering forests. Trusts also depend on NTLM and Kerberos authentication protocols and on Windows-based authorization and access control mechanisms to help provide a secured communications infrastructure across Active Directory domains and forests. The following services and features help support successful trust relationships.
+I trust utilizzano vari servizi e funzionalità, ad esempio DNS, per individuare i controller di dominio nelle foreste partner. I trust dipendono inoltre dai protocolli di autenticazione NTLM e Kerberos e dai meccanismi di autorizzazione e controllo di accesso basati su Windows per fornire un'infrastruttura di comunicazione protetta tra Active Directory domini e foreste. I servizi e le funzionalità seguenti consentono di supportare relazioni di attendibilità riuscite.
 
 ### <a name="dns"></a>DNS
 
-AD DS needs DNS for domain controller (DC) location and naming. The following support from DNS is provided for AD DS to work successfully:
+Servizi di dominio Active Directory necessita di DNS per la posizione e la denominazione del controller di dominio (DC). Per il corretto funzionamento di servizi di dominio Active Directory viene fornito il supporto di DNS seguente:
 
-* A name resolution service that lets network hosts and services to locate DCs.
-* A naming structure that enables an enterprise to reflect its organizational structure in the names of its directory service domains.
+* Un servizio di risoluzione dei nomi che consente a host e servizi di rete di individuare i controller di dominio.
+* Struttura di denominazione che consente a un'azienda di riflettere la struttura organizzativa nei nomi dei propri domini del servizio directory.
 
-A DNS domain namespace is usually deployed that mirrors the AD DS domain namespace. If there's an existing DNS namespace before the AD DS deployment, the DNS namespace is typically partitioned for Active Directory, and a DNS subdomain and delegation for the Active Directory forest root is created. Additional DNS domain names are then added for each Active Directory child domain.
+Viene in genere distribuito uno spazio dei nomi di dominio DNS che rispecchia lo spazio dei nomi del dominio di Active Directory Se è presente uno spazio dei nomi DNS esistente prima della distribuzione di servizi di dominio Active Directory, lo spazio dei nomi DNS viene in genere partizionato per Active Directory e viene creato un sottodominio DNS e una delega per la radice della foresta Active Directory. I nomi di dominio DNS aggiuntivi vengono quindi aggiunti per ogni Active Directory dominio figlio.
 
-DNS is also used to support the location of Active Directory DCs. The DNS zones are populated with DNS resource records that enable network hosts and services to locate Active Directory DCs.
+DNS viene usato anche per supportare la posizione dei controller di dominio Active Directory. Le zone DNS vengono popolate con record di risorse DNS che consentono a host e servizi di rete di individuare i controller di dominio Active Directory.
 
-### <a name="applications-and-net-logon"></a>Applications and Net Logon
+### <a name="applications-and-net-logon"></a>Applicazioni e accesso rete
 
-Both applications and the Net Logon service are components of the Windows distributed security channel model. Applications integrated with Windows Server and Active Directory use authentication protocols to communicate with the Net Logon service so that a secured path can be established over which authentication can occur.
+Entrambe le applicazioni e il servizio Accesso rete sono componenti del modello di canale di sicurezza distribuita di Windows. Le applicazioni integrate con Windows Server e Active Directory utilizzano i protocolli di autenticazione per comunicare con il servizio Accesso rete, in modo da poter stabilire un percorso protetto sul quale può essere eseguita l'autenticazione.
 
 ### <a name="authentication-protocols"></a>Protocolli di autenticazione
 
-Active Directory DCs authenticate users and applications using one of the following protocols:
+I controller di dominio Active Directory autenticano gli utenti e le applicazioni usando uno dei protocolli seguenti:
 
-* **Kerberos version 5 authentication protocol**
-    * The Kerberos version 5 protocol is the default authentication protocol used by on-premises computers running Windows and supporting third-party operating systems. This protocol is specified in RFC 1510 and is fully integrated with Active Directory, server message block (SMB), HTTP, and remote procedure call (RPC), as well as the client and server applications that use these protocols.
-    * When the Kerberos protocol is used, the server doesn't have to contact the DC. Instead, the client gets a ticket for a server by requesting one from a DC in the server account domain. The server then validates the ticket without consulting any other authority.
-    * If any computer involved in a transaction doesn't support the Kerberos version 5 protocol, the NTLM protocol is used.
+* **Protocollo di autenticazione Kerberos versione 5**
+    * Il protocollo Kerberos versione 5 è il protocollo di autenticazione predefinito usato da computer locali che eseguono Windows e supportano sistemi operativi di terze parti. Questo protocollo è specificato in RFC 1510 ed è completamente integrato con Active Directory, SMB (Server Message Block), HTTP e RPC (Remote Procedure Call), nonché le applicazioni client e server che utilizzano questi protocolli.
+    * Quando si utilizza il protocollo Kerberos, il server non deve contattare il controller di dominio. Il client riceve invece un ticket per un server richiedendo uno da un controller di dominio nel dominio dell'account del server. Il server convalida quindi il ticket senza consultare altre autorità.
+    * Se un computer che ha partecipato a una transazione non supporta il protocollo Kerberos versione 5, viene utilizzato il protocollo NTLM.
 
-* **NTLM authentication protocol**
-    * The NTLM protocol is a classic network authentication protocol used by older operating systems. For compatibility reasons, it's used by Active Directory domains to process network authentication requests that come from applications designed for earlier Windows-based clients and servers, and third-party operating systems.
-    * When the NTLM protocol is used between a client and a server, the server must contact a domain authentication service on a DC to verify the client credentials. The server authenticates the client by forwarding the client credentials to a DC in the client account domain.
-    * When two Active Directory domains or forests are connected by a trust, authentication requests made using these protocols can be routed to provide access to resources in both forests.
+* **Protocollo di autenticazione NTLM**
+    * Il protocollo NTLM è un protocollo di autenticazione di rete classico utilizzato dai sistemi operativi precedenti. Per motivi di compatibilità, viene usato da Active Directory domini per elaborare le richieste di autenticazione di rete provenienti da applicazioni progettate per client e server basati su Windows precedenti e sistemi operativi di terze parti.
+    * Quando il protocollo NTLM viene usato tra un client e un server, il server deve contattare un servizio di autenticazione del dominio in un controller di dominio per verificare le credenziali del client. Il server autentica il client mediante l'invio delle credenziali del client a un controller di dominio nel dominio dell'account del client.
+    * Quando due Active Directory domini o foreste sono connessi da un trust, le richieste di autenticazione effettuate usando questi protocolli possono essere indirizzate per fornire l'accesso alle risorse in entrambe le foreste.
 
 ## <a name="authorization-and-access-control"></a>Autorizzazione e controllo di accesso
 
-Authorization and trust technologies work together to provide a secured communications infrastructure across Active Directory domains or forests. Authorization determines what level of access a user has to resources in a domain. Trusts facilitate cross-domain authorization of users by providing a path for authenticating users in other domains so their requests to shared resources in those domains can be authorized.
+Le tecnologie di autorizzazione e attendibilità interagiscono per fornire un'infrastruttura di comunicazione protetta tra domini Active Directory o foreste. L'autorizzazione determina il livello di accesso di un utente alle risorse in un dominio. I trust facilitano l'autorizzazione tra domini degli utenti fornendo un percorso per l'autenticazione degli utenti in altri domini, in modo che le richieste alle risorse condivise in tali domini possano essere autorizzate.
 
-When an authentication request made in a trusting domain is validated by the trusted domain, it's passed to the target resource. The target resource then determines whether to authorize the specific request made by the user, service, or computer in the trusted domain based on its access control configuration.
+Quando una richiesta di autenticazione eseguita in un dominio trusting viene convalidata dal dominio trusted, viene passata alla risorsa di destinazione. La risorsa di destinazione determina quindi se autorizzare la richiesta specifica effettuata dall'utente, dal servizio o dal computer nel dominio trusted in base alla configurazione del controllo di accesso.
 
-Trusts provide this mechanism to validate authentication requests that are passed to a trusting domain. Access control mechanisms on the resource computer determine the final level of access granted to the requestor in the trusted domain.
+I trust forniscono questo meccanismo per convalidare le richieste di autenticazione passate a un dominio trusting. I meccanismi di controllo dell'accesso nel computer delle risorse determinano il livello di accesso finale concesso al richiedente nel dominio trusted.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-To learn more about trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
+Per ulteriori informazioni sui trust, vedere [come funzionano i trust tra foreste in Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+Per iniziare a creare un dominio gestito di Azure AD DS con una foresta di risorse, vedere [creare e configurare un dominio gestito di Azure AD DS][tutorial-create-advanced]. È quindi possibile [creare un trust tra foreste in uscita per un dominio locale (anteprima)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md
