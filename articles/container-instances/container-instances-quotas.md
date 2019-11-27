@@ -1,19 +1,14 @@
 ---
-title: Quote e aree disponibili per Istanze di Azure Container
+title: Quote di servizio e disponibilità di aree
 description: Quote, limiti e aree disponibili per il servizio Istanze di Azure Container.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: danlep
-ms.openlocfilehash: c266a67685197ba40d2868fefca08098cb41598c
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 91681130e32cf8a76829b8bfc3e2a1e97a59ff6b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172371"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533501"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Quote e limiti per istanze di Azure Container
 

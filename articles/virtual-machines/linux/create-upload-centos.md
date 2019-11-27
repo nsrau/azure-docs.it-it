@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 11/25/2019
 ms.author: szark
-ms.openlocfilehash: 6c3bb16e249d84f1da94b6b827bbaf6f8e9df1a1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1ac2b24649363538d2728f302941b5a4bf5dd357
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171254"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534152"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 
@@ -29,7 +29,7 @@ Come creare e caricare un disco rigido virtuale Azure (VHD) che contiene un sist
 * [Preparare una macchina virtuale CentOS 7.0+ per Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux CentOS (o un sistema derivato simile) in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -355,7 +355,7 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
     Modificare `/etc/dracut.conf`e aggiungere il contenuto:
 
     ```console
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
     ```
 
     Ricompilare l’initramfs:

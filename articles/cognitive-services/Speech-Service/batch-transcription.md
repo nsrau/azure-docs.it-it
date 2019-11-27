@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 5418b378c2c3cff09dbccbaa7b7240c61bbb583e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74221521"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538123"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -96,12 +96,6 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 
 La trascrizione batch supporta l' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) per la lettura di audio e la scrittura di trascrizioni nell'archiviazione.
 
-## <a name="webhooks"></a>Webhook
-
-Il polling dello stato della trascrizione potrebbe non essere il più efficiente o offrire la migliore esperienza utente. Per eseguire il polling dello stato, è possibile registrare i callback, che invierà una notifica al client durante il completamento delle attività di trascrizione con esecuzione prolungata.
-
-Per altri dettagli, vedere [webhook](webhooks.md).
-
 ## <a name="speaker-separation-diarization"></a>Separazione dei relatori
 
 La deframmentazione è il processo di separazione degli altoparlanti in un audio. La pipeline batch supporta la registrazione ed è in grado di riconoscere due altoparlanti nelle registrazioni del canale mono.
@@ -122,7 +116,7 @@ Per richiedere che la richiesta di trascrizione audio venga elaborata per la dia
 }
 ```
 
-È necessario che i timestamp a livello di parola siano anch ' essi attivati perché i parametri nella richiesta precedente indicano.
+È necessario che i timestamp a livello di parola siano anch ' essi attivati perché i parametri nella richiesta precedente indicano. 
 
 L'audio corrispondente conterrà gli altoparlanti identificati da un numero (attualmente sono supportate solo due voci, quindi gli altoparlanti verranno identificati come ' Speaker 1' è Speaker 2') seguiti dall'output della trascrizione.
 
@@ -190,7 +184,7 @@ Gli esempi completi sono disponibili nel [repository di esempio GitHub](https://
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-Il codice di esempio configura il client e invia la richiesta di trascrizione. Esegue quindi il polling delle informazioni sullo stato e stampa i dettagli relativi allo stato di avanzamento della trascrizione.
+Il codice di esempio configurerà il client e invierà la richiesta di trascrizione. Esegue quindi il polling delle informazioni sullo stato e stampa i dettagli relativi allo stato di avanzamento della trascrizione.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 

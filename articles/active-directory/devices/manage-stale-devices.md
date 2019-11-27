@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1829c56f9804c5aa808461db98a5048d63f55446
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207288"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538811"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -89,7 +89,7 @@ Se il dispositivo è sotto il controllo di Intune o di qualsiasi altra soluzione
 
 ### <a name="system-managed-devices"></a>Dispositivi gestiti dal sistema
 
-Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi come il pilota automatico e, Una volta eliminati, non è possibile effettuare nuovamente il provisioning di questi dispositivi. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
+Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi, ad esempio Autopilot. Una volta eliminati, non è possibile effettuare nuovamente il provisioning di questi dispositivi. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
 
@@ -125,7 +125,7 @@ Disabilitare o eliminare i dispositivi registrati in Azure AD in Azure AD.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Eseguire la pulizia dei dispositivi non aggiornati nel portale di Azure  
 
-Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azure, è più efficiente gestire questo processo tramite uno script di PowerShell. Usare il modulo PowerShell V1 più recente per usare il filtro timestamp ed escludere tramite filtro i dispositivi gestiti dal sistema come il pilota automatico. A questo punto, non è consigliabile usare PowerShell V2.
+Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azure, è più efficiente gestire questo processo tramite uno script di PowerShell. Usare il modulo PowerShell v1 più recente per usare il filtro timestamp e per filtrare i dispositivi gestiti dal sistema, ad esempio Autopilot. A questo punto, non è consigliabile usare PowerShell V2.
 
 Una tipica routine comprende i passaggi seguenti:
 
