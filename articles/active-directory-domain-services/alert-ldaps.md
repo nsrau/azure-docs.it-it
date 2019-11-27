@@ -12,23 +12,23 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 11/05/2019
 ms.locfileid: "71258042"
 ---
-# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: Avvisi di LDAP sicuro in Azure Active Directory Domain Services
+# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemi noti: LDAP sicuro avvisi in Azure Active Directory Domain Services
 
 Le applicazioni e i servizi che usano LDAP (Lightweight Directory Access Protocol) per la comunicazione con Azure Active Directory Domain Services (Azure AD DS) possono essere [configurati per l'uso di LDAP sicuro](tutorial-configure-ldaps.md). Per il corretto funzionamento di LDAP sicuro, è necessario aprire un certificato appropriato e le porte di rete necessarie.
 
 Questo articolo aiuta a comprendere e risolvere gli avvisi comuni con accesso LDAP sicuro in Azure AD DS.
 
-## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: Configurazione di rete LDAP sicuro
+## <a name="aadds101-secure-ldap-network-configuration"></a>AADDS101: configurazione di rete LDAP sicuro
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*LDAP sicuro su Internet è abilitato per il dominio gestito. L'accesso alla porta 636 non è tuttavia bloccato tramite un gruppo di sicurezza di rete. È quindi possibile che gli account utente sul dominio gestito siano esposti ad attacchi di forza bruta alle password.*
+*LDAP sicuro su Internet è abilitato per il dominio gestito. Tuttavia, l'accesso alla porta 636 non è bloccato usando un gruppo di sicurezza di rete. Questo può esporre gli account utente nel dominio gestito agli attacchi di forza bruta per le password.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -52,7 +52,7 @@ L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entr
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*Il certificato LDAP sicuro per il dominio gestito scadrà in [data]* .
+*The secure LDAP certificate for the managed domain will expire on [date]]* (Il certificato LDAP sicuro per il dominio gestito scadrà in [data]]).
 
 ### <a name="resolution"></a>Risoluzione
 

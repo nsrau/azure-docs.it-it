@@ -1,6 +1,6 @@
 ---
-title: Novità di Azure Active Directory in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
-description: Conoscere le modifiche apportate ad Azure Active Directory (Azure AD) nell'istanza di Microsoft 365 Government cloud, che potrebbe compromettere è.
+title: Quali sono le novità di Azure AD in Microsoft 365 Government? | Documentazione di Microsoft
+description: Informazioni sulle modifiche apportate all'Azure Active Directory (Azure AD) nell'istanza del cloud Microsoft 365 Government, che può influisca sull'utente.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,54 +13,54 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b077c7b5efbad2add971d42ff31938b56f6bc33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258895"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805290"
 ---
-# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novità di Azure Active Directory in Microsoft 365 Government
+# <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novità relative a Azure Active Directory in Microsoft 365 Government
 
-Sono state apportate alcune modifiche ad Azure Active Directory (Azure AD) nell'istanza di Microsoft 365 Government cloud, che è applicabile ai clienti che usano i servizi seguenti:
+Sono state apportate alcune modifiche all'Azure Active Directory (Azure AD) nell'istanza del cloud Microsoft 365 Government, applicabile ai clienti che usano i servizi seguenti:
 
 - Microsoft Azure per enti pubblici
 
-- Microsoft 365 Government-GCC elevata
+- Microsoft 365 Government-GCC High
 
-- Microsoft 365 per enti pubblici, Dipartimento della difesa
+- Microsoft 365 Government-DoD
 
-Questo articolo non si applica a Microsoft 365 Government – clienti GCC.
+Questo articolo non si applica ai clienti di Microsoft 365 Government-GCC.
 
-## <a name="changes-to-the-initial-domain-name"></a>Modifiche apportate al nome di dominio iniziale
+## <a name="changes-to-the-initial-domain-name"></a>Modifiche al nome di dominio iniziale
 
-Durante l'iscrizione per un servizio online Microsoft 365 Government iniziale della propria organizzazione, è stato chiesto di scegliere il nome di dominio dell'organizzazione, `<your-domain-name>.onmicrosoft.com`. Se si dispone già di un nome di dominio con il suffisso. com, nulla verrà modificato.
+Durante l'iscrizione iniziale dell'organizzazione per un servizio online Microsoft 365 Government, è stato richiesto di scegliere il nome di dominio dell'organizzazione `<your-domain-name>.onmicrosoft.com`. Se si dispone già di un nome di dominio con il suffisso. com, nulla cambierà.
 
-Tuttavia, se si esegue l'iscrizione per un nuovo servizio di Microsoft 365 Government, verrà chiesto di scegliere un nome di dominio usando il `.us` suffisso. Pertanto, sarà `<your-domain-name>.onmicrosoft.us`.
+Tuttavia, se si esegue l'iscrizione per un nuovo servizio Microsoft 365 Government, verrà chiesto di scegliere un nome di dominio usando il suffisso `.us`. Quindi, sarà `<your-domain-name>.onmicrosoft.us`.
 
 >[!Note]
->Questa modifica non è applicabile a tutti i clienti che sono gestiti dai provider di servizi cloud (CSP).
+>Questa modifica non si applica a tutti i clienti gestiti da provider di servizi cloud (CSP).
 
-## <a name="changes-to-portal-access"></a>Modifiche per l'accesso al portale
+## <a name="changes-to-portal-access"></a>Modifiche all'accesso al portale
 
-Abbiamo aggiornato l'endpoint nel portale di Microsoft Azure per enti pubblici, Microsoft 365 Government-GCC High e Microsoft 365 Government – DoD, come illustrato nella [tabella di mapping di Endpoint](#endpoint-mapping).
+Sono stati aggiornati gli endpoint del portale per Microsoft Azure per enti pubblici, Microsoft 365 Government-GCC High e Microsoft 365 Government-DoD, come illustrato nella tabella di [mapping degli endpoint](#endpoint-mapping).
 
-In precedenza ai clienti è stato possibile accedere tramite i portali di Office 365 (portal.office.com) e di Azure in tutto il mondo (portal.azure.com). Con questo aggiornamento, i clienti devono ora accedere tramite il Microsoft Azure per enti pubblici, Microsoft 365 Government - GCC High e Microsoft 365 Government - portali DoD specifico.
+I clienti in precedenza potevano accedere usando i portali di Azure (portal.azure.com) e Office 365 (portal.office.com) in tutto il mondo. Con questo aggiornamento, i clienti devono ora accedere usando i portali Microsoft Azure per enti pubblici specifici, Microsoft 365 Government-GCC High e Microsoft 365 Government-DoD.
 
 ## <a name="endpoint-mapping"></a>Mapping degli endpoint
 
-La tabella seguente illustra gli endpoint per tutti i clienti:
+La tabella seguente Mostra gli endpoint per tutti i clienti:
 
-| Name | dettagli dell'endpoint |
+| Nome | Dettagli endpoint |
 |------|------------------|
-| Portali |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 Government-GCC elevata: https://portal.office365.us<p>Microsoft 365 per enti pubblici, Dipartimento della difesa: https://portal.apps.mil |
-| Endpoint dell'autorità di Azure Active Directory | https://login.microsoftonline.us |
+| Portali |Microsoft Azure per enti pubblici: https://portal.azure.us<p>Microsoft 365 Government-GCC High: https://portal.office365.us<p>Microsoft 365 Government-DoD: https://portal.apps.mil |
+| Endpoint autorità Azure Active Directory | https://login.microsoftonline.us |
 | API Graph di Azure Active Directory | https://graph.windows.net |
-| API Graph Microsoft per enti pubblici di Microsoft 365 - GCC elevata | https://graph.microsoft.us |
-| API Graph Microsoft per enti pubblici di Microsoft 365 - dipartimento della difesa | https://dod-graph.microsoft.us |
-| Gli endpoint di servizi di Azure per enti pubblici | Per informazioni dettagliate, vedere [Guida per gli sviluppatori di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Government - endpoint GCC High | Per informazioni dettagliate, vedere [Office 365 US Endpoint GCC High per enti pubblici](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government - DoD | Per informazioni dettagliate, vedere [Office 365 US Endpoint dipartimento della difesa di enti pubblici](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| API Microsoft Graph per Microsoft 365 Government-GCC High | https://graph.microsoft.us |
+| API Microsoft Graph per Microsoft 365 Government-DoD | https://dod-graph.microsoft.us |
+| Endpoint dei servizi di Azure per enti pubblici | Per informazioni dettagliate, vedere Guida per gli [sviluppatori di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
+| Microsoft 365 Government-endpoint GCC High | Per informazioni dettagliate, vedere [Office 365 US Government GCC High Endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 Government - DoD | Per informazioni dettagliate, vedere gli [endpoint DOD di Office 365 per enti pubblici statunitensi](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -68,8 +68,8 @@ Per altre informazioni, vedere questi articoli:
 
 - [Informazioni su Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
-- [Aggiornamento dell'Endpoint dell'autorità AAD Azure per enti pubblici](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
+- [Aggiornamento endpoint autorità AAD di Azure per enti pubblici](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
-- [Endpoint di Microsoft Graph nel cloud US Government](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Microsoft Graph endpoint nel cloud per enti pubblici degli Stati Uniti](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
 - [Office 365 US Government GCC High e DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
