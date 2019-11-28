@@ -3,18 +3,18 @@ title: 'Esercitazione: Creare un set di competenze in Python con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Esempio di estrazione dei dati, linguaggio naturale ed elaborazione di immagini tramite intelligenza artificiale in Ricerca cognitiva di Azure usando un notebook Jupyter Python. I dati estratti vengono indicizzati e sono facilmente accessibile dalle query.
 manager: nitinme
-author: LisaLeib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113672"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406426"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Esercitazione: Creare una pipeline di arricchimento tramite intelligenza artificiale con REST e Python
 

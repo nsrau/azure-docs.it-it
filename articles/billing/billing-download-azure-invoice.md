@@ -5,19 +5,19 @@ keywords: fatturazione, scaricare la fatture, fattura di Azure, uso di Azure
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 80ec40a7411a370460d663084f9f7034b28e1a2e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7d52a589ee7fcb8891f5ea839b2baeb5e4b30733
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375765"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224033"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualizzare e scaricare la fattura di Microsoft Azure
 
@@ -32,7 +32,7 @@ Se si ha un Contratto del cliente Microsoft, è necessario disporre di uno dei r
 - Reader
 - Gestione fatture
 
-Per i clienti con Contratto Microsoft Partner, è necessario disporre del ruolo di amministratore globale e agente amministratore nell'organizzazione partner per visualizzare e scaricare le fatture di Azure. [Controllare il tipo di account di fatturazione ](#check-your-billing-account-type) per verificare le autorizzazioni necessarie. 
+Per i clienti con Contratto Microsoft Partner, è necessario disporre del ruolo di amministratore globale e agente amministratore nell'organizzazione partner per visualizzare e scaricare le fatture di Azure. [Controllare il tipo di account di fatturazione ](#check-your-billing-account-type) per verificare le autorizzazioni necessarie.
 
 <!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
@@ -46,7 +46,7 @@ Potrebbero esserci diversi motivi per cui non è visualizzata alcuna fattura:
 
 - Non si è autorizzati a visualizzare le fatture. Per i clienti con Contratto del cliente Microsoft o Contratto Microsoft Partner, è necessario avere il ruolo di proprietario, collaboratore, lettore o gestione fatture per il profilo di fatturazione. Per le altre sottoscrizioni, è possibile che non vengano visualizzate le fatture precedenti se non si è l'amministratore dell'account. Per altre informazioni sull'accesso alle informazioni di fatturazione, vedere [Manage access to Azure billing using roles](billing-manage-access.md) (Gestire l'accesso alla fatturazione di Azure usando i ruoli).
 
-- Se si dispone di una versione di valutazione gratuita o di un importo del credito mensile con la sottoscrizione, si riceve una fattura solo quando si supera l'importo del credito mensile. Se si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Partner, si riceverà sempre una fattura. 
+- Se si dispone di una versione di valutazione gratuita o di un importo del credito mensile con la sottoscrizione, si riceve una fattura solo quando si supera l'importo del credito mensile. Se si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Partner, si riceverà sempre una fattura.
 
 ## <a name="download-invoices-in-the-azure-portal"></a>Scaricare le fatture dal portale di Azure
 

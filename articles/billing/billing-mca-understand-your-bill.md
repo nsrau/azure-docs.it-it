@@ -4,19 +4,19 @@ description: Informazioni su come leggere e interpretare gli addebiti nella fatt
 author: jureid
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8ab6cf061531a1ef3c72b2f36d25932c7498d291
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345278"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226148"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Informazioni sugli addebiti riportati nella fattura del Contratto del cliente Microsoft
 

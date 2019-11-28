@@ -72,8 +72,14 @@
       items:
         - name: Pianificare una distribuzione automatica del provisioning utenti
           href: plan-auto-user-provisioning.md
+        - name: Provisioning automatico nelle app abilitate per SCIM
+          href: use-scim-to-provision-users-and-groups.md
         - name: Provisioning manuale o automatico
           href: application-provisioning-config-how-to.md
+    - name: Provisioning HR nel cloud
+      items:
+        - name: Pianificare una distribuzione del provisioning HR nel cloud
+          href: plan-cloud-hr-provision.md
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Proxy dell'applicazione

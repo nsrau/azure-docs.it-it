@@ -1,19 +1,19 @@
 ---
-title: Guida introduttiva - Creare un'app iOS usando Ancoraggi nello spazio di Azure | Microsoft Docs
+title: "Guida introduttiva: Creare un'app iOS"
 description: In questa guida introduttiva si apprenderà come compilare un'app iOS usando Ancoraggi nello spazio.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092107"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277197"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Guida introduttiva: Creare un'app iOS con Ancoraggi nello spazio di Azure, in Swift o Objective-C
 

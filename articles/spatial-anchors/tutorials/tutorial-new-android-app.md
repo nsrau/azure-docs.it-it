@@ -1,19 +1,19 @@
 ---
-title: Esercitazione - Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure | Microsoft Docs
+title: 'Esercitazione: Create a new Android app'
 description: Questa esercitazione illustra come creare una nuova app Android usando Ancoraggi nello spazio di Azure.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6386ef775f897ca56d2660adf72a885672c8dfd2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: a1c19523508f434c114df884824d1595376bac21
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092057"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276944"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure
 

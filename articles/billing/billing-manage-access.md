@@ -8,7 +8,7 @@ manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 035d2e567b6aad23801ff043652ea143e3f6105b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c1f9ef78431b6b293972d4adbc0f64dc49d5c4b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709613"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223836"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
 
 È possibile concedere ad altri utenti l'accesso alle informazioni di fatturazione per l'account nel portale di Azure. Il tipo di ruoli di fatturazione e le istruzioni per concedere l'accesso alle informazioni di fatturazione variano in base al tipo di account di fatturazione. Per determinare il tipo di account di fatturazione, vedere [Verificare il tipo di account di fatturazione](#check-the-type-of-your-billing-account).
 
-L'articolo si applica ai clienti con account del programma Microsoft Online Services. I clienti di Azure con contratto Enterprise Agreement (EA) che sono amministratori dell'organizzazione possono concedere le autorizzazioni agli amministratori di reparto e ai proprietari dell'account in Enterprise Portal. Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](billing-understand-ea-roles.md). Se si è un cliente con Contratto del Cliente Microsoft, vedere [Informazioni sui ruoli amministrativi per il Contratto del cliente Microsoft in Azure](billing-understand-mca-roles.md). 
+L'articolo si applica ai clienti con account del programma Microsoft Online Services. I clienti di Azure con contratto Enterprise Agreement (EA) che sono amministratori dell'organizzazione possono concedere le autorizzazioni agli amministratori di reparto e ai proprietari dell'account in Enterprise Portal. Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](billing-understand-ea-roles.md). Se si è un cliente con Contratto del Cliente Microsoft, vedere [Informazioni sui ruoli amministrativi per il Contratto del cliente Microsoft in Azure](billing-understand-mca-roles.md).
 
 ## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Amministratori degli account del programma Microsoft Online Services
 
@@ -60,9 +60,9 @@ Dopo che un amministratore account ha assegnato i ruoli appropriati ad altri ute
 1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
 
     ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-manage-access/billing-search-cost-management-billing.png)
- 
+
 1. Selezionare **Sottoscrizioni** nel riquadro a sinistra. A seconda dell'accesso, potrebbe essere necessario selezionare un ambito di fatturazione e quindi **Sottoscrizioni**.
- 
+
     ![Screenshot che mostra la selezione di sottoscrizioni](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Selezionare **Fatture** e quindi **Accesso alla fattura**.
@@ -88,7 +88,7 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
     ![Screenshot che mostra una ricerca nel portale di Azure](./media/billing-manage-access/billing-search-cost-management-billing.png)
 
 1. Selezionare **Sottoscrizioni** nel riquadro a sinistra. A seconda dell'accesso, potrebbe essere necessario selezionare un ambito di fatturazione e quindi **Sottoscrizioni**.
- 
+
     ![Screenshot che mostra la selezione di sottoscrizioni](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Selezionare **Controllo di accesso (IAM)** .

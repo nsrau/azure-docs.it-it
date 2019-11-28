@@ -3,18 +3,18 @@ title: Come viene applicato uno sconto per la prenotazione a un server singolo d
 description: Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
 author: kummanish
 ms.author: manishku
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
-ms.openlocfilehash: bae652e57cbcf141b248b20b0f8385003ba8f000
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2f1843690861a463c634f523e82facffc72b6743
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608085"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225818"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
 

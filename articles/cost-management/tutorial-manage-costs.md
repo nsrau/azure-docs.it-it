@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b72e03f6901fbb2b904328992107e31021c76be6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969134"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229813"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Esercitazione: Gestire i costi usando Cloudyn
 
@@ -87,9 +87,9 @@ Nell'elenco è visualizzato il nuovo modello dei costi con lo stato **Processing
 
 Category Manager è uno strumento per la pulizia dei dati che consente di unire i valori di più categorie (tag) per crearne di nuove. È uno strumento semplice basato su regole in cui si seleziona una categoria e si creano regole per unire valori esistenti. Si supponga ad esempio di avere due categorie per **R&amp;D** e **dev** che rappresentano entrambe il gruppo dedicato allo sviluppo.
 
-Nel portale di Cloudyn fare clic sul simbolo dell'ingranaggio nell'angolo in alto a destra e selezionare **Category Manager**. Per creare una nuova categoria, selezionare il segno più (**+**). Immettere un nome per la categoria e quindi in **Keys** (Chiavi) immettere le chiavi delle categorie da includere nella nuova categoria.
+Nel portale di Cloudyn fare clic sul simbolo dell'ingranaggio nell'angolo in alto a destra e selezionare **Category Manager**. Per creare una nuova categoria, selezionare il segno più ( **+** ). Immettere un nome per la categoria e quindi in **Keys** (Chiavi) immettere le chiavi delle categorie da includere nella nuova categoria.
 
-Quando si definisce una regola, è possibile aggiungere più valori con una condizione OR e anche eseguire alcune operazioni di base sulla stringa. In entrambi i casi, fare clic sui tre puntini di sospensione (**…**) a destra di **Rule** (Regola).
+Quando si definisce una regola, è possibile aggiungere più valori con una condizione OR e anche eseguire alcune operazioni di base sulla stringa. In entrambi i casi, fare clic sui tre puntini di sospensione ( **…** ) a destra di **Rule** (Regola).
 
 Per definire una nuova regola, usare l'area **Rules** (Rules). Immettere ad esempio **dev** in **Rules** (Regole) e quindi **R&amp;D** in **Actions** (Azioni). Al termine, salvare la nuova categoria.
 

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ef9bb41c36e4bfa59f30e2666a26a7e200bfd17b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f0656d9454483c7ee76660050bbd067bef4c9296
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967128"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219089"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Esercitazione: Prevedere la spesa futura
 

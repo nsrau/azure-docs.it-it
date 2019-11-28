@@ -4,16 +4,16 @@ description: Informazioni su come risparmiare sui costi addebitati per SQL Data 
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 75e008a6a19baacec40a809530e3a1f624a33f2b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806273"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223614"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Risparmiare sui costi addebitati per SQL Data Warehouse con la capacità riservata
 
@@ -50,7 +50,7 @@ Si supponga, ad esempio, che il consumo totale di SQL Data Warehouse sia DW3000c
    - Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.
 4. Selezionare un ambito. Usare l'elenco Ambito per scegliere un ambito della sottoscrizione.
    - **Gruppo di risorse singolo**: lo sconto della prenotazione viene applicato solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
-   - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato solo alle risorse corrispondenti incluse nella sottoscrizione selezionata.
+   - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
    - **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
    - Per i clienti Enterprise, il contesto di fatturazione è la registrazione EA.
    - Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.

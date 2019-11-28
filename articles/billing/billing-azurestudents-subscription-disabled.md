@@ -1,13 +1,10 @@
 ---
 title: Riattivare la sottoscrizione disabilitata di Azure per studenti | Microsoft Docs
 description: Illustra perché la sottoscrizione di Azure per studenti è disabilitata e come riattivarla.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +12,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cfabb3ad7ad150b38b8c90488710731ad29b80a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60615915"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226404"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Perché la sottoscrizione di Azure per studenti è disabilitata e cosa occorre fare per riattivarla?
 
@@ -34,7 +31,7 @@ L'account di Azure per studenti offre 100 dollari sotto forma di credito e una q
 
 1. Accedere usando le credenziali dell'account Azure per studenti.
 2. La pagina del saldo contiene informazioni sul credito utilizzato e rimanente. La data di scadenza del credito è visibile sotto il grafico del credito.  
-   
+
     ![Screenshot che mostra le informazioni sul credito per la sottoscrizione di Azure per studenti](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
 3. Per controllare i servizi che utilizzano il credito Azure, selezionare **Utilizzo** nel riquadro di spostamento a sinistra, quindi selezionare la sottoscrizione di Azure per studenti.

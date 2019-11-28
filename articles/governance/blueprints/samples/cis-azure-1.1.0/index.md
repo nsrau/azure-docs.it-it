@@ -1,14 +1,14 @@
 ---
-title: Esempio di progetto CIS Microsoft Azure Foundations Benchmark - Panoramica
+title: Panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 description: Panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
 ms.date: 08/09/2019
 ms.topic: sample
-ms.openlocfilehash: 89b7396b39ed6d308240316bbb5e718922d5e156
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 414c6d5a38821767dd43e62aa9f42edd8633dbe2
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032415"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544569"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Panoramica dell'esempio di progetto CIS Microsoft Azure Foundations Benchmark
 

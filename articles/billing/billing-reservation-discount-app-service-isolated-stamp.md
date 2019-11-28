@@ -4,16 +4,16 @@ description: Informazioni sulla modalità di applicazione degli sconti per le pr
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 759f83001353957f23b917440b68719b54690bea
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2e9f2fd4541621e98bc1d46f23559993eeabe311
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718810"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225993"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Modalità di applicazione degli sconti per le prenotazioni alle tariffe stamp per il servizio app Isolato di Azure
 

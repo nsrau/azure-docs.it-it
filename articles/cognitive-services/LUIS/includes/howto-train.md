@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 11/04/2018
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 0a93f4fcf862930c831feb71d5f6a84103a2c77d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: aa080b40c20cbc8946db8cd163ee6cadb3b75972
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647453"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451580"
 ---
 1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training). 
 

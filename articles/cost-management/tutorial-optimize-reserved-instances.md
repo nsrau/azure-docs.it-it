@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 6af6a6b334d29c6ff813a9b2ff35153aed239b1b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967146"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229851"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -162,7 +162,7 @@ Usare i report dei _consigli per gli acquisti di istanze riservate EC2_ e delle 
 
 Cloudyn confronta l'utilizzo delle istanze on demand e lo confronta con le istanze riservate potenziali. Quando viene rilevato un possibile risparmio, vengono visualizzati i consigli nel relativo report.
 
-Nel menu dei report nella parte superiore del portale fare clic su **Optimizer (Utilità di ottimizzazione)** > **Pricing Optimization (Ottimizzazione prezzi)**  > **EC2 RI Buying Recommendations** (Consigli per gli acquisti di istanze riservate EC2).
+Nel menu dei report nella parte superiore del portale fare clic su **Optimizer (Utilità di ottimizzazione)**  > **Pricing Optimization (Ottimizzazione prezzi)**  > **EC2 RI Buying Recommendations** (Consigli per gli acquisti di istanze riservate EC2).
 
 L'immagine seguente mostra i consigli per gli acquisti presenti nel report.
 
@@ -192,7 +192,7 @@ Le prenotazioni inutilizzate sono comuni in molti ambienti di elaborazione di co
 
 AWS vende istanze riservate per aree e zone di disponibilità specifiche. Se sono state acquistate istanze riservate per una zona di disponibilità specifica, è possibile spostare le prenotazioni tra le zone. Tuttavia, è possibile spostare facilmente le istanze riservate regionali tra le zone usando il report **EC2 Currently Unused Reservations** (Prenotazioni attualmente inutilizzate EC2). In alternativa, è possibile modificarle scegliendo un ambito regionale in modo che le istanze corrispondenti vengano applicate in tutte le zone di disponibilità.
 
-Nel menu dei report nella parte superiore del portale fare clic su **Optimizer (Utilità di ottimizzazione)** > **Inefficiencies (Inefficienze)**  > **EC2 Currently Unused Reservations** (Prenotazioni attualmente inutilizzate EC2).
+Nel menu dei report nella parte superiore del portale fare clic su **Optimizer (Utilità di ottimizzazione)**  > **Inefficiencies (Inefficienze)**  > **EC2 Currently Unused Reservations** (Prenotazioni attualmente inutilizzate EC2).
 
 Le immagini seguenti mostrano il report con le istanze riservate inutilizzate.
 

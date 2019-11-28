@@ -5,19 +5,19 @@ author: v-miegge
 manager: na
 editor: v-jesits
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 95358d7171db14ea44f5baee211d26e8f00492ad
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70242428"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223531"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Risolvere i problemi di iscrizione ad Azure
 
@@ -124,7 +124,7 @@ Per risolvere questo problema, iscrivere l'account Azure usando un altro account
  
 ## <a name="additional-help-resources"></a>Risorse della guida aggiuntive
 
-Altri articoli sulla risoluzione dei problemi relativi alla fatturazione e alle sottoscrizioni di Azure
+Altri articoli sulla risoluzione dei problemi per la fatturazione e le sottoscrizioni di Azure
 
 - [Carta rifiutata](billing-troubleshoot-declined-card.md)
 - [Problemi di accesso alla sottoscrizione](billing-troubleshoot-sign-in-issue.md)

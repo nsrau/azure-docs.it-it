@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 276dbcdfe3f40122b6a7a14e78aeee4d6ab2fbe9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: db2a25098bf9b7bf985783c8b2d5bf63e023669b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721003"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221850"
 ---
 # <a name="quickstart-create-a-project"></a>Guida introduttiva: Creare un progetto
 
@@ -38,7 +38,7 @@ In questo argomento di avvio rapido verrà creato un progetto vuoto per il lingu
 **Scegliere l'ambiente di destinazione**
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 Per questo esempio, la compilazione verrà eseguita con g++. Per un progetto vuoto è quindi sufficiente creare un file helloworld.cpp con l'editor di testo preferito.
-#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
+#### <a name="macostabmacos"></a>[macOS](#tab/macos)
 Per questo esempio, la compilazione verrà eseguita con g++. Per un progetto vuoto è quindi sufficiente creare un file helloworld.cpp con l'editor di testo preferito.
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 [!INCLUDE [C++ quickstart](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]

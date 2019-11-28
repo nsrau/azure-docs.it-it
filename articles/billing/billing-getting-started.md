@@ -4,19 +4,19 @@ description: Informazioni su come evitare addebiti imprevisti nella fattura di A
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 6f7a29adfbd145be11f9f6c91e8e66dd229fed62
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e5cdd7181e680dbc7406118afeb4aeb837d3aaf2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375622"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223901"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
@@ -68,11 +68,11 @@ Se si ha accesso ad Azure tramite un contratto Enterprise (EA) o un Contratto de
 
 ### <a name="track-costs-with-budgets-and-cost-alerts"></a>Tenere traccia dei costi con i budget e gli avvisi per i costi
 
-È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md) per gestire i costi e creare [avvisi](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) per informare automaticamente l'utente e gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi. 
+È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md) per gestire i costi e creare [avvisi](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) per informare automaticamente l'utente e gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi.
 
 ### <a name="costs"></a> Esplorare e analizzare i costi con l'analisi dei costi
 
-Una volta che i servizi di Azure sono in esecuzione, controllare regolarmente i costi per monitorare la spesa di Azure. È possibile usare l'analisi dei costi per ottenere informazioni sull'origine dei costi per l'utilizzo di Azure. 
+Una volta che i servizi di Azure sono in esecuzione, controllare regolarmente i costi per monitorare la spesa di Azure. È possibile usare l'analisi dei costi per ottenere informazioni sull'origine dei costi per l'utilizzo di Azure.
 
 1. Visitare la pagina [Gestione costi e fatturazione nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
@@ -166,7 +166,7 @@ Il contratto di servizio definisce gli impegni di Microsoft in merito a tempi di
 
 Per richiedere un credito:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/). Se si hanno più account, assicurarsi di usare quello interessato dal tempo di inattività di Azure. 
+1. Accedere al [portale di Azure](https://portal.azure.com/). Se si hanno più account, assicurarsi di usare quello interessato dal tempo di inattività di Azure.
 2. Creare una nuova richiesta di supporto.
 3. In **Tipo di problema** selezionare **Fatturazione**.
 4. In **Tipo di problema**, selezionare **Refund Request** (Richiesta di rimborso).

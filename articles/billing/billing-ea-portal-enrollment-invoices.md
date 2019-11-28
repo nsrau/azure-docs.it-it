@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/07/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 6bd70a58552a0217cff82cad10b11783aec64347
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2e9611995a233f9890aebb90fc3b8deaeed8efc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888412"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226319"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione EA di Azure
 
@@ -278,7 +278,7 @@ Tenere presente che Azure Marketplace non è disponibile per le registrazioni MP
 
 ## <a name="advanced-report-download"></a>Download dei report avanzati
 
-Per la creazione di report relativi a intervalli di date o ad account specifici, è possibile usare la funzionalità di download dei report avanzati. A partire dal 30 agosto 2016, il formato del file di output passa da xlsx a csv per contenere set di record più grandi.
+Per la creazione di report relativi a intervalli di date o ad account specifici, è possibile usare la funzionalità di download dei report avanzati. A partire dal 30 agosto 2016, il formato del file di output è passato da xlsx a csv per contenere set di record più grandi.
 
 1. Selezionare **Advanced Report Download** (Download report avanzati).
 1. Selezionare **Appropriate Date Range** (Intervallo di date appropriato).
