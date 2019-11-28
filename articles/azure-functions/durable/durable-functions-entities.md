@@ -1,20 +1,16 @@
 ---
 title: Entità durevoli - Funzioni di Azure
 description: Questo articolo contiene informazioni sulle entità durevoli e sul modo di usarle nell'estensione Durable Functions per Funzioni di Azure.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d62281b4ccb522b3a784428bcf0284730f120628
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904034"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232922"
 ---
 # <a name="entity-functions"></a>Funzioni di entità
 
@@ -298,7 +294,7 @@ Una funzione di entità può inviare segnali ad altre entità (o anche a se stes
 
 In alcuni casi può essere necessario coordinare le operazioni tra più entità. In un'applicazione bancaria, ad esempio, potrebbero essere presenti entità che rappresentano singoli conti bancari. Quando si trasferiscono i fondi da un conto a un altro, è necessario verificare che il conto di origine disponga di fondi sufficienti. È anche necessario verificare che gli aggiornamenti per i conti di origine e di destinazione vengano eseguiti in modo coerente a livello di transazione.
 
-### <a name="example-transfer-funds-c"></a>Esempio: trasferire fondi (C#)
+### <a name="example-transfer-funds-c"></a>Esempio: Trasferire fondi (C#)
 
 Il codice di esempio seguente trasferisce i fondi tra due entità account usando una funzione dell'agente di orchestrazione. Per il coordinamento degli aggiornamenti delle entità è necessario usare il metodo `LockAsync` per creare una _sezione critica_ nell'orchestrazione.
 

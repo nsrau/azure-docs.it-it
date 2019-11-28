@@ -1,19 +1,15 @@
 ---
 title: Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins
 description: Informazioni su come usare il Servizio app di Azure per distribuire un'app Web Java in Azure con Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, servizio app
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840442"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158522"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -138,7 +134,7 @@ App Web in Linux supporta anche metodi di distribuzione tradizionali, come GIT e
 Prima di configurare il processo in Jenkins, è necessaria un'app Web in Linux. Per archiviare e gestire immagini del contenitore Docker private è necessario anche un registro contenitori. Per creare il registro contenitori si può usare DockerHub. In questo esempio viene usato il Registro Azure Container.
 
 * [Creare l'app Web in Linux](../app-service/containers/quickstart-nodejs.md).
-* Registro Azure Container è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry 2.0. [Creare un registro contenitori di Azure](/azure/container-registry/container-registry-get-started-azure-cli). È anche possibile usare DockerHub.
+* Registro Azure Container è un servizio gestito di [registri Docker](https://docs.docker.com/registry/) basato sull'applicazione open source Docker Registry 2.0. [Creare un Registro Azure Container](/azure/container-registry/container-registry-get-started-azure-cli). È anche possibile usare DockerHub.
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Impostare il processo Jenkins per Docker
 

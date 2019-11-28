@@ -3,17 +3,13 @@ title: Esercitazione - Configurare cluster del servizio Azure Kubernetes in Azur
 description: Informazioni su come usare Ansible per creare e gestire un cluster del servizio Azure Kubernetes in Azure
 keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, servizio Azure Kubernetes, kubernetes
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 11/04/2019
-ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614387"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156675"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Esercitazione: Configurare cluster del servizio Azure Kubernetes Service in Azure con Ansible
 

@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715504"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158661"
 ---
 # <a name="assess-servers-using-imported-data"></a>Valutare i server con dati importati
 
-> [!NOTE]
-> Se questa funzionalità non è ancora visualizzata nel portale di Azure Migrate, aspettare. Comparirà all'incirca la prossima settimana.
-
-Questo articolo descrive come valutare i server locali con [Azure Migrate: Valutazione server](migrate-services-overview.md#azure-migrate-server-assessment-tool), tramite l'importazione di metadati del server con CSV. Con questo metodo di valutazione, non è necessario configurare l'appliance Azure Migrate per creare una valutazione. Questa operazione è utile se: 
+Questo articolo descrive come valutare i server locali con [Azure Migrate: Valutazione server](migrate-services-overview.md#azure-migrate-server-assessment-tool), tramite l'importazione di metadati del server con CSV. Con questo metodo di valutazione, non è necessario configurare l'appliance Azure Migrate per creare una valutazione. Questa operazione è utile se:
 
 - Si vuole creare una rapida valutazione iniziale prima di distribuire l'appliance.
 - Non è possibile distribuire l'appliance di Azure Migrate nell'organizzazione.
@@ -49,7 +46,7 @@ In questa esercitazione si apprenderà come:
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Impostare le autorizzazioni di Azure per Azure Migrate 
+## <a name="set-azure-permissions-for-azure-migrate"></a>Impostare le autorizzazioni di Azure per Azure Migrate
 
 l'account Azure deve avere le autorizzazioni per creare un progetto di Azure Migrate.
 
@@ -116,7 +113,7 @@ Nella tabella seguente vengono riepilogati i campi del file da compilare.
 
 **Nome campo** | **Obbligatorio** | **Dettagli**
 --- | --- | ---
-**Nome server** | Sì | È consigliabile specificare il nome di dominio completo. 
+**Nome server** | Sì | È consigliabile specificare il nome di dominio completo.
 **Indirizzo IP** | No | Indirizzo del server.
 **Numero di core** | Sì | Numero di core del processore allocati al server.
 **Memoria** | Sì | RAM totale (MB) allocata al server.
@@ -144,7 +141,7 @@ Nella tabella seguente vengono riepilogati i campi del file da compilare.
 **ID Virtual Machine Manager** | No | Questo è il valore **InstanceUUid** per VMWare vCenter. Non necessario per Hyper-V.
 **Indirizzo MAC**| No | Indirizzo MAC server.
 **BIOS ID** | No | Server BIOS ID.
-**ID server personalizzato**| No | ID univoci locali del server locale. <br/> Utile per il rilevamento del server importato in base all'ID locale. 
+**ID server personalizzato**| No | ID univoci locali del server locale. <br/> Utile per il rilevamento del server importato in base all'ID locale.
 **Nome applicazione 1** | No | Nome dei carichi di lavoro in esecuzione nel server.<br/> È possibile aggiungere dettagli per altre app tramite[aggiunta di colonne](#add-multiple-applications) nel modello. È possibile aggiungere fino a cinque applicazioni.
 **Tipo applicazione 1** | No | Tipo di carico di lavoro in esecuzione nel server
 **Versione applicazione 1** | No | Versione del carico di lavoro in esecuzione nel server.
@@ -162,7 +159,7 @@ La valutazione riconosce i nomi specifici del sistema operativo. Qualsiasi nome 
 
 ### <a name="add-multiple-disks"></a>Aggiungere più dischi
 
-Il modello fornisce campi predefiniti per il primo disco.  È possibile aggiungere colonne simili fino a 8 dischi. 
+Il modello fornisce campi predefiniti per il primo disco.  È possibile aggiungere colonne simili fino a 8 dischi.
 
 Ad esempio, per specificare tutti i campi per un secondo disco, aggiungere le colonne:
 
@@ -192,10 +189,10 @@ Dopo l'aggiunta di informazioni al modello CSV, importare i server in Azure Migr
 
 1. In Azure Migrate > **Individua macchine virtuali**, cercare il modello compilato.
 2. Fare clic su **Importa**.
-3. Viene visualizzato lo stato dell'importazione. 
+3. Viene visualizzato lo stato dell'importazione.
     - Se gli avvisi vengono visualizzati nello stato, è possibile correggerli oppure continuare senza risolverli.
     - Il miglioramento delle informazioni sul server, come suggerito negli avvisi, migliora l'accuratezza della valutazione.
-    - Per visualizzare e correggere gli avvisi in caso vengano visualizzati, fare clic su **Scarica i dettagli degli avvisi in formato CSV**. Il file con estensione csv viene scaricato con gli avvisi annessi. È possibile esaminare gli avvisi e correggere i problemi in base alle esigenze. 
+    - Per visualizzare e correggere gli avvisi in caso vengano visualizzati, fare clic su **Scarica i dettagli degli avvisi in formato CSV**. Il file con estensione csv viene scaricato con gli avvisi annessi. È possibile esaminare gli avvisi e correggere i problemi in base alle esigenze.
     Se gli errori vengono visualizzati nello stato (lo stato dell'importazione è **Non riuscito**), è necessario correggerli prima di poter continuare con l'importazione. A tale scopo, scaricare il file con estensione csv in cui sono stati aggiunti i dettagli dell'errore. Esaminare e risolvere gli errori in base alle esigenze. Quindi, caricare nuovamente il file modificato.
 4. Quando lo stato dell'importazione è **Completato**, vengono importate le informazioni sul server.
 
@@ -205,7 +202,7 @@ Dopo l'aggiunta di informazioni al modello CSV, importare i server in Azure Migr
 
 ## <a name="updating-server-information"></a>Aggiornamento delle informazioni sul server
 
-È possibile aggiornare le informazioni su un server caricando nuovamente i dati per il server con lo stesso **Nome del server**. Non è possibile modificare il campo **Nome del server**. 
+È possibile aggiornare le informazioni su un server caricando nuovamente i dati per il server con lo stesso **Nome del server**. Non è possibile modificare il campo **Nome del server**.
 
 L'eliminazione di server è attualmente supportata.
 
@@ -300,21 +297,21 @@ Questa visualizzazione mostra il costo stimato di calcolo e archiviazione associ
 
 NOME | NOME
 --- | ---
-**A - H** | 
+**A - H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I - R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I - R** |
 IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

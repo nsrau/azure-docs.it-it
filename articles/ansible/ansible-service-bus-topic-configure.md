@@ -3,17 +3,13 @@ title: Esercitazione - Configurare argomenti nel bus di servizio di Azure con An
 description: Informazioni su come usare Ansible per creare un argomento nel bus di servizio di Azure
 keywords: ansible, azure, devops, bash, playbook, bus di servizio, argomenti, sottoscrizioni
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 952779db582f9437f10608bf86b0b80560ded2c0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d07c7622043353a79d5a82994c2fab4f0835b453
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241223"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155805"
 ---
 # <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Esercitazione: Configurare argomenti nel bus di servizio di Azure tramite Ansible
 

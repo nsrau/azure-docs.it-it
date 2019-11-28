@@ -1,21 +1,16 @@
 ---
 title: Creare la prima funzione durevole in Azure usando C#
 description: Creare e pubblicare una funzione durevole di Azure con Visual Studio.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jeconnoc
-keywords: Funzioni di Azure, funzioni, elaborazione eventi, calcolo, architettura senza server
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6b3ead9eefd6f0d4c504cc7711ea4e03facf8edc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615001"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231519"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creare la prima funzione durevole in C\#
 

@@ -1,19 +1,15 @@
 ---
 title: Creare la prima funzione ospitata in Linux in Azure
 description: Informazioni su come creare in Azure la prima funzione ospitata in Linux usando gli strumenti da riga di comando, Azure Functions Core Tools e l'interfaccia della riga di comando di Azure.
-author: ggailey777
-ms.author: glenga
 ms.date: 03/12/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
-manager: gwallace
-ms.openlocfilehash: 34f4dc4b36f4efd75c5a7cd14b3214886955a403
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 19abfee69db53c560dfa2696d85f8c1c3d770c09
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329684"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230804"
 ---
 # <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Guida introduttiva: Creare la prima funzione ospitata in Linux con gli strumenti da riga di comando
 

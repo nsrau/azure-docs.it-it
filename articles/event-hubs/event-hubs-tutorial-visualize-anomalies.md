@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718005"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307339"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Eseguire l'app per produrre dati di evento di test
 
-Gli [esempi in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) di Hub eventi includono un'[app di rilevamento delle anomalie](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) che genera dati di test. Simula l'uso di carte di credito scrivendo transazioni con carta di credito nell'hub eventi, tra cui, in alcuni casi, transazioni diverse per la stessa carta di credito in diverse posizioni, in modo che vengano contrassegnate come anomalie. Per eseguire l'applicazione, seguire questa procedura: 
+Gli [esempi in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) di Hub eventi includono un'[app di rilevamento delle anomalie](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) che genera dati di test. Simula l'uso di carte di credito scrivendo transazioni con carta di credito nell'hub eventi, tra cui, in alcuni casi, transazioni diverse per la stessa carta di credito in diverse posizioni, in modo che vengano contrassegnate come anomalie. Per eseguire l'applicazione, seguire questa procedura: 
 
 1. Scaricare gli [esempi di Hub eventi di Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) da GitHub e decomprimere il file in locale.
 

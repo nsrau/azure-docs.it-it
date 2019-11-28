@@ -3,17 +3,13 @@ title: Avvio rapido - Distribuire il modello di soluzione Ansible per Azure in C
 description: In questo argomento di avvio rapido viene illustrato come distribuire il modello di soluzione Ansible in una macchina virtuale CentOS ospitata in Azure, insieme agli strumenti configurati per l'uso con Azure.
 keywords: ansible, azure, devops, modello di soluzione, macchina virtuale, Identità gestite per le risorse di azure, centos, red hat
 ms.topic: quickstart
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6aa721ee6cf6680518a28d050c22d8649f0f531f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ebd01411ff27b0e95be21ef147098a90b6f62742
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833163"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156323"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Guida introduttiva: Distribuire il modello di soluzione Ansible per Azure in CentOS
 

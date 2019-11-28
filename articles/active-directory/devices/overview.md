@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175036"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420502"
 ---
 # <a name="what-is-a-device-identity"></a>Informazioni sulle identità dei dispositivi
 
@@ -50,7 +50,7 @@ Per inserire un dispositivo in Azure AD, sono disponibili più opzioni:
       - Windows 7, 8.1 o 10
       - Windows Server 2008 o versioni successive
 
-![Dispositivi visualizzati nel pannello Dispositivi di Azure AD](./media/overview/azure-ad-devices-all-devices-overview.png)
+![Dispositivi visualizzati nel pannello Dispositivi di Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
 ## <a name="device-management"></a>Gestione dei dispositivi
 

@@ -1,17 +1,14 @@
 ---
 title: 'Esercitazione: Archiviare lo stato di Terraform in Archiviazione di Azure'
 description: Introduzione all'archiviazione dello stato Terraform in Archiviazione di Azure.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 374936c39221d79d59fc8a54dc2bc4a49800240d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d1b622a372be48bf044b512f3c964a5720fc3c5b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078574"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159327"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>Esercitazione: Archiviare lo stato Terraform in Archiviazione di Azure
 

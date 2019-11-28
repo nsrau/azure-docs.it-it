@@ -1,17 +1,14 @@
 ---
 title: "Esercitazione: Creare un set di scalabilità di macchine virtuali di Azure da un'immagine personalizzata Packer usando Terraform"
 description: Usare Terraform per configurare e specificare la versione di un set di scalabilità di macchine virtuali da un'immagine personalizzata generata da Packer (completo di una rete virtuale e di dischi collegati gestiti).
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 7d2813a51e63d86b56712bb6d07efc2f65ec65a0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077823"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159276"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali di Azure da un'immagine personalizzata Packer usando Terraform
 

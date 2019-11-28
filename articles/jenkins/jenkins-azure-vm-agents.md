@@ -1,19 +1,15 @@
 ---
 title: Scalabilità delle distribuzioni di Jenkins con agenti di macchine virtuali di Azure.
 description: Aggiungere altre capacità alle pipeline di Jenkins usando macchine virtuali di Azure con il plug-in di Agente di macchine virtuali di Azure per Jenkins.
-ms.service: jenkins
 keywords: jenkins, azure, devops, macchina virtuale, agenti
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074666"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158541"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Ridimensionare le distribuzioni di Jenkins per soddisfare la richiesta con agenti di macchine virtuali di Azure
 
@@ -114,7 +110,7 @@ Configurare un modello da usare per definire un agente di macchine virtuali di A
 
 ## <a name="configure-agent-operating-system-and-tools"></a>Configurare il sistema operativo e gli strumenti di un agente
 
-Nella sezione **Image Configuration** (Configurazione dell'immagine) della configurazione del plug-in, selezionare **Ubuntu 16.04 LTS**. Selezionare le caselle accanto a **Install Git (Latest)** (Installare Git, versione più recente) e **installare Maven (V3.5.0)**, e **Installare Docker** per installare questi strumenti per gli agenti appena creati.
+Nella sezione **Image Configuration** (Configurazione dell'immagine) della configurazione del plug-in, selezionare **Ubuntu 16.04 LTS**. Selezionare le caselle accanto a **Install Git (Latest)** (Installare Git, versione più recente) e **installare Maven (V3.5.0)** , e **Installare Docker** per installare questi strumenti per gli agenti appena creati.
 
 ![Configurazione del sistema operativo e degli strumenti della macchina virtuale](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 

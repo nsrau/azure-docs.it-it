@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241365"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327266"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Esercitazione: Analizzare dati di Apache Spark usando Power BI in HDInsight
 
@@ -180,7 +180,7 @@ Per eliminare un cluster, vedere [Eliminare un cluster HDInsight tramite browser
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come usare [Microsoft Power BI](https://powerbi.microsoft.com/) per visualizzare i dati nel cluster Apache Spark in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Passare all'articolo successivo per scoprire come eseguire il pull dei dati registrati in Spark in uno strumento di analisi BI come Power BI.
+In questa esercitazione si è appreso come usare [Microsoft Power BI](https://powerbi.microsoft.com/) per visualizzare i dati nel cluster Apache Spark in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Passare al prossimo articolo per vedere che è possibile creare un'applicazione di apprendimento automatico.
 
 > [!div class="nextstepaction"]
-> [Eseguire un processo di streaming Apache Spark](apache-spark-eventhub-streaming.md)
+> [Creare un'applicazione di apprendimento automatico](./apache-spark-ipython-notebook-machine-learning.md)

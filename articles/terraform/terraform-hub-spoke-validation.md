@@ -1,17 +1,14 @@
 ---
 title: Esercitazione - Convalidare una rete hub-spoke in Azure con Terraform
 description: Esercitazione per la convalida della topologia di rete hub-spoke con tutte le reti virtuali connesse tra loro.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969327"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159195"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Esercitazione: Convalidare una rete hub-spoke in Azure con Terraform
 

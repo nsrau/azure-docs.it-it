@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
-ms.openlocfilehash: 85e2216e39658fde42f298dabc38c737621d6be4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 22b8558c8808afacc6ef92bd0fd41d3adbc92bf5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178030"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533835"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Panoramica - Informazioni su App per la logica di Azure
 
@@ -42,7 +42,7 @@ Ogni flusso di lavoro delle app per la logica inizia con un trigger, che viene a
 
 Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che esegue le azioni nel flusso di lavoro. Queste azioni possono anche includere conversioni di dati e controlli di flusso, ad esempio istruzioni condizionali, istruzioni switch, cicli e diramazioni. Ad esempio, questa app per la logica viene avviata con un trigger di Dynamics 365 che include il criterio predefinito "Quando un record viene aggiornato". Se il trigger rileva un evento che soddisfa questo criterio, il trigger viene attivato ed esegue le azioni del flusso di lavoro. In questo caso, le azioni includono la trasformazione XML, gli aggiornamenti dei dati, la diramazione delle decisioni e le notifiche tramite posta elettronica.
 
-![Finestra di progettazione di App per la logica - app per la logica di esempio](./media/logic-apps-overview/azure-logic-apps-overview.png)
+![Finestra di progettazione di App per la logica - app per la logica di esempio](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
 È possibile creare visivamente le app per la logica con Progettazione app per la logica, disponibile nel portale di Azure tramite il browser e in Visual Studio. Per altre app per la logica personalizzate, è possibile creare o modificare le definizioni delle app per la logica in JSON (JavaScript Object Notation) usando l'editor "Visualizzazione Codice". È anche possibile usare i comandi di Azure PowerShell e i modelli di Azure Resource Manager per le attività di selezione. Le app per la logica vengono distribuite ed eseguite nel cloud in Azure. Per un'introduzione più dettagliata, guardare questo video: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Usare Azure Enterprise Integration Services per eseguire app cloud su larga scala)
 
@@ -52,7 +52,7 @@ Con l'affermazione della digitalizzazione in ambito aziendale, le app per la log
 
 In molti casi non sarà neanche necessario scrivere codice. Nel caso sia necessario scrivere codice, è possibile creare frammenti di codice con [Funzioni di Azure](../azure-functions/functions-overview.md) ed eseguire tale codice su richiesta dalle app per la logica. Se inoltre le app per la logica devono interagire con eventi dei servizi di Azure, app personalizzate o altre soluzioni, è possibile usare [Griglia di eventi di Azure](../event-grid/overview.md) con le app per la logica per il monitoraggio, il routing e la pubblicazione degli eventi.
 
-App per la logica, Funzioni e Griglia di eventi sono completamente gestiti da Microsoft Azure, di conseguenza non è più necessario preoccuparsi di creare, ospitare, ridimensionare, gestire, monitorare e manutenere le soluzioni. Grazie alla possibilità di creare [app e soluzioni "senza server"](../logic-apps/logic-apps-serverless-overview.md), è possibile concentrarsi solo sulla logica di business. Questi servizi vengono automaticamente ridimensionati in base alle esigenze, velocizzano le integrazioni e consentono di creare app cloud affidabili con una quantità minima di codice. Senza contare che si paga solo per quello che si usa, in base a un [modello di determinazione prezzi](../logic-apps/logic-apps-pricing.md) a consumo.
+App per la logica, Funzioni e Griglia di eventi sono completamente gestiti da Microsoft Azure, di conseguenza non è più necessario preoccuparsi di creare, ospitare, ridimensionare, gestire, monitorare e manutenere le soluzioni. Grazie alla possibilità di creare [app e soluzioni "senza server"](../logic-apps/logic-apps-serverless-overview.md), è possibile concentrarsi solo sulla logica di business. Questi servizi vengono automaticamente ridimensionati in base alle esigenze, velocizzano le integrazioni e consentono di creare app cloud affidabili con una quantità minima di codice.
 
 Per informazioni su come l'uso combinato di App per la logica con altri servizi Azure e prodotti Microsoft ha consentito alle aziende di migliorare la propria agilità e concentrare ancor di più l'attenzione sul proprio core business, vedere queste [storie dei clienti](https://aka.ms/logic-apps-customer-stories).
 

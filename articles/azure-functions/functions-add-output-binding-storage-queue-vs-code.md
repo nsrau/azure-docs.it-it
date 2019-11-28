@@ -1,18 +1,14 @@
 ---
 title: Connettere funzioni ad Archiviazione di Azure con Visual Studio Code
 description: Informazioni su come aggiungere un binding di output per connettere le funzioni a una coda di Archiviazione di Azure con Visual Studio Code.
-author: ggailey777
-ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: 951e48e591f490ea6321329352fd798fea58855d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: baddb6f02fe3d9c66e3c52d826ffe70c151d313e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329691"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227445"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio Code
 

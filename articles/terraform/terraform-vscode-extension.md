@@ -1,17 +1,14 @@
 ---
 title: Esercitazione - Configurare l'estensione Azure Terraform di Visual Studio Code
 description: Questo articolo illustra come installare e usare l'estensione Azure Terraform in Visual Studio Code.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 93ec85a2e37350ef56ff8c2e1a0ea16bb3be355e
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7f2f15c3a45480b8922f34e191fb965d5e83d9fa
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969323"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159225"
 ---
 # <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Esercitazione: Configurare l'estensione Azure Terraform di Visual Studio Code
 

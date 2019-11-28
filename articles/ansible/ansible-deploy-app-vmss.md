@@ -3,17 +3,13 @@ title: Esercitazione - Distribuire app in set di scalabilità di macchine virtua
 description: Informazioni su come usare Ansible per configurare set di scalabilità di macchine virtuali di Azure e distribuire l'applicazione nel set di scalabilità
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7c54790a3d988341caa65bdf0ce33c240f0580fb
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241743"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156401"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Esercitazione: Distribuire app in set di scalabilità di macchine virtuali in Azure tramite Ansible
 

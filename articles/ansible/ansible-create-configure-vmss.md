@@ -3,17 +3,13 @@ title: Esercitazione - Configurare i set di scalabilità di macchine virtuali in
 description: Informazioni su come usare Ansible per creare e configurare set di scalabilità di macchine virtuali in Azure
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1d9b8cd207596aefa01af852627f11cb9b4ce5dc
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e1cc40459988fb9bc38e3dbbcde563cebb531e3d
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241737"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156544"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Esercitazione: Configurare set di scalabilità di macchine virtuali in Azure tramite Ansible
 

@@ -3,17 +3,13 @@ title: Esercitazione - Aggiornare l'immagine personalizzata di set di scalabilit
 description: Informazioni su come usare Ansible per aggiornare i set di scalabilità di macchine virtuali in Azure con l'immagine personalizzata
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241338"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155857"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Esercitazione: Aggiornare l'immagine personalizzata di set di scalabilità di macchine virtuali di Azure tramite Ansible
 
