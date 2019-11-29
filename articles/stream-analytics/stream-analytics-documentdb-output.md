@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: aa4ac011a7b6258958ac1ac176fd63b18a4ef856
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062025"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560192"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -59,7 +59,7 @@ A seconda della scelta della chiave di partizione, è possibile che venga visual
 
 È importante scegliere una proprietà della chiave di partizione con un numero di valori distinti e consente di distribuire il carico di lavoro in modo uniforme tra questi valori. Come artefatto naturale del partizionamento, le richieste che interessano la stessa chiave di partizione sono limitate dalla velocità effettiva massima di una singola partizione. Inoltre, la dimensione di archiviazione per i documenti che appartengono alla stessa chiave di partizione è limitata a 10 GB. Una chiave di partizione ideale appare spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
 
-Una chiave di partizione è anche il limite per le transazioni nelle stored procedure e nei trigger di DocumentDB. È necessario scegliere la chiave di partizione in modo che i documenti che si verificano insieme nelle transazioni condividano lo stesso valore della chiave di partizione. Per informazioni dettagliate sulla scelta di una chiave di partizione, [in Cosmos DB](../cosmos-db/partitioning-overview.md) viene visualizzato il partizionamento degli articoli.
+Una chiave di partizione è anche il limite per le transazioni nelle stored procedure e nei trigger di DocumentDB. È necessario scegliere la chiave di partizione in modo che i documenti che si verificano insieme nelle transazioni condividano lo stesso valore della chiave di partizione. Per informazioni dettagliate sulla scelta di una chiave di partizione, in Cosmos DB viene visualizzato il [partizionamento](../cosmos-db/partitioning-overview.md) degli articoli.
 
 Per i contenitori Azure Cosmos DB fissi, l'analisi di flusso non consente di aumentare o ridurre le prestazioni una volta completate. Tali raccolte hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR al secondo.  Per eseguire la migrazione dei dati da un contenitore fisso a un contenitore senza limiti, ad esempio con una velocità effettiva di almeno 1000 UR al secondo e una chiave di partizione, è necessario usare l'[utilità di migrazione dati](../cosmos-db/import-data.md) o la [libreria di feed di modifiche](../cosmos-db/change-feed.md).
 
@@ -89,15 +89,25 @@ La creazione di Cosmos DB come output nell'analisi di flusso genera una richiest
 
 ![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Campo           | DESCRIZIONE|
+|Campo           | Description|
 |-------------   | -------------|
 |Alias di output    | Un alias per fare riferimento a questo output nella query ASA.|
 |Sottoscrizione    | Scegliere la sottoscrizione di Azure.|
-|ID account      | Nome o URI endpoint dell'account Azure Cosmos DB.|
-|Chiave dell'account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
+|Account ID      | Nome o URI endpoint dell'account Azure Cosmos DB.|
+|Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB.|
 |Database        | Nome del database Azure Cosmos DB.|
-|Nome contenitore | Nome del contenitore da usare. `MyContainer`è un input valido di esempio: deve esistere `MyContainer` un contenitore denominato.  |
-|ID documento     | facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.|
+|Nome contenitore | Nome del contenitore da usare. `MyContainer` è un input valido di esempio: è necessario che esista un contenitore denominato `MyContainer`.  |
+|Document ID     | facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.|
+
+Una volta configurato l'output del Cosmos DB, è possibile utilizzarlo nella query come destinazione di un' [istruzione into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Quando si usa un output Cosmos DB come tale, [è necessario impostare in modo esplicito una chiave di partizione](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). Il record di output deve contenere una colonna con distinzione tra maiuscole e minuscole denominata dopo la chiave di partizione in Cosmos DB. Per ottenere una maggiore parallelizzazione, è possibile che l'istruzione richieda una [clausola PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) usando la stessa colonna.
+
+**Query di esempio**:
+
+```SQL
+    SELECT TollBoothId, PartitionId
+    INTO CosmosDBOutput
+    FROM Input1 PARTITION BY PartitionId
+``` 
 
 ## <a name="error-handling-and-retries"></a>Gestione degli errori e tentativi
 

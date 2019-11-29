@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd144f1922456520075c1863ec347e85eb3889db
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379865"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554033"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Usare Microsoft Authenticator o Microsoft Intune Portale aziendale nelle applicazioni Novell
 
@@ -182,7 +182,7 @@ Il portale offre una nuova esperienza nel portale di registrazione delle app che
 
 MSAL.NET supporta solo la piattaforma Novell. iOS al momento. Non supporta ancora i broker per la piattaforma Novell. Android.
 
-La libreria nativa di MSAL Android la supporta già. Per informazioni dettagliate, vedere [autenticazione negoziata in Android](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md)
+La libreria nativa di MSAL Android la supporta già. Per informazioni dettagliate, vedere [autenticazione negoziata in Android](brokered-auth.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

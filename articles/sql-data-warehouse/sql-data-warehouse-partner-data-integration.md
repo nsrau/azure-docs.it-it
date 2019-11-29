@@ -11,18 +11,18 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2d0f92f7bf5b015a30e431354edb0c29f5e103f6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c6951ad129a564193a33a4c21fb97e9000ac8dc2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046443"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555447"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partner di integrazione di dati di SQL Data Warehouse
 Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo evidenzia le aziende partner Microsoft con soluzioni di integrazione dei dati ufficiali che supportano Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Partner di integrazione dei dati
-| Partner | DESCRIZIONE | Sito Web/collegamento al prodotto |
+| Partner | Description | Sito Web/collegamento al prodotto |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma è una soluzione ETL che consente ai team di dati di integrare, arricchire e trasmettere in streaming i dati da diversi silo di dati a SQL Data Warehouse in tempo reale. |[Pagina del prodotto][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer fornisce un flusso di lavoro ripetibile per l'analisi di dati in modalità self-service che genera informazioni più dettagliate in ore e non in settimane come negli approcci tradizionali. Alteryx Designer consente agli analisti di dati di combinare le attività di preparazione e fusione dei dati e l'analisi predittiva, statistica e spaziale, usando la stessa intuitiva interfaccia utente. |[Pagina del prodotto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|
@@ -36,9 +36,10 @@ Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta
 | ![Skyvia][11] |**Skyvia (integrazione dei dati)**<br>L'integrazione dei dati skyvia fornisce una procedura guidata che consente di automatizzare le importazioni dei dati. Questa procedura guidata consente di eseguire la migrazione dei dati tra diversi tipi di origini, ovvero dispongono, database delle applicazioni, file CSV e altro ancora. |[Pagina del prodotto][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>La piattaforma SnapLogic consente ai clienti di trasferire rapidamente i dati all'interno e all'esterno dei Microsoft Azure SQL Data Warehouse. Offre la possibilità di integrare centinaia di applicazioni, servizi e scenari Internet in un'unica soluzione.|[Pagina del prodotto][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][15] |**StreamSets**<br>StreamSets fornisce una piattaforma di integrazione dei dati per DataOps. Operationalizes il ciclo di vita completo di progettazione, distribuzione e funzionamento dell'integrazione dei dati in Azure SQL Data Warehouse. Non è possibile inserire e integrare rapidamente i dati da e verso il warehouse, tramite i metodi di recapito dei dati in streaming, batch o modificati di acquisizione dei dati, ma anche garantire operazioni continue con le pipeline di dati intelligenti che forniscono visibilità del flusso di dati end-to-end e resilienza.|[Pagina del prodotto][streamsets_website]|
-| ![Talend][12] |**Cloud Talend**<br>Talend cloud è una piattaforma di integrazione dei dati aziendali per connettere, accedere e trasformare i dati nel cloud o in locale. Si tratta di un'offerta iPaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre connettività ampia, qualità dei dati incorporata e supporto nativo per le più recenti tecnologie cloud e Big Data |[Pagina del prodotto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![Trifacta][13] |**Wrangler trifact**<br> Trifactora consente a utenti e organizzazioni di esplorare e unire dati diversi per l'analisi. Trifacta Wrangler è progettato per gestire i carichi di lavoro data wrangling che devono supportare i dati su larga scala e un numero elevato di utenti finali.|[Pagina del prodotto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
-| ![WhereScape][14] |**WhereScape rosso**<br> WhereScape RED è un IDE che fornisce ai team strumenti di automazione per semplificare i flussi di lavoro ETL. L'IDE fornisce procedure consigliate, codice nativo ottimizzato per le destinazioni dei dati più diffuse. USA WhereScape RED per ridurre il tempo necessario per sviluppare, distribuire e gestire l'infrastruttura di dati.|[Pagina del prodotto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
+| ![Talend][12] |**Cloud Talend**<br>Talend cloud è una piattaforma di integrazione dei dati aziendali per connettere, accedere e trasformare i dati nel cloud o in locale. Si tratta di un'offerta iPaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre connettività ampia, qualità dei dati incorporata e supporto nativo per le più recenti tecnologie cloud e Big Data. |[Pagina del prodotto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
+| ![TimeXtender][13] |**TimeXtender**<br>L'hub di individuazione di TimeXtender consente alle aziende di creare un data estate moderna fornendo una piattaforma di gestione dei dati integrata che accelera il tempo per ottenere informazioni dettagliate sui dati fino a 10 volte. Oltre al quotidiano di estrazione, trasformazione e caricamento (ETL) o estrazione, caricamento e trasformazione (ELT) grazie all'automazione e alle funzionalità per l'accesso ai dati, alla modellazione dei dati e alla conformità in un'unica piattaforma. L'hub di individuazione fornisce un'infrastruttura di dati coesa per l'analisi di scalabilità cloud, che consente di connettere e integrare diversi silo di dati, cataloghi, modelli, spostamenti e dati di documenti per l'analisi e l'intelligenza artificiale. | [Pagina del prodotto][timextender_website] |
+| ![Trifacta][14] |**Wrangler trifact**<br> Trifactora consente a utenti e organizzazioni di esplorare e unire dati diversi per l'analisi. Trifacta Wrangler è progettato per gestire i carichi di lavoro data wrangling che devono supportare i dati su larga scala e un numero elevato di utenti finali.|[Pagina del prodotto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
+| ![WhereScape][15] |**WhereScape rosso**<br> WhereScape RED è un IDE che fornisce ai team strumenti di automazione per semplificare i flussi di lavoro ETL. L'IDE fornisce procedure consigliate, codice nativo ottimizzato per le destinazioni dei dati più diffuse. USA WhereScape RED per ridurre il tempo necessario per sviluppare, distribuire e gestire l'infrastruttura di dati.|[Pagina del prodotto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -64,9 +65,10 @@ Per ulteriori informazioni su altri partner, vedere [partner di business intelli
 [10]: ./media/sql-data-warehouse-partner-data-integration/segment_logo.png
 [11]: ./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png
 [12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
-[13]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
-[14]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
-[15]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
+[13]: ./media/sql-data-warehouse-partner-data-integration/timextender-logo.png
+[14]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
+[15]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
+[16]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
 
 
 
@@ -86,6 +88,7 @@ Per ulteriori informazioni su altri partner, vedere [partner di business intelli
 [segment_website]:https://segment.com/
 [skyvia_website]:https://skyvia.com/
 [talend_website]:https://www.talend.com/
+[timextender_website]:https://www.timextender.com/
 [trifacta_website]:https://www.trifacta.com/
 [wherescape_website]:https://www.wherescape.com/
 [streamsets_website]:https://streamsets.com/partners/microsoft

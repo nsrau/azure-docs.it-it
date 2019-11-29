@@ -1,6 +1,6 @@
 ---
 title: Guida alla risoluzione dei problemi del Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento consente di risolvere i problemi nel centro sicurezza di Azure.
+description: Questa guida è destinata ai professionisti IT, agli analisti della sicurezza e agli amministratori del cloud che devono risolvere i problemi relativi al centro sicurezza di Azure.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257694"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559217"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -21,7 +21,7 @@ Questa guida è destinata a professionisti IT, analisti della sicurezza delle in
 
 Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 
-## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
+## <a name="troubleshooting-guide"></a>Guida alla risoluzione dei problemi
 
 Questa guida illustra come risolvere i problemi correlati al Centro sicurezza.
 
@@ -40,7 +40,7 @@ A seconda dei tipi di avvisi, i clienti possono raccogliere le informazioni nece
 
 Per alcuni avvisi è presente anche un punteggio di confidenza. Il punteggio di attendibilità nel **Centro sicurezza** consente la valutazione dei team e l'assegnazione di priorità degli avvisi. Il **Centro sicurezza** applica automaticamente le procedure consigliate del settore, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia è legittima e fornisce informazioni significative sotto forma di un punteggio di confidenza.
 
-I clienti possono condividere feedback per la descrizione e la pertinenza dell'avviso. Passare all'avviso, selezionare il pulsante **Le informazioni sono state utili?** , selezionare il motivo e quindi immettere un commento per spiegare i commenti e i suggerimenti. Questo canale di feedback viene monitorato costantemente allo scopo di migliorare gli avvisi forniti.
+I clienti possono condividere commenti e suggerimenti per la descrizione e la pertinenza dell'avviso. Passare all'avviso, selezionare il pulsante **Le informazioni sono state utili?** , selezionare il motivo e quindi immettere un commento per spiegare i commenti e i suggerimenti. Questo canale di feedback viene monitorato costantemente allo scopo di migliorare gli avvisi forniti.
 
 ## <a name="audit-log"></a>Log di controllo
 
@@ -62,7 +62,7 @@ Il Centro sicurezza usa il Microsoft Monitoring Agent, ovvero lo stesso agente u
 
 Se si apre la console di gestione dei servizi (services.msc), verrà visualizzato anche il servizio Microsoft Monitoring Agent in esecuzione come illustrato di seguito:
 
-![Servizi](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 Per visualizzare la versione dell'agente di cui si dispone, aprire **Gestione attività**, nella scheda **Processi** individuare il **Servizio Microsoft Monitoring Agent**, fare doppio clic su di esso e fare clic su **Proprietà**. Nella scheda **Dettagli** cercare la versione del file, come illustrato di seguito:
 
@@ -74,7 +74,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 
 * **Agente installato automaticamente tramite il Centro sicurezza**: in questo scenario sarà possibile visualizzare gli avvisi sia con il Centro sicurezza che tramite la ricerca log. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene la risorsa.
 
-* **Agent installato manualmente in una macchina virtuale situata in Azure**: in questo scenario, se si usano gli agenti scaricati e installati manualmente prima del 2017 febbraio, è possibile visualizzare gli avvisi nel portale del Centro sicurezza solo se si filtra la sottoscrizione dell'area di lavoro appartiene a. Se si applica un filtro alla sottoscrizione a cui appartiene la risorsa, non verranno visualizzati avvisi. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene l'area di lavoro.
+* **Agent installato manualmente in una macchina virtuale in Azure**: in questo scenario, se si usano gli agenti scaricati e installati manualmente prima del 2017 febbraio, è possibile visualizzare gli avvisi nel portale del Centro sicurezza solo se si filtra in base alla sottoscrizione a cui appartiene l'area di lavoro. Se si applica un filtro alla sottoscrizione a cui appartiene la risorsa, non verranno visualizzati avvisi. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene l'area di lavoro.
 
 > [!NOTE]
 > Per evitare il comportamento descritto nel secondo scenario, assicurarsi di scaricare la versione più recente dell'agente.
@@ -83,7 +83,7 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 
 **Stato di monitoraggio** definisce il motivo per cui il Centro sicurezza non riesce a monitorare correttamente le VM e i computer inizializzati per il provisioning automatico. La tabella seguente mostra i valori, le descrizioni e le procedure di risoluzione di **Stato di monitoraggio**.
 
-| Stato di monitoraggio | Descrizione | Procedura per la risoluzione |
+| Stato di monitoraggio | Description | Procedura per la risoluzione |
 |---|---|---|
 | Installazione dell'agente in sospeso | L'installazione di Microsoft Monitoring Agent è ancora in esecuzione.  L'installazione può richiedere alcune ore. | Attendere il completamento dell'installazione automatica. |
 | Stato dell'alimentazione disattivato | La macchina virtuale è stata arrestata.  Microsoft Monitoring Agent può essere installato solo su una VM in esecuzione. | Riavviare la VM. |
@@ -107,10 +107,10 @@ Nella tabella seguente vengono visualizzate le risorse necessarie per la comunic
 
 | Risorsa agente | Porte | Ignorare l'analisi HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Yes |
-| *.oms.opinsights.azure.com | 443 | Yes |
-| *.blob.core.windows.net | 443 | Yes |
-| *.azure-automation.net | 443 | Yes |
+| *.ods.opinsights.azure.com | 443 | SÌ |
+| *.oms.opinsights.azure.com | 443 | SÌ |
+| *.blob.core.windows.net | 443 | SÌ |
+| *.azure-automation.net | 443 | SÌ |
 
 Se si verificano problemi di caricamento con l'agente, assicurarsi di leggere l'articolo [Risoluzione dei problemi di integrazione di Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
@@ -136,17 +136,17 @@ In caso di problemi di caricamento del dashboard del Centro sicurezza, assicurar
 
 Alcuni problemi possono essere identificati usando le linee guida contenute in questo articolo, altri sono documentati nel [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)pubblico del Centro sicurezza. Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
 
-![Supporto tecnico Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
+![Supporto Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-type.md)
-* [Esercitazione: Rispondere agli eventi imprevisti relativi alla sicurezza](tutorial-security-incident.md)
+* [Tutorial: Respond to security incidents](tutorial-security-incident.md) (Esercitazione: Rispondere agli eventi imprevisti della sicurezza)
 * [Convalida degli avvisi nel Centro sicurezza di Azure](security-center-alert-validation.md)
 * [Notifiche tramite messaggio di posta elettronica nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md)
 * [Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure](security-center-incident.md)

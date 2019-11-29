@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836986"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559000"
 ---
-# <a name="disclosure-design-patterns"></a>Schemi di progettazione della divulgazione
+# <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
 Ora che hai&#39;determinato il giusto [livello di divulgazione](concepts-disclosure-guidelines.md#disclosure-assessment) per la tua esperienza vocale sintetica, è&#39;opportuno esplorare i modelli di progettazione potenziali.
 ## <a name="overview"></a>Panoramica
 Esiste una vasta gamma di modelli di progettazione di divulgazione che è possibile applicare all'esperienza vocale sintetica. Se il risultato della valutazione della divulgazione era "divulgazione elevata", si consiglia la [**divulgazione esplicita**](#explicit-disclosure), che significa comunicare le origini della voce sintetica. La [**divulgazione implicita**](#implicit-disclosure) include suggerimenti e modelli di interazione che traggono vantaggio dall'esperienza vocale, indipendentemente dal fatto che i livelli di divulgazione siano elevati o bassi.
@@ -38,7 +38,7 @@ Usare il grafico seguente per fare riferimento direttamente ai modelli applicabi
 
 
 
-| Se l'esperienza di Voice sintetico... | Consigli | Modelli di progettazione |
+| Se l'esperienza di Voice sintetico... | Raccomandazioni | Modelli di progettazione |
 | --- | --- | --- |
 | Richiede la divulgazione elevata  | Usare almeno un modello esplicito e i segnali impliciti in primo piano per aiutare gli utenti a compilare le associazioni. |[Divulgazione esplicita](#explicit-disclosure)<br>[Divulgazione implicita](#implicit-disclosure)  |
 | Richiede la divulgazione limitata | La divulgazione può essere minima o superflua, ma può trarre vantaggio da alcuni modelli impliciti. | [Divulgazione delle funzionalità](#capability-disclosure)<br>[Trasparenza conversazione](#conversational-transparency)  |
@@ -61,7 +61,7 @@ Prima dell'inizio dell'esperienza vocale, l'assistente digitale è stato complet
 ![Introduzione trasparente durante la prima esecuzione](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
 *La voce sintetica viene introdotta durante l'onboarding di un nuovo utente.*
 
-Consigli
+Raccomandazioni
 - Descrivere che la voce è artificiale, ad esempio &quot;&quot;digitali
 - Descrivere le operazioni che l'agente è in grado di eseguire
 - Dichiarare in modo esplicito&#39;le origini vocali
@@ -96,7 +96,7 @@ Usare questo modello se l'utente interagisce con un lettore audio o un component
 ![la firma esplicita in uno scenario multimediale di notizie](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
 *Un sottotitolo esplicito è l'attribuzione da cui proviene la voce.*
 
-Consigli
+Raccomandazioni
 
 - Punto di ingresso dell'offerta per ulteriori informazioni sulla voce sintetizzata
 
@@ -111,7 +111,7 @@ Offrire scelte che hanno un effetto significativo ed evidente sull'esperienza di
 ![preferenze utente](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
 *Le preferenze utente consentono agli utenti di personalizzare e migliorare l'esperienza.*
 
-Consigli
+Raccomandazioni
 
 - Consenti agli utenti di personalizzare la voce (ad esempio, selezionare la lingua e il tipo di voce)
 - Fornire agli utenti un modo per insegnare al sistema di rispondere alla propria voce univoca (ad esempio, la calibrazione vocale, i comandi personalizzati)
@@ -124,7 +124,7 @@ Offrire modi per personalizzare la voce degli&#39;assistenti digitali. Se la voc
 personalizzazione della voce ![](media/responsible-ai/disclosure-patterns/customization-voice-type.png)<br/>
 *Offrire la possibilità di selezionare un set di voci consente di fornire la natura artificiale.*
 
-Consigli
+Raccomandazioni
 - Consenti agli utenti di visualizzare in anteprima il suono di ogni voce
 - Usa un'introduzione autentica per ogni voce
 - Fornire punti di ingresso per ulteriori informazioni sulla voce sintetizzata
@@ -136,7 +136,7 @@ Oltre a rispettare le normative della COPPA, fornire la divulgazione agli elemen
 divulgazione ![per gli elementi padre](media/responsible-ai/disclosure-patterns/parental-disclosure.png)<br/>
 *Un'introduzione trasparente ottimizzata per i genitori garantisce che un adulto abbia reso conto della natura sintetica della voce prima che un figlio interagisce con esso.*
 
-Consigli
+Raccomandazioni
 
 - Indirizzare gli elementi padre come destinatari primari per la divulgazione
 - Incoraggiare i genitori a comunicare la divulgazione ai propri figli
@@ -155,7 +155,7 @@ Quando un utente richiede ulteriori informazioni sulla voce sintetica, l'obietti
 ![fornire agli utenti ulteriori informazioni sulla voce sintetica](media/responsible-ai/disclosure-patterns/learn-more.png)<br/>
 *Ulteriori informazioni possono essere disponibili in un sito esterno della guida del sito.*
 
-Consigli
+Raccomandazioni
 
 - Semplifica i concetti complessi ed evita l'uso di un gergo tecnico e legale
 - Non seppellire questo contenuto nelle istruzioni sulla privacy e sulle condizioni per l'utilizzo
@@ -167,7 +167,7 @@ La coerenza è la chiave per ottenere la divulgazione implicita in tutto il perc
 
 ![Coerenza dei segnali impliciti](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>Suggerimenti impliciti &amp; Commenti
+### <a name="implicit-cues--feedback"></a>Suggerimenti impliciti & Commenti
 
 Il antropomorfismo può manifestarsi in modi diversi, dalla rappresentazione visiva effettiva dell'agente, alla voce, ai suoni, ai modelli di luce, alle forme rimbalzanti o persino alla vibrazione di un dispositivo. Quando si definisce la persona, sfruttare i suggerimenti e i modelli di feedback impliciti anziché puntare a un avatar molto simile a quello umano. Questo è un modo per ridurre al minimo la necessità di divulgazione più esplicita.
 
@@ -245,7 +245,7 @@ Utilizzare la divulgazione come opportunità per eseguire correttamente l'errore
 - [Linee guida per la progettazione di sintesi vocale di Microsoft Windows UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
 - [Linee guida per i comandi vocali della realtà mista di Microsoft Windows](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 * [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
 * [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)

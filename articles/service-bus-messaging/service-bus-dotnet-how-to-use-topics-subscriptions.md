@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/15/2019
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991757"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560105"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
@@ -32,12 +32,12 @@ Questa esercitazione illustra i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [i benefici della sottoscrizione MSDN o Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Seguire i passaggi nel [Guida introduttiva: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
-    1. Creare un Bus di servizio **dello spazio dei nomi**.
-    2. Ottenere il **stringa di connessione**.
+1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Seguire i passaggi della [Guida introduttiva: usare la portale di Azure per creare un argomento e le sottoscrizioni del bus di servizio all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
+    1. Creare uno **spazio dei nomi** del bus di servizio.
+    2. Ottenere la **stringa di connessione**.
     3. Creare un **argomento** nello spazio dei nomi.
-    4. Creare **una sottoscrizione** all'argomento nello spazio dei nomi.
+    4. Creare **una sottoscrizione** dell'argomento nello spazio dei nomi.
 3. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 4. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
  
@@ -75,16 +75,10 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
     static ITopicClient topicClient;
     ``` 
 
-3. Sostituire il contenuto predefinito di `Main()` con la riga di codice seguente:
+3. Sostituire il metodo `Main()` con il metodo **asincrono** `Main` seguente che invia i messaggi in modo asincrono usando il metodo SendMessagesAsync che verrà aggiunto nel passaggio successivo. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Subito dopo `Main()` aggiungere il metodo asincrono `MainAsync()` seguente, che chiama il metodo per l'invio dei messaggi:
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -101,8 +95,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
         await topicClient.CloseAsync();
     }
     ```
-
-5. Subito dopo il metodo `MainAsync()` aggiungere il metodo `SendMessagesAsync()` seguente, che esegue l'operazione di invio del numero di messaggi specificato da `numberOfMessagesToSend` (attualmente impostato su 10):
+5. Subito dopo il metodo `Main` aggiungere il metodo `SendMessagesAsync()` seguente, che esegue l'operazione di invio del numero di messaggi specificato da `numberOfMessagesToSend` (attualmente impostato su 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -146,25 +139,20 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -196,11 +184,11 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
 
 3. Eseguire il programma e controllare il portale di Azure facendo clic sul nome dell'argomento nella finestra **Panoramica** dello spazio dei nomi. Verrà visualizzata la schermata **Informazioni di base** dell'argomento. Nella sottoscrizione riportata nella parte inferiore della finestra si noti che il valore di **Conteggio messaggi** per la sottoscrizione è ora **10**. Ogni volta che si esegue l'applicazione mittente senza recuperare i messaggi (come descritto nella sezione successiva), questo valore aumenta di 10. Si noti anche che la dimensione corrente dell'argomento aumenta il valore di **Corrente** nella finestra **Informazioni di base** ogni volta che l'app aggiunge messaggi all'argomento.
    
-      ![Dimensioni dei messaggi][topic-message]
+      ![Dimensione dei messaggi][topic-message]
 
 ## <a name="receive-messages-from-the-subscription"></a>Ricevere messaggi dalla sottoscrizione
 
-Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il **Microsoft.Azure.ServiceBus** pacchetto NuGet, come per l'applicazione mittente precedente.
+Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto NuGet **Microsoft. Azure. ServiceBus** , in modo analogo all'applicazione mittente precedente.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Scrivere il codice per ricevere messaggi dalla sottoscrizione
 
@@ -222,17 +210,11 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Sostituire il contenuto predefinito di `Main()` con la riga di codice seguente:
+3. Sostituire il metodo `Main()` con il seguente metodo **asincrono** `Main`. Chiama il metodo `RegisterOnMessageHandlerAndReceiveMessages()` che verrà aggiunto nel passaggio successivo. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. Subito dopo `Main()` aggiungere il metodo asincrono `MainAsync()` seguente, che chiama il metodo `RegisterOnMessageHandlerAndReceiveMessages()`:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -244,11 +226,10 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. Subito dopo il metodo `MainAsync()` aggiungere il metodo seguente, che registra il gestore di messaggi e riceve i messaggi inviati dall'applicazione mittente:
+   ```
+5. Subito dopo il metodo `Main()` aggiungere il metodo seguente, che registra il gestore di messaggi e riceve i messaggi inviati dall'applicazione mittente:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -322,25 +303,20 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()

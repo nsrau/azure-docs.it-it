@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579636"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555001"
 ---
-# <a name="audio-content-creation"></a>Creazione di contenuto audio
+# <a name="audio-content-creation"></a>Creazione di contenuti audio
 
 La [creazione di contenuti audio](https://aka.ms/audiocontentcreation) è uno strumento online che consente di personalizzare e ottimizzare l'output di sintesi vocale di Microsoft per le app e i prodotti. È possibile usare questo strumento per ottimizzare le voci pubbliche e personalizzate per espressioni naturali più accurate e per gestire l'output nel cloud.
 
@@ -43,7 +43,7 @@ Questo diagramma illustra i passaggi necessari per ottimizzare ed esportare outp
 
 Attenersi alla procedura seguente per creare una risorsa vocale e connetterla con speech studio.
 
-1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
+1. Seguire queste istruzioni per [iscriversi per ottenere un account Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) e [creare una risorsa di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Verificare che il piano tariffario sia impostato su **S0**. Se si usa una delle voci neurali, assicurarsi di creare la risorsa in un' [area supportata](regions.md#standard-and-neural-voices).
 2. Accedere alla [creazione del contenuto audio](https://aka.ms/audiocontentcreation).
 3. Selezionare un progetto esistente oppure fare clic su **Crea nuovo**.
 4. È possibile modificare la sottoscrizione in qualsiasi momento con l'opzione **Impostazioni** , situata nella parte superiore del NAV.
@@ -104,11 +104,11 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 | wav | riff-16kHz-16 bit-mono-PCM | riff-24kHz-16 bit-mono-PCM |
 | mp3 | audio-16kHz-128kbitrate-mono-MP3 | audio-24kHz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [API Long audio](https://aka.ms/long-audio-api)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Speech studio](https://speech.microsoft.com)
+> [Speech Studio](https://speech.microsoft.com)

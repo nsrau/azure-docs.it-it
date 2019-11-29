@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006963"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561547"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Pianificare l'ambiente Azure Time Series Insights GA
 
@@ -53,7 +53,7 @@ Per impostazione predefinita, Time Series Insights mantiene i dati in base alla 
 Azure Time Series Insights dispone di due modalità:
 
 * Una modalità ottimizza i dati più aggiornati. Impone un criterio per **eliminare i dati obsoleti** lasciando disponibili i dati recenti con l'istanza. Questa modalità è abilitata per impostazione predefinita. 
-* L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. La sospensione del traffico in **ingresso** impedisce l'inserimento di nuovi dati quando il valore selezionato come **limite di archiviazione supera il comportamento**. 
+* L'altro ottimizza i dati in modo che rimangano al di sotto dei limiti di conservazione configurati. **Sospendere** il traffico in ingresso impedisce che i nuovi dati vengano immessi quando viene selezionato perché il **limite di archiviazione ha superato il comportamento**. 
 
 È possibile modificare la conservazione e passare tra le due modalità nella pagina di configurazione dell'ambiente nel portale di Azure.
 
@@ -64,11 +64,11 @@ Azure Time Series Insights dispone di due modalità:
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare l'ambiente Time Series Insights desiderato.
 
-1. Nel riquadro **ambiente Time Series Insights** in **Impostazioni**Selezionare **Configura**.
+1. Nel riquadro **Time Series Insights ambiente** , in **Impostazioni**, selezionare **Configurazione archiviazione**.
 
 1. Nella casella **tempo di conservazione dati (in giorni)** immettere un valore compreso tra 1 e 400.
 
-   [![configurare la conservazione](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [![configurare la conservazione](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
 > Per ulteriori informazioni su come implementare i criteri di conservazione dei dati appropriati, vedere [come configurare la conservazione](./time-series-insights-how-to-configure-retention.md).

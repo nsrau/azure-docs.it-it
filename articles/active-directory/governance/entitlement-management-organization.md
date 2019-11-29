@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174148"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561911"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -33,7 +33,7 @@ Un'organizzazione connessa è una directory o un dominio di Azure AD esterno a c
 
 Si supponga, ad esempio, di lavorare presso la Woodgrove Bank e di voler collaborare con due organizzazioni esterne: Graphic Design Institute e contoso. L'utente ha ricevuto il contatto presso Graphical Design Institute che usa Azure AD e che gli utenti dell'Istituto di progettazione grafica hanno un nome dell'entità utente che termina con `graphicdesigninstitute.com`. E il contatto presso Contoso è stato detto che non usano ancora Azure AD, ma che gli utenti di Contoso hanno un nome dell'entità utente che termina con `contoso.com`.
 
-È possibile configurare due organizzazioni connesse, una per Graphic Design Institute con la `graphicdesigninstitute.com`di dominio e una per Contoso con il dominio `contoso.com`. Se si aggiungono queste due organizzazioni connesse a un criterio, gli utenti di ogni organizzazione che dispongono di un nome dell'entità utente che corrisponde al criterio possono richiedere pacchetti di accesso. Inoltre, poiché Graphic Design Institute è stato identificato come utilizzando Azure AD, se successivamente Graphic Design Institute dispone di sottodomini, ad esempio `graphicdesigninstitute.example`, gli utenti con il nome dell'entità utente saranno anche in grado di richiedere pacchetti di accesso tramite il stesso criterio.
+È possibile configurare due organizzazioni connesse, una per Graphic Design Institute con la `graphicdesigninstitute.com`di dominio e una per Contoso con il dominio `contoso.com`. Se si aggiungono queste due organizzazioni connesse a un criterio, gli utenti di ogni organizzazione che dispongono di un nome dell'entità utente che corrisponde al criterio possono richiedere pacchetti di accesso. Inoltre, poiché Graphic Design Institute è stato identificato come utilizzando Azure AD, se successivamente Graphic Design Institute dispone di sottodomini, ad esempio `graphicdesigninstitute.example`, gli utenti con il nome dell'entità utente saranno anche in grado di richiedere pacchetti di accesso utilizzando lo stesso criterio.
 
 ![Esempio di organizzazione connessa](./media/entitlement-management-organization/connected-organization-example.png)
 
@@ -42,6 +42,10 @@ Il modo in cui gli utenti della directory Azure AD o del dominio si autenticano 
 - Azure AD
 - [Federazione diretta](../b2b/direct-federation.md)
 - [Un codice di](../b2b/one-time-passcode.md) accesso monouso (dominio)
+
+Per una dimostrazione di come aggiungere un'organizzazione connessa, guardare il video seguente:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## <a name="add-a-connected-organization"></a>Aggiungere un'organizzazione connessa
 

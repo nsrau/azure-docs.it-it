@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/01/2018
+ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: f9c9059a5f66c6ba1c2e9d9dd637c0675fc7e220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae2c55486e0489006395a1630eba0b1c3f56b5be
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861898"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561521"
 ---
 # <a name="service-bus-quotas"></a>Quote del bus di servizio
 Questa sezione elenca le quote di base e le soglie di limitazione della messaggistica del bus di servizio di Azure.

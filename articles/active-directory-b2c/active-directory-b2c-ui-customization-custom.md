@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374236"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209437"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "72374236"
 
 Al termine di questo articolo, saranno disponibili un criterio personalizzato per l'iscrizione e l'accesso con il proprio marchio e aspetto. Con Azure Active Directory B2C (Azure AD B2C) si ottiene il controllo quasi completo del contenuto HTML e CSS presentato agli utenti. Quando si usa un criterio personalizzato, si configura la personalizzazione dell'interfaccia utente in XML anziché usare i controlli nel portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la procedura descritta in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
 
@@ -93,19 +93,19 @@ Per creare un contenitore pubblico nell'archivio BLOB, seguire questa procedura:
 1. Selezionare **Carica**.
 1. Selezionare il BLOB **Customize-UI. html** caricato.
 1. A destra della casella di testo **URL** selezionare l'icona **copia negli Appunti** per copiare l'URL negli Appunti.
-1. Nel Web browser passare all'URL copiato per verificare che il BLOB caricato sia accessibile. Se è inaccessibile, ad esempio se si verifica un errore `ResourceNotFound`, verificare che il tipo di accesso del contenitore sia impostato su **BLOB**.
+1. Nel Web browser passare all'URL copiato per verificare che il BLOB caricato sia accessibile. Se è inaccessibile, ad esempio se si verifica un errore di `ResourceNotFound`, assicurarsi che il tipo di accesso del contenitore sia impostato su **BLOB**.
 
 ## <a name="configure-cors"></a>Configurare CORS
 
 Configurare l'archiviazione BLOB per la condivisione di risorse tra le origini eseguendo i passaggi seguenti:
 
 1. Nel menu selezionare **CORS**.
-1. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
+1. Per **Origini consentite** immettere `https://your-tenant-name.b2clogin.com`. Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio: `https://fabrikam.b2clogin.com`. È necessario usare solo lettere minuscole quando si immette il nome del tenant.
 1. Per **Metodi consentiti** selezionare sia `GET` che `OPTIONS`.
 1. Per **Intestazioni consentite** immettere un asterisco (*).
 1. Per **Intestazioni esposte** immettere un asterisco (*).
 1. Per **Età massima** immettere 200.
-1. Fare clic su **Salva**
+1. Fare clic su **Save**.
 
 ## <a name="test-cors"></a>Testare CORS
 
@@ -124,7 +124,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**.
 1. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
-1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     I criteri personalizzati dovrebbero essere simili ai seguenti:
 
@@ -160,7 +160,7 @@ Per configurare la personalizzazione dell'interfaccia utente, si copia **Content
 1. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>riferimento
 
 ### <a name="sample-templates"></a>Modelli di esempio
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
@@ -171,7 +171,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
-| Modello HTML5 | Description |
+| Modello HTML5 | DESCRIZIONE |
 |----------------|-------------|
 | *phonefactor.html* | Usare questo file come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Usare questo file come modello per una pagina Password dimenticata. |
@@ -182,7 +182,7 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 Ecco i passaggi per l'uso dell'esempio:
 
 1. Clonare il repository nel computer locale. Scegliere una cartella modello in sample_templates. È possibile utilizzare `wingtip` o `contoso`.
-1. Caricare tutti i file nelle cartelle `css`, `fonts` e `images` nell'archivio BLOB, come descritto nelle sezioni precedenti.
+1. Caricare tutti i file nelle cartelle `css`, `fonts`e `images` nell'archivio BLOB, come descritto nelle sezioni precedenti.
 1. Aprire quindi ogni file \*. html nella radice di `wingtip` o `contoso` (a seconda del valore selezionato nel primo passaggio) e sostituire tutte le istanze di "http://localhost" con gli URL dei file CSS, images e fonts caricati nel passaggio 2.
 1. Salvare i file \*. html e caricarli nell'archivio BLOB.
 1. Modificare ora il file delle estensioni come indicato in precedenza in [modificare il file delle estensioni](#modify-the-extensions-file).
@@ -192,7 +192,7 @@ Ecco i passaggi per l'uso dell'esempio:
 
 Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
-| ID definizione del contenuto | Description |
+| ID definizione del contenuto | DESCRIZIONE |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Si tratta di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
@@ -207,4 +207,4 @@ Nella sezione Modificare i criteri personalizzati di iscrizione o di accesso è 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sugli elementi dell'interfaccia utente che possono essere personalizzati, vedere [Guida di riferimento per la personalizzazione dell'interfaccia utente per i criteri predefiniti](active-directory-b2c-reference-ui-customization.md).
+Per altre informazioni sugli elementi dell'interfaccia utente che possono essere personalizzati, vedere [Guida di riferimento per la personalizzazione dell'interfaccia utente per i flussi utente](active-directory-b2c-reference-ui-customization.md).

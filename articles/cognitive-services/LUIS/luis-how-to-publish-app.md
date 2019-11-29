@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: f213c1d43930075c78cf81de345f612e46bbfb1c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74221711"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554834"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -45,7 +45,7 @@ Con entrambi gli slot di pubblicazione è possibile disporre di due diverse vers
 
 ### <a name="publishing-regions"></a>Regioni di pubblicazione
 
-L'app viene pubblicata in tutte le aree associate alle risorse dell'endpoint di stima LUIS aggiunto nel portale LUIS dalla pagina **gestisci** ->  **[risorse di Azure](/luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
+L'app viene pubblicata in tutte le aree associate alle risorse dell'endpoint di stima LUIS aggiunto nel portale LUIS dalla pagina **gestisci** ->  **[risorse di Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
 
 Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea una risorsa Luis in due aree, **westus** e **eastus**e si aggiungono tali risorse all'app come risorse, l'app viene pubblicata in entrambe le aree. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
 
@@ -57,7 +57,7 @@ Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea 
 
 Dopo aver selezionato lo slot, configurare le impostazioni di pubblicazione per:
 
-* Analisi del sentiment
+* Analisi dei sentimenti
 * Correzione ortografica-solo endpoint di stima V2
 * Priming del riconoscimento vocale 
 
@@ -69,7 +69,7 @@ Quando l'app viene pubblicata correttamente, viene visualizzata una notifica di 
 
 Se è necessario l'URL dell'endpoint, selezionare il collegamento. Per ottenere gli URL degli endpoint, è anche possibile scegliere **Gestisci** dal menu in alto e quindi selezionare **risorse di Azure** nel menu a sinistra. 
 
-## <a name="sentiment-analysis"></a>Analisi del sentiment
+## <a name="sentiment-analysis"></a>Analisi dei sentimenti
 
 <a name="enable-sentiment-analysis"></a>
 

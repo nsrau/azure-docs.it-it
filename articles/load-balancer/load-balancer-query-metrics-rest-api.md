@@ -1,7 +1,7 @@
 ---
 title: Recuperare le metriche con l'API REST
 titleSuffix: Azure Load Balancer
-description: In this article, get started using the Azure REST APIs to collect health and usage metrics for Azure Load Balancer.
+description: Questo articolo illustra come iniziare a usare le API REST di Azure per raccogliere le metriche di utilizzo e di integrità per Azure Load Balancer.
 services: sql-database
 author: asudbring
 manager: KumudD
@@ -17,9 +17,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225248"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Get Load Balancer usage metrics using the REST API
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Ottenere Load Balancer metriche di utilizzo usando l'API REST
 
-Collect the number of bytes processed by a [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for an interval of time using the [Azure REST API](/rest/api/azure/).
+Raccogliere il numero di byte elaborati da un [Load Balancer standard](/azure/load-balancer/load-balancer-standard-overview) per un intervallo di tempo usando l' [API REST di Azure](/rest/api/azure/).
 
 La documentazione di riferimento completa e altri esempi relativi all'API REST sono disponibili nelle [informazioni di riferimento REST di Monitoraggio di Azure](/rest/api/monitor). 
 
@@ -35,21 +35,21 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Description|  
+|Intestazione della richiesta|DESCRIZIONE|  
 |--------------------|-----------------|  
-|*Content-Type:*|Richiesto. Impostare su `application/json`.|  
-|*Authorization:*|Richiesto. Impostare su un [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valido. |  
+|*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
+|*Authorization:*|Obbligatorio. Impostare su un `Bearer` [token di accesso](/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |  
 
 ### <a name="uri-parameters"></a>Parametri URI
 
-| name | Description |
+| Nome | DESCRIZIONE |
 | :--- | :---------- |
 | subscriptionId | ID sottoscrizione che identifica una sottoscrizione di Azure. Se sono disponibili più sottoscrizioni, vedere [Uso di più sottoscrizioni](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nome del gruppo di risorse contenente la risorsa. È possibile ottenere questo valore dall'API di Azure Resource Manager, dall'interfaccia della riga di comando o dal portale. |
 | loadBalancerName | Nome di Azure Load Balancer. |
-| metric names | Elenco delimitato da virgole delle [metriche di Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics) valide. |
+| nomi delle metriche | Elenco delimitato da virgole delle [metriche di Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics) valide. |
 | api-version | Versione dell'API da usare per la richiesta.<br /><br /> Questo documento illustra la versione api-version `2018-01-01`, inclusa nell'URL precedente.  |
-| timespan | Intervallo di tempo della query. It's a string with the following format `startDateTime_ISO/endDateTime_ISO`. Questo parametro facoltativo è impostato per restituire, nell'esempio, i dati relativi a un singolo giorno. |
+| timespan | Intervallo di tempo della query. Si tratta di una stringa con il formato seguente `startDateTime_ISO/endDateTime_ISO`. Questo parametro facoltativo è impostato per restituire, nell'esempio, i dati relativi a un singolo giorno. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo della richiesta

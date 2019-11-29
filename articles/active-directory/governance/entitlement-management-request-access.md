@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173694"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554069"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -80,6 +80,30 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
 
 ![Portale di accesso personale-richiesta di accesso-più criteri](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>Inviare nuovamente una richiesta
+
+Quando si richiede l'accesso a un pacchetto di Access, la richiesta potrebbe essere negata o la richiesta potrebbe scadere se i responsabili approvazione non rispondono nel tempo. Se è necessario l'accesso, è possibile riprovare e inviare di nuovo la richiesta. Nella procedura seguente viene illustrato come inviare nuovamente una richiesta di accesso:
+
+**Ruolo prerequisiti:** Richiedente
+
+1. Accedere al portale di **accesso personale** .
+
+1. Fare clic su **Cronologia richieste** dal menu di spostamento a sinistra.
+
+1. Trovare il pacchetto di accesso per cui si sta riinviando una richiesta.
+
+1. Fare clic sul segno di spunta per selezionare il pacchetto di accesso.
+
+1. Fare clic sul collegamento **visualizzazione** blu a destra del pacchetto di accesso selezionato.
+    
+    ![Selezionare il collegamento di accesso al pacchetto e alla visualizzazione](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    Un riquadro si aprirà a destra con la cronologia delle richieste per il pacchetto di accesso.
+    
+    ![Selezionare il pulsante Invia di più](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Fare clic sul pulsante **Invia** di più nella parte inferiore del riquadro.
 
 ## <a name="cancel-a-request"></a>Annulla una richiesta
 

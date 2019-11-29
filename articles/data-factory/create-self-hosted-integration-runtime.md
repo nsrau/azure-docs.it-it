@@ -11,27 +11,28 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 594d4b941f3ed67daa4e1cfd57c2f5539e0cb9ee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4662e5047e981c74d2422830bc5b152dae738337
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677175"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559303"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
+
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
 
-Un runtime di integrazione self-hosted può eseguire attività di copia tra un archivio dati cloud e un archivio dati in una rete privata e inviare le attività di trasformazione sulle risorse di calcolo a una rete locale oppure a una rete virtuale di Azure. L'installazione del runtime di integrazione self-hosted è necessaria in un computer locale oppure in una macchina virtuale all'interno di una rete privata.  
+Un runtime di integrazione self-hosted può eseguire attività di copia tra un archivio dati cloud e un archivio dati in una rete privata. Può anche inviare le attività di trasformazione sulle risorse di calcolo in una rete locale o in una rete virtuale di Azure. Per l'installazione di un runtime di integrazione self-hosted è necessario un computer locale o una macchina virtuale all'interno di una rete privata.  
 
-Questo documento descrive come creare e configurare un runtime di integrazione self-hosted.
+Questo articolo descrive come creare e configurare un runtime di integrazione self-hosted.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="setting-up-a-self-hosted-integration-runtime"></a>Configurazione di un Integration Runtime self-hosted
+## <a name="setting-up-a-self-hosted-integration-runtime"></a>Configurazione di un runtime di integrazione self-hosted
 
-Per creare e configurare un runtime di integrazione self-hosted, è possibile usare i metodi seguenti:
+Per creare e configurare un runtime di integrazione self-hosted, attenersi alle procedure riportate di seguito.
 
-### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Creare un runtime di integrazione self-hosted tramite Azure PowerShell 
+### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Creare un runtime di integrazione self-hosted tramite Azure PowerShell
 
 1. Per questa attività è possibile usare Azure PowerShell. Di seguito è fornito un esempio:
 
@@ -51,258 +52,286 @@ Per creare e configurare un runtime di integrazione self-hosted, è possibile us
 
 ### <a name="create-a-self-hosted-ir-via-azure-data-factory-ui"></a>Creare un runtime di integrazione self-hosted tramite Azure Data Factory interfaccia utente
 
-È possibile seguire questa procedura per creare un runtime di integrazione self-hosted usando Azure Data Factory interfaccia utente. 
+Usare la procedura seguente per creare un runtime di integrazione self-hosted usando Azure Data Factory interfaccia utente.
 
-1. Nella **pagina attività iniziali** dell'interfaccia utente di Azure Data Factory selezionare la scheda **autore** nel riquadro sinistro.
+1. Nella pagina attività **iniziali** dell'interfaccia utente di Azure Data Factory selezionare la scheda **autore** nel riquadro più a sinistra.
 
-   ![Pulsante autore Homepage](media/doc-common-process/get-started-page-author-button.png)
-2. Fare clic su **connessioni** nella parte inferiore del riquadro a sinistra e passare ai **runtime di integrazione** nella finestra connessioni. Selezionare **+ nuovo**.
+   ![Pulsante home page author](media/doc-common-process/get-started-page-author-button.png)
 
-   ![Runtime di integrazione](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
-3. Nella finestra di **dialogo di installazione di Integration Runtime** selezionare *Esegui attività di spostamento e invio dati in calcoli esterni*, quindi fare clic su **continua**.
-4. Immettere un nome per il runtime di integrazione e selezionare **Crea**.
-5. È possibile usare l' **opzione 1** per avviare l'installazione rapida nel computer. In alternativa, usare l' **opzione 2** per configurare manualmente. Le istruzioni seguenti si basano sull' **installazione manuale**:
+1. Selezionare **connessioni** nella parte inferiore del riquadro a sinistra e selezionare **runtime di integrazione** nella finestra **connessioni** . Selezionare **+ nuovo**.
+
+   ![Creare un runtime di integrazione](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+
+1. Nella finestra di **dialogo di installazione di Integration Runtime** selezionare **Esegui attività di spostamento e invio dati in calcoli esterni**e selezionare **continua**.
+
+1. Immettere un nome per il runtime di integrazione e selezionare **Crea**.
+
+1. Selezionare il collegamento nell' **opzione 1** per aprire l'installazione rapida nel computer. In alternativa, attenersi alla procedura descritta nell' **opzione 2** per configurare manualmente. Le istruzioni seguenti si basano sull'installazione manuale:
 
    ![Impostazione runtime di integrazione](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
     1. Copiare e incollare la chiave di autenticazione. Selezionare **scaricare e installare Integration Runtime**.
-        
-    1. Scaricare il runtime di integrazione self-hosted in un computer Windows locale. Eseguire l'installazione.
-        
-    1. Nella pagina **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra**.
+
+    1. Scaricare il runtime di integrazione self-hosted in un computer Windows locale. Eseguire il programma di installazione.
+
+    1. Nella pagina **register Integration Runtime (self-hosted)** incollare la chiave salvata in precedenza e selezionare **Register**.
     
        ![Registrare il runtime di integrazione](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. Nella pagina **nuovo nodo Integration Runtime (self-hosted)** selezionare **fine**. 
+    1. Nella pagina **Nuovo nodo di Integration Runtime (self-hosted)** fare clic su **Fine**.
 
-6. Al termine della registrazione del runtime di integrazione self-hosted viene visualizzato il messaggio seguente:
+1. Una volta completata la registrazione del runtime di integrazione self-hosted, viene visualizzata la finestra seguente:
 
     ![Registrazione completata](media/create-self-hosted-integration-runtime/registered-successfully.png)
 
-### <a name="set-up-a-self-hosted-ir-on-azure-vm-via-azure-resource-manager-template"></a>Configurare un runtime di integrazione self-hosted in una macchina virtuale di Azure tramite Azure Resource Manager modello 
-È possibile automatizzare l'installazione del runtime di integrazione self-hosted in una macchina virtuale di Azure usando [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Tale modello consente di implementare in modo semplice un runtime di integrazione self-hosted completamente funzionante in una rete virtuale di Azure con funzionalità di disponibilità e scalabilità elevate (purché il numero di nodi sia impostato almeno su 2).
+### <a name="set-up-a-self-hosted-ir-on-an-azure-vm-via-an-azure-resource-manager-template"></a>Configurare un runtime di integrazione self-hosted in una macchina virtuale di Azure tramite un modello di Azure Resource Manager
+
+È possibile automatizzare la configurazione del runtime di integrazione self-hosted in una macchina virtuale di Azure usando il [modello di creazione host self-service](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Il modello fornisce un modo semplice per avere un runtime di integrazione self-hosted completamente funzionante all'interno di una rete virtuale di Azure. Il runtime di integrazione offre funzionalità a disponibilità elevata e scalabilità, purché il numero di nodi sia impostato su 2 o su un valore superiore.
 
 ### <a name="set-up-an-existing-self-hosted-ir-via-local-powershell"></a>Configurare un runtime di integrazione self-hosted esistente tramite PowerShell locale
 
-È possibile usare la riga di comando per configurare o gestire un runtime di integrazione self-hosted esistente. Questa operazione può essere usata in particolare per l'automazione dell'installazione e la registrazione dei nodi IR indipendenti. 
+È possibile usare una riga di comando per configurare o gestire un runtime di integrazione self-hosted esistente. Questo utilizzo può essere particolarmente utile per automatizzare l'installazione e la registrazione dei nodi IR indipendenti.
 
-**Dmgcmd. exe** è incluso nell'installazione self-hosted, in genere disponibile: C:\Programmi\Microsoft Integration Runtime\3.0\Shared\ Folder. Supporta vari parametri e può essere richiamato tramite il prompt dei comandi utilizzando script batch per l'automazione. 
+Dmgcmd. exe è incluso nel programma di installazione self-hosted. Si trova in genere nella cartella C:\Programmi\Microsoft Integration Runtime\3.0\Shared\ Questa applicazione supporta diversi parametri e può essere richiamata tramite una riga di comando tramite script batch per l'automazione.
 
-*Utilizzo:* 
+Usare l'applicazione come segue:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
 ```
 
- *Dettagli (parametri/proprietà):* 
+Ecco i dettagli dei parametri e delle proprietà dell'applicazione: 
 
-| Proprietà                                                    | Descrizione                                                  | Obbligatorio |
+| Proprietà                                                    | Description                                                  | Obbligatoria |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| RegisterNewNode "`<AuthenticationKey>`"                     | Registra Integration Runtime (self-hosted) nodo con la chiave di autenticazione specificata | No       |
-| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Abilitare l'accesso remoto nel nodo corrente per configurare un cluster a disponibilità elevata e/o abilitare l'impostazione delle credenziali direttamente sul runtime di integrazione self-hosted (senza passare attraverso il servizio ADF) utilizzando  **Cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** da un computer remoto nella stessa rete. | No       |
-| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Abilitare l'accesso remoto al nodo corrente quando il nodo è in esecuzione nel contenitore | No       |
-| DisableRemoteAccess                                         | Disabilitare l'accesso remoto al nodo corrente. L'accesso remoto è necessario per la configurazione a più nodi. Il cmdlet di PowerShell New-**AzDataFactoryV2LinkedServiceEncryptedCredential** funziona ancora anche quando l'accesso remoto è disabilitato purché venga eseguito nello stesso computer del nodo IR self-hosted. | No       |
-| Chiave "`<AuthenticationKey>`"                                 | Sovrascrivere/aggiornare la chiave di autenticazione precedente. Prestare attenzione perché questo può comportare la disconnessione del nodo IR indipendente precedente, se la chiave è un nuovo runtime di integrazione. | No       |
-| GenerateBackupFile "`<filePath>`" "`<password>`"            | Genera file di backup per il nodo corrente, il file di backup include la chiave del nodo e le credenziali dell'archivio dati | No       |
-| ImportBackupFile "`<filePath>`" "`<password>`"              | Ripristinare il nodo da un file di backup                          | No       |
-| Riavvia                                                     | Riavviare il servizio Host Integration Runtime (self-hosted)   | No       |
-| Inizia                                                       | Avviare il servizio Host Integration Runtime (self-hosted)     | No       |
-| Arresto                                                        | Arrestare il servizio di aggiornamento Integration Runtime (self-hosted)        | No       |
-| StartUpgradeService                                         | Avvia Integration Runtime (self-hosted) servizio di aggiornamento       | No       |
-| StopUpgradeService                                          | Arrestare il servizio di aggiornamento Integration Runtime (self-hosted)        | No       |
-| TurnOnAutoUpdate                                            | Attiva Integration Runtime (self-hosted) aggiornamento automatico        | No       |
-| TurnOffAutoUpdate                                           | Disattiva Integration Runtime (self-hosted) aggiornamento automatico       | No       |
-| SwitchServiceAccount "< dominio\utente >" ["password"]           | Impostare DIAHostService per l'esecuzione come nuovo account. Usa password vuota ("") per account di sistema o account virtuale | No       |
-| LogLevel `<logLevel>`                                       | Impostare il livello di registrazione ETW (disattivato, errore, Verbose o tutti). Utilizzato generalmente dal supporto tecnico Microsoft durante il debug. | No       |
-
+| **RegisterNewNode** "`<AuthenticationKey>`"                     | Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione specificata. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Abilitare l'accesso remoto nel nodo corrente per configurare un cluster a disponibilità elevata. In alternativa, abilitare l'impostazione delle credenziali direttamente sul runtime di integrazione Self-Hosted senza passare attraverso Azure Data Factory. Per eseguire quest'ultima operazione, usare il cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** da un computer remoto nella stessa rete. | No       |
+| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Abilitare l'accesso remoto al nodo corrente quando il nodo viene eseguito in un contenitore. | No       |
+| **DisableRemoteAccess**                                         | Disabilitare l'accesso remoto al nodo corrente. Per la configurazione a più nodi è necessario l'accesso remoto. Il cmdlet **di PowerShell New-AzDataFactoryV2LinkedServiceEncryptedCredential** funziona ancora anche quando l'accesso remoto è disabilitato. Questo comportamento è true purché il cmdlet venga eseguito nello stesso computer del nodo IR self-hosted. | No       |
+| **Chiave** di "`<AuthenticationKey>`"                                 | Sovrascrivere o aggiornare la chiave di autenticazione precedente. Prestare attenzione a questa azione. Il nodo del runtime di integrazione self-hosted precedente può passare offline se la chiave è di un nuovo runtime di integrazione. | No       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Genera un file di backup per il nodo corrente. Il file di backup include la chiave del nodo e le credenziali dell'archivio dati. | No       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Ripristinare il nodo da un file di backup.                          | No       |
+| **Riavviare**                                                     | Riavviare il servizio host del runtime di integrazione self-hosted.   | No       |
+| **Inizia**                                                       | Avviare il servizio host del runtime di integrazione self-hosted.     | No       |
+| **Stop**                                                        | Arrestare il servizio host del runtime di integrazione self-hosted.        | No       |
+| **StartUpgradeService**                                         | Avviare il servizio di aggiornamento del runtime di integrazione self-hosted.       | No       |
+| **StopUpgradeService**                                          | Arrestare il servizio di aggiornamento del runtime di integrazione self-hosted.        | No       |
+| **TurnOnAutoUpdate**                                            | Attivare l'aggiornamento automatico del runtime di integrazione self-hosted.        | No       |
+| **TurnOffAutoUpdate**                                           | Disattivare l'aggiornamento automatico del runtime di integrazione self-hosted.       | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Impostare DIAHostService per l'esecuzione come nuovo account. Utilizzare la password vuota "" per gli account di sistema e gli account virtuali. | No       |
+| `<logLevel>` **LogLevel**                                       | Impostare il livello di registrazione Event Tracing for Windows (ETW) su **off**, **Error**, **verbose**o **All**. Questa proprietà viene usata principalmente dai tecnici supporto tecnico Microsoft durante il debug dell'installazione. | No       |
 
 ## <a name="command-flow-and-data-flow"></a>Flusso dei comandi e flusso di dati
-Quando si spostano dati tra un ambiente locale e il cloud, l'attività usa un runtime di integrazione self-hosted per trasferirli dall'origine dati locale al cloud e viceversa.
 
-Di seguito viene indicato un flusso di dati generale per il riepilogo dei passaggi per eseguire la copia con il runtime di integrazione self-hosted:
+Quando si spostano i dati tra l'ambiente locale e il cloud, l'attività usa un runtime di integrazione self-hosted per trasferire i dati tra un'origine dati locale e il cloud.
 
-![Panoramica generale](media/create-self-hosted-integration-runtime/high-level-overview.png)
+Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di dati per la copia con un runtime di integrazione self-hosted:
 
-1. Lo sviluppatore di dati crea un runtime di integrazione self-hosted in un'istanza di Azure Data Factory tramite un cmdlet di PowerShell. Il portale di Azure attualmente non supporta questa funzionalità.
-2. Lo sviluppatore di dati crea quindi un servizio collegato per un archivio dati locale specificando l'istanza del runtime di integrazione self-hosted da usare per la connessione agli archivi dati.
-3. Il nodo del runtime di integrazione self-hosted crittografa le credenziali con Data Protection API (DPAPI) e le salva in locale. Se più nodi vengono impostati per la disponibilità elevata, le credenziali vengono ulteriormente sincronizzate negli altri nodi. Ogni nodo crittografa le credenziali con DPAPI e le archivia in locale. La sincronizzazione delle credenziali è trasparente allo sviluppatore di dati e viene gestita dal runtime di integrazione self-hosted.    
-4. Il servizio Data Factory comunica con il runtime di integrazione self-hosted per la pianificazione e la gestione dei processi tramite un *canale di controllo* che usa un inoltro del bus di [servizio di Azure](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay)condiviso. Quando è necessario eseguire un processo di attività, Data Factory accoda la richiesta con le informazioni sulle credenziali (se le credenziali non sono già archiviate nel runtime di integrazione self-hosted). Il runtime di integrazione self-hosted avvia il processo dopo che è stato eseguito il polling della coda.
-5. Il runtime di integrazione self-hosted copia quindi i dati dall'archivio locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Per eseguire questo passaggio, il runtime di integrazione self-hosted comunica direttamente con i servizi di archiviazione basati sul cloud, ad esempio Archiviazione BLOB di Azure, su un canale protetto (HTTPS).
+![Panoramica di alto livello del flusso di dati](media/create-self-hosted-integration-runtime/high-level-overview.png)
+
+1. Uno sviluppatore di dati crea un runtime di integrazione self-hosted in un data factory di Azure usando un cmdlet di PowerShell. Attualmente, il portale di Azure non supporta questa funzionalità.
+1. Lo sviluppatore di dati crea un servizio collegato per un archivio dati locale. Lo sviluppatore specifica l'istanza del runtime di integrazione self-hosted che il servizio deve usare per connettersi agli archivi dati.
+1. Il nodo del runtime di integrazione self-hosted crittografa le credenziali con Data Protection API (DPAPI) e le salva in locale. Se più nodi vengono impostati per la disponibilità elevata, le credenziali vengono ulteriormente sincronizzate negli altri nodi. Ogni nodo crittografa le credenziali con DPAPI e le archivia in locale. La sincronizzazione delle credenziali è trasparente allo sviluppatore di dati e viene gestita dal runtime di integrazione self-hosted.
+1. Azure Data Factory comunica con il runtime di integrazione self-hosted per pianificare e gestire i processi. La comunicazione avviene tramite un canale di controllo che usa una connessione condivisa di [inoltro del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay) . Quando è necessario eseguire un processo di attività, Data Factory Accoda la richiesta insieme a tutte le informazioni sulle credenziali. Questa operazione viene eseguita nel caso in cui le credenziali non siano già archiviate nel runtime di integrazione self-hosted. Il runtime di integrazione self-hosted avvia il processo dopo il polling della coda.
+1. Il runtime di integrazione self-hosted copia i dati tra un archivio locale e l'archiviazione cloud. La direzione della copia dipende dalla modalità di configurazione dell'attività di copia nella pipeline di dati. Per questo passaggio, il runtime di integrazione self-hosted comunica direttamente con i servizi di archiviazione basati sul cloud, ad esempio archiviazione BLOB di Azure, tramite un canale HTTPS sicuro.
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerazioni sull'uso del runtime di integrazione self-hosted
 
-- Un singolo runtime di integrazione self-hosted può essere usato per più origini dati locali. e può essere condiviso con un'altra data factory nello stesso tenant di Azure Active Directory. Per altre informazioni, vedere [Condivisione di un runtime di integrazione self-hosted](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory).
-- In un computer può essere installata una sola istanza di un runtime di integrazione self-hosted. Se si hanno due data factory che devono accedere alle origini dati locali, usare la [funzionalità di condivisione IR self-](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) Hosted per condividere il runtime di integrazione self-hosted oppure installare il runtime di integrazione self-hosted in due computer locali, uno per ogni data factory.  
-- Il runtime di integrazione self-hosted non deve trovarsi nello stesso computer dell'origine dati. Se tuttavia il runtime di integrazione self-hosted è più vicino all'origine dati, il tempo di connessione a quest'ultima è minore. Si consiglia di installare il runtime di integrazione self-hosted in un computer diverso da quello che ospita l'origine dati locale. Quando il runtime di integrazione self-hosted e l'origine dati si trovano in computer diversi, non competono per accedere alle risorse.
-- È possibile che più runtime di integrazione self-hosted siano presenti in computer diversi che si connettono alla stessa origine dati locale. Potrebbero essere disponibili, ad esempio, due runtime di integrazione self-hosted che servono due data factory per cui è registrata la stessa origine dati locale.
-- Se nel computer è già installato un gateway per uno scenario Power BI, installare un runtime di integrazione self-hosted separato per Azure Data Factory in un altro computer.
-- Il runtime di integrazione self-hosted deve essere usato per supportare l'integrazione dei dati in una rete virtuale di Azure.
-- Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per stabilire la connettività tra il servizio e l'origine dati.
-- È necessario usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud su una macchina virtuale IaaS di Azure.
-- In un runtime di integrazione self-hosted installato in un'istanza di Windows Server in cui è abilitata la crittografia FIPS potrebbero verificarsi errori di esecuzione delle attività. Per risolvere questo problema, disabilitare la crittografia FIPS nel server. Per disabilitare la crittografia FIPS compatibile, modificare il valore del Registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- È possibile usare un singolo runtime di integrazione self-hosted per più origini dati locali. È anche possibile condividerlo con un altro data factory nello stesso tenant di Azure Active Directory (Azure AD). Per altre informazioni, vedere [Condivisione di un runtime di integrazione self-hosted](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory).
+- È possibile installare una sola istanza di un runtime di integrazione self-hosted in un singolo computer. Se si hanno due data factory che devono accedere alle origini dati locali, usare la [funzionalità di condivisione IR self-hosted](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) per condividere il runtime di integrazione self-hosted o installare il runtime di integrazione self-hosted in due computer locali, uno per ogni data factory.  
+- Non è necessario che il runtime di integrazione self-hosted si trovi nello stesso computer dell'origine dati. Tuttavia, la presenza del runtime di integrazione self-hosted vicino all'origine dati riduce il tempo necessario per la connessione del runtime di integrazione self-hosted all'origine dati. Si consiglia di installare il runtime di integrazione self-hosted in un computer diverso da quello che ospita l'origine dati locale. Quando il runtime di integrazione self-hosted e l'origine dati si trovano in computer diversi, il runtime di integrazione self-hosted non compete con l'origine dati per le risorse.
+- È possibile che più runtime di integrazione self-hosted siano presenti in computer diversi che si connettono alla stessa origine dati locale. Se, ad esempio, sono presenti due runtime di integrazione self-hosted che servono due data factory, la stessa origine dati locale può essere registrata con entrambe le data factory.
+- Se nel computer è già installato un gateway per gestire uno scenario di Power BI, installare un runtime di integrazione self-hosted separato per Data Factory in un altro computer.
+- Usare un runtime di integrazione self-hosted per supportare l'integrazione dei dati all'interno di una rete virtuale di Azure.
+- Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per connettere il servizio all'origine dati.
+- Usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud in una macchina virtuale di infrastruttura distribuita come servizio (IaaS) di Azure.
+- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per risolvere questo problema, disabilitare la crittografia FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Le versioni del sistema operativo supportate sono Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019. L'installazione del runtime di integrazione self-hosted in un controller di dominio non è supportata.
+- Le versioni supportate di Windows sono:
+  + Windows 7 Service Pack 1
+  + Windows 8.1
+  + Windows 10
+  + Windows Server 2008 R2 SP1
+  + Windows Server 2012
+  + Windows Server 2012 R2
+  + Windows Server 2016
+  + Windows Server 2019
+   
+   L'installazione del runtime di integrazione self-hosted in un controller di dominio non è supportata.
 - È necessario .NET Framework 4.6.1 o versione successiva. Se si installa il runtime di integrazione self-hosted in un computer Windows 7, installare .NET Framework 4.6.1 o versione successiva. Per informazioni dettagliate, vedere [Requisiti di sistema di .NET Framework](/dotnet/framework/get-started/system-requirements) .
-- La configurazione consigliata per il computer con il runtime di integrazione self-hosted prevede almeno 2 GHz, quattro core, 8 GB di RAM e un disco da 80 GB.
-- Se il computer host entra in stato di ibernazione, il runtime di integrazione self-hosted non risponde alle richieste di dati. Configurare una combinazione appropriata per il risparmio di energia nel computer prima di installare il runtime di integrazione self-hosted. Se il computer è configurato per l'ibernazione, l'installazione del runtime di integrazione self-hosted invia un messaggio.
-- È necessario essere un amministratore del computer per installare e configurare correttamente il runtime di integrazione self-hosted.
-- Le attività di copia vengono eseguite con una frequenza specifica e di conseguenza l'uso delle risorse, ovvero CPU e memoria, nel computer segue lo stesso schema costituito da periodi di picco alternati a periodi di inattività. L'utilizzo delle risorse dipende molto anche dalla quantità di dati da spostare. Quando sono in corso più processi di copia, l'utilizzo delle risorse aumenta durante i periodi di picco.
-- Le attività possono avere esito negativo se si estraggono dati in formati parquet, ORC o avro. La creazione del file viene eseguita nel computer di integrazione self-hosted e richiede i seguenti prerequisiti per funzionare come previsto (vedere il [formato parquet in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
-    - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-    - Java Runtime (JRE) versione 8 da un provider JRE, ad esempio [adottare OpenJDK](https://adoptopenjdk.net/), garantendo che sia impostata la variabile di ambiente `JAVA_HOME`.
+- La configurazione minima consigliata per il computer del runtime di integrazione self-hosted è un processore a 2 GHz con quattro core, 8 GB di RAM e 80 GB di spazio disponibile su disco rigido.
+- Se il computer host è in stato di ibernazione, il runtime di integrazione self-hosted non risponde alle richieste di dati. Configurare una combinazione appropriata per il risparmio di energia nel computer prima di installare il runtime di integrazione self-hosted. Se il computer è configurato per l'ibernazione, il programma di installazione del runtime di integrazione self-hosted richiede un messaggio.
+- Per installare e configurare correttamente il runtime di integrazione self-hosted, è necessario essere un amministratore del computer.
+- Le esecuzioni delle attività di copia avvengono con una frequenza specifica. L'utilizzo del processore e della RAM nel computer segue lo stesso modello con tempi di punta e di inattività. L'utilizzo delle risorse dipende anche molto dalla quantità di dati spostati. Quando sono in corso più processi di copia, l'utilizzo delle risorse aumenta durante i periodi di picco.
+- Le attività potrebbero non riuscire durante l'estrazione dei dati in formati parquet, ORC o avro. Per altre informazioni su parquet, vedere il [formato parquet in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime). La creazione di file viene eseguita nel computer di integrazione self-hosted. Per funzionare come previsto, per la creazione di file sono necessari i prerequisiti seguenti:
+    - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacchetto (x64)
+    - Java Runtime (JRE) versione 8 da un provider JRE, ad esempio [Adopt OpenJDK](https://adoptopenjdk.net/). Verificare che sia impostata la variabile di ambiente `JAVA_HOME`.
 
 ## <a name="installation-best-practices"></a>Procedure consigliate per l'installazione
-Per installare il runtime di integrazione self-hosted, è possibile scaricare un pacchetto di installazione MSI nell'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Vedere l'[articolo sullo spostamento di dati tra origini locali e cloud](tutorial-hybrid-copy-powershell.md) per le istruzioni dettagliate.
 
-- Configurare una combinazione per il risparmio di energia nel computer host del runtime di integrazione self-hosted in modo che il computer non entri in stato di ibernazione. Se il computer host entra in stato di ibernazione, il runtime di integrazione self-hosted passa in modalità offline.
-- Eseguire regolarmente un backup delle credenziali associate al runtime di integrazione self-hosted.
-- Per automatizzare le operazioni di installazione del runtime di integrazione self-hosted, vedere Configurare un runtime di integrazione self-hosted **esistente tramite PowerShell** in [questa sezione](#setting-up-a-self-hosted-integration-runtime).  
+È possibile installare il runtime di integrazione self-hosted scaricando un pacchetto di installazione MSI dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Per istruzioni dettagliate, vedere l'articolo [spostare i dati tra l'ambiente locale e il cloud](tutorial-hybrid-copy-powershell.md) .
 
-## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installare e registrare il runtime di integrazione self-hosted dall'Area download
+- Configurare una combinazione per il risparmio di energia nel computer host per il runtime di integrazione self-hosted in modo che il computer non sia in stato di ibernazione. Se il computer host entra in stato di ibernazione, il runtime di integrazione self-hosted passa in modalità offline.
+- Eseguire regolarmente il backup delle credenziali associate al runtime di integrazione self-hosted.
+- Per automatizzare le operazioni di installazione del runtime di integrazione self-hosted, vedere Configurare un runtime di integrazione self-hosted [esistente tramite PowerShell](#setting-up-a-self-hosted-integration-runtime).  
+
+## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Installare e registrare un runtime di integrazione self-hosted dall'area download Microsoft
 
 1. Accedere alla [pagina di download di Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Selezionare **Scaricare**, selezionare la versione a 64 bit (32 bit non è supportato) e selezionare **Successivo**.
-3. Eseguire il file MSI direttamente oppure salvarlo sul disco rigido ed eseguirlo.
-4. Nella pagina di **benvenuto** selezionare una lingua e quindi selezionare **Avanti**.
-5. Accettare le condizioni di licenza software Microsoft e quindi selezionare **Avanti**.
-6. Selezionare la **cartella** in cui installare il runtime di integrazione self-hosted e quindi selezionare **Avanti**.
-7. Nella pagina **Pronto per l'installazione** selezionare **Installa**.
-8. Fare clic su **Fine** per completare l'installazione.
-9. Ottenere la chiave di autenticazione tramite Azure PowerShell. Di seguito viene indicato un esempio di PowerShell per recuperare la chiave di autenticazione:
+1. Selezionare **download**, selezionare la versione a 64 bit e fare clic su **Avanti**. La versione a 32 bit non è supportata.
+1. Eseguire il file MSI direttamente oppure salvarlo sul disco rigido ed eseguirlo.
+1. Nella finestra **iniziale** selezionare una lingua e fare clic su **Avanti**.
+1. Accettare le condizioni di licenza software Microsoft e quindi selezionare **Avanti**.
+1. Selezionare la **cartella** in cui installare il runtime di integrazione self-hosted e quindi selezionare **Avanti**.
+1. Nella pagina **Pronto per l'installazione** selezionare **Installa**.
+1. Selezionare **fine** per completare l'installazione.
+1. Ottenere la chiave di autenticazione tramite PowerShell. Di seguito viene indicato un esempio di PowerShell per recuperare la chiave di autenticazione:
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
-11. Nella pagina **Registra Integration Runtime (self-hosted)** di Gestione configurazione di Microsoft Integration Runtime in esecuzione sul computer seguire questa procedura:
 
-    a. Incollare la chiave di autenticazione nell'area di testo.
+1. Nella finestra **registra Integration Runtime (self-hosted)** di Microsoft Integration Runtime Configuration Manager in esecuzione nel computer, seguire questa procedura:
 
-    b. Facoltativamente, selezionare **Mostra chiave di autenticazione** per visualizzare il testo della chiave.
+    1. Incollare la chiave di autenticazione nell'area di testo.
 
-    c. Selezionare **Registra**.
+    1. Facoltativamente, selezionare **Mostra chiave di autenticazione** per visualizzare il testo della chiave.
 
+    1. Selezionare **Registra**.
 
 ## <a name="high-availability-and-scalability"></a>Disponibilità e scalabilità elevate
-Un runtime di integrazione self-hosted può essere associato a più computer locali o macchine virtuali in Azure. Questi computer sono chiamati nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. Di seguito vengono indicati i vantaggi della presenza di più nodi (computer locali con un gateway installato) per un gateway logico:
-* Disponibilità più elevata del runtime di integrazione self-hosted in modo che non sia più il singolo punto di guasto nella soluzione per Big Data o nell'integrazione dei dati cloud con Azure Data Factory, assicurando la continuità fino a quattro nodi.
+
+È possibile associare un runtime di integrazione self-hosted a più computer locali o macchine virtuali in Azure. Questi computer sono chiamati nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. I vantaggi della presenza di più nodi nei computer locali in cui è installato un gateway per un gateway logico sono:
+
+* Maggiore disponibilità del runtime di integrazione self-hosted in modo che non sia più il singolo punto di errore nella soluzione Big Data o nell'integrazione dei dati cloud con Data Factory. Questa disponibilità consente di garantire la continuità quando si usano fino a quattro nodi.
 * Miglioramento delle prestazioni e della velocità effettiva durante lo spostamento dati tra archivi dati locali e cloud. Ottenere altre informazioni sui [confronti delle prestazioni](copy-activity-performance.md).
 
-Per associare più nodi, installare il software di runtime di integrazione self-hosted dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) Quindi, registrarlo usando una delle chiavi di autenticazione ottenute dal cmdlet **New-AzDataFactoryV2IntegrationRuntimeKey** , come descritto nell' [esercitazione](tutorial-hybrid-copy-powershell.md).
+È possibile associare più nodi installando il software del runtime di integrazione self-hosted dall' [area download](https://www.microsoft.com/download/details.aspx?id=39717). Quindi, registrarlo usando una delle chiavi di autenticazione ottenute dal cmdlet **New-AzDataFactoryV2IntegrationRuntimeKey** , come descritto nell' [esercitazione](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo. È possibile installare il runtime di integrazione self-hosted in un altro computer e registrarlo con la stessa chiave di autenticazione. 
+> Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo. È possibile installare il runtime di integrazione self-hosted in un altro computer e registrarlo con la stessa chiave di autenticazione.
 
 > [!NOTE]
-> Prima di aggiungere un altro nodo per la disponibilità e la scalabilità elevate, verificare che l'opzione **Accesso remoto da Intranet** sia abilitata sul primo nodo. Accedere a **Gestione configurazione di Microsoft Integration Runtime** > **Impostazioni** > **Accesso remoto da Intranet**. 
+> Prima di aggiungere un altro nodo per la disponibilità elevata e la scalabilità, verificare che l'opzione **accesso remoto alla rete Intranet** sia abilitata nel primo nodo. A tale scopo, selezionare **Microsoft Integration Runtime Configuration Manager** **Impostazioni** >  > **accesso remoto alla rete Intranet**.
 
 ### <a name="scale-considerations"></a>Considerazioni sulla scalabilità
 
 #### <a name="scale-out"></a>Scalabilità orizzontale
 
-Quando la memoria disponibile nel runtime di integrazione self-hosted non è sufficiente e l'uso della CPU è elevato, l'aggiunta di un nuovo nodo consente di aumentare il carico nei computer. Se le attività hanno esito negativo perché si verifica un timeout o il nodo del runtime di integrazione self-hosted è offline, è utile aggiungere un nodo al gateway.
+Quando l'utilizzo del processore è elevato e la memoria disponibile è insufficiente sul runtime di integrazione self-hosted, aggiungere un nuovo nodo per scalare orizzontalmente il carico tra i computer. Se le attività hanno esito negativo perché si verifica il timeout o il nodo IR self-hosted è offline, è utile se si aggiunge un nodo al gateway.
 
 #### <a name="scale-up"></a>Aumentare le prestazioni
 
-Quando la memoria disponibile e la CPU non vengono usate correttamente, ma la capacità di esecuzione di processi simultanei sta raggiungendo il limite, è consigliabile aumentare le prestazioni aumentando il numero di processi simultanei che possono essere eseguiti in un nodo. È anche possibile aumentare le prestazioni quando si verifica un timeout delle attività perché il runtime di integrazione self-hosted è sovraccarico. Come illustrato nell'immagine seguente, è possibile aumentare la capacità massima di un nodo:  
+Quando il processore e la RAM disponibile non vengono utilizzati correttamente, ma l'esecuzione di processi simultanei raggiunge i limiti di un nodo, aumentando il numero di processi simultanei che possono essere eseguiti da un nodo. Potrebbe anche essere necessario aumentare le prestazioni quando si verifica il timeout delle attività perché il runtime di integrazione self-hosted è sovraccarico. Come illustrato nell'immagine seguente, è possibile aumentare la capacità massima di un nodo:  
 
-![Aumento dei processi simultanei che si possono eseguire su un nodo](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
+![Aumentare il numero di processi simultanei che possono essere eseguiti in un nodo](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisiti del certificato TLS/SSL
 
-Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazioni tra i nodi di Integration Runtime:
+Ecco i requisiti per il certificato TLS/SSL usato per proteggere la comunicazione tra i nodi di Integration Runtime:
 
-- Deve essere un certificato X509 v3 pubblicamente attendibile. È consigliabile usare certificati rilasciati da un'autorità di certificazione (CA) pubblica (partner).
+- Deve essere un certificato X509 v3 pubblicamente attendibile. Si consiglia di usare i certificati emessi da un'autorità di certificazione (CA) del partner pubblico.
 - Ogni nodo del runtime di integrazione deve considerare attendibile questo certificato.
-- I certificati con nome alternativo del soggetto non sono consigliati perché viene usato solo l'ultimo elemento del nome, mentre tutti gli altri vengono ignorati a causa delle limitazioni attuali. Se ad esempio si dispone di un certificato con nome alternativo del soggetto i cui nomi sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare tale certificato solo in un computer il cui nome di dominio completo è **node2.domain.contoso.com**.
-- Il certificato deve supportare tutte le dimensioni della chiave supportate da Windows Server 2012 R2 per i certificati SSL.
+- Non è consigliabile usare i certificati di nome alternativo del soggetto (SAN) perché viene usato solo l'ultimo elemento SAN. Tutti gli altri elementi SAN vengono ignorati. Se, ad esempio, si dispone di un certificato SAN le cui SANs sono **node1.Domain.contoso.com** e **node2.Domain.contoso.com**, è possibile utilizzare questo certificato solo in un computer il cui nome di dominio completo (FQDN) è **node2.Domain.contoso.com**.
+- Il certificato può usare qualsiasi dimensione della chiave supportata da Windows Server 2012 R2 per i certificati SSL.
 - I certificati che usano chiavi CNG non sono supportati.  
 
 > [!NOTE]
-> Questo certificato viene usato per crittografare le porte nel nodo IR indipendente, usato per la **comunicazione da nodo a nodo** (per la sincronizzazione dello stato che include la sincronizzazione delle credenziali dei servizi collegati tra i nodi) e durante l' **uso del cmdlet di PowerShell per impostazione delle credenziali del servizio collegato** dall'interno della rete locale. È consigliabile usare questo certificato se l'ambiente di rete privato non è protetto o se si vuole proteggere la comunicazione tra nodi anche all'interno della rete privata. Lo spostamento dati in transito dal runtime di integrazione self-hosted ad altri archivi dati avviene sempre tramite un canale crittografato, indipendentemente dal fatto che il certificato sia stato impostato o meno. 
+> Questo certificato viene usato:
+>
+> - Per crittografare le porte in un nodo IR indipendente.
+> - Per la comunicazione da nodo a nodo per la sincronizzazione dello stato, che include la sincronizzazione delle credenziali dei servizi collegati tra i nodi.
+> - Quando un cmdlet di PowerShell viene usato per le impostazioni delle credenziali del servizio collegato dall'interno di una rete locale.
+>
+> Si consiglia di usare questo certificato se l'ambiente di rete privata non è sicuro o se si vuole proteggere la comunicazione tra i nodi all'interno della rete privata.
+>
+> Lo spostamento dei dati in transito da un runtime di integrazione self-hosted ad altri archivi di dati avviene sempre all'interno di un canale crittografato, indipendentemente dal fatto che il certificato sia impostato o meno.
 
 ## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
-È possibile usare nuovamente un'infrastruttura del runtime di integrazione self-hosted esistente già configurata in una data factory. In questo modo è possibile creare un *runtime di integrazione self-hosted collegato* in una data factory diversa usando come riferimento un runtime di integrazione self-hosted (condiviso) esistente.
+È possibile usare nuovamente un'infrastruttura del runtime di integrazione self-hosted esistente già configurata in una data factory. Questo riuso consente di creare un runtime di integrazione self-hosted collegato in un data factory diverso facendo riferimento a un runtime di integrazione self-hosted condiviso esistente.
 
-Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
+Per visualizzare un'introduzione e una dimostrazione di questa funzionalità, guardare il video di 12 minuti seguente:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminologia
 
-- **Runtime di integrazione condiviso**: runtime di integrazione self-hosted originale in esecuzione in un'infrastruttura fisica.  
-- **Runtime di integrazione collegato**: runtime di integrazione che fa riferimento a un altro runtime di integrazione condiviso. Si tratta di un runtime di integrazione logico che usa l'infrastruttura di un altro runtime di integrazione self-hosted (condiviso).
+- **IR condiviso**: un runtime di integrazione self-hosted originale che viene eseguito in un'infrastruttura fisica.  
+- **IR collegato**: un IR che fa riferimento a un altro IR condiviso. Il runtime di integrazione collegato è un IR logico e usa l'infrastruttura di un altro runtime di integrazione self-hosted condiviso.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Metodi per condividere un runtime di integrazione self-hosted
 
-Per condividere un runtime di integrazione self-hosted con più data factory, vedere [questa istruzione](create-shared-self-hosted-integration-runtime-powershell.md) per informazioni dettagliate.
+Per condividere un runtime di integrazione self-hosted con più data factory, vedere [creare un runtime di integrazione self-hosted condiviso](create-shared-self-hosted-integration-runtime-powershell.md) per informazioni dettagliate.
 
-### <a name="monitoring"></a>Monitoraggio
+### <a name="monitoring"></a>Monitorare
 
-- **IR condiviso**
+#### <a name="shared-ir"></a>IR condiviso
 
-  ![Selezioni per la ricerca di un runtime di integrazione condiviso](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+![Selezioni per trovare un runtime di integrazione condiviso](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Scheda per il monitoraggio](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+![Monitorare un runtime di integrazione condivisa](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **IR collegato**
+#### <a name="linked-ir"></a>IR collegato
 
-  ![Selezioni per la ricerca di un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+![Selezioni per trovare un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Scheda per il monitoraggio](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+![Monitorare un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitazioni note della condivisione del runtime di integrazione self-hosted
 
-* La data factory in cui verrà creato il runtime di integrazione collegato deve disporre di un'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Per impostazione predefinita, nelle data factory create nel portale di Azure o nei cmdlet di PowerShell un'identità del servizio gestita è creata in modo implicito. Quando una data factory viene creata tramite un modello di Azure Resource Manager oppure un SDK, tuttavia, la proprietà **Identity** deve essere impostata in modo esplicito per garantire che Azure Resource Manager crei una data factory contenente un'identità del servizio gestita. 
+* Il data factory in cui viene creato un runtime di integrazione collegato deve avere un file [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Per impostazione predefinita, le data factory create nel portale di Azure o i cmdlet di PowerShell hanno un MSI creato in modo implicito. Tuttavia, quando viene creata una data factory tramite un modello di Azure Resource Manager o un SDK, è necessario impostare la proprietà **Identity** in modo esplicito. Questa impostazione garantisce che Gestione risorse crei una data factory contenente un file MSI.
 
-* La versione di Azure Data Factory .NET SDK che supporta questa funzionalità è 1.1.0 o successiva.
+* Il Data Factory .NET SDK che supporta questa funzionalità deve essere la versione 1.1.0 o successiva.
 
-* Per concedere l'autorizzazione, l'utente deve disporre del ruolo di proprietario o del ruolo di proprietario ereditato nella data factory in cui è presente il runtime di integrazione condiviso.
+* Per concedere l'autorizzazione, è necessario il ruolo proprietario o il ruolo proprietario ereditato nel data factory in cui è presente il runtime di integrazione condiviso.
 
-* La funzionalità di condivisione funziona solo per le Data Factory nel medesimo tenant di Azure Active Directory.
+* La funzionalità di condivisione funziona solo per le data factory nello stesso tenant Azure AD.
 
-* Per gli [utenti guest](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) di Active Directory, la funzionalità di ricerca nell'interfaccia utente, ovvero l'elenco di tutte le data factory ottenuto tramite una parola chiave, [non funziona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Se tuttavia l'utente guest è il proprietario della data factory, può condividere il runtime di integrazione self-hosted senza usare la funzionalità di ricerca digitando direttamente l'identità del servizio gestita della data factory con cui il runtime deve essere condiviso nella casella di testo **Assign Permission** (Assegna autorizzazione) e selezionando **Add** (Aggiungi) nell'interfaccia utente di Azure Data Factory. 
+* Per Azure AD [utenti Guest](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), la funzionalità di ricerca nell'interfaccia utente, che elenca tutte le data factory usando una parola chiave di ricerca, [non funziona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Tuttavia, finché l'utente Guest è il proprietario del data factory, è possibile condividere il runtime di integrazione senza la funzionalità di ricerca. Per l'identità del servizio gestito del data factory che deve condividere il runtime di integrazione, immettere l'identità del servizio gestito nella casella **assegnazione autorizzazione** e selezionare **Aggiungi** nell'interfaccia utente di data factory.
 
   > [!NOTE]
-  > Questa funzionalità è disponibile solo in Azure Data Factory V2. 
+  > Questa funzionalità è disponibile solo in Data Factory V2.
 
 ## <a name="notification-area-icons-and-notifications"></a>Icone e notifiche dell'area di notifica
 
-Se si sposta il cursore sul messaggio di notifica o sull'icona nell'area di notifica, vengono visualizzati i dettagli sullo stato del runtime di integrazione self-hosted.
+Se si sposta il cursore sull'icona o sul messaggio nell'area di notifica, è possibile visualizzare i dettagli sullo stato del runtime di integrazione self-hosted.
 
 ![Notifiche nell'area di notifica](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
-## <a name="ports-and-firewall"></a>Porte e firewall
+## <a name="ports-and-firewalls"></a>Porte e firewall
 
-È necessario prendere in considerazione due firewall, ovvero il *firewall aziendale* in esecuzione nel router centrale dell'organizzazione, e *Windows Firewall*, configurato come servizio daemon nel computer locale in cui è installato il runtime di integrazione self-hosted.
+Ci sono due firewall da considerare:
+
+- Il *firewall aziendale* in esecuzione nel router centrale dell'organizzazione
+- *Windows Firewall* configurato come daemon nel computer locale in cui è installato il runtime di integrazione self-hosted
 
 ![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
-A livello di *firewall aziendale* è necessario configurare le porte in uscita e i domini seguenti:
+A livello di firewall aziendale, è necessario configurare i seguenti domini e porte in uscita:
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
-
-A livello di *Windows Firewall* (nel computer) queste porte in uscita sono in genere abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato in un computer del runtime di integrazione self-hosted.
+A livello di computer o di Windows Firewall queste porte in uscita sono normalmente abilitate. In caso affermativo, è possibile configurare i domini e le porte in un computer del runtime di integrazione self-hosted.
 
 > [!NOTE]
 > In base all'origine e ai sink, potrebbe essere necessario consentire altri domini e porte in uscita nel firewall aziendale o in Windows Firewall.
 >
-> Per alcuni database cloud (ad esempio, database SQL di Azure e Azure Data Lake), potrebbe essere necessario consentire gli indirizzi IP dei computer del runtime di integrazione self-hosted nella configurazione del firewall.
+> Per alcuni database cloud, ad esempio il database SQL di Azure e Azure Data Lake, potrebbe essere necessario consentire gli indirizzi IP dei computer del runtime di integrazione self-hosted nella configurazione del firewall.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copiare i dati da un'origine a un sink
 
-Verificare che le regole del firewall siano abilitate correttamente per il firewall aziendale, per Windows Firewall nel computer del runtime di integrazione self-hosted e per l'archivio dati stesso, per poter consentire al runtime di integrazione self-hosted di connettersi all'origine e al sink. Abilitare le regole per ogni archivio dati interessato dall'operazione di copia.
+Assicurarsi di abilitare correttamente le regole del firewall nel firewall aziendale, Windows Firewall del computer del runtime di integrazione self-hosted e l'archivio dati. L'abilitazione di queste regole consente al runtime di integrazione self-hosted di connettersi all'origine e al sink. Abilitare le regole per ogni archivio dati interessato dall'operazione di copia.
 
-Per eseguire la copia da un archivio dati locale a un sink di database SQL di Azure o a un sink di Azure SQL Data Warehouse, ad esempio, seguire questa procedura:
+Ad esempio, per eseguire la copia da un archivio dati locale a un sink di database SQL o a un sink di Azure SQL Data Warehouse, seguire questa procedura:
 
-1. Consentire comunicazioni TCP in uscita sulla porta 1433 sia per Windows Firewall che per il firewall aziendale.
-2. Configurare le impostazioni del firewall del database SQL di Azure per aggiungere l'indirizzo IP del computer del runtime di integrazione self-hosted all'elenco degli indirizzi IP consentiti.
+1. Consente la comunicazione TCP in uscita sulla porta 1433 per Windows Firewall e il firewall aziendale.
+1. Configurare le impostazioni del firewall del database SQL per aggiungere l'indirizzo IP del computer del runtime di integrazione self-hosted all'elenco degli indirizzi IP consentiti.
 
 > [!NOTE]
-> Se il firewall non consente la porta in uscita 1433, il runtime di integrazione self-hosted non può accedere direttamente al database SQL di Azure. In questo caso è possibile usare una [copia di gestione temporanea](copy-activity-performance.md) nel database SQL di Azure e in Azure SQL Data Warehouse. Per lo spostamento dei dati, in questo scenario è necessario solo il protocollo HTTPS (porta 443).
+> Se il firewall non consente la porta in uscita 1433, il runtime di integrazione self-hosted non può accedere direttamente al database SQL. In questo caso, è possibile usare una [copia](copy-activity-performance.md) di gestione temporanea nel database SQL e SQL data warehouse. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
 
 ## <a name="proxy-server-considerations"></a>Considerazioni sui server proxy
 
@@ -310,38 +339,40 @@ Se nell'ambiente di rete aziendale è presente un server proxy per accedere a In
 
 ![Specificare il proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Quando è configurato, il runtime di integrazione self-hosted usa il server proxy per connettersi al servizio cloud, origine/destinazione (quelli che usano il protocollo HTTP/HTTPS). Selezionare **Modifica collegamento** durante l'installazione iniziale. Viene visualizzata la finestra di dialogo per l'impostazione del proxy.
+Quando è configurato, il runtime di integrazione self-hosted usa il server proxy per connettersi all'origine e alla destinazione del servizio cloud (che usano il protocollo HTTP o HTTPS). Questo è il motivo per cui si seleziona **Modifica collegamento** durante l'installazione iniziale.
 
 ![Impostare il proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Sono disponibili tre opzioni di configurazione:
 
-- **Non usare proxy**: il runtime di integrazione self-hosted non usa in modo esplicito alcun proxy per connettersi ai servizi cloud.
-- **Usa il proxy di sistema**: il runtime di integrazione self-hosted usa l'impostazione del proxy configurata in diahost. exe. config e diawp. exe. config. Se non è configurato alcun proxy in diahost. exe. config e diawp. exe. config, il runtime di integrazione self-hosted si connette al servizio cloud direttamente senza passare attraverso un proxy.
-- **Usa proxy personalizzato**: configurare l'impostazione proxy HTTP da usare per il runtime di integrazione self-hosted, anziché usare le configurazioni in diahost. exe. config e diawp. exe. config. L' **Indirizzo** e la **porta** sono obbligatori. I campi **Nome utente** e **Password** sono facoltativi e dipendono dalle impostazioni di autenticazione del proxy. Tutte le impostazioni vengono crittografate con Windows DPAPI nel runtime di integrazione self-hosted e archiviate localmente nel computer.
+- **Non usare il proxy**: il runtime di integrazione self-hosted non usa in modo esplicito alcun proxy per connettersi ai servizi cloud.
+- **Usa il proxy di sistema**: il runtime di integrazione self-hosted usa l'impostazione del proxy configurata in diahost. exe. config e diawp. exe. config. Se questi file non specificano alcuna configurazione proxy, il runtime di integrazione self-hosted si connette al servizio cloud direttamente senza passare attraverso un proxy.
+- **Usa proxy personalizzato**: configurare l'impostazione proxy HTTP da usare per il runtime di integrazione self-hosted, anziché usare le configurazioni in diahost. exe. config e diawp. exe. config. I valori di **Indirizzo** e **porta** sono obbligatori. I valori di **nome utente** e **password** sono facoltativi, a seconda dell'impostazione di autenticazione del proxy. Tutte le impostazioni vengono crittografate con Windows DPAPI nel runtime di integrazione self-hosted e archiviate localmente nel computer.
 
-Il servizio host di runtime di integrazione viene riavviato automaticamente dopo avere salvato le impostazioni proxy aggiornate.
+Il servizio host di Integration Runtime viene riavviato automaticamente dopo avere salvato le impostazioni proxy aggiornate.
 
-Dopo aver registrato correttamente il runtime di integrazione self-hosted, se si intende visualizzare o aggiornare le impostazioni proxy, usare Gestione configurazione di Integration Runtime.
+Dopo aver registrato il runtime di integrazione self-hosted, se si desidera visualizzare o aggiornare le impostazioni proxy, utilizzare Microsoft Integration Runtime Configuration Manager.
 
 1. Aprire **Gestione configurazione di Microsoft Integration Runtime**.
-2. Passare alla scheda **Impostazioni** .
-3. Selezionare il collegamento **Change** (Modifica) nella sezione **Proxy HTTP** per aprire la finestra di dialogo **Imposta proxy HTTP**.
-4. Selezionare **Avanti**. Viene visualizzato un avviso che richiede l'autorizzazione per salvare le impostazioni del proxy e riavviare il servizio host di runtime di integrazione.
+1. Fare clic sulla scheda **Impostazioni**.
+1. In **proxy http**selezionare il collegamento **Cambia** per aprire la finestra di dialogo **Imposta proxy http** .
+1. Selezionare **Avanti**. Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione del proxy e riavviare il servizio host di Integration Runtime.
 
-È possibile visualizzare e aggiornare il proxy HTTP tramite lo strumento Gestione configurazione.
+È possibile utilizzare lo strumento Gestione configurazione per visualizzare e aggiornare il proxy HTTP.
 
-![Visualizzare il proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
+![Visualizzare e aggiornare il proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
-> Se si configura un server proxy con autenticazione NTLM, il servizio host di runtime di integrazione viene eseguito nell'account di dominio. Se in un secondo momento si modifica la password per l'account di dominio, aggiornare le impostazioni di configurazione per il servizio e riavviarlo. Per questo requisito, si consiglia di usare un account di dominio dedicato per accedere al server proxy che non richieda l'aggiornamento frequente della password.
+> Se si configura un server proxy con autenticazione NTLM, il servizio host di Integration Runtime viene eseguito con l'account di dominio. Se successivamente si modifica la password per l'account di dominio, ricordarsi di aggiornare le impostazioni di configurazione per il servizio e riavviare il servizio. A causa di questo requisito, è consigliabile accedere al server proxy usando un account di dominio dedicato che non richiede di aggiornare la password di frequente.
 
 ### <a name="configure-proxy-server-settings"></a>Configurare le impostazioni del server proxy
 
-Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy http, il runtime di integrazione self-hosted usa l'impostazione del proxy in diahost. exe. config e diawp. exe. config. Se non è stato specificato alcun proxy in diahost. exe. config e diawp. exe. config, il runtime di integrazione self-hosted si connette al servizio cloud direttamente senza passare attraverso il proxy. La procedura seguente contiene le istruzioni per aggiornare il file diahost.exe.config:
+Se si seleziona l'opzione **Usa il proxy di sistema** per il proxy http, il runtime di integrazione self-hosted usa le impostazioni proxy in diahost. exe. config e diawp. exe. config. Quando questi file non specificano alcun proxy, il runtime di integrazione self-hosted si connette al servizio cloud direttamente senza passare attraverso un proxy. La procedura seguente contiene le istruzioni per aggiornare il file diahost.exe.config:
 
-1. In Esplora file creare una copia sicura di C:\Programmi\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config per eseguire il backup del file originale.
-2. Aprire Notepad. exe in esecuzione come amministratore e aprire il file di testo C:\Programmi\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config. Trovare il tag predefinito per system.net, come illustrato nel codice seguente:
+1. In Esplora file creare una copia sicura di C:\Programmi\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config come backup del file originale.
+1. Aprire il blocco note eseguito come amministratore.
+1. Nel blocco note aprire il file di testo C:\Programmi\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. Trovare il tag **System.NET** predefinito, come illustrato nel codice seguente:
 
     ```xml
     <system.net>
@@ -358,50 +389,50 @@ Se si seleziona l'impostazione **Usa il proxy di sistema** per il proxy http, il
     </system.net>
     ```
 
-    È possibile aggiungere altre proprietà all'interno del tag del proxy per specificare le impostazioni obbligatorie, ad esempio `scriptLocation`. Per informazioni sulla sintassi, vedere [Elemento proxy (Impostazioni di rete)](https://msdn.microsoft.com/library/sa91de1e.aspx).
+    Il tag proxy consente alle proprietà aggiuntive di specificare le impostazioni necessarie, ad esempio `scriptLocation`. Per la sintassi, vedere [\<elemento proxy\> (impostazioni di rete)](https://msdn.microsoft.com/library/sa91de1e.aspx) .
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
     ```
-3. Salvare il file di configurazione nel percorso originale, quindi riavviare il servizio host di runtime di integrazione self-hosted per rilevare le modifiche. 
+1. Salvare il file di configurazione nel percorso originale. Riavviare quindi il servizio host del runtime di integrazione self-hosted, che preleva le modifiche.
 
-   Per riavviare il servizio, usare l'applet dei servizi nel pannello di controllo. In alternativa, in Gestione configurazione di Integration Runtime selezionare il pulsante **Arresta servizio** e quindi selezionare **Avvia servizio**. 
-   
-   Se il servizio non viene avviato, è probabile che al file di configurazione dell'applicazione modificato sia stata aggiunta una sintassi non corretta del tag XML.
+   Per riavviare il servizio, usare l'applet servizi del pannello di controllo. In alternativa, in Gestione configurazione di Integration Runtime selezionare il pulsante **Arresta servizio** e quindi selezionare **Avvia servizio**.
+
+   Se il servizio non viene avviato, è probabile che sia stata aggiunta una sintassi di tag XML non corretta nel file di configurazione dell'applicazione modificato.
 
 > [!IMPORTANT]
 > Non dimenticare di aggiornare entrambi i file diahost.exe.config e diawp.exe.config.
 
-È anche necessario assicurarsi che Microsoft Azure sia presente nell'elenco Consenti della società. È possibile scaricare l'elenco di indirizzi IP validi per Microsoft Azure nell'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+È anche necessario assicurarsi che Microsoft Azure sia presente nell'elenco Consenti della società. È possibile scaricare l'elenco di indirizzi IP di Azure validi dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possibili sintomi di problemi correlati al firewall e al server proxy
+### <a name="possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server"></a>Possibili sintomi per i problemi correlati al firewall e al server proxy
 
-Se si verificano errori analoghi ai seguenti, potrebbero essere causati da una configurazione non corretta del firewall o del server proxy, che impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per verificare che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.
+Se vengono visualizzati messaggi di errore simili a quelli riportati di seguito, il motivo probabile è la configurazione non corretta del firewall o del server proxy. Tale configurazione impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per verificare che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.
 
-* Quando si prova a registrare il runtime di integrazione self-hosted, viene visualizzato l'errore seguente: "Non è stato possibile registrare questo nodo di Runtime di integrazione. Verificare la validità della chiave di autenticazione e che il servizio host servizio di integrazione sia in esecuzione nel computer".
-* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i log eventi di Windows, in **Visualizzatore eventi** > **Registri applicazioni e servizi** > **Microsoft Integration Runtime** vengono visualizzati messaggi di errore simili ai seguenti:
+* Quando si tenta di registrare il runtime di integrazione self-hosted, viene visualizzato il messaggio di errore seguente: "Impossibile registrare il nodo Integration Runtime. Verificare che la chiave di autenticazione sia valida e che il servizio host del servizio di integrazione sia in esecuzione nel computer. "
+* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i registri eventi di Windows, in **Visualizzatore eventi** > **registri applicazioni e servizi** > **Microsoft Integration Runtime**, viene visualizzato un messaggio di errore simile al seguente:
 
     ```
     Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="enabling-remote-access-from-an-intranet"></a>Abilitare l'accesso remoto da una rete Intranet 
+### <a name="enable-remote-access-from-an-intranet"></a>Abilitare l'accesso remoto da una rete Intranet
 
-Se si usa PowerShell per crittografare le credenziali da un altro computer (in rete) diverso da quello in cui è installato il runtime di integrazione self-hosted, è possibile abilitare l'opzione **accesso remoto da Intranet** . Se si esegue PowerShell per crittografare le credenziali nello stesso computer in cui è installato il runtime di integrazione self-hosted, non è possibile abilitare **l'accesso remoto dalla rete Intranet**.
+Se si usa PowerShell per crittografare le credenziali da un computer in rete diverso da quello in cui è stato installato il runtime di integrazione self-hosted, è possibile abilitare l'opzione **accesso remoto da Intranet** . Se si esegue PowerShell per crittografare le credenziali nel computer in cui è stato installato il runtime di integrazione self-hosted, non è possibile abilitare **l'accesso remoto dalla rete Intranet**.
 
-È consigliabile abilitare **Accesso remoto da Intranet** prima di aggiungere un altro nodo per la disponibilità e la scalabilità elevate.  
+Abilitare **l'accesso remoto dalla rete Intranet** prima di aggiungere un altro nodo per la disponibilità e la scalabilità elevate.  
 
-Durante la configurazione del runtime di integrazione self-hosted (versione 3.3.xxxx.x o successiva), per impostazione predefinita l'installazione del runtime di integrazione self-hosted disabilita l'opzione **Accesso remoto da Intranet** nel computer in cui il runtime è installato.
+Quando si esegue il programma di installazione del runtime di integrazione self-hosted versione 3,3 o successiva, per impostazione predefinita il programma di installazione del runtime di integrazione self-hosted Disabilita l' **accesso remoto dalla rete Intranet** nel computer del runtime di integrazione self-hosted.
 
-Se si usa un firewall di terze parti, è possibile aprire manualmente la porta 8060 (o la porta configurata dall'utente). Se si verificano problemi di firewall durante la configurazione del runtime di integrazione self-hosted, provare a usare il comando seguente per installare il runtime di integrazione self-hosted senza configurare il firewall:
+Quando si usa un firewall da un partner o da altri, è possibile aprire manualmente la porta 8060 o la porta configurata dall'utente. Se si verifica un problema del firewall durante la configurazione del runtime di integrazione self-hosted, usare il comando seguente per installare il runtime di integrazione Self-Hosted senza configurare il firewall:
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 
-Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazione self-hosted, usare meccanismi diversi dall'uso dell'applicazione di impostazione credenziali per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare il cmdlet di PowerShell **New-AzDataFactoryV2LinkedServiceEncryptCredential** .
-
+Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazione self-hosted, usare meccanismi diversi dall'applicazione impostazione credenziali per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare il cmdlet di PowerShell **New-AzDataFactoryV2LinkedServiceEncryptCredential** .
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per istruzioni dettagliate, vedere [Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure](tutorial-hybrid-copy-powershell.md).
+
+Per istruzioni dettagliate, vedere [esercitazione: copiare i dati locali nel cloud](tutorial-hybrid-copy-powershell.md).

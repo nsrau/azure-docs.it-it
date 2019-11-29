@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174902"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554011"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visualizzare, aggiungere e rimuovere assegnazioni per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -76,6 +76,24 @@ In alcuni casi, potrebbe essere necessario assegnare direttamente utenti specifi
 1. Fare clic su **Aggiungi** per assegnare direttamente gli utenti selezionati al pacchetto di accesso.
 
     Dopo alcuni istanti, fare clic su **Aggiorna** per visualizzare gli utenti nell'elenco assegnazioni.
+
+## <a name="remove-an-assignment"></a>Rimuovere un'assegnazione
+
+**Ruolo prerequisiti:** Amministratore globale, Amministratore utenti, proprietario del catalogo o gestione pacchetti di accesso
+
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
+
+1. Nel menu a sinistra fare clic su **Access Packages** , quindi aprire il pacchetto Access.
+
+1. Nel menu a sinistra fare clic su **assegnazioni**.
+ 
+1. Fare clic sulla casella di controllo accanto all'utente di cui si desidera rimuovere l'assegnazione dal pacchetto di accesso. 
+
+1. Fare clic sul pulsante **Rimuovi** nella parte superiore del riquadro a sinistra. 
+ 
+    ![Assegnazioni-rimuovere l'utente dal pacchetto di accesso](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    Verrà visualizzata una notifica che informa che l'assegnazione è stata rimossa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

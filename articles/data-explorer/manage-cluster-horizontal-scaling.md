@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 70e6bdfcf9718244632ad02e09d3ddadee71a617
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311564"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561875"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gestire la scalabilità orizzontale del cluster (scale out) in Azure Esplora dati per soddisfare la richiesta di modifica
 
@@ -33,7 +33,7 @@ Utilizzando il ridimensionamento orizzontale, è possibile ridimensionare automa
 
 1. Nella portale di Azure passare alla risorsa cluster di Azure Esplora dati. In **Impostazioni**selezionare **scale out (scalabilità orizzontale**). 
 
-2. Nella finestra **scale out (scalabilità orizzontale** ) selezionare il metodo di ridimensionamento automatico desiderato: Scalabilità **manuale**, scalabilità automatica **ottimizzata**o scalabilità automatica **personalizzata**.
+2. Nella finestra **scale out (scalabilità orizzontale** ) selezionare il metodo di ridimensionamento automatico desiderato: **scalabilità manuale**, **scalabilità automatica ottimizzata**o **scalabilità automatica personalizzata**.
 
 ### <a name="manual-scale"></a>Scalabilità manuale
 
@@ -41,11 +41,11 @@ La scalabilità manuale è l'impostazione predefinita durante la creazione del c
 
    ![Metodo di ridimensionamento manuale](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-### <a name="optimized-autoscale"></a>Scalabilità automatica ottimizzata
+### <a name="optimized-autoscale-preview"></a>Scalabilità automatica ottimizzata (anteprima)
 
 La scalabilità automatica ottimizzata è il metodo consigliato per la scalabilità automatica. Questo metodo consente di ottimizzare le prestazioni e i costi del cluster. Se il cluster si avvicina a uno stato di sottoutilizzo, verrà ridimensionato in. Questa azione riduce i costi ma mantiene il livello di prestazioni. Se il cluster si avvicina a uno stato di sovrautilizzo, viene scalato orizzontalmente per garantire prestazioni ottimali. Per configurare la scalabilità automatica ottimizzata:
 
-1. Selezionare **scalabilità**automatica ottimizzata. 
+1. Selezionare **scalabilità automatica ottimizzata**. 
 
 1. Selezionare un numero minimo di istanze e un numero massimo di istanze. La scalabilità automatica del cluster è compresa tra questi due numeri, in base al carico.
 
@@ -59,7 +59,7 @@ La scalabilità automatica ottimizzata inizia a funzionare. Le azioni sono ora v
 
 Con la scalabilità automatica personalizzata è possibile ridimensionare il cluster in modo dinamico in base alle metriche specificate. Il grafico seguente illustra il flusso e i passaggi per configurare la scalabilità automatica personalizzata. Altre informazioni seguono il grafico.
 
-1. Nella casella **Nome impostazione** di scalabilità automatica immettere un nome, ad esempio *scale-out: utilizzo cache*. 
+1. Nella casella **Nome impostazione di scalabilità** automatica immettere un nome, ad esempio *scale-out: utilizzo cache*. 
 
    ![Regola di ridimensionamento](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
 
@@ -67,7 +67,7 @@ Con la scalabilità automatica personalizzata è possibile ridimensionare il clu
 
 3. Selezionare **+ Aggiungi una regola**.
 
-4. Nella sezione **regola** di scalabilità a destra, immettere i valori per ogni impostazione.
+4. Nella sezione **regola di scalabilità** a destra, immettere i valori per ogni impostazione.
 
     **Criteri**
 
@@ -85,7 +85,7 @@ Con la scalabilità automatica personalizzata è possibile ridimensionare il clu
 
     | Impostazione | Descrizione e valore |
     | --- | --- |
-    | **operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
+    | **Operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
     | **Numero di istanze** | Scegliere il numero di nodi o istanze da aggiungere o rimuovere quando viene soddisfatta una condizione di metrica. |
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
     |  |  |

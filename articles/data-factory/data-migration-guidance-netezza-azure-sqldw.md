@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 2844b48b3d832e8d9ec659ba657879d683016aee
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 762e7d4a7356c11171355b5325e77569e9acb1e2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217665"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555092"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usare Azure Data Factory per migrare i dati da un server Netezza locale ad Azure 
 
@@ -26,13 +26,13 @@ Azure Data Factory offre un meccanismo efficiente, affidabile ed economico per e
 Questo articolo fornisce le informazioni seguenti per gli sviluppatori e gli sviluppatori di dati:
 
 > [!div class="checklist"]
-> * Prestazioni 
+> * Performance 
 > * Resilienza della copia
 > * Sicurezza di rete
 > * Architettura della soluzione di alto livello 
 > * Procedure consigliate per l'implementazione  
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 Azure Data Factory offre un'architettura senza server che consente il parallelismo a vari livelli. Se si è uno sviluppatore, questo significa che è possibile compilare pipeline per usare completamente la larghezza di banda di rete e di database per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.
 
@@ -156,7 +156,7 @@ Se non può essere caricato in Azure entro due ore e la capacità del nodo IR in
 
 È possibile monitorare l'utilizzo della CPU e della memoria nel computer IR indipendente ed essere pronti per la scalabilità verticale della macchina o per la scalabilità orizzontale in più computer quando si nota che la CPU e la memoria sono completamente utilizzate. 
 
-Quando si verificano errori di limitazione delle richieste, come riportato da Azure Data Factory attività di copia, ridurre l'impostazione della concorrenza o del `parallelCopies` in Azure Data Factory oppure provare ad aumentare il limite di larghezza di banda o di operazioni di I/O al secondo (IOPS) della rete e dei dati Archivia. 
+Quando si verificano errori di limitazione delle richieste, come riportato da Azure Data Factory attività di copia, ridurre l'impostazione della concorrenza o del `parallelCopies` in Azure Data Factory oppure provare ad aumentare il limite di larghezza di banda o di operazioni di I/O al secondo (IOPS) della rete e degli archivi dati. 
 
 
 ### <a name="estimate-your-pricing"></a>Stima dei prezzi 
@@ -190,7 +190,7 @@ In base ai presupposti precedenti, il prezzo stimato è il seguente:
 
 Per ulteriori informazioni, vedere gli articoli e le guide seguenti:
 
-- [Migrare i dati da un database relazionale data warehouse locale ad Azure usando Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [Migrare i dati da un database relazionale data warehouse locale ad Azure usando Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Connettore Netezza](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [Connettore ODBC](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

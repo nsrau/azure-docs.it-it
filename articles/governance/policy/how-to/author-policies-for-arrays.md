@@ -1,14 +1,14 @@
 ---
 title: Criteri autore per le proprietà delle matrici sulle risorse
 description: Informazioni su come usare i parametri di matrice e le espressioni del linguaggio di matrici, valutare l'alias [*] e aggiungere elementi con le regole di definizione dei criteri di Azure.
-ms.date: 03/06/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463510"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555157"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure
 
@@ -16,7 +16,9 @@ Azure Resource Manager proprietà sono comunemente definite come stringhe e valo
 
 - Tipo di un [parametro di definizione](../concepts/definition-structure.md#parameters)per fornire più opzioni
 - Parte di una [regola di criteri](../concepts/definition-structure.md#policy-rule) che usa le condizioni **in** o **notIn**
-- Parte di una regola di criteri che valuta il [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) per valutare scenari specifici come **None**, **any**o **All**
+- Parte di una regola di criteri che valuta il [\[\*alias \]](../concepts/definition-structure.md#understanding-the--alias) da valutare:
+  - Scenari come **None**, **any**o **All**
+  - Scenari complessi con **conteggio**
 - Nell' [effetto di Accodamento](../concepts/effects.md#append) da sostituire o aggiungere a una matrice esistente
 
 Questo articolo descrive ogni uso di criteri di Azure e offre diverse definizioni di esempio.
@@ -138,10 +140,10 @@ Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocati
 
 ### <a name="evaluating-the--alias"></a>Valutazione dell'alias [*]
 
-Gli alias con **[\*]** associati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **[\*]** consente di valutare ogni elemento della matrice. Esistono tre scenari in cui questa valutazione per elemento è utile in: nessuno, nessuno e tutti.
+Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice. Esistono tre scenari standard in cui questa valutazione per elemento è utile in: nessuno, nessuno e tutti. Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
 
 Il motore dei criteri attiva l' **effetto** in **quindi** solo quando la regola **if** restituisce true.
-Questo aspetto è importante per comprendere nel contesto del modo in cui **[\*]** valuta ogni singolo elemento della matrice.
+Questo aspetto è importante per comprendere nel contesto del modo in cui **\[\*\]** valuta ogni singolo elemento della matrice.
 
 La regola dei criteri di esempio per la tabella dello scenario seguente:
 
@@ -194,10 +196,10 @@ I risultati seguenti sono il risultato della combinazione della condizione e del
 
 ## <a name="the-append-effect-and-arrays"></a>L'effetto di Accodamento e le matrici
 
-L' [effetto di Accodamento](../concepts/effects.md#append) si comporta in modo diverso a seconda che il **campo details. Field** sia un alias **[\*]** .
+L' [effetto di Accodamento](../concepts/effects.md#append) si comporta in modo diverso a seconda che il **campo details. field** sia un **\[\*\]** alias.
 
-- Quando non è un alias **[\*]** , Append sostituisce l'intera matrice con la proprietà **value**
-- Quando un alias **[\*]** , Aggiungi aggiunge la proprietà **value** alla matrice esistente o crea la nuova matrice
+- Quando non è un **\[\*\]** alias, Append sostituisce l'intera matrice con la proprietà **value**
+- Quando un **\[\*\]** alias, Aggiungi aggiunge la proprietà **value** alla matrice esistente o crea la nuova matrice
 
 Per ulteriori informazioni, vedere gli [esempi di Accodamento](../concepts/effects.md#append-examples).
 

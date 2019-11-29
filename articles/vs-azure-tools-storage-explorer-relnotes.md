@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 0b2ffc00b6c96f2c31a4b711f618e7b87b6f69e0
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 1adfb59843150ffaa6ed76411d07d8ec6cf6a44b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482127"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555260"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -32,22 +32,22 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 ## <a name="version-1110"></a>Versione 1.11.0
 11/4/2019
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Le operazioni per i BLOB, ADLS Gen2 e Managed Disks usano il AzCopy integrato. In particolare, le operazioni seguenti vengono eseguite con AzCopy:
-   * Blobs
+   * BLOB
       * Apri per la modifica e il caricamento
       * Caricare, incluso il trascinamento & drop
-      * Scaricare
+      * Download
       * Copia & incollare #1249
-      * Elimina
+      * Eliminazione
    * BLOB ADLS Gen2
       * Caricare, incluso il trascinamento & drop
-      * Scaricare
+      * Download
       * Copia & incolla
       * Elimina, inclusa la cartella Delete
    * Managed Disks
-      * Upload
-      * Scaricare
+      * Caricamento
+      * Download
       * Copia & incolla
 
    Sono state inoltre aggiunte diverse funzionalità richieste di frequente all'esperienza AzCopy integrata:
@@ -159,7 +159,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 ### <a name="hotfix"></a>Hotfix
 * Si è verificato un errore in 1.10.0 durante il tentativo di visualizzare i dati negli account ADLS di generazione 1. Questo errore ha impedito il rendering corretto del pannello di Explorer. Questo problema è stato risolto. #1853 #1865
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Storage Explorer dispone ora di un'interfaccia utente di impostazioni dedicata. È possibile accedervi da modifica → impostazioni oppure facendo clic sull'icona delle impostazioni (l'ingranaggio) nella barra degli strumenti verticale a sinistra. Questa funzionalità è il primo passaggio per fornire un'ampia gamma di [impostazioni richieste dall'utente](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). A partire da questa versione sono supportate le impostazioni seguenti:
   * Tema
   * Proxy
@@ -168,7 +168,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
   * Aggiornamento automatico #1526
   * Abilita AzCopy
   * AzCopy SAS Duration se sono presenti altri setttings da aggiungere, [aprire un problema in GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) che descrive l'impostazione che si vuole visualizzare.
-* Storage Explorer supporta ora Managed Disks. È possibile:
+* Storage Explorer supporta ora Managed Disks. Puoi:
   * Caricare un disco rigido virtuale locale in un nuovo disco
   * Scaricare un disco
   * Copiare e incollare dischi tra gruppi di risorse e aree
@@ -228,7 +228,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 ## <a name="version-1100"></a>Versione 1.10.0
 9/12/2019
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * Storage Explorer dispone ora di un'interfaccia utente di impostazioni dedicata. È possibile accedervi da modifica → impostazioni oppure facendo clic sull'icona delle impostazioni (l'ingranaggio) nella barra degli strumenti verticale a sinistra. Questa funzionalità è il primo passaggio per fornire un'ampia gamma di [impostazioni richieste dall'utente](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). A partire da questa versione sono supportate le impostazioni seguenti:
     * Tema
@@ -240,7 +240,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
     * Durata SAS AzCopy
 
     Se sono presenti altri setttings che si vuole aggiungere, [aprire un problema in GitHub che descrive l'impostazione che si vuole visualizzare](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Storage Explorer supporta ora Managed Disks. È possibile:
+* Storage Explorer supporta ora Managed Disks. Puoi:
     * Caricare un disco rigido virtuale locale in un nuovo disco
     * Scaricare un disco
     * Copiare e incollare dischi tra gruppi di risorse e aree
@@ -306,7 +306,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 - [Azure Storage Explorer 1.9.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 1.9.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * È ora possibile allegare i contenitori BLOB tramite Azure AD (autorizzazioni RBAC o ACL). Questa funzionalità è destinata a consentire agli utenti che hanno accesso ai contenitori, ma non agli account di archiviazione in cui si trovano i contenitori. Per ulteriori informazioni su questa funzionalità, vedere la guida Introduzione.
 * Acquisisci e Interrompi lease ora funzionano con RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
@@ -315,7 +315,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 * La modifica del livello di accesso BLOB ora funziona con RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
 * È ora possibile reimpostare rapidamente l'accesso rapido tramite "Guida" → "Reimposta". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
-### <a name="preview-features"></a>Funzionalità di anteprima
+### <a name="preview-features"></a>Anteprima funzionalità
 
 * L'accesso al flusso del codice del dispositivo è ora disponibile per l'anteprima. Per abilitarla, passare a "anteprima" → "usare l'accesso al flusso del codice del dispositivo". Si consiglia agli utenti che hanno riscontrato problemi con le finestre di accesso vuote di provare questa funzionalità, perché potrebbe rivelarsi un tipo di accesso più affidabile.
 * Storage Explorer integrato con AzCopy è attualmente disponibile per l'anteprima. Per abilitarlo, passare a "Preview" → "usare AzCopy per il caricamento e il download di BLOB migliorati". I trasferimenti di BLOB completati con AzCopy dovrebbero essere più veloci e più efficienti.
@@ -364,7 +364,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 * In Windows, i download di AzCopy hanno esito negativo se è stato scaricato un singolo file o una cartella e il nome del file o della cartella ha un carattere non valido per un percorso di Windows. Questo problema è stato risolto. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
 * In casi estremamente rari, durante l'esecuzione di una ridenominazione di una condivisione file o di una ridenominazione in una condivisione file, se le copie per la ridenominazione non sono riuscite o se l'esplorazione dell'archiviazione non è riuscita a confermare la riuscita delle copie con Azure, è possibile che Storage Explorer elimini o RIGINALI i file prima del completamento della copia. Questo problema è stato risolto.
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * La versione AzCopy integrata è stata aggiornata alla versione 10.1.0.
 * È ora possibile usare Ctrl/Cmd + R per aggiornare l'editor attualmente attivo. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -373,7 +373,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 * Per i caricamenti AzCopy, il flag per calcolare e impostare l'hash MD5 è ora abilitato. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Funzionalità di anteprima
+### <a name="preview-features"></a>Anteprima funzionalità
 
 * L'accesso al flusso del codice del dispositivo è ora disponibile per l'anteprima. Per abilitarla, passare a "anteprima" → "usare l'accesso al flusso del codice del dispositivo". Si consiglia agli utenti che hanno riscontrato problemi con le finestre di accesso vuote di provare questa funzionalità, perché potrebbe rivelarsi un tipo di accesso più affidabile.
 * Storage Explorer integrato con AzCopy è attualmente disponibile per l'anteprima. Per abilitarlo, passare a "Preview" → "usare AzCopy per il caricamento e il download di BLOB migliorati". I trasferimenti di BLOB completati con AzCopy dovrebbero essere più veloci e più efficienti.
@@ -416,7 +416,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 ## <a name="version-180"></a>Versione 1.8.0
 5/1/2019
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * La versione AzCopy integrata è stata aggiornata alla versione 10.1.0.
 * È ora possibile usare Ctrl/Cmd + R per aggiornare l'editor attualmente attivo. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -425,7 +425,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 * Per i caricamenti AzCopy, il flag per calcolare e impostare l'hash MD5 è ora abilitato. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Funzionalità di anteprima
+### <a name="preview-features"></a>Anteprima funzionalità
 
 * L'accesso al flusso del codice del dispositivo è ora disponibile per l'anteprima. Per abilitarla, passare a "anteprima" → "usare l'accesso al flusso del codice del dispositivo". Si consiglia agli utenti che hanno riscontrato problemi con le finestre di accesso vuote di provare questa funzionalità, perché potrebbe rivelarsi un tipo di accesso più affidabile.
 * Storage Explorer integrato con AzCopy è attualmente disponibile per l'anteprima. Per abilitarlo, passare a "Preview" → "usare AzCopy per il caricamento e il download di BLOB migliorati". I trasferimenti di BLOB completati con AzCopy dovrebbero essere più veloci e più efficienti.
@@ -473,12 +473,12 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 - [Azure Storage Explorer 1.7.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 1.7.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * È ora possibile modificare il proprietario e il gruppo proprietario quando si gestisce l'accesso per un contenitore ADLS Gen2, un file o una cartella.
 * In Windows, l'aggiornamento Storage Explorer dall'interno del prodotto è ora un'installazione incrementale. Questa operazione dovrebbe comportare un'esperienza di aggiornamento più rapida. Se si preferisce un'installazione pulita, è possibile scaricare il [programma di installazione](https://azure.microsoft.com/features/storage-explorer/) manualmente, quindi installarlo manualmente. #1089
 
-### <a name="preview-features"></a>Funzionalità di anteprima
+### <a name="preview-features"></a>Anteprima funzionalità
 
 * L'accesso al flusso del codice del dispositivo è ora disponibile per l'anteprima. Per abilitarla, passare a "anteprima" → "usare l'accesso al flusso del codice del dispositivo". Si consiglia agli utenti che hanno riscontrato problemi con le finestre di accesso vuote di provare questa funzionalità, perché potrebbe rivelarsi un tipo di accesso più affidabile. #938
 * Storage Explorer integrato con AzCopy è attualmente disponibile per l'anteprima. Per abilitarlo, passare a "Preview" → "usare AzCopy per il caricamento e il download di BLOB migliorati". I trasferimenti di BLOB completati con AzCopy dovrebbero essere più veloci e più efficienti.
@@ -519,7 +519,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -555,7 +555,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 * AzCopy generava un errore se si tentava di scaricare da un contenitore BLOB di Azure Data Lake Storage Gen2 una cartella contente spazi nel nome. Questo problema è stato risolto. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * L'editor CosmosDB non funzionava nella versione 1.6.0. Questo problema è stato corretto. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
@@ -591,7 +591,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -624,7 +624,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 * AzCopy generava un errore se si tentava di scaricare da un contenitore BLOB di Azure Data Lake Storage Gen2 una cartella contente spazi nel nome. Questo problema è stato risolto. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * L'editor CosmosDB non funzionava nella versione 1.6.0. Questo problema è stato corretto. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
@@ -660,7 +660,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -679,7 +679,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 ## <a name="version-160"></a>Versione 1.6.0
 05/12/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
@@ -715,7 +715,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -734,7 +734,7 @@ Per scaricare le versioni precedenti di Storage Explorer, è possibile visitare 
 ## <a name="version-150"></a>Versione 1.5.0
 29/10/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * È ora possibile usare [AzCopy v10 (anteprima)](https://github.com/Azure/azure-storage-azcopy) per il caricamento e il download di BLOB. Per abilitare questa funzionalità, passare al menu "Sperimentale" e quindi fare clic su "Use AzCopy for Improved Blob Upload and Download" (Usa AzCopy per ottimizzare caricamento e download di BLOB). Quando è abilitata, AzCopy verrà usato negli scenari seguenti:
    * Caricamento di cartelle e file in contenitori BLOB, tramite la barra degli strumenti o il metodo di trascinamento della selezione.
@@ -779,7 +779,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -803,12 +803,12 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure per enti pubblici statunitensi. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Le caselle di selezione di caricamento ora usano animazioni CSS per ridurre la quantità di GPU usata da Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. Puoi:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -836,7 +836,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -859,12 +859,12 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure per enti pubblici statunitensi. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Le caselle di selezione di caricamento ora usano animazioni CSS per ridurre la quantità di GPU usata da Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. Puoi:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -892,7 +892,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -914,12 +914,12 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ### <a name="hotfixes"></a>Hotfix
 * Aggiornare la versione dell'API di Gestione delle risorse di Azure al 01/07/2018 per aggiungere il supporto di nuovi tipi di account di Archiviazione di Azure. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. Puoi:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -947,7 +947,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -974,12 +974,12 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Nei computer Windows più lenti, la schermata iniziale potrebbe talvolta richiedere molto tempo prima di essere visualizzata. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
 * La finestra di dialogo di connessione viene visualizzata anche se sono presenti account o servizi collegati. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
    * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+* Storage Explorer supporta ora l'eliminazione temporanea. Puoi:
    * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
    * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
    * Annullare l'eliminazione dei blob eliminati temporaneamente.
@@ -1007,7 +1007,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -1026,7 +1026,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-130"></a>Versione 1.3.0
 09/07/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * L'accesso ai contenitori $web usati da siti Web statici è ora supportato. In questo modo è possibile caricare e gestire facilmente i file e le cartelle in uso nel sito Web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * La barra delle applicazioni in macOS è stata riorganizzata. Le modifiche includono un menu File, alcune modifiche ai tasti di scelta rapida e diversi nuovi comandi nel menu dell'app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * L'endpoint dell'autorità per l'accesso ad Azure Governo degli Stati Uniti è stato modificato in https://login.microsoftonline.us/
@@ -1064,7 +1064,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -1083,7 +1083,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-120"></a>Versione 1.2.0
 06/12/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Se Storage Explorer non riesce a caricare le sottoscrizioni da un solo subset dei tenant, eventuali sottoscrizioni caricate correttamente verranno visualizzate insieme a un messaggio di errore specifico per i tenant che hanno dato esito negativo. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
 * In Windows, quando un aggiornamento è disponibile, è ora possibile eseguire l'aggiornamento alla chiusura. Quando si seleziona questa opzione, il programma di installazione per l'aggiornamento verrà eseguito dopo la chiusura di Storage Explorer. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
 * È stato aggiunto il ripristino dello snapshot al menu di scelta rapida dell'editor di condivisione file durante la visualizzazione di uno snapshot di condivisione file.[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
@@ -1121,7 +1121,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -1140,7 +1140,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-110"></a>Versione 1.1.0
 05/09/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Storage Explorer supporta ora l'uso di Azurite. Nota: la connessione ad Azurite è hardcoded per gli endpoint di sviluppo predefiniti.
 * Storage Explorer supporta ora i livelli di accesso solo per BLOB e gli account di archiviazione per utilizzo generico v2. Per altre informazioni sui livelli di accesso, vedere [qui](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * L'ora di inizio non è più necessaria per la generazione di una firma di accesso condiviso.
@@ -1175,7 +1175,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -1195,7 +1195,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-100"></a>Versione 1.0.0
 04/16/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Autenticazione avanzata che consente a Storage Explorer di utilizzare lo stesso archivio account di Visual Studio 2017. Per utilizzare questa funzionalità, sarà necessario accedere nuovamente agli account e impostare nuovamente le sottoscrizioni filtrate.
 * Per gli account Azure Stack supportati da AAD, Storage Explorer recupererà ora le sottoscrizioni Azure Stack quando "Stack Azure di destinazione" è abilitato. Non è necessario creare un ambiente di accesso personalizzato.
 * Alcuni tasti di scelta rapida sono stati aggiunti per consentire una navigazione più veloce. Sono inclusi diversi pannelli di attivazione/disattivazione e lo spostamento tra gli editor. Vedere il menu Visualizza per altri dettagli.
@@ -1241,7 +1241,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -1296,7 +1296,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-095"></a>Version 0.9.5
 02/06/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * Supporto per gli snapshot delle condivisioni file:
     * Creare e gestire snapshot per le condivisioni file.
@@ -1345,7 +1345,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-094-and-093"></a>Versione 0.9.4 e 0.9.3
 21/01/2018
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * La finestra Storage Explorer esistente verrà nuovamente usata nei casi seguenti:
     * Apertura di collegamenti diretti generati in Storage Explorer.
     * Apertura di Storage Explorer dal portale.
@@ -1399,7 +1399,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 * Il dominio degli endpoint per Azure per enti pubblici statunitensi era errato. Questo problema è stato risolto.
 * Talvolta era difficile fare clic sul pulsante Applica nel pannello Gestisci account. Il problema non dovrebbe più verificarsi.
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Anteprima del supporto per Azure Cosmos DB:
     * [Documentazione online](./cosmos-db/storage-explorer.md)
     * Creare database e raccolte
@@ -1455,7 +1455,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 ## <a name="version-091-and-090"></a>Versione 0.9.1 e 0.9.0
 10/20/2017
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Anteprima del supporto per Azure Cosmos DB:
     * [Documentazione online](./cosmos-db/storage-explorer.md)
     * Creare database e raccolte
@@ -1512,7 +1512,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ## <a name="version-0816"></a>Versione 0.8.16
 21/08/2017
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 * Quando si apre un BLOB, Storage Explorer richiederà di caricare il file scaricato se viene rilevata una modifica
 * Esperienza di accesso ad Azure Stack migliorata
 * Miglioramento delle prestazioni per il caricamento/download contemporanei di molti file di piccole dimensioni
@@ -1552,7 +1552,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ### <a name="version-0814"></a>Versione 0.8.14
 22/06/2017
 
-### <a name="new"></a>Nuovo
+### <a name="new"></a>Novità
 
 * Versione aggiornata di Electron a 1.7.2 per usufruire di numerosi aggiornamenti importanti sulla sicurezza
 * È ora possibile accedere rapidamente alla guida online di risoluzione dei problemi dal menu Guida
@@ -1579,7 +1579,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ### <a name="version-0813"></a>Versione 0.8.13
 12/05/2017
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * [Guida][2] alla risoluzione dei problemi di Storage Explorer
 * [Istruzioni][3] per la connessione a una sottoscrizione di Azure stack
@@ -1614,7 +1614,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 ### <a name="version-0812-and-0811-and-0810"></a>Versione 0.8.12, 0.8.11 e 0.8.10
 07/04/2017
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Storage Explorer si chiude automaticamente quando si installa un aggiornamento dalla notifica di aggiornamento
 * L'accesso rapido sul posto fornisce un'esperienza ottimizzata per l'uso con le risorse a cui si accede di frequente
@@ -1662,7 +1662,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 >[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Storage Explorer 0.8.9 scaricherà automaticamente la versione più recente degli aggiornamenti.
 * Hotfix: l'uso di un URI di firma di accesso condiviso generato da portale per collegare un account di archiviazione comporta un errore.
@@ -1692,7 +1692,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 >[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * È possibile scegliere come risolvere i conflitti all'inizio di una sessione di aggiornamento, download o copia nella finestra Attività
 * È possibile passare il mouse su una scheda per visualizzare il percorso completo della risorsa di archiviazione
@@ -1719,7 +1719,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 18/11/2016
 ### <a name="version-086"></a>Versione 0.8.6
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Possibilità di aggiungere ad Accesso rapido i servizi usati più di frequente per semplificare la navigazione
 * Possibilità di aprire più editor in schede diverse. Clic singolo per aprire una scheda temporanea; fare doppio clic per aprire una scheda permanente. È anche possibile fare clic sulla scheda temporanea per renderla una scheda permanente
@@ -1757,7 +1757,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 03/10/2016
 ### <a name="version-085"></a>Versione 0.8.5
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * È ora possibile usare le chiavi di firma di accesso condiviso generate dal portale per collegarsi all'account di archiviazione e alle risorse
 
@@ -1780,7 +1780,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 >[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Generazione di collegamenti diretti ad account di archiviazione, contenitori, code, tabelle o condivisioni file per accedere facilmente alle risorse e condividerle - Supporto Windows e Mac OS
 * Ricerca di contenitori BLOB, tabelle, code, condivisioni file o account di archiviazione dalla casella di ricerca
@@ -1801,7 +1801,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 >[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Ridenominazione di contenitori, tabelle e condivisioni file
 * Migliore esperienza con il Generatore di query
@@ -1827,7 +1827,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 >[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Gli account di archiviazione vengono raggruppati in sottoscrizioni. L'archiviazione e le risorse di sviluppo collegate tramite chiave o firma di accesso condiviso vengono visualizzate nel nodo (locale e collegato)
 * Disconnettersi dagli account nel pannello "Impostazioni account Azure"
@@ -1854,7 +1854,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 >[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Supporto per condivisione file: visualizzazione, caricamento, download, copia di file e directory, URI della firma di accesso condiviso (creazione e la connessione)
 * Esperienza utente migliorata in termini di connessione a Storage con chiavi di account o URI della firma di accesso condiviso
@@ -1877,7 +1877,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 17/05/2016
 ### <a name="version-07201605090"></a>Versione 0.7.20160509.0
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Migliore gestione degli errori per i crash dell'app
 
@@ -1897,7 +1897,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 >[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Supporto tabella: visualizzazione, esecuzione di query, esportazione, importazione e operazioni CRUD per le entità
 * Supporto coda: visualizzazione, aggiunta, rimozione dei messaggi dalla coda
@@ -1929,7 +1929,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 
 ### <a name="version-07201601050"></a>Versione 0.7.20160105.0
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Supporto Linux (funzionalità analoghe a OSX)
 * Aggiunta di contenitori BLOB con la chiave di firma di accesso condiviso (SAS)
@@ -1959,7 +1959,7 @@ Il supporto per l'uso di AzCopy con condivisioni file sarà disponibile in futur
 18/11/2015
 ### <a name="version-07201511160"></a>Versione 0.7.20151116.0
 
-#### <a name="new"></a>Nuovo
+#### <a name="new"></a>Novità
 
 * Versioni per macOS e Windows
 * Accesso per visualizzare gli account di archiviazione: possibilità di usare l'account aziendale, l'account Microsoft, 2FA e così via.

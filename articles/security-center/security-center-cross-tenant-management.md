@@ -1,6 +1,6 @@
 ---
 title: Gestione tra tenant nel centro sicurezza di Azure | Microsoft Docs
-description: " Informazioni su come abilitare la raccolta dati nel Centro sicurezza di Azure. "
+description: Informazioni su come configurare la gestione tra tenant per gestire il comportamento di sicurezza di più tenant nel centro sicurezza usando la gestione delle risorse delegate di Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: f7aa75601639bc0c5652010fb44b01dec0d2622b
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5c654610df8c00e1e80382687bd30dca0c02b69f
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996937"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558961"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
 
@@ -43,14 +43,14 @@ Dalla barra dei menu in alto fare clic sull'icona del filtro e selezionare le so
 
   ![Filtra tenant](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Le visualizzazioni e le azioni sono fondamentalmente le stesse. Ecco alcuni esempi:
+Le visualizzazioni e le azioni sono fondamentalmente le stesse. Di seguito sono riportati alcuni esempi:
 
-- **Gestire i criteri di sicurezza**: Da una visualizzazione, gestire il comportamento di sicurezza di molte risorse con [criteri](tutorial-security-policy.md), intraprendere azioni con consigli sulla sicurezza e raccogliere e gestire i dati relativi alla sicurezza.
-- **Migliorare il Punteggio sicuro e il comportamento di conformità**: La visibilità tra tenant consente di visualizzare il comportamento di sicurezza complessivo di tutti i tenant e la posizione e il modo migliore per migliorare il [Punteggio sicuro](security-center-secure-score.md) e la [conformità](security-center-compliance-dashboard.md) per ognuno di essi.
-- **Correggere le raccomandazioni**: Monitorare e correggere una [raccomandazione](security-center-recommendations.md) per molte risorse di diversi tenant in una sola volta. È quindi possibile affrontare immediatamente le vulnerabilità che presentano il rischio più elevato in tutti i tenant.
-- **Gestisci avvisi**: Rilevare gli [avvisi](security-center-alerts-overview.md) in tutti i tenant diversi. Intervenire sulle risorse non conformi alle procedure correttive per la [correzione](security-center-managing-and-responding-alerts.md).
+- **Gestire i criteri di sicurezza**: da una visualizzazione, gestire il comportamento di sicurezza di molte risorse con [criteri](tutorial-security-policy.md), intraprendere azioni con consigli per la sicurezza e raccogliere e gestire i dati relativi alla sicurezza.
+- **Miglioramento del Punteggio sicuro e della conformità**: la visibilità tra tenant consente di visualizzare il comportamento di sicurezza complessivo di tutti i tenant e dove e come migliorare il [Punteggio sicuro](security-center-secure-score.md) e la [conformità](security-center-compliance-dashboard.md) per ognuno di essi.
+- **Correggere le raccomandazioni**: monitorare e correggere una [raccomandazione](security-center-recommendations.md) per molte risorse di diversi tenant contemporaneamente. È quindi possibile affrontare immediatamente le vulnerabilità che presentano il rischio più elevato in tutti i tenant.
+- **Gestire gli avvisi**: rilevare gli [avvisi](security-center-alerts-overview.md) in tutti i tenant. Intervenire sulle risorse non conformi alle procedure correttive per la [correzione](security-center-managing-and-responding-alerts.md).
 
-- **Gestisci le funzionalità avanzate di difesa del cloud e altro ancora**: Gestisci i vari servizi di rilevamento e protezione delle minacce, ad esempio [l'accesso JIT (just-in-Time) alle macchine virtuali](security-center-just-in-time.md), la protezione [avanzata della rete adattiva](security-center-adaptive-network-hardening.md), i [controlli delle applicazioni adattivi](security-center-adaptive-application.md)e altro ancora.
+- **Gestisci le funzionalità avanzate di difesa del cloud e altro ancora**: Gestisci i diversi servizi di rilevamento e protezione delle minacce, ad esempio l' [accesso JIT (just-in-Time) alle macchine virtuali](security-center-just-in-time.md), la protezione avanzata della [rete adattiva](security-center-adaptive-network-hardening.md), i [controlli delle applicazioni adattivi](security-center-adaptive-application.md)e altro ancora.
  
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo illustra il funzionamento della gestione tra tenant nel centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:

@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Bilanciamento del carico delle macchine virtuali all'interno di una zona - Portale di Azure"
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Questa esercitazione dimostra come creare un servizio Load Balancer Standard con front-end di zona per bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità tramite il portale di Azure
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225160"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 

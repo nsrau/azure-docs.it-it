@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77cda523582b513669adcafd3a46b6ac02dd99db
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285612"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558585"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 
@@ -77,7 +77,7 @@ Le personalizzazioni supportate includono:
 
 * Aggiunta di un nuovo mapping di attributo. Selezionare **Aggiungi nuovo mapping** nella parte inferiore del riquadro **mapping attributi** . Compilare il modulo **modifica attributo** e selezionare **OK** per aggiungere il nuovo mapping all'elenco.
 
-### <a name="settings"></a>Settings
+### <a name="settings"></a>Impostazioni
 
 È possibile avviare e arrestare il servizio di provisioning Azure AD per l'applicazione selezionata nell'area **Impostazioni** della schermata di **provisioning** . È anche possibile scegliere di cancellare la cache di provisioning e riavviare il servizio.
 
@@ -85,4 +85,4 @@ Se il provisioning viene abilitato per la prima volta per un'applicazione, attiv
 
 Impostare **stato del provisioning** su **disattivato** per sospendere il servizio di provisioning. In questo stato, Azure non crea, aggiorna o rimuove gli oggetti utente o gruppo nell'app. Ripristinare lo stato **su on** e il servizio preleva il punto da cui è stato interrotto.
 
-**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e ne determinerà l'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Questa operazione non deve essere utilizzata per attivare una richiesta DELETE o Disable perché questi eventi possono essere eliminati quando si attiva uno stato di cancellazione e si riavvia. Il ciclo iniziale richiede inoltre più tempo del ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Per ulteriori informazioni sulle prestazioni dei cicli iniziali e incrementali, vedere [qui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 
+**Cancella lo stato corrente e riavvia la sincronizzazione** attiva un ciclo iniziale. Il servizio valuterà quindi tutti gli utenti nel sistema di origine e ne determinerà l'ambito per il provisioning. Questa operazione può essere utile quando l'applicazione è attualmente in quarantena o è necessario apportare una modifica ai mapping degli attributi. Si noti che il ciclo iniziale richiede più tempo del ciclo incrementale tipico a causa del numero di oggetti che devono essere valutati. Per ulteriori informazioni sulle prestazioni dei cicli iniziali e incrementali, vedere [qui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 

@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sul Centro sicurezza di Azure | Documentazione Microsoft
-description: Queste FAQ rispondono alle domande sul Centro sicurezza di Azure.
+description: Queste domande frequenti rispondono alle domande sul centro sicurezza di Azure, un prodotto che consente di prevenire, rilevare e rispondere alle minacce.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: memildin
-ms.openlocfilehash: bbb34a0a9d8035ce8cbfd3f3283677133370a9f2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 896db06204188c4347fbdced0b1bb3f216f56ef9
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316732"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558671"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -29,7 +29,7 @@ Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio ch
 >
 
 ## <a name="general-questions"></a>Domande generali
-### <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
+### <a name="what-is-azure-security-center"></a>Cos'è Centro sicurezza di Azure?
 Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 ### <a name="how-do-i-get-azure-security-center"></a>In che modo è possibile accedere al Centro sicurezza di Azure?
@@ -46,7 +46,7 @@ Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Come è possibile tenere traccia degli utenti dell'organizzazione che hanno eseguito modifiche ai livelli di prezzo nel centro sicurezza di Azure
 Le sottoscrizioni di Azure possono avere più amministratori con le autorizzazioni per modificare il piano tariffario. Per individuare l'utente che ha eseguito una modifica del piano tariffario, usare il log attività di Azure. Per altre informazioni, vedere [qui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).
 
-## <a name="permissions"></a>Permissions
+## <a name="permissions"></a>autorizzazioni
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md), con [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
 Centro sicurezza consente di valutare la configurazione delle risorse per identificare problemi di sicurezza e vulnerabilità. In Centro sicurezza gli utenti possono visualizzare solo informazioni relative a una risorsa quando dispongono del ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse cui tali risorse appartengono.
@@ -57,7 +57,7 @@ Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, 
 Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai set di scalabilità di macchine virtuali, dai contenitori IaaS e dai computer non Azure (incluso on-premises) per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai log eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Vengono fatturati i log di monitoraggio di Azure nelle aree di lavoro create dal centro sicurezza?
-No. Le aree di lavoro create dal centro sicurezza, configurate per la fatturazione dei log di monitoraggio di Azure per nodo, non incorrere in log di monitoraggio di Azure. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
+No. Le aree di lavoro create dal centro sicurezza, configurate per la fatturazione dei log di monitoraggio di Azure per nodo, non comportano costi di log di monitoraggio di Azure La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
 - **Livello Gratuito**: il Centro sicurezza abilita la soluzione 'SecurityCenterFree' nell'area di lavoro predefinita. Non verrà addebitato alcun costo per il livello gratuito.
 - **Livello Standard**: il Centro sicurezza abilita la soluzione 'Security' nell'area di lavoro predefinita.
@@ -126,7 +126,7 @@ Per ulteriori informazioni, vedere [provisioning automatico nei casi di installa
 ### Cosa accade se si dispone di un Microsoft Monitoring Agent installato direttamente nel computer, ma non come estensione (agente diretto)?<a name="directagentinstalled"></a>
 Se la Microsoft Monitoring Agent viene installata direttamente nella macchina virtuale (non come estensione di Azure), il Centro sicurezza installerà l'estensione Microsoft Monitoring Agent e potrà aggiornare Microsoft Monitoring Agent alla versione più recente.
 L'agente installato continuerà a segnalare le aree di lavoro già configurate e verrà inoltre segnalato all'area di lavoro configurata nel centro sicurezza (il multihoming è supportato nei computer Windows).
-Se l'area di lavoro configurata è un'area di lavoro dell'utente (non l'area di lavoro predefinita del Centro sicurezza), è necessario installare la soluzione "Security/" SecurityCenterFree "per il Centro sicurezza per avviare l'elaborazione degli eventi da macchine virtuali e computer che inviano report a tale area.
+Se l'area di lavoro configurata è un'area di lavoro dell'utente (non l'area di lavoro predefinita del Centro sicurezza), è necessario installare la soluzione "Security/" SecurityCenterFree "in modo che il Centro sicurezza avvii l'elaborazione degli eventi da macchine virtuali e computer che inviano report all'area di lavoro.
 
 Per i computer Linux, il multihosting di Agent non è ancora supportato. di conseguenza, se viene rilevata un'installazione di un agente esistente, il provisioning automatico non verrà eseguito e la configurazione del computer non verrà modificata.
 
@@ -224,7 +224,7 @@ Per raccogliere i dati, ogni macchina virtuale e il server devono connettersi a 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>L'agente di monitoraggio compromettere le prestazioni dei server?
 L'agente e usa una quantità nominale delle risorse di sistema e dovrebbe avere un impatto minimo sulle prestazioni. Per altre informazioni sull'agente, sull'estensione e sull'impatto sulle prestazioni, vedere la [guida alla pianificazione e alla gestione](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
-### <a name="where-is-my-data-stored"></a>Dove vengono archiviati i dati?
+### <a name="where-is-my-data-stored"></a>Dove vengono archiviati i miei dati?
 I dati raccolti dall'agente vengono archiviati in un'area di lavoro Log Analytics esistente associata alla sottoscrizione o in una nuova area di lavoro. Per altre informazioni, vedere [Sicurezza dei dati](security-center-data-security.md).
 
 ## Il monitoraggio di Azure esistente registra i clienti<a name="existingloganalyticscust"></a>

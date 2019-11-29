@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934150"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561881"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 |**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Se l'utente fornisce pkRangeId, evitando di ritentare l'intervallo di chiavi di partizione non valido.
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Aggiornamenti della cache degli intervalli di chiavi di partizione ottimizzati.

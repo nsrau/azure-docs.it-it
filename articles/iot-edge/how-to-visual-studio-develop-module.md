@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f8b0fe83e10beb3b65dca08e18b03f4fc11947e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457100"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561706"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizzare Visual Studio 2019 per sviluppare ed eseguire il debug di moduli per Azure IoT Edge
 
@@ -28,7 +28,7 @@ Azure IoT Edge Tools for Visual Studio offre i vantaggi seguenti:
 
 Questo articolo illustra come usare gli strumenti Azure IoT Edge per Visual Studio 2019 per sviluppare i moduli di IoT Edge. Si apprenderà anche come distribuire il progetto a un dispositivo Azure IoT Edge. Attualmente, Visual Studio 2019 fornisce supporto per i moduli scritti in C C#e. Le architetture di dispositivi supportate sono Windows x64 e Linux x64 o ARM32. Per ulteriori informazioni sui sistemi operativi, i linguaggi e le architetture supportati, vedere [supporto per lingue e architetture](module-development.md#language-and-architecture-support).
   
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che si usi un computer o una macchina virtuale Windows come computer di sviluppo. Nei computer Windows è possibile sviluppare moduli Windows o Linux. Per sviluppare moduli Windows, usare un computer Windows che esegue la versione 1809/Build 17763 o successiva. Per sviluppare moduli Linux, usare un computer Windows che soddisfi i [requisiti per il desktop Docker](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
@@ -67,7 +67,7 @@ Quando Visual Studio 2019 è pronto, sono necessari anche gli strumenti e i comp
   > [!TIP]
   > Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud.
 
-- Per testare il modulo in un dispositivo, è necessario un hub IoT attivo con almeno un dispositivo IoT Edge. Per usare il computer come dispositivo IoT Edge, seguire la procedura nella guida di avvio rapido per [Linux](quickstart-linux.md) o [Windows](quickstart.md). Se si esegue il daemon di IoT Edge nel computer di sviluppo, potrebbe essere necessario arrestare EdgeHub ed EdgeAgent prima di iniziare lo sviluppo in Visual Studio.
+- Per testare il modulo in un dispositivo, è necessario un hub IoT attivo con almeno un dispositivo IoT Edge. Per usare il computer come dispositivo IoT Edge, seguire i passaggi nella guida introduttiva per [Linux](quickstart-linux.md) o [Windows](quickstart.md). Se si esegue il daemon di IoT Edge nel computer di sviluppo, potrebbe essere necessario arrestare EdgeHub ed EdgeAgent prima di iniziare lo sviluppo in Visual Studio.
 
 ### <a name="check-your-tools-version"></a>Controllare la versione degli strumenti
 
@@ -105,6 +105,8 @@ Il modello di progetto Azure IoT Edge in Visual Studio consente di creare un pro
 1. Selezionare **OK** per creare la soluzione Azure IOT Edge con un modulo che usa C# o C.
 
 A questo punto si dispone di un progetto **AzureIoTEdgeApp1. Linux. amd64** o di un progetto **AzureIoTEdgeApp1. Windows. amd64** e di un progetto **IotEdgeModule1** nella soluzione. Ogni progetto **AzureIoTEdgeApp1** dispone di un file di `deployment.template.json`, che definisce i moduli da compilare e distribuire per la soluzione IOT Edge e definisce anche le route tra i moduli. La soluzione predefinita include un modulo **SimulatedTemperatureSensor** e un modulo **IotEdgeModule1** . Il modulo **SimulatedTemperatureSensor** genera dati simulati nel modulo **IotEdgeModule1** , mentre il codice predefinito nel modulo **IotEdgeModule1** Invia direttamente i messaggi ricevuti all'hub Azure.
+
+Per vedere come funziona il sensore di temperatura simulato, visualizzare il [codice sorgente di SimulatedTemperatureSensor. csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 Il progetto **IotEdgeModule1** è un'applicazione console .net core 2,1 se è un C# modulo. Contiene i file Docker richiesti per l'esecuzione del dispositivo IoT Edge con un contenitore Windows o un contenitore Linux. Il file `module.json` descrive i metadati di un modulo. Il codice effettivo del modulo, che accetta l'SDK di dispositivi Azure per dispositivi come dipendenza, si trova nel file `Program.cs` o `main.c`.
 

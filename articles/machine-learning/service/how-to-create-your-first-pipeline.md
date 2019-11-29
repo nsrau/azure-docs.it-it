@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e731ff55aa4b37d0777cf9eefb14bb111b73070
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173997"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561413"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Le pipeline ML usano le destinazioni di calcolo Remote per il calcolo e l'archiv
 
 Se non si dispone di una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova la [versione gratuita o a pagamento del Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Creare un'[area di lavoro di Azure Machine Learning](how-to-manage-workspace.md) che conterrà tutte le risorse della pipeline.
 
@@ -137,7 +137,7 @@ In Azure Machine Learning il termine __calcolo__ (o destinazione di __calcolo__)
 
 Di seguito sono riportati esempi di creazione e collegamento di destinazioni di calcolo per:
 
-* Ambiente di calcolo di Azure Machine Learning
+* Ambiente di calcolo di Machine Learning
 * Azure Databricks 
 * Azure Data Lake Analytics.
 
@@ -174,7 +174,7 @@ else:
 
 ### <a id="databricks"></a>Azure Databricks
 
-Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usato come destinazione di calcolo con una pipeline di Azure Machine Learning.
+Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usata come destinazione di calcolo con una pipeline di Azure Machine Learning.
 
 Creare un'area di lavoro di Azure Databricks prima di usarlo. Per creare una risorsa dell'area di lavoro, vedere il documento [eseguire un processo Spark in Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) .
 
@@ -184,7 +184,7 @@ Per collegare Azure Databricks come destinazione di calcolo, fornire le informaz
 * __Nome area di lavoro databricks__: nome dell'area di lavoro Azure Databricks.
 * __Token di accesso di databricks__: il token di accesso usato per l'autenticazione Azure Databricks. Per generare un token di accesso vedere il documento [Authentication](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) (Autenticazione).
 
-Il codice seguente illustra come connettere Azure Databricks come destinazione di calcolo con l'SDK di Azure Machine Learning:
+Il codice seguente illustra come associare Azure Databricks come destinazione di calcolo con Azure Machine Learning SDK (__l'area di lavoro databricks deve essere presente nella stessa sottoscrizione dell'area di lavoro di AML__):
 
 ```python
 import os
@@ -227,7 +227,7 @@ Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/
 
 ### <a id="adla"></a>Azure Data Lake Analytics
 
-Azure Data Lake Analytics è una piattaforma di analisi dei Big Data nel cloud di Azure. Può essere usato come destinazione di calcolo con una pipeline di Azure Machine Learning.
+Azure Data Lake Analytics è una piattaforma di analisi dei Big Data nel cloud di Azure. Può essere usata come destinazione di calcolo con una pipeline di Azure Machine Learning.
 
 Creare un account di Azure Data Lake Analytics prima di usarla. Per creare questa risorsa vedere il documento [Introduzione ad Azure Data Lake Analytics con il portale di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 

@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: fb72ed337219f58481c094d68342dbf6f26493c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260766"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566291"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -106,6 +106,14 @@ Nella sezione approvazione specificare se è necessaria un'approvazione quando g
 - L'approvazione di ogni responsabile approvazione selezionato non è necessaria per l'approvazione a una o due fasi.
 - La decisione di approvazione si basa su qualsiasi revisore che esamina prima la richiesta.
 
+Per una dimostrazione di come aggiungere responsabili approvazione a un criterio di richiesta, guardare il video seguente:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+Per una dimostrazione di come aggiungere un'approvazione in più fasi a un criterio di richiesta, guardare il video seguente:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
 Per specificare le impostazioni di approvazione per le richieste per il pacchetto di accesso, attenersi alla procedura seguente:
 
 1. Per richiedere l'approvazione per le richieste degli utenti selezionati, impostare l'interruttore **Richiedi approvazione** su **Sì**. In alternativa, per fare in modo che le richieste vengano approvate automaticamente, impostare l'interruttore su **No**.
@@ -115,7 +123,6 @@ Per specificare le impostazioni di approvazione per le richieste per il pacchett
 1. Determinare ora se le richieste richiedono l'approvazione a una o due fasi. Impostare il **numero di fasi** su **1** per l'approvazione della fase singola o impostare l'interruttore su **2** per l'approvazione in due fasi.
 
     ![Access Package-requests-impostazioni di approvazione](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 
 Usare la procedura seguente per aggiungere responsabili approvazione dopo aver selezionato il numero di fasi necessarie: 
 

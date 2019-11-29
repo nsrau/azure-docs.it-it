@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279468"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555186"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -20,9 +20,9 @@ Lo schema di definizione dei criteri è disponibile qui: [https://schema.managem
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 - mode
-- parameters
+- Parametri
 - nome visualizzato
-- Descrizione
+- description
 - regola dei criteri
   - valutazione logica
   - effetto
@@ -90,7 +90,7 @@ Le modalità del provider di risorse seguenti sono attualmente supportate durant
 > [!NOTE]
 > Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le iniziative in fase di anteprima.
 
-## <a name="parameters"></a>parametri
+## <a name="parameters"></a>parameters
 
 I parametri consentono di semplificare la gestione dei criteri, riducendone il numero di definizioni. I parametri possono essere paragonati ai campi di un modulo: `name`, `address`, `city`, `state`. Questi parametri rimangono sempre invariati, ma i loro valori cambiano a seconda dei dati immessi durante la compilazione del modulo da parte dei singoli utenti.
 I parametri funzionano nello stesso modo durante la creazione di criteri. L'inclusione dei parametri in una definizione dei criteri consente di riutilizzare i singoli criteri in vari scenari mediante l'uso di valori diversi.
@@ -251,7 +251,7 @@ Il valore non deve contenere più di un carattere jolly `*`.
 Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
 **match** e **notMatch** fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
-### <a name="fields"></a>Fields
+### <a name="fields"></a>Campi
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
@@ -308,7 +308,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Valore
+### <a name="value"></a>Value
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -318,7 +318,7 @@ Le condizioni possono essere formate anche usando **value**. **value** controlla
 
 #### <a name="value-examples"></a>Esempi d'uso di value
 
-Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di `Microsoft.Network/*`type in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
+Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di **type** `Microsoft.Network/*` in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
 
 ```json
 {
@@ -394,6 +394,146 @@ Utilizzare invece la funzione [if ()](../../../azure-resource-manager/resource-g
 
 Con la regola dei criteri modificata, `if()` controlla la lunghezza del **nome** prima di provare a ottenere un `substring()` su un valore con meno di tre caratteri. Se il **nome** è troppo breve, viene invece restituito il valore "Not Starting with ABC" e viene confrontato con **ABC**. Una risorsa con un nome breve che non inizia con **ABC** continua ad avere esito negativo sulla regola dei criteri, ma non causa più errori durante la valutazione.
 
+### <a name="count"></a>Conteggio
+
+Le condizioni che contano il numero di membri di una matrice nel payload della risorsa che soddisfano un'espressione di condizione possono essere create usando l'espressione **count** . Gli scenari comuni controllano se ' almeno uno di ',' esattamente uno dei membri della matrice ',' tutti ' o ' nessuno di ' soddisfi la condizione. **count** valuta ogni membro della matrice per un'espressione di condizione e somma i risultati _reali_ , che viene quindi confrontato con l'operatore Expression.
+
+La struttura dell'espressione **count** è la seguente:
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Con **count**vengono usate le proprietà seguenti:
+
+- **Count. Field** (obbligatorio): contiene il percorso della matrice e deve essere un alias di matrice. Se la matrice non è presente, l'espressione viene valutata come _false_ senza considerare l'espressione della condizione.
+- **Count. Where** (facoltativo): espressione della condizione per valutare singolarmente ogni [\[\*\]](#understanding-the--alias) membro della matrice di alias **Count. Field**. Se questa proprietà non viene specificata, tutti i membri della matrice con il percorso ' Field ' verranno valutati come _true_. È possibile utilizzare qualsiasi [condizione](../concepts/definition-structure.md#conditions) all'interno di questa proprietà.
+  [Gli operatori logici](#logical-operators) possono essere utilizzati all'interno di questa proprietà per creare requisiti di valutazione complessi.
+- **\<condizione\>** (obbligatorio): il valore viene confrontato con il numero di elementi che soddisfano l'espressione della condizione **Count. Where** . È necessario usare una [condizione](../concepts/definition-structure.md#conditions) numerica.
+
+#### <a name="count-examples"></a>Esempi di conteggio
+
+Esempio 1: verificare se una matrice è vuota
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Esempio 2: verificare la presenza di un solo membro della matrice per soddisfare l'espressione della condizione
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Esempio 3: verificare la presenza di almeno un membro della matrice per soddisfare l'espressione della condizione
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Esempio 4: controllare che tutti i membri della matrice di oggetti soddisfino l'espressione della condizione
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+Esempio 5: controllare che tutti i membri della matrice di stringhe soddisfino l'espressione della condizione
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Esempio 6: usare il **campo** all'interno del **valore** per verificare che tutti i membri della matrice soddisfino l'espressione della condizione
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Esempio 7: verificare che almeno un membro della matrice corrisponda a più proprietà nell'espressione della condizione
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Effetto
 
 Criteri di Azure supporta i seguenti tipi di effetto:
@@ -426,7 +566,7 @@ Tutte le [funzioni di modello di gestione risorse](../../../azure-resource-manag
 
 Le funzioni seguenti sono disponibili per l'uso in una regola dei criteri, ma sono diverse da quelle usate in un modello di Azure Resource Manager:
 
-- addDays(dateTime, numberOfDaysToAdd)
+- addDays (dateTime, numberOfDaysToAdd)
   - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. fffffffZ '
   - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere
 - utcNow (): diversamente da un modello di Gestione risorse, può essere usato all'esterno di defaultValue.
@@ -490,14 +630,15 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come un nome "normale" e un'altra a cui viene aggiunto **[\*]** . Ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. ad esempio:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 L'alias ' Normal ' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto con corrispondenza esatta quando l'intero set di valori deve essere esattamente come definito, non più e non meno.
 
-L'alias **[\*]** consente di eseguire il confronto con il valore di ogni elemento nella matrice e con proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Utilizzando **ipRules [\*]** , un esempio consiste nel convalidare che ogni _azione_ è _negata_, ma non è preoccupante del numero di regole esistenti o del _valore_ IP. Questa regola di esempio controlla la presenza di eventuali corrispondenze di **ipRules [\*]. Value** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
+Il **\[\*alias \]** rende possibile il confronto con il valore di ogni elemento nella matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà degli elementi per gli scenari "If None of", "if any of" o "if all of". Per scenari più complessi, usare l'espressione della condizione [count](#count) . Usando **ipRules\[\*\]** , un esempio consiste nel convalidare che ogni _azione_ è _negata_, ma non è necessario preoccuparsi del numero di regole esistenti o del _valore_ IP.
+Questa regola di esempio controlla la presenza di eventuali corrispondenze di **ipRules\[\*\]. Value** in **10.0.4.1** e applica **effectType** solo se non trova almeno una corrispondenza:
 
 ```json
 "policyRule": {
@@ -518,6 +659,8 @@ L'alias **[\*]** consente di eseguire il confronto con il valore di ogni element
     }
 }
 ```
+
+
 
 Per ulteriori informazioni, vedere [la pagina relativa alla valutazione dell'alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 

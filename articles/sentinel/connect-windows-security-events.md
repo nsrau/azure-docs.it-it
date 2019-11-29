@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c74cc5cc65f16eb38ead7c09b5e662cd2463af35
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240511"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555276"
 ---
 # <a name="connect-windows-security-events"></a>Connettere gli eventi di sicurezza di Windows 
 
@@ -45,9 +45,9 @@ L'elenco seguente fornisce una suddivisione completa degli ID evento di sicurezz
 
 | Livello dati | Indicatori di eventi raccolti |
 | --- | --- |
-| Dettagli minimi | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| Minime | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Comuni | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
+| Comune | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -59,7 +59,7 @@ L'elenco seguente fornisce una suddivisione completa degli ID evento di sicurezz
 
 Per integrare completamente gli eventi di sicurezza di Windows con Azure Sentinel:
 
-1. Nel portale di Azure Sentinel selezionare **connettori dati** e quindi fare clic sul riquadro **eventi di sicurezza di Windows** . 
+1. Nel portale di Azure Sentinel selezionare **connettori dati** e quindi fare clic sul riquadro **eventi di sicurezza** . 
 1. Consente di selezionare i tipi di dati di cui si desidera eseguire il flusso.
 1. Fare clic su **Update**.
 6. Per utilizzare lo schema pertinente in Log Analytics per gli eventi di sicurezza di Windows, cercare **SecurityEvent**.
@@ -72,6 +72,6 @@ Potrebbero essere necessari circa 20 minuti prima che i log inizino a essere vis
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere gli eventi di sicurezza di Windows ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

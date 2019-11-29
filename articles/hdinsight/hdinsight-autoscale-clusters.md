@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: fff5ad379aa11a0aae14b33f9f82f6da9c794517
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643690"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561756"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
@@ -26,14 +26,14 @@ La funzionalità di scalabilità automatica del cluster di Azure HDInsight conse
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Versione | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 senza ESP | Sì | Sì | No | No | No | No | No |
-| HDInsight 4,0 senza ESP | Sì | Sì | No | No | No | No | No |
-| HDInsight 3,6 con ESP | Sì | Sì | No | No | No | No | No |
-| HDInsight 4,0 con ESP | Sì | Sì | No | No | No | No | No |
+| HDInsight 3,6 senza ESP | Sì 2,3 solo| SÌ | No | No | No | No | No |
+| HDInsight 4,0 senza ESP | SÌ | SÌ | No | No | No | No | No |
+| HDInsight 3,6 con ESP | Sì 2,3 solo | SÌ | No | No | No | No | No |
+| HDInsight 4,0 con ESP | SÌ | SÌ | No | No | No | No | No |
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 È possibile scegliere il ridimensionamento basato sul carico o la scalabilità basata sulla pianificazione per il cluster HDInsight. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione.
 
@@ -70,7 +70,7 @@ Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emett
 
 In base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU correnti, la scalabilità automatica emette una richiesta di rimozione di un determinato numero di nodi. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
@@ -233,7 +233,7 @@ I processi in esecuzione continueranno a essere eseguiti e completati. I process
 
 Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente. Per ulteriori informazioni, vedere la pagina relativa [alla modalità provvisoria]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) .
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 ### <a name="cluster-status"></a>Stato del cluster
 
@@ -245,11 +245,11 @@ Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati 
 
 | Stato del cluster | Spiegazione |
 |---|---|
-| In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
+| Running | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
 | Aggiornamento  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |
 | Configurazione di HDInsight  | È in corso un'operazione di scalabilità verticale o verticale del cluster.  |
 | Errore di aggiornamento  | HDInsight ha rilevato problemi durante l'aggiornamento della configurazione di scalabilità automatica. I clienti possono scegliere di ritentare l'aggiornamento o disabilitare la scalabilità automatica.  |
-| Tipi di errore  | Si è verificato un errore nel cluster e non è utilizzabile. Eliminare questo cluster e crearne uno nuovo.  |
+| Errore  | Si è verificato un errore nel cluster e non è utilizzabile. Eliminare questo cluster e crearne uno nuovo.  |
 
 Per visualizzare il numero corrente di nodi nel cluster, passare al grafico delle **dimensioni del cluster** nella pagina **Panoramica** del cluster oppure fare clic su **dimensioni del cluster** in **Impostazioni**.
 

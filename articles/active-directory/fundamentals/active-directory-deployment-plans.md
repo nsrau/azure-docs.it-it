@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949676c622c87831d22dcfc7e1bc6d920b622738
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473293"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558522"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per istruzioni end-to-end sulla distribuzione delle funzionalità di Azure Active Directory (Azure AD), Azure AD piani di distribuzione illustrano il valore aziendale, le considerazioni sulla pianificazione e le procedure operative necessarie per distribuire correttamente le funzionalità di Azure AD comuni.
@@ -29,7 +29,7 @@ Quando si inizia la pianificazione della distribuzione per una nuova funzionalit
 
 I ruoli possono includere quanto segue 
 
-|Ruolo |Descrizione |
+|Ruolo |Description |
 |-|-|
 |Utente finale|Gruppo rappresentativo di utenti per i quali verrà implementata la funzionalità. Spesso Visualizza l'anteprima delle modifiche in un programma pilota.
 |Responsabile supporto IT|Supporto tecnico IT che può fornire l'input sul supporto di questa modifica dal punto di vista del supporto tecnico.  
@@ -59,7 +59,7 @@ L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere es
 
 ## <a name="deploy-authentication"></a>Distribuisci autenticazione
 
-| Funzionalità | Descrizione|
+| Funzionalità | Description|
 | -| -|
 | [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) è una soluzione di verifica in due passaggi di Microsoft. Con i metodi di autenticazione approvati dall'amministratore, l'autenticazione a più fattori di Azure consente di proteggere l'accesso ai dati e alle applicazioni, soddisfacendo la richiesta di un processo di accesso semplice. |
 | [Accesso condizionale](https://aka.ms/deploymentplans/ca)| Con l'accesso condizionale è possibile implementare decisioni automatiche di controllo degli accessi per gli utenti che possono accedere alle app cloud in base alle condizioni. |
@@ -68,7 +68,7 @@ L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere es
 
 ## <a name="deploy-application-management"></a>Distribuire la gestione delle applicazioni
 
-| Funzionalità | Descrizione|
+| Funzionalità | Description|
 | -| - |
 | [Single Sign-On](https://aka.ms/deploymentplans/sso)| Single Sign-on consente agli utenti di accedere alle app e alle risorse necessarie per svolgere le attività di business durante l'accesso una sola volta. Dopo aver eseguito l'accesso, è possibile passare da Microsoft Office a SalesForce a box alle applicazioni interne senza dover immettere le credenziali una seconda volta. |
 | [Pannello di accesso](https://aka.ms/deploymentplans/accesspanel)| Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consentire loro di essere più produttivi con le funzionalità self-service, ad esempio richiedere l'accesso ad app e gruppi o gestire l'accesso alle risorse per conto di altri utenti. |
@@ -76,23 +76,23 @@ L'ampliamento dell'implementazione a gruppi più grandi di utenti deve essere es
 
 ## <a name="deploy-hybrid-scenarios"></a>Distribuire scenari ibridi
 
-| Funzionalità | Descrizione|
+| Funzionalità | Description|
 | -| -|
 | [AD FS per la sincronizzazione dell'hash delle password](https://aka.ms/deploymentplans/adfs2phs)| Con la sincronizzazione dell'hash delle password, gli hash delle password utente vengono sincronizzati da Active Directory locali a Azure AD, consentendo Azure AD autenticare gli utenti senza alcuna interazione con la Active Directory locale |
 | [AD FS per l'autenticazione pass-through](https://aka.ms/deploymentplans/adfs2pta)| Azure AD autenticazione pass-through consente agli utenti di accedere alle applicazioni locali e basate sul cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, ovvero una password in meno da ricordare, e riduce i costi del supporto tecnico perché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso tramite Azure AD, la funzionalità ne convalida direttamente le password rispetto ad Active Directory locale. |
 | [Azure Active Directory Application Proxy](https://aka.ms/deploymentplans/appproxy)| Oggi i dipendenti vogliono essere produttivi in qualsiasi luogo, in qualsiasi momento e da qualsiasi dispositivo. Devono accedere alle app SaaS nel cloud e nelle app aziendali locali. Azure AD proxy di applicazione consente questo accesso affidabile senza reti private virtuali (VPN) o zone demilitarizzata (reti perimetrali) costose e complesse. |
-| [Seamless SSO](https://aka.ms/SeamlessSSODPDownload)| L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale. Con questa funzionalità, gli utenti non dovranno digitare le password per accedere a Azure AD e, in genere, non dovranno immettere i propri nomi utente. Questa funzionalità consente agli utenti autorizzati di accedere agevolmente alle applicazioni basate sul cloud senza che siano necessari altri componenti locali. |
+| [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| L'accesso Single Sign-On (SSO) facile di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale. Con questa funzionalità, gli utenti non dovranno digitare le password per accedere a Azure AD e, in genere, non dovranno immettere i propri nomi utente. Questa funzionalità consente agli utenti autorizzati di accedere agevolmente alle applicazioni basate sul cloud senza che siano necessari altri componenti locali. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuire il provisioning utenti
 
-| Funzionalità | Descrizione|
+| Funzionalità | Description|
 | -| -|
 | [Provisioning utenti](https://aka.ms/deploymentplans/userprovisioning)| Azure AD semplifica l'automazione di creazione, manutenzione e rimozione delle identità utente in applicazioni cloud (SaaS) come Dropbox, SalesForce, ServiceNow e così via. |
-| [Provisioning utenti in ingresso basato sulla giornata lavorativa](https://aka.ms/WorkdayDeploymentPlan)| Il provisioning utenti in ingresso basato sulla giornata lavorativa in Active Directory crea le basi per la governance delle identità continuativa e migliora la qualità dei processi aziendali che si basano sui dati delle identità autorevoli. Grazie a questa funzionalità, è possibile gestire facilmente il ciclo di vita delle identità dei dipendenti e dei lavoratori condizionali configurando le regole che mappano i processi di Joiner-Mover-Leaver (come il nuovo noleggio, terminazione, il trasferimento) alle azioni di provisioning IT (ad esempio, creazione, abilitazione, Disabilitare |
+| [Provisioning utenti cloud HR](https://aka.ms/deploymentplans/cloudhr)| Il provisioning utenti cloud HR per Active Directory crea una base per la governance delle identità in corso e migliora la qualità dei processi aziendali basati sui dati di identità autorevoli. Usando questa funzionalità con il prodotto HR cloud, ad esempio la giornata lavorativa o SuccessFactors, è possibile gestire senza difficoltà il ciclo di vita delle identità dei dipendenti e dei lavoratori condizionali configurando le regole che mappano i processi di join-Mover-Leaver, ad esempio il nuovo noleggio, terminano Trasferimento) per le azioni di provisioning IT (ad esempio creazione, abilitazione, disabilitazione) |
 
 ## <a name="deploy-governance-and-reporting"></a>Distribuire la governance e la creazione di report
 
-| Funzionalità | Descrizione|
+| Funzionalità | Description|
 | -| -|
 | [Privileged Identity Management](https://aka.ms/deploymentplans/pim)| Azure AD Privileged Identity Management (PIM) consente di gestire i ruoli amministrativi con privilegi in Azure AD, nelle risorse di Azure e in altri servizi online di Microsoft. PIM offre diverse soluzioni, come l'accesso just-in-time, i flussi di lavoro di richiesta di approvazione e le verifiche di accesso completamente integrate, per consentire di identificare, scoprire e impedire in tempo reale eventuali attività dannose di ruoli con privilegi. |
 | [Creazione di report e monitoraggio](https://aka.ms/deploymentplans/reporting)| La progettazione di Azure AD soluzione di Reporting e monitoraggio dipende dai requisiti legali, di sicurezza e operativi, nonché dall'ambiente e dai processi esistenti. Questo articolo presenta le varie opzioni di progettazione e guida la strategia di distribuzione corretta. |

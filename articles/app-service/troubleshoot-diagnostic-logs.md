@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958038"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558560"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Azure offre diagnostica integrata per facilitare il debug di un'[app del servizio app](overview.md). In questo articolo viene descritto come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione. Viene anche descritto come accedere alle informazioni registrate da Azure.
 
 L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com) e dell'interfaccia della riga di comando di Azure per elaborare i log di diagnostica. Per informazioni sull'elaborazione dei log di diagnostica in Visual Studio vedere [Risoluzione dei problemi di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -30,7 +30,7 @@ L'articolo illustra anche l'uso del [portale di Azure](https://portal.azure.com)
 >
 >
 
-|digitare|Piattaforma|Location|DESCRIZIONE|
+|Type|Piattaforma|Località|Description|
 |-|-|-|-|
 | Registrazione di applicazioni | Windows, Linux | File system del servizio app e/o BLOB di archiviazione di Azure | Registra i messaggi generati dal codice dell'applicazione. I messaggi possono essere generati dal framework Web scelto oppure dal codice dell'applicazione usando direttamente il modello di registrazione standard della lingua. A ogni messaggio viene assegnata una delle seguenti categorie: **Critical**, **Error**, **warning**, **info**, **debug**e **Trace**. È possibile selezionare il livello di dettaglio desiderato per la registrazione impostando il livello di gravità quando si Abilita la registrazione dell'applicazione.|
 | Registrazione del server Web| Windows | file system del servizio app o BLOB di archiviazione di Azure| Dati della richiesta HTTP non elaborati nel [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). Ogni messaggio di log include dati quali il metodo HTTP, l'URI della risorsa, l'indirizzo IP del client, la porta client, l'agente utente, il codice di risposta e così via. |
@@ -55,7 +55,7 @@ L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore
 > [!NOTE]
 > Attualmente solo i log applicazioni .NET possono essere scritti nell'archiviazione BLOB. Java, PHP, node. js, i log applicazioni Python possono essere archiviati solo nel servizio app file system (senza modifiche al codice per scrivere i log in una risorsa di archiviazione esterna).
 >
-> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, seguire questa procedura:
+> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare l'operazione seguente:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -64,10 +64,10 @@ L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore
 
 Consente di selezionare il **livello**o il livello dei dettagli da registrare. La tabella seguente illustra le categorie di log incluse in ogni livello:
 
-| Livello | Categorie incluse |
+| Level | Categorie incluse |
 |-|-|
-|**Disabilitata** | nessuno |
-|**Errore** | Errore, Errore critico |
+|**Disabilitato** | Nessuno |
+|**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
 |**Warning** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
 |**Dettagliato** | Analisi, Debug, Informazioni, Avviso, Errore, Errore critico (tutte le categorie) |
@@ -93,7 +93,7 @@ Per la **registrazione del server Web**, selezionare **archiviazione** per archi
 In **periodo di conservazione (giorni)** impostare il numero di giorni per cui conservare i log.
 
 > [!NOTE]
-> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, seguire questa procedura:
+> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare l'operazione seguente:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -112,9 +112,9 @@ Entrambi i tipi di log vengono archiviati nel servizio app file system. Vengono 
 
 ## <a name="add-log-messages-in-code"></a>Aggiungere messaggi di log nel codice
 
-Nel codice dell'applicazione si usano le normali funzionalità di registrazione per inviare messaggi di log ai log dell'applicazione. Ad esempio:
+Nel codice dell'applicazione si usano le normali funzionalità di registrazione per inviare messaggi di log ai log dell'applicazione. ad esempio:
 
-- Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio:
+- Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. ad esempio:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -142,12 +142,12 @@ Per eseguire lo streaming dei log in tempo reale in [cloud Shell](../cloud-shell
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . Ad esempio:
+Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . ad esempio:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . Ad esempio:
+Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . ad esempio:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -170,7 +170,7 @@ Per le app Linux/contenitore, il file ZIP contiene i log di output della console
 
 Per le app di Windows, il file ZIP contiene il contenuto della directory *D:\Home\LogFiles* nel servizio app file System. Presenta la struttura seguente:
 
-| Tipo di log | Directory | DESCRIZIONE |
+| Tipo di log | Directory | Description |
 |-|-|-|
 | **Log applicazioni** |*/LogFiles/Application/* | Contiene uno o più file di testo. Il formato dei messaggi di log dipende dal provider di registrazione usato. |
 | **Tracce richieste non riuscite** | */LogFiles/W3SVC#########/* | Contiene i file XML e un file XSL. È possibile visualizzare i file XML formattati nel browser. |
@@ -189,14 +189,14 @@ Con la nuova [integrazione di monitoraggio di Azure](https://aka.ms/appsvcblog-a
 
 La tabella seguente illustra i tipi di log e le descrizioni supportati: 
 
-| Tipo di log | Supporto di Windows | Supporto Linux | DESCRIZIONE |
+| Tipo di log | Supporto di Windows | Supporto per Linux (Docker) | Description |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | Sì | Output standard e errore standard |
-| AppServiceHTTPLogs | Sì | Sì | Web Server Logs |
-| AppServiceEnvironmentPlatformLogs | Sì | Sì | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
-| AppServiceAuditLogs | Sì | Sì | Attività di accesso tramite FTP e Kudu |
-| AppServiceFileAuditLogs | TBA | TBA | Modifiche ai file tramite FTP e Kudu |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Log applicazioni |
+| AppServiceConsoleLogs | Da definire | SÌ | Output standard e errore standard |
+| AppServiceHTTPLogs | SÌ | SÌ | Web Server Logs |
+| AppServiceEnvironmentPlatformLogs | SÌ | SÌ | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
+| AppServiceAuditLogs | SÌ | SÌ | Attività di accesso tramite FTP e Kudu |
+| AppServiceFileAuditLogs | Da definire | Da definire | Modifiche ai file tramite FTP e Kudu |
+| AppServiceAppLogs | Da definire | Java SE & Tomcat | Log applicazioni |
 
 ## <a name="nextsteps"></a> Passaggi successivi
 * [Eseguire query sui log con monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)

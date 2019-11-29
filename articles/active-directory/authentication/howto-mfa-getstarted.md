@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab4b57513f90a5cbe80724d4937f8d0f87b5517
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381791"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558545"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud
 
@@ -24,7 +24,7 @@ Le persone si connettono alle risorse dell'organizzazione in scenari sempre più
 
 [Azure multi-factor authentication (](concept-mfa-howitworks.md) multi-factor authentication) consente di proteggere l'accesso ai dati e alle applicazioni. Fornisce un livello di sicurezza aggiuntivo utilizzando una seconda forma di autenticazione. Le organizzazioni possono usare [l'accesso condizionale](../conditional-access/overview.md) per rendere la soluzione adatta alle proprie esigenze specifiche.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare una distribuzione di Azure Multi-Factor Authentication, è necessario prendere in considerazione elementi prerequisiti.
 
@@ -277,13 +277,13 @@ Se è già stata distribuita un'istanza NPS e in uso, fare riferimento a [integr
 
 Scegliere cosa accade quando gli utenti che non sono registrati con l'autenticazione a più fattori tentano di eseguire l'autenticazione. Usare l'impostazione del registro di sistema `REQUIRE_USER_MATCH` nel percorso del registro di sistema `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Valore | Default |
+| Chiave | Value | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Non impostato (equivalente a VERO) |
 
 Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è registrato per MFA. Gli effetti della modifica di questa impostazione sono elencati nella tabella seguente.
 
-| Settings | Stato dell'autenticazione a più fattori | Effetti |
+| Impostazioni | Stato dell'autenticazione a più fattori | Effetti |
 | --- | --- | --- |
 | La chiave non esiste | Non registrato | La richiesta di autenticazione a più fattori non è riuscita |
 | Il valore è impostato su true/not set | Non registrato | La richiesta di autenticazione a più fattori non è riuscita |
@@ -347,7 +347,7 @@ Report per l'autenticazione a più fattori di Azure
 
 Azure Multi-Factor Authentication fornisce report tramite i portale di Azure:
 
-| Report | Location | DESCRIZIONE |
+| Documentazione | Località | Description |
 | --- | --- | --- |
 | Avvisi di illecito e utilizzo | Azure AD > Accessi | Fornisce informazioni su utilizzo complessivo, riepilogo utenti e dettagli utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
 

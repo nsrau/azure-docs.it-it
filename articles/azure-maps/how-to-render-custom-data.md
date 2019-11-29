@@ -1,6 +1,6 @@
 ---
 title: Come eseguire il rendering di dati personalizzati in una mappa raster in mappe di Azure | Microsoft Docs
-description: Eseguire il rendering di dati personalizzati in una mappa raster in mappe di Azure.
+description: In questo articolo si apprenderà come eseguire il rendering di dati personalizzati in una mappa raster usando il servizio immagini statiche di Azure maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6619fd842f225a6d362a4b308dde6e35b43677c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915764"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559987"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -35,7 +35,7 @@ Per completare le procedure descritte in questo articolo, è necessario creare p
 > [!Note]
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario s0 o S1.
 
-Il livello S0 dell'account mappe di Azure supporta solo una singola istanza `pins` del parametro. Consente di eseguire il rendering fino a cinque puntine da disegno, specificato nella richiesta URL, con un'immagine personalizzata.
+Il livello S0 dell'account mappe di Azure supporta solo una singola istanza del parametro `pins`. Consente di eseguire il rendering fino a cinque puntine da disegno, specificato nella richiesta URL, con un'immagine personalizzata.
 
 Per eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata, completare i passaggi seguenti:
 
@@ -48,7 +48,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 3. Selezionare il metodo GET HTTP nella scheda generatore e immettere l'URL seguente per creare una richiesta GET.
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
     Di seguito è illustrata l'immagine risultante:
 
@@ -68,7 +68,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. Nella scheda **params (parametri** ) immettere le coppie chiave/valore seguenti, che vengono usate per l'URL della richiesta post. Sostituire il `subscription-key` valore con la chiave di sottoscrizione di Azure maps.
+2. Nella scheda **params (parametri** ) immettere le coppie chiave/valore seguenti, che vengono usate per l'URL della richiesta post. Sostituire il valore di `subscription-key` con la chiave di sottoscrizione di Azure maps.
     
     ![Parametri chiave/valore in subposte](./media/how-to-render-custom-data/postman-key-vals.png)
 
@@ -154,7 +154,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
    }
    ```
 
-7. Usare il `udId` valore ricevuto dall'API di caricamento dei dati per eseguire il rendering delle funzionalità sulla mappa. A tale scopo, aprire una nuova scheda nell'insieme creato nella sezione precedente. Selezionare il metodo GET HTTP nella scheda generatore e immettere l'URL seguente per effettuare una richiesta GET:
+7. Usare il valore `udId` ricevuto dall'API di caricamento dei dati per eseguire il rendering delle funzionalità sulla mappa. A tale scopo, aprire una nuova scheda nell'insieme creato nella sezione precedente. Selezionare il metodo GET HTTP nella scheda generatore e immettere l'URL seguente per effettuare una richiesta GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -190,7 +190,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario S1.
 
 
-È possibile fare in modo che puntine da disegno e le rispettive etichette siano `sc` maggiori o minori usando il modificatore dello stile di ridimensionamento. Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+È possibile fare in modo che puntine da disegno e le rispettive etichette siano maggiori o minori usando il modificatore di stile `sc` scala. Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Seguire questa procedura per eseguire il rendering di un cerchio e puntine da disegno con etichette personalizzate:

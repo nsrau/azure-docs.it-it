@@ -7,13 +7,13 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/22/2019
+ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076253"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561763"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)
 
@@ -21,11 +21,11 @@ In genere è necessario pulire e trasformare i dati in ingresso prima di caricar
 
 ## <a name="use-case-and-model-overview"></a>Panoramica del caso d'uso e del modello
 
-La figura seguente mostra una panoramica del caso d'uso e del modello per l'automazione ETL. I dati di input vengono trasformati per generare l'output appropriato.  Durante tale trasformazione è possibile che si modifichino la forma, il tipo e persino il linguaggio dei dati.  I processi ETL possono convertire unità imperiali in unità di misura decimali, modificare i fusi orari e migliorare la precisione per un corretto allineamento con i dati esistenti nella destinazione.  I processi ETL possono anche combinare dati nuovi con dati esistenti per mantenere aggiornati i report o per fornire informazioni approfondite sui dati esistenti.  Le applicazioni, ad esempio i servizi e gli strumenti per la creazione di report, possono quindi utilizzare questi dati nel formato desiderato.
+La figura seguente mostra una panoramica del caso d'uso e del modello per l'automazione ETL. I dati di input vengono trasformati per generare l'output appropriato.  Durante tale trasformazione è possibile che si modifichino la forma, il tipo e persino il linguaggio dei dati.  I processi ETL possono convertire unità imperiali in unità di misura decimali, modificare i fusi orari e migliorare la precisione per un corretto allineamento con i dati esistenti nella destinazione.  I processi ETL possono anche combinare i nuovi dati con i dati esistenti per continuare a creare report, oppure per fornire ulteriori informazioni sui dati esistenti.  Le applicazioni, ad esempio i servizi e gli strumenti per la creazione di report, possono quindi utilizzare questi dati nel formato desiderato.
 
 ![Apache Hive come architettura ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-Hadoop in genere viene usato nei processi ETL in cui viene importato un numero considerevole di file di testo, ad esempio file CSV, e/o un numero inferiore ma variabile di file di testo.  Hive è un ottimo strumento per preparare i dati prima di caricarli nella destinazione dati.  Hive consente di creare uno schema tramite il file CSV e di usare un linguaggio simile a SQL per generare programmi di MapReduce che interagiscono con i dati. 
+Hadoop in genere viene usato nei processi ETL in cui viene importato un numero considerevole di file di testo, ad esempio file CSV, e/o un numero inferiore ma variabile di file di testo.  Hive è un ottimo strumento per preparare i dati prima di caricarli nella destinazione dati.  Hive consente di creare uno schema tramite il file CSV e di usare un linguaggio simile a SQL per generare programmi di MapReduce che interagiscono con i dati.
 
 Di seguito sono indicati i passaggi tipici per l'uso di Hive per eseguire operazioni ETL:
 
@@ -38,14 +38,14 @@ Di seguito sono indicati i passaggi tipici per l'uso di Hive per eseguire operaz
     DROP TABLE IF EXISTS hvac;
 
     --create the hvac table on comma-separated sensor data stored in Azure Storage blobs
-    
+
     CREATE EXTERNAL TABLE hvac(`date` STRING, time STRING, targettemp BIGINT,
-        actualtemp BIGINT, 
-        system BIGINT, 
-        systemage BIGINT, 
+        actualtemp BIGINT,
+        system BIGINT,
+        systemage BIGINT,
         buildingid BIGINT)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-    STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
 5. Trasformare i dati e caricarli nella destinazione.  È possibile usare Hive in diversi modi durante la trasformazione e il caricamento:
@@ -73,7 +73,7 @@ Le origini dati in genere sono rappresentate da dati esterni corrispondenti a da
 * Excel.
 * Una tabella e un archivio BLOB di Azure.
 * Applicazioni o servizi che richiedono l'elaborazione dei dati in formati specifici, oppure file che contengono tipi specifici di struttura delle informazioni.
-* Un archivio documenti JSON come <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Archivio documenti JSON come [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -83,7 +83,7 @@ Il modello ETL in genere viene usato per:
 * Pulire, trasformare e convalidare i dati prima di caricarli, possibilmente con più di un passaggio di trasformazione nel cluster.
 * Generare report e visualizzazioni che vengono regolarmente aggiornati.  Ad esempio, se la generazione di un report richiede troppo tempo durante il giorno, è possibile pianificarne l'esecuzione durante la notte.  È possibile usare l'utilità di pianificazione di Azure e PowerShell per eseguire automaticamente una query Hive.
 
-Se la destinazione dei dati non è un database, è possibile generare un file nel formato appropriato all'interno della query, ad esempio un file CSV. Questo file può essere quindi importato in Excel o in Power BI.
+Se la destinazione per i dati non è un database, è possibile generare un file nel formato appropriato all'interno della query, ad esempio un volume condiviso cluster. Questo file può essere quindi importato in Excel o in Power BI.
 
 Se è necessario eseguire diverse operazioni sui dati come parte del processo ETL, valutare la relativa modalità di gestione. Se le operazioni sono controllate da un programma esterno, anziché essere gestite come flusso di lavoro all'interno della soluzione, è necessario decidere se alcune di esse possono essere eseguite in parallelo e rilevare quando viene completato ogni processo. Potrebbe essere più semplice usare un meccanismo di flusso di lavoro, ad esempio Oozie in Hadoop, che tentare di orchestrare una sequenza di operazioni mediante script esterni o programmi personalizzati. Per altre informazioni su Oozie, vedere [Workflow and job orchestration](https://msdn.microsoft.com/library/dn749829.aspx) (Orchestrazione di processi e flussi di lavoro).
 

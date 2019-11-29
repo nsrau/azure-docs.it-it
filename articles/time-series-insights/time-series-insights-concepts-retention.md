@@ -9,18 +9,18 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012707"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561286"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Informazioni sulla conservazione dei dati in Azure Time Series Insights
 
-Questo articolo descrive due impostazioni che influiscano sulla conservazione dei dati nell'ambiente Azure Time Series Insights.
+Questo articolo descrive due impostazioni primarie che influiscano sulla conservazione dei dati nell'ambiente Azure Time Series Insights.
 
 ## <a name="video"></a>Video
 
@@ -88,7 +88,7 @@ Quando il traffico in ingresso riprende:
 
 Negli hub eventi interessati provare a regolare la proprietà **Conservazione messaggi** per ridurre al minimo la perdita di dati quando si verifica la sospensione del traffico in ingresso in Time Series Insights.
 
-[![la conservazione dei messaggi nell'hub eventi.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![la conservazione dei messaggi nell'hub eventi.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 Se non è configurata alcuna proprietà nell'origine evento (`timeStampPropertyName`), Time Series Insights imposta come valore predefinito il timestamp di arrivo nell'hub eventi come asse X. Se `timeStampPropertyName` è configurato come altro, l'ambiente cerca la `timeStampPropertyName` configurata nel pacchetto di dati quando vengono analizzati gli eventi.
 

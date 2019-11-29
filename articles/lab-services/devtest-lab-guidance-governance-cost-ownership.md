@@ -1,6 +1,6 @@
 ---
-title: Governance dell'infrastruttura di Azure DevTest Labs
-description: Questo articolo include indicazioni per la governance dell'infrastruttura di Azure DevTest Labs.
+title: Gestione dei costi e della proprietà in Azure DevTest Labs
+description: Questo articolo fornisce informazioni che consentono di ottimizzare i costi e di allineare la proprietà nell'ambiente in uso.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775713"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561669"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governance dell'infrastruttura di Azure DevTest Labs - Gestire i costi e la proprietà
 Costi e proprietà sono problemi primari quando si considera la creazione di ambienti di test e sviluppo. In questa sezione sono riportate informazioni che consentono di ottimizzare i costi e allineare la proprietà al proprio ambiente.
@@ -37,9 +37,9 @@ Questo approccio offre numerosi vantaggi:
 
 - Speciali tariffe di Sviluppo/test inferiori per macchine virtuali Windows, Servizi cloud, HDInsight, Servizio app e App per la logica
 - Straordinarie tariffe per il Contratto Enterprise (EA) in altri servizi di Azure
-- Accesso a immagini di Sviluppo/test esclusive nella raccolta, tra cui Windows 8.1 e Windows 10
+- Accesso a immagini di sviluppo/test esclusive nella raccolta, tra cui Windows 8.1 e Windows 10
  
-Solo i titolari di sottoscrizioni attive di Visual Studio (sottoscrizioni standard, sottoscrizioni cloud annuali e sottoscrizioni cloud mensili) possono usare le risorse di Azure in esecuzione nell'ambito di una sottoscrizione dell'offerta Sviluppo/test Enterprise. Gli utenti finali tuttavia possono accedere all'applicazione per fornire commenti e o eseguire test di accettazione. L'uso delle risorse nell'ambito di questa sottoscrizione è limitato allo sviluppo e al test delle applicazioni e non sono previsti tempi di attività garantiti.
+Solo i titolari di sottoscrizioni attive di Visual Studio (sottoscrizioni standard, sottoscrizioni cloud annuali e sottoscrizioni cloud mensili) possono usare le risorse di Azure in esecuzione nell'ambito di una sottoscrizione dell'offerta Sviluppo/test Enterprise. Gli utenti finali tuttavia possono accedere all'applicazione per fornire commenti e o eseguire test di accettazione. L'uso delle risorse nell'ambito di questa sottoscrizione è limitato allo sviluppo e al testing delle applicazioni e non sono previsti tempi di attività garantiti.
 
 Se si decide di usufruire dell'offerta Sviluppo/test, si noti che questo vantaggio è riservato esclusivamente allo sviluppo e test delle proprie applicazioni. L'utilizzo entro i limiti della sottoscrizione non prevede un contratto di servizio con copertura finanziaria, fatta eccezione per l'uso di Azure DevOps e HockeyApp.
 

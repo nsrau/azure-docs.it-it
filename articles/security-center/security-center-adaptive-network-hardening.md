@@ -1,6 +1,6 @@
 ---
 title: Protezione avanzata della rete adattiva nel centro sicurezza di Azure | Microsoft Docs
-description: " Informazioni su come abilitare la protezione avanzata della rete adattiva nel centro sicurezza di Azure. "
+description: Scopri come eseguire la protezione avanzata in base ai modelli di traffico effettivi, alle regole dei gruppi di sicurezza di rete (NSG) e a migliorare ulteriormente il tuo comportamento di sicurezza.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255230"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559285"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza di Azure.
@@ -37,13 +37,13 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi e le regole di protezione avanzata della rete adattiva
 
-1. In centro sicurezza, selezionare **rete** ->  protezione**avanzata della rete adattiva**. Le VM di rete sono elencate in tre schede separate:
-   * **Risorse non integre**: Macchine virtuali che attualmente presentano raccomandazioni e avvisi attivati eseguendo l'algoritmo di protezione avanzata della rete adattiva. 
+1. In centro sicurezza selezionare **rete** -> protezione **avanzata della rete adattiva**. Le VM di rete sono elencate in tre schede separate:
+   * **Risorse non integre**: VM che attualmente presentano raccomandazioni e avvisi attivati eseguendo l'algoritmo di protezione avanzata della rete adattiva. 
    * **Risorse integre**: VM senza avvisi e raccomandazioni.
-   * **Risorse non analizzate**: Macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
-      * Le **macchine virtuali sono macchine virtuali classiche**: Sono supportate solo macchine virtuali Azure Resource Manager.
-      * **I dati disponibili sono insufficienti**: Per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
-      * **La macchina virtuale non è protetta da ASC standard**: Solo le VM impostate sul piano tariffario standard del Centro sicurezza sono idonee per questa funzionalità.
+   * **Risorse non analizzate**: le macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
+      * Le **macchine virtuali sono macchine virtuali classiche**: sono supportate solo macchine virtuali Azure Resource Manager.
+      * **I dati disponibili non sono sufficienti**: per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
+      * La **macchina virtuale non è protetta da ASC standard**: solo le VM impostate per il piano tariffario standard del Centro sicurezza sono idonee per questa funzionalità.
 
      ![risorse non integre](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -83,7 +83,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 * Non è possibile modificare le regole "Consenti" per diventare regole "Nega". 
 
   > [!NOTE]
-  > La creazione e la modifica delle regole di "negazione" viene eseguita direttamente in NSG per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La creazione e la modifica delle regole di "negazione" vengono eseguite direttamente nel NSG. Per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * Una regola **Deny all traffic** è l'unico tipo di regola "Deny" che verrebbe elencata e non può essere modificata. È tuttavia possibile eliminarla (vedere [eliminare una regola](#delete-rule)).
   > [!NOTE]
@@ -111,7 +111,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 È possibile aggiungere una regola "Consenti" non consigliata dal centro sicurezza.
 
 > [!NOTE]
-> Qui è possibile aggiungere solo le regole "Allow". Se si desidera aggiungere regole di "negazione", è possibile eseguire questa operazione direttamente nel NSG. Per altri dettagli, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Qui è possibile aggiungere solo le regole "Allow". Se si desidera aggiungere regole di "negazione", è possibile eseguire questa operazione direttamente nel NSG. Per altre informazioni, vedere [creare, modificare o eliminare un gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *Per aggiungere una regola di protezione avanzata della rete adattiva:*
 

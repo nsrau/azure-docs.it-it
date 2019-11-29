@@ -1,6 +1,6 @@
 ---
 title: Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure | Microsoft Docs
-description: Informazioni su come gestire i problemi di protezione endpoint nel Centro sicurezza di Azure.
+description: Informazioni sul monitoraggio del Centro sicurezza di Endpoint Protection e su come correggere eventuali problemi.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202081"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558619"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
-Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
+Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nella pagina problemi di Endpoint Protection. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
 
 Il Centro sicurezza segnala i problemi di protezione endpoint seguenti:
 
@@ -30,7 +30,7 @@ Il Centro sicurezza segnala i problemi di protezione endpoint seguenti:
 - Integrità della protezione endpoint:
 
   - Firma non aggiornata: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non dispone delle firme antimalware più recenti.
-  - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale.   È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-services.md#endpoint-supported) per un elenco delle soluzioni supportate.
+  - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale. È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-services.md#endpoint-supported) per un elenco delle soluzioni supportate.
   - Segnalazioni non inviate: è installata una soluzione antimalware che non invia le segnalazioni dei dati.
   - Sconosciuto: è installata una soluzione antimalware il cui stato è stato è sconosciuto o segnala un errore sconosciuto.
 
@@ -40,7 +40,7 @@ Il Centro sicurezza segnala i problemi di protezione endpoint seguenti:
     >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-I problemi di protezione dell'endpoint vengono presentati sotto forma di suggerimento nel Centro sicurezza.  Se l'ambiente è esposto a minacce antimalware, la raccomandazione verrà visualizzata in **Raccomandazioni** e **Calcolo**. Per vedere il **dashboard dei problemi di protezione endpoint**, è necessario seguire il flusso di lavoro di Calcolo.
+I problemi di protezione dell'endpoint vengono presentati sotto forma di suggerimento nel Centro sicurezza. Se l'ambiente è esposto a minacce antimalware, la raccomandazione verrà visualizzata in **Raccomandazioni** e **Calcolo**. Per vedere il **dashboard dei problemi di protezione endpoint**, è necessario seguire il flusso di lavoro di Calcolo.
 
 In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'antimalware sulle macchine virtuali di Azure e sui computer che non hanno Azure.
 
@@ -75,7 +75,7 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
 
 4. **Endpoint protection not installed on Azure VMs** (Protezione endpoint non installata sulle macchine virtuali di Azure) contiene un elenco di macchine virtuali di Azure su cui non è installato un antimalware.  È possibile scegliere di installare l'antimalware su tutte le macchine virtuali dell'elenco oppure selezionare singole macchine virtuali su cui installare l'antimalware facendo clic sulla macchina virtuale specifica.
 5. In **Seleziona Endpoint Protection** selezionare la soluzione di Endpoint Protection da usare. In questo esempio selezionare **Microsoft Antimalware**.
-6. Vengono visualizzate altre informazioni sulla soluzione di Endpoint Protection selezionata. Selezionare **Create**.
+6. Vengono visualizzate altre informazioni sulla soluzione di Endpoint Protection selezionata. Selezionare **Create** (Crea).
 
 ## <a name="install-antimalware-on-non-azure-computers"></a>Installare l'antimalware sui computer che non hanno Azure
 

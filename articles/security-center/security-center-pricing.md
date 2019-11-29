@@ -1,6 +1,6 @@
 ---
 title: Prezzi dei livelli del Centro sicurezza di Azure
-description: Questo articolo fornisce informazioni sui prezzi del Centro sicurezza di Azure.
+description: Il Centro sicurezza di Azure è disponibile in due livelli, gratuito e standard. In questa pagina viene illustrato come eseguire l'aggiornamento da gratuito a standard.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffb571d13270ced80426aee3575197cf95d3805
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664257"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559238"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -42,7 +42,7 @@ Per ottenere il livello Standard:
 2. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard.
 3. Selezionare **Piano tariffario**.
 4. Selezionare **Standard** per eseguire l'aggiornamento.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**
 
 I prezzi nell'immagine sono forniti solo a scopo illustrativo. [prezzi del Centro sicurezza![](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
@@ -54,7 +54,7 @@ I prezzi nell'immagine sono forniti solo a scopo illustrativo. [prezzi del Centr
 Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i carichi di lavoro di cloud ibridi, tra cui:
 
 - **Sicurezza ibrida**: per ottenere una visualizzazione unificata della sicurezza in tutti i carichi di lavoro locali e cloud; applicare i criteri di sicurezza e la valutazione continua della sicurezza dei carichi di lavoro cloud ibridi per garantire la conformità con gli standard di sicurezza; Raccogli, Cerca e analizza i dati di sicurezza da più origini, inclusi firewall e altre soluzioni partner.
-- **Rilevamento avanzato delle minacce**, che usa le analisi avanzate e Microsoft Intelligent Security Graph per prevenire attacchi informatici in continua evoluzione. Sfrutta i vantaggi delle analisi comportamentali predefinite e di apprendimento automatico per identificare gli attacchi e gli exploit zero-day. Monitora le reti, i computer e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
+- **Rilevamento avanzato delle minacce**, che usa le analisi avanzate e Microsoft Intelligent Security Graph per prevenire attacchi informatici in continua evoluzione. Sfrutta i vantaggi delle analisi comportamentali predefinite e di Machine Learning per identificare gli attacchi e gli exploit zero-day. Monitora le reti, le macchine virtuali e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
 - **Controlli di accesso e applicazioni** : blocca il malware e altre applicazioni indesiderate applicando i consigli per l'inserimento nell'elenco elementi consentiti di Machine Learning adattati ai carichi di lavoro Ridurre la superficie di attacco alla rete con l'accesso just-in-Time controllato alle porte di gestione nelle macchine virtuali di Azure. Questo riduce drasticamente l'esposizione a forza bruta e ad altri attacchi di rete.
 - **Funzionalità di sicurezza del contenitore** : vantaggi della gestione delle vulnerabilità e del rilevamento delle minacce in tempo reale negli ambienti in contenitori. Quando si Abilita la risorsa registri contenitori, potrebbe essere necessario 12hrs fino a quando non vengono abilitate tutte le funzionalità.
 

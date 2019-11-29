@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719790"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024234"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -212,7 +212,7 @@ Il codice precedente eseguirà la profilatura della funzione WriteConsoleLog e q
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Scaricare questo file e aprirlo con gli strumenti F12 di Chrome. Premere F12 in Chrome, quindi fare clic sulla scheda **Profiles** (Profili). Fare clic sul pulsante **Load** (Carica). Selezionare il file profile.cpuprofile scaricato. Fare clic sul profilo appena caricato.
+Scaricare questo file e aprirlo con gli strumenti F12 di Chrome. Premere F12 in Chrome, quindi scegliere la scheda **profili** . scegliere il pulsante **carica** . Selezionare il file profile.cpuprofile scaricato. Fare clic sul profilo appena caricato.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
@@ -258,7 +258,7 @@ Ecco alcune soluzione per velocizzare questo processo:
 
 ## <a name="iisnode-http-status-and-substatus"></a>Stato e stato secondario HTTP di IISNODE
 
-Il [file di origine](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` elenca tutte le possibili combinazioni di stato/stato secondario che possono essere restituite da iisnode a causa di un errore.
+Il `cnodeconstants`file di origine[ ](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) elenca tutte le possibili combinazioni di stato/stato secondario che possono essere restituite da iisnode a causa di un errore.
 
 Abilitare FREB per l'applicazione per visualizzare il codice errore win32. Assicurarsi di abilitare FREB solo in siti non di produzione, per motivi di prestazioni.
 
@@ -283,6 +283,6 @@ Per altre informazioni sulle applicazioni node.js nel servizio app di Azure, sel
 * [Introduzione alle app Web Node.js nel servizio app di Azure](app-service-web-get-started-nodejs.md)
 * [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
-* [App Web del Servizio app di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro per sviluppatori di Node. js](../nodejs-use-node-modules-azure-apps.md)
+* [Blog sulle app Web del servizio app di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Centro per sviluppatori di Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

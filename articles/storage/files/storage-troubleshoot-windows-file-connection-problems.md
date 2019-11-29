@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269368"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560140"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -94,7 +94,7 @@ Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Soluzione 1: usare Sincronizzazione file di Azure
-Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure funziona sulla porta 443 e pertanto può essere utilizzato come soluzione alternativa per accedere File di Azure da client con la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure funziona sulla porta 443 e pertanto può essere utilizzato come soluzione alternativa per accedere File di Azure da client con la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Soluzione 2: usare la VPN
 Impostando una VPN per l'account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite Internet. Seguire le [istruzioni per configurare la VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
@@ -295,11 +295,11 @@ Per risolvere questo problema, modificare il valore del Registro di sistema **Di
  
 È ad esempio possibile impostare questo valore su 0x100000 e verificare se si riscontra un miglioramento delle prestazioni.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Errore AadDsTenantNotFound durante l'abilitazione dell'autenticazione di Azure Active Directory per i file di Azure "Impossibile individuare active tenant con Id aad-tenant-id tenant"
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Errore AadDsTenantNotFound durante l'abilitazione dell'autenticazione del servizio Azure Active Directory dominio (AAD DS) per File di Azure "Impossibile individuare i tenant attivi con ID tenant AAD-Tenant-ID"
 
 ### <a name="cause"></a>Causa
 
-L'errore AadDsTenantNotFound avviene quando si tenta [abilitare l'autenticazione di Azure Active Directory (AAD) per i file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) in un account di archiviazione in cui il [dominio di servizio (AAD DS) ](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creata in un tenant di Azure appartenente alla sottoscrizione associata.  
+L'errore AadDsTenantNotFound si verifica quando si prova ad [abilitare l'autenticazione del servizio Azure Active Directory dominio (AAD DS) per file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) in un account di archiviazione in cui il [servizio di dominio AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creato nel tenant di AAD della sottoscrizione associata.  
 
 ### <a name="solution"></a>Soluzione
 
@@ -307,5 +307,17 @@ Abilitare AAD DS nel tenant della sottoscrizione in cui è stato distribuito l'a
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>Si è verificato l'errore di sistema 1359. Errore interno "ricevuto sull'accesso SMB alle condivisioni file con l'autenticazione di Azure Active Directory Domain Service (AAD DS) abilitata
+
+### <a name="cause"></a>Causa
+
+Si è verificato l'errore di sistema 1359. Si verifica un errore interno quando si tenta di connettersi alla condivisione file con l'autenticazione di AAD DS abilitata per un dominio AAD DS con un nome DNS di dominio che inizia con un carattere numerico. Ad esempio, se il nome DNS del dominio di AAD DS è "1domain", questo errore si verifica quando si tenta di montare la condivisione file usando le credenziali di AAD. 
+
+### <a name="solution"></a>Soluzione
+
+Attualmente, è possibile prendere in considerazione la ridistribuzione di AAD DS usando un nuovo nome DNS del dominio che si applica alle regole seguenti:
+- I nomi non possono iniziare con un carattere numerico.
+- I nomi devono avere una lunghezza compreso tra 3 e 63 caratteri.
+
+## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

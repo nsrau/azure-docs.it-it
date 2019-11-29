@@ -11,15 +11,15 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2018
+ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00b4647815d8330152ca2dd0b5e137e337e80210
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101996"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561106"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -43,7 +43,7 @@ Le VM di SQL Server Azure possono sfruttare il [backup automatico](virtual-machi
 
 Se è necessaria la disponibilità elevata, è consigliabile configurare i gruppi di disponibilità di SQL Server. Ciò richiede la presenza di più VM di SQL Server Azure in una rete virtuale. È possibile configurare la soluzione a disponibilità elevata manualmente oppure è possibile usare i modelli nel portale di Azure per la configurazione automatica. Per una panoramica di tutte le opzioni di disponibilità elevata, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 Le macchine virtuali di Azure sono disponibili in più dimensioni per soddisfare le diverse esigenze di carico di lavoro. Le VM SQL forniscono anche la configurazione automatica dell'archiviazione, ottimizzata in base ai requisiti di prestazioni. Per altre informazioni sulla configurazione dell'archiviazione per le VM SQL, vedere [Configurazione dell'archiviazione per le VM di SQL Server](virtual-machines-windows-sql-server-storage-configuration.md). Per ottimizzare le prestazioni, vedere [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-performance.md).
 
@@ -94,7 +94,7 @@ Per altre informazioni sulla distribuzione di macchine virtuali di SQL Server us
 ### <a name="connect-to-the-vm"></a>Connettersi alla VM
 Una volta creata la VM di SQL Server, stabilire la connessione con applicazioni o strumenti come SQL Server Management Studio (SSMS). Per istruzioni, vedere [Connettersi a una macchina virtuale di SQL Server in Azure ](virtual-machines-windows-sql-connect.md).
 
-### <a name="migrate-your-data"></a>Migrare i dati
+### <a name="migrate-your-data"></a>Eseguire la migrazione dei dati
 Se esiste già un database, è possibile spostarlo nella nuova VM di SQL di cui viene effettuato il provisioning. Per le linee guida e un elenco di opzioni per la migrazione, vedere [Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure](virtual-machines-windows-migrate-sql.md).
 
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Creare e gestire risorse SQL di Azure con il portale di Azure
@@ -137,7 +137,7 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 ### <a name="networking"></a>Rete
 * [Panoramica della rete virtuale](../../../virtual-network/virtual-networks-overview.md)
 * [Indirizzi IP in Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Creare un nome di dominio completo nel portale di Azure](../portal-create-fqdn.md)
+* [Creare un nome di dominio completo nel portale di Azure.](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Documentazione di SQL Server](https://docs.microsoft.com/sql/index)
@@ -152,3 +152,8 @@ Introduzione a SQL Server in Macchine virtuali di Azure:
 Risposte alle domande comuni sulle VM SQL:
 
 * [Domande frequenti su SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Visualizzare le architetture di riferimento per l'esecuzione di applicazioni a più livelli in SQL Server in IaaS
+
+* [Applicazione Windows a più livelli in Azure con SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Eseguire un'applicazione a più livelli in più aree di Azure per la disponibilità elevata](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

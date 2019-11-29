@@ -1,25 +1,17 @@
 ---
-title: Risolvere i problemi di cache di Azure per i timeout di redis | Microsoft Docs
+title: Risolvere i problemi relativi ai timeout di cache di Azure per Redis
 description: Informazioni su come risolvere i problemi di timeout comuni con cache di Azure per Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: d6bf0f788f7c71a55a4c3667023d8b1d9f571baf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820972"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121373"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Risolvere i problemi relativi ai timeout di cache di Azure per Redis
 
@@ -34,7 +26,7 @@ Questa sezione illustra la risoluzione dei problemi di timeout che si verificano
 
 ## <a name="redis-server-patching"></a>Applicazione di patch al server Redis
 
-Cache di Azure per Redis aggiorna regolarmente il software server come parte della funzionalità del servizio gestito che fornisce. Questa attività di applicazione di [patch](cache-failover.md) si verifica sostanzialmente dietro la scena. Durante i failover durante l'applicazione di patch ai nodi del server Redis, i client Redis connessi a questi nodi possono riscontrare timeout temporanei quando le connessioni vengono scambiate tra questi nodi. Vedere in che [modo un failover influisce sull'applicazione client](cache-failover.md#how-does-a-failover-impact-my-client-application) per ulteriori informazioni su quali effetti collaterali possono avere sull'applicazione e su come è possibile migliorare la gestione degli eventi di applicazione di patch.
+Cache di Azure per Redis aggiorna regolarmente il software server come parte della funzionalità del servizio gestito che fornisce. Questa attività di applicazione di [patch](cache-failover.md) si verifica sostanzialmente dietro la scena. Durante i failover durante l'applicazione di patch ai nodi del server Redis, i client Redis connessi a questi nodi possono riscontrare timeout temporanei quando le connessioni vengono scambiate tra questi nodi. Vedere in che [modo un failover influisce sull'applicazione client](cache-failover.md#how-does-a-failover-affect-my-client-application) per ulteriori informazioni su quali effetti collaterali possono avere sull'applicazione e su come è possibile migliorare la gestione degli eventi di applicazione di patch.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Eccezioni di timeout di StackExchange.Redis
 
@@ -53,7 +45,7 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
 | qs |67 le operazioni in corso sono state inviate al server, ma una risposta non è ancora disponibile. La risposta può essere `Not yet sent by the server` o `sent by the server but not yet processed by the client.` |
 | qc |0 delle operazioni in corso hanno visto le risposte ma non sono ancora state contrassegnate come complete perché sono in attesa del ciclo di completamento |
 | wr |Esiste un writer attivo (ovvero le 6 richieste non inviate non vengono ignorate) byte/activewriters |
-| in |Non ci sono lettori attivi e sono disponibili zero byte da leggere nella scheda di interfaccia di rete. Vengono indicati i byte per lettore attivo. |
+| iniziare |Non ci sono lettori attivi e sono disponibili zero byte da leggere nella scheda di interfaccia di rete. Vengono indicati i byte per lettore attivo. |
 
 È possibile utilizzare la procedura seguente per esaminare le possibili cause principali.
 
@@ -91,7 +83,7 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
 1. Ci sono comandi la cui elaborazione nel server richiede molto tempo? I comandi con esecuzione prolungata che richiedono molto tempo per l'elaborazione nel server Redis possono causare timeout. Per ulteriori informazioni sui comandi con esecuzione prolungata, vedere [comandi con esecuzione prolungata](cache-troubleshoot-server.md#long-running-commands). È possibile connettersi alla cache di Azure per l'istanza di redis usando il client Redis-CLI o la [console Redis](cache-configure.md#redis-console). Eseguire quindi il comando [SLOWLOG](https://redis.io/commands/slowlog) per verificare se sono presenti richieste più lente del previsto. Il server Redis e StackExchange.Redis sono ottimizzati per numerose richieste di piccole dimensioni invece che per meno richieste di grandi dimensioni. Dividere i dati in blocchi più piccoli può facilitare le operazioni.
 
     Per informazioni sulla connessione all'endpoint SSL della cache con Redis-CLI e stunnel, vedere il post di Blog che [annuncia il provider di stato della sessione ASP.NET per la versione di anteprima di redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
-1. Un carico del server Redis elevato può causare timeout. È possibile monitorare il carico del server monitorando la [metrica delle prestazioni della cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Redis Server Load`. Un carico del server pari a 100 (valore massimo) indica che il server Redis è stato occupato, senza tempo di inattività, a elaborare le richieste. Per verificare se determinate richieste stanno esaurendo la capacità del server, eseguire il comando SlowLog, come descritto nel paragrafo precedente. Per altre informazioni, vedere Utilizzo della CPU/carico del server elevato.
+1. Un carico del server Redis elevato può causare timeout. È possibile monitorare il carico del server monitorando la `Redis Server Load`metrica delle prestazioni della cache[ ](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Un carico del server pari a 100 (valore massimo) indica che il server Redis è stato occupato, senza tempo di inattività, a elaborare le richieste. Per verificare se determinate richieste stanno esaurendo la capacità del server, eseguire il comando SlowLog, come descritto nel paragrafo precedente. Per altre informazioni, vedere Utilizzo della CPU/carico del server elevato.
 1. Si sono verificati altri eventi sul lato client che potrebbero aver causato un problema di rete? Gli eventi comuni includono: ridimensionamento del numero di istanze client verso l'alto o verso il basso, distribuzione di una nuova versione del client o abilitazione della scalabilità automatica. Durante i test è stato rilevato che la scalabilità automatica o verticale può causare la perdita della connettività di rete in uscita per alcuni secondi. Il codice StackExchange.Redis è resiliente a tali eventi ed esegue una nuova connessione. Durante la riconnessione, è possibile che si verifica il timeout delle richieste nella coda.
 1. Si è verificata una richiesta di grandi dimensioni che precede diverse richieste di piccole dimensioni alla cache. Il parametro `qs` nel messaggio di errore indica il numero di richieste inviate dal client al server, ma non ha elaborato una risposta. Questo valore può continuare ad aumentare perché StackExchange.Redis usa una sola connessione TCP e può leggere solo una risposta per volta. Anche se si è verificato il timeout della prima operazione, l'invio di più dati da o verso il server non viene interrotto. Le altre richieste verranno bloccate fino a quando la richiesta di grandi dimensioni non viene completata e può causare timeout. Una soluzione consiste nel ridurre al minimo la possibilità di timeout assicurandosi che la cache sia abbastanza grande per il carico di lavoro e dividendo i valori elevati in blocchi più piccoli. Un'altra possibile soluzione consiste nell'usare un pool di oggetti `ConnectionMultiplexer` nel client e nello scegliere il `ConnectionMultiplexer` con il carico minore quando si invia una nuova richiesta. Il caricamento tra più oggetti Connection deve impedire che un singolo timeout causi anche il timeout di altre richieste.
 1. Se si usa `RedisSessionStateProvider`, assicurarsi di aver impostato correttamente il timeout per i tentativi. `retryTimeoutInMilliseconds` deve essere superiore a `operationTimeoutInMilliseconds`. In caso contrario, non vengono effettuati nuovi tentativi. Nell'esempio seguente `retryTimeoutInMilliseconds` è impostato su 3000. Per altre informazioni, vedere [Provider di stato della sessione ASP.NET per Cache Redis di Azure](cache-aspnet-session-state-provider.md) e [Come usare i parametri di configurazione del provider di stato della sessione e del provider della cache di output](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).

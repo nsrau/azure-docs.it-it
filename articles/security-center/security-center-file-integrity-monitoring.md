@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure | Microsoft Docs
-description: " Informazioni su come abilitare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure. "
+description: Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202190"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558777"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -93,7 +93,7 @@ Viene visualizzato il dashboard **Monitoraggio dell'integrità dei file** per le
 
 ![Dashboard Monitoraggio dell'integrità dei file][6]
 
-Il dashboard Monitoraggio dell'integrità dei file per un'area di lavoro visualizza gli elementi seguenti:
+Il dashboard FIM per un'area di lavoro Visualizza i dettagli seguenti:
 
 - Numero totale di macchine virtuali connesse all'area di lavoro
 - Numero totale di modifiche che sono state effettuate durante il periodo di tempo selezionato
@@ -109,7 +109,7 @@ La scheda **Computer** (mostrata sopra) elenca tutti i computer che creano repor
 - Il numero totale di modifiche che sono state effettuate durante il periodo di tempo selezionato
 - Una suddivisione delle modifiche totali come modifiche al file o al registro di sistema
 
-**Ricerca log** si apre quando si immette il nome di un computer nel campo di ricerca o si seleziona un computer elencato nella scheda Computer. Ricerca log visualizza tutte le modifiche apportate durante il periodo di tempo selezionato per il computer. Per altre informazioni, è possibile espandere una modifica.
+La **Ricerca log** si apre quando si immette un nome di computer nel campo di ricerca o si seleziona un computer elencato nella scheda computer. Ricerca log consente di visualizzare tutte le modifiche apportate durante il periodo di tempo selezionato per il computer. Per altre informazioni, è possibile espandere una modifica.
 
 ![Ricerca log][8]
 
@@ -132,7 +132,7 @@ La scheda **Modifiche** (mostrata sotto) elenca tutte le modifiche per l'area di
 
    ![Impostazioni][11]
 
-   **Configurazione dell'area di lavoro** si apre visualizzando tre schede: **Registro di sistema di Windows**, **File Windows** e **File Linux**. Ogni scheda elenca le entità che è possibile modificare nella categoria. Per ogni entità elencata, il Centro sicurezza identifica se il monitoraggio dell'integrità dei file è abilitato (true) o non abilitato (false).  La modifica dell'entità consente di abilitare o disabilitare il monitoraggio dell'integrità dei file.
+   Si apre **Configurazione dell'area di lavoro**, che visualizza tre schede: **Registro di sistema di Windows**, **File Windows** e **File Linux**. Ogni scheda elenca le entità che è possibile modificare nella categoria. Per ogni entità elencata, il Centro sicurezza identifica se il monitoraggio dell'integrità dei file è abilitato (true) o non abilitato (false).  La modifica dell'entità consente di abilitare o disabilitare il monitoraggio dell'integrità dei file.
 
    ![Configurazione dell'area di lavoro][12]
 
@@ -199,7 +199,7 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 4. Selezionare **Rimuovi** per disabilitare.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato descritto come usare il monitoraggio dell'integrità dei file nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+In questo articolo si è appreso come usare il monitoraggio dell'integrità dei file (FIM) nel centro sicurezza. Per ulteriori informazioni sul centro sicurezza, vedere le pagine seguenti:
 
 * [Impostazione dei criteri di sicurezza](tutorial-security-policy.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione dei consigli di sicurezza](security-center-recommendations.md): informazioni su come i consigli semplificano la protezione delle risorse di Azure.
