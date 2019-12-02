@@ -1,19 +1,19 @@
 ---
-title: Preparare i computer locali per la migrazione ad Azure con Azure Migrate
-description: Questo articolo descrive come preparare i computer locali per la migrazione ad Azure con Azure Migrate.
+title: Preparare i computer per la migrazione con Azure Migrate
+description: Informazioni su come preparare i computer locali per la migrazione con Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480124"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196433"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
@@ -46,8 +46,7 @@ In questo articolo si apprenderà come:
 
 - Per le macchine virtuali VMware, Migrazione del server di Azure Migrate supporta la [migrazione senza agente o basata su agente](server-migrate-overview.md). Verificare i requisiti/supporto delle macchine virtuali VMware per le migrazioni [senza agente](migrate-support-matrix-vmware.md#migration---limitations) e [basata su agente](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements).
 - Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) per le macchine virtuali Hyper-V.
-- Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) per computer fisici locali o altri server virtualizzati. Questi requisiti sono simili ai requisiti delle macchine virtuali VMware.
-
+- Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-physical.md) per computer fisici locali o altri server virtualizzati. 
 
 
 

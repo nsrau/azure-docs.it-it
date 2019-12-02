@@ -1,20 +1,20 @@
 ---
-title: Gestire endpoint privati in Azure
-description: Informazioni su come creare un endpoint privato con il portale di Azure
+title: Avvio rapido - Gestire endpoint privati in Azure
+description: Questa guida di avvio rapido illustra come creare un endpoint privato con il portale di Azure
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372233"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419757"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>Creare un endpoint privato con il portale di Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Guida introduttiva: Creare un endpoint privato con il portale di Azure
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una VM in una rete virtuale di Azure e un server di database SQL con un endpoint privato di Azure usando il portale di Azure. Si potrà quindi accedere in modo sicuro al server di database SQL dalla VM.
 
@@ -241,4 +241,3 @@ Quando non si ha più bisogno dell'endpoint privato, del server SQL e della macc
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa Guida introduttiva sono stati creati una macchina virtuale in una rete virtuale, un server di database SQL e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una macchina virtuale da Internet ed è stata stabilita una comunicazione al server di database SQL usando Collegamento privato. Per altre informazioni sugli endpoint privati, vedere [Informazioni sull'endpoint privato di Azure](private-endpoint-overview.md).
-

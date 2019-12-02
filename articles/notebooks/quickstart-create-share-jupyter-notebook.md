@@ -1,23 +1,14 @@
 ---
 title: Creare e condividere un notebook di Jupyter in Azure
 description: Creare rapidamente ed eseguire un notebook di Jupyter in Azure Notebooks e quindi condividerlo con altri utenti.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970168"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277514"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Avvio rapido: Creare e condividere un notebook
 
@@ -42,7 +33,7 @@ ms.locfileid: "71970168"
 
 1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+** ) e quindi selezionare **Notebook**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Un nuovo progetto vuoto e il comando per aggiungere un notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. Nella finestra popup **Create New Notebook** (Crea nuovo notebook) visualizzata immettere un nome file per il notebook, ad esempio *HelloWorldInPython.ipynb* ( *.ipynb* significa notebook IronPython - Jupyter) e selezionare **Python 3.6** per la lingua (chiamato anche il *kernel*):
 
