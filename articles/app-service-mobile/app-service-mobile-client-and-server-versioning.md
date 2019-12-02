@@ -1,25 +1,17 @@
 ---
-title: Controllo delle versioni SDK di client e server in App per dispositivi mobili e Servizi mobili | Documentazione Microsoft
-description: Elenco degli SDK del client e compatibilità con versioni SDK del server per Servizi mobili e App per dispositivi mobili di Azure
-services: app-service\mobile
-documentationcenter: ''
-author: conceptdev
-manager: crdun
-editor: ''
+title: Controllo delle versioni dell'SDK per client e server
+description: Elenco di SDK client e compatibilità con le versioni di Server SDK per servizi mobili e app per dispositivi mobili di Azure.
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 5be72a4125b276d85174a7a056cbbc2c23053e89
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d0b301dee363c2338cb13a9fc09ee17549467eb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388875"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668848"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 > [!NOTE]
@@ -72,7 +64,7 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento dei back-end di app per dispositivi mobili
 | ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Response |
 | --- | --- | --- |
-| x.y.z o Null |True |200 - OK |
+| x.y.z o Null |Vero |200 - OK |
 | Null |False/Non specificato |400 - Richiesta non valida |
 | 1.x.y |False/Non specificato |400 - Richiesta non valida |
 | 2.0.0-2.x.y |False/Non specificato |200 - OK |

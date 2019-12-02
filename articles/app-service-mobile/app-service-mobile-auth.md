@@ -1,23 +1,14 @@
 ---
-title: Autenticazione e autorizzazione nel servizio app di Azure per app per dispositivi mobili | Microsoft Docs
-description: Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure, soprattutto per le app per dispositivi mobili
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: Autenticazione e autorizzazione
+description: Riferimento concettuale e panoramica della funzionalità di autenticazione/autorizzazione per app Azure servizio, in particolare per le app per dispositivi mobili.
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: mahender
-ms.openlocfilehash: 6017d9bc8b9a791e46fd1562660c9049ca0f72e5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388902"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668520"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticazione e autorizzazione nel servizio app di Azure per app per dispositivi mobili
 

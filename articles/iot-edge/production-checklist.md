@@ -1,5 +1,5 @@
 ---
-title: Preparare dispositivi e distribuzioni per la produzione - Azure IoT Edge | Microsoft Docs
+title: Preparare la distribuzione della soluzione nell'ambiente di produzione Azure IoT Edge
 description: Informazioni su come portare la soluzione Azure IoT Edge dallo sviluppo alla produzione, inclusa la configurazione dei dispositivi con i certificati appropriati e la creazione di un piano di distribuzione per gli aggiornamenti del codice futuri.
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1d8ba8452f5f2d4ab05083e1a97fa0b9ba75017f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457314"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665815"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -224,7 +224,7 @@ Per impostazione predefinita, il motore di contenitori di Moby non imposta limit
 
 Aggiungere (o accodare) queste informazioni a un file denominato `daemon.json` e posizionarlo nella posizione corretta per la piattaforma del dispositivo.
 
-| Piattaforma | Location |
+| Piattaforma | Località |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -233,7 +233,7 @@ Per rendere effettive le modifiche, è necessario riavviare il motore del conten
 
 **Opzione: regolare le impostazioni del log per ogni modulo contenitore**
 
-Questa operazione può essere eseguita nella **createOptions** di ogni modulo. Ad esempio:
+Questa operazione può essere eseguita nella **createOptions** di ogni modulo. ad esempio:
 
 ```yml
 "createOptions": {

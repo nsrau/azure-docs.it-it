@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: raynew
-ms.openlocfilehash: 13a4fbb119ae9aceb8731e53f7123375a6e5c106
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666274"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669144"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
@@ -54,7 +54,7 @@ Migrazione server di Azure Migrate | ND | Eseguire la migrazione di [VM VMware](
 [Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/dms-overview) | ND | Eseguire la migrazione di SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Valutazione di Virtual Desktop Infrastructure (VDI) | ND
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Valutare le macchine virtuali VMWare, le VM Hyper-V, le VM Xen, i computer fisici, le workstation (incluso VDI), i carichi di lavoro del cloud pubblico | ND
-[RackWare](https://www.rackwareinc.com/cloud-migration) | ND | Eseguire la migrazione di macchine virtuali VMWare, VM Hyper-V, VM Xen, VM KVM, computer fisici, carichi di lavoro del cloud pubblico 
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | ND | Eseguire la migrazione di macchine virtuali VMWare, VM Hyper-V, VM Xen, VM KVM, computer fisici, carichi di lavoro del cloud pubblico 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Valutare le macchine virtuali VMware, le VM Hyper-V, i server fisici, i carichi di lavoro del cloud pubblico. | ND
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Valutare le macchine virtuali VMware, le VM Hyper-V, i server fisici, i carichi di lavoro del cloud pubblico e i database SQL Server. | ND
 [Migration Assistant webapp](https://appmigration.microsoft.com/) | Valutazione delle app Web | Eseguire la migrazione di app Web.

@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173220"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668088"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -118,7 +118,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
 Database SQL Server |Dimensioni di un singolo database SQL di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
-Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
+Scambia |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati sottoposti a backup con un insieme di credenziali di Servizi di ripristino?
@@ -176,7 +176,7 @@ L'architettura di archiviazione di Backup di Azure offre il meglio dei due mondi
 
 Per ogni istanza protetta, è possibile creare fino a 9999 punti di ripristino. Un'istanza protetta è un computer, un server fisico o virtuale o un carico di lavoro che esegue il backup in Azure.
 
-- Altre informazioni sul [backup e la conservazione](./backup-overview.md#backup-and-retention).
+- Altre informazioni sul [backup e la conservazione](./backup-support-matrix.md).
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quante volte è possibile ripristinare i dati di cui è stato eseguito il backup in Azure?
 

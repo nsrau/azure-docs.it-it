@@ -1,25 +1,17 @@
 ---
-title: Aggiungere l'autenticazione in Apache Cordova con App per dispositivi mobili| Documentazione Microsoft
-description: Informazioni su come usare App per dispositivi mobili nel servizio app di Azure per autenticare gli utenti dell'app Apache Cordova tramite vari provider di identità, tra cui Google, Facebook, Twitter e Microsoft.
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
+title: Aggiungi autenticazione in Apache Cordova
+description: Informazioni su come usare le app per dispositivi mobili nel servizio app Azure per autenticare gli utenti dell'app Apache Cordova con provider di identità, ad esempio Google, Facebook, Twitter e Microsoft.
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: c42cf2c944457b6b738578f738cd338977df8185
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f85c8e4f8eedccf3039038308f2262727fb18197
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388823"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668561"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Aggiungere l'autenticazione all'app Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

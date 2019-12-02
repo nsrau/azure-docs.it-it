@@ -1,25 +1,17 @@
 ---
-title: Aggiungere notifiche push all'app per iOS con le app per dispositivi mobili di Azure
+title: Aggiungere notifiche push a iOS
 description: Informazioni su come usare le app per dispositivi mobili di Azure per inviare notifiche push all'app per iOS.
-services: app-service\mobile
-documentationcenter: ios
-manager: crdun
-editor: ''
-author: elamalani
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 3a0b177e1e0fc9575a48c3126d5707bfc02c7d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2864dfca72c91acd10fd6a4ee8038040ba5defc8
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388754"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668808"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Aggiungere notifiche push all'app iOS
 

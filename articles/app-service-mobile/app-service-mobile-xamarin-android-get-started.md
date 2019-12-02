@@ -1,25 +1,17 @@
 ---
-title: Introduzione alle app per dispositivi mobili di Azure per Xamarin.Android
-description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Xamarin Android.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Introduzione alle app Novell. Android
+description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Novell Android.
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 038ca0bd7690ac90470d9a739a47d0f634f1297b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1bac9ac03971765f1afc4f15ff3de6cc4b7d3883
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388483"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668683"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creare un'app Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -57,11 +49,11 @@ Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
 ## <a name="run-the-xamarinandroid-app"></a>Eseguire l'app Novell. Android
 1. Aprire il progetto Novell. Android.
 
-2. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" sarà https://test123.azurewebsites.net.
+2. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" verrà https://test123.azurewebsites.net.
 
 3. Aprire il file `ToDoActivity.cs` in questa cartella-Novell. Android/ZUMOAPPNAME/ToDoActivity. cs. Il nome dell'applicazione è `ZUMOAPPNAME`.
 
-4. Nella classe `ToDoActivity` sostituire la variabile `ZUMOAPPURL` con l'endpoint pubblico riportato sopra.
+4. Nella classe `ToDoActivity` sostituire `ZUMOAPPURL` variabile con l'endpoint pubblico riportato sopra.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

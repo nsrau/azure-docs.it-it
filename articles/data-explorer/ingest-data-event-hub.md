@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1750267b5780dcfbb227ffcd6bb98e2f77ff1511
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539282"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667430"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -20,17 +20,15 @@ ms.locfileid: "74539282"
 > * [di Microsoft Azure](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
+> * [Modello di Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questo articolo viene creato un hub eventi, ci si connette da Azure Esplora dati e si Visualizza il flusso di dati attraverso il sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
-
 * [Un cluster e un database di test](create-cluster-database-portal.md).
-
 * [Un'app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) che genera i dati e li invia a un hub eventi. Scaricare l'app di esempio nel sistema.
-
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) per eseguire l'app di esempio.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure

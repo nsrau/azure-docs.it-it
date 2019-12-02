@@ -1,25 +1,17 @@
 ---
-title: Abilitare la sincronizzazione offline per l'app per dispositivi mobili di Azure (Cordova) | Documentazione Microsoft
-description: Informazioni su come usare le app mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline in un'applicazione Cordova
-documentationcenter: cordova
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
+title: Abilitare la sincronizzazione offline (Cordova)
+description: Informazioni su come usare l'app per dispositivi mobili del servizio app per memorizzare nella cache e sincronizzare i dati offline nell'applicazione Cordova.
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: c5fcc98bf3da79d1978da6e67535a5a93a8fe321
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: aae78285b5ed13031275b4969befa2e1d67bf5b7
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388841"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668535"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Abilitare la sincronizzazione offline per l'app per dispositivi mobili Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

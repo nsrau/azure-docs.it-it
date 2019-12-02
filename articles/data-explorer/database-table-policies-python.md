@@ -7,23 +7,26 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 2afe3da8b4d4bee31b17320ad976e795e91d410a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71997241"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667286"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Creare criteri di database e tabelle per Esplora dati di Azure con Python
+
+> [!div class="op_single_selector"]
+> * [C#](database-table-policies-csharp.md)
+> * [Python](database-table-policies-python.md)
+>
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Questo articolo illustra come creare criteri di database e tabelle per Esplora dati di Azure con Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-* [Un cluster e un database di test](create-cluster-database-python.md)
-
+* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
+* [Un cluster di prova e un database](create-cluster-database-python.md)
 * [Una tabella di test](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## <a name="install-the-data-libraries"></a>Installare le librerie di dati
@@ -35,7 +38,7 @@ pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
 ## <a name="authentication"></a>Authentication
-Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazione e un'entità servizio che possano accedere alle risorse. È possibile utilizzare la stessa applicazione Azure AD per l'autenticazione da [un cluster e un database di test](create-cluster-database-csharp.md#authentication). Se si vuole usare un'applicazione Azure AD diversa, vedere [creare un'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per creare un'applicazione di Azure ad gratuita e aggiungere un'assegnazione di ruolo nell'ambito della sottoscrizione. Viene inoltre illustrato come ottenere i `Directory (tenant) ID`, `Application ID` e `Client Secret`. Potrebbe essere necessario aggiungere la nuova applicazione Azure AD come entità nel database, vedere [gestire le autorizzazioni del database di Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
+Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazione e un'entità servizio che possano accedere alle risorse. È possibile utilizzare la stessa applicazione Azure AD per l'autenticazione da [un cluster e un database di test](create-cluster-database-csharp.md#authentication). Se si vuole usare un'applicazione Azure AD diversa, vedere [creare un'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per creare un'applicazione di Azure ad gratuita e aggiungere un'assegnazione di ruolo nell'ambito della sottoscrizione. Viene inoltre illustrato come ottenere le `Directory (tenant) ID`, `Application ID`e `Client Secret`. Potrebbe essere necessario aggiungere la nuova applicazione Azure AD come entità nel database, vedere [gestire le autorizzazioni del database di Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions).    
 
 ## <a name="alter-database-retention-policy"></a>Modificare i criteri di conservazione del database
 Imposta un criterio di conservazione con un periodo di eliminazione temporanea di 10 giorni.

@@ -1,25 +1,17 @@
 ---
-title: Come usare il plug-in Apache Cordova per le app per dispositivi mobili di Azure
+title: Come usare il plug-in Apache Cordova
 description: Come usare il plug-in Apache Cordova per le app per dispositivi mobili di Azure
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 25bff77da6c2bd89916fe40ebb153ff9631e62eb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ecca8f719a01abe68b368987fce4ea883193e844
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388797"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668513"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

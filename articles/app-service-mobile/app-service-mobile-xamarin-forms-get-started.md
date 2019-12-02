@@ -1,24 +1,17 @@
 ---
-title: Introduzione alle app per dispositivi mobili in Xamarin.Forms
+title: Introduzione a Novell. Forms
 description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili per lo sviluppo per Xamarin.Forms.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: e891bc34840e8c8bb61be1a9da607c43a93f2d17
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 69a9b3294bf080f7ae1516b0acbfc4be077518f4
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388453"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668656"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creare un'app Xamarin.Forms con Azure
 
@@ -56,11 +49,11 @@ Per aprire la soluzione sono necessarie le Strumenti di Visual Studio per Novell
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows e Mac)
 
-1. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" sarà https://test123.azurewebsites.net.
+1. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" verrà https://test123.azurewebsites.net.
 
 2. Aprire il file `Constants.cs` in questa cartella-Novell. Forms/ZUMOAPPNAME. Il nome dell'applicazione è `ZUMOAPPNAME`.
 
-3. Nella classe `Constants.cs` sostituire la variabile `ZUMOAPPURL` con l'endpoint pubblico riportato sopra.
+3. Nella classe `Constants.cs` sostituire `ZUMOAPPURL` variabile con l'endpoint pubblico riportato sopra.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 

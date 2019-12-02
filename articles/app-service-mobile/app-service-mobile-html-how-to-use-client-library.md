@@ -1,25 +1,17 @@
 ---
-title: Come usare JavaScript SDK per le app per dispositivi mobili di Azure
+title: Usare JavaScript SDK
 description: Come usare v per le app per dispositivi mobili di Azure
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 8a22de6b3e518bb3c9392d7fd64411969b32f33f
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f70523b5b27a4f3db86bacf39469e233e43f807
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388724"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668820"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Come usare la libreria client JavaScript per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

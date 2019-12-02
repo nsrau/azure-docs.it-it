@@ -7,24 +7,24 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643835"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667846"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Creare un cluster e un database di Azure Esplora dati usando un modello di Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portale](create-cluster-database-portal.md)
-> * [CLI](create-cluster-database-cli.md)
+> * [di Microsoft Azure](create-cluster-database-portal.md)
+> * [Interfaccia della riga di comando](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
 > * [Modello di Azure Resource Manager](create-cluster-database-resource-manager.md)
 
-Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. 
 
 In questo articolo viene creato un cluster e un database di Azure Esplora dati usando un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per informazioni sulla creazione di modelli, vedere Creazione di [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Per la sintassi e le proprietà JSON da usare in un modello, vedere [tipi di risorse Microsoft. kusto](/azure/templates/microsoft.kusto/allversions).
 
@@ -94,7 +94,7 @@ In questo articolo viene usato un [modello di avvio rapido esistente](https://ra
 }
 ```
 
-Per trovare altri esempi di modelli, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
+Per altri esempi di modello, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
 
 ## <a name="deploy-the-template-and-verify-template-deployment"></a>Distribuire il modello e verificare la distribuzione del modello
 
@@ -104,11 +104,11 @@ Per trovare altri esempi di modelli, vedere [modelli di avvio rapido di Azure](h
 
 1. Per creare un cluster e un database, usare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare **Apri in una nuova finestra** per poter seguire il resto dei passaggi di questo articolo.
 
-    [![Distribuzione in Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
+    [![Distribuisci in Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure per compilare un modulo di distribuzione.
 
-    ![Distribuzione in Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+    ![Distribuire in Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
     È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
 
@@ -121,7 +121,7 @@ Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplor
 
 #### <a name="deploy-the-template-using-powershell"></a>Distribuire il modello tramite PowerShell
 
-1. Selezionare **prova** dal blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure cloud Shell.
+1. Selezionare **Prova** nel blocco di codice seguente e quindi seguire le istruzioni per accedere ad Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -137,7 +137,7 @@ Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplor
     ```
 
 1. Selezionare **Copia** per copiare lo script di PowerShell.
-1. Fare clic con il pulsante destro del mouse sulla console della shell, quindi scegliere **Incolla**.
+1. Fare clic con il pulsante destro del mouse sulla console della shell e quindi scegliere **Incolla**.
 Sono necessari alcuni minuti per creare un cluster e un database di Azure Esplora dati.
 
 #### <a name="verify-the-deployment-using-powershell"></a>Verificare la distribuzione tramite PowerShell
@@ -155,26 +155,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure distribuite eliminando il gruppo di risorse. 
-
-### <a name="clean-up-resources-using-the-azure-portal"></a>Pulire le risorse usando il portale di Azure
-
-Eliminare le risorse nella portale di Azure seguendo la procedura descritta in [pulire le risorse](create-cluster-database-portal.md#clean-up-resources).
-
-### <a name="clean-up-resources-using-powershell"></a>Pulire le risorse usando PowerShell
-
-Se il Cloud Shell è ancora aperto, non è necessario copiare/eseguire la prima riga (read-host).
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

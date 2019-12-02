@@ -1,25 +1,17 @@
 ---
-title: Aggiungere l'autenticazione in iOS con le app per dispositivi mobili di Azure
-description: Informazioni su come usare le app per dispositivi mobili di Azure per autenticare gli utenti dell'app iOS tramite vari provider di identità, tra cui AAD, Google, Facebook, Twitter e Microsoft.
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
+title: Aggiungere l'autenticazione in iOS
+description: Informazioni su come usare le app per dispositivi mobili di Azure per autenticare gli utenti dell'app iOS tramite provider di identità come AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 800d86750f091404ee7f940d7cf8f6631e3fbbeb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 925894cab00537cb9aeb03ca05c9699bb4bf6a84
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388689"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668462"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

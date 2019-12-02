@@ -7,32 +7,29 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 1e6cd94e18382b3e66fc6a9c284539bc178e199c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7e1d9021abbbe507f3bf287291d5638c77f6e0cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031643"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667374"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Creare una connessione dati dell'hub Internet per Azure Esplora dati usando Python (anteprima)
 
 > [!div class="op_single_selector"]
-> * [Portale](ingest-data-iot-hub.md)
+> * [di Microsoft Azure](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Modello di Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Esplora dati offre l'inserimento (caricamento dei dati) dagli hub eventi, dagli hub Internet e dai BLOB scritti nei contenitori BLOB. Questo articolo illustra come creare una connessione dati dell'hub Internet per Azure Esplora dati usando Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
+* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
 * Creare [un cluster e un database](create-cluster-database-csharp.md)
-
 * Creazione del [mapping di tabelle e colonne](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Impostare i [criteri di database e tabella](database-table-policies-csharp.md) (facoltativo)
-
 * Creare un [hub delle cose con un criterio di accesso condiviso configurato](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838221"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668581"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Distribuire Esplora dati di Azure nella rete virtuale (anteprima)
 
@@ -64,6 +64,9 @@ Il numero totale di indirizzi IP:
 Gli [endpoint di servizio di Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) consentono di proteggere le risorse multi-tenant di Azure nella rete virtuale.
 La distribuzione di Azure Esplora dati cluster nella subnet consente di configurare le connessioni dati con [Hub eventi](/azure/event-hubs/event-hubs-about) o [griglia di eventi](/azure/event-grid/overview) , limitando al contempo le risorse sottostanti per la subnet di Azure Esplora dati.
 
+> [!NOTE]
+> Quando si usa il programma di installazione di EventGrid con [archiviazione](/azure/storage/common/storage-introduction) e [Hub eventi], l'account di archiviazione usato nella sottoscrizione può essere bloccato con gli endpoint di servizio nella subnet di Azure Esplora dati, consentendo al contempo i servizi della piattaforma Azure trusted nella [configurazione del firewall](/azure/storage/common/storage-network-security), ma l'hub eventi non può abilitare l'endpoint servizio perché non supporta i [servizi della piattaforma Azure](/azure/event-hubs/event-hubs-service-endpoints)attendibili.
+
 ## <a name="dependencies-for-vnet-deployment"></a>Dipendenze per la distribuzione di VNet
 
 ### <a name="network-security-groups-configuration"></a>Configurazione di gruppi di sicurezza di rete
@@ -74,9 +77,9 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 
 | **Uso**   | **From**   | **To**   | **Protocollo**   |
 | --- | --- | --- | --- |
-| gestione  |[Indirizzi di gestione ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Subnet ADX: 443  | TCP  |
-| Monitoraggio dell’integrità  | [Indirizzi di monitoraggio dell'integrità di ADX](#health-monitoring-addresses)  | Subnet ADX: 443  | TCP  |
-| Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX: tutte le porte  | Tutti  |
+| Gestione  |[Indirizzi di gestione ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | Subnet ADX: 443  | TCP  |
+| Monitoraggio dell'integrità  | [Indirizzi di monitoraggio dell'integrità di ADX](#health-monitoring-addresses)  | Subnet ADX: 443  | TCP  |
+| Comunicazione interna ADX  | Subnet ADX: tutte le porte  | Subnet ADX: tutte le porte  | Tutto  |
 | Consenti bilanciamento del carico di Azure in ingresso (Probe di integrità)  | AzureLoadBalancer  | Subnet ADX: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Configurazione NSG in uscita
@@ -90,19 +93,19 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Download della configurazione di monitoraggio di Azure  | Subnet ADX  | [Indirizzi endpoint di configurazione di monitoraggio di Azure](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (se applicabile) | Subnet ADX | AzureActiveDirectory: 443 | TCP |
 | Autorità di certificazione | Subnet ADX | Internet: 80 | TCP |
-| Comunicazione interna  | Subnet ADX  | Subnet ADX: tutte le porte  | Tutti  |
+| Comunicazione interna  | Subnet ADX  | Subnet ADX: tutte le porte  | Tutto  |
 | Porte usate per `sql\_request` e `http\_request` plug-in  | Subnet ADX  | Internet: personalizzato  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Indirizzi IP rilevanti
 
 #### <a name="azure-data-explorer-management-ip-addresses"></a>Indirizzi IP di gestione Esplora dati di Azure
 
-| Region | Indirizzi |
+| Area geografica | Indirizzi |
 | --- | --- |
 | Australia centrale | 20.37.26.134 |
 | Central2 Australia | 20.39.99.177 |
 | Australia orientale | 40.82.217.84 |
-| Australia sudorientale | 20.40.161.39 |
+| Australia sud-orientale | 20.40.161.39 |
 | BrazilSouth | 191.233.25.183 |
 | Canada centrale | 40.82.188.208 |
 | Canada orientale | 40.80.255.12 |
@@ -110,21 +113,21 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Stati Uniti centrali | 40.67.188.68 |
 | Stati Uniti centrali EUAP | 40.89.56.69 |
 | Asia orientale | 20.189.74.103 |
-| Stati Uniti orientali | 52.224.146.56 |
+| Stati Uniti Orientali | 52.224.146.56 |
 | Stati Uniti Orientali 2 | 52.232.230.201 |
 | EUAP Uniti orientale | 52.253.226.110 |
 | Francia centrale | 40.66.57.91 |
 | Francia meridionale | 40.82.236.24 |
 | Giappone orientale | 20.43.89.90 |
 | Giappone occidentale | 40.81.184.86 |
-| Corea del Sud centrale | 40.82.156.149 |
-| Corea del Sud meridionale | 40.80.234.9 |
+| Corea centrale | 40.82.156.149 |
+| Corea meridionale | 40.80.234.9 |
 | Stati Uniti centro-settentrionali | 40.81.45.254 |
 | Europa settentrionale | 52.142.91.221 |
 | Sudafrica settentrionale | 102.133.129.138 |
 | Sudafrica occidentale | 102.133.0.97 |
 | Stati Uniti centro-meridionali | 20.45.3.60 |
-| Asia sudorientale | 40.119.203.252 |
+| Asia sud-orientale | 40.119.203.252 |
 | India meridionale | 40.81.72.110 |
 | Regno Unito meridionale | 40.81.154.254 |
 | Regno Unito occidentale | 40.81.122.39 |
@@ -136,12 +139,12 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 
 #### <a name="health-monitoring-addresses"></a>Indirizzi di monitoraggio dello stato
 
-| Region | Indirizzi |
+| Area geografica | Indirizzi |
 | --- | --- |
 | Australia centrale | 191.239.64.128 |
 | Australia centrale 2 | 191.239.64.128 |
 | Australia orientale | 191.239.64.128 |
-| Australia sudorientale | 191.239.160.47 |
+| Australia sud-orientale | 191.239.160.47 |
 | Brasile meridionale | 23.98.145.105 |
 | Canada centrale | 168.61.212.201 |
 | Canada orientale | 168.61.212.201 |
@@ -149,22 +152,22 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 | Stati Uniti centrali | 168.61.212.201 |
 | Stati Uniti centrali EUAP | 168.61.212.201 |
 | Asia orientale | 168.63.212.33 |
-| Stati Uniti orientali | 137.116.81.189 |
+| Stati Uniti Orientali | 137.116.81.189 |
 | Stati Uniti orientali 2 | 137.116.81.189 |
 | Stati Uniti orientali 2 EUAP | 137.116.81.189 |
 | Francia centrale | 23.97.212.5 |
 | Francia meridionale | 23.97.212.5 |
 | Giappone orientale | 138.91.19.129 |
 | Giappone occidentale | 138.91.19.129 |
-| Corea del Sud centrale | 138.91.19.129 |
-| Corea del Sud meridionale | 138.91.19.129 |
+| Corea centrale | 138.91.19.129 |
+| Corea meridionale | 138.91.19.129 |
 | Stati Uniti centro-settentrionali | 23.96.212.108 |
 | Europa settentrionale | 191.235.212.69 
 | Sudafrica settentrionale | 104.211.224.189 |
 | Sudafrica occidentale | 104.211.224.189 |
 | Stati Uniti centro-meridionali | 23.98.145.105 |
 | India meridionale | 23.99.5.162 |
-| Asia sudorientale | 168.63.173.234 |
+| Asia sud-orientale | 168.63.173.234 |
 | Regno Unito meridionale | 23.97.212.5 |
 | Regno Unito occidentale | 23.97.212.5 |
 | Stati Uniti centro-occidentali | 168.61.212.201 |
@@ -175,7 +178,7 @@ I [gruppi di sicurezza di rete (NSG)](/azure/virtual-network/security-overview) 
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Indirizzi degli endpoint di configurazione di monitoraggio di Azure
 
-| Region | Indirizzi |
+| Area geografica | Indirizzi |
 | --- | --- |
 | Australia centrale | 52.148.86.165 |
 | Australia centrale 2 | 52.148.86.165 |
@@ -251,7 +254,7 @@ crl3.digicert.com:80
 
 Per l'area **Stati Uniti occidentali** , ad esempio, è necessario definire i seguenti UdR:
 
-| Name | Prefisso indirizzo | Hop successivo |
+| name | Prefisso indirizzo | Hop successivo |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |

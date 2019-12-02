@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847264"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668156"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -35,7 +35,7 @@ Il nuovo SKU v2 include i miglioramenti seguenti:
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree geografiche seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale , Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Corea centrale, Corea meridionale, India meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
+Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree geografiche seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale , Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Corea centrale, Corea meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -150,7 +150,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 | Routing basato su URL                                 | &#x2713; | &#x2713; |
 | Hosting di più siti                             | &#x2713; | &#x2713; |
 | Reindirizzamento del traffico                               | &#x2713; | &#x2713; |
-| WAF (Web application firewall)                    | &#x2713; | &#x2713; |
+| Web application firewall (WAF)                    | &#x2713; | &#x2713; |
 | Regole personalizzate di WAF                                  |          | &#x2713; |
 | Terminazione di Secure Sockets Layer (SSL)            | &#x2713; | &#x2713; |
 | Crittografia SSL end-to-end                         | &#x2713; | &#x2713; |
@@ -168,8 +168,8 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 |Differenza|Dettagli|
 |--|--|
 |Autenticazione del certificato|Non supportati.<br>Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
-|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Non supportate|
+|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Supporto non disponibile|
+|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supporto non disponibile|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Contatori delle prestazioni in Diagnostica di Azure|Non supportati.<br>Usare le metriche di Azure.|
 |Fatturazione|Fatturazione pianificata per l'avvio il 1 ° luglio 2019.|

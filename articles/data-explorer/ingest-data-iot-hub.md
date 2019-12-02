@@ -7,30 +7,28 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028479"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667416"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Inserire i dati dall'hub Internet in Esplora dati di Azure (anteprima)
 
 > [!div class="op_single_selector"]
-> * [Portale](ingest-data-iot-hub.md)
+> * [di Microsoft Azure](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Modello di Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Esplora dati offre l'inserimento (caricamento dei dati) dall'hub Internet, una piattaforma di streaming Big Data e un servizio di inserimento di Internet.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
+* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
 * Creare [un cluster e un database di test con il](create-cluster-database-portal.md) nome del database *TestDB*.
-
 * [App di esempio](https://github.com/Azure-Samples/azure-iot-samples-csharp) e documentazione per la simulazione di un dispositivo.
-
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) per eseguire l'app di esempio.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub Internet delle cose
@@ -97,7 +95,7 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Tabella | *TestTable* | Tabella creata in **TestDB**. |
+    | Table | *TestTable* | Tabella creata in **TestDB**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
     | Mapping di colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDB**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestDB**. Obbligatorio per JSON, multiriga JSON e AVRO e facoltativo per altri formati.|
     | | |
@@ -116,7 +114,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 1. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo da [registrare un dispositivo nell'hub](#register-a-device-to-the-iot-hub). Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo da [registrare un dispositivo nell'hub](#register-a-device-to-the-iot-hub)Internet. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
 
 1. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
