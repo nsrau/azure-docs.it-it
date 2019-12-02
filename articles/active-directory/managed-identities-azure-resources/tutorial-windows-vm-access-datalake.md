@@ -1,5 +1,5 @@
 ---
-title: Come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
+title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Data Lake Store - Windows - Azure AD
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd03ccdab6a7120dc59e42ab62c1d3b2d1e5bc3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444691"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181891"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 

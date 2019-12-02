@@ -1,14 +1,14 @@
 ---
-title: Proteggere le nuove risorse con blocchi del progetto
+title: 'Esercitazione: Proteggere le nuove risorse con blocchi'
 description: Questa esercitazione illustra come usare i blocchi delle risorse in Azure Blueprints in modalità Sola lettura e Non eliminare per proteggere le risorse appena distribuite.
-ms.date: 03/28/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960261"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327453"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
@@ -25,7 +25,7 @@ In questa esercitazione si completeranno i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
 ## <a name="create-a-blueprint-definition"></a>Creare una definizione di progetto
 
@@ -53,9 +53,10 @@ Creare prima la definizione di progetto.
    1. Selezionare **Aggiungi** per aggiungere l'artefatto al progetto.
 
 1. Aggiungere un modello nel gruppo di risorse:
-   1. Selezionare la riga **Aggiungi artefatto** sotto la voce **RGtoLock**. 
-   1. Selezionare **Modello di Azure Resource Manager** in **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**. 
-   1. Nella scheda **Modello** incollare il modello di Resource Manager seguente nella casella dell'editor. Dopo aver incollato il modello, selezionare **Aggiungi** per aggiungere l'artefatto al progetto.
+   1. Selezionare la riga **Aggiungi artefatto** sotto la voce **RGtoLock**.
+   1. Selezionare **Modello di Azure Resource Manager** in **Tipo di artefatto**, impostare **Nome visualizzato dell'artefatto** su **Account di archiviazione** e lasciare vuoto il campo **Descrizione**.
+   1. Nella scheda **Modello** incollare il modello di Resource Manager seguente nella casella dell'editor.
+      Dopo aver incollato il modello, selezionare **Aggiungi** per aggiungere l'artefatto al progetto.
 
    ```json
    {
@@ -224,9 +225,7 @@ Al termine dell'esercitazione, eliminare le risorse seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md).
-- Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md).
-- Informazioni su come usare il [blocco delle risorse del progetto](../concepts/resource-locking.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](../concepts/sequencing-order.md).
-- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
-- [Risolvere i problemi](../troubleshoot/general.md) durante l'assegnazione di un progetto.
+In questa esercitazione si è appreso come proteggere le nuove risorse distribuite con Azure Blueprints. Per altre informazioni su Azure Blueprints, passare all'articolo relativo al ciclo di vita di un progetto.
+
+> [!div class="nextstepaction"]
+> [Informazioni sul ciclo di vita di un progetto](../concepts/lifecycle.md)

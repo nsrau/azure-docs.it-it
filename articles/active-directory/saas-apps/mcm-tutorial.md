@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f8663d59c263b6fa24e23e286f8eb4e75b888da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159442"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Esercitazione: Integrazione di Azure Active Directory con MCM
 
@@ -186,7 +186,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene creato un utente di nome Britta Simon in MCM. Collaborare con il  [team di supporto di MCM](https://mcmtechnology.com/support/) per aggiungere gli utenti alla piattaforma MCM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 >[!NOTE]
->È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da MCM per eseguire il provisioning degli account utente di AAD.
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da MCM per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

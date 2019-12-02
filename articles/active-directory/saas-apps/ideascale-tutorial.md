@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9307bbe58afc45468f222f5b510585d528de532a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 81594e6a21372f2b4dacedbda638cc87bad966db
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158032"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Esercitazione: Integrazione di Azure Active Directory con IdeaScale
 
@@ -241,7 +241,7 @@ Per consentire agli utenti di Azure AD di accedere a IdeaScale, è necessario es
     > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento per confermare l'account e attivarlo.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da IdeaScale per eseguire il provisioning degli account utente di AAD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da IdeaScale per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

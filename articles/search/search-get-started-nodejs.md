@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Creare un indice di ricerca in Node.js con le API REST'
 titleSuffix: Azure Cognitive Search
-description: Esempio Node.js per Ricerca cognitiva di Azure che illustra come creare, caricare dati ed eseguire query da JavaScript.
+description: Questo argomento di avvio rapido su Node.js illustra come creare un indice, caricare i dati ed eseguire query in Ricerca cognitiva di Azure usando JavaScript e le API REST.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719983"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406924"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
 > [!div class="op_single_selector"]
@@ -684,11 +684,12 @@ La classe **AzureSearchClient** incapsula la configurazione, gli URL e le richie
 
 Il comportamento generale della funzione `run` consiste nell'eliminare l'indice di Ricerca cognitiva di Azure, se esistente, creare l'indice, aggiungere alcuni dati ed eseguire alcune query.  
 
-## <a name="clean-up"></a>Eseguire la pulizia 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
 Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
+
 Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e origini dati è limitato a tre. Per non superare il limite, è possibile eliminare i singoli elementi nel portale. 
 
 ## <a name="next-steps"></a>Passaggi successivi

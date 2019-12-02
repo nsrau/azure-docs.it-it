@@ -1,14 +1,14 @@
 ---
 title: Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
-description: Questo set di definizioni di criteri di esempio richiede valori di tag specifici per il centro di costo e il nome del prodotto.
+description: Questo iniziativa di criteri di esempio (set di criteri) richiede valori di tag specifici definiti in parametri per il centro di costo e il nome del prodotto.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e2fc9a7251fbe548b22f24356e555f92a3a6e22f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076363"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463382"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
 

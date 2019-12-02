@@ -1,16 +1,16 @@
 ---
 title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048297"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321770"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Panoramica del servizio Azure Blueprints
+# <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
 Così come un progetto consente a un ingegnere o un architetto di tracciare i parametri di progettazione, Azure Blueprint consente agli architetti cloud e ai gruppi centrali del reparto IT di definire un set ripetibile di risorse di Azure che implementa ed è conforme a standard, criteri e requisiti di un'organizzazione. Azure Blueprint consente ai team di sviluppo di creare e realizzare rapidamente nuovi ambienti sapendo che vengono creati in conformità con l'organizzazione con un set di componenti integrati, ad esempio reti, per velocizzare lo sviluppo e il recapito.
 
@@ -62,7 +62,8 @@ Durante la creazione di una definizione di progetto, viene definita la posizione
 ### <a name="blueprint-parameters"></a>Parametri di progetto
 
 Azure Blueprint può passare i parametri a criteri o iniziative oppure a un modello di Azure Resource Manager.
-Quando si aggiunge un _artefatto_ a un progetto, l'autore decide se fornire un valore definito per ogni assegnazione di progetto o se consentire a ogni assegnazione di progetto di fornire un valore in fase di assegnazione. Questa flessibilità consente di definire un valore predeterminato per tutti gli usi del progetto o per consentire che tale decisione venga presa al momento dell'assegnazione.
+Quando si aggiunge un _artefatto_ a un progetto, l'autore decide se fornire un valore definito per ogni assegnazione di progetto o se consentire a ogni assegnazione di progetto di fornire un valore in fase di assegnazione.
+Questa flessibilità consente di definire un valore predeterminato per tutti gli usi del progetto o per consentire che tale decisione venga presa al momento dell'assegnazione.
 
 > [!NOTE]
 > Un progetto può avere i propri parametri, ma al momento questi possono essere creati solo se un progetto è generato dall'API REST anziché tramite il portale.
@@ -71,7 +72,8 @@ Per altre informazioni, vedere [Parametri di progetto](./concepts/parameters.md)
 
 ### <a name="blueprint-publishing"></a>Pubblicazione di progetti
 
-Quando si crea un progetto per la prima volta, questo viene considerato in modalità **bozza**. Quando è pronto per l'assegnazione, deve essere **pubblicato**. La pubblicazione richiede la definizione di una stringa **versione** (lettere, numeri e trattini con una lunghezza massima di 20 caratteri) insieme a **note di modifica** facoltative. La stringa **versione** consente di distinguere il progetto dalle modifiche future apportate allo stesso e di assegnare ciascuna versione. Questo controllo delle versioni significa anche che è possibile assegnare diverse **versioni** dello stesso progetto alla stessa sottoscrizione. Quando al progetto vengono apportate ulteriori modifiche, la **versione** **pubblicata** esiste ancora, e si aggiunge alle **modifiche non pubblicate**. Una volta ultimate le modifiche, il progetto aggiornato viene **pubblicato** con una nuova **versione** univoca e può essere ora assegnato.
+Quando si crea un progetto per la prima volta, questo viene considerato in modalità **bozza**. Quando è pronto per l'assegnazione, deve essere **pubblicato**. La pubblicazione richiede la definizione di una stringa **versione** (lettere, numeri e trattini con una lunghezza massima di 20 caratteri) insieme a **note di modifica** facoltative. La stringa **versione** consente di distinguere il progetto dalle modifiche future apportate allo stesso e di assegnare ciascuna versione. Questo controllo delle versioni significa anche che è possibile assegnare diverse **versioni** dello stesso progetto alla stessa sottoscrizione. Quando al progetto vengono apportate altre modifiche, la **versione**
+**pubblicata** è ancora presente, così come le **modifiche non pubblicate**. Una volta ultimate le modifiche, il progetto aggiornato viene **pubblicato** con una nuova **versione** univoca e può essere ora assegnato.
 
 ## <a name="blueprint-assignment"></a>Assegnazione progetto
 
@@ -135,5 +137,6 @@ La panoramica seguente di Azure Blueprints deriva da Azure Fridays. Per il downl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un progetto - Portale](create-blueprint-portal.md)
-- [Creare un progetto - API REST](create-blueprint-rest-api.md)
+- [Creare un progetto - Portale](./create-blueprint-portal.md)
+- [Creare un progetto - PowerShell](./create-blueprint-powershell.md)
+- [Creare un progetto - API REST](./create-blueprint-rest-api.md)

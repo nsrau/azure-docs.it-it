@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d2c03143eca9f335c440dfcaee766e205b5c0730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a683923ba48b1f354f90ac94d746cb92f359e7a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087158"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Esercitazione: Integrazione di Azure Active Directory con Wikispaces
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Wikispaces, �
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Wikispaces](#configure-wikispaces-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Wikispaces](#create-wikispaces-test-user)** : per avere una controparte di Britta Simon in Wikispaces collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wikispaces, seguire que
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.wikispaces.net`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://session.wikispaces.net/<instancename>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://session.wikispaces.net/<instancename>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Wikispaces](https://www.wikispaces.com/site/help). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -152,7 +152,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -190,17 +190,17 @@ Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario e
 
 2. Passare a **Membri**.
    
-    ![Members](./media/wikispaces-tutorial/ic787193.png "Members")
+    ![Members](./media/wikispaces-tutorial/ic787193.png "Membri")
 
 3. Fare clic su **Invita persone**.
    
-    ![Invitare persone](./media/wikispaces-tutorial/ic787194.png "Invitare persone")
+    ![Invitare persone](./media/wikispaces-tutorial/ic787194.png "Invita persone")
 
 4. Nella sezione **Invita Persone** seguire la procedura seguente:
    
-    ![Invitare persone](./media/wikispaces-tutorial/ic787208.png "Invitare persone")
+    ![Invitare persone](./media/wikispaces-tutorial/ic787208.png "Invita persone")
    
-    a. Nelle apposite caselle di testo immettere i valori di **Usernames o Email Address** di un account Azure AD valido di cui si vuole eseguire il provisioning.
+    a. Digitare il **nome utente o l'indirizzo di posta elettronica** di un account Azure AD valido di cui si vuole effettuare il provisioning nelle apposite caselle.
    
     b. Fare clic su **Send**.  
       
@@ -208,7 +208,7 @@ Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario e
     > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
     
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Wikispaces per eseguire il provisioning degli account utente Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Wikispaces per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

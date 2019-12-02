@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326589"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185183"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Guida introduttiva: Instradare gli eventi di Configurazione app di Azure a un endpoint Web con l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration"></a>Creare un'istanza di Configurazione app
 
-Sostituire `<appconfig_name>` con un nome univoco per la configurazione app e `<resource_group_name>` con il gruppo di risorse creato in precedenza. Il nome deve essere univoco perché viene usato come nome DNS.
+Sostituire `<appconfig_name>` con un nome univoco per Configurazione app e `<resource_group_name>` con il gruppo di risorse creato in precedenza. Il nome deve essere univoco perché viene usato come nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -80,7 +80,7 @@ Il sito dovrebbe essere visibile senza messaggi attualmente visualizzati.
 
 ## <a name="subscribe-to-your-app-configuration"></a>Sottoscrivere Configurazione app
 
-Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui si vuole tenere traccia e dove inviare tali eventi. L'esempio seguente sottoscrive la configurazione app creata e passa l'URL dall'app Web come endpoint per la notifica dell'evento. Sostituire `<event_subscription_name>` con un nome per la sottoscrizione di eventi. Per `<resource_group_name>` e `<appconfig_name>` usare i valori creati in precedenza.
+Si sottoscrive un argomento per indicare a Griglia di eventi gli eventi di cui si vuole tenere traccia e dove inviare tali eventi. L'esempio seguente sottoscrive l'istanza di Configurazione app creata e passa l'URL dell'app Web come endpoint per la notifica di eventi. Sostituire `<event_subscription_name>` con un nome per la sottoscrizione di eventi. Per `<resource_group_name>` e `<appconfig_name>` usare i valori creati in precedenza.
 
 L'endpoint per l'app Web deve includere il suffisso `/api/updates/`.
 
@@ -126,7 +126,7 @@ az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se si intende continuare a usare questa configurazione app e questa sottoscrizione di eventi, non pulire le risorse create in questo articolo. Se non si intende continuare, usare il comando seguente per eliminare le risorse create con questo articolo.
+Se si intende continuare a usare questa istanza di Configurazione app e questa sottoscrizione di eventi, non pulire le risorse create in questo articolo. Se non si intende continuare, usare il comando seguente per eliminare le risorse create con questo articolo.
 
 Sostituire `<resource_group_name>` con il gruppo di risorse creato in precedenza.
 

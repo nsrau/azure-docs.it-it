@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172651"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407032"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ I datacenter di Azure in Australia prevedono una notifica sulla sicurezza aggiun
 2. Assicurarsi che la copia dei dati sul dispositivo sia completa e che la **preparazione per la spedizione** sia stata eseguita correttamente.
 3. Spegnere il dispositivo e rimuovere i cavi.
 4. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
-5. Scrivere un messaggio di posta elettronica a Quantium Solutions per richiedere un ritiro. Vedere il numero di riferimento del servizio specificato nel portale di Azure. Usare il modello di messaggio e-mail seguente: *Richiesta di etichetta per la spedizione inversa con codice TAU*. Assicurarsi di includere i seguenti dettagli nel messaggio di posta elettronica: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia invierà un'etichetta per la spedizione di ritorno.
-7. Stampare l'etichetta di restituzione e applicarla sulla scatola per la spedizione.
-8. Consegnare il pacco al corriere.
-
-Se necessario, è possibile inviare un messaggio e-mail al supporto di Quantium Solutions all'indirizzo Azure@quantiumsolutions.com o telefonare.
-
-Per richiedere informazioni riguardanti l'ordine al telefono:
-
-- Prima di tutto, inviare un messaggio di posta elettronica per il ritiro.
-- Fornire il nome dell'ordine al telefono.
+5. Prenotare un ritiro online seguendo il [collegamento a DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 

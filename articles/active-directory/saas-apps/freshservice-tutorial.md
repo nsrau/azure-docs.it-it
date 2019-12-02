@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ba2f59799629873553fe261abebf59529ad94d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "73570601"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227525"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Freshservice
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-freshservice-from-the-gallery"></a>Aggiunta di Freshservice dalla raccolta
 
-Per configurare l'integrazione di Freshservice in Azure AD è necessario aggiungere Freshservice dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Freshservice in Azure AD è necessario aggiungere Freshservice dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -64,8 +64,8 @@ Configurare e testare l'accesso Single Sign-On di Azure AD con Freshservice usan
 Per configurare e testare l'accesso SSO di Azure AD con Freshservice, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Freshservice](#configure-freshservice-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Freshservice](#create-freshservice-test-user)** : per avere una controparte di B.Simon in Freshservice collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -95,7 +95,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per il corretto funzionamento dell'accesso SSO, Freshservice richiede l'impronta digitale SHA-256. Per ottenere l'impronta digitale SHA-256, seguire questa procedura:
 
-    ![FingerPrint](./media/freshservice-tutorial/ic790821.png "FingerPrint")
+    ![Impronta digitale](./media/freshservice-tutorial/ic790821.png "Impronta digitale")
 
     1. Aprire il [collegamento](https://www.samltool.com/fingerprint.php) in un altro Web browser.
 
@@ -123,7 +123,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Freshservice.
 
@@ -155,15 +155,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Nel menu in alto fare clic su **Admin**.
 
-    ![Amministratore](./media/freshservice-tutorial/ic790814.png "Amministratore")
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
 5. Nel **portale dei clienti** fare clic su **Security** (Sicurezza).
 
-    ![Sicurezza](./media/freshservice-tutorial/ic790815.png "Sicurezza")
+    ![Sicurezza](./media/freshservice-tutorial/ic790815.png "Security")
 
 6. Nella sezione **Security** seguire questa procedura:
 
-    ![Single Sign-On](./media/freshservice-tutorial/ic790816.png "Single Sign-On")
+    ![Single Sign-On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
 
     a. Passare a **Single Sign-On**.
 
@@ -177,7 +177,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     f. Fare clic su **Save** (Salva).
 
-### <a name="create-freshservice-test-user"></a>Creare l'utente di test di Freshservice
+### <a name="create-freshservice-test-user"></a>Creare un utente test di Freshservice
 
 Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario eseguire il provisioning degli utenti in Freshservice. Nel caso di FreshService, il provisioning è un'attività manuale.
 
@@ -187,7 +187,7 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
 
 2. Nel menu in alto fare clic su **Admin**.
 
-    ![Amministratore](./media/freshservice-tutorial/ic790814.png "Amministratore")
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
 
 3. Nella sezione **User Management** (Gestione utenti) fare clic su **Requesters** (Richiedenti).
 
@@ -199,7 +199,7 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
 
 5. Nella sezione **New Requester** seguire questa procedura:
 
-    ![New Requester](./media/freshservice-tutorial/ic790820.png "New Requester")  
+    ![New Requester](./media/freshservice-tutorial/ic790820.png "Nuovo Requester")  
 
     a. Nelle caselle **First Name** e **Email** immettere il nome e l'indirizzo di posta elettronica di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
 
@@ -210,7 +210,7 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
     >  
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da FreshService per eseguire il provisioning degli account utente di AAD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da FreshService per effettuare il provisioning degli account utente Azure AD.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

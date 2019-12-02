@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Usare i modelli di avvio rapido di Azure | Microsoft Docs'
+title: 'Esercitazione: Usare i modelli di avvio rapido'
 description: Informazioni su come usare i modelli di avvio rapido di Azure per completare lo sviluppo del modello.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1ddae445fb912b4bb60f257f667784b17b0d6ea5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001491"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405942"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Esercitazione: Usare i modelli di avvio rapido di Azure
 
@@ -25,7 +22,7 @@ I [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templ
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
@@ -33,7 +30,7 @@ Al termine dell'esercitazione precedente, il modello includeva il codice JSON se
 
 Questo modello è adatto per la distribuzione di account di archiviazione e piani di servizio app, ma è possibile che si voglia aggiungere un sito Web. È possibile usare i modelli predefiniti per individuare rapidamente il codice JSON necessario per la distribuzione di una risorsa.
 
-## <a name="find-a-template"></a>Trovare un modello
+## <a name="find-template"></a>Trovare il modello
 
 1. Aprire i [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/)
 1. In **Cerca** immettere **distribuisci app Web Linux**.
@@ -44,7 +41,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione e pian
 
     ![Avvio rapido per i modelli di Resource Manager: sito Web](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>Modificare il modello esistente
+## <a name="revise-existing-template"></a>Modificare il modello esistente
 
 Unire il modello di avvio rapido con quello esistente:
 
@@ -60,7 +57,7 @@ Si noterà che include un elemento denominato **dependsOn** impostato sul piano 
 
 La proprietà **serverFarmId** usa la funzione [resourceId](resource-group-template-functions-resource.md#resourceid). Questa funzione consente di ottenere l'identificatore univoco per una risorsa. In questo caso, ottiene l'identificatore univoco per il piano di servizio app. L'app Web è associata a un piano di servizio app specifico.
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-template"></a>Distribuire il modello
 
 Per distribuire un modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell.
 

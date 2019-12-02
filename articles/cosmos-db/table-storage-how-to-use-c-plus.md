@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 48222bf3f964f8c728f980f839c460862a8212ca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b8fa0a3cebd87f4da1a47c605ba21b0cb10a2517
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818632"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220058"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Come usare l'archiviazione tabelle di Azure e l'API del servizio tabelle di Azure Cosmos DB con C++
 
@@ -49,14 +49,14 @@ In questa guida vengono usate le funzionalità di archiviazione di un'applicazio
 
 Per installare la libreria client di Archiviazione di Azure per C++, usare i metodi seguenti:
 
-* Linux. Seguire le istruzioni fornite nella pagina relativa alla [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
-* Windows. In Visual Studio selezionare **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. Nella finestra **Console di Gestione pacchetti** eseguire il comando seguente:
+* **Linux:** seguire le istruzioni fornite nella pagina [Libreria client di Archiviazione di Azure per C++ - README: Introduzione a Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
+* **Windows:** in Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come utilità di gestione dipendenze. Seguire l'argomento di [avvio rapido](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
 
-  ```powershell
-  Install-Package wastorage
-  ```
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
 
-Per altre informazioni sulla **Console di Gestione pacchetti**, vedere [Installare e gestire pacchetti con la Console di Gestione pacchetti in Visual Studio](/nuget/tools/package-manager-console).
+È possibile trovare una guida su come compilare il codice sorgente ed esportarlo in NuGet nel file [README](https://github.com/Azure/azure-storage-cpp#download--install).
 
 ### <a name="configure-access-to-the-table-client-library"></a>Configurare l'accesso alla libreria client delle tabelle
 

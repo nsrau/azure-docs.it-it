@@ -1,24 +1,16 @@
 ---
-title: Creare più istanze di risorse - Azure Resource Manager
+title: Creare più istanze di risorse
 description: Informazioni su come creare un modello di Azure Resource Manager per creare più istanze di risorse di Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: df41094d163b8e3ecb78827df1a52dafab0aec1f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528256"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326525"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Esercitazione: Creare più istanze di risorse con modelli di Resource Manager
 
@@ -39,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione di Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
@@ -57,7 +49,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
-Il modello esistente crea un account di archiviazione. Personalizzare il modello per creare tre account di archiviazione.  
+Il modello esistente crea un account di archiviazione. Personalizzare il modello per creare tre account di archiviazione.
 
 Da Visual Studio Code, apportare le quattro modifiche seguenti:
 

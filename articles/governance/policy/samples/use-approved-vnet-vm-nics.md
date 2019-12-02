@@ -1,14 +1,14 @@
 ---
 title: Esempio - Usare una rete virtuale elencata per le interfacce di rete delle macchine virtuali
-description: Questa definizione di criteri di esempio richiede che le interfacce di rete usino una rete virtuale approvata.
+description: Questa definizione di criteri di esempio richiede che le interfacce di rete usino una rete virtuale approvata definita in un parametro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 64414f3c52da0c1368898abb5d032b3a728b2bda
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 367edbe2f127c363a19e345f7d55ba125006c999
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076133"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463102"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Esempio - Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
 

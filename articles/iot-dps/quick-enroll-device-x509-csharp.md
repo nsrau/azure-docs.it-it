@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Registrare i dispositivi X.509 nel servizio Azure Device Provisioning con C#'
+title: Registrare un dispositivo X.509 nel servizio Device Provisioning di Azure con C#
 description: Questa guida introduttiva usa registrazioni di gruppo. In questa guida di avvio rapido si registreranno dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con C#.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903429"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423332"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio di provisioning di dispositivi con C#
 
@@ -80,13 +79,13 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge un gru
 
 1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**. In **Crea un nuovo progetto** scegliere il modello di progetto **App console (.NET Core)** per il modello di progetto C# e selezionare **Avanti**.
 
-1. Assegnare il nome *CreateEnrollmentGroup* al progetto e quindi selezionare **Crea**.
+1. Assegnare il nome *CreateEnrollmentGroup* al progetto e quindi fare clic su **Crea**.
 
     ![Configurare il progetto desktop classico di Windows in Visual C#](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **CreateEnrollmentGroup** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. All'apertura della soluzione in Visual Studio, nel riquadro **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **CreateEnrollmentGroup** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-1. In **Gestione pacchetti NuGet** selezionare **Sfoglia**, cercare e scegliere **Microsoft.Azure.Devices.Provisioning.Service** e quindi selezionare **Installa**.
+1. In **Gestione pacchetti NuGet** selezionare **Sfoglia**, cercare e scegliere **Microsoft.Azure.Devices.Provisioning.Service** e quindi fare clic su **Installa**.
 
     ![Finestra Gestione pacchetti NuGet](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -103,12 +102,12 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge un gru
 1. Aggiungere i campi seguenti alla classe `Program` e apportare le modifiche indicate.  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * Sostituire il valore segnaposto di `ProvisioningConnectionString` con la stringa di connessione del servizio di provisioning per cui si vuole creare la registrazione.
+   * Sostituire il valore segnaposto di `ProvisioningServiceConnectionString` con la stringa di connessione del servizio di provisioning per cui si vuole creare la registrazione.
 
    * Sostituire il valore segnaposto di `X509RootCertPath` con il percorso di un file con estensione pem o cer. Questo file rappresenta la parte pubblica di un certificato X.509 CA radice o intermedio precedentemente caricato e verificato con il servizio di provisioning.
 
@@ -168,7 +167,7 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge un gru
 
 ## <a name="run-the-enrollment-group-sample"></a>Eseguire l'esempio di gruppo di registrazioni
   
-Eseguire l'esempio in Visual Studio per creare il gruppo di registrazione. Al termine della creazione, nella finestra del prompt dei comandi verranno visualizzate le proprietà del nuovo gruppo di registrazione.
+Eseguire l'esempio in Visual Studio per creare il gruppo di registrazione. Verrà visualizzata una finestra del prompt dei comandi in cui inizieranno a essere visualizzati i messaggi di conferma. Al termine della creazione, nella finestra del prompt dei comandi verranno visualizzate le proprietà del nuovo gruppo di registrazione.
 
 È possibile verificare che il gruppo di registrazione sia stato creato. Passare al riepilogo del servizio Device Provisioning e selezionare **Gestisci registrazioni** e quindi **Gruppi di registrazioni**. Dovrebbe essere visualizzata una nuova voce di registrazione che corrisponde all'ID di registrazione usato nell'esempio.
 
@@ -182,9 +181,9 @@ Se si intende esplorare l'esempio di servizio C#, non eseguire la pulizia delle 
 
 1. Chiudere la finestra di output dell'esempio C# sul computer.
 
-1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi **Gruppi di registrazioni**. Selezionare l'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e quindi **Elimina**.
+1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi **Gruppi di registrazioni**. Selezionare l'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e fare clic su **Elimina**.
 
-1. Nel servizio Device Provisioning nel portale di Azure fare clic su **Certificati** e selezionare il certificato caricato per questa guida di avvio rapido e quindi **Elimina** nella parte superiore di **Dettagli certificato**.  
+1. Nel servizio Device Provisioning nel portale di Azure selezionare **Certificati**, scegliere il certificato caricato per questa guida di avvio rapido e fare clic su **Elimina** nella parte superiore di **Dettagli certificato**.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098893"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Esercitazione: Integrazione di Azure Active Directory con RightAnswers
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con RightAnswers,
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di RightAnswers](#configure-rightanswers-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di RightAnswers](#create-rightanswers-test-user)** : per avere una controparte di Britta Simon in RightAnswers collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con RightAnswers, seguire q
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.rightanswers.com/portal/ss/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.rightanswers.com:<identifier>/portal`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di RightAnswers](https://support.rightanswers.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -133,7 +133,7 @@ Per configurare l'accesso Single Sign-On sul lato **RightAnswers**, è necessari
 > [!NOTE]
 > La configurazione effettiva dell'accesso Single Sign-On deve essere eseguita dal team di supporto di RightAnswers. Una volta completata l'abilitazione dell'accesso Single Sign-On per la sottoscrizione, si riceverà una notifica.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -156,7 +156,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -191,7 +191,7 @@ Per consentire agli utenti di Azure AD di accedere a RightAnswers, è necessario
 Se necessario, gli utenti vengono creati automaticamente durante il primo tentativo di accesso Single Sign-On.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da RightAnswers per eseguire il provisioning degli account utente di Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da RightAnswers per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

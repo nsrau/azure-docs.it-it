@@ -1,5 +1,5 @@
 ---
-title: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
+title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure SQL - Windows - Azure AD
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433165"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74181184"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL
 

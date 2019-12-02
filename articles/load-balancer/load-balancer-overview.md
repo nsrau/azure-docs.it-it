@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Azure Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Panoramica di funzionalità, architettura e implementazione di Azure Load Balancer. Informazioni sul funzionamento di Load Balancer e su come usarlo nel cloud.
 services: load-balancer
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: be293a925e507468d96be4c9f6b47f30eea5f025
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888689"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423901"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -41,7 +41,9 @@ Azure Load Balancer è disponibile in due piani tariffari o *SKU*: Di base e sta
 * Offrire [connettività in uscita](load-balancer-outbound-connections.md) per le macchine virtuali all'interno della rete virtuale usando un Load Balancer pubblico.
 
 >[!NOTE]
-> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Per la terminazione del protocollo TLS (Transport Layer Security), ovvero "offload SSL", la richiesta per HTTP/HTTPS o l'elaborazione a livello di applicazione, vedere [Gateway applicazione](../application-gateway/application-gateway-introduction.md). Se si cerca il bilanciamento del carico DNS globale, vedere [Informazioni su Gestione traffico](../traffic-manager/traffic-manager-overview.md). Gli scenari end-to-end possono trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
+> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Per la terminazione del protocollo Transport Layer Security (TLS), detta anche "offload SSL", la richiesta per HTTP/HTTPS o l'elaborazione a livello di applicazione, vedere [Informazioni sul gateway applicazione di Azure](../application-gateway/overview.md). Per il bilanciamento del carico DNS globale, vedere [Informazioni su Gestione traffico](../traffic-manager/traffic-manager-overview.md). Gli scenari end-to-end possono trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
+>
+> Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="what-are-load-balancer-resources"></a>Informazioni sulle risorse di Load Balancer
 
@@ -141,11 +143,11 @@ I client Internet inviano richieste di pagine Web all'indirizzo IP pubblico di u
 
 Per impostazione predefinita, Azure Load Balancer distribuisce il traffico di rete in modo uniforme tra più istanze di macchine virtuali. È anche possibile configurare l'affinità di sessione. Per altre informazioni, vedere [Configurare la modalità di distribuzione per Azure Load Balancer](load-balancer-distribution-mode.md).
 
-### <a name = "internalloadbalancer"></a> Servizio Load Balancer interno
+### <a name = "internalloadbalancer"></a> Bilanciamento del carico interno
 
 Un servizio Load Balancer interno indirizza il traffico solo alle risorse interne a una rete virtuale o che usano una rete VPN per accedere all'infrastruttura di Azure, a differenza di un servizio Load Balancer pubblico. L'infrastruttura di Azure limita l'accesso agli indirizzi IP front-end con carico bilanciato di una rete virtuale. Gli indirizzi IP front-end e le reti virtuali non sono mai esposti direttamente a un endpoint di Internet. Le applicazioni line-of-business interne vengono eseguite in Azure e sono accessibili dall'interno di Azure o da risorse locali.
 
-Il servizio Load Balancer interno consente di bilanciare i tipi di carico seguenti.
+Il servizio Load Balancer interno consente di bilanciare i tipi di carico seguenti:
 
 * **In una rete virtuale**: bilanciamento del carico dalle macchine virtuali presenti nella rete virtuale a un set di macchine virtuali che si trovano nella stessa rete virtuale.
 * **Per una rete virtuale cross-premise**: bilanciamento del carico dai computer locali a un set di macchine virtuali che si trovano nella stessa rete virtuale.

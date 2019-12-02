@@ -1,5 +1,5 @@
 ---
-title: Esercitazione per invitare in blocco utenti di Collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Esercitazione per l'invio di inviti in blocco a utenti di Collaborazione B2B - Azure AD
 description: In questa esercitazione si apprenderà come usare PowerShell e un file CSV per inviare inviti in blocco a utenti esterni di Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128731"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272363"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD (anteprima)
 

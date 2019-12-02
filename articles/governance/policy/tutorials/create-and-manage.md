@@ -1,14 +1,14 @@
 ---
-title: Creare e gestire i criteri per applicare la conformità
-description: Usare Criteri di Azure per applicare gli standard, soddisfare i requisiti di conformità e controllo normativi, controllare i costi, mantenere la coerenza di sicurezza e prestazioni e imporre principi di progettazione all'azienda nel suo complesso.
-ms.date: 02/04/2019
+title: 'Esercitazione: Creare criteri per applicare la conformità'
+description: In questa esercitazione vengono usati i criteri per applicare gli standard, controllare i costi, mantenere la sicurezza e applicare principi di progettazione a livello aziendale.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959538"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482362"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
@@ -20,7 +20,11 @@ Comprendere come creare e gestire i criteri in Azure è importante per assicurar
 > - Risolvere una risorsa non conforme o non consentita
 > - Implementare un nuovo criterio all'interno dell'organizzazione
 
-Se si vuole assegnare un criterio per identificare lo stato di conformità corrente delle risorse esistenti, gli articoli introduttivi illustrano come eseguire questa operazione. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Se si vuole assegnare un criterio per identificare lo stato di conformità corrente delle risorse esistenti, gli articoli introduttivi illustrano come eseguire questa operazione.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="assign-a-policy"></a>Assegnare i criteri
 
@@ -443,7 +447,7 @@ Se le risorse di questa esercitazione non sono più necessarie, usare i passaggi
 
 1. Fare clic con il pulsante destro del mouse sulla riga o selezionare i puntini di sospensione alla fine della definizione (o assegnazione) e quindi **Elimina definizione** o **Elimina assegnazione**.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="review"></a>Revisione
 
 In questa esercitazione sono state eseguite le attività seguenti:
 
@@ -452,6 +456,8 @@ In questa esercitazione sono state eseguite le attività seguenti:
 > - Creazione e assegnazione di una definizione di iniziativa per tenere traccia della conformità di più risorse.
 > - Risoluzione di una risorsa non conforme o non consentita.
 > - Implementazione di un nuovo criterio all'interno dell'organizzazione.
+
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle strutture delle definizioni di criteri, vedere:
 

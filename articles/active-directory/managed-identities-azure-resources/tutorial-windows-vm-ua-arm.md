@@ -1,5 +1,5 @@
 ---
-title: Usare un'identità gestita assegnata dall'utente per una macchina virtuale Windows per accedere ad Azure Resource Manager
+title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Resource Manager - Windows - Azure AD
 description: Esercitazione che illustra come usare un'identità gestita assegnata dall'utente in una macchina virtuale Windows per accedere ad Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6fc7e13cf5ea3991f81d53edcabe0980d799cb0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0999492f0d9c7d28da3ac896792fb2d7b898fd18
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520865"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224211"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità gestita assegnata dall'utente in una macchina virtuale Windows per accedere ad Azure Resource Manager
 
@@ -50,7 +50,7 @@ Si apprenderà come:
 - Per eseguire la procedura delle attività richieste di creazione delle risorse e gestione dei ruoli in questa esercitazione, l'account deve disporre delle autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza con l'assegnazione, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](/azure/role-based-access-control/role-assignments-portal).
 - [Installare la versione più recente del modulo di Azure PowerShell](/powershell/azure/install-az-ps). 
 - Eseguire `Connect-AzAccount` per creare una connessione con Azure.
-- Installare la [versione più recente di PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+- Installare la [versione più recente di PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
 - Eseguire `Install-Module -Name PowerShellGet -AllowPrerelease` per ottenere la versione non definitiva del modulo `PowerShellGet` (potrebbe essere necessario `Exit` uscire dalla sessione corrente di PowerShell dopo aver eseguito questo comando per installare il modulo `Az.ManagedServiceIdentity`).
 - Eseguire `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` per installare la versione non definitiva del modulo `Az.ManagedServiceIdentity` per eseguire le operazioni di identità assegnate dall'utente in questo articolo.
 

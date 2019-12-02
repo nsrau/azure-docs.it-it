@@ -8,65 +8,42 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: a082e4b7896b317bf2b28971d3693bada95a3445
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 3275c01059a61e4eb8591948695656f4e4b722ed
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806551"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152117"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution"></a>Guida introduttiva: Interagire con un dispositivo Plug and Play IoT (anteprima) connesso alla soluzione
+# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Guida introduttiva: Interagire con un dispositivo Plug and Play IoT (anteprima) connesso alla soluzione (Node.js)
 
 Plug and Play IoT (anteprima) semplifica l'Internet delle cose consentendo di interagire con le funzionalità di un dispositivo senza conoscere l'implementazione del dispositivo sottostante. Questa guida di avvio rapido mostra come usare Node.js per connettersi a un dispositivo Plug and Play IoT connesso alla soluzione e controllarlo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Scaricare e installare Node.js da [nodejs.org](https://nodejs.org).
+Per completare questa guida di avvio rapido, è necessario Node.js nel computer di sviluppo. È possibile scaricare la versione più recente consigliata per più piattaforme da [nodejs.org](https://nodejs.org).
+
+È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo tramite il comando seguente:
+
+```cmd/sh
+node --version
+```
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Preparare un hub IoT
-
-Per completare questa guida di avvio rapido, la sottoscrizione di Azure deve includere anche un hub IoT di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-> [!NOTE]
-> Durante la fase di anteprima pubblica, le funzionalità Plug and Play IoT sono disponibili solo negli hub IoT creati nelle regioni **Stati Uniti centrali**, **Europa settentrionale** e **Giappone orientale**.
-
-Aggiungere l'estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Eseguire il comando seguente per creare l'identità del dispositivo nell'hub IoT. Sostituire i segnaposto **YourIoTHubName** e **YourDevice** con i nomi effettivi. Se non è disponibile alcun hub IoT, seguire [queste istruzioni](../iot-hub/iot-hub-create-using-cli.md) per crearne uno:
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
-
-Eseguire i comandi seguenti per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
-```
-
-Eseguire i comandi seguenti per ottenere la _stringa di connessione dell'hub IoT_ per l'hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="connect-your-device"></a>Connettere il dispositivo
 
 In questa guida di avvio rapido come dispositivo Plug and Play IoT si userà un sensore ambientale di esempio scritto in Node.js. Le istruzioni seguenti illustrano come installare ed eseguire il dispositivo:
 
-1. Clonare il repository GitHub:
+1. Aprire una finestra del terminale nella directory di propria scelta. Eseguire questo comando per clonare il repository GitHub di [esempi di Azure IoT per Node.js](https://github.com/azure-samples/azure-iot-samples-node) in tale percorso:
 
     ```cmd/sh
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. In un terminale passare alla cartella radice del repository clonato e quindi alla cartella **/azure-iot-samples-node/digital-twins/Quickstarts/Device**. Installare infine tutte le dipendenze eseguendo il comando seguente:
+1. Questa finestra del terminale verrà ora usata come terminale del _dispositivo_. Passare al repository clonato e quindi alla cartella **/azure-iot-samples-node/digital-twins/Quickstarts/Device**. Installare tutte le dipendenze eseguendo il comando seguente:
 
     ```cmd/sh
     npm install
@@ -75,7 +52,7 @@ In questa guida di avvio rapido come dispositivo Plug and Play IoT si userà un 
 1. Configurare la _stringa di connessione del dispositivo_:
 
     ```cmd/sh
-    set DEVICE_CONNECTION_STRING=<your device connection string>
+    set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Eseguire l'esempio con il comando seguente:
@@ -84,138 +61,159 @@ In questa guida di avvio rapido come dispositivo Plug and Play IoT si userà un 
     node sample_device.js
     ```
 
-1. Viene visualizzato un messaggio che informa che il dispositivo ha inviato i dati di telemetria e le relative proprietà. Il dispositivo è ora pronto per ricevere i comandi e gli aggiornamenti delle proprietà. Non chiudere questo terminale perché sarà necessario in un secondo momento per confermare il funzionamento anche dei servizi di esempio.
+1. Verranno visualizzati messaggi che indicano che il dispositivo ha inviato informazioni e segnalato il proprio stato online. Ciò significa che il dispositivo ha iniziato a inviare dati di telemetria all'hub ed è ora pronto a ricevere comandi e aggiornamenti delle proprietà. Non chiudere questo terminale perché sarà necessario in un secondo momento per verificare il funzionamento anche dei servizi di esempio.
 
 ## <a name="build-the-solution"></a>Compilare la soluzione
 
 In questa guida di avvio rapido si userà una soluzione IoT di esempio in Node.js per interagire con il dispositivo di esempio.
 
-1. Aprire un altro terminale. Passare alla cartella repository clonato e quindi alla cartella **/azure-iot-samples-node/digital-twins/Quickstarts/Service**. Installare tutte le dipendenze eseguendo il comando seguente:
+1. Aprire un'altra finestra del terminale, che fungerà da terminale del _servizio_. Passare alla cartella repository clonato e quindi alla cartella **/azure-iot-samples-node/digital-twins/Quickstarts/Service**. Installare tutte le dipendenze eseguendo il comando seguente:
 
     ```cmd/sh
     npm install
     ```
 
-1. Configurare la _stringa di connessione dell'hub_:
+1. Configurare la _stringa di connessione dell'hub IoT_ per consentire al servizio di connettervisi:
 
     ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<your hub connection string>
+    set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
     ```
 
 ### <a name="read-a-property"></a>Leggere una proprietà
 
-1. Quando si connette il dispositivo nel terminale, viene visualizzato il messaggio seguente:
+1. Quando è stata effettuata la connessione del _dispositivo_ nel relativo terminale, è stato visualizzato il messaggio seguente che ne ha indicato lo stato online:
 
     ```cmd/sh
     reported state property as online
     ```
 
-1. Aprire il file **get_digital_twin.js**. Sostituire `deviceID` con l'ID dispositivo e salvare il file.
+1. Nella cartella **/azure-iot-samples-node/digital-twins/Quickstarts/Service** aprire il file **get_digital_twin.js**. Sostituire il segnaposto `<DEVICE_ID_GOES_HERE>` con l'ID dispositivo e salvare il file.
 
-1. Passare al terminale aperto per l'esempio di servizio in esecuzione ed eseguire il comando seguente:
+1. Passare al terminale del _servizio_ e usare questo comando per eseguire l'esempio per la lettura delle informazioni sul dispositivo:
 
     ```cmd/sh
     node get_digital_twin.js
     ```
 
-1. Nell'output, sotto il componente _environmentalSensor_, viene segnalato lo stesso stato:
+1. Nell'output del terminale del _servizio_ scorrere fino al componente `environmentalSensor`. Si può osservare che per la proprietà `state` è stato segnalato il valore _online_:
 
     ```JSON
-    reported state property as online
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "state": {
+          "reported": {
+            "value": "online"
+          }
+        }
+      }
+    }
     ```
 
 ### <a name="update-a-writable-property"></a>Aggiornare una proprietà scrivibile
 
 1. Aprire il file **update_digital_twin_property.js**.
 
-1. All'inizio del file è presente un set di costanti definite con segnaposto in maiuscolo. Sostituire **deviceID** con l'ID effettivo del dispositivo, aggiornare le costanti con i valori seguenti e salvare il file:
+1. All'inizio del file è presente un set di costanti definite con segnaposto in maiuscolo. Sostituire il segnaposto `<DEVICE_ID_GOES_HERE>` con l'ID dispositivo effettivo, aggiornare le costanti rimanenti con i valori seguenti e salvare il file:
 
     ```javascript
-    const componentName = 'environmentalSensor';
+    const interfaceInstanceName = 'environmentalSensor';
     const propertyName = 'brightness';
-    const propertyValue = 60;
+    const propertyValue = 42;
     ```
 
-1. Passare al terminale aperto per l'esempio di servizio in esecuzione ed eseguire il comando seguente per eseguire l'esempio:
+1. Passare al terminale del _servizio_ e usare questo comando per eseguire l'esempio per l'aggiornamento della proprietà:
 
     ```cmd/sh
     node update_digital_twin_property.js
     ```
 
-1. Nel terminale vengono visualizzate le informazioni sul gemello digitale associate al dispositivo. Individuare il componente _environmentalSensor_. Viene visualizzato il nuovo valore di luminosità, ovvero 60.
+1. L'output del terminale del _servizio_ mostrerà le informazioni sul dispositivo aggiornate. Scorrere fino al componente `environmentalSensor` per visualizzare il nuovo valore di luminosità di 42.
 
     ```json
-        "environmentalSensor": {
-        "name": "environmentalSensor",
-        "properties": {
-          "brightness": {
-            "reported": {
-              "value": 60,
-              "desiredState": {
-                "code": 200,
-                "version": 14,
-                "description": "helpful descriptive text"
-              }
-            },
-            "desired": {
-              "value": 60
-            }
-          },
-          "state": {
-            "reported": {
-              "value": "online"
-            }
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "brightness": {
+          "desired": {
+            "value": "42"
+          }
+        },
+        "state": {
+          "reported": {
+            "value": "online"
           }
         }
       }
+    }
     ```
 
 1. Passare al terminare del _dispositivo_ e verificare che il dispositivo abbia ricevuto l'aggiornamento:
 
     ```cmd/sh
-    Received an update for brightness: 60
+    Received an update for brightness: 42
     updated the property
     ```
-2. Tornare al terminale del _servizio_ ed eseguire di nuovo il comando seguente per verificare l'aggiornamento della proprietà.
+2. Tornare al terminale del _servizio_ ed eseguire questo comando per ottenere di nuovo le informazioni sul dispositivo e verificare l'aggiornamento della proprietà.
     
     ```cmd/sh
     node get_digital_twin.js
     ```
-3. Nell'output, sotto il componente environmentalSensor, viene segnalato il valore di luminosità aggiornato. Nota: l'aggiornamento del dispositivo potrebbe richiedere tempo. È possibile ripetere questo passaggio fino a quando il dispositivo non ha effettivamente elaborato l'aggiornamento della proprietà.
+
+3. Nell'output del terminale del _servizio_ si può osservare nel componente `environmentalSensor` che il valore di luminosità aggiornato è stato segnalato. Nota: l'aggiornamento del dispositivo potrebbe richiedere tempo. È possibile ripetere questo passaggio fino a quando il dispositivo non ha effettivamente elaborato l'aggiornamento della proprietà.
     
     ```json
-      "brightness": {
-        "reported": {
-          "value": 60,
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "brightness": {
+          "reported": {
+            "value": "42",
+            "desiredState": {
+              "code": 200,
+              "version": 2,
+              "description": "helpful descriptive text"
+            }
+          },
+          "desired": {
+            "value": "42"
           }
-       }
+        },
+        "state": {
+          "reported": {
+            "value": "online"
+          }
+        }
+      }
+    }
     ```
 
 ### <a name="invoke-a-command"></a>Richiamare un comando
 
 1. Aprire il file **invoke_command.js**.
 
-1. All'inizio del file sostituire `deviceID` con l'ID dispositivo effettivo. Aggiornare le costanti con i valori seguenti e quindi salvare il file:
+1. All'inizio del file sostituire il segnaposto `<DEVICE_ID_GOES_HERE>` con l'ID dispositivo effettivo. Aggiornare le costanti rimanenti con i valori seguenti e quindi salvare il file:
 
     ```javascript
     const interfaceInstanceName = 'environmentalSensor';
     const commandName = 'blink';
+    const commandArgument = '<For the environmental sensor, this value does not matter. Any string will do.>'; 
     ```
 
-1. Passare al terminale aperto per l'esempio di servizio in esecuzione. Usare il comando seguente per eseguire l'esempio:
+1. Passare al terminale del _servizio_. Usare questo comando per eseguire l'esempio per la chiamata del comando:
 
     ```cmd/sh
     node invoke_command.js
     ```
 
-1. Nel terminale il risultato dell'operazione è simile al seguente:
+1. L'output nel terminale del _servizio_ dovrebbe mostrare la conferma seguente:
 
     ```cmd/sh
-    invoking command blink on component environmentalSensor for device test...
+    invoking command blink on interface instanceenvironmentalSensor for device <device ID>...
     {
       "result": "helpful response text",
       "statusCode": 200,
-      "requestId": "33e536d3-14f7-4105-88f3-629b9933851c",
+      "requestId": "<some ID value>",
       "_response": "helpful response text"
     }
     ```
@@ -223,25 +221,11 @@ In questa guida di avvio rapido si userà una soluzione IoT di esempio in Node.j
 1. Passare al terminare del _dispositivo_ e verificare che il comando sia stato riconosciuto:
 
     ```cmd/sh
-    received command: blink for component: environmentalSensor
+    received command: blink for interfaceInstance: environmentalSensor
     acknowledgement succeeded.
     ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Se si prevede di continuare con gli articoli successivi, non eliminare le risorse usate in questa guida di avvio rapido. In caso contrario, è possibile eliminare le risorse create per questa guida di avvio rapido per evitare addebiti aggiuntivi.
-
-Per eliminare l'hub e il dispositivo registrato, completare la procedura seguente usando l'interfaccia della riga di comando di Azure:
-
-```azurecli-interactive
-az group delete --name <Your group name>
-```
-
-Per eliminare solo il dispositivo registrato con l'hub IoT, completare la procedura seguente usando l'interfaccia della riga di comando di Azure:
-
-```azurecli-interactive
-az iot hub device-identity delete --hub-name [YourIoTHubName] --device-id [YourDevice]
-```
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

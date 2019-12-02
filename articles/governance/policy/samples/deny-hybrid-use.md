@@ -1,14 +1,14 @@
 ---
 title: Esempio - Non consentire l'uso del vantaggio Hybrid Use
-description: Questa definizione di criteri di esempio impedisce di usare il vantaggio Azure Hybrid Use (AHUB).
+description: Questa definizione di criteri di esempio impedisce l'uso del vantaggio Azure Hybrid Use (AHUB) per le macchine virtuali e i set di scalabilità di macchine virtuali.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 441f3bc75dc066684f201deabe34b2dfd962e0ca
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 98518e33f27f0e46bf224301f3a02bb57141c4e1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070916"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463660"
 ---
 # <a name="sample---deny-hybrid-use-benefit"></a>Esempio - Non consentire l'uso del vantaggio Hybrid Use
 

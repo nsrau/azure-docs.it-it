@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933032"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278616"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure
 
@@ -239,4 +239,7 @@ Per rendere più chiaro l'output, visualizzarlo come un grafico temporale, che m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere le informazioni su come [scrivere query di ricerca](search-queries.md)
+- Per altre informazioni sull'uso di dati stringa in una query di log, vedere [Usare le stringhe nelle query di log di Monitoraggio di Azure](string-operations.md).
+- Per altre informazioni sull'aggregazione di dati in una query di log, vedere [Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure](advanced-aggregations.md).
+- Per informazioni su come aggiungere dati di più tabelle, vedere [Join nelle query di log di Monitoraggio di Azure](joins.md).
+- Per la documentazione sull'intero linguaggio di query Kusto, vedere [Informazioni di riferimento sul linguaggio KQL](/azure/kusto/query/).

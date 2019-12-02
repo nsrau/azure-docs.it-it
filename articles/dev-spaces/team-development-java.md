@@ -1,8 +1,6 @@
 ---
-title: Sviluppo in team con Azure Dev Spaces usando Java e Visual Studio Code
-titleSuffix: Azure Dev Spaces
+title: Sviluppo in team con Java e Visual Studio Code
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
@@ -10,14 +8,14 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 08155dec072b6ce82eae62443712350ee5f70890
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 400aec21d028011523fc5b441ed8ba77a1a46074
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132068"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325532"
 ---
-# <a name="team-development-with-azure-dev-spaces-using-java-and-vs-code"></a>Sviluppo in team con Azure Dev Spaces usando Java e Visual Studio Code
+# <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Sviluppo in team con Java e Visual Studio Code con Azure Dev Spaces
 
 In questa esercitazione si apprenderà come un team di sviluppatori può collaborare contemporaneamente nello stesso cluster Kubernetes usando Dev Spaces.
 

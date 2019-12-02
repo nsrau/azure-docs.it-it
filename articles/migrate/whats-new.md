@@ -1,18 +1,18 @@
 ---
-title: Novità di Azure Migrate | Microsoft Docs
-description: Panoramica del servizio Azure Migrate.
+title: Novità di Azure Migrate
+description: Informazioni sulle novità e gli aggiornamenti recenti del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b3b8e24e7d84e492aeaba64573b6e909707bc5a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715387"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185766"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
@@ -22,12 +22,7 @@ ms.locfileid: "73715387"
 
 ## <a name="update-november-2019"></a>Aggiornamento (novembre 2019)
 
-
-
 Sono state aggiunte alcune nuove funzionalità in Azure Migrate:
-
-> [!NOTE]
-> Se alcune di queste funzionalità non sono ancora visibili nel portale di Azure Migrate, aspettare. Compariranno all'incirca la prossima settimana.
 
 - **Valutazione dei server fisici**: è ora supportata la valutazione dei server fisici locali, oltre alla migrazione dei server fisici già supportata.
 - **Valutazione basata sull'importazione**: è ora supportata la valutazione dei computer tramite metadati e dati sulle prestazioni disponibili in un file CSV.
@@ -45,9 +40,9 @@ In Azure Migrate sono stati aggiunti nuovi strumenti di valutazione e migrazione
 
 ## <a name="release-version-july-2019"></a>Versione di rilascio (luglio 2019)
 
-La versione corrente di Azure Migrate è stata rilasciata nel mese di luglio 2019. 
+La versione corrente di Azure Migrate è stata rilasciata nel mese di luglio 2019.
 
-- **Versione corrente**: usare questa versione per creare progetti di Azure Migrate, individuare i computer locali e orchestrare valutazioni e migrazioni. 
+- **Versione corrente**: usare questa versione per creare progetti di Azure Migrate, individuare i computer locali e orchestrare valutazioni e migrazioni.
 - **Versione precedente**: ai clienti che usano la versione precedente di Azure Migrate (è supportata solo la valutazione di macchine virtuali VMware locali), si consiglia di usare ora la versione corrente. Nella versione precedente non è più possibile creare nuovi progetti di Azure Migrate o eseguire nuove individuazioni. È ancora possibile accedere ai progetti esistenti. Per effettuare questa operazione nel portale di Azure > **Tutti i servizi**, cercare **Azure Migrate**. Tra le notifiche di Azure Migrate è disponibile un collegamento per accedere ai progetti di Azure Migrate precedenti.
 
 
@@ -65,7 +60,7 @@ La versione corrente di Azure Migrate offre numerose nuove funzionalità:
     - L'appliance individua continuamente i metadati e i dati sulle prestazioni dei server, ai fini della valutazione e della migrazione.  
 - **Migrazione di macchine virtuali VMware**:  Lo strumento Migrazione server di Azure Migrate offre un paio di metodi per la migrazione di macchine virtuali VMware locali ad Azure.  Una migrazione senza agenti usando l'appliance di Azure Migrate e una migrazione basata su agente che usa un'appliance di replica e distribuisce un agente in ogni macchina virtuale di cui si vuole eseguire la migrazione. [Altre informazioni](server-migrate-overview.md)
  - **Valutazione e migrazione dei database**: da Azure Migrate è possibile valutare i database locali per la migrazione ad Azure usando Migration Assistant per il database di Azure. È possibile eseguire la migrazione di database usando Servizio Migrazione del database di Azure.
-- **Migrazione di app Web**: è possibile valutare le app Web usando un URL di endpoint pubblico con Servizio app di Azure. Per la migrazione di app .NET interne, è possibile scaricare ed eseguire Migration Assistant per il servizio app. 
+- **Migrazione di app Web**: è possibile valutare le app Web usando un URL di endpoint pubblico con Servizio app di Azure. Per la migrazione di app .NET interne, è possibile scaricare ed eseguire Migration Assistant per il servizio app.
 - **Data Box**: importazione di grandi quantità di dati offline in Azure usando Azure Data Box in Azure Migrate.
 
 

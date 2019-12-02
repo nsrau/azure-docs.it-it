@@ -1,22 +1,18 @@
 ---
-title: Esecuzione di più servizi dipendenti con Java e VS Code
-titleSuffix: Azure Dev Spaces
+title: 'Esecuzione di più servizi dipendenti: Java e Visual Studio Code'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: a93bda3392962a1c35e2bb2433d285ed497075d2
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 3fe19997ab54f02b6a5f029abbdb69d5ea6532f7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503120"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325720"
 ---
-# <a name="multi-service-development-with-azure-dev-spaces"></a>Sviluppo multiservizio con Azure Dev Spaces
+# <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>Esecuzione di più servizi dipendenti: Java e Visual Studio Code con Azure Dev Spaces
 
 Questa esercitazione illustra lo sviluppo di applicazioni multiservizio con Azure Dev Spaces, insieme ad alcuni vantaggi aggiuntivi offerti da Dev Spaces.
 

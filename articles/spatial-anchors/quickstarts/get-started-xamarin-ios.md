@@ -1,19 +1,19 @@
 ---
-title: Avvio rapido - Creare un'app iOS in Xamarin con Ancoraggi nello spazio di Azure | Microsoft Docs
+title: "Guida introduttiva: Creare un'app Xamarin in iOS"
 description: In questo argomento di avvio rapido verrà illustrato come creare un'app iOS con Xamarin usando Ancoraggi nello spazio.
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ef25cf07326220be36ce8f67267428ffe1ac0728
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d2e1612804c78e3436b776cdffea7e19bc2925fe
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931402"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276995"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app iOS in Xamarin con Ancoraggi nello spazio di Azure
 

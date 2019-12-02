@@ -1,14 +1,14 @@
 ---
-title: Creare una definizione di criteri personalizzata
-description: Creare una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alle risorse di Azure.
-ms.date: 04/23/2019
+title: 'Esercitazione: Creare una definizione di criteri personalizzata'
+description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 97a85eb28cd0dbb2586623fda442d87a5790db2a
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128796"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483978"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
@@ -31,6 +31,8 @@ L'approccio per creare criteri personalizzati segue questi passaggi:
 > - Determinare quale effetto usare
 > - Comporre la definizione del criterio
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="identify-requirements"></a>Identificare i requisiti
@@ -50,12 +52,17 @@ In base ai requisiti aziendali, la risorsa di Azure da controllare con Criteri d
 
 Per determinare le proprietà delle risorse di Azure, sono disponibili varie opzioni, che verranno descritte in questa esercitazione:
 
+- Estensione Criteri di Azure per VS Code
 - Modelli di Gestione risorse
   - Esportazione di una risorsa esistente
   - Esperienza di creazione
   - Modelli di avvio rapido (GitHub)
   - Documentazione di riferimento sui modelli
 - Esplora risorse di Azure
+
+### <a name="view-resources-in-vs-code-extension"></a>Visualizzare le risorse nell'estensione per VS Code
+
+L'[estensione per VS Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) può essere usata per visualizzare le risorse nell'ambiente e le proprietà di Resource Manager di ognuna.
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
@@ -156,9 +163,14 @@ Dopo aver identificato la proprietà della risorsa, è necessario mapparla a un 
 
 Per determinare gli alias per una risorsa di Azure, sono disponibili varie opzioni, che verranno descritte in questa esercitazione:
 
+- Estensione Criteri di Azure per VS Code
 - Interfaccia della riga di comando di Azure
 - Azure PowerShell
 - Diagramma delle risorse di Azure
+
+### <a name="get-aliases-in-vs-code-extension"></a>Ottenere alias nell'estensione VS Code
+
+L'estensione Criteri di Azure per VS Code semplifica la visualizzazione delle risorse e l'[individuazione di alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -188,7 +200,7 @@ Anche in questo caso, come con l'interfaccia della riga di comando di Azure, i r
 
 ### <a name="azure-resource-graph"></a>Diagramma delle risorse di Azure
 
-[Azure Resource Graph](../../resource-graph/overview.md) è un nuovo servizio disponibile in anteprima. Rende disponibile un altro metodo per trovare le proprietà delle risorse di Azure. Ecco una query di esempio per esaminare un singolo account di archiviazione con Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) è un nuovo servizio. Rende disponibile un altro metodo per trovare le proprietà delle risorse di Azure. Ecco una query di esempio per esaminare un singolo account di archiviazione con Resource Graph:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Ecco un esempio di output di un account di archiviazione per gli alias:
 }
 ```
 
-Il servizio Azure Resource Graph (anteprima) può essere usato tramite [Cloud Shell](https://shell.azure.com), offrendo un metodo semplice e rapido per esplorare le proprietà delle risorse.
+Il servizio Azure Resource Graph può essere usato tramite [Cloud Shell](https://shell.azure.com) e offre un metodo semplice e rapido per esplorare le proprietà delle risorse.
 
 ## <a name="determine-the-effect-to-use"></a>Determinare quale effetto usare
 
-La decisione in merito all'operazione da eseguire in caso di risorse non conformi è quasi altrettanto importante di quella relativa alle valutazioni da effettuare. Ogni possibile risposta a una risorsa non conforme si chiama [effetto](../concepts/effects.md).
-L'effetto controlla se la risorsa non conforme viene registrata, bloccata, include dati aggiunti o è associata a una distribuzione per riportarla a uno stato conforme.
+La decisione in merito all'operazione da eseguire in caso di risorse non conformi è quasi altrettanto importante di quella relativa alle valutazioni da effettuare. Ogni possibile risposta a una risorsa non conforme si chiama [effetto](../concepts/effects.md). L'effetto controlla se la risorsa non conforme viene registrata, bloccata, include dati aggiunti o è associata a una distribuzione per riportarla a uno stato conforme.
 
 Per questo esempio, l'effetto da scegliere è Nega, perché nell'ambiente di Azure non dovranno essere create risorse non conformi. L'effetto Controllo è una prima scelta valida per determinare l'impatto di un criterio prima di impostarlo su Nega. Per semplificare la modifica dell'effetto in base all'assegnazione, è possibile parametrizzare l'effetto. Per informazioni, vedere [Parametri](#parameters) di seguito.
 
@@ -439,6 +450,16 @@ Con tutte e tre le parti del criterio definite, ecco la definizione completata:
 ```
 
 La definizione completata può essere usata per creare un nuovo criterio. Il portale e ogni SDK (interfaccia della riga di comando di Azure, Azure PowerShell e API REST) accettano la definizione in modi diversi, per cui esaminare i comandi per ogni componente per verificare l'utilizzo corretto. Quindi assegnarla usando l'effetto con parametri alle risorse appropriate per gestire la sicurezza degli account di archiviazione.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se le risorse di questa esercitazione non sono più necessarie, usare i passaggi seguenti per eliminare tutte le assegnazioni o definizioni create:
+
+1. Selezionare **Definizioni** (o **Assegnazioni** se si sta tentando di eliminare un'assegnazione) in **Creazione** sul lato sinistro della pagina Criteri di Azure.
+
+1. Cercare la nuova iniziativa o definizione (o assegnazione) di criteri da rimuovere.
+
+1. Fare clic con il pulsante destro del mouse sulla riga o selezionare i puntini di sospensione alla fine della definizione (o assegnazione) e quindi **Elimina definizione** o **Elimina assegnazione**.
 
 ## <a name="review"></a>Revisione
 

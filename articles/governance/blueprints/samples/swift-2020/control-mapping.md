@@ -1,14 +1,14 @@
 ---
-title: Esempio - Progetto SWIFT CSP-CSCF v2020 - Mapping dei controlli
+title: Controlli dell'esempio SWIFT CSP-CSCF v2020
 description: Mapping dei controlli dell'esempio di progetto SWIFT CSP-CSCF v2020. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5b45ec86acbe7c55aed0aa1611f499316e9118
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037831"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546519"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto SWIFT CSP-CSCF v2020
 

@@ -1,20 +1,22 @@
 ---
-title: Eseguire la prima query con Azure Resource Graph Explorer
-description: Questo articolo illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
-ms.date: 10/21/2019
+title: 'Guida introduttiva: Prima query nel portale'
+description: Questa guida di avvio rapido illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958836"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406790"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Guida introduttiva: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
 Le funzionalità di Azure Resource Graph sono disponibili direttamente nel portale di Azure tramite Azure Resource Graph Explorer. Resource Graph Explorer fornisce informazioni visualizzabili sulle proprietà e i tipi di risorse di Azure Resource Manager su cui è possibile eseguire una query. Resource Graph Explorer fornisce inoltre un'interfaccia pulita per l'uso di più query, la valutazione dei risultati e anche la conversione dei risultati di alcune query in un grafico che può essere aggiunto a un dashboard di Azure.
 
 Completando questo argomento di avvio rapido, si eseguirà la prima query di Resource Graph tramite il portale di Azure e Resource Graph Explorer e si aggiungeranno i risultati a un dashboard.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -117,9 +119,7 @@ Per rimuovere i dashboard di Resource Graph di esempio all'ambiente del portale 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ottenere altre informazioni sul [linguaggio di query](./concepts/query-language.md).
-- Altre informazioni su come [esplorare le risorse](./concepts/explore-resources.md).
-- Eseguire la prima query con l'[interfaccia della riga di comando di Azure](first-query-azurecli.md).
-- Vedere esempi di [query di base](./samples/starter.md).
-- Vedere esempi di [query avanzate](./samples/advanced.md).
-- Commenti e suggerimenti su [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+In questa guida di avvio rapido si è usato Azure Resource Graph Explorer per eseguire la prima query e si sono esaminati esempi di dashboard basati su Resource Graph. Per altre informazioni sul linguaggio di Resource Graph, passare alla pagina dei dettagli del linguaggio di query.
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sul linguaggio di query](./concepts/query-language.md)

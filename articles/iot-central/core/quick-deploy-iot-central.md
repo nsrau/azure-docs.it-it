@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 5cb6beca56cac94ca05671cdf34c45913a710c39
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ba131002df64f972aa921a0f002a6d26c58f21ff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936890"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280611"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creare un'applicazione Azure IoT Central
 
@@ -46,10 +46,10 @@ Per creare una nuova applicazione Azure IoT Central:
 
 1. Scegliere un piano di pagamento:
    - Le applicazioni di tipo **Versione di valutazione gratuita valida 7 giorni** sono gratuite per sette giorni e poi scadono. Possono essere convertite in applicazioni **con pagamento in base al consumo** in qualsiasi momento prima della scadenza. Se si crea un'applicazione di tipo **Versione di valutazione**, è necessario immettere le informazioni sul contatto e scegliere se ricevere informazioni e suggerimenti da Microsoft.
-   - Le applicazioni di tipo **Con pagamento in base al consumo** prevedono un addebito per ogni dispositivo, con i primi cinque dispositivi offerti gratuitamente. Se si crea un'applicazione di tipo **Con pagamento in base al consumo**, è necessario selezionare un'opzione in *Directory*, *Sottoscrizione di Azure* e *Area*:
+   - Le applicazioni di tipo **Con pagamento in base al consumo** prevedono un addebito per ogni dispositivo, con i primi cinque dispositivi offerti gratuitamente. Se si crea un'applicazione **con pagamento in base al consumo**, è necessario selezionare una *directory*, una *sottoscrizione di Azure* e una *località*:
         - *Directory* è l'istanza di Azure Active Directory (AD) in cui creare l'applicazione. Contiene le identità degli utenti, le credenziali e altre informazioni sull'organizzazione. Se non si ha un'istanza di Azure AD, ne viene creata una automaticamente quando si crea una sottoscrizione di Azure.
         - Una *sottoscrizione di Azure* consente di creare istanze dei servizi di Azure. IoT Central effettua il provisioning delle risorse nella sottoscrizione. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription). Dopo aver creato la sottoscrizione di Azure, passare alla pagina **Create Application** (Crea applicazione). Selezionare la sottoscrizione nella casella di riepilogo a discesa **Azure Subscription** (Sottoscrizione di Azure).
-        - *Area* è la posizione fisica o l'[area geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. Per ottenere prestazioni ottimali, in genere è consigliabile scegliere l'area fisicamente più vicina ai dispositivi. È possibile vedere le aree in cui Azure IoT Central è disponibile nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central). Dopo aver scelto un'area, non è possibile spostare l'applicazione in un'altra area geografica in un secondo momento.
+        - La *località* è l'[area geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. Per ottenere prestazioni ottimali, è in genere consigliabile scegliere la località fisicamente più vicina ai dispositivi. Azure IoT Central è attualmente disponibile in **Stati Uniti**, **Australia**, **Asia Pacifico** o **Europa**.  Dopo aver scelto una località, non è possibile spostare l'applicazione in un'altra località in un secondo momento.
 
         Per altre informazioni sui prezzi, vedere la [pagina dei prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 

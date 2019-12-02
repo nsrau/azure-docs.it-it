@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6f5b2b67ec38ef690f932e189bd2fd9f0dd6da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5bc0b395fcc874190b67bd99262c3a1c9294c0ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159581"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Esercitazione: Integrazione di Azure Active Directory con Learningpool Act
 
@@ -228,7 +228,7 @@ Non è richiesta alcuna operazione per configurare il provisioning degli utenti 
 Gli utenti dovranno essere creati dal [team di supporto di Learningpool Act](https://www.Learningpool.com/support).
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento di creazione di account utente di Learningpool Act o le API fornite da Learningpool Act per eseguire il provisioning degli account utente di AAD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Learningpool Act per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

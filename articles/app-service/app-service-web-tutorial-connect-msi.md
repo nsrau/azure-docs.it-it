@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/18/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b39c1596dd16f8ec6235878abdbf37492abd1ea8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f10d3ee78dffb32db01a48ccf935e5443fae08b6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177081"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227456"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -33,8 +33,8 @@ Al termine, l'app di esempio si connetterà al database SQL in modo sicuro senza
 > [!NOTE]
 > Le procedure descritte in questa esercitazione supportano le versioni seguenti:
 > 
-> - .NET Framework 4.7.2 e versioni successive.
-> - .NET Core 2.2 e versioni successive.
+> - .NET Framework 4.7.2
+> - .NET Core 2.2
 >
 
 Contenuto dell'esercitazione:
@@ -113,7 +113,7 @@ La procedura da seguire per il progetto varia a seconda che si tratti di un prog
 In Visual Studio, aprire la Console di Gestione pacchetti e aggiungere il pacchetto NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 ```
 
 In *Web.config* apportare le modifiche seguenti partendo dall'inizio del file:
@@ -145,7 +145,7 @@ Digitare `Ctrl+F5` per eseguire di nuovo l'app. La stessa app CRUD nel browser s
 In Visual Studio, aprire la Console di Gestione pacchetti e aggiungere il pacchetto NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.0
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 ```
 
 Nell'[esercitazione su ASP.NET Core e database SQL](app-service-web-tutorial-dotnetcore-sqldb.md), la stringa di connessione `MyDbConnection` non viene usata perché l'ambiente locale usa un file di database SQLite e l'ambiente di produzione Azure usa una stringa di connessione del servizio app. Con l'autenticazione di Active Directory si vuole che entrambi gli ambienti usino la stessa stringa di connessione. In *appsettings.json* sostituire il valore della stringa di connessione `MyDbConnection` con:
@@ -184,8 +184,8 @@ var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
-> [!TIP]
-> Questo codice dimostrativo è sincrono per maggiore chiarezza. Per altre informazioni, vedere la [guida asincrona per i costruttori](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors).
+> [!NOTE]
+> Questo codice dimostrativo è sincrono per maggiore chiarezza e semplicità.
 
 Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app. La classe `AzureServiceTokenProvider` memorizza nella cache il token e lo recupera da Azure AD appena prima della scadenza. Per aggiornare il token, non è necessario specificare codice personalizzato.
 
@@ -217,20 +217,18 @@ Ecco un esempio di output:
 }
 ```
 
-### <a name="add-managed-identity-to-an-azure-ad-group"></a>Aggiungere l'identità gestita a un gruppo di Azure AD
+### <a name="grant-permissions-to-managed-identity"></a>Concedere le autorizzazioni a un'identità gestita
 
-Per concedere a questa identità l'accesso al database SQL, è necessario aggiungerla a un [gruppo di Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). In Cloud Shell aggiungere l'identità gestita a un nuovo gruppo denominato _myAzureSQLDBAccessGroup_, come illustrato nello script seguente:
-
-```azurecli-interactive
-groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
-msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiobjectid
-az ad group member list -g $groupid
-```
-
-Per visualizzare l'output JSON completo per ogni comando, rimuovere i parametri `--query objectId --output tsv`.
-
-### <a name="grant-permissions-to-azure-ad-group"></a>Concedere le autorizzazioni al gruppo di Azure AD
+> [!NOTE]
+> Se si vuole, è possibile aggiungere l'identità a un [gruppo di Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md), quindi concedere l'accesso al database SQL al gruppo di Azure AD invece che all'identità. Ad esempio, i comandi seguenti aggiungono l'identità gestita del passaggio precedente a un nuovo gruppo denominato _myAzureSQLDBAccessGroup_:
+> 
+> ```azurecli-interactive
+> groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
+> msiobjectid=$(az webapp identity show --resource-group myResourceGroup --name <app-name> --query principalId --output tsv)
+> az ad group member add --group $groupid --member-id $msiobjectid
+> az ad group member list -g $groupid
+> ```
+>
 
 In Cloud Shell accedere al database SQL con il comando SQLCMD. Sostituire _\<server-name>_ con il nome del server di database SQL, _\<db-name>_ con il nome del database usato dall'app e _\<aad-user-name>_ e _\<aad-password>_ con le credenziali dell'utente di Azure AD.
 
@@ -241,12 +239,14 @@ sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P 
 Al prompt di SQL per il database eseguire i comandi seguenti per aggiungere il gruppo di Azure AD e concedere le autorizzazioni necessarie per l'app. Ad esempio, 
 
 ```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
-ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
-ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
+CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
+ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
+
+*\<identity-name >* è il nome dell'identità gestita in Azure AD. Poiché è assegnato dal sistema, è sempre uguale al nome dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup*.
 
 Digitare `EXIT` per tornare al prompt di Cloud Shell.
 

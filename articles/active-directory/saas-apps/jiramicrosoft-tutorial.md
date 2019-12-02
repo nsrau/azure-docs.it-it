@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d5db9656dbcab31d73e504f1ca67fd577aec8e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6deeb224f8c70dabcf8c5a29e80e87414ea32657
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439749"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con JIRA SAML SSO by Microsoft
 
@@ -60,8 +60,8 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="supported-versions-of-jira"></a>Versioni di JIRA supportate
 
-* JIRA Core e Software: da 6.4 a 8.2.4
-* JIRA Service Desk: da 3.0.0 a 4.2.1
+* JIRA Core e Software: dalla 6.4 alla 8.5.1
+* JIRA Service Desk dalla versione 3.0.0 alla 4.5.1
 * JIRA supporta anche la versione 5.2. Per altre informazioni, fare clic su [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]

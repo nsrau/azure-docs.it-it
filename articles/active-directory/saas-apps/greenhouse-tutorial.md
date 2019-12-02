@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: cd5a52ea47d7166c6f197b233d1a10ff063ff7c5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1cf60e13f7b3ad13d204d67cb7c538d1d11a5dbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159171"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Esercitazione: Integrazione di Azure Active Directory con Greenhouse
 
@@ -186,7 +186,7 @@ In questa sezione Britta Simon viene abilitata per l'uso di Single Sign-On di Az
 Per consentire agli utenti di Azure AD di accedere a Greenhouse, è necessario eseguirne il provisioning in Greenhouse. Nel caso di Greenhouse, il provisioning è un'attività manuale.
 
 >[!NOTE]
->È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Greenhouse per eseguire il provisioning degli account utente di AAD. 
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Greenhouse per effettuare il provisioning degli account utente Azure AD. 
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Azure - Creare un profilo di Frontdoor per la disponibilità elevata delle applicazioni usando il portale di Azure
+title: 'Guida introduttiva: Creare un profilo Frontdoor per la disponibilità elevata delle applicazioni'
 description: Questa guida introduttiva descrive come creare una frontdoor per un'applicazione Web globale con disponibilità e prestazioni elevate.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461987"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184507"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Guida introduttiva: Creare una frontdoor per un'applicazione Web globale a disponibilità elevata
 
@@ -40,21 +40,21 @@ Per questa guida introduttiva è necessario aver distribuito due istanze di un'a
      | Impostazione         | Valore     |
      | ---              | ---  |
      | NOME           | Immettere un nome univoco per l'app Web  |
-     | Gruppo di risorse          | Selezionare **Nuovo** e quindi digitare *myResourceGroupFD1* |
+     | Resource group          | Selezionare **Nuovo** e quindi digitare *myResourceGroupFD1* |
      | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanEastUS* e quindi selezionare **OK**. 
-     |      Località  |   Stati Uniti orientali        |
+     |      Location  |   Stati Uniti orientali        |
     |||
 
-3. Selezionare **Create**.
+3. Selezionare **Create** (Crea).
 4. Quando l'app Web viene distribuita correttamente, viene creato un sito Web predefinito.
 5. Ripetere i passaggi da 1 a 3 per creare un secondo sito Web in un'area di Azure diversa con le impostazioni seguenti:
 
      | Impostazione         | Valore     |
      | ---              | ---  |
      | NOME           | Immettere un nome univoco per l'app Web  |
-     | Gruppo di risorse          | Selezionare **Nuovo** e quindi digitare *myResourceGroupFD2* |
+     | Resource group          | Selezionare **Nuovo** e quindi digitare *myResourceGroupFD2* |
      | Piano di servizio app/Località         | Selezionare **Nuovo**.  Nel piano di servizio app immettere *myAppServicePlanWestEurope* e quindi selezionare **OK**. 
-     |      Località  |   Europa occidentale      |
+     |      Location  |   Europa occidentale      |
     |||
 
 

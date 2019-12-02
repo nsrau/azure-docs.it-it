@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029803"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184896"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creare un archivio di Configurazione app di Azure
 
@@ -71,16 +71,16 @@ Annotare il nome effettivo generato per il nuovo gruppo di risorse. Il nome del 
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti per creare un nuovo gruppo di risorse e un archivio di configurazione di app. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per creare un nuovo gruppo di risorse e un archivio di Configurazione app. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | Crea una risorsa archivio di configurazione di app. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | Elenca le chiavi archiviate in un archivio di configurazione di app. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crea una risorsa archivio di Configurazione app. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Elenca le chiavi archiviate in un archivio di Configurazione app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando di configurazione di app sono disponibili nella [documentazione relativa al servizio Configurazione app di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Configurazione app sono disponibili negli [esempi di interfaccia della riga di comando di Configurazione app di Azure](../cli-samples.md).

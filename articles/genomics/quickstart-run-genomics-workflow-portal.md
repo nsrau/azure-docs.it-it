@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 772fd74446b43869721afe38fb107cfff8404e99
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838720"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539078"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
@@ -47,7 +47,8 @@ Configurare l'account di Genomica con le informazioni seguenti, come mostrato ne
 
 
 È possibile fare clic su Notifiche sulla barra dei menu per monitorare il processo di distribuzione.
-![Notifiche di Genomica di Microsoft](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MNotifiche di Genomica di Microsoft)
+
+![Notifiche di Genomica di Microsoft](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Notifiche di Genomica di Microsoft")
 
 
 

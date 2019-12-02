@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c639cb059d773042b7f45160dea18bfc2130cae9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896279"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287042"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Creare un'applicazione Azure IoT Central (funzionalità di anteprima)
 
@@ -46,13 +46,13 @@ Per creare una nuova applicazione Azure IoT Central:
 
 1. Scegliere se si intende creare l'applicazione usando una versione di valutazione gratuita di 7 giorni oppure una sottoscrizione con pagamento in base al consumo.
     - Le applicazioni con **versione di valutazione** sono gratuite per sette giorni e supportano fino a cinque dispositivi. Possono essere convertite in applicazioni con pagamento in base al consumo in qualsiasi momento prima della scadenza. Se si crea un'applicazione con versione di valutazione, è necessario immettere le informazioni sul contatto e scegliere se ricevere informazioni e suggerimenti da Microsoft.
-    - Le applicazioni **con pagamento in base al consumo** prevedono un addebito per dispositivo, con i primi cinque dispositivi offerti gratuitamente. Altre informazioni sui [prezzi di IoT Central](https://aka.ms/iotcentral-pricing). Se si crea un'applicazione con pagamento in base al consumo, è necessario selezionare una *directory*, una *sottoscrizione di Azure* e un'*area*:
+    - Le applicazioni **con pagamento in base al consumo** prevedono un addebito per dispositivo, con i primi cinque dispositivi offerti gratuitamente. Altre informazioni sui [prezzi di IoT Central](https://aka.ms/iotcentral-pricing). Se si crea un'applicazione con pagamento in base al consumo, è necessario selezionare una *directory*, una *sottoscrizione di Azure* e una *località*:
         - La *directory* è l'istanza di Azure Active Directory (AD) in cui creare l'applicazione. Un'istanza di Azure AD contiene le identità degli utenti, le credenziali e altre informazioni sull'organizzazione. Se non si ha un'istanza di Azure AD, ne viene creata una automaticamente quando si crea una sottoscrizione di Azure.
         - Una *sottoscrizione di Azure* consente di creare istanze dei servizi di Azure. IoT Central effettua il provisioning delle risorse nella sottoscrizione. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription). Dopo aver creato la sottoscrizione di Azure, passare alla pagina **Create Application** (Crea applicazione). La nuova sottoscrizione viene visualizzata nella casella di riepilogo a discesa **Sottoscrizione di Azure**.
-        - L'*area* è la posizione fisica in cui verranno archiviati i dati dei dispositivi. Per ottenere prestazioni ottimali e per garantire la conformità della sovranità dei dati, in genere è consigliabile scegliere l'area fisicamente più vicina ai dispositivi. Dopo aver scelto un'area, non è possibile spostare l'applicazione in un'altra area geografica in un secondo momento.
+        - La *località* è l'[area geografica](https://azure.microsoft.com/global-infrastructure/geographies/) in cui si vuole creare l'applicazione. Per ottenere prestazioni ottimali, è in genere consigliabile scegliere la località fisicamente più vicina ai dispositivi. L'anteprima pubblica di Azure IoT Central è attualmente disponibile negli **Stati Uniti** o in **Europa**. Dopo aver scelto una località, non è possibile spostare l'applicazione in un'altra località in un secondo momento.
 
         > [!NOTE]
-        > Durante l'anteprima pubblica, le uniche aree disponibili per le **applicazioni in anteprima** sono **Europa settentrionale** e **Stati Uniti centrali**.
+        > Durante l'anteprima pubblica, le uniche località disponibili per le **applicazioni in anteprima** sono **Europa** e **Stati Uniti**.
 
 1. Esaminare i termini e le condizioni e selezionare **Crea** nella parte inferiore della pagina.
 

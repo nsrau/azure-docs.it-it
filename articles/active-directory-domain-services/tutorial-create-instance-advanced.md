@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 7bafcb1508cdb01c4fe27a9d02db63c4f00efd74
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 334a5c3c76f1ebaf4c8c36020110ef9c0bcc8d69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172524"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208714"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services con opzioni di configurazione avanzate
 
@@ -56,7 +56,7 @@ In questa esercitazione viene creata e configurata l'istanza di Azure AD DS tram
 
 Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire questa procedura:
 
-1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
+1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 1. Immettere *Servizi di dominio* nella barra di ricerca, quindi scegliere *Azure AD Domain Services* nei suggerimenti per la ricerca.
 1. Nella pagina Azure AD Domain Services selezionare **Crea**. Viene avviata la procedura guidata **Abilita Azure AD Domain Services**.
 1. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
@@ -93,6 +93,10 @@ Completare i campi della finestra *Informazioni di base* del portale di Azure pe
     Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate.
 
     Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per consultare la disponibilità delle zone, vedere [Informazioni sulle zone di disponibilità di Azure][availability-zones].
+
+1. Una *foresta* è un costrutto logico usato da Active Directory Domain Services per raggruppare uno o più domini. Per impostazione predefinita, viene creato un dominio gestito di Azure AD DS come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
+
+    Per questa esercitazione, scegliere di creare una foresta *Utente*.
 
     ![Configurare le impostazioni di base per un'istanza di Azure AD Domain Services](./media/tutorial-create-instance-advanced/basics-window.png)
 
@@ -242,7 +246,7 @@ Per vedere il dominio gestito in azione, creare e aggiungere una macchina virtua
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
-[naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

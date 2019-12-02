@@ -1,24 +1,16 @@
 ---
-title: Risolvere i problemi delle distribuzioni Resource Manager | Microsoft Docs
+title: Risolvere i problemi delle distribuzioni
 description: Informazioni su come monitorare le distribuzioni di modelli di Azure Resource Manager e risolverne i problemi. Mostra i log attività e la cronologia di distribuzione.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32f3f55df2b87b35672d811c63a21b956a8a4b52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390202"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325348"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni dei modelli di Resource Manager
 
@@ -26,7 +18,7 @@ Questa esercitazione illustra come risolvere gli errori nelle distribuzioni dei 
 
 Alla distribuzione dei modelli sono correlati due tipi di errori:
 
-- **Errori di convalida** causati da scenari che possono essere determinati prima della distribuzione. Tra di essi figurano gli errori di sintassi presenti in un modello oppure il tentativo di distribuire risorse superiori alle quote di sottoscrizione. 
+- **Errori di convalida** causati da scenari che possono essere determinati prima della distribuzione. Tra di essi figurano gli errori di sintassi presenti in un modello oppure il tentativo di distribuire risorse superiori alle quote di sottoscrizione.
 - **Errori di distribuzione** causati da condizioni che si verificano durante il processo di distribuzione. Tra essi configurano i tentativi di accedere a una risorsa che viene distribuita in parallelo.
 
 Entrambi i tipi di errore restituiscono un codice necessario per risolvere i problemi della distribuzione. Entrambi i tipi di errori compaiono nel registro attività. Gli errori di convalida non sono invece visualizzati nella cronologia della distribuzione, poiché quest'ultima non è mai stata avviata.
@@ -47,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-- [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione di Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="create-a-problematic-template"></a>Creare un modello con errori
 

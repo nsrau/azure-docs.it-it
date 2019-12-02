@@ -1,19 +1,19 @@
 ---
-title: Domande frequenti su Ancoraggi nello spazio di Azure | Microsoft Docs
-description: Ancoraggi nello spazio di Azure è un servizio cloud gestito e una piattaforma per sviluppatori che consente esperienze di realtà mista multiutente in dispositivi HoloLens, iOS e Android. Queste domande frequenti rispondono a domande sul servizio da un punto di vista tecnico.
+title: Domande frequenti
+description: Domande frequenti sul servizio Ancoraggi nello spazio di Azure
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927504"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277088"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 

@@ -1,19 +1,16 @@
 ---
 title: Usare Azure Deployment Manager con modelli di Resource Manager | Microsoft Docs
 description: Usare modelli di Resource Manager con Azure Deployment Manager per distribuire risorse di Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285898"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307027"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
 
@@ -56,7 +53,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 * Esperienza nello sviluppo di [modelli di Azure Resource Manager](./resource-group-overview.md).
 * Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
-* Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell con privilegi elevati e usare il comando seguente:
+* Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/scripting/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell con privilegi elevati e usare il comando seguente:
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -189,9 +186,6 @@ Più avanti nell'esercitazione si distribuisce un'implementazione. Pe eseguire l
 
 È necessario creare un'identità gestita assegnata dall'utente e configurare il controllo di accesso per la sottoscrizione.
 
-> [!IMPORTANT]
-> L'identità gestita assegnata dall'utente deve trovarsi nella stessa località dell'[implementazione](#create-the-rollout-template). Attualmente, è possibile creare le risorse di Deployment Manager, inclusa l'implementazione, solo in Stati Uniti centrali o Stati Uniti orientali 2. Questa limitazione si applica, tuttavia, solo alle risorse di Deployment Manager, come topologia del servizio, servizi, unità di servizio, implementazione e passaggi. Le risorse di destinazione possono essere distribuite in qualsiasi area di Azure supportata. In questa esercitazione, ad esempio, le risorse di Deployment Manager vengono distribuite nell'area Stati Uniti centrali, ma i servizi vengono distribuiti in Stati Uniti orientali e Stati Uniti occidentali. Questa limitazione verrà rimossa in futuro.
-
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Creare un'[identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Nel portale selezionare **Sottoscrizioni** nel menu a sinistra e quindi la sottoscrizione.
@@ -214,7 +208,7 @@ Aprire **\ADMTemplates\CreateADMServiceTopology.json**.
 Il modello contiene i parametri seguenti:
 
 * **projectName**: questo nome viene usato per creare i nomi delle risorse di Deployment Manager. Se si usa "jdoe", ad esempio, il nome della topologia del servizio sarà **jdoe**ServiceTopology.  I nomi delle risorse vengono definiti nella sezione variables di questo modello.
-* **azureResourcelocation**: per semplificare l'esercitazione, tutte le risorse condividono questa località a meno che non venga specificato diversamente. Attualmente, è possibile creare risorse di Azure Deployment Manager solo in **Stati Uniti centrali** o **Stati Uniti orientali 2**.
+* **azureResourcelocation**: per semplificare l'esercitazione, tutte le risorse condividono questa località a meno che non venga specificato diversamente.
 * **artifactSourceSASLocation**: URI di firma di accesso condiviso del contenitore BLOB in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
 * **templateArtifactRoot**: percorso di offset del contenitore BLOB in cui sono archiviati i modelli e i parametri. Il valore predefinito è **templates/1.0.0.0**. Non modificare questo valore a meno che non si voglia modificare la struttura di cartelle illustrata in [Preparare gli artefatti](#prepare-the-artifacts). In questa esercitazione vengono usati percorsi relativi.  Il percorso completo viene costruito concatenando **artifactSourceSASLocation**, **templateArtifactRoot** e **templateArtifactSourceRelativePath** (o **parametersArtifactSourceRelativePath**).
 * **targetSubscriptionID**: ID sottoscrizione in cui verranno distribuite e fatturate le risorse di Deployment Manager. In questa esercitazione usare il proprio ID sottoscrizione.
@@ -269,7 +263,7 @@ Il modello contiene i parametri seguenti:
 ![Esercitazione su Azure Deployment Manager - Parametri del modello di implementazione](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 * **projectName**: questo nome viene usato per creare i nomi delle risorse di Deployment Manager. Se si usa "jdoe", ad esempio, il nome dell'implementazione sarà **jdoe**Rollout.  I nomi vengono definiti nella sezione variables del modello.
-* **azureResourcelocation**: per semplificare l'esercitazione, tutte le risorse di Deployment Manager condividono questa località a meno che non venga specificato diversamente. Attualmente, è possibile creare risorse di Azure Deployment Manager solo in **Stati Uniti centrali** o **Stati Uniti orientali 2**.
+* **azureResourcelocation**: per semplificare l'esercitazione, tutte le risorse di Deployment Manager condividono questa località a meno che non venga specificato diversamente.
 * **artifactSourceSASLocation**: URI di firma di accesso condiviso della directory radice (contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
 * **binaryArtifactRoot**:  il valore predefinito è **binaries/1.0.0.0**. Non modificare questo valore a meno che non si voglia modificare la struttura di cartelle illustrata in [Preparare gli artefatti](#prepare-the-artifacts). In questa esercitazione vengono usati percorsi relativi.  Il percorso completo viene costruito concatenando **artifactSourceSASLocation**, **binaryArtifactRoot** e il valore di **deployPackageUri** specificato in CreateWebApplicationParameters.json.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
 * **managedIdentityID**: identità gestita assegnata dall'utente che esegue le azioni di distribuzione. Vedere [Creare l'identità gestita assegnata dall'utente](#create-the-user-assigned-managed-identity).
@@ -311,7 +305,7 @@ Creare un file dei parametri da usare con il modello di implementazione.
 2. Specificare i valori dei parametri.
 
     * **projectName**: immettere una stringa di 4-5 caratteri. Questo nome viene usato per creare nomi univoci per le risorse di Azure.
-    * **azureResourceLocation**: Attualmente, è possibile creare risorse di Azure Deployment Manager solo in **Stati Uniti centrali** o **Stati Uniti orientali 2**.
+    * **azureResourceLocation**: specificare una località di Azure.
     * **artifactSourceSASLocation**: immettere l'URI di firma di accesso condiviso della directory radice (contenitore BLOB) in cui vengono archiviati i file del modello e dei parametri delle unità di servizio per la distribuzione.  Vedere [Preparare gli artefatti](#prepare-the-artifacts).
     * **binaryArtifactRoot**: a meno che non si modifichi la struttura di cartelle degli artefatti, in questa esercitazione usare **binaries/1.0.0.0**.
     * **managedIdentityID**: immettere l'identità gestita assegnata dall'utente. Vedere [Creare l'identità gestita assegnata dall'utente](#create-the-user-assigned-managed-identity). La sintassi è:

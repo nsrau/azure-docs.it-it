@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 150c4b458724562fc35ef97e190c898a289c6122
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fae7b80fd4d2fcec32bbef5e4cdf18e576412a86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102913"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231970"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Sugar CRM
 
@@ -111,7 +111,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -147,15 +147,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Passare alla pagina **Admin**.
 
-    ![Amministratore](./media/sugarcrm-tutorial/ic795888.png "Amministratore")
+    ![Admin](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Nella sezione **Amministrazione**, fare clic su **Gestione password**.
 
-    ![Amministrazione](./media/sugarcrm-tutorial/ic795889.png "Amministrazione")
+    ![Amministrazione](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
 1. Selezionare **Abilita autenticazione SAML**.
 
-    ![Amministrazione](./media/sugarcrm-tutorial/ic795890.png "Amministrazione")
+    ![Amministrazione](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
 1. Nella sezione **SAML Authentication** seguire questa procedura:
 
@@ -179,19 +179,19 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario ef
 
 1. Passare alla pagina **Admin**.
 
-    ![Amministratore](./media/sugarcrm-tutorial/ic795888.png "Amministratore")
+    ![Admin](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
 1. Nella sezione **Administration** (Amministrazione) fare clic su **User Management** (Gestione utenti).
 
-    ![Amministrazione](./media/sugarcrm-tutorial/ic795893.png "Amministrazione")
+    ![Amministrazione](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
 1. Passare a **Users \> Create New User** (Utenti > Crea nuovo utente).
 
-    ![Creazione di un nuovo utente](./media/sugarcrm-tutorial/ic795894.png "Creazione di un nuovo utente")
+    ![Creare un nuovo utente](./media/sugarcrm-tutorial/ic795894.png "Crea nuovo utente")
 
 1. Nella scheda **Profilo utente** eseguire la procedura seguente:
 
-    ![Nuovo utente](./media/sugarcrm-tutorial/ic795895.png "Nuovo utente")
+    ![New User](./media/sugarcrm-tutorial/ic795895.png "Nuovo utente")
 
     * Digitare il **nome utente**, il **cognome** e l'**indirizzo e-mail** di un utente di Azure Active Directory valido nelle caselle di testo correlate.
   
@@ -199,14 +199,14 @@ Per consentire agli utenti di Azure AD di accedere a Sugar CRM, è necessario ef
 
 1. Nella scheda Password, eseguire la procedura seguente:
 
-    ![Nuovo utente](./media/sugarcrm-tutorial/ic795896.png "Nuovo utente")
+    ![New User](./media/sugarcrm-tutorial/ic795896.png "Nuovo utente")
 
     a. Digitare la password nella casella di controllo correlata.
 
     b. Fare clic su **Save**.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento di creazione di account utente Sugar CRM o qualsiasi API fornita da Sugar CRM per eseguire il provisioning degli account utente di Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Sugar CRM per effettuare il provisioning degli account utente Azure AD.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

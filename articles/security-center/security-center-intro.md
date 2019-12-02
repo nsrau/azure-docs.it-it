@@ -1,6 +1,6 @@
 ---
 title: Introduzione al Centro sicurezza di Azure | Microsoft Docs
-description: Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il funzionamento.
+description: Questa pagina descrive i principali vantaggi del Centro sicurezza, ovvero l'individuazione dello stato di sicurezza e il relativo miglioramento con la copertura di risorse cloud e locali.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202103"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558626"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 

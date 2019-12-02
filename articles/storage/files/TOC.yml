@@ -141,6 +141,8 @@
           href: storage-sync-offline-data-transfer.md
         - name: Spostare dati da e verso Archiviazione di Azure
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Eseguire la migrazione a Sincronizzazione file di Azure da StorSimple
+          href: storage-sync-files-storsimple-migration.md
         - name: Spostare dati con AzCopy
           items:
             - name: Attività iniziali

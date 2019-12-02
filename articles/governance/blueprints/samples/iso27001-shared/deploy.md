@@ -1,14 +1,14 @@
 ---
-title: Esempio di progetto Servizi condivisi ISO 27001 - Procedura per la distribuzione
+title: Distribuire l'esempio di progetto Servizi condivisi ISO 27001
 description: Procedura di distribuzione per l'esempio di progetto Servizi condivisi ISO 27001, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 03/14/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 54f53e13e6d4561cb46f62318203c41c504ee60b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1ef96a3ccffa705290a90caf436fe1857d9442a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037340"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546702"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuire l'esempio di progetto Servizi condivisi ISO 27001
 

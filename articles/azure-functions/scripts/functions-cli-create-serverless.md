@@ -1,29 +1,21 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app per le funzioni per l'esecuzione senza server | Documentazione Microsoft
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app per le funzioni per l'esecuzione senza server
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
+title: Creare un'app per le funzioni serverless con l'interfaccia della riga di comando di Azure
+description: Creare un'app per le funzioni per l'esecuzione serverless in Azure con l'interfaccia della riga di comando di Azure
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 265c4fa3c28783f0d9e5d789348c3cd2e249eb29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4bf0e43132662f6f5322485a59f356f872559092
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325722"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532512"
 ---
-# <a name="create-a-function-app-for-serverless-code-execution"></a>Creare un'app per le funzioni per l'esecuzione di codice senza server
+# <a name="create-a-function-app-for-serverless-code-execution"></a>Creare un'app per le funzioni per l'esecuzione di codice senza server 
 
 Questo script di esempio di Funzioni di Azure crea un'app per le funzioni che è un contenitore per le funzioni. L'app per le funzioni viene creata usando il [piano a consumo](../functions-scale.md#consumption-plan), ideale per i carichi di lavoro senza server guidati dagli eventi.
-
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,6 +43,6 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando di Funzioni di Azure sono disponibili nella [documentazione di Funzioni di Azure](../functions-cli-samples.md).

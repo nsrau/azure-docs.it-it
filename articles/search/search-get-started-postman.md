@@ -1,7 +1,7 @@
 ---
 title: 'Guida introduttiva: Creare un indice di ricerca in Postman con le API REST'
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come chiamare le API REST di Ricerca cognitiva di Azure con Postman e dati e definizioni di esempio.
+description: Questo argomento di avvio rapido sulle API REST illustra come chiamare le API REST di Ricerca cognitiva di Azure con Postman, oltre a dati e definizioni di esempio.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/04/2019
-ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792275"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406950"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Postman con le API REST
 > [!div class="op_single_selector"]
@@ -288,7 +288,7 @@ L'aggiunta di `/stats` all'URL restituisce informazioni sull'indice. In Postman 
 
 Si noti che la sintassi relativa alla versione API è diversa. Per questa richiesta, usare `?` per aggiungere l'elemento api-version. `?` separa il percorso dell'URL dalla stringa di query, mentre & separa ogni coppia "nome=valore" nella stringa di query. Per questa query, api-version è il primo e unico elemento nella stringa di query.
 
-## <a name="clean-up"></a>Eseguire la pulizia
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 

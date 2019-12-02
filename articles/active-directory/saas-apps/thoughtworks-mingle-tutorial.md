@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088759"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Esercitazione: Integrazione di Azure Active Directory con Thoughtworks Mingle
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Thoughtworks 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Thoughtworks Mingle](#configure-thoughtworks-mingle-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Thoughtworks Mingle](#create-thoughtworks-mingle-test-user)** : per avere una controparte di Britta Simon in Thoughtworks Mingle collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -130,17 +130,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Thoughtworks Mingle, se
 
 2. Fare clic sulla scheda **Admin**, quindi fare clic su **Config SSO**.
    
-    ![Scheda Amministrazione](./media/thoughtworks-mingle-tutorial/ic785157.png "Config SSO")
+    ![Scheda Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "Config SSO")
 
 3. Nella sezione **Config SSO** , eseguire la procedura seguente:
    
-    ![Configurazione dell'accesso SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Configurazione dell'accesso SSO")
+    ![SSO Config](./media/thoughtworks-mingle-tutorial/ic785158.png "Config SSO")
     
     a. Per caricare il file di metadati, fare clic su **Scegli file**. 
 
     b. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -162,7 +162,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -208,11 +208,11 @@ Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il p
 
 4. Fare clic su **Nuovo utente**.
    
-    ![Nuovo utente](./media/thoughtworks-mingle-tutorial/ic785162.png "Nuovo utente")
+    ![New User](./media/thoughtworks-mingle-tutorial/ic785162.png "Nuovo utente")
 
 5. Nella pagina **Nuovo utente** eseguire la procedura seguente:
    
-    ![Finestra di dialogo Nuovo utente](./media/thoughtworks-mingle-tutorial/ic785163.png "Nuovo utente")  
+    ![Finestra di dialogo New User](./media/thoughtworks-mingle-tutorial/ic785163.png "Nuovo utente")  
  
     a. Digitare nelle caselle di testo correlate **Nome accesso**, **Nome visualizzato**, **Scegli password**, **Conferma password** le informazioni relative a un account Azure AD valido di cui si desidera eseguire il provisioning. 
 
@@ -221,7 +221,7 @@ Per consentire agli utenti di Azure AD di accedere, è necessario eseguirne il p
     c. Fare clic su **Crea questo profilo**.
 
 >[!NOTE]
->È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Thoughtworks Mingle per eseguire il provisioning degli account utente di AAD.
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Thoughtworks Mingle per effettuare il provisioning degli account utente Azure AD.
 > 
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 

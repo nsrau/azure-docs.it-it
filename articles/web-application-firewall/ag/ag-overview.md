@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067136"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384105"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
 
@@ -89,7 +89,12 @@ Per altre informazioni, vedere [Regole e gruppi di regole CRS di Web Application
 
 Il gateway applicazione supporta anche regole personalizzate, ossia regole che è possibile creare e che vengono valutate per ogni richiesta che passa attraverso WAF. Queste regole hanno una priorità più elevata rispetto alle altre dei set di regole gestiti. Se viene soddisfatto un set di condizioni, viene intrapresa un'azione per consentire o bloccare le richieste. 
 
-Per altre informazioni, vedere [Regole personalizzate per l gateway applicazione](custom-waf-rules-overview.md).
+L'operatore di corrispondenza geografica è ora disponibile in anteprima pubblica per le regole personalizzate. Per altre informazioni, vedere [Regole personalizzate di corrispondenza geografica](custom-waf-rules-overview.md#geomatch-custom-rules-preview).
+
+> [!NOTE]
+> L'operatore di corrispondenza geografica per le regole personalizzate è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Per altre informazioni, vedere [Regole personalizzate per il gateway applicazione](custom-waf-rules-overview.md).
 
 ### <a name="bot-mitigation-preview"></a>Mitigazione dei bot (anteprima)
 

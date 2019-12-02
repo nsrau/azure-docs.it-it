@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 5e84b8777fc7671a19b6d8974f1309eb5af35bd3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048022"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479709"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Informazioni su Azure IoT Central (funzionalità di anteprima)
 
@@ -51,7 +51,7 @@ Per IoT Central, questo articolo descrive:
 - I tipi di schema della matrice non sono supportati.
 - L'esportazione di modelli dell'applicazione e la copia di applicazioni non sono supportate.
 - Sono supportati solo l'SDK per dispositivi C e gli SDK per dispositivi e servizi Node.js.
-- La disponibilità si limita all'Europa settentrionale e alle regioni degli Stati Uniti centrali.
+- È disponibile solo nelle località Stati Uniti e Europa.
 - I modelli di funzionalità di dispositivo devono includere tutte le interfacce definite inline nello stesso file.
 
 ## <a name="personas"></a>Utenti tipo
@@ -72,9 +72,9 @@ I generatori di soluzioni usano IoT Central per creare una soluzione IoT ospitat
 
 È possibile distribuire rapidamente una nuova applicazione IoT Central e quindi personalizzarla in base a requisiti specifici nel browser. I generatori di soluzioni possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Un modello di dispositivo è il progetto che definisce le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
 
-- Dati di telemetrica che invia.
-- Proprietà di business modificabili da un operatore.
-- Proprietà del dispositivo impostate da un dispositivo che sono di sola lettura nell'applicazione.
+- I dati di telemetrica che invia.
+- Le proprietà di business modificabili da un operatore.
+- Le proprietà del dispositivo impostate da un dispositivo che sono di sola lettura nell'applicazione.
 - Le proprietà, impostate da un operatore, che determinano il comportamento del dispositivo.
 
 Questo modello di dispositivo include:
@@ -140,6 +140,10 @@ Gli operatori usano l'applicazione IoT Central per gestire i dispositivi nella s
 Un generatore di soluzioni può definire regole e azioni personalizzate che operano sullo streaming di dati dai dispositivi connessi. Un operatore può abilitare o disabilitare queste regole a livello di dispositivo per controllare e automatizzare le attività all'interno dell'applicazione.
 
 Gli amministratori gestiscono l'accesso all'applicazione con [regole e autorizzazioni utente](howto-administer.md).
+
+## <a name="quotas"></a>Quote
+
+Le quote predefinite di ogni sottoscrizione di Azure possono influire sull'ambito della soluzione IoT. Attualmente, IoT Central limita il numero di applicazioni distribuibili in una sottoscrizione a 10. Se è necessario aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

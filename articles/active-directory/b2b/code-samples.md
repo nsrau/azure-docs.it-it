@@ -1,5 +1,5 @@
 ---
-title: Codici ed esempi di PowerShell per Collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Codici ed esempi di PowerShell per Collaborazione B2B - Azure AD
 description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79352c2c82cae8fe77ef6313d74e60432c710ec0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f3a43ce4c560e89d88594d173aae7b2ad2db99ee
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812513"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273101"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 

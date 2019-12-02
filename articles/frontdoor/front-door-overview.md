@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e92e51e8aabf24f1c5c4db31e2e203f391620ecc
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796214"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423480"
 ---
 # <a name="what-is-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 Il servizio Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, rendendo le prestazioni ottimali e il failover globale immediato per una disponibilità elevata. Con Frontdoor è possibile trasformare il consumer globale (multi-area) e le applicazioni aziendali in applicazioni moderne, solide, personalizzate e dalle alte prestazioni, in API, con contenuti che raggiungono un audience globale grazie ad Azure.
@@ -26,6 +26,8 @@ Il Frontdoor funziona a livello 7 o HTTP e usa il protocollo di anycast con spli
 
 >[!NOTE]
 > Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Se si cerca un routing globale basato su un DNS e **non** si dispone dei requisiti per la terminazione di protocollo Transport Layer Security (TLS) ("offload SSL") o di una richiesta HTTP/HTTPS, di una elaborazione a livello di applicazione, vedere [Gestione traffico](../traffic-manager/traffic-manager-overview.md). Se si cerca il bilanciamento del carico tra i server in un'area, un livello dell'applicazione, vedere [Gateway applicazione](../application-gateway/application-gateway-introduction.md) e per il bilanciamento del carico a livello di rete, vedere [Azure Load Balancer](../load-balancer/load-balancer-overview.md). Gli scenari end-to-end potrebbero trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
+>
+> Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Frontdoor comprende le funzionalità seguenti:
 

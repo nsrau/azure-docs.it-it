@@ -1,18 +1,18 @@
 ---
-title: Creare e condividere una query nel portale di Azure
-description: In questa esercitazione si apprenderà come creare una query di Resource Graph e condividerla con altri utenti nel portale di Azure.
-ms.date: 10/23/2019
+title: 'Esercitazione: Gestire le query nel portale di Azure'
+description: In questa esercitazione viene creata una nuova query di Resource Graph, che viene condivisa con altre persone nel portale di Azure.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958568"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303946"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Esercitazione: Creare e condividere una query di Azure Resource Graph nel portale di Azure
 
-Azure Resource Graph Explorer consente di salvare le query di Resource Graph direttamente nel portale di Azure. Esistono due tipi di query: _privata_ e _condivisa_. Una query privata viene salvata nelle impostazioni del portale di Azure. Una query condivisa invece è una risorsa di Resource Manager che può essere gestita con i controlli degli accessi in base al ruolo (RBAC) e protetta con i blocchi di risorse.
+Azure Resource Graph Explorer consente di salvare le query di Resource Graph direttamente nel portale di Azure. Esistono due tipi di query: _privata_ e _condivisa_. Una query privata viene salvata nelle impostazioni del portale di Azure. Una query condivisa invece è una risorsa di Resource Manager che può essere gestita con i controlli degli accessi in base al ruolo (RBAC) e protetta con i blocchi di risorse. Entrambi i tipi di query vengono crittografati quando inattive.
 
 Salvare le query nel portale di Azure consente di risparmiare tempo e di avere a disposizione le query preferite o usate più di frequente. Condividendo le query si offre un valido aiuto al proprio team nel realizzare obiettivi di coerenza ed efficienza grazie alla ripetizione.
 
@@ -54,7 +54,7 @@ Le query private sono accessibili e visualizzabili solo dall'account che le crea
 1. Selezionare **Apri una query**. Assicurarsi che il tipo sia **Query privata**. Il nome salvato **Numero di macchine virtuali per tipo di sistema operativo** ora viene visualizzato nell'elenco **Nome query**. Quando si seleziona il collegamento del titolo della query salvata, questo viene caricato in una nuova scheda con il nome della query.
 
    > [!NOTE] 
-   >Quando una query salvata è aperta nella scheda con lo stesso nome, il pulsante **Salva** la aggiorna con le modifiche apportate. Per creare una nuova query salvata da questa query aperta, selezionare **Salva con nome** e procedere come se si stesse salvando una nuova query.
+   > Quando una query salvata è aperta nella scheda con lo stesso nome, il pulsante **Salva** la aggiorna con le modifiche apportate. Per creare una nuova query salvata da questa query aperta, selezionare **Salva con nome** e procedere come se si stesse salvando una nuova query.
 
 1. Per eliminare la query salvata, selezionare nuovamente **Apri una query** e verificare che il campo **Tipo** sia impostato su **Query privata**. Nella riga della query salvata `Count VMs by OS` selezionare **Elimina** (icona del cestino). Nella finestra di dialogo di conferma selezionare **Sì** per completare l'eliminazione della query.
    Chiudere quindi il riquadro **Apri una query**.
@@ -153,9 +153,7 @@ Al termine di questa esercitazione, eliminare le query private e condivise creat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Eseguire la prima query tramite il [portale di Azure](../first-query-portal.md).
-- Ottenere altre informazioni sul [linguaggio di query](../concepts/query-language.md).
-- Altre informazioni su come [esplorare le risorse](../concepts/explore-resources.md).
-- Vedere esempi di [query di base](../samples/starter.md).
-- Vedere esempi di [query avanzate](../samples/advanced.md).
-- Commenti e suggerimenti su [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+In questa esercitazione sono state create query private e condivise. Per altre informazioni sul linguaggio di Resource Graph, passare alla pagina dei dettagli del linguaggio di query.
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sul linguaggio di query](../concepts/query-language.md)

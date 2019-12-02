@@ -1,14 +1,14 @@
 ---
 title: Esempio - Estensioni di macchine virtuali non consentite
-description: Questa definizione di criteri di esempio vieta l'uso di estensioni specifiche nelle macchine virtuali.
+description: Questa definizione di criteri di esempio impedisce l'uso di estensioni specificate definite in un parametro nelle macchine virtuali.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 639a5dba7e33b9df51be1a7407ac5450af322e86
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8656cf5111ecdcc793ef8bbe69b8794464e040d2
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069980"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463264"
 ---
 # <a name="sample---not-allowed-vm-extensions"></a>Esempio - Estensioni di macchine virtuali non consentite
 

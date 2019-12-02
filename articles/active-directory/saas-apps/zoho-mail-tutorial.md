@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3b5d0e52e927a44d5bce5314e724c1c753809ce0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161045"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Esercitazione: Integrazione di Azure Active Directory con Zoho
 
@@ -209,7 +209,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 Per consentire agli utenti di Azure AD di accedere a Zoho Mail, è necessario eseguirne il provisioning in Zoho Mail. Nel caso di Zoho Mail, il provisioning è un'attività manuale.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zoho Mail per eseguire il provisioning degli account utente Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Zoho Mail per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
 

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839515"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184274"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creare un test dell'analizzatore Internet con l'interfaccia della riga di comando (anteprima)
 
@@ -132,5 +132,6 @@ L'interfaccia della riga di comando dell'analizzatore Internet espone i tipi di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere le [Domande frequenti sull'analizzatore Internet](internet-analyzer-faq.md)
+* Per l'elenco completo dei comandi supportati e per alcuni esempi di utilizzo, vedere le [informazioni di riferimento sull'interfaccia della riga di comando dell'analizzatore Internet](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest).
+* Leggere le [Domande frequenti sull'analizzatore Internet](internet-analyzer-faq.md).
 * Vedere le informazioni su come incorporare il [client dell'analizzatore Internet](internet-analyzer-embed-client.md) e su come creare un [endpoint personalizzato](internet-analyzer-custom-endpoint.md). 

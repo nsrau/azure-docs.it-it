@@ -1,28 +1,20 @@
 ---
-title: Importare file BACPAC di SQL con modelli di Azure Resource Manager | Microsoft Docs
+title: Importare file BACPAC SQL con i modelli
 description: Informazioni su come usare l'estensione per il database SQL per importare file BACPAC di SQL con modelli di Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/08/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 239bb77d486e8cb845ec439d84def5e34cf64348
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 741521551335712400e5f61822d7dda31199d3df
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170219"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422194"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager
 
-Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli elementi di distribuzione sono tutti i file, oltre al file di modello principale, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi. In questa esercitazione viene creato un modello per distribuire un server di Azure SQL e un database SQL e importare un file BACPAC. Per informazioni sulla distribuzione di estensioni di macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
+Informazioni su come usare estensioni per il database SQL di Azure per importare un file BACPAC con modelli di Azure Resource Manager. Gli artefatti della distribuzione sono tutti i file, oltre al file di modello principale, necessari per completare una distribuzione. Il file BACPAC è uno di questi elementi. In questa esercitazione viene creato un modello per distribuire un server di Azure SQL e un database SQL e importare un file BACPAC. Per informazioni sulla distribuzione di estensioni di macchina virtuale di Azure tramite modelli di Azure Resource Manager, vedere [Esercitazione: Distribuire estensioni di macchina virtuale con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -39,21 +31,66 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Azure Resource Manager. Visualizzare [installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione di Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server SQL. Di seguito è riportato un esempio della generazione di una password:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="prepare-a-bacpac-file"></a>Preparare un file BACPAC
 
 Un file BACPAC viene condiviso in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Per creare un file BACPAC, vedere [Esportare un database SQL di Azure in un file BACPAC](../sql-database/sql-database-export.md). Se si sceglie di pubblicare il file in una posizione personalizzata, è necessario aggiornare il modello più avanti in questa esercitazione.
 
+Il file BACPAC deve essere archiviato in un account di archiviazione di Azure prima di poter essere importato con un modello di Resource Manager.
+
+1. Aprire [Cloud Shell](https://shell.azure.com).
+1. Selezionare **Carica/Scarica file** e quindi **Carica**.
+1. Specificare l'URL seguente, quindi selezionare **Apri**.
+
+    ```url
+    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
+    ```
+
+1. Copiare e incollare lo script PowerShell seguente nella finestra della shell.
+
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+    $containerName = "bacpacfiles"
+    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
+    $blobName = "SQLDatabaseExtension.bacpac"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
+                                           -Name $storageAccountName `
+                                           -SkuName Standard_LRS `
+                                           -Location $location
+    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
+                                                  -Name $storageAccountName).Value[0]
+
+    New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
+
+    Set-AzStorageBlobContent -File $bacpacFile `
+                             -Container $containerName `
+                             -Blob $blobName `
+                             -Context $storageAccount.Context
+
+    Write-Host "The storage account key is $storageAccountKey"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+1. Prendere nota della chiave dell'account di archiviazione e dell'URL del file BACPAC. Questi valori saranno necessari per distribuire il modello.
+
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
-Il modello usato in questa esercitazione viene archiviato in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+Il modello usato in questa esercitazione è archiviato in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. In Visual Studio Code selezionare **File**>**Apri file**.
 2. In **Nome file** incollare l'URL seguente:
@@ -61,6 +98,7 @@ Il modello usato in questa esercitazione viene archiviato in [GitHub](https://ra
     ```url
     https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
+
 3. Selezionare **Apri** per aprire il file.
 
     Nel modello sono definite tre risorse:
@@ -74,64 +112,85 @@ Il modello usato in questa esercitazione viene archiviato in [GitHub](https://ra
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
-Aggiungere altre due risorse al modello.
-
-* Per consentire all'estensione di database SQL di importare file BACPAC, è necessario consentire l'accesso ai servizi di Azure. Aggiungere il codice JSON seguente alla definizione del server SQL:
+1. Aggiungere altri due parametri alla fine della sezione **parameters** per impostare la chiave dell'account di archiviazione e l'URL BACPAC:
 
     ```json
-    {
-        "type": "firewallrules",
-        "name": "AllowAllAzureIps",
-        "location": "[parameters('location')]",
-        "apiVersion": "2015-05-01-preview",
-        "dependsOn": [
-            "[variables('databaseServerName')]"
-        ],
-        "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
-        }
+    "storageAccountKey": {
+      "type":"string",
+      "metadata":{
+        "description": "Specifies the key of the storage account where the BACPAC file is stored."
+      }
+    },
+    "bacpacUrl": {
+      "type":"string",
+      "metadata":{
+        "description": "Specifies the URL of the BACPAC file."
+      }
     }
     ```
 
-    Il modello si presenterà come segue:
+    Aggiungere una virgola dopo **adminPassword**. Per formattare il file JSON da VS Code, premere **[MAIUSC] + [ALT] + F**.
 
-    ![Distribuzione di estensioni SQL e BACPAC con Azure Resource Manager](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-firewall.png)
+    Per informazioni su come ottenere questi due valori, vedere [Preparare un file BACPAC](#prepare-a-bacpac-file).
 
-* Aggiungere una risorsa estensione di database SQL alla definizione del database con il codice JSON seguente:
+1. Aggiungere altre due risorse al modello.
 
-    ```json
-    "resources": [
+    * Per consentire all'estensione di database SQL di importare file BACPAC, è necessario consentire il traffico proveniente dai servizi di Azure. Aggiungere la definizione della regola del firewall seguente nella definizione di SQL Server:
+
+        ```json
         {
-            "name": "Import",
-            "type": "extensions",
-            "apiVersion": "2014-04-01",
-            "dependsOn": [
+          "type": "firewallrules",
+          "apiVersion": "2015-05-01-preview",
+          "name": "AllowAllAzureIps",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[variables('databaseServerName')]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
+        }
+        ```
+
+        Il modello si presenterà come segue:
+
+        ![Distribuzione di estensioni SQL e BACPAC con Azure Resource Manager](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-firewall.png)
+
+    * Aggiungere una risorsa estensione di database SQL alla definizione del database con il codice JSON seguente:
+
+        ```json
+        "resources": [
+            {
+              "type": "extensions",
+              "apiVersion": "2014-04-01",
+              "name": "Import",
+              "dependsOn": [
                 "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-            ],
-            "properties": {
-                "storageKeyType": "SharedAccessKey",
-                "storageKey": "?",
-                "storageUri": "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac",
+              ],
+              "properties": {
+                "storageKeyType": "StorageAccessKey",
+                "storageKey": "[parameters('storageAccountKey')]",
+                "storageUri": "[parameters('bacpacUrl')]",
                 "administratorLogin": "[variables('databaseServerAdminLogin')]",
                 "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import",
+                "operationMode": "Import"
+              }
             }
-        }
-    ]
-    ```
+        ]
+        ```
 
-    Il modello si presenterà come segue:
+        Il modello si presenterà come segue:
 
-    ![Distribuzione di estensioni SQL e BACPAC con Azure Resource Manager](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
+        ![Distribuzione di estensioni SQL e BACPAC con Azure Resource Manager](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-    Per informazioni sulla definizione della risorsa, vedere le [informazioni di riferimento sulle estensioni di database SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Di seguito sono illustrati alcuni elementi importanti.
+        Per informazioni sulla definizione della risorsa, vedere le [informazioni di riferimento sulle estensioni di database SQL](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
-    * **dependsOn**: la risorsa di estensione deve essere creata dopo che è stato creato il database SQL.
-    * **storageKeyType**: tipo di chiave di archiviazione da usare. Il valore può essere `StorageAccessKey` o `SharedAccessKey`. Dato che il file BACPAC fornito viene condiviso in un account di archiviazione di Azure con accesso pubblico, in questo caso viene usato il tipo "SharedAccessKey".
-    * **storageKey**: chiave di archiviazione da usare. Se il tipo di chiave di archiviazione è SharedAccessKey, deve essere preceduta da "?".
-    * **storageUri**: URI di archiviazione da usare. Se si sceglie di non usare il file BACPAC fornito, è necessario aggiornare i valori.
-    * **administratorLoginPassword**: password dell'amministratore di SQL. Usare una password generata. Vedere [Prerequisiti](#prerequisites).
+        * **dependsOn**: la risorsa di estensione deve essere creata dopo che è stato creato il database SQL.
+        * **storageKeyType**: specificare il tipo di chiave di archiviazione da usare. Il valore può essere `StorageAccessKey` o `SharedAccessKey`. In questa esercitazione usare `StorageAccessKey`.
+        * **storageKey**: specificare la chiave dell'account di archiviazione in cui è archiviato il file BACPAC. Se il tipo di chiave di archiviazione è SharedAccessKey, deve essere preceduta da "?".
+        * **storageUri**: specificare l'URL del file BACPAC archiviato in un account di archiviazione.
+        * **administratorLoginPassword**: password dell'amministratore di SQL. Usare una password generata. Vedere [Prerequisiti](#prerequisites).
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -139,23 +198,34 @@ Aggiungere altre due risorse al modello.
 
 Vedere la sezione [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) per la procedura di distribuzione. Usare invece lo script di distribuzione di PowerShell seguente:
 
-```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+$storageAccountKey = Read-Host -Prompt "Enter the storage account key"
+$bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
+$resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
-    -TemplateFile "$HOME/azuredeploy.json"
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -storageAccountKey $storageAccountKey `
+    -bacpacUrl $bacpacUrl
+
+Write-Host "Press [ENTER] to continue ..."
 ```
+
+È consigliabile usare lo stesso nome di progetto usato durante la preparazione del file BACPAC, in modo che tutte le risorse vengano archiviate nello stesso gruppo di risorse.  In questo modo la gestione delle risorse, ad esempio la pulizia, risulta più facile. Se si usa lo stesso nome di progetto, è possibile rimuovere il comando **New-AzResourceGroup** dallo script oppure rispondere y o n quando viene chiesto se si vuole aggiornare il gruppo di risorse esistente.
 
 Usare una password generata. Vedere [Prerequisiti](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione
+
+Per accedere a SQL Server dal computer client, è necessario aggiungere una regola del firewall aggiuntiva. Per altre informazioni, vedere [Creare e gestire le regole del firewall IP](../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 Nel portale selezionare il database SQL nel gruppo di risorse appena distribuito. Selezionare **Editor di query (anteprima)** e quindi immettere le credenziali di amministratore. Verranno visualizzate le due tabelle importate nel database:
 

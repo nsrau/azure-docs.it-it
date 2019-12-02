@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 042e969b4a0dfea0910a0ef81fae264792cfd85f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012581"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327648"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
@@ -84,13 +84,16 @@ Seguire questa procedura per iniziare.
 1. Caricare i dati di riferimento. Non è un servizio aggiuntivo.
 1. I dati verranno visualizzati nel giro di pochi minuti nello strumento di esplorazione di Time Series Insights.
 
-## <a name="time-series-insights-explorer"></a>Strumento di esplorazione di Time Series Insights
+## <a name="explorer"></a>Explorer
 
-Questo diagramma illustra un esempio di dati di Time Series Insights visualizzati tramite lo strumento di esplorazione di Time Series Insights.
+Visualizzare, analizzare e individuare le tendenze nei dati usando Azure Time Series Insights Explorer.
 
-![Strumento di esplorazione di Time Series Insights](media/time-series-insights-explorer/explorer4.png)
+![Strumento di esplorazione di Time Series Insights](media/overview/time-series-insights-explorer-panel.png)
+
+Informazioni su come usare [Azure Time Series Insights Explorer](time-series-insights-explorer.md) e ricavare informazioni dettagliate dai dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esplorare l'[ambiente di dimostrazione gratuito](./time-series-quickstart.md) con disponibilità generale di Azure Time Series Insights.
+
 - Altre informazioni su come [pianificare l'ambiente di Time Series Insights](time-series-insights-environment-planning.md).

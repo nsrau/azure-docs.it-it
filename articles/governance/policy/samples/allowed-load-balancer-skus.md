@@ -1,14 +1,14 @@
 ---
 title: 'Esempio: codici di riferimento del prodotto di bilanciamento del carico consentiti'
-description: Questa definizione di criteri di esempio richiede che i bilanciamenti del carico usino uno SKU approvato.
+description: Questa definizione di criteri di esempio richiede che i servizi di bilanciamento del carico usino uno SKU approvato definito in un parametro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: f3872ffc2fc75445f4f51573474fc359227b431b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3d3425211e44dc87d87a962630dec574a60614e7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076450"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463482"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>Esempio: codici di riferimento del prodotto di bilanciamento del carico consentiti
 

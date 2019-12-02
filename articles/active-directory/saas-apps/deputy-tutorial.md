@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 33830ce5822b2edee345cf58fc6f2a53d3c863fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159229"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Esercitazione: Integrazione di Azure Active Directory con Deputy
 
@@ -273,7 +273,7 @@ Per consentire agli utenti di Azure AD di accedere a Deputy è necessario esegui
    
     d. Fare clic sul pulsante **Save & Invite** (Salva e invita).
 
-5. Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica e fa clic su un collegamento per confermare l'account e attivarlo. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Deputy per eseguire il provisioning degli account utente di AAD.
+5. Il titolare dell'account Azure AD riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Deputy per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

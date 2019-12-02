@@ -1,14 +1,14 @@
 ---
-title: Eseguire la prima query con l'interfaccia della riga di comando di Azure
-description: Questo articolo illustra la procedura per abilitare l'estensione Resource Graph per l'interfaccia della riga di comando di Azure ed eseguire la prima query.
-ms.date: 10/18/2019
+title: "Guida introduttiva: Prima query nell'interfaccia della riga di comando di Azure"
+description: Questa guida di avvio rapido illustra la procedura per abilitare l'estensione Resource Graph per l'interfaccia della riga di comando di Azure ed eseguire la prima query.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: b74e4314a7755bb067831f955ca02d62485abe4f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958960"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304128"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
 
@@ -16,13 +16,17 @@ Il primo passaggio per usare Azure Resource Graph richiede di controllare che l'
 
 Alla fine di questo processo l'estensione risulterà aggiunta all'installazione dell'interfaccia della riga di comando di Azure scelta e si eseguirà la prima query di Resource Graph.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-extension"></a>Aggiungere l'estensione Resource Graph
 
 Per consentire all'interfaccia della riga di comando di Azure di eseguire query su Azure Resource Graph è necessario che l'estensione sia aggiunta. Questa estensione funziona ovunque sia possibile usare l'interfaccia della riga di comando di Azure, fra cui [bash in Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) sia autonomo che nel portale e l'[immagine Docker di Azure PowerShell](https://hub.docker.com/r/microsoft/azure-cli/), oppure installata in locale.
 
-1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente, almeno la versione **2.0.45**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.0.76**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. Importarla nell'ambiente della riga di comando di Azure scelto usando il comando seguente:
 
@@ -87,10 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ottenere altre informazioni sul [linguaggio di query](./concepts/query-language.md).
-- Altre informazioni su come [esplorare le risorse](./concepts/explore-resources.md).
-- Eseguire la prima query tramite il [portale di Azure](first-query-portal.md).
-- Eseguire la prima query con [Azure PowerShell](first-query-powershell.md).
-- Vedere esempi di [query di base](./samples/starter.md).
-- Vedere esempi di [query avanzate](./samples/advanced.md).
-- Commenti e suggerimenti su [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+In questa guida di avvio rapido si è aggiunta l'estensione Resource Graph all'ambiente dell'interfaccia della riga di comando di Azure e si è eseguita la prima query. Per altre informazioni sul linguaggio di Resource Graph, passare alla pagina dei dettagli del linguaggio di query.
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sul linguaggio di query](./concepts/query-language.md)

@@ -1,28 +1,24 @@
 ---
-title: Creare un progetto con l'API REST
-description: Usare Azure Blueprints per creare, definire e distribuire elementi con l'API REST.
-ms.date: 02/04/2019
+title: "Guida introduttiva: Creare un progetto con l'API REST"
+description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'API REST.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960402"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322164"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
 Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
-> [!div class="checklist"]
-> - Creare un nuovo progetto e aggiungere diversi elementi supportati
-> - Apportare modifiche a un progetto esistente ancora in fase di **bozza**
-> - Contrassegnare un progetto come pronto per l'assegnazione con stato **Pubblicato**
-> - Assegnare un progetto a una sottoscrizione esistente
-> - Controllare lo stato e l'avanzamento di un progetto assegnato
-> - Rimuovere un progetto assegnato a una sottoscrizione
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introduzione all'API REST
 
@@ -393,7 +389,8 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
 
    - Identità gestita assegnata dall'utente
 
-     L'assegnazione di un progetto può anche usare un'[identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/overview.md). In questo caso, la parte **identity** del corpo della richiesta cambia come segue.  Sostituire `{yourRG}` e `{userIdentity}` rispettivamente con il nome del gruppo di risorse e il nome dell'identità gestita assegnata dall'utente.
+     L'assegnazione di un progetto può anche usare un'[identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/overview.md).
+     In questo caso, la parte **identity** del corpo della richiesta cambia come segue. Sostituire `{yourRG}` e `{userIdentity}` rispettivamente con il nome del gruppo di risorse e il nome dell'identità gestita assegnata dall'utente.
 
      ```json
      "identity": {
@@ -432,9 +429,7 @@ Per rimuovere il progetto stesso, usare l'operazione API REST seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md).
-- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./concepts/sequencing-order.md).
-- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md).
-- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md).
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md).
+In questa guida di avvio rapido si è creato, assegnato e rimosso un progetto con l'API REST. Per altre informazioni su Azure Blueprints, passare all'articolo relativo al ciclo di vita di un progetto.
+
+> [!div class="nextstepaction"]
+> [Informazioni sul ciclo di vita di un progetto](./concepts/lifecycle.md)

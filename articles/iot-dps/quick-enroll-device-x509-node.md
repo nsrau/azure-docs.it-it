@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Registrare i dispositivi X.509 nel servizio Azure Device Provisioning con Node.js'
+title: Registrare dispositivi X.509 nel servizio Device Provisioning di Azure con Node.js
 description: Questa guida introduttiva usa registrazioni di gruppo. In questa guida introduttiva verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure tramite l'SDK del servizio per Node.js
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3b2c27b8fc595dae39ed7374ec3647e6b4ba6f23
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 6056859cf1742fc4bda6056ad7c1c78059a8407a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903421"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423266"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Node.js
 
@@ -112,13 +111,13 @@ Per usare gli strumenti di test per generare certificati, seguire questa procedu
 ## <a name="run-the-enrollment-group-sample"></a>Eseguire l'esempio di gruppo di registrazioni
  
 1. Per eseguire l'esempio è necessaria la stringa di connessione del servizio di provisioning. 
-    1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. 
-    2. Fare clic su **Criteri di accesso condivisi** e quindi sui criteri di accesso da usare per aprirne le proprietà. Nella finestra **Criteri di accesso** copiare e annotare la stringa di connessione della chiave primaria. 
+    1. Accedere al portale di Azure, selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. 
+    2. Fare clic su **Criteri di accesso condiviso** e quindi selezionare i criteri di accesso da usare per aprirne le proprietà. Nella finestra **Criteri di accesso** copiare e annotare la stringa di connessione della chiave primaria. 
 
        ![Ottenere la stringa di connessione del servizio di provisioning dal portale](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. Come indicato in [Preparare i certificati di test](quick-enroll-device-x509-node.md#prepare-test-certificates), è anche necessario un file PEM contenente un certificato X.509 intermedio o CA radice caricato e verificato in precedenza con il servizio di provisioning. Per verificare che il certificato sia stato caricato e verificato, nella pagina di riepilogo del servizio Device Provisioning del portale di Azure fare clic su **Certificati**. Trovare il certificato che si vuole usare per la registrazione del gruppo e verificare che il valore di stato sia *verificato*.
+3. Come indicato in [Preparare i certificati di test](quick-enroll-device-x509-node.md#prepare-test-certificates), è anche necessario un file PEM contenente un certificato X.509 intermedio o CA radice caricato e verificato in precedenza con il servizio di provisioning. Per verificare che il certificato sia stato caricato e verificato, nella pagina di riepilogo del servizio Device Provisioning del portale di Azure selezionare **Certificati**. Trovare il certificato che si vuole usare per la registrazione del gruppo e verificare che il valore di stato sia *verificato*.
 
     ![Certificato verificato nel portale](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -137,14 +136,14 @@ Per usare gli strumenti di test per generare certificati, seguire questa procedu
     ![Proprietà delle registrazioni nel portale](./media/quick-enroll-device-x509-node/verify-enrollment-portal.png) 
  
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se si prevede di esplorare gli esempi di servizio Node.js, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare i passaggi seguenti per eliminare tutte le risorse di Azure create con questa guida introduttiva.
+Se si prevede di esplorare gli esempi di servizio Node.js, non eseguire la pulizia delle risorse create in questa guida di avvio rapido. Se non si intende continuare, seguire questa procedura per eliminare tutte le risorse di Azure create in questa guida.
  
 1. Chiudere la finestra di output di esempio di Node.js nel computer.
-2. Passare al servizio Device Provisioning nel portale di Azure, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Gruppi di registrazioni**. Selezionare l'*ID registrazione* della voce di registrazione creata usando questa guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore del pannello.  
-3. Dal servizio Device Provisioning nel portale di Azure, fare clic su **Certificati**, selezionare il certificato caricato per questa guida introduttiva e quindi fare clic sul pulsante **Elimina** nella parte superiore della finestra **Dettagli certificato**.  
+2. Passare al servizio Device Provisioning nel portale di Azure, selezionare **Gestisci registrazioni** e quindi la scheda **Gruppi di registrazioni**. Selezionare la casella di controllo accanto a *NOME GRUPPO* per i dispositivi X.509 registrati con questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro.    
+3. Nel servizio Device Provisioning nel portale di Azure selezionare **Certificati** e quindi il certificato caricato per questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore della finestra **Dettagli certificato**.  
  
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva è stata creata una registrazione di gruppo per un certificato X.509 intermedio o CA radice usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
+In questa guida di avvio rapido è stata creata una registrazione di gruppo per un certificato X.509 CA radice o intermedio usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)

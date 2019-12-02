@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089301"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233275"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Esercitazione: Integrare Syncplicity con Azure Active Directory
 
@@ -81,7 +81,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.syncplicity.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.syncplicity.com/sp`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.syncplicity.com/sp`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Syncplicity](https://www.syncplicity.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -120,9 +120,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     g. Fare clic su **SAVE CHANGES** (Salva modifiche).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
@@ -130,7 +130,7 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -146,13 +146,13 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B. Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ### <a name="create-syncplicity-test-user"></a>Creare l'utente di test di Syncplicity
 
-Per essere in grado di effettuare l’accesso, è necessario effettuare il provisioning degli utenti AAD all’applicazione Syncplicity. In questa sezione viene descritto come creare gli account utente AAD in Syncplicity.
+Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il provisioning nell'applicazione Syncplicity. Questa sezione descrive come creare account utente Azure AD in Syncplicity.
 
 **Per eseguire il provisioning di un account utente a Syncplicity, eseguire la procedura seguente:**
 
@@ -160,28 +160,28 @@ Per essere in grado di effettuare l’accesso, è necessario effettuare il provi
 
 1. Fare clic su **admin** (amministrazione) e selezionare **user accounts** (account utente), quindi fare clic su **ADD A USER** (AGGIUNGI UN UTENTE).
 
-    ![Gestione utenti](./media/syncplicity-tutorial/ic769764.png "Gestione utenti")
+    ![Gestire gli utenti](./media/syncplicity-tutorial/ic769764.png "Manage Users")
 
 1. Digitare gli **indirizzi di posta elettronica** di un account Azure AD di cui effettuare il provisioning, selezionare **User** (Utente) come valore di **Role** (Ruolo) e quindi fare clic su **NEXT** (AVANTI).
 
-    ![Informazioni sull'account](./media/syncplicity-tutorial/ic769765.png "Informazioni sull'account")
+    ![Informazioni sull'account](./media/syncplicity-tutorial/ic769765.png "Informazioni account")
 
     > [!NOTE]
-    > Il titolare dell'account AAD riceverà un messaggio di posta elettronica con un collegamento per confermare e attivare l'account.
+    > Il titolare dell'account Azure AD riceve un messaggio di posta elettronica contenente un collegamento per confermare e attivare l'account.
 
 1. Selezionare un gruppo nell'azienda a cui aggiungere il nuovo utente e quindi fare clic su **NEXT** (Avanti).
 
-    ![Appartenenza al gruppo](./media/syncplicity-tutorial/ic769772.png "Appartenenza al gruppo")
+    ![Appartenenza a gruppi](./media/syncplicity-tutorial/ic769772.png "Appartenenza al gruppo")
 
     > [!NOTE]
     > Se non sono elencati gruppi, fare clic su **NEXT** (Avanti).
 
 1. Selezionare le cartelle a cui si vuole applicare il controllo di Syncplicity nel computer dell'utente e quindi fare clic su **NEXT** (Avanti).
 
-    ![Cartelle di Syncplicity](./media/syncplicity-tutorial/ic769773.png "Cartelle di Syncplicity")
+    ![Cartelle Syncplicity](./media/syncplicity-tutorial/ic769773.png "Cartella Syncplicity")
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento di creazione account utente o API fornita da Syncplicity per eseguire il provisioning degli account utente di AAD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Syncplicity per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 

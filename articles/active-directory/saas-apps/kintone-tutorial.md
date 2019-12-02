@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098796"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Esercitazione: Integrazione di Azure Active Directory con Kintone
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kintone è ne
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Kintone](#configure-kintone-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Kintone](#create-kintone-test-user)** : per avere una controparte di Britta Simon in Kintone collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -141,11 +141,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kintone, seguire questa
 
 1. Fare clic su **Amministrazione utenti e di sistema**.
 
-    ![Amministrazione utenti e di sistema](./media/kintone-tutorial/ic785880.png "Amministrazione utenti e di sistema")
+    ![Users & System Administration](./media/kintone-tutorial/ic785880.png "Amministrazione utenti e di sistema")
 
 1. In **Amministrazione di sistema \> Sicurezza** fare clic su **Accesso**.
 
-    ![Account di accesso](./media/kintone-tutorial/ic785881.png "Account di accesso")
+    ![Accesso](./media/kintone-tutorial/ic785881.png "Login")
 
 1. Fare clic su **Abilita autenticazione SAML**.
 
@@ -161,9 +161,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kintone, seguire questa
 
     c. Fare clic su **Sfoglia** per caricare il certificato scaricato dal portale di Azure.
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -186,7 +186,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -228,26 +228,26 @@ Per consentire agli utenti di Azure AD di accedere a Kintone, è necessario eseg
 
 1. Fare clic su **Amministrazione utenti e di sistema**.
 
-    ![Amministrazione utenti e di sistema](./media/kintone-tutorial/ic785880.png "Amministrazione utenti e di sistema")
+    ![User & System Administration](./media/kintone-tutorial/ic785880.png "User & System Administration")
 
 1. In **Amministrazione Utente** fare clic su **Reparti e Utenti**.
 
-    ![Reparto e utenti](./media/kintone-tutorial/ic785888.png "Reparto e utenti")
+    ![Departments & Users](./media/kintone-tutorial/ic785888.png "Department & Users")
 
 1. Fare clic su **Nuovo utente**.
 
-    ![Nuovi utenti](./media/kintone-tutorial/ic785889.png "Nuovi utenti")
+    ![New Users](./media/kintone-tutorial/ic785889.png "New Users")
 
 1. Nella sezione **Nuovo utente** seguire questa procedura:
 
-    ![Nuovi utenti](./media/kintone-tutorial/ic785890.png "Nuovi utenti")
+    ![New Users](./media/kintone-tutorial/ic785890.png "New Users")
 
     a. Nelle caselle di testo **Nome visualizzato**, **Nome di accesso**, **Nuova password**, **Conferma password** e **Indirizzo di posta elettronica** digitare i valori richiesti e gli altri dettagli di un account Azure AD valido di cui si vuole eseguire il provisioning.
 
     b. Fare clic su **Save**.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Kintone per eseguire il provisioning degli account utente di AAD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Kintone per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

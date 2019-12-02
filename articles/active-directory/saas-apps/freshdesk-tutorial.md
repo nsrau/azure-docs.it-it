@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e75a45bc4ccd2614520fda39e09996c2286bdbd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73155765"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Esercitazione: Integrazione di Azure Active Directory con FreshDesk
 
@@ -272,7 +272,7 @@ Nel caso di FreshDesk, il provisioning è un'attività manuale.
     >Il titolare dell'account AD riceverà un messaggio di posta elettronica contenente un collegamento da selezionare per confermare e attivare l'account.
     >
     >[!NOTE]
-    >È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Freshdesk per eseguire il provisioning degli account utente di AAD in FreshDesk.
+    >È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Freshdesk per eseguire il provisioning degli account utente Azure AD in FreshDesk.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

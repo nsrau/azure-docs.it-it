@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c789d48656173721432779aeaba0530950527fa1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 61e176314c655ef6380a196043fb3159d003cb6e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646916"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273950"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Guida di avvio rapido: Libreria client di Azure Key Vault per .NET (SDK v4)
+# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Guida introduttiva: Libreria client di Azure Key Vault per .NET (SDK v4)
 
 Introduzione alla libreria client di Azure Key Vault per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -25,7 +25,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Semplificare e automatizzare le attività per i certificati SSL/TLS.
 - Usare moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 2.
 
-[Documentazione di riferimento dell'API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[Documentazione di riferimento dell'API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,10 +39,7 @@ Questo argomento di avvio rapido presuppone che si eseguano i comandi di `dotnet
 
 ### <a name="create-new-net-console-app"></a>Creare una nuova app console .NET
 
-Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o nell'editor preferito.
-
-In una finestra di una console usare il comando `dotnet new` per creare una nuova app console denominata `akv-dotnet`.
-
+In una finestra della console usare il comando `dotnet new` per creare una nuova app console .NET denominata `akv-dotnet`.
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -91,7 +88,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Il modo più semplice per autenticare un'applicazione .NET basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del Servizio app di Azure per accedere ad Azure Key Vault](managed-identity.md). Per semplicità, tuttavia, in questo argomento di avvio rapido viene creata un'applicazione console .NET. Per l'autenticazione di un'applicazione desktop con Azure è necessario usare un'entità servizio e un criterio di controllo di accesso.
+Il modo più semplice per autenticare un'applicazione .NET basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault](managed-identity.md). Per semplicità, tuttavia, in questo argomento di avvio rapido viene creata un'applicazione console .NET. Per l'autenticazione di un'applicazione desktop con Azure è necessario usare un'entità servizio e un criterio di controllo di accesso.
 
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
 
@@ -160,13 +157,13 @@ Aggiungere le direttive seguenti all'inizio del codice:
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticare e creare un client
 
-L'autenticazione rispetto all'insieme di credenziali delle chiavi e la creazione di un client dell'insieme di credenziali delle chiavi dipende dalle variabili di ambiente indicate nel passaggio precedente [Impostare le variabili di ambiente](#set-environmental-variables). Il nome dell'insieme di credenziali delle chiavi viene espanso nell'URI relativo, nel formato "https://<nome-insieme-credenziali-chiavi-personale>.vault.azure.net".
+L'autenticazione rispetto all'insieme di credenziali delle chiavi e la creazione di un client dell'insieme di credenziali delle chiavi dipendono dalle variabili di ambiente indicate nel passaggio precedente [Impostare le variabili di ambiente](#set-environmental-variables). Il nome dell'insieme di credenziali delle chiavi viene espanso nel relativo URI, nel formato "https://\<your-key-vault-name\>.vault.azure.net".
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
 ### <a name="save-a-secret"></a>Salvare un segreto
 
-Ora che l'applicazione è stata autenticata, è possibile inserire un segreto nell'insieme di credenziali delle credenziali usando il metodo [client.SetSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). L'operazione richiede un nome per il segreto. In questo esempio viene usato "mySecret".  
+Ora che l'applicazione è stata autenticata, è possibile inserire un segreto nell'insieme di credenziali delle chiavi usando il metodo [client.SetSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). L'operazione richiede un nome per il segreto. In questo esempio viene usato "mySecret".  
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=setsecret)]
 

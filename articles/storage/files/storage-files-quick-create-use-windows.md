@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260388"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305830"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
 
@@ -173,7 +173,7 @@ Proprio come con gli snapshot VSS in locale, è possibile visualizzare gli snaps
 
 1. Selezionare **Ripristina**. Questa azione copia il contenuto dell'intera directory in modo ricorsivo nel percorso originale al momento della creazione dello snapshot di condivisione.
 
-   ![Pulsante Ripristina nel messaggio di avviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![Pulsante Ripristina nel messaggio di avviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Nota: se il file non è stato modificato, non ne verrà visualizzata una versione precedente perché la versione corrente è uguale a quella dello snapshot. Questo comportamento è coerente con il funzionamento in un file server Windows.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

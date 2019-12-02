@@ -1,20 +1,20 @@
 ---
 title: Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
-description: Questo articolo offre una panoramica dell'uso di Gestione aggiornamenti di Automazione di Azure per gestire gli aggiornamenti e le patch per le VM Windows di Azure.
+description: Questo articolo offre una panoramica dell'uso di Gestione aggiornamenti di Automazione di Azure per gestire gli aggiornamenti e le patch per le VM di Azure e non di Azure.
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469736"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278776"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali di Azure
 
@@ -53,13 +53,13 @@ Prima di tutto, abilitare Gestione aggiornamenti nella macchina virtuale per que
 
 Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitato per la macchina virtuale. La convalida include controlli per un'area di lavoro Log Analytics di Azure e un account di Automazione collegato e verifica se la soluzione Gestione aggiornamenti è presente nell'area di lavoro.
 
-L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi come Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
+L'area di lavoro di [Log Analytics](../azure-monitor/platform/data-platform-logs.md) consente di raccogliere i dati generati da funzionalità e servizi come Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido per runbook di Automazione. L'agente consente di comunicare con Automazione di Azure e ottenere informazioni sullo stato dell'aggiornamento. L'agente richiede che la porta 443 sia aperta per comunicare con il servizio Automazione di Azure e scaricare gli aggiornamenti.
+Il processo di convalida controlla anche se nella macchina virtuale sono presenti l'agente Log Analytics e un ruolo di lavoro ibrido per runbook di Automazione. L'agente consente di comunicare con Automazione di Azure e ottenere informazioni sullo stato dell'aggiornamento. L'agente richiede che la porta 443 sia aperta per comunicare con il servizio Automazione di Azure e scaricare gli aggiornamenti.
 
 Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
 
-* Area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
+* Area di lavoro di [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 * [Account di Automazione](./automation-offering-get-started.md)
 * [Ruolo di lavoro ibrido per runbook](./automation-hybrid-runbook-worker.md) (abilitato nella macchina virtuale)
 
@@ -71,9 +71,9 @@ L'abilitazione della soluzione può richiedere alcuni minuti. Durante questo int
 
 ## <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
-Dopo aver abilitato Gestione aggiornamenti, verrà visualizzata la schermata **Gestione aggiornamenti**. Se mancano alcuni aggiornamenti, viene visualizzato un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
+Dopo aver abilitato Gestione aggiornamenti, verrà visualizzata la schermata **Gestione aggiornamenti**. Se alcuni aggiornamenti vengono identificati come mancanti, il relativo elenco viene visualizzato nella scheda **Aggiornamenti mancanti**.
 
-In **COLLEGAMENTO ALLE INFORMAZIONI** selezionare il collegamento dell'aggiornamento per aprire l'articolo di supporto per l'aggiornamento in una nuova finestra, dove si possono trovare importanti informazioni relative all'aggiornamento.
+In **COLLEGAMENTO ALLE INFORMAZIONI** selezionare il collegamento per aprire l'articolo di supporto per l'aggiornamento. È possibile acquisire informazioni importanti sull'aggiornamento.
 
 ![Visualizzare lo stato degli aggiornamenti](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

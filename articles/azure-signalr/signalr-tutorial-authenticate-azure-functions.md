@@ -1,17 +1,17 @@
 ---
-title: 'Esercitazione: Autenticazione del servizio Azure SignalR con Funzioni di Azure'
+title: 'Esercitazione: Autenticazione con Funzioni di Azure - Azure SignalR'
 description: Questa esercitazione illustra come autenticare i client del servizio Azure SignalR per il binding di Funzioni di Azure
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278837"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158139"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Esercitazione: Autenticazione del servizio Azure SignalR con Funzioni di Azure
 
@@ -45,7 +45,7 @@ Andare al [portale di Azure](https://portal.azure.com/) e accedere con le propri
 
 L'app Funzioni di Azure verrà compilata e testata in locale. L'app accederà a un'istanza del servizio SignalR in Azure che deve essere già stata creata.
 
-1. Fare clic sul pulsante **Crea una risorsa** (**+**) per creare una nuova risorsa di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** ( **+** ) per creare una nuova risorsa di Azure.
 
 1. Cercare il **servizio SignalR** e selezionarlo. Fare clic su **Create**(Crea).
 
@@ -56,8 +56,8 @@ L'app Funzioni di Azure verrà compilata e testata in locale. L'app accederà a 
     | NOME | Valore |
     |---|---|
     | Nome risorsa | Nome univoco per l'istanza del servizio SignalR |
-    | Gruppo di risorse | Creare un nuovo gruppo di risorse con un nome univoco |
-    | Località | Selezionare una località vicina |
+    | Resource group | Creare un nuovo gruppo di risorse con un nome univoco |
+    | Location | Selezionare una località vicina |
     | Piano tariffario | Gratuito |
 
 1. Fare clic su **Create**(Crea).
@@ -283,7 +283,7 @@ L'interfaccia utente dell'applicazione di chat è una semplice applicazione a pa
 
 1. Nella cartella **content** creare un nuovo file denominato **index.html**.
 
-1. Copiare e incollare il contenuto di **[index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)**.
+1. Copiare e incollare il contenuto di **[index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)** .
 
 1. Salvare il file.
 
@@ -309,7 +309,7 @@ L'app per le funzioni e l'applicazione di chat sono state eseguite in locale. Or
 
 Un account di archiviazione di Azure è richiesto da un'app per le funzioni in esecuzione in Azure. Verrà anche ospitata la pagina Web per l'interfaccia utente della chat usando la funzionalità dei siti Web statici di Archiviazione di Azure.
 
-1. Nel portale di Azure fare clic sul pulsante **Crea una risorsa** (**+**) per creare una nuova risorsa di Azure.
+1. Nel portale di Azure fare clic sul pulsante **Crea una risorsa** ( **+** ) per creare una nuova risorsa di Azure.
 
 1. Selezionare la categoria **Archiviazione**, quindi selezionare **Account di archiviazione**.
 
@@ -317,10 +317,10 @@ Un account di archiviazione di Azure è richiesto da un'app per le funzioni in e
 
     | NOME | Valore |
     |---|---|
-    | Sottoscrizione | Selezionare la sottoscrizione contenente l'istanza del servizio SignalR |
-    | Gruppo di risorse | Selezionare lo stesso gruppo di risorse |
+    | Subscription | Selezionare la sottoscrizione contenente l'istanza del servizio SignalR |
+    | Resource group | Selezionare lo stesso gruppo di risorse |
     | Nome risorsa | Un nome univoco per l'account di archiviazione |
-    | Località | Selezionare la stessa posizione delle altre risorse |
+    | Location | Selezionare la stessa posizione delle altre risorse |
     | Prestazioni | Standard |
     | Tipo di account | Archiviazione V2 (utilizzo generico V2) |
     | Replica | Archiviazione con ridondanza locale |
@@ -374,10 +374,10 @@ Quando si invia un messaggio, l'app può decidere se inviarlo a tutti i client c
     | NOME | Valore |
     |---|---|
     | Cartella per la distribuzione | Selezionare la cartella di progetto principale |
-    | Sottoscrizione | Selezionare la propria sottoscrizione |
+    | Subscription | Selezionare la propria sottoscrizione |
     | App per le funzioni | Selezionare **Crea nuova app per le funzioni** |
     | Nome dell'app per le funzioni | Immettere un nome univoco |
-    | Gruppo di risorse | Selezionare lo stesso gruppo di risorse dell'istanza del servizio SignalR |
+    | Resource group | Selezionare lo stesso gruppo di risorse dell'istanza del servizio SignalR |
     | Account di archiviazione | Selezionare l'account di archiviazione creato in precedenza |
 
     Viene creata una nuova app per le funzioni in Azure e la distribuzione ha inizio. Attendere il completamento della distribuzione.
@@ -393,7 +393,7 @@ Quando si invia un messaggio, l'app può decidere se inviarlo a tutti i client c
     | NOME | Valore |
     |---|---|
     | File di impostazioni locali | local.settings.json |
-    | Sottoscrizione | Selezionare la propria sottoscrizione |
+    | Subscription | Selezionare la propria sottoscrizione |
     | App per le funzioni | Selezionare l'app per le funzioni distribuita in precedenza |
 
 Le impostazioni locali vengono caricate nell'app per le funzioni in Azure. Se viene richiesto di sovrascrivere le impostazioni esistenti, selezionare **Sì a tutti**.
@@ -451,7 +451,7 @@ L'applicazione Web verrà ospitata usando la funzionalità dei siti Web statici 
 
     | NOME | Valore |
     |---|---|
-    | Sottoscrizione | Selezionare la propria sottoscrizione |
+    | Subscription | Selezionare la propria sottoscrizione |
     | Account di archiviazione | Selezionare l'account di archiviazione creato in precedenza |
     | Cartella per la distribuzione | Selezionare **Sfoglia** e quindi la cartella *content* |
 

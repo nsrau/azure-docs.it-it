@@ -8,18 +8,18 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 7e07419115a6e9709879c71dfac1234408bda0ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 488616ab2068337331d589bbf5c61ae06b299f5d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824066"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173968"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
 Questo articolo illustra Azure Machine Learning, un ambiente basato sul cloud utilizzabile per eseguire il training, distribuire, automatizzare, gestire e tenere traccia dei modelli di Machine Learning. 
 
-Azure Machine Learning può essere usato per qualsiasi tipo di Machine Learning, dalla forma classica al Deep Learning, supervisionato e non supervisionato. Che si preferisca scrivere codice Python o R oppure usare opzioni senza o con poco codice, come nel caso della [finestra di progettazione](ui-tutorial-automobile-price-train-score.md), è possibile creare, sottoporre a training e monitorare i modelli di Deep Learning e Machine Learning altamente accurati in un'area di lavoro di Azure Machine Learning. 
+È possibile usare Azure Machine Learning per qualsiasi tipo di Machine Learning, dalla forma classica al Deep Learning, con e senza supervisione. Che si preferisca scrivere codice Python o R oppure usare opzioni senza codice o con poco codice, come la [finestra di progettazione](ui-tutorial-automobile-price-train-score.md), si possono creare, sottoporre a training e monitorare modelli di Machine Learning e Deep Learning estremamente accurati in un'area di lavoro di Azure Machine Learning. 
 
 Iniziare il training nel computer locale per poi scalare orizzontalmente nel cloud. 
 
@@ -54,7 +54,6 @@ Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e a
 
 È persino possibile usare [MLflow per monitorare le metriche e distribuire i modelli](how-to-use-mlflow.md) oppure Kubeflow per [creare pipeline di flussi di lavoro end-to-end](https://www.kubeflow.org/docs/azure/).
 
-
 ## <a name="build-ml-models-in-python-or-r"></a>Creare modelli di Machine Learning in Python o R
 
 Iniziare il training nel computer locale usando Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> per poi scalare orizzontalmente nel cloud. 
@@ -69,7 +68,7 @@ Per un training e una distribuzione senza codice o con poco codice, provare:
 
 + **Finestra di progettazione di Azure Machine Learning (anteprima)**
 
-  Usare la finestra di progettazione per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice. Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire il modello.   Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
+  Usare la finestra di progettazione per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice. Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire il modello. Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
 
   Per altre informazioni, vedere l'[articolo di panoramica sulla finestra di progettazione di Azure Machine Learning](concept-designer.md). 
 
@@ -91,13 +90,31 @@ Questi modelli possono essere utilizzati e restituiscono stime, [in tempo reale]
 È inoltre possibile usare [pipeline avanzate di Machine Learning](concept-ml-pipelines.md) per collaborare in tutti i passaggi di preparazione dei dati, training dei modelli, valutazione e distribuzione. Le pipeline consentono di:
 
 * Automatizzare il processo di Machine Learning end-to-end nel cloud
-* Riutilizzare i componenti e ripetere i passaggi solo quando necessario
+* Riusare i componenti e ripetere i passaggi solo quando necessario
 * Usare risorse di calcolo diverse in ogni passaggio
 * Eseguire attività di assegnazione di punteggio batch
 
 Se si vogliono usare gli script per automatizzare il flusso di lavoro di Machine Learning, l'[interfaccia della riga di comando di Machine Learning](reference-azure-machine-learning-cli.md) fornisce strumenti da riga di comando che eseguono attività comuni, ad esempio l'invio di un'esecuzione di training o la distribuzione di un modello.
 
 Per iniziare a usare Azure Machine Learning, vedere [Passaggi successivi](#next-steps).
+
+## <a name="integration-with-other-services"></a>Integrazione con altri servizi
+
+Azure Machine Learning interagisce con altri servizi nella piattaforma Azure e si integra anche con strumenti open source come Git e MLFlow.
+
++ Destinazioni di calcolo come il __servizio Azure Kubernetes__, __Istanze di Azure Container__, __Azure Databricks__, __Azure Data Lake Analytics__ e __Azure HDInsight__. Per altre informazioni sulle destinazioni di calcolo, vedere [Informazioni sulle destinazioni di calcolo](concept-compute-target.md).
++ __Griglia di eventi di Azure__. Per altre informazioni, vedere [Utilizzare eventi di Azure Machine Learning](concept-event-grid-integration.md).
++ __Monitoraggio di Azure__. Per altre informazioni, vedere [Monitoraggio di Azure Machine Learning](monitor-azure-machine-learning.md).
++ Archivi dati come gli __account di archiviazione di Azure__, __Azure Data Lake Storage__, il __database SQL di Azure__, __Database di Azure per PostgreSQL__ e i __set di dati aperti di Azure__. Per altre informazioni, vedere [Accedere ai dati nei servizi di archiviazione di Azure](how-to-access-data.md) e [Creare set di dati con set di dati aperti di Azure](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ __Reti virtuali di Azure__. Per altre informazioni, vedere [Proteggere la sperimentazione e l'inferenza in una rete virtuale](how-to-enable-virtual-network.md).
++ __Azure Pipelines__. Per altre informazioni, vedere [Eseguire il training e la distribuzione di modelli di Machine Learning](/azure/devops/pipelines/targets/azure-machine-learning).
++ __Log di repository Git__. Per altre informazioni, vedere [Integrazione di Git](concept-train-model-git-integration.md).
++ __MLFlow__. Per altre informazioni, vedere [Tenere traccia delle metriche e distribuire modelli con MLflow](how-to-use-mlflow.md). 
++ __Kubeflow__. Per altre informazioni, vedere come [creare pipeline di flussi di lavoro end-to-end](https://www.kubeflow.org/docs/azure/).
+
+### <a name="secure-communications"></a>Comunicazioni sicure
+
+È possibile usare l'account di archiviazione di Azure, le destinazioni di calcolo e le altre risorse in modo sicuro all'interno di una rete virtuale per eseguire il training dei modelli e l'inferenza. Per altre informazioni, vedere [Proteggere la sperimentazione e l'inferenza in una rete virtuale](how-to-enable-virtual-network.md).
 
 ## <a name="sku"></a>Edizioni Basic ed Enterprise
 

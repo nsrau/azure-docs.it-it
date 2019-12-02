@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f1aca75045f674fa45f5ad00c14a37c1abe7aea
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7d3b7f8982a24856818cbb6ce86060beac969fc2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160422"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
 
@@ -208,7 +208,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 Per consentire agli utenti di Azure AD di accedere a Mozy Enterprise, è necessario eseguirne il provisioning in Mozy Enterprise. Nel caso di Mozy Enterprise, il provisioning è un’attività manuale.
 
 >[!NOTE]
->È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Mozy Enterprise o le API fornite da Mozy Enterprise per eseguire il provisioning degli account utente di AAD.
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Mozy Enterprise per effettuare il provisioning degli account utente Azure AD.
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 

@@ -1,14 +1,14 @@
 ---
 title: Esempio - Consentire un'immagine di macchina virtuale personalizzata dal gruppo di risorse
-description: Questa definizione di criteri di esempio richiede che le immagini personalizzate provengano da un gruppo di risorse approvato.
+description: Questa definizione di criteri di esempio richiede che le immagini personalizzate provengano da un gruppo di risorse approvato definito in un parametro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 4956b01dfc48014a047e61aa4961cc4da418f6ae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 788098998bb5a1f268203e8e37fd671bdfbd6425
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076487"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463773"
 ---
 # <a name="sample---allow-custom-vm-image-from-a-resource-group"></a>Esempio - Consentire un'immagine di macchina virtuale personalizzata da un gruppo di risorse
 

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Autenticazione a più fattori per B2B - Azure Active Directory | Microsoft Docs'
-description: Informazioni su come richiedere l'autenticazione a più fattori (MFA) quando si usa Azure AD B2B per collaborare con utenti esterni e organizzazioni partner.
+title: 'Esercitazione: Autenticazione a più fattori per B2B - Azure AD'
+description: Questa esercitazione illustra come richiedere l'autenticazione MFA (Multi-Factor Authentication) quando si usa Azure AD B2B per collaborare con utenti esterni e organizzazioni partner.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113192"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420583"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Esercitazione: Imporre l'autenticazione a più fattori per gli utenti guest B2B
 

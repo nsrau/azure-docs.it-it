@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Aggiungere output al modello di Azure Resource Manager'
+title: 'Esercitazione: Aggiungere output al modello'
 description: Aggiungere output al modello di Azure Resource Manager per semplificare la sintassi.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001530"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405990"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Esercitazione: Aggiungere output al modello di Resource Manager
 
@@ -25,7 +22,7 @@ Questa esercitazione illustra come restituire un valore dal modello. Gli output 
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
@@ -49,7 +46,7 @@ Usa la funzione [reference](resource-group-template-functions-resource.md#refere
 
 Infine, restituisce la proprietà **primaryEndpoints** dell'account di archiviazione.
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-template"></a>Distribuire il modello
 
 È ora possibile distribuire il modello ed esaminare il valore restituito.
 

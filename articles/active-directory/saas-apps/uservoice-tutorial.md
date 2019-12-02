@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087627"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Esercitazione: Integrazione di Azure Active Directory con UserVoice
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con UserVoice, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di UserVoice](#configure-uservoice-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di UserVoice](#create-uservoice-test-user)** : per avere una controparte di Britta Simon in UserVoice collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UserVoice, seguire ques
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenantname>.UserVoice.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenantname>.UserVoice.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<tenantname>.UserVoice.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di UserVoice](https://www.uservoice.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -136,15 +136,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con UserVoice, seguire ques
 
 2. Sulla barra degli strumenti in alto fare clic su **Impostazioni**, quindi selezionare **Portale Web** nel menu.
    
-    ![Sezione Impostazioni sul lato dell'app](./media/uservoice-tutorial/ic777519.png "Impostazioni")
+    ![Sezione Settings sul lato app](./media/uservoice-tutorial/ic777519.png "Impostazioni")
 
 3. Nelle sezione **User authentication** (Autenticazione utente) della scheda **Web portal** (Portale Web) fare clic su **Edit** (Modifica) per aprire la finestra di dialogo **Edit User Authentication** (Modifica autenticazione utente).
    
-    ![Scheda Portale Web](./media/uservoice-tutorial/ic777520.png "Portale Web")
+    ![Scheda Web portal](./media/uservoice-tutorial/ic777520.png "Web portal")
 
 4. Nella finestra di dialogo **Edit User Authentication** seguire questa procedura:
    
-    ![Modificare l'autenticazione utente](./media/uservoice-tutorial/ic777521.png "Modificare l'autenticazione utente")
+    ![Edit User Authentication](./media/uservoice-tutorial/ic777521.png "Edit User Authentication")
    
     a. Fare clic su **Single Sign-On (SSO)** .
  
@@ -156,7 +156,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UserVoice, seguire ques
     
     e. Fare clic su **Salva le impostazioni di autenticazione**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -178,7 +178,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -222,22 +222,22 @@ Per consentire agli utenti di Azure AD di accedere a UserVoice, è necessario es
 
 4. Fare clic su **Agents and permissions**.
    
-    ![Agenti e autorizzazioni](./media/uservoice-tutorial/ic777812.png "Agenti e autorizzazioni")
+    ![Agents and permissions](./media/uservoice-tutorial/ic777812.png "Agents and permissions")
 
 5. Fare clic su **Aggiungi amministratori**.
    
-    ![Aggiungere amministratori](./media/uservoice-tutorial/ic777813.png "Aggiungere amministratori")
+    ![Add admins](./media/uservoice-tutorial/ic777813.png "Aggiungi amministratori")
 
 6. Nella finestra di dialogo **Invita amministratori** seguire questa procedura:
    
-    ![Invitare gli amministratori](./media/uservoice-tutorial/ic777814.png "Invitare gli amministratori")
+    ![Invite admins](./media/uservoice-tutorial/ic777814.png "Invita amministratori")
    
     a. Nella casella di testo Emails digitare l'indirizzo di posta elettronica dell'account di cui si vuole eseguire il provisioning e quindi fare clic su **Add**.
    
     b. Fare clic su **Invita**.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da UserVoice per eseguire il provisioning degli account utente Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da UserVoice per effettuare il provisioning degli account utente Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

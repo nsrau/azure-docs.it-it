@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: d89fa4c067e511e6210e8c1473bf1856297fc1de
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904084"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184876"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Usare coppie chiave-valore in un archivio di Configurazione app di Azure
 
@@ -84,16 +84,16 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti per eseguire operazioni sulle coppie chiave-valore in un archivio di configurazione di app. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per eseguire operazioni sulle coppie chiave-valore in un archivio di Configurazione app. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Crea o aggiorna una coppia chiave-valore. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Elenca le coppie chiave-valore in un archivio di configurazione di app. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Elimina una coppia chiave-valore. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Crea o aggiorna una coppia chiave-valore. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Elenca le coppie chiave-valore in un archivio di Configurazione app. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Elimina una coppia chiave-valore. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando di configurazione di app sono disponibili nella [documentazione relativa al servizio Configurazione app di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Configurazione app sono disponibili negli [esempi di interfaccia della riga di comando di Configurazione app di Azure](../cli-samples.md).
