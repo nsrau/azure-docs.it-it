@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229428"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666376"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema e aggregazione dei dati in Analisi del traffico
 
@@ -117,7 +117,7 @@ Di seguito sono elencati i campi dello schema e gli elementi che indicano
 | FlowDirection_s | * I = in ingresso<br> * O = in uscita | Direzione del flusso in/out di NSG come per log di flusso |
 | FlowStatus_s  | * A = consentito dalla regola NSG <br> * D = negato dalla regola NSG  | Stato del flusso consentito/nblocked da NSG in base al log di flusso |
 | NSGList_s | \<SUBSCRIPTIONID >\/< RESOURCEGROUP_NAME >\/< NSG_NAME > | Gruppo di sicurezza di rete (NSG) associato al flusso |
-| NSGRules_s | \<valore di indice 0) >\|\<NSG_RULENAME >\|\<>\|\<>\|\<> FlowCount |  Regola NSG che ha consentito o negato questo flusso |
+| NSGRules_s | \<valore di indice 0) >\|\<NSG_RULENAME >\|\<\|\<\|\<> FlowCount |  Regola NSG che ha consentito o negato questo flusso |
 | NSGRule_s | NSG_RULENAME |  Regola NSG che ha consentito o negato questo flusso |
 | NSGRuleType_s | * Definito dall'utente * predefinito |   Tipo di regola NSG usata dal flusso |
 | MACAddress_s | Indirizzo MAC | Indirizzo MAC della scheda di interfaccia di rete in cui è stato acquisito il flusso |
@@ -125,8 +125,8 @@ Di seguito sono elencati i campi dello schema e gli elementi che indicano
 | Subscription1_s | ID sottoscrizione | ID sottoscrizione della rete virtuale/interfaccia di rete/macchina virtuale a cui appartiene l'indirizzo IP di origine nel flusso |
 | Subscription2_s | ID sottoscrizione | ID sottoscrizione della rete virtuale/interfaccia di rete/macchina virtuale a cui appartiene l'indirizzo IP di destinazione |
 | Region_s | Area di Azure della rete virtuale/interfaccia di rete/macchina virtuale a cui appartiene l'indirizzo IP nel flusso | Applicabile solo per i tipi di flusso FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow e UnknownPrivate (tipi di flusso in cui solo un lato è Azure) |
-| Region1_s | Area di Azure | Area di Azure della rete virtuale/interfaccia di rete/macchina virtuale a cui appartiene l'indirizzo IP di origine nel flusso |
-| Region2_s | Area di Azure | Area di Azure della rete virtuale a cui appartiene l'indirizzo IP di destinazione |
+| Region1_s | Regione Azure | Area di Azure della rete virtuale/interfaccia di rete/macchina virtuale a cui appartiene l'indirizzo IP di origine nel flusso |
+| Region2_s | Regione Azure | Area di Azure della rete virtuale a cui appartiene l'indirizzo IP di destinazione |
 | NIC_s | \<resourcegroup_Name >\/\<NetworkInterfaceName > |  SCHEDA di interfaccia di rete associata alla macchina virtuale che invia o riceve il traffico |
 | NIC1_s | < resourcegroup_Name >/\<NetworkInterfaceName > | SCHEDA di interfaccia di rete associata all'indirizzo IP di origine nel flusso |
 | NIC2_s | < resourcegroup_Name >/\<NetworkInterfaceName > | SCHEDA di interfaccia di rete associata all'indirizzo IP di destinazione nel flusso |
@@ -143,7 +143,7 @@ Di seguito sono elencati i campi dello schema e gli elementi che indicano
 | LocalNetworkGateway1_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | Gateway di rete locale associato all'indirizzo IP di origine nel flusso |
 | LocalNetworkGateway2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | Gateway di rete locale associato all'indirizzo IP di destinazione nel flusso |
 | ConnectionType_s | I valori possibili sono VNetPeering, VpnGateway e ExpressRoute |    Tipo di connessione |
-| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | Connection Name (Nome connessione) |
+| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | Nome della connessione. Per FlowType P2S, questo verrà formattato come <gateway name>_<VPN Client IP> |
 | ConnectingVNets_s | Elenco separato da spazi dei nomi delle reti virtuali | Nel caso della topologia hub-spoke, le reti virtuali dell'hub verranno popolate qui |
 | Country_s | Codice paese a due lettere (ISO 3166-1 Alpha-2) | Popolato per il tipo di flusso ExternalPublic. Tutti gli indirizzi IP nel campo PublicIPs_s condividono lo stesso codice paese |
 | AzureRegion_s | Località dell'area di Azure | Popolato per il tipo di flusso AzurePublic. Tutti gli indirizzi IP nel campo PublicIPs_s condividono l'area di Azure |
@@ -161,7 +161,7 @@ Di seguito sono elencati i campi dello schema e gli elementi che indicano
 | SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | Voci separate da barre |
 | DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES >\|\<INBOUND_BYTES > | Voci separate da barre |
 
-### <a name="notes"></a>note
+### <a name="notes"></a>Note
 
 1. Nel caso dei flussi AzurePublic e ExternalPublic, l'indirizzo IP della macchina virtuale di Azure di proprietà del cliente viene popolato in VMIP_s campo, mentre gli indirizzi IP pubblici vengono popolati nel campo PublicIPs_s. Per questi due tipi di flusso, è consigliabile usare VMIP_s e PublicIPs_s invece dei campi SrcIP_s e DestIP_s. Per gli indirizzi AzurePublic e ExternalPublicIP, si aggregano ulteriormente, in modo che il numero di record inseriti nell'area di lavoro di log Analytics del cliente sia minimo. Questo campo verrà presto deprecato e verrà usato SrcIP_ e DestIP_s a seconda che la macchina virtuale di Azure sia l'origine o la destinazione nel flusso.
 1. Dettagli per i tipi di flusso: in base agli indirizzi IP del flusso, i flussi vengono suddivisi in categorie nei tipi di flusso seguenti:
@@ -176,5 +176,5 @@ Di seguito sono elencati i campi dello schema e gli elementi che indicano
 1. Sconosciuto: non è possibile eseguire il mapping di uno degli indirizzi IP nei flussi con la topologia Customer in Azure e in locale (sito).
 1. Alcuni nomi di campo vengono aggiunti con \_s o \_d. NON indicano l'origine e la destinazione, ma indicano rispettivamente i tipi di dati String e Decimal.
 
-### <a name="next-steps"></a>Passaggi successivi
+### <a name="next-steps"></a>Fasi successive
 Per ottenere risposte alle domande frequenti, vedere domande [frequenti su analisi del traffico](traffic-analytics-faq.md) per visualizzare i dettagli sulle funzionalità, vedere la [documentazione di analisi del traffico](traffic-analytics.md)

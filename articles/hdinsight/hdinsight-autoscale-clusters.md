@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561756"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666036"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 > [!Important]
-> La funzionalità di scalabilità automatica funziona solo per i cluster Spark, hive e MapReduce creati dopo l'8 maggio 2019. 
+> La funzionalità di scalabilità automatica funziona solo per i cluster Spark, hive, LLAP e HBase creati dopo l'8 maggio 2019. 
 
 La funzionalità di scalabilità automatica del cluster di Azure HDInsight consente di ridimensionare automaticamente il numero di nodi del ruolo di lavoro in un cluster. Attualmente non è possibile ridimensionare altri tipi di nodi nel cluster.  Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. La scalabilità automatica monitora quindi i requisiti delle risorse del carico di analisi e ridimensiona il numero di nodi di lavoro verso l'alto o verso il basso. Non sono previsti costi aggiuntivi per questa funzionalità.
 

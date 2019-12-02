@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090809"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666427"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
 Questo articolo risponde alle domande comuni sulla migrazione di Archiviazione di Azure. 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 **Come si crea uno script per copiare i file da un contenitore a un altro?**
 
@@ -69,7 +69,7 @@ Dopo avere eseguito questo comando, i file contenitore vengono spostati nell'acc
 
 **Come si spostano i dati da un contenitore di archiviazione a un altro?**
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1.  Creare il contenitore (cartella) nel BLOB di destinazione.
 
@@ -83,7 +83,7 @@ Usare AzCopy per spostare i dati da una condivisione file di Azure a un'altra ri
 
 Usare AzCopy per caricare file CSV di grandi dimensioni in Archiviazione di Azure. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md) e [Trasferire dati con AzCopy in Linux](storage-use-azcopy-linux.md).
 
-**Ogni giorno si rende necessario spostare i log dall'unità D all'account di archiviazione di Azure. Come si automatizza questa operazione?**
+**È necessario spostare i log dall'unità D all'account di archiviazione di Azure ogni giorno. Ricerca per categorie automatizzare questa operazione?**
 
 È possibile usare AzCopy e creare un'attività nell'Utilità di pianificazione. Caricare i file in un account di archiviazione di Azure tramite uno script batch di AzCopy. Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](../../cloud-services/cloud-services-startup-tasks.md).
 
@@ -121,7 +121,7 @@ Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-u
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1.  Arrestare la macchina virtuale a cui è collegato il disco gestito.
 
@@ -202,7 +202,7 @@ Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con rid
 
 **Come si effettua il downgrade da un account di archiviazione Premium a un account di archiviazione Standard?**
 
-A tale scopo, seguire questa procedura:
+Seguire questa procedura:
 
 1.  Creare un account di archiviazione standard. In alternativa, usare un account di archiviazione standard esistente nella sottoscrizione.
 
@@ -229,7 +229,7 @@ Per verificare il corretto completamento del trasferimento, esaminare il conteni
 
 Non è consentito usare Archiviazione Premium in una condivisione file di Azure.
 
-**Come si esegue l'aggiornamento da un account di archiviazione Standard a un account di archiviazione Premium? Come si effettua il downgrade da un account di archiviazione Premium a un account di archiviazione Standard?**
+**Ricerca per categorie l'aggiornamento da un account di archiviazione standard a un account di archiviazione Premium? Ricerca per categorie effettuare il downgrade da un account di archiviazione Premium a un account di archiviazione standard?**
 
 È necessario creare l'account di archiviazione di destinazione, copiare i dati dall'account di origine a quello di destinazione e quindi eliminare l'account di origine. Per eseguire la copia dei dati, è possibile usare uno strumento come AzCopy.
 
@@ -237,7 +237,7 @@ Se si dispone di macchine virtuali, è necessario completare alcuni passaggi agg
 
 **Come si passa da un account di archiviazione classico a un account di archiviazione di Azure Resource Manager?**
 
-È possibile usare il cmdlet **Move-AzStorageAccount**. Questo cmdlet ha più passaggi (convalida, preparazione, commit). È possibile convalidare lo spostamento prima di eseguirlo.
+È possibile usare il cmdlet **Move-AzureStorageAccount**. Questo cmdlet ha più passaggi (convalida, preparazione, commit). È possibile convalidare lo spostamento prima di eseguirlo.
 
 Se si dispone di macchine virtuali, è necessario completare alcuni passaggi aggiuntivi prima di migrare i dati dell'account di archiviazione. Per altre informazioni, vedere [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -277,13 +277,13 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Usare uno dei metodi seguenti:  
       
-    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:  
+    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. ad esempio:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
-**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare in modo che\/"https:/mystorageaccountname.blob.Core.Windows.net/images/image.gif" venga visualizzato\/come "https:/www.contoso.com/images/image.gif"?**
+**Ricerca per categorie usare un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare in modo che "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" venga visualizzato come "https:\//www.contoso.com/images/image.gif"?**
 
 Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).
@@ -298,6 +298,6 @@ Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applic
 
  È possibile eseguire questa operazione tramite lo [script di migrazione per oggetti BLOB](../scripts/storage-common-transfer-between-storage-accounts.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

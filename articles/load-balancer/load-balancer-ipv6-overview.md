@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077015"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666206"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
 
@@ -37,7 +37,7 @@ L'immagine seguente illustra la funzionalità IPv6 per Azure Load Balancer.
 
 Dopo la distribuzione, un client Internet abilitato per IPv4 o IPv6 può comunicare con gli indirizzi (o nomi host) IPv4 o IPv6 pubblici dell'istanza di Azure Load Balancer con connessione Internet. Il servizio di bilanciamento del carico instrada i pacchetti IPv6 agli indirizzi IPv6 privati delle macchine virtuali tramite NAT (Network Address Translation). Il client Internet IPv6 non può comunicare direttamente con l'indirizzo IPv6 delle macchine virtuali.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 
 Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resource Manager offre:
 
@@ -78,7 +78,6 @@ Limitazioni
 * La modifica del parametro loadDistributionMethod per IPv6 **è attualmente non supportata**.
 * Gli indirizzi IP IPv6 riservati (dove IPAllocationMethod = statico) sono **attualmente non supportati**.
 * NAT64 (conversione di IPv6 in IPv4) non supportato.
-* I bilanciamenti del carico con SKU standard non supportano attualmente indirizzi IPv6.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

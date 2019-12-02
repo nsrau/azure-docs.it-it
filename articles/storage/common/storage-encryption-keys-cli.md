@@ -1,26 +1,26 @@
 ---
-title: Configurare chiavi gestite dal cliente per crittografia di archiviazione di Azure dall'interfaccia della riga di comando di Azure
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per configurare chiavi gestite dal cliente per la crittografia di archiviazione di Azure. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
+title: Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure-archiviazione di Azure
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per configurare chiavi gestite dal cliente con Azure Key Vault per la crittografia di archiviazione di Azure. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 18209816b5b73f58a8112efca0363b31dd47bd91
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: df65267924cfbfdc856b81928c4b6d7029f61184
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374282"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665968"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurare chiavi gestite dal cliente per crittografia di archiviazione di Azure dall'interfaccia della riga di comando di Azure
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Configurare chiavi gestite dal cliente per archiviazione di Azure usando l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando l'interfaccia della riga di comando di Azure.
+Questo articolo illustra come configurare un Azure Key Vault con chiavi gestite dal cliente usando l'interfaccia della riga di comando di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della](../../key-vault/quick-create-cli.md)
 
 > [!IMPORTANT]
 > L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede l'impostazione di due proprietà nell'insieme di credenziali delle chiavi, l' **eliminazione** **temporanea e l'eliminazione.** Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare PowerShell o l'interfaccia della riga di comando di Azure.

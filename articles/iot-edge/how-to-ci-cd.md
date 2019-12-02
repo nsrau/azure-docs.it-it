@@ -1,5 +1,5 @@
 ---
-title: Integrazione e distribuzione continue - Azure IoT Edge | Microsoft Docs
+title: Integrazione continua & distribuzione continua-Azure IoT Edge
 description: "Configurare l'integrazione e la distribuzione continue: Azure IoT Edge con DevOps di Azure, Azure Pipelines"
 author: shizn
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 85f77d1132af63681ee92cfd2bde82a71d8ed999
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 463de1f49ad8fd21c355395bec3a55d9d40474e6
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457236"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666359"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare le attività integrate Azure IoT Edge per Az
    - **Azure IOT Edge-genera manifesto di distribuzione** accetta un file Deployment. template. JSON e le variabili, quindi genera il file manifesto della distribuzione IOT Edge finale.
    - **Azure IOT Edge: la distribuzione nei dispositivi IOT Edge** consente di creare distribuzioni di IOT Edge a dispositivi IOT Edge singoli o multipli.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un repository Azure Repos. Se non se ne ha uno, è possibile [creare un nuovo repository Git nel progetto](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * Una soluzione IoT Edge di cui sia stato eseguito il commit e il push nel repository. Se si vuole creare una nuova soluzione di esempio per testare le procedure di questo articolo, seguire i passaggi descritti in [Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug](how-to-vs-code-develop-module.md) oppure [Usare Visual Studio 2017 per sviluppare ed eseguire il debug di moduli C# per Azure IoT Edge](how-to-visual-studio-develop-csharp-module.md).

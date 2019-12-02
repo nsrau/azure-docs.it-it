@@ -1,5 +1,5 @@
 ---
-title: Dichiarare moduli e route con i manifesti della distribuzione - Azure IoT Edge | Microsoft Docs
+title: Distribuire il modulo & Route con manifesti di distribuzione-Azure IoT Edge
 description: Informazioni su come un manifesto della distribuzione dichiara quali moduli distribuire, come distribuirli e come creare tra di loro route di messaggi.
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 935cdbf54360dc0e2a98936d9c589405040cd85d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 31a83d3edb1bc297fc53b089384ab940482e5b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457440"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665832"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Informazioni su come distribuire moduli e definire route in IoT Edge
 
@@ -134,7 +134,7 @@ Le route vengono dichiarate nelle proprietà desiderate di **$edgeHub** con la s
 Per ogni route è necessaria un'origine e un sink, mentre la condizione è un elemento facoltativo che è possibile usare per filtrare i messaggi. 
 
 
-### <a name="source"></a>Source
+### <a name="source"></a>Source (Sorgente)
 
 L'origine specifica da dove provengono i messaggi. IoT Edge possibile instradare i messaggi da moduli o dispositivi foglia. 
 
@@ -142,7 +142,7 @@ Usando gli SDK di Internet delle cose, i moduli possono dichiarare code di outpu
 
 La proprietà di origine può essere uno dei valori seguenti:
 
-| Source | DESCRIZIONE |
+| Source (Sorgente) | Description |
 | ------ | ----------- |
 | `/*` | Tutte le notifiche da dispositivo a cloud o dei dispositivi gemelli le notifiche da qualsiasi dispositivo foglia o modulo |
 | `/twinChangeNotifications` | Qualsiasi modifica gemella (proprietà segnalate) provenienti da qualsiasi dispositivo foglia o modulo |
@@ -176,7 +176,7 @@ Il sink definisce dove vengono inviati i messaggi. Solo i moduli e l'hub IoT pos
 
 La proprietà sink può essere uno dei valori seguenti:
 
-| Sink | DESCRIZIONE |
+| Sink | Description |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Inviare il messaggio a un input specifico di un modulo specifico |

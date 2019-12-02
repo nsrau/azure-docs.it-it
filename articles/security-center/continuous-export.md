@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cd26ed446ce676bcec85d8e413d3ec37ac236869
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521995"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665066"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Esportare avvisi e raccomandazioni sulla sicurezza (anteprima)
 
@@ -41,7 +41,7 @@ Con questi strumenti è possibile:
 
 1. Dall'area "Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**
 
 ## <a name="continuous-export-through-azure-event-hubs"></a>Esportazione continua tramite hub eventi di Azure  
 
@@ -73,6 +73,29 @@ Per eseguire l'esportazione nell'area di lavoro Log Analytics, è necessario che
 Gli avvisi di sicurezza e le raccomandazioni vengono archiviati rispettivamente nelle tabelle *SecurityAlert* e *SecurityRecommendations* . Il nome della soluzione Log Analytics contenente queste tabelle varia a seconda che si tratti del livello gratuito o standard (vedere [prezzi](security-center-pricing.md)): Security o SecurityCenterFree.
 
 ![La tabella * SecurityAlert * in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Visualizzare le raccomandazioni e gli avvisi di sicurezza esportati in monitoraggio di Azure
+
+In alcuni casi, è possibile scegliere di visualizzare gli avvisi di sicurezza e/o le raccomandazioni esportati in [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+
+Monitoraggio di Azure offre un'esperienza unificata per gli avvisi per un'ampia gamma di avvisi di Azure, tra cui log di diagnostica, avvisi sulle metriche e avvisi personalizzati basati sulle query Log Analytics area di lavoro.
+
+Per visualizzare gli avvisi e le raccomandazioni dal centro sicurezza in monitoraggio di Azure, configurare una regola di avviso basata su query Log Analytics (avviso log):
+
+1. Dalla pagina degli **avvisi** di monitoraggio di Azure fare clic su **nuova regola di avviso**.
+
+    ![Pagina degli avvisi di monitoraggio di Azure](./media/continuous-export/azure-monitor-alerts.png)
+
+1. Nella pagina Crea regola configurare la nuova regola, nello stesso modo in cui si configura una [regola di avviso del log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+
+    * Per **risorsa**selezionare l'area di lavoro log Analytics alla quale sono stati esportati gli avvisi di sicurezza e le raccomandazioni.
+
+    * In **condizione**selezionare **Ricerca log personalizzata**. Nella pagina visualizzata configurare la query, il periodo lookback e il periodo di frequenza. Nella query di ricerca è possibile digitare *SecurityAlert* o *SecurityRecommendation* per eseguire una query sui tipi di dati a cui il Centro sicurezza Esporta continuamente quando si Abilita l'esportazione continua in log Analytics funzionalità. 
+    
+    * Facoltativamente, configurare il [gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) che si vuole attivare. I gruppi di azioni possono attivare l'invio di posta elettronica, i ticket ITSM, i webhook e altro ancora.
+    ![regola di avviso di monitoraggio di Azure](./media/continuous-export/azure-monitor-alert-rule.png)
+
+Verranno ora visualizzati nuovi avvisi del Centro sicurezza di Azure o consigli (a seconda della configurazione) negli avvisi di monitoraggio di Azure, con attivazione automatica di un gruppo di azioni (se specificato).
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Esportazione manuale di avvisi di sicurezza
 

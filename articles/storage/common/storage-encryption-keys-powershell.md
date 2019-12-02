@@ -1,26 +1,26 @@
 ---
-title: Configurare chiavi gestite dal cliente per la crittografia di archiviazione di Azure da PowerShell
+title: Configurare chiavi gestite dal cliente con Azure Key Vault tramite PowerShell-archiviazione di Azure
 description: Informazioni su come usare PowerShell per configurare le chiavi gestite dal cliente per la crittografia di archiviazione di Azure. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249278"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666223"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurare chiavi gestite dal cliente per la crittografia di archiviazione di Azure da PowerShell
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Configurare chiavi gestite dal cliente per archiviazione di Azure tramite PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando PowerShell.
+Questo articolo illustra come configurare un Azure Key Vault con chiavi gestite dal cliente tramite PowerShell. Per informazioni su come creare un insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault usando PowerShell](../../key-vault/quick-create-powershell.md).
 
 > [!IMPORTANT]
 > L'uso delle chiavi gestite dal cliente con la crittografia di archiviazione di Azure richiede l'impostazione di due proprietà nell'insieme di credenziali delle chiavi, l' **eliminazione** **temporanea e l'eliminazione.** Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, usare PowerShell o l'interfaccia della riga di comando di Azure.
@@ -96,5 +96,5 @@ Quando si crea una nuova versione di una chiave, è necessario aggiornare l'acco
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
+- [Crittografia di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
 - [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

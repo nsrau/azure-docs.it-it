@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul centro sicurezza di Azure per il file di C# configurazione locale dell'agente per | Microsoft Docs
-description: Informazioni sul centro sicurezza di Azure per il file di configurazione C#locale di Agent per.
+title: Informazioni sul centro sicurezza di Azure per il file di configurazione locale C# dell'agente di sicurezza Internet per | Microsoft Docs
+description: Scopri di più sul centro sicurezza di Azure per il servizio di sicurezza di Internet delle cose, C#il file di configurazione locale dell'agente di sicurezza per
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cc7b9f0b6e537ca3bdcbb82a357b2f2b9451fab0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600631"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664195"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Informazioni sul file di configurazione localeC# (Agent)
 
@@ -39,7 +39,7 @@ I file di configurazione contengono la configurazione predefinita. La configuraz
 
 ## <a name="configuration-file-location"></a>Percorso del file di configurazione
 Per Linux:
-- I file di configurazione del sistema operativo `/var/ASCIoTAgent`si trovano in.
+- I file di configurazione del sistema operativo si trovano in `/var/ASCIoTAgent`.
 
 Per Windows:
 - I file di configurazione del sistema operativo si trovano all'interno della directory dell'agente sicurezza. 
@@ -49,10 +49,10 @@ Per Windows:
 | Nome configurazione | Valori possibili | Dettagli | 
 |:-----------|:---------------|:--------|
 | agentId | GUID | Identificatore univoco agente |
-| readRemoteConfigurationTimeout | TimeSpan | Periodo di tempo per il recupero della configurazione remota dall'hub Internet. Se l'agente non è in grado di recuperare la configurazione entro il tempo specificato, l'operazione si timeout.|
-| schedulerInterval | TimeSpan | Intervallo di pianificazione interno. |
-| producerInterval | TimeSpan | Intervallo di lavoro Producer di eventi. |
-| consumerInterval | TimeSpan | Intervallo di lavoro consumer evento. |
+| readRemoteConfigurationTimeout | Intervallo di tempo | Periodo di tempo per il recupero della configurazione remota dall'hub Internet. Se l'agente non è in grado di recuperare la configurazione entro il tempo specificato, l'operazione si timeout.|
+| schedulerInterval | Intervallo di tempo | Intervallo di pianificazione interno. |
+| producerInterval | Intervallo di tempo | Intervallo di lavoro Producer di eventi. |
+| consumerInterval | Intervallo di tempo | Intervallo di lavoro consumer evento. |
 | highPriorityQueueSizePercentage | 0 < numero < 1 | Parte della cache totale dedicata per i messaggi con priorità alta. |
 | logLevel | "Off", "Fatal", "Error", "Warning", "Information", "debug"  | I messaggi di log uguali e superiori a questa gravità vengono registrati nella console di debug (syslog in Linux). |
 | fileLogLevel |  "Off", "Fatal", "Error", "Warning", "Information", "debug"| I messaggi di log uguali e superiori a questa gravità vengono registrati nel file (syslog in Linux). |
@@ -86,8 +86,8 @@ Per Windows:
 | deviceId | string | ID del dispositivo, registrato nell'hub Azure. || schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
 | gatewayHostname | string | Nome host dell'hub Azure. In genere < > My-Hub. Azure-devices.net |
 | filePath | stringa-percorso del file | Percorso del file che contiene il segreto di autenticazione.|
-| type | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere il *certificato* autofirmato se il segreto è un certificato autofirmato. |
-| identity | "DPS", "Module", "Device" | Identity di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, modulo se l'autenticazione viene eseguita usando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita usando le credenziali del dispositivo.
+| type | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere il *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
+| identità | "DPS", "Module", "Device" | Identity di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, modulo se l'autenticazione viene eseguita usando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita usando le credenziali del dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se il certificato è archiviato in un file, archiviare se il certificato si trova in un archivio certificati. |
 | idScope | string | Ambito ID di DPS |
 | registrationId | string  | ID registrazione dispositivo DPS. |

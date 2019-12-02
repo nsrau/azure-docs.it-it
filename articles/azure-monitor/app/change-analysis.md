@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885022"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665358"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -53,7 +53,7 @@ Le modifiche alle dipendenze delle risorse possono causare problemi anche in un'
 Attualmente sono supportate le dipendenze seguenti:
 - App Web
 - Archiviazione di Azure
-- SQL di Azure
+- Azure SQL
 
 ### <a name="enablement"></a>Abilitazione
 Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette la diagnostica dell'app Web e si risolvono i problemi o si apre il pannello autonomo di analisi delle modifiche, questo provider di risorse viene registrato automaticamente. Non sono disponibili implementazioni per le prestazioni e i costi per la sottoscrizione.
@@ -102,7 +102,7 @@ In monitoraggio di Azure, l'analisi delle modifiche è incorporata anche nell'es
 
    ![Screenshot delle opzioni "arresti anomali dell'applicazione"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Attivare l' **analisi delle modifiche** e selezionare **Salva**. Lo strumento Visualizza tutte le app Web in un piano di servizi app. È possibile usare l'opzione livello piano per attivare l'analisi delle modifiche per tutte le app Web in un piano.
+1. Attivare l' **analisi delle modifiche** e selezionare **Salva**. Lo strumento Visualizza tutte le app Web in un piano di servizio app. È possibile usare l'opzione livello piano per attivare l'analisi delle modifiche per tutte le app Web in un piano.
 
     ![Screenshot dell'interfaccia utente "Enable Change Analysis"](./media/change-analysis/change-analysis-on.png)
 

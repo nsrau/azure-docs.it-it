@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla protezione di dispositivi e software con il gestore sicurezza - Azure IoT Edge | Microsoft Docs
+title: Gestione sicurezza Azure IoT Edge-Azure IoT Edge
 description: Gestisce la strategia di sicurezza dei dispositivi IoT Edge e l'integrità dei servizi di sicurezza.
 services: iot-edge
 keywords: sicurezza, elemento protetto, enclave, TEE, IoT Edge
@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457524"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666070"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestore sicurezza di Azure IoT Edge
 
@@ -77,7 +77,7 @@ Il daemon di sicurezza IoT Edge sfrutta qualsiasi radice hardware disponibile de
 
 L'interfaccia cloud consente al daemon di sicurezza IoT Edge di accedere ai servizi cloud, ad esempio i complimenti del cloud alla sicurezza del dispositivo come il rinnovo della sicurezza.  Ad esempio, il daemon di sicurezza di IoT Edge usa attualmente questa interfaccia per accedere al [servizio Device provisioning](https://docs.microsoft.com/azure/iot-dps/) in hub Azure Azure per la gestione del ciclo di vita delle identità dei dispositivi.  
 
-#### <a name="management-api"></a>API di gestione
+#### <a name="management-api"></a>API Gestione
 
 IoT Edge daemon Security offre un'API di gestione, chiamata dall'agente IoT Edge durante la creazione, l'avvio, l'arresto e la rimozione di un modulo di IoT Edge. Il daemon di sicurezza archivia le "registrazioni" per tutti i moduli attivi. Queste registrazioni eseguono il mapping dell'identità di un modulo ad alcune proprietà del modulo. Alcuni esempi di queste proprietà sono l'identificatore di processo (PID) del processo in esecuzione nel contenitore o l'hash del contenuto del contenitore Docker.
 

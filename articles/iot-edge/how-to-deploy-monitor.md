@@ -1,5 +1,5 @@
 ---
-title: Creare distribuzioni automatiche dal portale di Azure - Azure IoT Edge | Microsoft Docs
+title: Distribuire moduli su larga scala in portale di Azure-Azure IoT Edge
 description: Usare il portale di Azure per creare distribuzioni automatiche per gruppi di dispositivi IoT Edge
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 068845bf8cda7ce6abf11eefad0ed176688b34c5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457358"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665849"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -91,7 +91,7 @@ Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti
 
 ### <a name="step-3-specify-routes-optional"></a>Passaggio 3: Specificare le route (facoltativo)
 
-Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come **FROM /* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
+Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come **FROM /\* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
 
 Aggiungere o aggiornare le route con le informazioni riportate in [Dichiarare le route](module-composition.md#declare-routes) e quindi scegliere **Avanti** per proseguire con la sezione di verifica.
 
@@ -103,7 +103,7 @@ Le metriche forniscono i conteggi di riepilogo dei diversi stati che un disposit
 
 1. Immettere una query per **Metric Criteria** (Criteri metrica). La query è basata sulle [proprietà segnalate](module-edgeagent-edgehub.md#edgehub-reported-properties) del modulo gemello hub di IoT Edge. La metrica rappresenta il numero di righe restituite dalla query.
 
-   Ad esempio:
+   ad esempio:
 
    ```sql
    SELECT deviceId FROM devices

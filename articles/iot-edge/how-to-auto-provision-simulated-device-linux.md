@@ -1,5 +1,5 @@
 ---
-title: Eseguire automaticamente il provisioning dei dispositivi Linux con DPS-Azure IoT Edge | Microsoft Docs
+title: Eseguire il provisioning di un dispositivo con un TPM virtuale in una VM Linux-Azure IoT Edge
 description: Usare un TPM simulato in una macchina virtuale Linux per testare il servizio Device Provisioning di Azure per Azure IoT Edge
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 292ae570d4f2ddd0c09e667860ee2ba01b9fc6b8
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8f664a2c503367410507ccba3bc9078d34acbe17
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457180"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666342"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM virtuale in una macchina virtuale Linux
 
@@ -34,7 +34,7 @@ Questo articolo illustra come testare il provisioning automatico in un dispositi
 >
 > Se si usa un dispositivo fisico, è possibile passare alla sezione recuperare le [informazioni di provisioning da un dispositivo fisico](#retrieve-provisioning-information-from-a-physical-device) in questo articolo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un computer di sviluppo Windows con [Hyper-V abilitato](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Questo articolo usa Windows 10 in cui è in esecuzione una macchina virtuale Ubuntu Server.
 * Un hub IoT attivo.
@@ -54,21 +54,21 @@ Un commutatore virtuale consente alla macchina virtuale di connettersi a una ret
 
 3. Scegliere un commutatore virtuale **esterno**, quindi selezionare **Crea commutatore virtuale**. 
 
-4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che Tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
+4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che il tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
 
 5. Un elemento pop-up avvisa l'utente che la connettività di rete potrebbe essere interrotta. Selezionare **Yes** (Sì) per continuare. 
 
 Se si verificano errori in fase di creazione del nuovo commutatore virtuale, assicurarsi che nessun altro commutatore stia usando l'adattatore Ethernet e che nessun altro commutatore usi lo stesso nome. 
 
-### <a name="create-virtual-machine"></a>Creare una macchina virtuale
+### <a name="create-virtual-machine"></a>Crea macchina virtuale
 
 1. Scaricare un file di immagine del disco da usare per la macchina virtuale e salvarlo in locale. Esempio: [Ubuntu Server](https://www.ubuntu.com/download/server). 
 
 2. Nella console di gestione di Hyper-V selezionare **nuovo** > **macchina virtuale** dal menu **azioni** .
 
-3. Completare la **procedura guidata per la creazione della nuova macchina virtuale** con le configurazioni specifiche seguenti:
+3. Completare la **Creazione guidata macchina virtuale** con le configurazioni specifiche seguenti:
 
-   1. **Specifica generazione**: selezionare **Generazione 2**. Per le macchine virtuali di seconda generazione è abilitata la virtualizzazione nidificata, necessaria per eseguire IoT Edge in una macchina virtuale.
+   1. **Impostazione generazione**: selezionare **Generazione 2**. Per le macchine virtuali di seconda generazione è abilitata la virtualizzazione nidificata, necessaria per eseguire IoT Edge in una macchina virtuale.
    2. **Configura rete**: impostare il valore di **Connessione** sul commutatore virtuale creato nella sezione precedente. 
    3. **Opzioni di installazione**: selezionare **Installa un sistema operativo da un file immagine di avvio** e individuare il file di immagine del disco che è stato salvato in locale.
 
@@ -86,7 +86,7 @@ Una volta creata la macchina virtuale, aprire le impostazioni per abilitare il m
 
 3. Deselezionare l'opzione **Abilita avvio protetto**.
 
-4. Selezionare **Enable Trusted Platform Module** (Abilita Trusted Platform Module). 
+4. Selezionare **Abilita Trusted Platform Module**. 
 
 5. Fare clic su **OK**.  
 
@@ -176,7 +176,7 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
    5. Se si desidera, specificare un ID per il dispositivo. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non si specifica un ID dispositivo, viene usato l'ID di registrazione.
 
-   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Ad esempio: 
+   6. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. ad esempio: 
 
       ```json
       {

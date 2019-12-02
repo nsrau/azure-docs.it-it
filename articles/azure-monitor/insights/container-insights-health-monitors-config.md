@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279702"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664948"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guida alla configurazione di monitoraggio integrità dei contenitori di monitoraggio di Azure
 
@@ -35,7 +35,7 @@ L'integrità complessiva di un determinato oggetto è determinata dall'integrit�
 
 ## <a name="types-of-monitors"></a>Tipi di monitoraggi
 
-|Monitoraggio | DESCRIZIONE | 
+|Monitorare | Description | 
 |--------|-------------|
 | Monitoraggio unità |Un monitoraggio unità misura alcuni aspetti di una risorsa o di un'applicazione. Questo potrebbe controllare un contatore delle prestazioni per determinare le prestazioni della risorsa o la relativa disponibilità. |
 |Monitoraggio aggregato | I monitoraggi aggregati raggruppano più monitoraggi per fornire un unico stato di integrità aggregato. I monitoraggi unità vengono in genere configurati in un determinato monitoraggio aggregato. Un monitoraggio aggregato dei nodi, ad esempio, esegue il rollup dello stato del nodo utilizzo CPU, utilizzo memoria e stato nodo.
@@ -82,8 +82,8 @@ Il monitoraggio di Azure per i contenitori include diversi scenari di monitoragg
 |Nodi (padre del pool di nodi) |Si tratta di un monitoraggio aggregato di tutti i pool di nodi. Il suo stato è basato sullo stato peggiore dei monitoraggi figlio (ovvero i pool di nodi presenti nel cluster). |Peggiore di |
 |Cluster (elemento padre dei nodi/<br> Infrastruttura Kubernetes |Si tratta del monitoraggio padre che corrisponde allo stato del monitoraggio figlio con lo stato di integrità peggiore, ovvero l'infrastruttura kubernetes e i nodi. |Peggiore di |
 |Infrastruttura Kubernetes |Questo monitoraggio segnala lo stato di integrità combinato dei componenti dell'infrastruttura gestita del cluster. il suo stato viene calcolato come il ' peggiore di ' dei propri stati di monitoraggio figlio, ad esempio i carichi di lavoro del sistema e il server API. |Peggiore di|
-|Carico di lavoro di sistema |Questo monitoraggio segnala lo stato di integrità di un carico di lavoro Kube-System. Questo monitoraggio corrisponde allo stato del monitoraggio figlio con lo stato di integrità peggiore, ovvero i **Pod nel monitoraggio stato pronto** e i contenitori nel carico di lavoro. |Peggiore di |
-|Contenitore: |Questo monitoraggio segnala lo stato di integrità generale di un contenitore in un determinato carico di lavoro. Questo monitoraggio corrisponde allo stato del monitoraggio figlio con lo stato di integrità peggiore, ovvero i monitoraggi **utilizzo CPU** e **utilizzo memoria** . |Peggiore di |
+|Carico di lavoro di sistema |Questo monitoraggio segnala lo stato di integrità di un carico di lavoro Kube-System. Questo monitoraggio corrisponde allo stato del monitoraggio figlio con lo stato di integrità peggiore, ovvero i **Pod nello stato pronto** (monitoraggio e contenitori nel carico di lavoro). |Peggiore di |
+|Contenitore |Questo monitoraggio segnala lo stato di integrità generale di un contenitore in un determinato carico di lavoro. Questo monitoraggio corrisponde allo stato del monitoraggio figlio con lo stato di integrità peggiore, ovvero i monitoraggi **utilizzo CPU** e **utilizzo memoria** . |Peggiore di |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

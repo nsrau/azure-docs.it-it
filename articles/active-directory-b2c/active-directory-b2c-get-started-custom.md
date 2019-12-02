@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 411710280a631d341adeb55bc4b587a613ee3c4c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643629"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664064"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -33,8 +33,8 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Usare il filtro **directory + sottoscrizione** nel menu in alto per selezionare la directory che contiene il tenant del Azure ad B2C.
-1. Nel menu a sinistra selezionare **Azure ad B2C**. In alternativa, selezionare **tutti i servizi** e cercare e selezionare **Azure ad B2C**.
-1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Nella pagina Panoramica selezionare **Framework esperienza di identità** dal riquadro **criteri** .
 
 ### <a name="create-the-signing-key"></a>Creazione della chiave di firma
 
@@ -43,7 +43,7 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 1. In **Nome** immettere `TokenSigningKeyContainer`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
 1. Per **Uso chiave** selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-encryption-key"></a>Creazione della chiave di crittografia
 
@@ -52,7 +52,7 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 1. In **Nome** immettere `TokenEncryptionKeyContainer`. È possibile che il prefisso `B2C_1A`_ venga aggiunto automaticamente.
 1. Per **Tipo di chiave** selezionare **RSA**.
 1. In **Uso chiave**selezionare **Crittografia**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="create-the-facebook-key"></a>Creazione della chiave Facebook
 
@@ -63,7 +63,7 @@ Aggiungere il [segreto dell'app](active-directory-b2c-setup-fb-app.md) di Facebo
 1. Per **Nome** immettere `FacebookSecret`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. In **segreto**immettere il *segreto dell'app* di Facebook da Developers.Facebook.com. Questo valore è il segreto, non l'ID applicazione.
 1. Per **Uso chiave** selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrare le applicazioni del framework dell'esperienza di gestione delle identità
 
@@ -73,7 +73,7 @@ Azure AD B2C richiede di registrare due applicazioni che usa per iscriversi e ac
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrare l'applicazione IdentityExperienceFramework
 
-Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza di **applicazioni** corrente o la nuova esperienza di **registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
+Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'esperienza **Applicazioni** corrente o la nuova esperienza **Registrazioni app (anteprima)** unificata. [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
 
@@ -85,26 +85,26 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare l'
 1. Per **Nome** immettere `IdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **App Web/API**.
 1. Per **URL di accesso** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il nome di dominio del tenant di Azure AD B2C. Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
-1. Selezionare **Crea**. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Selezionare **Create** (Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
-1. Selezionare **registrazioni app (anteprima)** , quindi selezionare **nuova registrazione**.
+1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Per **Nome** immettere `IdentityExperienceFramework`.
 1. In **tipi di account supportati**selezionare **account solo in questa directory aziendale**.
 1. In **URI di reindirizzamento**selezionare **Web**, quindi immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il nome di dominio Azure ad B2C tenant.
-1. In **autorizzazioni**selezionare la casella *di controllo Concedi il consenso dell'amministratore per le autorizzazioni OpenID e offline_access* .
+1. In **Autorizzazioni**, selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access*.
 1. Selezionare **Registra**.
-1. Registrare l' **ID dell'applicazione (client)** per l'uso in un passaggio successivo.
+1. Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 
 Esporre quindi l'API aggiungendo un ambito:
 
-1. In **Gestisci**selezionare **esporre un'API**.
+1. In **Gestisci** selezionare **Esponi un'API**.
 1. Selezionare **Aggiungi un ambito**, quindi selezionare **Salva e continua** per accettare l'URI dell'ID applicazione predefinito.
 1. Immettere i valori seguenti per creare un ambito che consenta l'esecuzione di criteri personalizzati nel tenant di Azure AD B2C:
     * **Nome ambito**: `user_impersonation`
-    * **Nome visualizzato del consenso dell'amministratore**: `Access IdentityExperienceFramework`
-    * **Descrizione del consenso dell'amministratore**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+    * **Nome visualizzato per il consenso amministratore**: `Access IdentityExperienceFramework`
+    * **Descrizione del consenso amministratore**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
 1. Selezionare **Aggiungi ambito**
 
 * * *
@@ -117,7 +117,7 @@ Esporre quindi l'API aggiungendo un ambito:
 1. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
 1. Per **Tipo di applicazione** scegliere **Nativo**.
 1. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il tenant di Azure AD B2C.
-1. Selezionare **Crea**. Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
+1. Selezionare **Create** (Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 1. Selezionare **Impostazioni**, quindi fare clic su **autorizzazioni necessarie**e quindi selezionare **Aggiungi**.
 1. Scegliere **selezionare un'API**, cercare e selezionare **IdentityExperienceFramework**e quindi fare clic su **Seleziona**.
 1. Selezionare la casella di controllo accanto a **Accesso a IdentityExperienceFramework**, fare clic su **Seleziona** e quindi su **Operazione completata**.
@@ -125,33 +125,33 @@ Esporre quindi l'API aggiungendo un ambito:
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
-1. Selezionare **registrazioni app (anteprima)** , quindi selezionare **nuova registrazione**.
+1. Selezionare **Registrazioni app (anteprima)** e quindi **Nuova registrazione**.
 1. Per **Nome** immettere `ProxyIdentityExperienceFramework`.
 1. In **tipi di account supportati**selezionare **account solo in questa directory aziendale**.
-1. In **URI di reindirizzamento**usare l'elenco a discesa per selezionare **client pubblico/nativo (Mobile & desktop)** .
+1. In **URI di reindirizzamento** usare l'elenco a discesa per selezionare **Client pubblico/nativo (per dispositivi mobili e desktop)** .
 1. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `your-tenant-name` è il tenant di Azure AD B2C.
-1. In **autorizzazioni**selezionare la casella *di controllo Concedi il consenso dell'amministratore per le autorizzazioni OpenID e offline_access* .
+1. In **Autorizzazioni**, selezionare la casella di controllo *Concedere il consenso amministratore alle autorizzazioni OpenID e offline_access*.
 1. Selezionare **Registra**.
-1. Registrare l' **ID dell'applicazione (client)** per l'uso in un passaggio successivo.
+1. Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 
 Specificare quindi che l'applicazione deve essere considerata come un client pubblico:
 
-1. In **Gestisci**selezionare **autenticazione**.
-1. Selezionare **prova la nuova esperienza** (se visualizzata).
+1. In **Gestisci** selezionare **Autenticazione**.
+1. Selezionare **Prova la nuova esperienza** (se visualizzato).
 1. In **Impostazioni avanzate**abilitare **considera applicazione come client pubblico** (selezionare **Sì**).
 1. Selezionare **Salva**.
 
 A questo punto, concedere le autorizzazioni all'ambito dell'API esposto in precedenza nella registrazione di *IdentityExperienceFramework* :
 
 1. In **Gestisci** selezionare **Autorizzazioni API**.
-1. In **autorizzazioni configurate**selezionare **Aggiungi un'autorizzazione**.
+1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
 1. Selezionare la scheda **API personali** , quindi selezionare l'applicazione **IdentityExperienceFramework** .
 1. In **autorizzazione**selezionare l'ambito **user_impersonation** definito in precedenza.
-1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere al passaggio successivo.
-1. Selezionare **concedi il consenso dell'amministratore per (nome del tenant)** .
-1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui è stato assegnato almeno il ruolo di *amministratore dell'applicazione cloud* .
+1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
+1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
+1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
 1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato** per entrambi gli ambiti. Potrebbero essere necessari alcuni minuti per la propagazione delle autorizzazioni.
+1. Selezionare **Aggiorna** e quindi verificare che il testo "Concesso per" sia visualizzato in **Stato** per entrambi gli ambiti. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
 
 * * *
 

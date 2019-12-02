@@ -1,5 +1,5 @@
 ---
-title: Informazioni di riferimento sulle proprietà desiderate EdgeAgent ed EdgeHub - Azure IoT Edge | Microsoft Docs
+title: Proprietà dei dispositivi gemelli dell'agente e del modulo Hub-Azure IoT Edge
 description: Esaminare le proprietà specifiche e i rispettivi valori per i moduli gemelli edgeAgent ed edgeHub
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1ab45a6bde9ead69a7ea23dd095de84b8ff01334
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 731c51894126a6de75c9fc25e4e7bdb3dfa4dd03
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456696"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665798"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Proprietà dei moduli gemelli "agente di IoT Edge" e "hub di IoT Edge"
 
@@ -31,31 +31,31 @@ Un modulo gemello include:
 
 Il dispositivo gemello del modulo per l'agente di IoT Edge è denominato `$edgeAgent` e coordina le comunicazioni tra l'agente di IoT Edge in esecuzione su un dispositivo e l'hub IoT. Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. 
 
-| Proprietà | DESCRIZIONE | obbligatori |
+| Proprietà | Description | Obbligatoria |
 | -------- | ----------- | -------- |
-| schemaVersion | Deve essere "1.0" | Sì |
-| runtime.type | Deve essere "docker" | Sì |
-| runtime.settings.minDockerVersion | Impostata sulla versione minima di Docker richiesta da questo manifesto della distribuzione | Sì |
+| schemaVersion | Deve essere "1.0" | SÌ |
+| runtime.type | Deve essere "docker" | SÌ |
+| runtime.settings.minDockerVersion | Impostata sulla versione minima di Docker richiesta da questo manifesto della distribuzione | SÌ |
 | runtime.settings.loggingOptions | Un file JSON in formato stringa contenente le opzioni di registrazione per il contenitore dell'agente di IoT Edge. [Opzioni di registrazione di Docker](https://docs.docker.com/engine/admin/logging/overview/) | No |
 | runtime.settings.registryCredentials<br>.{registryId}.username | Nome utente del registro contenitori. Per Registro Azure Container, il nome utente corrisponde in genere al nome del registro.<br><br> Le credenziali del registro sono necessarie per tutte le immagini di modulo che non sono pubbliche. | No |
 | runtime.settings.registryCredentials<br>.{registryId}.password | Password del registro contenitori. | No |
 | runtime.settings.registryCredentials<br>.{registryId}.address | Indirizzo del registro contenitori. Per Registro Azure Container, l'indirizzo è in genere *{nome registro}.azurecr.io*. | No |  
-| systemModules.edgeAgent.type | Deve essere "docker" | Sì |
-| systemModules.edgeAgent.settings.image | URI dell'immagine dell'agente di IoT Edge. Al momento, l'agente di IoT Edge non è in grado di aggiornarsi automaticamente. | Sì |
+| systemModules.edgeAgent.type | Deve essere "docker" | SÌ |
+| systemModules.edgeAgent.settings.image | URI dell'immagine dell'agente di IoT Edge. Al momento, l'agente di IoT Edge non è in grado di aggiornarsi automaticamente. | SÌ |
 | systemModules.edgeAgent.settings<br>.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore dell'agente di IoT Edge. [Opzioni di creazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeAgent.configuration.id | ID della distribuzione che ha distribuito questo modulo. | L'hub IoT imposta questa proprietà quando il manifesto viene applicato tramite una distribuzione. Non fa parte di un manifesto della distribuzione. |
-| systemModules.edgeHub.type | Deve essere "docker" | Sì |
-| systemModules.edgeHub.status | Deve essere "running" | Sì |
-| systemModules.edgeHub.restartPolicy | Deve essere "always" | Sì |
-| systemModules.edgeHub.settings.image | URI dell'immagine dell'hub di IoT Edge. | Sì |
+| systemModules.edgeHub.type | Deve essere "docker" | SÌ |
+| systemModules.edgeHub.status | Deve essere "running" | SÌ |
+| systemModules.edgeHub.restartPolicy | Deve essere "always" | SÌ |
+| systemModules.edgeHub.settings.image | URI dell'immagine dell'hub di IoT Edge. | SÌ |
 | systemModules.edgeHub.settings<br>.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore dell'hub di IoT Edge. [Opzioni di creazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | systemModules.edgeHub.configuration.id | ID della distribuzione che ha distribuito questo modulo. | L'hub IoT imposta questa proprietà quando il manifesto viene applicato tramite una distribuzione. Non fa parte di un manifesto della distribuzione. |
-| modules.{moduleId}.version | Una stringa definita dall'utente che rappresenta la versione di questo modulo. | Sì |
-| modules.{moduleId}.type | Deve essere "docker" | Sì |
-| modules.{moduleId}.status | {"running" \| "stopped"} | Sì |
-| modules.{moduleId}.restartPolicy | {"Never" \| "on-failure" \| "on-unhealthy" \| "Always"} | Sì |
+| modules.{moduleId}.version | Una stringa definita dall'utente che rappresenta la versione di questo modulo. | SÌ |
+| modules.{moduleId}.type | Deve essere "docker" | SÌ |
+| modules.{moduleId}.status | {"running" \| "stopped"} | SÌ |
+| modules.{moduleId}.restartPolicy | {"Never" \| "on-failure" \| "on-unhealthy" \| "Always"} | SÌ |
 | moduli. {moduleId}. imagePullPolicy | {"on-create" \| "Never"} | No |
-| modules.{moduleId}.settings.image | URI dell'immagine del modulo. | Sì |
+| modules.{moduleId}.settings.image | URI dell'immagine del modulo. | SÌ |
 | modules.{moduleId}.settings.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore del modulo. [Opzioni di creazione di Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | modules.{moduleId}.configuration.id | ID della distribuzione che ha distribuito questo modulo. | L'hub IoT imposta questa proprietà quando il manifesto viene applicato tramite una distribuzione. Non fa parte di un manifesto della distribuzione. |
 
@@ -74,7 +74,7 @@ Queste ultime informazioni, una copia delle proprietà desiderate correnti, sono
 
 La tabella seguente non include le informazioni copiate dalle proprietà desiderate.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Questo integer si riferisce all'ultima versione delle proprietà desiderate elaborate dall'agente di IoT Edge. |
 | lastDesiredStatus.code | Questo codice di stato fa riferimento alle ultime proprietà desiderate visualizzate dall'agente IoT Edge. Valori consentiti: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
@@ -104,15 +104,15 @@ La tabella seguente non include le informazioni copiate dalle proprietà desider
 
 Il dispositivo gemello del modulo per l'hub di IoT Edge è denominato `$edgeHub` e coordina le comunicazioni tra l'hub di IoT Edge in esecuzione su un dispositivo e l'hub IoT. Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. 
 
-| Proprietà | DESCRIZIONE | Obbligatoria nel manifesto della distribuzione |
+| Proprietà | Description | Obbligatoria nel manifesto della distribuzione |
 | -------- | ----------- | -------- |
-| schemaVersion | Deve essere "1.0" | Sì |
+| schemaVersion | Deve essere "1.0" | SÌ |
 | routes.{routeName} | Stringa che rappresenta una route dell'hub di IoT Edge. Per altre informazioni, vedere [Declare Routes](module-composition.md#declare-routes). | L'elemento `routes` può essere presente, ma vuoto. |
-| storeAndForwardConfiguration.timeToLiveSecs | Tempo in secondi durante il quale l'hub IoT Edge mantiene i messaggi in caso di disconnessione dagli endpoint di routing, sia che si tratti di un modulo locale o dell'hub. Il valore può essere qualsiasi numero intero positivo. | Sì |
+| storeAndForwardConfiguration.timeToLiveSecs | Tempo in secondi durante il quale l'hub IoT Edge mantiene i messaggi in caso di disconnessione dagli endpoint di routing, sia che si tratti di un modulo locale o dell'hub. Il valore può essere qualsiasi numero intero positivo. | SÌ |
 
 ## <a name="edgehub-reported-properties"></a>Proprietà segnalate di EdgeHub
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Questo integer si riferisce all'ultima versione delle proprietà desiderate elaborate dall'hub di IoT Edge. |
 | lastDesiredStatus.code | Codice di stato che fa riferimento alle ultime proprietà desiderate visualizzate dall'hub IoT Edge. Valori consentiti: `200` Success, `400` Invalid configuration, `500` Failed |

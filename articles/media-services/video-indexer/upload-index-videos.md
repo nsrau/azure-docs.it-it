@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/29/2019
 ms.author: juliako
-ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d06be1b5301889a1fcb8ff1390d8618bbb88c03f
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839150"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666478"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -31,7 +31,7 @@ Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustr
 
 ## <a name="uploading-considerations-and-limitations"></a>Caricamento di considerazioni e limitazioni
  
-- Il nome del video non deve contenere più di 80 caratteri.
+- Il nome del video non può contenere più di 80 caratteri.
 - Quando si carica il video in base all'URL (scelta consigliata), l'endpoint deve essere protetto con TLS 1,2 (o versione successiva).
 - Le dimensioni di caricamento con l'opzione URL sono limitate a 30 GB.
 - La lunghezza dell'URL della richiesta è limitata a 6144 caratteri, in cui la lunghezza dell'URL della stringa di query è limitata a 4096 caratteri.
@@ -61,15 +61,15 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |Name|Descrizione|
+        |name|Description|
         |---|---|
         |id|ID video|
         |state|Lo stato del video|  
     - Esempio: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificata nel video:
-  - Proprietà
+  - properties
     
-      |Name|Descrizione|
+      |name|Description|
       |---|---|
       |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
@@ -87,9 +87,10 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 
 Usare questo parametro se registrazioni non elaborate o esterne contengono rumore di fondo. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
 
-- `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
 - `AudioOnly`: indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando il video)
+- `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
 - `DefaultWithNoiseReduction`: indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando gli algoritmi di riduzione del rumore al flusso audio
+- `VideoOnly`-indicizzare ed estrarre informazioni dettagliate solo con video 
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
@@ -285,7 +286,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
+|Codice di stato|ErrorType (nel corpo della risposta)|Description|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

@@ -1,5 +1,5 @@
 ---
-title: Eseguire automaticamente il provisioning dei dispositivi con DPS usando l'attestazione della chiave simmetrica-Azure IoT Edge | Microsoft Docs
+title: Eseguire il provisioning del dispositivo tramite l'attestazione della chiave simmetrica-Azure IoT Edge
 description: Usare l'attestazione della chiave simmetrica per testare il provisioning automatico dei dispositivi per Azure IoT Edge con il servizio Device provisioning
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828070"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666325"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -80,9 +80,9 @@ Quando si crea una registrazione nel servizio Device Provisioning, si ha la poss
 
    1. Scegliere l'**hub IoT** collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   1. Scegliere il modo in cui **si vogliono gestire i dati del dispositivo** durante il nuovo provisioning quando i dispositivi richiedono il provisioning dopo la prima volta.
+   1. Scegliere il modo in cui **si vogliono gestire i dati del dispositivo durante il nuovo provisioning** quando i dispositivi richiedono il provisioning dopo la prima volta.
 
-   1. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. Esempio:
+   1. Aggiungere un valore di tag allo **stato dispositivo gemello iniziale**, se si desidera. È possibile usare tag per identificare come destinazione gruppi di dispositivi per la distribuzione di moduli. ad esempio:
 
       ```json
       {
@@ -114,7 +114,7 @@ Non includere la chiave primaria o secondaria della registrazione nel codice del
 
 Se si usa una workstation di Linux, è possibile usare openssl per generare la chiave di dispositivo derivata come illustrato nell'esempio seguente.
 
-Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
+Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
 
 Sostituire il valore di **REG_ID** con l'ID registrazione del dispositivo.
 
@@ -134,7 +134,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 Se si usan una workstation basata su Windows, è possibile usare PowerShell per generare le chiavi di dispositivo derivate come illustrato nell'esempio seguente.
 
-Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
+Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
 
 Sostituire il valore di **REG_ID** con l'ID registrazione del dispositivo.
 
@@ -186,7 +186,7 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-Sostituire i valori segnaposto `{scope_id}`per `{registration_id}`, e `{symmetric_key}` con i dati raccolti in precedenza.
+Sostituire i valori segnaposto per `{scope_id}`, `{registration_id}`e `{symmetric_key}` con i dati raccolti in precedenza.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
@@ -207,7 +207,7 @@ Per informazioni più dettagliate sull'installazione di IoT Edge in Windows, inc
 
 1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale con i contenitori di Windows a meno che non si usi il flag `-Dps` per usare il provisioning automatico.
 
-   Sostituire i valori segnaposto `{scope_id}`per `{registration_id}`, e `{symmetric_key}` con i dati raccolti in precedenza.
+   Sostituire i valori segnaposto per `{scope_id}`, `{registration_id}`e `{symmetric_key}` con i dati raccolti in precedenza.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

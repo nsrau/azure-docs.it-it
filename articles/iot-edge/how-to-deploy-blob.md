@@ -1,5 +1,5 @@
 ---
-title: Distribuire il modulo di archiviazione BLOB di Azure nei dispositivi-Azure IoT Edge | Microsoft Docs
+title: "Distribuire l'archiviazione BLOB nel modulo nel dispositivo: Azure IoT Edge"
 description: Distribuire un modulo di archiviazione BLOB di Azure al dispositivo IoT Edge per archiviare i dati nei dispositivi perimetrali.
 author: arduppal
 ms.author: arduppal
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: e5241e078cd8d36a9e43b4b55a649c1e24c85345
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b89532038b00e28eb7c43232683349652af6bc3f
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456874"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665866"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuire l'archiviazione BLOB di Azure nel modulo IoT Edge al dispositivo
 
 Esistono diversi modi per distribuire i moduli in un dispositivo IoT Edge e tutti funzionano per l'archiviazione BLOB di Azure nei moduli IoT Edge. I due metodi più semplici consistono nell'usare i modelli di Visual Studio Code o il portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
 - Un [dispositivo IoT Edge](how-to-register-device.md) con il runtime di IoT Edge installato.
@@ -157,7 +157,7 @@ Azure IoT Edge fornisce modelli di Visual Studio Code per assistere allo svilupp
 
    Seguire i prompt nel riquadro comandi per creare la soluzione.
 
-   | Campo | Valore |
+   | Campo | Value |
    | ----- | ----- |
    | Selezionare la cartella | Scegliere il percorso nel computer di sviluppo per Visual Studio Code creare i file di soluzione. |
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione oppure accettare quello predefinito **EdgeSolution**. |
@@ -258,4 +258,4 @@ Quando ci si connette ai moduli di archiviazione BLOB aggiuntivi, modificare l'e
 ## <a name="next-steps"></a>Passaggi successivi
 Scopri di più sull' [archiviazione BLOB di Azure in IOT Edge](how-to-store-data-blob.md)
 
-Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli di IoT Edge](module-composition.md).
+Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).

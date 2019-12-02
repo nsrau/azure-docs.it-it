@@ -1,6 +1,6 @@
 ---
 title: Configurare il Centro sicurezza di Azure per l'agente Microsoft Docs
-description: Informazioni su come configurare gli agenti per l'uso con il Centro sicurezza di Azure.
+description: Informazioni su come configurare il Centro sicurezza di Azure per gli agenti di sicurezza Internet per l'uso con il Centro sicurezza di Azure per il servizio di sicurezza Internet.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 095c8fa080d96c9dc6d40261ee5afc559e9ca06b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933875"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664845"
 ---
-# <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
+# <a name="tutorial-configure-security-agents"></a>Esercitazione: configurare gli agenti di sicurezza
 
 Questo articolo illustra il Centro sicurezza di Azure per gli agenti di sicurezza Internet e illustra come modificarli e configurarli. 
 
@@ -108,7 +108,7 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dall'ogge
     }
     ```
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**
 
 ### <a name="using-a-default-value"></a>Uso di un valore predefinito
 
@@ -120,33 +120,33 @@ La tabella seguente contiene le proprietà controllabili del Centro sicurezza di
 
 I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Name| Stato | Valori validi| Valori predefiniti| Descrizione |
+| name| Status | Valori validi| Valori predefiniti| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Obbligatorio: false |Valori validi: Durata nel formato ISO 8601 |Valore predefinito: PT7M |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
-|lowPriorityMessageFrequency |Obbligatorio: false|Valori validi: Durata nel formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dell'invio dei messaggi con priorità bassa.| 
-|snapshotFrequency |Richiedi: false|Valori validi: Durata nel formato ISO 8601 |Valore predefinito PT13H |Intervallo di tempo per la creazione di snapshot dello stato del dispositivo.| 
+|highPriorityMessageFrequency|Obbligatorio: false |Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT7M |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
+|lowPriorityMessageFrequency |Obbligatorio: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dell'invio dei messaggi con priorità bassa.| 
+|snapshotFrequency |Richiedi: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito PT13H |Intervallo di tempo per la creazione di snapshot dello stato del dispositivo.| 
 |maxLocalCacheSizeInBytes |Obbligatorio: false |Valori validi: |Valore predefinito: 2560000, maggiore di 8192 | Archiviazione massima (in byte) consentita per la cache dei messaggi di un agente. Quantità massima di spazio consentito per l'archiviazione dei messaggi nel dispositivo prima dell'invio dei messaggi.| 
-|maxMessageSizeInBytes |Obbligatorio: false |Valori validi: Un numero positivo maggiore di 8192, minore di 262144 |Valore predefinito: 204800 |Dimensione massima consentita di un agente per il messaggio cloud. Questa impostazione consente di controllare la quantità massima di dati inviati in ogni messaggio. |
-|eventPriority${EventName} |Obbligatorio: false |Valori validi: Alto, basso, disattivato |Valori predefiniti: |Priorità di ogni evento generato dall'agente | 
+|maxMessageSizeInBytes |Obbligatorio: false |Valori validi: un numero positivo maggiore di 8192, minore di 262144 |Valore predefinito: 204800 |Dimensione massima consentita di un agente per il messaggio cloud. Questa impostazione consente di controllare la quantità massima di dati inviati in ogni messaggio. |
+|eventPriority $ {EventName} |Obbligatorio: false |Valori validi: High, low, off |Valori predefiniti: |Priorità di ogni evento generato dall'agente | 
 
 ### <a name="supported-security-events"></a>Eventi di sicurezza supportati
 
-|Nome evento| PropertyName | Default Value| Evento snapshot| Stato dettagli  |
+|Nome evento| PropertyName | Default value| Evento snapshot| Stato dettagli  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento di diagnostica|eventPriorityDiagnostic| Off| False| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.| 
-|Errore di configurazione |eventPriorityConfigurationError |Basso |False |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.| 
-|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Statistiche evento correlate agli agenti. |
-|Statistiche messaggio|eventPriorityMessageStatistics |Basso |True |Statistiche messaggi correlati all'agente. |
-|Hardware connesso|eventPriorityConnectedHardware |Basso |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
-|Porte in ascolto|eventPriorityListeningPorts |Alto |True |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
-|Creazione processo |eventPriorityProcessCreate |Basso |False |Controlla la creazione del processo nel dispositivo.|
-|Terminazione processo|eventPriorityProcessTerminate |Basso |False |Controlla la terminazione del processo nel dispositivo.| 
-|Informazioni di sistema |eventPrioritySystemInformation |Basso |True |Uno snapshot delle informazioni di sistema, ad esempio: Sistema operativo o CPU).| 
-|Utenti locali| eventPriorityLocalUsers |Alto |True|Snapshot degli utenti locali registrati nel sistema. |
-|Accedi|  eventPriorityLogin |Alto|False|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
-|Creazione della connessione |eventPriorityConnectionCreate|Basso|False|Controlla le connessioni TCP create da e verso il dispositivo. |
-|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
-|Baseline del sistema operativo| eventPriorityOSBaseline| Basso|True|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
+|Evento di diagnostica|eventPriorityDiagnostic| Off| Falso| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.| 
+|Errore di configurazione |eventPriorityConfigurationError |Basse |Falso |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.| 
+|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basse |Vero|Statistiche evento correlate agli agenti. |
+|Statistiche messaggio|eventPriorityMessageStatistics |Basse |Vero |Statistiche messaggi correlati all'agente. |
+|Hardware connesso|eventPriorityConnectedHardware |Basse |Vero |Snapshot di tutti i componenti hardware connessi al dispositivo.|
+|Porte in ascolto|eventPriorityListeningPorts |Alte |Vero |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
+|Creazione processo |eventPriorityProcessCreate |Basse |Falso |Controlla la creazione del processo nel dispositivo.|
+|Terminazione processo|eventPriorityProcessTerminate |Basse |Falso |Controlla la terminazione del processo nel dispositivo.| 
+|Informazioni di sistema |eventPrioritySystemInformation |Basse |Vero |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).| 
+|Utenti locali| eventPriorityLocalUsers |Alte |Vero|Snapshot degli utenti locali registrati nel sistema. |
+|Login|  eventPriorityLogin |Alte|Falso|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
+|Creazione della connessione |eventPriorityConnectionCreate|Basse|Falso|Controlla le connessioni TCP create da e verso il dispositivo. |
+|Configurazione del firewall| eventPriorityFirewallConfiguration|Basse|Vero|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
+|Baseline del sistema operativo| eventPriorityOSBaseline| Basse|Vero|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
 |
  
 

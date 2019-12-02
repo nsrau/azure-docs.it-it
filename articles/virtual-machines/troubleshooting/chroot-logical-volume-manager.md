@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 9c3f054a1bae745e4ee7ce9e3bddca3c9bf31083
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0dd07b3394e385b3931e01867d467af7559b4f8b
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74536003"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664166"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
@@ -204,7 +204,7 @@ Eseguire una query sul **kernel** installato
 
 ![Funzionalità avanzate](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-Se necessario, aggiornare il **kernel**
+Se necessario, rimuovere o aggiornare il **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 

@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113615"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666308"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di ricerca cognitiva di Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113615"
  Per illustrare un profilo di punteggio, l'esempio seguente mostra un semplice profilo denominato 'geo'. Questo profilo aumenta la priorità degli elementi che includono il termine di ricerca nel campo **hotelName**. Usa anche la funzione `distance` per assegnare una preferenza maggiore agli elementi che si trovano entro dieci chilometri dalla posizione attuale. Se si cerca il termine "inn" e "inn" fa parte del nome di un hotel, i documenti che includono gli hotel con "inn" in un raggio di 10 km dalla posizione corrente verranno visualizzati più in alto nei risultati della ricerca.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  Questo esempio illustra lo schema di un indice con due profili di punteggio (`boostGenre`, `newAndHighlyRated`). Qualsiasi query eseguita in questo indice e che include uno dei profili come parametro di query userà il profilo per assegnare un punteggio al set di risultati.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -232,17 +232,17 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 > [!NOTE]  
 >  La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.  
 
-|Attribute|Descrizione|  
+|Attributo|Description|  
 |---------------|-----------------|  
-|`Name`|Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
-|`Text`|Contiene la proprietà Weights.|  
-|`Weights`|Facoltativa. Coppia nome-valore che specifica un nome campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo. Il valore massimo è int32.MaxValue.<br /><br /> È possibile specificare il nome campo senza un peso corrispondente. I pesi vengono usati per indicare l'importanza di un campo rispetto a un altro.|  
-|`Functions`|Facoltativa. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
-|`Type`|Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.|  
-|`Boost`|Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.|  
-|`Fieldname`|Obbligatorio per le funzioni di assegnazione di punteggio. Una funzione di assegnazione di punteggio può essere applicata solo a campi che fanno parte della raccolta di campi dell'indice e che sono filtrabili. Ogni tipo di funzione introduce inoltre restrizioni aggiuntive (il valore freshness viene usato con campi datetime, il valore magnitude con campi di tipo Integer o Double e il valore distance con campi location). È possibile specificare solo un campo per ogni definizione di funzione. Ad esempio, per usare il valore magnitude due volte nello stesso profilo, sarà necessario includere due definizioni di magnitude, una per ogni campo.|  
-|`Interpolation`|Obbligatorio per le funzioni di assegnazione di punteggio. Definisce il coefficiente angolare in base al quale viene incrementato l'aumento di priorità del punteggio dall'inizio alla fine dell'intervallo. I valori validi includono Linear (predefinito), Constant, Quadratic e Logarithmic. Per informazioni dettagliate, vedere [Impostare le interpolazioni](#bkmk_interpolation) .|  
-|`magnitude`|La funzione di assegnazione di punteggio in base al valore magnitude viene usata per modificare le classificazioni in base all'intervallo di valori per un campo numerico. Alcuni degli esempi d'uso più comuni sono i seguenti.<br /><br /> -   **classificazione a stelle:** modificare il punteggio in base al valore nel campo "classificazione a stelle". Quando due elementi sono rilevanti, verrà visualizzato per primo l'elemento con la classificazione superiore.<br />**margine -   :** quando due documenti sono rilevanti, un rivenditore potrebbe voler aumentare i documenti con margini più elevati.<br />-   **fare clic su conteggi:** per le applicazioni che tengono traccia delle azioni per i prodotti o le pagine, è possibile usare Magnitude per incrementare gli elementi che tendono a ottenere il maggior traffico.<br />-   i **conteggi di download:** per le applicazioni che tengono traccia dei download, la funzione Magnitude consente di incrementare gli elementi con il maggior numero di download.|  
+|`name`|Richiesto. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
+|`text`|Contiene la proprietà Weights.|  
+|`weights`|facoltativo. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
+|`functions`|facoltativo. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
+|`type`|Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.|  
+|`boost`|Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.|  
+|`fieldname`|Obbligatorio per le funzioni di assegnazione di punteggio. Una funzione di assegnazione di punteggio può essere applicata solo a campi che fanno parte della raccolta di campi dell'indice e che sono filtrabili. Ogni tipo di funzione introduce inoltre restrizioni aggiuntive (il valore freshness viene usato con campi datetime, il valore magnitude con campi di tipo Integer o Double e il valore distance con campi location). È possibile specificare solo un campo per ogni definizione di funzione. Ad esempio, per usare il valore magnitude due volte nello stesso profilo, sarà necessario includere due definizioni di magnitude, una per ogni campo.|  
+|`interpolation`|Obbligatorio per le funzioni di assegnazione di punteggio. Definisce il coefficiente angolare in base al quale viene incrementato l'aumento di priorità del punteggio dall'inizio alla fine dell'intervallo. I valori validi includono Linear (predefinito), Constant, Quadratic e Logarithmic. Per informazioni dettagliate, vedere [Impostare le interpolazioni](#bkmk_interpolation) .|  
+|`magnitude`|La funzione di assegnazione di punteggio in base al valore magnitude viene usata per modificare le classificazioni in base all'intervallo di valori per un campo numerico. Alcuni degli esempi d'uso più comuni sono i seguenti.<br /><br /> -   **classificazione a stelle:** modificare il punteggio in base al valore nel campo "classificazione a stelle". Quando due elementi sono rilevanti, viene visualizzato per primo l'elemento con la classificazione superiore.<br />**margine -   :** quando due documenti sono rilevanti, un rivenditore potrebbe voler aumentare i documenti con margini più elevati.<br />-   **fare clic su conteggi:** per le applicazioni che tengono traccia delle azioni per i prodotti o le pagine, è possibile usare Magnitude per incrementare gli elementi che tendono a ottenere il maggior traffico.<br />-   i **conteggi di download:** per le applicazioni che tengono traccia dei download, la funzione Magnitude consente di incrementare gli elementi con il maggior numero di download.|  
 |`magnitude` &#124; `boostingRangeStart`|Imposta il valore iniziale dell'intervallo su cui è basato il calcolo della funzione magnitude. Il valore deve essere un numero intero o a virgola mobile. Per le classificazioni a stelle da 1 a 4, corrisponde a 1. Per i margini superiori al 50%, corrisponde a 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Imposta il valore finale dell'intervallo su cui è basato il calcolo della funzione magnitude. Il valore deve essere un numero intero o a virgola mobile. Per le classificazioni a stelle da 1 a 4, corrisponde a 4.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|I valori validi sono true o false (predefinito). Se impostato su true, l'aumento completo della priorità continuerà a essere applicato a documenti che includono un valore per il campo di destinazione maggiore rispetto al limite superiore dell'intervallo. Se false, l'aumento di priorità di questa funzione non verrà applicato ai documenti che includono un valore per il campo di destinazione che non rientra nell'intervallo.|  
@@ -253,7 +253,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |`distance` &#124; `boostingDistance`|Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità.|  
 |`tag`|La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametro di assegnazione dei punteggi in ogni richiesta di ricerca (usando l'opzione stringa `scoringParameterquery`).|  
 |`tag` &#124; `tagsParameter`|Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;in Azure&#41; ricerca cognitiva API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .|  
-|`functionAggregation`|Facoltativa. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
+|`functionAggregation`|facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
 |`defaultScoringProfile`|Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo [tf-idf](http://www.tfidf.com/)).<br /><br /> Qui è possibile impostare un nome del profilo di Punteggio predefinito, in modo che Azure ricerca cognitiva usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo specifico.|  
 
 ##  <a name="bkmk_interpolation"></a> Impostare le interpolazioni  
@@ -261,10 +261,10 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
 |||  
 |-|-|  
-|`Linear`|Per gli elementi inclusi nell'intervallo max e min, l'aumento di priorità applicato all'elemento corrisponderà a un importo costantemente decrescente. L'interpolazione predefinita per un profilo di punteggio è lineare.|  
-|`Constant`|Per gli elementi inclusi nell'intervallo di inizio e di fine, ai risultati della classificazione verrà applicato un aumento di priorità costante.|  
-|`Quadratic`|Rispetto all'interpolazione lineare che prevede un aumento di priorità costantemente decrescente, l'interpolazione quadratica presenterà una riduzione iniziale a ritmo più ridotto e una riduzione di intervallo molto più elevato in prossimità della fine. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.|  
-|`Logarithmic`|Rispetto all'interpolazione lineare che prevede un aumento di priorità costantemente decrescente, l'interpolazione logaritmica presenterà una riduzione iniziale a ritmo più elevato e una riduzione di intervallo molto più ridotto in prossimità della fine. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.|  
+|`linear`|Per gli elementi inclusi nell'intervallo max e min, l'aumento di priorità applicato all'elemento corrisponderà a un importo costantemente decrescente. L'interpolazione predefinita per un profilo di punteggio è lineare.|  
+|`constant`|Per gli elementi inclusi nell'intervallo di inizio e di fine, ai risultati della classificazione verrà applicato un aumento di priorità costante.|  
+|`quadratic`|Rispetto all'interpolazione lineare che prevede un aumento di priorità costantemente decrescente, l'interpolazione quadratica presenterà una riduzione iniziale a ritmo più ridotto e una riduzione di intervallo molto più elevato in prossimità della fine. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.|  
+|`logarithmic`|Rispetto all'interpolazione lineare che prevede un aumento di priorità costantemente decrescente, l'interpolazione logaritmica presenterà una riduzione iniziale a ritmo più elevato e una riduzione di intervallo molto più ridotto in prossimità della fine. Questa opzione di interpolazione non è consentita nelle funzioni di assegnazione di punteggio in base a tag.|  
 
  ![Linee costanti, lineari, quadratiche e log10 sul grafico](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -275,7 +275,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  La tabella seguente fornisce alcuni esempi.  
 
-|Durata|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 giorno|"P1D"|  
 |2 giorni e 12 ore|"P2DT12H"|  
@@ -284,7 +284,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  Per altri esempi, vedere il sito Web relativo ai [tipi di dati dello schema XML (W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
    [Rest di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/)  
  [Creare l' &#40;API&#41; REST di Azure ricerca cognitiva index](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure ricerca cognitiva .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

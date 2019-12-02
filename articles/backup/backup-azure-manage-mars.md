@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173074"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665594"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -124,7 +124,7 @@ Quando si modificano i criteri di backup, è possibile aggiungere nuovi elementi
 
     ![Selezionare gli elementi](./media/backup-azure-manage-mars/select-items-exclude.png)
 
-4. Per impostazione predefinita, tutte le **sottocartelle** all'interno delle cartelle selezionate sono escluse. È possibile modificare questa impostazione selezionando **Sì** o **No**. È possibile modificare e specifici tipi di file da escludere come illustrato di seguito:
+4. Per impostazione predefinita, tutte le **sottocartelle** all'interno delle cartelle selezionate sono escluse. È possibile modificare questa impostazione selezionando **Sì** o **No**. È possibile modificare e specificare i tipi di file da escludere come illustrato di seguito:
 
     ![Selezionare gli elementi](./media/backup-azure-manage-mars/subfolders-type.png)
 
@@ -159,12 +159,12 @@ Esistono due modi per arrestare la protezione del backup di file e cartelle:
 
 1. Aprire la console di gestione di MARS, passare al **riquadro azioni**e **selezionare Pianifica backup**.
     ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Nella pagina **Selezione elemento criteri** selezionare **Modifica pianificazione backup per i file e le cartelle** , quindi fare clic su **Avanti**.
+1. Nella pagina **Selezione elemento criteri** selezionare **Modifica pianificazione backup per file e cartelle** e fare clic su **Avanti**.
     ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. Nella pagina **modificare o arrestare un backup pianificato** selezionare **Interrompi utilizzando questa pianificazione del backup, ma Mantieni i backup archiviati fino a quando non viene attivata nuovamente una pianificazione**. Quindi selezionare **Avanti**.  
     ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. In **sospendere il backup pianificato** verificare le informazioni fare clic su **fine** ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. in **Modifica processo di backup** verificare che la pianificazione del backup stato di sospensione sia riuscita e fare clic su **Chiudi** per terminare.
+1. In **Sospendi backup pianificato** esaminare le informazioni e fare clic su **fine** ![modificare o arrestare un backup pianificato.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. in **Modifica processo di backup** controllare che la pianificazione della sospensione del backup sia in stato di esito positivo e fare clic su **Chiudi** per terminare.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrestare la protezione ed eliminare i dati di backup
 
@@ -194,7 +194,7 @@ Dopo aver eliminato gli elementi di backup locali, seguire i passaggi successivi
 Se la protezione è stata interrotta durante la conservazione dei dati e si è deciso di riprendere la protezione, è possibile riattivare la pianificazione del backup utilizzando modifica criteri di backup.
 
 1. In **azioni** selezionare **Pianifica backup**.
-1. Selezionare **riabilita pianificazione backup. È anche possibile modificare gli elementi o i denti di backup** e fare clic su **Avanti**.
+1. Selezionare **riabilita pianificazione backup. È anche possibile modificare gli elementi o le ore di backup** e fare clic su **Avanti**.
     ![eliminare l'infrastruttura di backup.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. In **Seleziona elementi di cui eseguire il backup**fare clic su **Avanti**.
     ![eliminare l'infrastruttura di backup.](./media/backup-azure-manage-mars/re-enable-next.png)
