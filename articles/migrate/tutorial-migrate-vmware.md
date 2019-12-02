@@ -1,18 +1,18 @@
 ---
-title: Eseguire la migrazione di VM VMware locali ad Azure con lo strumento di migrazione server di Azure Migrate senza agente | Microsoft Docs
-description: Descrive come eseguire una migrazione senza agente di VM VMware locali ad Azure usando Azure Migrate.
+title: Eseguire la migrazione di macchine virtuali VMware senza agente con Migrazione server di Azure Migrate
+description: Informazioni su come eseguire una migrazione senza agente di macchine virtuali VMware con Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309373"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196409"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -48,12 +48,11 @@ Per decidere se usare la migrazione senza agente o basata su agente, vedere ques
 
 Prima di iniziare questa esercitazione, è necessario:
 
-1. [Conoscere](migrate-architecture.md) l'architettura di migrazione di VMware.
-2. [Completare la prima esercitazione](tutorial-prepare-vmware.md) di questa serie per configurare Azure e VMware per la migrazione. In particolare, per questa esercitazione è necessario:
+1. [Completare la prima esercitazione](tutorial-prepare-vmware.md) di questa serie per configurare Azure e VMware per la migrazione. In particolare, per questa esercitazione è necessario:
     - [Preparare Azure](tutorial-prepare-vmware.md#prepare-azure) per la migrazione.
     - [Preparare l'ambiente locale](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) per la migrazione.
     
-3. Prima di eseguire la migrazione di VM VMware ad Azure, è consigliabile provare a valutarle con lo strumento di valutazione server di Azure Migrate. Per configurare la valutazione, [completare la seconda esercitazione](tutorial-assess-vmware.md) della serie. Se non si vogliono valutare le VM, si può ignorare questa esercitazione. Nonostante sia consigliabile provare una valutazione, non è obbligatorio eseguirne una prima di provare una migrazione.
+2. Prima di eseguire la migrazione di VM VMware ad Azure, è consigliabile provare a valutarle con lo strumento di valutazione server di Azure Migrate. Per configurare la valutazione, [completare la seconda esercitazione](tutorial-assess-vmware.md) della serie. Se non si vogliono valutare le VM, si può ignorare questa esercitazione. Nonostante sia consigliabile provare una valutazione, non è obbligatorio eseguirne una prima di provare una migrazione.
 
 
 

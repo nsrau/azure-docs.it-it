@@ -1,19 +1,19 @@
 ---
-title: Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/WinRT | Microsoft Docs
+title: Creare e individuare gli ancoraggi in C++/WinRT
 description: Descrizione approfondita di come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/WinRT.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e8cacb443a9fc13d742f84b92136be7428375fc6
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9da98c0908f2164b8b03db5ec0e67802e782e2c4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669218"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270245"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/WinRT
 
@@ -21,14 +21,14 @@ ms.locfileid: "67669218"
 > * [Unity](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
-> * [Java Android](create-locate-anchors-java.md)
+> * [Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
 Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta vari ambienti di sviluppo differenti. Questo articolo esaminerà come usare l'SDK degli Ancoraggi nello spazio di Azure, in C++/WinRT, per:
 
 - Configurare e gestire in modo corretto una sessione di Ancoraggi nello spazio di Azure.
-- Creare e impostare gli ancoraggi locali.
+- Creare e impostare le proprietà sugli ancoraggi locali.
 - Caricarli nel cloud.
 - Trovare ed eliminare gli ancoraggi nello spazio nel cloud.
 
@@ -252,7 +252,7 @@ Altre informazioni sul metodo [CreateWatcher](https://docs.microsoft.com/cpp/api
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Altre informazioni sul metodo [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate).
+Altre informazioni sul metodo [AnchorLocatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate).
 
 ```cpp
     m_anchorLocatedToken = m_cloudSession.AnchorLocated(winrt::auto_revoke, [this](auto&&, auto&& args)

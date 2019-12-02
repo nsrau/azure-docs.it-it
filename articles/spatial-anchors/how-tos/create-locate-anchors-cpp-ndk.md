@@ -1,19 +1,19 @@
 ---
-title: Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/NDK | Microsoft Docs
+title: Creare e individuare gli ancoraggi in C++/NDK
 description: Descrizione approfondita di come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/NDK.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2578202c2464248c1c765368d308ca669d918057
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9592de0bfb53d0ba3f37cf3d34c6cd7ce3d4d65d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562538"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270288"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/NDK
 

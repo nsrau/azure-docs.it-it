@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e Azure PowerShell | Microsoft Docs
-description: Informazioni su come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e Azure PowerShell.
+title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell"
+description: Questa esercitazione descrive come concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343477"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418622"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
@@ -48,8 +48,8 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 | Entità di sicurezza | Definizione di ruolo | Scope |
 | --- | --- | --- |
-| Utente<br>(Utente dell'esercitazione sul controllo degli accessi in base al ruolo) | [Lettore](built-in-roles.md#reader) | Sottoscrizione |
-| Utente<br>(Utente dell'esercitazione sul controllo degli accessi in base al ruolo)| [Collaboratore](built-in-roles.md#contributor) | Gruppo di risorse<br>(rbac-tutorial-resource-group) |
+| Utente<br>(Utente dell'esercitazione sul controllo degli accessi in base al ruolo) | [Lettore](built-in-roles.md#reader) | Subscription |
+| Utente<br>(Utente dell'esercitazione sul controllo degli accessi in base al ruolo)| [Collaboratore](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Assegnazione dei ruoli a un utente](./media/tutorial-role-assignments-user-powershell/rbac-role-assignments-user.png)
 

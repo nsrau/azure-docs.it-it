@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 1aebe97b27902d37587ec6ac7009a5076b732f0f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.custom: mvc
+ms.openlocfilehash: fbf03dd6d585f1357f8f3cebf08de25e437286ac
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840118"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560976"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in Java per dispositivi Linux
 
@@ -289,7 +289,9 @@ In caso contrario, è possibile eliminare le risorse di Azure e le configurazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo di IoT Edge contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio Code](how-to-vs-code-develop-module.md). Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
+In questa esercitazione è stato creato un modulo di IoT Edge contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio Code](how-to-vs-code-develop-module.md). Per esempi di moduli di IoT Edge, incluso il modulo per le temperature simulate, vedere gli [esempi di moduli di IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules). 
+
+Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
 > [Funzioni](tutorial-deploy-function.md)

@@ -9,13 +9,13 @@ ms.author: xshi
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 99df85800c48585098a9df5bcc35d6b9ce9a8903
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.custom: mvc
+ms.openlocfilehash: c37d778fe9ad7d21943ed92452fae34b4b8771e7
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331631"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560935"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Esercitazione: Sviluppare e distribuire un modulo Python per IoT Edge per dispositivi Linux
 
@@ -269,7 +269,9 @@ In caso contrario, è possibile eliminare le configurazioni locali e le risorse 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo di IoT Edge contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio Code](how-to-vs-code-develop-module.md). Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
+In questa esercitazione è stato creato un modulo di IoT Edge contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio Code](how-to-vs-code-develop-module.md). Per esempi di moduli di IoT Edge, incluso il modulo per le temperature simulate, vedere gli [esempi di moduli di IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e gli [esempi di IoT SDK per Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+
+Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
 > [Funzioni](tutorial-deploy-function.md)

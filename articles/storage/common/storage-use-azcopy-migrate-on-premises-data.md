@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire la migrazione di dati locali in Archiviazione di Azure tramite AzCopy| Microsoft Docs'
+title: 'Esercitazione: Eseguire la migrazione dei dati locali in Archiviazione di Azure con AzCopy| Microsoft Docs'
 description: In questa esercitazione verrà usato AzCopy per migrare o copiare dati da o verso BLOB, tabelle e contenuto di file. Migrare facilmente dati dalla risorsa di archiviazione locale ad Archiviazione di Azure.
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844895"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327509"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Esercitazione: Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Esercitazione: Eseguire la migrazione dei dati locali in una risorsa di archiviazione nel cloud con AzCopy
 
 AzCopy è uno strumento da riga di comando per la copia di dati da o verso l'archiviazione BLOB di Azure, File di Azure e Archiviazione tabelle di Azure usando semplici comandi progettati per garantire prestazioni ottimali. Con AzCopy è possibile copiare dati tra un file system e un account di archiviazione o tra più account di archiviazione. È possibile usare AzCopy per copiare i dati di uno spazio dati locale in un account di archiviazione.
 

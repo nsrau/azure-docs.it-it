@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904920"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384274"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Esercitazione: Distribuire uno strumento di gestione
 
@@ -63,10 +63,9 @@ Per distribuire il modello di Azure Resource Manager, seguire queste istruzioni:
 ### <a name="guidance-for-template-parameters"></a>Istruzioni per i parametri del modello
 Ecco come immettere i parametri per configurare lo strumento:
 
-- URL del broker di Desktop remoto:\//rdbroker.wvd.microsoft.com/
-- URL delle risorse: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Usare le credenziali di AAD con la funzionalità MFA disabilitata per accedere ad Azure. Vedere [Requisiti per eseguire il modello di Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Usare un nome univoco per l'applicazione che verrà registrata in Azure Active Directory per lo strumento di gestione, ad esempio Apr3UX.
+- Per il parametro **isServicePrincipal** selezionare **false**.
+- Per le credenziali, immettere le credenziali di Azure Active Directory con l'autenticazione a più fattori disabilitata. Queste credenziali saranno quelle usate per accedere ad Azure e creare l'applicazione Azure AD e le risorse dell'app Web di Azure. Per altre informazioni, vedere [Requisiti per eseguire il modello di Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
+- Per **applicationName** usare un nome univoco per l'applicazione che verrà registrata in Azure Active Directory. Questo nome verrà usato anche per l'URL dell'app Web. Ad esempio, è possibile usare un nome come "Apr3UX".
 
 ## <a name="provide-consent-for-the-management-tool"></a>Fornire il consenso per lo strumento di gestione
 

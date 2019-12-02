@@ -1,19 +1,19 @@
 ---
-title: Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Swift | Microsoft Docs
+title: Creare e individuare gli ancoraggi in Swift
 description: Descrizione approfondita di come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Swift.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f4646c55d2e9c4d7c0a9d21b39c759aea06272e1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f72e648d8f7cba0af01e7f87827d38368dba698d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672030"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277312"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Swift
 
@@ -21,14 +21,14 @@ ms.locfileid: "67672030"
 > * [Unity](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
-> * [Java Android](create-locate-anchors-java.md)
+> * [Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
 Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi. Supporta vari ambienti di sviluppo differenti. Questo articolo esaminerà come usare l'SDK degli Ancoraggi nello spazio di Azure, in Swift, per:
 
 - Configurare e gestire in modo corretto una sessione di Ancoraggi nello spazio di Azure.
-- Creare e impostare gli ancoraggi locali.
+- Creare e impostare le proprietà sugli ancoraggi locali.
 - Caricarli nel cloud.
 - Trovare ed eliminare gli ancoraggi nello spazio nel cloud.
 

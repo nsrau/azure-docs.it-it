@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 332229dbcb35a209721fc9b457ebf1e804eaca5f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890623"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561042"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
@@ -383,7 +383,9 @@ In caso contrario, è possibile eliminare le configurazioni locali e le risorse 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo di IoT Edge con codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio](how-to-visual-studio-develop-module.md). Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
+In questa esercitazione è stato creato un modulo di IoT Edge con codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio](how-to-visual-studio-develop-module.md). Per esempi di moduli di IoT Edge, incluso il modulo per le temperature simulate, vedere gli [esempi di moduli di IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e gli [esempi di IoT SDK per C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples). 
+
+Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
 > [Funzioni](tutorial-deploy-function.md)

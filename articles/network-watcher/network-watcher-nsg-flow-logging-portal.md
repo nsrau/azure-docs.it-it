@@ -1,6 +1,7 @@
 ---
-title: Registrare il flusso del traffico di rete da e verso una macchina virtuale - Esercitazione - Portale di Azure | Microsoft Docs
-description: Imparare a registrare il flusso del traffico di rete da e verso una macchina virtuale usando la funzionalità di log del flusso di NSG di Network Watcher.
+title: 'Esercitazione: Registrare il flusso del traffico di rete da e verso una macchina virtuale tramite il portale di Azure'
+titleSuffix: Azure Network Watcher
+description: Questa esercitazione descrive come registrare il flusso del traffico di rete da e verso una macchina virtuale usando la funzionalità log del flusso del gruppo di sicurezza di rete di Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636211"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419623"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorare la comunicazione di rete - Esercitazione - Portale di Azure | Microsoft Docs
-description: Informazioni su come monitorare la comunicazione di rete tra due macchine virtuali con la funzionalità di monitoraggio della connessione di Network Watcher di Azure.
+title: 'Esercitazione: Monitorare la comunicazione di rete tramite il portale di Azure'
+description: Questa esercitazione descrive come monitorare la comunicazione di rete tra due macchine virtuali con la funzionalità di monitoraggio connessione di Network Watcher di Azure.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233896"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419705"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
@@ -54,9 +54,9 @@ Creare due macchine virtuali.
     |NOME|myVm1|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Impostazioni** selezionare **Estensioni**. Selezionare **Aggiungi estensione**, quindi **Agente Network Watcher per Windows**, come illustrato nell'immagine seguente:
@@ -76,7 +76,7 @@ Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-f
 | 1 | Selezionare una versione di **Ubuntu Server** |                                                                         |
 | 3 | NOME                                  | myVM2                                                                   |
 | 3 | Tipo di autenticazione                   | Incollare la chiave pubblica SSH o selezionare **Password** e immettere una password. |
-| 3 | Gruppo di risorse                        | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
+| 3 | Resource group                        | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
 | 6 | Estensioni                            | **Network Watcher Agent for Linux**                                             |
 
 La distribuzione della VM richiede alcuni minuti. Attendere che la macchina virtuale completi la distribuzione prima di continuare con i passaggi rimanenti.

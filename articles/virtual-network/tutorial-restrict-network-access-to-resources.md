@@ -1,10 +1,10 @@
 ---
-title: Limitare l'accesso di rete alle risorse PaaS - Esercitazione - Portale di Azure | Microsoft Docs
+title: Limitare l'accesso alle risorse PaaS - Esercitazione - Portale di Azure
 description: In questa esercitazione si apprenderà come limitare l'accesso di rete alle risorse di Azure, ad esempio Archiviazione di Azure e il database SQL di Azure, con gli endpoint servizio di rete virtuale usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 34cb2b6c5a770aa9ec38ce02a97d976fe28251ac
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638746"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186363"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
 

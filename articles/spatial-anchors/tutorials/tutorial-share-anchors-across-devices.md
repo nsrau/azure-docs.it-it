@@ -1,19 +1,19 @@
 ---
-title: Esercitazione - Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi | Microsoft Docs
+title: 'Esercitazione: Condividere gli ancoraggi tra sessioni e dispositivi'
 description: Questa esercitazione illustra come condividere gli identificatori di Ancoraggi nello spazio di Azure tra dispositivi Android/iOS in ​​Unity con un servizio back-end.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e8a60d5d90b684698d6fcb612278bcae6d4ed08e
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882325"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276956"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi
 
