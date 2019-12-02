@@ -1,23 +1,19 @@
 ---
-title: Sviluppo in team in Kubernetes tramite Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: Sviluppo in team in Kubernetes
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 04/25/2019
 ms.topic: quickstart
 description: Sviluppo in team in Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 9bdd52f2c120d338859259b046f7f4b97bbc4eed
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2f3ed0f2a9635488aea509e7816fbe84e1589d14
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585185"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484038"
 ---
-# <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Guida introduttiva: Sviluppo in team in Kubernetes tramite Azure Dev Spaces
+# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Guida introduttiva: Sviluppo in team in Kubernetes - Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
@@ -31,7 +27,7 @@ In questa guida si apprenderà come:
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 - [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 o versioni successive installato][helm-installed].
+- [Helm 2.13 - 2.16 installato][helm-installed].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
@@ -239,5 +235,5 @@ Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse 
 > [!div class="nextstepaction"]
 > [Uso di più contenitori e sviluppo in team](multi-service-nodejs.md)
 
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations

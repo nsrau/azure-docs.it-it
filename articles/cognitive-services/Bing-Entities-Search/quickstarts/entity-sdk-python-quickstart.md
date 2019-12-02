@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare entità con l'SDK di Ricerca entità Bing per Python"
+title: "Guida introduttiva: Cercare entità con l'SDK per Python - Ricerca entità Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa esercitazione dell'avvio rapido per cercare entità con l'SDK di Ricerca entità Bing per Python.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 0a4a4e3ce6f318a693b8ee760a0d892eaecb2c82
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 7720304cc017db86b052cee39ca0430e5c1bf9c2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479011"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327134"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Guida introduttiva: SDK di Ricerca entità Bing con Python
 

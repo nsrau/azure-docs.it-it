@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.openlocfilehash: fe943913f9d33923438efb91630c5a85c4d1b748
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687221"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184957"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Guida introduttiva: Aggiungere flag di funzionalità a un'app Spring Boot
 
@@ -86,7 +86,7 @@ Per creare un nuovo progetto Spring Boot, usare [Spring Initializr](https://star
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
-1. Aprire `bootstrap.properties` che si trova nella directory di risorse dell'app e aggiungere le righe seguenti al file. Aggiungere le informazioni di configurazione dell'app.
+1. Aprire `bootstrap.properties` che si trova nella directory di risorse dell'app e aggiungere le righe seguenti al file. Aggiungere le informazioni di Configurazione app.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: 8b07e6b08e34e701aa4c3b254aee7245926085b6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93912ef93ab1065bf3b7c5010c485f99229a06a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750141"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220775"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-for-detecting-language"></a>Guida introduttiva: Usare la libreria client di Analisi del testo per rilevare la lingua
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Guida introduttiva: Usare la libreria client di Analisi del testo
 
 Introduzione alla libreria client di Analisi del testo. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 

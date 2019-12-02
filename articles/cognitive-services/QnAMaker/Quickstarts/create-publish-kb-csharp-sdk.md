@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 80dab733d5a4e7c04ee75e289a0bc33b88cc811f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1c403d4d9b5c95c1cb1079b951a26dcaabb805fe
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597179"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405878"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>Guida introduttiva: Libreria client di QnA Maker per .NET
 
@@ -49,15 +49,15 @@ Dopo aver ottenuto una chiave e un endpoint per la risorsa, [creare la variabile
 
 Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o nell'editor preferito. 
 
-Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare il comando dotnet `new` per creare una nuova app console con il nome `qna-maker-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: `Program.cs`. 
+In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `qna-maker-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n qna-maker-quickstart
 ```
 
 Spostarsi nella cartella dell'app appena creata. È possibile compilare l'applicazione con il comando seguente:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -75,7 +75,7 @@ Build succeeded.
 
 Nella directory dell'applicazione installare la libreria client di QnA Maker per .NET con il comando seguente:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.0.0
 ```
 
@@ -189,11 +189,11 @@ Il _ciclo_ e _Task.Delay_ nel blocco di codice seguente vengono usati per simula
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Eseguire l'applicazione con il comando dotnet `run` dalla directory dell'applicazione.
+Eseguire l'applicazione con il comando `dotnet run` dalla directory dell'applicazione.
 
 Tutti i frammenti di codice in questo articolo sono [disponibili](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) e possono essere eseguiti come singolo file.
 
-```console
+```dotnetcli
 dotnet run
 ```
 

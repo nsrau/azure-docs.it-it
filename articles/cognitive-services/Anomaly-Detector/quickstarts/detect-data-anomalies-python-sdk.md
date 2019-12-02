@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/15/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 926d7043ea6f56c1ba6d13fd4586fc6f6d59cfa8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f58f4f9c89e2c0bfb7d9eca6d39dab3f25b21990
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554694"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483347"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per Python
 
@@ -26,11 +26,12 @@ Usare la libreria client di Rilevamento anomalie per Python per:
 * Rilevare le anomalie nel set di dati delle serie temporali come richiesta batch
 * Rilevare lo stato di anomalia del punto dati più recente nella serie temporale
 
-[Documentazione di riferimento della libreria](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Esempi di codice](https://github.com/Azure-Samples/anomalydetector)
+[Documentazione di riferimento della libreria](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Trovare il codice di esempio in GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+* Chiave di Rilevamento anomalie ed endpoint
 * [Python 3.x](https://www.python.org/)
 * [Llibreria di analisi dei dati Pandas](https://pandas.pydata.org/)
  
@@ -114,18 +115,4 @@ Chiamare l'API Rilevamento anomalie per determinare se il punto dati più recent
 
 Eseguire l'applicazione con il comando `python` e il nome del file.
  
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche le altre risorse associate al gruppo.
-
-* [Portale](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interfaccia della riga di comando di Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
->[Rilevamento anomalie nei dati di streaming con Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Procedure consigliate](../concepts/anomaly-detection-best-practices.md) per l'API Rilevamento anomalie.
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

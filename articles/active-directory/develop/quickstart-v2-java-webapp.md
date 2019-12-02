@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 93ae820f8c98b749ef8f71b17bf3d540d7886ed6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6645fa30772d7e1556f7a1aae76c7189577c3c1d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832136"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452627"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Java
 
@@ -136,7 +136,7 @@ Se si esegue l'applicazione Web da un ambiente IDE, fare clic su Esegui, quindi 
 
 ### <a name="getting-msal"></a>Recupero di MSAL
 
-MSAL4J è la libreria Java usata per far accedere gli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform.
+MSAL per Java (MSAL4J) è la libreria Java usata per far accedere gli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform.
 
 Aggiungere MSAL4J all'applicazione usando Maven o Gradle per gestire le dipendenze apportando le modifiche seguenti al file pom.xml (Maven) o build.gradle (Gradle) dell'applicazione.
 
@@ -154,7 +154,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 
 ### <a name="msal-initialization"></a>Inizializzazione della libreria MSAL
 
-Aggiungere un riferimento a MSAL4J aggiungendo il codice seguente all'inizio del file in cui verrà usato MSAL4J:
+Aggiungere un riferimento a MSAL per Java aggiungendo il codice seguente all'inizio del file in cui verrà usato MSAL4J:
 
 ```Java
 import com.microsoft.aad.msal4j.*;

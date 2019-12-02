@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 1932ac571c94f9dc96240bdb63b44fe53c626f1f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 084ef1b81f7db5bd4a2d371e0c322211c0f0e142
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554741"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483496"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Guida introduttiva: Libreria client di Rilevamento anomalie per Node.js
 
@@ -26,12 +26,13 @@ Usare la libreria client di Rilevamento anomalie per Node.js per:
 * Rilevare le anomalie nel set di dati delle serie temporali come richiesta batch
 * Rilevare lo stato di anomalia del punto dati più recente nella serie temporale
 
-[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Esempi di codice](https://github.com/Azure-Samples/anomalydetector)
+[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Trovare il codice in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Versione corrente di [Node.js](https://nodejs.org/)
+* Chiave di Rilevamento anomalie ed endpoint
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -127,18 +128,4 @@ Eseguire l'applicazione con il comando `node` nel file quickstart.
 node index.js
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate.
-
-* [Portale](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interfaccia della riga di comando di Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
->[Rilevamento anomalie nei dati di streaming con Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Procedure consigliate](../concepts/anomaly-detection-best-practices.md) per l'API Rilevamento anomalie.
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

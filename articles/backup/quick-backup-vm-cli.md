@@ -1,21 +1,16 @@
 ---
-title: Avvio rapido di Azure - Eseguire il backup di una macchina virtuale con l'interfaccia della riga di comando di Azure
+title: "Avvio rapido: Eseguire il backup di una macchina virtuale con l'interfaccia della riga di comando di Azure"
 description: Questa Guida di avvio rapido illustra come creare un insieme di credenziali di servizi di ripristino, come abilitare la protezione in una macchina virtuale e come creare il punto di ripristino iniziale con l'interfaccia della riga di comando di Azure.
-author: dcurwin
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 0d16237e0d5dc0e2176a2a9f600ca0be96328717
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747139"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171984"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
 

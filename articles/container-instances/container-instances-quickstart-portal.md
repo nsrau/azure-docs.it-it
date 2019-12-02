@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Distribuire un contenitore Docker in Istanze di Azure Container - Portale
+title: "Avvio rapido: Distribuire un contenitore Docker in un'istanza di contenitore - Portale"
 description: In questo argomento di avvio rapido viene usato il portale di Azure per distribuire rapidamente un'app Web in contenitori, che viene eseguita in un'istanza di contenitore Azure isolata
 services: container-instances
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bf3bea07fa2fcb67a467d4087ea9e2ccbfd95206
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325791"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533519"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Guida introduttiva: Distribuzione dell'istanza di contenitore in Azure con il portale di Azure
 

@@ -1,20 +1,16 @@
 ---
-title: Guida introduttiva di Azure - Eseguire il backup di una macchina virtuale con PowerShell
+title: 'Avvio rapido: Eseguire il backup di una macchina virtuale con PowerShell'
 description: Questa Guida di avvio rapido illustra come eseguire il backup delle macchine virtuali di Azure con il modulo Azure PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073971"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171956"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 

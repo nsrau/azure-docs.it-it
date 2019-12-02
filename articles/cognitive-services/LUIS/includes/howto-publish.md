@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647436"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325907"
 ---
 Per ottenere una previsione di Language Understanding Intelligent Service (LUIS) in un chatbot o in un'altra applicazione client, è necessario pubblicare l'app nell'endpoint. 
 
@@ -27,7 +27,7 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
 
     ![LUIS pubblica su endpoint](../media/howto-publish/publish-app-popup.png)
 
-3. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
+3. La pubblicazione è completata quando nella barra di stato nella parte superiore della pagina viene confermato il completamento.
 
     ![LUIS pubblica su endpoint](../media/howto-publish/publish-endpoint-success.png)
 

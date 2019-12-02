@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#"
+title: "Guida introduttiva: Controllare l'ortografia con l'API REST e C# - Controllo ortografico Bing"
 titleSuffix: Azure Cognitive Services
 description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 93b5c395a0d121305c092229d862bf9ecaa4789c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936052"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378902"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e C#
 

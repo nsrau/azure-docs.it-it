@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ee30962db230417bf3e20a354614a5ebb8f35a0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063047"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561903"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -43,7 +43,7 @@ I termini seguenti vengono usati in tutta la documentazione relativa alle identi
 - **ID entità servizio**: l'ID dell'oggetto entità servizio per l'identità gestita che viene usato per concedere l'accesso basato sul ruolo a una risorsa di Azure.
 - **Servizio metadati dell'istanza di Azure**: un endpoint REST accessibile a tutte le macchine virtuali IaaS create tramite Azure Resource Manager. L'endpoint è disponibile a un indirizzo IP non instradabile noto (169.254.169.254) a cui è possibile accedere solo dalla macchina virtuale.
 
-## Funzionamento delle identità gestite per le risorse di Azure<a name="how-does-it-work"></a>
+## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Funzionamento delle identità gestite per le risorse di Azure
 
 Sono disponibili due tipi di identità gestite:
 

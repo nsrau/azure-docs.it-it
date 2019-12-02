@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#"
+title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST con C# - Ricerca entità Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con C# e ricevere una risposta JSON.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: e41d99b4ddee41778e97aac9b5b947c0aa0eac5a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: efb2c646d364a93910d2105edb6527ad1116ccb2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404949"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327165"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
 

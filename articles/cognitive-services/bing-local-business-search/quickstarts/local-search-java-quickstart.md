@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Inviare una query all'API Ricerca attività commerciali locali Bing con Java"
+title: "Avvio rapido: Inviare una query all'API con Java - Ricerca attività commerciali locali Bing"
 titleSuffix: Azure Cognitive Services
 description: Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: eee5bc8d9d2587251b5564ecbd9f0ab1eaa44fcc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 46187aa1d4e0670b45aeeafd643f541ab90fb9a7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075671"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326736"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Java
 

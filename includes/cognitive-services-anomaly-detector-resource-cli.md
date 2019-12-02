@@ -4,22 +4,25 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/08/2019
-ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5089af4a4e1714d49b844a1b6823487a3f6a8dcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554706"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483045"
 ---
 Iniziare a usare il servizio Rilevamento anomalie creando una delle risorse di Azure seguenti.
 
-* Una [risorsa di valutazione](https://azure.microsoft.com/try/cognitive-services/#decision) (non richiede una sottoscrizione di Azure): 
+* <a href="https://azure.microsoft.com/try/cognitive-services/#decision" target="_blank" rel="noopener">Creare una risorsa di valutazione (si apre in una nuova scheda)</a>
+    * Non è necessaria una sottoscrizione di Azure: 
     * è gratuita e valida sette giorni. Dopo aver eseguito l'iscrizione, una chiave di valutazione e un endpoint saranno disponibili sul [sito Web di Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
     * Si tratta di un'ottima soluzione se si vuole provare Rilevamento anomalie, ma non si ha una sottoscrizione di Azure.
 
-* [Risorsa Rilevamento anomalie](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
-    * disponibile tramite il [portale di Azure](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade) fino a quando la risorsa non viene eliminata.
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank" rel="noopener">Creare una risorsa di Rilevamento anomalie (si apre in una nuova scheda)</a>:
+    * disponibile tramite il portale di Azure fino a quando la risorsa non viene eliminata.
     * Usare il piano tariffario gratuito per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+
+
 
 ### <a name="create-an-environment-variable"></a>Creare una variabile di ambiente
 
@@ -37,8 +40,8 @@ Usare le istruzioni per il sistema operativo in uso.
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```console
-setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
-setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+setx ANOMALY_DETECTOR_KEY <replace-with-your-anomaly-detector-key>
+setx ANOMALY_DETECTOR_ENDPOINT <replace-with-your-anomaly-detector-endpoint>
 ```
 
 Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
@@ -46,8 +49,8 @@ Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
@@ -57,8 +60,8 @@ Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla 
 Modificare `.bash_profile` e aggiungere la variabile di ambiente:
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 Dopo avere aggiunto la variabile di ambiente, eseguire `source .bash_profile` dalla finestra della console per rendere effettive le modifiche.

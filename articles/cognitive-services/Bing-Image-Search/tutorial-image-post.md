@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Estrarre i dettagli dell'immagine usando l'API Ricerca immagini Bing e C#"
+title: "Esercitazione: Estrarre i dettagli dell'immagine con l'API REST e C# - Ricerca immagini Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare le informazioni in questo articolo per creare un'applicazione C# in grado di estrarre i dettagli di un'immagine tramite l'API Ricerca immagini Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 995ccc8ffeb436526608803362cc361c74a75316
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790042"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327016"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Esercitazione: Estrarre i dettagli dell'immagine usando l'API Ricerca immagini Bing e C#
 
@@ -98,7 +98,7 @@ La risposta JSON può essere stampata nella console.
 
 ## <a name="use-an-image-insights-token-in-a-request"></a>Usare il token imageInsightsToken in una richiesta
 
-Per usare il token `ImageInsightsToken` restituito con i risultati di una richiesta `POST`, è possibile aggiungerlo a una richiesta `GET`. Ad esempio: 
+Per usare il token `ImageInsightsToken` restituito con i risultati di una richiesta `POST`, è possibile aggiungerlo a una richiesta `GET`. Ad esempio:
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
@@ -111,6 +111,6 @@ Se nell'immagine sono presenti persone o località identificabili, questa richie
 > [!div class="nextstepaction"]
 > [Visualizzare immagini e opzioni di ricerca in un'app Web a pagina singola ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni di riferimento per l'API Ricerca immagini Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

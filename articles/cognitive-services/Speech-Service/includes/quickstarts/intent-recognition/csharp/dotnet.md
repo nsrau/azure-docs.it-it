@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 6cb970a59118a93c7a9023cc7c0448019dc77362
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 599f59df1a18dfe77d66c497c52a05d7d2e3b6d6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125520"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280390"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -25,7 +25,7 @@ Prima di iniziare, assicurarsi di:
 > [!div class="checklist"]
 >
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Creare un'applicazione LUIS e ottenere una chiave dell'endpoint](../../../../quickstarts/create-luis.md)
+> * [Creare un'applicazione LUIS (Language Understanding) e ottenere una chiave dell'endpoint](../../../../quickstarts/create-luis.md)
 > * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=dotnet)
 

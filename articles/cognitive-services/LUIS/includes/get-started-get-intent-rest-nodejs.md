@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b158f3738e5d5e33c831e7312c167e5185d19e95
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125523"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414554"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Linguaggio di programmazione [Node.js](https://nodejs.org/) 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* ID app pubblica: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* ID app pubblico: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125523"
 
 ## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
-Usare Node.js per eseguire query sull'[API](https://aka.ms/luis-apim-v3-prediction) GET dell'endpoint di previsione per ottenere il risultato della previsione.
+Usare Node.js per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-apim-v3-prediction) per ottenere un risultato della previsione.
 
 1. Copiare il frammento di codice seguente in un file denominato `predict.js`:
 
@@ -76,24 +76,24 @@ Usare Node.js per eseguire query sull'[API](https://aka.ms/luis-apim-v3-predicti
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Impostare i valori seguenti:
+1. Sostituire i valori seguenti:
 
-    * `YOUR-KEY` come chiave di avvio
-    * `YOUR-ENDPOINT` come l'URL dell'endpoint
+    * `YOUR-KEY` con la chiave di avvio.
+    * `YOUR-ENDPOINT` con l'URL dell'endpoint. Ad esempio: `westus2.api.cognitive.microsoft.com`.
 
-1. Installare le dipendenze eseguendo il comando seguente al prompt della riga di comando: 
+1. Installare le dipendenze `request`, `request-promise` e `querystring` con questo comando: 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. Eseguire il codice con il comando seguente:
+1. Eseguire l'app con questo comando:
 
     ```console
     node predict.js
     ```
 
- 1. Esaminare la risposta di previsione in formato JSON:   
+ 1. Esaminare la risposta di previsione restituita in formato JSON:   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
