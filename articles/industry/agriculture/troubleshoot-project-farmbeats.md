@@ -1,18 +1,18 @@
 ---
-title: Risoluzione dei problemi
+title: risoluzione dei problemi
 description: Come risolvere i problemi di Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131968"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672592"
 ---
-# <a name="troubleshooting"></a>Risoluzione dei problemi
+# <a name="troubleshooting"></a>risoluzione dei problemi
 
 Le sezioni seguenti descrivono i problemi comuni di FarmBeats di Azure e come risolverli.
 
@@ -39,7 +39,17 @@ Per ulteriore assistenza, scrivi in farmbeatssupport@microsoft.com, Includi il f
 3. Se non sono presenti **messaggi in ingresso**, contattare il partner del dispositivo.  
 4. Se sono presenti **messaggi in ingresso**, contattare farmbeatssupport@microsoft.com con i log di hub dati e acceleratori e i dati di telemetria acquisiti.
 
-Vedere la [sezione logs](#collect-logs-manually) del documento per informazioni su come scaricare i log.    
+Vedere la [sezione logs](#collect-logs-manually) del documento per informazioni su come scaricare i log.  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>Non si dispone della stringa di connessione Eventhub
+
+**Azione correttiva**: visitare il datahub spavalderia e seguire questa procedura:
+1. Passa all'API partner
+2. Fare clic su GET-> provare > eseguire
+3. Prendere nota dell'ID partner del partner di sensori a cui si è interessati
+4. Tornare all'API partner e fare clic su GET/{ID}
+5. Specificare l'ID del passaggio 3 e fare clic su Esegui
+6. La risposta API deve avere la stringa di connessione EventHub
 
 ### <a name="device-appears-offline"></a>Il dispositivo viene visualizzato offline
 
@@ -84,7 +94,7 @@ Di seguito sono riportati gli scenari di errore comuni durante l'eliminazione di
 
 ## <a name="accelerator-troubleshooting"></a>Risoluzione dei problemi dell'acceleratore
 
-### <a name="access-control"></a>Controllo dell’accesso
+### <a name="access-control"></a>Controllo di accesso
 
 **Errore durante l'aggiunta dell'assegnazione di ruolo**
 

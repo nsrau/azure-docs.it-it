@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Go"
+title: "Guida introduttiva: Ottenere informazioni dettagliate sulle immagini con l'API REST e Go - Ricerca visiva Bing"
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate su di essa.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: dcfb2d7dc49dae03c733a3016d37425e33fb0535
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1612db9b0c0f6a5ec85734d5a26ed0e25cb8c07
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796473"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383219"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Guida introduttiva: Ottenere informazioni dettagliate sulle immagini usando l'API REST Ricerca visiva Bing e Go
 

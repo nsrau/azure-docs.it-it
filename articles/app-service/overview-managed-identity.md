@@ -1,22 +1,17 @@
 ---
-title: Panoramica delle identità gestite - Servizio app di Azure | Microsoft Docs
-description: Informazioni di riferimento teoriche e guida alla configurazione per le identità gestite in Servizio app di Azure e Funzioni di Azure
-services: app-service
+title: Identità gestite
+description: Informazioni su come funzionano le identità gestite in app Azure servizio e funzioni di Azure, come configurare un'identità gestita e generare un token per una risorsa back-end.
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847311"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688626"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -43,7 +38,7 @@ Per configurare un'identità gestita nel portale, è prima necessario creare un'
 
 3. Selezionare **Identity (identità**).
 
-4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Save**.
+4. All'interno della scheda **Assegnata dal sistema** impostare **Stato** su **Attivato**. Fare clic su **Salva**
 
     ![Identità gestita nel servizio app](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -256,7 +251,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
-> |Nome parametro|In ingresso|Descrizione|
+> |Nome parametro|In ingresso|Description|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
@@ -268,7 +263,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> |Nome proprietà|Descrizione|
+> |Nome proprietà|Description|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
 > |expires_on|Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache.|

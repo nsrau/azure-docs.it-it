@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 6d54ec8df08e7c3d76a97c2531c21b1fd4d130b9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6b79470194c5e8dc9b8d51f8b528cb4e51f7daf2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554759"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483036"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java
 
@@ -26,12 +26,12 @@ Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento d
 | Rilevare anomalie come batch                        | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per ogni punto dati nei dati di serie temporali e le posizioni delle anomalie rilevate. |
 | Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
 
- L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+ L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) versione successiva.
-
+- Chiave di Rilevamento anomalie ed endpoint
 - Importare queste librerie dal repository Maven
     - Pacchetto [JSON in Java](https://mvnrepository.com/artifact/org.json/json)
     - Pacchetto [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
@@ -71,7 +71,7 @@ Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento d
 
 6. Creare un oggetto `HttpEntity` in cui archiviare il contenuto della risposta. Ottenere il contenuto con `getEntity()`. Viene restituita la risposta se non è vuota.
 
-[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
+    [!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Rilevare anomalie come batch
 
@@ -81,11 +81,11 @@ Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento d
 
 3. In caso contrario, trovare le posizioni delle anomalie nel set di dati. Il campo `isAnomaly` della risposta contiene un valore booleano che indica se il punto dati specificato è un'anomalia. Ottenere la matrice JSON e scorrerla, stampando l'indice dei valori `true`. Questi valori corrispondono all'indice dei punti dati anomali, se presenti.
 
-[!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
+    [!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Rilevare lo stato delle anomalie del punto dati più recente
 
-* Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato delle anomalie del punto dati più recente nel set di dati. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
+Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato delle anomalie del punto dati più recente nel set di dati. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
@@ -95,7 +95,7 @@ Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento d
 
 2. Chiamare le due funzioni di rilevamento anomalie create in precedenza.
 
-[!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
+    [!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
 
 ### <a name="example-response"></a>Risposta di esempio
 
@@ -103,11 +103,4 @@ Viene restituita una risposta con esito positivo in formato JSON. Fare clic sui 
 * [Esempio di risposta di rilevamento in batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Esempio di risposta di rilevamento nel punto dati più recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
->[Rilevamento anomalie nei dati di streaming con Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Procedure consigliate](../concepts/anomaly-detection-best-practices.md) per l'API Rilevamento anomalie.
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

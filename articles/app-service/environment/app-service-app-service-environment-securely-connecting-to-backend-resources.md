@@ -1,29 +1,21 @@
 ---
-title: Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app - Azure
-description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app.
-services: app-service
-documentationcenter: ''
+title: Connetti al back-end V1
+description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069970"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687302"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app
-## <a name="overview"></a>Panoramica
-Poiché un ambiente del servizio app viene sempre creato in una rete virtuale Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end può fluire esclusivamente sulla rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
+Poiché un ambiente del servizio app viene sempre **creato in una** rete virtuale Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono fluire esclusivamente sulla rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
 
 Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster di macchine virtuali con la porta 1433 bloccata.  In base all'elenco di controllo di accesso definito per l'endpoint, potrebbe essere consentito solo l'accesso da altre risorse nella stessa rete virtuale.  
 
@@ -84,7 +76,7 @@ Il risultato finale è costituito da un set di regole di sicurezza che blocca l'
 
 ![Regole di sicurezza di rete predefinite][DefaultNetworkSecurityRules]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
 Per informazioni dettagliate su come controllare il traffico in ingresso verso la ambiente del servizio app, vedere [controllo del traffico in ingresso verso un ambiente del servizio app][ControlInboundASE]

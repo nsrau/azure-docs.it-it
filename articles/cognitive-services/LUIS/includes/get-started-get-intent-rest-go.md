@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 6d2955a77c06f371975a7a14675eedceab7c98ae
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5054ee9a23458944257a8010aaab6268d25042a7
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125522"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414577"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Linguaggio di programmazione [Go](https://golang.org/)  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* ID app pubblica: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* ID app pubblico: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125522"
 
 ## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
-Usare Go per eseguire query sull'[API](https://aka.ms/luis-apim-v3-prediction) GET dell'endpoint di previsione per ottenere il risultato della previsione.
+Usare Go per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-apim-v3-prediction) per ottenere un risultato della previsione.
 
 1. Creare un file denominato `predict.go`. Aggiungere il codice seguente:
     
@@ -85,8 +85,8 @@ Usare Go per eseguire query sull'[API](https://aka.ms/luis-apim-v3-prediction) G
 
 1. Sostituire i valori seguenti:
 
-    * `YOUR-KEY` con la chiave di avvio
-    * `YOUR-ENDPOINT` con l'endpoint, ad esempio `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` con la chiave di avvio.
+    * `YOUR-ENDPOINT` con l'endpoint. Ad esempio: `westus2.api.cognitive.microsoft.com`.
 
 1. Da un prompt dei comandi nella stessa directory in cui è stato creato il file immettere il comando seguente per compilare il file Go:
 
