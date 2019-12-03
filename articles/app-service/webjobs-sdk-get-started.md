@@ -1,24 +1,17 @@
 ---
-title: Introduzione a WebJobs SDK - Azure
+title: Introduzione a WebJobs SDK
 description: Introduzione a WebJobs SDK per l'elaborazione in background guidata dagli eventi. Informazioni su come accedere ai dati nei servizi di Azure e di terze parti.
-services: app-service\web, storage
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390077"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684189"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -44,7 +37,7 @@ Questo articolo illustra come distribuire processi Web come app console .NET Cor
 
 ## <a name="webjobs-nuget-packages"></a>Pacchetti NuGet di processi Web
 
-1. Installare la versione stabile 3. x più recente del pacchetto NuGet `Microsoft.Azure.WebJobs.Extensions`, che include `Microsoft.Azure.WebJobs`.
+1. Installare la versione stabile 3. x più recente del pacchetto NuGet di `Microsoft.Azure.WebJobs.Extensions`, che include `Microsoft.Azure.WebJobs`.
 
      Di seguito è riportato il comando di **Console di Gestione pacchetti** per la versione 3.0.2:
 
@@ -80,7 +73,7 @@ L'host è il contenitore Runtime per le funzioni che sono in attesa di trigger e
     }
     ```
 
-In ASP.NET Core le configurazioni dell'host vengono impostate chiamando metodi sull'istanza [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Per altre informazioni, vedere [Host generico .NET](/aspnet/core/fundamentals/host/generic-host). Il metodo di estensione `ConfigureWebJobs` inizializza l'host WebJobs. In `ConfigureWebJobs` si inizializzano le estensioni di processi Web specifiche e si impostano le proprietà di tali estensioni.  
+In ASP.NET Core le configurazioni dell'host vengono impostate chiamando metodi sull'istanza [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Per altre informazioni, vedere [Host generico .NET](/aspnet/core/fundamentals/host/generic-host). Il metodo di estensione `ConfigureWebJobs` inizializza l'host WebJobs. In `ConfigureWebJobs`si inizializzano le estensioni di processi Web specifiche e si impostano le proprietà di tali estensioni.  
 
 ## <a name="enable-console-logging"></a>Abilitare la registrazione nella console
 
@@ -218,7 +211,7 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
 WebJobs SDK cerca la stringa di connessione di archiviazione nelle impostazioni applicazione in Azure. In caso di esecuzione in locale, questo valore viene cercato nel file di configurazione locale o nelle variabili di ambiente.
 
-1. Fare clic con il pulsante destro del mouse sul progetto, selezionare **aggiungi** > **nuovo elemento**, scegliere **file di configurazione JSON JavaScript**, denominare il nuovo file *appSettings. JSON* e selezionare **Aggiungi**. 
+1. Fare clic con il pulsante destro del mouse sul progetto, scegliere **aggiungi** > **nuovo elemento**, scegliere **file di configurazione JSON JavaScript**, denominare il nuovo file *appSettings. JSON* e selezionare **Aggiungi**. 
 
 1. Nel nuovo file aggiungere un campo `AzureWebJobsStorage`, come nell'esempio seguente:
 
