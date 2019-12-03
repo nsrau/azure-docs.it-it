@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3286d3e786fc5b0e7a772f5b0e3caa3acf38671e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257939"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703952"
 ---
-# <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemi noti: Avvisi comuni e risoluzioni in Azure Active Directory Domain Services
+# <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemi noti: avvisi comuni e risoluzioni in Azure Active Directory Domain Services
 
 Come parte centrale dell'identità e dell'autenticazione per le applicazioni, Azure Active Directory Domain Services (Azure AD DS) a volte presenta dei problemi. Se si verificano problemi, sono disponibili alcuni avvisi comuni e i passaggi di risoluzione dei problemi associati che consentono di eseguire di nuovo le operazioni. In qualsiasi momento, è anche possibile [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
 
@@ -28,7 +28,7 @@ Questo articolo fornisce informazioni sulla risoluzione dei problemi per gli avv
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*È possibile che la directory di Azure AD associata al dominio gestito sia stata eliminata. Il dominio gestito non si trova più in una configurazione supportata. Microsoft non può monitorare, applicare patch e sincronizzare il dominio gestito.*
+*La directory Azure AD associata al dominio gestito potrebbe essere stata eliminata. Il dominio gestito non è più in una configurazione supportata. Microsoft non può monitorare, gestire, applicare patch e sincronizzare il dominio gestito.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -58,7 +58,7 @@ L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entr
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*L'intervallo di indirizzi IP per la rete virtuale in cui è stato abilitato Azure AD Domain Services si trova in un intervallo di indirizzi IP pubblici. È necessario abilitare Azure AD Domain Services in una rete virtuale con un intervallo di indirizzi IP privati. Questa configurazione impedisce a Microsoft di monitorare, applicare patch e sincronizzare il dominio gestito.*
+*L'intervallo di indirizzi IP per la rete virtuale in cui è stato abilitato Azure AD Domain Services si trova in un intervallo di indirizzi IP pubblici. Azure AD Domain Services deve essere abilitato in una rete virtuale con un intervallo di indirizzi IP privati. Questa configurazione influisca sulla capacità di Microsoft di monitorare, gestire, applicare patch e sincronizzare il dominio gestito.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -86,7 +86,7 @@ L'integrità del dominio gestito di Azure AD DS si aggiorna automaticamente entr
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*La sottoscrizione di Azure associata al dominio gestito è stata eliminata.  Per il funzionamento corretto di Azure AD Domain Services è necessaria una sottoscrizione attiva.*
+*La sottoscrizione di Azure associata al dominio gestito è stata eliminata.  Azure AD Domain Services richiede una sottoscrizione attiva per continuare a funzionare correttamente.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -100,7 +100,7 @@ Azure AD DS richiede una sottoscrizione attiva e non può essere spostata in una
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*La sottoscrizione di Azure associata al dominio gestito non è attiva.  Per il funzionamento corretto di Azure AD Domain Services è necessaria una sottoscrizione attiva.*
+*La sottoscrizione di Azure associata al dominio gestito non è attiva.  Azure AD Domain Services richiede una sottoscrizione attiva per continuare a funzionare correttamente.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -115,17 +115,17 @@ Quando il dominio gestito viene nuovamente abilitato, l'integrità del dominio g
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*La sottoscrizione usata da Azure AD Domain Services è stata spostata in un'altra directory. Per il funzionamento corretto di Azure AD Domain Services è necessaria una sottoscrizione attiva nella stessa directory.*
+*La sottoscrizione utilizzata da Azure AD Domain Services è stata spostata in un'altra directory. Per il corretto funzionamento di Azure AD Domain Services necessario che la sottoscrizione sia attiva nella stessa directory.*
 
 ### <a name="resolution"></a>Risoluzione
 
-Azure AD DS richiede una sottoscrizione attiva e non può essere spostata in una sottoscrizione diversa. Se la sottoscrizione di Azure a cui è stato associato il dominio gestito di Azure AD DS viene spostata, riportare la sottoscrizione alla directory precedente oppure [eliminare il dominio gestito](delete-aadds.md) dalla directory esistente e [creare una sostituzione Azure ad gestita da DS dominio nella sottoscrizione selezionata](tutorial-create-instance.md).
+Azure AD DS richiede una sottoscrizione attiva e non può essere spostata in una sottoscrizione diversa. Se la sottoscrizione di Azure a cui è stato associato il dominio gestito di Azure AD DS viene spostata, spostarla di nuovo nella directory precedente oppure [eliminare il dominio gestito](delete-aadds.md) dalla directory esistente e [creare una sostituzione Azure ad dominio gestito DS nella sottoscrizione scelta](tutorial-create-instance.md).
 
-## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Non è possibile trovare le risorse per il dominio gestito
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Non è possibile trovare risorse per il dominio gestito
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*Una risorsa usata per il dominio gestito è stata eliminata. Questa risorsa è necessaria per il funzionamento corretto di Azure AD Domain Services.*
+*Una risorsa usata per il dominio gestito è stata eliminata. Questa risorsa è necessaria per il corretto funzionamento di Azure AD Domain Services.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -133,7 +133,7 @@ Azure AD DS crea risorse specifiche per funzionare correttamente, ad esempio ind
 
 Questo avviso viene generato quando una di queste risorse obbligatorie viene eliminata. Se la risorsa è stata eliminata meno di 4 ore fa, è possibile che la piattaforma Azure ricrei automaticamente la risorsa eliminata. La procedura seguente illustra come verificare lo stato di integrità e il timestamp per l'eliminazione di risorse:
 
-1. Nella portale di Azure cercare e selezionare **servizi di dominio**. Scegliere il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
+1. Nella portale di Azure cercare e selezionare **servizi di dominio**. Scegliere il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
 1. Nella finestra di spostamento a sinistra selezionare **stato**.
 1. Nella pagina stato selezionare l'avviso con l'ID *AADDS109*.
 1. L'avviso ha un timestamp per la prima volta che è stato trovato. Se il timestamp è inferiore a 4 ore fa, la piattaforma Azure potrebbe riuscire a ricreare automaticamente la risorsa e risolvere l'avviso.
@@ -152,11 +152,11 @@ La subnet della rete virtuale per Azure AD DS necessita di indirizzi IP sufficie
 
 Questo errore è irreversibile. Per risolvere l'avviso, [eliminare il dominio gestito Azure AD DS esistente](delete-aadds.md) e ricrearlo. In caso di problemi durante l'eliminazione del dominio gestito Azure AD DS, [aprire una richiesta di supporto tecnico di Azure][azure-support] per ulteriore assistenza per la risoluzione dei problemi.
 
-## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Entità servizio non autorizzata
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: entità servizio non autorizzata
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*Un'entità servizio usata da Azure AD Domain Services per gestire il dominio non è autorizzata a gestire risorse nella sottoscrizione di Azure. L'entità servizio deve ottenere le autorizzazioni per gestire il dominio gestito.*
+*Un'entità servizio che Azure AD Domain Services USA per il servizio del dominio non è autorizzata a gestire le risorse nella sottoscrizione di Azure. L'entità servizio deve ottenere le autorizzazioni per il servizio del dominio gestito.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -165,11 +165,11 @@ Alcune entità servizio generate automaticamente vengono usate per gestire e cre
 1. Informazioni sul [controllo degli accessi in base al ruolo e su come concedere l'accesso alle applicazioni nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Verificare l'accesso dell'entità servizio con ID *abba844e-BC0E-44b0-947A-dc74e5d09022* e concedere l'accesso negato a una data precedente.
 
-## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Non sono presenti indirizzi IP sufficienti nel dominio gestito
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Gli indirizzi IP disponibili nel dominio gestito non sono sufficienti
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*È stato rilevato che la subnet della rete virtuale in questo dominio potrebbe non avere indirizzi IP sufficienti. Azure AD Domain Services necessita di almeno due indirizzi IP disponibili entro la subnet in cui è abilitato. È consigliabile avere almeno da 3 a 5 indirizzi IP disponibili entro la subnet. È possibile che questo problema si verifichi se altre macchine virtuali sono distribuite nella subnet, esaurendo il numero di indirizzi IP, o se è presente una limitazione sul numero di indirizzi IP disponibili nella subnet.*
+*È stato rilevato che la subnet della rete virtuale in questo dominio potrebbe non avere un numero sufficiente di indirizzi IP. Azure AD Domain Services richiede almeno due indirizzi IP disponibili all'interno della subnet in cui è abilitata. È consigliabile avere almeno 3-5 indirizzi IP di riserva all'interno della subnet. Questa operazione potrebbe essersi verificata in caso di distribuzione di altre macchine virtuali all'interno della subnet, in modo da esaurire il numero di indirizzi IP disponibili o se è presente una restrizione per il numero di indirizzi IP disponibili nella subnet.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -242,7 +242,7 @@ Per verificare i criteri applicati nei componenti Azure AD DS e aggiornarli, att
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*Il dominio gestito è stato sincronizzato l'ultima volta con Azure AD in data [data]. È possibile che gli utenti non riescano ad accedere al dominio gestito o che le appartenenze a gruppi non siano sincronizzate con Azure AD.*
+*Il dominio gestito è stato sincronizzato per l'ultima volta con Azure AD in data [DATE]. Gli utenti potrebbero non essere in grado di accedere al dominio gestito oppure le appartenenze ai gruppi potrebbero non essere sincronizzate con Azure AD.*
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -285,7 +285,7 @@ Quando il dominio gestito viene nuovamente abilitato, l'integrità del dominio g
 
 ### <a name="alert-message"></a>Messaggio di avviso
 
-*Il dominio gestito è stato sospeso a causa di una configurazione non valida. Il servizio non è riuscito a gestire, applicare patch o aggiornare i controller di dominio per il dominio gestito per molto tempo.*
+*Il dominio gestito è sospeso a causa di una configurazione non valida. Il servizio non è stato in grado di gestire, applicare patch o aggiornare i controller di dominio per il dominio gestito da molto tempo.*
 
 ### <a name="resolution"></a>Risoluzione
 

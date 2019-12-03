@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217742"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702046"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Trasformazione origine per il mapping del flusso di dati 
 
@@ -30,7 +30,7 @@ Il flusso di dati di mapping segue un approccio di estrazione, caricamento e tra
 * Archiviazione BLOB di Azure (JSON, avro, testo, parquet)
 * Azure Data Lake Storage Gen1 (JSON, avro, testo, parquet)
 * Azure Data Lake Storage Gen2 (JSON, avro, testo, parquet)
-* Azure SQL Data Warehouse
+* SQL Data Warehouse di Azure
 * database SQL di Azure
 * Azure CosmosDB
 
@@ -123,7 +123,7 @@ In questo caso, tutti i file originati in/data/Sales vengono spostati in/backup/
 
 È possibile specificare tutte le impostazioni di origine come espressioni utilizzando il [linguaggio delle espressioni di trasformazione del flusso di dati di mapping](data-flow-expression-functions.md). Per aggiungere contenuto dinamico, fare clic o passare il puntatore del mouse all'interno dei campi nel pannello impostazioni. Fare clic sul collegamento ipertestuale per **Aggiungi contenuto dinamico**. Verrà avviato il generatore di espressioni in cui è possibile impostare i valori in modo dinamico tramite espressioni, valori letterali statici o parametri.
 
-![Parameters](media/data-flow/params6.png "parametri")
+![Parameters](media/data-flow/params6.png "parameters")
 
 ## <a name="sql-source-options"></a>Opzioni origine SQL
 
@@ -156,7 +156,7 @@ Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di
 
 ### <a name="import-schema"></a>Importa schema
 
-I set di dati come Avro e CosmosDB che supportano strutture di dati complesse non richiedono la presenza di definizioni dello schema nel DataSet. Sarà quindi possibile fare clic sul pulsante "Importa schema" della scheda proiezione per questi tipi di origini.
+I set di dati come Avro e CosmosDB che supportano strutture di dati complesse non richiedono la presenza di definizioni dello schema nel DataSet. Sarà quindi possibile fare clic sul pulsante **Importa schema** nella scheda **proiezione** per questi tipi di origini.
 
 ## <a name="cosmosdb-specific-settings"></a>Impostazioni specifiche di CosmosDB
 

@@ -10,28 +10,28 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f7b4f926bb9611d87c67276f754a6b596850b59d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 9e64d184ef0fd120d1bc64ce274ee882b7938df0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645602"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708640"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
-D: Che cos'è la sinapsi di Azure?
+D: Che cos'è Azure Synapse?
 
-R. La sinapsi di Azure è un servizio di analisi senza limiti che riunisce data warehousing e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze, usando risorse su richiesta senza server o con provisioning, su larga scala. Le sinapsi di Azure offrono questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la gestione dei dati per esigenze immediate di BI e machine learning. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
+R. La sinapsi di Azure è un servizio di analisi senza limiti che riunisce data warehousing e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze, usando risorse su richiesta senza server o con provisioning, su larga scala. Azure Synapse offre questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la distribuzione dei dati per esigenze immediate di business intelligence e Machine Learning. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
-D: Che cosa è successo a Azure SQL Data Warehouse?
+D: Che cosa è successo ad Azure SQL Data Warehouse?
 
 R. La sinapsi di Azure è Azure SQL Data Warehouse (SQL DW) è stata sviluppata. Abbiamo adottato lo stesso data warehouse leader del settore per un livello completamente nuovo di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti attualmente in produzione con le sinapsi di Azure e trarre automaticamente vantaggio dalle nuove funzionalità disponibili in anteprima. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
 D: Che cos'è SQL Analytics?
 
-R. Analisi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con le sinapsi di Azure. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
+R. Analisi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con Azure Synapse. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
 D: Ricerca per categorie iniziare a usare la sinapsi di Azure?
 
@@ -47,7 +47,7 @@ R. Visitare la pagina [Conformità di Microsoft] per le diverse offerte di confo
 
 D: È possibile connettersi Power BI?
 
-R. È possibile usarlo. Tuttavia Power BI supporta le query dirette con la sinapsi di Azure, non è destinata a un numero elevato di utenti o a dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI su Azure Analysis Services o IaaS di Analysis Services.
+R. Sì. Tuttavia Power BI supporta le query dirette con la sinapsi di Azure, non è destinata a un numero elevato di utenti o a dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI su Azure Analysis Services o IaaS di Analysis Services.
 
 D: Quali sono i limiti di capacità di analisi SQL?
 
@@ -82,10 +82,6 @@ D: Quali funzionalità delle tabelle sono supportate?
 R. Sono supportate molte funzionalità, quelle che non sono supportate e sono documentate in [Funzionalità non supportate delle tabelle]non supportate.
 
 ## <a name="tooling-and-administration"></a>Strumenti e amministrazione
-
-D: I progetti di Database sono supportati in Visual Studio.
-
-R. Attualmente non sono supportati progetti di database in Visual Studio. Se si desidera eseguire il cast di un voto per ottenere questa funzionalità, visitare il forum [richiesta di funzionalità per progetti di Database].
 
 D: Analisi SQL supporta le API REST?
 
@@ -130,6 +126,6 @@ Per altre informazioni sull'intera sinapsi di Azure, vedere la pagina [Panoramic
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Archivio Data Lake di Azure]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [BLOB di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Richiesta di funzionalità per progetti di database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Panoramica]: ./sql-data-warehouse-overview-faq.md

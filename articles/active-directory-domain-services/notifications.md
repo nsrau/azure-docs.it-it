@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546265"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704500"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurare le notifiche di posta elettronica per i problemi in Azure Active Directory Domain Services
 
@@ -58,7 +58,7 @@ L'elenco dei destinatari di posta elettronica per Azure AD DS deve essere costit
 Per esaminare i destinatari delle notifiche di posta elettronica esistenti o aggiungere altri destinatari, seguire questa procedura:
 
 1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
-1. Selezionare il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
+1. Selezionare il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
 1. Sul lato sinistro della finestra della risorsa Azure AD DS selezionare **impostazioni di notifica**. Vengono visualizzati i destinatari esistenti per le notifiche tramite posta elettronica.
 1. Per aggiungere un destinatario di posta elettronica, immettere l'indirizzo di posta elettronica nella tabella destinatari aggiuntivi.
 1. Al termine, selezionare **Salva** nella finestra di spostamento in alto a destra.

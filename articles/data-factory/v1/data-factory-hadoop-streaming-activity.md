@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667493"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703375"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività di streaming di Hadoop in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -227,5 +227,5 @@ Il cluster HDInsight viene popolato automaticamente con programmi di esempio (wc
 * [Attività di Pig](data-factory-pig-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
-* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114734"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705965"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizzare i dati da Time Series Insights in Power BI
 
@@ -29,10 +29,13 @@ Alla fine, si apprenderà come visualizzare i dati delle serie temporali tramite
 
 Assicurarsi di iscriversi per ottenere una [sottoscrizione gratuita di Azure](https://azure.microsoft.com/free/) , se non ne è già disponibile una.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Scaricare e installare la versione più recente di [Power bi desktop](https://powerbi.microsoft.com/downloads/)
-* Avere o creare un' [istanza di Azure Time Series Insights GA](time-series-insights-get-started.md) o un' [istanza di anteprima Azure Time Series Insights](time-series-insights-update-how-to-manage.md)
+* Avere o creare un' [istanza di Azure Time Series Insights Preview](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> Il connettore Power BI è attualmente supportato in Time Series Insights anteprima ambienti con *pagamento in base* al consumo configurati per l' **archivio a caldo**.
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Connettere i dati da Time Series Insights a Power BI
 
@@ -45,7 +48,7 @@ Per connettere l'ambiente di Time Series Insights al Power BI, attenersi alla pr
 
 ### <a name="export-data-into-power-bi-desktop"></a>Esportare i dati in Power BI desktop
 
-Attività iniziali
+Per iniziare:
 
 1. Aprire Esplora Time Series Insights Preview e curare i dati.
 1. Dopo aver creato una vista soddisfatta, passare al menu a discesa **altre azioni** e fare clic su **Connetti a Power bi**. 
@@ -65,12 +68,12 @@ Attività iniziali
 
        [Connessione ![](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Se non è stata configurata l'istanza di Time Series Insights per warm Store, verrà visualizzato un avviso.
+   1. Se non è stata configurata l'istanza di Time Series Insights per **warm Store**, verrà visualizzato un avviso.
 
        [Connessione ![](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > È possibile configurare l'istanza esistente per warm Store nel portale di Azure.
+       > È possibile configurare l'istanza esistente per **warm Store** nel portale di Azure.
 
 1. Selezionare **copia query negli Appunti**.
 1. A questo punto, avviare Power BI Desktop.
@@ -136,7 +139,7 @@ Panoramica:
 
 Verranno applicate le modifiche desiderate.  
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * Per Azure Time Series Insights, vedere Concetti relativi a [Power bi Connector](https://docs.microsoft.com/power-bi/desktop-query-overview) .
 

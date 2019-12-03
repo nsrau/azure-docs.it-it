@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32020341c7ac3bf33082ba365f053a613dcdffc2
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474521"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705090"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito Azure AD Domain Services
 
@@ -53,7 +53,7 @@ Per creare e configurare Criteri di gruppo oggetto (GPO), è necessario installa
 1. Fare clic su *Aggiungi ruoli e funzionalità* nel riquadro **Dashboard** della finestra **Server Manager**.
 1. Nella pagina **Prima di iniziare** dell'*aggiunta guidata ruoli e funzionalità* selezionare **Avanti**.
 1. Per *Tipo di installazione* lasciare selezionata l'opzione **Installazione basata su ruoli o basata su funzionalità** e selezionare **Avanti**.
-1. Nella pagina **Selezione server** scegliere la VM corrente dal pool di server, ad esempio *myvm.contoso.com*, quindi selezionare **Avanti**.
+1. Nella pagina **Selezione server** scegliere la macchina virtuale corrente dal pool di server, ad esempio *MyVM.aadds.contoso.com*, quindi fare clic su **Avanti**.
 1. Nella pagina **Ruoli del server** fare clic su **Avanti**.
 1. Nella pagina **Funzionalità**, selezionare **Gestione Criteri di gruppo**.
 
@@ -76,7 +76,7 @@ Gli oggetti Criteri di gruppo (GPO) predefiniti sono disponibili per utenti e co
 
 Esistono due oggetti Criteri di gruppo predefiniti (GPO) in un dominio gestito Azure AD DS, uno per il contenitore *computer aaddc Computers* e uno per il contenitore *utenti aaddc Computers* . È possibile personalizzare questi oggetti Criteri di gruppo per configurare i criteri di gruppo in base alle esigenze all'interno del dominio gestito di Azure AD DS.
 
-1. Nella console di **gestione di criteri di gruppo** espandere il nodo **foresta: contoso.com** . Successivamente, espandere i nodi **domini** .
+1. Nella console di **gestione di criteri di gruppo** espandere il nodo **foresta: aadds.contoso.com** . Successivamente, espandere i nodi **domini** .
 
     Per i *computer aaddc Computers* e *gli utenti aaddc Computers*sono disponibili due contenitori predefiniti. A ognuno di questi contenitori è applicato un oggetto Criteri di gruppo predefinito.
 

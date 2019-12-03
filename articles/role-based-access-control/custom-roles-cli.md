@@ -1,6 +1,6 @@
 ---
-title: Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare ruoli personalizzati con il controllo degli accessi in base al ruolo per le risorse di Azure tramite l'interfaccia della riga di comando di Azure. Viene illustrato come elencare, creare, aggiornare ed eliminare ruoli personalizzati.
+title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'interfaccia della riga di comando Microsoft Docs
+description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure tramite l'interfaccia della riga di comando di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b2ffde66468ae7cb2818010ac374126d2973be
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118774"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703129"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'interfaccia della riga di comando
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con l'interfaccia della riga di comando di Azure.
+Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare i ruoli personalizzati usando l'interfaccia della riga di comando di Azure.
 
-Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [Esercitazione: Creare un ruolo personalizzato per le risorse di Azure usando Azure CLI](tutorial-custom-role-cli.md).
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [esercitazione: creare un ruolo personalizzato per le risorse di Azure usando l'interfaccia della](tutorial-custom-role-cli.md)riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,15 +63,15 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
-## <a name="list-a-custom-role-definition"></a>Elenco di una definizione di ruolo personalizzata
+## <a name="list-a-custom-role-definition"></a>Elencare una definizione di ruolo personalizzata
 
-Per elencare una definizione di ruolo personalizzate, usare [elenco di definizioni di ruolo az](/cli/azure/role/definition#az-role-definition-list). Questo è lo stesso comando che si utilizzerebbe per un ruolo predefinito.
+Per elencare una definizione di ruolo personalizzata, usare [AZ Role definition list](/cli/azure/role/definition#az-role-definition-list). Si tratta dello stesso comando che si utilizzerebbe per un ruolo predefinito.
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-L'elenco seguente sono elencate le *Virtual Machine Operator* definizione ruolo:
+Nell'esempio seguente viene elencata la definizione del ruolo *operatore macchina virtuale* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -113,7 +113,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-Nell'esempio seguente vengono elencate solo le azioni del *Virtual Machine Operator* ruolo:
+Nell'esempio seguente vengono elencate solo le azioni del ruolo *operatore macchina virtuale* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
@@ -238,6 +238,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
+- [Esercitazione: creare un ruolo personalizzato per risorse di Azure con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
 - [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
 - [Operazioni di provider di risorse con Azure Resource Manager](resource-provider-operations.md)

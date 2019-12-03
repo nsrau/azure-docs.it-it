@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456811"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707771"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure
 
@@ -90,7 +90,7 @@ Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia del
 }
 ```
 
-Non è un problema lasciare queste assegnazioni di ruolo, ma è possibile rimuoverle usando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-role-assignments), [Azure PowerShell](role-assignments-powershell.md#remove-access)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-access)
+Non è un problema lasciare queste assegnazioni di ruolo, ma è possibile rimuoverle usando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [portale di Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)o l'interfaccia della riga di comando di [Azure](role-assignments-cli.md#remove-a-role-assignment)
 
 In PowerShell, se si tenta di rimuovere le assegnazioni di ruolo utilizzando l'ID oggetto e il nome della definizione di ruolo e più di un'assegnazione di ruolo corrisponde ai parametri, verrà visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo". Di seguito viene illustrato un esempio del messaggio di errore:
 
@@ -162,7 +162,7 @@ Le macchine virtuali sono correlate a nomi di dominio, reti virtuali, account di
 
 Gli elementi seguenti richiedono accesso **in scrittura** alla **macchina virtuale**:
 
-* Endpoints  
+* Endpoint  
 * Indirizzi IP  
 * Dischi  
 * Estensioni  

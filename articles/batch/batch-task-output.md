@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094437"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707538"
 ---
 # <a name="persist-job-and-task-output"></a>Rendere persistente l'output di processi e attività
 
@@ -50,17 +50,17 @@ Per altre informazioni su come rendere persistente l'output delle attività con 
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Usare la libreria Batch File Conventions per .NET
 
-Batch definisce un set facoltativo di convenzioni per la denominazione dei file di output delle attività in Archiviazione di Azure. Lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) descrive queste convenzioni. Lo standard File Conventions determina i nomi del percorso del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività.
+Batch definisce un set facoltativo di convenzioni per la denominazione dei file di output delle attività in Archiviazione di Azure. Lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) descrive queste convenzioni. Lo standard File Conventions determina i nomi del percorso del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività.
 
 Ogni utente può decidere se usare lo standard File Conventions per la denominazione dei file di dati di output. È anche possibile assegnare i nomi preferiti al contenitore e al BLOB di destinazione. Se si usa lo standard File Conventions per la denominazione dei file di output, i file di output sono disponibili per la visualizzazione nel [portale di Azure][portal].
 
-Gli sviluppatori che compilano soluzioni batch con C# e .NET possono usare la [libreria file Conventions per .NET][nuget_package] per rendere permanente i dati delle attività in un account di archiviazione di Azure, in base allo [standard batch file Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). La libreria File Conventions gestisce lo spostamento dei file di output in Archiviazione di Azure e la denominazione dei contenitori e dei BLOB di destinazione in modo noto.
+Gli sviluppatori che compilano soluzioni batch con C# e .NET possono usare la [libreria file Conventions per .NET][nuget_package] per rendere permanente i dati delle attività in un account di archiviazione di Azure, in base allo [standard batch file Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions). La libreria File Conventions gestisce lo spostamento dei file di output in Archiviazione di Azure e la denominazione dei contenitori e dei BLOB di destinazione in modo noto.
 
 Per altre informazioni su come rendere persistente l'output delle attività con la libreria File Conventions per .NET, vedere [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md).
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implementare lo standard Batch File Conventions
 
-Se si usa un linguaggio diverso da .NET, è possibile implementare lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) nell'applicazione.
+Se si usa un linguaggio diverso da .NET, è possibile implementare lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) nell'applicazione.
 
 Può essere utile implementare lo standard File Conventions quando si vuole usare uno schema di denominazione collaudato o è necessario visualizzare l'output delle attività nel portale di Azure.
 
@@ -76,7 +76,7 @@ Può essere utile implementare lo standard File Conventions quando si vuole usar
 
 Quando si progetta una soluzione Batch, è necessario considerare i fattori seguenti correlati agli output di processi e attività.
 
-- **Durata dei nodi di calcolo**: i nodi di calcolo sono spesso temporanei, in particolare nei pool abilitati per il ridimensionamento automatico. L'output da un'attività eseguita su un nodo è disponibile solo finché il nodo esiste e solo durante il periodo di conservazione dei file impostato per l'attività. Se un'attività genera output che potrebbe essere necessario dopo il completamento dell'attività, l'attività deve caricare i file di output in un archivio permanente, come Archiviazione di Azure.
+- **Durata dei nodi di calcolo**: questi nodi sono spesso temporanei, in particolare nei pool abilitati per il ridimensionamento automatico. L'output da un'attività eseguita su un nodo è disponibile solo finché il nodo esiste e solo durante il periodo di conservazione dei file impostato per l'attività. Se un'attività genera output che potrebbe essere necessario dopo il completamento dell'attività, l'attività deve caricare i file di output in un archivio permanente, come Archiviazione di Azure.
 
 - **Archiviazione dell'output**: Archiviazione di Azure è la soluzione consigliata come archivio dati per l'output delle attività, ma è possibile usare qualsiasi sistema di archiviazione permanente. La funzionalità di scrittura dell'output in Archiviazione di Azure è integrata nell'API del servizio Batch. Se si usa un'altra forma di archiviazione permanente, sarà necessario scrivere autonomamente la logica dell'applicazione per rendere persistente l'output delle attività.
 

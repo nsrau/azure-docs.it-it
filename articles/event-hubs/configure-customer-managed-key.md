@@ -6,17 +6,20 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809376"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705456"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure (anteprima)
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
+
+>[!NOTE]
+> Questa funzionalità è attualmente in anteprima. Si consiglia di non utilizzare in in un ambiente di produzione.
 
 ## <a name="overview"></a>Panoramica
 Hub eventi di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key – BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
@@ -110,7 +113,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 | ActivityId | ID interno usato per il rilevamento. |
 | category | Definisce la classificazione dell'attività. Se, ad esempio, la chiave dell'insieme di credenziali delle chiavi è disabilitata, sarà una categoria di informazioni o se non è possibile decrittografare una chiave, potrebbe rientrare in errore. |
 | ResourceId | ID della risorsa Azure Resource Manager |
-| KeyVault | Nome completo dell'insieme di credenziali delle chiavi. |
+| keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
 | key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
 | version | Versione della chiave usata. |
 | operation | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |

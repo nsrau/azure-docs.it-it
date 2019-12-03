@@ -1,6 +1,6 @@
 ---
-title: Connettersi a una rete di peer in Azure Lab Services | Microsoft Docs
-description: Informazioni su come connettere la rete lab con un'altra rete come peer. Ad esempio, è possibile connettere la rete di scuola/università in locale con la rete virtuale del Lab in Azure.
+title: Connettersi a una rete peer in Azure Lab Services | Microsoft Docs
+description: Informazioni su come connettere la rete lab con un'altra rete come peer. Ad esempio, connettere la rete School/University locale con la rete virtuale del Lab in Azure.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411024"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701676"
 ---
-# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>La connessione di rete del lab con una rete virtuale peer in Azure Lab Services 
-Questo articolo fornisce informazioni sul peering della rete lab con un'altra rete. 
+# <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connettere la rete del Lab a una rete virtuale peer in Azure Lab Services 
+Questo articolo fornisce informazioni sul peering della rete Labs con un'altra rete. 
 
 ## <a name="overview"></a>Panoramica
-Peering reti virtuali consente di connettere reti virtuali di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali nelle reti virtuali con peering viene instradato attraverso l'infrastruttura backbone Microsoft, analogo a quello del traffico instradato tra le macchine virtuali nella stessa rete virtuale, tramite solo indirizzi IP privati. Per altre informazioni, vedere [Peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md).
+Il peering di rete virtuale consente di connettere facilmente le reti virtuali di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra le macchine virtuali nelle reti virtuali con peering viene instradato tramite l'infrastruttura backbone di Microsoft, in modo analogo al traffico instradato tra le macchine virtuali nella stessa rete virtuale, solo tramite indirizzi IP privati. Per altre informazioni, vedere [Peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md).
 
-Potrebbe essere necessario per la connessione di rete del lab con una rete virtuale peer in alcuni scenari, tra cui quelle seguenti:
+Potrebbe essere necessario connettere la rete del Lab a una rete virtuale peer in alcuni scenari, tra cui quelli riportati di seguito:
 
-- Le macchine virtuali nel lab sono software che si connette ai server licenze locale per acquisire la licenza
-- Le macchine virtuali nel lab devono accedere a set di dati (o qualsiasi altro file) nelle condivisioni di rete dell'università. 
+- Le macchine virtuali nel Lab hanno un software che si connette ai server licenze locali per acquisire la licenza
+- Le macchine virtuali nel lab devono accedere ai set di dati (o a qualsiasi altro file) nelle condivisioni di rete dell'Università. 
 
-Alcune reti locali sono connesse alla rete virtuale di Azure sia attraverso [ExpressRoute](../../expressroute/expressroute-introduction.md) oppure [Gateway di rete virtuale](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Questi servizi devono essere impostati all'esterno di Azure Lab Services. Per altre informazioni sulla connessione di una rete locale ad Azure tramite ExpressRoute, vedere la [panoramica relativa a ExpressRoute]) (.. /expressroute/expressroute-Introduction.MD). Per la connettività da sito locale tramite un Gateway di rete virtuale, il gateway, rete virtuale specificata e l'account del lab deve essere tutti nella stessa area.
+Determinate reti locali sono connesse alla rete virtuale di Azure tramite [ExpressRoute](../../expressroute/expressroute-introduction.md) o il [gateway di rete virtuale](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Questi servizi devono essere impostati al di fuori della Azure Lab Services. Per altre informazioni sulla connessione di una rete locale ad Azure tramite ExpressRoute, vedere [Panoramica di ExpressRoute](../../expressroute/expressroute-introduction.md). Per la connettività locale tramite un gateway di rete virtuale, il gateway, la rete virtuale specificata e l'account lab devono trovarsi nella stessa area.
 
-## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account lab
-Durante la creazione di nuovi account lab, è possibile selezionare una rete virtuale esistente che mostra le **rete virtuale Peer** nell'elenco a discesa. Rete virtuale selezionata è connected(peered) per Lab creato con l'account del lab. Tutte le macchine virtuali nel lab che vengono creati dopo la creazione di questa modifica potrebbe avere accesso alle risorse nella rete virtuale con peering. 
+## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurare al momento della creazione dell'account Lab
+Durante la creazione di un nuovo account Lab, è possibile selezionare una rete virtuale esistente visualizzata nell'elenco a discesa **rete virtuale peer** . La rete virtuale selezionata è connessa (con peering) ai laboratori creati con l'account Lab. Tutte le macchine virtuali nei Lab creati dopo l'esecuzione di questa modifica possono accedere alle risorse nella rete virtuale con peering. 
 
-![Selezionare la rete virtuale per il peering](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
+![Selezionare VNet per peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
 > [!NOTE]
-> Per istruzioni dettagliate per la creazione di un account del lab, vedere [configurare un account lab](tutorial-setup-lab-account.md)
+> Per istruzioni dettagliate per la creazione di un account Lab, vedere [configurare un account Lab](tutorial-setup-lab-account.md)
 
 
-## <a name="configure-after-the-lab-is-created"></a>Configurare dopo la creazione di lab
-La stessa proprietà può essere abilitata dal **configurazione Labs** scheda della finestra di **Account del Lab** pagina se è stata impostata una rete peer al momento della creazione dell'account lab. Modifiche apportate a questa impostazione si applica solo ai laboratori di creati dopo la modifica. Come si vede nella figura, è possibile abilitare o disabilitare **rete virtuale Peer** per Lab con l'account del lab. 
+## <a name="configure-after-the-lab-is-created"></a>Configurare dopo la creazione del Lab
+La stessa proprietà può essere abilitata dalla scheda **configurazione Labs** della pagina **account Lab** se non è stata configurata una rete peer al momento della creazione dell'account Lab. La modifica apportata a questa impostazione si applica solo ai Lab creati dopo la modifica. Come è possibile vedere nell'immagine, è possibile abilitare o disabilitare la **rete virtuale peer** per Lab nell'account Lab. 
 
-![Abilitare o disabilitare la VNet peering dopo aver creato il lab](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
+![Abilita o Disabilita il peering VNet dopo la creazione del Lab](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-Quando si seleziona una rete virtuale per il **rete virtuale Peer** campo, il **Consenti creatore di lab selezionare percorsi lab** opzione è disabilitata. È perché lab con l'account del lab deve essere nella stessa area come account del lab per consentirle di connettersi con le risorse nella rete virtuale peer. 
+Quando si seleziona una rete virtuale per il campo **rete virtuale peer** , l'opzione **Consenti al creatore Lab di selezionare il percorso Lab** è disabilitata. Il motivo è che i Lab nell'account lab devono trovarsi nella stessa area dell'account Lab per connettersi alle risorse nella rete virtuale peer. 
 
 > [!IMPORTANT]
-> Modifica di questa impostazione si applica solo ai laboratori creati dopo la modifica venga apportata, non per i lab esistenti. 
+> Questa modifica dell'impostazione si applica solo ai Lab creati dopo la modifica, non ai Lab esistenti. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

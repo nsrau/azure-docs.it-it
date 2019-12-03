@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473341"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706210"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -98,7 +98,7 @@ In questo esempio, gli utenti e i gruppi vengono creati in un database HR connes
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Provisioning utenti automatico per le aziende solo cloud
 
-In questo esempio la creazione dell'utente avviene in Azure AD e il servizio di provisioning di Azure AD gestisce il provisioning utenti automatico per le applicazioni di destinazione (SaaS):
+In questo esempio la creazione dell'utente avviene in Azure AD e il servizio di provisioning di Azure AD gestisce il provisioning utenti automatico per le applicazioni di destinazione (SaaS).
 
 ![Immagine 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -112,16 +112,17 @@ In questo esempio la creazione dell'utente avviene in Azure AD e il servizio di 
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Provisioning utenti automatico per le applicazioni HR cloud 
 
-In questo esempio, gli utenti e i gruppi vengono creati in un'applicazione cloud HR come la giornata lavorativa.
+In questo esempio, gli utenti e i gruppi vengono creati in un'applicazione cloud HR come ad esempio giorno lavorativo e SuccessFactors. Il servizio di provisioning Azure AD e l'agente di provisioning di Azure AD Connect effettua il provisioning dei dati utente dal tenant app Cloud HR in Active Directory. Una volta aggiornati gli account in Active Directory, questo viene sincronizzato con Azure AD tramite Azure AD Connect e gli indirizzi di posta elettronica e gli attributi del nome utente possono essere riscritti nel tenant del cloud HR app.
 
 ![Immagine 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. Account creati nel cloud HR System
-1. Il flusso di dati in AD locale tramite Azure AD servizio di provisioning e l'agente di provisioning.
-1. Azure AD Connect sincronizza i dati con Azure AD
-1. È possibile scrivere nuovamente l'attributo email e username nell'applicazione cloud HR.
-
-Per altre informazioni sull'architettura e la distribuzione della soluzione, vedere [esercitazione: configurare la giornata lavorativa per il provisioning utenti automatico](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+1.  Il **team HR** esegue le transazioni nel tenant del cloud HR app.
+2.  **Azure ad servizio di provisioning** esegue i cicli pianificati dal tenant dell'app HR cloud e identifica le modifiche che devono essere elaborate per la sincronizzazione con Active Directory.
+3.  **Azure ad servizio di provisioning** richiama l'agente di provisioning di Azure ad Connect con un payload di richiesta contenente le operazioni di creazione/aggiornamento/abilitazione/disabilitazione dell'account Active Directory.
+4.  **Azure ad Connect agente di provisioning** usa un account del servizio per gestire i dati dell'account Active Directory.
+5.  **Azure ad Connect** esegue la sincronizzazione Delta per eseguire il pull degli aggiornamenti in Active Directory.
+6.  Gli aggiornamenti di **Active Directory** vengono sincronizzati con Azure ad. 
+7.  **Azure ad il servizio di provisioning** writeback l'attributo di posta elettronica e il nome utente da Azure ad al tenant dell'app HR cloud.
 
 ## <a name="plan-the-deployment-project"></a>Pianificare il progetto di distribuzione
 

@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a6861a22f853bb0b48eb7c9832adb251bc3467ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682385"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703203"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -82,14 +82,14 @@ L'attività Pig di HDInsight in una [pipeline](data-factory-create-pipelines.md)
 
 ## <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| name |Nome dell'attività |Sì |
+| name |Nome dell'attività |SÌ |
 | description |Testo descrittivo per lo scopo dell'attività |No |
-| type |HDInsightPig |Sì |
+| type |HDInsightPig |SÌ |
 | inputs |Uno o più input usati dall'attività Pig |No |
-| outputs |Uno o più input prodotti dall'attività Pig |Sì |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
+| outputs |Uno o più input prodotti dall'attività Pig |SÌ |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |SÌ |
 | script |Specificare lo script Pig inline |No |
 | scriptPath |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig |No |
@@ -224,4 +224,4 @@ Per impostare i parametri per lo script Pig, seguire questa procedura:
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
-* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622418"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706371"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
 
@@ -62,10 +62,10 @@ Site Recovery è indipendente dall'applicazione e dovrebbe funzionare con qualsi
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Sì | Sì
-**VMware** | Sì | Sì
-**Server fisico** | Sì | Sì
-**Azzurro** | ND | Sì
+**Hyper-V** | SÌ | SÌ
+**VMware** | SÌ | SÌ
+**Server fisico** | SÌ | SÌ
+**Azure** | ND | SÌ
 
 
 ### <a name="things-to-keep-in-mind"></a>Aspetti da considerare
@@ -82,7 +82,7 @@ Seguire [queste linee guida](site-recovery-vmware-to-azure.md) per avviare la re
 
 * Per le linee guida sulla protezione di Active Directory e DNS, fare riferimento al documento [Proteggere Active Directory e DNS con Azure Site Recovery](site-recovery-active-directory.md).
 
-* Per le linee guida sulla protezione del livello database in esecuzione in SQL Server, fare riferimento al documento [Proteggere SQL Server](site-recovery-active-directory.md).
+* Per le linee guida sulla protezione del livello database in esecuzione in SQL Server, fare riferimento al documento [Proteggere SQL Server](site-recovery-sql.md).
 
 ## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 
@@ -102,7 +102,7 @@ Seguire [queste linee guida](site-recovery-vmware-to-azure.md) per avviare la re
 Per i siti con connessione Internet, [creare un profilo di Gestione traffico di tipo "Priorità"](../traffic-manager/traffic-manager-create-profile.md) nella sottoscrizione di Azure. Configurare quindi il DNS e il profilo di Gestione traffico nel modo seguente.
 
 
-| **Where** | **Origine** | **Destinazione**|
+| **Dove** | **Origine** | **Destinazione**|
 | --- | --- | --- |
 | DNS pubblico | DNS pubblico per siti di SharePoint <br/><br/> Esempio: sharepoint.contoso.com | Gestione traffico <br/><br/> contososharepoint.trafficmanager.net |
 | DNS locale | sharepointonprem.contoso.com | IP pubblico nella farm locale |
@@ -136,7 +136,7 @@ Un piano di ripristino consente di definire la sequenza di failover di vari live
 
 È possibile distribuire gli script di Azure Site Recovery usate più comunemente nell'account di Automazione facendo clic sul pulsante "Distribuisci in Azure" di seguito. Quando si usa uno script pubblicato, assicurarsi di seguire le istruzioni nello script.
 
-[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuisci in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Aggiungere uno script precedente all'azione a "Gruppo 1" per il gruppo di disponibilità SQL. Usare lo script "ASR-SQL-FailoverAG" pubblicato negli script di esempio. Assicurarsi di seguire le istruzioni nello script e apportare le modifiche necessarie nello script nel modo appropriato.
 

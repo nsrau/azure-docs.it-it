@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c2ce39c40ad535b4a66349fcbb4529333218555a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512665"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705521"
 ---
-Il supporto delle unità SSD Premium in qualsiasi dimensione di disco < = 512 GiB (P20 o di seguito). Queste dimensioni del disco supportano il proporziono al massimo sforzo e utilizzano un sistema di credito per gestire il picchio. I crediti si accumulano in un bucket di espansione ogni volta che il traffico del disco è al di sotto dell'obiettivo di prestazioni con provisioning per le dimensioni del disco e utilizza crediti quando il traffico supera la destinazione. Il traffico su disco viene monitorato in base a IOPS e larghezza di banda nella destinazione sottoposta a provisioning.
+L'espansione del disco è attualmente una funzionalità di anteprima per le unità SSD Premium. L'espansione è supportata in qualsiasi dimensione di dischi SSD Premium < = 512 GiB (P20 o di seguito). Queste dimensioni del disco supportano il proporziono al massimo sforzo e utilizzano un sistema di credito per gestire il picchio. I crediti si accumulano in un bucket di espansione ogni volta che il traffico del disco è al di sotto dell'obiettivo di prestazioni con provisioning per le dimensioni del disco e utilizza crediti quando il traffico supera la destinazione. Il traffico su disco viene monitorato in base a IOPS e larghezza di banda nella destinazione sottoposta a provisioning.
 
 Per impostazione predefinita, l'espansione del disco è abilitata nelle nuove distribuzioni delle dimensioni dei dischi che la supportano. Le dimensioni dei dischi esistenti, se supportano la modalità di espansione del disco, possono consentire l'espansione tramite uno dei metodi seguenti:
 
@@ -34,11 +34,11 @@ Tutte le dimensioni del disco applicabili a impulsi iniziano con un bucket di cr
 
 Nella tabella riportata di seguito vengono riepilogate le dimensioni dei dischi che forniscono il supporto per l'espansione in sequenza con le specifiche di espansione.
 
-## <a name="regional-availability"></a>Disponibilità internazionale
+## <a name="regional-availability"></a>Disponibilità a livello di area
 
 Attualmente, l'espansione del disco è disponibile solo nell'area Stati Uniti centro-occidentali.
 
-## <a name="disk-sizes"></a>Dimensione disco
+## <a name="disk-sizes"></a>Dimensioni dei dischi
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 

@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: naF
 ms.topic: conceptual
 ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 264c60c719ffdd94664ae3a85fc67894d14f394d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 904165c4a221e1db30f9aa1ce1f2ce7b21cf04ed
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484458"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703825"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -71,7 +71,7 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | DESCRIZIONE | Valore |
+| Impostazione | Description | Value |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
@@ -145,7 +145,7 @@ Il riquadro Configurazione Mostra le impostazioni del repository GitHub seguenti
 | **GitHub Enterprise URL** (URL GitHub Enterprise) | URL radice di GitHub Enterprise. Ad esempio: https://github.mydomain.com. Obbligatorio solo se è selezionata l'opzione **usa github Enterprise** | `<your GitHub enterprise url>` |                                                           
 | **Account GitHub** | Nome dell'account GitHub. Questo nome può essere trovato da https:\//github.com/{account nome}/{repository}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub. | `<your GitHub account name>` |
 | **Nome del repository**  | Nome del repository del codice GitHub. Gli account GitHub contengono repository Git per la gestione del codice sorgente. È possibile creare un nuovo repository o usarne uno esistente già presente nell'account. | `<your repository name>` |
-| **Ramo di collaborazione** | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, il relativo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch>` |
+| **Ramo di collaborazione** | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, è master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo. | `<your collaboration branch>` |
 | **Cartella radice** | Cartella radice nel ramo di collaborazione di GitHub. |`<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di data factory esistenti dall'area di disegno di creazione dell'esperienza utente in un repository GitHub. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
 | **Branch to import resource into** (Ramo in cui importare risorse) | Specifica il ramo in cui vengono importate le risorse di Data Factory (pipeline, set di dati, servizi collegati e così via). È possibile importare le risorse in uno dei rami seguenti: a. Collaborazione b. Crea nuovo c. Usa esistente |  |
@@ -186,7 +186,7 @@ Quando si è pronti per eseguire il merge delle modifiche dal ramo funzionalità
 
 ### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
-Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio:
+Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. ad esempio:
 
 ```json
 {
@@ -236,7 +236,7 @@ Si consiglia di non consentire le archiviazioni dirette al ramo collaborazione. 
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Utilizzo di password da Azure Key Vault
 
-è consigliabile usare Azure Key Vault per archiviare le stringhe di connessione o le password per Data Factory servizi collegati. Per motivi di sicurezza, queste informazioni segrete non vengono archiviate in git, quindi le modifiche apportate ai servizi collegati vengono pubblicate immediatamente nel servizio Azure Data Factory.
+È consigliabile usare Azure Key Vault per archiviare le stringhe di connessione o le password per Data Factory servizi collegati. Per motivi di sicurezza, queste informazioni segrete non vengono archiviate in git, quindi le modifiche apportate ai servizi collegati vengono pubblicate immediatamente nel servizio Azure Data Factory.
 
 L'uso di Key Vault rende inoltre più semplice l'integrazione e la distribuzione continue, perché non sarà necessario fornire questi segreti durante la distribuzione del modello Gestione risorse.
 
@@ -251,10 +251,10 @@ Se il ramo di pubblicazione non è sincronizzato con il ramo master e contiene r
 1. Elimina tutte le risorse dal ramo di collaborazione
 1. Creare una richiesta pull per unire le modifiche al ramo di collaborazione 
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 Selezionare **Commenti e suggerimenti** per lasciare un commento sulle funzionalità o per notificare a Microsoft i problemi con gli strumenti:
 
-![Commenti e suggerimenti](media/author-visually/provide-feedback.png)
+![Commenti](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

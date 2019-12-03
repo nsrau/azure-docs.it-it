@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/27/2019
-ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548384"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707634"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -250,7 +250,7 @@ L'opzione di distribuzione dell'istanza gestita è destinata a scenari utente co
 
 L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in BLOB del servizio di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- Per una guida di avvio rapido su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md) (Ripristinare un file di backup in un'istanza gestita). Questa guida introduttiva illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
+- Per una guida di avvio rapido su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md) (Ripristinare un file di backup in un'istanza gestita). Questa Guida introduttiva mostra che è necessario caricare un file di backup nell'archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso (SAS).
 - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]

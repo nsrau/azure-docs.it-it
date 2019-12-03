@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: f81fde441a2f0dc2504601f82e5b890eb6e216de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a8e95c634a1d30b7c566fcd907cb06f34043fa9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105293"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706485"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo di vita degli attori, Garbage Collection automatica ed eliminazione manuale
 Un attore viene attivato la prima volta che viene effettuata una chiamata a uno dei suoi metodi. Un attore viene disattivato (tramite Garbage Collection del runtime di Actors) se rimane inutilizzato per un periodo di tempo configurabile. Un attore e il relativo stato possono essere eliminati manualmente in qualsiasi momento.
@@ -94,7 +94,7 @@ public class Program
     }
 }
 ```
-Per ogni attore attivo, il runtime di Actors tiene traccia del periodo di inattività. Il runtime di Actors controlla ogni attore in base alla frequenza definita da `ScanIntervalInSeconds` per verificare se può essere sottoposto a Garbage Collection e determina se l'attore è rimasto inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`.
+Per ogni attore attivo, il runtime di Actors tiene traccia del periodo di inattività. Il runtime dell'attore controlla ogni attore ogni `ScanIntervalInSeconds` per verificare se può essere sottoposta a Garbage Collection e lo contrassegna se è rimasto inattivo per `IdleTimeoutInSeconds`.
 
 Ogni volta che un attore viene usato, il periodo di inattività viene reimpostato su 0. A questo punto, l'attore può essere sottoposto a Garbage Collection solo se rimane nuovamente inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`. È importante ricordare che l'uso di un attore è determinato in base all'esecuzione di un metodo di interfaccia o di un callback di promemoria dell'attore. L'uso di un attore **non** è determinato in base all'esecuzione del callback dei timer.
 

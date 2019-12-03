@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/04/2019
+ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286630"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707971"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -40,12 +40,12 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 > [!NOTE]
 > Attualmente, un sottoinsieme di linguaggi neurali è disponibile nel convertitore personalizzato e l'aggiunta di altri. [Visualizza le lingue attualmente disponibili nel convertitore personalizzato](#customization).
 
-|Lingua|  Codice lingua|  API V2| API V3|
+|Linguaggio|  Codice lingua|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Solo sistema statistico|  Neurale|
 |Arabo|    `ar`    |Sistema neurale disponibile|  Neurale|
 |Bengalese|    `bn`    |Sistema neurale disponibile|  Neurale|
-|Bosniaco (alfabeto latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
+|Bosniaco (latino)|   `bs`    |Sistema neurale disponibile|  Neurale|
 |Bulgaro| `bg`    |Sistema neurale disponibile|  Neurale|
 |Cantonese (tradizionale)|   `yue`   |Solo sistema statistico|  Statistica|
 |Catalano|   `ca`    |Solo sistema statistico|  Statistica|
@@ -55,7 +55,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Ceco| `cs`    |Sistema neurale disponibile|  Neurale|
 |Danese|    `da`    |Sistema neurale disponibile   |Neurale|
 |Olandese| `nl`    |Sistema neurale disponibile|  Neurale|
-|English|   `en`    |Sistema neurale disponibile|  Neurale|
+|Italiano|   `en`    |Sistema neurale disponibile|  Neurale|
 |Estone|  `et`    |Sistema neurale disponibile|  Neurale|
 |Figiano|    `fj`    |Solo sistema statistico|  Statistica|
 |Filippino|  `fil`   |Solo sistema statistico|  Statistica|
@@ -72,7 +72,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Indonesiano|    `id`    |Solo sistema statistico|  Statistica|
 |Italiano|   `it`    |Sistema neurale disponibile|  Neurale|
 |Giapponese|  `ja`    |Sistema neurale disponibile|  Neurale|
-|Swahili| `sw`    |Solo sistema statistico|  Statistica|
+|Kiswahili| `sw`    |Solo sistema statistico|  Statistica|
 |Klingon|   `tlh`   |Solo sistema statistico|  Statistica|
 |Klingon (plqaD)|   `tlh-Qaak`  |Solo sistema statistico|  Statistica|
 |Coreano |`ko`   |Sistema neurale disponibile|  Neurale|
@@ -96,8 +96,8 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Sloveno| `sl`    |Sistema neurale disponibile|  Neurale|
 |Spagnolo|   `es`    |Sistema neurale disponibile|  Neurale|
 |Svedese|   `sv`    |Sistema neurale disponibile   |Neurale|
-|Taitiano|  `ty`    |Solo sistema statistico|  Statistica|
-|Tamil| `ta`    |Solo sistema statistico|  Statistica|
+|Tahitiano|  `ty`    |Solo sistema statistico|  Statistica|
+|Tamil| `ta`    |Sistema neurale disponibile | Neurale|
 |Telugu|    `te`    |Solo sistema neurale|   Neurale|
 |Thai|  `th`    |Sistema neurale disponibile|  Neurale|
 |Tongano|    `to`    |Solo sistema statistico|  Statistica|
@@ -112,7 +112,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 
 Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il simbolo "<-->" indica che la lingua può essere traslitterata da o verso entrambi gli alfabeti elencati. Il simbolo "-->" indica che la lingua può essere traslitterata solo da un alfabeto all'altro.
 
-| Lingua    | Codice lingua | Script | Verso/Da | Script|
+| Linguaggio    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
 |Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
@@ -139,12 +139,12 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 
 Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i metodi Lookup ed Examples.
 
-| Lingua    | Codice lingua |
+| Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
 | Bengalese      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Catalano      | `ca`          |
 | Cinese semplificato      | `zh-Hans`          |
@@ -166,7 +166,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Indonesiano      | `id`          |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
-| Swahili      | `sw`          |
+| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
@@ -192,7 +192,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Vietnamita      | `vi`          |
 | Gallese      | `cy`          |
 
-## <a name="detect"></a>Rilevamento
+## <a name="detect"></a>Detect
 
 API Traduzione testuale rileva tutte le lingue disponibili per la conversione e la traslitterazione.
 
@@ -207,11 +207,11 @@ API Traduzione testuale rileva tutte le lingue disponibili per la conversione e 
 
 Le lingue seguenti sono disponibili per la personalizzazione da o verso l'inglese utilizzando il [convertitore personalizzato](https://aka.ms/CustomTranslator).
 
-| Lingua    | Codice lingua |
+| Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
 | Arabo       | `ar`          |
 | Bengalese      | `bn`          |
-| Bosniaco (alfabeto latino)      | `bs`          |
+| Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cinese semplificato      | `zh-Hans`          |
 |Cinese tradizionale|   `zh-Hant`   |
@@ -219,7 +219,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Ceco      | `cs`          |
 | Danese      | `da`          |
 | Olandese      | `nl`          |
-| English    | `en`     |
+| Italiano    | `en`     |
 | Estone      | `et`          |
 | Finlandese      | `fi`          |
 | Francese      | `fr`          |
@@ -233,7 +233,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Irlandese | `ga`  |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
-|Swahili| `sw`    |
+|Kiswahili| `sw`    |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
@@ -257,8 +257,8 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Vietnamita      | `vi`          |
 | Gallese | `cy` |
 
-## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web di Microsoft Translator
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web Microsoft Translator
 
-Per una rapida panoramica delle lingue, il sito Web di Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
+Per una rapida panoramica delle lingue, il sito Web Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
 [Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

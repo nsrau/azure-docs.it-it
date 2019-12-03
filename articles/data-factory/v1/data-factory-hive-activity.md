@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666984"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703346"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -72,14 +72,14 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 }
 ```
 ## <a name="syntax-details"></a>Dettagli sintassi
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| name |Nome dell'attività |Sì |
+| name |Nome dell'attività |SÌ |
 | description |Testo descrittivo per lo scopo dell'attività |No |
-| type |HDinsightHive |Sì |
+| type |HDinsightHive |SÌ |
 | inputs |Input utilizzati dall'attività Hive |No |
-| outputs |Output generati dall'attività Hive |Sì |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
+| outputs |Output generati dall'attività Hive |SÌ |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |SÌ |
 | script |Specificare lo script Hive inline |No |
 | scriptPath |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No |
@@ -246,5 +246,5 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
-* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

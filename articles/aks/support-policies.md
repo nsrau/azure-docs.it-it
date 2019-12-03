@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 8c1736fcd4356e0778c3b36301b4490764efab76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240891"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707213"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto per il servizio Azure Kubernetes
 
@@ -41,7 +41,7 @@ AKS non è una soluzione cluster completamente gestita. Alcuni componenti, ad es
 I servizi vengono *gestiti* nel senso che Microsoft e il team AKS distribuiscono, operano ed è responsabile della disponibilità e della funzionalità dei servizi. I clienti non possono modificare questi componenti gestiti. Microsoft limita la personalizzazione per garantire un'esperienza utente coerente e scalabile. Per una soluzione completamente personalizzabile, vedere [motore AKS](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> I nodi del ruolo di lavoro AKS vengono visualizzati nel portale di Azure come normali risorse IaaS di Azure. Tuttavia, queste macchine virtuali vengono distribuite in un gruppo di risorse di Azure personalizzato (\\con il prefisso MC *). È possibile modificare i nodi del ruolo di lavoro AKS. Ad esempio, è possibile usare Secure Shell (SSH) per modificare i nodi del ruolo di lavoro AKS nel modo in cui si modificano le normali macchine virtuali (non è possibile, tuttavia, modificare l'immagine del sistema operativo di base e le modifiche potrebbero non essere mantenute tramite un aggiornamento o un riavvio) ed è possibile aggiungere altre risorse di Azure a AKS nodi di lavoro. Tuttavia, quando si apportano modifiche *fuori banda gestione e personalizzazione,* il cluster AKS può diventare non supportato. Evitare di modificare i nodi del ruolo di lavoro a meno che supporto tecnico Microsoft non convenga a apportare modifiche.
+> I nodi del ruolo di lavoro AKS vengono visualizzati nel portale di Azure come normali risorse IaaS di Azure. Tuttavia, queste macchine virtuali vengono distribuite in un gruppo di risorse di Azure personalizzato (con il prefisso MC\\*). È possibile modificare i nodi del ruolo di lavoro AKS. Ad esempio, è possibile usare Secure Shell (SSH) per modificare i nodi del ruolo di lavoro AKS nel modo in cui si modificano le normali macchine virtuali (non è possibile, tuttavia, modificare l'immagine del sistema operativo di base e le modifiche potrebbero non essere mantenute tramite un aggiornamento o un riavvio) ed è possibile aggiungere altre risorse di Azure a AKS nodi di lavoro. Tuttavia, quando si apportano modifiche *fuori banda gestione e personalizzazione,* il cluster AKS può diventare non supportato. Evitare di modificare i nodi del ruolo di lavoro a meno che supporto tecnico Microsoft non convenga a apportare modifiche.
 
 ## <a name="shared-responsibility"></a>Responsabilità condivisa
 
@@ -95,7 +95,7 @@ Microsoft e i clienti condividono la responsabilità dei nodi Kubernetes Worker 
   * Daemon Docker o Moby
 
 > [!NOTE]
-> In un nodo del ruolo di lavoro, se un componente del piano di controllo non è operativo, il team AKS potrebbe dover riavviare i singoli componenti o l'intero nodo di lavoro. Queste operazioni di riavvio vengono automatizzate e forniscono la correzione automatica per i problemi comuni. Questi riavvii vengono eseguiti solo a livello di _nodo_ e non al cluster, a meno che non si tratti di una manutenzione o un'interruzione di emergenza.
+> In un nodo del ruolo di lavoro, se un componente del piano di controllo non è operativo, il team AKS potrebbe dover riavviare i singoli componenti o l'intero nodo di lavoro. Queste operazioni di riavvio vengono automatizzate e forniscono la correzione automatica per i problemi comuni. Questi riavvii vengono eseguiti solo a livello di _nodo_ e non al cluster, a meno che non vi sia una manutenzione o un'interruzione di emergenza.
 
 ### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Responsabilità del cliente per i nodi del ruolo di lavoro AKS
 

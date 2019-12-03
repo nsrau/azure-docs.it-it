@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898259"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705418"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure Active Directory Domain Services
 
@@ -29,7 +29,7 @@ Questo articolo illustra come visualizzare lo stato di integrità di Azure AD DS
 Lo stato di integrità di un dominio gestito Azure AD DS viene visualizzato utilizzando l'portale di Azure. È possibile visualizzare le informazioni relative all'ora dell'ultimo backup e alla sincronizzazione con Azure AD insieme a tutti gli avvisi che indicano un problema relativo all'integrità del dominio gestito. Per visualizzare lo stato di integrità di un dominio gestito di Azure AD DS, completare i passaggi seguenti:
 
 1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
-1. Selezionare il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
+1. Selezionare il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
 1. Sul lato sinistro della finestra Azure AD DS Resource selezionare **Health (integrità**). La schermata di esempio seguente mostra un dominio gestito Azure AD DS integro e lo stato dell'ultimo backup e della sincronizzazione Azure AD:
 
     ![Panoramica della pagina relativa allo stato di integrità nella portale di Azure che mostra lo stato Azure Active Directory Domain Services](./media/check-health/health-page.png)
@@ -38,9 +38,9 @@ L' *ultimo timestamp valutato* della pagina di integrità indica quando è stato
 
 Lo stato in alto a destra indica l'integrità complessiva del dominio gestito Azure AD DS. Lo stato determina tutti gli avvisi esistenti nel dominio. Nella tabella seguente vengono illustrati gli indicatori di stato disponibili:
 
-| Stato | Icona | Spiegazione |
+| Status | Icona | Spiegazione |
 | --- | :----: | --- |
-| In esecuzione | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Il dominio gestito Azure AD DS viene eseguito correttamente e non contiene avvisi critici o di avviso. Per il dominio possono essere presenti avvisi informativi. |
+| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Il dominio gestito Azure AD DS viene eseguito correttamente e non contiene avvisi critici o di avviso. Per il dominio possono essere presenti avvisi informativi. |
 | Richiede attenzione (avviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Non sono presenti avvisi critici nel dominio gestito Azure AD DS, ma è necessario risolvere uno o più avvisi di avviso. |
 | Richiede attenzione (critico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Sono presenti uno o più avvisi critici sul dominio gestito di Azure AD DS che devono essere risolti. È anche possibile che siano presenti avvisi informativi o di avviso. |
 | Distribuzione | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | È in corso la distribuzione del dominio Azure AD DS. |
@@ -53,7 +53,7 @@ Lo stato di integrità di un dominio gestito Azure AD DS Mostra due tipi di moni
 
 I monitoraggi sono aree di un dominio gestito Azure AD DS che vengono controllate regolarmente. Se sono presenti avvisi attivi per il dominio gestito Azure AD DS, è possibile che uno dei monitoraggi segnali un problema. Azure AD Domain Services monitora attualmente le aree seguenti:
 
-* Backup
+* Eseguire il backup
 * Sincronizzazione con Azure AD
 
 #### <a name="backup-monitor"></a>Monitoraggio backup

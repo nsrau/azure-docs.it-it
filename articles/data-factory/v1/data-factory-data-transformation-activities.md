@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3af01ef76421e95f74a65fe597cafff5fa9ef39e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b3e2db9b9769dee7599a2446b272e04cc0bedf7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682621"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703382"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster d
 ## <a name="net-custom-activity"></a>Attività personalizzata .NET
 Se è necessario trasformare i dati in una modalità non supportata da Data Factory, è possibile creare un'attività personalizzata contenente la logica di elaborazione dei dati richiesta e usarla nella pipeline. È possibile configurare l'attività .NET personalizzata da eseguire usando il servizio Azure Batch o un cluster Azure HDInsight. Vedere l'articolo [Usare le attività personalizzate](data-factory-use-custom-activities.md) per i dettagli. 
 
-È possibile creare un'attività personalizzata per eseguire gli script R nel cluster HDInsight con R installato. Vedere [RunRScriptUsingADFSample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)(Esempio relativo all'esecuzione di script R con Azure Data Factory). 
+È possibile creare un'attività personalizzata per eseguire gli script R nel cluster HDInsight con R installato. Vedere [RunRScriptUsingADFSample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)(Esempio relativo all'esecuzione di script R con Azure Data Factory). 
 
 ## <a name="compute-environments"></a>Ambienti di calcolo
 Creare un servizio collegato per l'ambiente di calcolo e quindi usare il servizio collegato quando si definisce un'attività di trasformazione. Esistono due tipi di ambienti di calcolo supportati da Data factory. 
@@ -83,7 +83,7 @@ Creare un servizio collegato per l'ambiente di calcolo e quindi usare il servizi
 
 Per informazioni sui servizi di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](data-factory-compute-linked-services.md) . 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Azure Data Factory supporta le seguenti attività di trasformazione di dati e i seguenti ambienti di calcolo per le attività. Le attività di trasformazione possono essere aggiunte alla pipeline singolarmente o con un'altra attività concatenata.
 
 | Attività di trasformazione dei dati | Ambiente di calcolo |

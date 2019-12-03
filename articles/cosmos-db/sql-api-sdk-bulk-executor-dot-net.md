@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2019
+ms.date: 12/02/2019
 ms.author: ramkris
-ms.openlocfilehash: b6685f8524dc1f3ac080abe81389d091c7cf6f1b
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2d573d329ad27a4801c091d0dcfb10c5f530169f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306753"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707261"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Libreria dell'executor bulk .NET: informazioni sul download 
 
@@ -21,7 +21,7 @@ ms.locfileid: "74306753"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -37,7 +37,7 @@ ms.locfileid: "74306753"
 |**Download dell'SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Libreria Executor in blocco in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentazione sull'API**|[Documentazione di riferimento API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**Introduzione**|[Introduzione a .NET SDK per la libreria dell'executor bulk](bulk-executor-dot-net.md)|
+|**Attività iniziali**|[Introduzione a .NET SDK per la libreria dell'executor bulk](bulk-executor-dot-net.md)|
 | **Framework attualmente supportato**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
 
 > [!NOTE]
@@ -72,6 +72,10 @@ ms.locfileid: "74306753"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Aggiunta di .NET Standard 2,0 come uno dei framework di destinazione supportati per far funzionare la libreria dell'executor bulk con le applicazioni .NET Core.
+
+### <a name="a-name186186"></a><a name="1.8.6"/>1.8.6
+
+* MongoBulkExecutor implementa ora IDisposable ed è previsto che venga eliminato dopo l'utilizzo.
 
 ### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5
 

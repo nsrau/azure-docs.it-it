@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569832"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704283"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services (anteprima)
 
@@ -31,7 +31,7 @@ I controlli di sicurezza Azure AD DS si allineano al controllo tradizionale per 
 
 Sono disponibili le categorie di eventi di controllo seguenti:
 
-| Nome categoria di controllo | Descrizione |
+| Nome categoria di controllo | Description |
 |:---|:---|
 | Accesso all'account|I controlli tentano di autenticare i dati dell'account in un controller di dominio o in una gestione account di sicurezza locale (SAM).</p>Le impostazioni dei criteri di accesso e di disconnessione ed eventi tengono traccia dei tentativi di accesso a un computer specifico. Le impostazioni e gli eventi in questa categoria si concentrano sul database di account usato. Questa categoria include le sottocategorie seguenti:<ul><li>[Controllare la convalida delle credenziali](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Controlla servizio di autenticazione Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Controllare le operazioni del ticket di servizio Kerberos](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[Controlla altri eventi di accesso/disconnessione](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | Gestione degli account|Controlla le modifiche apportate agli account utente e computer e ai gruppi. Questa categoria include le sottocategorie seguenti:<ul><li>[Controllare la gestione dei gruppi di applicazioni](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[Controllare la gestione degli account computer](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[Controllare la gestione dei gruppi di distribuzione](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[Controlla altra gestione account](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[Controllare la gestione dei gruppi di sicurezza](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[Controllare la gestione degli account utente](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -51,10 +51,10 @@ Sono disponibili le categorie di eventi di controllo seguenti:
 |:---|:---|
 |Sicurezza accesso account|4767, 4774, 4775, 4776, 4777|
 |Sicurezza della gestione degli account|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Sicurezza del rilevamento dei dettagli|Nessuna|
+|Sicurezza del rilevamento dei dettagli|Nessuno|
 |Sicurezza accesso DS|5136, 5137, 5138, 5139, 5141|
 |Sicurezza per la disconnessione di accesso|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Sicurezza dall'accesso agli oggetti|Nessuna|
+|Sicurezza dall'accesso agli oggetti|Nessuno|
 |Sicurezza della modifica dei criteri|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Sicurezza uso dei privilegi|4985|
 |Sicurezza del sistema|4612, 4621|
@@ -82,7 +82,7 @@ Per abilitare gli eventi di controllo di sicurezza Azure AD DS usando il portale
 > I controlli di sicurezza Azure AD DS non sono retroattivi. Non è possibile recuperare gli eventi dal passato o riprodurre gli eventi del passato. Azure AD DS può inviare solo gli eventi che si verificano dopo l'abilitazione.
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-1. Nella parte superiore del portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *contoso.com*.
+1. Nella parte superiore del portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aadds.contoso.com*.
 1. Nella finestra Azure AD DS selezionare impostazioni di **diagnostica (anteprima)** sul lato sinistro.
 1. Per impostazione predefinita, non è configurata alcuna diagnostica. Per iniziare, selezionare **Aggiungi impostazioni di diagnostica**.
 

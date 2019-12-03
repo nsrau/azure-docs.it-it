@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/27/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8419ce5c5c7144008027a93f985d1f6ffdc1ced4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669115"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707465"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -65,7 +65,7 @@ Accumulare un certo numero di dischi rigidi virtuali di Azure in una configurazi
 Durante il ridimensionamento o quando si sceglie una macchina virtuale, tenere presente anche la velocità effettiva di I/O complessiva delle macchine virtuali. Per informazioni sulla velocità effettiva di archiviazione complessiva delle macchine virtuali, vedere l'articolo [Dimensioni delle macchine virtuali ottimizzate per la memoria](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Modalità di pianificazione I/O Linux
-Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione comune per i fornitori di Linux e SAP è riconfigurare la modalità di pianificazione I/O per i volumi del disco dalla modalità **CFQ** alla modalità **NoOp** . Informazioni dettagliate sono disponibili nella [nota SAP n. 1984798](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione comune per i fornitori di Linux e SAP è riconfigurare la modalità di pianificazione I/O per i volumi del disco dalla modalità **CFQ** alla modalità **NoOp** . Per informazioni dettagliate, fare riferimento alla [Nota SAP #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluzioni con archiviazione Premium e Azure acceleratore di scrittura per macchine virtuali di Azure serie M

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554124"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707039"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -246,7 +246,7 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 > Queste funzionalità sono attualmente in fase di sviluppo.
 >
 
-### <a name="group-administratorgroup-administrator"></a>[Amministratore del gruppo](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[Amministratore del gruppo](#group-administrator-permissions)
 
 Gli utenti con questo ruolo possono creare o gestire gruppi e le relative impostazioni, ad esempio i criteri di denominazione e scadenza. È importante comprendere che l'assegnazione di un utente a questo ruolo offre la possibilità di gestire tutti i gruppi nel tenant tra vari carichi di lavoro, ad esempio teams, SharePoint, Yammer, oltre a Outlook. Inoltre, l'utente sarà in grado di gestire le diverse impostazioni dei gruppi in diversi portali di amministrazione, come l'interfaccia di amministrazione di Microsoft, portale di Azure, oltre a quelli specifici del carico di lavoro, come i team e i centri di amministrazione di SharePoint.
 
@@ -279,7 +279,9 @@ Questo ruolo è stato precedentemente chiamato "amministratore password" nel [po
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Amministratore di Intune](#intune-service-administrator-permissions)
 
-gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Intune Online, quando il servizio è presente. Inoltre questo ruolo implica la possibilità di gestire utenti e dispositivi per associare i criteri, nonché creare e gestire gruppi. Altre informazioni sono disponibili in [Controllo degli accessi in base al ruolo (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Intune Online, quando il servizio è presente. Inoltre questo ruolo implica la possibilità di gestire utenti e dispositivi per associare i criteri, nonché creare e gestire gruppi. Ulteriori informazioni sul controllo degli accessi in [base al ruolo (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+Questo ruolo può creare e gestire tutti i gruppi di sicurezza. Tuttavia, l'amministratore di Intune non dispone dei diritti di amministratore per i gruppi di Office. Ciò significa che l'amministratore non può aggiornare i proprietari o le appartenenze di tutti i gruppi di Office nel tenant. Tuttavia, è in grado di gestire il gruppo di Office creato che fa parte dei privilegi dell'utente finale. Pertanto, qualsiasi gruppo di Office (non gruppo di sicurezza) creato dall'utente deve essere conteggiato in base alla quota di 250.
 
 > [!NOTE]
 > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Intune". È l'"Amministratore di Intune" nel [portale di Azure](https://portal.azure.com).
@@ -1081,8 +1083,8 @@ Consente di leggere tutti gli elementi che un amministratore globale può, ma no
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | Microsoft. office365. WebPortal/allEntities/standard/Read   | Leggere le proprietà standard in tutte le risorse in Microsoft. office365. WebPortal. |
 
-### <a name="group-administrator"></a>Amministratore del gruppo
-Può gestire tutti gli aspetti di gruppi e impostazioni di gruppo, ad esempio i criteri di denominazione e scadenza
+### <a name="group-administrator-permissions"></a>Autorizzazioni di amministratore di gruppo
+Può gestire tutti gli aspetti di gruppi e impostazioni di gruppo, ad esempio i criteri di denominazione e scadenza.
 
 | **Actions** | **Descrizione** |
 | --- | --- |

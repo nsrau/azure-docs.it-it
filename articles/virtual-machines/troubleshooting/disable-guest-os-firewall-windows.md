@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030594"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705540"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
 
@@ -27,13 +27,13 @@ Questo articolo fornisce informazioni di riferimento per le situazioni in cui si
 
 ## <a name="solution"></a>Soluzione
 
-La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. Microsoft consiglia di tenere il componente Windows Firewall abilitato. La modalità di configurazione delle regole del firewall dipende dal livello di accesso alla macchina virtuale necessario.
+La procedura descritta in questo articolo deve essere usata come soluzione alternativa che consenta di concentrarsi sulla risoluzione del problema reale, ossia la corretta configurazione delle regole del firewall. È consigliabile abilitare il componente Windows Firewall per Microsoft. Il modo in cui vengono configurate le regole del firewall dipende dal livello di accesso alla macchina virtuale richiesta.
 
 ### <a name="online-solutions"></a>Soluzioni online 
 
 Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile apportare le mitigazioni seguenti usando l'altra macchina virtuale.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigazione 1: Estensione script personalizzata o funzionalità Esegui comando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigazione 1: Estensione dello script personalizzata o funzionalità Comandi di esecuzione
 
 Se è in funzione un agente di Azure, è possibile usare l'[estensione dello script personalizzata](../extensions/custom-script-windows.md) o la funzionalità [Comandi di esecuzione](../windows/run-command.md) (solo macchine virtuali di Resource Manager) per eseguire in remoto gli script seguenti.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546280"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705271"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurare la delega vincolata Kerberos (delega vincolata Kerberos) in Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ Windows Server 2012 e versioni successive offre agli amministratori dei servizi 
 
 ## <a name="configure-resource-based-kcd-for-a-computer-account"></a>Configurare delega vincolata Kerberos basati sulle risorse per un account computer
 
-In questo scenario si supponga di avere un'app Web in esecuzione nel computer denominato *Contoso-webapp.contoso.com*. L'app Web deve accedere a un'API Web in esecuzione nel computer denominato *Contoso-API.contoso.com* nel contesto degli utenti del dominio. Per configurare questo scenario, completare i passaggi seguenti:
+In questo scenario si supponga di avere un'app Web in esecuzione nel computer denominato *Contoso-webapp.aadds.contoso.com*. L'app Web deve accedere a un'API Web in esecuzione nel computer denominato *Contoso-API.aadds.contoso.com* nel contesto degli utenti del dominio. Per configurare questo scenario, completare i passaggi seguenti:
 
 1. [Creare un'unità organizzativa personalizzata](create-ou.md). È possibile delegare le autorizzazioni per gestire questa OU personalizzata agli utenti all'interno del dominio gestito Azure AD DS.
 1. [Aggiungere un dominio alle macchine virtuali][create-join-windows-vm], sia quello che esegue l'app Web, che quello che esegue l'API Web, nel dominio gestito di Azure AD DS. Creare questi account computer nell'unità organizzativa personalizzata nel passaggio precedente.
@@ -67,8 +67,8 @@ In questo scenario si supponga di avere un'app Web in esecuzione nel computer de
 1. Infine, configurare delega vincolata Kerberos basati sulle risorse usando il cmdlet di PowerShell [set-ADComputer][Set-ADComputer] . Eseguire i cmdlet seguenti dalla macchina virtuale di gestione aggiunta al dominio e connessi come account utente membro del gruppo di *amministratori di Azure ad DC* . Specificare i nomi dei computer in base alle esigenze:
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
-    Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
+    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## <a name="configure-resource-based-kcd-for-a-user-account"></a>Configurare delega vincolata Kerberos basati sulle risorse per un account utente

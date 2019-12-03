@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di contenitori in istanze di contenitore di
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482107"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706320"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -48,15 +48,15 @@ Istanze di contenitore di Azure alloca le risorse, ad esempio CPU, memoria e fac
 
 ### <a name="resource-usage-by-instances"></a>Utilizzo delle risorse da istanze
 
-A ogni istanza di contenitore vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, l'utilizzo delle risorse da parte di un'istanza di contenitore in un gruppo dipende dalla modalità di configurazione della proprietà del [limite di risorse][resource-limits] facoltativo.
+A ogni istanza di contenitore vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, l'utilizzo delle risorse da parte di un'istanza di contenitore in un gruppo dipende dalla modalità di configurazione della proprietà del [limite di risorse][resource-limits] facoltativo. Il limite di risorse deve essere minore di quello della proprietà obbligatoria della [richiesta di risorse][resource-requests] .
 
 * Se non si specifica un limite di risorse, l'utilizzo massimo delle risorse dell'istanza è uguale a quello della relativa richiesta di risorse.
 
 * Se si specifica un limite di risorse per un'istanza, è possibile modificare l'utilizzo delle risorse dell'istanza per il proprio carico di lavoro, riducendo o aumentando l'utilizzo rispetto alla richiesta di risorse. Il limite massimo di risorse che è possibile impostare è il totale delle risorse allocate al gruppo.
     
-    Ad esempio, in un gruppo con due istanze che richiedono 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di più CPU rispetto all'altra.
+Ad esempio, in un gruppo con due istanze che richiedono 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di più CPU rispetto all'altra.
 
-    In questo scenario, è possibile impostare un limite di risorse di 0,5 CPU per un'istanza e un limite di 2 CPU per il secondo. Questa configurazione limita l'utilizzo delle risorse del primo contenitore alla CPU 0,5, consentendo al secondo contenitore di usare fino a 2 CPU complete, se disponibili.
+In questo scenario, è possibile impostare un limite di risorse di 0,5 CPU per un'istanza e un limite di 2 CPU per il secondo. Questa configurazione limita l'utilizzo delle risorse del primo contenitore alla CPU 0,5, consentendo al secondo contenitore di usare fino a 2 CPU complete, se disponibili.
 
 Per altre informazioni, vedere la proprietà [ResourceRequirements][resource-requirements] nell'API REST dei gruppi di contenitori.
 

@@ -8,18 +8,18 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 05/15/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479141"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706387"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="what-is-an-event-hubs-namespace"></a>Che cos'è uno spazio dei nomi di Hub eventi?
 Uno spazio dei nomi è un contenitore di ambito per gli argomenti di Hub eventi/Kafka. Specifica un nome [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) univoco. Uno spazio dei nomi viene usato come contenitore di applicazioni che può ospitare più argomenti di Hub eventi/Kafka. 
@@ -55,7 +55,9 @@ Sì, purché tutti gli hub eventi si trovino nello stesso spazio dei nomi.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual è il periodo di conservazione massimo per gli eventi?
 
-Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di sette giorni. Si noti che gli hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti. Se è necessario conservare i messaggi per più di sette giorni, abilitando la funzionalità di [acquisizione degli hub eventi](event-hubs-capture-overview.md) nell'hub eventi viene effettuato il pull dei dati dall'hub all'account di archiviazione o all'account del servizio Azure Data Lake scelto. L'abilitazione dell'acquisizione prevede un costo in base alle unità elaborate acquistate.
+Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di sette giorni. Hub eventi non è progettato come archivio dati permanente. I periodi di conservazione superiori a 24 ore sono destinati a scenari in cui è utile riprodurre un flusso di eventi negli stessi sistemi; ad esempio, per eseguire il training o la verifica di un nuovo modello di apprendimento automatico sui dati esistenti. Se è necessario conservare i messaggi per più di sette giorni, abilitando la funzionalità di [acquisizione degli hub eventi](event-hubs-capture-overview.md) nell'hub eventi viene effettuato il pull dei dati dall'hub all'account di archiviazione o all'account del servizio Azure Data Lake scelto. L'abilitazione dell'acquisizione prevede un costo in base alle unità elaborate acquistate.
+
+È possibile configurare il periodo di conservazione per i dati acquisiti nell'account di archiviazione. La funzionalità di **gestione del ciclo** di vita di archiviazione di Azure offre un criterio completo basato su regole per gli account di archiviazione BLOB e V2 per utilizzo generico. Usare i criteri per trasferire i dati ai livelli di accesso appropriati o farli scadere alla fine del loro ciclo di vita. Per altre informazioni, vedere [gestire il ciclo di vita dell'archiviazione BLOB di Azure](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Come si monitora Hub eventi?
 Hub eventi genera metriche complete che specificano lo stato delle risorse in [Monitoraggio di Azure](../azure-monitor/overview.md). Consentono anche di valutare l'integrità generale delle risorse del servizio Hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Sono disponibili informazioni sul tipo di monitoraggio offerto per [Hub eventi di Azure](event-hubs-metrics-azure-monitor.md).
@@ -64,7 +66,7 @@ Hub eventi genera metriche complete che specificano lo stato delle risorse in [M
 È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:
 
 - Advanced Message Queuing Protocol (AMQP)
-- HTTP
+- http
 - Apache Kafka
 
 Vedere la tabella seguente per le porte in uscita che è necessario aprire per usare questi protocolli per comunicare con hub eventi di Azure. 
@@ -83,7 +85,7 @@ Per trovare gli indirizzi IP corretti per le connessioni a elenco bianco, seguir
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito `Non-authoritative answer`in. L'unico punto nel tempo che cambierebbe è se si ripristina lo spazio dei nomi in un cluster diverso.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. La sola volta che cambierebbe lo spazio dei nomi in un cluster diverso.
 
 Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
@@ -107,7 +109,7 @@ Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguir
 Hub eventi offre un endpoint Kafka che può essere usato dalle applicazioni esistenti basate su Apache Kafka. È sufficiente una modifica di configurazione per abilitare l'esperienza PaaS di Kafka, che offre un'alternativa all'esecuzione di un cluster Kafka. Hub eventi supporta Apache Kafka 1.0 e le versioni client più recenti e può essere usato con le applicazioni, gli strumenti e i framework Kafka esistenti. Per altre informazioni, vedere il [repository di Hub eventi per Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Quali modifiche di configurazione devono essere eseguite per consentire a un'applicazione esistente di comunicare con Hub eventi?
-Per connettersi a un hub eventi abilitato per Kafka, è necessario aggiornare le configurazioni dei client Kafka. Questa operazione viene eseguita creando uno spazio dei nomi di Hub eventi e ottenendo la [stringa di connessione](event-hubs-get-connection-string.md). Modificare bootstrap.servers in modo che punti all'FQDN di Hub eventi e la porta in 9093. Aggiornare sasl.jaas.config in modo che indirizzi il client Kafka all'endpoint di Hub eventi abilitato per Kafka (ovvero la stringa di connessione ottenuta), con l'autenticazione corretta, come illustrato di seguito:
+Per connettersi a un hub eventi abilitato per Kafka, è necessario aggiornare le configurazioni dei client Kafka. Questa operazione viene eseguita creando uno spazio dei nomi di hub eventi e ottenendo la [stringa di connessione](event-hubs-get-connection-string.md). Modificare bootstrap.servers in modo che punti all'FQDN di Hub eventi e la porta in 9093. Aggiornare SASL. JAAS. config per indirizzare il client Kafka all'endpoint di hub eventi abilitato per Kafka, ovvero la stringa di connessione ottenuta, con l'autenticazione corretta, come illustrato di seguito:
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
@@ -115,10 +117,10 @@ Esempio:
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
-Nota: se sasl.jaas.config non è una configurazione supportata nel framework, individuare le configurazioni usate per impostare il nome utente e la password SASL e usarle. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
+Nota: Se SASL. JAAS. config non è una configurazione supportata nel Framework, trovare le configurazioni usate per impostare il nome utente e la password SASL e usarle in alternativa. Impostare il nome utente $ConnectionString e la password per la stringa di connessione di Hub eventi.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Qual è la dimensione di messaggi/eventi per Hub eventi abilitato per Kafka?
-La dimensione massima dei messaggi consentita per Hub eventi abilitato per Kafka è 1 MB.
+Le dimensioni massime dei messaggi consentite per gli hub eventi abilitati per Kafka sono pari a 1 MB.
 
 ## <a name="throughput-units"></a>Unità elaborate
 
@@ -145,7 +147,7 @@ La funzionalità di aumento automatico consente di aumentare le unità elaborate
 È possibile iniziare con poche unità elaborate, ad esempio 2. Se si prevede che il traffico possa aumentare fino a 15 unità elaborate, attivare la funzionalità di aumento automatico nello spazio dei nomi e impostare il limite massimo su 15 unità elaborate. È ora possibile aumentare automaticamente le unità elaborate man mano che aumenta il traffico.
 
 ### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>Sono previsti costi associati quando si attiva la funzionalità di aumento automatico?
-Questa funzionalità **non prevede alcun costo** associato. 
+A questa funzionalità non è associato **alcun costo** . 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Come vengono applicati i limiti di velocità effettiva?
 Se la velocità effettiva totale in ingresso o la frequenza degli eventi totali in ingresso fra tutti gli hub eventi in uno spazio dei nomi supera la capacità massima di unità elaborate aggregate, i mittenti vengono limitati e ricevono errori indicanti che è stata superata la quota in ingresso.
@@ -158,18 +160,18 @@ In un'offerta multi-tenant le unità elaborate possono aumentare fino a 40 (è p
 ## <a name="dedicated-clusters"></a>Cluster Hub eventi Dedicato
 
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Che cosa sono i cluster Hub eventi Dedicato?
-I cluster Hub eventi Dedicato offrono distribuzioni a tenant singolo per i clienti con i requisiti più rigorosi. Questa offerta crea un cluster basato sulla capacità non vincolato da unità elaborate. Ciò significa che è possibile usare il cluster per inserire e trasmettere i dati in base all'uso della CPU e della memoria del cluster. Per altre informazioni, vedere la [panoramica dei cluster Hub eventi Dedicato](event-hubs-dedicated-overview.md).
+I cluster Hub eventi Dedicato offrono distribuzioni a tenant singolo per i clienti con i requisiti più rigorosi. Questa offerta crea un cluster basato sulla capacità non vincolato da unità elaborate. Ciò significa che è possibile usare il cluster per inserire e trasmettere in streaming i dati come stabilito dall'utilizzo della CPU e della memoria del cluster. Per altre informazioni, vedere la [panoramica dei cluster Hub eventi Dedicato](event-hubs-dedicated-overview.md).
 
 ### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Quanto permette di conseguire una singola unità di capacità?
-Per un cluster dedicato, la quantità di dati che è possibile inserire e trasmettere dipende da vari fattori, ad esempio i producer, i consumer, la velocità di inserimento ed elaborazione e altro ancora. 
+Per un cluster dedicato, quanto è possibile inserire e trasmettere in streaming dipende da diversi fattori, ad esempio produttori, consumer, velocità di inserimento ed elaborazione e molto altro ancora. 
 
 La tabella seguente mostra i risultati dei benchmark ottenuti durante i test:
 
 | Forma del payload | Destinatari | Larghezza di banda in ingresso| Messaggi in ingresso | Larghezza di banda in uscita | Messaggi in uscita | Unità elaborate totali | Unità elaborate per unità di capacità |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batch di 100 x 1 KB | 2 | 400 MB/sec | 400000 messaggi/sec | 800 MB/sec | 800000 messaggi/sec | 400 unità elaborate | 100 unità elaborate | 
-| Batch di 10 x 10 KB | 2 | 666 MB/sec | 666000 messaggi/sec | 1,33 GB/sec | 133000 messaggi/sec | 666 unità elaborate | 166 unità elaborate |
-| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | 34000 messaggi/sec | 1,05 GB/sec | 34000 messaggi/sec | 1000 unità elaborate | 250 unità elaborate |
+| Batch di 100 x 1 KB | 2 | 400 MB/sec | messaggi 400.000/sec | 800 MB/sec | messaggi 800K/sec | 400 unità elaborate | 100 unità elaborate | 
+| Batch di 10 x 10 KB | 2 | 666 MB/sec | messaggi 66.6/sec | 1,33 GB/sec | messaggi 133K/sec | 666 unità elaborate | 166 unità elaborate |
+| Batch di 6 x 32 KB | 1 | 1,05 GB/sec | messaggi 34K/sec | 1,05 GB/sec | messaggi 34K/sec | 1000 unità elaborate | 250 unità elaborate |
 
 Nei test sono stati usati i criteri seguenti:
 
@@ -180,16 +182,16 @@ Nei test sono stati usati i criteri seguenti:
 I risultati danno un'idea di cosa è possibile ottenere con un cluster Hub eventi Dedicato. In un cluster dedicato, inoltre, la funzionalità di acquisizione di Hub eventi è abilitata per gli scenari per gli scenari di micro-batch e conservazione a lungo termine.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Come si crea un cluster Hub eventi Dedicato?
-Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di aumento di quota](https://portal.azure.com/#create/Microsoft.Support) o contattare il [team di Hub eventi](mailto:askeventhubs@microsoft.com). La distribuzione del cluster per l'uso da parte dell'utente richiede in genere circa due settimane. Questo processo è temporaneo finché non viene resa disponibile una procedura self-service completa tramite il portale di Azure o i modelli di Azure Resource Manager (la distribuzione del cluster richiede circa due ore).
+Per crea un cluster Hub eventi Dedicato, inviare una [richiesta di supporto di aumento di quota](https://portal.azure.com/#create/Microsoft.Support) o contattare il [team di Hub eventi](mailto:askeventhubs@microsoft.com). La distribuzione del cluster per l'uso da parte dell'utente richiede in genere circa due settimane. Questo processo è temporaneo fino a quando non viene reso disponibile un self-service completo tramite i modelli portale di Azure o Azure Resource Manager, che impiegano circa due ore per distribuire il cluster.
 
 ## <a name="best-practices"></a>Procedure consigliate
 
 ### <a name="how-many-partitions-do-i-need"></a>Quante partizioni sono necessarie?
-Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per ulteriori informazioni sulle partizioni, vedere [partizioni](event-hubs-features.md#partitions).
+Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato, quindi è consigliabile prendere in considerazione la scalabilità a lungo termine quando si imposta il numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per ulteriori informazioni sulle partizioni, vedere [partizioni](event-hubs-features.md#partitions).
 
-È possibile impostarlo in modo che sia il valore massimo possibile, ovvero 32, al momento della creazione. Tenere presente che se si dispone di più di una partizione, gli eventi vengono inviati a più partizioni senza mantenere l'ordine, a meno che non si configurino i mittenti per inviare solo a una singola partizione fuori dalla 32 lasciando ridondanti le 31 partizioni rimanenti. Nel primo caso, sarà necessario leggere gli eventi in tutte le partizioni 32. Nel secondo caso, non vi sono costi aggiuntivi evidenti rispetto alla configurazione aggiuntiva che è necessario eseguire sull'host processore di eventi.
+È possibile impostarlo in modo che sia il valore massimo possibile, ovvero 32, al momento della creazione. Tenere presente che se si dispone di più di una partizione, gli eventi vengono inviati a più partizioni senza mantenere l'ordine, a meno che non si configurino i mittenti per inviare solo a una singola partizione fuori dalla 32 lasciando ridondanti le 31 partizioni rimanenti. Nel primo caso, è necessario leggere gli eventi in tutte le partizioni 32. Nel secondo caso, non esiste alcun costo aggiuntivo evidente rispetto alla configurazione aggiuntiva che è necessario eseguire sull'host processore di eventi.
 
-Hub eventi è progettato per consentire un solo lettore di partizione per ogni gruppo di consumer. Nella maggior parte dei casi, è sufficiente l'impostazione predefinita di quattro partizioni. Se si intende ridimensionare l'elaborazione degli eventi, è possibile considerare di aggiungere altre partizioni. Non esiste alcun limite specifico della velocità effettiva in una partizione. Tuttavia, la velocità effettiva aggregata nello spazio dei nomi è limitata dal numero di unità della velocità effettiva. Quando si aumenta il numero di unità della velocità effettiva nello spazio dei nomi, è opportuno aggiungere partizioni per consentire ai lettori simultanei di raggiungere la velocità effettiva personale massima.
+Hub eventi è progettato per consentire un solo lettore di partizione per ogni gruppo di consumer. Nella maggior parte dei casi, è sufficiente l'impostazione predefinita di quattro partizioni. Se si vuole ridimensionare l'elaborazione degli eventi, è consigliabile aggiungere altre partizioni. Non esiste un limite di velocità effettiva specifico in una partizione, ma la velocità effettiva aggregata nello spazio dei nomi è limitata dal numero di unità di velocità effettiva. Quando si aumenta il numero di unità della velocità effettiva nello spazio dei nomi, è opportuno aggiungere partizioni per consentire ai lettori simultanei di raggiungere la velocità effettiva personale massima.
 
 Tuttavia, se si dispone di un modello in cui l'applicazione ha un'affinità con una determinata partizione, l'aumento del numero di partizioni non comporta alcun vantaggio. Per altre informazioni, vedere [Disponibilità e coerenza](event-hubs-availability-and-consistency.md).
 
@@ -205,7 +207,7 @@ Il livello Standard di Hub eventi consente periodi di conservazione dei messaggi
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Come vengono calcolate e addebitate le dimensioni di archiviazione di Hub eventi?
 
-Le dimensioni totali di tutti gli eventi archiviati, incluso il sovraccarico interno per le intestazioni degli eventi o nelle strutture di archiviazione su disco in tutti gli hub eventi vengono misurate nel corso della giornata. Alla fine della giornata, viene calcolata la dimensione di archiviazione massima. L'archiviazione giornaliera consentita viene calcolata in base al numero minimo di unità elaborate selezionate durante il giorno (ogni unità elaborata fornisce una capacità massima di 84 GB). Se la dimensione totale supera la capacità massima di archiviazione giornaliera calcolata, l'archiviazione in eccesso viene fatturata in base alle tariffe di archiviazione BLOB di Azure (alla tariffa di **archiviazione con ridondanza locale** ).
+Le dimensioni totali di tutti gli eventi archiviati, incluso il sovraccarico interno per le intestazioni degli eventi o nelle strutture di archiviazione su disco in tutti gli hub eventi vengono misurate nel corso della giornata. Al termine della giornata, viene calcolata la dimensione massima di archiviazione. Il limite di archiviazione giornaliero è calcolato in base al numero minimo di unità elaborate selezionate durante la giornata. Ogni unità elaborata è associata a un limite pari a 84 GB. Se la dimensione totale supera la capacità massima di archiviazione giornaliera calcolata, l'archiviazione in eccesso viene fatturata in base alle tariffe di archiviazione BLOB di Azure (alla tariffa di **archiviazione con ridondanza locale** ).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Come vengono calcolati gli eventi in ingresso di Hub eventi?
 
@@ -244,7 +246,7 @@ Per un elenco delle possibili eccezioni degli hub eventi, vedere [Eccezioni dell
 
 Hub eventi supporta due tipi di [log di diagnostica](event-hubs-diagnostic-logs.md), i log degli errori di acquisizione e i log operativi, entrambi rappresentati in JSON e attivabili tramite il Portale di Azure.
 
-### <a name="support-and-sla"></a>Contratto di servizio e supporto
+### <a name="support-and-sla"></a>Supporto e contratto di servizio
 
 Il supporto tecnico per Hub eventi è disponibile tramite i [forum della community](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente.
 

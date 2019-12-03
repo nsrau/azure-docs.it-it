@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6209d899131a91754c200da831b3739833ade22c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132234"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706603"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -60,7 +60,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
 
-Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Di seguito ne sono elencati alcuni:
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Le aree includono:
 
 - **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
@@ -97,7 +97,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configurazione
 La maggior parte dei campi di configurazione è denominata in modo che sia possibile impostarla su false. Tutti i campi sono facoltativi tranne `instrumentationKey`.
 
-| Nome | Default | DESCRIZIONE |
+| name | Predefinito | Description |
 |------|---------|-------------|
 | instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
@@ -164,15 +164,15 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>Prestazioni 
+### <a name="performance"></a>Performance 
 
 ![](./media/javascript/performance-operations.png)
 
-### <a name="dependencies"></a>Dependencies
+### <a name="dependencies"></a>Dipendenze
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analisi 
+### <a name="analytics"></a>Analytics 
 
 Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Con l'aggiunta di un `where` dichiarazione di `client_Type == "Browser"`, verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  
@@ -251,7 +251,7 @@ Durante il download dello script dalla rete CDN, tutte le tracce della pagina ve
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-✔ Più recenti | ✔ Più recenti | 9 + ✔ | ✔ Più recenti | ✔ Più recenti |
+✔ Più recenti di Chrome |  ✔ Più recenti di Firefox | Internet Explorer 9 + & Edge ✔ | Opera più recente ✔ | Safari più recenti ✔ |
 
 ## <a name="open-source-sdk"></a>SDK open source
 

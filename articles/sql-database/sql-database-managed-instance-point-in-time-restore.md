@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: ad96d0a04b03e070a7108832370749377d723826
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821751"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707657"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Ripristinare un database SQL in un'istanza gestita a un momento precedente
 
@@ -48,15 +48,15 @@ La tabella seguente illustra gli scenari di ripristino temporizzato per le istan
 
 |           |Ripristinare il database esistente nella stessa istanza gestita| Ripristinare il database esistente in un'altra istanza gestita|Ripristinare il database eliminato nella stessa istanza gestita|Ripristinare il database eliminato in un'altra istanza gestita|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portale di Azure**| Sì|No |No|No|
-|**Interfaccia della riga di comando di Azure**|Sì |Sì |No|No|
-|**PowerShell**| Sì|Sì |Sì|Sì|
+|**Azure portal**| SÌ|No |No|No|
+|**interfaccia della riga di comando di Azure**|SÌ |SÌ |No|No|
+|**PowerShell**| SÌ|SÌ |SÌ|SÌ|
 
 ## <a name="restore-an-existing-database"></a>Ripristinare un database esistente
 
 Ripristinare un database esistente nella stessa istanza usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Per ripristinare un database a un'altra istanza, usare PowerShell o l'interfaccia della riga di comando di Azure in modo da poter specificare le proprietà per l'istanza gestita e il gruppo di risorse di destinazione. Se non si specificano questi parametri, per impostazione predefinita il database verrà ripristinato nell'istanza esistente. Il portale di Azure attualmente non supporta il ripristino in un'altra istanza.
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Passare all'istanza gestita e selezionare il database che si desidera ripristinare.
@@ -110,7 +110,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Per informazioni dettagliate, vedere [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Se l'interfaccia della riga di comando di Azure non è ancora installata, vedere [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -197,7 +197,7 @@ Per connettersi al database nell'istanza gestita, utilizzare uno dei metodi segu
 - [Da punto a sito](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Endpoint pubblico](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[di Microsoft Azure](#tab/azure-portal)
 
 Nella portale di Azure selezionare il database dall'istanza gestita e quindi selezionare **Elimina**.
 
@@ -215,7 +215,7 @@ $databaseName = "<Source database>"
 Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceName -ResourceGroupName $resourceGroupName
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando dell'interfaccia della riga di comando di Azure seguente per eliminare un database esistente da un'istanza gestita:
 
@@ -230,7 +230,7 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 Connettersi direttamente all'istanza gestita e avviare SQL Server Management Studio. Eseguire quindi la query Transact-SQL (T-SQL) seguente. La query modificherà il nome del database ripristinato a quello del database eliminato che si desidera sovrascrivere.
 
 ```sql
-ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
+ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
 Per connettersi al database nell'istanza gestita, utilizzare uno dei metodi seguenti:

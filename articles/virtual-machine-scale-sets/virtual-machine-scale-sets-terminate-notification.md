@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264669"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705915"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notifica di interruzione per le istanze del set di scalabilità di macchine virtuali di Azure (anteprima)
 Le istanze del set di scalabilità possono acconsentire esplicitamente a ricevere notifiche di terminazione dell'istanza e impostare un timeout di ritardo predefinito per l'operazione di interruzione. La notifica di chiusura viene inviata tramite il servizio metadati di Azure- [eventi pianificati](../virtual-machines/windows/scheduled-events.md), che fornisce le notifiche per e ritardare le operazioni di cui si è interessati, ad esempio il riavvio e la ridistribuzione. La soluzione di anteprima aggiunge un altro evento, ovvero terminate, all'elenco di Eventi pianificati e il ritardo associato dell'evento di terminazione dipenderà dal limite di ritardo specificato dagli utenti nelle configurazioni del modello del set di scalabilità.
@@ -67,7 +67,7 @@ Dopo aver abilitato *scheduledEventsProfile* sul modello del set di scalabilità
 >Le notifiche di terminazione sulle istanze del set di scalabilità possono essere abilitate solo con l'API versione 2019-03-01 e successive
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Quando si crea un nuovo set di scalabilità, è possibile abilitare le notifiche di terminazione nel set di scalabilità usando il cmdlet [New-AzVmssVM](/powershell/module/az.compute/new-azvmss) .
+Quando si crea un nuovo set di scalabilità, è possibile abilitare le notifiche di terminazione nel set di scalabilità usando il cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) .
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 Nell'esempio precedente viene creato un nuovo set di scalabilità con notifiche di terminazione abilitate con un timeout predefinito di 5 minuti. Quando si crea un nuovo set di scalabilità, il parametro *TerminateScheduledEvents* non richiede un valore. Per modificare il valore di timeout, specificare il timeout desiderato tramite il parametro *TerminateScheduledEventNotBeforeTimeoutInMinutes* .
 
-Usare il cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) per abilitare le notifiche di terminazione su un set di scalabilità esistente.
+Usare il cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) per abilitare le notifiche di terminazione su un set di scalabilità esistente.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -157,7 +157,7 @@ Verificare che ogni macchina virtuale nel set di scalabilità approvi solo gli E
 -   Nessuna attesa obbligatoria per il timeout: è possibile avviare l'operazione di interruzione in qualsiasi momento dopo la ricezione dell'evento e prima della scadenza del tempo di *NotBefore* dell'evento.
 -   Eliminazione obbligatoria al timeout: l'anteprima non fornisce alcuna funzionalità di estensione del valore di timeout dopo la generazione di un evento. Una volta scaduto il timeout, l'evento di terminazione in sospeso verrà elaborato e la macchina virtuale verrà eliminata.
 -   Valore di timeout modificabile: è possibile modificare il valore di timeout in qualsiasi momento prima dell'eliminazione di un'istanza, modificando la proprietà *notBeforeTimeout* nel modello del set di scalabilità e aggiornando le istanze di VM al modello più recente.
--   Approva tutte le eliminazioni in sospeso: se è presente un'eliminazione in sospeso in VM_1 che non è approvata ed è stato approvato un altro evento di terminazione in VM_2, VM_2 non viene eliminato fino a quando non viene approvato l'evento di terminazione per VM_1 o il timeout è scaduto. Una volta approvata l'evento di terminazione per VM_1, vengono eliminati sia VM_1 che VM_2.
+-   Approva tutte le eliminazioni in sospeso: se è presente un'eliminazione in sospeso su VM_1 che non è approvata ed è stato approvato un altro evento di terminazione in VM_2, VM_2 non viene eliminato fino a quando non viene approvato l'evento di terminazione per VM_1 o il timeout è scaduto. Una volta approvata l'evento di terminazione per VM_1, verranno eliminati sia VM_1 che VM_2.
 -   Approva tutte le eliminazioni simultanee: estendendo l'esempio precedente, se VM_1 e VM_2 hanno lo stesso tempo di *NotBefore* , entrambi gli eventi terminano devono essere approvati o nessuna macchina virtuale viene eliminata prima della scadenza del timeout.
 
 ## <a name="troubleshoot"></a>Risolvere problemi

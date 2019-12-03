@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270157"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706247"
 ---
 # <a name="coarse-relocalization"></a>Rilocalizzazione grossolana
 
@@ -128,8 +128,8 @@ Successivamente, è necessario decidere quali sensori si vuole usare per la rilo
 
 |             | Interni | Autunno |
 |-------------|---------|----------|
-| GPS         | Off | Attivato |
-| WiFi        | Attivato | On (facoltativo) |
+| GPS         | Off | On |
+| WiFi        | On | On (facoltativo) |
 | Beacon BLE | On (facoltativo con avvertenze, vedere più avanti) | Off |
 
 
@@ -495,7 +495,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Gli ancoraggi spaziali di Azure rileveranno solo i beacon Bluetooth presenti nell'elenco. I beacon dannosi programmati per avere UUID con elenco bianco possono comunque influire negativamente sulla qualità del servizio. Per questo motivo, è consigliabile usare Beacon solo negli spazi curati in cui è possibile controllare la distribuzione.
+Gli ancoraggi spaziali di Azure rileveranno solo i beacon Bluetooth presenti nell'elenco. I beacon dannosi programmati in modo da consentire gli UUID elencati possono comunque influire negativamente sulla qualità del servizio. Per questo motivo, è consigliabile usare Beacon solo negli spazi curati in cui è possibile controllare la distribuzione.
 
 ## <a name="querying-with-sensor-data"></a>Esecuzione di query con i dati del sensore
 

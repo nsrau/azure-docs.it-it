@@ -1,6 +1,6 @@
 ---
-title: Creare ruoli personalizzati per le risorse di Azure usando l'API REST - Azure | Microsoft Docs
-description: Informazioni su come creare ruoli personalizzati con il controllo degli accessi in base al ruolo per le risorse di Azure tramite l'API REST. Viene illustrato come elencare, creare, aggiornare ed eliminare ruoli personalizzati.
+title: Creare ruoli personalizzati o di aggiornamento per le risorse di Azure usando l'API REST-Azure | Microsoft Docs
+description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure usando l'API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596685"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702972"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Creare ruoli personalizzati per le risorse di Azure tramite l'API REST
+# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con l'API REST.
+Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare i ruoli personalizzati usando l'API REST.
 
 ## <a name="list-custom-roles"></a>Elencare ruoli personalizzati
 
-Per elencare tutti i ruoli personalizzati in una directory, usare il [definizioni di ruolo - elenco](/rest/api/authorization/roledefinitions/list) API REST.
+Per elencare tutti i ruoli personalizzati in una directory, usare l'API REST per l' [elenco delle definizioni di ruolo](/rest/api/authorization/roledefinitions/list) .
 
 1. Iniziare con la richiesta seguente:
 
@@ -36,15 +36,15 @@ Per elencare tutti i ruoli personalizzati in una directory, usare il [definizion
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. Sostituire *{filter}* con il tipo di ruolo.
+1. Sostituire *{Filter}* con il tipo di ruolo.
 
-    | Filtro | Descrizione |
+    | Filtra | Description |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtro in base al tipo CustomRole |
+    | `$filter=type%20eq%20'CustomRole'` | Filtrare in base al tipo CustomRole |
 
-## <a name="list-custom-roles-at-a-scope"></a>Elencare ruoli personalizzati a livello di ambito
+## <a name="list-custom-roles-at-a-scope"></a>Elencare i ruoli personalizzati in un ambito
 
-Per elencare i ruoli personalizzati in un ambito, usare il [definizioni di ruolo - elenco](/rest/api/authorization/roledefinitions/list) API REST.
+Per elencare i ruoli personalizzati in un ambito, usare l'API REST per l' [elenco delle definizioni di ruolo](/rest/api/authorization/roledefinitions/list) .
 
 1. Iniziare con la richiesta seguente:
 
@@ -54,21 +54,21 @@ Per elencare i ruoli personalizzati in un ambito, usare il [definizioni di ruolo
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | `Scope` | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
 
-1. Sostituire *{filter}* con il tipo di ruolo.
+1. Sostituire *{Filter}* con il tipo di ruolo.
 
-    | Filtro | Descrizione |
+    | Filtra | Description |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filtro in base al tipo CustomRole |
+    | `$filter=type%20eq%20'CustomRole'` | Filtrare in base al tipo CustomRole |
 
-## <a name="list-a-custom-role-definition-by-name"></a>Elenco di una definizione di ruolo personalizzate in base al nome
+## <a name="list-a-custom-role-definition-by-name"></a>Elencare una definizione di ruolo personalizzata in base al nome
 
-Per ottenere informazioni su un ruolo personalizzato con il nome visualizzato, usare il [ottenere definizioni di ruolo -](/rest/api/authorization/roledefinitions/get) API REST.
+Per ottenere informazioni su un ruolo personalizzato in base al nome visualizzato, usare l'API REST per le [definizioni di ruolo](/rest/api/authorization/roledefinitions/get) .
 
 1. Iniziare con la richiesta seguente:
 
@@ -78,21 +78,21 @@ Per ottenere informazioni su un ruolo personalizzato con il nome visualizzato, u
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | `Scope` | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
 
-1. Sostituire *{filter}* con il nome visualizzato per il ruolo.
+1. Sostituire *{Filter}* con il nome visualizzato per il ruolo.
 
-    | Filtro | Descrizione |
+    | Filtra | Description |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Usare il form con codifica URL dell'esatto nome visualizzato del ruolo. Ad esempio: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-## <a name="list-a-custom-role-definition-by-id"></a>Una definizione di ruolo personalizzate dall'ID elenco
+## <a name="list-a-custom-role-definition-by-id"></a>Elencare una definizione di ruolo personalizzata in base all'ID
 
-Per ottenere informazioni su un ruolo personalizzato tramite l'identificatore univoco, usare il [ottenere definizioni di ruolo -](/rest/api/authorization/roledefinitions/get) API REST.
+Per ottenere informazioni su un ruolo personalizzato in base al relativo identificatore univoco, usare l'API REST per le [definizioni di ruolo](/rest/api/authorization/roledefinitions/get) .
 
 1. Usare l'API REST [Role Definitions - List](/rest/api/authorization/roledefinitions/list) (Definizione dei ruoli - Elenca) per ottenere l'identificatore del GUID del ruolo.
 
@@ -104,17 +104,17 @@ Per ottenere informazioni su un ruolo personalizzato tramite l'identificatore un
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | `Scope` | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID della definizione di ruolo.
 
 ## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
 
-Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) (Definizione dei ruoli - Crea o Aggiorna). Per chiamare questa API, è necessario essere connessi con un account utente che viene assegnato un ruolo che dispone il `Microsoft.Authorization/roleDefinitions/write` autorizzazione su tutte le `assignableScopes`. I ruoli predefiniti, solo [Owner](built-in-roles.md#owner) e [amministratore accesso utenti](built-in-roles.md#user-access-administrator) include questa autorizzazione.
+Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) (Definizione dei ruoli - Crea o Aggiorna). Per chiamare questa API, è necessario aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l'autorizzazione `Microsoft.Authorization/roleDefinitions/write` per tutti i `assignableScopes`. Tra i ruoli predefiniti, solo [proprietario](built-in-roles.md#owner) e [amministratore accesso utenti](built-in-roles.md#user-access-administrator) includono questa autorizzazione.
 
 1. Esaminare l'elenco delle [operazioni del provider di risorse](resource-provider-operations.md) disponibili per creare le autorizzazioni per il ruolo personalizzato.
 
@@ -152,11 +152,11 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | `Scope` | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID del ruolo personalizzato.
 
@@ -205,9 +205,9 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 
 ## <a name="update-a-custom-role"></a>Aggiornare un ruolo personalizzato
 
-Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) (Definizione dei ruoli - Crea o Aggiorna). Per chiamare questa API, è necessario essere connessi con un account utente che viene assegnato un ruolo che dispone il `Microsoft.Authorization/roleDefinitions/write` autorizzazione su tutte le `assignableScopes`. I ruoli predefiniti, solo [Owner](built-in-roles.md#owner) e [amministratore accesso utenti](built-in-roles.md#user-access-administrator) include questa autorizzazione.
+Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) (Definizione dei ruoli - Crea o Aggiorna). Per chiamare questa API, è necessario aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l'autorizzazione `Microsoft.Authorization/roleDefinitions/write` per tutti i `assignableScopes`. Tra i ruoli predefiniti, solo [proprietario](built-in-roles.md#owner) e [amministratore accesso utenti](built-in-roles.md#user-access-administrator) includono questa autorizzazione.
 
-1. Per ottenere informazioni sul ruolo personalizzato, usare l'API REST [Role Definitions - List](/rest/api/authorization/roledefinitions/list) (Definizione dei ruoli - Elenca) o [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) (Definizione dei ruoli - Ottieni). Per altre informazioni, vedere la precedente [elencare ruoli personalizzati](#list-custom-roles) sezione.
+1. Per ottenere informazioni sul ruolo personalizzato, usare l'API REST [Role Definitions - List](/rest/api/authorization/roledefinitions/list) (Definizione dei ruoli - Elenca) o [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) (Definizione dei ruoli - Ottieni). Per ulteriori informazioni, vedere la sezione precedente [elenco ruoli personalizzati](#list-custom-roles) .
 
 1. Iniziare con la richiesta seguente:
 
@@ -217,11 +217,11 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | `Scope` | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID del ruolo personalizzato.
 
@@ -289,9 +289,9 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 
 ## <a name="delete-a-custom-role"></a>Eliminare un ruolo personalizzato
 
-Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) (Definizione dei ruoli - Elimina). Per chiamare questa API, è necessario essere connessi con un account utente che viene assegnato un ruolo che dispone il `Microsoft.Authorization/roleDefinitions/delete` autorizzazione su tutte le `assignableScopes`. I ruoli predefiniti, solo [Owner](built-in-roles.md#owner) e [amministratore accesso utenti](built-in-roles.md#user-access-administrator) include questa autorizzazione.
+Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) (Definizione dei ruoli - Elimina). Per chiamare questa API, è necessario aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l'autorizzazione `Microsoft.Authorization/roleDefinitions/delete` per tutti i `assignableScopes`. Tra i ruoli predefiniti, solo [proprietario](built-in-roles.md#owner) e [amministratore accesso utenti](built-in-roles.md#user-access-administrator) includono questa autorizzazione.
 
-1. Per ottenere informazioni sull'identificatore del GUID del ruolo personalizzato, usare l'API REST [Role Definitions - List](/rest/api/authorization/roledefinitions/list) (Definizione dei ruoli - Elenca) o [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) (Definizione dei ruoli - Ottieni). Per altre informazioni, vedere la precedente [elencare ruoli personalizzati](#list-custom-roles) sezione.
+1. Per ottenere informazioni sull'identificatore del GUID del ruolo personalizzato, usare l'API REST [Role Definitions - List](/rest/api/authorization/roledefinitions/list) (Definizione dei ruoli - Elenca) o [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) (Definizione dei ruoli - Ottieni). Per ulteriori informazioni, vedere la sezione precedente [elenco ruoli personalizzati](#list-custom-roles) .
 
 1. Iniziare con la richiesta seguente:
 
@@ -301,11 +301,11 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito in cui si vuole eliminare il ruolo personalizzato.
 
-    | `Scope` | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID del ruolo personalizzato.
 

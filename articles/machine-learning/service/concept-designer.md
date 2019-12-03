@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196155"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707700"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è Azure Machine Learning Designer (anteprima)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ La finestra di progettazione offre un'area di disegno visiva per compilare, test
     + Pubblicare una **pipeline di inferenza batch** per eseguire stime sui nuovi dati usando un modello precedentemente sottoposto a training.
 + [Distribuire](#deploy) una **pipeline di inferenza in tempo reale** a un endpoint in tempo reale per eseguire stime sui nuovi dati in tempo reale.
 
-![Diagramma di flusso di lavoro per training, inferenza batch e inferenza in tempo reale nella finestra di progettazione](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Diagramma di flusso di lavoro per training, inferenza batch e inferenza in tempo reale nella finestra di progettazione](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -70,7 +70,7 @@ Ogni volta che si esegue una pipeline, la configurazione della pipeline e i rela
 
 Le esecuzioni di pipeline sono raggruppate in [esperimenti](concept-azure-machine-learning-architecture.md#experiments) per organizzare la cronologia di esecuzione. È possibile impostare l'esperimento per ogni esecuzione della pipeline. 
 
-## <a name="datasets"></a>DATASETS
+## <a name="datasets"></a>Set di dati
 
 Un set di dati di Machine Learning semplifica l'accesso e l'uso dei dati. Nella finestra di progettazione sono inclusi alcuni set di impostazioni di esempio che consentono di sperimentare. È possibile [registrare](./how-to-create-register-datasets.md) più set di impostazioni in modo che siano necessari.
 
@@ -80,7 +80,7 @@ Un modulo è un algoritmo che è possibile applicare ai dati. La finestra di pro
 
 Un modulo può avere un set di parametri che è possibile usare per configurare gli algoritmi interni del modulo. Quando si seleziona un modulo nell'area di disegno, i parametri del modulo vengono visualizzati nel riquadro proprietà a destra dell'area di disegno. È possibile modificare i parametri in questo riquadro per ottimizzare il modello. È possibile impostare le risorse di calcolo per i singoli moduli nella finestra di progettazione. 
 
-![Proprietà del modulo](media/ui-concept-visual-interface/properties.png)
+![Proprietà del modulo](media/concept-designer/properties.png)
 
 Per informazioni sull'esplorazione della libreria di algoritmi di machine learning disponibili, vedere [Cenni preliminari sui moduli di & algoritmi](../algorithm-module-reference/module-reference.md)
 
@@ -95,7 +95,7 @@ Usare le risorse di calcolo dall'area di lavoro per eseguire la pipeline e ospit
 
 Le destinazioni di calcolo sono collegate all' [area di lavoro](concept-workspace.md)Machine Learning. È possibile gestire le destinazioni di calcolo nell'area di lavoro in [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Distribuisci
+## <a name="deploy"></a>Distribuire
 
 Per eseguire l'inferenza in tempo reale, è necessario distribuire una pipeline come **endpoint in tempo reale**. L'endpoint in tempo reale crea un'interfaccia tra un'applicazione esterna e il modello di assegnazione dei punteggi. Una chiamata a un endpoint in tempo reale restituisce i risultati della stima all'applicazione in tempo reale. Per effettuare una chiamata a un endpoint in tempo reale, passare la chiave API creata al momento della distribuzione dell'endpoint. L'endpoint è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
@@ -103,11 +103,11 @@ Gli endpoint in tempo reale devono essere distribuiti in un cluster del servizio
 
 Per informazioni su come distribuire il modello, vedere [esercitazione: distribuire un modello di Machine Learning con la finestra di progettazione](tutorial-designer-automobile-price-deploy.md).
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a>Pubblica
 
 È anche possibile pubblicare una pipeline in un **endpoint della pipeline**. Analogamente a un endpoint in tempo reale, un endpoint della pipeline consente di inviare le nuove esecuzioni di pipeline da applicazioni esterne usando le chiamate REST. Tuttavia, non è possibile inviare o ricevere dati in tempo reale tramite un endpoint della pipeline.
 
-Le pipeline pubblicate sono flessibili e possono essere usate per eseguire il training o il training dei modelli, eseguire l'inferenza di batch, elaborare nuovi dati e molto altro ancora. È possibile pubblicare più pipeline in un singolo endpoint della pipeline e specificare quale versione della pipeline eseguire.
+Le pipeline pubblicate sono flessibili e possono essere usate per eseguire il training o il training dei modelli, [eseguire l'inferenza di batch](how-to-run-batch-predictions-designer.md), elaborare nuovi dati e molto altro ancora. È possibile pubblicare più pipeline in un singolo endpoint della pipeline e specificare quale versione della pipeline eseguire.
 
 Una pipeline pubblicata viene eseguita nelle risorse di calcolo definite nella bozza della pipeline per ogni modulo.
 

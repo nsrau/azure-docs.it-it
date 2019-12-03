@@ -1,6 +1,6 @@
 ---
-title: Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell | Microsoft Docs
-description: Informazioni su come creare ruoli personalizzati con il controllo degli accessi in base al ruolo per le risorse di Azure tramite Azure PowerShell. Viene illustrato come elencare, creare, aggiornare ed eliminare ruoli personalizzati.
+title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando Azure PowerShell | Microsoft Docs
+description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure usando Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa4ff5f35df0f541d8a7e633df024af81676e58b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158459"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703106"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando Azure PowerShell
 
-Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con Azure PowerShell.
+Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come elencare, creare, aggiornare o eliminare ruoli personalizzati usando Azure PowerShell.
 
-Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [Esercitazione: Creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [esercitazione: creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -69,9 +69,9 @@ Virtual Machine Operator     True
 
 Se la sottoscrizione selezionata non è nel `AssignableScopes` del ruolo, il ruolo personalizzato non sarà elencato.
 
-## <a name="list-a-custom-role-definition"></a>Elenco di una definizione di ruolo personalizzata
+## <a name="list-a-custom-role-definition"></a>Elencare una definizione di ruolo personalizzata
 
-Per elencare una definizione di ruolo personalizzate, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Questo è lo stesso comando quando si utilizza per un ruolo predefinito.
+Per elencare una definizione di ruolo personalizzata, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Si tratta dello stesso comando utilizzato per un ruolo predefinito.
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -360,6 +360,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Esercitazione: creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
 - [Operazioni di provider di risorse con Azure Resource Manager](resource-provider-operations.md)

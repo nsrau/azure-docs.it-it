@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: 965ebdb5b6450a0826872ac31d96d8e61b7542f5
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07d84175325226af755712ec38ab93b901bbd361
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382267"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707517"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurare i cluster OpenShift di Azure Red Hat con monitoraggio di Azure per i contenitori
 
 Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per i cluster di Azure Kubernetes Service (AKS) e del motore AKS. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati in [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) per ottenere un'esperienza di monitoraggio simile.
 
 >[!NOTE]
->Il supporto per Red Hat OpenShift è una funzionalità di anteprima pubblica al momento.
+>Il supporto per Azure Red Hat OpenShift è una funzionalità di anteprima pubblica al momento.
 >
 
 È possibile abilitare il monitoraggio di Azure per i contenitori per le distribuzioni nuove o di una o più distribuzioni esistenti di Azure Red Hat OpenShift usando i metodi supportati seguenti:
@@ -36,7 +36,7 @@ Monitoraggio di Azure per contenitori supporta il monitoraggio di Azure Red Hat 
 - [Raccogliere le metriche](container-insights-update-metrics.md) dai nodi e dai pod del cluster e archiviarle nel database di metriche di monitoraggio di Azure
 - Funzionalità integrità
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Per abilitare e accedere alle funzionalità di monitoraggio di Azure per i contenitori, è necessario essere almeno un membro del ruolo *collaboratore* di Azure nella sottoscrizione di Azure e un membro del ruolo [*collaboratore log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) dell'area di lavoro log Analytics configurato con monitoraggio di Azure per i contenitori.
 
@@ -84,7 +84,7 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_new_cluster/newClusterWithMonitoringParam.json` 
 
-2. Accedere ad Azure 
+2. Accedere a Azure 
 
     ```azurecli
     az login    
@@ -100,7 +100,7 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
 4. Modificare il file di parametri JSON **newClusterWithMonitoringParam. JSON** e aggiornare i valori seguenti:
 
-    - *Località*
+    - *location*
     - *NomeCluster*
     - *aadTenantId*
     - *aadClientId*
@@ -173,7 +173,7 @@ Prima di abilitare il monitoraggio tramite Azure PowerShell o CLI, è necessario
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json` 
 
-2. Accedere ad Azure 
+2. Accedere a Azure 
 
     ```azurecli
     az login    

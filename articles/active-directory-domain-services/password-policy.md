@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893426"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704535"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 
@@ -87,7 +87,7 @@ Per creare un criterio personalizzato per le password, usare gli strumenti di am
 
 1. Dalla schermata Start selezionare strumenti di **Amministrazione**. Viene visualizzato un elenco di strumenti di gestione disponibili che sono stati installati nell'esercitazione per [creare una macchina virtuale di gestione][tutorial-create-management-vm].
 1. Per creare e gestire le unità organizzative, selezionare **centro di amministrazione di Active Directory** dall'elenco di strumenti di amministrazione.
-1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *contoso.com*.
+1. Nel riquadro sinistro scegliere il dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*.
 1. Aprire il contenitore di **sistema** , quindi il **contenitore Impostazioni password**.
 
     Viene visualizzato un criterio di password predefinito per il dominio gestito Azure AD DS. Non è possibile modificare questo criterio predefinito. In alternativa, creare un criterio password personalizzato per sostituire i criteri predefiniti.
@@ -112,7 +112,7 @@ Per creare un criterio personalizzato per le password, usare gli strumenti di am
 
     ![Selezionare gli utenti e i gruppi ai quali applicare i criteri password](./media/how-to/fgpp-applies-to.png)
 
-1. È possibile applicare i criteri password solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *contoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
+1. È possibile applicare i criteri password solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *aadds.contoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
 
     ![Selezionare l'unità organizzativa a cui appartiene il gruppo](./media/how-to/fgpp-container.png)
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827230"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703668"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Risolvere i problemi di aggiunta al dominio con un Azure AD Domain Services dominio gestito
 
@@ -32,8 +32,8 @@ Se la macchina virtuale non riesce a trovare il dominio gestito Azure AD DS, in 
 
 1. Assicurarsi che la macchina virtuale sia connessa alla stessa rete virtuale con peering abilitata per Azure AD DS. In caso contrario, la macchina virtuale non riesce a trovare e a connettersi al dominio per potersi unire.
     * Se la VM non è connessa alla stessa rete virtuale, verificare che il peering di rete virtuale o la connessione VPN sia *attiva* o *connessa* per consentire il flusso del traffico correttamente.
-1. Provare a eseguire il ping del dominio usando il nome di dominio del dominio gestito Azure AD DS, ad esempio `ping contoso.com`.
-    * Se la risposta al ping ha esito negativo, provare a effettuare il ping degli indirizzi IP per il dominio visualizzato nella pagina panoramica nel portale per il dominio gestito di Azure AD DS, ad esempio `ping 10.0.0.4`.
+1. Provare a eseguire il ping del dominio usando il nome di dominio del dominio gestito Azure AD DS, ad esempio `ping aadds.contoso.com`.
+    * Se la risposta al ping ha esito negativo, provare a effettuare il ping degli indirizzi IP per il dominio visualizzato nella pagina panoramica nel portale per il dominio gestito Azure AD DS, ad esempio `ping 10.0.0.4`.
     * Se è possibile effettuare correttamente il ping dell'indirizzo IP ma non del dominio, il DNS potrebbe non essere configurato correttamente. Assicurarsi di aver configurato i server DNS del dominio gestito di Azure AD DS per la rete virtuale.
 1. Provare a scaricare la cache del resolver DNS nella macchina virtuale, ad esempio `ipconfig /flushdns`.
 

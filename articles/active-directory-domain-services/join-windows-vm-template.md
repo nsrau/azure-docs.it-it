@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755697"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705005"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito Azure Active Directory Domain Services usando un modello di Gestione risorse
 
@@ -93,7 +93,7 @@ Per creare una macchina virtuale Windows Server, aggiungerla a un dominio gestit
     | Nome subnet esistente      | Nome della subnet della rete virtuale esistente, ad esempio *carichi di lavoro*. |
     | Prefisso etichetta DNS          | Immettere un nome DNS da usare per la macchina virtuale, ad esempio *MyVM*. |
     | Dimensioni VM                   | Specificare le dimensioni della macchina virtuale, ad esempio *Standard_DS2_v2*. |
-    | Dominio da aggiungere            | Nome DNS del dominio gestito di Azure AD DS, ad esempio *contoso.com*. |
+    | Dominio da aggiungere            | Nome DNS del dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*. |
     | Nome utente dominio           | Account utente nel dominio gestito di Azure AD DS da usare per aggiungere la macchina virtuale al dominio gestito. Questo account deve essere membro del gruppo *amministratori di Azure ad controller* di dominio. |
     | Password di dominio           | Password per l'account utente specificato nell'impostazione precedente. |
     | Percorso unità organizzativa facoltativo          | Unità organizzativa personalizzata in cui aggiungere la macchina virtuale. Se non si specifica un valore per questo parametro, la macchina virtuale viene aggiunta all'unità organizzativa dei *computer DC AAD* predefiniti. |

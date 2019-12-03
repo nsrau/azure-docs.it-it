@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 3d55e0e7ecbd52b6d96c657e333c5557388f2721
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406500"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706029"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Eseguire la migrazione di carichi di lavoro hive di Azure HDInsight 3,6 a HDInsight 4,0
 
@@ -73,13 +73,13 @@ Una volta completata la **copia** del Metastore, eseguire uno script di aggiorna
 
 Usare i valori nella tabella più avanti. Sostituire `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` con i valori appropriati per il metastore Hive **copiato** , separati da spazi. Non includere ". database.windows.net" quando si specifica il nome del server SQL.
 
-|Proprietà | Valore |
+|Proprietà | Value |
 |---|---|
 |Tipo di script|- Personalizzato|
-|Nome|Aggiornamento hive|
+|name|Aggiornamento hive|
 |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |Tipo/i di nodo|Head|
-|parametri|PASSWORD NOME UTENTE DATASERVERNAME DATABASENAME|
+|parameters|PASSWORD NOME UTENTE DATASERVERNAME DATABASENAME|
 
 > [!Warning]  
 > L'aggiornamento che converte lo schema di metadati HDInsight 3,6 nello schema HDInsight 4,0 non può essere annullato.
@@ -174,12 +174,12 @@ Esistono due modi per eseguire ed eseguire il debug di query hive/LLAP all'inter
 
 In HDInsight 4,0, HiveCLI è stato sostituito da. HiveCLI è un client di parsimonia per del 1 e è un client JDBC che fornisce l'accesso a del 2. È inoltre possibile utilizzare l'estensione per connettersi a qualsiasi altro endpoint del database compatibile con JDBC. È possibile usare l'installazione predefinita di HDInsight 4,0 senza alcuna installazione necessaria.
 
-In HDInsight 3,6, il client GUI per interagire con il server hive è la visualizzazione hive di Ambari. HDInsight 4,0 sostituisce la visualizzazione hive con Hortonworks Data Analytics Studio (DAS). DAS non viene fornito con i cluster HDInsight predefiniti e non è un pacchetto supportato ufficialmente. Tuttavia, è possibile installare DAS nel cluster usando un' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) come indicato di seguito:
+In HDInsight 3,6, il client GUI per interagire con il server hive è la visualizzazione hive di Ambari. HDInsight 4,0 non viene fornito con la visualizzazione Ambari. Per i clienti è stato fornito un modo per usare Data Analytics Studio (DAS), che non è un servizio HDInsight di base. DAS non viene fornito con i cluster HDInsight predefiniti e non è un pacchetto supportato ufficialmente. Tuttavia, è possibile installare DAS nel cluster usando un' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) come indicato di seguito:
 
-|Proprietà | Valore |
+|Proprietà | Value |
 |---|---|
 |Tipo di script|- Personalizzato|
-|Nome|DAS|
+|name|DAS|
 |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Tipo/i di nodo|Head|
 

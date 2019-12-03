@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1320448b88fa3851196a3dfcb3107921721d364d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133080"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707672"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -82,7 +82,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Ridimensionamento di&nbsp;&la normalizzazione &nbsp;| DESCRIZIONE |
+|Ridimensionamento di&nbsp;&la normalizzazione &nbsp;| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -98,7 +98,7 @@ Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad
 
 + Azure Machine Learning Studio: selezionare le **Impostazioni Visualizza conteggi** nella sezione **esecuzione configurazione** [con questi passaggi](how-to-create-portal-experiments.md).
 
-+ Python SDK: specifica `"feauturization": auto' / 'off' / FeaturizationConfig` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: specifica `"feauturization": auto' / 'off' / FeaturizationConfig` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Previsione di serie temporali
@@ -142,7 +142,7 @@ Poiché gli algoritmi di classificazione vengono in genere valutati in base all'
 
 Inoltre, le esecuzioni automatiche di ML generano automaticamente i grafici seguenti, che consentono di comprendere la correttezza delle classificazioni del modello e di identificare i modelli potenzialmente interessati da dati sbilanciati.
 
-Grafico| DESCRIZIONE
+Grafico| Description
 ---|---
 [Matrice di confusione](how-to-understand-automated-ml.md#confusion-matrix)| Valuta le etichette classificate correttamente rispetto alle etichette effettive dei dati. 
 [Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-chart)| Valuta il rapporto tra le etichette corrette e il rapporto tra le istanze di etichette trovate dei dati 
@@ -164,7 +164,7 @@ Con Azure Machine Learning, è possibile usare il Machine Learning automatico pe
 
 Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio:
 
-|Integrazioni|DESCRIZIONE|
+|Integrazioni|Description|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET Automatic Machine Learning (anteprima).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|

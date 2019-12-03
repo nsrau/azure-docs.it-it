@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager | Microsoft Docs
-description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager.
+title: Aggiungere assegnazioni di ruolo usando i modelli RBAC e Azure Resource Manager di Azure
+description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo di Azure (RBAC) e i modelli di Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,25 +10,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384000"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707821"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e i modelli di Azure Resource Manager
+# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo usando i modelli RBAC e Azure Resource Manager di Azure
 
-Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Oltre a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile gestire l'accesso alle risorse di Azure usando [modelli Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). I modelli possono essere usati per distribuire le risorse in modo coerente e ripetuto. Questo articolo descrive come è possibile gestire l'accesso tramite RBAC e modelli.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] oltre a usare Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile assegnare ruoli usando [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). I modelli possono essere usati per distribuire le risorse in modo coerente e ripetuto. Questo articolo descrive come assegnare i ruoli usando i modelli.
 
 ## <a name="get-object-ids"></a>Ottenere gli ID oggetto
 
 Per assegnare un ruolo, è necessario specificare l'ID dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Il formato dell'ID è: `11111111-1111-1111-1111-111111111111`. È possibile ottenere l'ID usando l'interfaccia della riga di comando di portale di Azure, Azure PowerShell o Azure.
 
-### <a name="user"></a>User
+### <a name="user"></a>Utente
 
 Per ottenere l'ID di un utente, è possibile usare i comandi [Get-AzADUser](/powershell/module/az.resources/get-azaduser) o [AZ ad User Show](/cli/azure/ad/user#az-ad-user-show) .
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Gruppo
+### <a name="group"></a>Group
 
 Per ottenere l'ID di un gruppo, è possibile usare i comandi [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) o [AZ ad Group Show](/cli/azure/ad/group#az-ad-group-show) .
 
@@ -52,7 +52,7 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-### <a name="application"></a>Applicazione
+### <a name="application"></a>Richiesta
 
 Per ottenere l'ID di un'entità servizio (identità usata da un'applicazione), è possibile usare i comandi [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [AZ ad SP list](/cli/azure/ad/sp#az-ad-sp-list) . Per un'entità servizio, usare l'ID oggetto e **non** l'ID applicazione.
 
@@ -64,9 +64,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Creare un'assegnazione di ruolo in un ambito del gruppo di risorse (senza parametri)
+## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
-Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo. Il modello seguente mostra un metodo di base per creare un'assegnazione di ruolo. Alcuni valori sono specificati all'interno del modello. Il modello seguente illustra:
+In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo.
+
+### <a name="resource-group-without-parameters"></a>Gruppo di risorse (senza parametri)
+
+Il modello seguente mostra un metodo di base per aggiungere un'assegnazione di ruolo. Alcuni valori sono specificati all'interno del modello. Il modello seguente illustra:
 
 -  Come assegnare il ruolo [Reader](built-in-roles.md#reader) a un utente, a un gruppo o a un'applicazione in un ambito del gruppo di risorse
 
@@ -107,7 +111,7 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Reader a un uten
 
 ![Assegnazione di ruolo nell'ambito del gruppo di risorse](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Creare un'assegnazione di ruolo in un gruppo di risorse o in un ambito di sottoscrizione
+### <a name="resource-group-or-subscription"></a>Gruppo di risorse o sottoscrizione
 
 Il modello precedente non è molto flessibile. Il modello seguente usa parametri e può essere usato in ambiti diversi. Il modello seguente illustra:
 
@@ -191,9 +195,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>Creare un'assegnazione di ruolo in un ambito di risorsa
+### <a name="resource"></a>Gruppi
 
-Se è necessario creare un'assegnazione di ruolo al livello di una risorsa, il formato dell'assegnazione di ruolo è diverso. Specificare lo spazio dei nomi del provider di risorse e il tipo di risorsa della risorsa a cui assegnare il ruolo. È anche possibile includere il nome della risorsa nel nome dell'assegnazione di ruolo.
+Se è necessario aggiungere un'assegnazione di ruolo al livello di una risorsa, il formato dell'assegnazione di ruolo è diverso. Specificare lo spazio dei nomi del provider di risorse e il tipo di risorsa della risorsa a cui assegnare il ruolo. È anche possibile includere il nome della risorsa nel nome dell'assegnazione di ruolo.
 
 Per il tipo e il nome dell'assegnazione di ruolo, usare il formato seguente:
 
@@ -287,7 +291,7 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Collaboratore a 
 
 ![Assegnazione di ruolo nell'ambito delle risorse](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Creare un'assegnazione di ruolo per una nuova entità servizio
+### <a name="new-service-principal"></a>Nuova entità servizio
 
 Se si crea una nuova entità servizio e si tenta immediatamente di assegnare un ruolo a tale entità servizio, l'assegnazione di ruolo può non riuscire in alcuni casi. Se, ad esempio, si crea una nuova identità gestita e quindi si tenta di assegnare un ruolo a tale entità servizio nello stesso modello di Azure Resource Manager, l'assegnazione del ruolo potrebbe non riuscire. Il motivo di questo errore è probabilmente un ritardo di replica. L'entità servizio viene creata in un'area; Tuttavia, l'assegnazione di ruolo potrebbe verificarsi in un'area diversa che non ha ancora replicato l'entità servizio. Per risolvere questo scenario, è necessario impostare la proprietà `principalType` su `ServicePrincipal` quando si crea l'assegnazione di ruolo.
 
@@ -360,4 +364,4 @@ Di seguito viene illustrato un esempio di assegnazione di ruolo Collaboratore a 
 - [Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Creare gruppi di risorse e risorse a livello di sottoscrizione](../azure-resource-manager/deploy-to-subscription.md)
-- [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

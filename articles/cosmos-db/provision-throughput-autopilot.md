@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383097"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706043"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creare contenitori e database di Azure Cosmos in modalità Autopilot (anteprima)
 
@@ -107,6 +107,6 @@ Nella tabella seguente vengono indicati i limiti massimi per l'intero e l'archiv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulle [partizioni logiche](partition-data.md).
-* Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
+* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
+* [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)

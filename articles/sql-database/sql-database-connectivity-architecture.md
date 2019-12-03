@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 0ac9247f5156eb1b766aec7403b2dc8473114659
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483719"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707976"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -45,7 +45,7 @@ Il database SQL di Azure supporta le tre opzioni seguenti per l'impostazione dei
 
 - **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e riduzione. Per le connessioni per usare questa modalità, i client devono consentire le comunicazioni in ingresso e in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
 
-- **Impostazione predefinita:** Si tratta dei criteri di connessione attivati in tutti i server dopo la creazione, a meno che i criteri di connessione non vengano modificati in modo esplicito in `Proxy` o `Redirect`. Il criterio predefinito è`Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy`per tutte le connessioni client che hanno origine (ad esempio connessioni dalla workstation locale)
+- **Impostazione predefinita:** Si tratta dei criteri di connessione attivati in tutti i server dopo la creazione, a meno che i criteri di connessione non vengano modificati in modo esplicito in `Proxy` o `Redirect`. Il criterio predefinito è`Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy`per tutte le connessioni client che hanno origine all'esterno, ad esempio le connessioni dalla workstation locale.
 
  Per la latenza più bassa e la velocità effettiva più elevata, è consigliabile usare i criteri di connessione `Redirect` per i criteri di connessione `Proxy`. Tuttavia, sarà necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando i gruppi di sicurezza di rete (NSG) con i [tag del servizio](../virtual-network/security-overview.md#service-tags). Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
 
@@ -97,8 +97,8 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | India occidentale           | 104.211.160.80     |
 | Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Giappone occidentale           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
-| Corea del Sud centrale        | 52.231.32.42       |
-| Corea del Sud meridionale          | 52.231.200.86      |
+| Corea centrale        | 52.231.32.42       |
+| Corea meridionale          | 52.231.200.86      |
 | Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Sudafrica settentrionale   | 102.133.152.0      |

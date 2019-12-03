@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9aeef3a2f6a43346a7637c3e2497979632b04762
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5ef9774e63995e00e2a193f3d97b3bbe181f07c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683270"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703904"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
+> [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-azure-blob-connector.md)
 > * [Versione 2 (corrente)](../connector-azure-blob-storage.md)
 
@@ -48,9 +48,9 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 > [!IMPORTANT]
 > L'attività di copia supporta la copia dei dati da/in account di archiviazione di Azure per utilizzo generico e servizi di Archiviazione BLOB ad accesso frequente o sporadico. L'attività supporta la **lettura da BLOB in blocchi, di aggiunta o di pagine**, ma supporta la **scrittura solo in BLOB in blocchi**. Archiviazione Premium di Azure non è supportata come sink poiché si basa sui BLOB di pagine.
 >
-> L'attività di copia non elimina i dati dall'origine dopo che i dati sono stati correttamente copiati nella destinazione. Se è necessario eliminare i dati di origine dopo una copia con esito positivo, creare un'[attività personalizzata](data-factory-use-custom-activities.md) per eliminare i dati e usare l'attività nella pipeline. Per un esempio, vedere l'[esempio di eliminazione di BLOB o cartella in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity).
+> L'attività di copia non elimina i dati dall'origine dopo che i dati sono stati correttamente copiati nella destinazione. Se è necessario eliminare i dati di origine dopo una copia con esito positivo, creare un'[attività personalizzata](data-factory-use-custom-activities.md) per eliminare i dati e usare l'attività nella pipeline. Per un esempio, vedere l'[esempio di eliminazione di BLOB o cartella in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Inizia oggi stesso
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archivio BLOB di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Questo articolo include una [procedura dettagliata](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage)per la creazione di una pipeline per copiare dati da un percorso di un archivio BLOB di Azure al percorso di un altro archivio BLOB di Azure. Per un'esercitazione sulla creazione di una pipeline per copiare dati da un archivio BLOB di Azure a un database SQL di Azure, vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
@@ -62,9 +62,9 @@ Se si usano gli strumenti o le API, eseguire la procedura seguente per creare un
 1. Creare una **data factory**. Una data factory può contenere una o più pipeline.
 2. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory. Ad esempio, se si copiano i dati da un'archiviazione BLOB di Azure in un database SQL di Azure, si creano due servizi collegati per collegare l'account di archiviazione di Azure e il database SQL di Azure alla data factory. Per le proprietà del servizio collegato specifiche dell'archivio BLOB di Azure, vedere la sezione sulle [proprietà del servizio collegato](#linked-service-properties).
 2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia. Nell'esempio citato nel passaggio precedente, si crea un set di dati per specificare un contenitore BLOB e la cartella che contiene i dati di input. Si crea anche un altro set di dati per specificare la tabella SQL nel database SQL di Azure che contiene i dati copiati dall'archiviazione BLOB. Per le proprietà del set di dati specifiche dell'archivio BLOB di Azure, vedere la sezione sulle [proprietà del set di dati](#dataset-properties).
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e SqlSink come sink per l'attività di copia. Analogamente, se si esegue la copia dal database SQL di Azure nell'archiviazione BLOB di Azure, si usa SqlSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per l'archivio BLOB di Azure, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
+3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output. Nell'esempio indicato in precedenza si usa BlobSource come origine e SqlSink come sink per l'attività di copia. Analogamente, se si effettua la copia dal database SQL di Azure nell'archivio BLOB di Azure, si usa SqlSource e BlobSink nell'attività di copia. Per le proprietà dell'attività di copia specifiche per l'archivio BLOB di Azure, vedere la sezione sulle [proprietà dell'attività di copia](#copy-activity-properties). Per informazioni dettagliate su come usare un archivio dati come origine o come sink, fare clic sul collegamento nella sezione precedente per l'archivio dati.
 
-Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di Data Factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un'archiviazione BLOB di Azure, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-blob-storage  ) in questo articolo.
+Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per esempi con definizioni JSON per entità di data factory utilizzate per copiare i dati da e verso un'archiviazione BLOB di Azure, vedere la sezione degli [esempi JSON](#json-examples-for-copying-data-to-and-from-blob-storage  ) in questo articolo.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di un archivio BLOB di Azure.
 
@@ -82,10 +82,10 @@ Data Factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureBlob** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Description | Obbligatoria |
 | --- | --- | --- |
-| folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Sì |
-| fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio: Data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
+| folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |SÌ |
+| fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: `Data.<Guid>.txt` (ad esempio: data. 0a405f8a-93ff-4C6F-B3BE-f69616f1df7a. txt |No |
 | partitionedBy |partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Per informazioni dettagliate ed esempi, vedere la sezione [Uso della proprietà partitionedBy](#using-partitionedby-property) . |No |
 | format | Sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No |
 | compressione | Specificare il tipo e il livello di compressione dei dati. I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. I livelli supportati sono **Ottimale** e **Più veloce**. Per altre informazioni, vedere [File e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -128,13 +128,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 **BlobSource** supporta le seguenti proprietà della sezione **typeProperties**:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No |
 
 **BlobSink** supporta le proprietà della sezione **typeProperties** seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | Description | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><br/><b>MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No |
 
@@ -193,7 +193,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     3. Per Gruppo di risorse, selezionare **Usa esistente** per selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
     4. Selezionare una **località** per la data factory.
     5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.
-    6. Fare clic su **Create**.
+    6. Fare clic su **Create**(Crea).
 3. Al termine della creazione, viene visualizzato il pannello **Data Factory** come illustrato nell'immagine seguente: ![Data Factory Home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Copia guidata
@@ -208,7 +208,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     4. Mantenere le impostazioni per **Recurring pattern** (Schema ricorrente). Questa attività viene eseguita ogni giorno tra le ore di inizio e fine specificate nel passaggio successivo.
     5. Impostare **Start date time** (Data e ora di inizio) su **21/04/2017**.
     6. Impostare **End date time** (Data e ora di fine) su **25/04/2017**. È possibile digitare la data invece di cercarla nel calendario.
-    8. Fare clic su **Avanti**.
+    8. Fare clic su **Next** (Avanti).
         ![Strumento di copia - Pagina Proprietà](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
 3. Nella pagina **Source data store** (Archivio dati di origine) fare clic sul riquadro **Archivio BLOB di Azure**. Usare questa pagina per specificare l'archivio dati di origine per l'attività di copia. È possibile usare un servizio collegato di archivio dati esistente oppure specificare un nuovo archivio dati. Per usare un servizio collegato esistente, selezionare **FROM EXISTING LINKED SERVICES** (DA SERVIZI COLLEGATI ESISTENTI) e selezionare il servizio collegato corretto.
     ![Strumento di copia - Pagina Archivio dati di origine](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -217,7 +217,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     2. Verificare che in **Account selection method** (Metodo di selezione dell'account) sia selezionata l'opzione **From Azure subscriptions** (Da sottoscrizioni di Azure).
     3. Selezionare la sottoscrizione di Azure o mantenere **Seleziona tutte** per **Sottoscrizione di Azure**.
     4. Selezionare un **Account di archiviazione di Azure** nell'elenco di quelli disponibili nella sottoscrizione selezionata. È anche possibile scegliere di immettere manualmente le impostazioni dell'account di archiviazione, selezionando l'opzione **Immetti manualmente** per **Account selection method** (Metodo di selezione dell'account).
-    5. Fare clic su **Avanti**.  
+    5. Fare clic su **Next** (Avanti).  
         ![Strumento di copia - Specificare l'account di archiviazione BLOB di Azure](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input):
     1. Fare doppio clic su **adfblobcontainer**.
@@ -228,7 +228,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     2. Non impostare **Copy file recursively** (Copia file in modo ricorsivo). Selezionare questa opzione per cercare in modo ricorsivo nelle cartelle i file da copiare nella destinazione.
     3. Non selezionare l'opzione **binary copy** (Copia binaria). Selezionare questa opzione per eseguire una copia binaria del file di origine nella destinazione. Non selezionarla per questa procedura dettagliata per poter visualizzare altre opzioni nelle pagine successive.
     4. Verificare che **Tipo di compressione** sia impostato su **Nessuno**. Selezionare un valore per questa opzione se i file di origine sono compressi in uno dei formati supportati.
-    5. Fare clic su **Avanti**.
+    5. Fare clic su **Next** (Avanti).
     ![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Nella pagina **File format settings** (Impostazioni di formato file) vengono visualizzati i delimitatori e lo schema rilevati automaticamente dalla procedura guidata analizzando il file.
     1. Confermare le opzioni seguenti:  
@@ -250,7 +250,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     2. Verificare che in **Account selection method** (Metodo di selezione dell'account) sia selezionata l'opzione **From Azure subscriptions** (Da sottoscrizioni di Azure).
     3. Selezionare la **sottoscrizione**di Azure.
     4. Selezionare l'account di archiviazione di Azure.
-    5. Fare clic su **Avanti**.
+    5. Fare clic su **Next** (Avanti).
 10. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output):  
     1. In **Percorso cartella** specificare **adfblobconnector/output/{year}/{month}/{day}** (adfblobconnector/output/{anno}/{mese}/{giorno}). Premere **TAB**.
     1. Per **anno**, selezionare **yyyy**.
@@ -258,7 +258,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     1. Per **giorno**, verificare che sia impostato su **dd** (gg).
     1. Verificare che **Tipo di compressione** sia impostato su **Nessuno**.
     1. Verificare che **copy behavior** (Comportamento copia) sia impostato su **Merge files** (Unisci file). Se esiste già un file di output con lo stesso nome, il nuovo contenuto viene aggiunto alla fine dello stesso file.
-    1. Fare clic su **Avanti**.
+    1. Fare clic su **Next** (Avanti).
        ![Strumento di copia - Scegliere il file o la cartella di output](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Nella pagina **File format settings** (Impostazioni di formato file) rivedere le impostazioni e fare clic su **Avanti**. Una delle opzioni aggiuntive ora consiste nell'aggiungere un'intestazione al file di output. Se si seleziona tale opzione, viene aggiunta una riga di intestazione con i nomi delle colonne dalla schema dell'origine. È possibile rinominare i nomi di colonna predefiniti quando si visualizza lo schema per l'origine. È ad esempio possibile impostare la prima colonna su Nome e la seconda colonna su Cognome. Viene quindi generato il file di output con un'intestazione contenente questi nomi come nomi di colonna.
     ![Strumento di copia - Impostazioni di formatto file per la destinazione](media/data-factory-azure-blob-connector/file-format-destination.png)

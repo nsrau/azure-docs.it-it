@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 8b1c3184ada743fddb78e1a3d0ce8d67f1f1a94f
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693336"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704537"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
 
@@ -26,7 +26,7 @@ Questo articolo spiega perché si è verificato l'errore e come risolverlo.
 
 ## <a name="what-causes-this-error"></a>Causa dell'errore
 
-Si verifica un errore di directory non corrispondente quando un dominio gestito Azure AD DS e una rete virtuale appartengono a due tenant Azure AD diversi. Ad esempio, è possibile che si disponga di un dominio gestito Azure AD DS denominato *contoso.com* che viene eseguito nel tenant Azure ad di contoso. Tuttavia, la rete virtuale di Azure per il dominio gestito fa parte del tenant Azure AD fabrikam.
+Si verifica un errore di directory non corrispondente quando un dominio gestito Azure AD DS e una rete virtuale appartengono a due tenant Azure AD diversi. Ad esempio, è possibile che si disponga di un dominio gestito Azure AD DS denominato *aadds.contoso.com* che viene eseguito nel tenant Azure ad di contoso. Tuttavia, la rete virtuale di Azure per il dominio gestito fa parte del tenant Azure AD fabrikam.
 
 Azure usa il controllo degli accessi in base al ruolo (RBAC) per limitare l'accesso alle risorse. Quando si Abilita Azure AD DS in un tenant di Azure AD, gli hash delle credenziali vengono sincronizzati con il dominio gestito. Per eseguire questa operazione, è necessario essere un amministratore tenant per la directory Azure AD e controllare l'accesso alle credenziali. Per distribuire le risorse in una rete virtuale di Azure e controllare il traffico, è necessario disporre dei privilegi amministrativi per la rete virtuale in cui si distribuisce Azure AD DS.
 

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: e33a7a1360a837df08725b2e592973b465dff38c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4443d1117d0dd08cbe2fe89b8ca8465c0c7083f8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954214"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706946"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introduzione all'identità del modulo dell'hub Internet e al modulo gemello (C)
 
@@ -31,7 +31,7 @@ Al termine di questa esercitazione si hanno due app C:
 > [!NOTE]
 > Per informazioni sugli Azure IoT SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
@@ -190,7 +190,9 @@ In questa sezione, nel dispositivo simulato viene creata un'app C che aggiorna l
 
     ![Dettagli del modulo nel portale di Azure](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
-2. **Creare l'app UpdateModuleTwinReportedProperties** Aggiungere le istruzioni `using` seguenti all'inizio del file **Program.cs**:
+2. **Crea app UpdateModuleTwinReportedProperties**
+   
+   Aggiungere quanto segue al file C:
 
     ```C
     #include <stdio.h>

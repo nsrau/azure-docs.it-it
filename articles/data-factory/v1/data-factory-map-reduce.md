@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139288"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703145"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -39,7 +39,7 @@ ms.locfileid: "70139288"
 L'attività HDInsight MapReduce in una [pipeline](data-factory-create-pipelines.md) di Data Factory esegue i programmi di MapReduce nei cluster HDInsight [personalizzati](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o [su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basati su Windows/Linux. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate.
 
 > [!NOTE] 
-> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo vedere [Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md).  
+> Se non si ha familiarità con Azure Data Factory, prima di leggere questo articolo leggere [Introduzione ad Azure Data Factory](data-factory-introduction.md) ed eseguire l'esercitazione [Creare la prima pipeline di dati](data-factory-build-your-first-pipeline.md) .  
 
 ## <a name="introduction"></a>Introduzione
 Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. In questo articolo viene descritto l'utilizzo dell'attività MapReduce di HDInsight.
@@ -112,7 +112,7 @@ Nella definizione JSON per l'attività HDInsight:
    È possibile usare l’attività MapReduce di HDInsight per l'esecuzione di file JAR di MapReduce in un cluster HDInsight. Nella definizione JSON seguente di una pipeline di esempio l'attività HDInsight è configurata per eseguire un file JAR di Mahout.
 
 ## <a name="sample-on-github"></a>Esempio in GitHub
-È possibile scaricare un esempio relativo all'uso dell'attività MapReduce di HDInsight dagli [esempi di Data Factory in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+È possibile scaricare un esempio relativo all'uso dell'attività MapReduce di HDInsight da: [esempi di Data factory in GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Esecuzione del programma di conteggio delle parole
 La pipeline in questo esempio esegue il programma di mapping e riduzione del conteggio delle parole sul cluster HDInsight di Azure.   
@@ -179,7 +179,7 @@ La pipeline in questo esempio non accetta alcun input. Specificare un set di dat
 ```
 
 ### <a name="pipeline"></a>Pipeline
-La pipeline in questo esempio contiene una sola attività di tipo HDInsightMapReduce. Alcune delle proprietà importanti in JSON sono: 
+La pipeline in questo esempio contiene una sola attività che è di tipo: HDInsightMapReduce. Alcune delle proprietà importanti in JSON sono: 
 
 | Proprietà | Note |
 |:--- |:--- |
@@ -233,7 +233,7 @@ La pipeline in questo esempio contiene una sola attività di tipo HDInsightMapRe
 ```
 
 ## <a name="run-spark-programs"></a>Esecuzione dei programmi Spark
-È possibile usare l'attività MapReduce per eseguire i programmi Spark nel cluster HDInsight Spark. Per i dettagli, vedere [Chiamare i programmi Spark da Azure Data Factory](data-factory-spark.md) .  
+È possibile usare l'attività MapReduce per eseguire i programmi Spark nel cluster HDInsight Spark. Per informazioni dettagliate, vedere [Chiamare i programmi Spark da Data Factory](data-factory-spark.md) .  
 
 [developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
@@ -250,5 +250,5 @@ La pipeline in questo esempio contiene una sola attività di tipo HDInsightMapRe
 * [Attività di Pig](data-factory-pig-activity.md)
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 * [Chiamare i programmi Spark](data-factory-spark.md)
-* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Chiamare gli script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 06d7b7abe7741c465f3d40a90340e03b2c24f258
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900686"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707505"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come modificare il modello di licenza per un SQL Server macchina virtuale (VM) in Azure usando il nuovo provider di risorse VM SQL, **Microsoft. SqlVirtualMachine**.
@@ -36,17 +36,18 @@ Secondo le condizioni del prodotto Microsoft: "i clienti devono indicare che usa
 Per indicare l'uso di Vantaggio Azure Hybrid per SQL Server in una macchina virtuale di Azure ed essere conformi, sono disponibili tre opzioni:
 
 - Effettuare il provisioning di una macchina virtuale usando un'immagine di SQL Server Bring your own License da Azure Marketplace. Questa opzione è disponibile solo per i clienti che dispongono di un Enterprise Agreement.
-- Esegui il provisioning di una macchina virtuale usando un'immagine di SQL Server con pagamento in base al consumo da Azure Marketplace e attiva Vantaggio Azure Hybrid.
-- Installare autonomamente SQL Server in una macchina virtuale di Azure, [registrare manualmente la vm SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md)e attivare vantaggio Azure Hybrid.
+- Eseguire il provisioning di una macchina virtuale usando un'immagine di SQL Server con pagamento in base al consumo da Azure Marketplace e attivare l'Vantaggio Azure Hybrid.
+- Installare autonomamente SQL Server in una macchina virtuale di Azure, [registrarsi manualmente con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md)e attivare vantaggio Azure Hybrid.
 
-Il tipo di licenza di SQL Server viene impostato quando viene effettuato il provisioning della macchina virtuale. È possibile modificarlo in qualsiasi momento in seguito. Il cambio tra modelli di licenza non comporta tempi di inattività, non riavvia la macchina virtuale, non aggiunge alcun costo aggiuntivo ed è immediatamente efficace. Di fatto, l'attivazione di Vantaggio Azure Hybrid *riduce* i costi.
+Il tipo di licenza di SQL Server viene impostato quando viene effettuato il provisioning della macchina virtuale. È possibile modificarlo in qualsiasi momento in seguito. Il cambio tra modelli di licenza non comporta tempi di inattività, non riavvia la macchina virtuale o il servizio SQL Server, non aggiunge costi aggiuntivi ed è immediatamente efficace. Di fatto, l'attivazione di Vantaggio Azure Hybrid *riduce* i costi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'uso del provider di risorse VM SQL richiede l'SQL Server estensione IaaS. Di conseguenza, sono necessari gli elementi seguenti:
+La modifica del modello di gestione licenze della macchina virtuale SQL Server presenta i requisiti seguenti: 
+
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
-- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
 - Una [macchina virtuale SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrata con il [provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
+- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) è un requisito per usare la [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Modificare la licenza per le macchine virtuali già registrate con il provider di risorse 

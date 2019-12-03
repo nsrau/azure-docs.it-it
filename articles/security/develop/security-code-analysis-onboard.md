@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839356"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707260"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
 
@@ -53,7 +53,8 @@ Prerequisiti per la Guida introduttiva all'analisi del codice di sicurezza Micro
 
 1. Dopo che l'estensione è stata condivisa con l'organizzazione DevOps di Azure, passare alla pagina di Azure DevOps Organization. Un URL di esempio per una pagina di questo tipo è `https://dev.azure.com/contoso`.
 1. Selezionare l'icona del carrello nell'angolo superiore destro accanto al nome e quindi selezionare **Gestisci estensioni**.
-1. Selezionare Microsoft Security Code Analysis Extension, quindi aprire la procedura guidata dell'interfaccia utente di Azure DevOps per avviare l'installazione.
+1. Selezionare **condivisa**.
+1. Selezionare Microsoft Security Code Analysis Extension, quindi selezionare **Installa**.
 1. Dall'elenco a discesa scegliere l'organizzazione DevOps di Azure in cui installare l'estensione.
 1. Selezionare **Installa**. Al termine dell'installazione, è possibile iniziare a usare l'estensione.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 961b54a4d7c9caee98497e5d2b8db86284084d15
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: dddbc15a80fe741b9ad1634aac18cb13819dc235
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023868"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704420"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Abilitare Azure Active Directory Domain Services con PowerShell
 
@@ -128,17 +128,17 @@ $Vnet= New-AzVirtualNetwork `
 
 ## <a name="create-an-azure-ad-ds-managed-domain"></a>Creare un dominio gestito di Azure AD DS
 
-A questo punto è possibile creare un dominio gestito di Azure AD DS. Impostare l'ID sottoscrizione di Azure e quindi specificare un nome per il dominio gestito, ad esempio *contoso.com*. È possibile ottenere l'ID sottoscrizione usando il cmdlet [Get-AzSubscription][Get-AzSubscription] .
+A questo punto è possibile creare un dominio gestito di Azure AD DS. Impostare l'ID sottoscrizione di Azure e quindi specificare un nome per il dominio gestito, ad esempio *aadds.contoso.com*. È possibile ottenere l'ID sottoscrizione usando il cmdlet [Get-AzSubscription][Get-AzSubscription] .
 
-Se si sceglie un'area che supporta zone di disponibilità, le risorse di Azure AD DS vengono distribuite tra le zone per una maggiore ridondanza.
+Se si sceglie un'area che supporta le zone di disponibilità, le risorse di Azure AD DS vengono distribuite in più zone per garantire maggiore ridondanza.
 
 Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate.
 
-Non c'è nulla da configurare per la distribuzione di Azure AD DS tra le zone. La piattaforma Azure gestisce automaticamente la distribuzione della zona delle risorse. Per altre informazioni e per vedere la pagina relativa alla disponibilità delle aree, vedere informazioni sulle [zone di disponibilità in Azure][availability-zones].
+Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per vedere la pagina relativa alla disponibilità delle aree, vedere informazioni sulle [zone di disponibilità in Azure][availability-zones].
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aadds.contoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -172,7 +172,7 @@ $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aadds.contoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD

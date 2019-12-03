@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 525ea421eb0fa0131fa91078b0619b8463f6fbb0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e6645a131766b7ec055ba1c8bb639f054f50c80b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546236"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704367"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurare la sincronizzazione con ambito da Azure AD a Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Quando il portale di Azure indica che il dominio gestito da Azure AD DS ha compl
 
 Per modificare l'elenco dei gruppi i cui utenti devono essere sincronizzati con il dominio gestito di Azure AD DS, completare i passaggi seguenti:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere l'istanza, ad esempio *contoso.com*.
+1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere l'istanza, ad esempio *aadds.contoso.com*.
 1. Selezionare **sincronizzazione** dal menu sul lato sinistro.
 1. Per aggiungere un gruppo, scegliere **+ Seleziona gruppi** nella parte superiore, quindi scegliere i gruppi da aggiungere.
 1. Per rimuovere un gruppo dall'ambito di sincronizzazione, selezionarlo dall'elenco dei gruppi attualmente sincronizzati e scegliere **Rimuovi gruppi**.
@@ -82,7 +82,7 @@ Se si modifica l'ambito di sincronizzazione, il dominio gestito Azure AD DS Risi
 
 Per disabilitare la sincronizzazione con ambito gruppo per un dominio gestito di Azure AD DS, completare i passaggi seguenti:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere l'istanza, ad esempio *contoso.com*.
+1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere l'istanza, ad esempio *aadds.contoso.com*.
 1. Selezionare **sincronizzazione** dal menu sul lato sinistro.
 1. Impostare l'ambito di sincronizzazione dall' **ambito** a **tutti**, quindi selezionare **Salva ambito di sincronizzazione**.
 
@@ -194,11 +194,11 @@ Usare PowerShell per completare questa serie di passaggi. Consultare le istruzio
 
 1. Creare ora il dominio gestito di Azure AD DS e abilitare la sincronizzazione con ambito basata sui gruppi. Includere *"filteredSync" = "Enabled"* nel parametro *-Properties* .
 
-    Impostare l'ID sottoscrizione di Azure e quindi specificare un nome per il dominio gestito, ad esempio *contoso.com*. È possibile ottenere l'ID sottoscrizione usando il cmdlet [Get-AzSubscription][Get-AzSubscription] . Impostare il nome del gruppo di risorse, il nome della rete virtuale e l'area sui valori usati nei passaggi precedenti per creare le risorse di Azure di supporto:
+    Impostare l'ID sottoscrizione di Azure e quindi specificare un nome per il dominio gestito, ad esempio *aadds.contoso.com*. È possibile ottenere l'ID sottoscrizione usando il cmdlet [Get-AzSubscription][Get-AzSubscription] . Impostare il nome del gruppo di risorse, il nome della rete virtuale e l'area sui valori usati nei passaggi precedenti per creare le risorse di Azure di supporto:
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso.com"
+   $ManagedDomainName = "aadds.contoso.com"
    $ResourceGroupName = "myResourceGroup"
    $VnetName = "myVnet"
    $AzureLocation = "westus"

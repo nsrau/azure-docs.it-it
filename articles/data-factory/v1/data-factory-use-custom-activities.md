@@ -1,5 +1,5 @@
 ---
-title: Usare attività personalizzate nella pipeline di Azure Data Factory
+title: Usare attività personalizzate in una pipeline di Azure Data Factory
 description: Informazioni su come creare attività personalizzate e usarle in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8826dd51766ee0d1059ab73046e7e078f27a8e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990658"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703314"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate nella pipeline di Azure Data Factory
+# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-use-custom-activities.md)
 > * [Versione 2 (corrente)](../transform-data-using-dotnet-custom-activity.md)
@@ -43,14 +43,14 @@ La procedura dettagliata seguente riporta le istruzioni complete per creare un'a
 > - Non è possibile usare il gateway di gestione dati da un'attività personalizzata per accedere alle origini dati locali. Attualmente il [Gateway di gestione dati](data-factory-data-management-gateway.md) supporta solo le attività di copia e di stored procedure in Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Procedura dettagliata: creare un'attività personalizzata
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 * Visual Studio 2012/2013/2015/2017
 * Scaricare e installare [.NET SDK di Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Prerequisiti di Azure Batch
 In questa procedura dettagliata vengono eseguite attività .NET personalizzate usando Azure Batch come risorsa di calcolo. **Azure Batch** è un servizio di piattaforma per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Azure Batch pianifica l'esecuzione del lavoro a elevato utilizzo di calcolo su una **raccolta di macchine virtuali** gestita e può ridimensionare automaticamente le risorse di calcolo in base alle esigenze dei processi. Per una panoramica dettagliata del servizio Azure Batch, vedere l'articolo [nozioni di base su Azure batch][batch-technical-overview] .
 
-Per l'esercitazione creare un account Batch di Azure con un pool di VM. Di seguito sono riportati i passaggi necessari:
+Per l'esercitazione creare un account Batch di Azure con un pool di VM. Ecco la procedura da seguire:
 
 1. Creare un **account di Azure Batch** tramite il [portale di Azure](https://portal.azure.com). Per istruzioni, vedere [l'articolo creare e gestire un account Azure batch][batch-create-account] .
 2. Annotare il nome dell'account Azure Batch, la chiave account, l'URI e il nome del pool. È necessario creare un servizio collegato Azure Batch.
@@ -376,7 +376,7 @@ Il metodo restituisce un dizionario che può essere usato per concatenare le att
 12. Creare un file ZIP **MyDotNetActivity.zip** che contiene tutti i file binari disponibili nella cartella \<cartella di progetto\>\bin\Debug. Includere il file **MyDotNetActivity.pdb** per ottenere altri dettagli, ad esempio il numero della riga nel codice sorgente che ha causato il problema in caso di errore.
 
     > [!IMPORTANT]
-    > Tutti i file contenuti nel file con estensione zip dell'attività personalizzata devono trovarsi nel **livello principale** senza sottocartelle.
+    > Tutti i file nel file ZIP per l'attività personalizzata devono trovarsi al **livello principale** senza sottocartelle.
 
     ![File di output binari](./media/data-factory-use-custom-activities/Binaries.png)
 14. Se non è già presente, creare un contenitore BLOB denominato **customactivitycontainer**.
@@ -422,7 +422,7 @@ Di seguito sono elencati i passaggi da eseguire in questa sezione:
    3. Fare clic su **Data factory** nel pannello **Analisi dei dati**.
 
       ![Menu Nuova Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Data factory di Azure. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
+2. Nel pannello **Nuova data factory** immettere **CustomActivityFactory** come Nome. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore **Il nome "CustomActivityFactory" per la data factory non è disponibile**, cambiare il nome della data factory, ad esempio, **nomeutenteCustomActivityFactory**, e provare di nuovo a crearla.
 
     ![Pannello Nuova Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Fare clic su **NOME DEL GRUPPO DI RISORSE**e selezionare un gruppo di risorse esistente o crearne uno.
@@ -441,7 +441,7 @@ I servizi collegati collegano archivi dati o servizi di calcolo a una data facto
 2. Fare clic su **Nuovo archivio dati** sulla barra dei comandi e scegliere **Archiviazione di Azure**. Nell'editor verrà visualizzato lo script JSON per la creazione di un servizio collegato Archiviazione di Azure.
 
     ![Nuovo archivio dati - Archiviazione di Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Sostituire `<accountname>` con il nome dell'account di archiviazione di Azure e `<accountkey>` con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso nelle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
+3. Sostituire `<accountname>` con il nome dell'account di archiviazione di Azure e `<accountkey>` con la chiave di accesso dell'account di archiviazione di Azure. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere la sezione [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
 
     ![Servizio collegato Archiviazione di Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
@@ -510,7 +510,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
    La **frequenza** e l'**intervallo** per il set di dati di input sono impostati su **Ora** e **1**. Ciò significa che la sezione di input è disponibile ogni ora. In questo esempio si tratta dello stesso file (file.txt) che si trova nella cartella di input.
 
    Sono indicate le ore di inizio per ogni sezione, rappresentate dalla variabile di sistema SliceStart nel precedente frammento JSON.
-3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire **InputDataset**. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio analogo a **CREAZIONE TABELLA COMPLETATA** .
+3. Fare clic su **Distribuisci** sulla barra degli strumenti per creare e distribuire **InputDataset**. Controllare che sulla barra del titolo dell'editor sia visualizzato un messaggio simile a **LA CREAZIONE DELLA TABELLA È STATA COMPLETATA** .
 
 #### <a name="create-an-output-dataset"></a>Creare un set di dati di output
 1. Nell' **editor di data factory**fare clic su **... Altre informazioni** sulla barra dei comandi, fare clic su **nuovo set di dati**e quindi selezionare **archiviazione BLOB di Azure**.
@@ -698,7 +698,7 @@ La risoluzione dei problemi implica alcune tecniche di base:
 
    Cercare anche eventuali messaggi di errore di sistema ed eccezioni nel file **system-0.log**.
 4. Includere il file **PDB** nel file ZIP in modo che i dettagli dell'errore contengano informazioni come lo **stack di chiamate** quando si verifica un errore.
-5. Tutti i file contenuti nel file con estensione zip dell'attività personalizzata devono trovarsi nel **livello principale** senza sottocartelle.
+5. Tutti i file nel file ZIP per l'attività personalizzata devono trovarsi al **livello principale** senza sottocartelle.
 6. Assicurarsi che **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) e **packageLinkedService** (deve fare riferimento all'Archiviazione BLOB di Azure **di uso generico** che contiene il file ZIP) siano impostati su valori corretti.
 7. Se è stato risolto un errore e si vuole rielaborare la sezione, fare clic con il pulsante destro del mouse sulla sezione nel pannello **OutputDataset**, quindi scegliere **Esegui**.
 8. Se viene visualizzato l'errore seguente, si usa il pacchetto di Archiviazione di Azure con una versione > 4.3.0. L'utilità di avvio del servizio Data Factory richiede la versione 4.3 di WindowsAzure.Storage. Per informazioni su una soluzione alternativa nel caso in cui sia necessario usare una versione più recente dell'assembly di Archiviazione di Azure, vedere la sezione [Isolamento di AppDomain](#appdomain-isolation).
@@ -722,7 +722,7 @@ La risoluzione dei problemi implica alcune tecniche di base:
 Per aggiornare il codice dell'attività personalizzata, compilarlo e caricare il file ZIP contenente i nuovi file binari nell'archiviazione BLOB.
 
 ## <a name="appdomain-isolation"></a>Isolamento di AppDomain
-Vedere l' [esempio sul passaggio fra AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) che illustra come creare un'attività personalizzata che non sia vincolata alle versioni assembly usate dal servizio di avvio di Azure Data Factory, ad esempio WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x e così via.
+Vedere l' [esempio sul passaggio fra AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) che illustra come creare un'attività personalizzata che non sia vincolata alle versioni assembly usate dal servizio di avvio di Azure Data Factory, ad esempio WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x e così via.
 
 ## <a name="access-extended-properties"></a>Accedere a tutte le proprietà estese
 È possibile dichiarare estese le proprietà presenti nel codice JSON dell'attività come nell'esempio seguente:
@@ -775,7 +775,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Per i dettagli, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](../../batch/batch-automatic-scaling.md) .
 
-Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), possono essere necessari 15-30 minuti perché il servizio Batch prepari la VM prima di eseguire l'attività personalizzata.  Se invece il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
+Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), possono essere necessari 15-30 minuti perché il servizio Batch prepari la VM prima di eseguire l'attività personalizzata.  Se il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
 
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Creazione di un’attività personalizzata tramite .NET SDK

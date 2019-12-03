@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052504"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706269"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: domande frequenti
 
@@ -90,7 +90,7 @@ Sì. Per installare componenti aggiuntivi o personalizzare la configurazione del
 
 Tuttavia, i team supporto tecnico Microsoft possono offrire supporto solo per le situazioni seguenti:
 
-- Problemi o errori che si verificano durante il caricamento dello script. Gli eventuali errori che si verificano durante l'esecuzione di script personalizzati esulano dall'ambito di un ticket di supporto.
+- Problemi o errori che si verificano durante il caricamento dello script. Eventuali errori durante l'esecuzione di script personalizzati esulano dall'ambito di un ticket di supporto.
 
 - Applicazioni aggiuntive che fanno parte del processo di creazione del cluster. 
 
@@ -180,6 +180,11 @@ Sì, è possibile distribuire una macchina virtuale aggiuntiva all'interno della
 - Nodi perimetrali: è possibile aggiungere un altro nodo perimetrale al cluster, come descritto in [usare nodi perimetrali vuoti in Apache Hadoop cluster in HDInsight](hdinsight-apps-use-edge-node.md).
 
 - Nodi autonomi: è possibile aggiungere una macchina virtuale autonoma alla stessa subnet e accedere al cluster da tale macchina virtuale usando l'endpoint privato `https://<CLUSTERNAME>-int.azurehdinsight.net`. Per ulteriori informazioni, vedere [controllo del traffico di rete](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>È necessario archiviare i dati nel disco locale di un nodo perimetrale?
+
+No, non è consigliabile archiviare i dati su un disco locale. Se il nodo ha esito negativo, tutti i dati archiviati in locale andranno persi. Si consiglia di archiviare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure oppure montando una condivisione File di Azure per archiviare i dati.
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>È possibile aggiungere un cluster HDInsight esistente a un'altra rete virtuale?
 
@@ -317,8 +322,8 @@ Usare gli script salvati in modo permanente per personalizzare i nuovi nodi del 
 
 È possibile usare gli endpoint REST seguenti per eseguire il pull delle informazioni necessarie in formato JSON. Usare le intestazioni di autenticazione di base per eseguire le richieste.
 
-- Tez visualizzazione Query: *https:\//nome del cluster\<>. azurehdinsight. NET/WS/V1/Timeline/HIVE_QUERY_ID/*
-- Visualizzazione DAG di TeZ: *https:\//nome cluster\<>. azurehdinsight. NET/WS/V1/Timeline/TEZ_DAG_ID/*
+- Tez visualizzazione Query: *https:\//nome del cluster \<>. azurehdinsight. NET/WS/V1/Timeline/HIVE_QUERY_ID/*
+- Visualizzazione DAG di TeZ: *https:\//nome cluster \<>. azurehdinsight. NET/WS/V1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Ricerca per categorie recuperare i dettagli di configurazione dal cluster HDI usando un utente Azure Active Directory?
 

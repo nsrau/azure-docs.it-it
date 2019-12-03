@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: ebacd386221ed12e1171034eb5d23236bd234849
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176047"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707582"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -206,7 +206,7 @@ Quando si usa il modello di distribuzione Azure Resource Manager, è possibile s
 Quando si usa il modello di distribuzione classica, è possibile specificare i server DNS per la rete virtuale nel portale di Azure o nel [file di configurazione della rete](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, è possibile specificare i server DNS nel [file di configurazione del servizio](https://msdn.microsoft.com/library/azure/ee758710) o tramite PowerShell con [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Se si modificano le impostazioni DNS di una rete virtuale o una macchina virtuale già distribuita, è necessario riavviare ogni macchina virtuale interessata affinché le modifiche vengano applicate.
+> Se si modificano le impostazioni DNS per una rete virtuale o una macchina virtuale già distribuita, per rendere effettive le nuove impostazioni DNS è necessario eseguire un rinnovo del lease DHCP in tutte le VM interessate nella rete virtuale. Per le macchine virtuali che eseguono il sistema operativo Windows, è possibile eseguire questa operazione digitando `ipconfig /renew` direttamente nella macchina virtuale. La procedura varia a seconda del sistema operativo. Vedere la documentazione pertinente per il tipo di sistema operativo. 
 >
 >
 

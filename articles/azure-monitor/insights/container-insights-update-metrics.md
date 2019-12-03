@@ -7,33 +7,33 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 8fb1c6c65ab9c38ef16cfbc20435b35d0c7a7ce5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279608"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707496"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Come aggiornare monitoraggio di Azure per i contenitori per abilitare le metriche
 
 Il monitoraggio di Azure per i contenitori introduce il supporto per la raccolta di metriche dai nodi e dai cluster dei servizi Kubernetes di Azure (AKS) e li scrive nell'archivio delle metriche di monitoraggio di Azure. Questa modifica ha lo scopo di offrire una tempestività migliorata quando si presentano calcoli di aggregazione (AVG, Count, Max, min, Sum) nei grafici delle prestazioni, supporta l'aggiunta di grafici delle prestazioni in Dashboard portale di Azure e il supporto degli avvisi delle metriche.
 
 >[!NOTE]
->Questa funzionalità attualmente non supporta i cluster Red Hat OpenShift.
+>Questa funzionalità non supporta attualmente i cluster OpenShift di Azure Red Hat.
 >
 
 Come parte di questa funzionalità sono abilitate le metriche seguenti:
 
-| Spazio dei nomi delle metriche | Metrica | DESCRIZIONE |
+| Spazio dei nomi delle metriche | Metrica | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta di metriche del *nodo* che includono *host* come dimensione e includono anche<br> nome del nodo come valore per la dimensione *host* . |
+| Insights. contenitore/nodi | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta di metriche del *nodo* che includono *host* come dimensione e includono anche<br> nome del nodo come valore per la dimensione *host* . |
 | Insights. container/Pod | podCount | Si tratta di metriche *Pod* e includono le seguenti dimensioni: controllerName, spazio dei nomi Kubernetes, nome, fase. |
 
 L'aggiornamento del cluster per supportare queste nuove funzionalità può essere eseguito dalla portale di Azure, Azure PowerShell o con l'interfaccia della riga di comando di Azure. Con Azure PowerShell e l'interfaccia della riga di comando, è possibile abilitare questo per cluster o per tutti i cluster nella sottoscrizione. Nuove distribuzioni di AKS includeranno automaticamente questa modifica e funzionalità di configurazione.
 
 Entrambi i processi assegnano il ruolo di server di pubblicazione per le **metriche di monitoraggio** all'entità servizio del cluster, in modo che i dati raccolti dall'agente possano essere pubblicati nella risorsa cluster. Il monitoraggio del server di pubblicazione ha l'autorizzazione solo per le metriche push alla risorsa, non può modificare alcuno stato, aggiornare la risorsa o leggere i dati. Per ulteriori informazioni sul ruolo, vedere [monitoraggio delle metriche del ruolo di pubblicazione](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare quanto segue:
 

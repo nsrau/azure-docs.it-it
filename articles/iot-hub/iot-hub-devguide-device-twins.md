@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a800336fb6fda8a0ed0af71f243936d29e8079e7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209707"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706838"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -119,7 +119,7 @@ Nell'esempio precedente, il dispositivo gemello contiene la proprietà `batteryL
 
 ### <a name="desired-property-example"></a>Esempio di proprietà desiderata
 
-Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. Ad esempio:
+Nell'esempio precedente le proprietà desiderate e segnalate del dispositivo gemello `telemetryConfig` vengono usate dal back-end della soluzione e dall'app per dispositivo per sincronizzare la configurazione della telemetria per questo dispositivo. ad esempio:
 
 1. Il back-end della soluzione imposta la proprietà desiderata sul valore di configurazione desiderato. Questa è la parte del documento con il set di proprietà desiderate:
 
@@ -180,9 +180,9 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
 * **Ricezione di notifiche relative al dispositivo gemello**. Questa operazione invia notifiche al back-end della soluzione a ogni modifica del dispositivo gemello. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *twinChangeEvents*. Per impostazione predefinita, non vi è nessuna route preesistente, perciò non viene inviata nessuna notifica. Se la frequenza delle modifiche è troppo elevata o per altri motivi, ad esempio un errore interno, l'hub IoT potrebbe inviare solo una notifica che contiene tutte le modifiche. Se pertanto l'applicazione ha bisogno di controllo e registrazione affidabili di tutti gli stati intermedi, è consigliabile usare messaggi da dispositivo a cloud. Il messaggio di notifica relativo al dispositivo gemello include le proprietà e il corpo.
 
-  - Proprietà
+  - properties
 
-    | Nome | Valore |
+    | name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -196,9 +196,9 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
     Le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
 
-  - body
+  - Corpo
         
-    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio:
+    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. Usa lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni, ovvero tag, properties.reported e properties.desired, e che contiene gli elementi "$metadata". Ad esempio,
 
     ```json
     {
@@ -285,7 +285,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 
 ## <a name="device-twin-size"></a>Dimensioni del dispositivo gemello
 
-L'hub IoT impone un limite di dimensioni pari a 8 KB per ognuno dei valori totali di `tags`, `properties/desired` e `properties/reported`, esclusi gli elementi di sola lettura.
+L'hub Internet delle cose impone un limite di dimensioni di 8 KB per il valore di `tags`e una dimensione di 32 KB limite ogni sul valore di `properties/desired` e `properties/reported`. Questi totali sono esclusivi degli elementi di sola lettura.
 
 Le dimensioni vengono calcolate contando tutti i caratteri a esclusione dei caratteri di controllo UNICODE, ovvero i segmenti C0 e C1, e gli spazi al di fuori delle costanti stringa.
 
@@ -295,7 +295,7 @@ L'hub IoT rifiuta con errore tutte le operazioni che aumentano le dimensioni dei
 
 L'hub IoT conserva il timestamp dell'ultimo aggiornamento di ogni oggetto JSON nelle proprietà desiderate e segnalate del dispositivo gemello. I timestamp sono in formato UTC e codificati in formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Ad esempio:
+ad esempio:
 
 ```json
 {

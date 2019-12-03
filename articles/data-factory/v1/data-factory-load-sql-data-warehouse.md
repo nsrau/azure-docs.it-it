@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05dcff2276a799b1debc76e4f85fbbac6606eb59
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 47ee1682118fd761d55625428e3522de92b9e38a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682543"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703411"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 > [!NOTE]
@@ -47,7 +47,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Archivio BLOB di Azure: questo esperimento usa l'archivio BLOB di Azure (GRS) per l'archiviazione di set di dati di test TPC-H.  Se non si ha un account di archiviazione di Azure, vedere l'articolo relativo alla [creazione di un account di archiviazione](../../storage/common/storage-quickstart-create-account.md).
-* Dati [TPC-H](http://www.tpc.org/tpch/): si userà TPC-H come set di dati di test.  A tale scopo, è necessario usare `dbgen` dal toolkit TPC-H, che consente di generare il set di dati.  È possibile scaricare il codice sorgente per `dbgen` dagli [strumenti TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilarlo autonomamente oppure scaricare il file binario compilato da [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Eseguire dbgen.exe con i comandi seguenti per generare un file flat da 1 TB per la tabella `lineitem` distribuito tra 10 file:
+* Dati [TPC-H](http://www.tpc.org/tpch/): si userà TPC-H come set di dati di test.  A tale scopo, è necessario usare `dbgen` dal toolkit TPC-H, che consente di generare il set di dati.  È possibile scaricare il codice sorgente per `dbgen` dagli [strumenti TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilarlo autonomamente oppure scaricare il file binario compilato da [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Eseguire dbgen.exe con i comandi seguenti per generare un file flat da 1 TB per la tabella `lineitem` distribuito tra 10 file:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -124,7 +124,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
       2. Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
    4. Selezionare una **località** per la data factory.
    5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.  
-   6. Fare clic su **Create**.
+   6. Fare clic su **Create**(Crea).
 4. Al termine della creazione verrà visualizzato il pannello **Data factory**, come illustrato nell'immagine seguente:
 
    ![Home page di Data factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -142,7 +142,7 @@ Nella pagina **Proprietà** :
 
 1. Immettere **CopyFromBlobToAzureSqlDataWarehouse** per **Nome attività**
 2. Selezionare l'opzione **Esegui una volta**.   
-3. Fare clic su **Avanti**.  
+3. Fare clic su **Next** (Avanti).  
 
     ![Copia guidata: pagina delle proprietà](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -184,7 +184,7 @@ Questa sezione illustra come configurare la destinazione: tabella `lineitem` nel
 
 ## <a name="step-4-performance-settings"></a>Passaggio 4: Impostazioni relative alle prestazioni
 
-L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione predefinita.  Fare clic su **Avanti**.
+L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione predefinita.  Fare clic su **Next** (Avanti).
 
 ![Copia guidata: pagina del mapping dello schema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186433"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707636"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Differenze, limitazioni e problemi noti di istanza gestita di T-SQL
 
@@ -26,7 +26,7 @@ Questo articolo riepiloga e spiega le differenze nella sintassi e nel comportame
 
 Esistono alcune limitazioni di PaaS introdotte in Istanza gestita e alcune modifiche del comportamento rispetto a SQL Server. Le differenze sono divise nelle categorie seguenti:<a name="Differences"></a>
 
-- La [disponibilità](#availability) include le differenze tra [Always-on](#always-on-availability) e i [backup](#backup).
+- La [disponibilità](#availability) include le differenze nei [gruppi di disponibilità always on](#always-on-availability-groups) e nei [backup](#backup).
 - La [protezione](#security) include le differenze tra il [controllo](#auditing), i [certificati](#certificates), le [credenziali](#credential), i [provider di crittografia](#cryptographic-providers), [gli account di accesso e gli utenti](#logins-and-users)e la [chiave del servizio e la chiave master del servizio](#service-key-and-service-master-key).
 - La [configurazione](#configuration) include le differenze nell' [estensione del pool di buffer](#buffer-pool-extension), le regole di [confronto](#collation), i [livelli di compatibilità](#compatibility-levels), il [mirroring del database](#database-mirroring), le opzioni di [database](#database-options), [SQL Server Agent](#sql-server-agent)e le [Opzioni di tabella](#tables).
 - Le [funzionalità](#functionalities) includono [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transazioni distribuite](#distributed-transactions), [eventi estesi](#extended-events), [librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [ricerca semantica full-text](#full-text-semantic-search), [server collegati](#linked-servers), [polibase](#polybase), [replica](#replication), [ripristino](#restore-statement), [Service Broker](#service-broker), [stored procedure, funzioni e trigger](#stored-procedures-functions-and-triggers).
@@ -36,9 +36,9 @@ La maggior parte di queste funzionalità sono vincoli di architettura e rapprese
 
 In questa pagina vengono inoltre illustrati i [problemi noti temporanei](#Issues) individuati in istanza gestita, che verranno risolti in futuro.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>Disponibilità
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Gruppi di disponibilità Always On
 
 La [disponibilità elevata](sql-database-high-availability.md) è incorporata nell'istanza gestita e non può essere controllata dagli utenti. Le istruzioni seguenti non sono supportate:
 
@@ -48,7 +48,7 @@ La [disponibilità elevata](sql-database-high-availability.md) è incorporata ne
 - [DROP AVAILABILITY GROUP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - Clausola [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) dell'istruzione [ALTER database](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Eseguire il backup
 
 Per le istanze gestite sono disponibili backup automatici, in modo che gli utenti possano creare backup completi del database `COPY_ONLY`. I backup differenziali, di log e di snapshot di file non sono supportati.
 
@@ -78,7 +78,7 @@ Limitazioni:
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="auditing"></a>Controllo
 
@@ -88,14 +88,14 @@ Le principali differenze tra il controllo nei database nel database SQL di Azure
 - Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
 - In SQL Server locali o macchine virtuali, il controllo funziona a livello di server. Gli eventi vengono archiviati nei registri eventi di file system o di Windows.
  
-Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BLOB di Azure. I log di file e di Windows non sono supportati.
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
 
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
 - Viene fornita una nuova sintassi `TO URL` che è possibile usare per specificare l'URL del contenitore di archiviazione BLOB di Azure in cui vengono inseriti i file di `.xel`.
 - La sintassi `TO FILE` non è supportata perché un'istanza gestita non può accedere alle condivisioni file di Windows.
 
-Per altre informazioni, vedere: 
+Per scoprire di più, vedi: 
 
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -163,7 +163,7 @@ Un'istanza gestita non può accedere ai file, pertanto non è possibile creare i
     - Esportare un database da un'istanza gestita e importarlo in SQL Server (versione 2012 o successiva).
       - In questa configurazione tutti gli utenti Azure AD vengono creati come entità di database SQL (utenti) senza account di accesso. Il tipo di utenti viene elencato come SQL (visibile come SQL_USER in sys. database_principals). Le autorizzazioni e i ruoli rimangono nei metadati del database SQL Server e possono essere utilizzati per la rappresentazione. Tuttavia, non possono essere usati per accedere e accedere al SQL Server usando le proprie credenziali.
 
-- Solo l'account di accesso dell'entità di livello server, creato dal processo di provisioning dell'istanza gestita, i membri dei ruoli del server, ad esempio `securityadmin` o `sysadmin`, o altri account di accesso con autorizzazione ALTER ANY LOGIN a livello di server possono creare Azure AD server entità (account di accesso) nel database master per l'istanza gestita.
+- Solo l'account di accesso dell'entità di livello server, creato dal processo di provisioning dell'istanza gestita, i membri dei ruoli del server, ad esempio `securityadmin` o `sysadmin`, o altri account di accesso con autorizzazione ALTER ANY LOGIN a livello di server possono creare Azure AD entità server (account di accesso) nel database master per l'istanza gestita.
 - Se l'account di accesso è un'entità SQL, solo gli account di accesso che fanno parte del ruolo `sysadmin` possono utilizzare il comando crea per creare account di accesso per un account di Azure AD.
 - L'account di accesso Azure AD deve essere un membro di un Azure AD all'interno della stessa directory usata per istanza gestita di database SQL di Azure.
 - Azure AD entità server (account di accesso) sono visibili Esplora oggetti a partire da SQL Server Management Studio 18,0 Preview 5.
@@ -302,11 +302,11 @@ Attualmente non sono supportate le funzionalità di SQL Agent seguenti:
 - Proxy
 - Pianificazione di processi in una CPU inattiva
 - Abilitazione o disabilitazione di un agente
-- Alerts
+- Avvisi
 
 Per informazioni su SQL Server Agent, vedere [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
-### <a name="tables"></a>Tables
+### <a name="tables"></a>Tabelle
 
 I tipi di tabella seguenti non sono supportati:
 
@@ -453,7 +453,7 @@ Se la replica è abilitata in un database in un [gruppo di failover](sql-databas
 - Sintassi non supportata:
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- Origine: 
+- Fonte: 
   - `FROM URL` (archiviazione BLOB di Azure) è l'unica opzione supportata.
   - `FROM DISK`/`TAPE`/dispositivo di backup non è supportata.
   - I set di backup non sono supportati.
@@ -529,7 +529,7 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 ### <a name="vnet"></a>Rete virtuale
 - VNet può essere distribuito usando il modello di risorse. il modello classico per VNet non è supportato.
 - Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
-- Alcuni servizi, ad esempio gli ambienti del servizio app, le app per la logica e le istanze gestite, usati per la replica geografica, la replica transazionale o tramite server collegati, non possono accedere alle istanze gestite in aree diverse se i reti virtuali sono connessi tramite [Global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). È possibile connettersi a queste risorse tramite ExpressRoute o da VNet a VNet tramite gateway VNet.
+- Alcuni servizi come gli ambienti del servizio app, le app per la logica e le istanze gestite, usati per la replica geografica, la replica transazionale o tramite server collegati, non possono accedere alle istanze gestite in aree diverse se i reti virtuali sono connessi tramite il [peering globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). È possibile connettersi a queste risorse tramite ExpressRoute o da VNet a VNet tramite gateway VNet.
 
 ### <a name="tempdb"></a>TEMPDB
 
@@ -569,7 +569,7 @@ L'istruzione `RESTORE` continua, il processo di migrazione del servizio di migra
 
 **Data:** 2019 Sep
 
-[Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funzionalità che consente di limitare le risorse assegnate al carico di lavoro utente potrebbe erroneamente classificare un carico di lavoro dell'utente dopo il failover o la modifica avviata dall'utente del livello di servizio, ad esempio la modifica dell'istanza max vCore o Max dimensioni di archiviazione).
+[Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funzionalità che consente di limitare le risorse assegnate al carico di lavoro utente potrebbe erroneamente classificare un carico di lavoro dell'utente dopo il failover o la modifica avviata dall'utente del livello di servizio (ad esempio, la modifica delle dimensioni massime di archiviazione delle istanze di vCore o max).
 
 **Soluzione temporanea**: eseguire `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente o come parte del processo di SQL Agent che esegue l'attività SQL quando l'istanza viene avviata se si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
