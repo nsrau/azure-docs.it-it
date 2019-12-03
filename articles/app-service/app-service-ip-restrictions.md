@@ -1,25 +1,18 @@
 ---
-title: Limitare il servizio di accesso app Azure | Microsoft Docs
-description: Come usare le restrizioni di accesso con app Azure Service
+title: Limitazione dell'accesso per gli indirizzi IP
+description: Informazioni su come proteggere l'app nel servizio app Azure inserendo in modo esplicito gli indirizzi IP o gli intervalli di indirizzi del client.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cee6fc9fb5cc10a2b3442e146ef5688ed74290bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088447"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672176"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app Azure #
 
@@ -37,7 +30,7 @@ La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure 
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Aggiunta e modifica di regole di restrizione di accesso nel portale ##
 
-Per aggiungere una regola di restrizione di accesso all'app, usare il menu per aprire**restrizioni di accesso** alla **rete**>e fare clic su **configura restrizioni di accesso**
+Per aggiungere una regola di restrizione di accesso all'app, usare il menu per aprire le **restrizioni di accesso** alla **rete**>e fare clic su **configura restrizioni di accesso**
 
 ![Opzioni di connettività di rete del servizio app](media/app-service-ip-restrictions/access-restrictions.png)  
 

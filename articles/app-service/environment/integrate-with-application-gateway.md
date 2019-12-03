@@ -1,24 +1,18 @@
 ---
-title: Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione - Azure
-description: Descrizione dettagliata dell'integrazione di un'app dell'ambiente del servizio app con bilanciamento del carico interno con un gateway applicazione
-services: app-service
-documentationcenter: na
+title: Integrare con il gateway applicazione
+description: Informazioni su come integrare un'app nel ambiente del servizio app ILB con un gateway applicazione in questa procedura dettagliata end-to-end.
 author: ccompy
-manager: stefsch
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 090952a065b8c3b2b25ad737992b68b9bc9aa9ec
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069476"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687148"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 

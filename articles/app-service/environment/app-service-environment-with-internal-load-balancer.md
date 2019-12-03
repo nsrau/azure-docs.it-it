@@ -1,30 +1,23 @@
 ---
-title: Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app - Azure | Microsoft Docs
-description: Creazione e uso di un ambiente del servizio app con bilanciamento del carico interno
-services: app-service
-documentationcenter: ''
+title: Creare un ambiente del servizio app ILB V1
+description: Creazione e uso di un ambiente del servizio app con un ILB. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069890"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688733"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
 > [!NOTE] 
-> Questo articolo riguarda l'ambiente del servizio app v1. È disponibile una versione più recente dell'ambiente del servizio app più facile da usare ed eseguita in un'infrastruttura più potente. Per altre informazioni sulla nuova versione, vedere [Introduzione ad Ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1. È disponibile una versione più recente dell'ambiente del servizio app più facile da usare ed eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](intro.md).
 >
 
 La funzionalità degli ambienti del servizio app è un'opzione di servizio Premium del servizio app di Azure che offre una funzionalità di configurazione avanzata non disponibile negli stamp multi-tenant. In breve, la funzionalità Ambiente del servizio app distribuisce il servizio app di Azure nella rete virtuale di Azure (VNet). Per comprendere meglio le funzionalità offerte dagli ambienti del servizio app, vedere la documentazione relativa a [ambiente del servizio app][WhatisASE] . Se non si conoscono i vantaggi derivanti dall'uso di una VNet, vedere [domande frequenti sulla rete virtuale di Azure][virtualnetwork]. 
@@ -75,7 +68,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 3. Selezionare la propria sottoscrizione.
 4. Selezionare o creare un gruppo di risorse.
 5. Selezionare o creare un piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro in cui si vuole creare il piano di servizio. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro. Quando si specifica il nome dell'app, si noterà che il sottodominio sotto il nome dell'app verrà sostituito con il sottodominio dell'ambiente del servizio app. 
-6. Selezionare **Create**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
+6. Selezionare **Create** (Crea). Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
 
 ![][2]
 
@@ -107,7 +100,7 @@ L'indirizzo IP per il bilanciamento del carico interno è elencato nelle proprie
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Utilizzo di un ambiente del servizio app ILB
+## <a name="using-an-ilb-ase"></a>Uso di un ambiente del servizio app con bilanciamento del carico interno
 #### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 Un ambiente del servizio app con bilanciamento del carico interno consente l'isolamento della rete per le app perché le app non sono accessibili o neanche note in Internet. Questo approccio è ideale per ospitare i siti intranet, ad esempio le applicazioni line of business. Quando è necessario limitare ulteriormente l'accesso, è comunque possibile usare i gruppi di sicurezza di rete (NSG) per controllare l'accesso a livello di rete. 
 
@@ -129,7 +122,7 @@ Quando si usa un indirizzo VIP esterno, il DNS viene gestito da Azure. Qualsiasi
     *.scm ftp publish 
 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli ambienti del servizio app][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

@@ -1,25 +1,18 @@
 ---
-title: Introduzione all'ambiente del servizio app (versione 1) - Azure
-description: Informazioni sull'ambiente del servizio app (versione 1), che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app.
-services: app-service
-documentationcenter: ''
+title: Introduzione all'ambiente del servizio app V1
+description: Informazioni sulle funzionalità di ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 32450d0c5fbb5599b286921b9653ae68faf40ecf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070149"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687368"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introduzione all'ambiente del servizio app (versione 1)
 
@@ -67,7 +60,7 @@ Per informazioni dettagliate sulle dimensioni delle risorse di calcolo disponibi
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 
-Un ambiente del servizio app può essere creato in una rete virtuale Azure Resource Manager **o** in una rete virtuale del modello di distribuzione classica ([altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]).  Poiché un ambiente del servizio app è sempre incluso in una rete virtuale, e più precisamente, all'interno di una subnet di una rete virtuale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.  
+Un ambiente del servizio app può essere creato in una rete virtuale Azure Resource Manager **o** in una rete virtuale del **modello di distribuzione** classica ([altre informazioni sulle reti virtuali][MoreInfoOnVirtualNetworks]).  Poiché un ambiente del servizio app è sempre incluso in una rete virtuale, e più precisamente, all'interno di una subnet di una rete virtuale, è possibile usufruire delle funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita.  
 
 Un ambiente del servizio app può avere connessione a Internet con un indirizzo IP pubblico o connessione interna con un indirizzo del Servizio di bilanciamento del carico interno di Azure.
 
@@ -77,7 +70,7 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 
 Per altre informazioni sul funzionamento degli ambienti del servizio app con le reti virtuali e le reti locali, vedere gli articoli seguenti sull' [architettura di rete][NetworkArchitectureOverview], controllare il traffico in [ingresso][ControllingInboundTraffic]e [connettersi in modo sicuro ai backend][SecurelyConnectingToBackends]. 
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Per iniziare a usare gli ambienti del servizio app, vedere [come creare un ambiente del servizio app][HowToCreateAnAppServiceEnvironment]
 

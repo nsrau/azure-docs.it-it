@@ -1,24 +1,16 @@
 ---
-title: Configurare le credenziali per la distribuzione - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come usare le credenziali per la distribuzione del Servizio app di Azure.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnoc
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configurare le credenziali di distribuzione
+description: Informazioni sui tipi di credenziali di distribuzione nel servizio app Azure e su come configurarli e usarli.
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: fc9445b64baae0e625b62356fee381329b01e8fd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098489"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669962"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali non corrispondono alle credenziali della sottoscrizione di Azure.
@@ -48,11 +40,11 @@ L'output JSON mostra la password come `null`. Se viene visualizzato un errore `'
 
 Nel portale di Azure è necessario disporre di almeno un'app prima di poter accedere alla pagina delle credenziali di distribuzione. Per configurare le credenziali a livello di utente:
 
-1. Nel menu a sinistra del [portale di Azure](https://portal.azure.com)selezionare **Servizi** >  >  >  **\<app any_app >** **Dashboard** **FTP** > del**centro distribuzione**.
+1. Nel menu a sinistra del [portale di Azure](https://portal.azure.com)selezionare **servizi App** >  **\<any_app >**  > **Deployment Center** > **Dashboard** > **FTP** .
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 
-    In alternativa, se è già stata configurata la distribuzione git, selezionare **Servizi** >  **&lt;app any_app >**  > **Deployment Center** > **ftp/Credentials**.
+    In alternativa, se è già stata configurata la distribuzione git, selezionare **Servizi App** >  **&lt;Any_app >**  > **Deployment Center** > **ftp/Credentials**.
 
     ![](./media/app-service-deployment-credentials/access-with-git.png)
 
@@ -71,14 +63,14 @@ Se è configurata la distribuzione git, nella pagina viene visualizzato un **nom
 
 ## <a name="use-user-level-credentials-with-ftpftps"></a>Usare le credenziali a livello di utente con FTP/FTPS
 
-L'autenticazione a un endpoint FTP/FTPS usando le credenziali a livello di utente richiede un nome utente nel formato seguente:`<app-name>\<user-name>`
+L'autenticazione a un endpoint FTP/FTPS usando le credenziali a livello di utente richiede un nome utente nel formato seguente: `<app-name>\<user-name>`
 
 Poiché le credenziali a livello di utente sono collegate all'utente e non a una risorsa specifica, il nome utente deve essere in questo formato per indirizzare l'azione di accesso all'endpoint dell'app corretto.
 
 ## <a name="appscope"></a>Ottenere e reimpostare le credenziali a livello di utente
 Per ottenere le credenziali a livello di app:
 
-1. Nel [portale di Azure](https://portal.azure.com), dal menu a sinistra, selezionare **Servizi** >  >  >  **&lt;app any_app >** **Deployment Center** **ftp/Credentials**.
+1. Nel menu a sinistra del [portale di Azure](https://portal.azure.com)selezionare **servizi App** >  **&lt;any_app >**  > **Deployment Center** > **ftp/Credentials**.
 
 2. Selezionare **credenziali dell'app**e selezionare il collegamento **copia** per copiare il nome utente o la password.
 

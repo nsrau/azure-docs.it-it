@@ -1,25 +1,18 @@
 ---
-title: Come configurare un ambiente del servizio app v1 - Azure
-description: Configurazione, gestione e monitoraggio dell'ambiente del servizio app v1
-services: app-service
-documentationcenter: ''
+title: Configurare l'ambiente del servizio app V1
+description: Configurazione, gestione e monitoraggio del ambiente del servizio app V1. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069942"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687266"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
 
@@ -105,7 +98,7 @@ Quando si crea un ambiente del servizio app, verrà creato un indirizzo VIP nell
 
 Durante la creazione di un ambiente del servizio app con servizio di bilanciamento del carico interno si specifica il sottodominio usato dall'ambiente ed è necessario gestire un proprio DNS per il sottodominio specificato.  Poiché si imposta il nome del sottodominio, è necessario anche gestire il certificato usato per l'accesso HTTPS.  Al termine della creazione dell'ambiente del servizio app verrà richiesto di specificare il certificato.  Per altre informazioni sulla creazione e sull'uso di un ambiente del servizio app ILB, vedere uso di un [Load Balancer interno con una ambiente del servizio app][ILBASE]. 
 
-## <a name="portal"></a>Portale
+## <a name="portal"></a>di Microsoft Azure
 È possibile gestire e monitorare l'ambiente del servizio app usando l'interfaccia utente del portale di Azure. Se è stato creato un ambiente del servizio app, nella barra laterale verrà probabilmente visualizzato il simbolo dei servizi app, usato per rappresentare gli ambienti del servizio app nel portale di Azure:
 
 ![Simbolo degli ambienti del servizio app][1]
@@ -116,7 +109,7 @@ Per aprire l'interfaccia utente in cui sono elencati tutti gli ambienti del serv
 
 Il primo pannello mostra alcune proprietà dell'ambiente del servizio app e un grafico di metriche per ogni pool di risorse. Alcune delle proprietà visualizzate nel blocco **Informazioni di base** sono anche collegamenti ipertestuali che consentono di aprire il pannello associato. Se si seleziona il nome **Rete virtuale** , ad esempio, verrà aperta l'interfaccia utente associata alla rete virtuale in cui viene eseguito l'ambiente del servizio app. I collegamenti **Piani di servizio app** e **App** consentono di aprire i pannelli contenenti gli elementi corrispondenti inclusi nell'ambiente del servizio app.  
 
-### <a name="monitoring"></a>Monitoraggio
+### <a name="monitoring"></a>Monitorare
 I grafici consentono di visualizzare un'ampia gamma di metriche delle prestazioni in ogni pool di risorse. Per il pool front-end, è possibile monitorare l'utilizzo medio di CPU e memoria. Per i pool di lavoro, è possibile monitorare la quantità usata e la quantità disponibile.
 
 I ruoli di lavoro in un pool di lavoro possono essere usati da più piani di servizio app. Poiché il carico di lavoro non viene distribuito nello stesso modo in cui viene distribuito per i server front-end, l'utilizzo di CPU e memoria non offre informazioni particolarmente utili. È più importante tenere traccia del numero dei ruoli di lavoro usati e disponibili, soprattutto se si gestisce il sistema perché venga usato da altri.  
@@ -191,7 +184,7 @@ Per eliminare un ambiente del servizio app, è sufficiente usare l'azione **Elim
 
 ![Interfaccia utente per l'eliminazione di un ambiente del servizio app][9]  
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

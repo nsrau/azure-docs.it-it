@@ -1,26 +1,19 @@
 ---
-title: Supporto SSH per il Servizio app in Linux - Azure | Microsoft Docs
-description: Informazioni sull'uso di SSH con il Servizio app di Azure in Linux.
+title: Accesso SSH per i contenitori Linux
+description: È possibile aprire una sessione SSH in un contenitore Linux nel servizio app Azure. I contenitori Linux personalizzati sono supportati con alcune modifiche all'immagine personalizzata.
 keywords: Servizio app di Azure, app Web, Linux, OSS
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066872"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687586"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
@@ -50,7 +43,7 @@ Con il tunneling TCP è possibile creare una connessione di rete tra il computer
 
 Per iniziare, è necessario installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Per esaminare il funzionamento senza installare l'interfaccia della riga di comando di Azure, aprire [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). \_Specificare  _\<Subscription-ID >_ ,  _\<nome gruppo >_ e \<nome app > _ per l'app.
+Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Specificare _\<ID sottoscrizione >_ , _\<nome-gruppo >_ e \_\<nome-app > _ per l'app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -128,6 +121,6 @@ Per altre informazioni sull'app Web per contenitori, vedere:
 
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) (Introduzione al debug remoto delle app Node.js nel Servizio app di Azure da Visual Studio Code)
 * [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-docker-go.md)
-* [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
-* [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)
+* [Uso di .NET Core in Servizio app di Azure in Linux](quickstart-dotnetcore.md)
+* [Uso di Ruby nel Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)

@@ -1,24 +1,18 @@
 ---
-title: Creare un ambiente del servizio app esterno - Azure
-description: Questo articolo illustra come creare un ambiente del servizio app durante la creazione di un'app o un'app autonoma
-services: app-service
-documentationcenter: na
+title: Creare un ambiente del servizio app esterno
+description: Informazioni su come creare un ambiente del servizio app con un'app o creare un ambiente del servizio app autonomo (vuoto).
 author: ccompy
-manager: stefsch
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 19d58ed90de4bdbd3cd7606d15c115bb1633770a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5ec9a99f55c2c9a3cb487ad7d69610a512d5b8bd
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069701"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687251"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
 
@@ -38,7 +32,7 @@ In questo articolo viene illustrato come creare un ambiente del servizio app est
 
 Dopo avere creato l'ambiente del servizio app, non è possibile modificare quanto segue:
 
-- Location
+- Località
 - Sottoscrizione
 - Gruppo di risorse
 - Rete virtuale usata
@@ -169,7 +163,7 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
     
       * Se si seleziona **Interno** come **Tipo di indirizzo VIP**, è necessario specificare il dominio usato dall'ambiente del servizio app. È possibile distribuire un ambiente del servizio app in una rete virtuale che usa gli intervalli di indirizzi pubblici o privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare in anticipo la rete virtuale. 
     
-    * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedenza nel portale. È possibile creare un ambiente del servizio app con una subnet esistente se si usa un modello di Resource Manager.* Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+    * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedenza nel portale. Se si usa un modello di Gestione risorse, è possibile creare un ambiente del servizio app con una subnet esistente.* Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>Ambiente del servizio app 1
 

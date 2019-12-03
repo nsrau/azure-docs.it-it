@@ -1,25 +1,16 @@
 ---
-title: Configurare l'autenticazione reciproca TLS - Servizio app di Azure
-description: Informazioni su come configurare un'app per l'uso dell'autenticazione del certificato client in TLS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Configurare l'autenticazione reciproca TLS
+description: Informazioni su come autenticare i certificati client in TLS. App Azure servizio può rendere disponibile il certificato client per il codice dell'app per la verifica.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: aa4d0b5089c07cbbeb3d40224518b9eb9a927585
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271686"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672131"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurare l'autenticazione reciproca TLS per il servizio app Azure
 

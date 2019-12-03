@@ -1,19 +1,19 @@
 ---
 title: Uso del supporto del feed delle modifiche in Azure Cosmos DB
 description: Usare il supporto del feed delle modifiche di Azure Cosmos DB per tenere traccia delle modifiche nei documenti, eseguire elaborazioni basate su eventi come i trigger e mantenere aggiornati i sistemi di cache e analisi.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757014"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689098"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed di modifiche in Azure Cosmos DB - panoramica
 
@@ -33,12 +33,12 @@ Il feed di modifiche in Azure Cosmos DB consente di creare soluzioni efficienti 
 
 La funzionalità è attualmente supportata dalle API e dagli SDK client Cosmos DB seguenti.
 
-| **Driver client** | **interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
+| **Driver client** | **interfaccia della riga di comando di Azure** | **API SQL** | **API di Azure Cosmos DB per Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin**|**API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | SÌ | No | No | SÌ | No |
-|Java|ND|SÌ|No|No|SÌ|No|
-|Python|ND|SÌ|No|No|SÌ|No|
-|Node/JS|ND|SÌ|No|No|SÌ|No|
+| .NET | ND | SÌ | SÌ | SÌ | SÌ | No |
+|Java|ND|SÌ|SÌ|SÌ|SÌ|No|
+|Python|ND|SÌ|SÌ|SÌ|SÌ|No|
+|Node/JS|ND|SÌ|SÌ|SÌ|SÌ|No|
 
 ## <a name="change-feed-and-different-operations"></a>Feed di modifiche e operazioni diverse
 
@@ -119,6 +119,12 @@ Il feed di modifiche è disponibile per ogni chiave di partizione logica nel con
 * Le modifiche sono disponibili in parallelo per tutte le chiavi di partizione logica di un contenitore di Azure Cosmos. Questa funzionalità consente di apportare modifiche da contenitori di grandi dimensioni per poi elaborarle in parallelo da più consumer.
 
 * Le applicazioni possono richiedere più feed di modifiche nello stesso contenitore contemporaneamente. Changefeedoptions.StartTime è utilizzabile per fornire un punto di partenza iniziale. Ad esempio, per trovare il token di continuazione corrispondente a un tempo specificato. Se si specifica ContinuationToken, questo avrà priorità rispetto ai valori di StartTime e StartFromBeginning. La precisione di ChangeFeedOptions.StartTime è circa di 5 secondi. 
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Feed delle modifiche nelle API per Cassandra e MongoDB
+
+La funzionalità del feed delle modifiche viene rilevata come flusso di modifica nell'API MongoDB ed esegue una query con predicato in API Cassandra. Per altre informazioni sui dettagli di implementazione per l'API MongoDB, vedere i [flussi di modifiche nell'api Azure Cosmos DB per MongoDB](mongodb-change-streams.md).
+
+Apache Cassandra nativo fornisce Change Data Capture (CDC), un meccanismo per contrassegnare le tabelle specifiche per l'archiviazione e rifiutare le Scritture nelle tabelle quando viene raggiunta una dimensione configurabile su disco per il log CDC. La funzionalità del feed delle modifiche nell'API Azure Cosmos DB per Cassandra consente di eseguire query sulle modifiche con predicato tramite CQL. Per altre informazioni sui dettagli di implementazione, vedere [feed delle modifiche nell'API Azure Cosmos DB per Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,31 +1,21 @@
 ---
-title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Documentazione Microsoft
-description: Informazioni su come utilizzare la pubblicazione per fasi per le app Web in Azure App Service."
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: Configurare gli ambienti di staging
+description: Informazioni su come distribuire le app in uno slot non di produzione e autoscambiare in produzione. Aumentare l'affidabilità ed eliminare i tempi di inattività delle app dalle distribuzioni.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382276"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671748"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
 
-Quando si distribuisce l'app Web, l'app Web in Linux, il back-end per dispositivi mobili o l'app per le API nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714), è possibile usare uno slot di distribuzione separato invece dello slot di produzione predefinito quando si esegue in modalità **standard**, **Premium**o **isolated** Livello del piano di servizio app. Gli slot di distribuzione sono app Live con nomi host propri. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. 
+Quando si distribuisce l'app Web, l'app Web in Linux, il back-end per dispositivi mobili o l'app per le API nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714), è possibile usare uno slot di distribuzione separato invece dello slot di produzione predefinito quando si esegue il livello del piano di servizio app **standard**, **Premium**o **isolated** . Gli slot di distribuzione sono app Live con nomi host propri. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. 
 
 La distribuzione dell'applicazione in uno slot non di produzione presenta i seguenti vantaggi:
 
@@ -295,7 +285,7 @@ Azure PowerShell è un modulo che fornisce i cmdlet per gestire Azure tramite Wi
 Per informazioni sull'installazione e la configurazione di Azure PowerShell e sull'autenticazione di Azure PowerShell con l'abbonamento di Microsoft Azure, vedere l'argomento relativo alla [procedura di installazione e configurazione di Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### <a name="create-a-web-app"></a>Creare un'app Web
+### <a name="create-a-web-app"></a>Crea un'app Web
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

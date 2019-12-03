@@ -1,24 +1,17 @@
 ---
-title: Come usare WebJobs SDK - Azure
-description: Altre informazioni su come scrivere codice per WebJobs SDK. Creare processi di elaborazione in background basati sugli eventi che accedono ai dati nei servizi di Azure e nei servizi di terze parti.
-services: app-service\web, storage
-documentationcenter: .net
+title: Come usare webjobs SDK
+description: Altre informazioni su come scrivere codice per WebJobs SDK. Creare processi di elaborazione in background basati sugli eventi che accedono ai dati in Azure e in servizi di terze parti.
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815734"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684010"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -230,7 +223,7 @@ static void Main(string[] args)
 
 ## <a name="input-and-output-bindings"></a>Associazioni di input e output
 
-Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L' [articolo introduttivo](webjobs-sdk-get-started.md) illustra un esempio di ciascuna di esse.
+Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L'articolo [introduttivo](webjobs-sdk-get-started.md) illustra un esempio di ciascuna di esse.
 
 È possibile usare un valore restituito del metodo per un'associazione di output applicando l'attributo al valore restituito del metodo. Vedere l'esempio in [uso del valore restituito della funzione di Azure](../azure-functions/functions-bindings-return-value.md).
 
@@ -758,7 +751,7 @@ Alcuni trigger dispongono del supporto integrato per la gestione della concorren
 
 * **QueueTrigger**. Impostare `JobHostConfiguration.Queues.BatchSize` su `1`.
 * **ServiceBusTrigger**. Impostare `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` su `1`.
-* **FileTrigger**. Impostare `FileProcessor.MaxDegreeOfParallelism` su `1`.
+* **Filetrigger**. Impostare `FileProcessor.MaxDegreeOfParallelism` su `1`.
 
 È possibile usare queste impostazioni per assicurarsi che la funzione viene eseguita come singleton in una singola istanza. Per assicurarsi che venga eseguita una sola istanza della funzione quando l'app Web viene scalata in orizzontale a più istanze, applicare un blocco singleton a livello di listener sulla funzione (`[Singleton(Mode = SingletonMode.Listener)]`). I blocchi del listener vengono acquisiti all'avvio del JobHost. Se tutte e tre le istanze aumentate vengono avviate nello stesso momento, una sola istanza acquisisce il blocco e viene avviato un solo listener.
 
@@ -828,7 +821,7 @@ I filtri funzione (anteprima) offrono un modo per personalizzare la pipeline di 
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-Si consiglia il Framework di registrazione sviluppato per ASP.NET. L' [articolo introduttivo](webjobs-sdk-get-started.md) illustra come usarlo. 
+Si consiglia il Framework di registrazione sviluppato per ASP.NET. L'articolo [introduttivo](webjobs-sdk-get-started.md) illustra come usarlo. 
 
 ### <a name="log-filtering"></a>Filtro del log
 
@@ -840,9 +833,9 @@ Ogni log creato da un'istanza `ILogger` ha `Category` e `Level` associati. [`Log
 |Debug       | 1 |
 |Informazioni | 2 |
 |Avviso     | 3 |
-|Tipi di errore       | 4 |
+|Errore       | 4 |
 |Critico    | 5 |
-|nessuno        | 6 |
+|Nessuno        | 6 |
 
 È possibile filtrare in modo indipendente ogni categoria in un particolare [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel). Ad esempio, si potrebbe voler vedere tutti i log per l'elaborazione del trigger del log ma solo `Error` e superiori per tutto il resto.
 
@@ -1016,4 +1009,4 @@ Questo articolo ha fornito frammenti di codice che illustrano come gestire scena
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

@@ -1,30 +1,27 @@
 ---
-title: Configurare app java per Linux-servizio app Azure | Microsoft Docs
-description: Informazioni su come configurare app Java in esecuzione nel Servizio app di Azure in Linux.
+title: Configurare app java per Linux
+description: Informazioni su come configurare un contenitore Java predefinito per l'app. Questo articolo illustra le attività di configurazione più comuni.
 keywords: servizio app di Azure, app Web, Linux, OSS, Java, Java EE, JEE, JavaEE
-services: app-service
 author: bmitchell287
 manager: barbkess
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9625870132d088bf1de6df06f05f0cac41a1e7fa
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: a3e0bbb414dd1f47e70de6b7a25a84a2b27c0dc7
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144224"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671864"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurare un'app Java Linux per il servizio app Azure
 
 Il Servizio app di Azure in Linux consente agli sviluppatori Java di compilare, distribuire e ridimensionare rapidamente le applicazioni Web in pacchetto Tomcat o Java Standard Edition (SE) in un servizio basato su Linux completamente gestito. Distribuire le applicazioni con i plug-in Maven dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'[esercitazione introduttiva su Java](quickstart-java.md) e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md).
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano un contenitore Linux incorporato nel servizio app. Se non si è mai usato app Azure servizio, seguire prima l'esercitazione [introduttiva](quickstart-java.md) su Java e [Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md) .
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
@@ -293,7 +290,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel ser
 
 Per impostazione predefinita, il servizio app prevede che l'applicazione JAR sia denominata *app. jar*. Se il nome è presente, verrà eseguito automaticamente. Per gli utenti di Maven è possibile impostare il nome del file JAR includendo `<finalName>app</finalName>` nella sezione `<build>` del file *POM. XML*. [È possibile eseguire la stessa operazione in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) impostando la proprietà `archiveFileName`.
 
-Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio: `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
+Se si vuole usare un nome diverso per il file JAR, è necessario specificare anche il [comando di avvio](app-service-linux-faq.md#built-in-images) che esegue il file jar. Ad esempio `java -jar my-jar-app.jar`. È possibile impostare il valore per il comando di avvio nel portale, in configurazione > Impostazioni generali o con un'impostazione dell'applicazione denominata `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Porta server
 
@@ -303,8 +300,8 @@ Il servizio app Linux instrada le richieste in ingresso alla porta 80, in modo c
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
 - [Micronaut](https://docs.micronaut.io/latest/guide/index.html#runningSpecificPort)
 - [Esegui Framework](https://www.playframework.com/documentation/2.6.x/ConfiguringHttps#Configuring-HTTPS)
-- [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
-- [Quarkus](https://quarkus.io/guides/application-configuration-guide)
+- [VertX](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
+- [Quark](https://quarkus.io/guides/application-configuration-guide)
 
 ## <a name="data-sources"></a>Origini dati
 
@@ -630,7 +627,7 @@ I passaggi seguenti illustrano i requisiti per la connessione del servizio app e
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL:**
+    **MySQL**
 
     ```bash
     az webapp config appsettings set \
@@ -716,7 +713,7 @@ Per usare Tomcat con Redis, è necessario configurare l'app per l'uso di un'impl
 
 1. Aprire un terminale bash e usare `export <variable>=<value>` per impostare ognuna delle variabili di ambiente seguenti.
 
-    | Variabile                 | Valore                                                                      |
+    | Variabile                 | Value                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | Nome del gruppo di risorse contenente l'istanza del servizio app.       |
     | WEBAPP_NAME              | Nome dell'istanza del servizio app.                                     |

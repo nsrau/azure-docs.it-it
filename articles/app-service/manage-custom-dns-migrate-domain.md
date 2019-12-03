@@ -1,25 +1,17 @@
 ---
-title: Eseguire la migrazione di un nome DNS attivo - Servizio app di Azure | Microsoft Docs
+title: Eseguire la migrazione di un nome DNS attivo
 description: Informazioni su come eseguire la migrazione di un nome di dominio DNS personalizzato già assegnato a un sito live al Servizio app di Azure senza tempi di inattività.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470357"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672367"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -54,9 +46,9 @@ Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire
 
 | Esempio di record DNS | Host TXT | Valore TXT |
 | - | - | - |
-| \@ (radice) | _awverify_ | _&lt;appname&gt;.azurewebsites.net_ |
-| www (sottodominio) | _awverify.www_ | _&lt;appname&gt;.azurewebsites.net_ |
-| \* (wildcard) | _awverify.\*_ | _&lt;appname&gt;.azurewebsites.net_ |
+| \@ (radice) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| www (sottodominio) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
+| \* (wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui si vuole eseguire la migrazione. Il servizio app supporta i mapping da record CNAME e A.
 
@@ -75,7 +67,7 @@ Nel riquadro di spostamento a sinistra della pagina dell'app nel [portale di Azu
 
 Nella pagina **Domini personalizzati** selezionare l'icona **+** accanto ad **Aggiungi il nome host**.
 
-![Aggiunta del nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+![Aggiungi il nome host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Digitare il nome di dominio completo al quale è stato aggiunto un record TXT, ad esempio `www.contoso.com`. Per un dominio con caratteri jolly (ad esempio \*. contoso.com), è possibile usare un nome DNS qualsiasi che corrisponda al dominio con caratteri jolly. 
 
@@ -111,7 +103,7 @@ Chiudere la pagina **Aggiungi il nome host** selezionando **X** nell'angolo in a
 
 Nella pagina **Domini personalizzati**, copiare l'indirizzo IP dell'applicazione.
 
-![Passare all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 ### <a name="update-the-dns-record"></a>Aggiornare il record DNS
 
@@ -119,11 +111,11 @@ Tornare alla pagina dei record DNS del provider di dominio e selezionare il reco
 
 Per l'esempio di dominio radice `contoso.com`, modificare il mapping del record A o CNAME come negli esempi illustrati nella tabella seguente: 
 
-| Esempio di FQDN | Tipo di record | Host | Valore |
+| Esempio di FQDN | Tipo di record | Host | Value |
 | - | - | - | - |
 | contoso.com (radice) | A | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
-| www\.contoso.com (Sub) | CNAME | `www` | _&lt;appname&gt;.azurewebsites.net_ |
-| \*.contoso.com (carattere jolly) | CNAME | _\*_ | _&lt;appname&gt;.azurewebsites.net_ |
+| www\.contoso.com (Sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| \*.contoso.com (carattere jolly) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Salvare le impostazioni.
 

@@ -1,25 +1,16 @@
 ---
-title: Configurare i nomi DNS per le app che usano Gestione traffico - Servizio app di Azure
-description: Usare un nome di dominio personalizzato per un'app Web nel servizio app di Azure che usa Gestione traffico per il bilanciamento del carico.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: Configurare i nomi DNS con gestione traffico
+description: Informazioni su come configurare un dominio personalizzato per un'app di servizio app Azure che si integra con gestione traffico per il bilanciamento del carico.
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e6a59d519ae8bb515ab16632bd39509682959f50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9139b83f1f2920da47b4a0d440f622626d41c938
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074020"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689286"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -57,7 +48,7 @@ Per associare il dominio personalizzato a un'app Web nel servizio app di Azure, 
 Anche se le specifiche di ogni provider di dominio possono variare, in genere viene eseguito il mapping *dal* nome di dominio personalizzato, ad esempio **contoso.com**, *al* nome di dominio di Gestione traffico (**contoso.trafficmanager.net**) integrato con l'app Web.
 
 > [!NOTE]
-> Se un record è già in uso ed è necessario associare le app in modalità preemptive, è possibile creare un altro record CNAME. Ad esempio, per associare preventivamente **contoso.com www\.** all'app Web, creare un record CNAME da **awverify. www** a **contoso.trafficmanager.NET**. È quindi possibile aggiungere "www\.contoso.com" all'app Web senza modificare il record CNAME "www". Per altre informazioni, vedere [creare record DNS per un'app Web in un dominio personalizzato][CREATEDNS].
+> Se un record è già in uso ed è necessario associare le app in modalità preemptive, è possibile creare un altro record CNAME. Ad esempio, per associare preventivamente **www\.contoso.com** all'app Web, creare un record CNAME da **awverify. www** a **contoso.trafficmanager.NET**. È quindi possibile aggiungere "www\.contoso.com" all'app Web senza modificare il record CNAME "www". Per altre informazioni, vedere [creare record DNS per un'app Web in un dominio personalizzato][CREATEDNS].
 
 Dopo aver completato l'aggiunta o la modifica di record DNS presso il provider di dominio, salvare le modifiche.
 

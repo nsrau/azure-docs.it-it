@@ -1,24 +1,15 @@
 ---
-title: Frequenza dell'applicazione di patch a sistema operativo e runtime - Servizio app di Azure | Microsoft Docs
-description: Descrive in che modo Servizio app di Azure aggiorna il sistema operativo e i runtime e come ottenere annunci relativi agli aggiornamenti.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Cadenza della patch del sistema operativo e del runtime
+description: Informazioni sul modo in cui il servizio app Azure aggiorna il sistema operativo e i runtime, i runtime e il livello di patch disponibili per le app e come è possibile ottenere gli annunci degli aggiornamenti.
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074122"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688579"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -89,9 +80,9 @@ La tabella seguente illustra come ottenere informazioni sulle versioni di Window
 | Versione di Windows | Vedere `https://<appname>.scm.azurewebsites.net/Env.cshtml` (nelle informazioni di sistema) |
 | Versione di .NET | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Versione di .NET Core | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `dotnet --version` |
-| Versione di PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
+| Versione PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
 | Versione predefinita di Node.js | In [Cloud Shell](../cloud-shell/overview.md) eseguire il comando seguente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Versione di Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |  
+| Versione Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |  
 
 > [!NOTE]  
 > L'accesso al percorso del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, dove sono archiviate le informazioni sulle [patch "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), è bloccato.

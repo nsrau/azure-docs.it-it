@@ -1,26 +1,20 @@
 ---
-title: Domande frequenti sulle prestazioni delle applicazioni - Servizio app di Azure | Microsoft Docs
-description: È possibile ottenere risposte alle domande frequenti sulla disponibilità, sulle prestazioni e sui problemi delle applicazioni nella funzionalità App Web del servizio app di Azure.
-services: app-service\web
-documentationcenter: ''
+title: Domande frequenti sulle prestazioni delle applicazioni
+description: Risposte alle domande frequenti su disponibilità, prestazioni e problemi dell'applicazione nel servizio app Azure.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122077"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671699"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -38,11 +32,11 @@ Più fattori possono contribuire a rallentare le prestazioni delle app. Per la p
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di CPU?
 
-In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione la scalabilità a un livello di servizio superiore, in modo che l'applicazione ottenga tutte le risorse necessarie. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di memoria?
 
-In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria. La procedura che consente di ottenere informazioni su cosa provochi un utilizzo elevato di memoria prevede due parti. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione la scalabilità a un livello di servizio superiore, in modo che l'applicazione ottenga tutte le risorse necessarie. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria. Un processo in due parti è quello di ottenere informazioni dettagliate sull'attivazione di un utilizzo elevato di memoria. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Come si automatizzano le app Web del servizio app usando PowerShell?
 
@@ -170,7 +164,7 @@ Processi Web è progettato per l'elaborazione in background. In un processo Web 
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>A volte le applicazioni ASP.NET Core ospitate nel servizio app si bloccano. Come si risolve il problema?
 
-Un problema noto con una [versione di Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) precedente potrebbe provocare il blocco intermittente di un'app ASP.NET Core 1.0 ospitata nel servizio app. È possibile che venga visualizzato anche questo messaggio: "L'applicazione CGI specificata ha rilevato un errore e il server ha interrotto il processo".
+Un problema noto con una [versione di Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) precedente potrebbe provocare il blocco intermittente di un'app ASP.NET Core 1.0 ospitata nel servizio app. Potrebbe essere visualizzato il messaggio: "L'applicazione CGI specificata ha rilevato un errore e il server ha interrotto il processo".
 
 Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclusa nell'aggiornamento di ASP.NET Core 1.0.3. Per risolvere questo problema, aggiornare le dipendenze app per l'uso di Kestrel 1.0.2. In alternativa è possibile usare una delle due soluzioni descritte nel post di blog [Problemi di prestazioni lente di ASP.NET Core 1.0 nelle app Web del servizio app](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 
@@ -179,7 +173,7 @@ Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclu
 
 Se si usa la funzionalità di cache locale del servizio app, la struttura delle cartelle LogFiles e Data per l'istanza di servizio App sono interessate. Quando si usa la cache locale, vengono create sottocartelle nelle cartelle LogFiles e Data dell'archivio. Le sottocartelle usano il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.
 
-Per determinare se si sta usando la cache locale, verificare la scheda **Impostazioni dell'applicazione** del servizio app. Se si sta usando la cache locale, l'impostazione `WEBSITE_LOCAL_CACHE_OPTION` dell'app ha il valore `Always`.
+Per determinare se si sta usando la cache locale, controllare la scheda **impostazioni dell'applicazione** del servizio app. Se si usa la cache locale, l'impostazione dell'app `WEBSITE_LOCAL_CACHE_OPTION` è impostata su `Always`.
 
 Se non si usa la cache locale e si verifica questo problema, inviare una richiesta di supporto.
 

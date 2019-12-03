@@ -1,24 +1,18 @@
 ---
-title: Integrare un'app in una rete virtuale di Azure - Servizio app di Azure
-description: Illustra come connettere un'app del servizio app di Azure a una rete virtuale di Azure nuova o esistente
-services: app-service
-documentationcenter: ''
+title: Integrare l'app con rete virtuale di Azure
+description: Informazioni sul modo in cui il servizio app Azure si integra con rete virtuale di Azure e su come connettere un'app a una rete virtuale.
 author: ccompy
-manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034719"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688298"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] (reti virtuali) consentono di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
@@ -59,7 +53,7 @@ La funzionalità Integrazione rete virtuale:
 Alcune operazioni non sono supportate da Integrazione rete virtuale:
 
 * montaggio di un'unità
-* integrazione di AD 
+* Integrazione di AD 
 * NetBios
 
 ## <a name="regional-vnet-integration"></a>Integrazione VNet a livello di area 
@@ -116,7 +110,7 @@ Per disconnettere l'app dalla rete virtuale, selezionare **Disconnetti**. L'app 
 
 Se si usa il servizio app in Linux con le immagini predefinite, la funzionalità di integrazione VNet a livello di area funziona senza modifiche aggiuntive. Se si usa app Web per contenitori, è necessario modificare l'immagine Docker per usare l'integrazione VNet. Nell'immagine Docker usare la variabile di ambiente PORT come porta di ascolto del server Web principale, anziché usare un numero di porta hardcoded. La variabile di ambiente PORT viene impostata automaticamente dalla piattaforma del servizio app al momento dell'avvio del contenitore. Se si usa SSH, il daemon SSH deve essere configurato in modo da restare in ascolto sul numero di porta specificato dalla variabile di ambiente SSH_PORT quando si usa l'integrazione VNet a livello di area.
 
-### <a name="service-endpoints"></a>Endpoint servizio
+### <a name="service-endpoints"></a>Endpoint del servizio
 
 La nuova funzionalità Integrazione rete virtuale consente di usare gli endpoint servizio.  Per usarli con l'app, usare la nuova funzionalità Integrazione rete virtuale per connettersi a una rete virtuale selezionata e configurare gli endpoint servizio nella subnet usata per l'integrazione. 
 
@@ -149,7 +143,7 @@ Questa funzionalità non supporta:
 * Accesso alle risorse in ExpressRoute 
 * Accesso alle risorse negli endpoint servizio 
 
-### <a name="getting-started"></a>Introduzione
+### <a name="getting-started"></a>Inizia ora
 
 Prima di procedere con la connessione della propria app Web a una rete virtuale, è opportuno prendere in considerazione i seguenti aspetti:
 
@@ -216,7 +210,7 @@ Per raggiungere l'interfaccia utente di Integrazione rete virtuale del piano di 
 
 L'interfaccia utente di Integrazione rete virtuale del piano di servizio app illustra tutte le reti virtuali usate dalle app nel piano di servizio app. Per visualizzare i dettagli su ogni rete virtuale, fare clic sulla rete virtuale in questione. Qui è possibile eseguire due azioni.
 
-* **Sincronizza rete**. L'operazione di sincronizzazione della rete è solo per la funzionalità di integrazione VNet dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete garantisce che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o modifica il DNS della rete virtuale, è necessario eseguire un'operazione **Sincronizza rete**. Questa operazione riavvierà qualsiasi app con questa rete virtuale.
+* **Sincronizza rete**. L'operazione di sincronizzazione della rete è solo per la funzionalità di integrazione VNet dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete garantisce che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o si modifica il DNS del VNet, è necessario eseguire un'operazione di **sincronizzazione della rete** . Questa operazione riavvierà qualsiasi app con questa rete virtuale.
 * **Aggiungi route**. L'aggiunta di route indirizzerà il traffico in uscita nella rete virtuale.
 
 **Routing**: le route definite in una rete virtuale vengono usate per indirizzare il traffico dall'app alla propria rete virtuale. Se è necessario inviare altro traffico in uscita nella rete virtuale, è possibile aggiungere qui i blocchi di indirizzi. Questa funzionalità funziona solo con l'integrazione VNet obbligatoria del gateway.
@@ -249,13 +243,13 @@ La funzionalità di integrazione VNet a livello di area non prevede costi aggiun
 
 Esistono tre addebiti correlati all'uso della funzionalità di integrazione VNet necessaria per il gateway:
 
-* Costi del piano tariffario ASP: le app devono essere in un piano di servizio app standard, Premium o PremiumV2. Per altre informazioni sui costi, vedere [Prezzi del servizio app][ASPricing]. 
+* Costi del piano tariffario ASP: le app devono essere in un piano di servizio app standard, Premium o PremiumV2. Per altri dettagli sui costi, vedere i prezzi del [servizio app][ASPricing]. 
 * Costi di trasferimento dei dati: è previsto un addebito per l'uscita dei dati, anche se il VNet è nello stesso data center. Questi addebiti sono descritti in [Dettagli prezzi trasferimento dati][DataPricing]. 
 * Costi del gateway VPN: un costo per il gateway VNet richiesto per la VPN da punto a sito. I dettagli sono disponibili nella pagina dei [prezzi del gateway VPN][VNETPricing] .
 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Una volta caricato il sito Web, passare alla scheda Debug Console. Per accedere alla console ospitata nel portale di Azure dalla propria app, selezionare Strumenti -> Console. 
+## <a name="troubleshooting"></a>risoluzione dei problemi
+La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Una volta caricato il sito Web, passare alla scheda Debug Console. Per accedere alla console ospitata portale di Azure quindi dall'app, passare a strumenti-> Console. 
 
 #### <a name="tools"></a>Strumenti
 Gli strumenti **ping**, **nslookup** e **tracert** non funzionano dalla console a causa di vincoli di sicurezza. Per questo motivo sono stati aggiunti due strumenti separati. Per testare la funzionalità del DNS è stato aggiunto lo strumento nameresolver.exe. La sintassi è:

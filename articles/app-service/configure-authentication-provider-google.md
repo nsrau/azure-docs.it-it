@@ -1,25 +1,16 @@
 ---
-title: Configurare l'autenticazione di Google - Servizio app di Azure
-description: Informazioni su come configurare l'autenticazione di Google per l'app del servizio app.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: Configurare l'autenticazione di Google
+description: Informazioni su come configurare l'autenticazione di Google come provider di identità per l'app del servizio app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/02/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 917fa87a0cd0f7b0615a5139a7c15311f866739a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176974"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670817"
 ---
 # <a name="configure-your-app-service-app-to-use-google-login"></a>Configurare l'app del servizio app per usare l'account di accesso di Google
 
@@ -32,7 +23,7 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 ## <a name="register"></a>Registrare l'applicazione con Google
 
 1. Per creare un ID client e un segreto client, seguire la documentazione di Google relativa all' [accesso a Google per le app sul lato server](https://developers.google.com/identity/sign-in/web/server-side-flow) . Non è necessario apportare modifiche al codice. Usare semplicemente le seguenti informazioni:
-    - Per le **origini JavaScript autorizzate**, usare `https://<app-name>.azurewebsites.net` con il nome dell'app nel *> \<app-Name*.
+    - Per le **origini JavaScript autorizzate**, usare `https://<app-name>.azurewebsites.net` con il nome dell'app in *\<> nome app*.
     - Per l' **URI di reindirizzamento autorizzato**, usare `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
 1. Copiare i valori di ID app e segreto app.
 
@@ -41,10 +32,10 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Google all'applicazione
 
-1. Nel [portale di Azure]passare all'app del servizio app.
+1. Nel [Azure portal]passare all'app del servizio app.
 1. Selezionare **impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
 1. Selezionare **Google**, quindi incollare i valori di ID app e segreto app ottenuti in precedenza. Abilitare gli ambiti necessari per l'applicazione.
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
    Il servizio app fornisce l'autenticazione ma non limita l'accesso autorizzato al contenuto del sito e alle API. Per altre informazioni, vedere [autorizzare o negare utenti](app-service-authentication-how-to.md#authorize-or-deny-users).
 
@@ -72,5 +63,5 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 

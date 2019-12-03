@@ -1,25 +1,18 @@
 ---
-title: Funzionalità di distribuzione di rete-servizio app Azure | Microsoft Docs
-description: Come usare le varie funzionalità di rete del servizio app
+title: Funzionalità di rete
+description: Informazioni sulle funzionalità di rete nel servizio app Azure e sulle funzionalità necessarie per la rete per la sicurezza o le funzionalità.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928499"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672325"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -35,7 +28,7 @@ Il servizio app Azure è un sistema distribuito. I ruoli che gestiscono le richi
 |---------------------|-------------------|
 | Indirizzo assegnato dall'app | Connessioni ibride |
 | Restrizioni di accesso | Integrazione VNet necessaria per il gateway |
-| Endpoint servizio | Integrazione di VNet (anteprima) |
+| Endpoint del servizio | Integrazione di VNet (anteprima) |
 
 Se non diversamente specificato, tutte le funzionalità possono essere usate insieme. È possibile combinare le funzionalità per risolvere i diversi problemi.
 
@@ -49,7 +42,7 @@ Per ogni caso di utilizzo specifico, è possibile risolvere il problema in alcun
 | Indirizzo in ingresso non condiviso e dedicato per l'app | Indirizzo assegnato dall'app |
 | Limitare l'accesso all'app da un set di indirizzi ben definiti | Restrizioni di accesso |
 | Esporre l'app in indirizzi IP privati nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> Gateway applicazione con endpoint di servizio |
-| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint servizio </br> Ambiente del servizio app con bilanciamento del carico interno |
+| Limitare l'accesso all'app dalle risorse in una VNet | Endpoint del servizio </br> Ambiente del servizio app con bilanciamento del carico interno |
 | Esporre l'app in un indirizzo IP privato nella VNet | Ambiente del servizio app con bilanciamento del carico interno </br> IP privato per il traffico in ingresso in un gateway applicazione con endpoint di servizio |
 | Proteggi l'app con un WAF | Gateway applicazione + ambiente del servizio app ILB </br> Gateway applicazione con endpoint di servizio </br> Sportello anteriore di Azure con restrizioni di accesso |
 | Bilanciare il carico del traffico verso le app personali in aree diverse | Sportello anteriore di Azure con restrizioni di accesso | 

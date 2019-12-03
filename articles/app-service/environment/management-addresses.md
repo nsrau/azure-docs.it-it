@@ -1,24 +1,18 @@
 ---
-title: Indirizzi di gestione dell'ambiente del servizio app - Azure
-description: Elenca gli indirizzi di gestione usati per inviare comandi a un Ambiente del servizio app
-services: app-service
-documentationcenter: na
+title: Indirizzi di gestione
+description: Trovare gli indirizzi di gestione usati per controllare un ambiente del servizio app. Configurati in una tabella di route per evitare problemi di routing asimmetrico.
 author: ccompy
-manager: stefsch
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 80841988b997bd4caa776191bf9b8468e95a977d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 7d7f97552e8faadee1af928a9ce4e1eea2df476e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089488"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687104"
 ---
 # <a name="app-service-environment-management-addresses"></a>Indirizzi di gestione dell'Ambiente del servizio app
 
@@ -30,10 +24,10 @@ Gli indirizzi indicati di seguito possono essere configurati in una tabella di r
 
 ## <a name="list-of-management-addresses"></a>Elenco di indirizzi di gestione ##
 
-| Area | Indirizzi |
+| Area geografica | Indirizzi |
 |--------|-----------|
 | Tutte le aree pubbliche | 13.64.115.203, 13.66.140.0, 13.67.8.128, 13.69.64.128, 13.69.227.128, 13.70.73.128, 13.71.170.64, 13.71.194.129, 13.75.34.192, 13.75.127.117, 13.77.50.128, 13.78.109.0, 13.89.171.0, 13.94.141.115, 13.94.143.126, 13.94.149.179, 20.36.106.128, 20.36.114.64, 23.100.226.236, 23.102.135.246, 23.102.188.65, 40.69.106.128, 40.70.146.128, 40.71.13.64, 40.74.100.64, 40.78.194.128, 40.79.130.64, 40.79.178.128, 40.83.120.64, 40.83.121.56, 40.83.125.161, 40.90.240.166, 40.91.126.196, 40.112.242.192, 40.119.4.111, 40.124.47.188, 51.140.146.64, 51.140.210.128, 52.151.25.45, 52.162.80.89, 52.162.106.192, 52.165.152.214, 52.165.153.122, 52.165.154.193, 52.165.158.140, 52.174.22.21, 52.178.177.147, 52.178.184.149, 52.178.190.65, 52.178.195.197, 52.187.56.50, 52.187.59.251, 52.187.63.19, 52.187.63.37, 52.224.105.172, 52.225.177.153, 52.231.18.64, 52.231.146.128, 65.52.14.230, 65.52.172.237, 65.52.193.203, 70.37.57.58, 70.37.89.222, 104.43.242.137, 104.44.129.141, 104.44.129.243, 104.44.129.255, 104.44.134.255, 104.208.54.11, 104.211.81.64, 104.211.146.128, 104.214.49.0, 157.55.176.93, 157.55.208.185, 191.233.203.64, 191.236.154.88 |
-| Microsoft Azure per enti pubblici | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
+| Microsoft Azure Government | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
 
 ## <a name="configuring-a-network-security-group"></a>Configurazione di un gruppo di sicurezza di rete
 

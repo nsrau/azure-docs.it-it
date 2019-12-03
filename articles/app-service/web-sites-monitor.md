@@ -1,25 +1,18 @@
 ---
-title: Eseguire il monitoraggio delle app - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come monitorare le app di Servizio app di Azure tramite il portale di Azure.
-services: app-service
-documentationcenter: ''
+title: Monitorare le app
+description: Informazioni su come monitorare le app di Servizio app di Azure tramite il portale di Azure. Comprendere le quote e le metriche segnalate.
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546185"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688268"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) offre funzionalità di monitoraggio predefinite per app Web, sistemi back-end mobili e app per le API nel [portale di Azure](https://portal.azure.com).

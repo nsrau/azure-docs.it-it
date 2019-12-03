@@ -1,25 +1,16 @@
 ---
-title: Funzionalità del sistema operativo in Servizio app - Azure
-description: Informazioni sulle funzionalità del sistema operativo disponibili per app Web, back-end per app per dispositivi mobili e app per le API in Servizio app di Azure
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: Funzionalità del sistema operativo
+description: Informazioni sulle funzionalità del sistema operativo nel servizio app Azure in Windows. Informazioni sui tipi di file, rete e accesso al registro di sistema ottenuti dall'app.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066774"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671616"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -60,11 +51,11 @@ Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura 
 - Un'unità di applicazione che contiene file cspkg del pacchetto di Azure usata esclusivamente da Servizio app (e inaccessibile ai clienti)
 - Un'unità "utente" (unità C:\), le cui dimensioni variano a seconda delle dimensioni della macchina virtuale. 
 
-È importante monitorare l'utilizzo del disco man mano che aumentano le dimensioni dell'applicazione. Il raggiungimento della quota disco può avere effetti negativi sull'applicazione. Ad esempio: 
+È importante monitorare l'utilizzo del disco man mano che aumentano le dimensioni dell'applicazione. Il raggiungimento della quota disco può avere effetti negativi sull'applicazione. ad esempio: 
 
 - L'app può generare un errore che indica che non vi è sufficiente spazio su disco.
 - Potrebbero verificarsi errori del disco durante la navigazione nella console Kudu.
-- La distribuzione da Azure DevOps o Visual Studio potrebbe non `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`riuscire con.
+- La distribuzione da Azure DevOps o Visual Studio potrebbe non riuscire con `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - L'app potrebbe subire un rallentamento delle prestazioni.
 
 <a id="NetworkDrives"></a>

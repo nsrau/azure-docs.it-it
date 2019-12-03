@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/07/2019
-ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 88634777897341f4bd4d8c12b5f9d3b6d9982758
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553792"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671528"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitoraggio di Azure per le macchine virtuali domande frequenti disponibili a livello generale (GA)
 
@@ -22,11 +22,11 @@ Recentemente abbiamo annunciato nel Blog di [Azure Update](https://azure.microso
 
 Si sta rilasciando una nuova versione di Monitoraggio di Azure per le macchine virtuali a novembre. I clienti che abilitano i monitoraggi di Azure per le macchine virtuali dopo questa versione ricevono automaticamente la nuova versione, ma viene richiesto di aggiornare i clienti esistenti che usano già Monitoraggio di Azure per le macchine virtuali.  Queste domande frequenti e la documentazione offrono indicazioni per eseguire un aggiornamento in blocco se si dispone di distribuzioni di grandi dimensioni in più aree di lavoro.
 
-Con questo aggiornamento, i set di dati delle prestazioni Monitoraggio di Azure per le macchine virtuali vengono ora archiviati nella stessa tabella `InsightsMetrics` di [monitoraggio di Azure per i contenitori](container-insights-overview.md)e semplificano la query dei due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza.  Le visualizzazioni delle prestazioni verranno aggiornate anche per l'uso della nuova tabella.
+Con questo aggiornamento, i set di dati delle prestazioni Monitoraggio di Azure per le macchine virtuali vengono ora archiviati nella stessa tabella `InsightsMetrics` di [monitoraggio di Azure per i contenitori](container-insights-overview.md)e semplificano la query dei due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza.  Anche le visualizzazioni delle prestazioni verranno aggiornate per usare la nuova tabella.
 
 Viene spostato in nuovi tipi di dati per i set di dati di connessione. I dati attualmente archiviati in `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, che utilizzano tabelle di log personalizzate, verranno spostati in tipi di dati dedicati denominati `VMComputer` e `VMProcess`.  Passando ai tipi di dati dedicati, è possibile assegnare queste priorità per l'inserimento dei dati e lo schema della tabella verrà standardizzato in tutti i clienti.
 
-Ci rendiamo conto che la richiesta di aggiornamento da parte dei clienti esistenti causa un'alterazione del flusso di lavoro. Ecco perché abbiamo scelto di eseguire questa operazione ora in anteprima pubblica anziché in un secondo momento.
+Ci rendiamo conto del fatto che richiedere ai clienti esistenti di eseguire l'aggiornamento provoca interruzioni del rispettivo flusso di lavoro e abbiamo quindi scelto di eseguire questa operazione durante la fase attuale di anteprima pubblica, invece di aspettare il passaggio alla disponibilità generale.
 
 ## <a name="what-will-change"></a>Quali modifiche verranno apportate?
 
@@ -40,8 +40,9 @@ Il metodo corrente di abilitazione di Monitoraggio di Azure per le macchine virt
 
 Una volta aggiornata l'interfaccia utente per l'uso dei dati in InsightsMetrics, la documentazione verrà aggiornata e l'annuncio verrà comunicato tramite più canali, inclusa la visualizzazione di un banner nella portale di Azure. A questo punto, è possibile scegliere di disabilitare questi [contatori delle prestazioni](vminsights-enable-overview.md#performance-counters-enabled) nell'area di lavoro se non si vuole più usarli. 
 
-[!NOTE]
+>[!NOTE]
 >Se sono presenti regole di avviso che fanno riferimento a questi contatori nella tabella delle prestazioni, è necessario aggiornarli in modo che facciano riferimento ai nuovi dati nella tabella `InsightsMetrics`.  Vedere la documentazione per le query di log di esempio che è possibile usare per fare riferimento a questa tabella.
+>
 
 Se si decide di mantenere i contatori delle prestazioni abilitati, verranno addebitati i dati inseriti e conservati nella tabella delle prestazioni in base a [Log Analytics pricing [(https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -69,17 +70,17 @@ Se si sceglie di non eseguire l'aggiornamento alla soluzione **VMInsights** , si
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>I set di dati Mapping dei servizi verranno archiviati anche in InsightsMetrics?
 
-I set di dati non verranno duplicati se si utilizzano entrambe le soluzioni. Entrambe le offerte condividono i set di dati che verranno archiviati nelle tabelle `VMComputer` (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` per archiviare i set di dati della mappa raccolti.  
+I set di dati non verranno duplicati se si utilizzano entrambe le soluzioni. Entrambe le offerte condividono i set di dati che verranno archiviati nelle tabelle `VMComputer` (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection`e `VMBoundPort` per archiviare i set di dati della mappa raccolti.  
 
 La tabella `InsightsMetrics` verrà usata per archiviare i set di dati di macchine virtuali, processi e servizi raccolti e verrà popolato solo se si usa Monitoraggio di Azure per le macchine virtuali.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-on-my-workspace"></a>Viene addebitato un costo doppio se sono disponibili le soluzioni Mapping dei servizi e VMInsights nell'area di lavoro?
 
-No, le due soluzioni condividono i set di dati della mappa archiviati in `VMComputer` (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection` e `VMBoundPort`.  I dati non verranno addebitati a doppio se si dispone di entrambe le soluzioni nell'area di lavoro.
+No, le due soluzioni condividono i set di dati della mappa archiviati in `VMComputer` (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection`e `VMBoundPort`.  I dati non verranno addebitati a doppio se si dispone di entrambe le soluzioni nell'area di lavoro.
 
 ## <a name="if-i-remove-either-the-service-map-or-vminsights-solution-will-it-remove-my-data-in-log-analytics"></a>Se si rimuove la soluzione Mapping dei servizi o VMInsights, i dati vengono rimossi in Log Analytics?
 
-No, le due soluzioni condividono i set di dati della mappa archiviati in `VMComputer` (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection` e `VMBoundPort`.  Se si rimuove una delle soluzioni, questi set di dati si notano che è ancora disponibile una soluzione che usa i dati e rimane in Log Analytics.  È necessario rimuovere entrambe le soluzioni dall'area di lavoro per rimuovere i dati dall'area di lavoro Log Analytics.
+No, le due soluzioni condividono i set di dati della mappa archiviati in `VMComputer` (in precedenza ServiceMapComputer_CL), `VMProcess` (in precedenza ServiceMapProcess_CL), `VMConnection`e `VMBoundPort`.  Se si rimuove una delle soluzioni, questi set di dati si notano che è ancora disponibile una soluzione che usa i dati e rimane in Log Analytics.  È necessario rimuovere entrambe le soluzioni dall'area di lavoro per rimuovere i dati dall'area di lavoro Log Analytics.
 
 ## <a name="when-will-this-update-be-released"></a>Quando verrà rilasciato questo aggiornamento?
 
@@ -87,7 +88,7 @@ Si prevede di rilasciare l'aggiornamento per Monitoraggio di Azure per le macchi
 
 ## <a name="health-feature-to-enter-limited-public-preview"></a>Funzionalità di integrità per l'immissione dell'anteprima pubblica limitata
 
-Abbiamo ricevuto numerosi commenti e suggerimenti dai clienti sul set di funzionalità per l'integrità delle macchine virtuali.  Questa funzionalità è molto interessante e può essere utile per supportare i flussi di lavoro di monitoraggio. Si prevede di apportare una serie di modifiche per aggiungere funzionalità e risolvere i commenti ricevuti. Per ridurre al minimo l'effetto di queste modifiche ai nuovi clienti, la funzionalità viene trasferita in un'anteprima pubblica limitata.
+Abbiamo ricevuto numerosi commenti e suggerimenti dai clienti sul set di funzionalità per l'integrità delle macchine virtuali.  Questa funzionalità ha suscitato molto interesse e molte aspettative relative alla possibilità di supportare i flussi di lavoro di monitoraggio. Stiamo pianificando una serie di modifiche per aggiungere funzionalità e rispondere al feedback ricevuto. Per ridurre al minimo l'effetto di queste modifiche ai nuovi clienti, la funzionalità viene trasferita in un'anteprima pubblica limitata.
 
 Questa transizione inizierà all'inizio di ottobre e verrà completata entro la fine del mese.
 

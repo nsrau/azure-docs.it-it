@@ -1,32 +1,30 @@
 ---
-title: Raccomandazioni sulla sicurezza per il servizio app Azure
-description: Raccomandazioni sulla sicurezza per il servizio app Azure. L'implementazione di questi consigli consente di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa e di migliorare la sicurezza complessiva per le soluzioni di app Web.
-services: app-service
+title: Suggerimenti per la sicurezza
+description: Implementare le raccomandazioni sulla sicurezza per soddisfare gli obblighi di sicurezza come indicato nel modello di responsabilità condivisa. Migliorare la sicurezza dell'app.
 author: barclayn
 manager: barbkess
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: 71d564dac43328371e9d34684f2d13a26616a99d
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609783"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684118"
 ---
 # <a name="security-recommendations-for-app-service"></a>Raccomandazioni sulla sicurezza per il servizio app
 
 Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azure. L'implementazione di questi consigli consente di soddisfare gli obblighi di sicurezza come descritto nel modello di responsabilità condivisa e di migliorare la sicurezza complessiva per le soluzioni di app Web. Per altre informazioni sulle funzionalità offerte da Microsoft per soddisfare le responsabilità del provider di servizi, vedere [sicurezza dell'infrastruttura di Azure](../security/fundamentals/infrastructure.md).
 
-## <a name="general"></a>Generale
+## <a name="general"></a>Informazioni di carattere generale
 
 | Recommendation | Commenti |
 |-|-|----|
 | Rimanere sempre aggiornati | Usare le versioni più recenti delle piattaforme supportate, i linguaggi di programmazione, i protocolli e i Framework. |
 
-## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
+## <a name="identity-and-access-management"></a>Gestione degli accessi e delle identità
 
 | Recommendation | Commenti |
 |-|----|
@@ -35,7 +33,7 @@ Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azu
 | Proteggere le risorse back-end con l'accesso autenticato | È possibile usare l'identità dell'utente o usare un'identità dell'applicazione per eseguire l'autenticazione a una risorsa back-end. Quando si sceglie di usare un'identità dell'applicazione, usare un' [identità gestita](overview-managed-identity.md).
 | Richiedi autenticazione del certificato client | L'autenticazione del certificato client migliora la sicurezza consentendo solo connessioni da client che possono eseguire l'autenticazione tramite certificati forniti dall'utente. |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Recommendation | Commenti |
 |-|-|
@@ -54,7 +52,7 @@ Questo articolo contiene raccomandazioni sulla sicurezza per il servizio app Azu
 | Usare connessioni sicure durante l'accesso alle risorse locali | È possibile usare le [connessioni ibride](app-service-hybrid-connections.md), l' [integrazione della rete virtuale](web-sites-integrate-with-vnet.md)o [l'ambiente del servizio app](environment/intro.md) per connettersi alle risorse locali. |
 | Limita l'esposizione al traffico di rete in ingresso | I gruppi di sicurezza di rete consentono di limitare l'accesso alla rete e di controllare il numero di endpoint esposti. Per ulteriori informazioni, vedere [come controllare il traffico in ingresso in un ambiente del servizio app](environment/app-service-app-service-environment-control-inbound-traffic.md). |
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 | Recommendation | Commenti |
 |-|-|

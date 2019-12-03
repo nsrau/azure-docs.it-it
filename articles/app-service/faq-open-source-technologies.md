@@ -1,26 +1,20 @@
 ---
-title: Domande frequenti sulle tecnologie open source - Servizio app di Azure | Microsoft Docs
-description: È possibile ottenere risposte alle domande frequenti sulle tecnologie open source nella funzionalità App Web del servizio app di Azure.
-services: app-service\web
-documentationcenter: ''
+title: Domande frequenti sulle tecnologie open source
+description: Risposte alle domande più frequenti sulle tecnologie open source nel servizio app Azure.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169675"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672436"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle tecnologie open source per App Web in Azure
 

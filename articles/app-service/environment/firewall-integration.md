@@ -1,24 +1,18 @@
 ---
-title: Blocco del traffico in uscita dell'ambiente del servizio app - Azure
-description: Descrive l'integrazione con Firewall di Azure per proteggere il traffico in uscita
-services: app-service
-documentationcenter: na
+title: Bloccare il traffico in uscita
+description: Informazioni su come eseguire l'integrazione con il firewall di Azure per proteggere il traffico in uscita da un ambiente del servizio app.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405664"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687221"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -96,7 +90,7 @@ Firewall di Azure può inviare log ai log di Archiviazione di Azure, Hub eventi 
  
 L'integrazione del firewall di Azure con i log di monitoraggio di Azure è utile quando si esegue per la prima volta un'applicazione quando non si è a conoscenza di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di monitoraggio di Azure, vedere [analizzare i dati del log in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
-## <a name="dependencies"></a>Dependencies
+## <a name="dependencies"></a>Dipendenze
 
 Le informazioni seguenti sono necessarie solo se si vuole configurare un'appliance firewall diversa da Firewall di Azure. 
 
@@ -110,7 +104,7 @@ Le informazioni seguenti sono necessarie solo se si vuole configurare un'applian
 
 | Endpoint |
 |----------|
-| SQL di Azure |
+| Azure SQL |
 | Archiviazione di Azure |
 | Hub eventi di Azure |
 

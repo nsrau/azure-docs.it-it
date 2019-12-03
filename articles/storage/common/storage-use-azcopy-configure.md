@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7097faa64319a46b1efc91233e30ea992d064246
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595138"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687646"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -65,7 +65,7 @@ Per visualizzare informazioni dettagliate della Guida per questo comando, digita
 È possibile usare il flag di `cap-mbps` per posizionare un limite massimo sulla velocità di elaborazione dei dati. Ad esempio, il comando seguente consente di riportare la velocità effettiva a `10` megabit (MB) al secondo.
 
 ```azcopy
-azcopy cap-mbps 10
+azcopy --cap-mbps 10
 ```
 
 La velocità effettiva può ridursi durante il trasferimento di file di piccole dimensioni. È possibile aumentare la velocità effettiva impostando la variabile di ambiente `AZCOPY_CONCURRENCY_VALUE`. Questa variabile specifica il numero di richieste simultanee che possono verificarsi.  
@@ -97,7 +97,7 @@ Esprimere questo valore in gigabyte (GB).
 
 AzCopy crea file di log e di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. 
 
-I log conterranno lo stato dell'errore (`UPLOADFAILED`, `COPYFAILED` e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
+I log conterranno lo stato dell'errore (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), il percorso completo e il motivo dell'errore.
 
 Per impostazione predefinita, i file di log e di piano si trovano nella directory `%USERPROFILE$\.azcopy` in Windows o `$HOME$\.azcopy` directory su Mac e Linux, ma è possibile modificare tale percorso se lo si desidera.
 
@@ -181,7 +181,7 @@ Utilizzare il `azcopy env` per verificare il valore corrente della variabile. Se
 
 Per impostazione predefinita, il livello di registrazione AzCopy è impostato su `INFO`. Se si desidera ridurre il livello di dettaglio del log per risparmiare spazio su disco, sovrascrivere questa impostazione utilizzando l'opzione ``--log-level``. 
 
-I livelli di log disponibili sono: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` e `FATAL`.
+I livelli di log disponibili sono: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`e `FATAL`.
 
 ## <a name="remove-plan-and-log-files"></a>Rimuovere i file di piano e di log
 

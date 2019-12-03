@@ -1,26 +1,17 @@
 ---
-title: Panoramica del piano di servizio app - Azure | Microsoft Docs
-description: Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione.
+title: Piani del servizio app
+description: Scopri in che modo i piani di servizio app funzionano nel servizio app Azure, come vengono fatturati al cliente e come ridimensionarli in base alle tue esigenze.
 keywords: servizio app, servizio app di azure, scala, scalabile, scalabilità, piano di servizio app, costo del servizio app
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470246"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672274"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -46,7 +37,7 @@ Ogni piano fornisce anche un subset specifico di funzionalità del servizio app.
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> Il nuovo piano tariffario **PremiumV2** offre [macchine virtuali serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) con processori più veloci, archiviazione SSD e un rapporto memoria/core doppio rispetto al livello **Standard**. **PremiumV2** supporta anche una scalabilità superiore tramite un numero di istanze incrementato, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel piano Standard. Tutte le funzionalità disponibili nel livello **Premium** esistente sono incluse in **PremiumV2**.
+> Il nuovo piano tariffario **PremiumV2** offre [VM della serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) con processori più veloci, archiviazione SSD e un rapporto doppio tra memoria e core rispetto al livello **Standard**. **PremiumV2** supporta anche una scalabilità superiore tramite un numero di istanze incrementato, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel piano Standard. Tutte le funzionalità disponibili nel livello **Premium** esistente sono incluse in **PremiumV2**.
 >
 > Analogamente ad altri livelli dedicati, per questo livello sono disponibili tre dimensioni di macchina virtuale:
 >
@@ -54,7 +45,7 @@ Ogni piano fornisce anche un subset specifico di funzionalità del servizio app.
 > - Medium (due core CPU, 7 GiB di memoria) 
 > - Large (quattro core CPU, 14 GiB di memoria)  
 >
-> Per informazioni sui prezzi di **PremiumV2**, vedere [Prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
+> Per informazioni sui prezzi di [PremiumV2](https://azure.microsoft.com/pricing/details/app-service/), vedere **Prezzi del servizio app**.
 >
 > Per un'introduzione al nuovo piano tariffario **PremiumV2**, vedere [Configurare il livello PremiumV2](app-service-configure-premium-tier.md).
 
@@ -66,7 +57,7 @@ Quando si crea un'app nel servizio app, questa viene inserita in un piano di ser
 
 Il piano di servizio app è quindi l'unità di scala delle app del servizio app. Se il piano è configurato per eseguire cinque istanze di VM, tutte le app nel piano vengono eseguite in tutte le cinque istanze. Se il piano è configurato per la scalabilità automatica, vengono aumentate contemporaneamente le istanze di tutte le app nel piano in base alle impostazioni di scalabilità automatica.
 
-Per informazioni sull'aumento del numero di istanze di un'app, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Per informazioni sull'aumento del numero di istanze di un'app, vedere [Aumentare/Ridurre il numero di istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="cost"></a>
 

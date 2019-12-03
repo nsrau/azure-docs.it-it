@@ -1,26 +1,17 @@
 ---
-title: Distribuire contenuto usando FTP/S - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Distribuire il contenuto tramite FTP/S
+description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS. Migliorare la sicurezza del sito Web disabilitando l'FTP non crittografato.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098047"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671715"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
@@ -89,7 +80,7 @@ Per la distribuzione FTP tramite [Azure PowerShell](/cli/azure), vedere [Caricar
 ## <a name="troubleshoot-ftp-deployment"></a>Risolvere i problemi di distribuzione FTP
 
 - [Come è possibile risolvere i problemi di distribuzione FTP?](#how-can-i-troubleshoot-ftp-deployment)
-- [Non sono in grado di eseguire il protocollo FTP e di pubblicare il codice. Come è possibile risolvere il problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Non è possibile eseguire l'FTP e pubblicare il codice. Come è possibile risolvere il problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Come è possibile connettersi a FTP nel Servizio app di Azure tramite la modalità passiva?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Come è possibile risolvere i problemi di distribuzione FTP?
@@ -105,7 +96,7 @@ Per determinare se un problema è di distribuzione o di runtime, vedere [Deploym
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Non sono in grado di eseguire il protocollo FTP e di pubblicare il codice. Come è possibile risolvere il problema?
 Verificare di avere immesso il nome host e le [credenziali](#open-ftp-dashboard) corretti. Verificare anche che le porte FTP seguenti nel computer non siano bloccate da un firewall:
 
-- Porta di connessione controllo FTP: 21
+- Porta di connessione di controllo FTP: 21
 - Porta di connessione dati FTP: 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Come è possibile connettersi a FTP nel Servizio app di Azure tramite la modalità passiva?

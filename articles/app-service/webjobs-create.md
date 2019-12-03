@@ -1,21 +1,19 @@
 ---
-title: Eseguire attività in background con processi Web-servizio app Azure
-description: Informazioni su come usare Processi Web per eseguire attività in background in app Web del servizio app di Azure, app per le API e app per dispositivi mobili.
+title: Eseguire attività in background con i processi Web
+description: Informazioni su come usare i processi Web per eseguire attività in background nel servizio app Azure. È possibile scegliere tra un'ampia gamma di formati di script ed eseguirli con espressioni CRON.
 author: ggailey777
-manager: gwallace
-s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
-ms.service: app-service
+ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 293227352f27a724228136532c88e35fe877feb2
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312175"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684201"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
 
@@ -77,9 +75,9 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
+   | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Continuo | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Ridimensionare** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
@@ -115,12 +113,12 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
+   | **Nome** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Trigger** | Manuale | |
+   | **Trigger** | Manual | |
 
 4. Fare clic su **OK**.
 
@@ -153,9 +151,9 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
+   | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Attivato | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
    | **Trigger** | Pianificato | Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.|
@@ -169,7 +167,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB
 
-È possibile immettere un' [espressione NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un file `settings.job` alla radice del file processo Web *. zip* , come nell'esempio seguente:
+È possibile immettere un' [espressione NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un file di `settings.job` alla radice del file processo Web *. zip* , come nell'esempio seguente:
 
 ```json
 {

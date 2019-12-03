@@ -1,28 +1,20 @@
 ---
-title: Panoramica dell'architettura di rete degli ambienti del servizio app - Azure
-description: Panoramica dell'architettura della topologia di rete degli ambienti del servizio app.
-services: app-service
-documentationcenter: ''
+title: Architettura di rete V1
+description: Panoramica dell'architettura della topologia di rete degli ambienti del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070074"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687340"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Panoramica dell'architettura di rete degli ambienti del servizio app
-## <a name="introduction"></a>Introduzione
 Gli ambienti del servizio app vengono sempre creati all'interno di una subnet di una [rete virtuale][virtualnetwork] . le app in esecuzione in un ambiente del servizio app possono comunicare con gli endpoint privati che si trovano all'interno della stessa topologia di rete virtuale.  Poiché i clienti possono bloccare alcune parti dell'infrastruttura di rete virtuale, è importante conoscere i tipi di flusso delle comunicazioni di rete che avvengono con un ambiente del servizio app.
 
 ## <a name="general-network-flow"></a>Flusso di rete generale

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681541"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671581"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -66,7 +66,7 @@ In **Opzioni di origine** nella trasformazione origine le impostazioni seguenti 
 * L'impostazione di una query consente di filtrare le righe nell'origine prima che arrivino nel flusso di dati per l'elaborazione. Questo può rendere più veloce l'acquisizione iniziale dei dati. Se si usa una query, è possibile aggiungere hint di query facoltativi per il database SQL di Azure, ad esempio READ UNCOMMITTED.
 * Read uncommitted fornirà risultati più veloci per le query sulla trasformazione origine
 
-![Origine](media/data-flow/source4.png "Source")
+![Origine](media/data-flow/source4.png "Source (Sorgente)")
 
 ### <a name="sink-batch-size"></a>Dimensioni batch sink
 
@@ -120,6 +120,14 @@ Se, ad esempio, si dispone di un elenco di file di dati da luglio 2019 che si de
 ```DateFiles/*_201907*.txt```
 
 Utilizzando caratteri jolly, la pipeline conterrà solo un'attività flusso di dati. Ciò consente di ottenere prestazioni migliori rispetto a una ricerca nell'archivio BLOB che quindi scorre tutti i file corrispondenti utilizzando ForEach con un'attività Esegui flusso di dati all'interno di.
+
+### <a name="optimizing-for-cosmosdb"></a>Ottimizzazione per CosmosDB
+
+L'impostazione della velocità effettiva e delle proprietà batch nei sink CosmosDB ha effetto solo durante l'esecuzione del flusso di dati da un'attività flusso di dati della pipeline. Le impostazioni di raccolta originali verranno rispettate da CosmosDB dopo l'esecuzione del flusso di dati.
+
+* Dimensioni batch: calcolare la dimensione approssimativa delle righe dei dati e verificare che le dimensioni del batch rowSize * siano minori di 2 milioni. In caso contrario, aumentare la dimensione del batch per ottenere una velocità effettiva migliore
+* Velocità effettiva: impostare un'impostazione della velocità effettiva superiore per consentire ai documenti di scrivere più velocemente in CosmosDB. Tenere presente i costi delle unità richiesta maggiori in base a un'impostazione di velocità effettiva elevata.
+*   Budget della velocità effettiva di scrittura: usare un valore inferiore al numero totale di ur al minuto. Se si dispone di un flusso di dati con un numero elevato di partitiongs di Spark, l'impostazione di una velocità effettiva del budget consentirà un maggiore equilibrio tra le partizioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

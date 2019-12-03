@@ -1,22 +1,15 @@
 ---
-title: Preparare un cambio di indirizzo IP in uscita - Servizio app di Azure
+title: Preparare la modifica dell'indirizzo IP in uscita
 description: Se l'indirizzo IP in uscita sta per essere modificato, in questo articolo viene spiegato come procedere in modo che l'app continui a funzionare anche dopo la modifica.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac62217af096653d61a79ff29ae352c8e950f8af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269774"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671675"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in uscita
 

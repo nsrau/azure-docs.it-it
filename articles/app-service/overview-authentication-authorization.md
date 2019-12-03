@@ -1,26 +1,17 @@
 ---
-title: Autenticazione e autorizzazione - Servizio app di Azure | Microsoft Docs
-description: Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: Autenticazione e autorizzazione
+description: Informazioni sul supporto integrato per l'autenticazione e l'autorizzazione nel servizio app Azure e su come è possibile proteggere l'app da accessi non autorizzati.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808747"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672251"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione in Servizio app di Azure
 
@@ -32,8 +23,10 @@ Il Servizio app di Azure fornisce supporto integrato per l'autenticazione e l'au
 
 Per consentire processi sicuri di autenticazione e autorizzazione, è necessario conoscere a fondo i concetti correlati alla sicurezza, tra cui federazione, crittografia, gestione dei [token JSON Web (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), [tipi di concessione](https://oauth.net/2/grant-types/) e così via. Il servizio app fornisce queste utilità che consentono agli sviluppatori di dedicare più tempo e lavoro alla creazione di valore aziendale per il cliente.
 
-> [!NOTE]
-> L'uso delle funzionalità di autenticazione e autorizzazione del servizio app non è obbligatorio. Molti framework Web offrono funzionalità di sicurezza integrate che è possibile usare, se lo si preferisce. Se è necessaria più flessibilità di quella offerta dal servizio app, è anche possibile scrivere utilità personalizzate.  
+> [!IMPORTANT]
+> Non è necessario usare il servizio app per AuthN/autho. Molti framework Web offrono funzionalità di sicurezza integrate che è possibile usare, se lo si preferisce. Se è necessaria più flessibilità di quella offerta dal servizio app, è anche possibile scrivere utilità personalizzate.  
+>
+> Tuttavia, se si usa una delle opzioni del servizio non app per l'autenticazione remota, tenere presente che [Chrome 80 sta apportando modifiche di rilievo all'implementazione di navigava sullostesso sito per i cookie](https://www.chromestatus.com/feature/5088147346030592) (data di rilascio intorno al 2020 marzo) e il meccanismo di autenticazione dell'app potrebbe interrompersi quando i browser client vengono aggiornati. La documentazione di ASP.NET Core contiene informazioni su come risolvere questo problema nell'app, all'indirizzo [http: browser navigava sullostesso sito changes Impact Authentication](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Contiene indicazioni utili su come testare questa modifica sostanziale rispetto ai browser principali, indipendentemente dal fatto che si stia usando ASP.NET Core.
 >
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](../app-service-mobile/app-service-mobile-auth.md).

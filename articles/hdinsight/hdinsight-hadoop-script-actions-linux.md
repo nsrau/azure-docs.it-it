@@ -1,18 +1,18 @@
 ---
-title: Sviluppare azioni di script per personalizzare i cluster HDInsight di Azure
-description: Informazioni su come usare gli script Bash per personalizzare i cluster HDInsight. Le azioni script consentono di eseguire script durante o dopo la creazione del cluster per modificare le impostazioni di configurazione del cluster o installare software aggiuntivo.
+title: Sviluppare azioni script per personalizzare i cluster HDInsight di Azure
+description: Informazioni su come usare gli script bash per personalizzare i cluster HDInsight. Le azioni script consentono di eseguire gli script durante o dopo la creazione del cluster per modificare le impostazioni di configurazione del cluster o installare software aggiuntivo.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2019
-ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687457"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687734"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -73,9 +73,9 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="bps10"></a> La versione del sistema operativo di destinazione
+### <a name="bps10"></a>Specificare come destinazione la versione del sistema operativo
 
-HDInsight basato su Linux si basa sulla distribuzione di Ubuntu Linux. Versioni diverse di HDInsight si basano su versioni differenti di Ubuntu e questo può influire sul comportamento dello script. HDInsight 3.4 e versioni precedenti si basano ad esempio su versioni di Ubuntu che usano Upstart. La versione 3.5 e le versioni superiori si basano su Ubuntu 16.04 che usa Systemd. Systemd e Upstart si basano su comandi diversi, quindi lo script deve essere scritto in modo da funzionare con entrambi.
+HDInsight si basa sulla distribuzione di Ubuntu Linux. Versioni diverse di HDInsight si basano su versioni differenti di Ubuntu e questo può influire sul comportamento dello script. HDInsight 3.4 e versioni precedenti si basano ad esempio su versioni di Ubuntu che usano Upstart. La versione 3.5 e le versioni superiori si basano su Ubuntu 16.04 che usa Systemd. Systemd e Upstart si basano su comandi diversi, quindi lo script deve essere scritto in modo da funzionare con entrambi.
 
 Un'altra differenza importante tra HDInsight 3.4 e 3.5 è che `JAVA_HOME` punta ora a Java 8. Il codice seguente illustra come determinare se lo script è in esecuzione su Ubuntu 14 o 16:
 
@@ -133,11 +133,11 @@ Per ridurre il tempo necessario per eseguire lo script, evitare operazioni di co
 
 Gli script devono essere idempotenti. Se lo script viene eseguito più volte, ogni volta deve riportare il cluster allo stato iniziale.
 
-Uno script che modifica i file di configurazione, ad esempio, non deve aggiungere voci duplicate se viene eseguito più volte.
+Ad esempio, uno script che modifica i file di configurazione non dovrebbe aggiungere voci duplicate se è stato eseguito più volte.
 
 ### <a name="bPS5"></a>Verificare la disponibilità elevata dell'architettura del cluster
 
-I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno del cluster e le azioni script vengono eseguite per entrambi i nodi. Se i componenti da installare prevedono un solo nodo head, non installare i componenti in entrambi i nodi head.
+I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno del cluster e le azioni script vengono eseguite per entrambi i nodi. Se i componenti installati prevedono un solo nodo Head, non installare i componenti in entrambi i nodi head.
 
 > [!IMPORTANT]  
 > I servizi forniti nell'ambito di HDInsight sono progettati per supportare il failover tra i due nodi head, se necessario. Questa funzionalità non è estesa ai componenti personalizzati installati tramite azioni script. Se i componenti personalizzati richiedono una disponibilità elevata, è necessario implementare un meccanismo di failover personalizzato.
@@ -146,7 +146,7 @@ I cluster HDInsight basati su Linux forniscono due nodi head attivi all'interno 
 
 I componenti installati nel cluster possono avere una configurazione predefinita che usa l'archiviazione di Apache Hadoop Distributed File System (HDFS). HDInsight usa Archiviazione di Azure o Data Lake Storage come risorsa di archiviazione predefinita, poiché entrambi forniscono un file system compatibile con HDFS che rende permanenti i dati anche se il cluster viene eliminato. In alcuni casi, è possibile che sia necessario configurare i componenti installati in modo da usare WASB o ADL anziché HDFS.
 
-Per la maggior parte delle operazioni, tuttavia, non è necessario specificare il file system. Ad esempio, il seguente copia il file hadoop-common.jar dal file system locale all'archiviazione cluster:
+Per la maggior parte delle operazioni, non è necessario specificare il file system. Il codice seguente, ad esempio, copia il file Hadoop-Common. jar dal file system locale all'archiviazione cluster:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -161,13 +161,13 @@ HDInsight registra l'output dello script scritto in STDOUT e STDERR. È possibil
 > [!NOTE]  
 > Apache Ambari è disponibile solo se il cluster viene creato correttamente. Se si usa un'azione script durante la creazione del cluster e la creazione ha esito negativo, vedere la sezione relativa alla risoluzione dei problemi nell'articolo [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) che illustra altri modi per accedere alle informazioni registrate.
 
-Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
+Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. ad esempio:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. ad esempio:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -188,7 +188,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> Usare la logica di ripetizione dei tentativi per il ripristino da errori temporanei
 
-Quando si scaricano file, l'installazione di pacchetti tramite apt-get o altre azioni che trasmettono dati su Internet, l'azione potrebbe non riuscire a causa di errori di rete temporanei. Ad esempio, è possibile che sia in corso il failover a un nodo di backup della risorsa remota con la quale si sta comunicando.
+Quando si scaricano i file, si installano pacchetti usando apt-get o altre azioni che trasmettono dati su Internet, l'azione potrebbe non riuscire a causa di errori di rete temporanei. Ad esempio, è possibile che la risorsa remota con cui si comunica sia in fase di failover a un nodo di backup.
 
 Per rendere lo script resiliente agli errori temporanei, è possibile implementare la logica di ripetizione dei tentativi. La funzione seguente illustra come implementare la logica di ripetizione dei tentativi: prima che venga generato l'errore, ripete per tre volte il tentativo di eseguire l'operazione.
 
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 In uno script personalizzato possono essere usati gli helper seguenti:
 
-| Utilizzo dell'helper | Descrizione |
+| Utilizzo dell'helper | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Scarica un file dall'URI di origine al percorso file specificato. Per impostazione predefinita, non sovrascrive un file esistente. |
 | `untar_file TARFILE DESTDIR` |Estrae un file TAR (usando `-xf`) nella directory di destinazione. |
@@ -288,7 +288,7 @@ Gli script usati per la personalizzazione di un cluster devono essere archiviati
 
 * __URI leggibile pubblicamente__, ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
 
-* __Account Azure Data Lake Storage__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Avvio rapido: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* __Account Azure Data Lake Storage__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Guida introduttiva: configurare cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
     > L'entità servizio usata da HDInsight per accedere a Data Lake Storage deve avere accesso in lettura allo script.
@@ -304,7 +304,7 @@ L'archiviazione dei file in un account di Archiviazione di Azure o in Azure Data
 
 Di seguito sono indicati i passaggi effettuati durante la preparazione della distribuzione degli script:
 
-* Inserire i file che contengono gli script personalizzati in un percorso accessibile per i nodi del cluster durante la distribuzione, ad esempio la risorsa di archiviazione predefinita per il cluster. I file possono essere archiviati anche in servizi di hosting leggibili pubblicamente.
+* Inserire i file che contengono gli script personalizzati in un percorso accessibile per i nodi del cluster durante la distribuzione. ad esempio la risorsa di archiviazione predefinita per il cluster. I file possono essere archiviati anche in servizi di hosting leggibili pubblicamente.
 * Verificare che lo script sia idempotente. in modo che possa essere eseguito più volte nello stesso nodo.
 * Usare una directory di file temporanei /tmp per conservare i file scaricati usati dagli script e quindi eliminarli dopo aver eseguito gli script.
 * Nel caso in cui vengano modificate le impostazioni a livello di sistema operativo o i file di configurazione del servizio Hadoop, può essere opportuno riavviare i servizi HDInsight.
@@ -315,7 +315,7 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 * Portale di Azure
 * Azure PowerShell
-* Modelli di Gestione risorse di Azure
+* Modelli di Azure Resource Manager
 * HDInsight .NET SDK
 
 Per altre informazioni sull'utilizzo di ogni metodo, vedere [Come usare azioni script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -325,11 +325,11 @@ Per altre informazioni sull'utilizzo di ogni metodo, vedere [Come usare azioni s
 Microsoft fornisce script di esempio per installare i componenti in un cluster HDInsight. Vedere i collegamenti seguenti per altre azioni di script di esempio.
 
 * [Installare e usare Hue nei cluster HDInsight.](hdinsight-hadoop-hue-linux.md)
-* [Installare e usare Apache Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Di seguito sono elencati gli errori che potrebbero essere visualizzati quando si usano script personalizzati:
+Di seguito sono riportati gli errori che possono verificarsi durante l'uso di script sviluppati:
 
 **Errore**: `$'\r': command not found`. A volte seguito da `syntax error: unexpected end of file`.
 
@@ -337,7 +337,7 @@ Di seguito sono elencati gli errori che potrebbero essere visualizzati quando si
 
 Questo problema si verifica più spesso quando lo script viene creato in un ambiente Windows, perché CRLF è una terminazione di riga comune per molti editor di testo in Windows.
 
-*Risoluzione*: se nell'editor di testo è disponibile come opzione, selezionare il formato Unix o LF come terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
+*Soluzione*: se si tratta di un'opzione nell'editor di testo, selezionare il formato UNIX o LF per la terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
 
 > [!NOTE]  
 > I comandi seguenti sono all'incirca equivalenti nel senso che cambiano le terminazioni di riga CRLF in LF. Selezionarne uno in base alle utilità disponibili nel proprio sistema.

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128772"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672565"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
 
@@ -21,6 +21,7 @@ L'inserimento di dati cronologici da Internet delle cose per risorse quali dispo
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Prima di procedere con questo articolo, verificare di aver installato FarmBeats e raccolto i dati cronologici da Internet.
+Sarà inoltre necessario abilitare l'accesso ai partner come indicato nei passaggi seguenti.
 
 ## <a name="enable-partner-access"></a>Abilitare l'accesso ai partner
 
@@ -28,8 +29,8 @@ Prima di procedere con questo articolo, verificare di aver installato FarmBeats 
 
 - Endpoint API: URL dell'hub dati, ad esempio https://<datahub>. azurewebsites.net
 - ID tenant
-- ID Client
-- Segreto client
+- ID client
+- Client Secret
 - Stringa di connessione EventHub
 
 Attenersi ai passaggi seguenti per generarli:
@@ -74,24 +75,24 @@ Attenersi ai passaggi seguenti per generarli:
 - /**sensore-sensore corrisponde** a un sensore fisico che registra i valori. Un sensore è in genere connesso a un dispositivo con un ID dispositivo.  
 
 
-|        Modello di dispositivo   |  Suggerimenti:   |
+|        Modello di dispositivo   |  Suggerimenti   |
 | ------- | -------             |
 |     Tipo (nodo, gateway)        |          1 stella      |
 |          Produttore            |         2 stelle     |
 |  ProductCode                    |  Codice prodotto del dispositivo o nome/numero del modello. Ad esempio, EnviroMonitor # 6800.  |
 |            Porte          |     Nome e tipo di porta (digitale/analogico)
-|     Nome                 |  Nome per identificare la risorsa. Ad esempio il nome del modello o il nome del prodotto.
-      DESCRIZIONE     | Fornire una descrizione significativa del modello
-|    Proprietà          |    Proprietà aggiuntive del produttore   |
+|     name                 |  Nome per identificare la risorsa. Ad esempio il nome del modello o il nome del prodotto.
+      Description     | Fornire una descrizione significativa del modello
+|    properties          |    Proprietà aggiuntive del produttore   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato  |
 |  hardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC e così via.
 |  reportingInterval        |   Intervallo di Reporting in secondi
-|  Location            |  Latitudine del dispositivo (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri)   
+|  Località            |  Latitudine del dispositivo (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri)   
 |ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo avrà parentDeviceId come gateway.  |
-|    Nome            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
-|     DESCRIZIONE       |      Fornire una descrizione significativa  |
-|     Proprietà    |  Proprietà aggiuntive del produttore
+|    name            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
+|     Description       |      Fornire una descrizione significativa  |
+|     properties    |  Proprietà aggiuntive del produttore
 |     **Modello di sensore**        |          |
 |       Tipo (analogico, digitale)          |      tipo di sensore che indica se analogico o digitale       |
 |          Produttore            |       produttore del sensore     |
@@ -101,18 +102,18 @@ Attenersi ai passaggi seguenti per generarli:
 |    Tipo > sensorMeasures    |Tipo di misura dei dati di telemetria del sensore. Di seguito sono riportati i tipi definiti dal sistema: Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
 |        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Di seguito sono riportate le unità definite dal sistema: nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, Meter, inch, feet, Mile, kilometr, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentual, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, Millilitr, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, vedere/ API ExtendedType.|
 |    SensorMeasures > aggregationType    |  I valori possibili sono None, Average, Maximum, Minimum o StandardDeviation  |
-|          Nome            | Nome per identificare la risorsa. Ad esempio il nome del modello o il nome del prodotto.  |
-|    DESCRIZIONE        | Fornire una descrizione significativa del modello  |
-|   Proprietà       |  Proprietà aggiuntive del produttore  |
+|          name            | Nome per identificare la risorsa. Ad esempio il nome del modello o il nome del prodotto.  |
+|    Description        | Fornire una descrizione significativa del modello  |
+|   properties       |  Proprietà aggiuntive del produttore  |
 |    **Sensore**      |          |
 | hardwareId          |   ID univoco per il sensore impostato dal produttore |
 |  SensorModelId     |    ID del modello di sensore associato   |
 | location          |  Latitudine del sensore (da-90 a + 90)/Longitude (-180 a 180)/Elevation (in metri)|
 |   nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo. |
 |    DeviceID  |    ID del dispositivo a cui è connesso il sensore     |
-| Nome            |   Nome per identificare la risorsa. Ad esempio il nome del sensore, il nome del prodotto e il numero di modello/codice del prodotto.|
-|    DESCRIZIONE      | Fornire una descrizione significativa |
-|    Proprietà        |Proprietà aggiuntive del produttore |
+| name            |   Nome per identificare la risorsa. Ad esempio il nome del sensore, il nome del prodotto e il numero di modello/codice del prodotto.|
+|    Description      | Fornire una descrizione significativa |
+|    properties        |Proprietà aggiuntive del produttore |
 
 Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -124,8 +125,8 @@ Per eseguire una richiesta API, combinare il metodo HTTP (POST), l'URL del servi
 
 FarmBeats Data Hub USA l'autenticazione della porta, che richiede le credenziali seguenti generate nella sezione precedente.
 
-- ID Client
-- Segreto client
+- ID client
+- Client Secret
 - ID tenant  
 
 Usando le credenziali sopra riportate, il chiamante può richiedere un token di accesso, che deve essere inviato nelle richieste API successive nella sezione dell'intestazione, come indicato di seguito:

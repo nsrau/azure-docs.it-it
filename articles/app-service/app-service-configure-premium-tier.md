@@ -1,26 +1,17 @@
 ---
-title: Configurare il livello PremiumV2 - Servizio app di Azure | Microsoft Docs
+title: Configurare il livello PremiumV2
 description: Informazioni su migliorare le prestazioni di un'app Web, un'app per dispositivi mobili o un'app per le API nel servizio app di Azure passando al nuovo piano tariffario PremiumV2.
 keywords: servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/25/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aa1e522e395f869f73c0b250623665a9b175384e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067223"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672217"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 

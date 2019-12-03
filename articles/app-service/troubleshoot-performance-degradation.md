@@ -1,27 +1,18 @@
 ---
-title: Risolvere i problemi di riduzione del livello delle prestazioni - Servizio app di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app nel Servizio app di Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Risoluzione dei problemi di riduzione delle prestazioni
+description: Informazioni su come risolvere i problemi di prestazioni delle app lente nel servizio app Azure, tra cui il monitoraggio del comportamento delle app, la raccolta di dati e la mitigazione del problema.
 tags: top-support-issue
 keywords: prestazioni dell'applicazione Web, app lenta, rallentamento app
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066534"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688307"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -50,9 +41,9 @@ Il [servizio app](overview.md) presenta diverse opzioni per ogni passaggio.
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Osservare e monitorare il comportamento dell'applicazione
+### <a name="1-observe-and-monitor-application-behavior"></a>1. osservare e monitorare il comportamento dell'applicazione
 #### <a name="track-service-health"></a>Tenere traccia dell'integrità del servizio
-Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell'integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### <a name="monitor-your-app"></a>Monitorare l'app
 Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app fare clic sul riquadro **Richieste ed errori**. Il pannello **Metrica** mostra tutte le metriche che si possono aggiungere.
@@ -60,14 +51,14 @@ Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pan
 Le metriche più comunemente monitorate per le app sono
 
 * Working set della memoria medio
-* Tempo di risposta medio
+* Tempo medio di risposta
 * Tempo CPU
 * Working set della memoria
-* Requests
+* Richieste
 
 ![Monitorare le prestazioni dell'app](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 * [Monitorare le app in Servizio app di Azure](web-sites-monitor.md)
 * [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -95,7 +86,7 @@ Ogni app del servizio app fornisce un endpoint di gestione estensibile che conse
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2. Raccogliere i dati
+### <a name="2-collect-data"></a>2. raccolta dati
 Il servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, separate in diagnostica del server Web e diagnostica delle applicazioni.
 
 #### <a name="enable-web-server-diagnostics"></a>Abilitare la diagnostica del server Web
@@ -150,7 +141,7 @@ Per altre informazioni sulle funzionalità disponibili in Kudu, vedere gli [stru
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Attenuare il problema
+### <a name="3-mitigate-the-issue"></a>3. attenuare il problema
 #### <a name="scale-the-app"></a>Ridimensionare l'app
 Nel servizio app di Azure, per ottimizzare le prestazioni e la velocità effettiva è possibile modificare la scalabilità in cui è in esecuzione l'applicazione. Aumentare le prestazioni di un'app implica due azioni correlate: passare a un piano tariffario superiore e configurare determinate impostazioni una volta adottato il nuovo piano.
 

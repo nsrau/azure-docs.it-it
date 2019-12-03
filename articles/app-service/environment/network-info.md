@@ -1,24 +1,18 @@
 ---
-title: Considerazioni sulla rete per un ambiente del servizio app - Azure
-description: Viene spiegato il traffico di rete dell'ambiente del servizio app e come impostare gruppi di sicurezza di rete (NSG) e route definite dall'utente (UDR) con l'ambiente del servizio app
-services: app-service
-documentationcenter: na
+title: Considerazioni sulla rete
+description: Informazioni sul traffico di rete dell'ambiente del servizio app e su come impostare gruppi di sicurezza di rete e route definite dall'utente con l'ambiente del servizio app.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470650"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687135"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -59,9 +53,9 @@ Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli
 
 Per il funzionamento dell'ambiente del servizio app, l'ambiente del servizio app richiede che siano aperte le porte seguenti:
 
-| Uso | Da | To |
+| Uso | Da | Per |
 |-----|------|----|
-| gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
+| Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
 |  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet ASE: 16001
 
@@ -95,8 +89,8 @@ L'ambiente del servizio app comunica con indirizzi Internet accessibili sulle po
 | DNS | 53 |
 | NTP | 123 |
 | 8CRL, aggiornamenti di Windows, dipendenze di Linux, servizi di Azure | 80/443 |
-| SQL di Azure | 1433 | 
-| Monitoraggio | 12000 |
+| Azure SQL | 1433 | 
+| Monitorare | 12000 |
 
 Le dipendenze in uscita sono elencate nel documento in cui viene descritto il [blocco del traffico in uscita ambiente del servizio app](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
 
@@ -216,7 +210,7 @@ Per creare le stesse route manualmente, seguire questa procedura:
 
     ![Gruppi di sicurezza di rete e route][7]
 
-## <a name="service-endpoints"></a>Endpoint servizio ##
+## <a name="service-endpoints"></a>Endpoint del servizio ##
 
 Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints]. 
 
@@ -224,7 +218,7 @@ Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono 
 
 Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra. Nessun altro servizio di Azure si comporta come Azure SQL rispetto agli endpoint di servizio. Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-![Endpoint servizio][8]
+![Endpoint del servizio][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png

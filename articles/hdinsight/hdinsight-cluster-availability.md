@@ -6,17 +6,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 11/25/2019
+ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044470"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687842"
 ---
-# <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità del cluster con Ambari e i log di monitoraggio di Azure
+# <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità dei cluster con Apache Ambari e i log di monitoraggio di Azure
 
 I cluster HDInsight includono sia Apache Ambari, che fornisce informazioni sull'integrità a colpo d'occhio e avvisi predefiniti, sia l'integrazione dei log di monitoraggio di Azure, che fornisce metriche e log in cui è possibile eseguire query, nonché avvisi configurabili.
 
@@ -26,9 +26,9 @@ Questo documento illustra come usare questi strumenti per monitorare il cluster 
 
 ### <a name="dashboard"></a>dashboard
 
-È possibile accedere al dashboard di Ambari facendo clic sul collegamento **Ambari Home** nella sezione **Dashboard del cluster del pannello** panoramica di HDInsight in portale di Azure come illustrato di seguito. In alternativa, è possibile accedervi immettendo l'URL seguente in un browser [https://\<clustername\>. azurehdinsight.NET](https://clustername.azurehdinsight.net/)
+È possibile accedere al dashboard di Ambari selezionando il collegamento **Ambari Home** nella sezione **Dashboard del cluster** della panoramica di HDInsight in portale di Azure come illustrato di seguito. In alternativa, è possibile accedervi passando a `https://CLUSTERNAME.azurehdinsight.net` in un browser in cui CLUSTERname è il nome del cluster.
 
-![Visualizzazione del portale delle risorse di HDInsight](media/hdinsight-cluster-availability/portal-oms-overview1.png)
+![Visualizzazione del portale delle risorse di HDInsight](media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png)
 
 Verranno quindi richiesti il nome utente e la password di accesso al cluster. Immettere le credenziali selezionate durante la creazione del cluster.
 
@@ -38,44 +38,44 @@ Si passerà quindi al dashboard di Ambari, che contiene i widget che mostrano al
 
 ### <a name="hosts--view-individual-node-status"></a>Host: visualizzare lo stato di un singolo nodo
 
-È anche possibile visualizzare le informazioni sullo stato per i singoli nodi. Fare clic sulla scheda **host** per visualizzare un elenco di tutti i nodi del cluster e visualizzare le informazioni di base su ogni nodo. Il segno di spunta verde a sinistra di ogni nome di nodo indica che tutti i componenti sono presenti nel nodo. Se un componente è inattivo in un nodo, verrà visualizzato un triangolo di avviso rosso anziché il segno di spunta verde.
+È anche possibile visualizzare le informazioni sullo stato per i singoli nodi. Selezionare la scheda **host** per visualizzare un elenco di tutti i nodi del cluster e visualizzare le informazioni di base su ogni nodo. Il segno di spunta verde a sinistra di ogni nome di nodo indica che tutti i componenti sono presenti nel nodo. Se un componente è inattivo in un nodo, verrà visualizzato un triangolo di avviso rosso anziché il segno di spunta verde.
 
 ![Visualizzazione host HDInsight Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
-È quindi possibile fare clic sul **nome** di un nodo per visualizzare le metriche host più dettagliate per quel determinato nodo. Questa vista Mostra lo stato e la disponibilità di ogni singolo componente.
+È quindi possibile selezionare il **nome** di un nodo per visualizzare le metriche host più dettagliate per quel determinato nodo. Questa vista Mostra lo stato e la disponibilità di ogni singolo componente.
 
 ![Apache Ambari ospita la visualizzazione a nodo singolo](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### <a name="ambari-alerts"></a>Avvisi di Ambari
 
-Ambari offre anche diversi avvisi configurabili che possono fornire notifiche di determinati eventi. Quando gli avvisi vengono attivati, vengono visualizzati nell'angolo in alto a sinistra di Ambari in una notifica rossa contenente il numero di avvisi. Se si fa clic su questa notifica, viene visualizzato un elenco di avvisi correnti.
+Ambari offre anche diversi avvisi configurabili che possono fornire notifiche di determinati eventi. Quando gli avvisi vengono attivati, vengono visualizzati nell'angolo in alto a sinistra di Ambari in una notifica rossa contenente il numero di avvisi. Se si seleziona questa notifica, viene visualizzato un elenco di avvisi correnti.
 
 ![Conteggio avvisi correnti di Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
-Per visualizzare un elenco di definizioni di avviso e i relativi stati, fare clic sulla scheda **avvisi** , come illustrato di seguito.
+Per visualizzare un elenco di definizioni di avviso e i relativi stati, selezionare la scheda **avvisi** , come illustrato di seguito.
 
 ![Visualizzazione definizioni avvisi Ambari](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
 
 Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
-| Nome avviso                        | Description                                                                                                                                                                           |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Riepilogo integrità dataNode           | Questo avviso a livello di servizio viene attivato se sono presenti nodi di tipo non integro                                                                                                                |
-| Stato disponibilità elevata NameNode | Questo avviso a livello di servizio viene attivato se il NameNode attivo NameNode o standby non è in esecuzione.                                                                              |
+| Nome avviso                        | Description   |
+|---|---|
+| Riepilogo integrità dataNode           | Questo avviso a livello di servizio viene attivato se sono presenti nodi di tipo non integro|
+| Stato disponibilità elevata NameNode | Questo avviso a livello di servizio viene attivato se il NameNode attivo o NameNode standby non sono in esecuzione.|
 | Percentuale di JournalNodes disponibili    | Questo avviso viene generato se il numero di JournalNodes inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo JournalNode. |
-| Percentuale di dataNode disponibili       | Questo avviso viene generato se il numero di nodi inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo dataNode.       |
+| Percentuale di dataNode disponibili       | Questo avviso viene generato se il numero di nodi inattivi nel cluster è maggiore della soglia critica configurata. Aggrega i risultati dei controlli del processo dataNode.|
 
 Un elenco completo degli avvisi Ambari che consentono di monitorare la disponibilità di un cluster è disponibile [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
-Per visualizzare i dettagli di un avviso o modificare i criteri, fare clic sul **nome** dell'avviso. Come esempio, prendere il **Riepilogo di integrità dataNode** . È possibile visualizzare una descrizione dell'avviso, nonché i criteri specifici che attiveranno un avviso "avviso" o "critico" e l'intervallo di controllo per i criteri. Per modificare la configurazione, fare clic sul pulsante **Edit (modifica** ) nell'angolo superiore destro della casella di configurazione.
+Per visualizzare i dettagli di un avviso o modificare i criteri, selezionare il **nome** dell'avviso. Come esempio, prendere il **Riepilogo di integrità dataNode** . È possibile visualizzare una descrizione dell'avviso, nonché i criteri specifici che attiveranno un avviso "avviso" o "critico" e l'intervallo di controllo per i criteri. Per modificare la configurazione, fare clic sul pulsante **Edit (modifica** ) nell'angolo superiore destro della casella di configurazione.
 
 ![Configurazione degli avvisi di Apache Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
 Qui è possibile modificare la descrizione e, ancora più importante, l'intervallo di controllo e le soglie per avvisi o avvisi critici.
 
-![Visualizzazione di modifica della configurazione degli avvisi Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
+![Visualizzazione di modifica configurazioni avvisi Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
 
-In questo esempio, è possibile fare in modo che 2 nodi di tipo non integro attivino un avviso critico e 1 dataNode non integro attivi solo un avviso. Al termine della modifica, fare clic su **Salva** .
+In questo esempio, è possibile fare in modo che 2 nodi di tipo non integro attivino un avviso critico e 1 dataNode non integro attivi solo un avviso. Al termine della modifica, selezionare **Salva** .
 
 ### <a name="email-notifications"></a>Notifiche tramite posta elettronica
 
@@ -83,30 +83,30 @@ Facoltativamente, è anche possibile configurare le notifiche di posta elettroni
 
 ![Azione di gestione notifiche di Ambari](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-Viene visualizzata una finestra di dialogo per la gestione delle notifiche di avviso. Fare clic sul **+** nella parte inferiore della finestra di dialogo e compilare i campi obbligatori per fornire a Ambari i dettagli del server di posta elettronica da cui inviare i messaggi di posta elettronica.
+Viene visualizzata una finestra di dialogo per la gestione delle notifiche di avviso. Selezionare il **+** nella parte inferiore della finestra di dialogo e compilare i campi obbligatori per fornire a Ambari i dettagli del server di posta elettronica da cui inviare i messaggi di posta elettronica.
 
 > [!TIP]
 > La configurazione delle notifiche di posta elettronica di Ambari può essere un modo efficace per ricevere avvisi in un'unica posizione quando si gestiscono molti cluster HDInsight.
 
 ## <a name="azure-monitor-logs-integration"></a>Integrazione dei log di monitoraggio di Azure
 
-Log di monitoraggio di Azure consente di raccogliere e aggregare i dati generati da più risorse, ad esempio i cluster HDInsight, in un'unica posizione per ottenere un'esperienza di monitoraggio unificata.
+I log di monitoraggio di Azure consentono di raccogliere e aggregare i dati generati da più risorse, ad esempio i cluster HDInsight, in un'unica posizione per ottenere un'esperienza di monitoraggio unificata.
 
-Come prerequisito, sarà necessaria un'area di lavoro Log Analytics per archiviare i dati raccolti. Se non è già stato creato, è possibile seguire le istruzioni riportate qui: [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Come prerequisito, è necessario disporre di un'area di lavoro Log Analytics per archiviare i dati raccolti. Se non è già stato creato, è possibile seguire le istruzioni riportate qui: [creare un'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Abilitare l'integrazione dei log di monitoraggio di Azure HDInsight
 
-Dalla pagina delle risorse cluster HDInsight nel portale, fare clic sul pannello **Operations Management Suite** . Quindi, fare clic su **Abilita** e selezionare l'area di lavoro log Analytics dall'elenco a discesa.
+Dalla pagina delle risorse cluster HDInsight nel portale selezionare **Operations Management Suite**. Selezionare quindi **Abilita** e selezionare l'area di lavoro log Analytics dall'elenco a discesa.
 
-![Pannello HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
 
-### <a name="query-metrics-and-logs-tables-in-the-logs-blade"></a>Eseguire query sulle metriche e sulle tabelle dei log nel pannello logs
+### <a name="query-metrics-and-logs-tables"></a>Tabelle di metriche e log di query
 
-Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazione potrebbe richiedere alcuni minuti), passare alla risorsa dell' **area di lavoro log Analytics** e fare clic sul pannello **log** .
+Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazione potrebbe richiedere alcuni minuti), passare alla risorsa dell' **area di lavoro log Analytics** e selezionare **log**.
 
-![Pannello log dell'area di lavoro Log Analytics](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
+![Log dell'area di lavoro Log Analytics](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
-Il pannello **logs** elenca una serie di query di esempio, ad esempio:
+Log elenca una serie di query di esempio, ad esempio:
 
 | Nome query                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
@@ -116,34 +116,33 @@ Il pannello **logs** elenca una serie di query di esempio, ad esempio:
 | Computer non disponibili           | Elencare tutti i computer noti che non hanno inviato un heartbeat nelle ultime 5 ore |
 | Frequenza di disponibilità               | Calcolare la frequenza di disponibilità di ogni computer connesso                |
 
-Eseguire ad esempio la query di esempio sulla **frequenza di disponibilità** facendo clic su **Esegui** nella query, come illustrato nella schermata precedente. Verrà visualizzata la percentuale di disponibilità di ogni nodo nel cluster come percentuale. Se sono stati abilitati più cluster HDInsight per l'invio di metriche alla stessa area di lavoro Log Analytics, verrà visualizzata la tariffa di disponibilità per tutti i nodi presenti in tali cluster.
+Eseguire ad esempio la query di esempio relativa alla **frequenza di disponibilità** selezionando **Esegui** nella query, come illustrato nella schermata precedente. Verrà visualizzata la percentuale di disponibilità di ogni nodo nel cluster come percentuale. Se sono stati abilitati più cluster HDInsight per l'invio di metriche alla stessa area di lavoro Log Analytics, verrà visualizzata la tariffa di disponibilità per tutti i nodi presenti in tali cluster.
 
-![Log Analytics query di esempio del pannello log dell'area di lavoro ' frequenza di disponibilità'](media/hdinsight-cluster-availability/portal-availability-rate.png)
+![Query di esempio ' frequenza di disponibilità' dei log dell'area di lavoro Log Analytics](media/hdinsight-cluster-availability/portal-availability-rate.png)
 
-> [!NOTE] 
+> [!NOTE]  
 > La frequenza di disponibilità viene misurata in un periodo di 24 ore, quindi il cluster deve essere eseguito per almeno 24 ore prima di visualizzare le tariffe di disponibilità accurate.
 
-È possibile aggiungere questa tabella a un dashboard condiviso facendo clic su **Aggiungi** nell'angolo in alto a destra. Se non si dispone di dashboard condivisi scrivibili, è possibile vedere come crearne uno qui: [creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
+È possibile aggiungere questa tabella a un dashboard condiviso facendo clic su **Aggiungi** nell'angolo in alto a destra. Se non sono presenti dashboard condivisi scrivibili, è possibile vedere come crearne uno qui: [creare e condividere i dashboard nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Avvisi di monitoraggio di Azure
 
 È anche possibile configurare gli avvisi di monitoraggio di Azure che si attiveranno quando il valore di una metrica o i risultati di una query soddisfano determinate condizioni. Si supponga, ad esempio, di creare un avviso per inviare un messaggio di posta elettronica quando uno o più nodi non hanno inviato un heartbeat in 5 ore, ovvero si presume che non sia disponibile.
 
-Nel pannello **log** eseguire la query di esempio **computer non disponibili** facendo clic su **Esegui** nella query, come illustrato di seguito.
+Da **log**eseguire la query di esempio **computer non disponibili** selezionando **Esegui** nella query, come illustrato di seguito.
 
-![Esempio ' computer non disponibili ' del pannello log dell'area di lavoro di Log Analytics](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
+![Esempio di log dell'area di lavoro di Log Analytics ' computer non disponibili '](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
 
-Se tutti i nodi sono disponibili, la query restituirà 0 Risultati per il momento. Fare clic su **nuova regola di avviso** per iniziare la configurazione dell'avviso per la query.
+Se tutti i nodi sono disponibili, per il momento questa query restituirà zero risultati. Fare clic su **nuova regola di avviso** per iniziare la configurazione dell'avviso per la query.
 
 ![Nuova regola di avviso per l'area di lavoro Log Analytics](media/hdinsight-cluster-availability/portal-logs-new-alert-rule.png)
 
-Sono disponibili tre componenti per un avviso: la *risorsa* per la quale creare la regola (in questo caso l'area di lavoro log Analytics), la *condizione* per attivare l'avviso e i *gruppi di azioni* che determinano cosa accadrà quando l'avviso è attivato.
-
+Sono disponibili tre componenti per un avviso: la *risorsa* per la quale creare la regola (in questo caso l'area di lavoro log Analytics), la *condizione* per attivare l'avviso e i *gruppi di azioni* che determinano cosa accadrà quando viene attivato l'avviso.
 Fare clic sul **titolo della condizione**, come illustrato di seguito, per completare la configurazione della logica del segnale.
 
 ![Condizione di creazione della regola di avviso del portale](media/hdinsight-cluster-availability/portal-condition-title.png)
 
-Verrà aperto il pannello **Configura logica del segnale** .
+Verrà visualizzata la **configurazione della logica del segnale**.
 
 Impostare la sezione **logica avvisi** come segue:
 
@@ -153,29 +152,28 @@ Poiché questa query restituisce solo i nodi non disponibili come risultati, se 
 
 Nella sezione **valutato in base a** impostare il **periodo** e la **frequenza** in base alla frequenza con cui si desidera controllare i nodi non disponibili.
 
-Si noti che, ai fini di questo avviso, è necessario assicurarsi che **period = Frequency.** Altre informazioni su periodo, frequenza e altri parametri di avviso sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
+Ai fini di questo avviso, è necessario assicurarsi che **periodo = frequenza.** Altre informazioni su periodo, frequenza e altri parametri di avviso sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types).
 
-Al termine della configurazione della logica del segnale, fare clic su **fine** .
+Selezionare **fine** al termine della configurazione della logica del segnale.
 
-![Regola di avviso configurare la logica del segnale](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
+![Regola di avviso configura la logica del segnale](media/hdinsight-cluster-availability/portal-configure-signal-logic.png)
 
 Se non si dispone già di un gruppo di azioni esistente, fare clic su **Crea nuovo** nella sezione **gruppi di azioni** .
 
-![Regola di avviso crea nuovo gruppo di azioni](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
+![Regola di avviso crea un nuovo gruppo di azioni](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
-Verrà aperto il pannello **Aggiungi gruppo di azioni** . Scegliere un **nome del gruppo di azioni**, un **nome breve**, una **sottoscrizione**e un **gruppo di risorse.** Nella sezione **azioni** scegliere un nome di **azione** e selezionare **posta elettronica/SMS/push/Voice** come **tipo di azione.**
+Verrà aperto **Aggiungi gruppo di azione**. Scegliere un **nome del gruppo di azioni**, un **nome breve**, una **sottoscrizione**e un **gruppo di risorse.** Nella sezione **azioni** scegliere un nome di **azione** e selezionare **posta elettronica/SMS/push/Voice** come **tipo di azione.**
 
 > [!NOTE]
 > Esistono diverse altre azioni che possono essere attivate da un avviso oltre a un messaggio di posta elettronica/SMS/push/Voice, ad esempio una funzione di Azure, LogicApp, webhook, ITSM e Runbook di automazione. [Ulteriori informazioni.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-Verrà aperto il pannello **e-mail/SMS/push/Voice** . Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Fare clic su **OK** nel pannello **posta elettronica/SMS/push/voce** , quindi nel pannello **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
+Verrà aperta la **posta elettronica/SMS/push/Voice**. Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Selezionare **OK** in **posta elettronica/SMS/push/voce**, quindi in **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
 
-![Regola di avviso creazione Aggiungi gruppo di azione](media/hdinsight-cluster-availability/portal-add-action-group.png)
+![Regola di avviso crea il gruppo di azioni Aggiungi](media/hdinsight-cluster-availability/portal-add-action-group.png)
 
-Dopo la chiusura di questi pannelli, il gruppo di azioni verrà visualizzato nella sezione **gruppi di azioni** . Infine, completare la sezione **Dettagli avviso** digitando un nome e una **Descrizione** della **regola di avviso** e scegliendo una **gravità**.
-Fare clic su **Crea regola di avviso** per terminare.
+Dopo la chiusura di questi pannelli, il gruppo di azioni verrà visualizzato nella sezione **gruppi di azioni** . Infine, completare la sezione **Dettagli avviso** digitando un nome e una **Descrizione** della **regola di avviso** e scegliendo una **gravità**. Fare clic su **Crea regola di avviso** per terminare.
 
-![Fine della creazione della regola di avviso del portale](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
+![Il portale crea una regola di avviso completa](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
 
 > [!TIP]
 > La possibilità di specificare la **gravità** è uno strumento potente che può essere usato durante la creazione di più avvisi. Ad esempio, è possibile creare un avviso per generare un avviso (gravità 1) se un singolo nodo head diventa inattivo e un altro avviso che genera Critical (gravità 0) nell'evento improbabile in cui entrambi i nodi head si arrestano.
@@ -184,13 +182,14 @@ Quando viene soddisfatta la condizione per questo avviso, l'avviso viene attivat
 
 ![Esempio di messaggio di posta elettronica di avviso monitoraggio di Azure](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
-È anche possibile visualizzare tutti gli avvisi generati, raggruppati in base alla gravità, accedendo al pannello **avvisi** nell' **area di lavoro log Analytics**.
+È anche possibile visualizzare tutti gli avvisi generati, raggruppati in base alla gravità, passando ad **avvisi** nell' **area di lavoro log Analytics**.
 
 ![Avvisi dell'area di lavoro Log Analytics](media/hdinsight-cluster-availability/hdi-portal-oms-alerts.png)
 
-Se si fa clic su un raggruppamento di gravità (ad esempio, il valore di gravità **1,** come evidenziato in precedenza), i record per tutti gli avvisi di tale gravità vengono visualizzati come indicato di seguito:
+Selezionando un raggruppamento di gravità (ad esempio, il valore di gravità **1,** come evidenziato in precedenza), i record per tutti gli avvisi di tale gravità vengono visualizzati come indicato di seguito:
 
-![Avvisi di Log Analytics dell'area di lavoro 1](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
+![Log Analytics l'area di lavoro SEV un avviso](media/hdinsight-cluster-availability/portal-oms-alerts-sev1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 - [Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight](hdinsight-high-availability-linux.md)

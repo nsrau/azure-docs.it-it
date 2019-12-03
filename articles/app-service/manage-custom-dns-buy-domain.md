@@ -1,25 +1,16 @@
 ---
-title: Acquistare un nome di dominio personalizzato in Azure - Servizio app
-description: Informazioni su come acquistare un nome di dominio personalizzato con un'app Web in Servizio app di Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: Acquistare un nome di dominio personalizzato
+description: Informazioni su come acquistare un dominio del servizio app e usarlo come dominio personalizzato per il servizio app app Azure.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470440"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672390"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -40,7 +31,7 @@ Per completare questa esercitazione:
 
 Per usare domini personalizzati in Servizio app di Azure, è necessario che il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) sia un livello a pagamento (**Condiviso**, **Basic**, **Standard** o **Premium**). In questo passaggio, verificare che l'app sia supportata dal piano tariffario adeguato.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
@@ -48,7 +39,7 @@ Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account 
 
 Dal menu a sinistra selezionare **Servizi app** e quindi selezionare il nome dell'app.
 
-![Passare all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
 Viene visualizzata la pagina di gestione dell'app del servizio app.  
 
@@ -60,7 +51,7 @@ Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla 
 
 Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'app non sia inclusa nel livello **F1**. Il DNS personalizzato non è supportato nel livello **F1**. 
 
-![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+![Controllo del piano tariffario](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Se il piano di servizio app non è **F1**, chiudere la pagina **Aumenta** e passare a [Acquista il dominio](#buy-the-domain).
 
@@ -70,7 +61,7 @@ Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno q
 
 Fare clic su **Apply**.
 
-![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+![Controllo del piano tariffario](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
 La visualizzazione della notifica seguente indica che l'operazione di passaggio al livello superiore è stata completata.
 
@@ -81,7 +72,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 ### <a name="pricing-information"></a>Informazioni sui prezzi
 Per informazioni sui prezzi dei domini app Azure Service, visitare la [pagina dei prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/windows/) e scorrere verso il basso fino al dominio del servizio app.
 
-### <a name="sign-in-to-azure"></a>Accedere ad Azure
+### <a name="sign-in-to-azure"></a>Accedere a Azure
 Aprire il [portale di Azure](https://portal.azure.com/) e accedere con l'account Azure.
 
 ### <a name="launch-buy-domains"></a>Avvio di Acquistare un dominio
@@ -115,9 +106,9 @@ Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di 
 
 Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella seguente per alcune spiegazioni:
 
-| Impostazione | Valore consigliato | Descrizione |
+| Impostazione | Valore consigliato | Description |
 |-|-|-|
-|Protezione della privacy | Abilita | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
+|Protezione della privacy | Abilitare | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
 | Assegnare i nomi host predefiniti | **www** e **\@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app è accessibile tramite i nomi host selezionati. Se l'app è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta i record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
 
 ### <a name="accept-terms-and-purchase"></a>Accettare i termini di acquisto
@@ -177,7 +168,7 @@ Verificare che il dominio acquistato sia presente nella sezione **domini del ser
 Selezionare **Aggiungi il nome host**.
 
 ### <a name="configure-hostname"></a>Configurare il nome host
-Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. Ad esempio:
+Nella finestra di dialogo **Aggiungere nome host**, digitare il nome di dominio completo del dominio del servizio app o di qualsiasi sottodominio. ad esempio:
 
 - kontoso.net
 - www\.kontoso.net
@@ -294,6 +285,6 @@ Per confermare l'operazione, selezionare **ì**.
 
 Al termine dell’operazione, il dominio viene rilasciato dalla sottoscrizione e può essere riacquistato dagli altri utenti. 
 
-## <a name="direct-default-url-to-a-custom-directory"></a>URL diretto predefinito a una directory personalizzata
+## <a name="direct-default-url-to-a-custom-directory"></a>Indirizzare l'URL predefinito a una directory personalizzata
 
 Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Per indirizzarle a una sottodirectory, ad esempio `public`, vedere la sezione relativa all'[indirizzamento dell'URL predefinito a una directory personalizzata](app-service-web-tutorial-custom-domain.md#virtualdir).

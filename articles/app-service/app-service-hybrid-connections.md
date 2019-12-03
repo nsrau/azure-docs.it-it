@@ -1,25 +1,18 @@
 ---
-title: Connessioni ibride - Servizio app di Azure | Microsoft Docs
-description: Informazioni su come creare e usare Connessioni ibride per accedere alle risorse in reti diverse
-services: app-service
-documentationcenter: ''
+title: Connessioni ibride
+description: Informazioni su come creare e usare connessioni ibride nel servizio app Azure per accedere alle risorse in reti diversi.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff2dac5d27cfffb92922038c1d1c67cd5118557a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffc5ee32541cfbbda2ae54fd229c1436f133d730
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082387"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671520"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connessioni ibride del Servizio app di Azure #
 
@@ -28,7 +21,7 @@ Connessioni ibride è un servizio disponibile in Azure e una funzionalità del S
 Nel Servizio app la funzionalità Connessioni ibride può essere usata per accedere alle risorse di applicazione presenti in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non abilita una funzionalità alternativa per accedere all'applicazione. Quando usata in Servizio app, ogni connessione ibrida è correlata a una singola combinazione di host e porta TCP. Ciò significa che l'endpoint della connessione ibrida può trovarsi in qualsiasi sistema operativo e in qualsiasi applicazione, a condizione che si acceda a una porta TCP in ascolto. La funzionalità Connessioni ibride non conosce né deve conoscere quale sia il protocollo dell'applicazione o a quale risorsa l'utente stia accedendo, in quanto si limita a fornire l'accesso alla rete.  
 
 
-## <a name="how-it-works"></a>Funzionamento ##
+## <a name="how-it-works"></a>Come funziona ##
 La funzionalità Connessioni ibride è costituita da due chiamate in uscita a Inoltro del bus di servizio di Azure. Esistono una connessione da una libreria nell'host in cui l'app è in esecuzione nel Servizio app e una connessione da Gestione connessione ibrida a Inoltro del bus di servizio. Gestione connessione ibrida è un servizio di inoltro che viene distribuito nell'ambito della rete che ospita la risorsa a cui si prova ad accedere. 
 
 Grazie alle due connessioni congiunte, l'app dispone di un tunnel TCP a una combinazione host:porta fissa sull'altro lato di Gestione connessione ibrida. La connessione usa TLS 1.2 per la sicurezza e le chiavi di firma di accesso condiviso per l'autenticazione e l'autorizzazione.    
@@ -63,7 +56,7 @@ Le operazioni che non è possibile eseguire con connessioni ibride includono le 
 - Supportare LDAP, perché può richiedere UDP.
 - Supportare Active Directory, perché non è possibile aggiungere a un dominio un ruolo di lavoro del servizio app.
 
-### <a name="prerequisites"></a>prerequisiti ###
+### <a name="prerequisites"></a>Prerequisiti ###
  - Il servizio app di Windows è obbligatorio. È disponibile solo in Windows.  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Aggiungere e creare connessioni ibride nell'app ##
@@ -109,7 +102,7 @@ Le connessioni ibride del servizio app sono disponibili solo per gli SKU con pia
 | Basic | 5 |
 | Standard | 25 |
 | Premium | 200 |
-| Isolato | 200 |
+| Isolated | 200 |
 
 L'interfaccia utente del piano di servizio app mostra quante connessioni ibride sono in uso e da parte di quali app.  
 
@@ -227,7 +220,7 @@ Per usare questa API, sono necessari la chiave di invio e l'ID risorsa di inoltr
 
 Chiunque abbia accesso `Reader` al relè potrà _visualizzare_ la connessione ibrida quando tenterà di aggiungerla all'app Web nel portale di Azure, ma non sarà in grado di _aggiungerla_ poiché non dispone delle autorizzazioni necessarie per recuperare la stringa di connessione usata per stabilire la connessione di inoltro. Per aggiungere correttamente la connessione ibrida, è necessario che dispongano dell'autorizzazione `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). Il ruolo `Contributor` o qualsiasi altro ruolo che include questa autorizzazione per l'inoltro consentirà agli utenti di usare la connessione ibrida e di aggiungerla alle proprie app Web.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi ##
+## <a name="troubleshooting"></a>risoluzione dei problemi ##
 
 Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso**, la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure.
 

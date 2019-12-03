@@ -2,28 +2,28 @@
 title: Apache Hive & Data Lake Tools per Visual Studio-Azure HDInsight
 description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5b10cc5a8b7468b222fec3f2e66a8258470047ae
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931860"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687794"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
 Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query su Apache Hive. Gli strumenti Data Lake consentono di creare, inviare e monitorare facilmente query Hive in Apache Hadoop in Azure HDInsight.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Apache Hadoop in HDInsight. Per informazioni sulla creazione di questo elemento, vedere [creare Apache Hadoop cluster in Azure HDInsight usando Gestione risorse modello](./apache-hadoop-linux-tutorial-get-started.md).
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) I passaggi descritti in questo articolo usano Visual Studio 2019.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/). I passaggi descritti in questo articolo usano Visual Studio 2019.
 
 * Strumenti HDInsight per Visual Studio o Azure Data Lake Tools per Visual Studio. Per informazioni sull'installazione e la configurazione degli strumenti, vedere [Install data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
 
@@ -38,9 +38,9 @@ Per la creazione e l'esecuzione di query Hive sono disponibili due opzioni:
 
 Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva** .
 
-1. Aprire **Visual Studio**.
+1. Avviare **Visual Studio** e selezionare **continua senza codice**.
 
-2. Da **Esplora server**passare ad **Azure** > **HDInsight**.
+2. In **Esplora server**fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
 3. Espandere **HDInsight**, fare clic con il pulsante destro del mouse sul cluster in cui si vuole eseguire la query e quindi scegliere **Scrivi una query hive**.
 
@@ -99,7 +99,7 @@ Per eseguire una query hive creando un'applicazione hive, seguire questa procedu
         > È consigliabile usare le tabelle esterne quando si prevede che i dati sottostanti vengano aggiornati da un'origine esterna, ad esempio un processo MapReduce o un servizio di Azure.
         >
         > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
-    
+
     * `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
     * `STORED AS TEXTFILE LOCATION`: indica a hive che i dati sono archiviati nella directory *example/data* e che sono archiviati come testo.
@@ -138,7 +138,7 @@ L'esempio seguente si basa sulla `log4jLogs` tabella creata nella procedura prec
         > A differenza delle tabelle `EXTERNAL`, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
     * `STORED AS ORC`: archivia i dati nel formato ORC ( *optimized Row Column* ). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
-    
+
     * `INSERT OVERWRITE ... SELECT`: seleziona le righe della tabella `log4jLogs` contenenti `[ERROR]`, quindi inserisce i dati nella tabella `errorLogs`.
 
 3. Se necessario, modificare **interattivo** in **batch** , quindi selezionare **Invia**.
@@ -149,14 +149,8 @@ L'esempio seguente si basa sulla `log4jLogs` tabella creata nella procedura prec
 
 Come si può notare, gli strumenti HDInsight per Visual Studio forniscono un modo semplice per lavorare con le query Hive in HDInsight.
 
-Per informazioni generali su Hive in HDInsight:
+* Per informazioni generali su hive in HDInsight, vedere [che cos'è Apache hive e HiveQL in Azure HDInsight?](hdinsight-use-hive.md)
 
-* [Che cos'è Apache Hive e HiveQL in Azure HDInsight?](hdinsight-use-hive.md)
+* Per informazioni su altri modi per lavorare con Hadoop in HDInsight, vedere [usare MapReduce in Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 
-Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
-
-* [Usare MapReduce in Apache Hadoop in HDInsight](hdinsight-use-mapreduce.md)
-
-Per altre informazioni su HDInsight Tools per Visual Studio:
-
-* [Usare Data Lake Tools per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache Hive](apache-hadoop-visual-studio-tools-get-started.md)
+* Per altre informazioni su HDInsight Tools per Visual Studio, vedere[usare Data Lake Tools per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache hive](apache-hadoop-visual-studio-tools-get-started.md)

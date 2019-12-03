@@ -1,27 +1,18 @@
 ---
-title: Correggere gli errori "502 - Gateway non valido" e "503 - Servizio app di Azure | Microsoft Docs
+title: Correzione degli errori HTTP 502 e HTTP 503
 description: Risoluzione degli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle app ospitate nel Servizio App di Azure.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 tags: top-support-issue
 keywords: 502 - Gateway non valido, 503 - Servizio non disponibile, errore 503, errore 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fdbd77db349eed62af2eb8cf539ef749217a187a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066677"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688335"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nel Servizio app di Azure
 Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle app ospitate nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.
@@ -49,9 +40,9 @@ Il [servizio app](overview.md) presenta diverse opzioni per ogni passaggio.
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Osservare e monitorare il comportamento dell'applicazione
+### <a name="1-observe-and-monitor-application-behavior"></a>1. osservare e monitorare il comportamento dell'applicazione
 #### <a name="track-service-health"></a>Tenere traccia dell'integrità del servizio
-Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell'integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### <a name="monitor-your-app"></a>Monitorare l'app
 Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app fare clic sul riquadro **Richieste ed errori**. Il pannello **Metrica** mostra le metriche che si possono aggiungere.
@@ -59,21 +50,21 @@ Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pan
 Le metriche più comunemente monitorate per le app sono
 
 * Working set della memoria medio
-* Tempo di risposta medio
+* Tempo medio di risposta
 * Tempo CPU
 * Working set della memoria
-* Requests
+* Richieste
 
 ![Monitorare le app per risolvere gli errori HTTP 502 - Gateway non valido e 503 - Servizio non disponibile](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-Per altre informazioni, vedere:
+Per scoprire di più, vedi:
 
 * [Monitorare le app in Servizio app di Azure](web-sites-monitor.md)
 * [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 
-### <a name="2-collect-data"></a>2. Raccogliere i dati
+### <a name="2-collect-data"></a>2. raccolta dati
 #### <a name="use-the-diagnostics-tool"></a>Usare lo strumento di diagnostica
 Il servizio app offre un'esperienza dinamica e interattiva che consente di risolvere i problemi delle app senza ricorrere ad alcun intervento di configurazione. Quando vengono rilevati problemi nell'app, lo strumento di diagnostica ne evidenzia la natura per poter semplificare e velocizzare l'individuazione e la risoluzione del problema.
 
@@ -97,7 +88,7 @@ Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post d
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Attenuare il problema
+### <a name="3-mitigate-the-issue"></a>3. attenuare il problema
 #### <a name="scale-the-app"></a>Ridimensionare l'app
 Nel servizio app di Azure, per ottimizzare le prestazioni e la velocità effettiva è possibile modificare la scalabilità in cui è in esecuzione l'applicazione. Aumentare le prestazioni di un'app implica due azioni correlate: passare a un piano tariffario superiore e configurare determinate impostazioni una volta adottato il nuovo piano.
 

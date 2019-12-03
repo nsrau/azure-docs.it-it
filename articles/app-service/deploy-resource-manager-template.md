@@ -1,22 +1,17 @@
 ---
-title: Linee guida per la distribuzione di app tramite modelli - Servizio app di Azure | Microsoft Docs
-description: Suggerimenti per la creazione di modelli di Azure Resource Manager per la distribuzione di app Web.
-services: app-service
-documentationcenter: app-service
+title: Distribuire le app con i modelli
+description: Informazioni aggiuntive sulla creazione di modelli di Azure Resource Manager per il provisioning e la distribuzione delle app del servizio app.
 author: tfitzmac
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130598"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670105"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 

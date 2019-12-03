@@ -1,25 +1,16 @@
 ---
-title: Configurare l'autenticazione tramite account Microsoft - Servizio app di Azure
-description: Informazioni su come configurare l'autenticazione dell'account Microsoft per l'app del servizio app.
-author: mattchenderson
-services: app-service
-documentationcenter: ''
-manager: syntaxc4
-editor: ''
+title: Configurare l'autenticazione Microsoft
+description: Informazioni su come configurare l'autenticazione dell'account Microsoft come provider di identità per l'app del servizio app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/08/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 70af534e6bcd0039dbc602a5ebc3fc35fb145e79
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176943"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671931"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurare l'app del servizio app per l'uso dell'account di accesso Microsoft
 
@@ -35,7 +26,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
 1. Selezionare **Registra**.
 1. Copiare l' **ID applicazione (client)** . Sarà necessario più avanti.
-1. Nel riquadro sinistro selezionare **certificati & secrets** > **New client Secret**. Immettere una descrizione, selezionare la durata della validità e selezionare **Aggiungi**.
+1. Nel riquadro sinistro selezionare **certificati & segreti** > **nuovo segreto client**. Immettere una descrizione, selezionare la durata della validità e selezionare **Aggiungi**.
 1. Copiare il valore visualizzato nella pagina **certificati & segreti** . Una volta lasciata, la pagina non verrà più visualizzata.
 
     > [!IMPORTANT]
@@ -43,10 +34,10 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 
 ## <a name="secrets"></a>Aggiungere le informazioni dell'account Microsoft all'applicazione del servizio app
 
-1. Passare all'applicazione nella [portale di Azure].
+1. Passare all'applicazione nella [Azure portal].
 1. Selezionare **impostazioni** > **autenticazione/autorizzazione**e assicurarsi che **l'autenticazione del servizio app** sia **attiva**.
 1. In **provider di autenticazione**selezionare **account Microsoft**. Incollare l'ID dell'applicazione (client) e il segreto client ottenuti in precedenza. Abilitare gli ambiti necessari per l'applicazione.
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
    Il servizio app fornisce l'autenticazione ma non limita l'accesso autorizzato al contenuto del sito e alle API. È necessario autorizzare gli utenti nel codice dell'app.
 
@@ -66,4 +57,4 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

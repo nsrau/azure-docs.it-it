@@ -1,24 +1,14 @@
 ---
-title: Configurare il servizio app Azure contenitore personalizzato | Microsoft Docs
-description: Informazioni su come configurare le app node. js in modo che funzionino nel servizio app Azure
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+title: Configurare un contenitore Linux personalizzato
+description: Informazioni su come configurare un contenitore Linux personalizzato nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
-ms.openlocfilehash: 7290e2b09c316a97bfb88744307e185aef72852a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668976"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671874"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurare un contenitore Linux personalizzato per il servizio app Azure
 
@@ -28,7 +18,7 @@ Questa guida fornisce concetti chiave e istruzioni per la contenitori di app Lin
 
 ## <a name="configure-port-number"></a>Configurare il numero di porta
 
-Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta usata dal contenitore personalizzato usando l'impostazione dell'app `WEBSITES_PORT`. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. Ad esempio:
+Il server Web nell'immagine personalizzata può usare una porta diversa da 80. Si indica ad Azure la porta usata dal contenitore personalizzato usando l'impostazione dell'app `WEBSITES_PORT`. La pagina di GitHub per l'[esempio di Python in questa esercitazione](https://github.com/Azure-Samples/docker-django-webapp-linux) indica che è necessario impostare `WEBSITES_PORT` su _8000_. È possibile impostarlo eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -36,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 
-Il contenitore personalizzato può usare variabili di ambiente che devono essere fornite esternamente. È possibile passarli in eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. Ad esempio:
+Il contenitore personalizzato può usare variabili di ambiente che devono essere fornite esternamente. È possibile passarli in eseguendo [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando nell'cloud Shell. ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -50,7 +40,7 @@ Questo metodo funziona sia per le app a contenitore singolo che per le app a pi�
 
 Quando l'archiviazione persistente è disabilitata, le Scritture nella directory `/home` non vengono rese persistenti tra i riavvii dell'app o tra più istanze. L'unica eccezione è rappresentata dalla directory `/home/LogFiles`, che viene usata per archiviare i log di Docker e del contenitore. Quando è abilitata l'archiviazione persistente, tutte le Scritture nella directory `/home` sono persistenti ed è possibile accedervi da tutte le istanze di un'app con scalabilità orizzontale.
 
-Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l'impostazione dell'app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` eseguendo il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) nel cloud Shell. Ad esempio:
+Per impostazione predefinita, l'archiviazione persistente è *abilitata* e l'impostazione non è esposta nelle impostazioni dell'applicazione. Per disabilitarlo, impostare l'impostazione dell'app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` eseguendo il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) nel cloud Shell. ad esempio:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -75,7 +65,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per consent
 
     Questa configurazione non consente connessioni esterne al contenitore. SSH è disponibile solo tramite `https://<app-name>.scm.azurewebsites.net` e autenticato con le credenziali di pubblicazione.
 
-- Aggiungere il [file sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) all'archivio immagini e usare l'istruzione [Copy](https://docs.docker.com/engine/reference/builder/#copy) per copiare il file nella directory *nella/etc/ssh/* Per ulteriori informazioni sui file *sshd_config* , vedere la [documentazione di OpenBSD](https://man.openbsd.org/sshd_config).
+- Aggiungere [questo file di sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) all'archivio immagini e usare l'istruzione [Copy](https://docs.docker.com/engine/reference/builder/#copy) per copiare il file nella directory *nella/etc/ssh/* Per ulteriori informazioni sui file di *sshd_config* , vedere la [documentazione di OpenBSD](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -122,7 +112,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 Nel file *Docker-compose. yml* mappare l'opzione `volumes` `${WEBAPP_STORAGE_HOME}`. 
 
-`WEBAPP_STORAGE_HOME` è una variabile di ambiente nel servizio app mappata all'archiviazione permanente per l'app. Ad esempio:
+`WEBAPP_STORAGE_HOME` è una variabile di ambiente nel servizio app mappata all'archiviazione permanente per l'app. ad esempio:
 
 ```yaml
 wordpress:
@@ -149,7 +139,7 @@ Negli elenchi seguenti sono illustrate le opzioni di configurazione Docker Compo
 - command
 - entrypoint
 - environment
-- immagine
+- image
 - ports
 - restart
 - services

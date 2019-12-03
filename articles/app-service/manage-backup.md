@@ -1,24 +1,16 @@
 ---
-title: Eseguire il backup dell'app - Servizio app di Azure
-description: Informazioni sulla creazione dei backup delle app nel Servizio app di Azure.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: Eseguire il backup di un'app
+description: Informazioni sulla creazione dei backup delle app nel Servizio app di Azure. Eseguire backup manuali o pianificati. Personalizzare i backup includendo il database collegato.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886056"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671649"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -78,13 +70,13 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 
 3. Nella pagina **configurazione backup** fare clic su **archiviazione non configurata** per configurare un account di archiviazione.
 
-    ![Scelta dell'account di archiviazione](./media/manage-backup/configure-storage.png)
+    ![Scegliere l'account di archiviazione](./media/manage-backup/configure-storage.png)
 
 4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si vuole, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nelle rispettive pagine. Al termine, fare clic su **Seleziona**.
 
 5. Nella pagina **Configurazione backup** rimasta aperta è possibile configurare **Backup database**, selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.
 
-    ![Scelta dell'account di archiviazione](./media/manage-backup/configure-database.png)
+    ![Scegliere l'account di archiviazione](./media/manage-backup/configure-database.png)
 
     > [!NOTE]
     > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** della pagina **Impostazioni applicazione** per l'app. 
@@ -114,7 +106,7 @@ Dopo avere configurato l'account di archiviazione e il contenitore è possibile 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Configurare backup parziali
-In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. Di seguito sono disponibili alcuni esempi:
+In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. Di seguito vengono indicati alcuni esempi:
 
 * Si [configurano backup settimanali](#configure-automated-backups) dell'app che contiene contenuto statico che non cambia mai, ad esempio immagini o post di blog precedenti.
 * L'app include oltre 10 GB di contenuto, ovvero la quantità massima di cui è possibile eseguire il backup ogni volta.
@@ -165,7 +157,7 @@ Il backup del database per l'app viene archiviato nella radice del file con este
 > 
 > 
 
-## <a name="automate-with-scripts"></a>Automatizzare con gli script
+## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
 È possibile automatizzare la gestione backup con gli script, usando l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
 
@@ -176,5 +168,5 @@ Per qualche esempio vedere:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md). 

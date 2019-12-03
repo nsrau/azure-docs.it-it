@@ -2,13 +2,13 @@
 title: Procedure consigliate per i modelli
 description: Descrive gli approcci consigliati per la creazione di modelli di Azure Resource Manager. Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d4cf4364b2e835db3d53fa64682a99710ceb2b29
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150308"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689107"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -32,13 +32,13 @@ Esistono anche i limiti seguenti:
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](resource-group-linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](resource-manager-objects-as-parameters.md).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Gruppo di risorse
 
 Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
 Se l'area del gruppo di risorse è temporaneamente non disponibile, non è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma non è possibile aggiornarle. Per ridurre il rischio, collocare il gruppo di risorse e le risorse nella stessa area.
 
-## <a name="parameters"></a>parametri
+## <a name="parameters"></a>parameters
 
 Le informazioni di questa sezione possono essere utili quando si usano i [parametri](template-parameters.md).
 
@@ -93,7 +93,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Non usare un parametro per la versione dell'API per un tipo di risorsa. I valori e le proprietà delle risorse possono variare in base al numero di versione. Quando la versione dell'API è impostata su un parametro, IntelliSense negli editor di codice non può determinare lo schema corretto. Impostare invece la versione dell'API come hardcoded nel modello.
 
-* Usare `allowedValues` solo in casi limitati. Usarlo solo quando è necessario assicurarsi che alcuni valori non vengano inclusi nelle opzioni consentite. Se si usa `allowedValues` troppo diffusamente, si potrebbero bloccare le distribuzioni valide non tenendo aggiornato l'elenco.
+* Usare `allowedValues` solo in casi limitati. Usarlo solo quando è necessario assicurarsi che alcuni valori non vengano inclusi nelle opzioni consentite. Se si usa `allowedValues` troppo ampio, è possibile bloccare le distribuzioni valide senza mantenere aggiornato l'elenco.
 
 * Quando il nome di un parametro nel modello corrisponde a un parametro nel comando di distribuzione di PowerShell, Resource Manager risolve questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
 
@@ -174,7 +174,7 @@ Quando si decidono le [dipendenze](resource-group-define-dependencies.md) da imp
 
 * Se un valore può essere determinato prima della distribuzione, provare a distribuire le risorse senza una dipendenza. Se un valore di configurazione richiede il nome di un'altra risorsa, ad esempio, potrebbe non essere necessaria una dipendenza. Questa indicazione non è sempre valida perché alcune risorse verificano l'esistenza dell'altra risorsa. Se viene visualizzato un errore, aggiungere una dipendenza.
 
-## <a name="resources"></a>Risorse
+## <a name="resources"></a>resources
 
 Le informazioni seguenti possono essere utili quando si usano le [risorse](resource-group-authoring-templates.md#resources):
 
@@ -276,23 +276,6 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
    > Per garantire che i segreti passati come parametri a macchine virtuali ed estensioni siano crittografati, usare la proprietà **protectedSettings** delle estensioni pertinenti.
    > 
    > 
-
-## <a name="outputs"></a>Output
-
-Se viene usato un modello per creare indirizzi IP pubblici, deve includere una [sezione outputs](template-outputs.md) che restituisca i dettagli dell'indirizzo IP e del nome di dominio completo (FQDN). Questi valori di output consentiranno di recuperare facilmente i dettagli sugli indirizzi IP pubblici e sugli FQDN dopo la distribuzione.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 0dd07b3394e385b3931e01867d467af7559b4f8b
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664166"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684138"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Risoluzione dei problemi di una VM Linux quando non è possibile accedere alla console seriale di Azure e il layout del disco usa LVM (Logical Volume Manager)
 
@@ -211,6 +211,29 @@ Se necessario, rimuovere o aggiornare il **kernel**
 ### <a name="example-3---enable-serial-console"></a>Esempio 3: abilitare la console seriale
 Se l'accesso non è stato possibile alla console seriale di Azure, verificare i parametri di configurazione di GRUB per la VM Linux e correggerli. Informazioni dettagliate sono disponibili [in questo documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
+### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Esempio 4: caricamento del kernel con un volume di swap LVM problematico
+
+Una macchina virtuale potrebbe non riuscire a eseguire l'avvio completo e rientrare nel prompt **Dracut** .
+Altre informazioni sull'errore possono essere individuate dalla console seriale di Azure o passare a portale di Azure-> diagnostica di avvio-> log seriale
+
+
+Potrebbe essere presente un errore simile al seguente:
+
+```
+[  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
+         Starting Dracut Emergency Shell...
+Warning: /dev/VG/SwapVol does not exist
+```
+
+Grub. cfg è configurato in questo esempio per caricare un valore LV con il nome **Rd. LVM. lv = VG/SwapVol** e la macchina virtuale non è in grado di individuarlo. Questa riga Mostra come viene caricato il kernel che fa riferimento a LV SwapVol
+
+```
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
+[    0.000000] e820: BIOS-provided physical RAM map:
+```
+
+ Rimuovere il LV danneggiato dalla configurazione/etc/default/grub e ricompilare GRUB2. cfg
+
 
 ## <a name="exit-chroot-and-swap-the-os-disk"></a>Uscire da chroot e scambiare il disco del sistema operativo
 
@@ -247,4 +270,8 @@ Se la macchina virtuale esegue lo scambio di disco lo arresterà, riavviare la m
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Scopri di più sulla [console seriale di Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Scopri di più
+
+ [Console seriale di Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+
+[Modalità utente singolo](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)

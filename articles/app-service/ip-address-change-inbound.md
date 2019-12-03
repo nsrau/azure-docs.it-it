@@ -1,22 +1,15 @@
 ---
-title: Preparare un cambio di indirizzo IP in ingresso - Servizio app di Azure
+title: Preparare la modifica degli indirizzi IP in ingresso
 description: Se l'indirizzo IP in ingresso sta per essere modificato, in questo articolo viene spiegato come procedere in modo che l'app continui a funzionare anche dopo la modifica.
-services: app-service\web
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61270065"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672424"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Come preparare un cambio di indirizzo IP in ingresso
 
@@ -24,7 +17,7 @@ Se si riceve una notifica di modifica l'indirizzo IP in ingresso dell'app Serviz
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Determinare se sia necessario intraprendere qualche operazione
 
-* Opzione 1: se l'app del servizio app non ha un dominio personalizzato, non è richiesta alcuna azione.
+* Opzione 1: se l'app del Servizio app di Azure non ha un dominio personalizzato, non è richiesta alcuna azione.
 
 * Opzione 2: se nel portale di registrazione di dominio (provider DNS di terze parti o servizio DNS di Azure) è configurato solo un record CNAME (record DNS che punta a un URI), non è richiesta alcuna azione.
 

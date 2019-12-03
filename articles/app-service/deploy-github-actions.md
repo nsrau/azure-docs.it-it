@@ -1,24 +1,17 @@
 ---
-title: Distribuire il codice da una pipeline di integrazione continua/recapito continuo con azioni GitHub-servizio app Azure | Microsoft Docs
-description: Informazioni su come usare le azioni di GitHub per distribuire il codice nel servizio app
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configurare CI/CD con azioni di GitHub
+description: Informazioni su come distribuire il codice nel servizio app Azure da una pipeline CI/CD con azioni di GitHub. Personalizzare le attività di compilazione ed eseguire distribuzioni complesse.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 9842057a590b08f2207a1ea166e0ce0d457e4381
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e3d6e730846388c4b74cfa0b6361629e836b0517
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620505"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670186"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando le azioni di GitHub
 
@@ -36,7 +29,7 @@ Per un flusso di lavoro del servizio app Azure, il file è costituito da tre sez
 |---------|---------|
 |**Autenticazione** | 1. definire un'entità servizio <br /> 2. creare un segreto GitHub |
 |**Build** | 1. configurare l'ambiente <br /> 2. compilare l'app Web |
-|**Distribuire** | 1. distribuire l'app Web |
+|**Distribuzione** | 1. distribuire l'app Web |
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 

@@ -1,26 +1,17 @@
 ---
-title: Configurare le app nel portale-servizio app Azure
-description: Informazioni su come configurare le impostazioni comuni per un'app del servizio app nel portale di Azure.
+title: Configurare le app nel portale
+description: Informazioni su come configurare le impostazioni comuni per un'app del servizio app nel portale di Azure. Impostazioni dell'app, stringhe di connessione, piattaforma, stack di lingue, contenitore e così via.
 keywords: servizio app di Azure, app Web, impostazioni dell'app, variabili di ambiente
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470933"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671954"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -251,7 +242,7 @@ Vedere [configurare un contenitore Linux personalizzato per il servizio app Azur
 
 - [Configurare un nome di dominio personalizzato nel servizio app di Azure]
 - [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure]
-- [Proteggere un nome DNS personalizzato con un'associazione SSL nel servizio app Azure](configure-ssl-bindings.md)
+- [Proteggere un nome DNS personalizzato con un binding SSL nel Servizio app di Azure](configure-ssl-bindings.md)
 - [Abilitare i log di diagnostica](troubleshoot-diagnostic-logs.md)
 - [Aumentare le prestazioni di un'app nel Servizio app di Azure]
 - [Informazioni di base sul monitoraggio nel Servizio app di Azure]

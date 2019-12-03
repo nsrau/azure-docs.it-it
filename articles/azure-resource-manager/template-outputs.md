@@ -3,12 +3,12 @@ title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149177"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689152"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Output nel modello di Azure Resource Manager
 
@@ -77,7 +77,7 @@ Per ottenere i valori di output dalla cronologia di distribuzione, è possibile 
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group deployment show \
@@ -92,7 +92,7 @@ az group deployment show \
 
 Gli esempi seguenti illustrano gli scenari per l'uso degli output.
 
-|Modello  |DESCRIZIONE  |
+|Modello  |Description  |
 |---------|---------|
 |[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Crea variabili complesse e restituisce i valori. Non distribuisce alcuna risorsa. |
 |[Indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Crea un indirizzo IP pubblico e restituisce l'ID risorsa. |
@@ -101,4 +101,3 @@ Gli esempi seguenti illustrano gli scenari per l'uso degli output.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle proprietà disponibili per gli output, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-* Per consigli sulla creazione di output, vedere procedure consigliate [-output](template-best-practices.md#outputs).

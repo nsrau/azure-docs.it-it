@@ -1,26 +1,19 @@
 ---
-title: Eseguire il ripristino da backup - servizio app di Azure
-description: Informazioni su come ripristinare l'app da uno snapshot.
-services: app-service
-documentationcenter: ''
+title: Ripristinare un'app da uno snapshot
+description: Informazioni su come ripristinare l'app da uno snapshot. Eseguire il ripristino da una perdita di dati imprevista nel livello Premium con le copie shadow automatiche.
 author: ahmedelnably
-manager: cfowler
-editor: ''
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: 4b3b10177b119c9362f807206a915d4b0b367e16
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e5b48e05d6bd9a310b4527300126464c4b755c8d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639740"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671146"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Ripristinare un'app in Azure da uno snapshot
 Questo articolo illustra come ripristinare un'app in [Servizio app di Azure](../app-service/overview.md) da uno snapshot. È possibile ripristinare uno stato precedente dell'app, in base a uno degli snapshot dell'app. Non è necessario abilitare il backup degli snapshot. La piattaforma salva automaticamente uno snapshot di tutte le app per scopi di ripristino dei dati.

@@ -7,16 +7,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73644602"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688184"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Usare l'inserimento con un clic per inserire i dati in Azure Esplora dati
 
-Questo articolo illustra come usare l'inserimento con un clic per l'inserimento rapido di una nuova tabella nei formati JSON o CSV dall'archiviazione in Azure Esplora dati. Una volta inseriti i dati, è possibile modificare la tabella ed eseguire query usando l'interfaccia utente Web.
+Questo articolo illustra come usare l'inserimento con un clic per l'inserimento rapido di una nuova tabella nei formati JSON o CSV da archiviazione o file locale in una tabella esistente o in una nuova tabella in Azure Esplora dati. Usare la procedura guidata intuitiva e, entro pochi minuti, i dati vengono inseriti, è possibile modificare la tabella ed eseguire query usando l'interfaccia utente Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

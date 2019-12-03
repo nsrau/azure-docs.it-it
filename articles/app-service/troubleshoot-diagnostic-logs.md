@@ -1,23 +1,16 @@
 ---
-title: Abilitare la registrazione diagnostica per le app - Servizio app di Azure
+title: Abilitare la funzionalità di registrazione diagnostica
 description: Informazioni su come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione e su come accedere alle informazioni registrate da Azure.
-services: app-service
-author: cephalin
-manager: gwallace
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/17/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 54435dd21fccdd43f17d13674b324b989a00f7a1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558560"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684246"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica

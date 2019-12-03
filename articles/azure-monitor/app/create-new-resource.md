@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/16/2019
-ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 12/02/2019
+ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677495"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689206"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
@@ -30,9 +30,12 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
 
    | Impostazioni        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valore globalmente univoco | Nome che identifica l'app che si sta monitorando. |
+   | **Nome**      | Valore univoco | Nome che identifica l'app che si sta monitorando. |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del gruppo di risorse nuovo o esistente per ospitare i dati di App Insights. |
    | **Località** | Stati Uniti Orientali | Scegliere una località nelle vicinanze o in prossimità della posizione in cui è ospitata l'app. |
+
+> [!NOTE]
+> Sebbene sia possibile usare lo stesso nome di risorsa in gruppi di risorse diversi, può essere utile usare un nome univoco globale. Questa operazione può essere utile se si prevede di [eseguire query tra risorse](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) perché semplifica la sintassi richiesta.
 
 Immettere i valori appropriati nei campi obbligatori e quindi selezionare **Verifica + crea**.
 

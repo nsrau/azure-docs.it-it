@@ -1,26 +1,19 @@
 ---
-title: Procedure consigliate e risoluzione dei problemi per Node.js - Servizio app di Azure
-description: Informazioni sulle procedure consigliate e sui passaggi per la risoluzione dei problemi delle applicazioni Node nel Servizio app di Azure.
-services: app-service\web
-documentationcenter: nodejs
+title: Procedure consigliate e risoluzione dei problemi di node. js
+description: Informazioni sulle procedure consigliate e i passaggi per la risoluzione dei problemi per le applicazioni node. js in esecuzione nel servizio app Azure.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024234"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672035"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -258,7 +251,7 @@ Ecco alcune soluzione per velocizzare questo processo:
 
 ## <a name="iisnode-http-status-and-substatus"></a>Stato e stato secondario HTTP di IISNODE
 
-Il `cnodeconstants`file di origine[ ](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) elenca tutte le possibili combinazioni di stato/stato secondario che possono essere restituite da iisnode a causa di un errore.
+Il [file di origine](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` elenca tutte le possibili combinazioni di stato/stato secondario che possono essere restituite da iisnode a causa di un errore.
 
 Abilitare FREB per l'applicazione per visualizzare il codice errore win32. Assicurarsi di abilitare FREB solo in siti non di produzione, per motivi di prestazioni.
 

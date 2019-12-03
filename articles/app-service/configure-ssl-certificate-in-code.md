@@ -1,25 +1,16 @@
 ---
-title: Usare il certificato SSL nel servizio app Azure di codice | Microsoft Docs
-description: Informazioni su come usare i certificati client per la connessione alle risorse remote che li richiedono.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Usare il certificato SSL nel codice
+description: Informazioni su come usare i certificati client nel codice. Eseguire l'autenticazione con le risorse remote con un certificato client o eseguire attività crittografiche.
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271292"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671886"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Usare un certificato SSL nel codice nel servizio app Azure
 
@@ -29,7 +20,7 @@ Questo approccio all'uso dei certificati nel codice usa la funzionalità SSL nel
 
 Quando si consente al servizio app di gestire i certificati SSL, è possibile tenere separati i certificati e il codice dell'applicazione e proteggere i dati sensibili.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida pratica:
 
@@ -38,7 +29,7 @@ Per completare questa guida pratica:
 
 ## <a name="find-the-thumbprint"></a>Trovare l'identificazione personale
 
-Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
+Nel menu a sinistra nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
 
 Dall'area di spostamento a sinistra dell'app selezionare **Impostazioni TLS/SSL**, quindi selezionare **certificati di chiave privata (con estensione pfx)** o **certificati di chiave pubblica (. cer)** .
 

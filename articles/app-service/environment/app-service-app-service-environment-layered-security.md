@@ -1,28 +1,20 @@
 ---
-title: Architettura di sicurezza su più livelli con ambienti del servizio app - Azure
-description: Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app.
-services: app-service
-documentationcenter: ''
+title: Sicurezza su più livelli V1
+description: Informazioni su come implementare un'architettura di sicurezza a più livelli nell'ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070138"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688790"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
-## <a name="overview"></a>Panoramica
 Dato che gli ambienti del servizio app forniscono un ambiente di runtime isolato distribuito in una rete virtuale, gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione fisico.
 
 Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream.  I [gruppi di sicurezza di rete (gruppi)][NetworkSecurityGroups] possono essere usati in subnet contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
@@ -40,7 +32,7 @@ Per conoscere le regole per la sicurezza della rete necessarie, si deve determin
 
 Poiché i [gruppi di sicurezza di rete (gruppi)][NetworkSecurityGroups] vengono applicati alle subnet e gli ambienti del servizio app vengono distribuiti in subnet, le regole contenute in un NSG si applicano a **tutte** le app in esecuzione in un ambiente del servizio app.  Usando l'architettura di esempio di questo articolo, una volta applicato un gruppo di sicurezza di rete alla subnet contenente "apiase", tutte le app in esecuzione nell'ambiente del servizio app "apiase" verranno protette dallo stesso set di regole di sicurezza. 
 
-* **Determinare l'indirizzo IP in uscita dei chiamanti upstream:**  quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altre informazioni su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo Panoramica dell' [architettura di rete][NetworkArchitecture] .
+* **Determinare l'indirizzo IP in uscita dei chiamanti upstream:** quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altre informazioni su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo Panoramica dell' [architettura di rete][NetworkArchitecture] .
 * **L'app per le API back-end dovrà chiamare se stessa?**  Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa.  Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet".  Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Configurazione del gruppo di sicurezza di rete

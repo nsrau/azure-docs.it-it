@@ -1,25 +1,18 @@
 ---
-title: Hosting ad alta densità con servizio app Azure di scalabilità per app | Microsoft Docs
-description: Hosting ad alta densità nel servizio app di Azure
+title: Scalabilità per app per l'hosting ad alta densità
+description: Ridimensiona le app in modo indipendente dai piani di servizio app e ottimizza le istanze con scalabilità orizzontale del piano.
 author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7130c9547e0778ce40a0ad1c1ea41607a02df23e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088096"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672342"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting ad alta densità nel servizio app Azure con scalabilità per app
 
@@ -140,7 +133,7 @@ Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 1. Impostare il flag `PerSiteScaling` su true nel piano di servizio app.
 1. Vengono create nuove app e assegnate al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**.
    - L'uso di questa configurazione produce la massima densità possibile.
-1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. Ad esempio:
+1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. ad esempio:
    - Per un'app a utilizzo elevato è possibile impostare **numberOfWorkers** su **3** per avere una maggiore capacità di elaborazione per l'app.
    - Per le app a basso utilizzo impostare **numberOfWorkers** su **1**.
 

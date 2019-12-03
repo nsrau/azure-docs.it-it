@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 5f1008e8fcbbf7b82a694fd151a9dea9ca7f001e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 14118098e5d476dc07b21462180673b942a6224d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515343"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672561"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-service"></a>Interpretazione dei modelli nel servizio Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,4 +114,4 @@ Il pacchetto `explain` è progettato per funzionare sia con le destinazioni di c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le [procedure](how-to-machine-learning-interpretability-aml.md) per abilitare l'interpretazione per i modelli di training sia localmente che su Azure Machine Learning risorse di calcolo remote. Per altri scenari, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data) .
+Vedere le [procedure](how-to-machine-learning-interpretability-aml.md) per abilitare l'interpretazione per i modelli di training sia localmente che su Azure Machine Learning risorse di calcolo remote. Per altri scenari, vedere i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) .

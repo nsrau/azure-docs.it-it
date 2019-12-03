@@ -1,24 +1,15 @@
 ---
-title: Configurare app ASP.NET Core-servizio app Azure | Microsoft Docs
-description: Informazioni su come configurare le app ASP.NET Core per lavorare nel servizio app Azure
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configurare app Linux ASP.NET Core
+description: Informazioni su come configurare un contenitore ASP.NET Core predefinito per l'app. Questo articolo illustra le attività di configurazione più comuni.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
-ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990270"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670457"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurare un'app Linux ASP.NET Core per app Azure servizio
 
@@ -81,7 +72,7 @@ Se si configura un'impostazione dell'app con lo stesso nome nel servizio app e i
 
 ## <a name="get-detailed-exceptions-page"></a>Pagina get detailed Exceptions
 
-Quando l'app ASP.NET genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** trovata. Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere `ASPNETCORE_ENVIRONMENT` l'impostazione dell'app all'app eseguendo il comando seguente nella <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
+Quando l'app ASP.NET genera un'eccezione nel debugger di Visual Studio, il browser visualizza una pagina di eccezione dettagliata, ma nel servizio app la pagina viene sostituita da un errore **HTTP 500** generico o **si è verificato un errore durante l'elaborazione della richiesta.** criteri.). Per visualizzare la pagina di eccezione dettagliata nel servizio app, aggiungere l'impostazione dell'app `ASPNETCORE_ENVIRONMENT` all'app eseguendo il comando seguente nel <a target="_blank" href="https://shell.azure.com" >cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -91,7 +82,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve essere in grado di verificare se le richieste utente sono crittografate o meno, configurare il middleware delle intestazioni in *Startup.cs*:
 
-- Configurare il middleware con [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'invio `X-Forwarded-For` delle `X-Forwarded-Proto` intestazioni e `Startup.ConfigureServices`in.
+- Configurare il middleware con [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) per l'invio delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` in `Startup.ConfigureServices`.
 - Aggiungere gli intervalli di indirizzi IP privati alle reti note, in modo che il middleware possa considerare attendibile il servizio di bilanciamento del carico del servizio app.
 - Richiamare il metodo [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) in `Startup.Configure` prima di chiamare altri middleware.
 
@@ -122,7 +113,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)i bilanciamenti del carico.
+Per altre informazioni, vedere [configurare ASP.NET Core per lavorare con i server proxy e i bilanciamenti del carico](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ## <a name="deploy-multi-project-solutions"></a>Distribuire soluzioni per più progetti
 
@@ -141,7 +132,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Uso delle impostazioni dell'app
 
-Nel <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>aggiungere un'impostazione dell'app all'app del servizio app eseguendo il comando dell'interfaccia della riga di comando seguente. *Sostituire\<nome app >* ,  *\<nome gruppo di risorse >* e  *\<nome progetto >* con i valori appropriati.
+Nel <a target="_blank" href="https://shell.azure.com">Azure cloud Shell</a>aggiungere un'impostazione dell'app all'app del servizio app eseguendo il comando dell'interfaccia della riga di comando seguente. Sostituire *\<nome app >* , *\<nome-gruppo-risorse >* e *\<nome progetto >* con i valori appropriati.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -158,7 +149,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: App ASP.NET Core con database SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Esercitazione: ASP.NET Core app con il database SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > [Domande frequenti sul Servizio app di Azure in Linux](app-service-linux-faq.md)

@@ -1,23 +1,20 @@
 ---
-title: Rendere disponibile contenuto di Archiviazione di Azure in Linux - Servizio app
-description: Come configurare e rendere disponibile contenuto di Archiviazione di Azure nel servizio app di Azure in Linux.
-author: msangapu
-manager: jeconnoc
-ms.service: app-service
-ms.workload: web
+title: Aggiungere un contenitore di archiviazione personalizzato in Linux
+description: Informazioni su come aggiungere una condivisione di rete personalizzata al contenitore Linux nel servizio app Azure. Condividi i file tra le app, Gestisci il contenuto statico in remoto e accedi localmente e così via.
+author: msangapu-msft
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018268"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671780"
 ---
-# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
+# <a name="attach-azure-storage-containers-to-linux-containers"></a>Alleghi i contenitori di archiviazione di Azure a contenitori Linux
 
-Questa guida illustra come rendere disponibile contenuto statico nel servizio app in Linux usando [Archiviazione di Azure](/azure/storage/common/storage-introduction). I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
+Questa guida illustra come aggiungere condivisioni di rete al servizio app in Linux dall'uso di [archiviazione di Azure](/azure/storage/common/storage-introduction). I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,7 +61,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 È consigliabile eseguire questa operazione per tutte le altre directory che si vogliono collegare a un account di archiviazione.
 
-## <a name="verify"></a>Esegui verifica
+## <a name="verify"></a>Verificare
 
 Dopo aver collegato un contenitore di archiviazione a un'app Web, è possibile verificare il collegamento eseguendo il comando seguente:
 
@@ -76,7 +73,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Archiviazione di Azure può essere montata con app multicontenitore usando l'ID personalizzato. Per visualizzare il nome dell'ID personalizzato, eseguire [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Nel file *Docker-compose. yml* mappare l' `volumes` opzione a `custom-id`. Ad esempio:
+Nel file *Docker-compose. yml* mappare l'opzione `volumes` `custom-id`. ad esempio:
 
 ```yaml
 wordpress:

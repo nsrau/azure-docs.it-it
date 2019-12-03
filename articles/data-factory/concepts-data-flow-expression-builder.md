@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2019
-ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184701"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672258"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generatore di espressioni del flusso di dati di mapping
 
@@ -78,7 +78,7 @@ Con funzioni per le espressioni che restituiscono matrici, usare le parentesi qu
 Quando sono presenti nomi di colonne che includono caratteri speciali o spazi, racchiudere il nome tra parentesi graffe.
 * ```{[dbo].this_is my complex name$$$}```
 
-## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
+## <a name="keyboard-shortcuts"></a>Scelte rapide da tastiera
 
 * ```Ctrl-K Ctrl-C```: intera riga Commenti
 * ```Ctrl-K Ctrl-U```: rimuovere il commento
@@ -104,7 +104,13 @@ Se si inserisce un commento all'inizio dell'espressione, questo verrà visualizz
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Si noti che per includere valori letterali stringa nell'output del timestamp, è necessario eseguire il wrapping della conversione all'interno di un metodo ToString ()
+Si noti che per includere valori letterali stringa nell'output timestamp, è necessario eseguire il wrapping della conversione all'interno di ```toString()```.
+
+Di seguito viene illustrato come convertire i secondi da Epoch a una data o un timestamp:
+
+```toTimestamp(1574127407*1000l)```
+
+Si noti la "l" finale alla fine dell'espressione precedente. Che indica la conversione a Long come sintassi inline.
 
 ## <a name="handling-column-names-with-special-characters"></a>Gestione dei nomi di colonna con caratteri speciali
 

@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: bd099b9d76e17eda36be1650ef5081e5aaa7e53a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "67303535"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672444"
 ---
-# <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Avvio rapido: Sviluppare in Azure Kubernetes Service (AKS) con Draft
+# <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Guida introduttiva: sviluppare in Azure Kubernetes Service (AKS) con Draft
 
 Draft è uno strumento open source che consente di creare pacchetti di contenitori di applicazioni ed eseguirli in un cluster Kubernetes. Con Draft è possibile ridistribuire rapidamente un'applicazione in Kubernetes quando si verificano modifiche al codice senza dover eseguire il commit delle modifiche nel controllo della versione. Per altre informazioni su Draft, vedere la [documentazione bozza su GitHub][draft-documentation].
 
@@ -25,8 +25,8 @@ Questo articolo illustra come usare Draft Package ed eseguire un'applicazione in
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 * [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Docker installato e configurato. Docker offre pacchetti che configurano Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows]o [Linux][docker-for-linux] .
-* [Helm installato](https://github.com/helm/helm/blob/master/docs/install.md).
+* Docker installato e configurato. Docker offre pacchetti che consentono di configurare Docker in un sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
+* [Helm installato](https://github.com/helm/helm#install).
 * [Bozza installata][draft-documentation].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
@@ -143,7 +143,7 @@ kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="configure-helm"></a>Configurare Helm
-Per distribuire un Tiller di base in un cluster AKS, usare il comando [Helm init][helm-init] . Se il cluster non è abilitato per RBAC, `--service-account` rimuovere l'argomento e il valore.
+Per distribuire un Tiller di base in un cluster AKS, usare il comando [Helm init][helm-init] . Se il cluster non è abilitato per RBAC, rimuovere l'argomento e il valore `--service-account`.
 
 ```console
 helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
@@ -151,7 +151,7 @@ helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="lin
 
 ## <a name="configure-draft"></a>Configurare Draft
 
-Se il progetto non è stato configurato nel computer locale, `draft init`eseguire:
+Se il progetto non è stato configurato nel computer locale, eseguire `draft init`:
 
 ```console
 $ draft init
@@ -172,7 +172,7 @@ draft config set registry mydraftacr.azurecr.io
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
-Questa Guida introduttiva usa [un'applicazione Java di esempio dal repository GitHub bozza][example-java]. Clonare l'applicazione da GitHub e passare alla `draft/examples/example-java/` directory.
+Questa Guida introduttiva usa [un'applicazione Java di esempio dal repository GitHub bozza][example-java]. Clonare l'applicazione da GitHub e passare alla directory `draft/examples/example-java/`.
 
 ```console
 git clone https://github.com/Azure/draft
@@ -181,7 +181,7 @@ cd draft/examples/example-java/
 
 ## <a name="run-the-sample-application-with-draft"></a>Eseguire l'applicazione di esempio con bozza
 
-Usare il `draft create` comando per preparare l'applicazione.
+Usare il comando `draft create` per preparare l'applicazione.
 
 ```console
 draft create
@@ -235,7 +235,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Passare all'applicazione in un browser usando l' `localhost` URL per visualizzare l'applicazione di esempio. Nell'esempio precedente l'URL è `http://localhost:49804`. Arrestare la connessione utilizzando `Ctrl+c`.
+Passare all'applicazione in un browser usando l'URL `localhost` per vedere l'applicazione di esempio. Nell'esempio precedente l'URL è `http://localhost:49804`. Arrestare la connessione utilizzando `Ctrl+c`.
 
 ## <a name="access-the-application-on-the-internet"></a>Accedere all'applicazione in Internet
 
@@ -274,7 +274,7 @@ Passare al servizio di bilanciamento del carico dell'applicazione in un browser 
 
 ## <a name="iterate-on-the-application"></a>Eseguire l'iterazione dell'applicazione
 
-È possibile eseguire l'iterazione dell'applicazione apportando le `draft up`modifiche in locale ed eseguendo nuovamente l'esecuzione.
+È possibile eseguire l'iterazione dell'applicazione apportando le modifiche localmente e rieseguendo `draft up`.
 
 Aggiornare il messaggio restituito alla [riga 7 di src/main/Java/HelloWorld/Hello. Java][example-java-hello-l7]
 
