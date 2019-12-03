@@ -568,6 +568,8 @@
               href: cassandra-import-data.md
         - name: Guide alle procedure
           items:
+            - name: Feed delle modifiche
+              href: cassandra-change-feed.md
             - name: Archiviare e gestire Spring Data
               href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
               maintainContext: true
