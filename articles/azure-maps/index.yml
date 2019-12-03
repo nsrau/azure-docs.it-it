@@ -46,7 +46,7 @@ sections:
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">Configurare un recinto virtuale</a>
           - html: <a href="/azure-maps/tutorial-iot-hub-maps">Analisi spaziale</a>
-          - html: < a href =/Azure/Azure-Maps/tutorial-EV-routing "> Routing EV con Azure Notebooks (Python)</a>
+          - html: <a href=/Azure/Azure-Maps/tutorial-EV-routing">Routing EV con Azure Notebooks (Python)</a>
   - title: riferimento
     items:
       - type: list
