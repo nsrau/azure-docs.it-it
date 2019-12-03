@@ -1,21 +1,20 @@
 ---
-title: 'Guida introduttiva: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con C#'
-description: "Avvio rapido di Azure: registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con l'SDK per servizi C#. Questa guida introduttiva usa registrazioni singole."
+title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con C#
+description: "Avvio rapido: registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con l'SDK per servizi C#. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 70f9c9d2ec488854a1b386b872f10e4f54c45a1c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904744"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423024"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con C# Service SDK
 
@@ -52,13 +51,13 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge una re
 
 1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**. In **Crea un nuovo progetto** scegliere il modello di progetto **App console (.NET Core)** per C# e selezionare **Avanti**.
 
-1. Assegnare il nome *CreateTpmEnrollment* al progetto e selezionare **Crea**.
+1. Assegnare il nome *CreateTpmEnrollment* al progetto e fare clic su **Crea**.
 
     ![Configurare il progetto desktop classico di Windows in Visual C#](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **CreateTpmEnrollment** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. All'apertura della soluzione in Visual Studio, nel riquadro **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **CreateTpmEnrollment**. Scegliere **Gestisci pacchetti NuGet**.
 
-1. In **Gestione pacchetti NuGet** selezionare **Sfoglia**, cercare e scegliere **Microsoft.Azure.Devices.Provisioning.Service** e quindi selezionare **Installa**.
+1. In **Gestione pacchetti NuGet** selezionare **Sfoglia**, cercare e scegliere **Microsoft.Azure.Devices.Provisioning.Service** e quindi fare clic su **Installa**.
 
    ![Finestra Gestione pacchetti NuGet](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -71,10 +70,10 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge una re
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Aggiungere i campi seguenti alla classe `Program` e apportare le modifiche indicate.
+1. Aggiungere i campi seguenti alla classe `Program`, apportando le modifiche elencate di seguito.
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private const string RegistrationId = "sample-registrationid-csharp";
    private const string TpmEndorsementKey =
        "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
@@ -88,7 +87,7 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge una re
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * Sostituire il valore segnaposto di `ProvisioningConnectionString` con la stringa di connessione del servizio di provisioning per cui si vuole creare la registrazione.
+   * Sostituire il valore segnaposto di `ProvisioningServiceConnectionString` con la stringa di connessione del servizio di provisioning per cui si vuole creare la registrazione.
 
    * È facoltativamente possibile cambiare l'ID di registrazione, la chiave di verifica dell'autenticità, l'ID dispositivo e lo stato del provisioning.
 
@@ -143,7 +142,7 @@ Questa sezione illustra come creare un'app console .NET Core che aggiunge una re
   
 Eseguire l'esempio in Visual Studio per creare la registrazione singola per il dispositivo TPM.
 
-Al termine della creazione, nella finestra del prompt dei comandi verranno visualizzate le proprietà della nuova registrazione singola.
+Verrà visualizzata una finestra del prompt dei comandi in cui inizieranno a essere visualizzati i messaggi di conferma. Al termine della creazione, nella finestra del prompt dei comandi verranno visualizzate le proprietà della nuova registrazione singola.
 
 È possibile verificare che la registrazione singola sia stata creata. Passare al riepilogo del servizio Device Provisioning e selezionare **Gestisci registrazioni** e quindi **Registrazioni singole**. Dovrebbe essere visualizzata una nuova voce di registrazione che corrisponde all'ID di registrazione usato nell'esempio.
 
@@ -159,13 +158,13 @@ Se si intende esplorare l'esempio di servizio C#, non eseguire la pulizia delle 
 
 1. Chiudere la finestra di output dell'esempio C# sul computer.
 
-1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Selezionare l'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e quindi **Elimina**.
+1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 1. Se si è completata la procedura illustrata in [Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C#](quick-create-simulated-device-tpm-csharp.md) per creare un dispositivo TPM simulato, seguire questa procedura:
 
     1. Chiudere la finestra del simulatore TPM e la finestra dell'output dell'esempio per il dispositivo simulato.
 
-    1. Nel portale di Azure passare all'hub IoT in cui è stato effettuato il provisioning del dispositivo. Nel menu in **Strumenti di esplorazione** selezionare **Dispositivi IoT** e quindi la casella di controllo accanto al dispositivo ed **Elimina**.
+    1. Nel portale di Azure passare all'hub IoT in cui è stato effettuato il provisioning del dispositivo. Nel menu in **Strumenti di esplorazione** selezionare **Dispositivi IoT** e quindi la casella di controllo accanto all'*ID dispositivo* del dispositivo registrato in questa guida di avvio rapido e infine fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,21 +1,20 @@
 ---
-title: 'Guida introduttiva: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Java'
-description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Java Service SDK. Questa guida introduttiva usa registrazioni singole.
+title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Java
+description: "Avvio rapido: registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con l'SDK per servizi Java. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 88ce16a658e760f69cdf17c9bb4de78fceca927a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4e6e5eb876bbf93c8228c2440a90aad608a24af9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903491"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422942"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 
@@ -136,19 +135,19 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
 
 4. Verificare nella finestra di output che la registrazione sia stata eseguita correttamente. 
 
-5. Passare al servizio di provisioning nel portale di Azure. Fare clic su **Gestisci registrazioni** e selezionare la scheda **Registrazioni singole**. Si noti che ora è elencato l'*ID registrazione* del dispositivo TPM simulato. 
+5. Passare al servizio di provisioning nel portale di Azure. Selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Si noti che ora è elencato l'*ID registrazione* del dispositivo TPM simulato. 
 
     ![Verificare che la registrazione TPM nel portale sia riuscita](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se si prevede di esplorare l'esempio di servizio Java, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare i passaggi seguenti per eliminare tutte le risorse create da questa guida introduttiva.
+Se si prevede di esplorare l'esempio di servizio Java, non eseguire la pulizia delle risorse create in questa guida di avvio rapido. Se non si intende continuare, seguire questa procedura per eliminare tutte le risorse create in questa guida.
 
 1. Chiudere la finestra di output di esempio di Java sul computer.
 1. Chiudere la finestra del simulatore TPM che potrebbe essere stata creata per simulare il dispositivo TPM.
-1. Passare al servizio Device Provisioning nel portale di Azure, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**. Selezionare l'*ID registrazione* del dispositivo registrato usando questa guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore del pannello. 
+1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa introduttiva si è registrato un dispositivo TPM simulato nel servizio Device Provisioning. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
+In questa guida di avvio rapido si è registrato un dispositivo TPM simulato nel servizio Device Provisioning. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)
