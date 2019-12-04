@@ -1,20 +1,17 @@
 ---
-title: Configurare l'accesso per più ISEs-app per la logica di Azure
+title: Configurare l'accesso per più ISEs
 description: Per più ambienti del servizio di integrazione (ISEs) è possibile configurare un singolo indirizzo IP in uscita pubblico per accedere a sistemi esterni da app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: f35b6836012df7ac3879070f7a85fbfb21b456c0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74549245"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792694"
 ---
 # <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Configurare l'accesso per più ambienti del servizio di integrazione in app per la logica di Azure
 

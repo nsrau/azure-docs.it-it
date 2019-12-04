@@ -1,22 +1,18 @@
 ---
-title: Connettersi a Twitter da App per la logica di Azure | Microsoft Docs
+title: Connettersi a Twitter da app per la logica di Azure
 description: Utilizzando App per la logica di Azure, è possibile automatizzare attività e flussi di lavoro che monitorano e gestiscono tweet, oltre che ottenere dati su follower, utenti seguiti, altri utenti, sequenze temporali e altro ancora dal proprio account Twitter
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050697"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789087"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitorare e gestire Twitter con App per la logica di Azure
 
@@ -25,7 +21,7 @@ Con App per la logica di Azure e il connettore Twitter, è possibile creare atti
 * Monitorare, postare e cercare tweet.
 * Ottenere dati, ad esempio follower, utenti seguiti, sequenze temporali e altro ancora.
 
-È possibile usare i trigger per ottenere risposte dall'account Twitter e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Twitter. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twitter. Ad esempio, quando viene postato un nuovo tweet con uno specifico hashtag, è possibile inviare messaggi con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+È possibile usare i trigger per ottenere risposte dall'account Twitter e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Twitter. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twitter. Ad esempio, quando viene postato un nuovo tweet con uno specifico hashtag, è possibile inviare messaggi con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,23 +58,23 @@ Con App per la logica di Azure e il connettore Twitter, è possibile creare atti
      Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
      
        Nella casella di ricerca immettere "twitter" come filtro. 
-       Nell'elenco delle azioni selezionare l'azione desiderata.
+       Nell'elenco delle azioni scegliere l'azione desiderata.
 
 1. Se viene chiesto di accedere a Twitter, accedere immediatamente per autorizzare l'accesso all'app per la logica.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>esempi
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger Twitter: Quando viene visualizzato un nuovo tweet
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Trigger di Twitter: quando viene pubblicato un nuovo tweet
 
 Questo trigger avvia un flusso di lavoro di un'app per la logica quando il trigger rileva un nuovo tweet, ad esempio con l'hashtag #Seattle. Così, ad esempio, quando questi tweet vengono rilevati, è possibile aggiungere un file con il contenuto dei tweet alla risorsa di archiviazione, ad esempio un account Dropbox utilizzando il connettore Dropbox. 
 
 Facoltativamente, è possibile includere una condizione secondo cui i tweet idonei devono provenire da utenti con almeno un numero specificato di follower.
 
-**Esempio riguardante un'organizzazione**: È possibile usare questo trigger per monitorare i tweet relativi all'azienda e caricare il contenuto dei Tweet in un database SQL.
+**Esempio Enterprise**: è possibile utilizzare questo trigger per monitorare i tweet della propria azienda e caricare il contenuto dei tweet in un database SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Azione Twitter: Pubblica un tweet
+### <a name="twitter-action-post-a-tweet"></a>Azione di Twitter: pubblicare un tweet
 
 Questa azione pubblica un tweet, ma è possibile impostare l'azione in modo che il tweet contenga il contenuto dei tweet trovati dal trigger precedentemente descritto. 
 
@@ -86,7 +82,7 @@ Questa azione pubblica un tweet, ma è possibile impostare l'azione in modo che 
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/twitterconnector/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

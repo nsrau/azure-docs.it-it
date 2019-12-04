@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/03/2019
 ms.author: erhopf
-ms.openlocfilehash: 49bfa4a0dbf0adc498d545a2908c20f0ffa35b4b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f04ad388922ad7f73bf4409f9a846291cbb08da3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075725"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774009"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -23,7 +23,7 @@ Riconoscimento vocale da servizi vocali di Azure, noto anche come riconoscimento
 
 Per impostazione predefinita, il servizio riconoscimento vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore.
 
-È possibile acquisire facilmente audio da un microfono, leggere da un flusso o accedere a file audio dalla risorsa di archiviazione con l'SDK di riconoscimento vocale e le API REST. Speech SDK supporta audio WAV/PCM a 16 bit, 16 kHz/8 kHz, a singolo canale per il riconoscimento vocale. Altri formati audio sono supportati tramite l'[endpoint REST di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o il [servizio di trascrizione in batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+È possibile acquisire facilmente audio da un microfono, leggere da un flusso o accedere a file audio dalla risorsa di archiviazione con l'SDK di riconoscimento vocale e le API REST. Speech SDK supporta audio WAV/PCM a 16 bit, 16 kHz/8 kHz, a singolo canale per il riconoscimento vocale. Sono supportati formati audio aggiuntivi usando l' [endpoint REST di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o il servizio di [trascrizione batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Funzionalità di base
 
@@ -31,18 +31,20 @@ Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le
 
 | Caso d'uso | SDK | REST |
 |--------- | --- | ---- |
-| Trascrivere brevi espressioni (< 15 secondi). Supporta solo il risultato finale della trascrizione. | Sì | Sì |
-| Trascrizione continua di espressioni Long e audio di streaming (> 15 secondi). Supporta i risultati della trascrizione temporanea e finale. | Sì | No |
-| Derivare gli Intent dai risultati del riconoscimento con [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Sì | No\* |
-| Trascrizione batch di file audio in modo asincrono. | No  | Sì\*\* |
-| Creare e gestire i modelli di riconoscimento vocale. | No | Sì\*\* |
-| Creare e gestire distribuzioni di modelli personalizzati. | No  | Sì\*\* |
-| Creare test di accuratezza per misurare l'accuratezza del modello di base rispetto ai modelli personalizzati. | No  | Sì\*\* |
-| Gestisci sottoscrizioni. | No  | Sì\*\* |
+| Trascrivere brevi espressioni (< 15 secondi). Supporta solo un risultato finale della trascrizione. | SÌ | Sì\* |
+| Trascrizione continua di espressioni Long e audio di streaming (> 15 secondi). Supporta i risultati della trascrizione temporanea e finale. | SÌ | No |
+| Derivare gli Intent dai risultati del riconoscimento con [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | SÌ | Nessun\*\* |
+| Trascrizione batch di file audio in modo asincrono. | No  | Sì\*\*\* |
+| Creare e gestire i modelli di riconoscimento vocale. | No | Sì\*\*\* |
+| Creare e gestire distribuzioni di modelli personalizzati. | No  | Sì\*\*\* |
+| Creare test di accuratezza per misurare l'accuratezza del modello di base rispetto ai modelli personalizzati. | No  | Sì\*\*\* |
+| Gestisci sottoscrizioni. | No  | Sì\*\*\* |
 
-\*_Luis Intent ed Entities possono essere derivati usando una sottoscrizione Luis separata. Con questa sottoscrizione, l'SDK può chiamare LUIS per l'utente e fornire risultati di entità e finalità. Con l'API REST, è possibile chiamare LUIS per derivare gli Intent e le entità con la sottoscrizione LUIS._
+\*_usando la funzionalità Rest è possibile trasferire fino a 60 secondi di audio e ricevere un risultato finale della trascrizione._
 
-\*\*_questi servizi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index)._
+\*\*_Luis Intent ed Entities possono essere derivati usando una sottoscrizione Luis separata. Con questa sottoscrizione, l'SDK chiama LUIS per l'utente e fornisce risultati di entità e finalità. Con l'API REST, si chiama LUIS per ricavare gli Intent e le entità con la sottoscrizione LUIS._
+
+\*\*\*_questi servizi sono disponibili tramite l'endpoint cris.ai. Vedere informazioni di [riferimento su spavalderia](https://westus.cris.ai/swagger/ui/index)._
 
 ## <a name="get-started-with-speech-to-text"></a>Introduzione alla sintesi vocale
 
@@ -78,7 +80,7 @@ Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocal
 - [Eseguire la migrazione dal riconoscimento vocale Bing ai servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
 - [Eseguire la migrazione da Riconoscimento vocale personalizzato ai servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 - [Speech SDK](https://aka.ms/csspeech)
 - [Speech Devices SDK](speech-devices-sdk.md)

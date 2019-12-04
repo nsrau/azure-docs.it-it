@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 08549935c7a0651709a08bef61624e4e436d4aad
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084099"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792187"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare un'istanza del cluster di failover di SQL Server in macchine virtuali di Azure
 
@@ -81,9 +81,7 @@ Una cosa da tenere presente è che in un cluster di failover di macchine virtual
 - [Gruppi di risorse di Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la modalità di gestione [semplice](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Disinstallare l'estensione completa dalle macchine virtuali che fanno parte del cluster di failover e quindi registrarle con il provider di risorse VM SQL in modalità lightweight.
->
-> L'estensione completa supporta funzionalità come il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL Server dopo la reinstallazione dell'agente in modalità di gestione leggera.
+> A questo punto, SQL Server istanze del cluster di failover in macchine virtuali di Azure sono supportate solo con la [modalità di gestione semplice](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) dell' [estensione dell'agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Per passare dalla modalità di estensione completa a quella Lightweight, eliminare la risorsa della **macchina virtuale SQL** per le macchine virtuali corrispondenti e quindi registrarla con il provider di risorse VM SQL in modalità lightweight. Quando si elimina la risorsa della **macchina virtuale SQL** utilizzando la portale di Azure, **deselezionare la casella di controllo accanto alla macchina virtuale corretta**. L'estensione completa supporta funzionalità quali il backup automatizzato, l'applicazione di patch e la gestione avanzata del portale. Queste funzionalità non funzioneranno per le macchine virtuali SQL dopo che l'agente è stato reinstallato in modalità di gestione leggera.
 
 ### <a name="what-to-have"></a>Elementi necessari
 
@@ -112,7 +110,7 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
 
    1. Nella portale di Azure selezionare **Crea una risorsa** per aprire Azure Marketplace. Cercare **Set di disponibilità**.
    1. Selezionare **set di disponibilità**.
-   1. Selezionare **Create**.
+   1. Selezionare **Create** (Crea).
    1. In **Crea set di disponibilità**specificare i valori seguenti:
       - **Nome**: nome del set di disponibilità.
       - **Sottoscrizione**: sottoscrizione di Azure.
@@ -176,7 +174,7 @@ Con questi prerequisiti, è possibile iniziare a compilare il cluster di failove
 
    In ogni macchina virtuale aprire queste porte nella Windows Firewall:
 
-   | Scopo | Porta TCP | note
+   | Finalità | Porta TCP | Note
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta.
    | Probe di integrità | 59999 | Qualsiasi porta TCP aperta. In un passaggio successivo, configurare il [probe di integrità](#probe) del servizio di bilanciamento del carico e il cluster per l'uso di questa porta.  
@@ -294,7 +292,7 @@ Cloud Witness è un nuovo tipo di quorum di controllo del cluster archiviato in 
 
 1. Configurare il quorum di controllo del cluster di failover. Vedere [configurare il quorum di controllo nell'interfaccia utente](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
-### <a name="add-storage"></a>Aggiungere le risorse di archiviazione
+### <a name="add-storage"></a>Aggiungi le risorse di archiviazione
 
 I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono contenere partizioni o altri dati. Per pulire i dischi, attenersi [alla procedura descritta in questa guida](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
 
@@ -369,7 +367,7 @@ Per creare il servizio di bilanciamento del carico:
 
 1. Selezionare **Aggiungi**. Cerca **Load Balancer**in Azure Marketplace. Selezionare **Load Balancer**.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 1. Configurare il servizio di bilanciamento del carico con le impostazioni seguenti.
 
@@ -501,7 +499,7 @@ In macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o 
 - Non è possibile configurare la risorsa MSDTC in cluster per usare l'archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna archiviazione condivisa disponibile per l'uso, anche se è disponibile spazio di archiviazione. Questo problema è stato risolto per Windows Server 2019.
 - Il servizio di bilanciamento del carico di base non gestisce le porte RPC.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Configurare Spazi di archiviazione diretta con desktop remoto (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

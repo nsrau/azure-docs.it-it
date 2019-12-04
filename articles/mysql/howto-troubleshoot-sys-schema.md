@@ -1,35 +1,35 @@
 ---
-title: Usare sys_schema per ottimizzare le prestazioni e gestire database di Azure per MySQL
-description: Informazioni su come usare sys_schema per trovare i problemi di prestazioni e gestire il database in database di Azure per MySQL.
+title: Usare sys_schema-database di Azure per MySQL
+description: Informazioni su come usare sys_schema per individuare i problemi di prestazioni e gestire il database in database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 08/01/2018
-ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972782"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775946"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Come usare sys_schema per l'ottimizzazione delle prestazioni e la manutenzione del database in Database di Azure per MySQL
 
-Il database performance_schema di MySQL, introdotto per la prima volta in MySQL 5.5, rende disponibile la strumentazione per molte risorse del server cruciali, come l'allocazione della memoria, i programmi archiviati, il blocco dei metadati e così via. Il database performance_schema, tuttavia, contiene più di 80 tabelle e ottenere le informazioni necessarie spesso richiede la creazione di join tra le tabelle all'interno di performance_schema, così come con le tabelle di information_schema. Basato su performance_schema e information_schema, sys_schema offre un'efficace raccolta di [viste intuitive](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in un database di sola lettura completamente abilitato in Database di Azure per MySQL versione 5.7.
+Il performance_schema MySQL, disponibile per la prima volta in MySQL 5,5, fornisce la strumentazione per molte risorse server essenziali, ad esempio l'allocazione di memoria, i programmi archiviati, il blocco dei metadati e così via. Tuttavia, il performance_schema contiene più di 80 tabelle e il recupero delle informazioni necessarie spesso richiede l'Unione di tabelle all'interno del performance_schema, nonché le tabelle dal information_schema. Basato su performance_schema e information_schema, sys_schema offre un'efficace raccolta di [viste intuitive](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) in un database di sola lettura completamente abilitato in Database di Azure per MySQL versione 5.7.
 
 ![viste di sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
 Il database sys_schema include 52 viste, ognuna con uno dei prefissi seguenti:
 
-- Host_summary o IO: latenze correlate a I/O.
+- Host_summary o IO: latenze correlate alle operazioni di I/O.
 - InnoDB: stato e blocchi del buffer InnoDB.
-- Memoria: utilizzo della memoria da parte di host e utenti.
+- Memory: utilizzo della memoria da parte di host e utenti.
 - Schema: informazioni correlate allo schema, come incremento automatico, indici e così via.
 - Statement: informazioni sulle istruzioni SQL; può trattarsi di istruzioni che causano una scansione di tabella completa o una durata prolungata delle query.
-- Utente: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
+- User: risorse utilizzate e raggruppate in base agli utenti. Ad esempio I/O su file, connessioni e memoria.
 - Wait: eventi di attesa raggruppati in base a host o utente.
 
-Di seguito verranno esaminati alcuni modelli di utilizzo comuni di sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **Ottimizzazione delle prestazioni** e **Manutenzione del database**.
+Di seguito verranno esaminati alcuni modelli di utilizzo comuni di sys_schema. Per iniziare, i modelli di utilizzo verranno raggruppati in due categorie: **ottimizzazione delle prestazioni** e **manutenzione del database**.
 
 ## <a name="performance-tuning"></a>Ottimizzazione delle prestazioni
 

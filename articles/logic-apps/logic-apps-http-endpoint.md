@@ -1,20 +1,17 @@
 ---
-title: Chiamare, attivare o annidare app per la logica-app per la logica di Azure
+title: Chiamare, attivare o annidare app per la logica
 description: Configurare endpoint HTTP per chiamare, attivare o annidare flussi di lavoro di app per la logica in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833955"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792021"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTP in app per la logica di Azure
 
@@ -278,7 +275,7 @@ Nel corpo della risposta è possibile includere più intestazioni e qualsiasi ti
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà (visualizzazione) | Property (JSON) | Descrizione |
+| Proprietà (visualizzazione) | Property (JSON) | Description |
 |--------------------|-----------------|-------------|
 | **Codice di stato** | `statusCode` | Codice di stato HTTP da utilizzare nella risposta per la richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
 | **Intestazioni** | `headers` | Una o più intestazioni da includere nella risposta |
@@ -305,7 +302,7 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 }
 ```
 
-## <a name="q--a"></a>Domande e risposte
+## <a name="q--a"></a>Domande frequenti
 
 #### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 

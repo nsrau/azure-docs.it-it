@@ -2,19 +2,16 @@
 title: Aggiungere e chiamare funzioni di Azure da app per la logica di Azure
 description: Aggiungere ed eseguire funzioni di Azure da app per la logica
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901102"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792568"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare funzioni di Azure da app per la logica di Azure
 
@@ -29,7 +26,7 @@ Per eseguire frammenti di codice senza creare funzioni di Azure, imparare a [agg
 > [!NOTE]
 > L'integrazione tra app per la logica e funzioni di Azure attualmente non funziona con gli slot abilitati.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -128,7 +125,7 @@ Prima di poter creare una funzione di Azure a partire dall'interno dell'app per 
 
    1. Nella casella **codice** aggiungere il codice al modello di funzione, incluse la risposta e il payload che si vuole restituire all'app per la logica al termine dell'esecuzione della funzione. Al termine, selezionare **Crea**.
 
-   Ad esempio:
+   ad esempio:
 
    ![Definire la funzione](./media/logic-apps-azure-functions/add-code-function-definition.png)
 

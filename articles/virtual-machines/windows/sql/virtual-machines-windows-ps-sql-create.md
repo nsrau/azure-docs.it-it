@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 072c58377645c807328bfcd79028daad70df7338
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102118"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790626"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Come eseguire il provisioning di macchine virtuali di SQL Server con Azure PowerShell
 
@@ -66,7 +66,7 @@ $StorageSku = "Premium_LRS"
 ### <a name="network-properties"></a>Proprietà di rete
 Definire le proprietà da usare per la rete nella macchina virtuale. 
 
-- Interfaccia di rete
+- interfaccia di rete
 - Metodo di allocazione TCP/IP
 - Nome della rete virtuale
 - Nome della subnet virtuale
@@ -171,7 +171,7 @@ Eseguire questo cmdlet per creare la configurazione di subnet virtuale.
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Crea una rete virtuale
 Creare quindi la rete virtuale nel nuovo gruppo di risorse mediante il cmdlet [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). Specificare le variabili inizializzate in precedenza per nome, posizione e prefisso dell'indirizzo. Usare la configurazione di subnet definita nel passaggio precedente.
 
 Eseguire questo cmdlet per creare la rete virtuale.
@@ -337,12 +337,13 @@ La macchina virtuale viene creata.
 > Se si verifica un errore sulla diagnostica di avvio, è possibile ignorarlo. Viene creato un account di archiviazione standard per la diagnostica di avvio, perché l'account di archiviazione specificato per il disco della macchina virtuale è un account di archiviazione Premium.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installare SQL Iaas Agent
-Le macchine virtuali di SQL Server supportano funzionalità di gestione automatica mediante l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Per installare l'agente nella nuova macchina virtuale, eseguire il comando seguente dopo la creazione.
+Le macchine virtuali di SQL Server supportano funzionalità di gestione automatica mediante l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Per installare l'agente nella nuova VM e registrarlo con il provider di risorse, eseguire il comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) dopo la creazione della macchina virtuale. Specificare il tipo di licenza per la macchina virtuale SQL Server, scegliendo tra con pagamento in base al consumo o bring your own License tramite il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). Per ulteriori informazioni sulle licenze, vedere [modello di licenza](virtual-machines-windows-sql-ahb.md). 
 
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
 
 ## <a name="stop-or-remove-a-vm"></a>Arrestare o rimuovere una macchina virtuale
 
@@ -419,8 +420,8 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $Publis
 # Create the VM in Azure
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
-# Add the SQL IaaS Extension
-Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+# Add the SQL IaaS Extension, and choose the license type
+New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

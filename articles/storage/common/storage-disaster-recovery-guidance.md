@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889779"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775929"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -122,7 +122,7 @@ Il failover dell'account è disponibile in anteprima per tutti i clienti che usa
 - Asia orientale
 - Asia sudorientale
 - Australia orientale
-- Australia sudorientale
+- Australia sud-orientale
 - Stati Uniti centrali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
@@ -139,7 +139,7 @@ Connect-AzAccount -SubscriptionId <subscription-id>
 Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
-Potrebbero essere necessari 1-2 giorni per ricevere l'approvazione per l'anteprima. Per verificare che la registrazione sia stata approvata, usare il comando seguente:
+La ricezione dell'approvazione per l'anteprima può richiedere 5-7 giorni. Per verificare che la registrazione sia stata approvata, usare il comando seguente:
 
 ```powershell
 Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
@@ -186,7 +186,7 @@ Se l'account di archiviazione è configurato per l'archiviazione con ridondanza 
 
 In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microsoft potrebbe avviare un failover a livello di area. In tal caso, non è necessaria alcuna azione da parte dell'utente. Si avrà di nuovo accesso in scrittura all'account di archiviazione solo dopo il completamento del failover gestito da Microsoft. Le applicazioni possono eseguire operazioni di lettura dall'area secondaria se l'account di archiviazione è configurato per l'archiviazione con ridondanza geografica e accesso in lettura. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Avviare il failover di un account (anteprima)](storage-initiate-account-failover.md)
 * [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)

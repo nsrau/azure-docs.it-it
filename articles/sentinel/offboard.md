@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464132"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777435"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>Rimuovere Azure Sentinel dal tenant
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Rimuovere Azure Sentinel dall'area di lavoro
 
-Se non si vuole più usare Azure Sentinel, questo articolo illustra come rimuoverlo dal tenant.
+Se non si vuole più usare Azure Sentinel, questo articolo illustra come rimuoverlo dall'area di lavoro.
 
 ## <a name="how-to-delete-azure-sentinel"></a>Come eliminare Sentinel di Azure
 

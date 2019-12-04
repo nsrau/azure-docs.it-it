@@ -3,19 +3,19 @@ title: Schemi di progettazione della divulgazione
 titleSuffix: Azure Cognitive Services
 description: Modelli di progettazione e procedure consigliate per la divulgazione.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559000"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776623"
 ---
 # <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
 Ora che hai&#39;determinato il giusto [livello di divulgazione](concepts-disclosure-guidelines.md#disclosure-assessment) per la tua esperienza vocale sintetica, è&#39;opportuno esplorare i modelli di progettazione potenziali.

@@ -3,17 +3,17 @@ title: Gestire i moduli in automazione di Azure
 description: Questo articolo descrive come gestire i moduli in automazione di Azure
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231583"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786470"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in automazione di Azure
 
@@ -34,7 +34,15 @@ Esistono diversi modi in cui è possibile importare un modulo nell'account di au
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
-### <a name="azure-portal"></a>portale di Azure
+È anche possibile usare lo stesso cmdlet per importare un modulo direttamente da PowerShell Gallery. Assicurarsi di selezionare **ModuleName** e **ModuleVersion** da [PowerShell Gallery](https://www.powershellgallery.com).
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+```
+
+### <a name="azure-portal"></a>Portale di Azure
 
 Nella portale di Azure passare all'account di automazione e selezionare **moduli** in **risorse condivise**. Fare clic su **+ Aggiungi modulo**. Selezionare un file con **estensione zip** contenente il modulo e fare clic su **OK** per avviare l'importazione del processo.
 
@@ -54,7 +62,7 @@ Per importare un modulo dal PowerShell Gallery, passare a https://www.powershell
 
 Se si verificano problemi con un modulo o è necessario eseguire il rollback a una versione precedente di un modulo, è possibile eliminarlo dall'account di automazione. Non è possibile eliminare la versione originale dei [moduli predefiniti](#default-modules) che vengono importati quando si crea un account di automazione. Se il modulo che si vuole eliminare è una versione più recente di uno dei [moduli predefiniti](#default-modules) installati, verrà eseguito il rollback alla versione installata con l'account di automazione. In caso contrario, verranno rimossi tutti i moduli eliminati dall'account di automazione.
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Nella portale di Azure passare all'account di automazione e selezionare **moduli** in **risorse condivise**. Selezionare il modulo che si desidera rimuovere. Nella pagina del **modulo** clcick **Delete**. Se questo modulo è uno dei [moduli predefiniti](#default-modules), verrà eseguito il rollback alla versione che era presente al momento della creazione dell'account di automazione.
 
@@ -70,7 +78,11 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 Di seguito è riportato un elenco di cmdlet nel modulo `Orchestrator.AssetManagement.Cmdlets` interno che viene importato in ogni account di automazione. Questi cmdlet sono accessibili nelle configurazioni manuali operativi e DSC e consentono di interagire con gli asset nell'account di automazione. I cmdlet interni consentono inoltre di recuperare i segreti da valori di **variabili** crittografati, **credenziali**e campi di **connessione** crittografati. I cmdlet Azure PowerShell non sono in grado di recuperare questi segreti. Questi cmdlet non richiedono la connessione implicita ad Azure quando vengono usati, ad esempio l'uso di un account RunAs per l'autenticazione in Azure.
 
-|Nome|DESCRIZIONE|
+>[!NOTE]
+>Questi cmdlet interni non sono disponibili in un ruolo di lavoro ibrido per Runbook, ma sono accessibili solo da manuali operativi in esecuzione in Azure. Usare i moduli [AzureRM. Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) o [AZ](../az-modules.md) corrispondenti per manuali operativi in esecuzione direttamente nel computer o nelle risorse dell'ambiente. 
+>
+
+|name|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -240,7 +252,7 @@ Aggiungere `[OutputType([<MyOutputType>])]` dove MyOutputType è un tipo valido.
 
 La tabella seguente elenca i moduli importati per impostazione predefinita quando viene creato un account di automazione. Nei moduli elencati di seguito possono essere importate versioni più recenti, ma non è possibile rimuovere la versione originale dall'account di automazione anche se si elimina una versione più recente.
 
-|Nome del modulo|Version|
+|Nome del modulo|Versione|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
@@ -253,13 +265,13 @@ La tabella seguente elenca i moduli importati per impostazione predefinita quand
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
 | GPRegistryPolicyParser | 0,2 |
-| Microsoft.PowerShell.Core | 0 |
-| Microsoft.PowerShell.Diagnostics |  |
-| Microsoft.PowerShell.Management |  |
-| Microsoft.PowerShell.Security |  |
-| Microsoft.PowerShell.Utility |  |
-| Microsoft.WSMan.Management |  |
-| Orchestrator.AssetManagement.Cmdlets | 1 |
+| Microsoft. PowerShell. Core | 0 |
+| Microsoft. PowerShell. Diagnostics |  |
+| Microsoft. PowerShell. Management |  |
+| Microsoft. PowerShell. Security |  |
+| Microsoft. PowerShell. Utility |  |
+| Microsoft. WSMan. Management |  |
+| Agente di orchestrazione. AssetManagement. Cmdlets | 1 |
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |

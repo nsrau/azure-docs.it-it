@@ -1,21 +1,19 @@
 ---
-title: Decodificare messaggi EDIFACT - App per la logica di Azure | Documentazione Microsoft
+title: Decodificare messaggi EDIFACT
 description: Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi EDIFACT per App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78c0d20c0f32a6d63d134e958b30d38fe11fcc5c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696199"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790675"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
 
@@ -59,7 +57,7 @@ Sono necessari gli elementi seguenti:
 
     ![connessione all'account di integrazione creata](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Ad esempio:
+    ad esempio:
 
     ![Selezionare il messaggio con il file flat EDIFACT da decodificare](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
@@ -81,13 +79,13 @@ Il connettore Decode EDIFACT esegue queste attività:
   * Controlla il numero di controllo del gruppo con gli altri numeri di controllo del gruppo dell'interscambio. 
   * Controlla il numero di controllo del set di transazioni con gli altri numeri di controllo del set transazioni in tale gruppo.
 * Suddivide l'interscambio in set di transazioni o mantiene l'intero interscambio:
-  * Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
+  * Suddivide l'interscambio in set di transazioni - sospende i set di transazioni in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Suddividi interscambio in set di transazioni - Sospendi interscambio in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
+  * Suddivide l'interscambio in set di transazioni - sospende l'interscambio in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
-  * Mantieni interscambio - Sospendi set transazioni in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
+  * Mantiene l'interscambio - sospende i set transazioni in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Mantieni interscambio - Sospendi interscambio in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
+  * Mantiene l'interscambio - sospende l'interscambio in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
 * Genera un riconoscimento tecnico (controllo) e/o funzionale (se configurata).
   * Un riconoscimento tecnico o CONTRL ACK segnala i risultati di un controllo sintattico dell'interscambio completo ricevuto.
@@ -97,5 +95,5 @@ Il connettore Decode EDIFACT esegue queste attività:
 Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
+[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack") 
 

@@ -1,22 +1,18 @@
 ---
-title: Connettersi a SendGrid da App per la logica di Azure | Microsoft Docs
+title: Connettersi a SendGrid da app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per l'invio di messaggi di posta elettronica e la gestione delle liste di distribuzione in SendGrid con App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 4f5efd73ef2a08069e3b9f2c7d60be99c209ddca
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050818"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789308"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Inviare messaggi di posta elettronica e gestire liste di distribuzione in SendGrid con App per la logica di Azure
 
@@ -29,7 +25,7 @@ Con App per la logica di Azure e il connettore SendGrid, è possibile creare att
 È possibile usare azioni di SendGrid nelle app per la logica per eseguire queste attività. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SendGrid. 
 
 Questo connettore offre solo azioni, quindi per avviare l'app per la logica, usare un trigger distinto, ad esempio un trigger **Ricorrenza**. Se ad esempio si aggiungono regolarmente destinatari alle liste, è possibile inviare messaggi di posta elettronica su destinatari e liste usando il connettore Office 365 Outlook o Outlook.com.
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,7 +54,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
    * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
    Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca immettere "sendgrid" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
+1. Nella casella di ricerca immettere "sendgrid" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
 1. Specificare un nome per la connessione. 
 
@@ -70,7 +66,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sendgrid/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

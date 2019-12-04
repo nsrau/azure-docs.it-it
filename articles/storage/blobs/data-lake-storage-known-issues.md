@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3ea77eb5dd8a03f877164179e3accc3a6f6d0aef
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548324"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793354"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -48,14 +48,12 @@ I dischi delle macchine virtuali non gestiti non sono supportati negli account c
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>Ambito API per la libreria client di Data Lake Storage per SDK, PowerShell e l'interfaccia della riga di comando
-
-### <a name="filesystem-support-in-sdks"></a>Supporto del filesystem negli SDK
+## <a name="filesystem-support-in-sdks"></a>Supporto del filesystem negli SDK
 
 - .NET, Java e Python sono disponibili in anteprima pubblica. Gli altri SDK non sono attualmente supportati.
 - Le operazioni get e set ACL non sono attualmente ricorsive.
 
-### <a name="filesystem-support-in-powershell-and-azure-cli"></a>Supporto del filesystem in PowerShell e nell'interfaccia della riga di comando
+## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Supporto del filesystem in PowerShell e nell'interfaccia della riga di comando
 
 Le operazioni get e set ACL non sono attualmente ricorsive.
 
@@ -77,7 +75,6 @@ La tabella seguente elenca tutte le altre funzionalità e gli strumenti non anco
 | **Registrazione diagnostica** |I log di diagnostica sono supportati (anteprima).<br><br>L'abilitazione dei log nell'portale di Azure non è attualmente supportata. Di seguito è riportato un esempio di come abilitare i log usando PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Assicurarsi di specificare `Blob` come valore del parametro `-ServiceType`, come illustrato in questo esempio. <br><br>Attualmente non è possibile usare Azure Storage Explorer per la visualizzazione dei log di diagnostica. Per visualizzare i log, usare AzCopy o gli SDK.
 | **Archiviazione non modificabile** |Non ancora supportato <br><br>L'archiviazione non modificabile offre la possibilità di archiviare i dati in un [worm (scrivere una sola volta, leggere molti)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) stato.|
 | **Livelli a livello di oggetto** |Sono supportati i livelli ad accesso sporadico e archivio. Il livello archivio è in anteprima. Tutti gli altri livelli di accesso non sono ancora supportati. <br><br> Attualmente sono presenti bug che interessano il livello di accesso dell'archivio.  Iscriversi per l'anteprima del livello di accesso dell'archivio [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
-| **Supporto di PowerShell e CLI** | Funzionalità limitate <br><br>Sono supportate le operazioni BLOB. L'utilizzo delle directory e l'impostazione degli elenchi di controllo di accesso (ACL) non sono ancora supportati. |
 | **Siti web statici** |Non ancora supportato <br><br>In particolare, la possibilità di gestire i file nei [siti web statici](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Applicazioni di terze parti** | Supporto limitato <br><br>Le applicazioni di terze parti che usano le API REST per lavorare continueranno a funzionare se vengono usate con Data Lake Storage Gen2. <br>Le applicazioni che chiamano API blob probabilmente funzioneranno.|
 |**eliminazione temporanea** |Non ancora supportato|

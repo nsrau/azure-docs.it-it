@@ -1,21 +1,19 @@
 ---
-title: Trasformare i dati XML tra i formati - App per la logica di Azure | Microsoft Docs
+title: Trasformare il codice XML tra i formati
 description: Creare trasformazioni o mappe per convertire i dati XML tra i formati in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427295"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792387"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creare mappe per trasformare i dati XML tra i formati in App per la logica di Azure con Enterprise Integration Pack
 
@@ -135,7 +133,7 @@ Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizia c
 
 
 
-## <a name="learn-more"></a>Altre informazioni
-* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  
+## <a name="learn-more"></a>Altre informazioni.
+* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack")  
 * [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")  
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672592"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793292"
 ---
 # <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -34,12 +34,12 @@ Per ulteriore assistenza, scrivi in farmbeatssupport@microsoft.com, Includi il f
 
 **Azione correttiva**: visitare il portale di Azure e seguire questa procedura:
 
-1. Passare al gruppo di risorse dell'hub dati FarmBeats.   
-2. Selezionare l' **Hub eventi** (DatafeedEventHubNamespace...)  e verificare il numero di messaggi in arrivo.   
+1. Passare al gruppo di risorse dell'hub dati FarmBeats.   
+2. Selezionare l' **Hub eventi** (DatafeedEventHubNamespace...) e verificare il numero di messaggi in arrivo.   
 3. Se non sono presenti **messaggi in ingresso**, contattare il partner del dispositivo.  
 4. Se sono presenti **messaggi in ingresso**, contattare farmbeatssupport@microsoft.com con i log di hub dati e acceleratori e i dati di telemetria acquisiti.
 
-Vedere la [sezione logs](#collect-logs-manually) del documento per informazioni su come scaricare i log.  
+Vedere la [sezione logs](#collect-logs-manually) del documento per informazioni su come scaricare i log.  
 
 ### <a name="dont-have-the-eventhub-connection-string"></a>Non si dispone della stringa di connessione Eventhub
 
@@ -55,7 +55,7 @@ Vedere la [sezione logs](#collect-logs-manually) del documento per informazioni 
 
 **Sintomi**: i dispositivi sono installati ed è stato collegato FarmBeats al partner del dispositivo. I dispositivi sono online e inviano dati di telemetria, ma vengono visualizzati offline.
 
-**Azione correttiva**: l'intervallo di Reporting non è configurato per questo dispositivo. Per impostare l'intervallo di Reporting, contattare il produttore del dispositivo. 
+**Azione correttiva**: l'intervallo di Reporting non è configurato per questo dispositivo. Per impostare l'intervallo di Reporting, contattare il produttore del dispositivo. 
 
 ### <a name="error-deleting-a-resource"></a>Errore durante l'eliminazione di una risorsa
 
@@ -135,44 +135,44 @@ Chiudere tutte le schede del browser con l'acceleratore aperto e chiudere la fin
 
 **Azione correttiva**: rieseguire il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date di 5-7 giorni e verificare se il processo è stato completato.
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>URL errato dell'hub sentinella o non accessibile 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>URL errato dell'hub sentinella o non accessibile 
 
-**Messaggio di errore del processo**: si è verificato un errore. La pagina a cui si sta tentando di accedere è temporaneamente non disponibile. 
+**Messaggio di errore del processo**: si è verificato un errore. La pagina a cui si sta tentando di accedere è temporaneamente non disponibile. 
 
 **Azione correttiva**:
-1.  Aprire l'URL di Sentinel (https://scihub.copernicus.eu/dhus/) nel browser e verificare se il sito Web è accessibile. 
-2.  Se il sito Web non è accessibile, verificare se è presente un firewall/rete aziendale e così via. blocca il sito Web ed eseguire le operazioni necessarie per consentire l'URL precedente. 
+1.  Aprire l'URL di Sentinel (https://scihub.copernicus.eu/dhus/) nel browser e verificare se il sito Web è accessibile. 
+2.  Se il sito Web non è accessibile, verificare se è presente un firewall/rete aziendale e così via. blocca il sito Web ed eseguire le operazioni necessarie per consentire l'URL precedente. 
 3.  Eseguire di nuovo il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date di 5-7 giorni e verificare se il processo è stato completato correttamente.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Server sentinella inattivo per manutenzione
 
-**Messaggio di errore del processo**: l'hub Open Access di Copernico sarà presto disponibile. Ci scusiamo per l'inconveniente. stiamo eseguendo alcune operazioni di manutenzione al momento. Torniamo online a breve. 
+**Messaggio di errore del processo**: l'hub Open Access di Copernico sarà presto disponibile. Ci scusiamo per l'inconveniente. stiamo eseguendo alcune operazioni di manutenzione al momento. Torniamo online a breve. 
 
 **Azione correttiva**:
 
-1.  Questo problema può verificarsi nel caso in cui vengano eseguite attività di manutenzione nel server Sentinel. 
-2.  Se un processo o una pipeline ha esito negativo con il motivo precedente, inviare nuovamente il processo in un secondo momento. 
-3.  L'utente può visitare https://scihub.copernicus.eu/news/ per verificare le informazioni sulle attività di manutenzione di Sentinel pianificate o non pianificate.  
+1.  Questo problema può verificarsi nel caso in cui vengano eseguite attività di manutenzione nel server Sentinel. 
+2.  Se un processo o una pipeline ha esito negativo con il motivo precedente, inviare nuovamente il processo in un secondo momento. 
+3.  L'utente può visitare https://scihub.copernicus.eu/news/ per verificare le informazioni sulle attività di manutenzione di Sentinel pianificate o non pianificate.  
 4.  Eseguire di nuovo il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date di 5-7 giorni e verificare se il processo è stato completato correttamente.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>È stato raggiunto il numero massimo di connessioni Sentinel
 
-**Messaggio di errore del processo**: numero massimo di due flussi simultanei ottenibili dall'utente "<username>" 
+**Messaggio di errore del processo**: numero massimo di due flussi simultanei ottenibili dall'utente "<username>" 
 
 **Azione correttiva**
-1.  Se un processo ha esito negativo con il motivo precedente, lo stesso account Sentinel viene usato in un'altra distribuzione/software. 
+1.  Se un processo ha esito negativo con il motivo precedente, lo stesso account Sentinel viene usato in un'altra distribuzione/software. 
 2.  L'utente può creare un nuovo account Sentinel ed eseguire di nuovo il programma di installazione per l'aggiornamento dell'hub dati con il nome utente e la password di Sentinel.  
 3.  Eseguire di nuovo il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date di 5-7 giorni e verificare se il processo è stato completato.
 
-### <a name="sentinel-server-refused-connection"></a>Il server Sentinel ha rifiutato la connessione 
+### <a name="sentinel-server-refused-connection"></a>Il server Sentinel ha rifiutato la connessione 
 
 **Messaggio di errore del processo**:
 
-Connessione rifiutata al server: http://172.30.175.69:8983/solr/dhus 
+Connessione rifiutata al server: http://172.30.175.69:8983/solr/dhus 
 
-**Azione correttiva**: questo problema può verificarsi se vengono eseguite attività di manutenzione nel server Sentinel. 
-1.  Se un processo o una pipeline ha esito negativo con il motivo precedente, inviare nuovamente il processo in un secondo momento. 
-2.  L'utente può visitare https://scihub.copernicus.eu/news/ per verificare le informazioni sulle attività di manutenzione di Sentinel pianificate o non pianificate.  
+**Azione correttiva**: questo problema può verificarsi se vengono eseguite attività di manutenzione nel server Sentinel. 
+1.  Se un processo o una pipeline ha esito negativo con il motivo precedente, inviare nuovamente il processo in un secondo momento. 
+2.  L'utente può visitare https://scihub.copernicus.eu/news/ per verificare le informazioni sulle attività di manutenzione di Sentinel pianificate o non pianificate.  
 3.  Eseguire di nuovo il processo non riuscito o eseguire un processo di indici satellite per un intervallo di date di 5-7 giorni e verificare se il processo è stato completato.
 
 
@@ -281,11 +281,11 @@ Nel dashboard del gruppo di risorse cercare l'account di archiviazione (datahubl
 
 ## <a name="high-cpu-usage"></a>Uso elevato della CPU
 
-**Errore**: si riceve un avviso di posta elettronica che fa riferimento a un avviso di utilizzo elevato della CPU. 
+**Errore**: si riceve un avviso di posta elettronica che fa riferimento a un avviso di utilizzo elevato della CPU. 
 
-**Azione correttiva**: 
+**Azione correttiva**: 
 1.  Passare al gruppo di risorse dell'hub dati FarmBeats.
-2.  Selezionare il servizio app.  
+2.  Selezionare il servizio app.  
 3.  Passare a scalabilità verticale (piano di servizio app) e selezionare un piano [tariffario](https://azure.microsoft.com/pricing/details/app-service/windows/) appropriato
 
 ## <a name="next-steps"></a>Passaggi successivi

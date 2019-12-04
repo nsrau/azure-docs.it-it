@@ -1,17 +1,17 @@
 ---
-title: Repliche in lettura in Database di Azure per MariaDB
+title: Leggere repliche-database di Azure per MariaDB
 description: 'Informazioni sulle repliche di lettura nel database di Azure per MariaDB: scelta delle aree, creazione di repliche, connessione alle repliche, monitoraggio della replica e arresto della replica.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158418"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790440"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -45,7 +45,9 @@ La funzionalità di lettura della replica utilizza la replica asincrona. La funz
 ### <a name="universal-replica-regions"></a>Aree di replica universale
 È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Le aree di replica universale supportate includono:
 
-Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2.
+Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali.
+
+\* Stati Uniti occidentali 2 è temporaneamente non disponibile come percorso di replica tra aree.
 
 
 ### <a name="paired-regions"></a>Aree abbinate
@@ -151,7 +153,7 @@ I parametri del server seguenti sono bloccati nei server master e di replica:
 
 Il parametro [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) è bloccato nei server di replica.
 
-### <a name="other"></a>Altre
+### <a name="other"></a>Altro
 
 - La creazione di una replica di replica non è supportata.
 - Le tabelle in memoria possono impedire la sincronizzazione delle repliche. Si tratta di una limitazione della tecnologia di replica di MariaDB.

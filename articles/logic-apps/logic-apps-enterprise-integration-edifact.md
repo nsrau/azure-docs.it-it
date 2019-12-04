@@ -1,20 +1,19 @@
 ---
-title: Messaggi EDIFACT per l'integrazione B2B-app per la logica di Azure
+title: Messaggi EDIFACT per l'integrazione B2B
 description: Scambiare messaggi EDIFACT in formato EDI per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/26/2016
-ms.openlocfilehash: 42197f8bf08ae1f36c531c220ebbf78484a5946e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: b6a6ee21774ba931d9982d82b99008f312d19736
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680354"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793012"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 

@@ -1,23 +1,18 @@
 ---
-title: Ricevere e rispondere alle chiamate HTTPS-app per la logica di Azure
+title: Ricevere e rispondere alle chiamate HTTPS
 description: Gestire le richieste e gli eventi HTTPS in tempo reale usando app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264357"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786996"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure
 
@@ -52,9 +47,9 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
-   | **URL POST HTTP** | {none} | Yes | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
+   | **URL POST HTTP** | {none} | SÌ | L'URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Schema JSON del corpo della richiesta** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
    |||||
 
@@ -108,7 +103,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
    }
    ```
 
-   Quando si immette uno schema JSON, la finestra di progettazione Mostra un promemoria per includere l'intestazione `Content-Type` nella richiesta e impostare il valore di tale intestazione su `application/json`. Per altre informazioni, vedere [gestire i tipi di contenuto](../logic-apps/logic-apps-content-type.md).
+   Quando si immette uno schema JSON, la finestra di progettazione Mostra un promemoria per includere l'intestazione `Content-Type` nella richiesta e impostare tale valore di intestazione su `application/json`. Per altre informazioni, vedere [gestire i tipi di contenuto](../logic-apps/logic-apps-content-type.md).
 
    ![Promemoria per includere l'intestazione "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -151,7 +146,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare altre proprietà, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che la richiesta in ingresso deve usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo del parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -183,10 +178,10 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 Di seguito sono riportate altre informazioni sugli output del trigger di richiesta:
 
-| Nome proprietà JSON | Tipo di dati | Descrizione |
+| Nome proprietà JSON | Tipo di dati | Description |
 |--------------------|-----------|-------------|
-| `headers` | Object | Oggetto JSON che descrive le intestazioni della richiesta |
-| `body` | Object | Oggetto JSON che descrive il contenuto del corpo dalla richiesta |
+| `headers` | Oggetto | Oggetto JSON che descrive le intestazioni della richiesta |
+| `body` | Oggetto | Oggetto JSON che descrive il contenuto del corpo dalla richiesta |
 ||||
 
 <a name="add-response"></a>
@@ -225,9 +220,9 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un minuto.
 
    Di seguito sono riportate altre informazioni sulle proprietà che è possibile impostare nell'azione di risposta. 
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatorio | Descrizione |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
    |---------------|--------------------|----------|-------------|
-   | **Codice di stato** | `statusCode` | Yes | Codice di stato da restituire nella risposta |
+   | **Codice di stato** | `statusCode` | SÌ | Codice di stato da restituire nella risposta |
    | **Intestazioni** | `headers` | No | Oggetto JSON che descrive una o più intestazioni da includere nella risposta |
    | **Corpo** | `body` | No | Il corpo della risposta |
    |||||

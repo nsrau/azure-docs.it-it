@@ -1,17 +1,17 @@
 ---
-title: Espandere automaticamente il database di Azure per l'archiviazione MariaDB usando l'interfaccia della riga di comando
+title: Espansione automatica dell'archiviazione-interfaccia della riga di comando di Azure-database di Azure per MariaDB
 description: Questo articolo descrive come abilitare l'aumento automatico delle dimensioni di archiviazione usando l'interfaccia della riga di comando di Azure nel database di Azure per MariaDB.
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/7/2019
-ms.openlocfilehash: 12ce525514535254637f8cd8f46ec40cc0bd74d0
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: 4c9677f31128076a80ec168151e74247bdc8bc51
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389862"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771849"
 ---
 # <a name="auto-grow-azure-database-for-mariadb-storage-using-the-azure-cli"></a>Espandere automaticamente il database di Azure per l'archiviazione MariaDB usando l'interfaccia della riga di comando di Azure
 Questo articolo descrive come configurare un database di Azure per l'archiviazione del server MariaDB in modo che cresca senza compromettere il carico di lavoro.
