@@ -1,5 +1,5 @@
 - name: Documentazione dell'API Ricerca immagini Bing
-  href: index.yml
+  href: ../bing-web-search/index.yml
 - name: Panoramica
   expanded: true
   items:
