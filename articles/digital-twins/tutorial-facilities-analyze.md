@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Analizzare gli eventi dell'installazione di Gemelli digitali di Azure"
+title: 'Esercitazione: Analizzare gli eventi in Time Series Insights - Gemelli digitali di Azure | Microsoft Docs'
 description: Informazioni su come visualizzare e analizzare gli eventi dagli spazi di Gemelli digitali di Azure con Azure Time Series Insights seguendo i passaggi descritti in questa esercitazione.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107673"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383068"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Esercitazione: Visualizzare e analizzare gli eventi dei Gemelli digitali di Azure usando Time Series Insights
 
@@ -54,6 +54,8 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Cercare e selezionare **Hub eventi**. Selezionare **Create** (Crea).
 
+    [![Creare uno spazio dei nomi di Hub eventi](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. In **Nome** immettere un nome per lo spazio dei nomi di Hub eventi. Scegliere **Standard** per **Piano tariffario** e indicare **Sottoscrizione**, **Gruppo di risorse** usato per l'istanza di Gemelli digitali e **Località**. Selezionare **Create** (Crea).
 
 1. Nella distribuzione dello spazio dei nomi di Hub eventi, selezionare il riquadro **Panoramica**, quindi selezionare **Vai alla risorsa**.
@@ -77,7 +79,10 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
     [![Stringhe di connessione dell'hub eventi](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. Aprire i criteri ManageSend creati e copiare i valori di **Stringa di connessione - chiave primaria** e **Stringa di connessione - chiave secondaria** in un file temporaneo. Questi valori saranno necessari per creare un endpoint per l'hub eventi nella sezione successiva.
+    > [!TIP]
+    > Verificare che si stia creando un criterio di firma di accesso condiviso per l'istanza dell'hub eventi invece che per lo spazio dei nomi.
+
+1. Aprire i criteri **ManageSend** creati e copiare i valori di **Stringa di connessione - chiave primaria** e **Stringa di connessione - chiave secondaria** in un file temporaneo. Questi valori saranno necessari per creare un endpoint per l'hub eventi nella sezione successiva.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Creare un endpoint per l'hub eventi
 
@@ -105,13 +110,13 @@ Usare il servizio [Hub eventi](../event-hubs/event-hubs-about.md) per creare una
 
 1. Sostituire i segnaposto `Primary_connection_string_for_your_event_hub` con il valore di **Stringa di connessione - chiave primaria** per l'hub eventi. Assicurarsi che il formato della stringa di connessione sia il seguente:
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Sostituire i segnaposto `Secondary_connection_string_for_your_event_hub` con il valore di **Stringa di connessione - chiave secondaria** per l'hub eventi. Assicurarsi che il formato della stringa di connessione sia il seguente: 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

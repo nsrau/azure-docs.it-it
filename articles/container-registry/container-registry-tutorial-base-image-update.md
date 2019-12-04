@@ -1,20 +1,15 @@
 ---
-title: "Esercitazione: Attivare la creazione di immagini all'aggiornamento delle immagini - Registro Azure Container"
+title: "Esercitazione: Attivare la creazione di immagini all'aggiornamento delle immagini di base"
 description: Questa esercitazione illustra come configurare un'attività di Registro Azure Container per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/12/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1beb66d8491b7dac84e9531558f8967e22086575
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b89bf0364165822368647b4c5b773bf422902aec
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931677"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456135"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -272,10 +267,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come usare un'attività per attivare automaticamente compilazioni delle immagini dei contenitori in seguito all'aggiornamento dell'immagine di base. Passare ora alle informazioni sull'autenticazione per il registro contenitori.
+In questa esercitazione è stato illustrato come usare un'attività per attivare automaticamente compilazioni delle immagini dei contenitori in seguito all'aggiornamento dell'immagine di base. Passare ora all'esercitazione successiva per informazioni su come attivare le attività in base a una pianificazione definita.
 
 > [!div class="nextstepaction"]
-> [Autenticazione in Registro Azure Container](container-registry-authentication.md)
+> [Eseguire un'attività in base a una pianificazione](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

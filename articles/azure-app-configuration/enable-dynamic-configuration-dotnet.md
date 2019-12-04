@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821628"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185243"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Esercitazione: Usare la configurazione dinamica in un'app .NET Framework
 
@@ -31,16 +31,15 @@ Questa esercitazione mostra come è possibile implementare aggiornamenti dinamic
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Configurare l'applicazione per aggiornarne la configurazione con un archivio di configurazione app su richiesta.
-> * Inserire la configurazione più recente nei controller dell'applicazione.
-
+> * Configurare l'app .NET Framework per aggiornarne la configurazione in risposta alle modifiche in un archivio di Configurazione app.
+> * Inserire la configurazione più recente nell'applicazione.
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 o versione successiva](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
+## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +51,7 @@ In questa esercitazione si apprenderà come:
 
     Lasciare vuoti i campi **Etichetta** e **Tipo di contenuto** per il momento.
 
-## <a name="create-a-net-console-app"></a>Creare un'app console .NET
+## <a name="create-a-net-framework-console-app"></a>Creare un'app console .NET Framework
 
 1. Avviare Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 
@@ -99,7 +98,7 @@ In questa esercitazione si apprenderà come:
         PrintMessage().Wait();
     }
     ```
-    Il metodo `ConfigureRefresh` consente di specificare le impostazioni usate per aggiornare i dati di configurazione con l'archivio di configurazione app quando viene attivata un'operazione di aggiornamento. Un'istanza di `IConfigurationRefresher` può essere recuperata chiamando il metodo `GetRefresher` nelle opzioni specificate per il metodo `AddAzureAppConfiguration` e il metodo `Refresh` in questa istanza può essere usato per attivare un'operazione di aggiornamento in qualsiasi punto del codice.
+    Il metodo `ConfigureRefresh` consente di specificare le impostazioni usate per aggiornare i dati di configurazione con l'archivio di Configurazione app quando viene attivata un'operazione di aggiornamento. Un'istanza di `IConfigurationRefresher` può essere recuperata chiamando il metodo `GetRefresher` nelle opzioni specificate per il metodo `AddAzureAppConfiguration` e il metodo `Refresh` in questa istanza può essere usato per attivare un'operazione di aggiornamento in qualsiasi punto del codice.
 
     > [!NOTE]
     > Il tempo di scadenza predefinito della cache per un'impostazione di configurazione è di 30 secondi, ma è possibile eseguirne l'override con una chiamata al metodo `SetCacheExpiration` nelle opzioni che l'inizializzatore ha passato come argomento al metodo `ConfigureRefresh`.
@@ -121,7 +120,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
-1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
+1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -135,7 +134,7 @@ In questa esercitazione si apprenderà come:
 
     ![Avvio dell'app in locale](./media/dotnet-app-run.png)
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di configurazione app creata nella guida di avvio rapido.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di Configurazione app creata nell'argomento di avvio rapido.
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
@@ -156,7 +155,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata aggiunta un'identità del servizio gestita di Azure per facilitare l'accesso a Configurazione app e migliorare la gestione delle credenziali dell'app. Per informazioni su come aggiungere un'identità del servizio gestito di Azure che semplifica l'accesso a Configurazione app, continuare con l'esercitazione successiva.
+In questa esercitazione è stata abilitata l'app .NET Framework per aggiornare dinamicamente le impostazioni di configurazione di Configurazione app. Per informazioni su come usare un'identità gestita di Azure per semplificare l'accesso a Configurazione app, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Integrazione dell'identità gestita](./howto-integrate-azure-managed-service-identity.md)

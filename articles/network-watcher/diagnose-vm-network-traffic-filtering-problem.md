@@ -1,5 +1,6 @@
 ---
-title: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Guida introduttiva - Portale di Azure | Microsoft Docs
+title: 'Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una VM - Portale di Azure'
+titleSuffix: Azure Network Watcher
 description: In questa guida introduttiva si apprende come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale usando la funzionalità di verifica del flusso IP di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,14 +18,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702909"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276002"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
@@ -45,9 +46,9 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |NOME|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Impostazioni**  accettare tutte le impostazioni predefinite e scegliere **OK**.
@@ -78,7 +79,7 @@ Quando si crea una macchina virtuale, per impostazione predefinita Azure consent
 
     |Impostazione            |Valore                                                                                              |
     |---------          |---------                                                                                          |
-    | Gruppo di risorse    | Selezionare myResourceGroup                                                                            |
+    | Resource group    | Selezionare myResourceGroup                                                                            |
     | Macchina virtuale   | Selezionare myVm                                                                                       |
     | interfaccia di rete | MyVM: il nome dell'interfaccia di rete creata dal portale quando è stata creata la VM è diverso. |
     | Protocollo          | TCP                                                                                               |

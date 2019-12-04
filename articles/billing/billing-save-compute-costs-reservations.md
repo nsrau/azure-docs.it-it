@@ -3,16 +3,16 @@ title: Informazioni sulle prenotazioni di Azure
 description: Informazioni sulle prenotazioni e sui prezzi di Azure per risparmiare sui costi di macchine virtuali, database SQL, Azure Cosmos DB e altre risorse.
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: df15bcc0e4a3ef7629abf7b62f8ff36caf732150
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580085"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420137"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -36,6 +36,12 @@ Piani di servizio:
 - **vCore riservato del database SQL**: in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza vengono fatturati separatamente.
 - **SQL data warehouse**: una prenotazione copre la capacità di DWU a elevato utilizzo di calcolo. Non copre invece i costi delle risorse di archiviazione o di rete associate all'utilizzo di SQL Data Warehouse.
 - **Tariffa stamp del servizio app**: una prenotazione copre l'utilizzo di stamp. Non si applica ai ruoli di lavoro, quindi qualsiasi altra risorsa associata allo stamp viene addebitata separatamente.
+- Database di Azure per MySQL
+- Database di Azure per PostgreSQL
+- Database di Azure per MariaDB
+- Esplora dati di Azure
+- Managed Disks SSD Premium
+
 
 Per le macchine virtuali Windows e il database SQL, i costi delle licenze possono essere coperti con le offerte di [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

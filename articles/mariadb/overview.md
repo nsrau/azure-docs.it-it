@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/13/2019
-ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/25/2019
+ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177969"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484154"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Cos'è Database di Azure per MariaDB?
 
@@ -53,11 +53,7 @@ Il contratto di servizio di Azure con disponibilità del 99,99% leader del setto
 
 ## <a name="secure-your-data"></a>Protezione dei dati
 
-I servizi di database di Azure vantano una tradizione di sicurezza dei dati ereditata anche da Database di Azure per MariaDB. Database di Azure per MariaDB offre funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://www.microsoft.com/en-us/trustcenter/security) per informazioni sulla sicurezza della piattaforma Azure.
-
-Il servizio Database di Azure per MariaDB usa il modulo crittografico convalidato FIPS 140-2 per la crittografia dei dati archiviati inattivi. I dati, inclusi i backup, vengono crittografati su disco, ad eccezione dei file temporanei creati durante l'esecuzione di query. Il servizio usa la crittografia AES a 256 bit, inclusa nella crittografia di Archiviazione di Azure. Le chiavi vengono gestite dal sistema. La crittografia dell'archiviazione è sempre attiva e non può essere disabilitata.
-
-Per impostazione predefinita, il servizio Database di Azure per MariaDB è configurato per richiedere la [sicurezza di connessione SSL](./concepts-ssl-connection-security.md) per i dati in transito nella rete. L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione. Se l'applicazione client non supporta la connettività SSL, è possibile disabilitare facoltativamente il requisito SSL per la connessione al servizio di database.
+I servizi di database di Azure vantano una tradizione di sicurezza dei dati ereditata anche da Database di Azure per MariaDB. Database di Azure per MariaDB offre funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://www.microsoft.com/trustcenter/security) per informazioni sulla sicurezza della piattaforma Azure. Per altre informazioni sulle funzionalità di sicurezza di Database di Azure per MySQL, vedere la [panoramica sulla sicurezza](concepts-security.md).
 
 ## <a name="contacts"></a>Contatti
 

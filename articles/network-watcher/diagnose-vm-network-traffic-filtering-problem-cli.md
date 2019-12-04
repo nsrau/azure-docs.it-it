@@ -1,5 +1,6 @@
 ---
-title: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Guida introduttiva - Interfaccia della riga di comando di Azure | Microsoft Docs
+title: 'Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una VM - Interfaccia della riga di comando di Azure'
+titleSuffix: Azure Network Watcher
 description: In questa guida introduttiva si apprende come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale usando la funzionalità di verifica del flusso IP di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,14 +18,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 460513e4818cbef8fca0cd1b84d69b3021afaab7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690439"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276081"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
 In questa guida introduttiva si apprende come distribuire una macchina virtuale e quindi controllare le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 

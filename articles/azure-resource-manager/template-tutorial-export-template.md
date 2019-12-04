@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Esportare un modello di Azure Resource Manager dal portale di Azure'
+title: 'Esercitazione: Esportare un modello dal portale di Azure'
 description: Informazioni su come usare un modello esportato per completare lo sviluppo del modello.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243216"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406021"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Esercitazione: Usare il modello esportato dal portale di Azure
 
@@ -25,7 +22,7 @@ In questa serie di esercitazioni è stato creato un modello per distribuire un a
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
@@ -52,7 +49,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione, ma è
 1. Selezionare **Rivedi e crea**.
 1. Selezionare **Create** (Crea). La creazione della risorsa richiede alcuni minuti.
 
-## <a name="export-the-template"></a>Esportare il modello
+## <a name="export-template"></a>Esportare il modello
 
 1. Selezionare **Vai alla risorsa**.
 
@@ -71,7 +68,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione, ma è
 > [!IMPORTANT]
 > In genere, il modello esportato è più dettagliato di quanto necessario quando si crea un modello. Ad esempio, l'oggetto SKU nel modello esportato include cinque proprietà. Questo modello funziona, ma magari si preferisce usare solo la proprietà **name**. È possibile iniziare con il modello esportato e quindi modificarlo in base alle esigenze.
 
-## <a name="revise-the-existing-template"></a>Modificare il modello esistente
+## <a name="revise-existing-template"></a>Modificare il modello esistente
 
 Il modello esportato include la maggior parte del codice JSON necessario, che però deve essere personalizzato per il modello. Prestare particolare attenzione alle differenze tra parametri e variabili tra il modello e il modello esportato. Ovviamente, il processo di esportazione non conosce i parametri e le variabili già definiti nel modello.
 
@@ -81,7 +78,7 @@ Copiare l'intero file e sostituire il modello con il contenuto del file.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-template"></a>Distribuire il modello
 
 Per distribuire un modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell.
 

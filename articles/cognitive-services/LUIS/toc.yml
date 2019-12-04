@@ -46,10 +46,10 @@
         - name: 2. Estrarre i dati utente
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+        - name: 3. Ottenere la valutazione da espressioni utente
+          href: tutorial-publish-settings.md
     - name: Compilare app
       items:
-        - name: Ottenere la valutazione da espressioni utente
-          href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Ottenere dati formattati in modo corretto con le espressioni regolari
           href: luis-quickstart-intents-regex-entity.md
         - name: Ottenere corrispondenze esatte del testo con gli elenchi

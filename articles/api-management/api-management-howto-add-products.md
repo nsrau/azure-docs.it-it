@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073619"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538252"
 ---
 # <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto  
 
@@ -57,7 +57,7 @@ In questa esercitazione si apprenderà come:
     | Richiede approvazione        | Selezionare **Richiedi approvazione** se si preferisce che i tentativi di sottoscrizione al prodotto vengano esaminati e quindi accettati o rifiutati da un amministratore. Se la casella è deselezionata, i tentativi di sottoscrizione vengono approvati automaticamente.                                                                                                                         |
     | Limite per il numero di sottoscrizioni | Per limitare il numero di più sottoscrizioni simultanee, immettere il limite per le sottoscrizioni.                                                                                                                                                                                                                                |
     | Note legali              | È possibile includere le condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto.                                                                                                                                                                                                             |
-    | API                     | I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/> È possibile aggiungere un'API esistente durante la creazione di prodotto. È possibile aggiungere un'API al prodotto in un secondo momento, dalla pagina **Impostazioni** dei prodotti o durante la creazione di un'API. |
+    | API                     | I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/> È possibile aggiungere un'API esistente durante la creazione di prodotto. È possibile aggiungere un'API al prodotto in un secondo momento, nella pagina **Impostazioni** del prodotto o durante la creazione di un'API. |
 
 3. Fare clic su **Crea** per creare il nuovo prodotto.
 
@@ -67,7 +67,7 @@ In questa esercitazione si apprenderà come:
 
 Visualizzare/Aggiungere i sottoscrittori al prodotto dalla scheda **Sottoscrizioni**.
 
-Impostare la visibilità di un prodotto per sviluppatori o guest dalla scheda **Controllo dell'accesso**.
+Impostare la visibilità di un prodotto per sviluppatori o utenti guest nella scheda **Controllo dell'accesso**.
 
 ## <a name="add-apis"></a>Aggiungere API a un prodotto
 

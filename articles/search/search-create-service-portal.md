@@ -1,19 +1,19 @@
 ---
 title: 'Guida introduttiva: Creare un servizio di ricerca nel portale'
 titleSuffix: Azure Cognitive Search
-description: Effettuare il provisioning di una risorsa Ricerca cognitiva di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
+description: Questo argomento di avvio rapido sul portale illustra come creare una risorsa Ricerca cognitiva di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112110"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534556"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Guida introduttiva: Creare un servizio Ricerca cognitiva di Azure nel portale
 
@@ -41,7 +41,7 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 
 ## <a name="choose-a-subscription"></a>Scegliere una sottoscrizione.
 
-L'impostazione dell'ID sottoscrizione e del gruppo di risorse è il primo passaggio. Se sono disponibili più sottoscrizioni, sceglierne una che includa anche i servizi di archiviazione file o dati. Ricerca cognitiva di Azure consente il rilevamento automatico in archiviazione BLOB e archiviazione tabelle di Azure, nel database SQL e in Azure Cosmos DB per l'indicizzazione tramite [*indicizzatori*](search-indexer-overview.md), ma solo per i servizi nella stessa sottoscrizione.
+Se sono disponibili più sottoscrizioni, sceglierne una per il servizio di ricerca.
 
 ## <a name="set-a-resource-group"></a>Impostare un gruppo di risorse
 

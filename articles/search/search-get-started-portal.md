@@ -1,19 +1,19 @@
 ---
 title: Creare un indice di ricerca nel portale di Azure
 titleSuffix: Azure Cognitive Search
-description: Usare la procedura guidata Importa dati per creare, caricare ed eseguire una query sul primo indice di ricerca in Ricerca cognitiva di Azure.
+description: Questo argomento di avvio rapido sul portale illustra come usare l'importazione guidata dati per creare, caricare ed eseguire una query sul primo indice di ricerca in Ricerca cognitiva di Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890109"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407005"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -25,14 +25,7 @@ ms.locfileid: "73890109"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Usare il portale per acquisire rapidamente familiarità con i concetti e scrivere query interessanti su un indice in pochi minuti.
-
-> [!div class="checklist"]
-> * Iniziare con un set di dati di esempio pubblico gratuito ospitato in Azure
-> * Eseguire la procedura guidata **Importa dati** in Ricerca cognitiva di Azure per caricare i dati e generare un indice
-> * Monitorare l'avanzamento dell'indicizzazione nel portale
-> * Visualizzare un indice esistente e le opzioni per modificarlo
-> * Esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica con **Esplora ricerche**
+Usare la procedura guidata **Importa dati** e gli strumenti di **Esplora ricerche** del portale per acquisire rapidamente familiarità con i concetti e scrivere query interessanti su un indice in pochi minuti.
 
 Se gli strumenti sono troppo vincolanti, è possibile vedere un'[introduzione basata su codice alla programmazione di Ricerca cognitiva di Azure in .NET](search-howto-dotnet-sdk.md) oppure usare [Postman per effettuare chiamate API REST](search-get-started-postman.md). 
 
@@ -265,7 +258,7 @@ Usando **Esplora ricerche** nel portale di Azure, è stata acquisita la sintassi
 
 È stato anche illustrato come trovare indici, indicizzatori e origini dati nel portale. Considerando qualsiasi nuova origine dati in futuro, è possibile usare il portale per controllarne rapidamente le definizioni o le raccolte di campi in modo semplice.
 
-## <a name="clean-up"></a>Eseguire la pulizia
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
@@ -275,8 +268,7 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile esplorare ulteriormente Ricerca cognitiva di Azure usando gli strumenti a livello di codice:
+Sebbene il portale sia utile per l'esplorazione iniziale e per brevi attività, l'esame anticipato delle API consentirà di comprendere i concetti e il flusso di lavoro a un livello più approfondito:
 
-* [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Creare un indice tramite API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Creare un indice usando Postman o Fiddler e le API REST di Ricerca cognitiva di Azure](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Aggiungere tag alle risorse in un modello di Azure Resource Manager'
+title: 'Esercitazione: Aggiungere tag alle risorse nel modello'
 description: Aggiungere tag alle risorse distribuite in un modello di Azure Resource Manager. I tag consentono di organizzare le risorse in modo logico.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 078d85b3120baf5b8bea9c305fb1f97763f8df59
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177560"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406072"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Esercitazione: Aggiungere tag nel modello di Azure Resource Manager
 
@@ -25,7 +22,7 @@ Questa esercitazione illustra come aggiungere tag alle risorse nel modello. I [t
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Con il modello precedente sono stati distribuiti un account di archiviazione, un piano di servizio app e un'app Web.
 
@@ -41,7 +38,7 @@ L'esempio seguente evidenzia le modifiche apportate al modello. Copiare l'intero
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-template"></a>Distribuire il modello
 
 È ora possibile distribuire il modello ed esaminare i risultati.
 
@@ -71,7 +68,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificare la distribuzione
+## <a name="verify-deployment"></a>Verificare la distribuzione
 
 Per verificare la distribuzione, esplorare il gruppo di risorse nel portale di Azure.
 

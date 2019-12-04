@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: ce70260c6033d22b20675d6f3872c2ffa6368252
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495626"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406221"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Web Application Firewall di Azure in Frontdoor di Azure
 
@@ -92,16 +92,16 @@ Il set di regole predefinito è abilitato per impostazione predefinita nei crite
 Le regole personalizzate vengono sempre applicate prima della valutazione delle regole del set predefinito. Se una richiesta corrisponde a una regola personalizzata, viene applicata l'azione corrispondente e la richiesta viene bloccata o passata attraverso il back-end, senza che vengano richiamate altre regole personalizzate o le regole include nel set predefinito. È inoltre possibile scegliere di rimuovere il set di regole predefinito dai criteri di WAF.
 
 
-### <a name="bot-protection-rule-preview"></a>Regola di protezione dai bot (anteprima)
+### <a name="bot-protection-rule-set-preview"></a>Set di regole di protezione dai bot (anteprima)
 
-Per WAF è possibile abilitare un set di regole gestito di protezione dai bot per eseguire azioni personalizzate sulle richieste provenienti da indirizzi IP noti come dannosi. Gli indirizzi IP hanno origine dal feed di Microsoft Threat Intelligence. La soluzione Microsoft Threat Intelligence, basata su [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence), viene usata da più servizi, tra cui Centro sicurezza di Azure.
+Per WAF è possibile abilitare un set di regole gestito di protezione dai bot per eseguire azioni personalizzate sulle richieste provenienti da categorie note di bot. Sono supportate tre categorie di bot: bot dannosi, bot legittimi e bot sconosciuti. Le firme dei bot vengono gestite e aggiornate dinamicamente dalla piattaforma WAF. Gli indirizzi IP dannosi dei bot dannosi provengono dal feed di Microsoft Threat Intelligence. La soluzione Microsoft Threat Intelligence, basata su [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence), viene usata da più servizi, tra cui Centro sicurezza di Azure. I bot legittimi includono i motori di ricerca convalidati. Le categorie sconosciute includono ulteriori gruppi di bot. È possibile impostare azioni personalizzate per bloccare, consentire, registrare o reindirizzare diversi tipi di bot.
 
 ![Set di regole di protezione dai bot](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
-> Il set di regole di protezione dai bot è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Il set di regole di protezione dai bot è attualmente disponibile in anteprima pubblica e con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.  Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se la protezione dai bot è abilitata, le richieste in ingresso che corrispondono a IP client di bot dannosi vengono registrate nel log FrontdoorWebApplicationFirewallLog. È possibile accedere ai log di WAF dall'account di archiviazione, dall'hub eventi o da Log Analytics. 
+Se la protezione dai bot è abilitata, le richieste in ingresso che corrispondono a regole di bot vengono registrate nel log FrontdoorWebApplicationFirewallLog. È possibile accedere ai log di WAF da un account di archiviazione, da un hub eventi o da Log Analytics.
 
 ## <a name="configuration"></a>Configurazione
 
