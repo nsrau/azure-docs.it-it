@@ -190,6 +190,8 @@
       href: /javascript/api/overview/azure/container-registry
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Attività YAML
+      href: container-registry-tasks-reference-yaml.md
     - name: Schema dei webhook
       href: container-registry-webhook-reference.md
     - name: Schema di Griglia di eventi

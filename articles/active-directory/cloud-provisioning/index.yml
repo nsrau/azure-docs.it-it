@@ -1,0 +1,50 @@
+### YamlMime:Landing
+title: Documentazione del provisioning cloud di Azure AD Connect
+summary: Il provisioning cloud consente di semplificare e automatizzare la gestione di utenti locali mantenendo tutto nel cloud.
+metadata:
+  author: billmath
+  description: Il provisioning cloud consente di semplificare e automatizzare la gestione degli utenti di Azure AD tramite regole gestite sul cloud per la sincronizzazione di tali utenti da foreste di AD esistenti.
+  ms.author: billmath
+  ms.collection: na
+  ms.date: 09/05/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 89f3cf397322be65166e05c20b2e1d978a837581
+  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74795242"
+landingContent:
+- title: Informazioni sul provisioning cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il provisioning cloud di Azure AD Connect?
+      url: what-is-cloud-provisioning.md
+- title: Informazioni su come implementare la soluzione ottimale per gestire il ciclo di vita di utenti e gruppi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Integrare una singola foresta di AD con un singolo tenant di Azure AD
+      url: tutorial-single-forest.md
+    - text: Integrare una foresta esistente e una nuova con un singolo tenant di Azure AD
+      url: tutorial-existing-forest.md
+    - text: Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente
+      url: tutorial-pilot-aadc-aadccp.md
+- title: Introduzione al provisioning cloud
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Prerequisiti del provisioning cloud di Azure AD Connect
+      url: how-to-prerequisites.md
+    - text: Installare il provisioning cloud di Azure AD Connect
+      url: how-to-install.md
+    - text: Configurazione dell'agente di provisioning cloud di Azure AD Connect
+      url: how-to-configure.md
+  - linkListType: reference
+    links:
+    - text: Topologie e scenari supportati
+      url: plan-cloud-provisioning-topologies.md

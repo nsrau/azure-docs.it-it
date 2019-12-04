@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Abilitare l'integrazione di reti virtuali e firewall nello spazio dei nomi di Hub eventi
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi
+        - name: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi (anteprima)
           href: configure-customer-managed-key.md
     - name: Risolvere problemi
       items:

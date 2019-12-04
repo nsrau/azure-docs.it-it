@@ -77,6 +77,8 @@
   items:
     - name: API REST del provider di risorse di Service Fabric Mesh
       href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Informazioni di riferimento sull'interfaccia della riga di comando di mesh Service Fabric
+      href: /cli/azure/ext/mesh
     - name: API REST delle risorse client di Service Fabric
       href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
     - name: Informazioni di riferimento sull'interfaccia della riga di comando Maven di Service Fabric

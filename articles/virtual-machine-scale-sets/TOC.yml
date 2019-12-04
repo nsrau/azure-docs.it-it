@@ -231,8 +231,8 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertire un modello di set di scalabilità per l'uso di dischi gestiti
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Usare VM con priorità bassa
-          href: virtual-machine-scale-sets-use-low-priority.md
+        - name: Usare l'istanza Spot
+          href: use-spot.md
     - name: Gestisci
       items:
         - name: Attività di gestione comuni

@@ -28,15 +28,31 @@
       href: tutorial-custom-role-cli.md
 - name: Concetti
   items:
-    - name: Informazioni sulle definizioni del ruolo
-      href: role-definitions.md
     - name: PIM per risorse di Azure
       href: pim-azure-resource.md
     - name: Accesso condizionale per la gestione di Azure
       href: conditional-access-azure-management.md
 - name: Guide alle procedure
   items:
-    - name: Gestire l'accesso
+    - name: Elencare le definizioni di ruolo
+      items:
+        - name: Panoramica
+          href: role-definitions.md
+        - name: Elencare le definizioni di ruolo
+          href: role-definitions-list.md
+        - name: Ruoli predefiniti
+          href: built-in-roles.md
+    - name: Elencare le assegnazioni di ruolo
+      items:
+        - name: Portale
+          href: role-assignments-list-portal.md
+        - name: PowerShell
+          href: role-assignments-list-powershell.md
+        - name: CLI
+          href: role-assignments-list-cli.md
+        - name: API REST
+          href: role-assignments-list-rest.md
+    - name: Aggiungere o rimuovere assegnazioni di ruolo
       items:
         - name: Portale
           href: role-assignments-portal.md
@@ -50,9 +66,9 @@
           href: role-assignments-rest.md
         - name: Modello
           href: role-assignments-template.md
-    - name: Rifiutare l'accesso
+    - name: Visualizzare le assegnazioni di rifiuto
       items:
-        - name: Assegnazioni di rifiuto
+        - name: Panoramica
           href: deny-assignments.md
         - name: Portale
           href: deny-assignments-portal.md
@@ -60,7 +76,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Ruoli personalizzati
+    - name: Creare ruoli personalizzati
       items:
         - name: Panoramica
           href: custom-roles.md
@@ -72,7 +88,7 @@
           href: custom-roles-rest.md
     - name: Visualizzare log di attività
       href: change-history-report.md
-    - name: Eseguire l'accesso con privilegi elevati per gestire tutte le sottoscrizioni
+    - name: Elevare i privilegi di accesso
       href: elevate-access-global-admin.md
     - name: Amministratori (versione classica)
       href: classic-administrators.md
@@ -80,8 +96,6 @@
       href: troubleshooting.md
 - name: riferimento
   items:
-    - name: Ruoli predefiniti
-      href: built-in-roles.md
     - name: Operazioni del provider di risorse
       href: resource-provider-operations.md
     - name: Limiti relativi al controllo degli accessi in base al ruolo
