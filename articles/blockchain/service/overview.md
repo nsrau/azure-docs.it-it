@@ -1,21 +1,15 @@
 ---
 title: Panoramica del servizio Azure Blockchain
 description: Panoramica del servizio Azure Blockchain
-services: azure-blockchain
-keywords: blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 9fcf75a07d1caf7b411c315d11ce984cbe35df75
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577194"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455897"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Che cos'è il servizio Azure Blockchain?
 
@@ -31,7 +25,7 @@ Queste funzionalità richiedono pochissima amministrazione e sono disponibili se
 
 ## <a name="network-deployment-and-operations"></a>Distribuzione e operazioni di rete
 
-La distribuzione del servizio Azure Blockchain può essere eseguita tramite la portale di Azure, l'interfaccia della riga di comando di Azure e Visual Studio Code usando l'estensione Blockchain di Azure.  La distribuzione è semplificata e include il provisioning di nodi delle transazioni e di convalida, Reti virtuali di Azure per l'isolamento di sicurezza e l'archiviazione gestita dal servizio.  Quando si distribuisce un nuovo membro della blockchain, gli utenti possono inoltre creare o partecipare a un consorzio.  I consorzi consentono a più parti in sottoscrizioni di Azure diverse di comunicare in modo sicuro tra loro in una blockchain condivisa.  Questa distribuzione semplificata riduce i tempi necessari per la distribuzione della rete blockchain da giorni a minuti.
+Per distribuire il servizio Azure Blockchain, è possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e Visual Studio Code con l'estensione Azure Blockchain. La distribuzione è semplificata e include il provisioning di nodi delle transazioni e di convalida, Reti virtuali di Azure per l'isolamento di sicurezza e l'archiviazione gestita dal servizio.  Quando si distribuisce un nuovo membro della blockchain, gli utenti possono inoltre creare o partecipare a un consorzio.  I consorzi consentono a più parti in sottoscrizioni di Azure diverse di comunicare in modo sicuro tra loro in una blockchain condivisa.  Questa distribuzione semplificata riduce i tempi necessari per la distribuzione della rete blockchain da giorni a minuti.
 
 ### <a name="performance-and-service-tiers"></a>Prestazioni e livelli di servizio
 
@@ -43,13 +37,13 @@ Oltre a offrire due nodi di convalida, il livello *Standard* rende disponibili 2
 
 ### <a name="security-and-maintenance"></a>Sicurezza e manutenzione
 
-Dopo il provisioning del primo membro della blockchain, è possibile aggiungere altri nodi della transazione al membro.  Per impostazione predefinita, i nodi delle transazioni sono protetti tramite regole del firewall e dovranno essere configurati per l'accesso.  Inoltre, tutti i nodi delle transazioni crittografano i dati in movimento tramite TLS.  Sono disponibili più opzioni per la protezione dell'accesso ai nodi delle transazioni, incluse le regole del firewall, l'autenticazione di base, le chiavi di accesso e l'integrazione di Azure Active Directory. Per altre informazioni, vedere pagine relative alla [configurazione dei nodi delle transazioni](configure-transaction-nodes.md) e alla [configurazione dell'accesso Azure Active Directory Access](configure-aad.md).
+Dopo il provisioning del primo membro della blockchain, è possibile aggiungere altri nodi della transazione al membro.  Per impostazione predefinita, i nodi delle transazioni sono protetti tramite regole del firewall e devono essere configurati per l'accesso.  Inoltre, tutti i nodi delle transazioni crittografano i dati in movimento tramite TLS.  Sono disponibili più opzioni per la protezione dell'accesso ai nodi delle transazioni, incluse le regole del firewall, l'autenticazione di base, le chiavi di accesso e l'integrazione di Azure Active Directory. Per altre informazioni, vedere pagine relative alla [configurazione dei nodi delle transazioni](configure-transaction-nodes.md) e alla [configurazione dell'accesso Azure Active Directory Access](configure-aad.md).
 
 Come servizio gestito, il servizio Azure Blockchain garantisce che ai nodi dei membri della blockchain vengano applicate patch con gli aggiornamenti alle ultime versioni del sistema operativo host e allo stack del software di contabilità generale, configurati per la disponibilità elevata (solo livello Standard), eliminando gran parte delle istanze DevOps necessarie per i nodi della blockchain IaaS tradizionali.  Per altre informazioni sull'applicazione di patch e sugli aggiornamenti, vedere la pagina relativa alle [versioni del libro mastro del servizio Azure Blockchain supportate](ledger-versions.md).
 
 ### <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
-Il servizio Azure Blockchain offre inoltre una metrica avanzata tramite il servizio Monitoraggio di Azure, che fornisce informazioni dettagliate sull'utilizzo della CPU, della memoria e dell'archiviazione dei nodi, nonché informazioni utili sull'attività della rete blockchain, ad esempio transazioni e blocchi estratti, profondità della coda delle transazioni e connessioni attive.  Le metriche possono essere personalizzate per offrire visualizzazioni delle informazioni dettagliate importanti per l'applicazione blockchain.  È inoltre possibile definire le soglie tramite avvisi che consentono agli utenti di attivare azioni come l'invio di un messaggio di posta elettronica o di un SMS, l'esecuzione di un'app per la logica e Funzione di Azure o l'invio a un webhook con definizione personalizzata.
+Il servizio Azure Blockchain offre anche metriche avanzate tramite il servizio Monitoraggio di Azure, che fornisce dati analitici sull'utilizzo della CPU, della memoria e dell'archiviazione dei nodi.  Monitoraggio di Azure offre anche dati analitici utili sull'attività di rete blockchain, ad esempio su transazioni e blocchi estratti, profondità della coda delle transazioni e connessioni attive.  Le metriche possono essere personalizzate per offrire visualizzazioni delle informazioni dettagliate importanti per l'applicazione blockchain.  È inoltre possibile definire le soglie tramite avvisi che consentono agli utenti di attivare azioni come l'invio di un messaggio di posta elettronica o di un SMS, l'esecuzione di un'app per la logica e Funzione di Azure o l'invio a un webhook con definizione personalizzata.
 
 ![Metriche](./media/overview/metrics.png)
 
@@ -65,7 +59,11 @@ Quando si distribuisce il primo membro della blockchain, si entra a far parte di
 
 ## <a name="develop-using-familiar-development-tools"></a>Usare strumenti di sviluppo familiari
 
-In base al libro mastro Quorum di Ethereum, è possibile sviluppare le applicazioni per il servizio Azure Blockchain con procedure analoghe a quelle usate per le applicazioni Ethereum esistenti. Collaborando con i principali partner del settore, l'estensione Azure Blockchain Development Kit di Visual Studio Code consente agli sviluppatori di sfruttare strumenti familiari come la suite Truffle per creare contratti intelligenti. L'estensione Azure Blockchain Development Kit consente agli sviluppatori di creare un consorzio o connettersi a uno esistente, in modo da poter compilare e distribuire i contratti intelligenti da un solo IDE. L'estensione Azure Blockchain Visual Studio Code consente agli sviluppatori di creare un consorzio o connettersi a uno esistente, in modo da poter compilare e distribuire i contratti intelligenti da un solo IDE. Per altre informazioni, vedere [Azure Blockchain Development Kit nel marketplace di VS Code](https://aka.ms/vscodebcextension) e il [Manuale dell'utente di Azure Blockchain Development Kit](https://aka.ms/vscodebcextensionwiki ).
+In base al libro mastro Quorum di Ethereum, è possibile sviluppare le applicazioni per il servizio Azure Blockchain con procedure analoghe a quelle usate per le applicazioni Ethereum esistenti. Collaborando con i principali partner del settore, l'estensione Azure Blockchain Development Kit di Visual Studio Code consente agli sviluppatori di sfruttare strumenti familiari come la suite Truffle per creare contratti intelligenti. L'estensione Azure Blockchain Development Kit consente agli sviluppatori di creare un consorzio o connettersi a uno esistente, in modo da poter compilare e distribuire i contratti intelligenti da un solo IDE. L'estensione Azure Blockchain Visual Studio Code consente agli sviluppatori di creare un consorzio o connettersi a uno esistente, in modo da poter compilare e distribuire i contratti intelligenti da un solo IDE. Per altre informazioni, vedere [Azure Blockchain Development Kit nel marketplace di VS Code](https://aka.ms/vscodebcextension) e il [Manuale dell'utente di Azure Blockchain Development Kit](https://aka.ms/vscodebcextensionwiki).
+
+## <a name="publish-blockchain-data"></a>Pubblicare i dati della blockchain
+
+Blockchain Data Manager per il servizio Azure Blockchain consente di acquisire, trasformare e distribuire i dati delle transazioni del servizio Azure Blockchain negli argomenti di Griglia di eventi di Azure, offrendo un'integrazione affidabile e scalabile del libro mastro della blockchain con i servizi di Azure. È possibile usare Blockchain Data Manager per integrare applicazioni e archivi dati off-chain. Per altre informazioni, vedere [Blockchain Data Manager per il servizio Azure Blockchain](data-manager.md).
 
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 

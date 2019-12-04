@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione sul modello di regressione: Funzionalità automatiche di Machine Learning'
+title: 'Esercitazione sulla regressione: Funzionalità automatiche di Machine Learning'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come generare un modello di Machine Learning tramite le funzionalità automatizzate di apprendimento automatico. Azure Machine Learning può eseguire la pre-elaborazione dei dati e la selezione automatica di algoritmi e iperparametri. Il modello finale viene quindi distribuito con Azure Machine Learning.
+description: In questa esercitazione viene descritto come generare un modello di Machine Learning tramite Machine Learning automatizzato. Azure Machine Learning può eseguire la pre-elaborazione dei dati e la selezione automatica di algoritmi e iperparametri.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2a47b6851d9c3250913783c8a63b666e8a8474d9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582449"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483551"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

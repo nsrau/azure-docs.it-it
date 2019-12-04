@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 11/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 502f71365d78bd8fd949d17fe8907817394586b2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961492"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561494"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -143,7 +143,7 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
     **Posizione di destinazione** | area di destinazione usata per il ripristino di emergenza.<br/><br/> È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery.
     **Gruppo di risorse di destinazione** | gruppo di risorse nell'area di destinazione in cui si trovano le macchine virtuali di Azure dopo il failover.<br/><br/> Per impostazione predefinita, Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con suffisso "asr". Il percorso del gruppo di risorse di destinazione può essere in qualsiasi area, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine.
     **Rete virtuale di destinazione** | rete nell'area di destinazione in cui si trovano le macchine virtuali dopo il failover.<br/><br/> Per impostazione predefinita, Site Recovery crea una nuova rete virtuale e subnet nell'area di destinazione con suffisso "asr".
-    **Account di archiviazione della cache** | Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate alle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.<br/><br/> Se si usa un account di archiviazione della cache abilitato per il firewall, assicurarsi di selezionare **Consenti servizi Microsoft attendibili**. [Altre informazioni.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Account di archiviazione della cache** | Site Recovery usa un account di archiviazione nell'area di origine. Le modifiche apportate alle macchine virtuali di origine vengono inviate a questo account prima della replica nel percorso di destinazione.<br/><br/> Se si usa un account di archiviazione della cache abilitato per il firewall, assicurarsi di selezionare **Consenti servizi Microsoft attendibili**. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). Assicurarsi anche di consentire l'accesso ad almeno una subnet della rete virtuale di origine.
     **Account di archiviazione di destinazione (se la macchina virtuale di origine usa dischi non gestiti)** | per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione nell'area di destinazione per eseguire il mirroring dell'account di archiviazione della macchina virtuale di origine.<br/><br/> Abilitare **Consenti servizi Microsoft attendibili** se si usa un account di archiviazione della cache abilitato per il firewall.
     **Dischi gestiti di replica (se la macchina virtuale di origine usa dischi gestiti)** : | per impostazione predefinita, Site Recovery crea dischi gestiti di replica nell'area di destinazione per eseguire il mirroring dei dischi gestiti della macchina virtuale di origine con lo stesso tipo di archiviazione (Standard o Premium) del disco gestito della macchina virtuale di origine. È possibile personalizzare solo Tipo di disco 
     **Set di disponibilità di destinazione** | per impostazione predefinita, Azure Site Recovery crea nell'area di destinazione un nuovo set di disponibilità il cui nome include il suffisso "asr" per la parte attinente alle macchine virtuali di un set di disponibilità nell'area di origine. Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riusato.

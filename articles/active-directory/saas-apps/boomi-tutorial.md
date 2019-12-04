@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1044a78d9bf1b52a7b0dd9e47d7db6d98b45299c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081974"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Boomi
 
@@ -156,13 +156,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     d. Come **Federation Id Location** selezionare il pulsante di opzione **Federation Id is in FEDERATION_ID Attribute element**.
 
-    e. Fare clic sul pulsante **Salva**.
+    e. Fare clic sul pulsante **Salva** .
 
 ### <a name="create-boomi-test-user"></a>Creare l'utente di test di Boomi
 
 Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effettuarne il provisioning in Boomi. Nel caso di Boomi, il provisioning è un'attività manuale.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per effettuare il provisioning di un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di Boomi come amministratore.
 
@@ -189,7 +189,7 @@ Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effett
     f. Fare clic su **OK**.
 
     > [!NOTE]
-    > L'utente non riceverà un messaggio di notifica di benvenuto contenente una password che può essere utilizzata per accedere all'account di AtomSphere perché la password viene gestita tramite il provider di identità. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Boomi per eseguire il provisioning degli account utente di AAD.
+    > L'utente non riceverà un messaggio di notifica di benvenuto contenente una password che può essere utilizzata per accedere all'account di AtomSphere perché la password viene gestita tramite il provider di identità. È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da Boomi per effettuare il provisioning degli account utente di Azure AD.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

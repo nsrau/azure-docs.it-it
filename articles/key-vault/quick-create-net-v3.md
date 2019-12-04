@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 7546d5c6089a7867b1f8b5bf45d23c81bddd0da9
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 660235331c2c2d800b52f6e29d0011b9616a748c
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647902"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158488"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Guida introduttiva: Libreria client di Azure Key Vault per .NET (SDK v3)
 
@@ -46,9 +46,7 @@ Questo argomento di avvio rapido presuppone che si eseguano i comandi di `dotnet
 
 ### <a name="create-new-net-console-app"></a>Creare una nuova app console .NET
 
-Creare una nuova applicazione .NET Core nell'ambiente di sviluppo integrato o nell'editor preferito.
-
-In una finestra di una console usare il comando `dotnet new` per creare una nuova app console denominata `akv-dotnet`.
+In una finestra della console usare il comando `dotnet new` per creare una nuova app console .NET denominata `akv-dotnet`.
 
 
 ```console
@@ -100,7 +98,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-Il modo più semplice per autenticare un'applicazione .NET basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del Servizio app di Azure per accedere ad Azure Key Vault](managed-identity.md). Per semplicità, tuttavia, in questo argomento di avvio rapido viene creata un'applicazione console .NET. Per l'autenticazione di un'applicazione desktop con Azure è necessario usare un'entità servizio e un criterio di controllo di accesso.
+Il modo più semplice per autenticare un'applicazione .NET basata sul cloud consiste nell'usare un'identità gestita. Per informazioni dettagliate, vedere [Usare un'identità gestita del servizio app per accedere ad Azure Key Vault](managed-identity.md). Per semplicità, tuttavia, in questo argomento di avvio rapido viene creata un'applicazione console .NET. Per l'autenticazione di un'applicazione desktop con Azure è necessario usare un'entità servizio e un criterio di controllo di accesso.
 
 Creare un'entità servizio usando il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
 
@@ -169,7 +167,7 @@ Assegnare queste variabili di ambiente alle stringhe del codice, quindi eseguire
 
 ### <a name="save-a-secret"></a>Salvare un segreto
 
-Ora che l'applicazione è stata autenticata, è possibile inserire un segreto nell'insieme di credenziali delle chiavi usando il [metodo SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Questa operazione richiede l'URL dell'insieme di credenziali delle chiavi, che è nel formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Richiede anche un nome per il segreto, in questo esempio "mySecret".  È consigliabile assegnare queste stringhe a variabili per il riutilizzo.
+Ora che l'applicazione è stata autenticata, è possibile inserire un segreto nell'insieme di credenziali delle chiavi usando il [metodo SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Questa operazione richiede l'URL dell'insieme di credenziali delle chiavi, che è nel formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. Richiede anche un nome per il segreto, in questo esempio "mySecret". 
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

@@ -1,27 +1,19 @@
 ---
 title: Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web - Azure
 description: È possibile confrontare i servizi cloud Microsoft ottimizzati per attività di integrazione, Microsoft Flow, App per la logica, Funzioni e Processi Web.
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: microsoft flow, flow, app per la logica, funzioni di azure, funzioni, processi web di azure, processi web, elaborazione di eventi, calcolo dinamico, architettura senza server
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082757"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278635"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
 
-Questo articolo confronta i servizi cloud Microsoft seguenti:
-
+Questo articolo confronta i servizi cloud Microsoft seguenti: 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funzioni di Azure](https://azure.microsoft.com/services/functions/)
@@ -57,7 +49,7 @@ Funzioni e App per la logica sono servizi di Azure che abilitano i carichi di la
 Per Funzioni di Azure è possibile sviluppare orchestrazioni scrivendo codice e usando l'[estensione Durable Functions](durable/durable-functions-overview.md). Per App per la logica di Azure è possibile creare orchestrazioni usando un'interfaccia utente grafica o modificando i file di configurazione.
 
 È possibile combinare i servizi quando si compila un'orchestrazione, chiamando funzioni da app per la logica e chiamando app per la logica da funzioni. Scegliere il modo in cui compilare ogni orchestrazione in base alle funzionalità dei servizi o delle preferenze personali. La tabella seguente elenca alcune differenze essenziali tra questi servizi:
- 
+
 |  | Funzioni permanenti | App per la logica |
 | --- | --- | --- |
 | Sviluppo. | Code-first (imperativo) | Incentrato sulla finestra di progettazione (dichiarativo) |

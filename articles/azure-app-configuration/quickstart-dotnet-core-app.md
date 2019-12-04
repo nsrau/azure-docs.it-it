@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 149542965737b2703bc18e985bfaf4d90c8dab29
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 986bda4ab95985820e61c93bbe82431fb50c983b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709406"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185023"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Guida introduttiva: Creare un'app .NET Core con Configurazione app
 
@@ -30,7 +30,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
+## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +52,7 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
         dotnet new console
 
-## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di configurazione app
+## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
 1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` eseguendo il comando seguente:
 
@@ -84,7 +84,7 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
-1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
+1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -110,7 +110,7 @@ In questa sezione viene usata l'[interfaccia della riga di comando di .NET Core]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con un'app console .NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
+In questo argomento di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app console .NET Core con il [provider di Configurazione app](https://go.microsoft.com/fwlink/?linkid=2074664). Per informazioni su come configurare l'app .NET Core per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Integrazione dell'identità gestita](./howto-integrate-azure-managed-service-identity.md)
+> [Abilitare la configurazione dinamica](./enable-dynamic-configuration-dotnet-core.md)

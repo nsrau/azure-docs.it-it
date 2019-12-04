@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a57258dfe112c1b2d03bc43738c92272a156f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4887457f457ff533a0eaf10be7db1627a950f5bd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160837"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Esercitazione: Integrazione di Azure Active Directory con Zendesk
 
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Aggiunta di Zendesk dalla raccolta
 
-Per configurare l'integrazione di Zendesk in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Zendesk in Azure AD, è necessario aggiungerla dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Zendesk dalla raccolta, seguire questa procedura:**
 
@@ -77,13 +77,13 @@ Per configurare l'integrazione di Zendesk in Azure AD, è necessario aggiungerla
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Zendesk usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Zendesk.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Zendesk, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Zendesk, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Zendesk](#configure-zendesk-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Zendesk](#create-zendesk-test-user)** : per avere una controparte di Britta Simon in Zendesk collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Zendesk](#create-zendesk-test-user)** : per avere una controparte di Britta Simon in Zendesk collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -146,7 +146,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
     ![Copiare il valore di Identificazione personale](common/copy-certificatethumbprint.png)
 
-8. Nella sezione **Configura Zendesk** copiare gli URL appropriati in base alle proprie esigenze.
+8. Nella sezione **Configura Zendesk** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
 3. Nel riquadro di spostamento sinistro fare clic su **Impostazioni** e quindi su **Sicurezza**.
 
-4. Nella pagina **Sicurezza** eseguire la procedura seguente:
+4. Nella pagina **Sicurezza** seguire questa procedura:
 
     ![Sicurezza](././media/zendesk-tutorial/ic773089.png "Security")
 
@@ -194,7 +194,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zendesk, seguire questa
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -217,9 +217,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zendesk.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zendesk.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zendesk**.
 
@@ -264,13 +264,13 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. 
     ![Nuovo utente](././media/zendesk-tutorial/ic773633.png "Nuovo utente")
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zendesk per eseguire il provisioning degli account utente Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da Zendesk per effettuare il provisioning degli account utente di Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zendesk nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zendesk per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zendesk nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Zendesk per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

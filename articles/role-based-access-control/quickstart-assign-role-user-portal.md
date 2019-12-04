@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure | Microsoft Docs
-description: Informazioni su come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo nel portale di Azure.
+title: "Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure"
+description: Questa esercitazione descrive come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo nel portale di Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854255"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419656"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure
 
@@ -62,7 +62,7 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
 
 1. Nell'elenco **Gruppi di risorse** fare clic sul nuovo gruppo di risorse **rbac-resource-group**.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare l'elenco corrente di assegnazioni di ruolo.
 
@@ -116,4 +116,3 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-

@@ -1,5 +1,5 @@
 ---
-title: Creare il primo esperimento di classificazione con Machine Learning automatizzato
+title: Creare il primo esperimento di ML automatizzato
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training e la distribuzione di un modello di classificazione con Machine Learning automatizzato in Azure Machine Learning Studio.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 04035e23c0c650fb6cbf4fdca3b78ce5e814c9d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581566"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270729"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

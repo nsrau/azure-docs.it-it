@@ -1,20 +1,15 @@
 ---
-title: 'Avvio rapido: Creare un registro - PowerShell - Registro Azure Container'
+title: 'Avvio rapido: Creare un registro - PowerShell'
 description: Imparare rapidamente a creare un registro Docker privato in Registro Azure Container con PowerShell
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b337c28efc3db7d4bec4408b5da1f8a5e1d87094
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 872b2a29444e5278db34ce44741e2ca90d885702
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931619"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456383"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guida introduttiva: creare un registro contenitori privato usando Azure PowerShell
 

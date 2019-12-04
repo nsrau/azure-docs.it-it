@@ -1,20 +1,14 @@
 ---
-title: "Avvio rapido: Compilare ed eseguire un'immagine del contenitore in Registro Azure Container"
+title: "Avvio rapido: Creare ed eseguire un'immagine del contenitore"
 description: Eseguire rapidamente attività con Registro Azure Container per compilare ed eseguire un'immagine del contenitore su richiesta, nel cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: b97249aa61916975fa641d4620179be33e1d5276
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: f0b510607a4d0acf12e0b9caa43835c1cfe6a83d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931545"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454941"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Guida introduttiva: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 

@@ -1,23 +1,18 @@
 ---
-title: 'Guida introduttiva: Distribuire un contenitore Docker in Istanze di Azure Container - Interfaccia della riga di comando di Azure'
+title: "Avvio rapido: Distribuire un contenitore Docker in un'istanza di contenitore - Interfaccia della riga di comando di Azure"
 description: In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Azure per distribuire rapidamente un'app Web che viene eseguita in un'istanza di contenitore di Azure isolata
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab079c7ad5d741d5a569e042ae8939cbeeff203b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429211"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533569"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Azure
 

@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione per C#: Indicizzare i dati da database SQL di Azure'
+title: 'Esercitazione: Indicizzare i dati in C# da database SQL di Azure'
 titleSuffix: Azure Cognitive Search
-description: Esempio di codice C# che mostra come eseguire la connessione al database SQL di Azure, estrarre i dati ricercabili e caricarli in un indice di Ricerca cognitiva di Azure.
+description: In questa esercitazione per C# si eseguirà la connessione al database SQL di Azure, si estrarranno i dati ricercabili e si caricheranno in un indice di Ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 4e8097eeb07420bee4ba30eb0fedbe5d4db2db9d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113314"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406703"
 ---
-# <a name="c-tutorial-import-azure-sql-database-using-azure-cognitive-search-indexers"></a>Esercitazione per C#: Importare un database SQL di Azure con gli indicizzatori di Ricerca cognitiva di Azure
+# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Esercitazione: Importare un database SQL di Azure in C# con gli indicizzatori di Ricerca cognitiva di Azure
 
 Informazioni su come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca cognitiva di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
 

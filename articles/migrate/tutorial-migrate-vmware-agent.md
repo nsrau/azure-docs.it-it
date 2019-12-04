@@ -1,19 +1,19 @@
 ---
-title: Eseguire la migrazione di macchine virtuali VMware locali in Azure con Migrazione server di Azure Migrate basata su agente | Microsoft Docs
-description: Questo articolo illustra come eseguire una migrazione basata su agente di macchine virtuali locali in Azure con Migrazione server di Azure Migrate
+title: Eseguire la migrazione di macchine virtuali VMware con la soluzione Migrazione server di Azure Migrate basata su agente
+description: Informazioni su come eseguire una migrazione di macchine virtuali VMware basata su agente con Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720182"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196289"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 

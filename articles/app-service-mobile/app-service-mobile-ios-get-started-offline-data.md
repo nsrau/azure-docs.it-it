@@ -1,25 +1,17 @@
 ---
-title: Abilitare la sincronizzazione offline con le app per dispositivi mobili per iOS | Documentazione Microsoft
+title: Abilitare la sincronizzazione offline (iOS)
 description: Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per memorizzare i dati nella cache e sincronizzarli offline nelle app iOS.
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: f29a28f9a80b64ef0a6890fa8fc7ecd0ca205e66
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388766"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668489"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Sincronizzare offline le app per dispositivi mobili iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -134,7 +126,7 @@ Nella versione Swift, poiché l'operazione push non è strettamente necessaria, 
 
 Sia nella versione Objective-C che nella versione Swift, è possibile usare il metodo **pullWithQuery** per specificare una query per filtrare i record da recuperare. In questo esempio, la query recupera tutti i record nella tabella `TodoItem` remota.
 
-Il secondo parametro di **pullWithQuery** è un ID di query usato per la *sincronizzazione incrementale*. La sincronizzazione incrementale recupera solo i record che sono stati modificati dopo l'ultima sincronizzazione, usando il timestamp `UpdatedAt` del record (chiamato `updatedAt` nell'archivio locale.) L'ID query deve essere una stringa descrittiva univoca per ogni query logica nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `nil` come ID di query. Questo approccio può potenzialmente non essere efficiente, perché recupera tutti i record ad ogni operazione pull.
+Il secondo parametro di **pullWithQuery** è un ID di query usato per la *sincronizzazione incrementale*. La sincronizzazione incrementale recupera solo i record che sono stati modificati dopo l'ultima sincronizzazione, usando il timestamp del record `UpdatedAt` (chiamato `updatedAt` nell'archivio locale.) L'ID query deve essere una stringa descrittiva univoca per ogni query logica nell'app. Per rifiutare esplicitamente la sincronizzazione incrementale, passare `nil` come ID di query. Questo approccio può potenzialmente non essere efficiente, perché recupera tutti i record ad ogni operazione pull.
 
 L'app Objective-C esegue la sincronizzazione quando si modificano o si aggiungono dati, quando un utente esegue l'aggiornamento e all'avvio.
 

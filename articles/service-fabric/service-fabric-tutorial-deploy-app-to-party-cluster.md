@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4767f43171e8576fcf35ba7304c48b05b85745c4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553582"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213207"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione:
 * [Installare Service Fabric SDK](service-fabric-get-started.md).
 
 > [!NOTE]
-> Un account gratuito potrebbe non soddisfare i requisiti per la creazione di una macchina virtuale, di conseguenza potrebbe impedire il completamento dell'esercitazione.
+> Un account gratuito potrebbe non soddisfare i requisiti per la creazione di una macchina virtuale, di conseguenza potrebbe impedire il completamento dell'esercitazione. Inoltre, un account non aziendale o non dell'istituto di istruzione può riscontrare problemi di autorizzazione durante la creazione del certificato nell'insieme di credenziali delle chiavi associato al cluster. Se si verifica un errore correlato alla creazione del certificato, per creare il cluster usare il portale. 
 
 ## <a name="download-the-voting-sample-application"></a>Scaricare l'applicazione di voto di esempio
 

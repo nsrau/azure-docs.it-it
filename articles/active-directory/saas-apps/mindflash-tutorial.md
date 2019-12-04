@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78d4f44e9fe2310fab485804e0aaf70aa0dfbdb0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160582"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Esercitazione: Integrazione di Azure Active Directory con Mindflash
 
@@ -80,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Mindflash, è
 2. **[Configurare l'accesso Single Sign-On di Mindflash](#configure-mindflash-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Mindflash](#create-mindflash-test-user)** : per avere una controparte di Britta Simon in Mindflash collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Mindflash](#create-mindflash-test-user)** : per avere una controparte di Britta Simon in Mindflash collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mindflash, seguire ques
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Set up Mindflash** (Configura Mindflash) copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura Mindflash** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -130,9 +130,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mindflash, seguire ques
 
 Per configurare l'accesso Single Sign-On sul lato **Mindflash**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Mindflash](https://www.mindflash.com/contact/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -155,9 +155,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mindflash.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mindflash.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Mindflash**.
 
@@ -181,11 +181,11 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-mindflash-test-user"></a>Creare un utente di test di Mindflash
+### <a name="create-mindflash-test-user"></a>Creare l'utente di test di Mindflash
 
 Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario eseguirne il provisioning in Mindflash. Nel caso di Mindflash, il provisioning è un’attività manuale.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Per effettuare il provisioning di un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di **Mindflash** come amministratore.
 
@@ -195,7 +195,7 @@ Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario es
 
 1. Fare clic su **Aggiungi utenti**, quindi fare clic su **Nuovo**.
 
-1. Nella sezione **Add New Users** (Aggiungi nuovi utenti) eseguire i passaggi seguenti per un account Azure AD valido di cui si vuole eseguire il provisioning:
+1. Nella sezione **Add New Users** (Aggiungi nuovi utenti) eseguire i passaggi seguenti per un account Azure AD valido di cui si vuole effettuare il provisioning:
    
     ![Aggiungere nuovi utenti](./media/mindflash-tutorial/ic787141.png "Aggiungi nuovi utenti")
    
@@ -208,14 +208,14 @@ Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario es
     b. Fare clic su **Aggiungi**.
 
 >[!NOTE]
->È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Mindflash o le API fornite da Mindflash per eseguire il provisioning degli account utente di AAD. 
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da Mindflash per effettuare il provisioning degli account utente di Azure AD. 
 > 
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Mindflash nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Mindflash per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Mindflash nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Mindflash per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

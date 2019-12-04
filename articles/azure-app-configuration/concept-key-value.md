@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706462"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185228"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
@@ -29,7 +29,7 @@ La chiavi fungono da nome per le coppie chiave-valore e vengono usate per archiv
 
 L'utilizzo dei dati configurazione all'interno dei framework applicazione potrebbe imporre schemi di denominazione specifici per le coppie chiave-valore. Ad esempio, il framework Spring Cloud di Java definisce che le risorse `Environment` che forniscono le impostazioni per un'applicazione Spring vengano parametrizzate da variabili che includono il *nome dell'applicazione* e il *profilo*. Le chiavi per Spring Cloud relative ai dati di configurazione iniziano in genere con questi due elementi, separati da un delimitatore.
 
-Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Ad esempio, il sistema di configurazione ASP.NET Core tratta le chiavi come stringhe senza distinzione tra maiuscole e minuscole. Per evitare comportamenti imprevedibili quando si eseguono query su Configurazione app all'interno di un'applicazione ASP.NET Core, non usare chiavi che differiscono solo per quanto riguarda l'uso di maiuscole e minuscole.
+Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di Configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Ad esempio, il sistema di configurazione ASP.NET Core tratta le chiavi come stringhe senza distinzione tra maiuscole e minuscole. Per evitare comportamenti imprevedibili quando si eseguono query su Configurazione app all'interno di un'applicazione ASP.NET Core, non usare chiavi che differiscono solo per quanto riguarda l'uso di maiuscole e minuscole.
 
 Nei nomi delle chiavi immessi in Configurazione app è possibile usare qualsiasi carattere Unicode, ad eccezione di `*`, `,` e `\`. Questi caratteri sono riservati. Per includere un carattere riservato, è necessario usare `\{Reserved Character}` per specificare il carattere di escape. Per una coppia chiave-valore è previsto un limite di dimensioni di 10.000 caratteri. Questo limite include tutti i caratteri della chiave, il relativo valore e tutti gli attributi facoltativi associati. Entro questo limite è possibile avere molti livelli gerarchici per le chiavi.
 
@@ -57,7 +57,7 @@ Ecco diversi esempi di come strutturare i nomi delle chiavi in una gerarchia:
 
 ### <a name="label-keys"></a>Chiavi di etichetta
 
-Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
+Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
 
 L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso comune delle etichette consiste nello specificare più ambienti per la stessa chiave:
 
@@ -73,7 +73,7 @@ Nelle etichette è possibile usare qualsiasi carattere Unicode, ad eccezione di 
 
 ### <a name="query-key-values"></a>Eseguire query su coppie chiave-valore
 
-Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da un'etichetta che può essere `null`. Per eseguire una query su un archivio di configurazione app e trovare le coppie chiave-valore, si specifica un criterio. L'archivio di configurazione app restituisce tutte le coppie chiave-valore che corrispondono al criterio, oltre ai relativi valori e attributi. Usare i criteri delle chiavi seguenti nelle chiamate dell'API REST a Configurazione app:
+Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da un'etichetta che può essere `null`. Per eseguire una query su un archivio di Configurazione app e trovare le coppie chiave-valore, si specifica un criterio. L'archivio di Configurazione app restituisce tutte le coppie chiave-valore che corrispondono al criterio, oltre ai relativi valori e attributi. Usare i criteri delle chiavi seguenti nelle chiamate dell'API REST a Configurazione app:
 
 | Chiave | |
 |---|---|
@@ -100,7 +100,7 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 
 Anche i valori assegnati alle chiavi sono stringhe Unicode. Per i valori è possibile usare tutti i caratteri Unicode. A ogni valore è associato un tipo di contenuto facoltativo definito dall'utente. Usare questo attributo per archiviare informazioni, ad esempio uno schema di codifica, su un valore che ne consentano l'elaborazione corretta nell'applicazione.
 
-I dati di configurazione archiviati in un archivio di configurazione app, che include tutte le chiavi e tutti i valori, vengono crittografati sia quando sono inattivi che quando sono in movimento. Configurazione app non è una soluzione da usare in sostituzione di Azure Key Vault. Non usarla quindi per archiviare i segreti dell'applicazione.
+I dati di configurazione archiviati in un archivio di Configurazione app, che include tutte le chiavi e tutti i valori, vengono crittografati sia quando sono inattivi che quando sono in movimento. Configurazione app non è una soluzione da usare in sostituzione di Azure Key Vault. Non usarla quindi per archiviare i segreti dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

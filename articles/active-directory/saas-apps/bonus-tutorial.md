@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea9c88f8eb8ac7b72f11ff286d2294df8cb70860
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442781"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Esercitazione: Integrazione di Azure Active Directory con Bonusly
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Aggiunta di Bonusly dalla raccolta
 
-Per configurare l'integrazione di Bonusly in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Bonusly in Azure AD, è necessario aggiungerla dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Bonusly dalla raccolta, seguire questa procedura:**
 
@@ -75,20 +75,20 @@ Per configurare l'integrazione di Bonusly in Azure AD, è necessario aggiungerla
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Bonusly usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bonusly.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Bonusly, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Bonusly, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Bonusly](#configure-bonusly-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Bonusly](#create-bonusly-test-user)** : per avere una controparte di Britta Simon in Bonusly collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Bonusly](#create-bonusly-test-user)** : per avere una controparte di Britta Simon in Bonusly collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare Single Sign-On di Azure AD con Bonusly, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Bonusly, seguire questa procedura:
 
 1. Nella pagina di integrazione dell'applicazione **Bonusly** del [portale di Azure](https://portal.azure.com/) selezionare**Single sign-on**.
 
@@ -119,7 +119,7 @@ Per configurare Single Sign-On di Azure AD con Bonusly, seguire questa procedura
 
     ![Copiare il valore di Identificazione personale](common/copy-thumbprint.png)
 
-7. Nella sezione **Set up Bonusly** (Configura Set up Bonusly) copiare gli URL appropriati in base alle proprie esigenze.
+7. Nella sezione **Configura Bonusly** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -138,9 +138,9 @@ Per configurare Single Sign-On di Azure AD con Bonusly, seguire questa procedura
     ![Sezione Bonusly Social](./media/bonus-tutorial/ic773686.png "Bonusly")
 1. In **Single Sign-On** selezionare **SAML**.
 
-1. Nella pagina della finestra di dialogo **SAML** eseguire la procedura seguente:
+1. Nella pagina della finestra di dialogo **SAML** seguire questa procedura:
 
-    ![Finestra di dialogo SAML per Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
+    ![Pagina della finestra di dialogo SAML per Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
 
     a. Nella casella di testo **IdP SSO Target URL** (URL di destinazione SSO IdP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -152,9 +152,9 @@ Per configurare Single Sign-On di Azure AD con Bonusly, seguire questa procedura
     
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -174,11 +174,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bonusly.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bonusly.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Bonusly**.
 
@@ -202,12 +202,12 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-bonusly-test-user"></a>Creare un utente di test di Bonusly
+### <a name="create-bonusly-test-user"></a>Creare l'utente di test di Bonusly
 
 Per consentire agli utenti di Azure AD di accedere a Bonusly, è necessario effettuarne il provisioning in Bonusly. Nel caso di Bonusly, il provisioning è un'attività manuale.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente di Bonusly per effettuare il provisioning degli account utente di AAD. 
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da Bonusly per effettuare il provisioning degli account utente di Azure AD. 
 
 **Per configurare il provisioning utenti, seguire questa procedura:**
 
@@ -223,15 +223,15 @@ Per consentire agli utenti di Azure AD di accedere a Bonusly, è necessario effe
 
 1. Fare clic su **Gestisci utenti**.
 
-    ![Gestione utenti](./media/bonus-tutorial/ic781043.png "Gestione utenti")
+    ![Gestire gli utenti](./media/bonus-tutorial/ic781043.png "Manage Users")
 
 1. Fare clic su **Add User**.
 
-    ![Aggiungere un utente](./media/bonus-tutorial/ic781044.png "Aggiungere un utente")
+    ![Add User](./media/bonus-tutorial/ic781044.png "Aggiunta di un utente")
 
 1. Nella finestra di dialogo **Aggiungi utente** seguire questa procedura:
 
-    ![Aggiungere un utente](./media/bonus-tutorial/ic781045.png "Aggiungere un utente")  
+    ![Add User](./media/bonus-tutorial/ic781045.png "Aggiunta di un utente")  
 
     a. Nella casella di testo **First name** (Nome) immettere il nome dell'utente, ad esempio **Britta**.
 
@@ -248,7 +248,7 @@ Per consentire agli utenti di Azure AD di accedere a Bonusly, è necessario effe
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Bonusly nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Bonusly per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Bonusly nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Bonusly per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

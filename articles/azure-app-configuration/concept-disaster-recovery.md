@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: c05957cda16c96b841433483a90429aab2b4d22d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706511"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185269"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
 
@@ -25,7 +25,7 @@ Attualmente Configurazione app di Azure è un servizio a livello di area. Ogni a
 
 ## <a name="high-availability-architecture"></a>Architettura a disponibilità elevata
 
-Per realizzare la ridondanza tra aree, è necessario creare più archivi di configurazione app in aree diverse. Con questa configurazione l'applicazione include almeno un archivio di configurazione aggiuntivo in cui eseguire il fallback quando l'archivio primario diventa inaccessibile. Il diagramma seguente illustra la topologia tra l'applicazione e i relativi archivi di configurazione primario e secondario:
+Per realizzare la ridondanza tra aree, è necessario creare più archivi di Configurazione app in aree diverse. Con questa configurazione l'applicazione include almeno un archivio di configurazione aggiuntivo in cui eseguire il fallback quando l'archivio primario diventa inaccessibile. Il diagramma seguente illustra la topologia tra l'applicazione e i relativi archivi di configurazione primario e secondario:
 
 ![Archivi con ridondanza geografica](./media/geo-redundant-app-configuration-stores.png)
 

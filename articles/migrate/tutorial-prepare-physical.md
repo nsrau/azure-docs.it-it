@@ -1,27 +1,23 @@
 ---
-title: Preparare i server fisici per la valutazione con Valutazione server di Azure Migrate
-description: Questo articolo descrive come effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure tramite Valutazione server di Azure Migrate.
+title: Preparare i server fisici per la valutazione/migrazione con Azure Migrate
+description: Informazioni su come preparare la valutazione e la migrazione di server fisici con Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091907"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196390"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
 Questo articolo descrive come effettuare la preparazione per la valutazione di server fisici locali con [Azure Migrate](migrate-services-overview.md).
-
-
-> [!NOTE]
-> Se alcune di queste funzionalità non sono ancora visibili nel portale di Azure Migrate, aspettare. Compariranno all'incirca la prossima settimana.
 
 [Azure Migrate](migrate-overview.md) offre un hub di strumenti che consentono di individuare, valutare ed eseguire la migrazione di app, infrastruttura e carichi di lavoro a Microsoft Azure. L'hub include gli strumenti di Azure Migrate e offerte di fornitori di software indipendenti (ISV) di terze parti. 
 
@@ -45,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario configurare le autorizzazioni per la distribuzione di Azure Migrate.
 
-- Autorizzazioni per l'account Azure per la creazione di un progetto Azure Migrate. 
+- Autorizzazioni per l'account Azure per la creazione di un progetto Azure Migrate.
 - Autorizzazioni per l'account per la registrazione dell'appliance di Azure Migrate. L'appliance viene usato per l'individuazione e la migrazione di Hyper-V. Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco:
     - La prima app comunica con gli endpoint del servizio Azure Migrate.
     - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
@@ -73,7 +69,7 @@ Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
 Vale la pena notare che:
 
 - Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuovere le autorizzazioni. 
+- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuovere le autorizzazioni.
 
 
 #### <a name="grant-account-permissions"></a>Concedere le autorizzazioni all'account
@@ -88,7 +84,7 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
 > [!NOTE]
 > Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
 
-#### <a name="assign-application-developer-role"></a>Assegnare il ruolo Sviluppatore di applicazioni 
+#### <a name="assign-application-developer-role"></a>Assegnare il ruolo Sviluppatore di applicazioni
 
 L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
@@ -124,12 +120,12 @@ Azure Migrate necessita delle autorizzazioni per individuare i server locali.
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Sono state configurate le autorizzazioni dell'account Azure.
 > * Sono stati preparati i server fisici per la valutazione.
 
 Continuare con l'esercitazione successiva per creare un progetto di Azure Migrate e valutare i server fisici per la migrazione ad Azure
 
-> [!div class="nextstepaction"] 
-> [Valutare i server fisici](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [Valutare i server fisici](./tutorial-assess-physical.md)

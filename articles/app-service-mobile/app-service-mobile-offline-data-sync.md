@@ -1,25 +1,17 @@
 ---
-title: Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure | Documentazione Microsoft
+title: Sincronizzazione dati offline
 description: Riferimento concettuale e panoramica della funzionalità di sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
-documentationcenter: windows
 author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: dcab966aed125e43fff49299a46a2e8bbb938d66
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9238ebd06a4aa532d20a2a98499963a75780f025
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388602"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668425"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronizzazione dei dati offline in App per dispositivi mobili di Azure
 
@@ -74,7 +66,7 @@ Quando si usano le tabelle di sincronizzazione, il codice client controlla quand
 * **Push**: l'operazione push viene effettuata sul contesto di sincronizzazione e invia tutte le modifiche CUD apportate dopo l'ultimo push. Si noti che non è possibile inviare solo le modifiche di una singola tabella, perché ciò potrebbe alterare l'ordine di invio delle operazioni. L'operazione push esegue una serie di chiamate REST al back-end dell'app per dispositivi mobili di Azure, che a sua volta modifica il database del server.
 * **Pull**: l'operazione pull viene effettuata per ogni singola tabella e può essere personalizzata con una query, in modo da recuperare solo un subset dei dati del server. Gli SDK del client mobile di Azure inseriscono quindi i dati risultanti nell'archivio locale.
 * **Push impliciti**: se un'operazione pull viene eseguita in una tabella con aggiornamenti locali in sospeso, il pull esegue prima un'operazione `push()` sul contesto di sincronizzazione. Questo push consente di ridurre al minimo i conflitti tra le modifiche già in coda e i nuovi dati dal server.
-* **Sincronizzazione incrementale**: il primo parametro dell'operazione pull è un *nome query* usato solo nel client. Se si usa un nome di query non null, Azure Mobile SDK esegue una *sincronizzazione incrementale*. Ogni volta che un'operazione pull restituisce un set di risultati, il timestamp `updatedAt` più recente dal set di risultati viene archiviato nelle tabelle di sistema locali dell'SDK. Le operazioni pull successive recuperano solo i record successivi a tale timestamp.
+* **Sincronizzazione incrementale**: il primo parametro dell'operazione pull è un *nome query* usato solo nel client. Se si usa un nome di query non null, Azure Mobile SDK esegue una *sincronizzazione incrementale*. Ogni volta che un'operazione pull restituisce un set di risultati, il timestamp `updatedAt` più recente del set di risultati viene archiviato nelle tabelle di sistema locali dell'SDK. Le operazioni pull successive recuperano solo i record successivi a tale timestamp.
 
   Per usare la sincronizzazione incrementale, il server deve restituire valori `updatedAt` significativi e deve anche supportare l'ordinamento in base a questo campo. Poiché tuttavia l'SDK aggiunge il proprio ordinamento al campo updatedAt, non è possibile usare una query pull con una clausola `orderBy` specifica.
 

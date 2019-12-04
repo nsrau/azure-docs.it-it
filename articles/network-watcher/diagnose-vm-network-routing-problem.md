@@ -1,5 +1,6 @@
 ---
-title: Diagnosticare un problema di routing di rete di una macchina virtuale - esercitazione - Portale di Azure | Microsoft Docs
+title: 'Esercitazione: Diagnosticare un problema di routing di rete delle macchine virtuali - Portale di Azure'
+titleSuffix: Azure Network Watcher
 description: In questa esercitazione si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684509"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276037"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di routing di rete di una macchina virtuale tramite il portale di Azure
 
@@ -53,9 +54,9 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
     |NOME|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Sottoscrizione| Selezionare la propria sottoscrizione.|
+    |Subscription| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
-    |Località| Selezionare **Stati Uniti orientali**.|
+    |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
 5. In **Impostazioni**  accettare tutte le impostazioni predefinite e scegliere **OK**.
@@ -85,7 +86,7 @@ Azure crea automaticamente le route per le destinazioni predefinite. È possibil
 
     |Impostazione                  |Valore                                                   |
     |---------                |---------                                               |
-    | Gruppo di risorse          | Selezionare myResourceGroup                                 |
+    | Resource group          | Selezionare myResourceGroup                                 |
     | Macchina virtuale         | Selezionare myVm                                            |
     | interfaccia di rete       | myvm - Il nome dell'interfaccia di rete potrebbe essere diverso.   |
     | Indirizzo IP di origine       | 10.0.0.4                                               |

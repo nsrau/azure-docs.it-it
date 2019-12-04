@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127914"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278081"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Confronto tra funzionalità dei prodotti della rete CDN di Azure
 
@@ -41,11 +41,11 @@ La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 | [Bilanciamento del carico del server globale](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Eliminazione veloce](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , le funzioni Elimina tutti e Wildcard purge (Eliminazione dei caratteri jolly) non sono attualmente supportate dalla rete CDN di Azure fornita da Akamai |**&#x2713;** |**&#x2713;** |
 | [Precaricamento Asset](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Impostazioni cache/intestazioni (con [regole di memorizzazione nella cache](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Motore di distribuzione di contenuti personalizzabile, basato su regole (con il [motore regole](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Impostazioni cache/intestazioni (con il [motore regole](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Riscrittura/reindirizzamento URL (con il [motore regole](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Regole per dispositivi mobili (con il [motore regole](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Impostazioni cache/intestazioni (con [regole di memorizzazione nella cache](cdn-caching-rules.md))  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Motore di distribuzione di contenuti personalizzabile, basato su regole |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** con il [motore regole](cdn-rules-engine.md) |
+| Impostazioni per cache/intestazione  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** con il [motore regole Premium](cdn-rules-engine.md) |
+| Reindirizzamento/riscrittura URL |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md)  | | |**&#x2713;** con il [motore regole Premium](cdn-rules-engine.md) |
+| Regole per dispositivi mobili  |**&#x2713;** con il [motore regole Standard](cdn-standard-rules-engine.md) | | |**&#x2713;** con il [motore regole Premium](cdn-rules-engine.md) |
 | [Memorizzazione nella cache della stringa di query](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Supporto HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

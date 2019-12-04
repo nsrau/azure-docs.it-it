@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329803"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185049"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app .NET Framework con Configurazione app di Azure
 
@@ -31,7 +31,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Creare un archivio di configurazione app
+## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -51,7 +51,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 1. In **Configura il nuovo progetto** immettere un nome di progetto. In **Framework** selezionare **.NET Framework 4.7.1** o versione successiva. Fare clic su **Create**(Crea).
 
-## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di configurazione app
+## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto. Se non è possibile trovarli, selezionare la casella di controllo **Includi versione preliminare**.
 
@@ -81,7 +81,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
     </appSettings>
     ```
 
-   La stringa di connessione dell'archivio di configurazione app viene letta dalla variabile di ambiente `ConnectionString`. Aggiungere il generatore di configurazione `Environment` prima di `MyConfigStore` nella proprietà `configBuilders` della sezione `appSettings`.
+   La stringa di connessione dell'archivio di Configurazione app viene letta dalla variabile di ambiente `ConnectionString`. Aggiungere il generatore di configurazione `Environment` prima di `MyConfigStore` nella proprietà `configBuilders` della sezione `appSettings`.
 
 1. Aprire il file *Program.cs* e aggiornare il metodo `Main` per usare Configurazione app effettuando una chiamata a `ConfigurationManager`.
 
@@ -96,7 +96,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
-1. Impostare una variabile di ambiente denominata **ConnectionString** sulla stringa di connessione dell'archivio di configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente:
+1. Impostare una variabile di ambiente denominata **ConnectionString** sulla stringa di connessione dell'archivio di Configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -112,7 +112,7 @@ In questa guida di avvio rapido si incorpora Configurazione app di Azure in un'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con un'app console .NET Framework. Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
+In questa guida di avvio rapido è stato creato un nuovo archivio di Configurazione app, che è stato usato con un'app console .NET Framework. Il valore `AppSettings` di `ConfiguratoinManager` non verrà modificato dopo l'avvio dell'applicazione. La libreria del provider di configurazione .NET Standard di Configurazione app può tuttavia essere usata anche in un'app .NET Framework. Per informazioni su come abilitare l'app .NET Framework per aggiornare in modo dinamico le impostazioni di configurazione, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Integrazione dell'identità gestita](./howto-integrate-azure-managed-service-identity.md)
+> [Abilitare la configurazione dinamica](./enable-dynamic-configuration-dotnet.md)

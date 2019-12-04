@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning (anteprima). Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
+description: Questa esercitazione mostra come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning (anteprima). Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 31b06f3ad102f39d1a9f95dee2bd98b5d0a3b310
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932036"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483305"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
 
     La pipeline dovrebbe ora avere un aspetto simile al seguente: 
 
-   ![Screenshot della configurazione prevista della pipeline dopo la preparazione per la distribuzione](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Screenshot della configurazione prevista della pipeline dopo la preparazione per la distribuzione](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     Quando si seleziona **Create inference pipeline** accadono diverse cose:
     
@@ -70,7 +70,7 @@ Nella finestra di dialogo visualizzata è possibile selezionare uno dei cluster 
 
 1. Sulla barra multifunzione di spostamento selezionare **Inference Clusters** >  **+ New** (Cluster di inferenza > Nuovo).
 
-    ![Screenshot che mostra come passare al riquadro del nuovo cluster di inferenza](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Screenshot che mostra come passare al riquadro del nuovo cluster di inferenza](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. Nel riquadro del cluster di inferenza configurare un nuovo servizio Kubernetes.
 
@@ -96,7 +96,7 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 
 1. Selezionare **Distribuisci**.
 
-    ![Screenshot che mostra come configurare un nuovo endpoint in tempo reale](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Screenshot che mostra come configurare un nuovo endpoint in tempo reale](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     Al termine della distribuzione verrà visualizzata una notifica di esito positivo sopra il canvas. L'operazione potrebbe richiedere qualche minuto.
 
@@ -106,7 +106,7 @@ Una volta completata la distribuzione, è possibile testare l'endpoint in tempo 
 
 1. Nella pagina **Endpoints** selezionare l'endpoint appena distribuito.
 
-    ![Screenshot che mostra la scheda degli endpoint in tempo reale con l'endpoint appena creato evidenziato](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Screenshot che mostra la scheda degli endpoint in tempo reale con l'endpoint appena creato evidenziato](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Selezionare **Test**.
 
@@ -114,7 +114,7 @@ Una volta completata la distribuzione, è possibile testare l'endpoint in tempo 
 
     Il portale invia una richiesta di test all'endpoint e mostra i risultati. Anche se generato, il valore del prezzo per i dati di input non viene usato per generare il valore della stima.
 
-    ![Screenshot che mostra come testare l'endpoint in tempo reale con l'etichetta con punteggio del prezzo evidenziata](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Screenshot che mostra come testare l'endpoint in tempo reale con l'etichetta con punteggio del prezzo evidenziata](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -1,7 +1,7 @@
 ---
 title: "Esercitazione: Pipeline di Machine Learning per l'assegnazione di punteggi in batch"
 titleSuffix: Azure Machine Learning
-description: Creare una pipeline di Machine Learning per l'assegnazione di punteggi in batch con un modello di classificazione delle immagini in Azure Machine Learning. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo e consentendo così di concentrarsi sulle proprie competenze di Machine Learning anziché sull'infrastruttura e l'automazione.
+description: In questa esercitazione si creerà una pipeline di Machine Learning per l'assegnazione di punteggi batch con un modello di classificazione delle immagini in Azure Machine Learning. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo e consentendo così di concentrarsi sulle proprie competenze di Machine Learning anziché sull'infrastruttura e l'automazione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 11d57031405939e37afade9a9452c5d3a8b9e1e4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796703"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483291"
 ---
-# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Creare e usare una pipeline di Azure Machine Learning per l'assegnazione di punteggi in batch
+# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Esercitazione: Creare una pipeline di Azure Machine Learning per l'assegnazione di punteggi batch
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

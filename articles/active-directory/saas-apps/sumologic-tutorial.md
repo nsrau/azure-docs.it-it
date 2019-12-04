@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089540"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Esercitazione: Integrazione di Azure Active Directory con SumoLogic
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con SumoLogic, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di SumoLogic](#configure-sumologic-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di SumoLogic](#create-sumologic-test-user)** : per avere una controparte di Britta Simon in SumoLogic collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SumoLogic, seguire ques
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura SumoLogic** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura SumoLogic** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -140,19 +140,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con SumoLogic, seguire ques
 
 1. Passare a **Manage (Gestisci) \> Security (Sicurezza)** .
 
-    ![Gestione](./media/sumologic-tutorial/ic778556.png "Gestione")
+    ![Manage](./media/sumologic-tutorial/ic778556.png "Gestisci")
 
 1. Fare clic su **SAML**.
 
-    ![Impostazioni di sicurezza globale](./media/sumologic-tutorial/ic778557.png "Impostazioni di sicurezza globale")
+    ![Impostazioni di sicurezza globali](./media/sumologic-tutorial/ic778557.png "Impostazioni di sicurezza globale")
 
 1. Dall'elenco **Select a configuration or create a new one** (Selezionare o creare una configurazione) selezionare **Azure AD**, quindi fare clic su **Configure** (Configura).
 
-    ![Configurare SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configurare SAML 2.0")
+    ![Configurazione di SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configura SAML 2.0")
 
-1. Nella finestra di dialogo **Configura SAML 2.0** , eseguire la procedura seguente:
+1. Nella finestra di dialogo **Configura SAML 2.0** , seguire questa procedura:
 
-    ![Configurare SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configurare SAML 2.0")
+    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configura SAML 2.0")
 
     a. Nella casella di testo **Configuration Name** (Nome configurazione) digitare **Azure AD**.
 
@@ -170,9 +170,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con SumoLogic, seguire ques
 
     h. Nella casella di testo **Login Path** (Percorso di accesso) digitare **Azure** e fare clic su **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -193,11 +193,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SumoLogic.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SumoLogic.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SumoLogic**.
 
@@ -225,7 +225,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario effettuarne il provisioning in SumoLogic. Nel caso di SumoLogic, il provisioning è un'attività manuale.
 
-**Per eseguire il provisioning di un account utente, seguire questa procedura:**
+**Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al tenant di **SumoLogic**.
 
@@ -237,9 +237,9 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario ef
 
     ![Utenti](./media/sumologic-tutorial/ic778562.png "Utenti")
 
-1. Nella finestra di dialogo **New User** , eseguire la procedura seguente:
+1. Nella finestra di dialogo **New User** , seguire questa procedura:
 
-    ![Nuovo utente](./media/sumologic-tutorial/ic778563.png "Nuovo utente") 
+    ![New User](./media/sumologic-tutorial/ic778563.png "Nuovo utente") 
 
     a. Digitare le informazioni correlate dell'account Azure AD di cui si vuole effettuare il provisioning nelle caselle di testo **First Name** (Nome), **Last Name** (Cognome) e **Email** (Posta elettronica).
   
@@ -250,13 +250,13 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario ef
     d. Fare clic su **Save**.
 
 > [!NOTE]
-> È possibile usare qualsiasi altro strumento di creazione di account utente SumoLogic o qualsiasi API fornita da SumoLogic per eseguire il provisioning degli account utente di Azure AD.
+> È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da SumoLogic per effettuare il provisioning degli account utente di Azure AD.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Facendo clic sul riquadro SumoLogic nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione SumoLogic per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro SumoLogic nel pannello di accesso si dovrebbe accedere automaticamente all'istanza di SumoLogic per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,21 +1,21 @@
 ---
-title: Come associare Database di Azure per MySQL all'applicazione Azure Spring Cloud | Microsoft Docs
-description: Questo articolo illustra come associare Azure MySQL all'applicazione Azure Spring Cloud
+title: Come associare un'istanza di database di Azure per MySQL all'applicazione Azure Spring Cloud | Microsoft Docs
+description: Questo articolo illustra come associare un'istanza di database di Azure per MySQL all'applicazione Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: b6de5bb3b25c111d1b7775ea9570a4ae2cf45042
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 6c5cd4ac384affaedbd813f9395f997f92eb69c4
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607596"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151115"
 ---
-# <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-database-for-mysql"></a>Esercitazione: Associare i servizi di Azure all'applicazione Azure Spring Cloud: Database di Azure per MySQL
+# <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Esercitazione: Associare un'istanza di database di Azure per MySQL all'applicazione Azure Spring Cloud 
 
-Azure Spring Cloud consente di associare automaticamente determinati servizi di Azure alle applicazioni, invece di configurare manualmente l'applicazione Spring Boot. Questa esercitazione illustra come associare l'applicazione ad Azure MySQL.
+Azure Spring Cloud consente di associare automaticamente determinati servizi di Azure alle applicazioni, invece di configurare manualmente l'applicazione Spring Boot. Questa esercitazione illustra come associare l'applicazione all'istanza di database di Azure per MySQL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,13 +23,15 @@ Azure Spring Cloud consente di associare automaticamente determinati servizi di 
 * Un account di Database di Azure per MySQL
 * Interfaccia della riga di comando di Azure
 
-Se non si ha un'istanza di Azure Spring Cloud distribuita, seguire la procedura descritta in questo [Avvio rapido](spring-cloud-quickstart-launch-app-portal.md) per distribuire la prima app Spring Cloud.
+Se non è ancora stata distribuita un'istanza di Azure Spring Cloud, seguire le istruzioni riportate in [Avvio rapido: Avviare un'applicazione Azure Spring Cloud usando il portale di Azure](spring-cloud-quickstart-launch-app-portal.md) per distribuire la prima app Spring Cloud.
 
-## <a name="bind-azure-database-for-mysql"></a>Associare Database di Azure per MySQL
+## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Associare l'app all'istanza di database di Azure per MySQL
 
-1. Prendere nota del nome utente e della password dell'amministratore dell'account Azure MySQL. Connettersi al server e creare un database denominato `testdb` da un client MySQL. Creare un nuovo account non amministratore.
+1. Prendere nota del nome utente e della password dell'amministratore dell'account del database di Azure per MySQL. 
 
-1. Aggiungere la dipendenza seguente al file `pom.xml` del progetto
+1. Connettersi al server, creare un database denominato **testdb** da un client MySQL e quindi creare un nuovo account non amministratore.
+
+1. Aggiungere la dipendenza seguente al file *pom.xml* del progetto:
 
     ```xml
     <dependency>
@@ -37,15 +39,19 @@ Se non si ha un'istanza di Azure Spring Cloud distribuita, seguire la procedura 
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     ```
-1. Rimuovere le proprietà `spring.datasource.*`, se presenti, dal file `application.properties`.
+1. Nel file *application.properties* rimuovere tutte le proprietà `spring.datasource.*`.
 
 1. Aggiornare la distribuzione corrente usando `az spring-cloud app update` oppure crearne una nuova per questa modifica usando `az spring-cloud app deployment create`.  Questi comandi aggiornano o creano l'applicazione con la nuova dipendenza.
 
-1. Passare alla pagina del servizio Azure Spring Cloud nel portale di Azure. Trovare il **Dashboard dell'applicazione** e selezionare l'applicazione da associare ad Azure MySQL.  Si tratta della stessa applicazione aggiornata o distribuita nel passaggio precedente. Selezionare quindi `Service binding` e poi il pulsante `Create service binding`. Compilare il modulo, assicurarsi di selezionare il **tipo di binding** `Azure MySQL`, lo stesso nome di database usato in precedenza e gli stessi valori di nome utente e password annotati nel primo passaggio.
+1. Nella pagina del servizio **Azure Spring Cloud**, cercare il dashboard nel portale di Azure, cercare il **Dashboard dell'applicazione** e quindi selezionare l'applicazione da associare all'istanza di database di Azure per MySQL.  Si tratta della stessa applicazione aggiornata o distribuita nel passaggio precedente. 
 
-1. Riavviare l'app. Il binding dovrebbe funzionare ora.
+1. Selezionare **Service binding** (Associazione al servizio), quindi selezionare il pulsante **Create service binding** (Crea associazione al servizio). 
 
-1. Per verificare se il binding di servizi è corretto, selezionarne il nome e controllarne i dettagli. Il campo `property` dovrà essere simile al seguente:
+1. Compilare il modulo, assicurarsi di selezionare **Azure MySQL** come **Tipo di binding** usando lo stesso nome di database usato in precedenza e gli stessi valori di nome utente e password annotati nel primo passaggio.
+
+1. Riavviare l'app. L'associazione dovrebbe ora risultare funzionante.
+
+1. Per assicurarsi che l'associazione al servizio sia corretta, selezionarne il nome e controllarne i dettagli. Il campo `property` dovrà essere simile al seguente:
     ```
     spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     spring.datasource.username=admin@some-server
@@ -55,8 +61,8 @@ Se non si ha un'istanza di Azure Spring Cloud distribuita, seguire la procedura 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come associare l'applicazione Azure Spring Cloud a un database MySQL.  Per altre informazioni sulla gestione del servizio Azure Spring Cloud, continuare a leggere l'articolo sull'individuazione del servizio e la registrazione.
+In questa esercitazione è stato illustrato come associare l'applicazione Azure Spring Cloud a un'istanza di database di Azure per MySQL.  Per altre informazioni sulla gestione del servizio Azure Spring Cloud, continuare a leggere l'articolo sull'individuazione e la registrazione dei servizi.
 
 > [!div class="nextstepaction"]
-> [Informazioni su come abilitare l'individuazione del servizio e le registrazioni usando Spring Cloud Service Registry](spring-cloud-service-registration.md).
+> [Abilitare l'individuazione e la registrazione dei servizi usando il registro del servizio Spring Cloud](spring-cloud-service-registration.md)
 
