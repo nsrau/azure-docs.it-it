@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 04/30/2019
+ms.date: 11/25/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2bd40db51d82bd2278bd716615636968adf8277b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2a763bbd50f009ae469be889e6ebae0b0d90848b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391681"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795840"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni di configurazione e sicurezza predefinite e il software necessario. Per configurare la pipeline di imaging, è necessario disporre di tempo, infrastruttura e configurazione, ma con generatore di immagini di VM di Azure è sufficiente fornire una semplice configurazione che descriva l'immagine, la invii al servizio e l'immagine venga compilata e distribuita.
  
@@ -20,7 +20,7 @@ Il generatore di immagini di macchine virtuali di Azure (Generatore di immagini 
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Funzionalità di anteprima
+## <a name="preview-features"></a>Anteprima funzionalità
 
 Per l'anteprima, queste funzionalità sono supportate:
 
@@ -33,7 +33,7 @@ Per l'anteprima, queste funzionalità sono supportate:
 - Creazione di immagini in formato VHD.
  
 
-## <a name="regions"></a>Regioni
+## <a name="regions"></a>Aree
 Il servizio Azure Image Builder sarà disponibile per l'anteprima in queste aree. Le immagini possono essere distribuite al di fuori di queste aree.
 - Stati Uniti Orientali
 - Stati Uniti orientali 2
@@ -46,19 +46,19 @@ AIB supporterà le immagini del sistema operativo di base di Azure Marketplace:
 - Ubuntu 18.04
 - Ubuntu 16.04
 - RHEL 7,6
-- CentOS 7.6
+- CentOS 7,6
 - Windows 10 RS5 Enterprise/Professional/Enterprise per desktop virtuale (EVD) 
 - Windows 2016
 - Windows 2019
 
 AIB supporterà l'ISO RHEL come origine per:
 - RHEL 7.3
-- RHEL 7.4
+- RHEL 7,4
 - RHEL 7.5
 
 RHEL 7,6 ISOs non sono supportati, ma sono in fase di test.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 
 ![Disegno concettuale di Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -73,7 +73,7 @@ Azure Image Builder è un servizio di Azure completamente gestito accessibile da
 
 1. Creare il modello di immagine come file con estensione JSON. Questo file con estensione JSON contiene informazioni sull'origine, le personalizzazioni e la distribuzione dell'immagine. Nel [repository GitHub di Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)sono disponibili diversi esempi.
 1. Inviarlo al servizio. verrà creato un elemento del modello di immagine nel gruppo di risorse specificato. In background, Image Builder Scarica l'immagine di origine o l'ISO e gli script in base alle esigenze. Questi vengono archiviati in un gruppo di risorse distinto creato automaticamente nella sottoscrizione, nel formato: IT_\<DestinationResourceGroup > _\<templateName >. 
-1. Una volta creato il modello di immagine, è possibile compilare l'immagine. Nel generatore di immagini di sfondo usa il modello e i file di origine per creare una macchina virtuale (D1v2), rete, IP pubblico e archiviazione nella IT_\<DestinationResourceGroup > _\<templateName > gruppo di risorse.
+1. Una volta creato il modello di immagine, è possibile compilare l'immagine. Nel generatore di immagini di sfondo usa il modello e i file di origine per creare una macchina virtuale (dimensioni predefinite: Standard_D1_v2), rete, IP pubblico, NSG e archiviazione nel IT_\<DestinationResourceGroup > _\<templateName > gruppo di risorse.
 1. Nell'ambito della creazione dell'immagine, Image Builder distribuisce l'immagine in base al modello, quindi Elimina le risorse aggiuntive nella IT_\<DestinationResourceGroup > _\<templateName > gruppo di risorse creato per il processo.
 
 

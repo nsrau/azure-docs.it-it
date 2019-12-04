@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: file di inclusione
+description: file di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008583"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796015"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -29,7 +29,7 @@ Un disco gestito Standard creato da un disco rigido virtuale da 80 GB viene cons
 
 **Sono previsti costi di transazione per i dischi gestiti Standard?**
 
-Sì. Sì, ogni transazione prevede un addebito. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
+Sì. Ogni transazione prevede un addebito. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **Per un disco gestito Standard, si riceverà un addebito per le dimensioni effettive dei dati su disco o per la capacità con provisioning del disco?**
 
@@ -137,7 +137,9 @@ Non è possibile rinominare i dischi gestiti. È tuttavia possibile rinominare u
 
 **È possibile usare il partizionamento GPT in un disco di Azure?**
 
-Il partizionamento GPT può essere usato solo nei dischi dati e non nei dischi del sistema operativo. I dischi del sistema operativo devono usare lo stile di partizione MBR.
+Le immagini di generazione 1 possono usare il partizionamento GPT solo sui dischi dati, non sui dischi del sistema operativo. I dischi del sistema operativo devono usare lo stile di partizione MBR.
+
+Le [Immagini di generazione 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) possono usare il partizionamento GPT sul disco del sistema operativo e sui dischi dati.
 
 **Quali tipi di dischi supportano gli snapshot?**
 
@@ -251,7 +253,7 @@ L'esempio seguente mostra la sezione *properties.storageProfile.osDisk* per una 
 Per un esempio di modello completo di come creare un disco SSD standard con un modello, vedere [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creare una macchina virtuale da un'immagine Windows con dischi dati SSD standard).
 
 **È possibile convertire i dischi esistenti in unità SSD Standard?**
-Sì, Per le linee guida generali per la conversione di Azure Managed Disks fare riferimento a [Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Usare anche il valore seguente per aggiornare il tipo di disco in SSD Standard.
+Sì, puoi. Per le linee guida generali per la conversione di Azure Managed Disks fare riferimento a [Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Usare anche il valore seguente per aggiornare il tipo di disco in SSD Standard.
 -AccountType StandardSSD_LRS
 
 **Quali sono i vantaggi offerti dall'uso dei dischi SSD Standard rispetto ai dischi HDD?**
@@ -263,7 +265,7 @@ No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
 **I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
 No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
-## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrazione al servizio Managed Disks
 
 **La migrazione può avere un impatto sulle prestazioni di Managed Disks?**
 
@@ -299,7 +301,7 @@ No. È disponibile Azure Site Recovery la protezione da Azure ad Azure per le ma
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+SÌ
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione
 
@@ -340,7 +342,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-Sì
+SÌ
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
