@@ -1,5 +1,5 @@
 - name: Documentazione di Ricerca notizie Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Panoramica
   expanded: true
   items:

@@ -1,5 +1,5 @@
 - name: Documentazione dell'API Controllo ortografico Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Panoramica
   items:
     - name: Informazioni sull'API Controllo ortografico Bing

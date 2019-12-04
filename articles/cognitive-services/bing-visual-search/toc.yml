@@ -1,5 +1,5 @@
 - name: Documentazione di Ricerca visiva Bing
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Panoramica
   items:
     - name: Informazioni sull'API Ricerca visiva Bing
