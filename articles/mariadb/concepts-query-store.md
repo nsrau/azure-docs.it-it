@@ -1,17 +1,17 @@
 ---
-title: Query Store nel database di Azure per MariaDB
+title: Query Store-database di Azure per MariaDB
 description: Informazioni sulla funzionalità Query Store nel database di Azure per MariaDB che consentono di tenere traccia delle prestazioni nel tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: fbc814b5d263e20cea1d961891afb19894b78965
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604005"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772217"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorare le prestazioni del database di Azure per MariaDB con Query Store
 
@@ -102,7 +102,7 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 | query_store_wait_sampling_frequency | Modifica la frequenza del campionamento di attesa in secondi. da 5 a 300 secondi. | 30 | 5-300 |
 
 > [!NOTE]
-> Attualmente **query_store_capture_mode** sostituisce questa configurazione, vale a dire che **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** devono essere abilitati per tutte le statistiche di attesa per il funzionamento. Se **query_store_capture_mode** è disattivato, le statistiche di attesa sono disattivate, perché le statistiche di attesa usano il performance_schema abilitato e la query_text acquisita da query Store.
+> Attualmente **query_store_capture_mode** sostituisce questa configurazione, ovvero **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** devono essere abilitate per tutte le statistiche di attesa. Se **query_store_capture_mode** è disattivato, le statistiche di attesa sono disattivate, perché le statistiche di attesa usano la performance_schema abilitata e la query_text acquisita da query Store.
 
 Usare il [portale di Azure](howto-server-parameters.md) per ottenere o impostare un valore diverso per un parametro.
 
@@ -127,10 +127,10 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 | `execution_count` | bigint (20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
 | `warning_count` | bigint (20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
 | `error_count` | bigint (20)| NO| Numero di errori generati dalla query durante l'intervallo|
-| `sum_timer_wait` | double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
-| `avg_timer_wait` | double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
-| `min_timer_wait` | double| SÌ| Tempo di esecuzione minimo per la query|
-| `max_timer_wait` | double| SÌ| Tempo massimo di esecuzione|
+| `sum_timer_wait` | Double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
+| `avg_timer_wait` | Double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
+| `min_timer_wait` | Double| SÌ| Tempo di esecuzione minimo per la query|
+| `max_timer_wait` | Double| SÌ| Tempo massimo di esecuzione|
 | `sum_lock_time` | bigint (20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
 | `sum_rows_affected` | bigint (20)| NO| Numero di righe interessate|
 | `sum_rows_sent` | bigint (20)| NO| Numero di righe inviate al client|
@@ -159,7 +159,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 | `event_type` | varchar (32) | NO| Categoria dell'evento Wait |
 | `event_name` | varchar (128) | NO| Nome dell'evento Wait |
 | `count_star` | bigint (20) | NO| Numero di eventi di attesa campionati durante l'intervallo per la query |
-| `sum_timer_wait_ms` | double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
+| `sum_timer_wait_ms` | Double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
 
 ### <a name="functions"></a>Funzioni
 
@@ -171,8 +171,8 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
-- Se un server MariaDB dispone del parametro `default_transaction_read_only` in, Query Store Impossibile acquisire i dati.
-- Query Store funzionalità può essere interrotta se rileva query Unicode lunghe (\> = 6000 byte).
+- Se un server MariaDB dispone del parametro `default_transaction_read_only` on, Query Store non può acquisire dati.
+- Query Store funzionalità può essere interrotta se rileva query Unicode lunghe (\>= 6000 byte).
 - Il periodo di memorizzazione per le statistiche di attesa è di 24 ore.
 - Per le statistiche di attesa viene usato Sample ti Capture a frazione di eventi. La frequenza può essere modificata utilizzando il parametro `query_store_wait_sampling_frequency`.
 

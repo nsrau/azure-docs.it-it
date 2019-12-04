@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404218"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785858"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Come richiedere la verifica in due passaggi per un utente
 
@@ -41,11 +41,14 @@ Abilitato da Azure AD Identity Protection: questo metodo usa i criteri di rischi
 
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-| Stato | DESCRIZIONE | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
-|:---:|:---:|:---:|:--:|:--:|
-| Disabled |Stato predefinito per un nuovo utente non registrato in Azure MFA. |No |No |No |
-| Enabled |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Viene richiesto di eseguire la registrazione al successivo accesso. |No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Dopo la scadenza della sessione, è necessaria la registrazione ad Azure MFA.| Sì. Dopo la scadenza dei token di accesso, è necessaria la registrazione ad Azure MFA. |
-| Enforced |L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. |Sì. Le app richiedono password per le app. |Sì. Azure MFA è necessario all'accesso. | Sì. Azure MFA è necessario all'accesso. |
+> [!IMPORTANT]
+> L'abilitazione dell'autenticazione a più fattori di Azure tramite criteri di accesso condizionale non modificherà lo stato dell'utente. Non visualizzare gli utenti con allarme disabilitato. L'accesso condizionale non modifica lo stato. **Le organizzazioni non devono abilitare o applicare gli utenti se utilizzano criteri di accesso condizionale.**
+
+| Status | Description | App interessate non basate su browser | App interessate basate su browser | Autenticazione moderna interessata |
+|:---:| --- |:---:|:--:|:--:|
+| Disabled | Stato predefinito per un nuovo utente non registrato in Azure MFA. | No | No | No |
+| Attivato | L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Viene richiesto di eseguire la registrazione al successivo accesso. | No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Dopo la scadenza della sessione, è necessaria la registrazione ad Azure MFA.| Sì. Dopo la scadenza dei token di accesso, è necessaria la registrazione ad Azure MFA. |
+| Enforced | L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. | Sì. Le app richiedono password per le app. | Sì. Azure MFA è necessario all'accesso. | Sì. Azure MFA è necessario all'accesso. |
 
 Lo stato dell'utente indica se un amministratore ha eseguito la relativa iscrizione in Azure MFA e se l'utente ha completato il processo di registrazione.
 
@@ -82,7 +85,7 @@ Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati ut
 
 Per modificare lo stato dell'utente usando [Azure AD PowerShell](/powershell/azure/overview), modificare `$st.State`. Esistono tre possibili stati:
 
-* Enabled
+* Attivato
 * Enforced
 * Disabled  
 

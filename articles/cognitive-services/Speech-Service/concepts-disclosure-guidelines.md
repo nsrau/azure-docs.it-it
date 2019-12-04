@@ -3,21 +3,21 @@ title: Linee guida di progettazione della divulgazione
 titleSuffix: Azure Cognitive Services
 description: Introduzione alle linee guida per la progettazione della divulgazione e valutazione del livello di divulgazione.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837386"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776386"
 ---
-# <a name="disclosure-design-guidelines"></a>Linee guida di progettazione della divulgazione
+# <a name="disclosure-design-guidelines"></a>Linee guida sulla progettazione di informative
 Scopri come creare e gestire l'attendibilità dei clienti grazie alla trasparenza della natura sintetica dell'esperienza vocale.
 
 ## <a name="what-is-disclosure"></a>Che cos'è la divulgazione?
@@ -74,7 +74,7 @@ Usare il diagramma seguente per determinare se l'esperienza della voce sintetica
 
   ![Diagramma di valutazione della divulgazione](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documentazione di riferimento
+## <a name="reference-docs"></a>Documenti di riferimento
 
 * [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
 * [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)

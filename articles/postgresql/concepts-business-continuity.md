@@ -1,17 +1,17 @@
 ---
-title: Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
+title: Continuità aziendale-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la continuità aziendale (ripristino temporizzato, interruzione data center, ripristino geografico) quando si usa database di Azure per PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3623611bcd22486d90651c6e8b6880c6de1de0c5
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950087"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763879"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
 
@@ -26,7 +26,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità di
 | **Funzionalità** | **Basic** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
-| Ripristino geografico dai backup con replica geografica | Non supportate | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
+| Ripristino geografico dai backup con replica geografica | Supporto non disponibile | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
 
 > [!IMPORTANT]
 > **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli. Usare [blocco risorse di Azure](../azure-resource-manager/resource-group-lock-resources.md) per evitare l'eliminazione accidentale del server.

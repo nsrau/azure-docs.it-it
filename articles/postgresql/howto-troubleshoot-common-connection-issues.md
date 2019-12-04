@@ -1,20 +1,20 @@
 ---
-title: Risolvere i problemi di connessione al Database di Azure per PostgreSQL - Server singolo
-description: Informazioni su come risolvere i problemi di connessione al Database di Azure per PostgreSQL - singolo Server.
+title: Risolvere i problemi relativi alle connessioni-database di Azure per PostgreSQL-server singolo
+description: Informazioni su come risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo.
 keywords: connessione postgresql, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c74b819893133116b8ac6905988f3fe11220ed95
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952099"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770068"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al Database di Azure per PostgreSQL - Server singolo
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo
 
 I problemi di connessione possono avere varie cause tra cui:
 
@@ -46,14 +46,14 @@ Gli errori temporanei si verificano quando si esegue la manutenzione, quando il 
 
 Se l'applicazione continua a non riuscire a connettersi a Database di Azure per PostgreSQL, il problema è in genere uno dei seguenti:
 
-* Configurazione firewall del server: Assicurarsi che il firewall del server Database di Azure per PostgreSQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
-* Configurazione del firewall client: Il firewall nel client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio PostgreSQL, in alcuni firewall.
-* Errore utente: Si potrebbe essere stato digitato erroneamente parametri di connessione, ad esempio il nome del server nella stringa di connessione o la mancanza di un  *\@servername* suffisso nel nome utente.
+* Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per PostgreSQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
+* Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio PostgreSQL, in alcuni firewall.
+* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso di *\@ServerName* mancante nel nome utente, non siano stati digitati.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 
 1. Impostare le [regole del firewall](howto-manage-firewall-using-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
-2. Tutti i firewall tra il client e internet, assicurarsi che la porta 5432 sia aperta per le connessioni in uscita.
+2. In tutti i firewall tra il client e Internet assicurarsi che la porta 5432 sia aperta per le connessioni in uscita.
 3. Verificare la stringa di connessione e le altre impostazioni di connessione.
 4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che vi sia un'interruzione a livello di area, vedere [Panoramica della continuità aziendale con Database di Azure per PostgreSQL](concepts-business-continuity.md) per la procedura di ripristino in una nuova area.
 

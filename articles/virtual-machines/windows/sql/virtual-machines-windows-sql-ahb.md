@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/05/2019
+ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 06d7b7abe7741c465f3d40a90340e03b2c24f258
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707505"
+ms.locfileid: "74790620"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come modificare il modello di licenza per un SQL Server macchina virtuale (VM) in Azure usando il nuovo provider di risorse VM SQL, **Microsoft. SqlVirtualMachine**.
@@ -95,29 +95,16 @@ Il frammento di codice seguente passa il modello di licenza con pagamento in bas
 
 ```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="AHUB"
-<# the following code snippet is only necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzResource -Force 
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType AHUB
 ```
 
 Il frammento di codice seguente passa il modello Bring-your-own-License al modello con pagamento in base al consumo:
 
 ```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="PAYG"
-<# the following code snippet is only necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzResource -Force 
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType PAYG
 ```
+
 ---
 
 ## <a name="change-the-license-for-vms-not-registered-with-the-resource-provider"></a>Modificare la licenza per le macchine virtuali non registrate con il provider di risorse
@@ -138,44 +125,29 @@ L'utente è idoneo per l'installazione automatica di SQL Server in una macchina 
 
 ## <a name="limitations"></a>Limitazioni
 
-- La modifica del modello di licenza è disponibile solo per i clienti che dispongono di Software Assurance.
-- La modifica del modello di licenza è supportata solo per le edizioni standard ed Enterprise di SQL Server. Le modifiche alle licenze per Express, Web e Developer non sono supportate. 
-- La modifica del modello di licenza è supportata solo per le macchine virtuali distribuite tramite il modello di Azure Resource Manager. Le macchine virtuali distribuite con il modello classico non sono supportate. È possibile eseguire la migrazione della macchina virtuale dal modello classico al modello di Gestione risorse e registrarla con il provider di risorse della macchina virtuale SQL. Dopo che la macchina virtuale è stata registrata con il provider di risorse VM SQL, le modifiche al modello di licenza saranno disponibili nella macchina virtuale.
-- La modifica del modello di licenza è abilitata solo per le installazioni di cloud pubblico.
-- La modifica del modello di licenza è supportata solo nelle macchine virtuali con una singola scheda di interfaccia di rete. Nelle macchine virtuali che dispongono di più schede di interfaccia di rete, è necessario prima di tutto rimuovere una delle schede di interfaccia di rete (usando il portale di Azure) prima di eseguire la procedura. In caso contrario, si otterrà un errore simile al seguente: 
-   
-  `The virtual machine '\<vmname\>' has more than one NIC associated.` 
-   
-  Sebbene sia possibile aggiungere nuovamente la scheda di interfaccia di rete alla macchina virtuale dopo aver modificato il modello di licenza, le operazioni eseguite tramite la pagina di configurazione SQL Server nel portale di Azure, come l'applicazione automatica di patch e il backup, non saranno più considerate supportate.
+Modifica del modello di licenza:
+   - Disponibile solo per i clienti con [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview).
+   - Supportato solo per le edizioni standard ed Enterprise di SQL Server. Le modifiche alle licenze per Express, Web e Developer non sono supportate. 
+   - Supportato solo per le macchine virtuali distribuite tramite il modello di Azure Resource Manager. Le macchine virtuali distribuite con il modello classico non sono supportate. 
+   - Disponibile solo per le installazioni di cloud pubblico. 
+   - Supportato solo in macchine virtuali con una singola interfaccia di rete (NIC). 
+
 
 ## <a name="known-errors"></a>Errori noti
 
 ### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>La risorsa ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/\<Resource-Group >' nel gruppo di risorse '\<Resource-Group >' non è stata trovata.
+
 Questo errore si verifica quando si tenta di modificare il modello di licenza in una macchina virtuale SQL Server che non è stata registrata con il provider di risorse VM SQL:
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
 È necessario registrare la sottoscrizione con il provider di risorse e quindi [registrare la macchina virtuale SQL Server con il provider di risorse](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-### <a name="cannot-validate-argument-on-parameter-sku"></a>Non è possibile convalidare l'argomento per il parametro 'Sku'
-Questo errore può verificarsi quando si tenta di modificare il modello di licenza SQL Server VM utilizzando Azure PowerShell versioni successive alla 4,0:
 
-`Set-AzResource: Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
+## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>Alla macchina virtuale '\<VMName\>' è associata più di una scheda di interfaccia di rete
 
-Per correggere l'errore, rimuovere il commento dalle righe nel frammento di codice di PowerShell indicato in precedenza quando si cambia il modello di licenza:
+Questo errore si verifica nelle macchine virtuali con più di una scheda di interfaccia di rete. Rimuovere una delle schede di rete prima di modificare il modello di licenza. Sebbene sia possibile aggiungere di nuovo la scheda di interfaccia di rete alla macchina virtuale dopo aver modificato il modello di licenza, le operazioni nel portale di Azure come il backup automatico e l'applicazione di patch non saranno più supportate. 
 
-  ```powershell-interactive
-  # the following code snippet is necessary if using Azure Powershell version > 4
-  $SqlVm.Kind= "LicenseChange"
-  $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-  $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
-  ```
-  
-Usare il codice seguente per verificare la versione di Azure PowerShell:
-  
-  ```powershell-interactive
-  Get-Module -ListAvailable -Name Azure -Refresh
-  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

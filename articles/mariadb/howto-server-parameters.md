@@ -1,17 +1,17 @@
 ---
-title: Configurazione dei parametri del server in Database di Azure per MariaDB
+title: Configurare i parametri del server-portale di Azure database di Azure per MariaDB
 description: Questo articolo illustra come configurare i parametri del server MariaDB in Database di Azure per MariaDB usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 3477820cb20d856c2e979cdfbe5528113bf4b562
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922523"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769405"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -41,17 +41,17 @@ Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collega
 |---|---|---|---|
 |Basic| 1| 1024| 50|
 |Basic| 2| 2560| 100|
-|Utilizzo generico| 2| 3584| 300|
-|Utilizzo generico| 4| 7680| 625|
-|Utilizzo generico| 8| 15360| 1250|
-|Utilizzo generico| 16| 31232| 2500|
-|Utilizzo generico| 32| 62976| 5000|
-|Utilizzo generico| 64| 125952| 10000|
-|Con ottimizzazione per la memoria| 2| 7168| 600|
-|Con ottimizzazione per la memoria| 4| 15360| 1250|
-|Con ottimizzazione per la memoria| 8| 30720| 2500|
-|Con ottimizzazione per la memoria| 16| 62464| 5000|
-|Con ottimizzazione per la memoria| 32| 125952| 10000|
+|Scopo generico| 2| 3584| 300|
+|Scopo generico| 4| 7680| 625|
+|Scopo generico| 8| 15360| 1250|
+|Scopo generico| 16| 31232| 2500|
+|Scopo generico| 32| 62976| 5000|
+|Scopo generico| 64| 125952| 10000|
+|Ottimizzate per la memoria| 2| 7168| 600|
+|Ottimizzate per la memoria| 4| 15360| 1250|
+|Ottimizzate per la memoria| 8| 30720| 2500|
+|Ottimizzate per la memoria| 16| 62464| 5000|
+|Ottimizzate per la memoria| 32| 125952| 10000|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 
@@ -60,7 +60,7 @@ Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 |innodb_file_per_table nel livello Basic|DISATTIVA|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|512 MB|
 
 Altri parametri non elencati qui sono impostati sui propri valori predefiniti per [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 

@@ -1,21 +1,17 @@
 ---
-title: Creare API Web e API REST per App per la logica di Azure | Microsoft Docs
+title: Creare API Web & API REST per app per la logica di Azure
 description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi per integrazioni di sistema in App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e4200d09a02da1fd95f9bf5051b7f9d5fca5aa98
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583466"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793217"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -176,7 +172,7 @@ Ad esempio, per verificare periodicamente se nel servizio sono presenti nuovi fi
 | La richiesta include `triggerState`? | Risposta dell'API | 
 | -------------------------------- | -------------| 
 | No | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
-| Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
+| SÌ | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
 ||| 
 
 | Numero di file trovati | Risposta dell'API | 
@@ -224,7 +220,7 @@ Per rendere disponibili le API personalizzate per altri utenti di App per la log
 
 Per rendere disponibili le API personalizzate a tutti gli utenti di app per la logica, Power automatizzate e Microsoft Power Apps è necessario aggiungere sicurezza, registrare le API come connettori di app per la logica e designare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * Per assistenza specifica per le API personalizzate, contattare [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 

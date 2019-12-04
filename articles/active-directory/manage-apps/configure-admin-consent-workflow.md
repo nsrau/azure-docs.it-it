@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d1654556df455accb7f615442d3a97952c5e50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180420"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786436"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
 
@@ -33,10 +33,10 @@ Per approvare le richieste, un revisore deve essere un amministratore globale, u
 
 Per abilitare il flusso di lavoro di consenso dell'amministratore e scegliere i revisori:
 
-1. Accedere al di [portale di Azure](https://portal.azure.com) come amministratore globale.
-2. Fare clic su **tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Si apre l' **estensione Azure Active Directory** .
-3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare **il Azure Active Directory** elemento.
-4. Nel menu di navigazione fare clic su **applicazioni aziendali**. 
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
+2. Fare clic su **Tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
+3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare **l'elemento Azure Active Directory** .
+4. Scegliere **Applicazioni aziendali** dal menu di spostamento. 
 5. In **Gestisci**selezionare **impostazioni utente**.
 6. In **richieste di consenso dell'amministratore (anteprima)** , impostare **gli utenti possono richiedere il consenso dell'amministratore alle app a cui non sono in grado** di fornire il consenso **.**
 
@@ -74,10 +74,10 @@ Dopo l'abilitazione del flusso di lavoro di consenso dell'amministratore, gli ut
 
 Per esaminare le richieste di consenso dell'amministratore e intraprendere l'azione:
 
-1. Accedere al di [portale di Azure](https://portal.azure.com) come uno dei revisori registrati del flusso di lavoro di consenso dell'amministratore.
-2. Selezionare **tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Si apre l' **estensione Azure Active Directory** .
-3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare il **Azure Active Directory** elemento.
-4. Nel menu di navigazione fare clic su **applicazioni aziendali**.
+1. Accedere al [portale di Azure](https://portal.azure.com) come uno dei revisori registrati del flusso di lavoro di consenso dell'amministratore.
+2. Selezionare **tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
+3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare l'elemento **Azure Active Directory** .
+4. Scegliere **Applicazioni aziendali** dal menu di spostamento.
 5. In **attività**selezionare **richieste di consenso dell'amministratore (anteprima)** .
 
    > [!NOTE]
@@ -120,14 +120,14 @@ La tabella seguente descrive gli scenari e i valori di controllo disponibili per
 
 |Scenario  |Servizio di controllo  |Categoria di controllo  |Attività di controllo  |Attore di controllo  |Limitazioni dei log di controllo  |
 |---------|---------|---------|---------|---------|---------|
-|Amministratore che Abilita il flusso di lavoro della richiesta di consenso        |Verifiche di accesso           |UserManagement           |Crea modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente            |
-|Amministratore che disabilita il flusso di lavoro della richiesta di consenso       |Verifiche di accesso           |UserManagement           |Elimina modello criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Amministratore che aggiorna le configurazioni del flusso di lavoro di consenso        |Verifiche di accesso           |UserManagement           |Aggiornare il modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Criteri         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Revisori che approvano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente o l'ID app a cui è stato concesso il consenso dell'amministratore.           |
-|Revisori che negano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            | Attualmente non è possibile trovare il contesto utente dell'attore che ha negato una richiesta di consenso dell'amministratore          |
+|Amministratore che Abilita il flusso di lavoro della richiesta di consenso        |Verifiche di accesso           |UserManagement           |Crea modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente            |
+|Amministratore che disabilita il flusso di lavoro della richiesta di consenso       |Verifiche di accesso           |UserManagement           |Elimina modello criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Amministratore che aggiorna le configurazioni del flusso di lavoro di consenso        |Verifiche di accesso           |UserManagement           |Aggiornare il modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Policy         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Revisori che approvano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente o l'ID app a cui è stato concesso il consenso dell'amministratore.           |
+|Revisori che negano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            | Attualmente non è possibile trovare il contesto utente dell'attore che ha negato una richiesta di consenso dell'amministratore          |
 
-## <a name="faq"></a>Domande frequenti 
+## <a name="faq"></a>FAQ 
 
 **Ho attivato il flusso di lavoro, ma durante il test della funzionalità, perché non è possibile visualizzare il nuovo prompt "approvazione richiesta", che mi consente di richiedere l'accesso?**
 

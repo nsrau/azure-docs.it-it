@@ -1,17 +1,17 @@
 ---
-title: Gestire le repliche di lettura per il database di Azure per PostgreSQL-server singolo dal portale di Azure
+title: Gestire le repliche di lettura-portale di Azure-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come gestire le repliche di lettura database di Azure per PostgreSQL-server singolo dal portale di Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 0ff6cd50a5a6cb1599a2248fbc61b0b6b307e791
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995444"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770221"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Creare e gestire le repliche di lettura nel database di Azure per PostgreSQL: server singolo dal portale di Azure
 
@@ -64,7 +64,7 @@ Per creare una replica in lettura, seguire questi passaggi:
 
 5. Selezionare un percorso per la replica. Il percorso predefinito è identico a quello del server master.
 
-    ![Selezionare una posizione](./media/howto-read-replicas-portal/location-replica.png)
+    ![Selezionare una località](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
    > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
@@ -81,7 +81,7 @@ Dopo la creazione, la replica in lettura può essere visualizzata nella finestra
 ![Visualizzare la nuova replica nella finestra Replica](./media/howto-read-replicas-portal/list-replica.png)
  
 
-## <a name="stop-replication"></a>Arresta replica
+## <a name="stop-replication"></a>Arrestare la replica
 È possibile arrestare la replica tra un server master e una replica in lettura.
 
 > [!IMPORTANT]

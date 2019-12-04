@@ -1,52 +1,52 @@
 ---
-title: Log di controllo per Database di Azure per MariaDB
-description: Descrive i log di controllo disponibili nel Database di Azure per MariaDB e i parametri disponibili per l'abilitazione di livelli di registrazione.
+title: 'Log di controllo: database di Azure per MariaDB'
+description: Descrive i log di controllo disponibili nel database di Azure per MariaDB e i parametri disponibili per l'abilitazione dei livelli di registrazione.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 12/02/2019
+ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439209"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773075"
 ---
-# <a name="audit-logs-in-azure-database-for-mariadb"></a>Log di controllo nel Database di Azure per MariaDB
+# <a name="audit-logs-in-azure-database-for-mariadb"></a>Log di controllo nel database di Azure per MariaDB
 
-Nel Database di Azure per MariaDB, il log di controllo è disponibile per gli utenti. Il log di controllo può essere utilizzato per tenere traccia delle attività a livello di database e viene usato comunemente per la conformità.
+Nel database di Azure per MariaDB il log di controllo è disponibile per gli utenti. Il log di controllo può essere usato per tenere traccia delle attività a livello di database e viene comunemente usato per la conformità.
 
 > [!IMPORTANT]
-> Funzionalità di log di controllo è attualmente in anteprima.
+> La funzionalità del log di controllo è attualmente in anteprima.
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
 
-Per impostazione predefinita il log di controllo è disabilitato. Per abilitarla, impostare `audit_log_enabled` su ON.
+Per impostazione predefinita, il log di controllo è disabilitato. Per abilitarla, impostare `audit_log_enabled` su ON.
 
 Altri parametri che è possibile modificare includono:
 
-- `audit_log_events`: controlla il registrazione di eventi. Vedere di seguito nella tabella per gli eventi di controllo specifico.
-- `audit_log_exclude_users`: MariaDB gli utenti da escludere dalla registrazione. Consente al massimo quattro utenti. Lunghezza massima consentita del parametro è 256 caratteri.
+- `audit_log_events`: controlla gli eventi da registrare. Vedere la tabella seguente per gli eventi di controllo specifici.
+- `audit_log_exclude_users`: MariaDB gli utenti da escludere dalla registrazione. Consente al massimo quattro utenti. La lunghezza massima del parametro è di 256 caratteri.
 
 | **Event** | **Descrizione** |
 |---|---|
-| `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con utente/password diversa durante la sessione <br> : Interruzioni di connessione |
-| `DML_SELECT`| Query SELECT |
-| `DML_NONSELECT` | Query INSERT/DELETE/UPDATE |
+| `CONNECTION` | -Avvio della connessione (esito positivo o negativo) <br> -Riautenticazione utente con diversi utenti/password durante la sessione <br> -Terminazione connessione |
+| `DML_SELECT`| Seleziona query |
+| `DML_NONSELECT` | Query di inserimento, eliminazione e aggiornamento |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
-| `DDL` | Esegue una query come "DROP DATABASE" |
-| `DCL` | Esegue una query come "Concedi autorizzazione" |
-| `ADMIN` | Esegue una query come "Mostra stato" |
-| `GENERAL` | Tutto in DML_SELECT DML_NONSELECT, DML, DDL, raccolta connessioni dati e amministrazione |
+| `DDL` | Query come "DROP DATABASE" |
+| `DCL` | Query come "Concedi autorizzazione" |
+| `ADMIN` | Query come "Mostra stato" |
+| `GENERAL` | Tutto in DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN |
 
 ## <a name="access-audit-logs"></a>Accedere ai log di controllo
 
-I log di controllo sono integrati con i log di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server di MariaDB, è possibile generarli da log di monitoraggio di Azure, hub eventi o archiviazione di Azure. Per altre informazioni su come abilitare i log di diagnostica nel portale di Azure, vedere la [audit log portale articolo](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+I log di controllo sono integrati con i log di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di controllo nel server MariaDB, è possibile crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni su come abilitare i log di diagnostica nella portale di Azure, vedere l' [articolo](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)relativo al portale di log di controllo.
 
 ## <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
-Le sezioni seguenti descrivono ciò che è l'output del log di controllo di MariaDB in base al tipo di evento. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
+Le sezioni seguenti descrivono gli elementi di output dei log di controllo di MariaDB in base al tipo di evento. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 
 ### <a name="connection"></a>Connessione
 
@@ -73,9 +73,9 @@ Le sezioni seguenti descrivono ciò che è l'output del log di controllo di Mari
 | `db_s` | Nome del database connesso a |
 | `\_ResourceId` | URI della risorsa |
 
-### <a name="general"></a>Generale
+### <a name="general"></a>Informazioni di carattere generale
 
-Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e amministratore.
+Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN.
 
 | **Proprietà** | **Descrizione** |
 |---|---|
@@ -94,16 +94,16 @@ Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
-| `event_time` | Query avviare secondi in timestamp UNIX dell'ora |
-| `error_code_d` | Codice di errore se query non è riuscita. `0` indica che nessun errore |
+| `event_time` | Secondi di avvio della query nel timestamp UNIX |
+| `error_code_d` | Codice di errore se la query non è riuscita. `0` indica nessun errore |
 | `thread_id_d` | ID del thread che ha eseguito la query |
 | `host_s` | Vuoto |
 | `ip_s` | Indirizzo IP del client che si connette a MariaDB |
 | `user_s` | Nome dell'utente che esegue la query |
-| `sql_text_s` | Testo query completo |
+| `sql_text_s` | Testo completo della query |
 | `\_ResourceId` | URI della risorsa |
 
-### <a name="table-access"></a>Accesso alle tabelle
+### <a name="table-access"></a>Accesso alla tabella
 
 | **Proprietà** | **Descrizione** |
 |---|---|
@@ -121,11 +121,11 @@ Schema seguente si applica ai tipi di evento generale, DML_SELECT, DML_NONSELECT
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, o `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`o `DELETE` |
 | `connection_id_d` | ID connessione univoco generato da MariaDB |
-| `db_s` | Nome di accesso al database |
-| `table_s` | Nome della tabella accessibile |
-| `sql_text_s` | Testo query completo |
+| `db_s` | Nome del database a cui si accede |
+| `table_s` | Nome della tabella a cui si accede |
+| `sql_text_s` | Testo completo della query |
 | `\_ResourceId` | URI della risorsa |
 
 ## <a name="next-steps"></a>Passaggi successivi

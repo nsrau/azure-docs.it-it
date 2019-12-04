@@ -1,22 +1,18 @@
 ---
-title: Connettersi a SQL Server o al database SQL di Azure-app per la logica di Azure
+title: Connettersi a SQL Server o al database SQL di Azure
 description: Automatizzare le attività per i database SQL in locale o nel cloud usando le app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam; LADocs
-manager: carmonm
+ms.reviewer: klam; logicappspm
 ms.topic: conceptual
-tags: connectors
 ms.date: 11/08/2019
-ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+tags: connectors
+ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826313"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789197"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per SQL Server o il database SQL di Azure usando app per la logica di Azure
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 420a046ddf66270f52001d4ff4f3ad49895d4c11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208389"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784553"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite della sicurezza?
 
@@ -77,7 +77,7 @@ Una volta abilitate le impostazioni predefinite di sicurezza nel tenant, tutte l
 
 Le organizzazioni usano un'ampia gamma di servizi di Azure gestiti tramite l'API Azure Resource Manager, tra cui:
 
-- portale di Azure 
+- Portale di Azure 
 - Azure PowerShell 
 - Interfaccia della riga di comando di Azure
 
@@ -124,6 +124,20 @@ Per abilitare le impostazioni predefinite di sicurezza nella directory:
 1. Passare a **Azure Active Directory** > **Proprietà**.
 1. Selezionare **Gestisci impostazioni predefinite sicurezza**.
 1. Impostare l' **opzione attiva impostazioni predefinite di sicurezza** su **Sì**.
+1. Selezionare **Salva**.
+
+## <a name="disabling-security-defaults"></a>Disabilitazione delle impostazioni predefinite di sicurezza
+
+Le organizzazioni che scelgono di implementare criteri di accesso condizionale che sostituiscono le impostazioni predefinite di sicurezza devono disabilitare le impostazioni predefinite di sicurezza. 
+
+![Messaggio di avviso disabilitare le impostazioni predefinite di sicurezza per abilitare l'accesso condizionale](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+Per disabilitare le impostazioni predefinite di sicurezza nella directory:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore della sicurezza, amministratore di accesso condizionale o amministratore globale.
+1. Passare a **Azure Active Directory** > **Proprietà**.
+1. Selezionare **Gestisci impostazioni predefinite sicurezza**.
+1. Impostare l' **opzione attiva impostazioni predefinite di sicurezza** su **No**.
 1. Selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi

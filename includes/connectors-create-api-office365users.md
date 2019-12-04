@@ -1,17 +1,18 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: ebae0fac5edc0bb79e6a19d8bdc741960f0b0e20
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: 3ca8d631110f8b175e7dc68d61cc6da4ac87d375
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180405"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789520"
 ---
-### <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
+
 * Un account [Office 365 Users](https://office365.com)  
 
 Prima di poter usare l'account Office 365 Users in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account Office 365 Users. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  

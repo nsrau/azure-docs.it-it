@@ -1,19 +1,19 @@
 ---
-title: Connettere Azure Kubernetes Service (AKS) con il Database di Azure per PostgreSQL - Server singolo
-description: Altre informazioni sulla connessione di Azure Kubernetes Service con Database di Azure per PostgreSQL - Server singolo
+title: Connettersi al servizio Azure Kubernetes-database di Azure per PostgreSQL-server singolo
+description: Informazioni sulla connessione di Azure Kubernetes Service (AKS) con database di Azure per PostgreSQL-server singolo
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068951"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769881"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>La connessione di Azure Kubernetes Service e il Database di Azure per PostgreSQL - Server singolo
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Connessione del servizio Azure Kubernetes e del database di Azure per PostgreSQL-server singolo
 
 Il servizio Azure Kubernetes fornisce un cluster Kubernetes gestito che è possibile usare in Azure. Di seguito sono riportate alcune opzioni da prendere in considerazione quando si usano insieme il servizio Azure Kubernetes e Database di Azure per PostgreSQL per creare un'applicazione.
 

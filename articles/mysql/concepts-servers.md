@@ -1,17 +1,17 @@
 ---
-title: Concetti relativi ai server nel database di Azure per MySQL
+title: Concetti relativi ai server-database di Azure per MySQL
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 565e1bf7a4972e230b3cf56232ebd24519fcab5c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 9a2e2eb022d96af1437ea4189d11f5fa69339325
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525861"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770000"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
 
@@ -40,7 +40,7 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 
 |     |     |
 | :-- | :-- |
-| **Autenticazione e autorizzazione** | Il database di Azure per il server MySQL supporta l'autenticazione nativa a MySQL. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
+| **Authentication and authorization** (Autenticazione e autorizzazione) | Il database di Azure per il server MySQL supporta l'autenticazione nativa a MySQL. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database finché non si specificano i computer autorizzati. Vedere [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md) (Database di Azure per le regole firewall del server MySQL). |

@@ -1,21 +1,17 @@
 ---
-title: Eseguire operazioni sui dati-app per la logica di Azure
+title: Eseguire operazioni sui dati
 description: Convertire, gestire e modificare output e formati dei dati in App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: a21b7f510b6da40d3ab2c72fcfbcb2a746b75db1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990461"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793110"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -33,7 +29,7 @@ Queste tabelle riepilogano le operazioni sui dati che è possibile usare e sono 
 
 Queste azioni consentono di operare sui dati in matrici.
 
-| Azione | Descrizione |
+| Azione | Description |
 |--------|-------------|
 | [**Crea tabella CSV**](#create-csv-table-action) | Creare una tabella di valori delimitati da virgole (CSV) da una matrice. |
 | [**Crea tabella HTML**](#create-html-table-action) | Creare una tabella HTML da una matrice. |
@@ -46,7 +42,7 @@ Queste azioni consentono di operare sui dati in matrici.
 
 Queste azioni consentono di operare sui dati in formato JSON (JavaScript Object Notation).
 
-| Azione | Descrizione |
+| Azione | Description |
 |--------|-------------|
 | [**Componi**](#compose-action) | Creare un messaggio o una stringa da più input che possono avere vari tipi di dati. È quindi possibile usare questa stringa come un singolo input, invece di immettere ripetutamente gli stessi input. Ad esempio, è possibile creare un singolo messaggio JSON da vari input. |
 | [**Analizza JSON**](#parse-json-action) | Creare token di dati descrittivi per le proprietà in contenuto JSON, in modo da poter usare più facilmente le proprietà nelle app per la logica. |
@@ -204,7 +200,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   Ad esempio:
+   ad esempio:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -236,7 +232,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   Ad esempio:
+   ad esempio:
 
    ```json
    "Create_CSV_table": {
@@ -355,7 +351,7 @@ Nell'azione, lasciare vuota la colonna **intestazione** . In ogni riga della col
 
    `item()?['<array-property-name>']`
 
-   Ad esempio:
+   ad esempio:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -387,7 +383,7 @@ Nella definizione JSON dell'azione, all'interno della matrice di `columns`, impo
    }
    ```
 
-   Ad esempio:
+   ad esempio:
 
    ```json
    "Create_HTML_table": {
@@ -497,7 +493,7 @@ Per verificare se l'azione **Filtra matrice** crea i risultati previsti, inviare
 
    `@actionBody('Filter_array')`
 
-   Questo esempio usa l'azione **Invia un messaggio di posta elettronica** di Office 365 Outlook e include gli output dell'espressione **ActionBody (' Filter_array ')** nel corpo del messaggio di posta elettronica:
+   Questo esempio usa l'azione **Invia un messaggio di posta elettronica** di Office 365 Outlook e include gli output dell'espressione **actionBody (' Filter_array ')** nel corpo del messaggio di posta elettronica:
 
    ![Output dell'azione dall'azione "Filtra matrice"](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 

@@ -1,29 +1,26 @@
 ---
-title: Distribuire modelli di app per la logica-app per la logica di Azure
+title: Distribuire modelli di app per la logica
 description: Informazioni su come distribuire modelli di Azure Resource Manager creati per app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 083c908609ebcf1bdc6dcad5e37ae03daa41758f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 73c4c8839bd1d9e37f3dc4f0802ad5a648b1026b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706497"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793056"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuire modelli di Azure Resource Manager per app per la logica di Azure
 
 Dopo aver creato un modello di Azure Resource Manager per l'app per la logica, è possibile distribuire il modello nei modi seguenti:
 
-* [Portale di Azure](#portal)
+* [Azure portal](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
-* [Interfaccia della riga di comando di Azure](#cli)
+* [interfaccia della riga di comando di Azure](#cli)
 * [API REST di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy-rest.md)
 * [Azure Pipelines di Azure DevOps](#azure-pipelines)
 
@@ -33,7 +30,7 @@ Dopo aver creato un modello di Azure Resource Manager per l'app per la logica, �
 
 Per distribuire automaticamente un modello di app per la logica in Azure, è possibile scegliere il pulsante **Distribuisci in Azure** seguente, che consente di accedere al portale di Azure e di richiedere informazioni sull'app per la logica. È quindi possibile apportare le modifiche necessarie al modello o ai parametri dell'app per la logica.
 
-[![Distribuzione in Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Distribuisci in Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Ad esempio, dopo aver effettuato l'accesso al portale di Azure vengono richieste le informazioni seguenti:
 
@@ -46,7 +43,7 @@ Ad esempio, dopo aver effettuato l'accesso al portale di Azure vengono richieste
 
 Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Panoramica: Automatizzare la distribuzione per le app per la logica con i modelli di Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)
+* [Panoramica: automatizzare la distribuzione per le app per la logica con modelli di Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 
 <a name="visual-studio"></a>
@@ -72,7 +69,7 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 <a name="cli"></a>
 
-## <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
+## <a name="deploy-with-azure-cli"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di Azure
 
 Per eseguire la distribuzione in un *gruppo di risorse di Azure*specifico, usare il comando seguente:
 
@@ -94,11 +91,11 @@ Per distribuire modelli di app per la logica e gestire gli ambienti, i team usan
 Per ulteriori informazioni sull'integrazione continua e la distribuzione continua (CI/CD) per i modelli di Azure Resource Manager con Azure Pipelines, vedere gli argomenti e gli esempi seguenti:
 
 * [Integrare modelli di Gestione risorse con Azure Pipelines](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
-* [Esercitazione: Integrazione continua per i modelli di Azure Resource Manager con Azure Pipelines](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
-* [Esempio: Connettersi alle code del bus di servizio di Azure da app per la logica di Azure e distribuirle con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Esempio: Connettersi agli account di archiviazione di Azure da app per la logica di Azure e distribuirli con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Esempio: Configurare un'azione dell'app per le funzioni per app per la logica di Azure e distribuirla con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Esempio: Connettersi a un account di integrazione da app per la logica di Azure e distribuirlo con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Esercitazione: integrazione continua per i modelli di Azure Resource Manager con Azure Pipelines](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [Esempio: connettersi alle code del bus di servizio di Azure da app per la logica di Azure e distribuirle con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: connettersi agli account di archiviazione di Azure da app per la logica di Azure e distribuirli con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: configurare un'azione dell'app per le funzioni per app per la logica di Azure e distribuirla con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Esempio: connettersi a un account di integrazione da app per la logica di Azure e distribuirlo con Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 Ecco i passaggi generali generali per l'uso di Azure Pipelines:
 

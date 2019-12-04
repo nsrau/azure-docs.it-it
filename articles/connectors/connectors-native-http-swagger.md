@@ -2,20 +2,17 @@
 title: Connettersi agli endpoint REST da app per la logica di Azure
 description: Monitorare gli endpoint REST in attività automatizzate, processi e flussi di lavoro usando app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824810"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787370"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chiamare gli endpoint REST usando app per la logica di Azure
 
@@ -33,11 +30,11 @@ Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
   * Per il file di spavalderia è necessario che sia abilitata la [condivisione di risorse tra le origini (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) .
 
-  Per fare riferimento a un file di spavalderia non ospitato o che non soddisfi i requisiti di sicurezza e tra le origini, è possibile [caricare il file spavalderia in un contenitore BLOB in un account di archiviazione di Azure](#host-swagger)e abilitare CORS in tale account di archiviazione in modo che sia possibile fare riferimento a file.
+  Per fare riferimento a un file di spavalderia non ospitato o che non soddisfi i requisiti di sicurezza e tra le origini, è possibile [caricare il file spavalderia in un contenitore BLOB in un account di archiviazione di Azure](#host-swagger)e abilitare CORS in tale account di archiviazione in modo che sia possibile fare riferimento al file.
 
   Gli esempi in questo argomento usano la [API viso di servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/face/overview), che richiede un [account di servizi cognitivi e una chiave di accesso](../cognitive-services/cognitive-services-apis-create-account.md).
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 * App per la logica da cui si vuole chiamare l'endpoint di destinazione. Per iniziare con il trigger HTTP + spavalderia, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare l'azione HTTP + spavalderia, avviare l'app per la logica con tutti i trigger desiderati. Questo esempio usa il trigger HTTP + spavalderia come primo passaggio.
 
@@ -125,7 +122,7 @@ Questa azione predefinita esegue una richiesta HTTP all'URL per il file spavalde
 
 1. Abilitare ora CORS per il BLOB. Scegliere **CORS**dal menu dell'account di archiviazione. Nella scheda **servizio BLOB** specificare questi valori e quindi selezionare **Salva**.
 
-   | Proprietà | Valore |
+   | Proprietà | Value |
    |----------|-------|
    | **Origini consentite** | `*` |
    | **Metodi consentiti** | `GET`, `HEAD`, `PUT` |
@@ -148,19 +145,19 @@ Questa azione predefinita esegue una richiesta HTTP all'URL per il file spavalde
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP + spavalderia. La chiamata HTTP + spavalderia restituisce queste informazioni:
 
-| Nome proprietà | Tipo | Descrizione |
+| Nome proprietà | Type | Description |
 |---------------|------|-------------|
-| headers | oggetto | Intestazioni della richiesta |
-| body | oggetto | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| Headers | object | Intestazioni della richiesta |
+| body | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | int | Codice di stato della richiesta |
 |||
 
-| Codice di stato | Descrizione |
+| Codice di stato | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Accepted |
 | 400 | Richiesta non valida |
-| 401 | Non autorizzata |
+| 401 | Non autorizzato |
 | 403 | Accesso negato |
 | 404 | Non trovato |
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |

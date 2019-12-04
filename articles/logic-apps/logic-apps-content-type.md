@@ -1,20 +1,17 @@
 ---
-title: Gestire i tipi di contenuto-app per la logica di Azure
+title: Gestire i tipi di contenuti
 description: Informazioni su come App per la logica gestisce i tipi di contenuto in fase di progettazione e in fase di esecuzione
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868918"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791526"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gestire tipi di contenuto in App per la logica di Azure
 
@@ -62,7 +59,7 @@ App per la logica offre la possibilità di generare token descrittivi che rappre
   
   1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.  
   
-  2. In **Immettere o incollare un payload JSON di esempio** specificare un payload di esempio e quindi scegliere **Fine**. Ad esempio: 
+  2. In **Immettere o incollare un payload JSON di esempio** specificare un payload di esempio e quindi scegliere **Fine**. ad esempio: 
 
      ![Fornire il payload JSON di esempio](./media/logic-apps-content-type/request-trigger.png)
 
@@ -139,16 +136,16 @@ Per mantenere alcuni tipi di dati, App per la logica converte il contenuto in un
 
 Questo elenco descrive come App per la logica converte il contenuto quando si usano queste [funzioni](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Esegue il cast dei dati a`application/json`
-* `xml()`: Esegue il cast dei dati a`application/xml`
-* `binary()`: Esegue il cast dei dati a`application/octet-stream`
-* `string()`: Esegue il cast dei dati a`text/plain`
-* `base64()`: Converte il contenuto in una stringa con codifica Base64
-* `base64toString()`: Converte una stringa con codifica Base64 in`text/plain`
-* `base64toBinary()`: Converte una stringa con codifica Base64 in`application/octet-stream`
-* `dataUri()`: Converte una stringa in un URI di dati
-* `dataUriToBinary()`: Converte un URI di dati in una stringa binaria
-* `dataUriToString()`: Converte un URI di dati in una stringa
+* `json()`: esegue il cast dei dati in `application/json`
+* `xml()`: esegue il cast dei dati in `application/xml`
+* `binary()`: esegue il cast dei dati in `application/octet-stream`
+* `string()`: esegue il cast dei dati in `text/plain`
+* `base64()`: converte il contenuto in una stringa con codifica Base64
+* `base64toString()`: converte una stringa con codifica Base64 in `text/plain`
+* `base64toBinary()`: converte una stringa con codifica Base64 in `application/octet-stream`
+* `dataUri()`: converte una stringa in un URI di dati
+* `dataUriToBinary()`: converte un URI di dati in una stringa binaria
+* `dataUriToString()`: converte un URI di dati in una stringa
 
 Ad esempio, se si riceve una richiesta HTTP in cui `Content-Type` è impostato su `application/xml`, come questo contenuto:
 

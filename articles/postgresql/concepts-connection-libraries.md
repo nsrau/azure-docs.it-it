@@ -1,19 +1,19 @@
 ---
-title: Raccolte connessioni per Database di Azure per PostgreSQL - Server singolo
-description: Questo articolo vengono descritte varie librerie e i driver che gli sviluppatori possono utilizzare quando codifica di applicazioni per connettersi ed eseguire query su Database di Azure per PostgreSQL - singolo Server.
+title: Librerie di connessione-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive diverse librerie e driver che è possibile usare quando si codificano le applicazioni per connettersi ed eseguire query su database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 85110126f9bdec225b1644860814cd89832132a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073601"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768895"
 ---
-# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Raccolte connessioni per Database di Azure per PostgreSQL - Server singolo
+# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Librerie di connessione per database di Azure per PostgreSQL-server singolo
 Questo argomento elenca le librerie e i driver che gli sviluppatori possono usare per creare applicazioni per la connessione e l'esecuzione di query in Database di Azure per PostgreSQL.
 
 ## <a name="client-interfaces"></a>Interfacce client
@@ -22,11 +22,11 @@ La maggior parte delle librerie client di linguaggio usate per connettersi al se
 | **Lingua** | **Interfaccia del client** | **Informazioni aggiuntive** | **Scaricare** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | Compatibile con l'API DB 2.0 | [Scaricare](http://initd.org/psycopg/download/) |
-| PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | Estensione del database | [Installa](https://secure.php.net/manual/en/pgsql.installation.php) |
-| Node.js | [Pg npm package](https://www.npmjs.com/package/pg) | Client non bloccante JavaScript puro | [Installa](https://www.npmjs.com/package/pg) |
+| PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | Estensione del database | [Installare](https://secure.php.net/manual/en/pgsql.installation.php) |
+| Node.js | [Pg npm package](https://www.npmjs.com/package/pg) | Client non bloccante JavaScript puro | [Installare](https://www.npmjs.com/package/pg) |
 | Java | [JDBC](https://jdbc.postgresql.org/) | Driver JDBC tipo 4 | [Download](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Interfaccia Ruby | [Scaricare](https://rubygems.org/downloads/pg-0.20.0.gem) |
-| Go | [Package pq](https://godoc.org/github.com/lib/pq) | Driver postgres Go puro | [Installa](https://github.com/lib/pq/blob/master/README.md) |
+| Go | [Package pq](https://godoc.org/github.com/lib/pq) | Driver postgres Go puro | [Installare](https://github.com/lib/pq/blob/master/README.md) |
 | C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Provider di dati ADO.NET | [Scaricare](https://www.microsoft.com/net/) |
 | ODBC | [psqlODBC](https://odbc.postgresql.org/) | Driver ODBC | [Scaricare](https://www.postgresql.org/ftp/odbc/versions/) |
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interfaccia primaria di linguaggio C | Incluso |

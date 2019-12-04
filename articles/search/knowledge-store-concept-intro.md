@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720088"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790019"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
 
@@ -61,7 +61,9 @@ Un `knowledgeStore` è costituito da una connessione e dalle proiezioni.
 
 + La connessione è a un account di archiviazione nella stessa area del ricerca cognitiva di Azure. 
 
-+ Le proiezioni sono coppie tabelle-oggetti. Le `Tables` definiscono l'espressione fisica dei documenti arricchiti nell'archiviazione tabelle di Azure. Gli `Objects` definiscono gli oggetti fisici nell'archiviazione BLOB di Azure.
++ Le proiezioni possono essere oggetti tabulari, JSON o file. Le `Tables` definiscono l'espressione fisica dei documenti arricchiti nell'archiviazione tabelle di Azure. `Objects` definiscono gli oggetti JSON fisici nell'archivio BLOB di Azure. `Files` sono binari come le immagini estratte dal documento che verranno rese permanente.
+
++ Proiezioni è una raccolta di oggetti Projection, ogni oggetto proiezione può contenere `tables`, `objects` e `files`. Gli arricchimenti proiettati in una singola proiezione sono correlati anche quando vengono proiettati tra tipi (tabelle, oggetti o file). Le proiezioni negli oggetti di proiezione non sono correlate e sono indipendenti. La stessa forma può essere proiettata in AROS più oggetti di proiezione.
 
 ```json
 {
@@ -109,7 +111,10 @@ Un `knowledgeStore` è costituito da una connessione e dalle proiezioni.
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,13 +126,17 @@ Un `knowledgeStore` è costituito da una connessione e dalle proiezioni.
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+Questo esempio non contiene immagini. per un esempio di come utilizzare le proiezioni di file, vedere [utilizzo delle proiezioni](knowledge-store-projection-overview.md).
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Origini dei dati per un archivio conoscenze
 
 Se l'output di un archivio conoscenze viene generato da una pipeline di arricchimento tramite intelligenza artificiale, quali sono gli input? I dati originali da estrarre, arricchire e infine salvare in un archivio conoscenze possono provenire da qualsiasi origine dati di Azure supportata dagli indicizzatori di ricerca: 
@@ -146,7 +155,7 @@ Gli indicizzatori e i set di competenze creati consentono di estrarre e arricchi
 
 Solo due API dispongono delle estensioni necessarie per la creazione di un archivio conoscenze (Create Skillset e Create Indexer). Le altre API vengono usate così come sono.
 
-| Object | API REST | Descrizione |
+| Oggetto | API REST | Description |
 |--------|----------|-------------|
 | Origine dati | [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Risorsa che identifica un'origine dati esterna di Azure che fornisce dati di origine usati per creare documenti arricchiti.  |
 | Set di competenze | [Creare un set di competenze (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. Un set di competenze contiene una definizione `knowledgeStore` come elemento figlio. |

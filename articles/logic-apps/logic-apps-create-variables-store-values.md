@@ -1,21 +1,17 @@
 ---
-title: Creare e gestire le variabili per archiviare i valori-app per la logica di Azure
+title: Creare e gestire le variabili per archiviare i valori
 description: Come archiviare e gestire i valori usando le variabili in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180779"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793164"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Archiviare e gestire i valori usando le variabili in app per la logica di Azure
 
@@ -39,7 +35,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
 * App per la logica in cui si vuole creare la variabile
 
-  Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [Guida introduttiva: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) come primo passo nell'app per la logica
 
@@ -59,26 +55,26 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
    * Per aggiungere un'azione nel passaggio precedente, selezionare **nuovo passaggio**.
 
-     ![Aggiungi azione](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Aggiungere un'azione](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Per aggiungere un'azione tra i passaggi, spostare il mouse sulla freccia di connessione in modo che venga visualizzato **+** il segno più (). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
+   * Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia di connessione in modo che venga visualizzato il segno di addizione ( **+** ). Selezionare il segno più e quindi selezionare **Aggiungi un'azione**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere `variables` come filtro. Nell'elenco azioni selezionare **Inizializza variabile**.
+1. Nella casella di ricerca di **Scegliere un'azione** immettere `variables` come filtro. Nell'elenco azioni selezionare **Inizializza variabile**.
 
    ![Seleziona azione](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
 1. Fornire queste informazioni sulla variabile come descritto di seguito:
 
-   | Proprietà | Richiesto | Value |  Descrizione |
+   | Proprietà | Obbligatoria | Value |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | Yes | <*variable-name*> | Nome della variabile da incrementare |
-   | **Tipo** | Yes | <*variable-type*> | Tipo di dati per la variabile |
-   | **Valore** | No | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore iniziale della variabile. |
+   | **Nome** | SÌ | <*variable-name*> | Nome della variabile da incrementare |
+   | **Tipo** | SÌ | <*variable-type*> | Tipo di dati per la variabile |
+   | **Valore** | No | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore iniziale della variabile. |
    |||||
 
-   Esempio:
+   ad esempio:
 
-   ![Inizializza variabile](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+   ![Inizializzare una variabile](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
 1. Continuare quindi ad aggiungere le azioni desiderate. Al termine, fare clic su **Salva**nella barra degli strumenti della finestra di progettazione.
 
@@ -101,7 +97,7 @@ Se si passa dalla finestra di progettazione all'editor della visualizzazione cod
 ```
 
 > [!NOTE]
-> Sebbene l'azione **Inizializza variabile** includa `variables` una sezione strutturata come matrice, l'azione può creare una sola variabile alla volta. Ogni nuova variabile richiede una singola azione di **inizializzazione della variabile** .
+> Sebbene l'azione **Inizializza variabile** includa una sezione di `variables` strutturata come matrice, l'azione può creare una sola variabile alla volta. Ogni nuova variabile richiede una singola azione di **inizializzazione della variabile** .
 
 Ecco alcuni esempi per altri tipi di variabili:
 
@@ -183,7 +179,7 @@ Ecco alcuni esempi per altri tipi di variabili:
 
 Per recuperare o fare riferimento al contenuto di una variabile è anche possibile usare la [funzione variables()](../logic-apps/workflow-definition-language-functions-reference.md#variables) in Logic App Designer (Progettazione app per la logica) e l'editor di visualizzazione del codice. Per fare riferimento a una variabile, usare il nome della variabile come token, non il nome dell'azione, che è il modo usuale per fare riferimento agli output di un'azione.
 
-Questa espressione, ad esempio, ottiene gli elementi dalla variabile di matrice [creata in precedenza in questo articolo](#append-value) tramite `variables()` la funzione. La `string()` funzione restituisce il contenuto della variabile in formato stringa:`"1, 2, 3, red"`
+Questa espressione, ad esempio, ottiene gli elementi dalla variabile di matrice [creata in precedenza in questo articolo](#append-value) usando la funzione `variables()`. La funzione `string()` restituisce il contenuto della variabile in formato stringa: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -209,13 +205,13 @@ Per aumentare o *incrementare* una variabile con un valore costante, aggiungere 
 
 1. Fornire queste informazioni per incrementare la variabile:
 
-   | Proprietà | Richiesto | Value |  Descrizione |
+   | Proprietà | Obbligatoria | Value |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | Yes | <*variable-name*> | Nome della variabile da incrementare |
-   | **Valore** | No | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per incrementare la variabile. |
+   | **Nome** | SÌ | <*variable-name*> | Nome della variabile da incrementare |
+   | **Valore** | No | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per incrementare la variabile. |
    ||||
 
-   Esempio:
+   ad esempio:
 
    ![Esempio di un valore di incremento](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -236,7 +232,7 @@ Se si passa dalla finestra di progettazione all'editor della visualizzazione cod
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Esempio: Creare il contatore di cicli
+## <a name="example-create-loop-counter"></a>Esempio: Creazione del contatore di cicli
 
 Le variabili vengono comunemente usate per contare il numero di volte in cui viene eseguito un ciclo. Questo esempio mostra come creare e usare le variabili per questa attività creando un ciclo che conta gli allegati in un'email.
 
@@ -251,7 +247,7 @@ Le variabili vengono comunemente usate per contare il numero di volte in cui vie
 
    ![Cercare e includere allegati](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-1. Aggiungere l'azione [**Initialize variable** ](#create-variable) (Inizializzare una variabile). Creare una variabile di tipo `Count` integer denominata con un valore iniziale pari a zero.
+1. Aggiungere l'azione [**Initialize variable** ](#create-variable) (Inizializzare una variabile). Creare una variabile di tipo integer denominata `Count` con un valore iniziale zero.
 
    ![Aggiungere un'azione per "Initialize variable" (Inizializzare una variabile)](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -259,7 +255,7 @@ Le variabili vengono comunemente usate per contare il numero di volte in cui vie
 
    1. Nell'azione **Inizializza variabile** selezionare **nuovo passaggio**.
 
-   1. In **scegliere un'azione**selezionare **predefinito**. Nella casella di ricerca immettere `for each` come filtro di ricerca e selezionare **per ciascuna**.
+   1. In **Scegliere un'azione** selezionare **Predefinita**. Nella casella di ricerca immettere `for each` come filtro di ricerca e selezionare **per ciascuna**.
 
       ![Aggiungere un ciclo "for each"](./media/logic-apps-create-variables-store-values/add-loop.png)
 
@@ -330,10 +326,10 @@ Per ridurre o *decrementare* una variabile in base a un valore costante, attener
 
 Ecco le proprietà per l'azione **Decrementare una variabile**:
 
-| Proprietà | Richiesto | Value |  Descrizione |
+| Proprietà | Obbligatoria | Value |  Description |
 |----------|----------|-------|--------------|
-| **Name** | Yes | <*variable-name*> | Nome della variabile da decrementare | 
-| **Valore** | No | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata per poter conoscere sempre il valore specifico per decrementare la variabile. |
+| **Nome** | SÌ | <*variable-name*> | Nome della variabile da decrementare | 
+| **Valore** | No | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per decrementare la variabile. |
 ||||| 
 
 Se si passa dalla finestra di progettazione all'editor della visualizzazione codice, di seguito viene illustrato il modo in cui l'azione della **variabile di decremento** viene visualizzata all'interno della definizione dell'app per la logica, in formato JSON.
@@ -363,10 +359,10 @@ Per assegnare un valore diverso a una variabile esistente, seguire gli passaggi 
 
 Ecco le proprietà per l'azione **Set variable** (Impostare una variabile):
 
-| Proprietà | Richiesto | Value |  Descrizione |
+| Proprietà | Obbligatoria | Value |  Description |
 |----------|----------|-------|--------------|
-| **Name** | Yes | <*variable-name*> | Nome della variabile da modificare |
-| **Valore** | Yes | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. |
+| **Nome** | SÌ | <*variable-name*> | Nome della variabile da modificare |
+| **Valore** | SÌ | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. |
 ||||| 
 
 > [!NOTE]
@@ -378,7 +374,7 @@ Ecco le proprietà per l'azione **Set variable** (Impostare una variabile):
 >
 > 3. Trascinare il dispositivo di scorrimento **Degree of Parallelism** (Grado di parallelismo) su **1**.
 
-Se si passa dalla finestra di progettazione all'editor della visualizzazione codice, ecco il modo in cui viene visualizzata l'azione **Imposta variabile** all'interno della definizione dell'app per la logica, in formato JSON. In questo esempio il `Count` valore corrente della variabile viene modificato in un altro valore.
+Se si passa dalla finestra di progettazione all'editor della visualizzazione codice, ecco il modo in cui viene visualizzata l'azione **Imposta variabile** all'interno della definizione dell'app per la logica, in formato JSON. Questo esempio Mostra come modificare il valore corrente della variabile `Count` in un altro valore.
 
 ```json
 "actions": {
@@ -421,10 +417,10 @@ Per le variabili che memorizzano stringhe o matrici è possibile inserire o *acc
 
 Ecco le proprietà per le azioni **Append to...** (Accodare a...):
 
-| Proprietà | Richiesto | Value |  Descrizione |
+| Proprietà | Obbligatoria | Value |  Description |
 |----------|----------|-------|--------------|
-| **Name** | Yes | <*variable-name*> | Nome della variabile da modificare |
-| **Valore** | Yes | <*append-value*> | Valore da accodare, di qualsiasi tipo |
+| **Nome** | SÌ | <*variable-name*> | Nome della variabile da modificare |
+| **Valore** | SÌ | <*append-value*> | Valore da accodare, di qualsiasi tipo |
 |||||
 
 Se si passa dalla finestra di progettazione all'editor della visualizzazione codice, di seguito è illustrato il modo in cui viene visualizzata l'azione **Accoda a variabile di matrice** all'interno della definizione dell'app per la logica, in formato JSON. Questo esempio crea una variabile matrice e aggiunge un altro valore come ultimo elemento della matrice. Il risultato è una variabile aggiornata che contiene la matrice: `[1,2,3,"red"]`

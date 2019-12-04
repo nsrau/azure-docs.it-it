@@ -3,16 +3,16 @@ title: Funzioni di modello-matrici e oggetti
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager per l'uso di matrici e oggetti.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d530027c05195caf8b93a61f4e002ce835d021c5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6722736cad5ad76544be336a2cba85c5ad768781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149680"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786216"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funzioni di matrice e oggetto per i modelli di Azure Resource Manager
 
-Resource Manager offre diverse funzioni per l'uso di matrici e oggetti.
+Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 
 * [array](#array)
 * [coalesce](#coalesce)
@@ -34,20 +34,17 @@ Resource Manager offre diverse funzioni per l'uso di matrici e oggetti.
 
 Per ottenere una matrice di valori stringa delimitata da un valore, vedere [split](resource-group-template-functions-string.md#split).
 
-<a id="array" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="array"></a>array
+
 `array(convertToArray)`
 
 Converte il valore in matrice.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Sì |int, stringa, matrice o oggetto |Valore da convertire in matrice. |
+| convertToArray |SÌ |numero intero, stringa, matrice o oggetto |Valore da convertire in matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -96,7 +93,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
@@ -114,19 +111,18 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
-<a id="coalesce" />
-
 ## <a name="coalesce"></a>coalesce
+
 `coalesce(arg1, arg2, arg3, ...)`
 
 Restituisce il primo valore non null dai parametri. Stringhe vuote, matrici vuote e oggetti vuoti sono non null.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
-| argomenti aggiuntivi |No |int, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
+| arg1 |SÌ |numero intero, stringa, matrice o oggetto |Il primo valore da controllare per verificare se è null. |
+| argomenti aggiuntivi |No |numero intero, stringa, matrice o oggetto |Valori aggiuntivi da controllare per verificare se sono null. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -182,13 +178,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
-| intOutput | int | 1 |
-| objectOutput | Object | {"first": "default"} |
+| stringOutput | Stringa | default |
+| intOutput | Int | 1 |
+| objectOutput | Oggetto | {"first": "default"} |
 | arrayOutput | Array | [1] |
-| emptyOutput | Bool | true |
+| emptyOutput | Booleano | Vero |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -202,23 +198,23 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
-<a id="concat" />
-
 ## <a name="concat"></a>concat
+
 `concat(arg1, arg2, arg3, ...)`
 
 Combina più matrici e restituisce la matrice concatenata oppure combina più valori di stringa e restituisce la stringa concatenata. 
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |La prima matrice o stringa per la concatenazione. |
-| argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
+| arg1 |SÌ |stringa o matrice |La prima matrice o stringa per la concatenazione. |
+| Argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
 
-Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri.
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire sia matrici che stringhe per i parametri. Le matrici sono concatenate solo con altre matrici.
 
 ### <a name="return-value"></a>Valore restituito
+
 Stringa o matrice di valori concatenati.
 
 ### <a name="example"></a>Esempio
@@ -260,7 +256,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -300,9 +296,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Stringa | prefix-5yj4yjf5mbg72 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -316,19 +312,18 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-<a id="contains" />
-
 ## <a name="contains"></a>contains
+
 `contains(container, itemToFind)`
 
 Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa. Il confronto fra stringhe fa distinzione tra maiuscole e minuscole. Tuttavia, quando si testa se un oggetto contiene una chiave, il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
-| itemToFind |Sì |stringa o int |Valore da trovare. |
+| Contenitore |SÌ |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
+| itemToFind |SÌ |Stringa o numero intero |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -389,14 +384,14 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringTrue | Bool | true |
-| stringFalse | Bool | False |
-| objectTrue | Bool | true |
-| objectFalse | Bool | False |
-| arrayTrue | Bool | true |
-| arrayFalse | Bool | False |
+| stringTrue | Booleano | Vero |
+| stringFalse | Booleano | Falso |
+| objectTrue | Booleano | Vero |
+| objectFalse | Booleano | Falso |
+| arrayTrue | Booleano | Vero |
+| arrayFalse | Booleano | Falso |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -410,19 +405,18 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
-<a id="createarray" />
-
 ## <a name="createarray"></a>createarray
+
 `createArray (arg1, arg2, arg3, ...)`
 
 Crea una matrice dai parametri.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
-| argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
+| arg1 |SÌ |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
+| Argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -471,7 +465,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
@@ -490,19 +484,17 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
-<a id="empty" />
-
 ## <a name="empty"></a>empty
 
 `empty(itemToTest)`
 
 Determina se una matrice, un oggetto o una stringa sono vuoti.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sì |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
+| itemToTest |SÌ |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -551,11 +543,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | true |
-| objectEmpty | Bool | true |
-| stringEmpty | Bool | true |
+| arrayEmpty | Booleano | Vero |
+| objectEmpty | Booleano | Vero |
+| stringEmpty | Booleano | Vero |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -569,18 +561,17 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
-<a id="first" />
-
 ## <a name="first"></a>first
+
 `first(arg1)`
 
 Restituisce il primo elemento della matrice o il primo carattere della stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
+| arg1 |SÌ |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -617,10 +608,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Stringa | uno |
+| stringOutput | Stringa | O |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -634,20 +625,19 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-<a id="intersection" />
-
 ## <a name="intersection"></a>intersezione
+
 `intersection(arg1, arg2, arg3, ...)`
 
 Restituisce una matrice o un oggetto singoli con gli elementi comuni dei parametri.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
-| arg2 |Sì |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
-| argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per cercare elementi comuni. |
+| arg1 |SÌ |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
+| arg2 |SÌ |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
+| Argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per cercare elementi comuni. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -696,9 +686,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "three": "c"} |
+| objectOutput | Oggetto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
@@ -714,16 +704,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="json"></a>json
+
 `json(arg1)`
 
 Restituisce un oggetto JSON.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa |Valore da convertire in JSON. |
-
+| arg1 |SÌ |string |Valore da convertire in JSON. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -768,11 +758,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | Booleano | true |
-| paramOutput | Object | {"a": "valore demo"}
+| jsonOutput | Oggetto | {"a": "b"} |
+| nullOutput | boolean | Vero |
+| paramOutput | Oggetto | {"a": "valore demo"}
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -786,18 +776,17 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
-<a id="last" />
-
 ## <a name="last"></a>last
+
 `last (arg1)`
 
 Restituisce l'ultimo elemento della matrice o l'ultimo carattere della stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
+| arg1 |SÌ |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -834,10 +823,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Stringa | tre |
+| stringOutput | Stringa | e |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -851,18 +840,17 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
-<a id="length" />
-
 ## <a name="length"></a>length
+
 `length(arg1)`
 
 Restituisce il numero di elementi in una matrice, i caratteri di una stringa o le proprietà a livello di radice in un oggetto.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
+| arg1 |SÌ |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -922,11 +910,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
-| objectLength | int | 4 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -951,18 +939,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 Per altre informazioni sull'uso di questa funzione con una matrice, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).
 
-<a id="max" />
-
 ## <a name="max"></a>max
+
 `max(arg1)`
 
 Restituisce il valore massimo da una matrice di numeri interi o da un elenco di numeri interi delimitato da virgole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
+| arg1 |SÌ |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -998,10 +985,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1015,18 +1002,17 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
-<a id="min" />
-
 ## <a name="min"></a>min
+
 `min(arg1)`
 
 Restituisce il valore minimo di una matrice di numeri interi o di un elenco di numeri interi delimitato da virgole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
+| arg1 |SÌ |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1062,10 +1048,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1079,19 +1065,18 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
-<a id="range" />
-
 ## <a name="range"></a>range
+
 `range(startingInteger, numberOfElements)`
 
 Crea una matrice di numeri interi da un numero intero iniziale, contenente un dato numero di elementi.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Sì |int |Primo numero intero nella matrice. |
-| numberofElements |Sì |int |Numero di valori interi della matrice. |
+| startingInteger |SÌ |int |Primo numero intero nella matrice. |
+| numberofElements |SÌ |int |Numero di valori interi della matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1127,7 +1112,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -1143,19 +1128,18 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
-<a id="skip" />
-
 ## <a name="skip"></a>skip
+
 `skip(originalValue, numberToSkip)`
 
 Restituisce una matrice con tutti gli elementi dopo il numero specificato nella matrice stessa o una stringa con tutti i caratteri dopo il numero specificato nella stringa stessa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
-| numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
+| originalValue |SÌ |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| numberToSkip |SÌ |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1207,10 +1191,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Stringa | two three |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1224,19 +1208,18 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
-<a id="take" />
-
 ## <a name="take"></a>take
+
 `take(originalValue, numberToTake)`
 
 Restituisce una matrice con il numero specificato di elementi dall'inizio della matrice, o una stringa con il numero specificato di caratteri dall'inizio della stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
-| numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
+| originalValue |SÌ |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
+| numberToTake |SÌ |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1288,10 +1271,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | in |
+| stringOutput | Stringa | in |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -1305,20 +1288,19 @@ Per distribuire questo modello di esempio con PowerShell, usare:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
-<a id="union" />
-
 ## <a name="union"></a>union
+
 `union(arg1, arg2, arg3, ...)`
 
 Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametri. Valori e chiavi duplicati sono inclusi una sola volta.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
-| arg2 |Sì |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |
-| argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per l'aggiunta di elementi. |
+| arg1 |SÌ |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
+| arg2 |SÌ |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |
+| Argomenti aggiuntivi |No |matrice o oggetto |Valori aggiuntivi da usare per l'aggiunta di elementi. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1367,9 +1349,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| objectOutput | Oggetto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
@@ -1385,6 +1367,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
 * Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](resource-group-create-multiple.md).

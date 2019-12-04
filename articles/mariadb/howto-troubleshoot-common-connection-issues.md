@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi di connessione a database di Azure per MariaDB
+title: Risolvere i problemi di connessione-database di Azure per MariaDB
 description: Informazioni su come risolvere i problemi di connessione al database di Azure per MariaDB, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a8354cdc364f221a086f4d2f4ec7da95c55baf6e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973525"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765733"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Risolvere i problemi di connessione a database di Azure per MariaDB
 
@@ -46,8 +46,8 @@ Gli errori temporanei si verificano quando si esegue la manutenzione, quando il 
 Se l'applicazione continua a non riuscire a connettersi a Database di Azure per MariaDB, il problema è in genere uno dei seguenti:
 
 * Configurazione del firewall: il firewall del server di Database di Azure per MariaDB o del lato client blocca le connessioni.
-* Riconfigurazione di rete sul lato client: è stato aggiunto un nuovo indirizzo IP o un server proxy.
-* Errore utente: Ad esempio, è possibile che i parametri di connessione digitati in modo non consentiti, ad esempio il nome del server nella stringa di connessione o un suffisso *\@servername* mancante nel nome utente.
+* Riconfigurazione della rete lato client: è stato aggiunto un nuovo indirizzo IP o un server proxy.
+* Errore dell'utente: ad esempio, è possibile che i parametri di connessione digitati in modo non consentiti, ad esempio il nome del server nella stringa di connessione o un suffisso *\@ServerName* mancante nel nome utente.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

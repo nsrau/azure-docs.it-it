@@ -1,25 +1,22 @@
 ---
-title: Gestire app per la logica con Visual Studio-app per la logica di Azure
+title: Gestire app per la logica con Visual Studio
 description: Gestire app per la logica e altre risorse di Azure usando Visual Studio con Cloud Explorer
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: e10683bcd5612db788d6dd5675425fec4130ffeb
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 29b1235ee319567e103267b9054b8c6b244e1ca7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796335"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790843"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
-Sebbene sia possibile creare, modificare, gestire e distribuire app per la logica nella [portale di Azure](https://portal.azure.com), è anche possibile usare Visual Studio quando si desidera aggiungere app per la logica al controllo del codice sorgente, pubblicare versioni diverse e creare modelli [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per diversi ambienti di distribuzione. Con Visual Studio Cloud Explorer, è possibile trovare e gestire app per la logica e altre risorse di Azure. Ad esempio, è possibile aprire, scaricare, modificare, eseguire, visualizzare la cronologia di esecuzione, disabilitare e abilitare app per la logica che sono già state distribuite nel portale di Azure. Se non si ha familiarità con l'uso di App per la logica di Azure in Visual Studio, scoprire come [creare app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Sebbene sia possibile creare, modificare, gestire e distribuire app per la logica nella [portale di Azure](https://portal.azure.com), è anche possibile usare Visual Studio quando si desidera aggiungere app per la logica al controllo del codice sorgente, pubblicare versioni diverse e creare modelli [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per vari ambienti di distribuzione. Con Visual Studio Cloud Explorer, è possibile trovare e gestire app per la logica e altre risorse di Azure. Ad esempio, è possibile aprire, scaricare, modificare, eseguire, visualizzare la cronologia di esecuzione, disabilitare e abilitare app per la logica che sono già state distribuite nel portale di Azure. Se non si ha familiarità con l'uso di App per la logica di Azure in Visual Studio, scoprire come [creare app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Se si distribuisce o si pubblica un'app per la logica da Visual Studio, la versione di tale app nel portale di Azure verrà sovrascritta. Pertanto, se si apportano modifiche nel portale di Azure che si vuole mantenere, assicurarsi di [aggiornare l'app per la logica in Visual Studio](#refresh) dal portale di Azure prima di distribuirla o pubblicarla da Visual Studio.
@@ -44,7 +41,7 @@ Sebbene sia possibile creare, modificare, gestire e distribuire app per la logic
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Gli strumenti più recenti per le app per la logica di Azure per l'estensione di Visual Studio per la versione desiderata:
+  * Gli strumenti più recenti per App per la logica di Azure per l'estensione di Visual Studio e la versione desiderata:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -56,7 +53,7 @@ Sebbene sia possibile creare, modificare, gestire e distribuire app per la logic
 
 * Accesso al Web mentre si usa la finestra integrata Progettazione app per la logica
 
-  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. Ad esempio, se si usa il connettore per Dynamics CRM Online, la finestra di progettazione verifica la disponibilità di proprietà predefinite e personalizzate nell'istanza di CRM.
+  La finestra di progettazione richiede una connessione Internet per creare le risorse in Azure e leggere le proprietà e i dati dai connettori nell'app per la logica. Ad esempio, se si usa il connettore di Dynamics CRM Online, la finestra di progettazione verifica le proprietà predefinite e personalizzate disponibili nell'istanza di CRM.
 
 <a name="find-logic-apps-vs"></a>
 
@@ -66,7 +63,7 @@ In Visual Studio è possibile trovare tutte le app per la logica associate a una
 
 1. Aprire Visual Studio. Dal menu **Visualizza** scegliere **Cloud Explorer**.
 
-1. In Cloud Explorer selezionare **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi selezionare **applica**. Ad esempio:
+1. In Cloud Explorer selezionare **Gestione account**. Selezionare la sottoscrizione di Azure associata alle app per la logica e quindi selezionare **applica**. ad esempio:
 
    ![Selezionare "Gestione account"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -229,7 +226,7 @@ Per controllare lo stato e diagnosticare i problemi relativi alle esecuzioni del
 
    ![Apri cronologia di esecuzione per l'app per la logica](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. Ad esempio:
+1. Per visualizzare i dettagli per un'esecuzione specifica, fare doppio clic su di essa. ad esempio:
 
    ![Visualizza informazioni sull'esecuzione specifica](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
@@ -262,7 +259,7 @@ Per eliminare l'app per la logica dal portale di Azure, in Cloud Explorer aprire
 > [!NOTE]
 > Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo. 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Quando si apre il progetto dell'app per la logica in Progettazione app per la logica, l'opzione per la selezione della sottoscrizione di Azure potrebbe non essere presente. L'app per la logica viene invece aperta con una sottoscrizione di Azure diversa da quella che si vuole usare. Questo comportamento si verifica perché, dopo aver aperto il file JSON di un'app per la logica, Visual Studio memorizza nella cache la prima sottoscrizione selezionata per un uso futuro. Per risolvere il problema, provare a eseguire uno di questi passaggi:
 

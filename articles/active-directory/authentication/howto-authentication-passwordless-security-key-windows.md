@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452938"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766362"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Abilitare la chiave di sicurezza senza password accedere ai dispositivi Windows 10 (anteprima)
 
@@ -24,7 +24,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 
 |     |
 | --- |
-| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisiti
@@ -56,7 +56,7 @@ Azure AD i dispositivi aggiunti con cui si eseguirà il pilota devono eseguire W
 Le organizzazioni possono scegliere di usare uno o più dei metodi seguenti per consentire l'uso di chiavi di sicurezza per l'accesso a Windows in base ai requisiti dell'organizzazione.
 
 - [Abilitare con Intune](#enable-with-intune)
-   - [Distribuzione di Intune di destinazione](#targeted-intune-deployment)
+- [Distribuzione di Intune di destinazione](#targeted-intune-deployment)
 - [Abilitare con un pacchetto di provisioning](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>Abilitare con Intune
@@ -67,7 +67,7 @@ Le organizzazioni possono scegliere di usare uno o più dei metodi seguenti per 
 
 La configurazione delle chiavi di sicurezza per l'accesso non dipende dalla configurazione di Windows Hello for business.
 
-#### <a name="targeted-intune-deployment"></a>Distribuzione di Intune di destinazione
+### <a name="targeted-intune-deployment"></a>Distribuzione di Intune di destinazione
 
 Per specificare come destinazione gruppi di dispositivi specifici per abilitare il provider di credenziali, usare le seguenti impostazioni personalizzate tramite Intune.
 
@@ -80,7 +80,7 @@ Per specificare come destinazione gruppi di dispositivi specifici per abilitare 
    1. Tipo di profilo: personalizzato
    1. Impostazioni URI OMA personalizzate:
       1. Nome: attivare le chiavi di sicurezza di FIDO per l'accesso a Windows
-      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. URI OMA:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. Tipo di dati: integer
       1. Valore: 1
 1. Questo criterio può essere assegnato a utenti, dispositivi o gruppi specifici. Altre informazioni sono disponibili nell'articolo [assegnare profili utente e dispositivo in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).

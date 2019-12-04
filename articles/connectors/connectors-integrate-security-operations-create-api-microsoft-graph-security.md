@@ -1,21 +1,20 @@
 ---
-title: 'Integrare e gestire le operazioni di sicurezza: app per la logica di Azure & sicurezza Microsoft Graph'
+title: Integrare e gestire le operazioni di sicurezza & Microsoft Graph sicurezza
 description: Migliorare la protezione, il rilevamento e la risposta alle minacce dell'app con Microsoft Graph sicurezza & app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: preetikr
 ms.author: preetikr
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 845f57d84f49bdd964cc6f61790faff093f59466
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7e9cc2d8d38af7e5e6cf26ccc3659ee58ef17e59
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679090"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789053"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
 

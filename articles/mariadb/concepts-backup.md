@@ -1,17 +1,17 @@
 ---
-title: Eseguire il backup e il ripristino in Database di Azure per MariaDB
+title: Backup e ripristino-database di Azure per MariaDB
 description: Informazioni su backup automatici e ripristino del Database di Azure per il server MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: d6141c3184c8915c36f22d010db39aef2460dd1c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 333e51782fd0dd88b3e8747fb831b841a22c8e6c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60483052"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773091"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Eseguire il backup e il ripristino in Database di Azure per MariaDB
 
@@ -40,7 +40,7 @@ Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono
 
 Per altre informazioni sul costo dell'archiviazione di backup, visitare la [pagina dei prezzi di MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Ripristinare
 
 In Database di Azure per MariaDB l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
 

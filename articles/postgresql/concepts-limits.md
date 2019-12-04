@@ -1,5 +1,5 @@
 ---
-title: Limiti nel database di Azure per PostgreSQL-server singolo
+title: Limiti-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive i limiti di database di Azure per PostgreSQL-server singolo, ad esempio il numero di opzioni del motore di connessione e di archiviazione.
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b9cef4753b6fd324b38d7254139fe288463a0c0c
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123887"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768538"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limiti nel database di Azure per PostgreSQL-server singolo
 Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Per informazioni sui livelli di risorse (calcolo, memoria, archiviazione), vedere l'articolo [piani tariffari](concepts-pricing-tiers.md) .
@@ -21,21 +21,21 @@ Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali n
 ## <a name="maximum-connections"></a>Numero massimo di connessioni
 Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore: 
 
-|**Livello di prezzo**| **vCore**| **Numero massimo di connessioni** | **Numero massimo di connessioni utente** |
+|**Piano tariffario**| **vCore**| **Numero massimo di connessioni** | **Numero massimo di connessioni utente** |
 |---|---|---|---|
 |Basic| 1| 55 | 50|
 |Basic| 2| 105 | 100|
-|Utilizzo generico| 2| 150| 145|
-|Utilizzo generico| 4| 250| 245|
-|Utilizzo generico| 8| 480| 475|
-|Utilizzo generico| 16| 950| 945|
-|Utilizzo generico| 32| 1500| 1495|
-|Utilizzo generico| 64| 1900| 1895|
-|Con ottimizzazione per la memoria| 2| 300| 295|
-|Con ottimizzazione per la memoria| 4| 500| 495|
-|Con ottimizzazione per la memoria| 8| 960| 955|
-|Con ottimizzazione per la memoria| 16| 1900| 1895|
-|Con ottimizzazione per la memoria| 32| 1987| 1982|
+|Scopo generico| 2| 150| 145|
+|Scopo generico| 4| 250| 245|
+|Scopo generico| 8| 480| 475|
+|Scopo generico| 16| 950| 945|
+|Scopo generico| 32| 1500| 1495|
+|Scopo generico| 64| 1900| 1895|
+|Ottimizzate per la memoria| 2| 300| 295|
+|Ottimizzate per la memoria| 4| 500| 495|
+|Ottimizzate per la memoria| 8| 960| 955|
+|Ottimizzate per la memoria| 16| 1900| 1895|
+|Ottimizzate per la memoria| 32| 1987| 1982|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)

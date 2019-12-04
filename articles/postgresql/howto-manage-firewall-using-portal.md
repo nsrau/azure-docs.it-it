@@ -1,25 +1,25 @@
 ---
-title: Creare e gestire regole del firewall nel Database di Azure per PostgreSQL - Server singolo
-description: Creare e gestire regole del firewall per Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure
+title: Gestire le regole del firewall-portale di Azure-database di Azure per PostgreSQL-server singolo
+description: Creare e gestire le regole del firewall per database di Azure per PostgreSQL-server singolo usando il portale di Azure
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069015"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770306"
 ---
-# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Creare e gestire regole del firewall per Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure
-Le regole del firewall a livello di server sono utilizzabile per gestire l'accesso a un Database di Azure per il PostgreSQL Server da uno specifico indirizzo IP o intervallo di indirizzi IP.
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Creare e gestire le regole del firewall per database di Azure per PostgreSQL-server singolo usando il portale di Azure
+Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server PostgreSQL da un indirizzo IP specificato o da un intervallo di indirizzi IP.
 
-Le regole della rete virtuale sono anche utilizzabile per proteggere l'accesso al server. Altre informazioni sulle [creazione e gestione di rete virtuale del servizio endpoint e le regole nel portale di Azure](howto-manage-vnet-using-portal.md).
+Le regole della rete virtuale (VNet) possono essere usate anche per proteggere l'accesso al server. Altre informazioni sulla [creazione e la gestione di endpoint e regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-using-portal.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per proseguire con questa guida, si richiedono:
+Per proseguire con questa guida è necessario:
 - Un server [Creare un database di Azure per PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
@@ -36,7 +36,7 @@ Per proseguire con questa guida, si richiedono:
 
    ![Ricerca Bing di What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Aggiungere altri intervalli di indirizzi. Nelle regole firewall per Database di Azure per PostgreSQL è possibile specificare un solo indirizzo IP o un intervallo di indirizzi. Per limitare la regola a un solo indirizzo IP, digitare lo stesso indirizzo nei campi Indirizzo IP iniziale e Indirizzo IP finale. Apertura del firewall consente agli amministratori, utenti e applicazioni per accedere a qualsiasi database nel server PostgreSQL a cui hanno credenziali valide.
+4. Aggiungere altri intervalli di indirizzi. Nelle regole firewall per Database di Azure per PostgreSQL è possibile specificare un solo indirizzo IP o un intervallo di indirizzi. Per limitare la regola a un solo indirizzo IP, digitare lo stesso indirizzo nei campi Indirizzo IP iniziale e Indirizzo IP finale. L'apertura del firewall consente agli amministratori, agli utenti e alle applicazioni di accedere a qualsiasi database nel server PostgreSQL per cui hanno credenziali valide.
 
    ![Portale di Azure: regole del firewall](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -60,5 +60,5 @@ Ripetere i passaggi per gestire le regole del firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Analogamente, è possibile generare uno script per [creare e gestire le regole firewall per Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
-- Proteggere ulteriormente l'accesso al server dal [creazione e gestione di rete virtuale del servizio endpoint e le regole nel portale di Azure](howto-manage-vnet-using-portal.md).
+- Proteggere ulteriormente l'accesso al server [creando e gestendo gli endpoint e le regole del servizio rete virtuale usando il portale di Azure](howto-manage-vnet-using-portal.md).
 - Per informazioni sulla connessione a un'istanza di Database di Azure per il server PostgreSQL, vedere [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md) (Raccolte di connessioni per Database di Azure per PostgreSQL).

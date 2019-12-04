@@ -1,17 +1,17 @@
 ---
-title: Usare le estensioni di PostgreSQL nel database di Azure per PostgreSQL-server singolo
-description: Descrive la possibilità di estendere la funzionalità del database usando le estensioni nel database di Azure per PostgreSQL-server singolo.
+title: Estensioni-database di Azure per PostgreSQL-server singolo
+description: Informazioni sulle estensioni Postgres disponibili nel database di Azure per PostgreSQL-server singolo
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 4f81b23378427faa522071f4a20e07485f5c3387
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 12/03/2019
+ms.openlocfilehash: 7a55cc9398cc511ced0a43f0d7a0c1aa6e37f155
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296424"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790391"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni raggruppano più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un unico comando. Dopo essere stato caricato nel database, le estensioni funzionano come le funzionalità predefinite.
@@ -224,7 +224,7 @@ L'estensione pgAudit fornisce la registrazione di controllo di sessione e oggett
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB è un database di serie temporali assemblato come estensione per PostgreSQL. TimescaleDB fornisce funzioni analitiche basate sul tempo, ottimizzazioni e scale Postgres per i carichi di lavoro di serie temporali.
 
-[Scopri di più su TimescaleDB](https://docs.timescale.com/latest), un marchio registrato di [scala cronologica, Inc.](https://www.timescale.com/)
+[Scopri di più su TimescaleDB](https://docs.timescale.com/latest), un marchio registrato di [scala cronologica, Inc.](https://www.timescale.com/) Database di Azure per PostgreSQL offre la versione open source della scala cronologica. Per informazioni sulle funzionalità della scala cronologica disponibili in questa versione, vedere [il confronto dei prodotti in scala cronologica](https://www.timescale.com/products/).
 
 ### <a name="installing-timescaledb"></a>Installazione di TimescaleDB
 Per installare TimescaleDB, è necessario includerlo nelle librerie di precaricamento condivise del server. Per rendere effettive le modifiche apportate al parametro `shared_preload_libraries` di Postgres, è necessario **riavviare il server** . È possibile modificare i parametri usando il [portale di Azure](howto-configure-server-parameters-using-portal.md) o l'interfaccia della riga di comando di [Azure](howto-configure-server-parameters-using-cli.md).

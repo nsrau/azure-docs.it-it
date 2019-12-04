@@ -1,17 +1,17 @@
 ---
-title: Architettura di connettività nel database di Azure per MariaDB
+title: 'Architettura di connettività: database di Azure per MariaDB'
 description: Descrive l'architettura di connettività per il database di Azure per il server MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/02/2019
+ms.openlocfilehash: 6e2e39381e1500f86bce55726dda0286385d1674
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498072"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772893"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
 Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e il modo in cui il traffico viene indirizzato al database di Azure per l'istanza di MariaDB dai client all'interno e all'esterno di Azure.
@@ -50,8 +50,8 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | India occidentale | 104.211.160.80 | |
 | Giappone orientale | 191.237.240.43 | 13.78.61.196 |
 | Giappone occidentale | 191.238.68.11 | 104.214.148.156 |
-| Corea del Sud centrale | 52.231.32.42 | |
-| Corea del Sud meridionale | 52.231.200.86 |  |
+| Corea centrale | 52.231.32.42 | |
+| Corea meridionale | 52.231.200.86 |  |
 | Stati Uniti centro-settentrionali | 23.98.55.75 | 23.96.178.199 |
 | Europa settentrionale | 191.235.193.75 | 40.113.93.91 |
 | Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |
@@ -67,7 +67,7 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 ||||
 
 > [!NOTE]
-> *Stati Uniti orientali 2* ha anche l'indirizzo IP terziario `52.167.104.0`.
+> *Stati Uniti orientali 2* dispone anche di un indirizzo IP terziario di `52.167.104.0`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

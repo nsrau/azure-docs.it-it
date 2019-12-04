@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489068"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790545"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare in blocco le macchine virtuali SQL in Azure con il provider di risorse VM SQL
 
@@ -39,7 +39,7 @@ Per registrare la macchina virtuale di SQL Server con il provider di risorse, è
 - La versione più recente di [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Versione più recente di [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Inizia ora
 
 Prima di procedere, è necessario creare prima di tutto una copia locale dello script, importarlo come modulo di PowerShell e connettersi ad Azure. 
 
@@ -57,7 +57,7 @@ Aprire un terminale di PowerShell amministrativo e passare al percorso in cui è
 Import-Module .\RegisterSqlVMs.psm1
 ```
 
-### <a name="connect-to-azure"></a>Connect to Azure
+### <a name="connect-to-azure"></a>Connettersi ad Azure
 
 Usare il cmdlet di PowerShell seguente per connettersi ad Azure:
 
@@ -198,7 +198,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 Ogni volta che viene utilizzato il `Register-SqlVMs` cmdlet viene generato un report e un file di log. 
 
-### <a name="report"></a>Report
+### <a name="report"></a>Documentazione
 
 Il report viene generato come file `.txt` denominato `RegisterSqlVMScriptReport<Timestamp>.txt` dove il timestamp è l'ora in cui è stato avviato il cmdlet. Il report elenca i dettagli seguenti:
 
@@ -222,7 +222,7 @@ Gli errori vengono registrati nel file di log denominato `VMsNotRegisteredDueToE
 
 Quando si registrano SQL Server VM con il provider di risorse usando lo script fornito, tenere presente quanto segue:
 
-- Per la registrazione con il provider di risorse è necessario un agente guest in esecuzione nella macchina virtuale SQL Server. Le immagini di Windows Server 2008 non dispongono di un agente guest, pertanto tali macchine virtuali avranno esito negativo e dovranno essere registrate manualmente usando la [modalità di gestione noagent](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
+- Per la registrazione con il provider di risorse è necessario un agente guest in esecuzione nella macchina virtuale SQL Server. Le immagini di Windows Server 2008 non dispongono di un agente guest, pertanto tali macchine virtuali avranno esito negativo e dovranno essere registrate manualmente usando la [modalità di gestione noagent](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).
 - La logica di ripetizione dei tentativi è incorporata per superare gli errori trasparenti. Se la macchina virtuale è stata registrata correttamente, si tratta di un'operazione rapida. Tuttavia, se la registrazione ha esito negativo, viene eseguito un nuovo tentativo per ogni macchina virtuale.  Di conseguenza, è necessario consentire un tempo significativo per il completamento del processo di registrazione, sebbene il requisito di tempo effettivo dipenda dal tipo e dal numero di errori. 
 
 ## <a name="full-script"></a>Script completo

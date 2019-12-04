@@ -1,18 +1,18 @@
 ---
-title: Come eseguire il backup e il ripristino di un server in Database di Azure per MariaDB
+title: Backup e ripristino-interfaccia della riga di comando di Azure-database di Azure per MariaDB
 description: Informazioni su come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965215"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765852"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
 

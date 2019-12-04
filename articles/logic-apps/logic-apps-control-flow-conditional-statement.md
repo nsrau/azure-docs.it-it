@@ -1,20 +1,17 @@
 ---
-title: Aggiungere la istruzioni condizionali ai flussi di lavoro - App per la logica di Azure | Microsoft Docs
+title: Aggiungere istruzioni condizionali ai flussi di lavoro
 description: Come creare condizioni che controllano le azioni nei flussi di lavoro nelle App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684809"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793260"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Creare istruzioni condizionali che controllano le azioni del flusso di lavoro nelle App per la logica di Azure
 
@@ -39,7 +36,7 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
 
 1. Aggiungere una condizione nella posizione desiderata. 
 
-   Per aggiungere una condizione tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere la condizione. Scegliere il **segno più** ( **+** ) visualizzato, quindi **Aggiungi un'azione**. Ad esempio:
+   Per aggiungere una condizione tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere la condizione. Scegliere il **segno più** ( **+** ) visualizzato, quindi **Aggiungi un'azione**. ad esempio:
 
    ![Aggiungere l'azione tra un passaggio e l'altro](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -72,7 +69,7 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
    Per aggiungere un gruppo con sottocondizioni, scegliere **Aggiungi** > **Aggiungi gruppo**. 
    Per raggruppare le righe esistenti, selezionare le caselle di controllo per le righe, scegliere il pulsante dei puntini di sospensione (...) per ogni riga e quindi scegliere **Imposta come gruppo**.
 
-1. In **È true** e **Se no** aggiungere i passaggi da eseguire in base al fatto che la condizione sia soddisfatta o meno. Ad esempio:
+1. In **È true** e **Se no** aggiungere i passaggi da eseguire in base al fatto che la condizione sia soddisfatta o meno. ad esempio:
 
    ![Condizione con i percorsi "È true" e "Se no"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
@@ -111,7 +108,7 @@ Ecco la definizione del codice generale dietro un'istruzione condizionale:
 },
 ```
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

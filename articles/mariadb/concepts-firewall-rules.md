@@ -1,17 +1,17 @@
 ---
-title: Regole firewall per il server Database di Azure per MariaDB
+title: Regole del firewall-database di Azure per MariaDB
 description: Informazioni sull'uso delle regole del firewall per abilitare le connessioni al database di Azure per il server MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 82e07edc615fd8c1ef0ebc84cf57035727bbcdf6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 5efde68469df1780214fee98cf2be44775acdc35
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965252"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772677"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Regole firewall per il server Database di Azure per MariaDB
 I firewall impediscono qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.

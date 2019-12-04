@@ -1,23 +1,23 @@
 ---
-title: Eseguire la migrazione di un database tramite l'importazione e l'esportazione nel database di Azure per PostgreSQL-server singolo
+title: Eseguire la migrazione di un database-database di Azure per PostgreSQL-server singolo
 description: In questo articolo viene descritto come estrarre un database PostgreSQL in un file di script da cui importare i dati nel database di destinazione.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 0803f56312ca9b650987c2203c4271cff21df9f8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: f7cf5d245383b8a58f03e2e3610750866a2f4b5a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260352"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770204"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrare il database PostgreSQL usando le funzionalità di esportazione e importazione
 È possibile usare [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di script e [psql](https://www.postgresql.org/docs/current/static/app-psql.html) importare i dati nel database di destinazione da quel file.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per proseguire con questa guida, si richiedono:
+Per proseguire con questa guida è necessario:
 - Un [Database di Azure per il server PostgreSQL](quickstart-create-server-database-portal.md) con le regole firewall per consentire l'accesso e il database sottostante.
 - Utilità della riga di comando [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) installata
 - Utilità della riga di comando [psql](https://www.postgresql.org/docs/current/static/app-psql.html) installata

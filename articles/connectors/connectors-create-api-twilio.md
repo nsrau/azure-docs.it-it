@@ -1,26 +1,22 @@
 ---
-title: Connettersi a Twilio da App per la logica di Azure | Microsoft Docs
+title: Connettersi a Twilio da app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per la gestione dei messaggi SMS, MMS e IP globali tramite il proprio account Twilio usando App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 09d4a6acf93f5fb01c70f9e9bd935c404c5abf50
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050714"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789104"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gestire i messaggi in Twilio con App per la logica di Azure
 
-Con App per la logica di Azure e il connettore Twilio, è possibile creare attività e flussi di lavoro automatizzati per ottenere, inviare ed elencare messaggi in Twilio, inclusi i messaggi SMS, MMS e IP globali. È possibile usare queste azioni per eseguire attività con l'account Twilio. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twilio. Ad esempio, quando arriva un nuovo messaggio, è possibile inviare il contenuto del messaggio con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Con App per la logica di Azure e il connettore Twilio, è possibile creare attività e flussi di lavoro automatizzati per ottenere, inviare ed elencare messaggi in Twilio, inclusi i messaggi SMS, MMS e IP globali. È possibile usare queste azioni per eseguire attività con l'account Twilio. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twilio. Ad esempio, quando arriva un nuovo messaggio, è possibile inviare il contenuto del messaggio con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,7 +53,7 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
      Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
      
        Nella casella di ricerca immettere "twilio" come filtro. 
-       Nell'elenco delle azioni selezionare l'azione desiderata.
+       Nell'elenco delle azioni scegliere l'azione desiderata.
 
 1. Specificare i dettagli necessari per la connessione e quindi scegliere **Crea**:
 
@@ -71,7 +67,7 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/twilio/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

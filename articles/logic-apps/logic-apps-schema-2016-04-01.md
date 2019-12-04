@@ -1,21 +1,19 @@
 ---
-title: Aggiornamenti dello schema del 1° giugno 2016 - App per la logica di Azure | Microsoft Docs
+title: Aggiornamenti dello schema giugno-1-2016
 description: Versione aggiornata dello schema del 1° giugno 2016 per le definizioni di App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 0558c309cc22f39c2ed439b7930443ca0adb071e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385385"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792886"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
 
@@ -155,7 +153,7 @@ I cicli `foreach` e `until` sono limitati a una singola azione.
 
 ### <a name="new-trackedproperties-for-actions"></a>Nuova proprietà "trackedProperties" per le azioni
 
-Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedProperties`, di pari livello rispetto alle proprietà `runAfter` e `type`. Questo oggetto specifica determinati input o output delle azioni da includere nei dati di telemetria di Diagnostica di Azure generati come parte di un flusso di lavoro, Ad esempio:
+Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedProperties`, di pari livello rispetto alle proprietà `runAfter` e `type`. Questo oggetto specifica determinati input o output delle azioni da includere nei dati di telemetria di Diagnostica di Azure generati come parte di un flusso di lavoro, ad esempio:
 
 ``` json
 {

@@ -1,21 +1,19 @@
 ---
-title: Messaggi Decode X12 - App per la logica di Azure | Documentazione Microsoft
+title: Messaggi Decode X12
 description: Convalidare le proprietà EDI e generare i riconoscimenti con il decodificatore di messaggi X12 in App per la logica di Azure tramite Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701438"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792364"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
 
@@ -59,7 +57,7 @@ Sono necessari gli elementi seguenti:
 
     ![connessione all'account di integrazione creata](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Ad esempio:
+    ad esempio:
 
     ![Selezionare il messaggio con il file flat X12 da decodificare](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -89,13 +87,13 @@ Il connettore Decode X12 esegue queste attività:
   * Controlla il numero di controllo del gruppo con gli altri numeri di controllo del gruppo dell'interscambio.
   * Controlla il numero di controllo del set di transazioni con gli altri numeri di controllo del set transazioni in tale gruppo.
 * Suddivide l'interscambio in set di transazioni o mantiene l'intero interscambio:
-  * Suddividi interscambio in set di transazioni - Sospendi set di transazioni in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
+  * Suddivide l'interscambio in set di transazioni - sospende i set di transazioni in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Suddividi interscambio in set di transazioni - Sospendi interscambio in caso di errore: Suddivide l'interscambio in transazione imposta e analizza ogni set di transazioni. 
+  * Suddivide l'interscambio in set di transazioni - sospende l'interscambio in caso di errore: suddivide l'interscambio in set di transazioni e analizza ogni set di transazioni. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`.
-  * Mantieni interscambio - Sospendi set transazioni in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
+  * Mantiene l'interscambio - sospende i set transazioni in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
   L'azione X12 Decode restituisce solo i set di transazioni che non sono stati convalidati in `badMessages` e restituisce i restanti set di transazioni in `goodMessages`.
-  * Mantieni interscambio - Sospendi interscambio in caso di errore: Mantiene l'interscambio ed elabora l'intero interscambio batch. 
+  * Mantiene l'interscambio - sospende l'interscambio in caso di errore: mantiene l'interscambio ed elabora l'intero interscambio in batch. 
   Se la convalida di uno o più set di transazioni dell'interscambio non riesce, l'azione X12 Decode restituisce tutti i set di transazioni in quell'interscambio in `badMessages`. 
 * Genera un riconoscimento tecnico e/o funzionale (se configurata).
   * Un riconoscimento tecnico viene generato in seguito alla convalida dell'intestazione. Il riconoscimento tecnico segnala lo stato dell'elaborazione di un'intestazione e finale di interscambio in base all'indirizzo del ricevitore.
@@ -105,5 +103,5 @@ Il connettore Decode X12 esegue queste attività:
 Vedere i [dettagli del file Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
+[Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack") 
 

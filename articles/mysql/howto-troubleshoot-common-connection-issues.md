@@ -1,18 +1,18 @@
 ---
-title: Risolvere i problemi di connessione a Database di Azure per MySQL
+title: Risolvere i problemi di connessione-database di Azure per MySQL
 description: Informazioni su come risolvere i problemi di connessione a database di Azure per MySQL, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
 keywords: connessione mysql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972837"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773531"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Risolvere i problemi di connessione a Database di Azure per MySQL
 
@@ -46,9 +46,9 @@ Gli errori temporanei si verificano quando si esegue la manutenzione, quando il 
 
 Se l'applicazione continua a non riuscire a connettersi a Database di Azure per MySQL, il problema è in genere uno dei seguenti:
 
-* Configurazione firewall del server: assicurarsi che il firewall del server Database di Azure per MySQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
-* Configurazione del firewall client: il firewall nel client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio MySQL, in alcuni firewall.
-* Errore utente: È possibile che i parametri di connessione digitati in modo improprio, ad esempio il nome del server nella stringa di connessione o un suffisso *\@servername* mancante nel nome utente.
+* Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per MySQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
+* Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio MySQL, in alcuni firewall.
+* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso di *\@ServerName* mancante nel nome utente, non siano stati digitati.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

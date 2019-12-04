@@ -1,28 +1,24 @@
 ---
-title: Connettersi a Outlook.com - App per la logica di Azure | Microsoft Docs
+title: Connessione ad Outlook.com
 description: Gestire posta elettronica, calendari e contatti con le API REST di Outlook.com per le App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/18/2016
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 4586255e96647267bc913f2bc054610163e16bd3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 750efc2cb928bf127c4f3c68d5a58c5f52ca7d51
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050873"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789367"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gestire posta elettronica, calendari e contatti in Outlook.com per le App per la logica di Azure
 
 Questo articolo illustra come creare e gestire l'account Outlook.com all'interno di un'app per la logica con il connettore Box. In questo modo, è possibile creare app per la logica che automatizzano le attività e i flussi di lavoro per l'account Outlook.com, ad esempio:
 
-* Inviare posta elettronica. 
+* Inviare messaggi di posta elettronica. 
 * Pianificare riunioni.
 * Aggiungere contatti. 
 
@@ -48,7 +44,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel file Swagger del connettore, vedere la [pagina di riferimento del connettore](/connectors/outlook/). 
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

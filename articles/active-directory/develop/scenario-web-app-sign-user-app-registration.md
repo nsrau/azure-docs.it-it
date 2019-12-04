@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482049"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766073"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -68,27 +68,27 @@ Per registrare l'applicazione, è possibile usare:
    1. Nella sezione **nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app. Ad esempio, immettere **MailApp-openidconnect-V2**.
    1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: **https://localhost:44326/** .
 1. Selezionare **Registra** per creare l'applicazione.
-1. Selezionare il menu **Authentication** . 
+1. Selezionare il menu **Authentication** .
 1. Nella sezione **Impostazioni avanzate** | **concessione implicita** Selezionare **token ID**. Questo esempio richiede che il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) sia abilitato per l'accesso dell'utente.
 1. Selezionare **Salva**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. Quando viene visualizzata la **pagina registra un'applicazione** , immettere un nome visualizzato per l'applicazione. Ad esempio, immettere **Java-webapp**. 
+1. Quando viene visualizzata la **pagina registra un'applicazione** , immettere un nome visualizzato per l'applicazione. Ad esempio, immettere **Java-webapp**.
 1. Selezionare **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** , quindi selezionare **app Web/API** per **tipo di applicazione**.
 1. Selezionare **Register (registra** ) per registrare l'applicazione.
-1. Scegliere **autenticazione**dal menu a sinistra. In **URI di reindirizzamento**selezionare **Web**. 
+1. Scegliere **autenticazione**dal menu a sinistra. In **URI di reindirizzamento**selezionare **Web**.
 
 1. Immettere due URI di reindirizzamento: uno per la pagina di accesso e uno per la pagina Graph. Per entrambi, usare lo stesso host e lo stesso numero di porta, seguito da **/msal4jsample/Secure/AAD** per la pagina di accesso e **msal4jsample/Graph/me** per la pagina informazioni utente.
- 
+
    Per impostazione predefinita, l'esempio USA:
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. Nella sezione **Impostazioni avanzate** impostare **disconnetti URL** su **http://localhost:8080/msal4jsample/sign_out** . Selezionare quindi **Salva**.
+  Selezionare quindi **Salva**.
 
-1. Selezionare **certificati & Secrets** dal menu. 
+1. Selezionare **certificati & Secrets** dal menu.
 1. Nella sezione **segreti client** selezionare **nuovo segreto client**, quindi:
 
    1. Immettere una descrizione della chiave.
@@ -104,7 +104,6 @@ Per registrare l'applicazione, è possibile usare:
    1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: **http://localhost:5000/getAToken** .
 1. Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Sarà necessario per configurare il file di configurazione di Visual Studio per questo progetto.
-1. Selezionare la sezione **autenticazione** . In **Impostazioni avanzate**impostare **disconnetti URL** su **http://localhost:5000/logout** . Selezionare quindi **Salva**.
 1. Nel menu a sinistra selezionare **certificati & segreti**.
 1. Nella sezione **segreti client** selezionare **nuovo segreto client**, quindi:
 

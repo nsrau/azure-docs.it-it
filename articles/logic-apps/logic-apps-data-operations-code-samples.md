@@ -1,21 +1,17 @@
 ---
-title: Esempi di operazioni sui dati-app per la logica di Azure
+title: Esempi di operazioni sui dati
 description: Esempi di codice per le azioni di operazione sui dati in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: d692d943249c9fc6b46ed6eb1ddff3f07152f5b6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d59e461fab52bddf9cb1f881d52a751931c7312b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179159"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793079"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Esempi di codice per operazioni sui dati per App per la logica di Azure
 
@@ -25,7 +21,7 @@ In base agli standard JSON (JavaScript Object Notation), queste definizioni di a
 
 <a name="compose-action-example"></a>
 
-## <a name="compose"></a>Componi
+## <a name="compose"></a>Composizione
 
 Per provare l'[esempio dell'azione **Componi**](../logic-apps/logic-apps-perform-data-operations.md#compose-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -226,7 +222,7 @@ Per provare l'[esempio dell'azione **Filtra matrice**](../logic-apps/logic-apps-
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Unisci
+## <a name="join"></a>Join
 
 Per provare l'[esempio dell'azione **Aggiungi**](../logic-apps/logic-apps-perform-data-operations.md#join-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -326,7 +322,7 @@ Per provare l'[esempio dell'azione **Analizza JSON**](../logic-apps/logic-apps-p
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Selezione
+## <a name="select"></a>Seleziona
 
 Per provare l'[esempio dell'azione **Seleziona**](../logic-apps/logic-apps-perform-data-operations.md#select-action), è possibile usare le definizioni di azioni seguenti:
 

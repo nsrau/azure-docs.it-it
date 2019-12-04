@@ -2,19 +2,16 @@
 title: Panoramica-automatizzare la distribuzione per le app per la logica di Azure
 description: Informazioni sui modelli di Azure Resource Manager per automatizzare la distribuzione per le app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: bc61e39a02d16827521758ca8248488e46c109b5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838089"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792559"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -64,7 +61,7 @@ Al livello principale, un modello di Gestione risorse segue questa struttura, de
 
 Per un modello di app per la logica, è possibile usare principalmente questi oggetti modello:
 
-| Attributo | Descrizione |
+| Attributo | Description |
 |-----------|-------------|
 | `parameters` | Dichiara i [parametri del modello](../azure-resource-manager/resource-group-authoring-templates.md#parameters) per accettare i valori da usare durante la creazione e la personalizzazione delle risorse per la distribuzione in Azure. Ad esempio, questi parametri accettano i valori per il nome e il percorso dell'app per la logica, le connessioni e altre risorse necessarie per la distribuzione. È possibile archiviare questi valori di parametro in un [file di parametri](#template-parameter-files), descritto più avanti in questo argomento. Per informazioni generali, vedere [parametri: Gestione risorse la struttura e la sintassi del modello](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
 | `resources` | Definisce le [risorse](../azure-resource-manager/resource-group-authoring-templates.md#resources) da creare o aggiornare e distribuire in un gruppo di risorse di Azure, ad esempio l'app per la logica, le connessioni, gli account di archiviazione di Azure e così via. Per informazioni generali, vedere [risorse-Gestione risorse la struttura e la sintassi del modello](../azure-resource-manager/resource-group-authoring-templates.md#resources). |
@@ -322,11 +319,11 @@ La definizione di risorsa dell'app per la logica inizia con l'oggetto `propertie
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatorio | Tipo | Descrizione |
+| Attributo | Obbligatoria | Type | Description |
 |-----------|----------|------|-------------|
-| `state` | Sì | String | Lo stato dell'app per la logica in fase di distribuzione, in cui `Enabled` indica che l'app per la logica è Live e `Disabled` significa che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l'opzione `Disabled`. |
+| `state` | SÌ | Stringa | Lo stato dell'app per la logica in fase di distribuzione, in cui `Enabled` indica che l'app per la logica è Live e `Disabled` significa che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l'opzione `Disabled`. |
 | `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione, che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l'attributo `id`, che specifica l'ID dell'account di integrazione. |
-| `definition` | Sì | Oggetto | La definizione del flusso di lavoro sottostante dell'app per la logica, che è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritta completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . In questa definizione del flusso di lavoro, l'oggetto `parameters` dichiara i parametri per i valori da usare in fase di esecuzione dell'app per la logica. Per altre informazioni, vedere [definizione del flusso di lavoro e parametri](#workflow-definition-parameters). <p><p>Per visualizzare gli attributi nella definizione del flusso di lavoro dell'app per la logica, passare dalla "visualizzazione progettazione" alla "visualizzazione codice" nel portale di Azure o in Visual Studio oppure usando uno strumento come [Azure Resource Explorer](https://resources.azure.com). |
+| `definition` | SÌ | Oggetto | La definizione del flusso di lavoro sottostante dell'app per la logica, che è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritta completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . In questa definizione del flusso di lavoro, l'oggetto `parameters` dichiara i parametri per i valori da usare in fase di esecuzione dell'app per la logica. Per altre informazioni, vedere [definizione del flusso di lavoro e parametri](#workflow-definition-parameters). <p><p>Per visualizzare gli attributi nella definizione del flusso di lavoro dell'app per la logica, passare dalla "visualizzazione progettazione" alla "visualizzazione codice" nel portale di Azure o in Visual Studio oppure usando uno strumento come [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | No | Oggetto | [Valori dei parametri di definizione del flusso di lavoro](#workflow-definition-parameters) da usare in fase di esecuzione Le definizioni dei parametri per questi valori vengono visualizzate all'interno dell' [oggetto parametri della definizione del flusso di lavoro](#workflow-definition-parameters). Inoltre, se l'app per la logica USA [connettori gestiti](../connectors/apis-list.md) per accedere ad altri servizi e sistemi, questo oggetto include un oggetto `$connections` che imposta i valori di connessione da usare in fase di esecuzione. |
 | `accessControl` | No | Oggetto | Per specificare gli attributi di sicurezza per l'app per la logica, ad esempio per limitare l'accesso IP ai trigger di richiesta o gli input e gli output della cronologia di esecuzione. Per altre informazioni, vedere [proteggere l'accesso alle app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
@@ -939,7 +936,7 @@ Alcune connessioni supportano l'uso di un' [entità servizio](../active-director
 }
 ```
 
-| Attributo | Descrizione |
+| Attributo | Description |
 |-----------|-------------|
 | `token:clientId` | L'applicazione o l'ID client associato all'entità servizio |
 | `token:clientSecret` | Valore della chiave associato all'entità servizio |

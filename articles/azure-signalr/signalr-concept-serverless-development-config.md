@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74157644"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786776"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Sviluppo e configurazione di funzioni di Azure con il servizio Azure SignalR
 
@@ -40,7 +40,7 @@ Un'applicazione client richiede un token di accesso valido per la connessione al
 
 Usare una funzione di Azure attivata da HTTP e l'associazione di input di *SignalRConnectionInfo* per generare l'oggetto informazioni di connessione. La funzione deve avere una route HTTP che termina in `/negotiate`.
 
-Per ulteriori informazioni su come creare la funzione Negotiate, vedere la Guida di [riferimento dell'associazione di input *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding).
+Per ulteriori informazioni su come creare la funzione Negotiate, vedere la Guida di [riferimento dell'associazione di input *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#input).
 
 Per informazioni su come creare un token autenticato, vedere l'articolo relativo all' [uso dell'autenticazione del servizio app](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Usare l'associazione di output di *SignalR* per inviare messaggi ai client conne
 
 Gli utenti possono essere aggiunti a uno o più gruppi. È anche possibile usare l'associazione di output di *SignalR* per aggiungere o rimuovere utenti da e verso gruppi.
 
-Per altre informazioni, vedere riferimento dell'associazione di output di [ *SignalR* ](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
+Per altre informazioni, vedere riferimento dell'associazione di output di [ *SignalR* ](../azure-functions/functions-bindings-signalr-service.md#output).
 
 ### <a name="signalr-hubs"></a>Hub SignalR
 

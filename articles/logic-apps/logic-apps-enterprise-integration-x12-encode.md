@@ -1,21 +1,19 @@
 ---
-title: Messaggi Encode X12 - App per la logica di Azure | Documentazione Microsoft
+title: Messaggi Encode X12
 description: Convalidare le proprietà EDI e convertire messaggi con codifica XML con il codificatore di messaggi X12 in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.openlocfilehash: 871d6d2b2019372bd258f8909ed0feeeddac4af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705691"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792356"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Encode X12 in App per la logica di Azure con Enterprise Integration Pack
 
@@ -93,5 +91,5 @@ Il connettore Encode X12 esegue queste attività:
 Vedere i [dettagli del file Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
+[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack") 
 

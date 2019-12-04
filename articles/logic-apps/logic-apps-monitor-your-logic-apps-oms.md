@@ -1,20 +1,19 @@
 ---
-title: Monitorare le app per la logica con monitoraggio di Azure-app per la logica di Azure
+title: Monitorare le app per la logica con monitoraggio di Azure
 description: Ottenere informazioni dettagliate e debug dei dati per la risoluzione dei problemi e la diagnosi delle esecuzioni di app per la logica con i log di monitoraggio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/29/2019
-ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 305b50c86a468354f049fcc57fcb79b537e8dfed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138740"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791904"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Ottenere informazioni dettagliate e i dati di debug per le app per la logica usando i log di monitoraggio di Azure
 
@@ -23,7 +22,7 @@ Per monitorare e ottenere dettagli di debug più completi sulle app per la logic
 Questo argomento illustra come configurare i log di monitoraggio di Azure quando si crea l'app per la logica. Per attivare i log di monitoraggio di Azure per le app per la logica esistenti, seguire questa procedura per [attivare la registrazione diagnostica e inviare i dati di runtime dell'app per la logica ai log di monitoraggio di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> Questa pagina descrive in precedenza i passaggi per eseguire queste attività con il Microsoft Operations Management Suite (OMS), che è stato [ritirato nel 2019 gennaio](../azure-monitor/platform/oms-portal-transition.md)e sostituisce i passaggi con i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md), che hanno sostituito il termine log Analytics. I dati di log vengono comunque archiviati in un'area di lavoro Log Analytics e vengano ancora raccolti e analizzati dallo stesso servizio Log Analytics. Per altre informazioni, vedere [modifiche](../azure-monitor/terminology.md)della terminologia di monitoraggio di Azure.
+> Questa pagina descrive in precedenza i passaggi per eseguire queste attività con il Microsoft Operations Management Suite (OMS), che è stato [ritirato nel 2019 gennaio](../azure-monitor/platform/oms-portal-transition.md)e sostituisce i passaggi con i [log di monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md), che hanno sostituito il termine log Analytics. I dati di log vengono comunque archiviati in un'area di lavoro Log Analytics e vengano ancora raccolti e analizzati dallo stesso servizio Log Analytics. Per altre informazioni, vedere [modifiche della terminologia di monitoraggio di Azure](../azure-monitor/terminology.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -65,7 +64,7 @@ Se sono già stati configurati i log di monitoraggio di Azure durante la creazio
 
    ![Selezionare l'area di lavoro Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Nel riquadro Panoramica, in Introduzione **a log Analytics** > **configurare le soluzioni di monitoraggio**, selezionare **Visualizza soluzioni**.
+1. Nel riquadro Panoramica, in Introduzione **a Log Analytics** > configurare le **soluzioni di monitoraggio**, selezionare **Visualizza soluzioni**.
 
    ![Selezionare "Visualizza soluzioni"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -95,7 +94,7 @@ Se sono già stati configurati i log di monitoraggio di Azure durante la creazio
 
 Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e il numero delle esecuzioni nel riquadro **Gestione app per la logica**.
 
-1. Passare all'area di lavoro log Analytics e selezionare **Riepilogo** > area di lavoro**gestione app**per la logica.
+1. Passare all'area di lavoro Log Analytics e selezionare **Riepilogo area di lavoro** > **gestione app**per la logica.
 
    ![Stato e numero di esecuzioni dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary.png)
 
@@ -111,23 +110,23 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e i
 
    Questa pagina include opzioni avanzate: 
 
-   * Colonna **Proprietà** rilevate: Per un'app per la logica in cui si impostano le proprietà rilevate, raggruppate per azioni, è possibile visualizzare tali proprietà da questa colonna. Per visualizzare le proprietà rilevate, selezionare **Visualizza**. Per cercare le proprietà rilevate, usare il filtro di colonna.
+   * Colonna **proprietà rilevate** : per un'app per la logica in cui si configurano le proprietà rilevate, raggruppate per azioni, è possibile visualizzare tali proprietà da questa colonna. Per visualizzare le proprietà rilevate, selezionare **Visualizza**. Per cercare le proprietà rilevate, usare il filtro di colonna.
 
       ![Visualizzare le proprietà rilevate per un'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
       Tutte le proprietà rilevate che vengono aggiunte potrebbero richiedere 10-15 minuti per essere visualizzate la prima volta. Informazioni su [come aggiungere proprietà rilevate all'app per la logica](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Invia**di seguito: È possibile inviare nuovamente una o più esecuzioni di app per la logica non riuscite, riuscite o ancora in esecuzione. Selezionare le caselle di controllo per le esecuzioni che si desidera inviare nuovamente, quindi selezionare **Invia**di più.
+   * **Invia nuovamente**: è possibile inviare nuovamente una o più esecuzioni di app per la logica non riuscite, riuscite o ancora in esecuzione. Selezionare le caselle di controllo per le esecuzioni che si desidera inviare nuovamente, quindi selezionare **Invia**di più.
 
      ![Inviare di nuovo le esecuzioni delle app per la logica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Per filtrare i risultati, è possibile eseguire il filtro lato client e lato server.
 
-   * **Filtro lato client:** Per ogni colonna, selezionare i filtri desiderati, ad esempio:
+   * **Filtro lato client**: per ogni colonna, selezionare i filtri desiderati, ad esempio:
 
      ![Esempi di filtri di colonna](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Filtro lato server**: Per selezionare un intervallo di tempo specifico o per limitare il numero di esecuzioni visualizzate, usare il controllo ambito nella parte superiore della pagina. Per impostazione predefinita, vengono visualizzati contemporaneamente solo 1.000 record.
+   * **Filtro lato server**: per selezionare un intervallo di tempo specifico o per limitare il numero di esecuzioni visualizzate, usare il controllo ambito nella parte superiore della pagina. Per impostazione predefinita, vengono visualizzati contemporaneamente solo 1.000 record.
 
      ![Modificare l'intervallo di tempo](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
 

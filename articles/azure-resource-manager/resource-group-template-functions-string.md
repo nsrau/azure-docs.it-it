@@ -3,12 +3,12 @@ title: Funzioni modello-stringa
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per operare con le stringhe.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 37bf03f2934980d143edeec327a0c424216fd8a1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149603"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784511"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funzioni di stringa nei modelli di Azure Resource Manager
 
@@ -54,11 +54,11 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 Restituisce la rappresentazione base64 della stringa di input.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Sì |stringa |Il valore da restituire come rappresentazione base64. |
+| inputString |SÌ |string |Il valore da restituire come rappresentazione base64. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -107,11 +107,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
+| base64Output | Stringa | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Stringa | one, two, three |
+| toJsonOutput | Oggetto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
 
@@ -119,11 +119,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Converte una rappresentazione base64 in un oggetto JSON.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sì |stringa |Rappresentazione base64 da convertire in un oggetto JSON. |
+| base64Value |SÌ |string |Rappresentazione base64 da convertire in un oggetto JSON. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -172,11 +172,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
+| base64Output | Stringa | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Stringa | one, two, three |
+| toJsonOutput | Oggetto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
@@ -184,11 +184,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Converte una rappresentazione base64 in una stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sì |stringa |Rappresentazione base64 da convertire in stringa. |
+| base64Value |SÌ |string |Rappresentazione base64 da convertire in stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -237,11 +237,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
+| base64Output | Stringa | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Stringa | one, two, three |
+| toJsonOutput | Oggetto | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
 
@@ -249,14 +249,17 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Combina più valori stringa e restituisce la stringa concatenata oppure combina più matrici e restituisce la matrice concatenata.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa o matrice |Il primo valore per la concatenazione. |
-| argomenti aggiuntivi |No |stringa |Altri valori in ordine sequenziale per la concatenazione. |
+| arg1 |SÌ |Stringa o matrice |Prima stringa o matrice per la concatenazione. |
+| Argomenti aggiuntivi |No |Stringa o matrice |Stringhe o matrici aggiuntive in ordine sequenziale per la concatenazione. |
+
+Questa funzione può accettare qualsiasi numero di argomenti e può accettare stringhe o matrici per i parametri. Tuttavia, non è possibile fornire sia matrici che stringhe per i parametri. Le stringhe vengono concatenate solo con altre stringhe.
 
 ### <a name="return-value"></a>Valore restituito
+
 Stringa o matrice di valori concatenati.
 
 ### <a name="examples"></a>esempi
@@ -285,9 +288,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Stringa | prefix-5yj4yjf5mbg72 |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) seguente illustra come combinare due matrici.
 
@@ -326,7 +329,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -336,12 +339,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa. Il confronto fra stringhe fa distinzione tra maiuscole e minuscole. Tuttavia, quando si testa se un oggetto contiene una chiave, il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| Contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
-| itemToFind |Sì |stringa o int |Valore da trovare. |
+| Contenitore |SÌ |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
+| itemToFind |SÌ |Stringa o numero intero |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -402,14 +405,14 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringTrue | Bool | true |
-| stringFalse | Bool | False |
-| objectTrue | Bool | true |
-| objectFalse | Bool | False |
-| arrayTrue | Bool | true |
-| arrayFalse | Bool | False |
+| stringTrue | Booleano | Vero |
+| stringFalse | Booleano | Falso |
+| objectTrue | Booleano | Vero |
+| objectFalse | Booleano | Falso |
+| arrayTrue | Booleano | Vero |
+| arrayFalse | Booleano | Falso |
 
 ## <a name="datauri"></a>dataUri
 
@@ -417,11 +420,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Converte un valore in un URI di dati.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sì |stringa |Valore da convertire in un URI di dati. |
+| stringToConvert |SÌ |string |Valore da convertire in un URI di dati. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -461,10 +464,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Stringa | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Stringa | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -472,11 +475,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Converte un valore formattato come URI di dati in una stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sì |stringa |Valore dell'URI di dati da convertire. |
+| dataUriToConvert |SÌ |string |Valore dell'URI di dati da convertire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -516,10 +519,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Stringa | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Stringa | Hello, World! |
 
 ## <a name="empty"></a>empty
 
@@ -527,11 +530,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Determina se una matrice, un oggetto o una stringa sono vuoti.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sì |matrice, oggetto o stringa |Valore per verificare se è vuoto. |
+| itemToTest |SÌ |matrice, oggetto o stringa |Valore per verificare se è vuoto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -580,11 +583,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | true |
-| objectEmpty | Bool | true |
-| stringEmpty | Bool | true |
+| arrayEmpty | Booleano | Vero |
+| objectEmpty | Booleano | Vero |
+| stringEmpty | Booleano | Vero |
 
 ## <a name="endswith"></a>endsWith
 
@@ -592,12 +595,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Determina se una stringa termina con un valore. Il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |SÌ |string |Valore che contiene l'elemento da cercare. |
+| stringToFind |SÌ |string |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -643,14 +646,14 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| startsTrue | Bool | true |
-| startsCapTrue | Bool | true |
-| startsFalse | Bool | False |
-| endsTrue | Bool | true |
-| endsCapTrue | Bool | true |
-| endsFalse | Bool | False |
+| startsTrue | Booleano | Vero |
+| startsCapTrue | Booleano | Vero |
+| startsFalse | Booleano | Falso |
+| endsTrue | Booleano | Vero |
+| endsCapTrue | Booleano | Vero |
+| endsFalse | Booleano | Falso |
 
 ## <a name="first"></a>first
 
@@ -658,11 +661,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce il primo carattere della stringa o il primo elemento della matrice.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
+| arg1 |SÌ |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -699,10 +702,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Stringa | uno |
+| stringOutput | Stringa | O |
 
 ## <a name="format"></a>format
 
@@ -710,13 +713,13 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Crea una stringa formattata dai valori di input.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| formatString | Sì | stringa | Stringa in formato composito. |
-| arg1 | Sì | stringa, Integer o booleano | Valore da includere nella stringa formattata. |
-| argomenti aggiuntivi | No | stringa, Integer o booleano | Valori aggiuntivi da includere nella stringa formattata. |
+| formatString | SÌ | string | Stringa in formato composito. |
+| arg1 | SÌ | stringa, Integer o booleano | Valore da includere nella stringa formattata. |
+| Argomenti aggiuntivi | No | stringa, Integer o booleano | Valori aggiuntivi da includere nella stringa formattata. |
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -757,22 +760,22 @@ Il modello di esempio seguente mostra come usare la funzione Format.
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. Numero formattato: 8.175.133 |
+| formatTest | Stringa | Hello, User. Numero formattato: 8.175.133 |
 
-## <a name="guid"></a>guid
+## <a name="guid"></a>GUID
 
 `guid(baseString, ...)`
 
 Crea un valore con il formato di un identificatore univoco globale in base ai valori specificati come parametri.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Sì |stringa |Il valore usato nella funzione hash per creare il GUID. |
-| parametri aggiuntivi in base alle esigenze |No |stringa |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
+| baseString |SÌ |string |Il valore usato nella funzione hash per creare il GUID. |
+| parametri aggiuntivi in base alle esigenze |No |string |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -838,12 +841,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Restituisce la prima posizione di un valore all'interno di una stringa. Il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |SÌ |string |Valore che contiene l'elemento da cercare. |
+| stringToFind |SÌ |string |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -885,13 +888,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
-| lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 ## <a name="last"></a>last
 
@@ -899,11 +902,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce il primo carattere della stringa o l'ultimo elemento della matrice.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
+| arg1 |SÌ |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -940,10 +943,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Stringa | tre |
+| stringOutput | Stringa | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -951,12 +954,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce l'ultima posizione di un valore all'interno di una stringa. Il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |SÌ |string |Valore che contiene l'elemento da cercare. |
+| stringToFind |SÌ |string |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -998,13 +1001,13 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
-| lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 ## <a name="length"></a>length
 
@@ -1012,11 +1015,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce il numero di caratteri in una stringa, elementi in una matrice o proprietà a livello di radice in un oggetto.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
+| arg1 |SÌ |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1076,11 +1079,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
-| objectLength | int | 4 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1131,9 +1134,9 @@ Il modello di esempio seguente mostra un parametro con un nuovo identificatore.
 
 L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| guidOutput | stringa | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 Nell'esempio seguente viene usata la funzione newGuid per creare un nome univoco per un account di archiviazione. Questo modello potrebbe funzionare per l'ambiente di test in cui l'account di archiviazione esiste per un breve periodo di tempo e non viene ridistribuito.
 
@@ -1174,9 +1177,9 @@ Nell'esempio seguente viene usata la funzione newGuid per creare un nome univoco
 
 L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| nameOutput | stringa | storagenziwvyru7uxie |
+| nameOutput | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1185,12 +1188,12 @@ L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a
 
 Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a sinistra, fino a raggiungere la lunghezza totale specificata.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Sì |stringa o int |Il valore per eseguire l'allineamento a destra. |
-| totalLength |Sì |int |Numero totale di caratteri della stringa restituita. |
+| valueToPad |SÌ |Stringa o numero intero |Il valore per eseguire l'allineamento a destra. |
+| totalLength |SÌ |int |Numero totale di caratteri della stringa restituita. |
 | paddingCharacter |No |Carattere singolo |Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale. Il valore predefinito è uno spazio. |
 
 Se la stringa originale è più lunga rispetto al numero di caratteri di riempimento, non vengono aggiunti caratteri.
@@ -1225,9 +1228,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Stringa | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1235,13 +1238,13 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce una nuova stringa con tutte le istanze di una stringa sostituita con un'altra stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Sì |stringa |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
-| oldString |Sì |stringa |Stringa da rimuovere dalla stringa originale. |
-| newString |Sì |stringa |Stringa da aggiungere al posto della stringa rimossa. |
+| originalString |SÌ |string |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
+| oldString |SÌ |string |Stringa da rimuovere dalla stringa originale. |
+| newString |SÌ |string |Stringa da aggiungere al posto della stringa rimossa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1277,10 +1280,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput | Stringa | 1231231234 |
+| secondOutput | Stringa | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1288,12 +1291,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce una stringa con tutti i caratteri dopo il numero specificato di caratteri o una matrice con tutti gli elementi dopo il numero specificato di elementi.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
-| numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se è maggiore della lunghezza della matrice o della stringa, viene restituita una matrice o una stringa vuota. |
+| originalValue |SÌ |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| numberToSkip |SÌ |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se è maggiore della lunghezza della matrice o della stringa, viene restituita una matrice o una stringa vuota. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1345,10 +1348,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Stringa | two three |
 
 ## <a name="split"></a>split
 
@@ -1356,12 +1359,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce una matrice di stringhe che contiene le sottostringhe della stringa di input delimitate dai delimitatori specificati.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Sì |stringa |Stringa da dividere. |
-| delimiter |Sì |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
+| inputString |SÌ |string |Stringa da dividere. |
+| delimiter |SÌ |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1404,7 +1407,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | firstOutput | Array | ["one", "two", "three"] |
 | secondOutput | Array | ["one", "two", "three"] |
@@ -1415,12 +1418,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Determina se una stringa inizia con un valore. Il confronto non fa distinzione tra maiuscole e minuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |SÌ |string |Valore che contiene l'elemento da cercare. |
+| stringToFind |SÌ |string |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1466,26 +1469,26 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| startsTrue | Bool | true |
-| startsCapTrue | Bool | true |
-| startsFalse | Bool | False |
-| endsTrue | Bool | true |
-| endsCapTrue | Bool | true |
-| endsFalse | Bool | False |
+| startsTrue | Booleano | Vero |
+| startsCapTrue | Booleano | Vero |
+| startsFalse | Booleano | Falso |
+| endsTrue | Booleano | Vero |
+| endsCapTrue | Booleano | Vero |
+| endsFalse | Booleano | Falso |
 
-## <a name="string"></a>stringa
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
 Converte il valore specificato in una stringa.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sì | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
+| valueToConvert |SÌ | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1540,11 +1543,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | Stringa | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | Stringa | ["a","b","c"] |
+| intOutput | Stringa | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1552,11 +1555,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce una sottostringa che inizia nella posizione del carattere specificato e contiene il numero di caratteri specificato.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sì |stringa |La stringa originale da cui estrarre la sottostringa. |
+| stringToParse |SÌ |string |La stringa originale da cui estrarre la sottostringa. |
 | startIndex |No |int |La posizione del carattere iniziale in base zero della sottostringa. |
 | length |No |int |Il numero di caratteri della sottostringa. Deve fare riferimento a una posizione nella stringa. Deve essere uguale a o maggiore di zero. |
 
@@ -1603,9 +1606,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| substringOutput | String | two |
+| substringOutput | Stringa | due |
 
 ## <a name="take"></a>take
 
@@ -1613,12 +1616,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce una stringa con il numero specificato di caratteri dall'inizio della stringa o una matrice con il numero specificato di elementi dall'inizio della matrice.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
-| numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se è maggiore della lunghezza della stringa o della matrice specificata, vengono restituiti tutti gli elementi della matrice o della stringa. |
+| originalValue |SÌ |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
+| numberToTake |SÌ |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se è maggiore della lunghezza della stringa o della matrice specificata, vengono restituiti tutti gli elementi della matrice o della stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1670,10 +1673,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | in |
+| stringOutput | Stringa | in |
 
 ## <a name="tolower"></a>toLower
 
@@ -1681,11 +1684,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Converte la stringa specificata in caratteri minuscoli.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sì |stringa |Il valore da convertire in lettere minuscole. |
+| stringToChange |SÌ |string |Il valore da convertire in lettere minuscole. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1721,10 +1724,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Stringa | one two three |
+| toUpperOutput | Stringa | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1732,11 +1735,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Converte la stringa specificata in lettere maiuscole.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sì |stringa |Il valore da convertire in lettere maiuscole. |
+| stringToChange |SÌ |string |Il valore da convertire in lettere maiuscole. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1772,10 +1775,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Stringa | one two three |
+| toUpperOutput | Stringa | ONE TWO THREE |
 
 ## <a name="trim"></a>Trim
 
@@ -1783,11 +1786,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specificata.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sì |stringa |Il valore da tagliare. |
+| stringToTrim |SÌ |string |Il valore da tagliare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1819,9 +1822,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | Stringa | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1829,12 +1832,12 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Crea una stringa hash deterministica in base ai valori forniti come parametri. 
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Sì |stringa |Il valore usato nella funzione hash per creare una stringa univoca. |
-| parametri aggiuntivi in base alle esigenze |No |stringa |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
+| baseString |SÌ |string |Il valore usato nella funzione hash per creare una stringa univoca. |
+| parametri aggiuntivi in base alle esigenze |No |string |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -1907,12 +1910,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sì |stringa |La stringa URI di base. Prestare attenzione a osservare il comportamento relativo alla gestione della barra finale ('/'), come descritto nella tabella seguente.  |
-| relativeUri |Sì |stringa |La stringa URI relativa da aggiungere alla stringa di URI di base. |
+| baseUri |SÌ |string |La stringa URI di base. Prestare attenzione a osservare il comportamento relativo alla gestione della barra finale ('/'), come descritto nella tabella seguente.  |
+| relativeUri |SÌ |string |La stringa URI relativa da aggiungere alla stringa di URI di base. |
 
 * Se **baseUri** termina con una barra finale, il risultato è semplicemente **baseUri** seguito da **relativeUri**.
 
@@ -1975,11 +1978,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Stringa | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1987,11 +1990,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Codifica un URI.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sì |stringa |Valore da codificare. |
+| stringToEncode |SÌ |string |Valore da codificare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -2030,11 +2033,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Stringa | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2042,11 +2045,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce una stringa di un valore URI codificato.
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sì |stringa |Valore URI codificato da convertire in stringa. |
+| uriEncodedString |SÌ |string |Valore URI codificato da convertire in stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -2085,11 +2088,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Stringa | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Stringa | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2097,11 +2100,11 @@ L'output dell'esempio precedente con i valori predefiniti è:
 
 Restituisce il valore DateTime corrente (UTC) nel formato specificato. Se non viene specificato alcun formato, viene usato il formato ISO 8601 (yyyyMMddTHHmmssZ). **Questa funzione può essere usata solo nel valore predefinito per un parametro.**
 
-### <a name="parameters"></a>parametri
+### <a name="parameters"></a>parameters
 
-| . | obbligatori | digitare | DESCRIZIONE |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |No |stringa |Valore URI codificato da convertire in stringa. Utilizzare [stringhe di formato standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [stringhe di formato personalizzate](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |No |string |Valore URI codificato da convertire in stringa. Utilizzare [stringhe di formato standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [stringhe di formato personalizzate](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -2158,11 +2161,11 @@ Il modello di esempio seguente mostra formati diversi per il valore DateTime.
 
 L'output dell'esempio precedente varia per ogni distribuzione, ma sarà simile a:
 
-| Nome | digitare | Valore |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| utcOutput | stringa | 20190305T175318Z |
-| utcShortOutput | stringa | 03/05/2019 |
-| utcCustomOutput | stringa | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
 
 Nell'esempio seguente viene illustrato come utilizzare un valore della funzione quando si imposta un valore di tag.
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326600"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790011"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilizzo delle proiezioni in un archivio informazioni in Azure ricerca cognitiva
 
@@ -28,11 +28,11 @@ Le proiezioni possono essere tabulari, con dati archiviati in righe e colonne ne
 
 L'archivio informazioni supporta tre tipi di proiezioni:
 
-+ **Tabelle**: per i dati rappresentati in modo ottimale come righe e colonne, le proiezioni di tabella consentono di definire una forma o proiezione schematizzato nell'archivio tabelle.
++ **Tabelle**: per i dati rappresentati in modo ottimale come righe e colonne, le proiezioni di tabella consentono di definire una forma o proiezione schematizzato nell'archivio tabelle. Solo gli oggetti JSON validi possono essere proiettati come tabelle, il documento arricchito può contenere nodi che non sono oggetti JSON denominati e quando proiettano questi oggetti, creare un oggetto JSON valido con un'abilità di shaper o un shaping in linea.
 
-+ **Oggetti**: quando è necessaria una rappresentazione JSON dei dati e degli arricchimenti, le proiezioni di oggetti vengono salvate come BLOB.
++ **Oggetti**: quando è necessaria una rappresentazione JSON dei dati e degli arricchimenti, le proiezioni di oggetti vengono salvate come BLOB. Solo gli oggetti JSON validi possono essere proiettati come oggetti, il documento arricchito può contenere nodi che non sono oggetti JSON denominati e quando proiettano questi oggetti, creare un oggetto JSON valido con un'abilità di shaper o un shaping in linea.
 
-+ **File**: quando è necessario salvare le immagini estratte dai documenti, le proiezioni di file consentono di salvare le immagini normalizzate.
++ **File**: quando è necessario salvare le immagini estratte dai documenti, le proiezioni di file consentono di salvare le immagini normalizzate nell'archivio BLOB.
 
 Per visualizzare le proiezioni definite nel contesto, eseguire un'istruzione per iniziare a [usare l'archivio informazioni](knowledge-store-howto.md).
 
@@ -47,7 +47,7 @@ Questa indipendenza implica che è possibile avere gli stessi dati a forma diver
 
 ### <a name="relatedness"></a>Correlazione
 
-I gruppi di proiezione consentono ora di proiettare i documenti tra tipi di proiezione mantenendo le relazioni tra i tipi di proiezione. Tutto il contenuto proiettato all'interno di un singolo gruppo di proiezione conserva le relazioni all'interno dei dati tra i tipi di proiezione. All'interno delle tabelle, le relazioni sono basate su una chiave generata e ogni nodo figlio mantiene un riferimento al nodo padre. Tra i tipi (tabelle, oggetti e file), le relazioni vengono mantenute quando un singolo nodo viene proiettato tra tipi diversi. Si consideri ad esempio uno scenario in cui è presente un documento contenente immagini e testo. È possibile proiettare il testo in tabelle o oggetti e le immagini in file in cui le tabelle o gli oggetti hanno una proprietà contenente l'URL del file.
+I gruppi di proiezione consentono ora di proiettare i documenti tra tipi di proiezione mantenendo le relazioni tra i tipi di proiezione. Tutto il contenuto proiettato all'interno di un singolo gruppo di proiezione conserva le relazioni all'interno dei dati tra i tipi di proiezione. All'interno delle tabelle, le relazioni sono basate su una chiave generata e ogni nodo figlio mantiene un riferimento al nodo padre. Tra i tipi (tabelle, oggetti e file), le relazioni vengono mantenute quando un singolo nodo viene proiettato tra tipi diversi. Si consideri ad esempio uno scenario in cui è presente un documento contenente immagini e testo. È possibile proiettare il testo a tabelle o oggetti e le immagini nei file in cui le tabelle o gli oggetti hanno una colonna o una proprietà che contiene l'URL del file.
 
 ## <a name="input-shaping"></a>Shaping input
 

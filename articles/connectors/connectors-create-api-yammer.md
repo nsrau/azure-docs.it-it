@@ -1,22 +1,18 @@
 ---
-title: Connettersi a Yammer da App per la logica di Azure | Microsoft Docs
+title: Connettersi a Yammer da app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per il monitoraggio, la pubblicazione e la gestione di messaggi, feed e altro in Yammer con App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050649"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789070"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorare e gestire l'account Yammer con App per la logica di Azure
 
@@ -26,7 +22,7 @@ Con App per la logica di Azure e il connettore Yammer, è possibile creare attiv
 * Recupero di messaggi, gruppi, reti, dettagli degli utenti e altro ancora.
 * Pubblicazione e like di messaggi.
 
-È possibile usare i trigger per ottenere risposte dall'account Yammer e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Yammer. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Yammer. Ad esempio, quando vengono visualizzati nuovi messaggi in feed o gruppi, è possibile condividere tali messaggi con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+È possibile usare i trigger per ottenere risposte dall'account Yammer e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Yammer. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Yammer. Ad esempio, quando vengono visualizzati nuovi messaggi in feed o gruppi, è possibile condividere tali messaggi con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -63,7 +59,7 @@ Con App per la logica di Azure e il connettore Yammer, è possibile creare attiv
      Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
      
        Nella casella di ricerca immettere "yammer" come filtro. 
-       Nell'elenco delle azioni selezionare l'azione desiderata.
+       Nell'elenco delle azioni scegliere l'azione desiderata.
 
 1. Se viene richiesto di accedere a Yammer, accedere ora per poter consentire l'accesso.
 
@@ -73,7 +69,7 @@ Con App per la logica di Azure e il connettore Yammer, è possibile creare attiv
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/yammer/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

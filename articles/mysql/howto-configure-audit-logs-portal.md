@@ -1,17 +1,17 @@
 ---
-title: Configurare e accedere ai log di controllo-database di Azure per MySQL
+title: Accedere ai log di controllo-portale di Azure-database di Azure per MySQL
 description: Questo articolo descrive come configurare e accedere ai log di controllo nel database di Azure per MySQL dalla portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 2a2d2a697f0e41fb296c61c01909a814678f8277
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: ff1a6c63b6eb99acdef955806a138e3e22b8902a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350399"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773711"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configurare e accedere ai log di controllo per database di Azure per MySQL nel portale di Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "71350399"
 > [!IMPORTANT]
 > La funzionalità del log di controllo è attualmente in anteprima.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questa guida è necessario:
 

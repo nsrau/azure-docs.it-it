@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014309"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786368"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -50,10 +50,10 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 
 È anche possibile accedere a livello di codice ai dati di accesso usando l'[API di creazione report](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Codici di errore
+## <a name="error-codes"></a>Codici errore
 
 
-|Tipi di errore|Descrizione|
+|Errore|Description|
 |---|---|
 |16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -107,7 +107,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50128|Nome di dominio non valido. Non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite.|
 |50129|Il dispositivo non è aggiunto all'area di lavoro: per registrare il dispositivo è necessaria l'**aggiunta alla rete aziendale**.|
 |50130|Il valore attestazione non può essere interpretato come metodo di autenticazione noto.|
-|50131|Utilizzato in diversi errori di accesso condizionale. ad esempio Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
+|50131|Utilizzato in diversi errori di accesso condizionale. Ad esempio, Stato del dispositivo Windows non valido, richiesta bloccata a causa di un'attività sospetta oppure a causa di decisioni relative a criteri di accesso e criteri di sicurezza.|
 |50132|Le credenziali sono state revocate per i motivi seguenti:<ul><li>L'elemento SSO non è valido o è scaduto</li><li>La sessione non è sufficientemente aggiornata per l'applicazione</li><li>È stata inviata una richiesta di accesso automatico, ma la sessione dell'utente con Azure AD non è valida o è scaduta.</li></ul>|
 |50133|La sessione non è valida perché è scaduta o la password è stata modificata di recente.|
 |50135|È richiesta la modifica della password a causa di rischi per l'account.|
@@ -181,7 +181,8 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |90051| Token di delega non valido. È stato specificato un ID cloud nazionale non valido ({cloudId}).|
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|
 |90094| La concessione richiede le autorizzazioni di amministratore. Chiedere all'amministratore del tenant di fornire il consenso per l'applicazione.|
-|500021|Il tenant è limitato dal proxy aziendale. Negazione dell'accesso alle risorse.|
+|500011| L'entità di risorsa denominata <site address> non è stata trovata nel tenant denominato <tenant ID>. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. La richiesta di autenticazione potrebbe essere stata inviata al tenant sbagliato.|
+|500021| Il tenant è limitato dal proxy aziendale. Negazione dell'accesso alle risorse.|
 |500121| Autenticazione non riuscita durante la richiesta di autenticazione avanzata.|
 |500133| L'asserzione non è compresa nell'intervallo di tempo valido. Assicurarsi che il token di accesso non sia scaduto prima di usarlo per l'asserzione utente o richiedere un nuovo token.|
 |530021|L'applicazione non soddisfa i requisiti dell'app approvata per l'accesso condizionale.|

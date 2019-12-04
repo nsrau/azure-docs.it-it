@@ -1,22 +1,18 @@
 ---
-title: Connettersi a SharePoint da App per la logica di Azure | Microsoft Docs
+title: Connettersi a SharePoint da app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per il monitoraggio e la gestione delle risorse in SharePoint Online o SharePoint Server in locale usando App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050777"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789257"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorare e gestire le risorse di SharePoint con App per la logica di Azure
 
@@ -35,7 +31,7 @@ Con App per la logica di Azure e il connettore SharePoint, è possibile creare a
 * Ottenere valori di entità.
 
 È possibile usare i trigger per ottenere risposte da SharePoint e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività in SharePoint. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SharePoint. Se ad esempio si recuperano periodicamente file da SharePoint, è possibile inviare messaggi al proprio team tramite il connettore Slack.
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -67,7 +63,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione di SharePoint, scegliere **Nuovo passaggio**. 
    Nella casella di ricerca immettere "sharepoint" come filtro. 
-   Nell'elenco delle azioni selezionare l'azione desiderata.
+   Nell'elenco delle azioni scegliere l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
    Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
@@ -80,7 +76,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sharepoint/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

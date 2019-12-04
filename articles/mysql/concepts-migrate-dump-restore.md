@@ -1,17 +1,17 @@
 ---
-title: Eseguire la migrazione del database MySQL usando dump e ripristino in Database di Azure per MySQL
+title: Eseguire la migrazione tramite dump e Restore-database di Azure per MySQL
 description: Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL usando strumenti come mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2018
-ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: 65cd5e637434c717ab9ba1b5598c467eea9b4a74
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390552"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770935"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
@@ -49,7 +49,7 @@ Per ottimizzare le prestazioni, tenere presenti le considerazioni seguenti duran
 -   Usare le tabelle partizionate quando appropriato.
 -   Caricare i dati in parallelo. Evitare un eccessivo parallelismo che comporterebbe il raggiungimento del limite di risorse e monitorare le risorse con le metriche offerta nel portale di Azure. 
 -   Usare l'opzione `defer-table-indexes` in mysqlpump durante il dump dei database, in modo che la creazione dell'indice venga eseguita dopo il caricamento dei dati delle tabelle.
--   Utilizzare l' `skip-definer` opzione in mysqlpump per omettere le clausole definitive e di sicurezza SQL dalle istruzioni create per le viste e le stored procedure.  Quando si ricarica il file di dump, vengono creati oggetti che utilizzano i valori predefiniti di sicurezza di SQL e del delimitatore.
+-   Utilizzare l'opzione `skip-definer` in mysqlpump per omettere le clausole definitive e di sicurezza SQL dalle istruzioni create per le viste e le stored procedure.  Quando si ricarica il file di dump, vengono creati oggetti che utilizzano i valori predefiniti di sicurezza di SQL e del delimitatore.
 -   Copiare i file di backup in un archivio/BLOB di Azure ed eseguire il ripristino da tale posizione. In questo modo, l'operazione dovrebbe essere eseguita in modo molto più veloce rispetto al ripristino attraverso Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Creare un file di backup dalla riga di comando tramite mysqldump

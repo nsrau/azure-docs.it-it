@@ -1,26 +1,22 @@
 ---
-title: Connettersi a hub eventi di Azure-app per la logica di Azure
+title: Connettersi a Hub eventi di Azure
 description: Gestire e monitorare gli eventi con Hub eventi di Azure e App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 24f66782821f372f5c045dbb82db24fa8b6ad482
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051089"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789942"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure
 
-Questo articolo illustra come monitorare e gestire gli eventi inviati ad [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) dall'interno di un'app per la logica con il connettore di Hub eventi di Azure. In questo modo, è possibile creare app per la logica in grado di automatizzare attività e flussi di lavoro per il controllo, l'invio e la ricezione di eventi dall'Hub eventi. Per informazioni tecniche specifiche del connettore, vedere informazioni di [riferimento](https://docs.microsoft.com/connectors/eventhubs/)</a>sul connettore di hub eventi di Azure.
+Questo articolo illustra come monitorare e gestire gli eventi inviati ad [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) dall'interno di un'app per la logica con il connettore di Hub eventi di Azure. In questo modo, è possibile creare app per la logica in grado di automatizzare attività e flussi di lavoro per il controllo, l'invio e la ricezione di eventi dall'Hub eventi. Per informazioni tecniche specifiche del connettore, vedere le informazioni di [riferimento sul connettore di hub eventi di Azure](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +25,7 @@ Questo articolo illustra come monitorare e gestire gli eventi inviati ad [Hub ev
 * Uno [spazio dei nomi di Hub eventi di Azure e Hub eventi](../event-hubs/event-hubs-create.md)
 
 * L'app per la logica in cui si desidera accedere all'Hub eventi. Per avviare l'app per la logica con un trigger di Hub eventi di Azure, è necessaria un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 
@@ -68,9 +64,9 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
 1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-1. Nella casella di ricerca, immettere "hub eventi" come filtro. Nell'elenco di trigger selezionare questo trigger: **Quando sono disponibili eventi nell'hub eventi-Hub eventi**
+1. Nella casella di ricerca, immettere "hub eventi" come filtro. Dall'elenco trigger selezionare questo trigger: **quando sono disponibili eventi nell'hub eventi-Hub eventi**
 
-   ![Seleziona trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
+   ![Selezionare il trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
 1. Se vengono richiesti i dettagli della connessione, [creare la connessione ad Hub eventi](#create-connection). 
 
@@ -78,19 +74,19 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
    ![Proprietà del trigger](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
-   | **Nome hub eventi** | Sì | Nome dell'hub eventi che si vuole monitorare |
+   | **Nome hub eventi** | SÌ | Nome dell'hub eventi che si vuole monitorare |
    | **Tipo contenuto** | No | Tipo di contenuto dell'evento. Il valore predefinito è `application/octet-stream`. |
    | **Nome gruppo di consumer** | No | [Nome del gruppo di consumer dell'hub eventi](../event-hubs/event-hubs-features.md#consumer-groups) da usare per la lettura degli eventi. Se non specificato, viene usato il gruppo di consumer predefinito. |
    | **Numero massimo di eventi** | No | Numero massimo di eventi. Il trigger restituisce un valore compreso tra uno e il numero di eventi specificato da questa proprietà. |
-   | **Interval** | Sì | Numero intero positivo che descrive la frequenza con cui il flusso di lavoro viene eseguito in base alla frequenza |
-   | **Frequenza** | Sì | Unità di tempo per la ricorrenza |
+   | **Interval** | SÌ | Numero intero positivo che descrive la frequenza con cui il flusso di lavoro viene eseguito in base alla frequenza |
+   | **Frequenza** | SÌ | Unità di tempo per la ricorrenza |
    ||||
 
    **Proprietà aggiuntive**
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Schema del contenuto** | No | Schema del contenuto JSON per gli eventi da leggere dall'hub eventi. Se ad esempio si specifica lo schema del contenuto, è possibile attivare l'app per la logica solo per gli eventi che corrispondono allo schema. |
    | **Chiave di partizione minima** | No | Immettere l'ID di [partizione](../event-hubs/event-hubs-features.md#partitions) minima da leggere. Per impostazione predefinita, vengono lette tutte le partizioni. |
@@ -124,7 +120,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca, immettere "hub eventi" come filtro.
-Nell'elenco azioni selezionare questa azione: **Inviare eventi-Hub eventi**
+Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
 
    ![Selezionare l'azione "Invia evento"](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
@@ -134,9 +130,9 @@ Nell'elenco azioni selezionare questa azione: **Inviare eventi-Hub eventi**
 
    ![Selezionare il nome dell'hub eventi e specificare il contenuto dell'evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
-   | **Nome hub eventi** | Yes | Hub eventi in cui si vuole inviare l'evento |
+   | **Nome hub eventi** | SÌ | Hub eventi in cui si vuole inviare l'evento |
    | **Contenuto** | No | Contenuto dell'evento da inviare |
    | **Proprietà** | No | Proprietà dell'app e valori da inviare |
    | **Chiave di partizione** | No | ID della [partizione](../event-hubs/event-hubs-features.md#partitions) in cui inviare l'evento |
@@ -156,13 +152,13 @@ Nell'elenco azioni selezionare questa azione: **Inviare eventi-Hub eventi**
 
 1. Quando viene chiesto di immettere le informazioni di connessione, specificare questi dettagli:
 
-   | Proprietà | Obbligatorio | Value | DESCRIZIONE |
+   | Proprietà | Obbligatoria | Value | Description |
    |----------|----------|-------|-------------|
-   | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
-   | **Spazio dei nomi di hub eventi** | Sì | <*spazio dei nomi di hub eventi*> | Selezionare lo spazio dei nomi di Hub eventi da usare. |
+   | **Connection Name** (Nome connessione) | SÌ | <*nome connessione*> | Nome creato per la connessione |
+   | **Spazio dei nomi di hub eventi** | SÌ | <*spazio dei nomi di hub eventi*> | Selezionare lo spazio dei nomi di Hub eventi da usare. |
    |||||  
 
-   Ad esempio:
+   ad esempio:
 
    ![Creare una connessione a Hub eventi](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

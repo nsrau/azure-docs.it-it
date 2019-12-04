@@ -1,17 +1,17 @@
 ---
-title: Advanced Threat Protection-database di Azure per MariaDB | Microsoft Docs
+title: Advanced Threat Protection-database di Azure per MariaDB
 description: Advanced Threat Protection individua le attività di database anomale che indicano la presenza di potenziali minacce alla sicurezza nel database.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: a96d8c3b9f9e3f9b1aedf269bce141da3e4ccf42
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.date: 12/02/2019
+ms.openlocfilehash: 164457444fc097c0b1322909110f705726df1083
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869690"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772846"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Database di Azure per MariaDB Advanced Threat Protection
 
@@ -23,7 +23,7 @@ Advanced Threat Protection per database di Azure per MariaDB rileva attività an
 Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurezza dei dati avanzata), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com). La funzionalità è disponibile per i server per utilizzo generico e con ottimizzazione per la memoria.
 
 > [!NOTE]
-> La funzionalità Advanced Threat Protection **non** è disponibile nelle aree seguenti di cloud sovrano e Azure per enti pubblici: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.
+> La funzionalità Advanced Threat Protection **non** è disponibile nelle aree geografiche cloud sovrani di Azure: US Gov Texas, US Gov Arizona, US Gov Iowa, Stati Uniti, Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.
 
 
 ## <a name="what-is-advanced-threat-protection"></a>Che cos'è Advanced Threat Protection?
@@ -34,11 +34,11 @@ Advanced Threat Protection per database di Azure per MariaDB offre un nuovo live
 
 ## <a name="advanced-threat-protection-alerts"></a>Avvisi di Advanced Threat Protection 
 Advanced Threat Protection per database di Azure per MariaDB rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e possono attivare gli avvisi seguenti:
-- **Accesso da una posizione insolita**: Questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al database di Azure per il server MariaDB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un data center di Azure insolito**: Questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server da un data center di Azure insolito visualizzato nel server durante il periodo recente. In alcuni casi, l'avviso rileva un'azione legittima (la nuova applicazione in Azure, Power BI). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'entità di sicurezza non familiare**: Questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui qualcuno ha eseguito l'accesso al server usando un'entità di protezione insolita (database di Azure per l'utente di MariaDB). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da una posizione insolita**: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al database di Azure per il server MariaDB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un Data Center insolito di Azure**: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server da un'insolita Data Center di Azure visualizzata in questo server durante il periodo recente. In alcuni casi, l'avviso rileva un'azione legittima (la nuova applicazione in Azure, Power BI). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'entità di**protezione non familiare: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server usando un principale insolito (database di Azure per l'utente di MariaDB). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
 - **Accesso da un'applicazione potenzialmente dannosa**: questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
-- **Forza bruta per le credenziali del database di Azure per MariaDB**: questo avviso viene attivato quando si verifica un numero elevato anomalo di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
+- **Forza bruta database di Azure per le credenziali MariaDB**: questo avviso viene generato quando si verifica un numero elevato anomalo di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

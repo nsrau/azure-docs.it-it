@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286975"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784613"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi Azure Machine Learning
 
@@ -159,7 +159,7 @@ Se viene visualizzato un errore di `FailToSendFeather` durante la lettura dei da
 * Aggiungere `azureml-dataprep` versione 1.1.8 o successiva.
 * Aggiungere `pyarrow` versione 0,11 o successiva.
 
-## <a name="azure-portal"></a>portale di Azure
+## <a name="azure-portal"></a>Portale di Azure
 
 Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di condivisione da SDK o dal portale, non sarà possibile visualizzare la pagina Panoramica normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, la soluzione alternativa consiste nell'accedere direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
 
@@ -278,10 +278,10 @@ Si tratta di un limite noto della versione corrente.
 
 Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto. 
 
-### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>Impossibile disegnare il rettangolo di delimitazione fino al bordo destro dell'immagine 
-
-Provare a ridimensionare la finestra del browser. Si sta esaminando per determinare la ragione di questo comportamento. 
-
 ### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>Quando si esaminano le immagini, le immagini appena etichettate non vengono visualizzate
 
 Per caricare tutte le immagini con etichetta, scegliere il **primo** pulsante. Il **primo** pulsante consente di tornare all'inizio dell'elenco, ma carica tutti i dati con etichetta.
+
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Se si preme ESC mentre si assegna un'etichetta per il rilevamento di oggetti, viene creata un'etichetta con dimensioni pari a zero nell'angolo superiore sinistro. L'invio di etichette in questo stato non riesce.
+
+Eliminare l'etichetta facendo clic sul segno incrociato accanto.

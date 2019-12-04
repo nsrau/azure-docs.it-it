@@ -1,17 +1,17 @@
 ---
-title: Repliche in lettura in Database di Azure per MySQL.
+title: 'Leggere repliche: database di Azure per MySQL.'
 description: 'Informazioni sulle repliche di lettura nel database di Azure per MySQL: scelta delle aree, creazione di repliche, connessione alle repliche, monitoraggio della replica e arresto della replica.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158320"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790084"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -41,7 +41,9 @@ La funzionalità di lettura della replica usa la replica asincrona di MySQL. La 
 ### <a name="universal-replica-regions"></a>Aree di replica universale
 È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server master. Le aree di replica universale supportate includono:
 
-Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2.
+Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali.
+
+\* Stati Uniti occidentali 2 è temporaneamente non disponibile come percorso di replica tra aree.
 
 
 ### <a name="paired-regions"></a>Aree abbinate
@@ -146,7 +148,7 @@ I parametri del server seguenti sono bloccati nei server master e di replica:
 
 Il parametro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) è bloccato nei server di replica. 
 
-### <a name="other"></a>Altre
+### <a name="other"></a>Altro
 
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 - La creazione di una replica di replica non è supportata.

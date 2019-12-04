@@ -1,44 +1,44 @@
 ---
-title: Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti di Azure
-description: Informazioni su come risolvere i problemi con l'agente Gestione aggiornamenti.
+title: Informazioni sull'integrità del ruolo di lavoro ibrido per Runbook Windows in Azure Gestione aggiornamenti
+description: Informazioni su come risolvere i problemi del ruolo di lavoro ibrido per Runbook in Windows che supporta Gestione aggiornamenti.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480776"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763658"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Windows in Gestione aggiornamenti
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Informazioni sull'integrità del ruolo di lavoro ibrido per Runbook Windows in Gestione aggiornamenti
 
-Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
+Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti, è possibile verificare l'integrità di un agente di lavoro ibrido per Runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e dai computer non Azure nello [scenario offline](#troubleshoot-offline).
 
 L'elenco seguente indica i tre possibili stati di conformità di un computer:
 
-* **Pronto**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a meno di 1 ora fa.
-* **Disconnesso**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a più di 1 ora fa.
-* **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
+* **Pronto** : il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato meno di un'ora fa.
+* **Disconnesso** : il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato più di un'ora fa.
+* **Non configurato** : il ruolo di lavoro ibrido per Runbook non è stato trovato o non ha completato l'onboarding.
 
 > [!NOTE]
 > È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente del computer.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Per risolvere i problemi di un computer non Azure, vedere le [istruzioni relative allo scenario offline](#troubleshoot-offline).
+Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Per i computer non Azure, il collegamento riporta a questo articolo. Vedere le [istruzioni offline](#troubleshoot-offline) per risolvere i problemi relativi a un computer non Azure.
 
 ![Aggiornare l'elenco di gestione delle macchine virtuali](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Per controllare l'integrità di un agente, la macchina virtuale deve essere in esecuzione. Se la macchina virtuale non è in esecuzione, viene visualizzato il pulsante **Avvia macchina virtuale**.
+> Per verificare l'integrità del ruolo di lavoro ibrido per Runbook, la macchina virtuale deve essere in esecuzione. Se la macchina virtuale non è in esecuzione, viene visualizzato il pulsante **Avvia macchina virtuale**.
 
-Nella pagina **Risoluzione dei problemi dell'agente di aggiornamento** fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. La risoluzione dei problemi usa [Esegui comando](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer al fine di verificare le dipendenze dell'agente. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
+Nella pagina **Risoluzione dei problemi dell'agente di aggiornamento** fare clic su **Esegui controlli** per avviare la risoluzione dei problemi. Lo strumento di risoluzione dei problemi usa il [comando Run](../../virtual-machines/windows/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
 
 ![Pagina Risoluzione dei problemi dell'agente di aggiornamento](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -50,9 +50,9 @@ I risultati vengono visualizzati nella pagina quando sono pronti. Le sezioni dei
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per runbook esegue uno di questi sistemi operativi:
+Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per Runbook esegue uno dei sistemi operativi seguenti:
 
-|Sistema operativo  |note  |
+|Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supporta solo le valutazioni degli aggiornamenti.         |
 |Windows Server 2008 R2 SP1 e versioni successive |È necessario .NET Framework 4,6 o versione successiva. ([Scaricare .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5,1 è obbligatorio.  ([Scaricare Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come risolvere altri problemi dei ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook](hybrid-runbook-worker.md).
-

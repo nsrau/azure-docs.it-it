@@ -1,17 +1,17 @@
 ---
-title: Come configurare i parametri del server in Database di Azure per MySQL
+title: Configurare i parametri del server-portale di Azure-database di Azure per MySQL
 description: Questo articolo illustra come configurare i parametri di server MySQL in Database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: d589800f62f96510a09d23cb6e8794177121c6dd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.date: 12/02/2019
+ms.openlocfilehash: f803b7cccf3520c309e6b33d99b5565cfc4fdd01
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419710"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764917"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Come configurare i parametri di server in Database di Azure per MySQL usando il portale di Azure
 
@@ -37,21 +37,21 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 
 Le dimensioni del pool di buffer InnoDB non possono essere configurate e associate al piano [tariffario](concepts-service-tiers.md).
 
-|**Livello di prezzo**|**vCore**|**Dimensioni del pool di buffer InnoDB in MB <br>(server che supportano fino a 4 TB di archiviazione)**| **Dimensioni del pool di buffer InnoDB in MB <br>(server che supportano fino a 16 TB di archiviazione)**|
+|**Piano tariffario**|**vCore**|**Dimensioni del pool di buffer InnoDB in MB <br>(server che supportano fino a 4 TB di archiviazione)**| **Dimensioni del pool di buffer InnoDB in MB <br>(server che supportano fino a 16 TB di archiviazione)**|
 |:---|---:|---:|---:|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
-|Utilizzo generico| 2| 3584| 7168|
-|Utilizzo generico| 4| 7680| 15360|
-|Utilizzo generico| 8| 15360| 30720|
-|Utilizzo generico| 16| 31232| 62464|
-|Utilizzo generico| 32| 62976| 125952|
-|Utilizzo generico| 64| 125952| 251904|
-|Con ottimizzazione per la memoria| 2| 7168| 14336|
-|Con ottimizzazione per la memoria| 4| 15360| 30720|
-|Con ottimizzazione per la memoria| 8| 30720| 61440|
-|Con ottimizzazione per la memoria| 16| 62464| 124928|
-|Con ottimizzazione per la memoria| 32| 125952| 251904|
+|Scopo generico| 2| 3584| 7168|
+|Scopo generico| 4| 7680| 15360|
+|Scopo generico| 8| 15360| 30720|
+|Scopo generico| 16| 31232| 62464|
+|Scopo generico| 32| 62976| 125952|
+|Scopo generico| 64| 125952| 251904|
+|Ottimizzate per la memoria| 2| 7168| 14336|
+|Ottimizzate per la memoria| 4| 15360| 30720|
+|Ottimizzate per la memoria| 8| 30720| 61440|
+|Ottimizzate per la memoria| 16| 62464| 124928|
+|Ottimizzate per la memoria| 32| 125952| 251904|
 
 Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 
@@ -60,7 +60,7 @@ Questi parametri del server aggiuntivi non sono configurabili nel sistema:
 |innodb_file_per_table nel livello Basic|DISATTIVA|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|512MB|
+|innodb_log_file_size|512 MB|
 
 Gli altri parametri del server che non sono elencati qui vengono impostati sui valori predefiniti MySQL per le versioni [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 

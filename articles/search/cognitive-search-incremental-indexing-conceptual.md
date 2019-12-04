@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113593"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790941"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Che cos'è l'indicizzazione incrementale in Azure ricerca cognitiva?
 
@@ -47,7 +47,7 @@ Fisicamente, la cache è un account di archiviazione. Tutti gli indici in un ser
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -83,7 +83,7 @@ Oltre a spostarsi in avanti ed elaborare i nuovi documenti, gli indicizzatori or
 
 ### <a name="invalidating-changes"></a>Modifiche invalidanti
 
-Le modifiche invalidanti sono rare ma hanno un effetto significativo sullo stato della pipeline di arricchimento. Una modifica invalidante è una modifica che fa sì che l'intera cache non sia più valida. Un esempio di modifica invalidante è quello in cui l'origine dati viene aggiornata. Per gli scenari in cui si è certi che la modifica non deve invalidare la cache, ad esempio la rotazione della chiave nell'account di archiviazione, è necessario impostare il `ignoreResetRequirement` parametro QueryString su `true` sull'operazione di aggiornamento della risorsa specifica per assicurarsi che l'operazione sia non rifiutato.
+Le modifiche invalidanti sono rare ma hanno un effetto significativo sullo stato della pipeline di arricchimento. Una modifica invalidante è una modifica che fa sì che l'intera cache non sia più valida. Un esempio di modifica invalidante è quello in cui l'origine dati viene aggiornata. Per gli scenari in cui si è certi che la modifica non deve invalidare la cache, ad esempio la rotazione della chiave nell'account di archiviazione, è necessario impostare il `ignoreResetRequirement` parametro QueryString su `true` sull'operazione di aggiornamento della risorsa specifica per assicurarsi che l'operazione non venga rifiutata.
 
 Ecco l'elenco completo delle modifiche che, se apportate, invaliderebbero la cache:
 

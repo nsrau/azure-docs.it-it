@@ -1,17 +1,17 @@
 ---
-title: Log nel database di Azure per PostgreSQL-server singolo
-description: Concetti relativi alla configurazione della registrazione, all'archiviazione e all'analisi nel database di Azure per PostgreSQL-server singolo
+title: Log-database di Azure per PostgreSQL-server singolo
+description: Descrive la configurazione di registrazione, l'archiviazione e l'analisi nel database di Azure per PostgreSQL-server singolo
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9e8b1d08e950849773c9d8413c3ba4188d257d5b
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965940"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768215"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
 Database di Azure per PostgreSQL consente di configurare e accedere ai log standard di postgres. I log possono essere usati per identificare, risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. Le informazioni di registrazione che è possibile configurare e l'accesso includono errori, informazioni sulle query, record autovacuum, connessioni e Checkpoint. (L'accesso ai log delle transazioni non è disponibile).

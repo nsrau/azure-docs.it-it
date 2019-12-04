@@ -1,21 +1,19 @@
 ---
-title: Creare flussi di lavoro da modelli - App per la logica di Azure | Documentazione Microsoft
+title: Creare flussi di lavoro dai modelli
 description: Creare flussi di lavoro più rapidamente usando i modelli di app per la logica nell'App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459700"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793188"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
 
@@ -23,7 +21,7 @@ Per creare più rapidamente i flussi di lavoro, è possibile usare i modelli di 
 
 Ecco alcune categorie di modelli:
 
-| Tipo di modello | DESCRIZIONE | 
+| Tipo di modello | Description | 
 | ------------- | ----------- | 
 | Modelli cloud dell'organizzazione | Per l'integrazione di BLOB di Azure, Dynamics CRM, Salesforce, Box e include altri connettori per le esigenze cloud dell'organizzazione. Ad esempio, è possibile usare questi modelli per organizzare i clienti potenziali o creare un backup dei dati dei file aziendali. | 
 | Modelli per la produttività personale | Migliorare la produttività personale impostando promemoria giornalieri, trasformando importanti elementi di lavoro in elenchi di attività e automatizzando le attività di lunga durata fino ad avere un singolo passaggio di approvazione dell'utente. | 
@@ -36,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
 ## <a name="create-logic-apps-from-templates"></a>Creare app per la logica dai modelli
 
-1. Accedere al [portale di Azure](https://portal.azure.com "Azure portal"), se questa operazione non è già stata eseguita.
+1. Se non è già stato fatto, accedere al [portale di Azure](https://portal.azure.com "Portale di Azure").
 
 2. Nel menu principale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
 
@@ -46,13 +44,13 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
    ![Specificare i dettagli dell'app per la logica](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Impostazione | Valore | DESCRIZIONE | 
+   | Impostazione | Value | Description | 
    | ------- | ----- | ----------- | 
    | **Nome** | *nome-app-per-la-logica* | Specificare un nome univoco per l'app per la logica. | 
    | **Sottoscrizione** | *nome-sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 
    | **Gruppo di risorse** | *nome-gruppo-di-risorse-di-Azure* | Creare o selezionare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) per questa app per la logica e per organizzare tutte le risorse associate a questa app. | 
-   | **Posizione** | *area-data-center-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica, ad esempio Stati Uniti occidentali. | 
-   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Accendere [la registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica attraverso [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
+   | **Località** | *area-data-center-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica, ad esempio Stati Uniti occidentali. | 
+   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Abilitare la [registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica tramite i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
    |||| 
 
 4. Al termine, selezionare **Aggiungi al dashboard**. L'app per la logica verrà così visualizzata nel dashboard di Azure e aperta dopo la distribuzione. Scegliere **Create**.
@@ -63,7 +61,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    Quando Azure ha distribuito l'app per la logica, Progettazione app per la logica si apre e visualizza una pagina con un video introduttivo. 
    Sotto il video è possibile trovare i modelli di app per la logica comuni. 
 
-5. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. Ad esempio:
+5. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. ad esempio:
 
    ![Scegliere un modello di app per la logica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -71,7 +69,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    > Per creare l'app per la logica da zero, scegliere **App per la logica vuota**.
 
    Quando si seleziona un modello predefinito, è possibile visualizzare altre informazioni sul modello. 
-   Ad esempio:
+   ad esempio:
 
    ![Scegliere un modello predefinito](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -85,7 +83,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
    * Se queste connessioni sono già state configurate, scegliere **Continua**.
 
-   Ad esempio:
+   ad esempio:
 
    ![Creare le connessioni](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -101,18 +99,18 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
 ## <a name="update-logic-apps-with-templates"></a>Aggiornare le app per la logica con i modelli
 
-1. Nel [portale di Azure](https://portal.azure.com "Azure portal") individuare e aprire l'app per la logica in Progettazione app per la logica.
+1. Nella [portale di Azure](https://portal.azure.com "Portale di Azure")individuare e aprire l'app per la logica in progettazione app per la logica.
 
-2. Nella barra degli strumenti della finestra di progettazione scegliere **Modelli**. Questa azione elimina eventuali modifiche non salvate, quindi viene visualizzato un messaggio di avviso che richiede di confermare che si vuole continuare. Per confermare, scegliere **OK**. Ad esempio:
+2. Nella barra degli strumenti della finestra di progettazione scegliere **Modelli**. Questa azione elimina eventuali modifiche non salvate, quindi viene visualizzato un messaggio di avviso che richiede di confermare che si vuole continuare. Per confermare, scegliere **OK**. ad esempio:
 
    ![Scegliere "Modelli"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. Ad esempio:
+3. Scorrere oltre il video introduttivo e i trigger comuni fino a **Modelli**. Scegliere un modello predefinito. ad esempio:
 
    ![Scegliere un modello di app per la logica](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    Quando si seleziona un modello predefinito, è possibile visualizzare altre informazioni sul modello. 
-   Ad esempio:
+   ad esempio:
 
    ![Scegliere un modello predefinito](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
@@ -146,7 +144,7 @@ Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
 
 ![Salvare e pubblicare l'app per la logica](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

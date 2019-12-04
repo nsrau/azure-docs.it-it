@@ -8,12 +8,12 @@ ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d0ac7fa3a1dbb1c91da5b9919bc2c62de74213b5
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c005dcd91412552e2b10c27a7809ca4bc46d4709
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456790"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792327"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurare un dispositivo IoT Edge come gateway trasparente
 
@@ -46,7 +46,7 @@ Il gateway presenta il certificato della CA del dispositivo IoT Edge al disposit
 
 I passaggi seguenti illustrano il processo di creazione dei certificati e di installazione nei punti giusti del gateway. È possibile usare qualsiasi computer per generare i certificati e quindi copiarli nel dispositivo IoT Edge. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un computer di sviluppo per la creazione di certificati. 
 * Un dispositivo Azure IoT Edge da configurare come gateway. Usare la procedura di installazione di IoT Edge per uno dei sistemi operativi seguenti:
@@ -284,13 +284,13 @@ Quando si installa per la prima volta IoT Edge in un dispositivo, viene avviato 
 
 I dispositivi IoT Edge standard non richiedono la connettività in ingresso per il funzionamento, perché tutte le comunicazioni con l'hub Internet viene eseguita tramite le connessioni in uscita. I dispositivi gateway sono diversi perché devono ricevere messaggi dai dispositivi downstream. Se un firewall è tra i dispositivi downstream e il dispositivo gateway, è necessario che anche la comunicazione sia possibile tramite il firewall.
 
-Per il funzionamento di uno scenario del gateway, è necessario che almeno uno dei protocolli supportati dell'hub IoT Edge sia aperto per il traffico in ingresso dai dispositivi downstream. I protocolli supportati sono MQTT, AMQP e HTTPS. 
+Per il funzionamento di uno scenario del gateway, è necessario che almeno uno dei protocolli supportati dell'hub IoT Edge sia aperto per il traffico in ingresso dai dispositivi downstream. I protocolli supportati sono MQTT, AMQP, HTTPS, MQTT su WebSocket e AMQP su WebSocket. 
 
-| Port | Protocol |
+| Porta | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
-| 443 | HTTPS <br> MQTT + WS <br> AMQP+WS | 
+| 443 | HTTPS <br> MQTT + WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Instradare i messaggi da dispositivi downstream
 Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstream come i messaggi inviati dai moduli. Questa funzionalità consente di eseguire analisi in un modulo in esecuzione sul gateway prima di inviare dati al cloud. 

@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 12/03/2019
 ms.author: lahugh
-ms.openlocfilehash: 02ab7cdcbf0f150157eb44ef5e28e8284621b813
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfa8d28a41bb5551277bca29c118698ecaa8d112
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173963"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791726"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -53,13 +53,11 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 
 Le macchine virtuali di seconda generazione supportano le seguenti immagini del Marketplace:
 
-* Windows Server 2019 Datacenter
-* Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
-* Windows Server 2012 Datacenter
+* Windows Server 2019, 2016, 2012 R2, 2012
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19,04, 19,10 
+* Ubuntu Server 16,04, 18,04, 19,04, 19,10 
 * RHEL 8,0
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Macchine virtuali in locale e Azure di seconda generazione
@@ -82,7 +80,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 |---------|--------------|--------------|
 | Avvio             | PCAT         | UEFI |
 | Controller del disco | IDE          | SCSI |
-| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano archiviazione Premium |
+| Dimensioni delle VM         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano archiviazione Premium |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funzionalità di generazione 1 e generazione 2
 
@@ -102,7 +100,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 
 Nel portale di Azure o nell'interfaccia della riga di comando di Azure è possibile creare macchine virtuali di seconda generazione da un'immagine del Marketplace che supporta l'avvio UEFI.
 
-#### <a name="azure-portal"></a>portale di Azure
+#### <a name="azure-portal"></a>Portale di Azure
 
 Le immagini di generazione 2 per Windows e SLES sono incluse nella stessa offerta server delle immagini Gen1. Ciò significa che, dal punto di vista del flusso, si seleziona l'offerta e lo SKU dal portale per la VM. Se lo SKU supporta le immagini di prima e di seconda generazione, è possibile scegliere di creare una VM di seconda generazione dalla scheda *Avanzate* nel flusso di creazione della macchina virtuale.
 
@@ -140,7 +138,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 
 È possibile creare una macchina virtuale di seconda generazione da un'immagine gestita o da un disco gestito nello stesso modo in cui si crea una macchina virtuale di prima generazione.
 
-### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 
 È anche possibile creare macchine virtuali di seconda generazione usando i set di scalabilità di macchine virtuali. Nell'interfaccia della riga di comando di Azure usare i set di scalabilità di Azure per creare VM di seconda generazione.
 

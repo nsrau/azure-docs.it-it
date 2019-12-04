@@ -1,24 +1,24 @@
 ---
-title: Accedere ai log del server in Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
-description: Questo articolo descrive come accedere ai log del server in Database di Azure per MariaDB usando l'utilità dell'interfaccia della riga di comando di Azure.
-author: rachel-msft
-ms.author: raagyema
+title: Accedere ai log di query lente-interfaccia della riga di comando di Azure-database Azure per MariaDB
+description: Questo articolo descrive come accedere ai log lenti nel database di Azure per MariaDB usando l'utilità della riga di comando dell'interfaccia della riga di comando di Azure.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023607"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767382"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
-È possibile scaricare i log del server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure, l'utilità della riga di comando di Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurare e accedere ai log di query lente usando l'interfaccia della riga di comando di Azure
+È possibile scaricare i log di query lente del database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per proseguire con questa guida, si richiedono:
+Per proseguire con questa guida è necessario:
 - [Database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - L'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o Azure Cloud Shell nel browser
 

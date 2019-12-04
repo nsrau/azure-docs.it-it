@@ -1,22 +1,22 @@
 ---
-title: Monitoraggio in Database di Azure per MariaDB
+title: Monitoraggio-database di Azure per MariaDB
 description: Questo articolo illustra le metriche di monitoraggio e avviso per Database di Azure per MariaDB, che includono statistiche relative a CPU, spazio di archiviazione e connessioni.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: e3c25798be8af26c1f5e5c1178395cd1688bb132
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/02/2019
+ms.openlocfilehash: 15a396a86103f41f49d3b49878ec51c1e71add40
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772480"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitoraggio in Database di Azure per MariaDB
-Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione per il carico di lavoro. Database di Azure per MariaDB offre varie metriche che consentono di ottenere informazioni dettagliate sul comportamento del server.
+Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MariaDB offre varie metriche che consentono di ottenere informazioni dettagliate sul comportamento del server.
 
-## <a name="metrics"></a>Metrica
+## <a name="metrics"></a>Metriche
 Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. È possibile configurare avvisi in base alle metriche. Le altre attività includono la configurazione di azioni automatiche, l'esecuzione di analisi avanzate e l'archiviazione della cronologia. Per altre informazioni, vedere [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-metric.md).
@@ -24,21 +24,21 @@ Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|DESCRIZIONE|
+|Metrica|Nome visualizzato per la metrica|Unità|Description|
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
-|io_consumption_percent|Percentuale IO|Percentuale|Percentuale di I/O in uso.|
+|io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Percentuale di I/O in uso.|
 |storage_percent|Percentuale archiviazione|Percentuale|Percentuale di spazio di archiviazione usata rispetto al massimo del server.|
-|storage_used|Uso archiviazione|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
-|serverlog_storage_percent|Server Log storage percent (Percentuale archiviazione log server)|Percentuale|Percentuale di spazio di archiviazione dei log del server usata rispetto allo spazio di archiviazione massimo dei log del server per il server.|
-|serverlog_storage_usage|Server Log storage used (Archiviazione log server usata)|Byte|Quantità di spazio di archiviazione dei log del server in uso.|
-|serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Spazio di archiviazione massimo dei log del server per il server.|
+|storage_used|Risorse di archiviazione usate|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio può includere file di database, log delle transazioni e log del server.|
+|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Percentuale di spazio di archiviazione dei log del server usata rispetto allo spazio di archiviazione massimo dei log del server per il server.|
+|serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Quantità di spazio di archiviazione dei log del server in uso.|
+|serverlog_storage_limit|Server Log storage limit (Limite archiviazione log server)|Byte|Spazio di archiviazione massimo dei log del server per il server.|
 |storage_limit|Limite archiviazione|Byte|Spazio di archiviazione massimo per il server.|
-|active_connections|Connessioni attive|Numero|Numero di connessioni al server attive.|
-|connections_failed|Connessioni non riuscite|Numero|Numero di connessioni al server non riuscite.|
-|network_bytes_egress|Network Out|Byte|Rete in uscita tra connessioni attive.|
-|network_bytes_ingress|Network In|Byte|Rete in ingresso tra connessioni attive.|
+|active_connections|Connessioni attive|Conteggio|Numero di connessioni al server attive.|
+|connections_failed|Connessioni non riuscite|Conteggio|Numero di connessioni al server non riuscite.|
+|network_bytes_egress|Rete in uscita|Byte|Rete in uscita tra connessioni attive.|
+|network_bytes_ingress|Rete in ingresso|Byte|Rete in ingresso tra connessioni attive.|
 
 ## <a name="server-logs"></a>Log del server
 
@@ -48,7 +48,7 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
 [Query Store](concepts-query-store.md) tiene traccia delle prestazioni delle query nel tempo, incluse le statistiche di runtime di query e gli eventi di attesa. La funzionalità rende permanente le informazioni sulle prestazioni di query runtime nello schema **MySQL** . È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.
 
-## <a name="query-performance-insight"></a>Informazioni dettagliate sulle prestazioni delle query
+## <a name="query-performance-insight"></a>Analisi delle prestazioni di query
 
 [Informazioni dettagliate prestazioni query](concepts-query-performance-insight.md) funziona in combinazione con Query Store per fornire visualizzazioni accessibili dal portale di Azure. Questi grafici consentono di identificare le principali query che influiscono sulle prestazioni. Informazioni dettagliate prestazioni query è accessibile nella sezione **prestazioni intelligenti** della pagina del portale del database di Azure per il server MariaDB.
 
@@ -56,7 +56,7 @@ Per Database di Azure per MariaDB sono disponibili le metriche seguenti:
 
 La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recommendations.md) identifica le opportunità per migliorare le prestazioni dei carichi di lavoro. Suggerimenti sulle prestazioni fornisce consigli per la creazione di nuovi indici che possono migliorare le prestazioni dei carichi di lavoro. Per generare le raccomandazioni sugli indici, la funzionalità prende in considerazione diverse caratteristiche del database, tra cui lo schema e il carico di lavoro segnalati da Query Store. Dopo avere implementato le raccomandazioni per le prestazioni, i clienti devono testare le prestazioni per valutare l'impatto di tali modifiche.
 
-## <a name="service-health"></a>Integrità del servizio
+## <a name="service-health"></a>Integrità dei servizi
 [Integrità dei servizi di Azure](../service-health/overview.md) offre una visualizzazione di tutte le notifiche sull'integrità del servizio nella sottoscrizione. È possibile configurare gli avvisi di integrità dei servizi per inviare notifiche tramite i canali di comunicazione preferiti quando si verificano problemi o modifiche che potrebbero influire sui servizi e le aree di Azure usati.
 
 È possibile visualizzare gli eventi di manutenzione pianificata per database di Azure per MariaDB usando il tipo di evento **manutenzione pianificata** . Per informazioni su come creare gli **avvisi di integrità del servizio**, vedere l'articolo [creare avvisi del log attività per le notifiche del servizio](../service-health/alerts-activity-log-service-notifications.md) .

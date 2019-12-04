@@ -1,17 +1,17 @@
 ---
-title: Informazioni dettagliate prestazioni query nel database di Azure per MariaDB
+title: Informazioni dettagliate prestazioni query-database di Azure per MariaDB
 description: Questo articolo descrive la funzionalità Informazioni dettagliate prestazioni query nel database di Azure per MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31aacfea7c68614add0229c3a9c494de4714fe16
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: eb124f40ff915b56011d5f16cd83a9358960621e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604027"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772303"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Informazioni dettagliate prestazioni query nel database di Azure per MariaDB
 
@@ -31,7 +31,7 @@ Informazioni dettagliate prestazioni query consente di identificare rapidamente 
 - Informazioni sulla natura delle attese per una query
 - Informazioni sulle tendenze per le attese di risorse e su dove esiste la contesa di risorse
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 
 Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per visualizzare il testo delle query in Informazioni dettagliate prestazioni query. **Lettore** può visualizzare i grafici e tabelle ma non il testo della query.
 

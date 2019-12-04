@@ -17,34 +17,34 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bf614a5523e78fc72918db973ef8d738a171fff
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e0fd546724b8d684746a9f4d63a03bc6b58ded52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031782"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764645"
 ---
-# <a name="single-page-application---sign-in"></a>Applicazione a pagina singola-accesso
+# <a name="single-page-application-sign-in"></a>Applicazione a pagina singola: accesso
 
 Informazioni su come aggiungere l'accesso al codice per l'applicazione a singola pagina.
 
-Prima di poter ottenere i token per accedere alle API nell'applicazione, sarà necessario un contesto utente autenticato. È possibile eseguire l'accesso degli utenti all'applicazione in MSAL. js in due modi:
+Prima di poter ottenere i token per accedere alle API nell'applicazione, è necessario un contesto utente autenticato. È possibile eseguire l'accesso degli utenti all'applicazione in MSAL. js in due modi:
 
-* [Accedere con una finestra popup](#sign-in-with-a-pop-up-window) usando `loginPopup` il metodo
-* [Accedi con](#sign-in-with-redirect) il metodo tramite `loginRedirect` Reindirizzamento
+* [Finestra popup](#sign-in-with-a-pop-up-window), tramite il metodo `loginPopup`
+* [Reindirizzamento](#sign-in-with-redirect), tramite il metodo `loginRedirect`
 
 Facoltativamente, è anche possibile passare gli ambiti delle API per cui è necessario che l'utente acconsente al momento dell'accesso.
 
 > [!NOTE]
-> Se l'applicazione dispone già dell'accesso a un contesto utente autenticato o a un token ID, è possibile ignorare il passaggio di accesso e acquisire direttamente i token. Per altri dettagli, vedere [SSO senza accesso a MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
+> Se l'applicazione dispone già dell'accesso a un contesto utente autenticato o a un token ID, è possibile ignorare il passaggio di accesso e acquisire direttamente i token. Per informazioni dettagliate, vedere [SSO senza accesso a MSAL. js](msal-js-sso.md#sso-without-msaljs-login).
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Scelta tra un'esperienza popup o un reindirizzamento
 
-Non è possibile usare una combinazione dei metodi popup e redirect nell'applicazione. La scelta tra un'esperienza popup o un reindirizzamento dipende dal flusso dell'applicazione.
+Non è possibile usare entrambi i metodi popup e redirect nell'applicazione. La scelta tra un'esperienza popup o un reindirizzamento dipende dal flusso dell'applicazione:
 
-* Se non si vuole che l'utente passi dalla pagina principale dell'applicazione durante l'autenticazione, è consigliabile usare i metodi popup. Poiché il reindirizzamento dell'autenticazione avviene in una finestra popup, lo stato dell'applicazione principale viene mantenuto.
+* Se non si vuole che gli utenti passino dalla pagina principale dell'applicazione durante l'autenticazione, è consigliabile usare il metodo popup. Poiché il reindirizzamento dell'autenticazione avviene in una finestra popup, lo stato dell'applicazione principale viene mantenuto.
 
-* In alcuni casi potrebbe essere necessario utilizzare i metodi di reindirizzamento. Se gli utenti dell'applicazione hanno vincoli o criteri del browser in cui le finestre popup sono disabilitate, è possibile usare i metodi di reindirizzamento. Usare i metodi di reindirizzamento con il browser Internet Explorer poiché si verificano alcuni [problemi noti di Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) durante la gestione delle finestre popup.
+* Se gli utenti dispongono di vincoli o criteri del browser in cui le finestre popup sono disabilitate, è possibile usare il metodo di reindirizzamento. Utilizzare il metodo di reindirizzamento con il browser Internet Explorer, perché sono presenti [problemi noti relativi alle finestre popup in Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Accedere con una finestra popup
 
@@ -66,7 +66,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### <a name="angular"></a>Angular
 
-Il wrapper MSAL angolare consente di proteggere route specifiche nell'applicazione semplicemente aggiungendo `MsalGuard` alla definizione di route. Questa funzione Guard richiama il metodo per accedere quando si accede a tale route.
+Il wrapper MSAL angolare consente di proteggere route specifiche nell'applicazione aggiungendo `MsalGuard` alla definizione di route. Questa funzione Guard richiama il metodo per accedere quando si accede a tale route.
 
 ```javascript
 // In app.routes.ts
@@ -78,7 +78,7 @@ Il wrapper MSAL angolare consente di proteggere route specifiche nell'applicazio
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-Per un'esperienza di finestra popup, abilitare l' `popUp` opzione config. È anche possibile passare gli ambiti che richiedono il consenso come indicato di seguito:
+Per un'esperienza di finestra popup, abilitare l'opzione di configurazione `popUp`. È anche possibile passare gli ambiti che richiedono il consenso come indicato di seguito:
 
 ```javascript
 //In app.module.ts
@@ -91,11 +91,11 @@ Per un'esperienza di finestra popup, abilitare l' `popUp` opzione config. È anc
          })
 ```
 
-## <a name="sign-in-with-redirect"></a>Accedi con Reindirizzamento
+## <a name="sign-in-with-redirect"></a>Accesso con Reindirizzamento
 
 ### <a name="javascript"></a>JavaScript
 
-I metodi di reindirizzamento non restituiscono una promessa a causa della navigazione dall'app principale. Per elaborare e accedere ai token restituiti, sarà necessario registrare i callback di esito positivo ed errore prima di chiamare i metodi di reindirizzamento.
+I metodi di reindirizzamento non restituiscono una promessa a causa dell'allontanamento dall'app principale. Per elaborare e accedere ai token restituiti, è necessario registrare i callback di esito positivo ed errore prima di chiamare i metodi di reindirizzamento.
 
 ```javascript
 function authCallback(error, response) {
@@ -113,16 +113,16 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### <a name="angular"></a>Angular
 
-Il codice qui è identico a quello descritto in precedenza nella sezione accedere con una finestra popup. Il flusso predefinito è redirect.
+Il codice qui è identico a quello descritto in precedenza nella sezione relativa all'accesso con una finestra popup. Il flusso predefinito è redirect.
 
 > [!NOTE]
-> Il token ID non contiene gli ambiti consentiti e rappresenta solo l'utente autenticato. Gli ambiti consentiti vengono restituiti nel token di accesso che verrà acquisito nel passaggio successivo.
+> Il token ID non contiene gli ambiti consentiti e rappresenta solo l'utente autenticato. Gli ambiti consentiti vengono restituiti nel token di accesso, che verrà acquisito nel passaggio successivo.
 
-## <a name="sign-out"></a>Esci
+## <a name="sign-out"></a>Disconnessione
 
-La libreria MSAL fornisce un `logout` metodo che cancellerà la cache nell'archivio del browser e invierà una richiesta di disconnessione a Azure ad. Dopo la disconnessione, viene reindirizzato di nuovo alla pagina di avvio dell'applicazione per impostazione predefinita.
+La libreria MSAL fornisce un metodo `logout` che cancella la cache nell'archivio del browser e invia una richiesta di disconnessione a Azure Active Directory (Azure AD). Dopo la disconnessione, la libreria reindirizza nuovamente alla pagina di avvio dell'applicazione per impostazione predefinita.
 
-È possibile configurare l'URI a cui deve essere reindirizzato dopo la disconnessione `postLogoutRedirectUri`impostando il. Questo URI deve essere registrato anche come URI di disconnessione nella registrazione dell'applicazione.
+È possibile configurare l'URI a cui deve essere reindirizzato dopo la disconnessione impostando `postLogoutRedirectUri`. Questo URI deve essere registrato anche come URI di disconnessione nella registrazione dell'applicazione.
 
 ### <a name="javascript"></a>JavaScript
 

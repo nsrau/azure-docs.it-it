@@ -1,20 +1,17 @@
 ---
-title: Proteggere l'accesso e i dati-app per la logica di Azure
+title: Proteggere l'accesso ai dati
 description: Aggiungere sicurezza per proteggere gli input, gli output, i trigger basati su richiesta, la cronologia di esecuzione, le attività di gestione e l'accesso ad altre risorse in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: c9dfc4ed6fce186fea9474222875a072edb32f59
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 0e9b382b27d0bd1e4fd3a553ca468dd562eca368
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084720"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792921"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -48,7 +45,7 @@ Ogni endpoint di richiesta in un'app per la logica ha una [firma di accesso cond
 
 Ogni URL contiene i parametri di query `sp`, `sv`e `sig` come descritto in questa tabella:
 
-| Query parameter (Parametro di query) | DESCRIZIONE |
+| Query parameter (Parametro di query) | Description |
 |-----------------|-------------|
 | `sp` | Specifica le autorizzazioni per i metodi HTTP consentiti da utilizzare. |
 | `sv` | Specifica la versione SAS da usare per la generazione della firma. |
@@ -440,7 +437,7 @@ Di seguito sono riportate altre informazioni su queste `parameters` sezioni:
 
 Questo modello di esempio con più definizioni di parametro protette che usano il tipo di `securestring`:
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Description |
 |----------------|-------------|
 | `TemplatePasswordParam` | Parametro di modello che accetta una password che viene quindi passata al parametro `basicAuthPasswordParam` della definizione del flusso di lavoro. |
 | `TemplateUsernameParam` | Parametro di modello che accetta un nome utente che viene quindi passato al parametro `basicAuthUserNameParam` della definizione del flusso di lavoro. |
@@ -625,11 +622,11 @@ Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In base al tri
 
 Se è disponibile l'opzione di [base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) , specificare i valori delle proprietà seguenti:
 
-| Proprietà (finestra di progettazione) | Property (JSON) | obbligatori | Valore | DESCRIZIONE |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | Basic | Tipo di autenticazione da usare |
-| **Nome utente** | `username` | Sì | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
-| **Password** | `password` | Sì | > *password* < | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **Autenticazione** | `type` | SÌ | Basic | Tipo di autenticazione da usare |
+| **Nome utente** | `username` | SÌ | <*nome utente*>| Il nome utente per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
+| **Password** | `password` | SÌ | > *password* < | La password per l'autenticazione dell'accesso all'endpoint del servizio di destinazione |
 ||||||
 
 Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica il `type` di autenticazione come `Basic` e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
@@ -656,10 +653,10 @@ Quando si usano [parametri protetti](#secure-action-parameters) per gestire e pr
 
 Se l'opzione [certificato client](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) è disponibile, specificare i valori delle proprietà seguenti:
 
-| Proprietà (finestra di progettazione) | Property (JSON) | obbligatori | Valore | DESCRIZIONE |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | **Certificato client** <br>oppure <br>`ClientCertificate` | Il tipo di autenticazione da usare per i certificati client di Secure Sockets Layer (SSL). Benché siano supportati i certificati autofirmati, non sono supportati i certificati autofirmati per SSL. |
-| **PFX** | `pfx` | Sì | <*codificato-pfx-file-contenuto*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica Base64, è possibile usare PowerShell attenendosi alla procedura seguente: <p>1. salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. convertire il contenuto del certificato usando la funzione `ToBase64String()` e salvare il contenuto in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Autenticazione** | `type` | SÌ | **Certificato client** <br>Oppure <br>`ClientCertificate` | Il tipo di autenticazione da usare per i certificati client di Secure Sockets Layer (SSL). Benché siano supportati i certificati autofirmati, non sono supportati i certificati autofirmati per SSL. |
+| **PFX** | `pfx` | SÌ | <*codificato-pfx-file-contenuto*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica Base64, è possibile usare PowerShell attenendosi alla procedura seguente: <p>1. salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. convertire il contenuto del certificato usando la funzione `ToBase64String()` e salvare il contenuto in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| Vedere la descrizione | <*password per il file pfx*> | Password per l'accesso al file PFX. <p><p>**Nota**: il valore di questa proprietà è obbligatorio quando si lavora nella finestra di progettazione dell'app per la logica e *non* è necessario quando si lavora nella visualizzazione codice. |
 |||||
 
@@ -695,13 +692,13 @@ Per ulteriori informazioni sulla protezione dei servizi tramite l'autenticazione
 
 Se è disponibile l'opzione [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) , specificare i valori delle proprietà seguenti:
 
-| Proprietà (finestra di progettazione) | Property (JSON) | obbligatori | Valore | DESCRIZIONE |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | **Active Directory OAuth** <br>oppure <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2,0](../active-directory/develop/v2-overview.md). |
-| **Inquilino** | `tenant` | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
-| **Destinatari** | `audience` | Sì | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
-| **ID client** | `clientId` | Sì | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
-| **Tipo di credenziale** | `credentialType` | Sì | Certificate <br>oppure <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziali selezionato. |
+| **Autenticazione** | `type` | SÌ | **Active Directory OAuth** <br>Oppure <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2,0](../active-directory/develop/v2-overview.md). |
+| **Inquilino** | `tenant` | SÌ | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
+| **Destinatari** | `audience` | SÌ | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
+| **ID client** | `clientId` | SÌ | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
+| **Tipo di credenziale** | `credentialType` | SÌ | Certificato <br>Oppure <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziali selezionato. |
 | **Segreto** | `secret` | Sì, ma solo per il tipo di credenziale "Secret" | <> *Secret client* | Il segreto client per la richiesta dell'autorizzazione |
 | **PFX** | `pfx` | Sì, ma solo per il tipo di credenziale "Certificate" | <*codificato-pfx-file-contenuto*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
 | **Password** | `password` | Sì, ma solo per il tipo di credenziale "Certificate" | <*password per il file pfx*> | Password per accedere al file PFX. |
@@ -749,10 +746,10 @@ Authorization: OAuth realm="Photos",
 
 Nel trigger o nell'azione che supporta l'autenticazione non elaborata specificare i valori delle proprietà seguenti:
 
-| Proprietà (finestra di progettazione) | Property (JSON) | obbligatori | Valore | DESCRIZIONE |
+| Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticazione** | `type` | Sì | Non elaborati | Tipo di autenticazione da usare |
-| **Valore** | `value` | Sì | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da usare per l'autenticazione |
+| **Autenticazione** | `type` | SÌ | Non elaborati | Tipo di autenticazione da usare |
+| **Valore** | `value` | SÌ | <*authorization-header-value*> | Valore dell'intestazione di autorizzazione da usare per l'autenticazione |
 ||||||
 
 Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica il `type` di autenticazione come `Raw`e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
@@ -784,10 +781,10 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
 
 3. Nel trigger o nell'azione in cui si vuole usare l'identità gestita specificare i valori delle proprietà seguenti:
 
-   | Proprietà (finestra di progettazione) | Property (JSON) | obbligatori | Valore | DESCRIZIONE |
+   | Proprietà (finestra di progettazione) | Property (JSON) | Obbligatoria | Value | Description |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autenticazione** | `type` | Sì | **Identità gestita** <br>oppure <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
-   | **Destinatari** | `audience` | Sì | <*destinazione-Resource-ID*> | ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende validi i token di accesso per l'autenticazione per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: questa proprietà potrebbe essere nascosta in alcuni trigger o azioni. Per rendere visibile questa proprietà, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **audience**. <p><p>**Importante**: assicurarsi che l'ID risorsa di destinazione corrisponda esattamente al valore previsto da Azure ad, incluse le barre finali richieste. Quindi, l'ID di risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID di risorsa, vedere [servizi di Azure che supportano Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Autenticazione** | `type` | SÌ | **Identità gestita** <br>Oppure <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
+   | **Destinatari** | `audience` | SÌ | <*destinazione-Resource-ID*> | ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende validi i token di accesso per l'autenticazione per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: questa proprietà potrebbe essere nascosta in alcuni trigger o azioni. Per rendere visibile questa proprietà, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **audience**. <p><p>**Importante**: assicurarsi che l'ID risorsa di destinazione corrisponda esattamente al valore previsto da Azure ad, incluse le barre finali richieste. Quindi, l'ID di risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID di risorsa, vedere [servizi di Azure che supportano Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Quando si usano [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager per automatizzare la distribuzione](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile usare le espressioni per accedere a questi valori di parametri in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica il `type` di autenticazione come `ManagedServiceIdentity` e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:

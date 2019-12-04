@@ -1,17 +1,17 @@
 ---
-title: Query Store nel database di Azure per MySQL
+title: Query Store-database di Azure per MySQL
 description: Informazioni sulla funzionalità Query Store di database di Azure per MySQL che consentono di tenere traccia delle prestazioni nel tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 4ac6e4c71b028b66ef50ac949c169a1e02a2c0e3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603017"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770842"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorare le prestazioni di database di Azure per MySQL con Query Store
 
@@ -112,40 +112,40 @@ Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Tutti
 
 Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Due query identiche tranne per i valori letterali avranno lo stesso hash.
 
-### <a name="mysqlquery_store"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>MySQL. query_store
 
 Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni specifico ID database, ID utente e ID query.
 
 | **Nome** | **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NO | Nome dello schema |
-| `query_id`| bigint(20) | NO| ID univoco generato per la query specifica. se la stessa query viene eseguita in uno schema diverso, verrà generato un nuovo ID |
+| `schema_name`| varchar (64) | NO | Nome dello schema |
+| `query_id`| bigint (20) | NO| ID univoco generato per la query specifica. se la stessa query viene eseguita in uno schema diverso, verrà generato un nuovo ID |
 | `timestamp_id` | timestamp| NO| Timestamp in cui viene eseguita la query. Questa operazione si basa sulla configurazione di query_store_interval|
 | `query_digest_text`| longtext| NO| Testo della query normalizzata dopo la rimozione di tutti i valori letterali|
 | `query_sample_text` | longtext| NO| Primo aspetto della query effettiva con valori letterali|
 | `query_digest_truncated` | bit| SÌ| Indica se il testo della query è stato troncato. Il valore sarà Yes se la query è più lunga di 1 KB|
-| `execution_count` | bigint(20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
-| `warning_count` | bigint(20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
-| `error_count` | bigint(20)| NO| Numero di errori generati dalla query durante l'intervallo|
-| `sum_timer_wait` | double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
-| `avg_timer_wait` | double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
-| `min_timer_wait` | double| SÌ| Tempo di esecuzione minimo per la query|
-| `max_timer_wait` | double| SÌ| Tempo massimo di esecuzione|
-| `sum_lock_time` | bigint(20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
-| `sum_rows_affected` | bigint(20)| NO| Numero di righe interessate|
-| `sum_rows_sent` | bigint(20)| NO| Numero di righe inviate al client|
-| `sum_rows_examined` | bigint(20)| NO| Numero di righe esaminate|
-| `sum_select_full_join` | bigint(20)| NO| Numero di join completi|
-| `sum_select_scan` | bigint(20)| NO| Numero di scansioni selezionate |
-| `sum_sort_rows` | bigint(20)| NO| Numero di righe ordinate|
-| `sum_no_index_used` | bigint(20)| NO| Numero di volte in cui la query non ha utilizzato indici|
-| `sum_no_good_index_used` | bigint(20)| NO| Numero di volte in cui il motore di esecuzione delle query non ha utilizzato indici validi|
-| `sum_created_tmp_tables` | bigint(20)| NO| Numero totale di tabelle temporanee create|
-| `sum_created_tmp_disk_tables` | bigint(20)| NO| Numero totale di tabelle temporanee create nel disco (genera I/O)|
+| `execution_count` | bigint (20)| NO| Il numero di volte in cui la query è stata eseguita per questo ID timestamp/durante il periodo di intervallo configurato|
+| `warning_count` | bigint (20)| NO| Numero di avvisi generati dalla query durante l'esecuzione interna|
+| `error_count` | bigint (20)| NO| Numero di errori generati dalla query durante l'intervallo|
+| `sum_timer_wait` | Double| SÌ| Tempo di esecuzione totale della query durante l'intervallo|
+| `avg_timer_wait` | Double| SÌ| Tempo medio di esecuzione per la query durante l'intervallo|
+| `min_timer_wait` | Double| SÌ| Tempo di esecuzione minimo per la query|
+| `max_timer_wait` | Double| SÌ| Tempo massimo di esecuzione|
+| `sum_lock_time` | bigint (20)| NO| Quantità totale di tempo impiegato per tutti i blocchi per l'esecuzione di questa query durante questo intervallo di tempo|
+| `sum_rows_affected` | bigint (20)| NO| Numero di righe interessate|
+| `sum_rows_sent` | bigint (20)| NO| Numero di righe inviate al client|
+| `sum_rows_examined` | bigint (20)| NO| Numero di righe esaminate|
+| `sum_select_full_join` | bigint (20)| NO| Numero di join completi|
+| `sum_select_scan` | bigint (20)| NO| Numero di scansioni selezionate |
+| `sum_sort_rows` | bigint (20)| NO| Numero di righe ordinate|
+| `sum_no_index_used` | bigint (20)| NO| Numero di volte in cui la query non ha utilizzato indici|
+| `sum_no_good_index_used` | bigint (20)| NO| Numero di volte in cui il motore di esecuzione delle query non ha utilizzato indici validi|
+| `sum_created_tmp_tables` | bigint (20)| NO| Numero totale di tabelle temporanee create|
+| `sum_created_tmp_disk_tables` | bigint (20)| NO| Numero totale di tabelle temporanee create nel disco (genera I/O)|
 | `first_seen` | timestamp| NO| Prima occorrenza (UTC) della query durante la finestra di aggregazione|
 | `last_seen` | timestamp| NO| Ultima occorrenza (UTC) della query durante la finestra di aggregazione|
 
-### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
 
 Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
 
@@ -153,13 +153,13 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Inizio intervallo (incremento di 15 minuti)|
 | `interval_end` | timestamp | NO| Fine intervallo (incremento di 15 minuti)|
-| `query_id` | bigint(20) | NO| ID univoco generato nella query normalizzata (da query Store)|
+| `query_id` | bigint (20) | NO| ID univoco generato nella query normalizzata (da query Store)|
 | `query_digest_id` | varchar (32) | NO| Testo della query normalizzata dopo la rimozione di tutti i valori letterali (da query Store) |
 | `query_digest_text` | longtext | NO| Primo aspetto della query effettiva con valori letterali (da query Store) |
 | `event_type` | varchar (32) | NO| Categoria dell'evento Wait |
-| `event_name` | varchar(128) | NO| Nome dell'evento Wait |
-| `count_star` | bigint(20) | NO| Numero di eventi di attesa campionati durante l'intervallo per la query |
-| `sum_timer_wait_ms` | double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
+| `event_name` | varchar (128) | NO| Nome dell'evento Wait |
+| `count_star` | bigint (20) | NO| Numero di eventi di attesa campionati durante l'intervallo per la query |
+| `sum_timer_wait_ms` | Double | NO| Tempo totale di attesa (in millisecondi) di questa query durante l'intervallo |
 
 ### <a name="functions"></a>Funzioni
 

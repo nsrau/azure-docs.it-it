@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0af2d306a5f5923f5e14eb0ebc4707f9c5caee90
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288568"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769031"
 ---
 # <a name="azure-maps-weather-coverage"></a>Copertura Meteo di Azure Maps
 
@@ -30,7 +30,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
+| Paese/Area              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antartide                               | ✓ |   |  ✓|
@@ -53,7 +53,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Cuba                                     | ✓ |   |  ✓| 
 | Curaçao                                  | ✓ |   |  ✓| 
 | Dominica                                 | ✓ |   |  ✓| 
-| Repubblica dominicana                       | ✓ |   |  ✓| 
+| Repubblica Domenicana                       | ✓ |   |  ✓| 
 | Ecuador                                  | ✓ |   |  ✓| 
 | El Salvador                              | ✓ |   |  ✓| 
 | Isole Falkland                         | ✓ |   |  ✓| 
@@ -75,7 +75,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Perù                                     | ✓ |   |  ✓| 
 | Portorico                              | ✓ |   |  ✓| 
 | Saint Barthélemy                         | ✓ |   |  ✓| 
-| Saint Kitts e Nevis                    | ✓ |   |  ✓| 
+| Saint Christopher e Nevis                    | ✓ |   |  ✓| 
 | Saint Lucia                              | ✓ |   |  ✓| 
 | Saint Martin                             | ✓ |   |  ✓| 
 | Saint Pierre e Miquelon                | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Paese/Area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
+| Paese/Area              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algeria                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -107,11 +107,11 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Burundi                     | ✓               |                              |        ✓| 
 | Camerun                    | ✓               |                              |        ✓| 
 | Cabo Verde                  | ✓               |                              |        ✓| 
-| Repubblica centrafricana    | ✓               |                              |        ✓| 
+| Repubblica Centrafricana    | ✓               |                              |        ✓| 
 | Chad                        | ✓               |                              |        ✓| 
 | Comore                     | ✓               |                              |        ✓| 
 | Congo (RDC)                 | ✓               |                              |        ✓|
-| Côte d’Ivoire (Costa d'Avorio)               | ✓               |                              |        ✓| 
+| Costa d'Avorio               | ✓               |                              |        ✓| 
 | Gibuti                    | ✓               |                              |        ✓| 
 | Egitto                       | ✓               |                              |        ✓| 
 | Guinea equatoriale           | ✓               |                              |        ✓| 
@@ -157,7 +157,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Seychelles                  | ✓               |                              |        ✓| 
 | Sierra Leone                | ✓               |                              |        ✓| 
 | Somalia                     | ✓               |                              |        ✓| 
-| Sud Africa                | ✓               |                              |        ✓| 
+| Sudafrica                | ✓               |                              |        ✓| 
 | Sudan del Sud                 | ✓               |                              |        ✓| 
 | Sudan                       | ✓               |                              |        ✓| 
 | Siria                       | ✓               |                              |        ✓| 
@@ -166,23 +166,23 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Tunisia                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | Emirati Arabi Uniti        | ✓               |                              |        ✓| 
-| Sahara occidentale              | ✓               |                              |        ✓| 
+| Sahara Occidentale              | ✓               |                              |        ✓| 
 | Yemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 
 
 
-## <a name="asia-pacific"></a>Asia/Pacifico
+## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/Area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
+| Paese/Area              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
-| Samoa americane                    | ✓ |   |  ✓| 
+| Isole Samoa americane                    | ✓ |   |  ✓| 
 | Australia                         | ✓ | ✓ |  ✓| 
 | Azerbaigian                        | ✓ |   |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
-| Territorio britannico dell'oceano Indiano    | ✓ |   |  ✓| 
+| Territorio britannico dell'Oceano indiano    | ✓ |   |  ✓| 
 | Brunei                            | ✓ |   |  ✓| 
 | Cambogia                          | ✓ |   |  ✓| 
 | Cina                             | ✓ | ✓ |  ✓| 
@@ -193,13 +193,13 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Polinesia francese                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
 | Isole Heard e McDonald | ✓ |   |  ✓| 
-| Hong Kong - R.A.S.                     | ✓ |   |  ✓| 
+| RAS di Hong Kong                     | ✓ |   |  ✓| 
 | India                             | ✓ |   |  ✓| 
 | Indonesia                         | ✓ |   |  ✓| 
 | Giappone                             | ✓ | ✓ |  ✓| 
 | Kazakhstan                        | ✓ |   |  ✓| 
 | Kiribati                          | ✓ |   |  ✓| 
-| Corea del Sud                             | ✓ | ✓ |  ✓| 
+| Corea                             | ✓ | ✓ |  ✓| 
 | Kirghizistan                        | ✓ |   |  ✓| 
 | Laos                              | ✓ |   |  ✓| 
 | RAS di Macao                         | ✓ |   |  ✓| 
@@ -222,13 +222,13 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Papua Nuova Guinea                  | ✓ |   |  ✓| 
 | Filippine                       | ✓ |   |  ✓| 
 | Isole Pitcairn                  | ✓ |   |  ✓| 
-| Samoa                             | ✓ |   |  ✓| 
+| Isole Samoa                             | ✓ |   |  ✓| 
 | Singapore                         | ✓ |   |  ✓| 
 | Isole Salomone                   | ✓ |   |  ✓| 
 | Sri Lanka                         | ✓ |   |  ✓| 
 | Taiwan                            | ✓ |   |  ✓| 
 | Tagikistan                        | ✓ |   |  ✓| 
-| Thailandia                          | ✓ |   |  ✓| 
+| Tailandia                          | ✓ |   |  ✓| 
 | Timor Est                       | ✓ |   |  ✓| 
 | Tokelau                           | ✓ |   |  ✓| 
 | Tonga                             | ✓ |   |  ✓| 
@@ -242,7 +242,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area geografica              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
+| Paese/Area              |  Riquadri satellite | Previsioni del minuto, riquadri radar | Altri | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albania                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
@@ -257,7 +257,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Cechia                | ✓ | ✓ |  ✓| 
 | Danimarca                | ✓ | ✓ |  ✓| 
 | Estonia                | ✓ | ✓ |  ✓| 
-| Isole Fær Øer          | ✓ |   |  ✓| 
+| Fær Øer          | ✓ |   |  ✓| 
 | Finlandia                | ✓ | ✓ |  ✓| 
 | Francia                 | ✓ | ✓ |  ✓| 
 | Georgia                | ✓ |   |  ✓| 
@@ -279,7 +279,7 @@ La tabella seguente fornisce informazioni sul tipo di informazioni meteorologich
 | Macedonia del Nord        | ✓ |   |  ✓| 
 | Malta                  | ✓ |   |  ✓| 
 | Moldova                | ✓ | ✓ |  ✓| 
-| Principato di Monaco                 | ✓ | ✓ |  ✓| 
+| Monaco                 | ✓ | ✓ |  ✓| 
 | Montenegro             | ✓ | ✓ |  ✓| 
 | Paesi Bassi            | ✓ | ✓ |  ✓| 
 | Norvegia                 | ✓ | ✓ |  ✓| 

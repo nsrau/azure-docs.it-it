@@ -1,21 +1,18 @@
 ---
-title: Attendere e rispondere agli eventi-app per la logica di Azure
+title: Attendere e rispondere agli eventi
 description: Automatizzare i flussi di lavoro che attivano, sospendono e riprendono in base agli eventi in un endpoint del servizio usando app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804253"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787047"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
 

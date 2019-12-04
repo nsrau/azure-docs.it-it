@@ -1,20 +1,17 @@
 ---
-title: Raggruppare ed eseguire azioni per ambito-app per la logica di Azure
+title: Raggruppare ed eseguire azioni per ambito
 description: Creare azioni con ambito eseguite in base allo stato del gruppo in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680011"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791496"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Eseguire azioni in base allo stato del gruppo usando gli ambiti nelle app per la logica di Azure
 
@@ -150,7 +147,7 @@ Creare prima di tutto questa app per la logica di esempio per poter aggiungere u
   
        Il campo **Corpo** dovrebbe avere ora un aspetto simile all'esempio seguente:
 
-       ![Finished campo "Body" ](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![campo "Body" completato](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Salvare l'app per la logica.

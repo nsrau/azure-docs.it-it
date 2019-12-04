@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB
+title: Risolvere i problemi relativi alle prestazioni delle query-database di Azure per MariaDB
 description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a2f5e7e7c9ca39c092e13242ecdac2675b09fc0d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 36571cc1ac4fbdcd5c0c6a4007a6c43858c97193
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973495"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770986"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MariaDB
 **EXPLAIN** è uno strumento comodo per ottimizzare le query. L'istruzione EXPLAIN può essere usata per ottenere informazioni sulla modalità di esecuzione delle istruzioni SQL. L'output seguente mostra un esempio di esecuzione di un'istruzione EXPLAIN.
@@ -120,7 +120,7 @@ possible_keys: covered
 Come mostra l'istruzione EXPLAIN precedente, MariaDB usa ora l'indice di copertura evitando di creare una tabella temporanea. 
 
 ## <a name="combined-index"></a>Indice combinato
-Un indice combinato è costituito da valori da più colonne e può essere considerato una matrice di righe ordinate concatenando i valori delle colonne indicizzate. Questo metodo può essere utile in un'istruzione **GROUP BY**.
+Un indice combinato è costituito da valori da più colonne e può essere considerato una matrice di righe ordinate concatenando i valori delle colonne indicizzate. Questo metodo può essere utile in un'istruzione **Group by** .
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G

@@ -1,5 +1,5 @@
 ---
-title: Senza server
+title: Ambienti senza server
 description: Questo articolo descrive il nuovo livello di calcolo serverless e lo confronta con il livello di calcolo con provisioning esistente
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818268"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775584"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure serverless
 
@@ -33,7 +33,7 @@ Il livello di calcolo senza server per un singolo database è parametrizzato da 
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Costo
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -67,7 +67,7 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 |:---|:---|:---|
 |**Modello di utilizzo del database**| Utilizzo intermittente e non prevedibile con un utilizzo di calcolo medio inferiore nel tempo. |  Modelli di utilizzo più regolari con utilizzo di calcolo medio superiore nel tempo o più database con pool elastici.|
 | **Impegno per la gestione delle prestazioni** |Minore|Maggiore|
-|**Ridimensionamento delle risorse di calcolo**|Automatico|Manuale|
+|**Ridimensionamento delle risorse di calcolo**|Automatico|Manual|
 |**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediato|
 |**Granularità della fatturazione**|Al secondo|All'ora|
 
@@ -127,7 +127,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
 |Autenticazione e autorizzazione|Login|
-|Introduzione al rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
+|Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
@@ -137,7 +137,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 |Copia del database|Crea database come copia.<br>Esportare in un file BACPAC.|
 |Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
 |Modifica di alcuni metadati del database|Aggiunta di nuovi tag del database.<br>Modifica del ritardo massimo Vcore, minimo Vcore o di sospensione.|
-|SQL Server Management Studio (SSMS)|L'uso di versioni di SSMS precedenti alla 18,1 e l'apertura di una nuova finestra di query per qualsiasi database nel server riprenderà tutti i database sospesi automaticamente nello stesso server. Questo comportamento non si verifica se si usa SSMS versione 18,1 o successiva.|
+|SQL Server Management Studio|L'uso di versioni di SSMS precedenti alla 18,1 e l'apertura di una nuova finestra di query per qualsiasi database nel server riprenderà tutti i database sospesi automaticamente nello stesso server. Questo comportamento non si verifica se si usa SSMS versione 18,1 o successiva.|
 
 La ripresa automatica viene attivata anche durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.
 
@@ -157,15 +157,15 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
 
    |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo di vCore|
    |---|---|---|---|
-   |GP_S_Gen5_1|Utilizzo generico|Quinta generazione|1|
-   |GP_S_Gen5_2|Utilizzo generico|Quinta generazione|2|
-   |GP_S_Gen5_4|Utilizzo generico|Quinta generazione|4|
-   |GP_S_Gen5_6|Utilizzo generico|Quinta generazione|6|
-   |GP_S_Gen5_8|Utilizzo generico|Quinta generazione|8|
-   |GP_S_Gen5_10|Utilizzo generico|Quinta generazione|10|
-   |GP_S_Gen5_12|Utilizzo generico|Quinta generazione|12|
-   |GP_S_Gen5_14|Utilizzo generico|Quinta generazione|14|
-   |GP_S_Gen5_16|Utilizzo generico|Quinta generazione|16|
+   |GP_S_Gen5_1|Scopo generico|Quinta generazione|1|
+   |GP_S_Gen5_2|Scopo generico|Quinta generazione|2|
+   |GP_S_Gen5_4|Scopo generico|Quinta generazione|4|
+   |GP_S_Gen5_6|Scopo generico|Quinta generazione|6|
+   |GP_S_Gen5_8|Scopo generico|Quinta generazione|8|
+   |GP_S_Gen5_10|Scopo generico|Quinta generazione|10|
+   |GP_S_Gen5_12|Scopo generico|Quinta generazione|12|
+   |GP_S_Gen5_14|Scopo generico|Quinta generazione|14|
+   |GP_S_Gen5_16|Scopo generico|Quinta generazione|16|
 
 2. Facoltativamente, specificare il ritardo min Vcore e autopause per modificare i valori predefiniti. La tabella seguente illustra i valori disponibili per questi parametri.
 
@@ -263,7 +263,7 @@ La modifica della Vcore minima viene eseguita usando il comando [set-AzSqlDataba
 
 Per modificare il ritardo di sospensione, è necessario usare il comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando l'argomento `AutoPauseDelayInMinutes`.
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 
 ### <a name="resources-used-and-billed"></a>Risorse usate e fatturate
 
@@ -281,7 +281,7 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 
 Nella tabella seguente sono elencate le metriche per il monitoraggio dell'utilizzo delle risorse del pacchetto dell'app e del pool di utenti di un database senza server.
 
-|Entità|Metrica|Descrizione|Unità|
+|Persona giuridica|Metrica|Description|Unità|
 |---|---|---|---|
 |Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
 |Pacchetto dell'app|app_cpu_billed|Quantità di risorse di calcolo fatturata per l'app durante il periodo di riferimento. L'importo pagato durante questo periodo è dato dal prodotto di questa metrica per il prezzo unitario dei vCore. <br><br>I valori di questa metrica sono determinati dall'aggregazione nel tempo del numero massimo di CPU usate e dalla memoria usata al secondo. Se la quantità usata è inferiore a quella minima di cui è stato effettuato il provisioning in base al valore impostato per il numero minimo di vCore e la quantità minima di memoria, viene fatturata la quantità minima di cui è stato effettuato il provisioning. Per confrontare la CPU con la memoria ai fini della fatturazione, la memoria viene normalizzata in unità di Vcore ridimensionando la quantità di memoria in GB di 3 GB per ogni vCore.|Secondi per vCore|

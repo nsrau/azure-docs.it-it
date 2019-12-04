@@ -1,20 +1,17 @@
 ---
-title: Accesso alle reti virtuali di Azure-app per la logica di Azure
+title: Accesso alle reti virtuali di Azure
 description: Panoramica su come gli ambienti di Integration Services (ISEs) consentono alle app per la logica di accedere alle reti virtuali di Azure (reti virtuali)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: e06ac0c0647d9a9a6b5adee289b497f2fe94b222
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889380"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792724"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -78,7 +75,7 @@ Quando si crea ISE, è possibile selezionare lo SKU per sviluppatori o lo SKU Pr
 
 * **Premium**
 
-  Fornisce un ISE che è possibile usare per la produzione e include supporto del contratto di servizio, trigger e azioni predefiniti, connettori standard, connettori aziendali, un unico account di integrazione del [livello standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opzioni per la scalabilità verticale della capacità e ridondanza durante riciclaggio per un prezzo mensile fisso.
+  Fornisce un ISE che è possibile usare per la produzione e include supporto del contratto di servizio, trigger e azioni predefiniti, connettori standard, connettori aziendali, un unico account di integrazione del [livello standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opzioni per la scalabilità verticale e ridondanza durante il riciclo per un prezzo mensile fisso.
 
 > [!IMPORTANT]
 > L'opzione SKU è disponibile solo alla creazione di ISE e non può essere modificata in un secondo momento.

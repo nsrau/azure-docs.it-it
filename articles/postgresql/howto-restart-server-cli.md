@@ -1,19 +1,19 @@
 ---
-title: Riavviare il Database di Azure per PostgreSQL - singolo Server tramite la CLI di Azure
-description: Questo articolo descrive come è possibile riavviare un Database di Azure per PostgreSQL - singolo Server tramite la CLI di Azure
+title: Riavviare il server-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come riavviare un database di Azure per PostgreSQL-singolo server usando l'interfaccia della riga di comando di Azure
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 0a7cd815724fcebd6311860576e620eb9273523b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13b26b545f9e95ce2457e4f8d9cf32da59cd91e6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068971"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770153"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Riavviare il Database di Azure per PostgreSQL - singolo Server tramite la CLI di Azure
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Riavviare database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per PostgreSQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
 
 Il riavvio del server verrà bloccato se il servizio è occupato. È ad esempio possibile che il servizio stia elaborando un'operazione richiesta in precedenza, come il ridimensionamento di vCore.
@@ -40,4 +40,4 @@ az postgres server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su [come impostare i parametri nel Database di Azure per PostgreSQL](howto-configure-server-parameters-using-cli.md)
+Informazioni su [come impostare i parametri nel database di Azure per PostgreSQL](howto-configure-server-parameters-using-cli.md)

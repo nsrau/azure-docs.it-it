@@ -1,17 +1,17 @@
 ---
-title: Concetti relativi ai server nel database di Azure per PostgreSQL-server singolo
+title: Server-database di Azure per PostgreSQL-server singolo
 description: Questo articolo fornisce considerazioni e linee guida per la configurazione e la gestione di database di Azure per PostgreSQL-singolo server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029976"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768164"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Database di Azure per PostgreSQL - Server singolo
 Questo articolo fornisce considerazioni e linee guida per l'uso di database di Azure per PostgreSQL-server singolo.
@@ -38,7 +38,7 @@ Gli elementi seguenti contribuiscono a garantire un accesso sicuro al database:
 
 |||
 |:--|:--|
-| **Autenticazione e autorizzazione** | Il database di Azure per il server PostgreSQL supporta l'autenticazione nativa a PostgreSQL. È possibile connettersi ed eseguire l'autenticazione al server tramite l'account amministratore del server. |
+| **Authentication and authorization** (Autenticazione e autorizzazione) | Il database di Azure per il server PostgreSQL supporta l'autenticazione nativa a PostgreSQL. È possibile connettersi ed eseguire l'autenticazione al server tramite l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da PostgreSQLL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, una regola del firewall impedisce qualsiasi accesso al server e ai relativi database finché non si specificano i computer autorizzati. Vedere [Regole firewall per Database di Azure per PostgreSQL](concepts-firewall-rules.md). |

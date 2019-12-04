@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124017"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775834"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -95,7 +95,7 @@ Se non è possibile trovare alcun certificato autofirmato seguendo questa proced
 
 Le finestre di dialogo di accesso vuote si verificano spesso quando Active Directory Federation Services (AD FS) richiede Storage Explorer di eseguire un reindirizzamento, che non è supportato da Electron. Per risolvere questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, attenersi alla procedura seguente:
 
-1. Nel menu passare a **anteprima** > usare l' **accesso al codice del dispositivo**.
+1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni**. Nel pannello impostazioni passare ad **applicazione** > **Accedi**. Abilitare l' **accesso tramite il flusso di codice del dispositivo**.
 2. Aprire la finestra di dialogo **Connetti** (tramite l'icona a forma di spina sulla barra verticale a sinistra o selezionando **Aggiungi account** nel pannello account).
 3. Scegliere l'ambiente a cui si vuole accedere.
 4. Selezionare **Sign in (accedi**).
@@ -230,9 +230,9 @@ Se si riceve questo messaggio di errore quando si tenta di aggiungere una connes
         * `StorageExplorer_CustomConnections_Blobs_v2`
     * Condivisioni file
         * `StorageExplorer_CustomConnections_Files_v1`
-    * Queues
+    * Code
         * `StorageExplorer_CustomConnections_Queues_v1`
-    * Tables
+    * Tabelle
         * `StorageExplorer_CustomConnections_Tables_v1`
 4. Dopo aver salvato i nomi di connessione correnti, impostare il valore Strumenti di sviluppo su `[]`.
 
@@ -309,7 +309,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 > [!NOTE]
 > Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, è necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, si dovrebbe essere in grado di usare fino a .NET Core 2,2. Le versioni successive a 2,2 non sono state verificate per funzionare in questo momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19,04](#tab/1904)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
@@ -318,7 +318,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18,04](#tab/1804)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
@@ -370,4 +370,4 @@ Se il pulsante **Apri in Esplora** sul portale di Azure non funziona, assicurars
 
 Se nessuna di queste soluzioni funziona, [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Questa operazione può essere eseguita anche selezionando il pulsante **Segnala problema in GitHub** nell'angolo in basso a sinistra.
 
-![Commenti e suggerimenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![Commenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)

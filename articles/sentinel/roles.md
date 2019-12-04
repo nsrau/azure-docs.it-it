@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 02d87ed5f26d36b7cd438b0d818c7bdcce43520d
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464120"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762703"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Sentinel di Azure
 
@@ -30,9 +30,9 @@ Con il controllo degli accessi in base al ruolo, è possibile usare e creare ruo
 
 Sono disponibili tre ruoli di Azure Sentinel predefiniti specifici.  
 **Tutti i ruoli predefiniti di Sentinel di Azure concedono l'accesso in lettura ai dati nell'area di lavoro di Azure Sentinel.**
-- **Lettore sentinella di Azure**: per altre informazioni, vedere [ruoli predefiniti](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- **Risponditore sentinella di Azure**: per altre informazioni, vedere [ruoli predefiniti](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- **Collaboratore sentinella di Azure**: per altre informazioni, vedere [ruoli predefiniti](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+- [Lettore sentinella di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- [Risponditore sentinella di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- [Collaboratore sentinella di Azure](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 Oltre ai ruoli di controllo degli accessi in base al ruolo dedicati di Azure Sentinel, sono disponibili ruoli RBAC di Azure e Log Analytics che possono concedere un set più ampio di autorizzazioni che includono l'accesso all'area di lavoro di Azure Sentinel e ad altre risorse:
 

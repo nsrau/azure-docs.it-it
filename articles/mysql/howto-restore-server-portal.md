@@ -1,17 +1,17 @@
 ---
-title: Come ripristinare un server in Database di Azure per MySQL | Microsoft Docs
+title: Backup e ripristino-portale di Azure-database di Azure per MySQL
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 2813567eeb9435ca5e1d29dc6a0a246f9cca3b05
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: f8005bccf3a726a6022efdecb2eb5738669f3bc2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965958"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762625"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 

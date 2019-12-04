@@ -1,18 +1,18 @@
 ---
-title: Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MySQL | Microsoft Docs
+title: Errori di connettività temporanei-database di Azure per MySQL
 description: Informazioni su come gestire gli errori di connettività temporanei e connettersi in modo efficiente al database di Azure per MySQL.
 keywords: connessione MySQL, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione, connessione efficiente
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 4bc5281c891a9d4cd27a48aa365e6cfcec16ad82
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 12/02/2019
+ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598263"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765207"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MySQL
 

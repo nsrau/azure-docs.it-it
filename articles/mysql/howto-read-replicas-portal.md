@@ -1,17 +1,17 @@
 ---
-title: Creare & gestire le repliche di lettura (portale di Azure)-database di Azure per MySQL
+title: Gestire le repliche di lettura-portale di Azure-database di Azure per MySQL
 description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 56dc2df243c7ebc8e6aedf655795173c478ef99b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972880"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762607"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 
@@ -61,7 +61,7 @@ Dopo che è stato creato, il server di replica può essere visualizzato nel pann
 ## <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
 > [!IMPORTANT]
-> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
+> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può più essere trasformato in una replica.
 
 Per arrestare la replica tra un server master e uno di replica dal portale di Azure, seguire questa procedura:
 

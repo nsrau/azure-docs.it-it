@@ -1,44 +1,43 @@
 ---
-title: Connettersi a Office 365 Video - App per la logica di Azure | Microsoft Docs
+title: Connettersi a Office 365 video
 description: Gestire video con le API REST di Office 365 Video e App per la logica di Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 05/18/2016
 tags: connectors
-ms.openlocfilehash: c10a2aa097b63fd3751be01bbfeb6097080bbb9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf3c7c4faac3fcd4dd0c3f368fbe18a224ed591b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105820"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789486"
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Introduzione al connettore Office 365 Video
+
 Connettersi a Office 365 Video per ottenere informazioni su un video di Office 365, recuperare un elenco di video e altro ancora. Con Office 365 Video è possibile:
 
 * Creare un flusso aziendale basato sui dati ottenuti da Office 365 Video. 
-* Usare azioni per controllare lo stato del portale video, recuperare l'elenco di tutti video in un canale e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, è possibile usare il connettore di ricerca di Bing per cercare video di Office 365 e quindi usare il connettore Office 365 Video per ottenere informazioni relative a un video specifico. Se il video soddisfa le esigenze, è possibile pubblicarlo su Facebook. 
+
+* Usare azioni per controllare lo stato del portale video, recuperare l'elenco di tutti video in un canale e altro ancora. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. 
+
+Ad esempio, è possibile usare il connettore di ricerca di Bing per cercare video di Office 365 e quindi usare il connettore Office 365 Video per ottenere informazioni relative a un video specifico. Se il video soddisfa le esigenze, è possibile pubblicarlo su Facebook.
 
 Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office365-video-connector"></a>Creare una connessione al connettore Office 365 Video
+
 Quando si aggiunge questo connettore alle app per la logica, è necessario accedere all'account Office 365 Video e consentire alle app per la logica di connettersi all'account.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
-> 
-> 
 
 Dopo aver creato la connessione, immettere le proprietà di Office 365 Video, ad esempio, il nome del tenant o l'ID canale. 
-
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
 Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/office365videoconnector/).
 
-## <a name="more-connectors"></a>Altri connettori
-Tornare all' [elenco di API](apis-list.md).
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

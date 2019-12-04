@@ -1,17 +1,17 @@
 ---
-title: Query Store nel database di Azure per PostgreSQL-server singolo
+title: Query Store-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la funzionalità Query Store di database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331309"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768266"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -93,7 +93,7 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | nessuno | none, top, all |
+| pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | None | none, top, all |
 | pg_qs.max_query_text_length | Imposta la lunghezza massima di query che è possibile salvare. Le query più lunghe verranno troncate. | 6000 | 100-10000 |
 | pg_qs.retention_period_in_days | Imposta il periodo di conservazione. | 7 | 1-30 |
 | pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | in | on, off |
@@ -102,7 +102,7 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | nessuno | none, all|
+| pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | None | none, all|
 | Pgms_wait_sampling.history_period | Imposta la frequenza di campionamento degli eventi di attesa, in millisecondi. | 100 | 1-600000 |
 
 > [!NOTE] 

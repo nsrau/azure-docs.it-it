@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823010"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791357"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni del Marketplace commerciale
 
@@ -66,7 +66,7 @@ A seconda dell'opzione di transazione utilizzata, i costi di licenza software de
 
 * Pagamento in base al consumo: i costi di licenza software vengono presentati come tariffa oraria, per singolo core (vCPU), basata sull'infrastruttura di Azure usata. Si applica solo alle macchine virtuali e alle applicazioni Azure.
 
-* • Prezzi per le sottoscrizioni: le tariffe per le licenze software sono presentate come tariffe mensili o annuali, spese ricorrenti fatturate come tariffe forfettarie o per postazione. Si applica solo alle app SaaS e alle app gestite da Azure.
+* Prezzi per le sottoscrizioni: le tariffe per le licenze software sono presentate come tariffe mensili o annuali, spese ricorrenti fatturate come tariffe forfettarie o per postazione. Si applica solo alle app SaaS e alle app gestite da Azure.
 
 * Versione di valutazione gratuita del software: non sono previsti addebiti per le licenze software per 30 o 90 giorni.
 
@@ -92,7 +92,7 @@ Oltre a usare i tipi di offerta e i modelli di fatturazione per monetizzare un'o
 Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pubblicamente disponibile. Le offerte private possono essere usate per applicare uno sconto o un supplemento a un'offerta. Le offerte private possono essere rese disponibili per uno o più clienti aggiungendo all'elenco elementi consentiti la sottoscrizione di Azure a livello di offerta.
 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
 **Pagamento in base al consumo** 
 
@@ -163,7 +163,7 @@ I clienti possono anche pagare con una carta di credito e una fattura mensile. I
 
 Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
-|Descrizione    |    Data  |
+|Description    |    Data  |
 |----------|----------|
 |Periodo dell'ordine   | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (mese)   | 30 ago 2018 |
@@ -177,12 +177,12 @@ Se ad esempio il cliente effettua un acquisto con la carta di credito:
 
 Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
 
-| Descrizione |    Data  |
+| Description |    Data  |
 |----------|----------|
 |Periodo dell'ordine | 15 ago 2018 - 30 ago 2018 |
 |Fine periodo (trimestre) | 30 set 2018 |
 |Data di fatturazione | 15 ott 2018 |
-|Periodo deposito (solo carte di credito, 30 giorni) | n/d |
+|Periodo deposito (solo carte di credito, 30 giorni) | N/D |
 |Inizio periodo riscossione | 15 ott 2018 |
 |Fine periodo riscossione (massimo 90 giorni) | 15 gen 2019 |
 |Data pagamento cliente | 30 dic 2018 |

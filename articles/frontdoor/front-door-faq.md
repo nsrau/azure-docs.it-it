@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184646"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790534"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Domande frequenti sul servizio Azure front door
 
@@ -26,7 +26,7 @@ Questo articolo fornisce le risposte alle domande comuni sulle funzionalità e s
 2. [Servizio front door di Azure UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
 3. **Supporto tecnico Microsoft:** Per creare una nuova richiesta di supporto, nella portale di Azure della scheda **Guida** selezionare il pulsante Guida e **supporto** e quindi selezionare **nuova richiesta di supporto**.
 
-## <a name="general"></a>General
+## <a name="general"></a>Informazioni di carattere generale
 
 ### <a name="what-is-azure-front-door-service"></a>Informazioni sul servizio Frontdoor di Azure
 
@@ -134,7 +134,7 @@ Il servizio di Azure front door (AFD) richiede un indirizzo IP pubblico o un nom
 
 Informazioni su tutti i [timeout e i limiti documentati per il servizio front door di Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
 
-## <a name="performance"></a>Prestazioni
+## <a name="performance"></a>Performance
 
 ### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>In che modo il servizio Azure front door supporta la disponibilità e la scalabilità elevate?
 
@@ -180,6 +180,8 @@ Di seguito sono riportati i pacchetti di crittografia attualmente supportati dal
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Il servizio front door di Azure supporta anche la ricrittografia del traffico nel back-end?
 

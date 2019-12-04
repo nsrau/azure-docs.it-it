@@ -1,21 +1,17 @@
 ---
-title: Crea la prima app senza server in Visual Studio-app per la logica di Azure
+title: Crea la prima app senza server in Visual Studio
 description: Creare, distribuire e gestire un'app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 76ab76440ddc25f4b1cf51f7d540a6e21614541d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680136"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792958"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Creare la prima app senza server usando app per la logica di Azure e funzioni di Azure in Visual Studio
 
@@ -68,7 +64,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
    ![Creare un nuovo progetto in Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Selezionare quindi **Cloud**  > **gruppo di risorse di Azure**.
+1. In **Installato** selezionare **Visual C#** o **Visual Basic**. Selezionare quindi **Cloud** > **gruppo di risorse di Azure**.
 
    > [!NOTE]
    > Se la categoria **cloud** o il progetto **gruppo di risorse di Azure** non esiste, verificare di aver installato Azure SDK per Visual Studio.
@@ -104,7 +100,7 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
 Prima di poter aprire l'app per la logica in progettazione app per la logica in Visual Studio, è necessario avere un gruppo di risorse di Azure già distribuito in Azure. Il progettista può quindi creare le connessioni ai servizi e alle risorse disponibili nell'app per la logica. Per questa attività, seguire questa procedura per distribuire la soluzione da Visual Studio nel portale di Azure:
 
-1. In Esplora soluzioni scegliere **distribuisci**  > **nuovo**dal menu di scelta rapida del progetto di risorse.
+1. In Esplora soluzioni scegliere **distribuisci** > **nuovo**dal menu di scelta rapida del progetto di risorse.
 
    ![Creare una nuova distribuzione per il gruppo di risorse](./media/logic-apps-serverless-get-started-vs/deploy.png)
 

@@ -1,20 +1,19 @@
 ---
-title: Ripristino di emergenza per gli account di integrazione-app per la logica di Azure
+title: Ripristino di emergenza per gli account di integrazione
 description: Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 5ab0b14a190461d4dfba74e277f3d2ec30d9981a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680403"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793128"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 

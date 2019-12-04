@@ -1,17 +1,17 @@
 ---
-title: Log del server per Database di Azure per MySQL
+title: Log di query lente-database di Azure per MySQL
 description: Descrive i log di query lente disponibili nel database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: cd0d09e4d46747b7f3f8e6fb714dd711beef9484
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434293"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770841"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -23,7 +23,7 @@ Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relat
 
 Nel portale di Azure selezionare il server del Database di Azure per MySQL. Nell'intestazione **Monitoraggio** selezionare la pagina **Log del server**.
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [configurare e accedere ai log di query lente usando l'interfaccia](howto-configure-server-logs-in-cli.md)della riga
 
 ## <a name="log-retention"></a>Conservazione dei log
 I log sono disponibili per un massimo di sette giorni dalla data di creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio. 

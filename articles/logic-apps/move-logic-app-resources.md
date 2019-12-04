@@ -1,20 +1,17 @@
 ---
-title: Spostare app per la logica in sottoscrizioni, gruppi di risorse o aree geografiche-app per la logica di Azure
+title: Spostare app per la logica in sottoscrizioni, gruppi di risorse o aree
 description: Eseguire la migrazione di app per la logica o account di integrazione ad altre sottoscrizioni di Azure, gruppi di risorse o posizioni (aree)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: de646c790fc21ef17bf78789e0531503f2f32052
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679102"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790780"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Spostare le risorse dell'app per la logica in altre sottoscrizioni, gruppi di risorse o aree di Azure
 

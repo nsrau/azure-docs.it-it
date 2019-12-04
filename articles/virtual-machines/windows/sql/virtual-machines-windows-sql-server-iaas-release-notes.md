@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c122baa21c5d94b57f29cb0530f0a2655faa87d0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897250"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790386"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione per SQL Server in macchine virtuali di Azure
 
 Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL Server incorporata. Questo articolo riepiloga le modifiche alla documentazione associate a nuove funzionalità e miglioramenti nelle versioni recenti di [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
 
-## <a name="october-2019"></a>2019 ottobre
+## <a name="october-2019"></a>Ottobre 2019
 
 | Modifiche | Dettagli |
 | --- | --- |
@@ -56,7 +56,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | --- | --- |
 | **Nuove modalità di installazione di SQL IaaS** | È ora possibile installare l'estensione IaaS SQL Server in [modalità Lightweight](virtual-machines-windows-sql-server-agent-extension.md) per evitare di riavviare il servizio SQL Server.  |
 | **Modifica di SQL Server Edition** | È ora possibile modificare la [Proprietà Edition](virtual-machines-windows-sql-change-edition.md) per la macchina virtuale SQL Server. |
-| **Modifiche al provider di risorse VM SQL** | È possibile [registrare la macchina virtuale SQL Server con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md) usando le nuove modalità IaaS di SQL. Questa funzionalità include le [Immagini di Windows 2008](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).|
+| **Modifiche al provider di risorse VM SQL** | È possibile [registrare la macchina virtuale SQL Server con il provider di risorse VM SQL](virtual-machines-windows-sql-register-with-resource-provider.md) usando le nuove modalità IaaS di SQL. Questa funzionalità include le immagini di [Windows Server 2008](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) .|
 | **Immagini Bring your own License con Vantaggio Azure Hybrid** | Le immagini Bring your own License distribuite da Azure Marketplace possono ora impostare il [tipo di licenza su con pagamento in base al](virtual-machines-windows-sql-ahb.md#remarks)consumo.| 
 | &nbsp; | &nbsp; |
 

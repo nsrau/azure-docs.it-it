@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 0d3cbe8c3d2d7931e3e4cc052eedc844a296ccf0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099746"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775765"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso sulle metriche con un modello di Resource Manager
 
@@ -22,7 +22,7 @@ ms.locfileid: "73099746"
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare gli [avvisi delle metriche più recenti](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Monitoraggio di Azure. I modelli di Resource Manager consentono di configurare gli avvisi a livello di codice in modo coerente e riproducibile tra gli ambienti. Gli avvisi delle metriche più recenti sono attualmente disponibili in [questo set di tipi di risorse](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modello di risorsa per la creazione di avvisi delle metriche per il tipo di risorsa: l'area di lavoro di Azure Log Analytics (ad esempio) `Microsoft.OperationalInsights/workspaces`, richiede passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modello di risorsa per la creazione di avvisi delle metriche per il tipo di risorsa: area di lavoro di Azure Log Analytics (ad esempio) `Microsoft.OperationalInsights/workspaces`, richiede passaggi aggiuntivi. Per informazioni dettagliate, vedere l'articolo [Avviso delle metriche per i log - modello di risorsa](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 I passaggi di base sono i seguenti:
 
@@ -551,9 +551,11 @@ az group deployment create \
 >
 > Anche se è possibile che l'avviso di metrica sia stato creato in un gruppo di risorse diverso rispetto alla risorsa di destinazione, è consigliabile usare lo stesso gruppo di risorse della risorsa di destinazione.
 
-## <a name="template-for-a-more-advanced-static-threshold-metric-alert"></a>Modello per un avviso più avanzato delle metriche con soglia statica
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Modello per un avviso di metrica della soglia statica che monitora più criteri
 
-Gli avvisi delle metriche più recenti supportano la creazione di avvisi in base a metriche multidimensionali e la specifica di più criteri. È possibile usare il modello seguente per creare un avviso di metrica più avanzato in base a metriche dimensionali e specificare più criteri.
+Gli avvisi delle metriche più recenti supportano la creazione di avvisi in base a metriche multidimensionali e la specifica di più criteri. È possibile usare il modello seguente per creare una regola di avviso metrica più avanzata sulle metriche dimensionali e specificare più criteri.
+
+Si noti che quando la regola di avviso contiene più criteri, l'utilizzo delle dimensioni è limitato a un valore per dimensione all'interno di ogni criterio.
 
 Salvare il codice JSON seguente come advancedstaticmetricalert.json ai fini di questa procedura dettagliata.
 
@@ -784,13 +786,243 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Anche se è possibile che l'avviso di metrica sia stato creato in un gruppo di risorse diverso rispetto alla risorsa di destinazione, è consigliabile usare lo stesso gruppo di risorse della risorsa di destinazione.
+> Quando una regola di avviso contiene più criteri, l'utilizzo delle dimensioni è limitato a un valore per dimensione all'interno di ogni criterio.
 
-## <a name="template-for-a-more-advanced-dynamic-thresholds-metric-alert"></a>Modello per un avviso più avanzato delle metriche con soglie dinamiche
+## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Modello per un avviso di metrica statica che monitora più dimensioni
 
-È possibile usare il modello seguente per creare un avviso delle metriche con soglie dinamiche più avanzato in base a metriche dimensionali. L'uso di più criteri non è attualmente supportato.
+È possibile usare il modello seguente per creare una regola di avviso metrica statica sulle metriche dimensionali.
 
-Le regole di avviso con soglie dinamiche possono creare soglie personalizzate per centinaia di serie di metriche (persino di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire.
+Una singola regola di avviso può monitorare più serie temporali metriche alla volta, il che comporta un minor numero di regole di avviso da gestire.
+
+Nell'esempio seguente, la regola di avviso monitorerà le combinazioni di valori di dimensioni delle dimensioni **responseType** e **ApiName** per la metrica delle **transazioni** :
+1. **ResponsType** -l'uso del carattere jolly "\*" significa che per ogni valore della dimensione **responseType** , inclusi i valori futuri, viene monitorata una serie temporale diversa singolarmente.
+2. **ApiName** : una serie temporale diversa verrà monitorata solo per i valori della dimensione **GetBlob** e **PutBlob** .
+
+Ad esempio, alcune delle possibili serie temporali che verranno monitorate da questa regola di avviso sono:
+- Metrica = *Transactions*, responseType = *Success*, ApiName = *GetBlob*
+- Metrica = *Transactions*, responseType = *Success*, ApiName = *PutBlob*
+- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *GetBlob*
+- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *PutBlob*
+
+Salvare il file JSON seguente come multidimensionalstaticmetricalert. JSON ai fini di questa procedura dettagliata.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the resource emitting the metric that will be used for the comparison."
+            }
+        },
+        "criterion":{
+            "type": "object",
+            "metadata": {
+                "description": "Criterion includes metric name, dimension values, threshold and an operator. The alert rule fires when ALL criteria are met"
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": { 
+        "criteria": "[array(parameters('criterion'))]"
+     },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": "[variables('criteria')]"
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+È possibile usare il modello riportato in precedenza con il file dei parametri fornito di seguito. 
+
+Salvare e modificare il codice JSON seguente come multidimensionalstaticmetricalert. Parameters. JSON ai fini di questa procedura dettagliata.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New multi-dimensional metric alert rule (replace with your alert name)"
+        },
+        "alertDescription": {
+            "value": "New multi-dimensional metric alert rule created via template (replace with your alert description)"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
+        },
+        "criterion": {
+            "value": {
+                    "name": "Criterion",
+                    "metricName": "Transactions",
+                    "dimensions": [
+                        {
+                            "name":"ResponseType",
+                            "operator": "Include",
+                            "values": ["*"]
+                        },
+                        {
+                "name":"ApiName",
+                            "operator": "Include",
+                            "values": ["GetBlob", "PutBlob"]    
+                        }
+                    ],
+                    "operator": "GreaterThan",
+                    "threshold": "5",
+                    "timeAggregation": "Total"
+                }
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
+        }
+    }
+}
+```
+
+
+È possibile creare l'avviso di metrica usando il modello e il file dei parametri tramite PowerShell o l'interfaccia della riga di comando di Azure dalla directory di lavoro corrente.
+
+Uso di Azure PowerShell
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+  -TemplateFile multidimensionalstaticmetricalert.json -TemplateParameterFile multidimensionalstaticmetricalert.parameters.json
+```
+
+
+
+Utilizzare l'interfaccia della riga di comando di Azure
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file multidimensionalstaticmetricalert.json \
+    --parameters @multidimensionalstaticmetricalert.parameters.json
+```
+
+
+## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Modello per un avviso di metrica per le soglie dinamiche che monitora più dimensioni
+
+È possibile usare il modello seguente per creare una regola di avviso metrica di soglia dinamica più avanzata sulle metriche dimensionali.
+
+Una singola regola di avviso per le soglie dinamiche può creare soglie personalizzate per centinaia di serie temporali metrica (anche tipi diversi) per volta, il che comporta un minor numero di regole di avviso da gestire.
+
+Nell'esempio seguente, la regola di avviso monitorerà le combinazioni di valori di dimensioni delle dimensioni **responseType** e **ApiName** per la metrica delle **transazioni** :
+1. **ResponsType** : per ogni valore della dimensione **responseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName** : una serie temporale diversa verrà monitorata solo per i valori della dimensione **GetBlob** e **PutBlob** .
+
+Ad esempio, alcune delle possibili serie temporali che verranno monitorate da questa regola di avviso sono:
+- Metrica = *Transactions*, responseType = *Success*, ApiName = *GetBlob*
+- Metrica = *Transactions*, responseType = *Success*, ApiName = *PutBlob*
+- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *GetBlob*
+- Metrica = *Transactions*, responseType = *timeout server*, ApiName = *PutBlob*
 
 Salvare il codice JSON seguente come advanceddynamicmetricalert.json ai fini di questa procedura dettagliata.
 
@@ -936,7 +1168,7 @@ Salvare e modificare il codice JSON seguente come advanceddynamicmetricalert.par
         "resourceId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
         },
-        "criterion1": {
+        "criterion": {
             "value": {
                     "criterionType": "DynamicThresholdCriterion",
                     "name": "1st criterion",
@@ -945,12 +1177,12 @@ Salvare e modificare il codice JSON seguente come advanceddynamicmetricalert.par
                         {
                             "name":"ResponseType",
                             "operator": "Include",
-                            "values": ["Success"]
+                            "values": ["*"]
                         },
                         {
                             "name":"ApiName",
                             "operator": "Include",
-                            "values": ["GetBlob"]
+                            "values": ["GetBlob", "PutBlob"]
                         }
                     ],
                     "operator": "GreaterOrLessThan",
@@ -961,7 +1193,7 @@ Salvare e modificare il codice JSON seguente come advanceddynamicmetricalert.par
                     },
                     "timeAggregation": "Total"
                 }
-        }
+        },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
         }
@@ -997,11 +1229,11 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Anche se è possibile che l'avviso di metrica sia stato creato in un gruppo di risorse diverso rispetto alla risorsa di destinazione, è consigliabile usare lo stesso gruppo di risorse della risorsa di destinazione.
+> Non sono attualmente supportati più criteri per le regole di avviso delle metriche che usano soglie dinamiche.
 
-## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso delle metriche che consente di monitorare più risorse
+## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso di metrica che monitora più risorse
 
-Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali e i dispositivi databox Edge.
+Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali, i database SQL, i pool elastici SQL e i dispositivi databox Edge.
 
 Le regole di avviso con soglie dinamiche possono anche creare soglie personalizzate per centinaia di serie di metriche (persino di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire.
 
@@ -1836,6 +2068,7 @@ Salvare il codice JSON seguente come all-vms-in-subscription-static.json ai fini
             "type": "string",
             "defaultValue": "PT1M",
             "allowedValues": [
+                "PT1M",
                 "PT5M",
                 "PT15M",
                 "PT30M",

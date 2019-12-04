@@ -1,17 +1,17 @@
 ---
-title: Aumento automatico delle dimensioni di archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
-description: Questo articolo descrive come abilitare l'aumento automatico delle dimensioni di archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
+title: Aumento automatico delle dimensioni di archiviazione-portale di Azure-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come configurare l'aumento automatico delle dimensioni dell'archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/29/2019
-ms.openlocfilehash: 1d028093b030e1f2cf00ceae9297563c36c314c5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5e4f9d68d02edf456394d4ce10b7b6af5f8643d9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142885"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769235"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Aumento automatico delle dimensioni di archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
 Questo articolo descrive come configurare un database di Azure per l'archiviazione del server PostgreSQL in modo che cresca senza alcun effetto sul carico di lavoro.
@@ -28,7 +28,7 @@ Per impostare l'aumento automatico delle dimensioni dell'archiviazione del serve
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server PostgreSQL esistente.
 
-2. Nella pagina Server PostgreSQL fare clic su piano tariffario in **Impostazioni**per aprire la pagina piano tariffario.
+2. Nella pagina Server PostgreSQL fare clic su piano **tariffario** in **Impostazioni**per aprire la pagina piano tariffario.
 
 3. Nella sezione **aumento automatico** selezionare **Sì** per abilitare l'aumento automatico delle dimensioni di archiviazione.
 

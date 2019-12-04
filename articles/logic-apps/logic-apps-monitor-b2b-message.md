@@ -1,20 +1,19 @@
 ---
-title: Monitorare i messaggi B2B con monitoraggio di Azure-app per la logica di Azure
+title: Monitorare i messaggi B2B con monitoraggio di Azure
 description: Configurare la registrazione diagnostica per i messaggi AS2, X12 ed EDIFACT in app per la logica di Azure tramite monitoraggio di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: cd96376f764ec3075b916bf2207ec6ee3dd3fcbd
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680195"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791931"
 ---
 # <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Configurare la registrazione diagnostica per i messaggi B2B in app per la logica di Azure tramite monitoraggio di Azure
 

@@ -1,17 +1,17 @@
 ---
-title: Eseguire la replica dei dati in Database di Azure per MySQL
+title: 'Replica dei dati: database di Azure per MySQL'
 description: Informazioni sull'uso della replica dei dati per la sincronizzazione da un server esterno al servizio database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: b501a1f1ea54aff5617932dc5085d6d19f86976c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970358"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765087"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -20,8 +20,8 @@ Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL
 ## <a name="when-to-use-data-in-replication"></a>Quando usare la replica dei dati in ingresso
 Gli scenari principali da considerare quando si usa la funzione di replica dei dati in ingresso sono i seguenti:
 
-- **Sincronizzazione dei dati ibrida:** con la replica dei dati in ingresso è possibile mantenere sincronizzati i dati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
-- **Sincronizzazione multi-cloud:** per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
+- **Sincronizzazione ibrida dei dati**: con la replica dei dati in ingresso è possibile mantenere i dati sincronizzati tra i server locali e Database di Azure per MySQL. Questa sincronizzazione è utile per la creazione di applicazioni ibride. Il metodo è particolarmente interessante quando si ha già un server di database locale, ma si vogliono spostare i dati in un'area più vicina agli utenti finali.
+- **Sincronizzazione multi-cloud**: per soluzioni cloud complesse, usare la replica dei dati in ingresso per sincronizzare i dati tra Database di Azure per MySQL e diversi provider cloud, inclusi servizi di database e macchine virtuali ospitati nei cloud.
  
 Per gli scenari di migrazione, usare il [servizio migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/)(DMS).
 
@@ -36,7 +36,7 @@ Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-
 - Ogni tabella deve avere una chiave primaria.
 - Il server master deve usare il motore InnoDB di MySQL.
 - L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
-- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel stored procedure `mysql.az_replication_change_master`. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) seguenti e al parametro `master_ssl_ca`.
+- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel stored procedure di `mysql.az_replication_change_master`. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) seguenti e al parametro `master_ssl_ca`.
 - Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
 - Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
 - Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).

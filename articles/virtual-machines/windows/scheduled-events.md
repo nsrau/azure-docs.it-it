@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 7889ee66ec80ee0b77b92efc5755e1a84a5cbf04
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f6e3e370201b49da149c09d87ed7cec63fef8ebf
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073275"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792259"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: eventi pianificati per macchine virtuali Windows
 
@@ -47,7 +47,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 - [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (ad esempio, riavvio della macchina virtuale, migrazione in tempo reale o aggiornamenti con mantenimento della memoria per l'host)
 - Hardware danneggiato
 - Manutenzione avviata dall'utente (ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente)
-- [Rimozione di macchine virtuali con priorità bassa](https://azure.microsoft.com/blog/low-priority-scale-sets) nei set di scalabilità
+- Eliminazioni di istanze della [macchina virtuale](spot-vms.md) e del [set di scalabilità](../../virtual-machine-scale-sets/use-spot.md) spot
 
 ## <a name="the-basics"></a>Nozioni di base  
 
@@ -63,11 +63,11 @@ Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso 
 ### <a name="version-and-region-availability"></a>Versione e disponibilità in base all'area geografica
 Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie e la versione corrente è `2017-11-01`.
 
-| Version | Tipo di versione | Regioni | Note sulla versione | 
+| Versione | Tipo di versione | Aree | Note sulla versione | 
 | - | - | - | - |
-| 2017-11-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per la rimozione di una macchina virtuale con priorità bassa ' preemptive '<br> | 
-| 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
-| 2017-03-01 | Anteprima | Tutti |<li>Versione iniziale
+| 2017-11-01 | Disponibilità generale | Tutto | <li> Aggiunta del supporto per la rimozione di una macchina virtuale con priorità bassa ' preemptive '<br> | 
+| 2017-08-01 | Disponibilità generale | Tutto | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
+| 2017-03-01 | Preview | Tutto |<li>Versione iniziale
 
 > [!NOTE] 
 > Le versioni precedenti di anteprima di eventi pianificati {ultima} sono supportate come versione dell'API. Questo formato non è più supportato e verrà rimosso in futuro.
@@ -84,7 +84,7 @@ Il riavvio di una macchina virtuale pianifica un evento di tipo `Reboot`. La rid
 
 ## <a name="using-the-api"></a>Uso dell'API
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>headers
 Quando si eseguono query sul Servizio metadati, è necessario specificare l'intestazione `Metadata:true` per garantire che la richiesta non sia stata reindirizzata accidentalmente. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Se non si include l'intestazione nella richiesta, il servizio metadati restituisce una risposta Richiesta non valida.
 
 ### <a name="query-for-events"></a>Query per gli eventi
@@ -115,12 +115,12 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una seri
 DocumentIncarnation è un ETag e fornisce un modo semplice per verificare se il payload degli eventi è stato modificato dall'ultima query.
 
 ### <a name="event-properties"></a>Proprietà dell'evento
-|Proprietà  |  DESCRIZIONE |
+|Proprietà  |  Description |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La connettività CPU e di rete potrebbe essere sospesa, ma non si verifica alcun effetto sulla memoria o sui file aperti. <li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. <li>`Preempt`: è in corso l'eliminazione della macchina virtuale con priorità bassa (i dischi temporanei vengono persi).|
 | ResourceType | Tipo di risorsa su cui l'evento influisce. <br><br> Valori: <ul><li>`VirtualMachine`|
-| Risorse| Elenco delle risorse su cui l'evento influisce. Contiene sicuramente i computer per al massimo un [Dominio di aggiornamento](manage-availability.md), ma non può contenere tutti i computer nel dominio di aggiornamento. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| resources| Elenco delle risorse su cui l'evento influisce. Contiene sicuramente i computer per al massimo un [Dominio di aggiornamento](manage-availability.md), ma non può contenere tutti i computer nel dominio di aggiornamento. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato in seguito al tempo specificato nella proprietà `NotBefore`.<li>`Started`: l'evento si è avviato.</ul> Non viene indicato `Completed` o uno stato simile; l'evento non verrà più restituito al suo completamento.
 | NotBefore| Tempo dopo il quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> Lun 19 set 2016 18:29:47 GMT  |
 
@@ -130,7 +130,7 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 |EventType  | Minimum Notice |
 | - | - |
 | Freeze| 15 minuti |
-| Riavvio | 15 minuti |
+| Riavviare | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
 | Hanno | 30 secondi |
 

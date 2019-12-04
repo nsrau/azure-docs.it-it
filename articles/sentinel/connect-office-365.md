@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a38beb0700e470d325545a2523143ecdab9f6dfb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240658"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777418"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connettere i dati dai log di Office 365
 
@@ -42,7 +42,7 @@ ms.locfileid: "71240658"
 
 1. In Sentinel di Azure selezionare **connettori dati** , quindi fare clic sul riquadro **Office 365** .
 
-2. Se non è già stato abilitato, in **connessione** usare il pulsante **Abilita** per abilitare la soluzione Office 365. Se è già abilitato, verrà identificato nella schermata di connessione come già abilitato.
+2. Se non è già stato fatto, è possibile farlo accedendo al pannello **connettori dati** e selezionando connettore **Office 365** . Qui è possibile fare clic sulla **pagina Apri connettore** e nella sezione configurazione **abilitare la soluzione Office 365 nell'area di lavoro** usare il pulsante **Installa soluzione** per abilitarla. Se è già abilitato, verrà identificato nella schermata di connessione come già abilitato.
 1. Office 365 consente di trasmettere i dati da più tenant ad Azure Sentinel. Per ogni tenant a cui ci si vuole connettere, aggiungere il tenant in **Connetti tenant a Sentinel di Azure**. 
 1. Viene visualizzata una schermata Active Directory. Viene richiesto di eseguire l'autenticazione con un utente amministratore globale in ogni tenant a cui si vuole connettersi a Sentinel di Azure e di fornire le autorizzazioni per Azure Sentinel per leggere i log. 
 5. In Stream Office 365 Activity logs fare clic su **Select** per scegliere i tipi di log da trasmettere in Azure Sentinel. Attualmente, Azure Sentinel supporta Exchange e SharePoint.
@@ -54,6 +54,6 @@ ms.locfileid: "71240658"
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Office 365 ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
-- Scopri come [ottenere visibilità sui dati e potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare le minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
 

@@ -1,20 +1,17 @@
 ---
-title: Creare, modificare o estendere le definizioni delle app per la logica-app per la logica di Azure
+title: Creare, modificare o estendere le definizioni delle app per la logica
 description: Come scrivere, modificare ed estendere le definizioni JSON delle app per la logica in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 03203a5fdb6d61ed95e96581a7e4a979c911cd02
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680031"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792584"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni di app per la logica - App per la logica di Azure
 
@@ -61,7 +58,7 @@ In Visual Studio è possibile aprire le app per la logica che sono state create 
 
 ## <a name="parameters"></a>parameters
 
-Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare anche l'app per la logica distribuzione. 
+Il ciclo di vita della distribuzione ha in genere ambienti diversi per lo sviluppo, il test, la gestione temporanea e la produzione. Quando si hanno valori che si vuole riusare nell'app per la logica senza hardcoded o che variano in base alle esigenze di distribuzione, è possibile creare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per la definizione del flusso di lavoro, in modo da poter automatizzare la distribuzione delle app per la logica. 
 
 Attenersi alla procedura generale per *parametrizzare*o definire e utilizzare i parametri per tali valori. È quindi possibile fornire i valori in un file di parametri separato che passa tali valori al modello. In questo modo, è possibile modificare i valori più facilmente senza dover aggiornare e ridistribuire l'app per la logica. Per informazioni dettagliate, vedere [Panoramica: automatizzare la distribuzione per le app per la logica con i modelli Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 

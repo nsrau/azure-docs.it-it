@@ -1,17 +1,17 @@
 ---
-title: Log di controllo per database di Azure per MySQL
+title: Log di controllo-database di Azure per MySQL
 description: Descrive i log di controllo disponibili nel database di Azure per MySQL e i parametri disponibili per l'abilitazione dei livelli di registrazione.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434412"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773569"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Log di controllo nel database di Azure per MySQL
 
@@ -27,10 +27,10 @@ Per impostazione predefinita, il log di controllo è disabilitato. Per abilitarl
 Altri parametri che è possibile modificare includono:
 
 - `audit_log_events`: controlla gli eventi da registrare. Vedere la tabella seguente per gli eventi di controllo specifici.
-- `audit_log_include_users`: utenti MySQL da includere per la registrazione. Il valore predefinito per questo parametro è vuoto, che include tutti gli utenti per la registrazione. Ha una priorità maggiore rispetto a `audit_log_exclude_users`. La lunghezza massima del parametro è di 512 caratteri.
+- `audit_log_include_users`: utenti MySQL da includere per la registrazione. Il valore predefinito per questo parametro è vuoto, che include tutti gli utenti per la registrazione. Questa operazione ha una priorità più elevata rispetto a `audit_log_exclude_users`. La lunghezza massima del parametro è di 512 caratteri.
 > [!Note]
-> `audit_log_include_users` ha una priorità maggiore rispetto a `audit_log_exclude_users`, ad esempio se audit_log_include_users = `demouser` e audit_log_exclude_users = `demouser`, i log vengono controllati perché `audit_log_include_users` ha una priorità più elevata.
-- `audit_log_exclude_users`: utenti MySQL da escludere dalla registrazione. La lunghezza massima del parametro è di 512 caratteri.
+> `audit_log_include_users` ha una priorità maggiore rispetto `audit_log_exclude_users` ad esempio se audit_log_include_users = `demouser` e audit_log_exclude_users = `demouser`, i log vengono controllati perché `audit_log_include_users` ha una priorità più elevata.
+- `audit_log_exclude_users`: utenti di MySQL da escludere dalla registrazione. La lunghezza massima del parametro è di 512 caratteri.
 
 > [!Note]
 > Per `sql_text`, il log verrà troncato se supera i 2048 caratteri.
@@ -129,7 +129,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome del server |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` o `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`o `DELETE` |
 | `connection_id_d` | ID connessione univoco generato da MySQL |
 | `db_s` | Nome del database a cui si accede |
 | `table_s` | Nome della tabella a cui si accede |

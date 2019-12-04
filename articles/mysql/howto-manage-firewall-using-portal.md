@@ -1,17 +1,17 @@
 ---
-title: Creare e gestire le regole del firewall MySQL in Database di Azure per MySQL
+title: Gestire le regole del firewall-portale di Azure-database di Azure per MySQL
 description: Creare e gestire le regole del firewall di Database di Azure per MySQL con il portale di Azure
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 823226da671671eaf6380d48a35c20298ec6bf9d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 12/02/2019
+ms.openlocfilehash: b02bae528146a3f0c214b7fbb1d234c1a24b174f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933627"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774241"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure
 Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un database di Azure per il server MySQL da un indirizzo IP specificato o da un intervallo di indirizzi IP. 

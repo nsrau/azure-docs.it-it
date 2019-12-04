@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679939"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769576"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -49,12 +49,12 @@ Utilizzare l'attività flusso di dati per trasformare e spostare i dati tramite 
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | Description | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Sì
-integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati | IntegrationRuntimeReference | Sì
+Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | SÌ
+integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati | IntegrationRuntimeReference | SÌ
 staging. linkedService | Se si usa un'origine o un sink di SQL DW, l'account di archiviazione usato per la gestione temporanea di base | LinkedServiceReference | Solo se il flusso di dati legge o scrive in SQL DW
-staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | String | Solo se il flusso di dati legge o scrive in SQL DW
+staging. folderPath | Se si usa un'origine o un sink di SQL DW, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | Stringa | Solo se il flusso di dati legge o scrive in SQL DW
 
 ![Esegui flusso di dati](media/data-flow/activity-data-flow.png "Esegui flusso di dati")
 
@@ -79,7 +79,7 @@ Se si usa un Azure SQL Data Warehouse come sink o origine, è necessario sceglie
 
 Se il flusso di dati utilizza set di dati con parametri, impostare i valori dei parametri nella scheda **Impostazioni** .
 
-![Esegui parametri flusso di dati](media/data-flow/params.png "Parametri")
+![Esegui parametri flusso di dati](media/data-flow/params.png "parameters")
 
 ### <a name="parameterized-data-flows"></a>Flussi di dati con parametri
 
@@ -99,14 +99,51 @@ La pipeline di debug viene eseguita sul cluster di debug attivo, non sull'ambien
 
 L'attività flusso di dati offre un'esperienza di monitoraggio speciale in cui è possibile visualizzare le informazioni sul partizionamento, sulla fase temporale e sulla derivazione dei dati. Aprire il riquadro Monitoraggio usando l'icona degli occhiali in **azioni**. Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
 
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usa l'attività flusso di dati restituisce un'attività successiva
+
+L'attività flusso di dati restituisce le metriche relative al numero di righe scritte in ogni sink e righe lette da ogni origine. Questi risultati vengono restituiti nella sezione `output` del risultato dell'esecuzione dell'attività. Le metriche restituite sono nel formato del codice JSON seguente.
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+Per ottenere, ad esempio, il numero di righe scritte in un sink denominato ' sink1' in un'attività denominata ' dataflowActivity ', utilizzare `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
+
+Per ottenere il numero di righe lette da un'origine denominata ' source1' utilizzata in tale sink, utilizzare `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`.
+
+> [!NOTE]
+> Se un sink contiene zero righe scritte, non verrà visualizzato nelle metriche. L'esistenza può essere verificata utilizzando la funzione `contains`. `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')`, ad esempio, verificherà se le righe sono state scritte in sink1.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
+- [Attività di esecuzione pipeline](control-flow-execute-pipeline-activity.md)
 - [Attività ForEach](control-flow-for-each-activity.md)
-- [Attività Get Metadata](control-flow-get-metadata-activity.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Attività GetMetadata](control-flow-get-metadata-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)
 - [Attività Until](control-flow-until-activity.md)

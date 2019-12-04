@@ -1,21 +1,19 @@
 ---
-title: Creare integrazioni aziendali B2B- App per la logica di Azure | Microsoft Docs
+title: Creazione di integrazioni aziendali B2B
 description: Ricevere dati B2B nelle App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39966b8171296a8608b9436485f7682d114c8410
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999090"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793108"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere dati B2B con App per la logica di Azure e Enterprise Integration Pack
 
@@ -109,5 +107,5 @@ La configurazione dell'app per la logica B2B è completata. In un'applicazione r
 * Le azioni B2B aiutano a creare facilmente partner e contratti nell'account di integrazione e a usarli in un'app per la logica.
 * Quando si estende la propria app per la logica con altre azioni, è possibile inviare e ricevere dati tra altre applicazioni e altri servizi come SalesForce.
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 [Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

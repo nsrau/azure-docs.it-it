@@ -1,17 +1,17 @@
 ---
-title: Log del server per Database di Azure per MariaDB
+title: Log di query lente-database di Azure per MariaDB
 description: Descrive i log disponibili nel Database di Azure per MariaDB e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 10dbd4d7fa838ee7f8a3f70b3caadb570877d685
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 12/02/2019
+ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259976"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772105"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log di query lente nel database di Azure per MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -38,7 +38,7 @@ Altri parametri che è possibile modificare includono:
 - **long_query_time**: se una query richiede più tempo del valore di long_query_time (in secondi), la query viene registrata. Il valore predefinito è 10 secondi.
 - **log_slow_admin_statements**: se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
 - **log_queries_not_using_indexes**: determina se le query che non usano gli indici vengono registrate in slow_query_log
-- **log_throttle_queries_not_using_indexes**: Questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
+- **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
 
 Vedere [documentazione riguardante il log delle query lente](https://mariadb.com/kb/en/library/slow-query-log-overview/) di MariaDB per una descrizione completa dei parametri del log delle query lente.
 
@@ -54,7 +54,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated` [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -65,10 +65,10 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome del server |
-| `start_time_t`UTC | Ora di inizio della query |
+| `start_time_t` [UTC] | Ora di inizio della query |
 | `query_time_s` | Tempo totale di esecuzione della query |
 | `lock_time_s` | Tempo totale in cui la query è rimasta bloccata |
-| `user_host_s` | Nome utente |
+| `user_host_s` | Username |
 | `rows_sent_s` | Numero di righe inviate |
 | `rows_examined_s` | Numero di righe esaminate |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |

@@ -1,21 +1,20 @@
 ---
-title: Connettersi ai sistemi SAP-app per la logica di Azure
+title: Connettersi ai sistemi SAP
 description: Accedere e gestire le risorse SAP automatizzando i flussi di lavoro con le app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 90348ad05879aff75dadab85af4e905d92228a2d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9cf818e8b31ea2efb2f2ef2f0848a759e017dfa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287116"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790867"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -40,7 +39,7 @@ Questo articolo spiega come creare esempi di app per la logica che si integrano 
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questo articolo, sono necessari questi elementi:
 
@@ -301,7 +300,7 @@ Di seguito è riportato un esempio che illustra come estrarre singoli IDOCs da u
 
 1. Prima di iniziare, è necessaria un'app per la logica con un trigger SAP. Se non si dispone già di questa app per la logica, seguire i passaggi precedenti in questo argomento per [configurare un'app per la logica con un trigger SAP](#receive-from-sap).
 
-   Ad esempio:
+   ad esempio:
 
    ![Aggiungere il trigger SAP all'app per la logica](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -465,7 +464,7 @@ Prima di iniziare, verificare di aver soddisfatto i [prerequisiti](#pre-reqs)ele
 
    ![Configurare SAP SNC nella connessione](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Description |
    |----------| ------------|
    | **Percorso della libreria SNC** | Nome o percorso della libreria SNC relativo al percorso di installazione di NCo o al percorso assoluto. Gli esempi sono `sapsnc.dll` o `.\security\sapsnc.dll` o `c:\security\sapsnc.dll`. |
    | **SSO SSO** | Quando ci si connette tramite SNC, l'identità SNC viene in genere usata per l'autenticazione del chiamante. Un'altra opzione consiste nell'eseguire l'override di in modo che sia possibile usare le informazioni relative all'utente e alla password per l'autenticazione del chiamante, ma la riga è ancora crittografata. |

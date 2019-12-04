@@ -2,21 +2,18 @@
 title: Esportare i flussi da Power automatici ad app per la logica di Azure
 description: Migrare i flussi da Power automatizzate a app per la logica di Azure esportando come modelli Azure Resource Manager
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583262"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792633"
 ---
-# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power automatizzare e distribuire in app per la logica di Azure
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
 Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la migrazione di tale flusso da [Power automatici](https://flow.microsoft.com) ad app per la [logica di Azure](../logic-apps/logic-apps-overview.md). È possibile esportare il flusso come modello di Azure Resource Manager per un'app per la logica, distribuire il modello di app per la logica in un gruppo di risorse di Azure e quindi aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
@@ -59,7 +56,7 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
 1. Quando l'editor Mostra il codice JSON, i parametri e le risorse nel modello, selezionare **Salva**.
   
-   ![Salvare il modello](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
+   ![Salva modello](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
 1. Specificare ora i parametri di input per il modello:
 
@@ -144,7 +141,7 @@ Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickst
 
    ![Modifica parametri di distribuzione](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   All'avvio della distribuzione, lo stato di distribuzione dell'app sarà visualizzato nella finestra **Output** di Visual Studio. Se lo stato non è visualizzato, aprire l'elenco **Mostra output di** e selezionare il proprio gruppo di risorse di Azure. Ad esempio:
+   All'avvio della distribuzione, lo stato di distribuzione dell'app sarà visualizzato nella finestra **Output** di Visual Studio. Se lo stato non è visualizzato, aprire l'elenco **Mostra output di** e selezionare il proprio gruppo di risorse di Azure. ad esempio:
 
    ![Finestra Output](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

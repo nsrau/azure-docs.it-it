@@ -1,8 +1,7 @@
 ---
-title: Connettersi a app 3270 in mainframe IBM-app per la logica di Azure
+title: Connetti a app 3270 in mainframe IBM
 description: Integra e automatizza le app 3270 basate su schermo con Azure usando app per la logica di Azure e il connettore IBM 3270
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
@@ -10,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: f039d0cbfa2b34fecbcdee53ebe2b56b6e9b6d69
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787568"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789240"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrare app basate su schermo 3270 in mainframe IBM con Azure usando app per la logica di Azure e il connettore IBM 3270
 

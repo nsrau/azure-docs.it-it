@@ -1,44 +1,44 @@
 ---
-title: Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti di Azure
-description: Informazioni su come risolvere i problemi con l'agente Gestione aggiornamenti.
+title: Informazioni sull'integrità del ruolo di lavoro ibrido per Runbook di Linux in Azure Gestione aggiornamenti
+description: Informazioni su come risolvere i problemi del ruolo di lavoro ibrido per Runbook in Linux che supporta Gestione aggiornamenti.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: c37d8be8862e75a6520ccefe4b9df93dd993b2a8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: def0ac11edfa5a17a8e506c79d91885dd3c9ab66
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477107"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770390"
 ---
-# <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendere i risultati del controllo dell'agente Linux in Gestione aggiornamenti
+# <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Informazioni sull'integrità del ruolo di lavoro ibrido per Runbook di Linux in Gestione aggiornamenti
 
-Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti è possibile controllare l'integrità di un agente del ruolo di lavoro ibrido per determinare il problema sottostante. Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
+Sono molti i motivi possibili per cui un computer non viene visualizzato come **Pronto** in Gestione aggiornamenti. In Gestione aggiornamenti, è possibile verificare l'integrità di un agente di lavoro ibrido per Runbook per determinare il problema sottostante. Questo articolo illustra come eseguire lo strumento di risoluzione dei problemi per i computer Azure dalla portale di Azure e dai computer non Azure nello [scenario offline](#troubleshoot-offline).
 
 L'elenco seguente indica i tre possibili stati di conformità di un computer:
 
-* **Pronto**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a meno di 1 ora fa.
-* **Disconnesso**: l'agente di aggiornamento è implementato e l'ultima visualizzazione risale a più di 1 ora fa.
-* **Non configurato**: l'agente di aggiornamento non viene trovato o non è stato completato l'onboarding.
+* **Pronto** : il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato meno di un'ora fa.
+* **Disconnesso** : il ruolo di lavoro ibrido per Runbook è stato distribuito e l'ultimo è stato rilevato più di un'ora fa.
+* **Non configurato** : il ruolo di lavoro ibrido per Runbook non è stato trovato o non ha completato l'onboarding.
 
 > [!NOTE]
-> Potrebbe esserci un leggero ritardo tra i quali viene illustrato il portale di Azure e lo stato corrente della macchina.
+> È possibile che si verifichi un lieve ritardo tra il portale di Azure visualizzato e lo stato corrente del computer.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
-Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Nel caso di computer non Azure, facendo clic sul collegamento, si accede a questo articolo. Vedere le istruzioni relative allo scenario offline, per risolvere i problemi di un computer non Azure.
+Nel caso di computer Azure, facendo clic sul collegamento **Risoluzione dei problemi** nella colonna **Update Agent Readiness** (Idoneità agente di aggiornamento) nel portale, si apre la pagina **Troubleshoot Update Agent** (Risoluzione dei problemi dell'agente di aggiornamento). Per i computer non Azure, il collegamento riporta a questo articolo. Vedere le istruzioni offline per risolvere i problemi relativi a un computer non Azure.
 
 ![Pagina con l'elenco delle macchine virtuali](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > I controlli richiedono che la macchina virtuale sia in esecuzione. Se la macchina virtuale non è in esecuzione viene visualizzato il pulsante **Start the VM** (Avvia la macchina virtuale).
 
-Nella pagina **Troubleshoot Update Agent** (Risolvere i problemi dell'agente di aggiornamento) fare clic su **Run Checks** (Esegui controlli) per avviare la risoluzione dei problemi. La risoluzione dei problemi usa [Run command](../../virtual-machines/linux/run-command.md) (Esegui comando) per eseguire uno script nel computer al fine di verificare le dipendenze dell'agente. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
+Nella pagina **Troubleshoot Update Agent** (Risolvere i problemi dell'agente di aggiornamento) fare clic su **Run Checks** (Esegui controlli) per avviare la risoluzione dei problemi. Lo strumento di risoluzione dei problemi usa il [comando Run](../../virtual-machines/linux/run-command.md) per eseguire uno script nel computer per verificare le dipendenze. Una volta completata la risoluzione dei problemi, restituisce il risultato dei controlli.
 
 ![Pagina della risoluzione dei problemi](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Al termine i risultati sono mostrati nella finestra. Le sezioni di controllo for
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per runbook sta eseguendo uno dei sistemi operativi seguenti:
+Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per Runbook esegue uno dei sistemi operativi seguenti:
 
 |Sistema operativo  |Note  |
 |---------|---------|
@@ -61,14 +61,14 @@ Il controllo del sistema operativo verifica se il ruolo di lavoro ibrido per run
 
 ## <a name="monitoring-agent-service-health-checks"></a>Controlli di integrità dei servizi dell'agente di monitoraggio
 
-### <a name="oms-agent"></a>Agente OMS
+### <a name="log-analytics-agent"></a>Agente di Log Analytics
 
-Questo controllo verifica che l'agente OMS per Linux sia installato. Per istruzioni su come installarlo, vedere [Installare l'agente per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+Questo controllo garantisce che sia installato l'agente Log Analytics per Linux. Per istruzioni su come installarlo, vedere [Installare l'agente per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
-### <a name="oms-agent-status"></a>Stato dell'agente OMS
+### <a name="log-analytics-agent-status"></a>Stato agente Log Analytics
 
-Questo controllo verifica che l'agente OMS per Linux sia in esecuzione. Se l'agente non è in esecuzione, è possibile eseguire il comando seguente per tentare di riavviarlo. Per altre informazioni sulla risoluzione dei problemi dell'agente, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook (Linux)](hybrid-runbook-worker.md#linux).
+Questo controllo garantisce che l'agente di Log Analytics per Linux sia in esecuzione. Se l'agente non è in esecuzione, è possibile eseguire il comando seguente per tentare di riavviarlo. Per altre informazioni sulla risoluzione dei problemi dell'agente, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook (Linux)](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -78,9 +78,9 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 Questo controllo determina se l'agente invia report a più aree di lavoro. Il multihoming non è supportato da Gestione aggiornamenti.
 
-### <a name="hybrid-runbook-worker"></a>ruolo di lavoro ibrido per runbook
+### <a name="hybrid-runbook-worker"></a>Ruolo di lavoro ibrido per runbook
 
-Questo controllo verifica che l'agente OMS per Linux abbia il pacchetto del ruolo di lavoro ibrido per runbook. Questo pacchetto è necessario per il funzionamento di Gestione aggiornamenti.
+Questo controllo verifica se l'agente di Log Analytics per Linux ha il pacchetto di lavoro ibrido per Runbook. Questo pacchetto è necessario per il funzionamento di Gestione aggiornamenti.
 
 ### <a name="hybrid-runbook-worker-status"></a>Stato del ruolo di lavoro ibrido per runbook
 
@@ -100,7 +100,7 @@ Questo controllo verifica che il computer abbia accesso a Internet.
 
 ### <a name="registration-endpoint"></a>Endpoint di registrazione
 
-Questo controllo determina se l'agente può comunicare correttamente con il servizio agente.
+Questo controllo determina se il ruolo di lavoro ibrido per Runbook può comunicare correttamente con automazione di Azure l'area di lavoro Log Analytics.
 
 Le configurazioni di proxy e firewall devono consentire all'agente del ruolo di lavoro ibrido per runbook di comunicare con l'endpoint di registrazione. Per un elenco di indirizzi e porte da aprire, vedere l'articolo sulla [pianificazione di rete per i ruoli di lavoro ibridi](../automation-hybrid-runbook-worker.md#network-planning)
 
@@ -180,4 +180,3 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come risolvere altri problemi dei ruoli di lavoro ibridi per runbook, vedere [Risolvere i problemi di ruoli di lavoro ibridi per runbook](hybrid-runbook-worker.md)
-

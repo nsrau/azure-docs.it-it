@@ -1,20 +1,19 @@
 ---
-title: Spostare le app da Servizi BizTalk ad App per la logica di Azure | Microsoft Docs
+title: Spostare le app dai servizi BizTalk in app per la logica di Azure
 description: Eseguire la migrazione da Servizi BizTalk di Azure ad App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273190"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791884"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione da Servizi BizTalk ad App per la logica di Azure
 
@@ -33,7 +32,7 @@ Servizi BizTalk è costituito da due servizi secondari:
 
 Questa tabella associa le funzionalità di Servizi BizTalk a quelle di App per la logica.
 
-| Servizi BizTalk   | App per la logica            | Scopo                      |
+| Servizi BizTalk   | App per la logica            | Finalità                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Connettore          | Connettore             | Inviare e ricevere dati   |
 | Bridge             | App per la logica             | Processore di pipeline           |
@@ -106,7 +105,7 @@ Nell'elaborazione di Servizi BizTalk la fase di miglioramento aggiunge propriet�
 
 Servizi BizTalk permette di [eseguire codice personalizzato](https://msdn.microsoft.com/library/azure/dn232389.aspx) caricato negli assembly personali. Questa funzionalità viene implementata dall'interfaccia [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Ogni fase nel bridge include due proprietà, On Enter Inspector e On Exit Inspector, che indicano il tipo .NET creato che implementa questa interfaccia. Il codice personalizzato permette di eseguire un'elaborazione più complessa sui dati e di riutilizzare il codice esistente negli assembly che eseguono la logica di business comune. 
 
-App per la logica offre due metodi principali per eseguire il codice personalizzato: Funzioni di Azure e app per le API. È possibile creare le funzioni di Azure e richiamarle dalle app per la logica. Vedere [Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure](../logic-apps/logic-apps-azure-functions.md). Usare App per le API, parte del Servizio app di Azure per creare i trigger e le azioni. Per altre informazioni, vedere [Creazione di un'API personalizzata da usare con App per la logica](../logic-apps/logic-apps-create-api-app.md). 
+App per la logica offre due metodi principali per eseguire il codice personalizzato: Funzioni di Azure e App per le API. È possibile creare le funzioni di Azure e richiamarle dalle app per la logica. Vedere [Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure](../logic-apps/logic-apps-azure-functions.md). Usare App per le API, parte del Servizio app di Azure per creare i trigger e le azioni. Per altre informazioni, vedere [Creazione di un'API personalizzata da usare con App per la logica](../logic-apps/logic-apps-create-api-app.md). 
 
 In presenza di codice personalizzato negli assembly che viene chiamato da Servizi BizTalk, è possibile spostarlo in Funzioni di Azure oppure creare API personalizzate con App per le API, a seconda dell'implementazione. Ad esempio, se è presente codice che esegue il wrapping di un altro servizio per cui App per la logica non include un connettore, creare un'app per le API e usare le azioni indicate dall'app per le API all'interno dell'app per la logica. Se si dispone di funzioni o raccolte di supporto, Funzioni di Azure è probabilmente la soluzione ottimale.
 

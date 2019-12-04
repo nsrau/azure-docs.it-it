@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824371"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766483"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 
-Il programma per i partner del provider di servizi [gestiti (msp)](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) di rete di Azure consente ai servizi Msps, Telco e integratori di sistemi (SIS) di offrire servizi di rete cloud e ibridi basati sul portfolio di prodotti di rete di Azure e servizi.
+Il programma per i partner del provider di servizi [gestiti (msp)](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) di rete di Azure consente ai servizi Msps, Telco e integratori di sistemi (SIS) di offrire servizi di rete cloud e ibridi basati sul portfolio di prodotti e servizi di rete di Azure.
 
 MSPs di rete di Azure sono un set specializzato di provider di servizi gestiti che affrontano le esigenze e le richieste di rete cloud aziendale per tutti gli aspetti del cloud e delle reti ibride. I servizi di rete gestiti includono uno o più dei servizi seguenti: architettura di rete, pianificazione, distribuzione, operazioni, manutenzione e ottimizzazione.
 
@@ -28,33 +28,34 @@ I clienti possono acquistare offerte di servizi gestiti da MSP in Azure Marketpl
 
 Usare i collegamenti in questa sezione per altre informazioni sui servizi di rete cloud gestiti offerti dai partner MSP di rete di Azure. Se il partner di servizi di rete cloud non è elencato nella sezione seguente, chiedere al provider di contattarci. È possibile contattare Microsoft inviando un messaggio di posta elettronica a ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Servizi di trasformazione rete cloud** | **ExpressRoute gestito** | **Rete WAN virtuale gestita** | **Servizi di sicurezza di rete gestiti** |**Calcolo Edge rete gestito** |
+| **MSP** | **Servizi di trasformazione rete cloud** | **ExpressRoute gestito** | **Rete WAN virtuale gestita** | **Servizi di sicurezza di rete gestiti** |**Calcolo Edge multiaccesso gestito** |
 | ---| ---| ---| ---| ---| ---|
-|[Amdocs](https://www.amdocs.com/)|||||Sì|
-|[Gruppo ANS UK](https://www.ans.co.uk/)|Sì|Sì||||
-|[Reti Aryaka](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Sì |Sì |Sì | | |
-|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Sì|Sì|Sì|||
-|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Sì|||||
-|[Dati della dimensione](https://www.dimensiondata.com/)|Sì|||||
-|[Equinix](https://www.equinix.com/)|Sì|Sì||||
-|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|Sì|Sì||||
-|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|Sì||||Sì|
-|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|Sì|Sì||||
-|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|Sì|Sì||||
-|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|Sì|Sì||||
-|[KINX](https://www.kinx.net/service/cloud/?lang=en)|Sì|||||
-|[Telecomunicazioni Liquid](https://liquidcloud.africa/azure-networking)|Sì|Sì||||
-|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|Sì|Sì|Sì|||
-|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|Sì|Sì||||
-|[OmniClouds](https://omniclouds.com/services/)|Sì|Sì||||
-|[Servizi cloud di Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)|Sì|Sì||||
-|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|Sì|Sì||||
-|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|Sì|Sì||||
-|[Comunicazioni tata](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|Sì|Sì|Sì|Sì||
-|[TCTS](https://www.tatacommunications-ts.com/index.php)|Sì|Sì|Sì|||
-|[Mahindra Tech](https://networkservices.techmahindra.com/pages/default.aspx)|Sì||||Sì|
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|Sì|Sì|Sì|||
-|[Attento](https://vigilant.it/manage-cloud-service/)|Sì|Sì||||
+|[Amdocs](https://www.amdocs.com/)|||||SÌ|
+|[Gruppo ANS UK](https://www.ans.co.uk/)|SÌ|SÌ||||
+|[Reti Aryaka](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|SÌ |SÌ |SÌ | | |
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|SÌ|SÌ|SÌ|||
+|[Coevoluzione](https://www.coevolve.com/services/azure-networking-services/)|SÌ||SÌ|SÌ||
+|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|SÌ|||||
+|[Dati della dimensione](https://www.dimensiondata.com/)|SÌ|||||
+|[Equinix](https://www.equinix.com/)|SÌ|SÌ||||
+|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|SÌ|SÌ||||
+|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|SÌ||||SÌ|
+|[Intercloud](https://intercloud.com/partners/microsoft-azure/)|SÌ|SÌ||||
+|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|SÌ|SÌ||||
+|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|SÌ|SÌ||||
+|[KINX](https://www.kinx.net/service/cloud/?lang=en)|SÌ|||||
+|[Telecomunicazioni Liquid](https://liquidcloud.africa/azure-networking)|SÌ|SÌ||||
+|[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|SÌ|SÌ|SÌ|||
+|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|SÌ|SÌ||||
+|[OmniClouds](https://omniclouds.com/services/)|SÌ|SÌ||||
+|[Servizi cloud di Oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)|SÌ|SÌ||||
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|SÌ|SÌ||||
+|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|SÌ|SÌ||||
+|[Comunicazioni tata](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|SÌ|SÌ|SÌ|SÌ||
+|[TCTS](https://www.tatacommunications-ts.com/index.php)|SÌ|SÌ|SÌ|||
+|[Mahindra Tech](https://networkservices.techmahindra.com/pages/default.aspx)|SÌ||||SÌ|
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|SÌ|SÌ|SÌ|||
+|[Attento](https://vigilant.it/manage-cloud-service/)|SÌ|SÌ||||
 
 ## <a name="expressroute"></a>Partner ExpressRoute
 

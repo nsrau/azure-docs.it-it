@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555695"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767688"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -22,7 +22,7 @@ Le regole di azione consentono di definire o escludere azioni in qualsiasi ambit
 
 ### <a name="suppression-of-alerts"></a>Eliminazione di avvisi
 
-Esistono molti scenari in cui è utile disattivare le notifiche generate dagli avvisi. Questi scenari variano dall'eliminazione durante una finestra di manutenzione pianificata per l'eliminazione durante l'orario non lavorativo. Ad esempio, il team responsabile di **ContosoVM** desidera disattivare le notifiche di avviso per il prossimo weekend, perché **ContosoVM** è in fase di manutenzione pianificata. 
+Esistono molti scenari in cui è utile disattivare le notifiche generate dagli avvisi. Questi scenari variano dall'eliminazione durante una finestra di manutenzione pianificata per l'eliminazione durante le ore non lavorative. Ad esempio, il team responsabile di **ContosoVM** desidera disattivare le notifiche di avviso per il prossimo weekend, perché **ContosoVM** è in fase di manutenzione pianificata. 
 
 Sebbene il team possa disabilitare manualmente ogni regola di avviso configurata in **ContosoVM** (e abilitarla di nuovo dopo la manutenzione), non si tratta di un processo semplice. Le regole di azione consentono di definire l'eliminazione degli avvisi su larga scala con la possibilità di configurare in modo flessibile il periodo di eliminazione. Nell'esempio precedente, il team può definire una regola di azione in **ContosoVM** che elimina tutte le notifiche di avviso per il fine settimana.
 

@@ -1,20 +1,19 @@
 ---
-title: Accordi tra partner commerciali-app per la logica di Azure
+title: Accordi tra partner commerciali
 description: Creare e gestire i contratti tra partner commerciali usando app per la logica di Azure e Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 35ebaab47edd110258f537dbbb044387515ed6c4
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680410"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790729"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Creare e gestire gli accordi tra partner commerciali in app per la logica di Azure
 
@@ -29,7 +28,7 @@ Questo articolo illustra come creare un contratto AS2, EDIFACT o X12 che è poss
 
 Per creare accordi per lo scambio di messaggi RosettaNet, vedere [Exchange RosettaNet messages](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si dispone ancora di una sottoscrizione di Azure, [registrarsi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -58,14 +57,14 @@ Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di r
 
    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | Proprietà | obbligatori | Valore | Descrizione |
+   | Proprietà | Obbligatoria | Value | Description |
    |----------|----------|-------|-------------|
-   | **Nome** | Sì | *nome contratto* <> | Nome del contratto |
-   | **Tipo di contratto** | Sì | **AS2**, **X12**o **EDIFACT** | Tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto del file deve corrispondere al tipo di contratto. | |  
-   | **Partner host** | Sì | <*host-partner-name*> | Il partner host rappresenta l'organizzazione che specifica il contratto |
-   | **Identità host** | Sì | <*host-partner-identifier*> | Identificatore del partner host |
-   | **Partner Guest** | Sì | <*nome partner-guest*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
-   | **Identità Guest** | Sì | <*guest-partner-identifier*> | Identificatore del partner Guest |
+   | **Nome** | SÌ | *nome contratto* <> | Nome del contratto |
+   | **Tipo di contratto** | SÌ | **AS2**, **X12**o **EDIFACT** | Tipo di protocollo per il contratto. Quando si crea il file del contratto, il contenuto del file deve corrispondere al tipo di contratto. | |  
+   | **Partner host** | SÌ | <*host-partner-name*> | Il partner host rappresenta l'organizzazione che specifica il contratto |
+   | **Identità host** | SÌ | <*host-partner-identifier*> | Identificatore del partner host |
+   | **Partner Guest** | SÌ | <*nome partner-guest*> | Il partner guest rappresenta l'organizzazione che intrattiene attività commerciali con il partner host |
+   | **Identità Guest** | SÌ | <*identificatore Guest-partner*> | Identificatore del partner Guest |
    | **Impostazioni di ricezione** | Variabile | Variabile | Queste proprietà specificano il modo in cui il partner host riceve tutti i messaggi in arrivo dal partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>[impostazioni del messaggio - AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>[impostazioni del messaggio - EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
    | **Impostazioni di invio** | Variabile | Variabile | Queste proprietà specificano il modo in cui il partner host invia tutti i messaggi in uscita al Partner Guest nel contratto. Per ulteriori informazioni, vedere il rispettivo tipo di contratto: <p>[impostazioni del messaggio - AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>[impostazioni del messaggio - EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Impostazioni messaggio X12](logic-apps-enterprise-integration-x12.md) |
    |||||

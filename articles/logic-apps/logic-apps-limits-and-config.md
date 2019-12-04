@@ -1,20 +1,17 @@
 ---
-title: Limiti e configurazione-app per la logica di Azure
+title: Limiti e configurazione
 description: Limiti del servizio, ad esempio durata, velocità effettiva e capacità, oltre ai valori di configurazione, ad esempio gli indirizzi IP da consentire, per le app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 13bced5cb692366f46032d51c3b635533110d781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547539"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791968"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -71,7 +68,7 @@ Per modificare il limite predefinito per la durata dell'esecuzione e la conserva
 
    > [!NOTE]
    > Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È possibile ridurre solo questo valore.
-   > Per le app per la logica in un ambiente del servizio di integrazione, è possibile decreause o aumentare il limite predefinito di 90 giorni.
+   > Per le app per la logica in un ambiente del servizio di integrazione, è possibile ridurre o aumentare il limite predefinito di 90 giorni.
 
 <a name="looping-debatching-limits"></a>
 

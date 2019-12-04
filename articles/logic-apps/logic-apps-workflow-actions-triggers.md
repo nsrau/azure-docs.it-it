@@ -1,20 +1,17 @@
 ---
-title: Riferimento allo schema per i tipi di trigger e di azione-app per la logica di Azure
+title: Riferimento allo schema per i tipi di trigger e di azione
 description: Guida di riferimento allo schema per il trigger e i tipi di azione del linguaggio di definizione del flusso di lavoro in app
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 7b4267f672ab5ad902c0f96dd7ba7e377316e4f5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a847e08f0249bd968060d10f7686b0e04ba037ca
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839771"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790847"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guida di riferimento allo schema per i tipi di trigger e azione in app per la logica di Azure
 
@@ -50,23 +47,23 @@ I trigger hanno questi elementi di livello superiore, anche se alcuni sono facol
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*trigger-name*> | String | Nome del trigger | 
-| <*trigger-type*> | String | Tipo di trigger, ad esempio "Http" o "ApiConnection" | 
+| <*trigger-name*> | Stringa | Nome del trigger | 
+| <*trigger-type*> | Stringa | Tipo di trigger, ad esempio "Http" o "ApiConnection" | 
 | <*trigger-inputs*> | Oggetto JSON | Input che definiscono il comportamento del trigger | 
-| <*time-unit*> | String | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
+| <*time-unit*> | Stringa | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
 | <*number-of-time-units*> | Integer | Valore che specifica quanto spesso il trigger viene attivato in base alla frequenza, ovvero il numero di unità di tempo di attesa fino alla successiva attivazione del trigger <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Month", la ricorrenza è ogni 6 mesi. | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | Una matrice contenente una o più [condizioni](#trigger-conditions) che determinano se eseguire il flusso di lavoro. Disponibile solo per i trigger. | 
 | <*runtime-config-options*> | Oggetto JSON | È possibile modificare il comportamento di runtime del trigger impostando le proprietà `runtimeConfiguration`. Per altre informazioni vedere [Impostazioni di configurazione di runtime](#runtime-config-options). | 
-| <*splitOn-expression*> | String | Per i trigger che restituiscono una matrice è possibile specificare un'espressione che [ suddivide o *esegue il debatch*](#split-on-debatch) degli elementi della matrice in più istanze del flusso di lavoro per l'elaborazione. | 
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
+| <*splitOn-expression*> | Stringa | Per i trigger che restituiscono una matrice è possibile specificare un'espressione che [ suddivide o *esegue il debatch*](#split-on-debatch) degli elementi della matrice in più istanze del flusso di lavoro per l'elaborazione. | 
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
 |||| 
 
 ## <a name="trigger-types-list"></a>Elenco dei tipi di trigger
@@ -75,7 +72,7 @@ Ogni tipo di trigger ha un'interfaccia e input diversi che ne definiscono il com
 
 ### <a name="built-in-triggers"></a>Trigger predefiniti
 
-| Tipo di trigger | Descrizione | 
+| Tipo di trigger | Description | 
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Verifica o *esegue il polling* di qualsiasi endpoint. L'endpoint deve essere conforme a un contratto del trigger specifico, usando un modello asincrono "202" o restituendo una matrice. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Crea un endpoint richiamabile dall'app per la logica, ma chiama l'URL specificato per la registrazione o l'annullamento della registrazione. |
@@ -85,7 +82,7 @@ Ogni tipo di trigger ha un'interfaccia e input diversi che ne definiscono il com
 
 ### <a name="managed-api-triggers"></a>Trigger per l'API gestita
 
-| Tipo di trigger | Descrizione | 
+| Tipo di trigger | Description | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | Verifica o *esegue il polling* di un endpoint usando [API gestite da Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Crea un endpoint richiamabile per l'app per la logica chiamando [API gestite da Microsoft](../connectors/apis-list.md) per la sottoscrizione e per l'annullamento della sottoscrizione. | 
@@ -130,33 +127,33 @@ Questo trigger verifica o *esegue il polling* di un endpoint usando le [API gest
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | Nome del trigger | 
-| <*nome connessione*> | String | Il nome della connessione all'API gestita usata dal flusso di lavoro | 
-| <*method-type*> | String | Metodo HTTP per la comunicazione con l'API gestita: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*api-operation*> | String | L'operazione API da chiamare | 
-| <*time-unit*> | String | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
+| <*APIConnection_trigger_name*> | Stringa | Nome del trigger | 
+| <*nome connessione*> | Stringa | Il nome della connessione all'API gestita usata dal flusso di lavoro | 
+| <*method-type*> | Stringa | Metodo HTTP per la comunicazione con l'API gestita: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*api-operation*> | Stringa | L'operazione API da chiamare | 
+| <*time-unit*> | Stringa | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
 | <*number-of-time-units*> | Integer | Valore che specifica quanto spesso il trigger viene attivato in base alla frequenza, ovvero il numero di unità di tempo di attesa fino alla successiva attivazione del trigger <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Month", la ricorrenza è ogni 6 mesi. | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query da includere nella chiamata API. Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla chiamata. | 
 | <*max-runs*> | Integer | Per impostazione predefinita, le istanze del flusso di lavoro vengono eseguite allo stesso tempo o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
-| <*splitOn-expression*> | String | Per i trigger che restituiscono matrici, questa espressione fa riferimento alla matrice da usare in modo che sia possibile creare ed eseguire un'istanza del flusso di lavoro per ogni elemento della matrice, anziché usare un ciclo "for each". <p>Ad esempio, questa espressione rappresenta un elemento nella matrice restituito nel contenuto del corpo del trigger: `@triggerbody()?['value']` |
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). |
+| <*splitOn-expression*> | Stringa | Per i trigger che restituiscono matrici, questa espressione fa riferimento alla matrice da usare in modo che sia possibile creare ed eseguire un'istanza del flusso di lavoro per ogni elemento della matrice, anziché usare un ciclo "for each". <p>Ad esempio, questa espressione rappresenta un elemento nella matrice restituito nel contenuto del corpo del trigger: `@triggerbody()?['value']` |
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). |
 ||||
 
 *Outputs*
  
-| Elemento | Tipo | Descrizione |
+| Elemento | Type | Description |
 |---------|------|-------------|
-| headers | Oggetto JSON | Intestazioni dalla risposta |
+| Headers | Oggetto JSON | Intestazioni dalla risposta |
 | body | Oggetto JSON | Il corpo dalla risposta |
 | Codice di stato | Integer | Il codice di stato della risposta |
 |||| 
@@ -224,22 +221,22 @@ Questo trigger invia una richiesta di sottoscrizione a un endpoint usando un'[AP
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*nome connessione*> | String | Il nome della connessione all'API gestita usata dal flusso di lavoro | 
+| <*nome connessione*> | Stringa | Il nome della connessione all'API gestita usata dal flusso di lavoro | 
 | <*body-content*> | Oggetto JSON | Qualsiasi contenuto del messaggio da inviare come payload all'API gestita | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query da includere nella chiamata API <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla chiamata. | 
 | <*max-runs*> | Integer | Per impostazione predefinita, le istanze del flusso di lavoro vengono eseguite allo stesso tempo o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
-| <*splitOn-expression*> | String | Per i trigger che restituiscono matrici, questa espressione fa riferimento alla matrice da usare in modo che sia possibile creare ed eseguire un'istanza del flusso di lavoro per ogni elemento della matrice, anziché usare un ciclo "for each". <p>Ad esempio, questa espressione rappresenta un elemento nella matrice restituito nel contenuto del corpo del trigger: `@triggerbody()?['value']` |
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
+| <*splitOn-expression*> | Stringa | Per i trigger che restituiscono matrici, questa espressione fa riferimento alla matrice da usare in modo che sia possibile creare ed eseguire un'istanza del flusso di lavoro per ogni elemento della matrice, anziché usare un ciclo "for each". <p>Ad esempio, questa espressione rappresenta un elemento nella matrice restituito nel contenuto del corpo del trigger: `@triggerbody()?['value']` |
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
 |||| 
 
 *Esempio*
@@ -305,17 +302,17 @@ Questo trigger invia una richiesta all'endpoint HTTP o HTTPS specificato in base
 
 *Obbligatorio*
 
-| Proprietà | Valore | Tipo | Descrizione |
+| Proprietà | Value | Type | Description |
 |----------|-------|------|-------------|
-| `method` | <*method-type*> | String | Metodo da usare per l'invio della richiesta in uscita: "GET", "PUT", "POST", "PATCH" o "DELETE" |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | URL dell'endpoint HTTP o HTTPS a cui si desidera inviare la richiesta in uscita. Dimensione massima della stringa: 2 KB <p>Per una risorsa o un servizio di Azure, questa sintassi URI include l'ID risorsa e il percorso della risorsa a cui si vuole accedere. |
-| `frequency` | <*time-unit*> | String | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) |
+| `method` | <*method-type*> | Stringa | Metodo da usare per l'invio della richiesta in uscita: "GET", "PUT", "POST", "PATCH" o "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Stringa | URL dell'endpoint HTTP o HTTPS a cui si desidera inviare la richiesta in uscita. Dimensione massima della stringa: 2 KB <p>Per una risorsa o un servizio di Azure, questa sintassi URI include l'ID risorsa e il percorso della risorsa a cui si vuole accedere. |
+| `frequency` | <*time-unit*> | Stringa | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) |
 | `interval` | <*number-of-time-units*> | Integer | Valore che specifica quanto spesso il trigger viene attivato in base alla frequenza, ovvero il numero di unità di tempo di attesa fino alla successiva attivazione del trigger <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Month", la ricorrenza è ogni 6 mesi. |
 |||||
 
 *Facoltativo*
 
-| Proprietà | Valore | Tipo | Descrizione |
+| Proprietà | Value | Type | Description |
 |----------|-------|------|-------------|
 | `headers` | <*header-content*> | Oggetto JSON | Tutte le intestazioni che è necessario includere con la richiesta <p>Ad esempio, per impostare il linguaggio e il tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query che è necessario usare nella richiesta <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla richiesta. |
@@ -324,14 +321,14 @@ Questo trigger invia una richiesta all'endpoint HTTP o HTTPS specificato in base
 | `retryPolicy` > `type` | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
 | `runs` | <*max-runs*> | Integer | Per impostazione predefinita, le istanze del flusso di lavoro vengono eseguite allo stesso tempo o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). |
 | `maximumWaitingRuns` | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). |
-| `operationOptions` | <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). |
+| `operationOptions` | <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). |
 |||||
 
 *Outputs*
 
-| Elemento | Tipo | Descrizione |
+| Elemento | Type | Description |
 |---------|------|-------------| 
-| headers | Oggetto JSON | Intestazioni dalla risposta | 
+| Headers | Oggetto JSON | Intestazioni dalla risposta | 
 | body | Oggetto JSON | Il corpo dalla risposta | 
 | Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
@@ -340,9 +337,9 @@ Questo trigger invia una richiesta all'endpoint HTTP o HTTPS specificato in base
 
 Per funzionare correttamente con l'app per la logica, l'endpoint deve essere conforme a un modello o contratto di trigger specifico e riconoscere queste proprietà:  
   
-| Response | Obbligatorio | Descrizione | 
+| Response | Obbligatoria | Description | 
 |----------|----------|-------------| 
-| Codice di stato | Sì | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
+| Codice di stato | SÌ | Il codice di stato "200 OK" avvia un'esecuzione. Nessun altro codice di stato avvia un'esecuzione. | 
 | Intestazione retry-after | No | Il numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint | 
 | Intestazione Location | No | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
 |||| 
@@ -351,11 +348,11 @@ Per funzionare correttamente con l'app per la logica, l'endpoint deve essere con
 
 | Codice di stato | Nuovo tentativo dopo | Comportamento | 
 |-------------|-------------|----------|
-| 200 | {nessuna} | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo la ricorrenza definita. | 
+| 200 | {none} | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo la ricorrenza definita. | 
 | 200 | 10 secondi | Esegue il flusso di lavoro e quindi controlla di nuovo la presenza di altri dati dopo 10 secondi. |  
 | 202 | 60 secondi | Non attiva il flusso di lavoro. Il tentativo successivo viene eseguito dopo un minuto, in base alla ricorrenza definita. Se la ricorrenza definita è inferiore a un minuto, l'intestazione retry-after ha la precedenza. In caso contrario, viene usata la ricorrenza definita. | 
-| 400 | {nessuna} | Richiesta non valida, non esegue il flusso di lavoro. Se non è definito alcun oggetto `retryPolicy`, viene usato il criterio predefinito. Dopo aver raggiunto il numero di tentativi, il trigger controlla di nuovo la presenza di dati dopo la ricorrenza definita. | 
-| 500 | {nessuna}| Errore del server, il flusso di lavoro non viene eseguito. Se non è definito alcun oggetto `retryPolicy`, viene usato il criterio predefinito. Dopo aver raggiunto il numero di tentativi, il trigger controlla di nuovo la presenza di dati dopo la ricorrenza definita. | 
+| 400 | {none} | Richiesta non valida, non esegue il flusso di lavoro. Se non è definito alcun oggetto `retryPolicy`, viene usato il criterio predefinito. Dopo aver raggiunto il numero di tentativi, il trigger controlla di nuovo la presenza di dati dopo la ricorrenza definita. | 
+| 500 | {none}| Errore del server, il flusso di lavoro non viene eseguito. Se non è definito alcun oggetto `retryPolicy`, viene usato il criterio predefinito. Dopo aver raggiunto il numero di tentativi, il trigger controlla di nuovo la presenza di dati dopo la ricorrenza definita. | 
 |||| 
 
 <a name="http-webhook-trigger"></a>
@@ -402,31 +399,31 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | String | Metodo HTTP da usare per la richiesta di sottoscrizione: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*endpoint-subscribe-URL*> | String | URL dell'endpoint a cui inviare la richiesta di sottoscrizione | 
+| <*method-type*> | Stringa | Metodo HTTP da usare per la richiesta di sottoscrizione: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*endpoint-subscribe-URL*> | Stringa | URL dell'endpoint a cui inviare la richiesta di sottoscrizione | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | String | Metodo HTTP da usare per la richiesta di annullamento: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*endpoint-unsubscribe-URL*> | String | URL dell'endpoint a cui inviare la richiesta di annullamento | 
-| <*body-content*> | String | Qualsiasi contenuto di messaggio da inviare nella richiesta di sottoscrizione o di annullamento | 
+| <*method-type*> | Stringa | Metodo HTTP da usare per la richiesta di annullamento: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*endpoint-unsubscribe-URL*> | Stringa | URL dell'endpoint a cui inviare la richiesta di annullamento | 
+| <*body-content*> | Stringa | Qualsiasi contenuto di messaggio da inviare nella richiesta di sottoscrizione o di annullamento | 
 | *tipo di autenticazione* <> | Oggetto JSON | Modello di autenticazione usato dalla richiesta per autenticare le richieste in uscita. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | Per impostazione predefinita, tutte le istanze del flusso di lavoro vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
 |||| 
 
 *Outputs* 
 
-| Elemento | Tipo | Descrizione |
+| Elemento | Type | Description |
 |---------|------|-------------| 
-| headers | Oggetto JSON | Intestazioni dalla risposta | 
+| Headers | Oggetto JSON | Intestazioni dalla risposta | 
 | body | Oggetto JSON | Il corpo dalla risposta | 
 | Codice di stato | Integer | Il codice di stato della risposta | 
 |||| 
@@ -496,24 +493,24 @@ Questo trigger viene eseguito in base alla pianificazione delle ricorrenze speci
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*time-unit*> | String | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
+| <*time-unit*> | Stringa | Unità di tempo che descrive la frequenza con cui viene attivato il trigger: "Second" (Secondo), "Minute" (Minuto), "Hour" (Ora), "Day" (Giorno), "Week" (Settimana), "Month" (Mese) | 
 | <*number-of-time-units*> | Integer | Valore che specifica quanto spesso il trigger viene attivato in base alla frequenza, ovvero il numero di unità di tempo di attesa fino alla successiva attivazione del trigger <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Month", la ricorrenza è ogni 6 mesi. | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | Data e ora di inizio in questo formato: <p>AAAA-MM-GGThh:mm:ss se si specifica un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si specifica un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14.00, specificare "2017-09-18T14:00:00" e indicare un fuso orario, ad esempio l'ora solare del Pacifico, oppure specificare "2017-09-18T14:00:00Z" senza fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si specifica un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. Per altre informazioni sulle date e le ore di inizio, vedere [Creare e pianificare attività eseguite regolarmente](../connectors/connectors-native-recurrence.md). | 
-| <*time-zone*> | String | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Specificare il fuso orario che si vuole applicare. | 
-| <*one-or-more-hour-marks*> | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 23, separati da virgole, come ore del giorno in cui eseguire il flusso di lavoro. <p>Ad esempio, se si specificano "10", "12" e "14", 10:00, 12:00 e 14:00 rappresentano gli indicatori di ora. | 
-| <*one-or-more-minute-marks*> | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 59, separati da virgole, come minuti dell'ora in cui eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Stringa | Data e ora di inizio in questo formato: <p>AAAA-MM-GGThh:mm:ss se si specifica un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si specifica un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14.00, specificare "2017-09-18T14:00:00" e indicare un fuso orario, ad esempio l'ora solare del Pacifico, oppure specificare "2017-09-18T14:00:00Z" senza fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si specifica un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. Per altre informazioni sulle date e le ore di inizio, vedere [Creare e pianificare attività eseguite regolarmente](../connectors/connectors-native-recurrence.md). | 
+| <*time-zone*> | Stringa | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Specificare il fuso orario che si vuole applicare. | 
+| <*one-or-more-hour-marks*> | Numero intero o matrice di numeri interi | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 23, separati da virgole, come ore del giorno in cui eseguire il flusso di lavoro. <p>Ad esempio, se si specifica "10", "12" e "14", gli indicatori di ora corrisponderanno alle 10.00, alle 12.00 e alle 14.00. | 
+| <*one-or-more-minute-marks*> | Numero intero o matrice di numeri interi | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 59, separati da virgole, come minuti dell'ora in cui eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
 | weekDays | Stringa o matrice di stringhe | Se si specifica "Week" per `frequency`, è possibile specificare uno o più giorni, separati da virgole, in cui eseguire il flusso di lavoro: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" e "Sunday" | 
 | <*max-runs*> | Integer | Per impostazione predefinita, tutte le istanze del flusso di lavoro vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
 |||| 
 
 *Esempio 1*
@@ -605,22 +602,22 @@ Per chiamare questo trigger, è necessario usare l'API `listCallbackUrl` che vie
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*property-name*> | String | Il nome di una proprietà nello schema JSON che descrive il payload | 
-| <*property-type*> | String | Il tipo della proprietà | 
+| <*property-name*> | Stringa | Il nome di una proprietà nello schema JSON che descrive il payload | 
+| <*property-type*> | Stringa | Il tipo della proprietà | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | String | Metodo che le richieste in ingresso devono usare per chiamare l'app per la logica: "GET", "PUT", "POST", "PATCH", "DELETE" |
-| <*relative-path-for-accepted-parameter*> | String | Percorso relativo per il parametro che l'URL dell'endpoint può accettare | 
+| <*method-type*> | Stringa | Metodo che le richieste in ingresso devono usare per chiamare l'app per la logica: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*relative-path-for-accepted-parameter*> | Stringa | Percorso relativo per il parametro che l'URL dell'endpoint può accettare | 
 | <*required-properties*> | Array | Una o più proprietà che richiedono valori. | 
 | <*max-runs*> | Integer | Per impostazione predefinita, tutte le istanze del flusso di lavoro vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando il flusso di lavoro sta già eseguendo il numero massimo di istanze che è possibile modificare in base alla proprietà `runtimeConfiguration.concurrency.runs`, tutte le nuove esecuzioni vengono inserite in questa coda fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | 
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
 |||| 
 
 *Esempio*
@@ -780,22 +777,22 @@ Le azioni hanno questi elementi di livello superiore, anche se alcuni sono facol
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------|
-| <*action-name*> | String | Il nome dell'azione | 
-| <*action-type*> | String | Tipo di azione, ad esempio "Http" o "ApiConnection"| 
-| <*input-name*> | String | Il nome di un input che definisce il comportamento dell'azione | 
+| <*action-name*> | Stringa | Il nome dell'azione | 
+| <*action-type*> | Stringa | Tipo di azione, ad esempio "Http" o "ApiConnection"| 
+| <*input-name*> | Stringa | Il nome di un input che definisce il comportamento dell'azione | 
 | <*input-value*> | Vari | Il valore di input, che può essere una stringa, un numero intero, un oggetto JSON e così via | 
 | <*previous-trigger-or-action-status*> | Oggetto JSON | Il nome e lo stato risultante per il trigger o l'azione che devo essere eseguiti immediatamente prima di poter eseguire questa azione corrente | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------|
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere Criteri di ripetizione dei tentativi. | 
 | <*runtime-config-options*> | Oggetto JSON | Per alcune azioni, è possibile modificare il comportamento dell'azione in fase di esecuzione impostando le proprietà `runtimeConfiguration`. Per altre informazioni vedere [Impostazioni di configurazione di runtime](#runtime-config-options). | 
-| <*operation-option*> | String | È possibile modificare il comportamento predefinito di alcune azioni impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
+| <*operation-option*> | Stringa | È possibile modificare il comportamento predefinito di alcune azioni impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
 |||| 
 
 ## <a name="action-types-list"></a>Elenco dei tipi di azione
@@ -824,7 +821,7 @@ Di seguito sono riportati alcuni tipi di azioni di uso comune:
 
 ### <a name="built-in-actions"></a>Azioni predefinite
 
-| Tipo di azione | Descrizione | 
+| Tipo di azione | Description | 
 |-------------|-------------| 
 | [**Componi**](#compose-action) | Crea un singolo output dagli input, che possono essere di vari tipi. | 
 | [**Esegui codice JavaScript**](#run-javascript-code) | Eseguire frammenti di codice JavaScript che rientrino in criteri specifici. Per informazioni sui requisiti del codice e altre informazioni, vedere [aggiungere ed eseguire frammenti di codice con il codice inline](../logic-apps/logic-apps-add-run-inline-code.md). |
@@ -845,7 +842,7 @@ Di seguito sono riportati alcuni tipi di azioni di uso comune:
 
 ### <a name="managed-api-actions"></a>Azioni delle API gestite
 
-| Tipo di azione | Descrizione | 
+| Tipo di azione | Description | 
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | Richiama un endpoint HTTP usando un'[API gestita da Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Funziona come HTTP Webhook, ma usa un'[API gestita da Microsoft](../connectors/apis-list.md). | 
@@ -857,7 +854,7 @@ Di seguito sono riportati alcuni tipi di azioni di uso comune:
 
 Queste azioni consentono di controllare l'esecuzione del flusso di lavoro e includono altre azioni. Dall'esterno di un'azione di controllo del flusso di lavoro è possibile fare riferimento direttamente ad azioni all'interno di tale azione di controllo di flusso di lavoro. Ad esempio, se si dispone di un'azione `Http` all'interno di un ambito, è possibile fare riferimento all'espressione `@body('Http')` da qualsiasi posizione nel flusso di lavoro. Tuttavia, le azioni esistenti all'interno di un'azione di controllo del flusso di lavoro possono essere solo "eseguite dopo" altre azioni che sono nella stessa struttura di controllo del flusso di lavoro.
 
-| Tipo di azione | Descrizione | 
+| Tipo di azione | Description | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Esegue le stesse azioni in un ciclo per ogni elemento in una matrice. | 
 | [**If**](#if-action) | Esegue le azioni a seconda se la condizione specificata è true o false. | 
@@ -896,17 +893,17 @@ Questa azione invia una richiesta HTTP a un'[API gestita da Microsoft](../connec
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | String | Il nome dell'azione fornito dal connettore | 
-| <*api-name*> | String | Il nome dell'API gestita da Microsoft usata per la connessione | 
-| <*method-type*> | String | Il metodo HTTP per chiamare l'API: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*api-operation*> | String | L'operazione API da chiamare | 
+| <*action-name*> | Stringa | Il nome dell'azione fornito dal connettore | 
+| <*api-name*> | Stringa | Il nome dell'API gestita da Microsoft usata per la connessione | 
+| <*method-type*> | Stringa | Il metodo HTTP per chiamare l'API: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*api-operation*> | Stringa | L'operazione API da chiamare | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | Oggetto JSON | Altre proprietà di input che si applicano a questa azione specifica | 
 | <*retry-behavior*> | Oggetto JSON | Consente di personalizzare il comportamento per la ripetizione degli errori intermittenti, che hanno il codice di stato 408, 429 e 5XX e tutte le eccezioni di connettività. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -976,18 +973,18 @@ Alcuni valori, ad esempio <*method-type*>, sono disponibili per gli oggetti `"su
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | String | Il nome dell'azione fornito dal connettore | 
-| <*method-type*> | String | Il metodo HTTP da usare per la sottoscrizione o l'annullamento della sottoscrizione da un endpoint: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
-| <*api-subscribe-URL*> | String | L'URI da usare per la sottoscrizione all'API | 
+| <*action-name*> | Stringa | Il nome dell'azione fornito dal connettore | 
+| <*method-type*> | Stringa | Il metodo HTTP da usare per la sottoscrizione o l'annullamento della sottoscrizione da un endpoint: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*api-subscribe-URL*> | Stringa | L'URI da usare per la sottoscrizione all'API | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*api-unsubscribe-URL*> | String | L'URI da usare per annullare la sottoscrizione all'API | 
+| <*api-unsubscribe-URL*> | Stringa | L'URI da usare per annullare la sottoscrizione all'API | 
 | <*header-content*> | Oggetto JSON | Le eventuali intestazioni da inviare nella richiesta <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Oggetto JSON | Gli eventuali messaggi da inviare nella richiesta | 
 | *tipo di autenticazione* <> | Oggetto JSON | Modello di autenticazione usato dalla richiesta per autenticare le richieste in uscita. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
@@ -1016,7 +1013,7 @@ Questa azione crea un singolo output da più input, incluse le espressioni. Sia 
 
 *Obbligatorio* 
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | Qualsiasi | Gli input per la creazione di un singolo output | 
 |||| 
@@ -1077,7 +1074,7 @@ Questa azione esegue un frammento di codice JavaScript e restituisce i risultati
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione |
+| Value | Type | Description |
 |-------|------|-------------|
 | <*JavaScript-code-snippet*> | Variabile | Codice JavaScript che si desidera eseguire. Per informazioni sui requisiti del codice e altre informazioni, vedere [aggiungere ed eseguire frammenti di codice con il codice inline](../logic-apps/logic-apps-add-run-inline-code.md). <p>Nell'attributo `code`, il frammento di codice può usare l'oggetto `workflowContext` di sola lettura come input. Questo oggetto dispone di sottoproprietà che consentono al codice di accedere ai risultati ottenuti dal trigger e dalle azioni precedenti del flusso di lavoro. Per altre informazioni sull'oggetto `workflowContext`, vedere [trigger di riferimento e risultati dell'azione nel codice](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
@@ -1088,7 +1085,7 @@ L'attributo `explicitDependencies` specifica che si desidera includere in modo e
 
 Per l'attributo `includeTrigger`, è possibile specificare `true` o `false` valori.
 
-| Valore | Tipo | Descrizione |
+| Value | Type | Description |
 |-------|------|-------------|
 | <*azioni precedenti*> | Matrice di stringhe | Matrice con i nomi di azione specificati. Utilizzare i nomi di azione che vengono visualizzati nella definizione del flusso di lavoro in cui i nomi di azione utilizzano caratteri di sottolineatura (_) e non spazi (""). |
 ||||
@@ -1154,15 +1151,15 @@ Questa azione chiama una [funzione di Azure](../azure-functions/functions-create
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | String | ID risorsa per la funzione di Azure che si vuole chiamare. Di seguito è riportato il formato per questo valore:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
-| <*method-type*> | String | Il metodo HTTP da usare per chiamare la funzione: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Se non è specificato, il metodo predefinito è "POST". | 
+| <*Azure-function-ID*> | Stringa | ID risorsa per la funzione di Azure che si vuole chiamare. Di seguito è riportato il formato per questo valore:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
+| <*method-type*> | Stringa | Il metodo HTTP da usare per chiamare la funzione: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Se non è specificato, il metodo predefinito è "POST". | 
 ||||
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------|  
 | <*header-content*> | Oggetto JSON | Le eventuali intestazioni da inviare con la chiamata <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Oggetto JSON | Gli eventuali messaggi da inviare nella richiesta | 
@@ -1232,15 +1229,15 @@ Questa azione Invia una richiesta all'endpoint HTTP o HTTPS specificato e contro
 
 *Obbligatorio*
 
-| Proprietà | Valore | Tipo | Descrizione |
+| Proprietà | Value | Type | Description |
 |----------|-------|------|-------------|
-| `method` | <*method-type*> | String | Metodo da usare per l'invio della richiesta in uscita: "GET", "PUT", "POST", "PATCH" o "DELETE" |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | URL dell'endpoint HTTP o HTTPS a cui si desidera inviare la richiesta in uscita. Dimensione massima della stringa: 2 KB <p>Per una risorsa o un servizio di Azure, questa sintassi URI include l'ID risorsa e il percorso della risorsa a cui si vuole accedere. |
+| `method` | <*method-type*> | Stringa | Metodo da usare per l'invio della richiesta in uscita: "GET", "PUT", "POST", "PATCH" o "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Stringa | URL dell'endpoint HTTP o HTTPS a cui si desidera inviare la richiesta in uscita. Dimensione massima della stringa: 2 KB <p>Per una risorsa o un servizio di Azure, questa sintassi URI include l'ID risorsa e il percorso della risorsa a cui si vuole accedere. |
 |||||
 
 *Facoltativo*
 
-| Proprietà | Valore | Tipo | Descrizione |
+| Proprietà | Value | Type | Description |
 |----------|-------|------|-------------|
 | `headers` | <*header-content*> | Oggetto JSON | Tutte le intestazioni che è necessario includere con la richiesta <p>Ad esempio, per impostare il linguaggio e il tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | `queries` | <*query-parameters*> | Oggetto JSON | Tutti i parametri di query che è necessario usare nella richiesta <p>Ad esempio, l'oggetto `"queries": { "api-version": "2018-01-01" }` aggiunge `?api-version=2018-01-01` alla chiamata. |
@@ -1284,7 +1281,7 @@ Questa azione crea una stringa da tutti gli elementi in una matrice e li separa 
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*matrice*> | Array | La matrice o l'espressione che fornisce gli elementi di origine. Se si specifica un'espressione, racchiuderla tra virgolette doppie. | 
 | <*delimiter*> | Stringa di caratteri singoli | Il carattere che separa ciascun elemento nella stringa | 
@@ -1328,7 +1325,7 @@ Questa azione consente di creare campi o *token* intuitivi dalle proprietà nel 
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*JSON-source*> | Oggetto JSON | Il contenuto JSON da analizzare | 
 | <*JSON-schema*> | Oggetto JSON | Lo schema JSON che descrive il contenuto JSON sottostante che l'azione usa per l'analisi dell'origine del contenuto JSON. <p>**Suggerimento**: in Progettazione App per la logica, è possibile fornire lo schema o fornire un payload di esempio in modo che l'azione possa generare lo schema. | 
@@ -1430,10 +1427,10 @@ Questa azione crea una matrice da elementi in un'altra matrice in base a una con
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*matrice*> | Array | La matrice o l'espressione che fornisce gli elementi di origine. Se si specifica un'espressione, racchiuderla tra virgolette doppie. |
-| <*condition-or-filter*> | String | La condizione usata per filtrare gli elementi nella matrice di origine <p>**Nota**: se nessun valore soddisfa la condizione, il risultato è una matrice vuota. |
+| <*condition-or-filter*> | Stringa | La condizione usata per filtrare gli elementi nella matrice di origine <p>**Nota**: se nessun valore soddisfa la condizione, il risultato è una matrice vuota. |
 |||| 
 
 *Esempio*
@@ -1471,14 +1468,14 @@ Questa azione crea il payload per la risposta a una richiesta HTTP.
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*response-status-code*> | Integer | Codice di stato HTTP inviato per rispondere alla richiesta in ingresso. Il codice predefinito è "200 OK", ma può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx, ma non con 3xxx. | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*response-headers*> | Oggetto JSON | Una o più intestazioni da includere con la risposta | 
 | <*response-body*> | Vari | Il corpo della risposta, che può essere una stringa, un oggetto JSON o anche il contenuto binario di un'azione precedente | 
@@ -1546,11 +1543,11 @@ Questa azione crea una matrice con gli oggetti JSON mediante la trasformazione d
 
 *Obbligatorio* 
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*matrice*> | Array | La matrice o l'espressione che fornisce gli elementi di origine. Assicurarsi di racchiudere un'espressione tra virgolette doppie. <p>**Nota**: se la matrice di origine è vuota, l'azione crea una matrice vuota. | 
-| <*key-name*> | String | Il nome della proprietà assegnato al risultato da <*expression*> <p>Per aggiungere una nuova proprietà a tutti gli oggetti nella matrice di output, fornire un <*key-name*> per tale proprietà e <*expression*> per il valore della proprietà. <p>Per rimuovere una proprietà da tutti gli oggetti nella matrice, omettere <*key-name*> per quella proprietà. | 
-| <*expression*> | String | L'espressione che trasforma l'elemento nella matrice di origine e assegna il risultato a <*key-name*> | 
+| <*key-name*> | Stringa | Il nome della proprietà assegnato al risultato da <*expression*> <p>Per aggiungere una nuova proprietà a tutti gli oggetti nella matrice di output, fornire un <*key-name*> per tale proprietà e <*expression*> per il valore della proprietà. <p>Per rimuovere una proprietà da tutti gli oggetti nella matrice, omettere <*key-name*> per quella proprietà. | 
+| <*expression*> | Stringa | L'espressione che trasforma l'elemento nella matrice di origine e assegna il risultato a <*key-name*> | 
 |||| 
 
 L'azione **Select** crea una matrice come output, in modo che qualsiasi azione che intenda usare l'output deve accettare una matrice o è necessario convertire la matrice nel tipo che accetta l'azione consumer. Per convertire la matrice di output in una stringa, ad esempio, è possibile passare tale matrice all'azione **Compose** e quindi fare riferimento all'output dell'azione **Compose** nelle altre azioni.
@@ -1644,9 +1641,9 @@ Questa azione crea una tabella CSV o HTML da una matrice. Per le matrici con ogg
 
 *Obbligatorio* 
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| \<> CSV *o* HTML| String | Il formato della tabella da creare | 
+| \<> CSV *o* HTML| Stringa | Il formato della tabella da creare | 
 | <*matrice*> | Array | La matrice o l'espressione che fornisce gli elementi di origine per la tabella <p>**Nota**: se la matrice di origine è vuota, l'azione crea una tabella vuota. | 
 |||| 
 
@@ -1654,9 +1651,9 @@ Questa azione crea una tabella CSV o HTML da una matrice. Per le matrici con ogg
 
 Per specificare o personalizzare le intestazioni e i valori di colonna usare la matrice `columns`. Quando le coppie `header-value` hanno lo stesso nome di intestazione, i relativi valori vengono visualizzati nella stessa colonna con quel nome di intestazione. In caso contrario, ogni intestazione univoca definisce una colonna univoca.
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*column-name*> | String | Il nome dell'intestazione di una colonna | 
+| <*column-name*> | Stringa | Il nome dell'intestazione di una colonna | 
 | <*column-value*> | Qualsiasi | Il valore nella colonna | 
 |||| 
 
@@ -1733,7 +1730,7 @@ Questa definizione di azione crea una tabella HTML dalla variabile "myItemArray"
 
 Ecco la tabella HTML che verrà creata con questa azione: 
 
-<table><thead><tr><th>Stock_ID</th><th>Descrizione</th></tr></thead><tbody><tr><td>0</td><td>Mele biologiche</td></tr><tr><td>1</td><td>Arance biologiche</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Mele biologiche</td></tr><tr><td>1</td><td>Arance biologiche</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
@@ -1757,19 +1754,19 @@ Questa azione arresta l'esecuzione per un'istanza del flusso di lavoro, Annulla 
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*status*> | String | Lo stato da restituire per l'esecuzione: "Failed", "Cancelled" o "Succeeded" |
+| <*status*> | Stringa | Lo stato da restituire per l'esecuzione: "Failed", "Cancelled" o "Succeeded" |
 |||| 
 
 *Facoltativo*
 
 Le proprietà per l'oggetto "runStatus" si applicano solo quando la proprietà "runStatus" è impostata sullo stato "Failed".
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*error-code-or-name*> | String | Il codice o il nome dell'errore |
-| <*error-message*> | String | Il messaggio o il testo che descrive l'errore e le azioni che l'utente dell'app può eseguire | 
+| <*error-code-or-name*> | Stringa | Il codice o il nome dell'errore |
+| <*error-message*> | Stringa | Il messaggio o il testo che descrive l'errore e le azioni che l'utente dell'app può eseguire | 
 |||| 
 
 *Esempio*
@@ -1827,11 +1824,11 @@ Questa azione sospende l'esecuzione del flusso di lavoro per l'intervallo specif
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*number-of-units*> | Integer | Per l'azione **Delay**, il numero di unità da attendere | 
-| <*interval*> | String | Per l'azione **Delay**, l'intervallo di attesa: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*date-time-stamp*> | String | Per l'azione **Delay Until**, la data e l'ora per riprendere l'esecuzione. Questo valore deve usare la [data e ora in formato UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
+| <*interval*> | Stringa | Per l'azione **Delay**, l'intervallo di attesa: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*date-time-stamp*> | Stringa | Per l'azione **Delay Until**, la data e l'ora per riprendere l'esecuzione. Questo valore deve usare la [data e ora in formato UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
 *Esempio 1*
@@ -1900,18 +1897,18 @@ Il motore delle app per la logica controlla l'accesso al trigger che si intende 
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*nested-logic-app-name*> | String | Il nome dell'app per la logica che si vuole richiamare | 
-| <*trigger-name*> | String | Il nome del trigger nell'app per la logica nidificata che si vuole richiamare | 
-| <*Azure-subscription-ID*> | String | L'ID sottoscrizione di Azure per l'app per la logica nidificata |
-| <*Azure-resource-group*> | String | Il nome del gruppo di risorse di Azure dell'app per la logica nidificata |
-| <*nested-logic-app-name*> | String | Il nome dell'app per la logica che si vuole richiamare |
+| <*nested-logic-app-name*> | Stringa | Il nome dell'app per la logica che si vuole richiamare | 
+| <*trigger-name*> | Stringa | Il nome del trigger nell'app per la logica nidificata che si vuole richiamare | 
+| <*Azure-subscription-ID*> | Stringa | L'ID sottoscrizione di Azure per l'app per la logica nidificata |
+| <*Azure-resource-group*> | Stringa | Il nome del gruppo di risorse di Azure dell'app per la logica nidificata |
+| <*nested-logic-app-name*> | Stringa | Il nome dell'app per la logica che si vuole richiamare |
 ||||
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------|  
 | <*header-content*> | Oggetto JSON | Le eventuali intestazioni da inviare con la chiamata | 
 | <*body-content*> | Oggetto JSON | Gli eventuali messaggi da inviare con la chiamata | 
@@ -1977,19 +1974,19 @@ Questa azione di esecuzione a ciclo continuo scorre una matrice ed esegue azioni
 
 *Obbligatorio* 
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*action-1...n*> | String | I nomi delle azioni in esecuzione in ogni elemento della matrice | 
+| <*action-1...n*> | Stringa | I nomi delle azioni in esecuzione in ogni elemento della matrice | 
 | <*action-definition-1...n*> | Oggetto JSON | Le definizioni delle azioni in esecuzione | 
-| <*for-each-expression*> | String | L'espressione che fa riferimento a ogni elemento nella matrice specificata | 
+| <*for-each-expression*> | Stringa | L'espressione che fa riferimento a ogni elemento nella matrice specificata | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*count*> | Integer | Per impostazione predefinita, le iterazioni del ciclo "for each" vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Per modificare questo limite impostando un nuovo valore <*count*>, vedere [Modificare la concorrenza del ciclo "for each"](#change-for-each-concurrency). | 
-| <*operation-option*> | String | Per eseguire un ciclo "for each" in modo sequenziale anziché in parallelo, impostare <*operation-option*> su `Sequential` o <*count*> su `1` ma non entrambi. Per altre informazioni, vedere [Eseguire il ciclo "for each" in modo sequenziale](#sequential-for-each). | 
+| <*operation-option*> | Stringa | Per eseguire un ciclo "for each" in modo sequenziale anziché in parallelo, impostare <*operation-option*> su `Sequential` o <*count*> su `1` ma non entrambi. Per altre informazioni, vedere [Eseguire il ciclo "for each" in modo sequenziale](#sequential-for-each). | 
 |||| 
 
 *Esempio*
@@ -2050,7 +2047,7 @@ Questa azione, ovvero un'*istruzione condizionale*, valuta un'espressione che ra
 }
 ```
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*condition*> | Oggetto JSON | La condizione, che può essere un'espressione, da valutare | 
 | <*action-1*> | Oggetto JSON | L'azione da eseguire quando il valore di <*condition*> restituisce true | 
@@ -2140,7 +2137,7 @@ Questa azione raggruppa logicamente le azioni in *ambiti*, che ottengono un prop
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | Oggetto JSON | Una o più azioni da eseguire all'interno dell'ambito |
 | <*action-inputs*> | Oggetto JSON | Gli input per ogni azione |
@@ -2181,19 +2178,19 @@ Questa azione, nota anche come *istruzione switch*, organizza le altre azioni in
 
 *Obbligatorio*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Variabile | Espressione, oggetto JSON o token da valutare | 
-| <*action-name*> | String | Il nome dell'azione da eseguire per il caso corrispondente | 
+| <*action-name*> | Stringa | Il nome dell'azione da eseguire per il caso corrispondente | 
 | <*action-definition*> | Oggetto JSON | La definizione dell'azione da eseguire per il caso corrispondente | 
 | <*matching-value*> | Variabile | Il valore da confrontare con il risultato valutato | 
 |||| 
 
 *Facoltativo*
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*default-action-name*> | String | Il nome dell'azione predefinita da eseguire quando non è presente alcun caso corrispondente | 
+| <*default-action-name*> | Stringa | Il nome dell'azione predefinita da eseguire quando non è presente alcun caso corrispondente | 
 | <*default-action-definition*> | Oggetto JSON | La definizione dell'azione da eseguire quando non è presente alcun caso corrispondente | 
 |||| 
 
@@ -2307,14 +2304,14 @@ Questa azione del ciclo contiene azioni che vengono eseguite fino a che la condi
 }
 ```
 
-| Valore | Tipo | Descrizione | 
+| Value | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | String | Il nome per l'azione da eseguire all'interno del ciclo | 
-| <*action-type*> | String | Il tipo di azione da eseguire | 
+| <*action-name*> | Stringa | Il nome per l'azione da eseguire all'interno del ciclo | 
+| <*action-type*> | Stringa | Il tipo di azione da eseguire | 
 | <*action-inputs*> | Vari | Gli input per l'azione da eseguire | 
-| <*condition*> | String | La condizione o espressione da valutare dopo completamento dell'esecuzione di tutte le azioni nel ciclo | 
+| <*condition*> | Stringa | La condizione o espressione da valutare dopo completamento dell'esecuzione di tutte le azioni nel ciclo | 
 | <*loop-count*> | Integer | Limite sul numero massimo di cicli che l'azione può eseguire. Il valore predefinito `count` è 60. | 
-| <*loop-timeout*> | String | Il limite sulla durata massima di esecuzione del ciclo. Il valore predefinito `timeout` è `PT1H`, che è il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) obbligatorio. |
+| <*loop-timeout*> | Stringa | Il limite sulla durata massima di esecuzione del ciclo. Il valore predefinito `timeout` è `PT1H`, che è il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) obbligatorio. |
 |||| 
 
 *Esempio*
@@ -2386,7 +2383,7 @@ Per i trigger e azioni, è possibile limitare la durata del modello asincrono a 
 
 È possibile modificare il comportamento di runtime predefinito dei trigger e delle azioni con queste proprietà `runtimeConfiguration` nella definizione del trigger o dell'azione.
 
-| Proprietà | Tipo | Descrizione | Trigger o azione | 
+| Proprietà | Type | Description | Trigger o azione | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Integer | Modificare il [*limite predefinito*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) per il numero di istanze del flusso di lavoro che possono essere eseguite contemporaneamente o in parallelo. Questo valore può limitare il numero di richieste ricevute dai sistemi back-end. <p>L'impostazione della proprietà `runs` su `1` funziona allo stesso modo dell'impostazione della proprietà `operationOptions` su `SingleInstance`. È possibile impostare una delle proprietà, ma non entrambe. <p>Per modificare il limite predefinito, vedere [Modificare la concorrenza dei trigger](#change-trigger-concurrency) oppure [Attivazione sequenziale delle istanze](#sequential-trigger). | Tutti i trigger | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Modificare il [*limite predefinito*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) per il numero di istanze del flusso di lavoro che possono attendere l'esecuzione quando il flusso di lavoro sta già eseguendo il numero massimo di istanze simultanee. È possibile modificare il limite di concorrenza nella proprietà `concurrency.runs`. <p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](#change-waiting-runs). | Tutti i trigger | 
@@ -2402,12 +2399,12 @@ Per i trigger e azioni, è possibile limitare la durata del modello asincrono a 
 
 È possibile modificare il comportamento predefinito dei trigger e delle azioni con la proprietà `operationOptions` nella definizione del trigger o dell'azione.
 
-| Opzione dell'operazione | Tipo | Descrizione | Trigger o azione | 
+| Opzione dell'operazione | Type | Description | Trigger o azione | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | Eseguire le azioni basate su HTTP in modo sincrono, anziché in modo asincrono. <p><p>Per impostare questa opzione, vedere [Eseguire le azioni in modo sincrono](#asynchronous-patterns). | Azioni: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Risposta](#response-action) | 
-| `OptimizedForHighThroughput` | String | Modifica il [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) sul numero di esecuzioni di azioni per 5 minuti al [limite massimo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Per impostare questa opzione, vedere [Esecuzione in modalità velocità effettiva elevata](#run-high-throughput-mode). | Tutte le azioni | 
-| `Sequential` | String | Esegue le iterazioni del ciclo "for each" una alla volta, anziché tutte contemporaneamente in parallelo. <p>L'opzione funziona allo stesso modo dell'impostazione della proprietà `runtimeConfiguration.concurrency.repetitions` su `1`. È possibile impostare una delle proprietà, ma non entrambe. <p><p>Per impostare questa opzione, vedere [Eseguire il ciclo "for each" in modo sequenziale](#sequential-for-each).| Azione: <p>[Foreach](#foreach-action) | 
-| `SingleInstance` | String | Esegue il trigger per ogni istanza dell'app per la logica in modo sequenziale e attende la fine dell'esecuzione attiva precedente prima di attivare la successiva istanza di app per la logica. <p><p>L'opzione funziona allo stesso modo dell'impostazione della proprietà `runtimeConfiguration.concurrency.runs` su `1`. È possibile impostare una delle proprietà, ma non entrambe. <p>Per impostare questa opzione, vedere [Attivazione delle istanze in modo sequenziale](#sequential-trigger). | Tutti i trigger | 
+| `DisableAsyncPattern` | Stringa | Eseguire le azioni basate su HTTP in modo sincrono, anziché in modo asincrono. <p><p>Per impostare questa opzione, vedere [Eseguire le azioni in modo sincrono](#asynchronous-patterns). | Azioni: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Risposta](#response-action) | 
+| `OptimizedForHighThroughput` | Stringa | Modifica il [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) sul numero di esecuzioni di azioni per 5 minuti al [limite massimo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Per impostare questa opzione, vedere [Esecuzione in modalità velocità effettiva elevata](#run-high-throughput-mode). | Tutte le azioni | 
+| `Sequential` | Stringa | Esegue le iterazioni del ciclo "for each" una alla volta, anziché tutte contemporaneamente in parallelo. <p>L'opzione funziona allo stesso modo dell'impostazione della proprietà `runtimeConfiguration.concurrency.repetitions` su `1`. È possibile impostare una delle proprietà, ma non entrambe. <p><p>Per impostare questa opzione, vedere [Eseguire il ciclo "for each" in modo sequenziale](#sequential-for-each).| Azione: <p>[Foreach](#foreach-action) | 
+| `SingleInstance` | Stringa | Esegue il trigger per ogni istanza dell'app per la logica in modo sequenziale e attende la fine dell'esecuzione attiva precedente prima di attivare la successiva istanza di app per la logica. <p><p>L'opzione funziona allo stesso modo dell'impostazione della proprietà `runtimeConfiguration.concurrency.runs` su `1`. È possibile impostare una delle proprietà, ma non entrambe. <p>Per impostare questa opzione, vedere [Attivazione delle istanze in modo sequenziale](#sequential-trigger). | Tutti i trigger | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

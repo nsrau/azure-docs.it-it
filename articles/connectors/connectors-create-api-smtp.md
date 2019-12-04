@@ -1,26 +1,22 @@
 ---
-title: Connettersi a SMTP da App per la logica di Azure | Microsoft Docs
+title: Connettersi a SMTP da app per la logica di Azure
 description: Automatizzare le attività e i flussi di lavoro per l'invio di messaggi di posta elettronica tramite l'account SMTP (Simple Mail Transfer Protocol) usando App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050751"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789155"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
 
-Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protocol), è possibile creare attività e flussi di lavoro automatizzati per inviare messaggi di posta elettronica dall'account SMTP. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SMTP. Ad esempio, dopo che SMTP ha inviato un messaggio di posta elettronica, è possibile informare il team in Slack con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protocol), è possibile creare attività e flussi di lavoro automatizzati per inviare messaggi di posta elettronica dall'account SMTP. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SMTP. Ad esempio, dopo che SMTP ha inviato un messaggio di posta elettronica, è possibile informare il team in Slack con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,16 +45,16 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
    Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca immettere "smtp" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
+1. Nella casella di ricerca immettere "smtp" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
 1. Quando richiesto, specificare queste informazioni di connessione:
 
-   | Proprietà | Obbligatorio | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
-   | **Connection Name** (Nome connessione) | Sì | Nome per la connessione al server SMTP | 
-   | **Indirizzo del server SMTP** | Sì | Indirizzo relativo al server SMTP | 
-   | **Nome utente** | Sì | Nome utente per l'account SMTP | 
-   | **Password** | Yes | Password per l'account SMTP | 
+   | **Connection Name** (Nome connessione) | SÌ | Nome per la connessione al server SMTP | 
+   | **Indirizzo del server SMTP** | SÌ | Indirizzo relativo al server SMTP | 
+   | **Nome utente** | SÌ | Nome utente per l'account SMTP | 
+   | **Password** | SÌ | Password per l'account SMTP | 
    | **Porta del server SMTP** | No | Porta specifica sul server SMTP che si vuole usare | 
    | **Abilitare SSL?** | No | Attivare o disattivare la crittografia SSL. | 
    |||| 
@@ -71,7 +67,7 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/smtpconnector/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

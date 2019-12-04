@@ -1,22 +1,20 @@
 ---
-title: Connettersi al database IBM Informix - App per la logica di Azure | Microsoft Docs
+title: Connettersi a un database IBM Informix
 description: Gestione delle risorse con le API REST di IBM Informix e App per la logica di Azure
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+author: gplarsen
+ms.author: plarsen
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 09/26/2016
 tags: connectors
-ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6f768bc76d19c0aa21a245c008a4b05588f8f43
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690906"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789740"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introduzione al connettore Informix
 Microsoft Connector for Informix connette le app per la logica alle risorse archiviate in un database IBM Informix. Il connettore Informix include un client Microsoft per comunicare con computer server Informix remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Informix per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-informix.md#supported-informix-platforms-and-versions) delle piattaforme e delle versioni di IBM Informix supportate (in questo argomento).
@@ -47,7 +45,7 @@ Il connettore supporta le azioni delle app per la logica seguenti:
 ## <a name="list-tables"></a>Visualizzazione di un elenco di tabelle
 La creazione di un'app per la logica per qualsiasi operazione prevede numerosi passaggi eseguiti tramite il portale di Microsoft Azure.
 
-All'interno dell'app per la logica, è possibile aggiungere un'azione per elencare le tabelle in un database di Informix. Questa azione indica al connettore di elaborare un'istruzione schematica di Informix, ad esempio `CALL SYSIBM.SQLTABLES`.
+All'interno dell'app per la logica è possibile aggiungere un'azione per elencare le tabelle in un database Informix. Questa azione indica al connettore di elaborare un'istruzione dello schema Informix, ad esempio `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
@@ -80,12 +78,12 @@ All'interno dell'app per la logica, è possibile aggiungere un'azione per elenca
 ## <a name="create-the-connections"></a>Creare le connessioni
 Il connettore supporta le connessioni al database locale e cloud mediante le proprietà di connessione seguenti. 
 
-| Proprietà | Descrizione |
+| Proprietà | Description |
 | --- | --- |
 | server |Richiesto. Accetta un valore stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, delimitato da due punti e seguito da un numero di porta TCP/IP. |
 | database |Richiesto. Accetta un valore stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA. Informix accetta una stringa di 128 byte (il database è definito come nome di database IBM Informix, ovvero come dbname). |
-| authentication |facoltativo. Accetta un valore elemento di elenco, ovvero Basic o Windows (kerberos). |
-| username |Richiesto. Accetta il valore della stringa. |
+| Autenticazione |facoltativo. Accetta un valore elemento di elenco, ovvero Basic o Windows (kerberos). |
+| Nome utente |Richiesto. Accetta il valore della stringa. |
 | password |Richiesto. Accetta il valore della stringa. |
 | gateway |Richiesto. Accetta un valore elemento di elenco, che rappresenta il gateway dati locale definito per le app per la logica nel gruppo di archiviazione. |
 
@@ -121,7 +119,7 @@ Il connettore può accedere a un database Informix cloud.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
-2. Immettere un valore in **Nome** (ad esempio "**InformixgetRows**"), **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano di servizio app**. Selezionare **Aggiungi al dashboard** e quindi selezionare **Crea**.
+2. Immettere il **nome** (ad esempio "**InformixgetRows**"), la **sottoscrizione**, il **gruppo di risorse**, la **località**e il **piano di servizio app**. Selezionare **Aggiungi al dashboard** e quindi selezionare **Crea**.
 
 ### <a name="add-a-trigger-and-action"></a>Aggiungere un trigger e un'azione
 1. In **Progettazione app per la logica**, selezionare **LogicApp vuoto** nell'elenco **Modelli**.
@@ -209,7 +207,7 @@ Il connettore può accedere a un database Informix cloud.
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>Modificare una riga con UPDATE
-È possibile creare un'azione dell'app per la logica per modificare una riga in una tabella Informix. Questa azione indica al connettore di elaborare un'istruzione UPDATE di Informix, ad esempio `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+È possibile creare un'azione dell'app per la logica per modificare una riga in una tabella Informix. Questa azione indica al connettore di elaborare un'istruzione di aggiornamento Informix, ad esempio `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.

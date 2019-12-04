@@ -1,17 +1,17 @@
 ---
-title: Controllare la registrazione con pgAudit nel database di Azure per PostgreSQL-server singolo
+title: Registrazione di controllo-database di Azure per PostgreSQL-server singolo
 description: 'Concetti per la registrazione di controllo di pgAudit nel database di Azure per PostgreSQL: singolo server.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 49ad7334c418e29c821320608be729e060b4a8ae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331323"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764560"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
 
@@ -84,7 +84,7 @@ t=%m u=%u db=%d pid=[%p]:
 
 Per altre informazioni su `log_line_prefix`, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LINE-PREFIX).
 
-### <a name="getting-started"></a>Per iniziare
+### <a name="getting-started"></a>Inizia ora
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE`e aprire i log per esaminare l'output. 
 
 

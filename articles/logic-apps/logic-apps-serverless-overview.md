@@ -2,21 +2,20 @@
 title: Panoramica-senza server di Azure
 description: Crea soluzioni potenti nel cloud senza preoccuparti dell'infrastruttura
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 363002712bdd06e74360de9af186f5a458a4999d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d658efd278425358a2a931fe976827c3bae4247d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68385365"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792835"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Panoramica Azure senza server con app per la logica di Azure e funzioni di Azure
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Panoramica: Azure senza server con app per la logica di Azure e funzioni di Azure
 
 Le app senza [Server](https://azure.microsoft.com/solutions/serverless/) offrono vantaggi come una maggiore velocità di sviluppo, codice ridotto, semplicità e scalabilità. Questo articolo illustra i diversi attributi delle soluzioni senza server e delle offerte senza server di Azure.
 
@@ -32,7 +31,7 @@ I servizi di base di Azure per server sono app per la [logica di Azure](https://
 
 Per iniziare ad acquisire familiarità con App per la logica, [creare una prima app per la logica](quickstart-create-first-logic-app-workflow.md). Per informazioni più tecniche sulle app per la logica, vedere la Guida di riferimento per gli [sviluppatori](logic-apps-workflow-definition-language.md).
 
-## <a name="what-is-azure-functions"></a>Che cos'è funzioni di Azure?
+## <a name="what-is-azure-functions"></a>Che cos'è Funzioni di Azure?
 
 Funzioni di Azure è un servizio che consente di eseguire facilmente parti di codice o "funzioni" nel cloud. È possibile scrivere solo il codice necessario per il problema corrente, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria. Funzioni può rendere più produttiva l'attività di sviluppo e consente di usare il linguaggio di sviluppo preferito, ad esempio C#, F#, Node.js, Python o PHP. Si paga solo per il tempo di esecuzione del codice e Azure Scales in base alle esigenze.
 

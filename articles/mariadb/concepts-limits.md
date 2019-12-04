@@ -1,17 +1,17 @@
 ---
-title: Limiti di Database di Azure per MariaDB
+title: Limitazioni-database di Azure per MariaDB
 description: Questo articolo descrive i limiti di Database di Azure per MariaDB, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: fc89b6233602c81ea622a528c223adf2003f0f68
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550499"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772497"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
@@ -23,20 +23,20 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |---|---|---|
 |Basic| 1| 50|
 |Basic| 2| 100|
-|Utilizzo generico| 2| 300|
-|Utilizzo generico| 4| 625|
-|Utilizzo generico| 8| 1250|
-|Utilizzo generico| 16| 2500|
-|Utilizzo generico| 32| 5000|
-|Utilizzo generico| 64| 10000|
-|Con ottimizzazione per la memoria| 2| 600|
-|Con ottimizzazione per la memoria| 4| 1250|
-|Con ottimizzazione per la memoria| 8| 2500|
-|Con ottimizzazione per la memoria| 16| 5000|
-|Con ottimizzazione per la memoria| 32| 10000|
+|Scopo generico| 2| 300|
+|Scopo generico| 4| 625|
+|Scopo generico| 8| 1250|
+|Scopo generico| 16| 2500|
+|Scopo generico| 32| 5000|
+|Scopo generico| 64| 10000|
+|Ottimizzate per la memoria| 2| 600|
+|Ottimizzate per la memoria| 4| 1250|
+|Ottimizzate per la memoria| 8| 2500|
+|Ottimizzate per la memoria| 16| 5000|
+|Ottimizzate per la memoria| 32| 10000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
-> ERROR 1040 (08004): Troppe connessioni
+> ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 
@@ -54,7 +54,7 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 ### <a name="unsupported"></a>Non supportato
 - Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita.
 - Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) presentano limitazioni.
-- DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
+- Definir: richiede privilegi Super per creare ed è limitato. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 
@@ -84,7 +84,7 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
 ### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
-- Consultare [sui piani tariffari](concepts-pricing-tiers.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
+- Per i limiti di dimensioni di archiviazione per ogni piano tariffario, fare riferimento ai [piani tariffari](concepts-pricing-tiers.md) .
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MariaDB visualizza una versione di server non corretta. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.

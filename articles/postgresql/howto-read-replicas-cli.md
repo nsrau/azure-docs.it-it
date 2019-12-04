@@ -1,17 +1,17 @@
 ---
-title: Gestire le repliche di lettura per il database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure, API REST
+title: Gestire le repliche di lettura-interfaccia della riga di comando di Azure, API REST-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come gestire le repliche di lettura nel database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure e dall'API REST
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: e146a0f42b6487545321ebfbc9ec523da5e78c8a
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995345"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770119"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creare e gestire le repliche di lettura dall'interfaccia della riga di comando di Azure, API REST
 
@@ -31,7 +31,7 @@ Questo articolo illustra come creare e gestire le repliche di lettura nel databa
 
 Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel server master. Quando questo parametro statico viene modificato, è necessario riavviare il server per rendere effettive le modifiche.
 
-1. Impostare `azure.replication_support` su replica.
+1. Impostare `azure.replication_support` su REPLICA.
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
@@ -47,7 +47,7 @@ Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel
 
 Il comando [AZ Postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | DESCRIZIONE  |
+| Impostazione | Valore di esempio | Description  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Il gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoserver-replica | Nome del nuovo server di replica creato. |
@@ -59,7 +59,7 @@ Nell'esempio dell'interfaccia della riga di comando riportata di seguito, la rep
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-Per creare una replica di lettura tra aree, usare `--location` il parametro. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
+Per creare una replica di lettura tra aree, usare il parametro `--location`. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
 
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -68,7 +68,7 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > [!NOTE]
 > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
-Se il `azure.replication_support` parametro non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+Se il parametro `azure.replication_support` non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
 Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
@@ -108,7 +108,7 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 
 Il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel server master. Quando questo parametro statico viene modificato, è necessario riavviare il server per rendere effettive le modifiche.
 
-1. Impostare `azure.replication_support` su replica.
+1. Impostare `azure.replication_support` su REPLICA.
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
@@ -148,7 +148,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
 
-Se il `azure.replication_support` parametro non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+Se il parametro `azure.replication_support` non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
 Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 

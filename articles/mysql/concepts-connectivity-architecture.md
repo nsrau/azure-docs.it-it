@@ -1,17 +1,17 @@
 ---
-title: Architettura di connettività nel database di Azure per MySQL
+title: Architettura di connettività-database di Azure per MySQL
 description: Descrive l'architettura di connettività per il database di Azure per il server MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: 22c77bee95533606156ec6cc337af1d743018005
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213144"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765325"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -48,8 +48,8 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | India occidentale | 104.211.160.80 | |
 | Giappone orientale | 191.237.240.43 | 13.78.61.196 |
 | Giappone occidentale | 191.238.68.11 | 104.214.148.156 |
-| Corea del Sud centrale | 52.231.32.42 | |
-| Corea del Sud meridionale | 52.231.200.86 |  |
+| Corea centrale | 52.231.32.42 | |
+| Corea meridionale | 52.231.200.86 |  |
 | Stati Uniti centro-settentrionali | 23.98.55.75 | 23.96.178.199 |
 | Europa settentrionale | 191.235.193.75 | 40.113.93.91 |
 | Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |
@@ -65,17 +65,9 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 ||||
 
 > [!NOTE]
-> *Stati Uniti orientali 2* ha anche l'indirizzo IP terziario `52.167.104.0`.
-
-## <a name="connection-redirection"></a>Reindirizzamento della connessione
-
-Database di Azure per MySQL supporta un criterio di connessione aggiuntivo, il **Reindirizzamento**, che consente di ridurre la latenza di rete tra le applicazioni client e i server MySQL. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MySQL, il server restituisce l'indirizzo back-end del nodo che ospita il server MySQL al client. Successivamente, tutti i pacchetti successivi fluiscono direttamente sul server, ignorando il gateway. Poiché i pacchetti vengono inviati direttamente al server, la latenza e la velocità effettiva hanno un miglioramento delle prestazioni.
-
-Questa funzionalità è supportata nei server di database di Azure per MySQL con le versioni del motore 5,6, 5,7 e 8,0.
-
-Il supporto in anteprima per il reindirizzamento è disponibile nell'estensione [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) , sviluppato da Microsoft ed è disponibile in [PECL](https://pecl.php.net/package/mysqlnd_azure). Per altre informazioni su come usare il reindirizzamento nelle applicazioni, vedere l'articolo sulla [configurazione del reindirizzamento](./howto-redirection.md) . 
+> *Stati Uniti orientali 2* dispone anche di un indirizzo IP terziario di `52.167.104.0`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare e gestire Database di Azure per le regole del firewall MySQL tramite il portale di Azure](./howto-manage-firewall-using-portal.md)
+* [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](./howto-manage-firewall-using-portal.md)
 * [Creare e gestire regole del firewall di database di Azure per MySQL usando l'interfaccia della riga di comando](./howto-manage-firewall-using-cli.md)

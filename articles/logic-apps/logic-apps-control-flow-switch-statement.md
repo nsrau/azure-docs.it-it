@@ -1,20 +1,17 @@
 ---
-title: Aggiungere la istruzioni switch ai flussi di lavoro - App per la logica di Azure | Microsoft Docs
+title: Aggiungere istruzioni switch a flussi di lavoro
 description: Come creare istruzioni switch che controllano le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683133"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793242"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
@@ -32,7 +29,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 * Per seguire l'esempio di questo articolo, [creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
 
-  1. Quando si aggiunge l'azione per inviare posta elettronica, trovare e selezionare invece questa azione: **Inviare un'email di approvazione**
+  1. Quando si aggiunge l'azione per inviare posta elettronica, individuare e selezionare invece l'azione **Invia messaggio di posta elettronica di approvazione**.
 
      ![Selezionare "Send an approval email" (Invia un messaggio di posta elettronica di approvazione)](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +44,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
    Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** ( **+** ) visualizzato, quindi **Aggiungi un'azione**.
 
-1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Opzione - controllo**
+1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Switch - Controllo**
 
    ![Aggiunta di switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -70,7 +67,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
    |--------|--------------------|--------|
    | Case 1 | **Approve** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per inviare i dettagli dell'elemento RSS solo quando il responsabile approvazione ha selezionato **Approve**. |
    | Case 2 | **Reject** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per notificare agli altri responsabili approvazione che l'elemento RSS è stato rifiutato. |
-   | Predefinito | Nessuna | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
+   | Predefinito | Nessuno | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
    |||
 
    ![Istruzione switch completata](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -113,7 +110,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 }
 ```
 
-| Etichetta | Descrizione |
+| Etichette | Description |
 |-------|-------------|
 | `"Switch"`         | Nome dell'istruzione switch che può essere rinominata per migliorarne la leggibilità |
 | `"type": "Switch"` | Specifica che l'azione è un'istruzione switch |
@@ -122,7 +119,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 | `"case"` | Specifica il valore del case, che deve essere un valore costante e univoco usato dall'istruzione switch per effettuare un confronto. Se nessun case corrisponde al risultato dell'espressione switch, vengono eseguite le azioni nella sezione `"default"`. | 
 | | | 
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

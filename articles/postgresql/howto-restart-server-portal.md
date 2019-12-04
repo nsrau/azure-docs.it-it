@@ -1,19 +1,19 @@
 ---
-title: Riavviare il Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure
-description: Questo articolo descrive come è possibile riavviare un Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure.
+title: Riavviare il server-portale di Azure-database di Azure per PostgreSQL-server singolo
+description: Questo articolo descrive come riavviare un database di Azure per PostgreSQL-singolo server usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52ffb3943e6e3f209fd236216cc44026dff59dad
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65066829"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770085"
 ---
-# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Riavviare il Database di Azure per PostgreSQL - singolo Server tramite il portale di Azure
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Riavviare database di Azure per PostgreSQL: singolo server usando il portale di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per PostgreSQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
 
 Il riavvio del server verrà bloccato se il servizio è occupato. È ad esempio possibile che il servizio stia elaborando un'operazione richiesta in precedenza, come il ridimensionamento di vCore.
@@ -28,7 +28,7 @@ Per completare questa guida, è necessario:
 
 La procedura seguente consente di riavviare il server PostgreSQL:
 
-1. Nel [portale di Azure](https://portal.azure.com/), selezionare il Database di Azure per il server PostgreSQL.
+1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server PostgreSQL.
 
 2. Nella barra degli strumenti della pagina **Panoramica** del server fare clic su **Riavvia**.
 
@@ -48,4 +48,4 @@ La procedura seguente consente di riavviare il server PostgreSQL:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su [come impostare i parametri nel Database di Azure per PostgreSQL](howto-configure-server-parameters-using-portal.md)
+Informazioni su [come impostare i parametri nel database di Azure per PostgreSQL](howto-configure-server-parameters-using-portal.md)

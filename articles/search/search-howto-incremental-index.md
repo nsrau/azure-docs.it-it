@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112568"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790494"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Come configurare l'indicizzazione incrementale dei documenti arricchiti in Azure ricerca cognitiva
 
@@ -41,13 +41,32 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>Passaggio 2: aggiungere la proprietà cache
 
-Modificare la risposta dalla richiesta GET per aggiungere la proprietà `cache` all'indicizzatore. L'oggetto cache richiede una sola proprietà, ovvero la stringa di connessione a un account di archiviazione di Azure.
+< < < < < < < HEAD modificare la risposta dalla richiesta GET per aggiungere la proprietà `cache` all'indicizzatore. L'oggetto cache richiede solo una singola proprietà, `storageConnectionString` che è la stringa di connessione all'account di archiviazione. = = = = = = = Modifica la risposta dalla richiesta GET per aggiungere la proprietà `cache` all'indicizzatore. L'oggetto cache richiede una sola proprietà, ovvero la stringa di connessione a un account di archiviazione di Azure.
+>>>>>>> 3519a330aa86b6827d31403690529105825b1b16
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### <a name="enable-reporocessing"></a>Abilita reporocessing
+
+Facoltativamente, è possibile impostare la proprietà booleana `enableReprocessing` all'interno della cache, che per impostazione predefinita è impostata su true. Il flag di `enableReprocessing` consente di controllare il comportamento dell'indicizzatore. Negli scenari in cui si desidera che l'indicizzatore conferisca la priorità all'aggiunta di nuovi documenti all'indice, impostare il flag su false. Una volta che l'indicizzatore è stato aggiornato con i nuovi documenti, capovolgendo il flag su true, l'indicizzatore può iniziare a guidare i documenti esistenti fino a garantire la coerenza finale. Durante il periodo in cui il flag di `enableReprocessing` è impostato su false, l'indicizzatore scrive solo nella cache, ma non elabora i documenti esistenti in base alle modifiche identificate alla pipeline di arricchimento.
 
 ### <a name="step-3-reset-the-indexer"></a>Passaggio 3: reimpostare l'indicizzatore
 

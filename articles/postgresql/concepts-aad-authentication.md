@@ -1,17 +1,17 @@
 ---
-title: Azure Active Directory l'autenticazione con database di Azure per PostgreSQL-server singolo
+title: Autenticazione Active Directory-database di Azure per PostgreSQL-server singolo
 description: Informazioni sui concetti di Azure Active Directory per l'autenticazione con database di Azure per PostgreSQL-server singolo
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 47637396581beeafb0748066cd6a66f011e8eaa1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518736"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769915"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Usare Azure Active Directory per l'autenticazione con PostgreSQL
 
@@ -43,7 +43,7 @@ Per configurare e usare l'autenticazione Azure Active Directory, usare il proces
 > [!NOTE]
 > Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con database di Azure per PostgreSQL, vedere [configurare e accedere con Azure ad per database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Il diagramma generale seguente riepiloga il funzionamento dell'autenticazione con Azure AD l'autenticazione con database di Azure per PostgreSQL. Le frecce indicano i percorsi di comunicazione.
 
@@ -86,7 +86,7 @@ Una volta eseguita l'autenticazione con il Active Directory, viene recuperato un
 > [!NOTE]
 > L'account di accesso con l'utente Azure AD eliminato può ancora essere eseguito fino alla scadenza del token (fino a 60 minuti dall'emissione di token).  Se si rimuove anche l'utente da database di Azure per PostgreSQL, questo accesso verrà revocato immediatamente.
 - Se il Azure AD amministratore viene rimosso dal server, il server non sarà più associato a un tenant di Azure AD e pertanto tutti gli account di accesso Azure AD verranno disabilitati per il server. L'aggiunta di un nuovo amministratore di Azure AD dallo stesso tenant riabilita Azure AD account di accesso.
-- Il database di Azure per PostgreSQL corrisponde ai token di accesso al ruolo database di Azure per PostgreSQL usando l'ID utente univoco Azure AD dell'utente, invece di usare il nome utente. Ciò significa che se un utente Azure AD viene eliminato in Azure AD e un nuovo utente creato con lo stesso nome, database di Azure per PostgreSQL considera un utente diverso. Se pertanto un utente viene eliminato da Azure AD e successivamente viene aggiunto un nuovo utente con lo stesso nome, il nuovo utente non sarà in grado di connettersi al ruolo esistente. A tale proposito, il database di Azure per PostgreSQL Azure AD amministratore deve revocare e quindi concedere all'utente il ruolo "azure_ad_user" per aggiornare l'ID utente Azure AD.
+- Il database di Azure per PostgreSQL corrisponde ai token di accesso al ruolo database di Azure per PostgreSQL usando l'ID utente univoco Azure AD dell'utente, invece di usare il nome utente. Ciò significa che se un utente Azure AD viene eliminato in Azure AD e un nuovo utente creato con lo stesso nome, database di Azure per PostgreSQL considera un utente diverso. Se pertanto un utente viene eliminato da Azure AD e successivamente viene aggiunto un nuovo utente con lo stesso nome, il nuovo utente non sarà in grado di connettersi al ruolo esistente. A tale proposito, l'amministratore di database di Azure per PostgreSQL Azure AD necessario revocare e quindi concedere al ruolo "azure_ad_user" all'utente di aggiornare l'ID utente di Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

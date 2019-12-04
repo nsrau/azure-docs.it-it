@@ -1,22 +1,18 @@
 ---
-title: Connettersi al server FTP-app per la logica di Azure
+title: Connetti al server FTP
 description: Creare, monitorare e gestire i file in un server FTP con App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: divswa, klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: ac6ae1a3b00a4e7568bd7967105f202fbf2e4f9b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: c7b8c1ac94fd35a4a0cb30ad32d8c6ce39edc058
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547481"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789791"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creare, monitorare e gestire i file FTP usando App per la logica di Azure
 

@@ -5,14 +5,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 2810dfc4cb41dcf11eb59ce3c87e6f7d6b2d5f65
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b14b8a9a2bc43c33095bf07e7fb7ebcc2d6c1ffa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083489"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769524"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Reimpostare i peering del circuito ExpressRoute
 
@@ -20,7 +20,7 @@ Questo articolo descrive come abilitare e disabilitare i peering di un circuito 
 
 La reimpostazione dei peering ExpressRoute può essere utile in un paio di scenari.
 * Esecuzione di test della progettazione e dell'implementazione del ripristino di emergenza. Ad esempio, sono presenti due circuiti ExpressRoute. È possibile disabilitare i peering di un circuito e forzare il failover del traffico di rete nell'altro circuito.
-* Abilitare il rilevamento di inoltri bidirezionali (BFD) nel peering privato di Azure o nel peering Microsoft del circuito ExpressRoute. BFD è abilitato per impostazione predefinita nel peering privato di Azure se il circuito ExpressRoute viene creato dopo il 1 2018 agosto e nel peering Microsoft se il circuito ExpressRoute viene creato dopo ottobre 1 2019. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. 
+* Abilitazione del rilevamento dell'inoltro bidirezionale nel peering privato di Azure del circuito ExpressRoute. Il rilevamento dell'inoltro bidirezionale è abilitato per impostazione predefinita se il circuito ExpressRoute è stato creato dopo il 1° agosto 2018. Se il circuito è stato creato prima di questa data, il rilevamento dell'inoltro bidirezionale non è stato abilitato. È possibile abilitarlo disabilitando il peering e riabilitandolo. Tenere presente che il rilevamento dell'inoltro bidirezionale è supportato solo nel peering privato di Azure.
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 

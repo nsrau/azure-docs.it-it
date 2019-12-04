@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382019"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785995"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
@@ -36,13 +36,16 @@ In questo argomento:
 
 Per configurare l'autenticazione basata su certificati, devono essere soddisfatte le istruzioni seguenti:
 
-- L'autenticazione basata sui certificati è supportata solo per ambienti federati per applicazioni browser o client nativi che usano l'autenticazione moderna (ADAL). L'unica eccezione è Exchange Active Sync per Exchange Online (EXO) che può essere usato per gli account federati e per quelli gestiti.
+- L'autenticazione basata su certificati è supportata solo per gli ambienti federati per le applicazioni browser, i client nativi che usano le librerie di autenticazione moderna (ADAL) o MSAL. L'unica eccezione è Exchange Active Sync per Exchange Online (EXO) che può essere usato per gli account federati e per quelli gestiti.
 - L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.
 - Ogni autorità di certificazione deve avere un elenco di revoche di certificati (Certificate Revocation List o CRL) a cui si possa fare riferimento tramite un URL Internet.
 - È necessario che in Azure Active Directory sia configurata almeno un'autorità di certificazione. I passaggi correlati sono descritti nella sezione [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) (Configurare le autorità di certificazione).
 - Per i client Exchange ActiveSync, il certificato client deve contenere l'indirizzo email instradabile dell'utente in Exchange online, nel nome dell'entità o nel nome RFC822 del campo Nome alternativo soggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.
 - Il dispositivo client deve avere accesso ad almeno un'autorità di certificazione che emetta i certificati client.
 - È necessario che al client sia stato rilasciato un certificato client per l'autenticazione.
+
+>[!IMPORTANT]
+>Le dimensioni massime di un CRL per Azure Active Directory per il download e la memorizzazione nella cache sono 20MB e il tempo necessario per scaricare il CRL non deve superare i 10 secondi.  Se Azure Active Directory non è in grado di scaricare un CRL, le autenticazioni basate su certificati che usano i certificati emessi dalla CA corrispondente avranno esito negativo. Le procedure consigliate per garantire che i file CRL rientrino nei vincoli di dimensione sono la conservazione delle durate dei certificati entro limiti ragionevoli e la pulizia dei certificati scaduti. 
 
 ## <a name="step-1-select-your-device-platform"></a>Passaggio 1: Selezionare la piattaforma del dispositivo
 
@@ -96,7 +99,7 @@ Per la configurazione, è possibile usare [Azure Active Directory PowerShell ver
 
 Il primo passaggio di configurazione consiste nello stabilire una connessione con il tenant. Non appena viene stabilita la connessione al tenant è possibile rivedere, aggiungere, eliminare e modificare le autorità di certificazione attendibili definite nella directory.
 
-### <a name="connect"></a>Connetti
+### <a name="connect"></a>Connessione
 
 Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
@@ -108,7 +111,7 @@ Per recuperare le autorità di certificazione attendibili definite nella directo
 
     Get-AzureADTrustedCertificateAuthority
 
-### <a name="add"></a>Add
+### <a name="add"></a>Aggiungi
 
 Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
 
@@ -119,7 +122,7 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-### <a name="remove"></a>Rimuovere
+### <a name="remove"></a>Rimuovi
 
 Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
 

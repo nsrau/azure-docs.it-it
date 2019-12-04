@@ -1,20 +1,19 @@
 ---
-title: Convertire i dati JSON con le trasformazioni Liquid - App per la logica di Azure | Microsoft Docs
+title: Convertire i dati JSON con le trasformazioni liquide
 description: Creare trasformazioni o mappe per le trasformazioni JSON avanzate usando App per la logica e un modello Liquid
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900651"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792503"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Eseguire trasformazioni JSON avanzate con i modelli Liquid in App per la logica di Azure
 
@@ -68,11 +67,11 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 
 4. Scegliere **Aggiungi** e specificare questi dettagli per la mappa:
 
-   | Proprietà | Valore | DESCRIZIONE | 
+   | Proprietà | Value | Description | 
    |----------|-------|-------------|
    | **Nome** | JsonToJsonTemplate | Nome per la mappa, ovvero "JsonToJsonTemplate" in questo esempio | 
    | **Tipo di mapping** | **liquid** | Tipo di mappa. Per la trasformazione da JSON a JSON, è necessario selezionare **Liquid**. | 
-   | **Mappa** | "SimpleJsonToJsonTemplate.liquid" | File di mappa o di modello Liquid esistente da usare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. Per trovare questo file, è possibile usare la selezione file. |
+   | **Map** | "SimpleJsonToJsonTemplate.liquid" | File di mappa o di modello Liquid esistente da usare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. Per trovare questo file, è possibile usare la selezione file. |
    ||| 
 
    ![Aggiungere un modello Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
@@ -84,7 +83,7 @@ Prima di poter eseguire una trasformazione Liquid nell'app per la logica, è nec
 2. Nella finestra di progettazione di app per la logica aggiungere il [trigger Request](../connectors/connectors-native-reqres.md#add-request) all'app per la logica.
 
 3. Nel trigger scegliere **Nuovo passaggio**. 
-   Nella casella di ricerca immettere "liquid" come filtro e selezionare questa azione: **Trasforma JSON in JSON - Liquid**
+   Nella casella di ricerca immettere "liquid" come filtro e selezionare l'azione: **Liquid - Trasforma JSON in JSON**
 
    ![Trovare e selezionare l'azione Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -152,6 +151,6 @@ Liquid non è limitato alle sole trasformazioni JSON. Di seguito sono riportate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  
+* [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack")  
 * [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")  
 

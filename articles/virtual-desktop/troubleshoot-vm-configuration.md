@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607404"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791149"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -123,7 +123,7 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 1. Scaricare una nuova versione dell'agente nella macchina virtuale host sessione.
 2. Avviare Gestione attività e, nella scheda servizio, arrestare il servizio RDAgentBootLoader.
 3. Eseguire il programma di installazione per la nuova versione dell'agente desktop virtuale di Windows.
-4. Quando viene richiesto il token di registrazione, rimuovere la voce INVALID_TOKEN e fare clic su Next (un nuovo token non è obbligatorio).
+4. Quando viene richiesto il token di registrazione, rimuovere la voce INVALID_TOKEN e fare clic su Avanti. non è necessario un nuovo token.
 5. Completare l'installazione guidata di.
 6. Aprire Task Manager e avviare il servizio RDAgentBootLoader.
 
@@ -309,7 +309,7 @@ Se viene visualizzato uno di questi messaggi, significa che nell'immagine non so
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
 
-Controllare l'impostazione di criteri di gruppo aprendo l'Editor Criteri di gruppo nella macchina virtuale e passando a **Modelli amministrativi** > **componenti di Windows** > Servizi Desktop remoto ** > host sessione Desktop remoto** > **licenze** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
+Controllare l'impostazione di criteri di gruppo aprendo l'Editor Criteri di gruppo nella macchina virtuale e passando a **Modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto > ** **licenze** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
 
 >[!NOTE]
 >Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.
@@ -333,7 +333,7 @@ Se il numero di versione indica "1809", installare [l'aggiornamento di KB4516077
 
 ### <a name="version-1903"></a>Versione 1903
 
-Se il numero di versione indica "1903", installare [l'aggiornamento di KB4517211](https://support.microsoft.com/help/4517211).
+Ridistribuire il sistema operativo host con la versione più recente dell'immagine di Windows 10, versione 1903 dalla raccolta di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

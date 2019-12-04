@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176925"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786946"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utilizzare database, contenitori ed elementi in Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Quando si crea un contenitore di Azure Cosmos, la velocità effettiva viene conf
 * **Modalità di velocità effettiva con provisioning condiviso**: questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md).
 
 > [!NOTE]
-> È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. Per passare dalla modalità velocità effettiva dedicata alla modalità velocità effettiva condivisa (e viceversa) dopo la creazione del contenitore, è necessario creare un nuovo contenitore ed eseguire la migrazione dei dati nel nuovo contenitore. È possibile eseguire la migrazione dei dati tramite la funzionalità Azure Cosmos DB feed delle modifiche.
+> È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. Per passare dalla modalità di velocità effettiva dedicata alla modalità di velocità effettiva condivisa (e viceversa) dopo la creazione del contenitore, è necessario creare un nuovo contenitore dove eseguire la migrazione dei dati. È possibile eseguire la migrazione dei dati tramite la funzionalità Azure Cosmos DB feed delle modifiche.
 
 Un contenitore Azure Cosmos può essere ridimensionato in modo elastico, indipendentemente dal fatto che i contenitori vengano creati usando modalità di velocità effettiva con provisioning dedicato o condiviso.
 
@@ -82,7 +82,7 @@ Un contenitore di Azure Cosmos dispone di un set di proprietà definite dal sist
 
 | Proprietà definita dal sistema | Generato dal sistema o configurabile dall'utente | Finalità | API SQL | API Cassandra | API Azure Cosmos DB per MongoDB | API Gremlin | API di tabella |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|ID \_ | Generato dal sistema | Identificatore univoco di contenitore | SÌ | No | No | No | No |
+|RID \_ | Generato dal sistema | Identificatore univoco di contenitore | SÌ | No | No | No | No |
 |\_ETag | Generato dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | SÌ | No | No | No | No |
 |\_TS | Generato dal sistema | Ultimo timestamp aggiornato del contenitore | SÌ | No | No | No | No |
 |\_autonomo | Generato dal sistema | URI indirizzabile del contenitore | SÌ | No | No | No | No |

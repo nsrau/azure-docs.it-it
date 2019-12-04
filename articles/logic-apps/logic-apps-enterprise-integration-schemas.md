@@ -1,21 +1,19 @@
 ---
-title: Convalida XML con schemi - App per la logica di Azure | Microsoft Docs
+title: Convalidare XML con schemi
 description: Aggiungere schemi per convalidare i documenti XML in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846376"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792396"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
 
@@ -46,7 +44,7 @@ Per i limiti relativi agli account di integrazione e agli artefatti, ad esempio 
 
     * Per la versione desktop, [scaricare e installare Azure Storage Explorer](https://www.storageexplorer.com/), 
     quindi connettere Storage Explorer all'account di archiviazione seguendo i passaggi illustrati in [Introduzione a Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
-    Per altre informazioni, vedere [Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+    Per altre informazioni, vedere [Guida introduttiva: creare un BLOB nell'archivio oggetti con Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 Quando si creano e si aggiungono schemi, non è necessaria un'app per la logica. Per usare uno schema, tuttavia, l'app per la logica deve essere collegata all'account di integrazione in cui si archivia tale schema. Informazioni su come [collegare le app per la logica agli account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se si ha ancora un'app per la logica, vedere l'articolo su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -89,7 +87,7 @@ In base alle dimensioni del file di schema (con estensione xsd), seguire i passa
 
 ### <a name="add-schemas-more-than-2-mb"></a>Aggiungere schemi con dimensioni maggiori di 2 MB
 
-Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di schemi variano a seconda se il contenitore blob ha accesso in lettura pubblico. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di schemi variano a seconda che il contenitore BLOB disponga di accesso in lettura pubblico. Verificare prima di tutto se il contenitore BLOB dispone di accesso in lettura pubblico attenendosi alla procedura seguente: [impostare il livello di accesso pubblico per il contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 
@@ -99,11 +97,11 @@ Per aggiungere schemi più grandi, è possibile caricare lo schema in un conteni
 
 1. Scegliere **Set Public Access Level** (Imposta livello di accesso pubblico) dal menu di scelta rapida del contenitore BLOB.
 
-   * Se il contenitore BLOB ha almeno l'accesso pubblico, scegliere **Annulla** e seguire questa procedura più avanti nella pagina: [Caricare in contenitori con accesso pubblico](#public-access)
+   * Se il contenitore BLOB dispone almeno dell'accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori con accesso pubblico](#public-access)
 
      ![Accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se il contenitore BLOB non ha l'accesso pubblico, scegliere **Annulla** e seguire questa procedura più avanti nella pagina: [Caricare in contenitori senza accesso pubblico](#public-access)
+   * Se il contenitore BLOB non ha accesso pubblico, scegliere **Annulla**e seguire la procedura riportata più avanti in questa pagina: [caricare nei contenitori senza accesso pubblico](#public-access)
 
      ![Nessun accesso pubblico](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 

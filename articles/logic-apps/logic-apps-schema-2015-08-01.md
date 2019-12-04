@@ -1,21 +1,19 @@
 ---
-title: 'Aggiornamenti dello schema in anteprima del 1° agosto 2015: App per la logica di Azure | Microsoft Docs'
+title: Aggiornamenti dello schema per l'anteprima di agosto 1-2015
 description: Anteprima del 1° agosto 2015 della versione aggiornata dello schema per le definizioni di App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553760"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792853"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Aggiornamenti dello schema per App per la logica di Azure: anteprima del 1° agosto 2015
 
@@ -290,7 +288,7 @@ A questo punto, è possibile compilare un'azione HTTP simile e lasciare la sezio
 
 La tabella seguente illustra le singole proprietà:
 
-| Proprietà dell'azione | Descrizione |
+| Proprietà dell'azione | Description |
 | --- | --- |
 | `type` | `Http` anziché `APIapp` |
 | `metadata.apiDefinitionUrl` | Per usare questa azione nella finestra di progettazione di app per la logica, includere l'endpoint dei metadati, costituito da: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |

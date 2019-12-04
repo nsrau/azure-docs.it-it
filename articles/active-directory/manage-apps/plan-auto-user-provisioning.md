@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706210"
+ms.locfileid: "74786419"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -90,11 +90,11 @@ In questo esempio, gli utenti e i gruppi vengono creati in un database HR connes
 
 1. Gli utenti o i gruppi vengono creati in un'applicazione/sistema HR locale, ad esempio SAP. 
 
-1. Azure AD Connect Agent esegue sincronizzazioni pianificate di identità (utenti e gruppi) dall'Active Directory locale a Azure AD.
+1. **Azure ad Connect Agent** esegue sincronizzazioni pianificate di identità (utenti e gruppi) dall'Active Directory locale a Azure ad.
 
-1. Il servizio di provisioning di Azure AD avvia un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sul sistema di origine e di destinazione. 
+1. Il **servizio di provisioning di Azure ad** avvia un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sul sistema di origine e di destinazione. 
 
-1. Azure AD servizio di provisioning esegue una query sul sistema di origine per gli utenti e i gruppi modificati dal ciclo iniziale e inserisce le modifiche nei [cicli incrementali](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure ad servizio di provisioning** esegue una query sul sistema di origine per gli utenti e i gruppi modificati dal ciclo iniziale e inserisce le modifiche nei [cicli incrementali](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Provisioning utenti automatico per le aziende solo cloud
 
@@ -106,9 +106,9 @@ In questo esempio la creazione dell'utente avviene in Azure AD e il servizio di 
 
 1. Gli utenti o i gruppi vengono creati in Azure AD.
 
-1. Il servizio di provisioning di Azure AD avvia un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sul sistema di origine e di destinazione. 
+1. Il **servizio di provisioning di Azure ad** avvia un [ciclo iniziale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sul sistema di origine e di destinazione. 
 
-1. Azure AD servizio di provisioning esegue una query sul sistema di origine per gli utenti e i gruppi aggiornati dopo il ciclo iniziale ed esegue qualsiasi ciclo [incrementale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure ad servizio di provisioning** esegue una query sul sistema di origine per gli utenti e i gruppi aggiornati dopo il ciclo iniziale ed esegue qualsiasi ciclo [incrementale](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Provisioning utenti automatico per le applicazioni HR cloud 
 

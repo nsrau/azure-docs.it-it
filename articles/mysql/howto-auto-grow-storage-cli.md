@@ -1,17 +1,17 @@
 ---
-title: Espandere automaticamente l'archiviazione di database di Azure per MySQL usando l'interfaccia della riga di comando
+title: Espansione automatica dell'archiviazione-interfaccia della riga di comando di Azure-database di Azure per MySQL
 description: Questo articolo descrive come abilitare l'aumento automatico delle dimensioni di archiviazione usando l'interfaccia della riga di comando di Azure in database di Azure per MySQL.
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 8/7/2019
-ms.openlocfilehash: c9faaa5d011a32dfbaa5a841d3bce824f7ba5c9d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.date: 12/02/2019
+ms.openlocfilehash: fb39c3afa2977038df7c9a233ba6720771f545dc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390571"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770629"
 ---
 # <a name="auto-grow-azure-database-for-mysql-storage-using-the-azure-cli"></a>Espandere automaticamente l'archiviazione di database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 Questo articolo descrive come configurare l'archiviazione di un database di Azure per il server MySQL in modo che cresca senza compromettere il carico di lavoro.

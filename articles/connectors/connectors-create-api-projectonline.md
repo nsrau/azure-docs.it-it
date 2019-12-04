@@ -1,22 +1,18 @@
 ---
-title: Connettersi a Project Online da App per la logica di Azure | Microsoft Docs
+title: Connettersi a Project Online da app per la logica di Azure
 description: Automatizzare i flussi di lavoro per il monitoraggio, la creazione e la gestione di progetti, attività e risorse di Project Online con App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: fe571209d28fe098ce9b507cb67b0a9a5abd25a3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 116922e018410f260b33f4dfd76e5983fbbcc0a5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050857"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789325"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gestire progetti, attività e risorse di Project Online con App per la logica di Azure
 
@@ -27,7 +23,7 @@ Con App per la logica di Azure e il connettore Project Online, è possibile crea
 * Elencare progetti o attività esistenti.
 * Estrarre, archiviare o pubblicare progetti.
 
-Project Online consente di pianificare, classificare in ordine di priorità e gestire progetti e investimenti del portfolio progetti praticamente ovunque e da qualsiasi dispositivo, offrendo potenti funzionalità per la gestione dei progetti. È possibile usare i trigger di Project Online per ottenere risposte da Project Online e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire diverse attività in Project Online. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Project Online consente di pianificare, classificare in ordine di priorità e gestire progetti e investimenti del portfolio progetti praticamente ovunque e da qualsiasi dispositivo, offrendo potenti funzionalità per la gestione dei progetti. È possibile usare i trigger di Project Online per ottenere risposte da Project Online e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire diverse attività in Project Online. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,7 +60,7 @@ Project Online consente di pianificare, classificare in ordine di priorità e ge
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/projectonline/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Ottenere supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

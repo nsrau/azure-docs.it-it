@@ -1,18 +1,18 @@
 ---
 title: Pagamento anticipato per il markup di Esplora dati di Azure per risparmiare denaro
 description: Scopri come acquistare la capacità riservata di Azure Esplora dati per risparmiare sui costi di Esplora dati di Azure.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 66c5644df7d796669105693d08788548334ae93a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681634"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769099"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Pagamento anticipato per le unità di markup Esplora dati di Azure con la capacità riservata Esplora dati di Azure
 
@@ -50,7 +50,7 @@ La dimensione della prenotazione deve essere basata sul numero totale di unità 
 
 ## <a name="cancellations-and-exchanges"></a>Annullamenti e scambi
 
-Se è necessario annullare la prenotazione di capacità riservata di Azure Esplora dati, potrebbe essere prevista una tariffa per l'interruzione anticipata del 12%. I rimborsi si basano sul prezzo minimo del prezzo di acquisto o sul prezzo attuale della prenotazione. I rimborsi sono limitati a $50.000 dollari all'anno. Il rimborso ricevuto corrisponde al saldo ripartito rimanente meno la quota del 12% per l'interruzione anticipata. Per richiedere un annullamento, andare alla prenotazione nel portale di Azure e selezionare **Rimborso** per creare una richiesta di supporto.
+Se è necessario annullare la prenotazione di capacità riservata di Azure Esplora dati, potrebbe essere prevista una tariffa per l'interruzione anticipata del 12%. I rimborsi si basano sul prezzo minimo del prezzo di acquisto o sul prezzo attuale della prenotazione. I rimborsi sono limitati a $50.000 dollari all'anno. Il rimborso ricevuto corrisponde al saldo ripartito rimanente meno il costo per la risoluzione del 12%. Per richiedere un annullamento, andare alla prenotazione nel portale di Azure e selezionare **Rimborso** per creare una richiesta di supporto.
 
 Se è necessario modificare la prenotazione di capacità riservata di Azure Esplora dati a un altro termine, è possibile scambiarla per un'altra prenotazione con un valore uguale o superiore. Come data di inizio del periodo della nuova prenotazione non viene conservata quella della prenotazione scambiata. Il periodo di uno o tre anni inizia dal momento della creazione della nuova prenotazione. Per richiedere uno scambio, passare alla prenotazione nel portale di Azure e selezionare **Scambio** per creare una richiesta di supporto.
 
@@ -76,6 +76,6 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 * [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Prenotazioni di Azure nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Opzioni per Contatti
+## <a name="need-help-contact-us"></a>Opzioni per Contattaci
 
-In caso di domande, creare una [Richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per assistenza.
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

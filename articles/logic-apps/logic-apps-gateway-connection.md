@@ -1,20 +1,17 @@
 ---
-title: Accedere alle origini dati locali-app per la logica di Azure
+title: Accedere alle origini dati in locale
 description: Connettersi alle origini dati locali da app per la logica di Azure creando una risorsa del gateway dati locale di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068901"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792065"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -53,7 +50,7 @@ In app per la logica di Azure il gateway dati locale supporta i [connettori loca
 
 App per la logica di Azure supporta operazioni di lettura e scrittura tramite il gateway dati. Tuttavia, queste operazioni hanno [limiti sulle dimensioni del payload](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Sebbene il gateway stesso non comporti costi aggiuntivi, il [modello di prezzi di app](../logic-apps/logic-apps-pricing.md) per la logica si applica a questi connettori e ad altre operazioni in app per la logica di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Il gateway dati locale è già stato [installato in un computer locale](../logic-apps/logic-apps-gateway-install.md).
 
@@ -81,7 +78,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
 1. In **Crea gateway di connessione**fornire queste informazioni per la risorsa del gateway. Al termine, selezionare **Crea**.
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Description |
    |----------|-------------|
    | **Nome risorsa** | Specificare un nome per la risorsa del gateway che contenga solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) o punti (`.`). |
    | **Sottoscrizione** | Selezionare la sottoscrizione di Azure per l'account Azure usato per l'installazione del gateway. La sottoscrizione predefinita si basa sull'account di Azure usato per accedere. |
@@ -96,7 +93,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>Connettersi ai dati locali
+## <a name="connect-to-on-premises-data"></a>Connettiti a dati locali
 
 Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azure a questa risorsa, è possibile creare una connessione tra l'app per la logica e l'origine dati in locale usando il gateway.
 
@@ -153,7 +150,7 @@ Per creare una risorsa del gateway diversa, collegare l'installazione del gatewa
 
 1. Se non è già selezionato, nel menu della risorsa del gateway selezionare **Gateway dati locale**. Sulla barra degli strumenti delle risorse del gateway selezionare **Elimina**.
 
-   Ad esempio:
+   ad esempio:
 
    ![Eliminare la risorsa del gateway in Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 

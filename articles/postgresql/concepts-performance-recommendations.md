@@ -1,17 +1,17 @@
 ---
-title: Suggerimenti sulle prestazioni in database di Azure per PostgreSQL-server singolo
+title: Raccomandazioni per le prestazioni-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive la funzionalità di raccomandazione per le prestazioni del database di Azure per PostgreSQL-server singolo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5f1b64753d19158b17d4de1b3fbbe50d30ea0254
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764676"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768470"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Suggerimenti sulle prestazioni in database di Azure per PostgreSQL-server singolo
 
@@ -19,7 +19,7 @@ ms.locfileid: "70764676"
 
 La funzionalità raccomandazioni per le prestazioni analizza i database per creare suggerimenti personalizzati per migliorare le prestazioni. Per produrre le raccomandazioni, l'analisi esamina le varie caratteristiche del database, incluso lo schema. Abilitare [query Store](concepts-query-store.md) sul server per usare completamente la funzionalità delle raccomandazioni per le prestazioni. Una volta implementate le indicazioni sulle prestazioni, è consigliabile testare le prestazioni per valutare l'effetto di tali modifiche. 
 
-## <a name="permissions"></a>Autorizzazioni
+## <a name="permissions"></a>autorizzazioni
 Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per eseguire l'analisi usando la funzionalità Raccomandazioni per gli elementi consigliati.
 
 ## <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
@@ -39,7 +39,7 @@ Le raccomandazioni non vengono applicate automaticamente. Per applicare la racco
 
 ## <a name="recommendation-types"></a>Tipi di raccomandazione
 
-Attualmente sono supportati due tipi di consigli: *Create index* e *Drop index*.
+Attualmente sono supportati due tipi di consigli: *create index* e *Drop index*.
 
 ### <a name="create-index-recommendations"></a>Raccomandazioni relative alla creazione di indici
 I suggerimenti per la *creazione* di indici suggeriscono nuovi indici per velocizzare le query di esecuzione più frequenti o che richiedono molto tempo nel carico di lavoro. Questo tipo di raccomandazione richiede l'abilitazione di [query Store](concepts-query-store.md) . Query Store raccoglie informazioni sulle query e fornisce le statistiche dettagliate sul runtime di query e sulla frequenza utilizzate dall'analisi per apportare le indicazioni.

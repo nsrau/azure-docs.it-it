@@ -1,17 +1,17 @@
 ---
-title: Panoramica dello sviluppo di applicazioni di database per Database di Azure per MySQL
+title: Sviluppo di applicazioni-database di Azure per MySQL
 description: Introduce aspetti di progettazione che lo sviluppatore deve considerare quando scrive il codice dell'applicazione per la connessione al database di Azure per MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 12/02/2019
+ms.openlocfilehash: 74abf680223d562522a11ecb8999fedb37de9907
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615646"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770272"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Panoramica dello sviluppo di applicazioni per il database di Azure per MySQL 
 Questo articolo tratta alcuni aspetti di progettazione che lo sviluppatore deve considerare quando scrive il codice dell'applicazione per la connessione a Database di Azure per MySQL. 
@@ -20,7 +20,7 @@ Questo articolo tratta alcuni aspetti di progettazione che lo sviluppatore deve 
 > Per un'esercitazione che mostra come creare un server, creare un firewall basato su server, visualizzare le proprietà del server, creare il database, connettersi ed eseguire query usando Workbench e mysql.exe, vedere [Progettare il primo database di Azure per il database MySQL](tutorial-design-database-using-portal.md).
 
 ## <a name="language-and-platform"></a>Linguaggio e piattaforma
-Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti agli esempi di codice in: [Librerie di connettività usate per connettersi a Database di Azure per MySQL](concepts-connection-libraries.md)
+Sono disponibili esempi di codice per svariati linguaggi di programmazione e piattaforme. È possibile trovare collegamenti a esempi di codice in: [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md) (Raccolte connessioni utilizzate per connettersi al database di Azure per MySQL)
 
 ## <a name="tools"></a>Strumenti
 Il database di Azure per MySQL usa la versione community di MySQL, compatibile con comuni strumenti di gestione di MySQL quali Workbench o utilità di MySQL come mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql) e altre. È possibile anche usare il portale di Azure, l'interfaccia della riga di comando di Azure e le API REST per interagire con il servizio di database.
@@ -30,7 +30,7 @@ Database di Azure per MySQL gestisce le risorse disponibili per un server usando
 - Governance delle risorse.
 - Imposizione di limiti.
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 Database di Azure per MySQL fornisce risorse per limitare l'accesso, proteggere i dati, configurare gli utenti e i ruoli e monitorare le attività in un database MySQL.
 
 ## <a name="authentication"></a>Authentication
@@ -39,7 +39,7 @@ Database di Azure per MySQL supporta l'autenticazione server degli utenti e degl
 ## <a name="resiliency"></a>Resilienza
 Quando si verifica un errore temporaneo durante la connessione a un database MySQL, il codice deve ritentare la chiamata. Per la ripetizione dei tentativi si consiglia di usare una logica backoff, in modo da non sovraccaricare il database SQL con più client che ripetono i tentativi contemporaneamente.
 
-- Esempi di codice: Per esempi di codice che illustrino la logica dei nuovi tentativi, vedere gli esempi relativi al linguaggio scelto in: [Librerie di connettività usate per connettersi a Database di Azure per MySQL](concepts-connection-libraries.md)
+- Esempi di codice: per alcuni esempi di codice che illustrano la logica di ripetizione dei tentativi, vedere gli esempi del linguaggio in uso in [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md) (Raccolte connessioni utilizzate per connettersi al database di Azure per MySQL)
 
 ## <a name="managing-connections"></a>Gestione delle connessioni
 Le connessioni di database sono una risorsa limitata, pertanto si consiglia di usare in modo ragionevole le connessioni quando si accede al database MySQL per ottenere prestazioni migliori.

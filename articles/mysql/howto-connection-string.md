@@ -1,23 +1,23 @@
 ---
-title: Connettere le applicazioni a Database di Azure per MySQL
+title: Stringhe di connessione-database di Azure per MySQL
 description: Questo documento elenca le stringhe di connessione attualmente supportate per consentire alle applicazioni di connettersi a Database di Azure per MySQL, tra cui ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 503b7764ba7958a5448903b217b00e204ffcbf61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: bee98accd8ac404eb223975571b082dae754571a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459272"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770493"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
 Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.
 
 - Per ottenere il certificato, vedere [Come configurare SSL](./howto-configure-ssl.md).
-- {your_host} = \<servername>.mysql.database.azure.com
+- {your_host} = \<nomeserver >. MySQL. database. Azure. com
 - {your_user}@{servername} = formato userID per l'autenticazione in modo corretto.  Se si usa solo userID, l'autenticazione avrà esito negativo.
 
 ## <a name="adonet"></a>ADO.NET
@@ -62,7 +62,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Ottenere i dettagli della stringa di connessione dal portale di Azure
-Nel [portale di Azure](https://portal.azure.com) passare a Database di Azure per il server MySQL e quindi fare clic su **Stringhe di connessione**, per ottenere l'elenco di stringhe per l'istanza: ![Riquadro Stringhe di connessione nel portale di Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+Nel [portale di Azure](https://portal.azure.com) passare a Database di Azure per il server MySQL e quindi fare clic su **Stringhe di connessione** per ottenere l'elenco di stringhe per l'istanza: ![Riquadro Stringhe di connessione nel portale di Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database. Modificare questi esempi con i parametri personali, come il nome del database, la password e così via. È quindi possibile usare questa stringa per la connessione al server dal codice e dalle applicazioni.
 

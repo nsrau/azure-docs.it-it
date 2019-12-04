@@ -1,22 +1,18 @@
 ---
-title: Connettersi a Outlook di Office 365 - App per la logica di Azure | Microsoft Docs
+title: Connettersi a Office 365 Outlook
 description: Gestire posta elettronica, contatti e calendari con le API REST di Office 365 e App per la logica di Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789589"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Guida introduttiva al connettore Outlook di Office 365
 Il connettore Office 365 Outlook consente l'interazione con Outlook in Office 365. Usare questo connettore per creare, modificare e aggiornare i contatti e gli elementi del calendario e anche per ottenere, inviare e rispondere ai messaggio di posta elettronica.
@@ -68,7 +64,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 ## <a name="use-an-action"></a>Usare un'azione
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione**, o uno del **ulteriori** opzioni.
+1. Selezionare il segno più. Sono disponibili varie opzioni: **Aggiungi un'azione**, **Aggiungi una condizione** e le opzioni in **Altro**.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Selezionare **Aggiungi un'azione**.
@@ -91,6 +87,6 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 
 Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/office365connector/). 
 
-## <a name="next-steps"></a>Fasi successive
-[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
+## <a name="next-steps"></a>Passaggi successivi
 
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

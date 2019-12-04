@@ -1,27 +1,21 @@
 ---
-title: Aggiungere l'azione di query alle app per la logica | Documentazione Microsoft
-description: Panoramica dell'azione di query per l'esecuzione di azioni come Filtra matrice.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: Aggiungere l'azione di query nelle app per la logica
+description: Panoramica dell'azione di query per l'esecuzione di azioni come la matrice di filtri
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973759"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787133"
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
+
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
 
 * Creare un'attività per tutti i record ad alta priorità di un database.
@@ -30,6 +24,7 @@ Con l'azione di query è possibile usare batch e matrici per poter eseguire flus
 Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Usare l'azione di query
+
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. 
 [Altre informazioni sulle azioni](../connectors/apis-list.md).  
 
@@ -55,7 +50,7 @@ Ecco come è possibile aggiungerla in un'app per la logica:
 ## <a name="query-action"></a>Azione di query
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
 
-| Azione | Descrizione |
+| Azione | Description |
 | --- | --- |
 | Filtra matrice |Valuta una condizione per ogni elemento in una matrice e restituisce i risultati |
 
@@ -66,17 +61,17 @@ L'azione di query supporta un'azione possibile. La tabella seguente descrive i c
 Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| `Display name` | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | Description |
 | --- | --- | --- |
 | Da* |from |La matrice da filtrare |
-| Condizione* |where |La condizione da valutare per ogni elemento |
+| Condizione* |dove |La condizione da valutare per ogni elemento |
 
 <br>
 
 ### <a name="output-details"></a>Dettagli dell'output
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | Description |
 | --- | --- | --- |
 | Matrice filtrata |array |Matrice che contiene un oggetto per ogni risultato filtrato |
 

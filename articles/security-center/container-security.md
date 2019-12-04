@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 31e45906dfeafcd2af1651347dde9dc6d3c6fb7c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274070"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769218"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza del contenitore nel centro sicurezza
 
@@ -34,7 +34,7 @@ Questo articolo descrive come migliorare, monitorare e gestire la sicurezza dei 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gestione delle vulnerabilità-analisi delle immagini del contenitore (anteprima)
 Per monitorare la Container Registry di Azure, assicurarsi di essere al livello standard del Centro sicurezza (vedere i [prezzi](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Abilitare quindi il bundle facoltativo dei registri contenitori. Quando viene effettuato il push di una nuova immagine, il Centro sicurezza esegue l'analisi dell'immagine usando uno scanner del fornitore leader del settore per l'analisi delle vulnerabilità, Qualys.
 
-Quando vengono rilevati problemi, da Qualys o dal centro sicurezza, si riceverà una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità, il Centro sicurezza offre raccomandazioni di utilità pratica, oltre a una classificazione di gravità e indicazioni su come correggere il problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza, vedere l'elenco di raccomandazioni nella [protezione delle macchine virtuali](security-center-virtual-machine-protection.md##compute-and-app-recs).
+Quando vengono rilevati problemi, da Qualys o dal centro sicurezza, si riceverà una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità, il Centro sicurezza offre raccomandazioni di utilità pratica, oltre a una classificazione di gravità e indicazioni su come correggere il problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza, vedere l'elenco di raccomandazioni [qui](recommendations-compute-and-apps.md).
 
 ## <a name="environment-hardening"></a>Protezione avanzata dell'ambiente
 

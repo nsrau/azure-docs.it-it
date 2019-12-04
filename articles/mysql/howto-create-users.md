@@ -1,24 +1,24 @@
 ---
-title: Creare utenti in Database di Azure per MySQL
+title: Creare utenti-database di Azure per MySQL
 description: Questo articolo descrive come creare nuovi account utente per interagire con un database di Azure per il server MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 4cd2305ed3d7f88f6c3825d8f7cdb5d81f9a0f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: e76e63030cc8e10c857d361cca69e1d35ba8c2c1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460185"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770476"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Creare utenti in Database di Azure per MySQL 
 Questo articolo descrive come creare utenti in un database di Azure per il server MySQL.
 
 Quando si è creato il database di Azure per MySQL, si sono specificati un nome utente e una password per l'accesso come amministratore del server. Per altre informazioni, è possibile seguire le istruzioni della [Guida introduttiva](quickstart-create-mysql-server-database-using-azure-portal.md). È possibile trovare il nome utente per l'accesso come amministratore del server nel portale di Azure.
 
-L'utente amministratore del server ottiene determinati privilegi per il server come indicato di seguito: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
+L'utente amministratore del server ottiene determinati privilegi per il server, come elencato di seguito: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Dopo aver creato il database di Azure per il server MySQL, è possibile usare il primo account utente amministratore del server per creare altri utenti e concedere loro l'accesso con privilegi di amministratore. Inoltre, l'account amministratore del server può essere usato per creare utenti con privilegi meno elevati che possono accedere a singoli schemi di database.
 
@@ -82,6 +82,6 @@ Dopo aver creato il database di Azure per il server MySQL, è possibile usare il
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Aprire il firewall per gli indirizzi IP dei computer dei nuovi utenti per consentire loro di connettersi: [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](howto-manage-firewall-using-portal.md) o [Interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
+Aprire il firewall per gli indirizzi IP dei computer dei nuovi utenti per consentire loro di connettersi: [Creare e gestire regole del firewall di Database di Azure per MySQL con il portale di Azure](howto-manage-firewall-using-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
 
 Per altre informazioni sulla gestione degli account utente, vedere la documentazione di MySQL per la [gestione degli account utente](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), la [sintassi di GRANT](https://dev.mysql.com/doc/refman/5.7/en/grant.html) e i [privilegi](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

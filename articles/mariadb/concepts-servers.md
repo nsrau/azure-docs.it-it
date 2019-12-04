@@ -1,17 +1,17 @@
 ---
-title: Concetti relativi ai server nel database di Azure per MariaDB
+title: Server-database di Azure per MariaDB
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f61f8740c9514f6276afb2ee84bcdccdc54c0710
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 048d9f3089a433dbf8c2647ed86ddab69c78ebaa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61040922"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772045"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concetti relativi ai server nel database di Azure per MariaDB
 Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
@@ -39,7 +39,7 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 
 |||
 | :--| :--|
-| **Autenticazione e autorizzazione** | Il database di Azure per il server MariaDB supporta l'autenticazione nativa a MariaDB. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
+| **Authentication and authorization** (Autenticazione e autorizzazione) | Il database di Azure per il server MariaDB supporta l'autenticazione nativa a MariaDB. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database finché non si specificano i computer autorizzati. Vedere [Regole firewall per il server Database di Azure per MariaDB](./concepts-firewall-rules.md). |

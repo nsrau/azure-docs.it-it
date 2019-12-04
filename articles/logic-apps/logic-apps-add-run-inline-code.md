@@ -1,20 +1,17 @@
 ---
-title: Aggiungere ed eseguire frammenti di codice-app per la logica di Azure
+title: Aggiungere ed eseguire frammenti di codice
 description: Aggiungere ed eseguire frammenti di codice con codice inline in app per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: derek1ee, LADocs
+ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390795"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792615"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Aggiungere ed eseguire frammenti di codice usando il codice inline in app per la logica di Azure
 
@@ -27,7 +24,7 @@ Quando si vuole eseguire una parte di codice all'interno dell'app per la logica,
 * USA node. js versione 8.11.1. Per ulteriori informazioni, vedere [oggetti incorporati standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]
-  > La `require()` funzione non è supportata dall'azione di **codice inline** per l'esecuzione di JavaScript.
+  > La funzione `require()` non è supportata dall'azione di **codice inline** per l'esecuzione di JavaScript.
 
 Questa azione esegue il frammento di codice e restituisce l'output del frammento come token denominato **result**, che è possibile usare nelle azioni successive nell'app per la logica. Per altri scenari in cui si vuole creare una funzione per il codice, provare a [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md) nell'app per la logica.
 
@@ -39,9 +36,9 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per la logica in cui si vuole aggiungere il frammento di codice, incluso un trigger. Se non si dispone di un'app per la [logica, vedere Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* App per la logica in cui si vuole aggiungere il frammento di codice, incluso un trigger. Se non si dispone di un'app per la logica, vedere [Guida introduttiva: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   L'app per la logica di esempio in questo argomento usa il trigger Outlook per Office 365: **All'arrivo di un nuovo messaggio di posta elettronica**
+   L'app per la logica di esempio in questo argomento usa questo trigger di Office 365 Outlook: **quando arriva un nuovo messaggio di posta elettronica**
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) collegato all'app per la logica
 
@@ -62,7 +59,7 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
    ![Aggiungi nuovo passaggio](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere "codice inline" come filtro. Nell'elenco di azioni selezionare questa azione: **Esegui codice JavaScript**
+1. In **scegliere un'azione**, nella casella di ricerca, immettere "codice inline" come filtro. Nell'elenco azioni selezionare questa azione: **Esegui codice JavaScript**
 
    ![Selezionare "Esegui codice JavaScript"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
@@ -82,12 +79,12 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
    Per rendere più semplice il riferimento ai risultati del trigger e delle azioni precedenti, l'elenco di contenuto dinamico viene visualizzato quando il cursore si trova all'interno della casella di **codice** . Per questo esempio, l'elenco Mostra i risultati disponibili dal trigger, incluso il token del **corpo** , che è ora possibile selezionare.
 
-   Dopo aver selezionato il token del **corpo** , l'azione di codice inline risolve il token in un `workflowContext` oggetto che `Body` fa riferimento al valore della proprietà del messaggio di posta elettronica:
+   Dopo aver selezionato il token del **corpo** , l'azione di codice inline risolve il token in un oggetto `workflowContext` che fa riferimento al valore della proprietà `Body` del messaggio di posta elettronica:
 
    ![Seleziona risultato](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   Nella casella **codice** , il frammento di codice può usare l' `workflowContext` oggetto di sola lettura come input. Questo oggetto dispone di sottoproprietà che consentono al codice di accedere ai risultati ottenuti dal trigger e dalle azioni precedenti del flusso di lavoro.
-   Per ulteriori informazioni, vedere questa sezione più avanti in questo argomento: [Il trigger di riferimento e l'azione generano il codice](#workflowcontext).
+   Nella casella **codice** , il frammento di codice può usare l'oggetto `workflowContext` di sola lettura come input. Questo oggetto dispone di sottoproprietà che consentono al codice di accedere ai risultati ottenuti dal trigger e dalle azioni precedenti del flusso di lavoro.
+   Per altre informazioni, vedere questa sezione più avanti in questo argomento: [trigger di riferimento e risultati dell'azione nel codice](#workflowcontext).
 
    > [!NOTE]
    >
@@ -99,8 +96,8 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   L'azione di codice inline non richiede `return` un'istruzione, ma i risultati di `return` un'istruzione sono disponibili per il riferimento nelle azioni successive tramite il token di **risultato** . 
-   Ad esempio, il frammento di codice restituisce il risultato chiamando `match()` la funzione, che trova le corrispondenze nel corpo del messaggio di posta elettronica rispetto all'espressione regolare. L'azione **compose** usa il token di **risultato** per fare riferimento ai risultati dell'azione di codice inline e crea un singolo risultato.
+   L'azione di codice inline non richiede un'istruzione `return`, ma i risultati di un'istruzione `return` sono disponibili per il riferimento nelle azioni successive tramite il token di **risultato** . 
+   Ad esempio, il frammento di codice restituisce il risultato chiamando la funzione `match()`, che trova le corrispondenze nel corpo del messaggio di posta elettronica rispetto all'espressione regolare. L'azione **compose** usa il token di **risultato** per fare riferimento ai risultati dell'azione di codice inline e crea un singolo risultato.
 
    ![App per la logica completata](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -110,7 +107,7 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
 ### <a name="reference-trigger-and-action-results-in-your-code"></a>Trigger di riferimento e risultati dell'azione nel codice
 
-L' `workflowContext` oggetto ha questa struttura, che include le `actions`sottoproprietà, `workflow` `trigger`e:
+L'oggetto `workflowContext` dispone di questa struttura, che include le sottoproprietà `actions`, `trigger`e `workflow`:
 
 ```json
 {
@@ -131,14 +128,14 @@ L' `workflowContext` oggetto ha questa struttura, che include le `actions`sottop
 
 Questa tabella contiene ulteriori informazioni su queste sottoproprietà:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 |----------|------|-------|
 | `actions` | Raccolta di oggetti | Oggetti risultato da azioni eseguite prima dell'esecuzione del frammento di codice. Ogni oggetto ha una coppia *chiave-valore* in cui la chiave è il nome di un'azione e il valore equivale a chiamare la [funzione Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) con `@actions('<action-name>')`. Il nome dell'azione usa lo stesso nome di azione usato nella definizione del flusso di lavoro sottostante, che sostituisce gli spazi ("") nel nome dell'azione con caratteri di sottolineatura (_). Questo oggetto fornisce l'accesso ai valori delle proprietà dell'azione dall'esecuzione dell'istanza del flusso di lavoro corrente. |
-| `trigger` | Object | Oggetto risultato dal trigger e equivalente alla chiamata della [funzione trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Questo oggetto fornisce l'accesso ai valori delle proprietà trigger dall'esecuzione dell'istanza del flusso di lavoro corrente. |
-| `workflow` | Object | Oggetto del flusso di lavoro e equivalente alla chiamata della [funzione Workflow ()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Questo oggetto fornisce l'accesso ai valori delle proprietà del flusso di lavoro, ad esempio il nome del flusso di lavoro, l'ID esecuzione e così via, dall'esecuzione dell'istanza del flusso di lavoro corrente. |
+| `trigger` | Oggetto | Oggetto risultato dal trigger e equivalente alla chiamata della [funzione trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Questo oggetto fornisce l'accesso ai valori delle proprietà trigger dall'esecuzione dell'istanza del flusso di lavoro corrente. |
+| `workflow` | Oggetto | Oggetto del flusso di lavoro e equivalente alla chiamata della [funzione Workflow ()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Questo oggetto fornisce l'accesso ai valori delle proprietà del flusso di lavoro, ad esempio il nome del flusso di lavoro, l'ID esecuzione e così via, dall'esecuzione dell'istanza del flusso di lavoro corrente. |
 |||
 
-Nell'esempio di questo argomento, l' `workflowContext` oggetto dispone di queste proprietà a cui il codice può accedere:
+Nell'esempio di questo argomento l'oggetto `workflowContext` dispone di queste proprietà a cui il codice può accedere:
 
 ```json
 {
@@ -208,20 +205,20 @@ Nell'esempio di questo argomento, l' `workflowContext` oggetto dispone di queste
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Aggiungi parametri
+## <a name="add-parameters"></a>Aggiungere parametri
 
 In alcuni casi, potrebbe essere necessario richiedere in modo esplicito che l'azione del **codice inline** includa i risultati del trigger o azioni specifiche a cui il codice fa riferimento come dipendenze mediante l'aggiunta dei parametri **trigger** o **Actions** . Questa opzione è utile per gli scenari in cui i risultati a cui viene fatto riferimento non vengono individuati in fase di esecuzione.
 
 > [!TIP]
 > Se si prevede di riutilizzare il codice, aggiungere i riferimenti alle proprietà utilizzando la casella di **codice** in modo che il codice includa i riferimenti al token risolto, anziché aggiungere il trigger o le azioni come dipendenze esplicite.
 
-Si supponga, ad esempio, di avere il codice che fa riferimento al risultato **SelectedOption** dall'azione **Invia messaggio di posta elettronica di approvazione** per il connettore Office 365 Outlook. Al momento della creazione, il motore app per la logica analizza il codice per determinare se è stato fatto riferimento a un trigger o a risultati dell'azione e include automaticamente tali risultati. In fase di esecuzione, se si riceve un errore in cui il trigger o il risultato dell'azione a cui si `workflowContext` fa riferimento non è disponibile nell'oggetto specificato, è possibile aggiungere tale trigger o azione come dipendenza esplicita. In questo esempio si aggiunge il parametro **Actions** e si specifica che l'azione di **codice inline** includa in modo esplicito il risultato dall'azione **Invia messaggio di posta elettronica di approvazione** .
+Si supponga, ad esempio, di avere il codice che fa riferimento al risultato **SelectedOption** dall'azione **Invia messaggio di posta elettronica di approvazione** per il connettore Office 365 Outlook. Al momento della creazione, il motore app per la logica analizza il codice per determinare se è stato fatto riferimento a un trigger o a risultati dell'azione e include automaticamente tali risultati. In fase di esecuzione, dovrebbe essere visualizzato un messaggio di errore in cui il trigger o il risultato dell'azione a cui si fa riferimento non è disponibile nell'oggetto `workflowContext` specificato, è possibile aggiungere tale trigger o azione come dipendenza esplicita. In questo esempio si aggiunge il parametro **Actions** e si specifica che l'azione di **codice inline** includa in modo esplicito il risultato dall'azione **Invia messaggio di posta elettronica di approvazione** .
 
 Per aggiungere questi parametri, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati:
 
-   ![Aggiungi parametri](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Aggiungere parametri](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | Parametro | Descrizione |
+   | Parametro | Description |
    |-----------|-------------|
    | **Actions** | Includere i risultati delle azioni precedenti. Vedere [includere i risultati dell'azione](#action-results). |
    | **Trigger** | Includere i risultati del trigger. Vedere [includere i risultati del trigger](#trigger-results). |
@@ -249,7 +246,7 @@ Se si seleziona **azioni**, vengono richieste le azioni che si desidera aggiunge
 
   `My.Action.Name`
 
-1. Sulla barra degli strumenti della finestra di progettazione scegliere **visualizzazione codice**e cercare `actions` all'interno dell'attributo il nome dell'azione.
+1. Sulla barra degli strumenti della finestra di progettazione scegliere **visualizzazione codice**e cercare all'interno dell'attributo `actions` per il nome dell'azione.
 
    Ad esempio, `Send_approval_email_` è il nome JSON per l'azione **Invia messaggio di posta elettronica di approvazione** .
 
@@ -263,7 +260,7 @@ Se si seleziona **azioni**, vengono richieste le azioni che si desidera aggiunge
 
 1. Per aggiungere un'altra azione, scegliere **Aggiungi nuovo elemento**.
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 
 Per altre informazioni sulla struttura e la sintassi dell'azione **Esegui codice JavaScript** nella definizione del flusso di lavoro sottostante dell'app per la logica usando il linguaggio di definizione del flusso di lavoro, vedere la [sezione di riferimento](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)di questa azione.
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113637"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790892"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione di competenze in Azure ricerca cognitiva
 
@@ -41,7 +41,7 @@ Per conoscere il modo in cui un insieme di competenze arricchisce progressivamen
 
 Quando un documento si trova nella pipeline di arricchimento, viene rappresentato come albero di contenuto e arricchimenti associati. Viene creata un'istanza di questo albero come output di cracking del documento. Il formato dell'albero di arricchimento consente alla pipeline di arricchimento di alleghi i metadati ai tipi di dati ancora primitivi, non è un oggetto JSON valido, ma può essere proiettato in un formato JSON valido. La tabella seguente illustra lo stato di un documento che entra nella pipeline di arricchimento:
 
-|Modalità Source\Parsing dati|Default|JSON, righe JSON & CSV|
+|Modalità Source\Parsing dati|Predefinito|JSON, righe JSON & CSV|
 |---|---|---|
 |Archiviazione BLOB|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
@@ -65,7 +65,7 @@ Ogni competenza richiede un contesto. Un contesto determina:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-Il `sourceContext` viene utilizzato solo nelle [proiezioni](knowledge-store-projection-overview.md)e nelle [competenze del shaper](cognitive-search-skill-shaper.md) . Viene utilizzato per costruire oggetti annidati a più livelli. Il `sourceContext` consente di creare un oggetto di tipo gerarchico e anonimo, che richiederebbe più competenze se si utilizzasse solo il contesto. L'uso di `sourceContext` è illustrato nella sezione successiva.
+Il `sourceContext` viene usato solo in input e [proiezioni](knowledge-store-projection-overview.md)di competenze. Viene utilizzato per costruire oggetti annidati a più livelli. Potrebbe essere necessario creare un nuovo oject per passarlo come input a una competenza o a un progetto nell'archivio informazioni. Poiché i nodi di arricchimento non possono essere un oggetto JSON valido nell'albero di arricchimento e refrencing un nodo nell'albero restituisce solo lo stato del nodo al momento della creazione, l'uso degli arricchimenti come input o proiezioni delle competenze richiede la creazione di un oggetto JSON ben formato. Il `sourceContext` consente di creare un oggetto di tipo gerarchico e anonimo, che richiederebbe più competenze se si utilizzasse solo il contesto. L'uso di `sourceContext` è illustrato nella sezione successiva. Esaminare l'output delle competenze che ha generato un arricchimento per determinare se si tratta di un oggetto JSON valido e non di un tipo primitivo.
 
 ### <a name="projections"></a>Proiezioni
 

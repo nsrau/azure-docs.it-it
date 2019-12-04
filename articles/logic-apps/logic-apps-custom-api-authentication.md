@@ -1,20 +1,17 @@
 ---
-title: Aggiungere l'autenticazione ad API personalizzate - App per la logica di Azure | Microsoft Docs
+title: Aggiungere l'autenticazione alle API personalizzate
 description: Configurare l'autenticazione per le chiamate alle API personalizzate da App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039120"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793153"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
 
@@ -182,7 +179,7 @@ Dopo aver ottenuto l'ID client e l'ID tenant, includerli come risorsa secondaria
 
 Per implementare automaticamente un'app Web vuota e un'app per la logica con l'autenticazione di Azure Active Directory, [visualizzare il modello completo qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) oppure fare clic su **Distribuzione in Azure** qui:
 
-[![Distribuzione in Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Distribuisci in Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Compilare la sezione Autorizzazione nell'app per la logica
 
@@ -200,16 +197,16 @@ Aprire la definizione dell'app per la logica nella visualizzazione codice, passa
 }
 ```
 
-| Proprietà | obbligatori | DESCRIZIONE | 
+| Proprietà | Obbligatoria | Description | 
 | -------- | -------- | ----------- | 
-| tenant | Sì | Il GUID per il tenant di Azure AD | 
-| audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
-| clientId | Sì | GUID per il client che richiede l'accesso, che è l'ID client dall'identità di applicazione per l'app per la logica | 
-| secret | Sì | La chiave o la password dall'identità di applicazione per il client che richiede il token di accesso | 
-| type | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
+| tenant | SÌ | Il GUID per il tenant di Azure AD | 
+| audience | SÌ | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
+| clientId | SÌ | GUID per il client che richiede l'accesso, che è l'ID client dall'identità di applicazione per l'app per la logica | 
+| secret | SÌ | La chiave o la password dall'identità di applicazione per il client che richiede il token di accesso | 
+| type | SÌ | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 |||| 
 
-Ad esempio:
+ad esempio:
 
 ``` json
 {
@@ -251,11 +248,11 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 } 
 ```
 
-| Proprietà | obbligatori | DESCRIZIONE |
+| Proprietà | Obbligatoria | Description |
 | -------- | -------- | ----------- |
-| `type` | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
+| `type` | SÌ | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
 | `password` | No | La password per accedere al certificato client (file PFX) |
-| `pfx` | Sì | Contenuti del certificato client con codifica Base64 (file PFX) |
+| `pfx` | SÌ | Contenuti del certificato client con codifica Base64 (file PFX) |
 ||||
 
 <a name="basic"></a>
@@ -274,11 +271,11 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 }
 ```
 
-| Proprietà | obbligatori | DESCRIZIONE | 
+| Proprietà | Obbligatoria | Description | 
 | -------- | -------- | ----------- | 
-| type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
-| username | Sì | Nome utente che si vuole usare per l'autenticazione | 
-| Password | Sì | Password che si vuole usare per l'autenticazione | 
+| type | SÌ | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
+| Nome utente | SÌ | Nome utente che si vuole usare per l'autenticazione | 
+| password | SÌ | Password che si vuole usare per l'autenticazione | 
 |||| 
 
 <a name="azure-ad-code"></a>

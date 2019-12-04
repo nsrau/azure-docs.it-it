@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 421a4635a80c5a7a45fb14bf900c205a06789279
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fd57231901c157ffc0d5a3d4219d827629b401f3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012611"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764177"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Aggiungere un'origine evento di un hub eventi all'ambiente Time Series Insights
 
@@ -25,7 +25,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 > [!NOTE]
 > I passaggi descritti in questo articolo si applicano sia agli ambienti Time Series Insights GA che Time Series Insights Preview.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Creare un ambiente di Time Series Insights come descritto in [creare un ambiente Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 - Creare un hub eventi. Vedere [creare uno spazio dei nomi di hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
@@ -38,17 +38,19 @@ Le applicazioni usano gruppi di consumer per estrarre i dati da Hub eventi di Az
 
 Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
-1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'hub eventi dallo spazio dei nomi dell'hub eventi.
+1. Nel [portale di Azure](https://portal.azure.com)individuare e aprire l'istanza di hub eventi dal riquadro **Panoramica** dello spazio dei nomi dell'hub eventi. Selezionare **entità > Hub eventi** o trovare l'istanza in **nome**.
 
-    [![aprire lo spazio dei nomi dell'hub eventi](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-hub-namespace.png#lightbox)
+    [![aprire lo spazio dei nomi dell'hub eventi](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. In **Entità** selezionare **Gruppi di consumer** e quindi selezionare **Gruppo di consumer**.
+1. Nell'istanza dell'hub eventi selezionare **entità > gruppi di consumer**. Quindi selezionare **+ gruppo di consumer** per aggiungere un nuovo gruppo di consumer. 
 
-   [![Hub eventi-aggiungere un gruppo di consumer](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-event-hub-consumer-group.png#lightbox)
+   [![Hub eventi-aggiungere un gruppo di consumer](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
+
+   In caso contrario, selezionare un gruppo di consumer esistente e passare alla sezione successiva.
 
 1. Nella pagina **Gruppi di consumer** immettere un nuovo valore univoco per **Nome**.  Usare questo nome al momento della creazione di una nuova origine evento nell'ambiente Time Series Insights.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="add-a-new-event-source"></a>Aggiungere una nuova origine evento
 
@@ -56,11 +58,11 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Individuare l'ambiente Time Series Insights esistente. Nel menu a sinistra selezionare **Tutte le risorse** e quindi selezionare l'ambiente Time Series Insights.
 
-1. In **Topologia dell'ambiente** selezionare **Origini eventi** e quindi selezionare **Aggiungi**.
+1. Selezionare **origini eventi**, quindi selezionare **Aggiungi**.
 
-   [![in origini evento, selezionare il pulsante Aggiungi](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
+   [![in origini evento, selezionare il pulsante Aggiungi](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Immettere un valore nel campo **Nome dell'origine evento** univoco per l'ambiente Time Series Insights, ad esempio **event-stream**.
+1. Immettere un valore per il **nome dell'origine evento** univoco per questo ambiente di Time Series Insights, ad esempio `Contoso-TSI-GA-Event-Hub-ES`.
 
 1. In **Origine** selezionare **Hub eventi**.
 
@@ -68,15 +70,15 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
    * Se in una delle sottoscrizioni è presente un hub eventi esistente, selezionare **Usare un hub eventi dalle sottoscrizioni disponibili**. Questa opzione è l'approccio più semplice.
 
-     [![selezionare un'opzione di importazione dell'origine evento](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-select-an-option.png#lightbox)
+     [![selezionare un'opzione di importazione dell'origine evento](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
     *  La tabella seguente descrive le proprietà obbligatorie per l'opzione **Usare un hub eventi dalle sottoscrizione disponibili**:
 
-       [Dettagli ![sottoscrizione e hub eventi](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-create-button.png#lightbox)
+       [Dettagli ![sottoscrizione e hub eventi](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | Proprietà | DESCRIZIONE |
+       | Proprietà | Description |
        | --- | --- |
-       | sottoscrizione | Sottoscrizione a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
+       | Sottoscrizione | Sottoscrizione a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
        | Spazio dei nomi dell'hub eventi | Spazio dei nomi dell'hub eventi a cui appartiene l'istanza dell'hub eventi. |
        | Nome dell'hub eventi | Nome dell'istanza di hub eventi desiderata. |
        | Valore criterio Hub eventi | Selezionare i criteri di accesso condiviso desiderati. È possibile creare i criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**. |
@@ -86,10 +88,10 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
        La tabella seguente descrive le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub eventi manualmente**:
  
-       | Proprietà | DESCRIZIONE |
+       | Proprietà | Description |
        | --- | --- |
        | ID sottoscrizione | Sottoscrizione a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
-       | Resource group | Il gruppo di risorse a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
+       | Gruppo di risorse | Il gruppo di risorse a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
        | Spazio dei nomi dell'hub eventi | Spazio dei nomi dell'hub eventi a cui appartiene l'istanza dell'hub eventi. |
        | Nome dell'hub eventi | Nome dell'istanza di hub eventi desiderata. |
        | Valore criterio Hub eventi | Selezionare i criteri di accesso condiviso desiderati. È possibile creare i criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**. |
@@ -97,7 +99,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
     * Entrambe le opzioni condividono le opzioni di configurazione seguenti:
 
-       | Proprietà | DESCRIZIONE |
+       | Proprietà | Description |
        | --- | --- |
        | Gruppo di consumer dell'hub eventi | Gruppo di consumer per la lettura degli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per l'origine evento. |
        | Formato di serializzazione eventi | Attualmente JSON è l'unico formato di serializzazione disponibile. I messaggi di evento devono essere in questo formato o non è possibile leggere i dati. |
@@ -105,7 +107,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Aggiungere il nome del gruppo di consumer di Time Series Insights dedicato aggiunto all'hub eventi.
 
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
    Dopo la creazione dell'origine evento, Time Series Insights avvia automaticamente il flusso dei dati nell'ambiente.
 

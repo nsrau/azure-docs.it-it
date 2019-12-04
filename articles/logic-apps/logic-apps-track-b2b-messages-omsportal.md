@@ -1,20 +1,19 @@
 ---
-title: Tenere traccia dei messaggi B2B con log di monitoraggio di Azure-app per la logica di Azure | Microsoft Docs
+title: Tenere traccia dei messaggi B2B con i log di Monitoraggio di Azure
 description: Tenere traccia delle comunicazioni B2B per gli account di integrazione e App per la logica di Azure con Azure Log Analytics
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997852"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792926"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Tenere traccia dei messaggi B2B con i log di Monitoraggio di Azure
 
@@ -67,7 +66,7 @@ Prima di poter tenere traccia dei messaggi B2B per l'app per la logica nei log d
 
    ![Scegliere "Crea" per App per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
-   Se non si desidera usare un'area di lavoro esistente, è anche possibile creare una nuova area di lavoro in questo momento.
+   Se non si vuole usare un'area di lavoro esistente, è anche possibile creare una nuova area di lavoro in questo momento.
 
 1. Al termine, tornare alla pagina **Panoramica** dell'area di lavoro. 
 
@@ -146,12 +145,12 @@ Per ogni tipo di messaggio, di seguito sono elencate le descrizioni delle propri
 
 Ecco le descrizioni delle proprietà per ogni messaggio AS2.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo AS2 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo AS2 |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2 |
-| Stato | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
+| Status | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
 | Ack | Stato dei messaggi di notifica sulla ricezione del messaggio <br>Accettato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio positivo. <br>In sospeso = in attesa di ricevere o inviare un messaggio di notifica sulla ricezione del messaggio. <br>Rifiutato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio negativo. <br>Non richiesto = notifica sulla ricezione del messaggio non configurata nell'accordo. |
 | Direzione | Direzione dei messaggi AS2 |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
@@ -177,12 +176,12 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi AS2 scaricati.
 
 Ecco le descrizioni delle proprietà per ogni messaggio X12.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | App per la logica | App per la logica in cui sono configurate le azioni X12 |
-| Stato | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
+| Status | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
 | Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
 | Direzione | Direzione dei messaggi X12 |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
@@ -210,12 +209,12 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi X12 scaricati.
 
 Ecco le descrizioni delle proprietà per ogni messaggio EDIFACT.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Description |
 | --- | --- |
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | App per la logica | App per la logica in cui sono configurate le azioni EDIFACT |
-| Stato | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
+| Status | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
 | Ack | Stato ACK funzionali (CONTRL) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
 | Direzione | Direzione dei messaggi EDIFACT |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |

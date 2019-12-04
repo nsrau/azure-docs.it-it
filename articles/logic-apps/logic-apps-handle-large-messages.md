@@ -1,25 +1,18 @@
 ---
-title: Gestire messaggi di grandi dimensioni - App per la logica di Azure | Microsoft Docs
+title: Gestire messaggi di grandi dimensioni
 description: Informazioni su come gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
+ms.author: shhurst
 ms.topic: article
 ms.date: 4/27/2018
-ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989915"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792013"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
@@ -117,18 +110,18 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 1. L'app per la logica invia una richiesta HTTP POST o PUT iniziale con corpo del messaggio vuoto. L'intestazione della richiesta include queste informazioni sul contenuto di cui l'app per la logica eseguirà il caricamento in blocchi:
 
-   | Campo intestazione della richiesta di App per la logica di Azure | Value | Type | DESCRIZIONE |
+   | Campo intestazione della richiesta di App per la logica | Value | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | suddiviso in blocchi | String | Indica che il contenuto viene caricato in blocchi |
+   | **x-ms-transfer-mode** | suddiviso in blocchi | Stringa | Indica che il contenuto viene caricato in blocchi |
    | **x-ms-content-length** | <*content-length*> | Integer | Dimensioni dell'intero contenuto in byte prima della suddivisione in blocchi |
    ||||
 
 2. L'endpoint risponde con il codice di stato di esito positivo"200" e queste informazioni facoltative:
 
-   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
-   | **Location** | String | Yes | Percorso URL a cui inviare i messaggi HTTP PATCH |
+   | **Località** | Stringa | SÌ | Percorso URL a cui inviare i messaggi HTTP PATCH |
    ||||
 
 3. L'app per la logica crea e invia messaggi HTTP PATCH di follow-up, ognuno contenente le informazioni seguenti:
@@ -137,18 +130,18 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
    * Questa intestazione descrive in dettaglio il blocco di contenuto inviato in ogni messaggio PATCH:
 
-     | Campo intestazione della richiesta di App per la logica di Azure | Valore | Type | DESCRIZIONE |
+     | Campo intestazione della richiesta di App per la logica | Value | Type | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | String | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
-     | **Content-Type** | <*content-type*> | String | Tipo di contenuto in blocchi |
-     | **Content-Length** | <*content-length*> | String | Lunghezza della dimensione in byte del blocco corrente |
+     | **Content-Range** | <*range*> | Stringa | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
+     | **Content-Type** | <*content-type*> | Stringa | Tipo di contenuto in blocchi |
+     | **Content-Length** | <*content-length*> | Stringa | Lunghezza della dimensione in byte del blocco corrente |
      |||||
 
 4. Dopo ogni richiesta di PATCH, l'endpoint conferma la ricezione per ogni blocco rispondendo con il codice di stato "200" e con le intestazioni di risposta seguenti:
 
-   | Campo intestazione della risposta dell'endpoint | Type | Obbligatorio | Descrizione |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Description |
    |--------------------------------|------|----------|-------------|
-   | **Range** | String | Sì | Intervallo di byte per il contenuto ricevuto dall'endpoint, ad esempio: "bytes = 0-1023" |   
+   | **Range** | Stringa | SÌ | Intervallo di byte per il contenuto ricevuto dall'endpoint, ad esempio: "bytes = 0-1023" |   
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
    ||||
 

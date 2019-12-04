@@ -1,20 +1,19 @@
 ---
-title: Controllare lo stato, configurare la registrazione e ottenere gli avvisi-app per la logica di Azure
+title: Controllare lo stato, impostare la registrazione e ottenere gli avvisi
 description: Monitorare lo stato, registrare i dati di diagnostica e configurare gli avvisi per le App per la logica di Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
-ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ca1e2836ddfb38de640a5a90cf53e416b8923c04
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680293"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791908"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 

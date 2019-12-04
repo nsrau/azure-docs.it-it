@@ -1,17 +1,17 @@
 ---
-title: Espandere automaticamente l'archiviazione nel database di Azure per MySQL usando il portale di Azure
+title: Aumento automatico delle dimensioni di archiviazione-portale di Azure-database di Azure per MySQL
 description: Questo articolo descrive come abilitare l'espansione automatica dell'archiviazione per database di Azure per MySQL usando portale di Azure
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2019
-ms.openlocfilehash: 864bfaefba783d93e795e8780cc02dcf991e38f1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 12/02/2019
+ms.openlocfilehash: 7be3e7e1a0d2e48b37c319f67e3b382f825469df
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142009"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770612"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Espandere automaticamente l'archiviazione nel database di Azure per MySQL usando il portale di Azure
 Questo articolo descrive come configurare l'archiviazione di un database di Azure per il server MySQL in modo che cresca senza compromettere il carico di lavoro.
@@ -28,7 +28,7 @@ Seguire questa procedura per impostare l'aumento automatico delle dimensioni di 
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server MySQL esistente.
 
-2. Nella pagina server MySQL, in **Impostazioni** intestazione, fare clic su piano tariffario per aprire la pagina piano tariffario.
+2. Nella pagina server MySQL, in **Impostazioni** intestazione, fare clic su piano **tariffario** per aprire la pagina piano tariffario.
 
 3. Nella sezione aumento automatico selezionare **Sì** per abilitare l'aumento automatico delle dimensioni di archiviazione.
 
