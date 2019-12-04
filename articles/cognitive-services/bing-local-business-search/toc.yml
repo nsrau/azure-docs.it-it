@@ -1,5 +1,5 @@
 - name: Documentazione dell'API Bing Local Business Search
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
   expanded: true
   items: null
 - name: Panoramica
