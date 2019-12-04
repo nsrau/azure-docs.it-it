@@ -8,30 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 222fb5d37065bc40e9c96a9ff3487a7ea8ad0570
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 76308e2167cbedae9572f1fb5037dfb394ce4b17
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554765"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483419"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Guida introduttiva: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e C# 
 
 Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione C# invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
-| Richiesta API                                        | Output dell'applicazione                                                                                                                         |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Richiesta API                                        | Output dell'applicazione                                                                                                                                         |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Rilevare anomalie come batch                        | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per ogni punto dati nei dati di serie temporali e le posizioni delle anomalie rilevate. |
-| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
+| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                        |
 
- L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://visualstudio.microsoft.com/downloads/)
-
+- Chiave di Rilevamento anomalie ed endpoint
 - Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet. Per installare Newtonsoft.Json come pacchetto NuGet in Visual Studio:
     
     1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**.
@@ -55,11 +55,11 @@ Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento d
 
 2. Creare variabili per la chiave di sottoscrizione e per l'endpoint. Di seguito sono riportati gli URI che è possibile usare per il rilevamento anomalie. Questi verranno aggiunti all'endpoint di servizio in un secondo momento per creare gli URL delle richieste API.
 
-    |Metodo di rilevamento  |URI  |
-    |---------|---------|
-    |Rilevamento in batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Rilevamento nel punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
-    
+    | Metodo di rilevamento                   | URI                                              |
+    |------------------------------------|--------------------------------------------------|
+    | Rilevamento in batch                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
+    | Rilevamento nel punto dati più recente | `/anomalydetector/v1.0/timeseries/last/detect`   |
+        
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
@@ -91,8 +91,8 @@ Usare questo avvio rapido per iniziare a usare le due modalità di rilevamento d
 
 2. Deserializzare l'oggetto JSON e visualizzarlo nella console.
 
-[!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
-
+    [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
+ 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Caricare i dati delle serie temporali e inviare la richiesta
 
 1. Nel metodo main dell'applicazione caricare i dati delle serie temporali JSON con `File.ReadAllText()`. 
@@ -107,11 +107,4 @@ Viene restituita una risposta con esito positivo in formato JSON. Fare clic sui 
 * [Esempio di risposta di rilevamento in batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Esempio di risposta di rilevamento nel punto dati più recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
->[Rilevamento anomalie nei dati di streaming con Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Procedure consigliate](../concepts/anomaly-detection-best-practices.md) per l'API Rilevamento anomalie.
-* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

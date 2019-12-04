@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Node.js"
+title: "Guida introduttiva: Cercare video con l'API REST e Node.js - Ricerca video Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video all'API REST Ricerca video Bing usando JavaScript.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e9d7aeabceb77597d826d6c76dbdddc625ad45cc
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932965"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383804"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Node.js
 

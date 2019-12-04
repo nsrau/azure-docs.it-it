@@ -1,27 +1,29 @@
 ---
-title: "Guida introduttiva: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Python"
-description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT. Questa guida introduttiva usa registrazioni singole.
+title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure con Python
+description: "Avvio rapido: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: d6cb5740da53f9132613c2c03a1c9b88c2ce923b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0bd47de8862be4e66914b9748a00ce907acda526
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904817"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555511"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Questi passaggi illustrano come simulare un dispositivo X.509 in un computer di sviluppo con sistema operativo Windows e usare un esempio di codice Python per connettere il dispositivo simulato con il servizio Device Provisioning e l'hub IoT. 
+
+> [!IMPORTANT]
+> Questo articolo si applica solo alla versione 1 dell'SDK per Python, ora deprecata. I client dispositivo e servizio per il servizio Device Provisioning in hub IoT non sono ancora disponibili nella versione 2. Il team si sta attualmente impegnando per offrire la parità delle funzionalità nella versione 2.
 
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
@@ -32,9 +34,6 @@ Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
 Questo articolo descrive le registrazioni singole.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
-
-> [!NOTE]
-> Questa guida si applica solo alla versione 1 dell'SDK per Python, ora deprecata. I dispositivi X.509 simulati non sono ancora supportati nella versione 2. Il team si sta attualmente impegnando per offrire la parità delle funzionalità nella versione 2.
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente 
 
@@ -94,18 +93,18 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
  
 4. Creare un file denominato **_X509testcertificate.pem_** nel computer Windows, aprirlo in un editor di propria scelta e copiare il contenuto degli Appunti in questo file. Salvare il file. 
 
-5. Accedere al portale di Azure, fare clic sul pulsante **All resources** (Tutte le risorse) nel menu a sinistra e aprire il servizio di provisioning.
+5. Accedere al portale di Azure, selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio di provisioning.
 
-6. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazione singola) e fare clic sul pulsante in alto **Add individual enrollment** (Aggiungi registrazione singola). 
+6. Nel menu del servizio Device Provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Registrazioni singole** e quindi il pulsante **Aggiungi registrazione singola** in alto. 
 
-7. Nel riquadro **Add Enrollment** (Aggiungi registrazione) immettere le informazioni seguenti:
+7. Nel pannello **Aggiungi registrazione** immettere le informazioni seguenti:
    - Selezionare **X.509** come *meccanismo* di attestazione dell'identità.
-   - In *Primary certificate .pem or .cer file* (File di certificato primario con estensione pem o cer) fare clic su *Selezionare un file* per selezionare il file di certificato **X509testcertificate.pem** creato nei passaggi precedenti.
+   - In *Primary certificate .pem or .cer file* (File di certificato primario con estensione pem o cer) scegliere *Selezionare un file* per selezionare il file di certificato **X509testcertificate.pem** creato nei passaggi precedenti.
    - Facoltativamente, è possibile specificare le informazioni seguenti:
      - Selezionare un hub IoT collegato al servizio di provisioning.
      - Immettere un ID dispositivo univoco. Assicurarsi di non usare dati sensibili quando si assegna un nome al dispositivo. 
      - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
-   - Al termine, fare clic sul pulsante **Save** (Salva). 
+   - Al termine, fare clic sul pulsante **Salva**. 
 
      [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
@@ -113,16 +112,16 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
 ## <a name="simulate-the-device"></a>Simulare il dispositivo
 
-1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Panoramica**. Prendere nota dell'_ambito ID_ e dell'_endpoint globale del servizio_.
+1. Nel menu del servizio Device Provisioning selezionare **Panoramica**. Prendere nota dell'_ambito ID_ e dell'_endpoint globale del servizio_.
 
     ![Informazioni sul servizio](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 2. Scaricare e installare [Python 2.x o 3.x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alle variabili di ambiente specifiche per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
     
     > [!NOTE] 
-    > Se si usa Windows, installare anche [Visual C++ Redistributable per Visual Studio 2015](https://www.microsoft.com/download/confirmation.aspx?id=48145). I pacchetti pip richiedono il componente ridistribuibile per caricare/eseguire le DLL di C.
+    > Se si usa Windows, installare anche [Visual C++ Redistributable per Visual Studio 2015](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads). I pacchetti pip richiedono il componente ridistribuibile per caricare/eseguire le DLL di C.
 
-3. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) per compilare i pacchetti Python.
+3. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) per compilare i pacchetti Python.
 
    > [!NOTE]
    > Se si usa `pip`, assicurarsi di installare anche il pacchetto `azure-iot-provisioning-device-client`.
@@ -152,7 +151,7 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
     ![Registrazione completata](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-8. Nel portale passare all'hub IoT collegato al servizio di provisioning e aprire il pannello **Esplora dispositivi**. Al termine del provisioning del dispositivo X.509 simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Esplora dispositivi** con *STATO* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore se il pannello è stato aperto prima dell'esecuzione dell'applicazione del dispositivo di esempio. 
+8. Nel portale passare all'hub IoT collegato al servizio di provisioning e aprire il pannello **Esplora dispositivi**. Al termine del provisioning del dispositivo X.509 simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Esplora dispositivi** con *STATO* **abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore se il pannello è stato aperto prima dell'esecuzione dell'applicazione del dispositivo di esempio. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/python-quick-create-simulated-device-x509/registration.png) 
 
@@ -162,15 +161,15 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare a usare ed esplorare l'esempio di client del dispositivo, non pulire le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare i passaggi seguenti per eliminare tutte le risorse create da questa guida introduttiva.
+Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo, non eseguire la pulizia delle risorse create in questa guida di avvio rapido. Se non si intende continuare, seguire questa procedura per eliminare tutte le risorse create in questa guida.
 
 1. Chiudere la finestra di output di esempio di client del dispositivo sul computer.
-2. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare il servizio Device Provisioning. Aprire il pannello **Gestisci registrazioni** per il servizio, quindi fare clic sulla scheda **Registrazioni singole**. Selezionare l'*ID registrazione* del dispositivo registrato in questa guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore. 
-3. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare l'hub IoT. Aprire il pannello **Dispositivi IoT** per l'hub, selezionare l'*ID* del dispositivo registrato in questa guida introduttiva e quindi fare clic su **Elimina** nella parte superiore.
+2. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi il servizio Device Provisioning. Aprire il pannello **Gestisci registrazioni** per il servizio e quindi selezionare la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* del dispositivo registrato in questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro. 
+3. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi l'hub IoT. Aprire il pannello **Dispositivi IoT** per l'hub, selezionare la casella di controllo accanto all'*ID dispositivo* del dispositivo registrato in questa guida di avvio rapido e quindi fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un dispositivo X.509 simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida introduttiva per la registrazione a livello di codice dei dispositivi X.509. 
+In questa guida di avvio rapido è stato creato un dispositivo X.509 simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva di Azure - Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-python.md)
+> [Avvio rapido di Azure: Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-python.md)

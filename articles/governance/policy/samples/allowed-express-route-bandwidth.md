@@ -1,14 +1,14 @@
 ---
 title: 'Esempio: larghezza di banda consentita di ExpressRoute'
-description: Questa definizione di criteri di esempio richiede che ExpressRoute usi un set specifico di larghezze di banda.
+description: Questa definizione di criteri di esempio richiede che ExpressRoute usi un set specifico di larghezze di banda definite in un parametro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 20841b5476c50fb98d6b2d4a59f351525e1ecc9e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7c60879b62020a0864eb2da3a29e1bfe57215c0
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072086"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463736"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>Esempio: larghezza di banda consentita di ExpressRoute
 

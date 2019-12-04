@@ -1,30 +1,29 @@
 ---
-title: 'Guida introduttiva: Configurare il provisioning dei dispositivi tramite un modello di Azure Resource Manager'
-description: Guida introduttiva di Azure - Configurare il servizio Device Provisioning in hub IoT di Azure usando un modello
+title: Configurare il servizio Device Provisioning in hub IoT di Azure con un modello di Azure Resource Manager
+description: 'Avvio rapido di Azure: Configurare il servizio Device Provisioning in hub IoT di Azure con un modello'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903375"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276389"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con un modello di Azure Resource Manager
 
-È possibile usare [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per configurare a livello di codice le risorse cloud di Azure necessarie per il provisioning dei dispositivi. Questa procedura illustra come creare un hub IoT, un nuovo servizio Device Provisioning in hub IoT e collegare i due servizi usando un modello di Azure Resource Manager. Questa guida introduttiva usa l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) per eseguire i passaggi a livello di codice necessari per creare un gruppo di risorse e distribuire il modello, ma è possibile usare in modo semplice il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby o altri linguaggi di programmazione per eseguire questa procedura e distribuire il modello. 
+È possibile usare [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per configurare a livello di codice le risorse cloud di Azure necessarie per il provisioning dei dispositivi. Questa procedura illustra come creare un hub IoT e un nuovo servizio Device Provisioning in hub IoT e come collegare i due servizi con un modello di Azure Resource Manager. Questo argomento di avvio rapido usa l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) per eseguire i passaggi a livello di codice necessari per creare un gruppo di risorse e distribuire il modello, ma è possibile usare in modo semplice il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby o altri linguaggi di programmazione per eseguire questa procedura e distribuire il modello. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- Questa guida introduttiva richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Questa guida di avvio rapido richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Accedere ad Azure e creare un gruppo di risorse
@@ -78,7 +77,7 @@ Usare un modello JSON per creare un servizio di provisioning e un hub IoT colleg
    }
    ```
 
-2. Sostituire la sezione **parameters** con il contenuto seguente. La sezione parameters specifica i parametri che possono essere passati da un altro file. Questa sezione specifica il nome dell'hub IoT e del servizio di provisioning da creare. Specifica anche la posizione dell'hub IoT e del servizio di provisioning. I valori sono limitati alle aree di Azure che supportano hub IoT e servizi di provisioning. Per un elenco delle posizioni supportate per il servizio Device Provisioning, è possibile eseguire il comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` oppure passare alla pagina [Stato di Azure](https://azure.microsoft.com/status/) e cercare "Servizio Device Provisioning".
+2. Sostituire la sezione **parameters** con il contenuto seguente. La sezione parameters definisce i parametri i cui valori possono essere passati da un altro file. Questa sezione definisce il nome dell'hub IoT e del servizio di provisioning da creare. Definisce anche la posizione dell'hub IoT e del servizio di provisioning. I valori saranno limitati alle aree di Azure che supportano hub IoT e servizi di provisioning. Per un elenco delle posizioni supportate per il servizio Device Provisioning, è possibile eseguire il comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` oppure passare alla pagina [Stato di Azure](https://azure.microsoft.com/status/) e cercare "Servizio Device Provisioning".
 
    ```json
     "parameters": {
@@ -114,7 +113,7 @@ Usare un modello JSON per creare un servizio di provisioning e un hub IoT colleg
 
    ```
 
-4. Per creare un hub IoT, aggiungere le righe seguenti alla raccolta **resources**. Il codice JSON specifica le proprietà minime necessarie per creare un hub IoT. Le proprietà **name** e **location** vengono passate come parametri. Per altre informazioni sulle proprietà che è possibile specificare per un IoT Hub in un modello, vedere le [informazioni di riferimento sul modello Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Per creare un hub IoT, aggiungere le righe seguenti alla raccolta **resources**. Il codice JSON specifica le proprietà minime necessarie per creare un hub IoT. I valori **name** e **location** vengono passati come parametri da un altro file. Per altre informazioni sulle proprietà che è possibile specificare per un hub IoT in un modello, vedere le [informazioni di riferimento sul modello Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -134,9 +133,9 @@ Usare un modello JSON per creare un servizio di provisioning e un hub IoT colleg
 
    ``` 
 
-5. Per creare un servizio di provisioning, aggiungere le righe seguenti dopo la specifica dell'hub IoT nella raccolta **resources**. Le proprietà **name** e **location** del servizio di provisioning vengono passate come parametri. Specificare gli hub IoT da collegare al servizio di provisioning nella raccolta **iotHubs**. È necessario specificare almeno le proprietà **connectionString** e **location** per ogni hub IoT collegato. È anche possibile impostare proprietà quali **allocationWeight** e **applyAllocationPolicy** in ogni hub IoT, nonché proprietà quali **allocationPolicy** e  **authorizationPolicies** nel servizio di provisioning stesso. Vedere anche le [informazioni di riferimento sul modello Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
+5. Per creare un servizio di provisioning, aggiungere le righe seguenti dopo la specifica dell'hub IoT nella raccolta **resources**. I valori **name** e **location** del servizio di provisioning vengono passati come parametri. La raccolta **iotHubs** specifica gli hub IoT da collegare al servizio di provisioning. È necessario specificare almeno le proprietà **connectionString** e **location** per ogni hub IoT collegato. È anche possibile impostare proprietà quali **allocationWeight** e **applyAllocationPolicy** in ogni hub IoT, nonché proprietà quali **allocationPolicy** e  **authorizationPolicies** nel servizio di provisioning stesso. Vedere anche le [informazioni di riferimento sul modello Microsoft.Devices/provisioningServices](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
-   La proprietà **dependsOn** viene usata per assicurare che Resource Manager crei l'hub IoT prima di creare il servizio di provisioning. Il modello richiede la stringa di connessione dell'hub IoT per specificare il collegamento al servizio di provisioning, quindi l'hub e le relative chiavi devono essere creati prima. Il modello usa funzioni quali **concat** e **listKeys** per creare la stringa di connessione. Per altre informazioni, vedere [Funzioni del modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
+   La proprietà **dependsOn** viene usata per assicurare che Resource Manager crei l'hub IoT prima di creare il servizio di provisioning. Il modello richiede la stringa di connessione dell'hub IoT per specificare il collegamento al servizio di provisioning, quindi l'hub e le relative chiavi devono essere creati prima. Il modello usa funzioni quali **concat** e **listKeys** per creare la stringa di connessione da variabili con parametri. Per altre informazioni, vedere [Funzioni del modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -235,7 +234,7 @@ Usare un modello JSON per creare un servizio di provisioning e un hub IoT colleg
 
 ## <a name="create-a-resource-manager-parameter-file"></a>Creare un file di parametri di Resource Manager
 
-Il modello definito nel passaggio precedente usa i parametri per specificare il nome dell'hub IoT, il nome del servizio di provisioning e la posizione (area di Azure) in cui crearli. Questi parametri vengono passati in un file separato. È così possibile riutilizzare lo stesso modello per più distribuzioni. Per creare il file di parametri, seguire questi passaggi:
+Il modello definito nel passaggio precedente usa i parametri per specificare il nome dell'hub IoT, il nome del servizio di provisioning e la posizione (area di Azure) in cui crearli. Questi parametri vengono passati nel modello da un file separato. È così possibile riutilizzare lo stesso modello per più distribuzioni. Per creare il file di parametri, seguire questi passaggi:
 
 1. Usare un editor di testo per creare un file di parametri di Azure Resource Manager denominato **parameters.json** con la struttura seguente: 
 
@@ -248,7 +247,7 @@ Il modello definito nel passaggio precedente usa i parametri per specificare il 
    }
    ```
 
-2. Aggiungere il valore **iotHubName** alla sezione parameters. Se si modifica il nome, seguire le convenzioni di denominazione appropriate per un hub IoT. Il nome deve avere una lunghezza compresa tra 3 e 50 caratteri e può contenere solo caratteri alfanumerici maiuscoli o minuscoli e trattini ('-'). 
+2. Aggiungere il valore **iotHubName** alla sezione parameters.  Un nome dell'hub IoT deve essere univoco a livello globale in Azure, quindi potrebbe essere necessario aggiungere un prefisso o un suffisso univoco al nome di esempio oppure scegliere un nuovo nome. Assicurarsi che il nome segua le convenzioni di denominazione appropriate per un hub ioT: deve avere una lunghezza compresa tra 3 e 50 caratteri e può contenere solo caratteri alfanumerici maiuscoli o minuscoli oppure trattini ('-'). 
 
    ```json
     "parameters": {
@@ -259,7 +258,7 @@ Il modello definito nel passaggio precedente usa i parametri per specificare il 
    
    ```
 
-3. Aggiungere il valore **provisioningServiceName** alla sezione parameters. Se si modifica il nome, seguire le convenzioni di denominazione appropriate per un servizio Device Provisioning in hub IoT. Il nome deve avere una lunghezza compresa tra 3 e 64 caratteri e può contenere solo caratteri alfanumerici maiuscoli o minuscoli e trattini ('-').
+3. Aggiungere il valore **provisioningServiceName** alla sezione parameters. Sarà anche necessario scegliere un nome univoco a livello globale per il servizio di provisioning. Assicurarsi che il nome segua le convenzioni di denominazione appropriate per un servizio Device Provisioning in hub IoT: deve avere una lunghezza compresa tra 3 e 64 caratteri e può contenere solo caratteri alfanumerici maiuscoli o minuscoli oppure trattini ('-').
 
    ```json
     "parameters": {
@@ -301,13 +300,13 @@ Il modello definito nel passaggio precedente usa i parametri per specificare il 
 
 Usare questi comandi dell'interfaccia della riga di comando di Azure per distribuire i modelli e verificare la distribuzione.
 
-1. Per distribuire il modello, eseguire questo [comando per avviare una distribuzione](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Per distribuire un modello, passare alla cartella contenente i file dei modelli e dei parametri ed eseguire il [comando seguente per avviare una distribuzione](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
     ```
 
-   Cercare la proprietà **provisioningState** impostata su "Succeeded" nell'output. 
+   Il completamento di questa operazione potrebbe richiedere alcuni minuti. Al termine, cercare la proprietà **provisioningState** che mostra "Succeeded" nell'output. 
 
    ![Output del provisioning](./media/quick-setup-auto-provision-rm/output.png) 
 
@@ -321,7 +320,7 @@ Usare questi comandi dell'interfaccia della riga di comando di Azure per distrib
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive della raccolta si basano su questa. Se si prevede di continuare a usare le guide introduttive o le esercitazioni successive, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, è possibile usare l'interfaccia della riga di comando di Azure per [eliminare una singola risorsa][lnk-az-resource-command], ad esempio un hub IoT o un servizio di provisioning, oppure eliminare un gruppo di risorse e tutte le relative risorse.
+Altre guide di avvio rapido di questa raccolta si basano sulla presente guida di avvio rapido. Se si prevede di continuare a usare le guide di avvio rapido successive o le esercitazioni, non pulire le risorse create in questa guida di avvio rapido. Se non si prevede di continuare, è possibile usare l'interfaccia della riga di comando di Azure per [eliminare una singola risorsa][lnk-az-resource-command], ad esempio un hub IoT o un servizio di provisioning, oppure eliminare un gruppo di risorse e tutte le relative risorse.
 
 Per eliminare un servizio di provisioning, eseguire questo comando:
 
@@ -340,14 +339,14 @@ Per eliminare un gruppo di risorse e tutte le risorse, eseguire questo comando:
 az group delete --name {your resource group name}
 ```
 
-È anche possibile eliminare gruppi di risorse e singole risorse usando il portale di Azure, PowerShell o le API REST oppure gli SDK di piattaforma supportati pubblicati per Azure Resource Manager o il servizio Device Provisioning in hub IoT.
+È anche possibile eliminare gruppi di risorse e singole risorse usando il portale di Azure, PowerShell o le API REST nonché gli SDK di piattaforma supportati pubblicati per Azure Resource Manager o il servizio Device Provisioning in hub IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono stati distribuiti un hub IoT e un'istanza del servizio Device Provisioning e le due risorse sono state collegate. Per informazioni su come usare questa configurazione per eseguire il provisioning di un dispositivo simulato, proseguire con la guida introduttiva per la creazione di un dispositivo simulato.
+In questo argomento di avvio rapido sono stati distribuiti un hub IoT e un'istanza del servizio Device Provisioning e le due risorse sono state collegate. Per informazioni su come usare questa configurazione per eseguire il provisioning di un dispositivo simulato, proseguire con l'argomento di avvio rapido per la creazione di un dispositivo simulato.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva per la creazione di un dispositivo simulato](./quick-create-simulated-device.md)
+> [Avvio rapido per la creazione di un dispositivo simulato](./quick-create-simulated-device.md)
 
 
 <!-- Links -->

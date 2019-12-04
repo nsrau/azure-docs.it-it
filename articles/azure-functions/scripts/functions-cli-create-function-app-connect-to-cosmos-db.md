@@ -1,23 +1,15 @@
 ---
-title: Creare una funzione di Azure che si connette a un Azure Cosmos DB | Microsoft Docs
+title: Creare un'app per le funzioni con Azure Cosmos DB - Interfaccia della riga di comando di Azure
 description: Esempio di script dell'interfaccia della riga di comando - Creare una funzione di Azure che si connette a un Azure Cosmos DB
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15a7cc1940a01486c6b660ec65b47f072dc7996e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d881a5eb6132f95239418f032da51d002af01905
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970680"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532855"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creare una funzione di Azure che si connette a un database Azure Cosmos DB | Documentazione Microsoft
 
@@ -43,14 +35,17 @@ Questo script usa i comandi seguenti: Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creare un gruppo di risorse con una posizione |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Creare un account di archiviazione |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [piano a consumo](../functions-scale.md#consumption-plan) senza server. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un database di Azure Cosmos DB. |
+| [az group create](/cli/azure/group#az-group-create) | Creare un gruppo di risorse con una posizione |
+| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Creare un account di archiviazione |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel [piano a consumo](../functions-scale.md#consumption-plan) senza server. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crea un database di Azure Cosmos DB. |
+| [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Ottiene la connessione dell'account del database. |
+| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Ottiene le chiavi per il database. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Imposta la stringa di connessione come impostazione dell'app nell'app per le funzioni. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando di Funzioni di Azure sono disponibili nella [documentazione di Funzioni di Azure](../functions-cli-samples.md).
 

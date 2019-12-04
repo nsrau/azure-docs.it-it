@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d4ac9ed9b8d5162f820f7e981d3380b95cf41e4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e5e6a2fe856915a3625f22bffa91403e3c036a22
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172817"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481358"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Che cos'è Azure Active Directory Domain Services?
 
@@ -94,6 +94,9 @@ Di seguito è riportato un esempio di Litware Corporation, un'organizzazione ibr
     * Le informazioni sulle identità che vengono sincronizzate includono gli account utente e le appartenenze ai gruppi.
 * Il team IT di Litware abilita Azure Active Directory Domain Services per il tenant di Azure AD in questa rete virtuale o in una con peering.
 * Le applicazioni e le macchine virtuali distribuite all'interno della rete virtuale di Azure possono quindi usare le funzionalità di Azure Active Directory Domain Services come l'aggiunta a un dominio, la lettura e il binding LDAP, l'autenticazione NTLM e Kerberos e Criteri di gruppo.
+
+> [!IMPORTANT]
+> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti Active Directory Domain Services locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure Active Directory Domain Services per sincronizzare gli oggetti con Azure AD.
 
 ### <a name="azure-ad-ds-for-cloud-only-organizations"></a>Azure Active Directory Domain Services per le organizzazioni solo cloud
 

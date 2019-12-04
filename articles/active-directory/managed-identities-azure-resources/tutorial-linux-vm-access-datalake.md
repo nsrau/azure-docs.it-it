@@ -1,5 +1,5 @@
 ---
-title: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store
+title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Data Lake Store - Linux - Azure AD
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474165219d7740e63bb5e0a62d08069109a52c31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f12ec41b661ac2cb462c6bf9ef62d6d831ebac0a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236137"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224276"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 

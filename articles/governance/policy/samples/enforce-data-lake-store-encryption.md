@@ -1,14 +1,14 @@
 ---
 title: Esempio - Richiedere la crittografia di Data Lake Store
-description: Questa definizione di criteri di esempio richiede che la crittografia di Data Lake Store sia abilitata.
+description: Questa definizione di criteri di esempio richiede che lo stato di crittografia degli account Data Lake Store sia abilitato.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: a8ed66e9b07e1fc15c8a1a3c8c33f0e218eb62b3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5b29caa7fa8b9169b8c2164975f9cdb2663c5cef
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070664"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463637"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>Esempio - Richiedere la crittografia di Data Lake Store
 

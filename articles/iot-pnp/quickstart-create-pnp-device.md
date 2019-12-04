@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72927dd89a81d2440bf78ba24402f5ce283006da
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931902"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405804"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Guida introduttiva: Usare un modello funzionalità di dispositivo per creare un dispositivo di anteprima Plug and Play IoT (Windows)
 
@@ -46,46 +46,15 @@ La _stringa di connessione del repository dei modelli aziendali_ è disponibile 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Preparare un hub IoT
-
-Per completare questa guida di avvio rapido, la sottoscrizione di Azure deve includere anche un hub IoT di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. Se non è disponibile alcun hub IoT, seguire [queste istruzioni per crearne uno](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> Durante la fase di anteprima pubblica, le funzionalità Plug and Play IoT sono disponibili solo negli hub IoT creati nelle aree **Stati Uniti centrali**, **Europa settentrionale** e **Giappone orientale**.
-
-Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Eseguire il comando seguente per creare l'identità del dispositivo nell'hub IoT. Sostituire i segnaposto **YourIoTHubName** e **YourDevice** con i nomi effettivi.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
-```
-
-Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
-
-Eseguire il comando seguente per ottenere la _stringa di connessione dell'hub IoT_ per l'hub:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>Ottenere Azure IoT SDK per dispositivi per C
-
-In questa guida di avvio rapido verrà preparato un ambiente di sviluppo installando Azure IoT SDK per dispositivi per C tramite [Vcpkg](https://github.com/microsoft/vcpkg).
+In questo argomento di avvio rapido viene usato lo strumento di gestione librerie [Vcpkg](https://github.com/microsoft/vcpkg) per installare Azure IoT SDK per dispositivi per C nell'ambiente di sviluppo.
 
 1. Aprire un prompt dei comandi. Eseguire questo comando per installare Vcpkg:
 
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
 
@@ -94,13 +63,13 @@ In questa guida di avvio rapido verrà preparato un ambiente di sviluppo install
 
     Quindi, per associare l'[integrazione](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md) a livello di utente, eseguire questo comando (è richiesto l'amministratore al primo utilizzo):
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe integrate install
     ```
 
 1. Installare Azure IoT SDK per dispositivi per C Vcpkg:
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
@@ -140,7 +109,7 @@ A questo punto, si dispone di un modello di funzionalità di dispositivo e delle
 
 1. Scegliere **CMake Project on Windows** (Progetto CMake in Windows) come modello di progetto.
 
-1. Scegliere la modalità **Via Vcpkg** (Tramite vcpkg) per includere l'SDK per dispositivi.
+1. Scegliere la modalità **Via Vcpkg** (Tramite Vcpkg) per includere l'SDK per dispositivi.
 
 1. Nello stesso percorso del file DCM verrà creata una nuova cartella denominata **sample_device**, contenente i file stub del codice del dispositivo generati. VS Code apre una nuova finestra per visualizzarli.
     ![Codice del dispositivo](media/quickstart-create-pnp-device/device-code.png)
@@ -151,14 +120,14 @@ Per compilare lo stub del codice del dispositivo generato, si usa il codice sorg
 
 1. Creare una sottodirectory `cmake` nella cartella `sample_device` e passare a tale cartella:
 
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
 1. Eseguire questi comandi per compilare lo stub del codice generato (sostituendo il segnaposto con la directory del repository Vcpkg):
 
-    ```cmd\sh
+    ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
@@ -166,7 +135,7 @@ Per compilare lo stub del codice del dispositivo generato, si usa il codice sorg
     
     > [!NOTE]
     > Se si usa Visual Studio 2017 o 2015, è necessario specificare il generatore CMake in base agli strumenti di compilazione usati:
-    >```cmd\sh
+    >```cmd
     ># Either
     >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
     ># or
@@ -178,7 +147,7 @@ Per compilare lo stub del codice del dispositivo generato, si usa il codice sorg
 
 1. Al termine della compilazione, eseguire l'applicazione passando come parametro la stringa di connessione del dispositivo dell'hub IoT.
 
-    ```cmd\sh
+    ```cmd
     .\Debug\sample_device.exe "<device connection string>"
     ```
 
@@ -212,11 +181,11 @@ Per convalidare il codice del dispositivo con **Azure IoT Explorer**, è necessa
 
 1. Immettere la _stringa di connessione dell'hub IoT_ e selezionare **Connect** (Connetti).
 
-1. Dopo la connessione viene visualizzata la pagina della panoramica del dispositivo.
+1. Dopo la connessione viene visualizzata la pagina di panoramica **Devices** (Dispositivi).
 
 1. Per aggiungere il repository aziendale, selezionare **Impostazioni**, quindi **+ Add module definition source** (+ Aggiungi origine definizione modulo) e infine **Company repository** (Repository aziendale). Aggiungere la stringa di connessione del repository dei modelli aziendali e seleziona **Salva e connetti**.
 
-1. Nella pagina della panoramica del dispositivo individuare l'identità del dispositivo creata in precedenza e selezionarla per visualizzare altri dettagli.
+1. Tornare alla pagina di panoramica **Devices** (Dispositivi) per trovare l'identità del dispositivo creata in precedenza. Con l'applicazione del dispositivo ancora in esecuzione nel prompt dei comandi, verificare che lo **stato di connessione** del dispositivo in Azure IoT Explorer risulti _connesso_ (in caso contrario, fare clic su **Aggiorna** fino a quando non lo è). Selezionare il dispositivo per visualizzare altri dettagli.
 
 1. Espandere l'interfaccia con ID **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1** per visualizzare le primitive Plug and Play IoT, ovvero le proprietà, i comandi e i dati di telemetria. Il nome dell'interfaccia che verrà visualizzato è il nome inserito quando si crea il modello.
 
@@ -226,7 +195,7 @@ Per convalidare il codice del dispositivo con **Azure IoT Explorer**, è necessa
 
 1. Selezionare la pagina **Properties (writable)** (Proprietà - scrivibili) per visualizzare le proprietà scrivibili che è possibile aggiornare.
 
-1. Espandere la proprietà **name**, aggiornarla con un nuovo nome e selezionare **Update writable property** (Aggiorna proprietà scrivibile).
+1. Espandere la proprietà **name**, aggiornarla con un nuovo nome e selezionare **Update writable property** (Aggiorna proprietà scrivibile). 
 
 1. Per visualizzare il nuovo nome nella colonna **Reported Property** (Proprietà segnalata), selezionare il pulsante **Refresh** (Aggiorna) nella parte superiore della pagina.
 
@@ -235,6 +204,8 @@ Per convalidare il codice del dispositivo con **Azure IoT Explorer**, è necessa
 1. Espandere il comando **blink** e impostare un nuovo intervallo di tempo per l'intermittenza. Selezionare **Invia comando** per chiamare il comando nel dispositivo.
 
 1. Passare al prompt dei comandi del dispositivo simulato e leggere i messaggi di conferma visualizzati per verificare che i comandi siano stati eseguiti come previsto.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

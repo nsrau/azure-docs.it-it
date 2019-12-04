@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Questo avvio rapido illustra come effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando C"
+title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure con C
 description: Questa guida introduttiva usa registrazioni singole. In questa guida introduttiva verrà creato ed effettuato il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi C per il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
@@ -7,14 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dbbdfb9ead31d11c760e6cbb0280ed1c4e5f3b24
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5d0b634de9d296bc56d18b2e7a4a92e6340b07c3
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904756"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423130"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
 
@@ -89,8 +88,6 @@ In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azu
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
-
 <a id="portalenroll"></a>
 
 ## <a name="create-a-self-signed-x509-device-certificate"></a>Creare un certificato per un dispositivo X.509 autofirmato
@@ -117,14 +114,14 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Creare una voce per la registrazione del dispositivo nel portale
 
-1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
+1. Accedere al portale di Azure, selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
 
 2. Selezionare **Gestisci registrazioni** e quindi fare clic sul pulsante **Aggiungi registrazione singola** nella parte superiore. 
 
-3. In **Aggiungi registrazione** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
+3. Nel pannello **Aggiungi registrazione** immettere le informazioni seguenti e premere il pulsante **Salva**.
 
     - **Meccanismo:** Selezionare **X.509** come *meccanismo* di attestazione dell'identità.
-    - **File di certificato primario con estensione pem o cer:** fare clic su **Selezionare un file** per selezionare il file di certificato, X509testcert.pem, creato nei passaggi precedenti.
+    - **File di certificato primario con estensione pem o cer:** scegliere **Selezionare un file** per selezionare il file di certificato, X509testcert.pem, creato nei passaggi precedenti.
     - **ID dispositivo hub IoT:** immettere **test-docs-cert-device** per assegnare un ID al dispositivo.
 
       [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
@@ -180,22 +177,22 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
     ```
 
-7. Nel portale passare all'hub IoT collegato al servizio di provisioning e fare clic sulla scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo X.509 simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
+7. Nel portale passare all'hub IoT collegato al servizio di provisioning e selezionare la scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo X.509 simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare a usare ed esplorare l'esempio di client del dispositivo, non pulire le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare i passaggi seguenti per eliminare tutte le risorse create da questa guida introduttiva.
+Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo, non eseguire la pulizia delle risorse create in questa guida di avvio rapido. Se non si intende continuare, seguire questa procedura per eliminare tutte le risorse create in questa guida.
 
 1. Chiudere la finestra di output di esempio di client del dispositivo sul computer.
-1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare il servizio Device Provisioning. Aprire **Gestisci registrazioni** per il servizio e quindi fare clic sulla scheda **Registrazioni singole**. Selezionare l'*ID registrazione* del dispositivo registrato in questa guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore. 
-1. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e quindi selezionare l'hub IoT. Aprire **Dispositivi IoT** per l'hub, selezionare l'*ID* del dispositivo registrato in questa guida introduttiva e quindi fare clic su **Elimina** nella parte superiore.
+1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi il servizio Device Provisioning. Aprire **Gestisci registrazioni** per il servizio e quindi selezionare la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* del dispositivo registrato in questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro. 
+1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi l'hub IoT. Aprire il pannello **Dispositivi IoT** per l'hub, selezionare la casella di controllo accanto all'*ID dispositivo* del dispositivo registrato in questa guida di avvio rapido e quindi fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un dispositivo X.509 simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida introduttiva per la registrazione a livello di codice dei dispositivi X.509. 
+In questa guida di avvio rapido è stato creato un dispositivo X.509 simulato nel computer Windows e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure nel portale. Per informazioni su come registrare il dispositivo X.509 a livello di codice, passare alla guida di avvio rapido per la registrazione a livello di codice dei dispositivi X.509. 
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva di Azure - Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-java.md)
+> [Avvio rapido di Azure: Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure](quick-enroll-device-x509-java.md)

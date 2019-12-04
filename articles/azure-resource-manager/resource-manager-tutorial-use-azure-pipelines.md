@@ -1,24 +1,16 @@
 ---
-title: Integrazione continua con Azure Pipelines | Microsoft Docs
+title: Integrazione continua con Azure Pipelines
 description: Informazioni su come creare, testare e distribuire modelli di Azure Resource Manager in modo continuo.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 457d2a8868283eed2e211ff26ce77156eee68e01
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052186"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326402"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -50,7 +42,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 * **Un account GitHub** da usare per creare un repository per i modelli. Se non si dispone di un tale account, è possibile [crearne uno gratuitamente](https://github.com). Per altre informazioni sull'uso dei repository GitHub, vedere [Creare repository GitHub](/azure/devops/pipelines/repos/github).
 * **Installare Git**. In questa esercitazione viene usato *Git Bash* o *Git Shell*. Per le istruzioni, vedere [Install Git]( https://www.atlassian.com/git/tutorials/install-git) (Installare Git).
 * **Un'organizzazione Azure DevOps**. Se non si dispone di una tale organizzazione, è possibile crearne una gratuitamente. Vedere [Creare un'organizzazione o una raccolta di progetti]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* **[Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Resource Manager**. Visualizzare [installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparare un repository GitHub
 

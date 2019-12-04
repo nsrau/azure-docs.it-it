@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 36b75f33b4fc9062d09fbc670a509594142f09bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 913fa3c846ea00649a584be02975fdde449dc7cf
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828257"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383298"
 ---
-# <a name="tutorial-extract-structured-data-with-machine-learned-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati con entità basate su Machine Learning in Language Understanding (LUIS)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
 In questa esercitazione vengono estratti dati strutturati da un'espressione usando l'entità basata su Machine Learning. 
 
@@ -58,11 +58,11 @@ Iniziare con un'entità basata su Machine Learning, che rappresenta l'entità in
 
 Sebbene non sia possibile sapere quanto dettagliata debba essere l'entità quando si inizia a creare l'app, è consigliabile iniziare con un'entità basata su Machine Learning e quindi scomporre con i sottocomponenti man mano che l'app cresce.
 
-In pratica, si creerà un'entità basata su Machine Learning per rappresentare un ordine per un'app per la pizza. L'ordine deve contenere tutte le parti necessarie per compilare l'ordine. Per iniziare, l'entità includerà tutto il testo correlato all'ordine e ne estrarrà dimensione e quantità. 
+In pratica, si creerà un'entità basata su Machine Learning per rappresentare un ordine per un'app per la pizza. L'ordine deve contenere tutte le parti necessarie per compilare l'ordine. Per iniziare, l'entità estrae il testo correlato all'ordine, insieme a dimensione e quantità. 
 
-Un'espressione per `deliver one large cheese pizza` dovrebbe estrarre l'intera espressione sotto forma di ordine e quindi estrarre anche `1` e `large`. 
+Un'espressione per `Please deliver one large cheese pizza to me` dovrebbe estrarre `one large cheese pizza` sotto forma di ordine e quindi estrarre anche `1` e `large`. 
 
-È possibile eseguire altre operazioni di scomposizione, ad esempio guarniture o impasto. Dopo questa esercitazione, si sarà in grado di aggiungere questi sottocomponenti all'entità `Order` esistente.
+È possibile aggiungere altre operazioni di scomposizione, ad esempio la creazione di sottocomponenti per condimenti o impasto. Dopo questa esercitazione, si sarà in grado di aggiungere questi sottocomponenti all'entità `Order` esistente.
 
 ## <a name="import-example-json-to-begin-app"></a>Importare il file con estensione json per iniziare l'app
 
@@ -70,12 +70,12 @@ Un'espressione per `deliver one large cheese pizza` dovrebbe estrarre l'intera e
 
 1. Nel [portale LUIS di anteprima](https://preview.luis.ai) nella pagina **My apps** (App personali) selezionare **Import** (Importa), quindi **Import as JSON** (Importa come JSON). Trovare il file JSON salvato nel passaggio precedente. Non è necessario modificare il nome dell'app. Selezionare **Operazione completata**
 
-1. Dalla sezione **Manage** (Gestisci) nella scheda **Versions** (Versioni) selezionare la versione, quindi selezionare **Clone** (Clona) per clonare la versione e denominarla `mach-learn`. Quindi selezionare **Done** (Fine) per completare il processo di clonazione. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
+1. Nella scheda **Versions** (Versioni) della sezione **Manage** (Gestisci) selezionare la versione, quindi selezionare **Clone** (Clona) per clonare la versione e denominarla `mach-learn` e infine selezionare **Done** (Fine) per completare il processo di clonazione. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
     > [!TIP] 
-    > La clonazione è una procedura consigliata prima di modificare l'app. Dopo aver completato la versione, esportare la versione, come file con estensione json o lu e archiviarla nel controllo del codice sorgente.
+    > La clonazione di una versione in una nuova versione è una procedura consigliata prima di modificare l'app. Dopo aver completato una versione, esportare la versione, come file con estensione json o lu, e archiviare il file nel sistema di controllo del codice sorgente.
 
-1. Selezionare **Build** (Compila) quindi **Intents** (Finalità) per visualizzare i blocchi principali di un'app LUIS, ovvero le finalità.
+1. Selezionare **Build** (Compila) e quindi **Intents** (Finalità) per visualizzare le finalità, ovvero i blocchi principali di un'app LUIS.
 
     ![Passare dalla pagina Versions (Versioni) alla pagina Intents (Finalità).](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
@@ -96,9 +96,9 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
     ![Assegnare un'etichetta all'inizio e alla fine del testo per l'ordine completo](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
-    > Un'entità non sarà sempre l'intera espressione. In questo caso specifico `pickup` indica il modo in cui deve essere ricevuto l'ordine in modo che faccia parte dell'entità con etichetta per l'ordine. 
+    > Un'entità non sarà sempre l'intera espressione. In questo caso specifico, `pickup` indica la modalità di ricezione dell'ordine. Dal punto di vista concettuale, `pickup` deve far parte dell'entità etichettata per l'ordine. 
 
-1. Nella casella **Choose an entity type** (Scegli un tipo di entità) selezionare **Add Structure** (Aggiungi struttura), quindi selezionare **Next** (Avanti). La struttura è necessaria per consentire i sottocomponenti, ad esempio dimensione e quantità.
+1. Nella casella **Choose an entity type** (Scegli un tipo di entità) selezionare **Add Structure** (Aggiungi struttura), quindi selezionare **Next** (Avanti). La struttura è necessaria per aggiungere i sottocomponenti, ad esempio dimensione e quantità.
 
     ![Aggiungere la struttura all'entità](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
@@ -107,7 +107,7 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
 
 1. Nella casella **Create new phrase list descriptor** (Crea descrittore nuovo elenco frasi) immettere il nome `SizeDescriptor` quindi immettere i valori `small`, `medium` e `large`. Quando viene compilata la casella **Suggestions** (Suggerimenti), selezionare `extra large` e `xl`. Selezionare **Done** (Fine) per creare il nuovo elenco frasi. 
 
-    Questo descrittore dell'elenco frasi consente al sottocomponente `Size` di individuare le parole correlate alla dimensione fornendo una parola di esempio. Questo elenco non deve includere tutte le parole dimensione ma deve includere parole che dovrebbero indicare le dimensioni. 
+    Questo descrittore dell'elenco frasi consente al sottocomponente `Size` di individuare le parole correlate alla dimensione fornendo parole di esempio. Questo elenco non deve includere tutte le parole dimensione ma deve includere parole che dovrebbero indicare le dimensioni. 
 
     ![Creare un descrittore per il sottocomponente dimensione](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
@@ -133,11 +133,11 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
     ![Creare entità e sottocomponenti in tutte le espressioni di esempio rimanenti.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
-    > Come trattare i dati impliciti, ad esempio la lettera `a` che indica una sola pizza? Oppure l'assenza di `pickup` e `delivery` per indicare la posizione in cui è prevista la pizza? Oppure l'assenza di una dimensione per indicare la dimensione predefinita oppure piccola o grande? Considerare la gestione dei dati impliciti trattati come parte delle regole business nell'applicazione client. 
+    > Come trattare i dati impliciti, ad esempio la lettera `a` che indica una sola pizza? Oppure l'assenza di `pickup` e `delivery` per indicare la posizione in cui è prevista la pizza? Oppure l'assenza di una dimensione per indicare la dimensione predefinita piccola o grande? Considerare la gestione del trattamento dei dati impliciti come parte delle regole business nell'applicazione client al posto di LUIS o in aggiunta a LUIS. 
 
 1. Per eseguire il training dell'app, selezionare **Train** (Esegui il training). Il training applica le modifiche, ad esempio le nuove entità e le espressioni con etichetta, al modello attivo.
 
-1. Dopo aver eseguito il training, aggiungere una nuova espressione di esempio per comprendere in che modo LUIS riconosce l'entità basata su Machine Learning. 
+1. Dopo aver eseguito il training, aggiungere una nuova espressione di esempio alla finalità per vedere in che modo LUIS riconosce l'entità basata su Machine Learning. 
 
     |Espressione di esempio dell'ordine|
     |--|
@@ -147,19 +147,19 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
 
     ![Nuova espressione di esempio stimata con l'entità](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    Il collegamento tratteggiato indica la stima. 
+    La linea tratteggiata indica la stima. 
 
-1. Per modificare la stima in un'entità con etichetta selezionare la riga, quindi selezionare **Confirm entity predictions** (Conferma stime entità).
+1. Per modificare la stima in un'entità etichettata, selezionare la riga e quindi selezionare **Confirm entity predictions** (Conferma stime entità).
 
     ![Accettare la stima selezionando Confirm entity prediction (Conferma stima entità).](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
     A questo punto, l'entità basata su Machine Learning funziona poiché è in grado di trovare l'entità all'interno di una nuova espressione di esempio. Quando si aggiungono espressioni di esempio, se l'entità non è stimata correttamente, assegnare un'etichetta all'entità e ai sottocomponenti. Se l'entità è stimata correttamente, assicurarsi di confermare le stime. 
 
-## <a name="add-prebuilt-number-to-app-to-help-extract-data"></a>Aggiungere un numero predefinito all'app per facilitare l'estrazione dei dati
+## <a name="add-prebuilt-number-to-help-extract-data"></a>Aggiungere un numero predefinito per facilitare l'estrazione dei dati
 
 Le informazioni sull'ordine devono includere anche il numero di unità di un elemento nell'ordine, ad esempio il numero di pizze. Per estrarre questi dati, è necessario aggiungere un nuovo sottocomponente basato su Machine Learning a `Order` e specificare un vincolo di un numero predefinito per il componente. Vincolando l'entità a un numero predefinito, l'entità trova ed estrae numeri quando il testo è una cifra, `2` oppure un testo, `two`.
 
-Iniziare aggiungendo il numero predefinito all'app. 
+Iniziare aggiungendo l'entità numero predefinito all'app. 
 
 1. Selezionare **Entities** (Entità) dal menu di sinistra, quindi selezionare **+ Add prebuilt entity** (+ Aggiungi entità predefinita). 
 
@@ -175,6 +175,8 @@ L'entità `Order` deve avere un sottocomponente `Quantity` per determinare il nu
 
 Un vincolo viene applicato come corrispondenza di testo, con corrispondenza esatta (ad esempio un'entità dell'elenco) o tramite espressioni regolari (ad esempio un'entità espressione regolare o un'entità predefinita). 
 
+Usando un vincolo, viene estratto solo il testo che corrisponde a tale vincolo. 
+
 1. Selezionare **Entities** (Entità) quindi selezionare l'entità `Order`. 
 1. Selezionare **+ Add Component** (+ Aggiungi componente) quindi immettere il nome `Quantity` e premere INVIO per aggiungere la nuova entità all'app.
 1. Dopo la notifica di esito positivo, selezionare il sottocomponente `Quantity` quindi selezionare la matita del vincolo.
@@ -182,12 +184,14 @@ Un vincolo viene applicato come corrispondenza di testo, con corrispondenza esat
 
     ![Creare un'entità quantità con un numero predefinito come vincolo.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
+    L'entità `Quantity` viene applicata solo se viene trovato un testo corrispondente all'entità numero predefinito.
+
     L'entità con il vincolo è stata creata ma non ancora applicata alle espressioni di esempio.
 
     > [!NOTE]
     > Un sottocomponente può essere annidato all'interno di un sottocomponente fino a 5 livelli. Sebbene non sia illustrato in questo articolo, è disponibile dal portale e dall'API.  
 
-## <a name="label-example-utterance-with-subcomponent-for-quantity-to-teach-luis-about-the-entity"></a>Assegnare un'etichetta all'espressione di esempio con sottocomponente per la quantità per inviare a LUIS dati sull'entità
+## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Etichettare un'espressione di esempio per inviare a LUIS dati sull'entità
 
 1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **OrderPizza**. I tre numeri nelle espressioni seguenti hanno un'etichetta ma sono visualizzati sotto la riga dell'entità `Order`. Questo livello inferiore indica che le entità vengono rilevate, ma non sono considerate separate dall'entità `Order`.
 

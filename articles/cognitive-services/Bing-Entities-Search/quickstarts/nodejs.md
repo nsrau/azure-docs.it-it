@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Node.js"
+title: "Guida introduttiva: Inviare una richiesta di ricerca all'API REST con Node.js - Ricerca entità Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare una richiesta all'API REST Ricerca entità Bing con C# e ricevere una risposta JSON.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: e56bf0b3daa38f79e637ece947414b885de3797a
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 48d2b36e35a2e0b41b1202beda9944339dc7530c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478974"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327104"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Node.js
 

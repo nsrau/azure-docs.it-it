@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625354"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533093"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evoluzione di Microsoft Identity Platform
 
@@ -52,7 +52,7 @@ Il diagramma seguente illustra l'esperienza con Microsoft Identity a un alto liv
 
 L'esperienza **[Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908)** disponibile nel portale di Azure rappresenta l'esperienza su portale per eccellenza per la gestione di tutte le applicazioni integrate con Microsoft Identity Platform. Se finora è stato usato il portale di registrazione delle applicazioni, iniziare a usare l'esperienza di registrazione delle app del portale di Azure.
 
-Per l'integrazione con Azure AD B2C (per l'autenticazione di identità locali o di social networking), sarà necessario registrare l'applicazione in un tenant B2C. Anche questa esperienza è inclusa nel portale di Azure.
+Per l'integrazione con Azure AD B2C (per l'autenticazione di identità locali o di social networking), sarà necessario registrare l'applicazione in un tenant Azure AD B2C. Anche questa esperienza è inclusa nel portale di Azure.
 
 L'**API dell'applicazione in Microsoft Graph** attualmente è in anteprima. Usare tale API per configurare a livello di codice le applicazioni integrate con Microsoft Identity Platform per l'autenticazione di qualsiasi identità Microsoft. Tuttavia, finché l'API non sarà disponibile a livello generale, è consigliabile usare l'API Azure AD Graph 1.6 e il manifesto dell'applicazione.
 

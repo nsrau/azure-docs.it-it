@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione: Accedere ai dati di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark | Microsoft Docs'
+title: 'Esercitazione: Azure Data Lake Storage Gen2, Azure Databricks e Spark | Microsoft Docs'
 description: Questa esercitazione mostra come eseguire query Spark su un cluster Azure Databricks per accedere ai dati in un account di archiviazione Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331827"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327530"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati di Data Lake Storage Gen2 con Azure Databricks usando Spark
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Esercitazione: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
 Questa esercitazione illustra come connettere un cluster di Azure Databricks ai dati archiviati in un account di archiviazione di Azure per cui è abilitato Azure Data Lake Storage Gen2. Questa connessione permette di eseguire in modo nativo query e analisi dal cluster sui dati.
 
@@ -95,7 +95,7 @@ In questa sezione si crea un servizio Azure Databricks con il portale di Azure.
 
 3. Nella pagina **New cluster** (Nuovo cluster) specificare i valori per creare un cluster.
 
-    ![Creare il cluster Databricks Spark in Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
+    ![Creare un cluster di Databricks Spark in Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Creare un cluster di Databricks Spark in Azure")
 
     Specificare i valori per i campi seguenti e accettare i valori predefiniti per gli altri campi:
 

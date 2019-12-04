@@ -1,22 +1,18 @@
 ---
-title: Esecuzione di più servizi dipendenti con Node.js e Visual Studio Code
-titleSuffix: Azure Dev Spaces
+title: 'Esecuzione di più servizi dipendenti: Node.js e Visual Studio Code'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 136d48f1c420ac71896eaafa0daab476c7fba6fa
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 357a03e154e3c0146d3275e8cba64bc2d966f5b8
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503064"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325654"
 ---
-# <a name="multi-service-development-with-azure-dev-spaces"></a>Sviluppo multiservizio con Azure Dev Spaces
+# <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Esecuzione di più servizi dipendenti: Node.js e Visual Studio Code con Azure Dev Spaces
 
 Questa esercitazione illustra lo sviluppo di applicazioni multiservizio con Azure Dev Spaces, insieme ad alcuni vantaggi aggiuntivi offerti da Dev Spaces.
 

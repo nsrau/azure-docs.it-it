@@ -1,14 +1,14 @@
 ---
 title: Esempio - Applicare un tag e un valore a gruppi di risorse
-description: Questa definizione di criteri di esempio richiede un tag e un valore in un gruppo di risorse.
+description: Questa definizione di criteri di esempio richiede un tag e un valore definiti in un parametro in un gruppo di risorse.
 ms.date: 01/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d04c48e2633e1a23990723c91a66cf8ec219b160
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076265"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463629"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Esempio - Applicare un tag e il relativo valore a gruppi di risorse
 

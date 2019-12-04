@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669669"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278593"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Guida introduttiva: Creare una nuova app nel portale LUIS
 
 [!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
-Questo argomento di avvio rapido illustra come creare una nuova app nel [portale LUIS](https://www.luis.ai). Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
+Questo argomento di avvio rapido illustra come creare una nuova app nel portale LUIS. Creare prima le parti fondamentali di un'app, le **finalità** e le **entità**. Testare quindi l'app specificando un'espressione utente di esempio nel pannello di test interattivo per ottenere la finalità stimata.
 
 La creazione di un'app è gratuita e non richiede una sottoscrizione di Azure. Quando si è pronti per distribuire l'app, vedere l'[argomento di avvio rapido relativo alla distribuzione di un'app](get-started-portal-deploy-app.md). Tale argomento illustra come creare una risorsa del servizio cognitivo di Azure e assegnarla all'app.
 

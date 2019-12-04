@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819676"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559015"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -67,7 +67,12 @@ In base a una limitazione corrente, non è possibile combinare app di Windows e 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Quando non è possibile avviare l'applicazione o si desidera controllare il log dall'app, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP. Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione del contenitore Docker** in **Log del servizio app**. L'impostazione ha effetto immediato. Il servizio app rileva la modifica e riavvia automaticamente il contenitore.
+> [!NOTE]
+> È disponibile una nuova funzionalità di registrazione integrata con [Monitoraggio di Azure (anteprima)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview). 
+>
+>
+
+Quando non è possibile avviare l'applicazione o si desidera controllare il log dall'app, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP. Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione applicazioni** in **Log del servizio app**. L'impostazione ha effetto immediato. Il servizio app rileva la modifica e riavvia automaticamente il contenitore.
 
 È possibile accedere al sito SCM da **Strumenti avanzati** nel menu **Strumenti di sviluppo**.
 

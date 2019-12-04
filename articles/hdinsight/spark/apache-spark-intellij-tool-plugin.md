@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b2705f209b2acf1198ea555a5de2f79987a4d0e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494234"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533902"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Esercitazione: Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -336,8 +336,6 @@ Assicurarsi di aver soddisfatto il prerequisito WINUTILS.EXE.
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Console di sessione interattiva Spark Livy (Scala)
 
-È supportata solo in IntelliJ 2018.2 e 2018.3.
-
 1. Dalla barra dei menu, passare a **Eseguire** > **Modifica configurazioni...** .
 
 2. Dalla finestra **Eseguire configurazioni di debug**, nel riquadro a sinistra, passare a **Apache Spark in HDInsight** >  **[Spark in HDInsight] myApp**.
@@ -366,6 +364,25 @@ Assicurarsi di aver soddisfatto il prerequisito WINUTILS.EXE.
 È utile prevedere il risultato dello script inviando una parte di codice alla console locale o alla console di sessione interattiva Livy (Scala). Evidenziare una parte di codice nel file di Scala, quindi fare clic con il pulsante destro del mouse su **Send Selection To Spark Console** (Invia selezione alla console Spark). Il codice selezionato verrà inviato alla console e verrà eseguito. Il risultato verrà visualizzato dopo il codice nella console. La console verificherà se sono presenti errori.  
 
    ![Send Selection to Spark Console (Invia selezione alla console Spark)](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Eseguire l'integrazione con broker di identità di HDInsight 
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Connettersi al cluster ESP HDInsight con broker di identità
+È possibile seguire la normale procedura per accedere alla sottoscrizione di Azure e connettersi al cluster ESP HDInsight con broker di identità. Dopo l'accesso, l'elenco di cluster viene visualizzato in Esplora dati di Azure. Per altre istruzioni, vedere [Connettersi al cluster HDInsight](#connect-to-your-hdinsight-cluster).
+
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Eseguire un'applicazione Spark Scala in un cluster ESP HDInsight con broker di identità
+È possibile seguire la normale procedura per inviare il processo al cluster ESP HDInsight con broker di identità. Per altre istruzioni, vedere [Eseguire un'applicazione Spark in Scala in un cluster HDInsight Spark](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
+
+I file necessari vengono caricati in una cartella denominata come l'account di accesso ed è possibile visualizzare il percorso di caricamento nel file di configurazione.
+
+   ![Percorso di caricamento nella configurazione](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Console Spark in un cluster ESP HDInsight con broker di identità
+È possibile eseguire la console Spark Local(Scala) o la console Spark Livy Interactive Session Console(Scala) in un cluster ESP HDInsight con broker di identità. Per altre istruzioni, vedere [Console Spark](#spark-console).
+
+   > [!NOTE]  
+   > Per il cluster ESP HDInsight con broker di identità, il [collegamento di un cluster](#link-a-cluster) e il [debug di applicazioni Apache Spark in remoto](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) non sono attualmente supportati.
+
 
 ## <a name="reader-only-role"></a>Ruolo di sola lettura
 

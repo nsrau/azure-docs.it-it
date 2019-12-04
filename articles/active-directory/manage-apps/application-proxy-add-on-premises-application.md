@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un'app locale - Proxy di applicazione in Azure Active Directory | Microsoft Docs
+title: "Esercitazione: Aggiungere un'app locale - Proxy di applicazione in Azure AD"
 description: Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione illustra come preparare l'ambiente per l'uso con il proxy di applicazione. Viene quindi usato il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0399f084e663ab891d59384af263a7faac2f42e
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73943823"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420458"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 

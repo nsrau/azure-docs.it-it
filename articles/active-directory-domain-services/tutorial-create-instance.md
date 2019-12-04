@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a1fbe8d47af8a2215b0d0a3d81fbe67a62d4755
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84272336a9f70f663e134e16fe88c7e43bb73548
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474412"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208655"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services
 
@@ -92,6 +92,10 @@ Completare i campi della finestra *Informazioni di base* del portale di Azure pe
     Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate.
 
     Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per consultare la disponibilità delle zone, vedere [Informazioni sulle zone di disponibilità di Azure][availability-zones].
+
+1. Una *foresta* è un costrutto logico usato da Active Directory Domain Services per raggruppare uno o più domini. Per impostazione predefinita, viene creato un dominio gestito di Azure AD DS come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
+
+    Per questa esercitazione, scegliere di creare una foresta *Utente*.
 
     ![Configurare le impostazioni di base per un'istanza di Azure AD Domain Services](./media/tutorial-create-instance/basics-window.png)
 
@@ -192,6 +196,9 @@ Prima di aggiungere a un dominio le macchine virtuali e distribuire le applicazi
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
+[skus]: overview.md
+[resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->

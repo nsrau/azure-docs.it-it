@@ -1,21 +1,20 @@
 ---
 title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
-ms.date: 12/06/2018
+ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959331"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484011"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Panoramica del servizio Criteri di Azure
+# <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
 La governance garantisce che l'organizzazione sia in grado di conseguire i propri obiettivi tramite un uso efficace ed efficiente delle risorse IT, stabilendo con chiarezza gli obiettivi aziendali e i progetti IT.
 
-Se l'azienda affronta una serie di problemi IT importanti che sembrano non risolversi mai,
-Una valida governance IT include la pianificazione delle iniziative e la definizione delle priorità a livello strategico, per contribuire a gestire e prevenire i problemi. Criteri di Azure offre le funzionalità necessarie a riguardo.
+Se l'azienda affronta una serie di problemi IT importanti che sembrano non risolversi mai, Una valida governance IT include la pianificazione delle iniziative e la definizione delle priorità a livello strategico, per contribuire a gestire e prevenire i problemi. Criteri di Azure offre le funzionalità necessarie a riguardo.
 
 Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire criteri. Questi criteri applicano regole ed effetti diversi alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'azienda. Criteri di Azure soddisfa questa esigenza valutando le risorse per la mancata conformità con i criteri assegnati. Si possono avere, ad esempio, criteri che consentono solo determinate dimensioni di SKU per le macchine virtuali nell'ambiente. Dopo aver implementato questi criteri, le risorse nuove ed esistenti vengono valutate per la conformità. Con il tipo corretto di criteri, le risorse esistenti possono essere rese conformi. Più avanti in questa documentazione verranno forniti maggiori dettagli su come creare ed implementare i criteri con Criteri di Azure.
 
@@ -35,7 +34,7 @@ Criteri di Azure dispone di diverse autorizzazioni, note come operazioni, in due
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse (anteprima)** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. Sia il ruolo **Collaboratore** che il ruolo **Lettore** possono eseguire tutte le operazioni di lettura di Criteri di Azure, ma **Collaboratore** può anche attivare la correzione.
+Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. Sia il ruolo **Collaboratore** che il ruolo **Lettore** possono eseguire tutte le operazioni di lettura di Criteri di Azure, ma **Collaboratore** può anche attivare la correzione.
 
 Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
@@ -81,6 +80,9 @@ Per altre informazioni sui parametri dei criteri, vedere [Struttura definizioni 
 
 Una definizione di iniziativa è una raccolta di definizioni di criteri ottimizzate per il raggiungimento di un singolo obiettivo globale. Le definizioni di iniziativa semplificano la gestione e l'assegnazione delle definizioni di criteri, in quanto raggruppano un set di criteri in un unico elemento. Ad esempio, è possibile creare un'iniziativa denominata **Abilita monitoraggio nel Centro sicurezza di Azure** con l'obiettivo di monitorare tutte le raccomandazioni sulla sicurezza disponibili nel Centro sicurezza di Azure.
 
+> [!NOTE]
+> L'SDK, ad esempio l'interfaccia della riga di comando di Azure e Azure PowerShell, usa proprietà e parametri denominati **PolicySet** per fare riferimento alle iniziative.
+
 In questa iniziativa saranno incluse definizioni di criteri come le seguenti:
 
 - **Monitora database SQL non crittografato nel Centro sicurezza**, per il monitoraggio dei server e dei database SQL non crittografati.
@@ -125,11 +127,12 @@ Ecco alcuni consigli e suggerimenti da tenere presenti:
 - Tenere presente le gerarchie organizzative quando si creano definizioni e assegnazioni. È consigliabile creare definizioni a livelli più generici, ad esempio il gruppo di gestione o a livello di sottoscrizione. Quindi, creare l'assegnazione al livello figlio successivo. Se si crea una definizione in un gruppo di gestione, l'assegnazione può essere limitata a una sottoscrizione o un gruppo di risorse all'interno di tale gruppo.
 
 - È consigliabile creare e assegnare definizioni di iniziativa anche se si definisce un singolo criterio.
-Ad esempio, si dispone della definizione del criterio *policyDefA* e la si crea nella definizione di iniziativa *initiativeDefC*. Se si crea un'altra definizione di criteri in un secondo momento per *policyDefB* con obiettivi simili a *policyDefA*, è possibile aggiungerla sotto *initiativeDefC* e tenerne traccia congiuntamente.
+  Ad esempio, si dispone della definizione del criterio *policyDefA* e la si crea nella definizione di iniziativa *initiativeDefC*. Se si crea un'altra definizione di criteri in un secondo momento per *policyDefB* con obiettivi simili a *policyDefA*, è possibile aggiungerla sotto *initiativeDefC* e tenerne traccia congiuntamente.
 
 - Dopo aver creato un'assegnazione di iniziativa, le definizioni di criteri aggiunte all'iniziativa diventano anch'esse parte di tale assegnazione.
 
-- Quando viene valutata un'assegnazione di iniziativa, vengono valutati anche tutti i criteri inclusi nell'iniziativa. Se è necessario convalidare i criteri singolarmente, è preferibile non includerli in un'iniziativa.
+- Quando viene valutata un'assegnazione di iniziativa, vengono valutati anche tutti i criteri inclusi nell'iniziativa.
+  Se è necessario convalidare i criteri singolarmente, è preferibile non includerli in un'iniziativa.
 
 ## <a name="video-overview"></a>Video introduttivo
 
@@ -141,8 +144,6 @@ La panoramica di Criteri di Azure riportata di seguito è tratta da Build 2018. 
 
 Di seguito sono riportati i passaggi successivi consigliati dopo questa panoramica di Criteri di Azure e di alcuni dei concetti chiave:
 
-- [Assegnare una definizione di criteri con il portale](assign-policy-portal.md).
-- [Assegnare una definizione di criteri con l'interfaccia della riga di comando di Azure](assign-policy-azurecli.md).
-- [Assegnare una definizione di criteri con PowerShell](assign-policy-powershell.md).
-- Rivedere le caratteristiche di un gruppo di gestione illustrate in [Organizzare le risorse con i gruppi di gestione di Azure](..//management-groups/overview.md).
-- Guardare il video [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Governance dell'ambiente di Azure tramite Criteri di Azure) su Channel 9.
+- [Assegnare una definizione di criteri con il portale](./assign-policy-portal.md).
+- [Assegnare una definizione di criteri con l'interfaccia della riga di comando di Azure](./assign-policy-azurecli.md).
+- [Assegnare una definizione di criteri con PowerShell](./assign-policy-powershell.md).

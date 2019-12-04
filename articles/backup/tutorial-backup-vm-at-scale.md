@@ -1,20 +1,15 @@
 ---
-title: Eseguire un backup delle macchine virtuali di Azure su larga scala
+title: 'Esercitazione: Eseguire un backup delle macchine virtuali di Azure su larga scala'
 description: Questa esercitazione illustra come creare un insieme di credenziali di Servizi di ripristino, definire un criterio di backup e contemporaneamente eseguire il backup di più macchine virtuali.
-keywords: backup di macchine virtuali; back up di macchine virtuali; back up di VM; backup di VM; backup di macchine virtuali di Azure; backup e ripristino di emergenza
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747025"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171842"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -37,7 +32,7 @@ L'insieme di credenziali dei Servizi di ripristino contiene i dati di backup e i
 
 1. Nel menu a sinistra selezionare **Tutti i servizi** e digitare *Servizi di ripristino* nell'elenco dei servizi. Durante la digitazione verrà filtrato l'elenco di risorse. Quando vengono visualizzati gli insiemi di credenziali dei servizi di ripristino nell'elenco, selezionarli per aprire il relativo menu.
 
-    ![Aprire il menu dell'insieme di credenziali dei Servizi di ripristino](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Aprire il menu dell'insieme di credenziali dei Servizi di ripristino](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. Nel menu **Insiemi di credenziali dei servizi di ripristino**, fare clic su **Aggiungi** per aprire il relativo menu.
 

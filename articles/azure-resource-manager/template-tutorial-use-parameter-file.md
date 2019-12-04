@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Usare un file di parametri per distribuire un modello di Azure Resource Manager'
+title: 'Esercitazione: Usare un file di parametri per distribuire il modello'
 description: Usare file di parametri che contengono i valori da usare per la distribuzione del modello di Azure Resource Manager.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b01e9ece2d194d76c7184a676f17d626c41a011
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177543"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405980"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Esercitazione: Usare file di parametri per distribuire il modello di Azure Resource Manager
 
@@ -25,7 +22,7 @@ Questa esercitazione illustra come usare i [file di parametri](resource-manager-
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Il modello include numerosi parametri che è possibile specificare durante la distribuzione. Al termine dell'esercitazione precedente, il modello era simile al seguente:
 
@@ -49,7 +46,7 @@ Creare un nuovo file con il contenuto seguente. Salvare il file con il nome **az
 
 Questo è il file di parametri per l'ambiente di produzione. Si noti che usa Standard_GRS come account di archiviazione, aggiunge il prefisso **contoso** alle risorse e imposta il tag **Environment** su **Production**. In un ambiente di produzione reale si vuole anche usare un servizio app con uno SKU diverso da quello gratuito, ma per questa esercitazione si continuerà a usare lo SKU gratuito.
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-template"></a>Distribuire il modello
 
 Per distribuire il modello, usare l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
@@ -119,7 +116,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificare la distribuzione
+## <a name="verify-deployment"></a>Verificare la distribuzione
 
 Per verificare la distribuzione, esplorare i gruppi di risorse nel portale di Azure.
 

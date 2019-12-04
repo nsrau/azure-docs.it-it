@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669429"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278551"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Guida introduttiva: Distribuire un'app nel portale LUIS
 
@@ -29,6 +29,7 @@ In questo argomento di avvio rapido viene illustrato come distribuire un'applica
 
 * Ottenere una [sottoscrizione di Azure](https://azure.microsoft.com/free).
 * Completare il precedente [argomento di avvio rapido sul portale](get-started-portal-build-app.md) oppure [scaricare e importare l'app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Se si hanno app che precedono l'autenticazione delle risorse di Azure, [eseguire la migrazione a una risorsa di Azure](luis-migration-authoring.md). Alcune pagine del portale hanno un aspetto diverso quando è attiva l'autenticazione della posta elettronica.
 
 ## <a name="create-the-endpoint-resource"></a>Creare la risorsa endpoint
 
@@ -60,7 +61,7 @@ La risorsa endpoint di stima viene creata nel portale di Azure. Dovrà essere us
 
 Ogni volta che si crea una nuova risorsa per LUIS, è necessario assegnarla all'app LUIS. Dopo l'assegnazione, non sarà più necessario eseguire questo passaggio a meno che non venga creata una nuova risorsa. Si potrebbe creare una nuova risorsa per espandere le aree dell'app oppure per supportare un numero più elevato di query di stima.
 
-1. Accedere al [portale LUIS](https://www.luis.ai) e scegliere l'app **myEnglishApp** dall'elenco.
+1. Accedere al [portale LUIS](https://preview.luis.ai) e scegliere l'app **myEnglishApp** dall'elenco.
 
 1. Scegliere **Manage** (Gestisci) dal menu in alto a destra e quindi selezionare **Azure Resources** (Risorse di Azure).
 
@@ -86,7 +87,7 @@ Ogni volta che si crea una nuova risorsa per LUIS, è necessario assegnarla all'
 
 ## <a name="prediction-endpoint-request"></a>Richiesta dell'endpoint di previsione
 
-L'elemento `query=` alla fine dell'URL è il punto in cui l'espressione dell'utente viene aggiunta alla richiesta GET. Dopo `query=`, immettere la stessa espressione dell'utente usata alla fine del precedente argomento di avvio rapido:
+Nel portale di anteprima l'elemento `query=` alla fine dell'URL è il punto in cui l'espressione dell'utente viene aggiunta alla richiesta GET. Dopo `query=`, immettere la stessa espressione dell'utente usata alla fine del precedente argomento di avvio rapido:
 
 ```Is there a form named hrf-234098```
 

@@ -1,22 +1,18 @@
 ---
-title: Esecuzione di più servizi dipendenti con .NET Core e VS Code
-titleSuffix: Azure Dev Spaces
+title: 'Esecuzione di più servizi dipendenti: .NET Core e Visual Studio Code'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 2a1e99ba1c19dfdcaaf1b6709e6d3976968cf623
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503099"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325675"
 ---
-# <a name="multi-service-development-with-azure-dev-spaces"></a>Sviluppo multiservizio con Azure Dev Spaces
+# <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Esecuzione di più servizi dipendenti: .NET Core e Visual Studio Code con Azure Dev Spaces
 
 Questa esercitazione illustra lo sviluppo di applicazioni multiservizio con Azure Dev Spaces, insieme ad alcuni vantaggi aggiuntivi offerti da Dev Spaces.
 
@@ -33,7 +29,7 @@ Per motivi di tempo, scarichiamo il codice di esempio da un repository GitHub. P
 1. Aprire la cartella `mywebapi` in una *finestra di VS Code separata*.
 1. Aprire il **riquadro comandi** (usando il menu **Visualizza | Riquadro comandi**) e usare il completamento automatico per digitare e selezionare questo comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Questo comando non deve essere confuso con il comando `azds prep` che configura il progetto per la distribuzione.
 1. Premere F5 e attendere la compilazione e la distribuzione del servizio. Il servizio è pronto quando l'*applicazione viene avviata. Premere CTRL+C per arrestare.* viene visualizzato un messaggio nella console di debug.
-1. L'URL dell'endpoint sarà simile a `http://localhost:<portnumber>`. **Suggerimento: la barra di stato di VS Code diventa arancione e visualizza un URL selezionabile.** Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure. Il motivo dell'indirizzo localhost è che `mywebapi` non ha definito alcun endpoint pubblico ed è accessibile solo dall'interno dell'istanza di Kubernetes. Per praticità e per agevolare l'interazione con il servizio privato nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure.
+1. L'URL dell'endpoint sarà simile a `http://localhost:<portnumber>`. **Suggerimento: La barra di stato di VS Code diventa arancione e visualizza un URL selezionabile.** Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure. Il motivo dell'indirizzo localhost è che `mywebapi` non ha definito alcun endpoint pubblico ed è accessibile solo dall'interno dell'istanza di Kubernetes. Per praticità e per agevolare l'interazione con il servizio privato nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure.
 1. Quando `mywebapi` è pronto, aprire il browser all'indirizzo localhost. Aggiungere `/api/values` all'URL per richiamare l'API GET predefinito per `ValuesController`.
 1. Se tutte le operazioni hanno avuto esito positivo, si dovrebbe ricevere una risposta dal servizio `mywebapi`.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Esercitazione: Eseguire operazioni di estrazione, trasformazione e caricamento (ETL) con Apache Hive in Azure HDInsight'
+title: 'Esercitazione: Estrarre, trasformare e caricare dati con Azure HDInsight'
 description: In questa esercitazione si apprenderà come estrarre dati da un set di dati non elaborati in formato CSV, trasformarli usando Apache Hive in Azure HDInsight e quindi caricare i dati trasformati nel database SQL di Azure tramite Sqoop.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f58785b17a1e6236636744c32dac07a6c9ed138d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992242"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327565"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure HDInsight
 
 In questa esercitazione viene eseguita un'operazione ETL (Extract, Transform, Load), ossia estrazione, trasformazione e caricamento dei dati. Un file di dati non elaborati in formato CSV verrà importato in un cluster Azure HDInsight, trasformato con Apache Hive e caricato in un database SQL di Azure con Apache Sqoop.
 

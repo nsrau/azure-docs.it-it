@@ -1,14 +1,14 @@
 ---
-title: Esempio di progetto Carico di lavoro dell'ambiente del servizio app di Azure/SQL ISO 27001 - Procedura per la distribuzione
+title: Distribuire l'esempio di progetto Carico di lavoro dell'ambiente del servizio app/SQL ISO 27001
 description: Procedura per la distribuzione dell'esempio di progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 03/14/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: edcf9920f3a65c182240da735b1883b3d67da650
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3cf3c062b1e8b69a6a0b9eb585b30ce2d5c4acfb
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032147"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546759"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuire l'esempio di progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 

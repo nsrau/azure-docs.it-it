@@ -1,18 +1,14 @@
 ---
-title: Eseguire il backup di condivisioni file di File di Azure con il servizio Backup di Azure
+title: 'Esercitazione: Eseguire il backup di condivisioni file di Azure'
 description: Questa esercitazione illustra come usare il portale di Azure per configurare un insieme di credenziali di Servizi di ripristino ed eseguire il backup di condivisioni file di Azure.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747058"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171859"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Eseguire il backup di condivisioni file di Azure nel portale di Azure
 

@@ -1,24 +1,16 @@
 ---
-title: Proteggere gli artefatti - Modelli di Azure Resource Manager
+title: Proteggere gli artefatti nei modelli
 description: Informazioni su come proteggere gli elementi usati nei modelli di Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d9570c30e2870a136bd97ed5fc2304d6f0d280c9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: b37f7e284b655a362c5a4231a7c1da3719762644
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528284"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326432"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Esercitazione: Proteggere gli elementi nelle distribuzioni di modelli di Azure Resource Manager
 
@@ -41,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Azure Resource Manager. Visualizzare [installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Rivedere [Esercitazione: Importare file BACPAC di SQL con modelli di Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). Il modello usato in questa esercitazione è quello sviluppata in tale esercitazione. In questo articolo viene fornito un collegamento di download del modello completato.
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore del server SQL. Di seguito è riportato un esempio della generazione di una password:
 

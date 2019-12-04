@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479602"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151247"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
 
@@ -23,36 +23,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
-
-1. Selezionare l'opzione **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure
-1. Nella casella di ricerca immettere **Key Vault**.
-1. Nell'elenco dei risultati scegliere **Key Vault**.
-1. Nella sezione Key Vault selezionare **Crea**.
-1. Nella schermata **Crea insieme di credenziali delle chiavi** scegliere un nome univoco per il nuovo insieme di credenziali delle chiavi.
-
-    > [!Important]
-    > Ogni insieme di credenziali delle chiavi deve avere un nome univoco. L'esempio seguente crea un insieme di credenziali delle chiavi denominato *myADEKV*, ma è necessario assegnare un nome diverso al proprio.
-
-1. Selezionare una **Sottoscrizione**.
-1.  In **Gruppo di risorse** selezionare **Crea nuovo**. Nella finestra popup digitare *myResourceGroup* come nome del gruppo di risorse e quindi scegliere **OK**. 
-
-    ![Schermata di creazione del gruppo di risorse](./media/disk-encryption/portal-qs-keyvaultcreation.png)
-
-1. Nel menu a discesa **Località** scegliere **Stati Uniti orientali**.
-1. Lasciare invariati i valori predefiniti delle altre opzioni.
-1. Selezionare "Criteri di accesso", che apre una nuova schermata.
-1. Selezionare la casella di controllo accanto a "Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi".
-
-    ![Schermata di creazione del gruppo di risorse](./media/disk-encryption/portal-qs-keyvault-enable-encryption.png)
-
-1. Nella parte inferiore della schermata Criteri di accesso fare clic su "Rivedi e crea".
-1. Dopo aver completato la revisione, fare clic su "Crea".
-
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 1. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
-
 1. Nella pagina Nuovo, in Più comuni, selezionare **Ubuntu Server 18.04 LTS**.
 1. Nella scheda **Informazioni di base**, in **Dettagli progetto**, verificare che sia selezionata la sottoscrizione corretta.
 1. Per **Gruppo di risorse** selezionare il gruppo di risorse creato in precedenza durante la creazione dell'insieme di credenziali delle chiavi, ad esempio **myResourceGroup**.
@@ -73,15 +46,24 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
 1. Sulla barra laterale sinistra selezionare **Dischi**.
 1. Nella schermata Dischi selezionare **Crittografia**. 
 
-    ![Selezione di dischi e crittografia](./media/disk-encryption/portal-qs-disks-to-encryption.png)
+    ![Selezione di dischi e crittografia](../media/disk-encryption/portal-qs-disks-to-encryption.png)
 
 1. Nella schermata Crittografia, in **Disks to encrypt** (Dischi da crittografare) scegliere **Dischi dati e sistema operativo**.
-1. In **Impostazioni di crittografia** fare clic su "Selezionare l'insieme di credenziali delle chiavi e la chiave per la crittografia".
-1. Sulla barra laterale destra selezionare il nome dell'insieme di credenziali delle chiavi creato in precedenza come valore per **Insieme di credenziali delle chiavi**, quindi fare clic su **Seleziona**.
+1. In **Impostazioni di crittografia** scegliere **Selezionare l'insieme di credenziali delle chiavi e la chiave per la crittografia**.
+1. Nella schermata **Selezionare chiave da Azure Key Vault** selezionare **Crea nuovo**.
 
-    ![Selezione di dischi e crittografia](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
-1. Nella parte superiore della schermata Crittografia fare clic su "Salva". Viene visualizzato un avviso popup che informa che la VM verrà riavviata. Fare clic su **Sì**.
+    ![Selezione di dischi e crittografia](../media/disk-encryption/portal-qs-keyvault-create.png)
 
+1. Nella schermata **Crea nuovo Key Vault** assicurarsi che il gruppo di risorse corrisponda a quello usato per creare la VM.
+1. Assegnare un nome all'insieme di credenziali delle chiavi.  Ogni insieme di credenziali delle chiavi in Azure deve avere un nome univoco.
+1. Nella scheda **Criteri di accesso** selezionare la casella **Crittografa dischi di Azure per la crittografia dei volumi**.
+
+    ![Selezione di dischi e crittografia](../media/disk-encryption/portal-qs-keyvault-enable.png)
+
+1. Selezionare **Rivedi e crea**.  
+1. Dopo che l'insieme di credenziali delle chiavi ha superato la convalida, selezionare **Crea**. Si tornerà nella schermata **Selezionare chiave da Azure Key Vault**.
+1. Lasciare vuoto il campo **Chiave** e scegliere **Seleziona**.
+1. Nella parte superiore della schermata Crittografia fare clic su **Salva**. Viene visualizzato un avviso popup che informa che la VM verrà riavviata. Fare clic su **Sì**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

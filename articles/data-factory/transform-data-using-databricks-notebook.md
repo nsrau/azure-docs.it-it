@@ -1,22 +1,22 @@
 ---
-title: Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
+title: Eseguire un notebook di Databricks con l'attività dei notebook di Databricks
 description: Informazioni su come usare l'attività dei notebook di Databricks in una data factory di Azure per eseguire un notebook di Databricks nel cluster dei processi Databricks.
 services: data-factory
-documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 03/12/2018
 ms.author: abnarain
+author: nabhishek
+manager: shwang
 ms.reviewer: douglasl
-ms.openlocfilehash: b6426017b7608742866cedb08b5ac9298400d433
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-lt-2019
+ms.date: 03/12/2018
+ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140897"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217870"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 

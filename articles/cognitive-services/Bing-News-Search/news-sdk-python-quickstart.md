@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Python"
+title: "Guida introduttiva: Eseguire una ricerca di notizie con l'SDK per Python - Ricerca notizie Bing"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per cercare notizie con l'SDK di Ricerca notizie Bing per Python ed elaborare la risposta.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 2f6185ca6c2ddd44be2c12a81cedf1adcc2e30cd
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 2f3d8c88e7949265f12405760acbccebb89d1df5
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339020"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379064"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Python
 

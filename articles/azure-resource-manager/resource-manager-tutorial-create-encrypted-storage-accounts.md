@@ -1,25 +1,17 @@
 ---
-title: Usare le informazioni di riferimento sui modelli di Azure Resource Manager | Microsoft Docs
+title: Utilizzare il riferimento del modello
 description: Usare le informazioni di riferimento sui modelli di Azure Resource Manager per la creazione di un modello di distribuzione di un account di archiviazione crittografato.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 81c02c5e39e23b49291561821b0732227feb5c05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 99ec64529b90c7a80aea62090f80c55cf4e23510
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103647"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326489"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Esercitazione: Usare le informazioni di riferimento sui modelli di Resource Manager
 
@@ -44,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
@@ -86,7 +78,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
     Se non si conosce la versione da scegliere, usare la versione più recente.
 
-4. Trovare le informazioni della definizione correlate alla crittografia.  
+4. Trovare le informazioni della definizione correlate alla crittografia.
 
     ```json
     "encryption": {

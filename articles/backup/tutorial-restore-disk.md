@@ -1,19 +1,15 @@
 ---
-title: Ripristinare il disco di una macchina virtuale con Backup di Azure
+title: 'Esercitazione: Ripristinare il disco di una macchina virtuale con Backup di Azure'
 description: Informazioni su come ripristinare un disco e creare un ripristino di una macchina virtuale in Azure con i servizi di backup e ripristino.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 4dcf1e8a0ba9fd7c1e8d02ee8c8307dc63d9e231
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9b2048d8683ba2dde00a874445eb936cfb775cf1
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074673"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171750"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Ripristinare un disco e creare una macchina virtuale ripristinata in Azure
 

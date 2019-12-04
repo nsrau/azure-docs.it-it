@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Aggiungere una variabile al modello di Azure Resource Manager'
+title: 'Esercitazione: Aggiungere una variabile al modello'
 description: Aggiungere variabili al modello di Azure Resource Manager per semplificare la sintassi.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001459"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406044"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Esercitazione: Aggiungere variabili al modello di Resource Manager
 
@@ -25,7 +22,7 @@ Questa esercitazione illustra come aggiungere una variabile al modello. Le varia
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
@@ -53,7 +50,7 @@ Il parametro **storagePrefix** consente di passare un prefisso per facilitare l'
 
 Si noti infine che il nome dell'account di archiviazione è ora impostato sulla variabile e non su un parametro.
 
-## <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-template"></a>Distribuire il modello
 
 A questo punto è possibile distribuire il modello. La distribuzione di questo modello è più semplice rispetto ai modelli precedenti perché viene specificato solo il prefisso del nome dell'account di archiviazione.
 
@@ -82,7 +79,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificare la distribuzione
+## <a name="verify-deployment"></a>Verificare la distribuzione
 
 Per verificare la distribuzione, esplorare il gruppo di risorse nel portale di Azure.
 

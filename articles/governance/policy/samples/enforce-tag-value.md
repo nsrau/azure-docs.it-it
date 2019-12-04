@@ -1,14 +1,14 @@
 ---
 title: Esempio - Imporre un tag e il relativo valore
-description: Questa definizione di criteri di esempio richiede un nome e un valore di tag, ognuno impostato come parametro.
+description: Questa definizione di criteri di esempio richiede un nome e un valore di tag definiti in un parametro in ogni risorsa di Azure.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: b48bd1e38264bc98a2ec7b4c5b1a6a929babffaf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d405b5cbe2bdb7b96c74d665171714d1890ef624
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076259"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463328"
 ---
 # <a name="sample---enforce-tag-and-its-value"></a>Esempio - Imporre un tag e il relativo valore
 

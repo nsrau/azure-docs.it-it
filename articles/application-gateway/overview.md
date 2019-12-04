@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572041"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422303"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -26,6 +26,11 @@ Il gateway applicazione consente di prendere decisioni relative al routing basat
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
 Questo tipo di routing è detto bilanciamento del carico a livello di applicazione (OSI livello 7). Il gateway applicazione di Azure può eseguire il routing basato su URL e molto altro.
+
+>[!NOTE]
+> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Se è necessario un bilanciamento del carico di livello 4 a elevate prestazioni e bassa latenza, vedere [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md). Per il bilanciamento del carico DNS globale, vedere [Informazioni su Gestione traffico](../traffic-manager/traffic-manager-overview.md). Gli scenari end-to-end possono trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
+>
+> Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Il gateway applicazione di Azure offre le funzionalità seguenti:
 

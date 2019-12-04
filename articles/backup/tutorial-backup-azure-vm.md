@@ -1,19 +1,15 @@
 ---
-title: Eseguire il backup di più macchine virtuali di Azure con PowerShell
+title: 'Esercitazione: Eseguire il backup di più macchine virtuali di Azure con PowerShell'
 description: Questa esercitazione descrive in dettaglio l'esecuzione di backup di più macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino con Azure PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: c290e44d8bfecfbf57be8f8e1c596a294f077229
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074702"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171789"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Eseguire il backup di macchine virtuali di Azure con PowerShell
 

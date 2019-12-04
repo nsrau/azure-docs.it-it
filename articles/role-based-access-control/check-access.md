@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Visualizzare l'accesso di un utente alle risorse di Azure | Microsoft Docs
-description: Informazioni su come visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure.
+title: "Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure"
+description: Questo argomento di avvio rapido illustra come visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337946"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419609"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Avvio rapido: Visualizzare l'accesso di un utente alle risorse di Azure
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Guida introduttiva: Visualizzare l'accesso di un utente alle risorse di Azure
 
 È possibile usare il pannello **Controllo di accesso (IAM)** in [Controllo degli accessi in base al ruolo](overview.md) per visualizzare l'accesso di un utente o di un'altra entità di sicurezza alle risorse di Azure. Tuttavia, a volte può essere necessario visualizzare rapidamente l'accesso di un singolo utente o di un'altra entità di sicurezza. Il modo più semplice per eseguire questa operazione è usare la funzionalità **Verifica l'accesso** nel portale di Azure.
 
@@ -33,7 +33,7 @@ ms.locfileid: "56337946"
 
 1. Fare clic sulla propria sottoscrizione.
 
-1. Fare clic su **Controllo di accesso (IAM)**.
+1. Fare clic su **Controllo di accesso (IAM)** .
 
 1. Fare clic sulla scheda **Verifica l'accesso**.
 

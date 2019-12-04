@@ -1,24 +1,16 @@
 ---
-title: Modello di Azure Resource Manager con risorse dipendenti
+title: Modello con risorse dipendenti
 description: Informazioni su come creare un modello di Azure Resource Manager con più risorse e come eseguirne la distribuzione tramite il portale di Azure
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0eb4b29ffb8ae0269dbc7efd7e9ef6b720188bce
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533494"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325381"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -41,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Azure Resource Manager.  Visualizzare [installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con l'estensione Strumenti di Resource Manager. Vedere [Usare Visual Studio Code per creare modelli di Azure Resource Manager](./resource-manager-tools-vs-code.md).
 * Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
 
     ```azurecli-interactive
@@ -92,7 +84,7 @@ Quando si esplora il modello in questa sezione, provare a rispondere alle domand
 3. Espandere la seconda risorsa. La risorsa è di tipo `Microsoft.Network/publicIPAddresses`. Confrontare la definizione della risorsa con le [informazioni di riferimento sui modelli](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Modelli di Azure Resource Manager in Visual Studio Code - definizione dell'indirizzo IP pubblico](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Espandere la quarta risorsa. La risorsa è di tipo `Microsoft.Network/networkInterfaces`:  
+4. Espandere la quarta risorsa. La risorsa è di tipo `Microsoft.Network/networkInterfaces`:
 
     ![Modelli di Azure Resource Manager in Visual Studio Code - dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -118,14 +110,14 @@ Specificando le dipendenze, Resource Manager distribuisce in modo efficiente la 
 
 Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazione si usa Cloud Shell dal portale di Azure.
 
-1. Accedere a [Cloud Shell](https://shell.azure.com). 
+1. Accedere a [Cloud Shell](https://shell.azure.com).
 2. Selezionare **PowerShell** nell'angolo superiore sinistro di Cloud Shell e quindi selezionare **Conferma**.  In questa esercitazione verrà usato PowerShell.
 3. Selezionare **Caricare file** da Cloud Shell:
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Selezionare il modello salvato in precedenza in questa esercitazione. Il nome predefinito è **azuredeploy.json**.  Se è presente un file con lo stesso nome, il file precedente viene sovrascritto senza alcuna notifica.
 
-    È possibile usare i comandi **ls $HOME** e **cat $HOME/azuredeploy.json** per verificare che il file sia stato caricato correttamente. 
+    È possibile usare i comandi **ls $HOME** e **cat $HOME/azuredeploy.json** per verificare che il file sia stato caricato correttamente.
 
 5. In Cloud Shell eseguire i comandi di PowerShell seguenti. Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
 

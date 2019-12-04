@@ -1,19 +1,16 @@
 ---
-title: 'Esercitazione: Aggiungere funzioni del modello al modello di Azure Resource Manager'
+title: 'Esercitazione: Aggiungere le funzioni del modello'
 description: Aggiungere funzioni del modello al modello di Azure Resource Manager per costruire valori.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca6e7f326ba67eac33e4dee5fa844d7676ab864b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 03a38178ec66c1c1a10934975d20778369d80dbe
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963658"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405968"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Esercitazione: Aggiungere funzioni del modello al modello di Azure Resource Manager
 
@@ -25,7 +22,7 @@ Questa esercitazione illustra come aggiungere [funzioni del modello](resource-gr
 
 È necessario avere Visual Studio Code con l'estensione Strumenti di Resource Manager e Azure PowerShell oppure l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere gli [strumenti per i modelli](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Esaminare il modello
+## <a name="review-template"></a>Rivedere il modello
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
@@ -73,7 +70,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Verificare la distribuzione
+## <a name="verify-deployment"></a>Verificare la distribuzione
 
 Per verificare la distribuzione, esplorare il gruppo di risorse nel portale di Azure.
 

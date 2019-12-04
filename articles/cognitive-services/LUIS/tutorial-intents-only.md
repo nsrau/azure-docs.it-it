@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822751"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325903"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Esercitazione: Creare un'app LUIS per determinare le intenzioni dell'utente
 
 In questa esercitazione viene creata un'app personalizzata che consente di prevedere l'intenzione dell'utente in base all'espressione (testo). 
 
@@ -58,7 +58,7 @@ Queste intenzioni sono suddivise in **Finalità**.
 
 ## <a name="create-a-new-intent"></a>Creare una nuova finalità 
 
-1. Nel [portale LUIS di anteprima](https://preview.luis.ai), all'interno della sezione **Build** (Compila) dell'app, selezionare **+ Create** (+ Crea). Immettere il nome della nuova finalità elencato di seguito, quindi selezionare **Done** (Fine).
+1. Nel portale all'interno della sezione **Build** (Compila) dell'app selezionare **+ Create** (+ Crea). Immettere il nome della nuova finalità `OrderPizza` e quindi selezionare **Done** (Fine).
 
     La finalità `OrderPizza` viene stimata quando: un utente vuole ordinare una pizza. 
 
@@ -122,7 +122,7 @@ Queste intenzioni sono suddivise in **Finalità**.
 
     Poiché il testo non corrisponde esattamente a un'espressione di esempio, si tratta di un ottimo test per verificare se LUIS è in grado di apprendere ciò che deve essere stimato con questa finalità.
 
-    L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. Questa espressione non è uguale a nessuna delle espressioni di esempio. Si tratta di un test valido che dovrebbe restituire la finalità `OrderPizza` come finalità con il punteggio più alto. 
+    L'ultimo parametro della stringa di query è `query`, la **query** dell'espressione. Questa espressione non è uguale a nessuna delle espressioni di esempio. Si tratta di un test valido che dovrebbe restituire la finalità `OrderPizza` come finalità con il punteggio più alto. 
 
     ```JSON
     {
@@ -148,7 +148,7 @@ Queste intenzioni sono suddivise in **Finalità**.
     }
     ```
 
-    La matrice delle entità è vuota perché questa app attualmente non dispone di entità. 
+    La matrice delle entità è vuota perché questa app attualmente non dispone di entità (unità di dati all'interno dell'espressione da estrarre). 
 
     Il risultato JSON identifica la finalità con il punteggio più alto come proprietà **`prediction.topIntent`** . Tutti i punteggi sono compresi tra 1 e 0, con il punteggio migliore prossimo a 1. 
 
@@ -205,4 +205,4 @@ Dopo che LUIS restituisce la risposta JSON, LUIS termina la richiesta. LUIS non 
 In questa esercitazione è stata creata un'app LUIS, sono state create le finalità, sono state aggiunte espressioni di esempio a ognuna delle finalità e alla finalità None (Nessuna) e sono stati eseguiti il training, la pubblicazione e il test a livello dell'endpoint. Questi sono i passaggi di base per la creazione di un modello LUIS. 
 
 > [!div class="nextstepaction"]
-> [Aggiungere finalità ed entità predefinite a questa app](tutorial-machine-learned-entity.md)
+> [Aggiungere un'entità scomponibile a questa app](tutorial-machine-learned-entity.md)

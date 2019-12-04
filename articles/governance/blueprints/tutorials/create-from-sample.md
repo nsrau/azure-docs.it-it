@@ -1,14 +1,14 @@
 ---
-title: Creare un ambiente da un esempio di progetto
-description: Usare un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
-ms.date: 03/05/2019
+title: 'Esercitazione: Esempio di progetto in un nuovo ambiente'
+description: In questa esercitazione si usa un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960278"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321729"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Esercitazione: Creare un ambiente da un esempio di progetto
 
@@ -183,9 +183,7 @@ Al termine dell'esercitazione, eliminare le risorse seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md)
-- Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md)
-- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](../concepts/resource-locking.md)
-- Imparare a personalizzare l'[ordine in sequenza del progetto](../concepts/sequencing-order.md)
-- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+In questa esercitazione si è appreso come creare un nuovo progetto da una definizione di esempio. Per altre informazioni su Azure Blueprints, passare all'articolo relativo al ciclo di vita di un progetto.
+
+> [!div class="nextstepaction"]
+> [Informazioni sul ciclo di vita di un progetto](../concepts/lifecycle.md)

@@ -1,27 +1,29 @@
 ---
-title: Creare un'assegnazione con un modello di Resource Manager
-description: Questo articolo illustra come usare un modello di Resource Manager per creare un'assegnazione di criteri per identificare le risorse non conformi.
-ms.date: 03/13/2019
+title: 'Guida introduttiva: Nuova assegnazione di criteri con i modelli'
+description: In questo argomento di avvio rapido viene usato un modello di Resource Manager per creare un'assegnazione di criteri per identificare le risorse non conformi.
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0695f0b5993f996ff35296be609d9978f57907f1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 61bffcdeb5d562fe18df98fda091d5d6aa4b4051
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960155"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482335"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi tramite un modello di Resource Manager
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti.
 
-Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi *non conformi* all'assegnazione di criteri.
+Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 
-In questo argomento di avvio rapido si crea un'assegnazione di criteri e si assegna una definizione di criteri predefinita denominata *Controlla macchine virtuali che non usano dischi gestiti*. Per un elenco parziale di tutti i criteri predefiniti disponibili, vedere [Esempi di Criteri di Azure](./samples/index.md).
+In questo argomento di avvio rapido si crea un'assegnazione di criteri e si assegna una definizione di criteri predefinita denominata _Controlla macchine virtuali che non usano dischi gestiti_. Per un elenco parziale di tutti i criteri predefiniti disponibili, vedere [Esempi di Criteri di Azure](./samples/index.md).
 
 Esistono diversi modi per creare assegnazioni di criteri. In questo argomento di avvio rapido si usa un [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Di seguito è riportata una copia del modello:
@@ -29,7 +31,7 @@ Di seguito è riportata una copia del modello:
 [!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
-> Il servizio Criteri di Azure è gratuito.  Per altre informazioni, vedere [Panoramica di Criteri di Azure](./overview.md).
+> Il servizio Criteri di Azure è gratuito. Per altre informazioni, vedere [Panoramica di Criteri di Azure](./overview.md).
 
 1. Fare clic sull'immagine seguente per accedere al portale di Azure e aprire il modello:
 
@@ -40,7 +42,7 @@ Di seguito è riportata una copia del modello:
    | NOME | Valore |
    |------|-------|
    | Subscription | Selezionare la sottoscrizione di Azure. |
-   | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è *mypolicyquickstart\<Data in MMGG>rg*. |
+   | Resource group | Selezionare **Crea nuovo**, specificare un nome e quindi fare clic su **OK**. Nello screenshot il nome del gruppo di risorse è _mypolicyquickstart\<Data in MMGG\>rg_. |
    | Location | Scegliere un'area, Ad esempio **Stati Uniti centrali**. |
    | Nome assegnazione criteri | Specificare un nome per l'assegnazione di criteri. È anche possibile usare il nome visualizzato della definizione dei criteri, ad esempio **Controlla macchine virtuali che non usano dischi gestiti**. |
    | Nome gruppo di risorse | Specificare il nome di un gruppo di risorse a cui si vogliono assegnare i criteri. In questo argomento di avvio rapido usare il valore predefinito **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** è una funzione di modello che recupera il gruppo di risorse. |
@@ -53,7 +55,7 @@ Alcune risorse aggiuntive:
 
 - Per altri modelli di esempio, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Per informazioni di riferimento sul modello, vedere [Informazioni di riferimento sui modelli di Azure](/azure/templates/microsoft.authorization/allversions).
-- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](/azure/azure-resource-manager/).
+- Per informazioni su come sviluppare modelli di Resource Manager, vedere [Documentazione di Resource Manager in Azure](../../azure-resource-manager/resource-group-overview.md).
 - Per informazioni sulla distribuzione a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](../../azure-resource-manager/deploy-to-subscription.md).
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi

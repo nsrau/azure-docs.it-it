@@ -1,20 +1,15 @@
 ---
-title: 'Esercitazione: Velocizzare la creazione di immagini di contenitori - Attività del Registro Azure Container'
+title: 'Esercitazione: Creazione rapida di immagini di contenitori'
 description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con Attività del Registro Azure Container e quindi distribuire tale immagine in Istanze di Azure Container.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0b62ef1fa05138b1d5c0a3aacb570f5d577176fe
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931389"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456060"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 

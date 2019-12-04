@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C"
-description: Eseguire un'applicazione desktop WPF di esempio che usa Azure Active Directory B2C per fornire l'accesso all'account.
+description: In questo Avvio rapido eseguire un'applicazione desktop WPF di esempio che usa Azure Active Directory B2C per consentire l'accesso all'account.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e11fd2c8ff250ff505f312507a577d67ff9c1454
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ed92605c7fb74186ddde6ff193a1365146494594
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065833"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420234"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app desktop tramite Azure Active Directory B2C
 

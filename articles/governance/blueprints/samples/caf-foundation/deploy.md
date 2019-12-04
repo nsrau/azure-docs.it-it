@@ -1,14 +1,14 @@
 ---
-title: Esempio di progetto per le proprietà di base di Cloud Adoption Framework - Procedura di distribuzione
+title: Distribuire l'esempio di progetto CAF Foundation
 description: Procedura di distribuzione per l'esempio di progetto CAF Foundation, inclusi i dettagli dei parametri dell'artefatto del progetto.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: afb7b19a2e5ad1f1b115526ac85d63a724101f9b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: df17f8c3f539e25635ea4718be9d51d5e5e3f708
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128711"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545527"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Distribuire il progetto di esempio per le proprietà di base di Microsoft Cloud Adoption Framework per Azure
 

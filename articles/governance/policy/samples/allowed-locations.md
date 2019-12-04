@@ -1,14 +1,14 @@
 ---
 title: Esempio - Posizioni consentite
-description: Questa definizione di criteri di esempio richiede che tutte le risorse vengano distribuite nelle località approvate.
+description: Questa definizione di criteri di esempio richiede che tutte le risorse vengano distribuite nelle località approvate definite in un parametro.
 ms.date: 01/26/2019
 ms.topic: sample
-ms.openlocfilehash: 7561e57a00f440e50701fa75bd54676ad014e1d5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7620055c82a49c1e805da69205d14c5f0a925e8c
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071927"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463717"
 ---
 # <a name="sample---allowed-region-locations"></a>Esempio - Località consentite
 

@@ -1,21 +1,20 @@
 ---
-title: 'Guida introduttiva: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Node.js'
-description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Node.js Service SDK. Questa guida introduttiva usa registrazioni singole.
+title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Node.js
+description: 'Avvio rapido: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Node.js Service SDK. Questa guida introduttiva usa registrazioni singole.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 02d5ec3b7ddd960e15b75fd3aa6691a187b5911a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 890ad28d99bfc53fa8a3fb40caf0469b31aeee61
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903476"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422956"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Node.js Service SDK
 
@@ -28,7 +27,7 @@ Questi passaggi illustrano come creare una registrazione singola a livello di co
 
 - Assicurarsi di completare la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 -  Verificare che [Node.js v4.0 o versione successiva](https://nodejs.org) sia installato nel computer.
-- Se si vuole registrare un dispositivo simulato al termine di questa guida introduttiva, seguire la procedura descritta in [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) fino al passaggio in cui si ottiene una chiave di verifica dell'autenticità per il dispositivo. Annotare la chiave di verifica dell'autenticità perché sarà necessaria più avanti in questa guida introduttiva. **Non seguire i passaggi per la creazione di una registrazione singola nel portale di Azure.**
+- Se si vuole registrare un dispositivo simulato al termine di questo argomento di avvio rapido, seguire la procedura descritta in [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) fino al passaggio in cui si ottiene una chiave di verifica dell'autenticità per il dispositivo. Annotare la chiave di verifica dell'autenticità perché sarà necessaria più avanti in questo argomento di avvio rapido. **Non seguire i passaggi per la creazione di una registrazione singola nel portale di Azure.**
  
 ## <a name="create-the-individual-enrollment-sample"></a>Creare l'esempio di registrazione singola 
 
@@ -71,8 +70,8 @@ Questi passaggi illustrano come creare una registrazione singola a livello di co
 ## <a name="run-the-individual-enrollment-sample"></a>Eseguire l'esempio di registrazione singola
   
 1. Per eseguire l'esempio è necessaria la stringa di connessione del servizio di provisioning. 
-    1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. 
-    2. Fare clic su **Criteri di accesso condivisi** e quindi sui criteri di accesso da usare per aprirne le proprietà. Nella finestra **Criteri di accesso** copiare e annotare la stringa di connessione della chiave primaria. 
+    1. Accedere al portale di Azure, selezionare il pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning. 
+    2. Selezionare **Criteri di accesso condiviso** e quindi selezionare i criteri di accesso da usare per aprirne le proprietà. Nella finestra **Criteri di accesso** copiare e annotare la stringa di connessione della chiave primaria. 
 
        ![Ottenere la stringa di connessione del servizio di provisioning dal portale](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
@@ -93,21 +92,21 @@ Questi passaggi illustrano come creare una registrazione singola a livello di co
 
     ![Proprietà delle registrazioni nell'output del comando](./media/quick-enroll-device-tpm-node/output.png) 
 
-4. Verificare che la registrazione singola sia stata creata. Nel portale di Azure, nel pannello di riepilogo del servizio Device Provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Registrazioni singole** e fare clic sulla nuova voce di registrazione (la *prima*) per esaminare la chiave di verifica dell'autenticità e altre proprietà della voce.
+4. Verificare che la registrazione singola sia stata creata. Nel portale di Azure, nel pannello di riepilogo del servizio Device Provisioning selezionare **Gestisci registrazioni**. Selezionare la scheda **Registrazioni singole** e selezionare la nuova voce di registrazione (la *prima*) per esaminare la chiave di verifica dell'autenticità e altre proprietà della voce.
 
     ![Proprietà delle registrazioni nel portale](./media/quick-enroll-device-tpm-node/verify-enrollment-portal.png) 
  
-Ora che è stata creata una registrazione singola per un dispositivo TPM, è possibile proseguire con i passaggi rimanenti di [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) se si vuole registrare un dispositivo simulato. Omettere i passaggi per la creazione di una registrazione singola nel portale di Azure descritti in quella guida introduttiva.
+Ora che è stata creata una registrazione singola per un dispositivo TPM, è possibile proseguire con i passaggi rimanenti di [Creare ed effettuare il provisioning di un dispositivo simulato](quick-create-simulated-device.md) se si vuole registrare un dispositivo simulato. Omettere i passaggi per la creazione di una registrazione singola nel portale di Azure descritti in tale argomento di avvio rapido.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se si prevede di esplorare gli esempi di servizio Node.js, non eliminare le risorse create in questa guida introduttiva. Se non si prevede di continuare, usare i passaggi seguenti per eliminare tutte le risorse create da questa guida introduttiva.
+Se si prevede di esplorare gli esempi di servizio Node.js, non eseguire la pulizia delle risorse create in questa guida di avvio rapido. Se non si intende continuare, seguire questa procedura per eliminare tutte le risorse create in questa guida.
 
 1. Chiudere la finestra di output di esempio di Node.js nel computer.
 1. Se è stato creato un dispositivo TPM simulato, chiudere la finestra del simulatore TPM.
-2. Passare al servizio Device Provisioning nel portale di Azure, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**. Selezionare l'*ID registrazione* della voce di registrazione creata usando questa guida introduttiva e fare clic sul pulsante **Elimina** nella parte superiore del pannello. 
+2. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro. 
  
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva è stata creata a livello di codice una voce di registrazione singola per un dispositivo TPM e, facoltativamente, è stato creato un dispositivo TPM simulato nel computer e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
+In questa guida di avvio rapido si è creata a livello di codice una voce di registrazione singola per un dispositivo TPM e, facoltativamente, è stato creato un dispositivo simulato TPM nel computer e ne è stato effettuato il provisioning nell'hub IoT usando il servizio Device Provisioning in hub IoT di Azure. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials (Esercitazioni sul servizio Device Provisioning in hub IoT di Azure)](./tutorial-set-up-cloud.md)

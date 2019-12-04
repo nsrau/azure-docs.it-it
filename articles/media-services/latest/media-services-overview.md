@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 61ffd4857ca9a330a4cb0eeace89791fc0973f70
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575101"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186066"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -54,6 +54,10 @@ Informazioni su come codificare e creare pacchetti del contenuto, trasmettere vi
 > [!TIP]
 > Prima di iniziare lo sviluppo, esaminare:<br/>* [Concetti fondamentali](concepts-overview.md) (sono inclusi concetti importanti, ad esempio la creazione di pacchetti, la codifica e la protezione)<br/>* [Sviluppo con le API Servizi multimediali v3](media-services-apis-overview.md) (sono incluse informazioni sull'accesso alle API, sulle convenzioni di denominazione e così via)
 
+### <a name="sdks"></a>SDK
+
+Iniziare a sviluppare con gli [SDK client di Servizi multimediali di Azure v3](media-services-apis-overview.md#sdks).
+
 ### <a name="quickstarts"></a>Guide introduttive  
 
 Questi argomenti di avvio rapido Illustrano le istruzioni fondamentali di base per i nuovi clienti che vogliono provare rapidamente Servizi multimediali.
@@ -76,7 +80,7 @@ Queste esercitazioni illustrano le procedure basate su scenari per alcune delle 
 
 Usare [Esplora gli esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-media-services) per esplorare gli esempi di codice di Servizi multimediali di Azure.
 
-### <a name="how-to-guides"></a>Guide pratiche
+### <a name="how-to-guides"></a>Guide alle procedure
 
 Le guide pratiche contengono esempi di codice che illustrano come completare un'attività. In questa sezione sono disponibili molti esempi. Alcuni esempi sono i seguenti:
 

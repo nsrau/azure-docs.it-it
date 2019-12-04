@@ -1,14 +1,14 @@
 ---
-title: Gestire la governance dei tag
-description: Usare l'effetto Modify di Criteri di Azure per creare e applicare un modello di governance dei tag alle risorse nuove ed esistenti.
-ms.date: 11/04/2019
+title: 'Esercitazione: Gestire la governance dei tag'
+description: In questa esercitazione si usa l'effetto Modify di Criteri di Azure per creare e applicare un modello di governance dei tag alle risorse nuove ed esistenti.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069666"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482254"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
 
@@ -21,7 +21,16 @@ L'effetto [Modify](../concepts/effects.md#modify) di Criteri di Azure è progett
 - Sono già presenti migliaia di risorse che non dispongono di governance dei tag
 - È presente una tassonomia esistente che è necessario modificare
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+In questa esercitazione verranno completate le attività seguenti:
+
+> [!div class="checklist"]
+> - Identificare i requisiti aziendali
+> - Abbinare ogni requisito a una definizione dei criteri
+> - Raggruppare i criteri di tag in un'iniziativa
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare l'esercitazione, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="identify-requirements"></a>Identificare i requisiti
 
@@ -184,6 +193,16 @@ Questa regola dei criteri cerca le risorse che non hanno i propri valori dei gru
 Dopo aver creato i criteri di tag precedenti, è necessario aggiungerli a un'unica iniziativa per la governance dei tag e assegnarli a un gruppo di gestione o a una sottoscrizione. L'iniziativa e i criteri inclusi valutano la conformità delle risorse esistenti e modificano le richieste per le risorse nuove o aggiornate che corrispondono alla proprietà **if** nella regola dei criteri. Tuttavia, il criterio non aggiorna automaticamente le risorse non conformi esistenti con le modifiche ai tag definiti.
 
 Analogamente ai criteri di [deployIfNotExists](../concepts/effects.md#deployifnotexists), il criterio **Modify** usa le attività di correzione per modificare le risorse non conformi esistenti. Seguire le istruzioni riportate in [Correggere le risorse non conformi con Criteri di Azure](../how-to/remediate-resources.md) per identificare le risorse non conformi a **Modify** e correggere i tag secondo la tassonomia definita.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se le risorse di questa esercitazione non sono più necessarie, usare i passaggi seguenti per eliminare tutte le assegnazioni o definizioni create:
+
+1. Selezionare **Definizioni** (o **Assegnazioni** se si sta tentando di eliminare un'assegnazione) in **Creazione** sul lato sinistro della pagina Criteri di Azure.
+
+1. Cercare la nuova iniziativa o definizione (o assegnazione) di criteri da rimuovere.
+
+1. Fare clic con il pulsante destro del mouse sulla riga o selezionare i puntini di sospensione alla fine della definizione (o assegnazione) e quindi **Elimina definizione** o **Elimina assegnazione**.
 
 ## <a name="review"></a>Revisione
 

@@ -1,8 +1,6 @@
 ---
-title: Creare uno spazio di sviluppo Kubernetes nel cloud usando Java e VS Code
-titleSuffix: Azure Dev Spaces
+title: 'Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e Java'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
@@ -10,14 +8,14 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: ec1c2b385797b1219814e584a9db7da82d111e2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704100"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325837"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-java"></a>Guida introduttiva ad Azure Dev Spaces con Java
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e Java con Azure Dev Spaces
 
 In questa guida si apprenderà come:
 
@@ -143,10 +141,10 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 
 Identificare l'URL pubblico per il servizio nell'output dal comando `up`. Termina in `.azds.io`. Nell'esempio precedente l'URL pubblico è `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Per visualizzare l'app web, aprire l'URL pubblico in un browser. Si noti inoltre che l'output `stdout` e `stderr` viene trasmesso alla finestra del terminale *azds trace* quando l'utente interagisce con l'app web. È anche possibile visualizzare le informazioni di monitoraggio per le richieste HTTP eseguite nel sistema. Ciò rende più semplice il monitoraggio delle chiamate multiservizio complesse durante lo sviluppo. La strumentazione aggiunta da Dev Spaces offre questo monitoraggio delle richieste.
+Per visualizzare l'app Web, aprire l'URL pubblico in un browser. Si noti anche che l'output `stdout` e `stderr` viene trasmesso alla finestra del terminale *azds trace* durante l'interazione con l'app Web. Vengono anche visualizzate le informazioni di monitoraggio per le richieste HTTP che passano attraverso il sistema. Ciò rende più semplice il monitoraggio delle chiamate multiservizio complesse durante lo sviluppo. La strumentazione aggiunta da Dev Spaces consente tale monitoraggio delle richieste.
 
 > [!Note]
-> Oltre all'URL pubblico, è possibile usare l'URL alternativo `http://localhost:<portnumber>` visualizzato nell'output della console. Se si usa l'URL localhost, potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in servizio Azure Kubernetes. Azure Dev Spaces usa la funzionalità *port-forward* di Kubernetes per eseguire il mapping della porta localhost per il contenitore in esecuzione nel servizio Azure Kubernetes. Questa operazione facilita l'interazione con il servizio dal computer locale.
+> Oltre all'URL pubblico, è possibile usare l'URL alternativo `http://localhost:<portnumber>` visualizzato nell'output della console. Se si usa l'URL localhost, potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in servizio Azure Kubernetes. Azure Dev Spaces usa la funzionalità *port-forward* di Kubernetes per eseguire il mapping della porta localhost al contenitore in esecuzione nel servizio Azure Kubernetes. Ciò facilita l'interazione con il servizio dal computer locale.
 
 ### <a name="update-a-content-file"></a>Aggiornare un file di contenuto
 Azure Dev Spaces consente non solo di eseguire codice in Kubernetes, ma anche di visualizzare in modo rapido e iterativo l'applicazione delle modifiche apportate al codice in un ambiente Kubernetes nel cloud.

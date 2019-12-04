@@ -1,32 +1,26 @@
 ---
-title: Creare un progetto con PowerShell
-description: Usare Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
-ms.date: 08/21/2019
+title: 'Guida introduttiva: Creare un progetto con PowerShell'
+description: In questo argomento di avvio rapido viene usato Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960433"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327473"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Guida introduttiva: Definire e assegnare un progetto Azure Blueprint con PowerShell
 
 Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
-> [!div class="checklist"]
-> - Creare un nuovo progetto e aggiungere diversi elementi supportati
-> - Apportare modifiche a un progetto esistente ancora in fase di **bozza**
-> - Contrassegnare un progetto come pronto per l'assegnazione con stato **Pubblicato**
-> - Assegnare un progetto a una sottoscrizione esistente
-> - Controllare lo stato e l'avanzamento di un progetto assegnato
-> - Rimuovere un progetto assegnato a una sottoscrizione
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
-
 Se il modulo **Az.Blueprint** non è già installato, seguire le istruzioni contenute in [Aggiungere il modulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) per installarlo e convalidarlo da PowerShell Gallery.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-blueprint"></a>Creare un progetto
 
@@ -397,9 +391,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md).
-- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./concepts/sequencing-order.md).
-- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md).
-- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md).
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md).
+In questo argomento di avvio rapido si è creato, assegnato e rimosso un progetto con PowerShell. Per altre informazioni su Azure Blueprints, passare all'articolo relativo al ciclo di vita di un progetto.
+
+> [!div class="nextstepaction"]
+> [Informazioni sul ciclo di vita di un progetto](./concepts/lifecycle.md)

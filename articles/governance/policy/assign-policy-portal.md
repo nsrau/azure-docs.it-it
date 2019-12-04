@@ -1,27 +1,29 @@
 ---
-title: Creare criteri per controllare le risorse con il portale
-description: Questo articolo illustra i passaggi per creare una definizione dei criteri per identificare le risorse non conformi.
-ms.date: 12/06/2018
+title: 'Guida introduttiva: Nuova assegnazione di criteri con il portale'
+description: In questo argomento di avvio rapido viene usato il portale di Azure per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef89ea43ff3179877c0ac636083ed68946b6cc91
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: ac876b546ea3bda7541db61e0ab68842a3845541
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128905"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482293"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti.
 
-Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi *non conformi* all'assegnazione di criteri.
+Alla fine di questo processo, verranno identificate le macchine virtuali che non usano dischi gestiti e che sono quindi _non conformi_ all'assegnazione di criteri.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 
-In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la definizione di criteri *Audit VMs that do not use managed disks* (Controllare le macchine virtuali che non usano i dischi gestiti).
+In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la definizione di criteri _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano i dischi gestiti).
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
@@ -49,11 +51,11 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 
    Per un elenco parziale di tutti i criteri predefiniti disponibili, vedere [Esempi di Criteri di Azure](./samples/index.md).
 
-1. Cercare nell'elenco di definizioni per trovare la definizione *Audit VMs that do not use managed disks* (Controllare le macchine virtuali che non usano Managed Disks). Fare clic su tale criterio e fare clic su **Select** (Seleziona).
+1. Cercare nell'elenco di definizioni per trovare la definizione _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks). Fare clic su tale criterio e fare clic su **Select** (Seleziona).
 
    ![Trovare la definizione di criteri corretta](./media/assign-policy-portal/select-available-definition.png)
 
-1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. In questo caso, lasciare *Audit VMs that do not use managed disks* (Controllare le macchine virtuali che non usano Managed Disks). È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.
+1. Il valore di **Nome dell'assegnazione** viene popolato automaticamente con il nome dei criteri selezionato, che è possibile modificare. In questo caso, lasciare _Audit VMs that do not use managed disks_ (Controllare le macchine virtuali che non usano Managed Disks). È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su questa assegnazione dei criteri.
    Il campo **Assegnato da** verrà compilato automaticamente in base all'utente che ha eseguito l'accesso. Questo campo è facoltativo, quindi è possibile inserire valori personalizzati.
 
 1. Lasciare l'opzione **Crea un'identità gestita** deselezionata. Questa casella _deve_ essere selezionata quando il criterio o l'iniziativa include un criterio con l'effetto [deployIfNotExists](./concepts/effects.md#deployifnotexists). Dal momento che il criterio usato per questa guida introduttiva non lo include, lasciare il campo vuoto. Per altre informazioni, vedere le [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](./how-to/remediate-resources.md#how-remediation-security-works).
@@ -88,7 +90,7 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 1. Selezionare **Conformità** (o **Assegnazioni**) a sinistra della pagina Criteri di Azure e individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-1. Fare clic con il pulsante destro del mouse sull'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) e scegliere **Elimina assegnazione**
+1. Fare clic con il pulsante destro del mouse sull'assegnazione di criteri **Controlla macchine virtuali che non usano dischi gestiti** e scegliere **Elimina assegnazione**.
 
    ![Eliminare un'assegnazione dalla pagina Conformità](./media/assign-policy-portal/delete-assignment.png)
 

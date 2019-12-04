@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594069"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278156"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare le regole di memorizzazione nella cache della rete CDN di Azure
 
 > [!NOTE] 
-> Le regole di memorizzazione nella cache della rete CDN di Azure sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per la **rete CDN Premium di Azure con tecnologia Verizon** usare il [motore delle regole della rete CDN di Azure](cdn-rules-engine.md) nel portale a cui si accedere tramite il pulsante **Gestisci** per funzionalità analoghe.
+> Le regole di memorizzazione nella cache sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili della **rete CDN di Azure di Microsoft**, è necessario usare il [motore regole Standard](cdn-standard-rules-engine-reference.md). Per i profili della **rete CDN di Azure Premium di Verizon**, è necessario usare il [motore regole Verizon Premium](cdn-rules-engine.md) nel portale di **gestione** per funzionalità simili.
  
 
 Questa esercitazione descrive come è possibile usare le regole di memorizzazione nella cache della rete CDN di Azure o modificare il comportamento predefinito di scadenza della cache a livello globale e con condizioni personalizzate, ad esempio un percorso URL e le estensioni dei file. La rete CDN di Azure offre due tipi di regole di memorizzazione nella cache:

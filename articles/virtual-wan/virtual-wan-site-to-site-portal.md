@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 82f662dd00805cf53c0581fb0a2b3322a0207a11
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005719"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482144"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure
 
@@ -249,7 +249,7 @@ Se sono necessarie istruzioni per configurare il dispositivo, è possibile usare
 * Le istruzioni nella pagina dei dispositivi VPN non vengono scritte per la rete WAN virtuale, ma è possibile usare i valori della rete WAN virtuale dal file di configurazione per configurare manualmente il dispositivo VPN. 
 * Gli script di configurazione del dispositivo scaricabili per Gateway VPN non funzionano per la rete WAN virtuale, perché la configurazione è diversa.
 * Una nuova rete WAN virtuale può supportare IKEv1 e IKEv2.
-* La rete WAN virtuale può usare solo dispositivi VPN e istruzioni per il dispositivo basati su route.
+* La rete WAN virtuale può usare dispositivi VPN sia basati su criteri che basati su route e istruzioni per il dispositivo.
 
 ## <a name="viewwan"></a>Visualizzare la rete WAN virtuale
 

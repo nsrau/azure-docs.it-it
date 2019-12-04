@@ -1,20 +1,15 @@
 ---
-title: "Esercitazione: Distribuire un'app da Registro Azure Container con replica geografica"
+title: 'Esercitazione: Eseguire la distribuzione da un registro con replica geografica'
 description: Distribuire un'app Web basata su Linux a due diverse aree di Azure usando un'immagine del contenitore da un Registro Azure Container con replica geografica. Seconda parte di una serie in tre parti.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931406"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456096"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: Distribuire un'app Web da un Registro Azure Container con replica geografica
 
