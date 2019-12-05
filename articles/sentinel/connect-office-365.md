@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a38beb0700e470d325545a2523143ecdab9f6dfb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777418"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815796"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connettere i dati dai log di Office 365
 
@@ -42,12 +42,12 @@ ms.locfileid: "74777418"
 
 1. In Sentinel di Azure selezionare **connettori dati** , quindi fare clic sul riquadro **Office 365** .
 
-2. Se non è già stato fatto, è possibile farlo accedendo al pannello **connettori dati** e selezionando connettore **Office 365** . Qui è possibile fare clic sulla **pagina Apri connettore** e nella sezione configurazione **abilitare la soluzione Office 365 nell'area di lavoro** usare il pulsante **Installa soluzione** per abilitarla. Se è già abilitato, verrà identificato nella schermata di connessione come già abilitato.
+2. Se non è già stato fatto, è possibile farlo accedendo al pannello **connettori dati** e selezionando connettore **Office 365** . Qui è possibile fare clic sulla **pagina Apri connettore** e in sezione di configurazione con etichetta **abilitare la soluzione Office 365 nell'area di lavoro** usare il pulsante **Installa soluzione** per abilitarla. Se è già abilitato, verrà identificato nella schermata di connessione come già abilitato.
 1. Office 365 consente di trasmettere i dati da più tenant ad Azure Sentinel. Per ogni tenant a cui ci si vuole connettere, aggiungere il tenant in **Connetti tenant a Sentinel di Azure**. 
 1. Viene visualizzata una schermata Active Directory. Viene richiesto di eseguire l'autenticazione con un utente amministratore globale in ogni tenant a cui si vuole connettersi a Sentinel di Azure e di fornire le autorizzazioni per Azure Sentinel per leggere i log. 
-5. In Stream Office 365 Activity logs fare clic su **Select** per scegliere i tipi di log da trasmettere in Azure Sentinel. Attualmente, Azure Sentinel supporta Exchange e SharePoint.
+5. Nell'elenco tenant verrà visualizzato il Azure AD ID directory (ID tenant) e due caselle di controllo per i log di Exchange e SharePoint. È possibile selezionare uno o tutti i servizi elencati che si desidera inserire in Sentinel. Attualmente, Azure Sentinel supporta i log di Exchange e SharePoint all'interno dei servizi Office365 esistenti.
 
-4. Fare clic su **Applica modifiche**.
+4. Dopo aver selezionato i servizi (Exchange, SharePoint e così via), è possibile fare clic su Salva nel frame di aggiunta tenant nella pagina. 
 
 3. Per usare lo schema pertinente in Log Analytics per i log di Office 365, cercare **OfficeActivity**.
 

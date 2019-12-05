@@ -2,25 +2,23 @@
 title: Imposta ordine di distribuzione per le risorse
 description: Descrive come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione per garantire che le risorse vengano distribuite nell'ordine corretto.
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: 6b608111f2fe24a0b426e5697ceb07349f2d4693
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: f5990f099e8b91a4a075d2950f88aa83d34eef4a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149722"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806457"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager
 
-Perché una risorsa possa essere distribuita, potrebbe essere necessario che prima di essa esistano altre risorse specifiche. Ad esempio, un server SQL deve esistere prima che si tenti di distribuire un database SQL. Per definire questa relazione, si contrassegna una risorsa come dipendente dall'altra risorsa. Una dipendenza viene definita con l'elemento **dependsOn** oppure con la funzione **reference**. 
+Quando si distribuisce una risorsa, potrebbe essere necessario assicurarsi che siano presenti altre risorse prima della distribuzione. Ad esempio, è necessario un server SQL prima di distribuire un database SQL. Per definire questa relazione, si contrassegna una risorsa come dipendente dall'altra risorsa. Una dipendenza viene definita con l'elemento **dependsOn** oppure con la funzione **reference**.
 
-Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. La definizione delle dipendenze è necessaria solo per le risorse distribuite nello stesso modello. 
-
-Per un'esercitazione, vedere [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+Resource Manager valuta le dipendenze tra le risorse e le distribuisce in base all'ordine di dipendenza. Quando le risorse non sono interdipendenti, Resource Manager le distribuisce in parallelo. La definizione delle dipendenze è necessaria solo per le risorse distribuite nello stesso modello.
 
 ## <a name="dependson"></a>dependsOn
 
-All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore può essere un elenco delimitato da virgole di nomi di risorse. 
+All'interno del modello, l'elemento dependsOn consente di definire una risorsa come dipendente da una o più risorse. Il valore è un elenco delimitato da virgole di nomi di risorse. L'elenco può includere risorse [distribuite in modo condizionale](conditional-resource-deployment.md). Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
 
 L'esempio seguente illustra un set di scalabilità di macchine virtuali dipendente da un servizio di bilanciamento del carico e da una rete virtuale. L'esempio illustra anche un ciclo che crea più account di archiviazione. Queste altre risorse non sono visualizzate nell'esempio seguente, ma devono esistere in un altro punto del modello.
 
@@ -51,12 +49,13 @@ Quando si definiscono le dipendenze, per evitare ambiguità è possibile include
   "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
   "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
-``` 
+```
 
-Anche se si potrebbe essere propensi a usare dependsOn per mappare le relazioni tra le risorse, è importante comprendere il motivo per cui si esegue tale operazione. Per documentare la modalità di interconnessione delle risorse, dependsOn non rappresenta l'approccio corretto. Non è possibile eseguire query per ottenere le risorse definite nell'elemento dependsOn dopo la distribuzione. L'uso di dependsOn potrebbe influire sul tempo necessario per la distribuzione, perché Resource Manager non esegue la distribuzione simultanea in parallelo di due risorse con dipendenza. 
+Anche se si potrebbe essere propensi a usare dependsOn per mappare le relazioni tra le risorse, è importante comprendere il motivo per cui si esegue tale operazione. Per documentare la modalità di interconnessione delle risorse, dependsOn non rappresenta l'approccio corretto. Non è possibile eseguire query per ottenere le risorse definite nell'elemento dependsOn dopo la distribuzione. L'uso di dependsOn potrebbe influire sul tempo necessario per la distribuzione, perché Resource Manager non esegue la distribuzione simultanea in parallelo di due risorse con dipendenza.
 
 ## <a name="child-resources"></a>Risorse figlio
-La proprietà delle risorse consente di specificare le risorse figlio correlate alla risorsa definita. Le risorse figlio possono essere solo definite da cinque livelli. È importante notare che una dipendenza di distribuzione implicita non viene creata tra una risorsa figlio e la risorsa padre. Se è necessario che la risorsa figlio sia distribuita dopo la risorsa padre, è necessario dichiarare in modo esplicito tale dipendenza con la proprietà dependsOn. 
+
+La proprietà delle risorse consente di specificare le risorse figlio correlate alla risorsa definita. Le risorse figlio possono essere solo definite da cinque livelli. È importante notare che una dipendenza di distribuzione implicita non viene creata tra una risorsa figlio e la risorsa padre. Se è necessario che la risorsa figlio sia distribuita dopo la risorsa padre, è necessario dichiarare in modo esplicito tale dipendenza con la proprietà dependsOn.
 
 Ogni risorsa padre accetta solo determinati tipi di risorse come risorse figlio. I tipi di risorse accettate sono specificati nel [schema del modello](https://github.com/Azure/azure-resource-manager-schemas) della risorsa padre. Il nome del tipo di risorsa figlio include il nome del tipo di risorsa padre, ad esempio **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** sono entrambi risorse figlio di **Microsoft.Web/sites**.
 
@@ -101,6 +100,7 @@ Nell'esempio seguente sono illustrati un server SQL e un database SQL. Si noti c
 ```
 
 ## <a name="reference-and-list-functions"></a>funzioni reference e list
+
 La [funzione di riferimento](resource-group-template-functions-resource.md#reference) consente un'espressione per derivare il valore da altri nomi JSON e coppie valore o risorse di runtime. Le [funzioni list*](resource-group-template-functions-resource.md#list) restituiscono valori per una risorsa da un'operazione elenco.  Le espressioni reference e list dichiarano in modo implicito l'interdipendenza tra due risorse, quando la risorsa di riferimento viene distribuita nello stesso modello e vi si fa riferimento tramite il nome, non tramite l'ID risorsa. Se alla funzione reference o list viene passato l'ID risorsa, non viene creato alcun riferimento implicito.
 
 Il formato generale della funzione reference è:

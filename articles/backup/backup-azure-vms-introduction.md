@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172482"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806440"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -79,7 +79,7 @@ La tabella seguente illustra i diversi tipi di coerenza degli snapshot:
 --- | --- | --- | ---
 **Coerenza con le applicazioni** | Il backup coerenti con le app acquisiscono contenuto in memoria e operazioni di I/O in sospeso. Gli snapshot coerenti con l'app usano un VSS writer (o script pre/post per Linux) per assicurare la coerenza dei dati dell'app prima che venga eseguito un backup. | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con l'app, la macchina virtuale viene avviata. Non si verificano problemi di perdita o danneggiamento dei dati. Le app vengono avviate in uno stato coerente. | Windows: tutti i writer VSS sono riusciti<br/><br/> Linux: gli script pre/post sono configurati e sono riusciti
 **Coerente con il file System** | I backup coerenti con il file System garantiscono la coerenza eseguendo uno snapshot di tutti i file nello stesso momento.<br/><br/> | Quando si esegue il ripristino di una macchina virtuale con uno snapshot coerente con il file System, viene avviata la macchina virtuale. Non si verificano problemi di perdita o danneggiamento dei dati. Le app devono implementare uno specifico meccanismo di correzione per assicurarsi che i dati ripristinati siano coerenti. | Windows: alcuni writer VSS non sono riusciti <br/><br/> Linux: predefinito (se gli script pre/post non sono configurati o non sono riusciti)
-**Coerenza con l'arresto anomalo del sistema** | Gli snapshot coerenti con l'arresto anomalo del sistema si verificano in genere se una macchina virtuale di Azure si arresta al momento del backup. Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup.<br/><br/> Un punto di ripristino coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o l'app. | Sebbene non esistano garanzie, la macchina virtuale viene in genere avviata e quindi avvia un controllo del disco per correggere gli errori di danneggiamento. Tutti i dati in memoria o le operazioni di scrittura che non sono stati trasferiti sul disco prima dell'arresto anomalo vengono persi. Le app implementano una propria procedura di verifica dei dati. Ad esempio, un'app di database può utilizzare il log delle transazioni per la verifica. Se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue il rollback delle transazioni fino a quando i dati non sono coerenti. | Macchina virtuale in stato di arresto
+**Coerenza con l'arresto anomalo del sistema** | Gli snapshot coerenti con l'arresto anomalo del sistema si verificano in genere se una macchina virtuale di Azure si arresta al momento del backup. Solo i dati già esistenti sul disco al momento del backup vengono acquisiti e sottoposti a backup. | Inizia con il processo di avvio della macchina virtuale seguito da un controllo del disco per correggere gli errori di danneggiamento. Tutti i dati in memoria o le operazioni di scrittura che non sono stati trasferiti sul disco prima dell'arresto anomalo vengono persi. Le app implementano una propria procedura di verifica dei dati. Ad esempio, un'app di database può utilizzare il log delle transazioni per la verifica. Se il log delle transazioni contiene voci che non sono presenti nel database, il software del database esegue il rollback delle transazioni fino a quando i dati non sono coerenti. | La macchina virtuale è in stato di arresto (arrestato/deallocato).
 
 ## <a name="backup-and-restore-considerations"></a>Considerazioni su backup e ripristino
 
@@ -134,16 +134,6 @@ Disco dati 1 | 4095 GB | 30 GB
 Disco dati 2 | 4095 GB | 0 GB
 
 In questo caso, la dimensione effettiva della macchina virtuale è 17 GB + 30 GB + 0 GB = 47 GB. Questa dimensione dell'istanza protetta (47 GB) diventa la base per la fattura mensile. Con la crescita della quantità di dati nella macchina virtuale, le dimensioni dell'istanza protetta utilizzate per la fatturazione cambiano.
-
-<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Anteprima pubblica: backup di macchine virtuali con dimensioni del disco fino a 30 TB
-
-Backup di Azure supporta ora l'anteprima pubblica di Managed Disks di [Azure](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) di dimensioni maggiori e più potenti fino a 30 TB. Questa versione di anteprima offre supporto a livello di produzione per le macchine virtuali gestite.
-
-I backup per le macchine virtuali con ogni dimensione di disco fino a 30 TB e un massimo di 256 TB combinati per tutti i dischi in una macchina virtuale dovrebbero funzionare senza alcun effetto sui backup esistenti. Non è necessaria alcuna azione da parte dell'utente per ottenere i backup in esecuzione per i dischi di grandi dimensioni, se la macchina virtuale è già configurata con backup di Azure.
-
-Il backup di tutte le macchine virtuali di Azure con dischi di grandi dimensioni con backup configurato deve essere completato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

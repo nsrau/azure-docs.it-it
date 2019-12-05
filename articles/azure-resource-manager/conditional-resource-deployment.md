@@ -2,13 +2,13 @@
 title: Distribuzione condizionale con modelli
 description: Viene descritto come distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: e3d78f875e39628194ac30310314e59e2ef19fdb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: ec2337686f92bb631ae4b08ce125eb576cd8bd69
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147179"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806474"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Distribuzione condizionale nei modelli di Gestione risorse
 
@@ -78,6 +78,8 @@ Per il modello completo, vedere [server logico SQL di Azure](https://github.com/
 Se si usa una funzione di [riferimento](resource-group-template-functions-resource.md#reference) o [elenco](resource-group-template-functions-resource.md#list) con una risorsa distribuita in modo condizionale, la funzione viene valutata anche se la risorsa non viene distribuita. Viene ricevuto un errore se la funzione fa riferimento a una risorsa che non esiste.
 
 Usare la funzione [if](resource-group-template-functions-logical.md#if) per assicurarsi che la funzione venga valutata solo per le condizioni quando la risorsa viene distribuita. Vedere la [funzione If](resource-group-template-functions-logical.md#if) per un modello di esempio che usa if e Reference con una risorsa distribuita in modo condizionale.
+
+Si imposta una [risorsa come dipendente](resource-group-define-dependencies.md) da una risorsa condizionale esattamente come per qualsiasi altra risorsa. Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
 
 ## <a name="condition-with-complete-mode"></a>Condizione con modalità completa
 
